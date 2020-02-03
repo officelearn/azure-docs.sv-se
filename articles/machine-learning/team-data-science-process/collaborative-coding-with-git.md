@@ -84,7 +84,7 @@ På sidan **ny pull-begäran** , om det behövs, navigerar du till den git-lagri
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
-## <a name='ReviewandMerge-4'></a>Granskning och koppling
+## <a name='ReviewandMerge-4'></a>Granska och sammanfoga
 
 När du har skapat pull-begäran får dina granskare ett e-postmeddelande om att granska pull-begäran. Granskarna testar om ändringarna fungerar och kontrollerar ändringarna med beställaren om det är möjligt. Granskarna kan göra kommentarer, begära ändringar och godkänna eller avvisa pull-begäran utifrån deras bedömning. 
 

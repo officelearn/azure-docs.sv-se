@@ -10,19 +10,19 @@ ms.date: 10/18/2019
 ms.author: diberry
 ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
 ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76748879"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Start nyckel.
 * Importera [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) -appen från kognitiva-tjänsterna – språkförståelseing GitHub-lagringsplatsen.
 * LUIS program-ID för den importerade TravelAgent-appen. Program-ID visas på programmets instrumentpanel.
 * Versions-ID: t i programmet som tar emot yttranden. Standard-id:t är ”0.1”.
 * Programmeringsspråket [Node.js](https://nodejs.org/) 
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 

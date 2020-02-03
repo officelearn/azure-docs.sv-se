@@ -483,7 +483,8 @@ Returnerar ett NULL-värde. Använd Function-syntaxen (null ()) om det finns en 
 * ``isNull(10 + 20) -> false``
 * ``isNull(10/0) -> true``
 ___
-### <code>or</code><br/><br/>
+### <code>or</code>
+<code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Logisk OR-operator. Samma som | | * ``or(true, false) -> true``
 * ``true || false -> true``
 ___

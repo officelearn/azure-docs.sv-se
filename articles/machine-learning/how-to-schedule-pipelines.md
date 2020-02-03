@@ -20,7 +20,7 @@ ms.locfileid: "76722262"
 
 I den här artikeln får du lära dig hur du program mässigt schemalägger en pipeline för att köras på Azure. Du kan välja att skapa ett schema baserat på förfluten tid eller ändringar i fil systemet. Tidsbaserade scheman kan användas för att ta hand om rutin uppgifter, till exempel övervakning av data drift. Ändrings scheman kan användas för att reagera på oregelbundna eller oförutsägbara ändringar, till exempel nya data som laddas upp eller gamla data redige ras. När du har lärt dig hur du skapar scheman får du lära dig hur du hämtar och inaktiverar dem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -134,7 +134,7 @@ Om du sedan kör `Schedule.list(ws)` igen bör du hämta en tom lista.
 
 I den här artikeln använde du Azure Machine Learning SDK för python för att schemalägga en pipeline på två olika sätt. Ett schema återkommer baserat på förfluten Klock tid. Det andra schemat körs om en fil ändras på en angiven `Datastore` eller i en katalog i arkivet. Du såg hur du använder portalen för att undersöka pipelinen och de enskilda körningarna. Slutligen har du lärt dig hur du inaktiverar ett schema så att pipelinen slutar köras.
 
-Mer information finns här:
+Mer information finns i:
 
 > [!div class="nextstepaction"]
 > [Använd Azure Machine Learning pipelines för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md)

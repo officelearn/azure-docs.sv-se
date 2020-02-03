@@ -86,17 +86,17 @@ Följ de här stegen.
 |          Tillverkare            |         Tillverkarens namn    |
 |  ProductCode                    |  Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800.  |
 |            Portar          |     Port namn och-typ, som är digital eller analog.
-|     Namn                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
-      Beskrivning     | Ange en meningsfull beskrivning av modellen.
+|     Name                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
+      Description     | Ange en meningsfull beskrivning av modellen.
 |    Egenskaper          |    Ytterligare egenskaper från tillverkaren.   |
 |    **Anordningar**             |                      |
 |   DeviceModelId     |     ID för associerad enhets modell.  |
 |  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
 |  ReportingInterval        |   Rapport intervall i sekunder.
-|  Location            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).   
+|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).   
 |ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod har parentDeviceId som gateway.  |
-|    Namn            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
-|     Beskrivning       |      Ange en meningsfull beskrivning. |
+|    Name            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
+|     Description       |      Ange en meningsfull beskrivning. |
 |     Egenskaper    |  Ytterligare egenskaper från tillverkaren.
 |     **SensorModel**        |          |
 |       Typ (analog, digital)          |      Typen av sensor, vare sig det är analogt eller digitalt.       |
@@ -107,17 +107,17 @@ Följ de här stegen.
 |    SensorMeasures > typ    |Typ av mått för sensorer för telemetri. Systemdefinierade typer är AmbientTemperature, CO2, djup, ElectricalConductivity, LeafWetness, length, LiquidLevel, nitrat, O2, PH, fosfat, PointInTime, kalium, press, RainGauge, RelativeHumidity, salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, volym, WindDirection, WindRun, WindSpeed, evapotranspiration, parivärde. Mer information finns i/ExtendedType-API: et.|
 |        SensorMeasures > enhet              | Enhet för data för sensor telemetri. De systemdefinierade enheterna är nounit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, kvicksilver, PSI, MilliMeter, CentiMeter, meter, tum, fot, mil, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, examen, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, procent,,,,, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour för att lägga till mer finns i/ExtendedType-API: et.|
 |    SensorMeasures > AggregationType    |  Värdena kan vara ingen, genomsnitt, högsta, lägsta eller StandardDeviation.  |
-|          Namn            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
-|    Beskrivning        | Ange en meningsfull beskrivning av modellen.  |
+|          Name            | Namn för att identifiera en resurs. Till exempel modell namnet eller produkt namnet.  |
+|    Description        | Ange en meningsfull beskrivning av modellen.  |
 |   Egenskaper       |  Ytterligare egenskaper från tillverkaren.  |
 |    **Mäta**      |          |
 | HardwareId          |   Unikt ID för sensorn som anges av tillverkaren. |
 |  SensorModelId     |    ID för associerad sensor modell.   |
-| Location          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
+| Plats          |  Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).|
 |   Port > namn        |  Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som det definieras i enhets modellen. |
 |    DeviceID  |    ID för den enhet som sensorn är ansluten till.     |
-| Namn            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
-|    Beskrivning      | Ange en meningsfull beskrivning. |
+| Name            |   Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.|
+|    Description      | Ange en meningsfull beskrivning. |
 |    Egenskaper        |Ytterligare egenskaper från tillverkaren. |
 
 Mer information om objekt finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
@@ -384,7 +384,7 @@ Här är ett exempel på ett telemetri-meddelande:
 }
 ```
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Det går inte att Visa telemetridata efter att du har matat in historiska/strömmande data från sensorer
 

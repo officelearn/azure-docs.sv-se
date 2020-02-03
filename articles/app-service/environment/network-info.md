@@ -53,9 +53,9 @@ När du skalar upp eller ned läggs nya roller i rätt storlek till och sedan mi
 
 För att ASE ska fungera kräver ASE att följande portar är öppna:
 
-| Användning | Från | Till |
+| Använda | Från | Till |
 |-----|------|----|
-| Förvaltning | App Service hanterings adresser | ASE-undernät: 454, 455 |
+| Hantering | App Service hanterings adresser | ASE-undernät: 454, 455 |
 |  Intern kommunikation med ASE | ASE-undernät: alla portar | ASE-undernät: alla portar
 |  Tillåt inkommande Azure Load Balancer | Azure-lastbalanserare | ASE-undernät: 16001
 
@@ -69,10 +69,10 @@ För kommunikationen mellan Azure Load Balancer och ASE-undernätet är de lägs
 
 De andra portarna som du behöver för dig själv med är program portarna:
 
-| Användning | Portar |
+| Använda | Portar |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP-FTPS    | 21, 990, 10001-10020 |
 |  Visual Studio Remote-felsökning  |  4020, 4022, 4024 |
 |  Webb distributions tjänst | 8172 |
 
@@ -84,7 +84,7 @@ För utgående åtkomst är en ASE beroende av flera externa system. Många av d
 
 ASE kommunicerar ut till Internet-tillgängliga adresser på följande portar:
 
-| Användningsområden | Portar |
+| Används | Portar |
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
@@ -109,12 +109,12 @@ Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE finns i
 Förutom de ASE funktionella beroendena finns det några extra objekt relaterade till Portal upplevelsen. Några av funktionerna i Azure Portal är beroende av direkt åtkomst till _SCM-webbplatsen_. Det finns två URL: er för varje app i Azure App Service. Den första URL: en är för att komma åt din app. Den andra URL: en är åtkomst till SCM-webbplatsen, som även kallas _kudu-konsolen_. Funktioner som använder SCM-platsen är:
 
 -   Webb jobb
--   Funktioner
+-   Functions
 -   Logg strömning
 -   Kudu
 -   Tillägg
--   Processutforskaren
--   Console
+-   Process Explorer
+-   Konsolen
 
 När du använder en ILB-ASE går det inte att komma åt SCM-platsen utanför VNet. Vissa funktioner fungerar inte från App-portalen eftersom de behöver åtkomst till SCM-platsen för en app. Du kan ansluta till SCM-platsen direkt i stället för att använda portalen. 
 
@@ -166,10 +166,10 @@ De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåt
 
 DNS-porten behöver inte läggas till eftersom trafik till DNS inte påverkas av NSG-regler. Dessa portar omfattar inte de portar som dina appar behöver för att kunna användas. De normala port åtkomst portarna är:
 
-| Användning | Portar |
+| Använda | Portar |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
-|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  FTP-FTPS    | 21, 990, 10001-10020 |
 |  Visual Studio Remote-felsökning  |  4020, 4022, 4024 |
 |  Webb distributions tjänst | 8172 |
 
@@ -210,7 +210,7 @@ Följ dessa steg om du vill skapa samma vägar manuellt:
 
     ![NSG: er och vägar][7]
 
-## <a name="service-endpoints"></a>Serviceslutpunkter ##
+## <a name="service-endpoints"></a>Tjänst slut punkter ##
 
 Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slut punkter i dokumentationen för [Virtual Network tjänst slut punkter][serviceendpoints] . 
 
@@ -218,7 +218,7 @@ När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som sk
 
 När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-instans, måste alla Azure SQL-instanser som är anslutna från undernätet ha aktiverat tjänstens slutpunkter. Om du vill ha åtkomst till flera Azure SQL-instanser från samma undernät kan du inte aktivera tjänstens slutpunkter på en Azure SQL-instans och inte på en annan. Ingen annan Azure-tjänst fungerar som Azure SQL med avseende på tjänst slut punkter. När du aktiverar tjänstens slutpunkter med Azure Storage kan du låsa åtkomsten till resursen från undernätet, men du kan ändå använda andra Azure Storage-konton även om de inte har aktiverat tjänstens slutpunkter.  
 
-![Serviceslutpunkter][8]
+![Tjänst slut punkter][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png

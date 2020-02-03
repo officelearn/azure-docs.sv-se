@@ -18,7 +18,7 @@ ms.locfileid: "76716181"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här självstudiekursen får du lära du dig att:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Maps-konto
@@ -38,15 +38,15 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 Skapa ett nytt Maps-konto med följande steg:
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i [Azure Portal](https://portal.azure.com).
-2. Skriv **Maps** i rutan *Sök på Marketplace*.
+1. Klicka på [Skapa en resurs](https://portal.azure.com) längst upp till vänster i **Azure Portal**.
+2. Skriv *Maps* i rutan **Sök på Marketplace**.
 3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Maps-konto**:
     * Den *Prenumeration* som ska användas för det här kontot.
     * Namnet på *Resursgrupp* för kontot. Du kan välja att *skapa ny* eller *använda befintlig* resursgrupp.
     * *Namn* för ditt nya konto.
     * *Pris nivån* för det här kontot.
-    * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
+    * Läs *licensen* och *sekretesspolicyn* och markera kryssrutan för att godkänna villkoren.
     * Klicka på knappen **Skapa**.
 
 ![Skapa Azure Maps konto i Azure Portal](./media/tutorial-search-location/create-account.png)

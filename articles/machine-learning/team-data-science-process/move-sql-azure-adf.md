@@ -22,9 +22,9 @@ ms.locfileid: "76722500"
 
 Den här artikeln visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF): den här metoden är en äldre metod som stöds och som har fördelarna med en replikerad mellanlagrings kopia, men [vi föreslår att titta på vår datamigrerings sida för de senaste alternativen](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
-En tabell som sammanfattar olika alternativ för att flytta data till en Azure SQL Database finns i [flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
+En tabell som sammanfattar olika alternativ för att flytta data till en Azure SQL Database finns i [Flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
 
-## <a name="intro"></a>Introduktion: Vad är ADF och när bör det användas för att migrera data?
+## <a name="intro"></a>Introduktion: Vad är ADF och när ska den användas för att migrera data?
 Azure Data Factory är en fullständigt hanterad molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Viktiga begrepp i ADF-modellen är pipeline. En pipeline är en logisk gruppering av aktiviteter, som definierar åtgärderna som ska utföras på data i datauppsättningar. Länkade tjänster används för att definiera den information som behövs för Data Factory ska kunna ansluta till dataresurser.
 
 Med ADF, kan befintliga tjänster för databearbetning sammanställas i datapipelines som är tillgängliga och hanterade i molnet. Dessa datapipelines kan schemaläggas att mata in, förbereda, transformera, analysera och publicera data och ADF hanterar och samordnar de komplexa data och bearbetning av beroenden. Lösningar kan snabbt byggas och distribueras i molnet, ansluter ett växande antal lokala och molnbaserade datakällor.
@@ -43,71 +43,71 @@ Vi konfigurerar en ADF-pipeline som composes två aktiviteter för migrering av 
 * Kopiera data från Azure Blob Storage-kontot till en Azure SQL Database.
 
 > [!NOTE]
-> Anvisningarna som visas här har anpassats från mer detaljerade självstudierna från teamet för ADF: [kopiera data från en lokal SQL Server-databas till Azure Blob storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) referenser till de relevanta avsnitten ämnes tillhandahålls när lämpliga.
+> Stegen som visas här har anpassats från den mer detaljerade självstudien som tillhandahålls av ADF-teamet: [Kopiera data från en lokal SQL Server-databas till Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) -referenser till de relevanta avsnitten i det här avsnittet, om det är lämpligt.
 >
 >
 
 ## <a name="prereqs"></a>Förhandskrav
 Den här självstudien förutsätter att du har:
 
-* En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
-* En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-account-create.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
+* En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+* Ett **Azure Storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure Storage-konto går du till artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md) . När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
 * Åtkomst till en **Azure SQL Database**. Om du måste konfigurera en Azure SQL Database innehåller avsnittet [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) information om hur du etablerar en ny instans av en Azure SQL Database.
-* Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
-> Den här proceduren använder den [Azure-portalen](https://portal.azure.com/).
+> Den här proceduren använder [Azure Portal](https://portal.azure.com/).
 >
 >
 
-## <a name="upload-data"></a> Ladda upp data till din lokala SQL Server
-Vi använder den [NYC Taxi datauppsättning](https://chriswhong.com/open-data/foil_nyc_taxi/) att demonstrera migreringsprocessen. NYC Taxi datauppsättningen är tillgänglig, enligt vad som anges i inlägget, på Azure-bloblagring [NYC Taxiinformation](https://www.andresmh.com/nyctaxitrips/). Har två filer, filen trip_data.csv, som innehåller information om resa och filen trip_far.csv, som innehåller information om avgiften betalat för varje resa. Ett exempel och en beskrivning av dessa filer finns i [NYC Taxi och RETUR datauppsättning beskrivning](sql-walkthrough.md#dataset).
+## <a name="upload-data"></a>Ladda upp data till din lokala SQL Server
+Vi använder [NYC taxi-datauppsättningen](https://chriswhong.com/open-data/foil_nyc_taxi/) för att demonstrera migreringsprocessen. NYC taxi-datauppsättningen är tillgänglig, enligt vad som anges i det inlägget, på Azure Blob Storage [NYC taxi-data](https://www.andresmh.com/nyctaxitrips/). Har två filer, filen trip_data.csv, som innehåller information om resa och filen trip_far.csv, som innehåller information om avgiften betalat för varje resa. Ett exempel på och en beskrivning av dessa filer finns i [Beskrivning av NYC taxi TRIPs-data uppsättning](sql-walkthrough.md#dataset).
 
-Du kan anpassa det förfarande som anges här till en uppsättning med dina egna data, eller så kan du följa stegen som beskrivs med hjälp av NYC Taxi-datauppsättningen. Om du vill överföra NYC Taxi-datauppsättning till din lokala SQL Server-databas, följer du proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en Azure-dator, men proceduren för att ladda upp till en lokal SQL Server är samma.
+Du kan anpassa det förfarande som anges här till en uppsättning med dina egna data, eller så kan du följa stegen som beskrivs med hjälp av NYC Taxi-datauppsättningen. Om du vill överföra NYC taxi-datauppsättningen till din lokala SQL Server databas följer du proceduren som beskrivs i [Mass import av data i SQL Server Database](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en Azure-dator, men proceduren för att ladda upp till en lokal SQL Server är samma.
 
-## <a name="create-adf"></a> Skapa en Azure Data Factory
-Instruktionerna för att skapa en ny Azure-Datafabrik och en resursgrupp i den [Azure-portalen](https://portal.azure.com/) tillhandahålls [skapa en Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Namnge den nya instansen av ADF *adfdsp* och namnet på den resursgrupp som skapade *adfdsprg*.
+## <a name="create-adf"></a>Skapa en Azure Data Factory
+Instruktioner för att skapa en ny Azure Data Factory och en resurs grupp i [Azure Portal](https://portal.azure.com/) anges [skapa en Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Namnge den nya ADF-instansen *adfdsp* och namnge resurs gruppen som skapade *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime
 Integration Runtime är en kundhanterad infrastruktur för data integrering som används av Azure Data Factory för att tillhandahålla funktioner för data integrering i olika nätverks miljöer. Den här körningen kallades ”Data Management Gateway”.
 
 Konfigurera genom att [följa anvisningarna för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
-## <a name="adflinkedservices"></a>Skapa länkade tjänster för att ansluta till dataresurser
+## <a name="adflinkedservices"></a>Skapa länkade tjänster för att ansluta till data resurserna
 En länkad tjänst definierar den information som behövs för Azure Data Factory för att ansluta till en data. Vi har tre resurser i det här scenariot som krävs för länkade tjänster:
 
 1. En lokal SQLServer
 2. Azure Blob Storage
 3. Azure SQL Database
 
-Stegvisa anvisningar för att skapa länkade tjänster finns i [Skapa länkade tjänster](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
+Steg för steg-proceduren för att skapa länkade tjänster finns i [Skapa länkade tjänster](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
 
-## <a name="adf-tables"></a>Definiera och skapa tabeller för att ange hur du kommer åt datauppsättningarna
-Skapa tabeller som anger strukturen, plats och tillgänglighet för datauppsättningar med följande skriptbaserade procedurer. JSON-filer används för att definiera tabellerna. Mer information om strukturen för de här filerna finns i [datauppsättningar](../../data-factory/concepts-datasets-linked-services.md).
+## <a name="adf-tables"></a>Definiera och skapa tabeller för att ange hur du ska få åtkomst till data uppsättningarna
+Skapa tabeller som anger strukturen, plats och tillgänglighet för datauppsättningar med följande skriptbaserade procedurer. JSON-filer används för att definiera tabellerna. Mer information om strukturen för dessa filer finns i [data uppsättningar](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Du bör köra de `Add-AzureAccount` cmdlet innan du kör den [New AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet för att bekräfta att rätt Azure-prenumeration har valts för Kommandokörningen. Dokumentation för denna cmdlet finns i [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0).
+> Du bör köra cmdleten `Add-AzureAccount` innan du kör cmdleten [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) för att bekräfta att rätt Azure-prenumeration har valts för kommando körningen. Dokumentation av den här cmdleten finns i [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
 JSON-baserade definitionerna i tabellerna använda följande namn:
 
-* den **tabellnamn** i en lokal SQL server är *nyctaxi_data*
-* den **behållarnamn** i Azure Blob Storage-kontot är *containername*
+* **tabell namnet** i den lokala SQL-servern är *nyctaxi_data*
+* **behållar namnet** i Azure Blob Storage-kontot är *ContainerName*
 
 Tre tabelldefinitionerna krävs för den här ADF-pipeline:
 
-1. [En lokal SQL-tabell](#adf-table-onprem-sql)
+1. [SQL lokalt tabell](#adf-table-onprem-sql)
 2. [BLOB-tabell](#adf-table-blob-store)
-3. [SQL Azure-tabell](#adf-table-azure-sql)
+3. [SQL Azure tabell](#adf-table-azure-sql)
 
 > [!NOTE]
-> Dessa procedurer använder Azure PowerShell för att definiera och skapa ADF-aktiviteter. Men dessa uppgifter kan också utföras med hjälp av Azure-portalen. Mer information finns i [skapa datauppsättningar](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
+> Dessa procedurer använder Azure PowerShell för att definiera och skapa ADF-aktiviteter. Men dessa uppgifter kan också utföras med hjälp av Azure-portalen. Mer information finns i [skapa data uppsättningar](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
-### <a name="adf-table-onprem-sql"></a>En lokal SQL-tabell
+### <a name="adf-table-onprem-sql"></a>SQL lokalt tabell
 Tabelldefinitionen för en lokal SQL Server har angetts i följande JSON-filen:
 
 ```json
@@ -138,12 +138,12 @@ Tabelldefinitionen för en lokal SQL Server har angetts i följande JSON-filen:
 
 Kolumnnamnen ingick inte. Du kan välja att markera kolumn namnen genom att inkludera dem här (mer information finns i artikeln om [dokumentation om ADF](../../data-factory/copy-activity-overview.md) .
 
-Kopiera JSON-definition för tabellen till en fil med namnet *onpremtabledef.json* och spara den på en känd plats (här antas vara *C:\temp\onpremtabledef.json*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *onpremtabledef. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\onpremtabledef.JSON*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store"></a>Blobbtabell
+### <a name="adf-table-blob-store"></a>BLOB-tabell
 Definitionen för tabellen för den blob platsen är i följande (detta mappas inmatade data från en lokal plats till Azure-blob):
 
 ```json
@@ -171,11 +171,11 @@ Definitionen för tabellen för den blob platsen är i följande (detta mappas i
 }
 ```
 
-Kopiera JSON-definition för tabellen till en fil med namnet *bloboutputtabledef.json* och spara den på en känd plats (här antas vara *C:\temp\bloboutputtabledef.json*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *bloboutputtabledef. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\bloboutputtabledef.JSON*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
-### <a name="adf-table-azure-sql"></a>SQL Azure-tabell
+### <a name="adf-table-azure-sql"></a>SQL Azure tabell
 Definitionen för tabellen för SQL Azure-utdata är i följande (det här schemat mappar data från blob):
 
 ```json
@@ -203,7 +203,7 @@ Definitionen för tabellen för SQL Azure-utdata är i följande (det här schem
 }
 ```
 
-Kopiera JSON-definition för tabellen till en fil med namnet *AzureSqlTable.json* och spara den på en känd plats (här antas vara *C:\temp\AzureSqlTable.json*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera JSON-definitionen för tabellen till en fil med namnet *AzureSqlTable. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\AzureSqlTable.JSON*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
@@ -211,7 +211,7 @@ Kopiera JSON-definition för tabellen till en fil med namnet *AzureSqlTable.json
 ## <a name="adf-pipeline"></a>Definiera och skapa pipelinen
 Ange de aktiviteter som tillhör pipelinen och skapar du pipelinen med följande skriptbaserade procedurer. En JSON-fil används för att definiera egenskaperna för pipeline.
 
-* Skriptet förutsätter att den **pipelinenamn** är *AMLDSProcessPipeline*.
+* Skriptet förutsätter att **pipelin namnet** är *AMLDSProcessPipeline*.
 * Observera också att vi anger periodiciteten för pipelinen att köras på daglig basis och använda standard körningstid för jobb (12: 00 UTC).
 
 > [!NOTE]
@@ -288,7 +288,7 @@ Använder definitioner för storlekstabellen ovan, anges pipeline-definition fö
 }
 ```
 
-Kopiera det här JSON-definition för pipelinen till en fil med namnet *pipelinedef.json* och spara den på en känd plats (här antas vara *C:\temp\pipelinedef.json*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
+Kopiera den här JSON-definitionen för pipelinen till en fil som kallas *pipelinedef. JSON* -fil och spara den på en känd plats (här förutsätts vara *C:\temp\pipelinedef.JSON*). Skapa pipelinen i ADF med följande Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
@@ -298,8 +298,8 @@ Nu kan köra pipelinen med hjälp av följande kommando:
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
-Den *startdate* och *enddate* parametervärden måste de ersättas med de faktiska datum mellan vilka du vill att köra pipelinen.
+Parameter värden för *StartDate* och *EndDate* måste ersättas med de faktiska datum som du vill att pipelinen ska köras mellan.
 
 När pipelinen körs, bör du kunna se data som visas i behållaren som valts för blob-, en fil per dag.
 
-Vi har inte utnyttjat funktionerna från ADF för att skicka data stegvis. Mer information om hur du gör detta och andra funktioner som tillhandahålls av ADF finns i den [ADF dokumentation](https://azure.microsoft.com/services/data-factory/).
+Vi har inte utnyttjat funktionerna från ADF för att skicka data stegvis. Mer information om hur du gör detta och andra funktioner som tillhandahålls av ADF finns i [dokumentationen till ADF](https://azure.microsoft.com/services/data-factory/).

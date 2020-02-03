@@ -42,7 +42,7 @@ Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängli
 <sup>1</sup> distributions teknik som kräver [synkronisering av manuella utlösare](#trigger-syncing).  
 <sup>2</sup> Portal redigering är bara aktive rad för http-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer
 
-## <a name="key-concepts"></a>Nyckelkoncept
+## <a name="key-concepts"></a>Viktiga begrepp
 
 Vissa viktiga begrepp är viktiga för att förstå hur distributioner fungerar i Azure Functions.
 
@@ -114,7 +114,7 @@ Använd zip Deploy för att skicka en. zip-fil som innehåller din Function-app 
 
 Du kan distribuera en Linux container-avbildning som innehåller din Function-app.
 
->__Så här använder du den:__ Skapa en Linux Function-app i Premium-eller dedikerade planen och ange vilken behållar avbildning som ska köras från. Du kan göra detta på två sätt:
+>__Så här använder du den:__ Skapa en Linux Function-app i Premium-eller dedikerade planen och ange vilken behållar avbildning som ska köras från. Du kan göra det här på två sätt:
 >
 >* Skapa en Linux Function-app i en Azure App Service plan i Azure Portal. För **publicera**väljer du **Docker-avbildning**och konfigurerar sedan behållaren. Ange den plats där avbildningen finns.
 >* Skapa en Linux Function-app på en App Service plan med hjälp av Azure CLI. Mer information finns i [skapa en funktion i Linux med hjälp av en anpassad avbildning](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
@@ -173,7 +173,7 @@ I det portalbaserade redigerings programmet kan du redigera filerna som finns i 
 
 >__När du ska använda den:__ Portalen är ett bra sätt att komma igång med Azure Functions. För mer intensiv utvecklings arbete rekommenderar vi att du använder något av följande klient verktyg:
 >
->* [Visual Studio-kod](functions-create-first-function-vs-code.md)
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (kommando rad)](functions-run-local.md)
 >* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 

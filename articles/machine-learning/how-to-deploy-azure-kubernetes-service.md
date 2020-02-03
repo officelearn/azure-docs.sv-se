@@ -37,7 +37,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 > [!IMPORTANT]
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När du har kopplats bort eller tagits bort kommer du inte längre att kunna distribuera till klustret.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -57,7 +57,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 
 ## <a name="create-a-new-aks-cluster"></a>Skapa ett nytt AKS-kluster
 
-**Uppskattad tidsåtgång**: cirka 20 minuter.
+**Tids uppskattning**: cirka 20 minuter.
 
 Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resurs gruppen som innehåller den måste du skapa ett nytt kluster nästa gången du behöver distribuera. Du kan ha flera AKS-kluster kopplade till din arbets yta.
 
@@ -348,7 +348,7 @@ print(token)
 * [Säker experimentering och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
-* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
+* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

@@ -26,7 +26,7 @@ Produktionsdistribution gör det möjligt för en modell att spela upp en aktiv 
 Det finns olika metoder och plattformar för att använda modeller i produktion. Här följer några alternativ:
 
 - [Var modeller ska distribueras med Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Distribution av en modell i SQL-server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Distribution av en modell i SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
 >[!NOTE]
@@ -34,13 +34,13 @@ Det finns olika metoder och plattformar för att använda modeller i produktion.
 >
 
 >[!NOTE]
->Distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
+>Information om distribution med hjälp av Azure Machine Learning Studio finns i [distribuera en Azure Machine Learning-webbtjänst](../studio/deploy-a-machine-learning-web-service.md).
 >
 
-## <a name="ab-testing"></a>A/B-testning
+## <a name="ab-testing"></a>A / B-testning
 
 När flera modeller är i produktion kan [A/B-testning](https://en.wikipedia.org/wiki/A/B_testing) användas för att jämföra modell prestanda. 
  
 ## <a name="next-steps"></a>Nästa steg
 
-Genomgångar som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
+Genom gångar som demonstrerar alla steg i processen för **vissa scenarier** tillhandahålls också. De visas och länkas med miniatyr beskrivningar i [exempel](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 

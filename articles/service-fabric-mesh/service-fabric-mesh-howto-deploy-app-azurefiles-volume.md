@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du monterar en Azure Files-baserad volym i en tj
 
 Om du vill montera en volym i en tjänst skapar du en volym resurs i Service Fabric nätprogram och refererar sedan till den volymen i din tjänst.  Att deklarera volym resursen och referera till den i tjänst resursen kan göras antingen i [yaml-baserade resursfiler](#declare-a-volume-resource-and-update-the-service-resource-yaml) eller i den [JSON-baserade distributions mal len](#declare-a-volume-resource-and-update-the-service-resource-json). Innan du monterar volymen måste du först skapa ett Azure Storage-konto och en [fil resurs i Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 > [!NOTE]
 > **Känt problem med distribution på Windows RS5 Development Machine:** Det finns öppen bugg med PowerShell-cmdlet New-SmbGlobalMapping på RS5 Windows-datorer som förhindrar montering av Azurefile-volymer. Nedan visas ett exempel fel som påträffas när AzureFile-baserade volymer monteras på den lokala utvecklings datorn.
 ```

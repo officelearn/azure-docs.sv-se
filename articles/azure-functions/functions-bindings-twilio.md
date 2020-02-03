@@ -21,13 +21,13 @@ Den här artikeln förklarar hur du skickar SMS med hjälp av [Twilio](https://w
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 1. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 1. x. Käll koden för paketet finns i [Azure-WebJobs-SDK GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.Twilio/) lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
-Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 3. x. Källkoden för paketet finns i den [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub-lagringsplatsen.
+Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -291,7 +291,7 @@ public class TwilioOutput {
 
 Använd attributet [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-Information om vilka egenskaper för attribut som du kan konfigurera finns i [konfiguration](#configuration). Här är en `TwilioSms` attributet exemplet i signaturen för metoden:
+Information om vilka egenskaper för attribut som du kan konfigurera finns i [konfiguration](#configuration). Här är ett exempel på ett `TwilioSms`-attribut i en metodsignatur:
 
 ```csharp
 [FunctionName("QueueTwilio")]
@@ -325,22 +325,22 @@ Placera [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azur
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `TwilioSms` attribut.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `TwilioSms`-attributet.
 
-| v1 function. JSON-egenskap | v2 function. JSON-egenskap | Attributegenskapen |Beskrivning|
+| v1 function. JSON-egenskap | v2 function. JSON-egenskap | Attributegenskapen |Description|
 |---------|---------|---------|----------------------|
 |**typ**|**typ**| måste anges till `twilioSms`.|
 |**riktning**|**riktning**| måste anges till `out`.|
 |**Namn**|**Namn**| Variabel namn som används i funktions kod för SMS-textmeddelandet för Twilio. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| Värdet måste anges till namnet på en app-inställning som innehåller ditt Twilio-konto-sid (`TwilioAccountSid`). Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAccountSid". |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| Värdet måste anges till namnet på en app-inställning som innehåller din Twilio-autentiseringstoken (`TwilioAccountAuthToken`). Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAuthToken". |
-|**to**| Ej tillämpligt – ange i kod | **Till**| Det här värdet anges till det telefonnummer som SMS-texten skickas till.|
-|**from**|**from** | **From**| Det här värdet anges till det telefonnummer som SMS-texten skickas från.|
-|**body**|**body** | **Brödtext**| Det här värdet kan användas för att hårdkoda SMS-textmeddelandet om du inte behöver ange det dynamiskt i koden för din funktion. |  
+|**att**| Ej tillämpligt – ange i kod | **Till**| Det här värdet anges till det telefonnummer som SMS-texten skickas till.|
+|**som**|**som** | **Som**| Det här värdet anges till det telefonnummer som SMS-texten skickas från.|
+|**brödtext**|**brödtext** | **Brödtext**| Det här värdet kan användas för att hårdkoda SMS-textmeddelandet om du inte behöver ange det dynamiskt i koden för din funktion. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

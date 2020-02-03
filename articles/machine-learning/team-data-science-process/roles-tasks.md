@@ -129,7 +129,7 @@ Använd Microsoft TDSP-teamets [mall för projekt mal len](https://github.com/Az
 
 Utforska mer detaljerade beskrivningar av de roller och uppgifter som definieras av Team Data Science Process:
 
-- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
-- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
-- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
+- [Grupp chefs aktiviteter för ett data vetenskaps team](group-manager-tasks.md)
+- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
+- [Projekt ledar uppgifter för ett data vetenskaps team](project-lead-tasks.md)
 - [Projicera enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

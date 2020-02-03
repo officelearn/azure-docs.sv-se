@@ -35,13 +35,13 @@ Den här självstudien visar hur du implementerar Key Vault referenser i din kod
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. Till exempel är [Visual Studio Code](https://code.visualstudio.com/) en plattforms oberoende kod redigerare som är tillgänglig för operativ systemen Windows, MacOS och Linux.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en konfigurations nyckel för appen som refererar till ett värde som lagras i Key Vault.
 > * Få åtkomst till värdet för den här nyckeln från ett ASP.NET Core-webbprogram.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du startar den här självstudien installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -174,7 +174,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 1. Uppdatera `CreateWebHostBuilder`-metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration`-metoden. Inkludera `UseAzureKeyVault` alternativet för att skicka en ny `KeyVaultClient` referens till din Key Vault.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -72,8 +72,8 @@ Följande är egenskaps beskrivningarna:
 
 | **Namn** | **Tillåtna värden** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-| namn | sträng | unikt namn för tillägg |
-| typ | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | Identifierar OS-Service Fabric som startas |
+| name | sträng | unikt namn för tillägg |
+| type | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | Identifierar OS-Service Fabric som startas |
 | autoUpgradeMinorVersion | Sant eller falskt | Aktivera automatisk uppgradering av SF runtime minor-versioner |
 | publisher | Microsoft.Azure.ServiceFabric | Namnet på Service Fabric anknytnings utgivaren |
 | clusterEndpont | sträng | URI: PORT till hanterings slut punkt |

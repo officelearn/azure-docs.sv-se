@@ -28,7 +28,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-storskalig s
 > * Fråga rå data och sammanställda data
 > * Förfaller data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -128,7 +128,7 @@ Frågan infogar ungefär åtta rader varje sekund. Raderna lagras på olika arbe
    > Lämna frågan för generering av data som körs och öppna en andra psql-anslutning för de återstående kommandona i den här självstudien.
    >
 
-## <a name="query"></a>Fråga
+## <a name="query"></a>Söka i data
 
 Med alternativet för skalnings värd kan flera noder bearbeta frågor parallellt för hastighet. Databasen beräknar till exempel agg regeringar som SUM och COUNT på arbetsnoder och kombinerar resultaten till ett slutligt svar.
 

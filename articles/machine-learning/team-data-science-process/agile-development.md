@@ -19,7 +19,7 @@ ms.locfileid: "76722109"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Smidig utveckling av dataforskningsprojekt
 
-Det här dokumentet beskriver hur utvecklare kan köra ett datavetenskapsprojekt i en systematisk, version kontrolleras och samarbetsfunktioner sätt inom en projektgrupp med hjälp av den [Team Data Science Process](overview.md) (TDSP). TDSP är ett ramverk som utvecklats av Microsoft och som ger en strukturerad serie aktiviteter för att effektivt köra molnbaserade, förutsägelse analys lösningar. En översikt över de roller och uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md). 
+Det här dokumentet beskriver hur utvecklare kan köra ett data vetenskaps projekt i en systematisk, version som styrs och samar beta i ett projekt team med hjälp av TDSP ( [team data science process](overview.md) ). TDSP är ett ramverk som utvecklats av Microsoft och som ger en strukturerad serie aktiviteter för att effektivt köra molnbaserade, förutsägelse analys lösningar. En översikt över de roller och uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md). 
 
 Den här artikeln innehåller instruktioner om hur du: 
 
@@ -158,9 +158,9 @@ Data experter kan känna sig smidigare med en flexibel mall som ersätter funkti
    
 1. Följ samma steg för att byta namn på **funktioner** till *TDSP-faser*och Lägg till följande nya arbets objekts typer:
    
-   - *Förståelse för verksamheten*
+   - *Affärs förståelse*
    - *Data hämtning*
-   - *Modellering*
+   - *Form*
    - *Distribution*
    
 1. Under **krav på efter släpning**, byter du namn på **berättelser** till *TDSP under steg*, lägger till den nya arbets objekt typen *TDSP under steget*och anger standard typen av arbets objekt till **TDSP under steg**.

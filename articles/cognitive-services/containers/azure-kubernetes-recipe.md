@@ -21,7 +21,7 @@ ms.locfileid: "76716890"
 
 Lär dig hur du distribuerar behållaren för språk identifiering. Den här proceduren visar hur du skapar de lokala Docker-behållare, push-överför behållarna till ditt eget privata behållar register, kör behållaren i ett Kubernetes-kluster och testar det i en webbläsare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud Shell.
 

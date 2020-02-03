@@ -26,7 +26,7 @@ ms.locfileid: "76714389"
 
 Syftet med den här självstudien är att visa de steg som krävs för att utföra i Salesforce och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Salesforce.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -117,7 +117,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats Salesforce i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i Salesforce-appen.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="common-issues"></a>Vanliga problem
 * Om du har problem med att auktorisera åtkomst till Salesforce ser du till att följande:

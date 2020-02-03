@@ -1,5 +1,5 @@
 ---
-title: PowerShell-cmdlet:ar
+title: PowerShell-cmdletar
 description: Hitta de vanligaste PowerShell-cmdletarna för Azure SQL Data Warehouse inklusive hur du pausar och återupptar en databas.
 services: sql-data-warehouse
 author: kevinvngo

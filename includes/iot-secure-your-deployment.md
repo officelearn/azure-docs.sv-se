@@ -37,7 +37,7 @@ IoT Solution Accelerators skyddar IoT-enheter på följande två sätt:
 
 Metoden säkerhetstoken tillhandahåller autentisering för varje anrop som görs av enheten för att IoT Hub genom att associera den symmetriska nyckeln till varje anrop. X. 509-baserad autentisering tillåter autentisering av en IoT-enhet på det fysiska skiktet som en del av uppetableringen av TLS-anslutning. Den säkerhetstoken-baserade metoden kan användas utan X. 509-autentisering, vilket är ett mindre säkert mönster. Valet mellan de två metoderna styrs främst av hur säker enhetsautentisering måste vara, och tillgängligheten för säkert lagrings utrymme på enheten (för att lagra den privata nyckeln på ett säkert sätt).
 
-## <a name="iot-hub-security-tokens"></a>Säkerhetstoken i IoT Hub
+## <a name="iot-hub-security-tokens"></a>IoT Hub säkerhetstoken
 
 IoT Hub använder säkerhetstoken för att autentisera enheter och tjänster för att undvika att skicka nycklar i nätverket. Dessutom är säkerhetstoken begränsade inom giltighets tid och omfång. Azure IoT SDK: er genererar automatiskt tokens utan att kräva någon speciell konfiguration. Vissa scenarier kräver dock att användaren genererar och använder säkerhetstoken direkt. Dessa scenarier omfattar direkt användning av MQTT-, AMQP-eller HTTP-ytor, eller implementeringen av mönstret för token-tjänsten.
 
@@ -103,12 +103,12 @@ Data som matas in av Azure IoT Hub kan användas av en rad olika tjänster, till
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): strömnings bearbetning i real tid i molnet som hjälper dig att snabbt utveckla och distribuera en analys lösning med låg kostnad för att få insikter i real tid från enheter, sensorer, infrastruktur och program. Data från den här fullständigt hanterade tjänsten kan skalas till vilken volym som helst samtidigt som stora data flöden, låga svars tider och återhämtning uppnås.
 
-* [Azure App tjänster](https://azure.microsoft.com/services/app-service/): en moln plattform för att bygga kraftfulla webb-och mobilappar som ansluter till data överallt. i molnet eller lokalt. Skapa spännande mobilappar för iOS, Android och Windows. Integrera med din program vara som en tjänst (SaaS) och företags program med direkt anslutning till dussin tals molnbaserade tjänster och företags program. Koda på ditt favorit språk och IDE (.NET, Node. js, PHP, python eller Java) för att bygga webbappar och API: er snabbare än någonsin.
+* [Azure App tjänster](https://azure.microsoft.com/services/app-service/): en moln plattform för att bygga kraftfulla webb-och mobilappar som ansluter till data överallt. i molnet eller lokalt. Utveckla intressanta mobilappar för iOS, Android och Windows. Integrera med din program vara som en tjänst (SaaS) och företags program med direkt anslutning till dussin tals molnbaserade tjänster och företags program. Koda på ditt favorit språk och IDE (.NET, Node. js, PHP, python eller Java) för att bygga webbappar och API: er snabbare än någonsin.
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): funktionen Logic Apps i Azure App Service hjälper dig att integrera IoT-lösningen till dina befintliga affärs system och automatisera arbets flödes processer. Logic Apps gör det möjligt för utvecklare att utforma arbets flöden som startar från en utlösare och sedan köra en serie steg – regler och åtgärder som använder kraftfulla kopplingar för att integrera med dina affärs processer. Logic Apps erbjuder direkt anslutning till ett omfattande eko system med SaaS, molnbaserade och lokala program.
 
 * [Azure Blob Storage](https://azure.microsoft.com/services/storage/): tillförlitlig, ekonomisk moln lagring för de data som dina enheter skickar till molnet.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Den här artikeln innehåller en översikt över implementerings nivå information för att utforma och distribuera en IoT-infrastruktur med hjälp av Azure IoT. Att konfigurera varje komponent för att vara säker är en nyckel för att skydda den övergripande IoT-infrastrukturen. De design alternativ som är tillgängliga i Azure IoT ger viss flexibilitet och valmöjlighet. varje val kan dock påverka säkerheten. Vi rekommenderar att var och en av dessa val utvärderas genom en risk-/kostnads bedömning.

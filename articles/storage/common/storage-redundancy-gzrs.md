@@ -32,9 +32,9 @@ GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i 
 - Sydostasien
 - Nordeuropa
 - Västeuropa
-- Japan, östra
+- Östra Japan
 - Storbritannien, södra
-- USA, östra
+- USA, Östra
 - USA, östra 2
 - USA, centrala
 

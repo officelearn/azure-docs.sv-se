@@ -19,9 +19,9 @@ ms.locfileid: "76716389"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Snabb start: skicka en sökbegäran med Entitetssökning i Bing SDK för Node. js
 
-Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Node.js. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
+Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Node.js. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 

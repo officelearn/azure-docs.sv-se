@@ -14,7 +14,7 @@ ms.locfileid: "76715363"
 
 I den här artikeln integrerar du en Azure Storage kö med den funktion och det lagrings konto som du skapade i [skapa en HTTP-utlöst python-funktion](functions-create-first-function-python.md). Du uppnår denna integrering genom att använda en *utgående bindning* som skriver data från en http-begäran till ett meddelande i kön. Om du slutför den här artikeln debiteras inga ytterligare kostnader utöver de få USD cent i föregående snabb start.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför snabb starten och [skapa en HTTP-utlöst python-funktion](functions-create-first-function-python.md). Om du redan har rensat resurser i slutet av artikeln går du igenom stegen igen och återskapar appen Functions i Azure, men låter resurserna vara på plats.
 

@@ -19,7 +19,7 @@ ms.locfileid: "76717232"
 > * I den här snabb starten används version `3.0-preview` av Textanalys-klient biblioteket, som innehåller en offentlig för hands version för bättre [Attitydanalys](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [ner (Named Entity Recognition)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Du kan till exempel importera klienten från `azure.ai.textanalytics.aio`-namnrymden och anropa `analyze_sentiment()`, i stället för att `analyze_sentiment()` från namn området `azure.ai.textanalytics`.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -69,7 +69,7 @@ De här kodfragmenten visar hur du utför följande uppgifter med Textanalys kli
 * [Länkning av entitet](#entity-linking)
 * [Extrahering av nyckel fraser](#key-phrase-extraction)
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
 > [!NOTE]
 > Koden nedan är för sentiment Analysis v3, som finns i offentlig för hands version.
@@ -125,7 +125,7 @@ neutral=0.771
 negative=0.017
 ```
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
 Skapa en ny funktion som kallas `language_detection_example()` som tar slut punkten och nyckeln som argument, och anropar sedan funktionen `single_detect_languages()`. Det returnerade Response-objektet kommer att innehålla det identifierade språket i `detected_languages` om det lyckas, och en `error` om inte.
 
@@ -225,7 +225,7 @@ Personally Identifiable Information Entities:
         Offset:  33     Length:  11     Score: 0.850 
 ```
 
-## <a name="entity-linking"></a>Entitetslänkning
+## <a name="entity-linking"></a>Entity Linking
 
 Skapa en ny funktion som kallas `entity_linking_example()` som tar slut punkten och nyckeln som argument, och anropar sedan funktionen `single_recognize_linked_entities()` och itererar igenom resultaten. Det returnerade Response-objektet innehåller listan över identifierade entiteter i `entities` om det lyckades och en `error` om inte. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `entity` objekt som en lista över `match` objekt.
 
@@ -305,7 +305,7 @@ Linked Entities:
         Score: 0.281    Offset:  89     Length: 5
 ```
 
-## <a name="key-phrase-extraction"></a>Extraktion av nyckelfraser
+## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
 Skapa en ny funktion som kallas `key_phrase_extraction_example()` som tar slut punkten och nyckeln som argument, och anropar sedan funktionen `single_extract_key_phrases()`. Resultatet kommer att innehålla en lista över identifierade nyckel fraser i `key_phrases` om det lyckas, och en `error` om inte. Skriv ut alla identifierade nyckel fraser.
 

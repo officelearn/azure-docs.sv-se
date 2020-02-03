@@ -74,14 +74,14 @@ Klicka på **aktivitets logg** för att Visa åtgärder som utförts i cacheminn
 
 Avsnittet **åtkomst kontroll (IAM)** ger stöd för rollbaserad åtkomst kontroll (RBAC) i Azure Portal. Den här konfigurationen hjälper organisationer att uppfylla sina åtkomst hanterings krav enkelt och exakt. Mer information finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
-### <a name="tags"></a>Taggar
+### <a name="tags"></a>Tags
 
 I avsnittet **taggar** kan du organisera dina resurser. Mer information finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/management/tag-resources.md).
 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnostisera och lösa problem
 
-Klicka på **diagnostisera och lösa problem** måste anges med vanliga problem och strategier för att lösa dem.
+Klicka på **diagnostisera och lös problem** för att tillhandahålla vanliga problem och strategier för att lösa dem.
 
 
 
@@ -193,7 +193,7 @@ Varje pris nivå har olika gränser för klient anslutningar, minne och bandbred
 Uppgradera din cache genom att klicka på **Uppgradera nu** för att ändra pris nivån och [skala](#scale) cacheminnet. Mer information om hur du väljer en pris nivå finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 
-### <a name="scale"></a>Skalning
+### <a name="scale"></a>Skala
 Klicka på **skala** för att visa eller ändra pris nivån för din cache. Mer information om skalning finns i [skala Azure cache för Redis](cache-how-to-scale.md).
 
 ![Azure cache för Redis-pris nivå](./media/cache-configure/pricing-tier.png)
@@ -213,7 +213,7 @@ Om du vill ändra kluster storleken använder du skjutreglaget eller skriver ett
 >
 
 
-### <a name="redis-data-persistence"></a>Redis-datapersistens
+### <a name="redis-data-persistence"></a>Redis data persistens
 Klicka på **data persistence** om du vill aktivera, inaktivera eller konfigurera data beständighet för din Premium-cache. Azure cache för Redis erbjuder Redis beständighet med antingen [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) eller [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Mer information finns i [så här konfigurerar du persistence för en Premium Azure-cache för Redis](cache-how-to-premium-persistence.md).
@@ -250,7 +250,7 @@ Bladet **geo-replikering** är en mekanism för att länka två Premium-nivåer 
 >
 >
 
-### <a name="virtual-network"></a>Virtual Network
+### <a name="virtual-network"></a>Virtuellt nätverk
 I avsnittet **Virtual Network** kan du konfigurera inställningarna för det virtuella nätverket för cacheminnet. Information om hur du skapar en Premium-cache med VNET-stöd och uppdaterar dess inställningar finns i [så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
@@ -307,14 +307,14 @@ Med export kan du exportera data som lagras i Azure cache för Redis till Redis-
 >
 >
 
-### <a name="reboot"></a>Omstart
+### <a name="reboot"></a>Starta om
 På bladet **starta om** kan du starta om noderna i cacheminnet. Med den här omstarts funktionen kan du testa ditt program för återhämtning om det uppstår ett problem med en cache-nod.
 
-![Omstart](./media/cache-configure/redis-cache-reboot.png)
+![Starta om](./media/cache-configure/redis-cache-reboot.png)
 
 Om du har en Premium-cache med aktive rad kluster kan du välja vilken Shards som ska startas om.
 
-![Omstart](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Starta om](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 Om du vill starta om en eller flera noder i cacheminnet väljer du önskade noder och klickar på **starta om**. Om du har en Premium-cache med klustrad aktive rad väljer du de Shard (ar) som ska startas om och klickar sedan på **starta om**. Efter några minuter startar den markerade noden om och är tillbaka online några minuter senare.
 
@@ -338,7 +338,7 @@ Mer information om Azure cache för Redis-övervakning och diagnostik finns i [s
 ### <a name="redis-metrics"></a>Redis mått
 Klicka på **Redis mått** om du vill [Visa mått](cache-how-to-monitor.md#view-cache-metrics) för din cache.
 
-### <a name="alert-rules"></a>Varningsregler
+### <a name="alert-rules"></a>Aviseringsregler
 
 Klicka på **aviserings regler** om du vill konfigurera aviseringar baserat på Azure cache för Redis-mått. Mer information finns i [aviseringar](cache-how-to-monitor.md#alerts).
 
@@ -359,7 +359,7 @@ Inställningarna i avsnittet **support och fel sökning** innehåller alternativ
 * [Resurs hälsa](#resource-health)
 * [Ny supportbegäran](#new-support-request)
 
-### <a name="resource-health"></a>Resource Health
+### <a name="resource-health"></a>Resurshälsa
 **Resource Health** bevakar din resurs och meddelar dig om den körs som förväntat. Mer information om Azure Resource Health Service finns i [Översikt över Azure Resource Health](../resource-health/resource-health-overview.md).
 
 > [!NOTE]
@@ -386,15 +386,15 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 >
 >
 
-| Inställning | Standardvärde | Beskrivning |
+| Inställning | Standardvärde | Description |
 | --- | --- | --- |
 | `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per anslutnings bas med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1`. |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |
 | `maxmemory-policy` |`volatile-lru` |Maxmemory-principen är inställningen för hur Redis väljer vad som ska tas bort när `maxmemory` (storleken på det cache-erbjudande som du valde när du skapade cachen) har nåtts. Med Azure cache för Redis är standardvärdet `volatile-lru`, vilket tar bort nycklarna med en förfallo uppsättning med hjälp av en LRU-algoritm. Den här inställningen kan konfigureras i Azure Portal. Mer information finns i [minnes principer](#memory-policies). |
 | `maxmemory-samples` |3 |För att spara minne är LRU och minimala TTL-algoritmer approximerade algoritmer i stället för exakta algoritmer. Som standard kontrollerar Redis tre nycklar och plockar den som användes mindre nyligen. |
-| `lua-time-limit` |5 000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
+| `lua-time-limit` |5,000 |Maximal körnings tid för ett Lua-skript i millisekunder. Om den maximala körnings tiden uppnås loggar Redis som ett skript fortfarande körs efter den längsta tillåtna tiden och börjar svara på frågor med ett fel. |
 | `lua-event-limit` |500 |Max storlek för skript händelse kön. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns på [https://redis.io/topics/clients](https://redis.io/topics/clients). |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8 MB 60 |Gränserna för klientens utdatabuffert kan användas för att framtvinga från koppling av klienter som inte läser data från servern tillräckligt många skäl (en vanlig orsak är att en pub/sub-klient inte kan använda meddelanden så snabbt som utgivaren kan producera dem). Mer information finns i [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup>gränsen för `databases` skiljer sig åt för varje Azure-cache för pris nivån Redis och kan ställas in när cachen skapas. Om ingen `databases` inställning anges när cachen skapas är standardvärdet 16.

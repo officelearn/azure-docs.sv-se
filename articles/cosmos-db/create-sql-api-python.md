@@ -37,10 +37,10 @@ I den här snabb starten används version 4 av [python SDK](https://pypi.org/pro
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.6 +](https://www.python.org/downloads/), med `python` körbar fil tillgänglig i `PATH`.
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -59,7 +59,7 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
 
 2. På sidan **Lägg till behållare** anger du inställningarna för den nya behållaren.
 
-    |Inställning|Föreslaget värde|Beskrivning
+    |Inställning|Föreslaget värde|Description
     |---|---|---|
     |**Databas-ID**|Aktiviteter|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
@@ -70,7 +70,7 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
     
     Välj **OK**. Datautforskaren visar den nya databasen och behållaren.
 
-## <a name="add-sample-data"></a>Lägga till exempeldata
+## <a name="add-sample-data"></a>Lägg till exempeldata
 
 [!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
@@ -107,7 +107,7 @@ Nu ska vi klona vi en SQL API-app från GitHub, ange anslutningssträngen och k�
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen.
+Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
 1. I [Azure Portal](https://portal.azure.com/), i ditt Azure Cosmos-konto, i det vänstra navigeringset väljer du **nycklar**. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `cosmos_get_started.py` i nästa steg.
 
@@ -119,7 +119,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Kopiera sedan värdet för **primär nyckeln** från portalen och gör det till värdet för **nyckeln** i ``cosmos_get_started.py``. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+4. Kopiera sedan värdet för **primär nyckeln** från portalen och gör det till värdet för **nyckeln** i ``cosmos_get_started.py``. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
@@ -216,7 +216,7 @@ Följande kodavsnitt är alla hämtade från filen `cosmos_get_started.py`.
 }
 ```
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

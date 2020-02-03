@@ -197,10 +197,10 @@ Runbook-jobb som körs i Azure-sandbox har inte åtkomst till några enhets-elle
 
 Följande tabell beskriver de olika statuslägen som är möjliga för ett jobb. PowerShell har två typer av fel, avslutande och icke-avslutande fel. Om du avbryter fel anges Runbook-statusen till **misslyckad** om de inträffar. Icke-avslutande fel tillåter att skriptet fortsätter även efter att det har inträffat. Ett exempel på ett icke-avslutande fel är att använda `Get-ChildItem`-cmdlet med en sökväg som inte finns. PowerShell ser att sökvägen inte finns, genererar ett fel och fortsätter till nästa mapp. Det här felet skulle inte ange Runbook-statusen **misslyckad** och kan markeras som **slutförd**. Om du vill tvinga en Runbook att stoppa vid ett icke-avslutande fel, kan du använda `-ErrorAction Stop` på cmdleten.
 
-| Status | Beskrivning |
+| Status | Description |
 |:--- |:--- |
 | Slutfört |Jobbet har slutförts. |
-| Misslyckad |Runbook kunde inte kompileras för [grafiska och PowerShell-arbetsflöden](automation-runbook-types.md). För [PowerShell-skript Runbooks](automation-runbook-types.md)kunde Runbook inte starta eller så innehöll jobbet ett undantag. |
+| Misslyckades |Runbook kunde inte kompileras för [grafiska och PowerShell-arbetsflöden](automation-runbook-types.md). För [PowerShell-skript Runbooks](automation-runbook-types.md)kunde Runbook inte starta eller så innehöll jobbet ett undantag. |
 | Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
 | I kö |Jobbet väntar på att resurser från en Automation arbetare blir tillgängliga så det kan starta. |
 | Startar |Jobbet har tilldelats en anställd och systemet startas. |
@@ -208,7 +208,7 @@ Följande tabell beskriver de olika statuslägen som är möjliga för ett jobb.
 | Körs |Jobbet körs |
 | Körs, väntar på resurser |Jobbet har inaktiverats på grund av att gränsen nåddes för den [verkliga delningen](#fair-share) . Den återupptas strax från den senaste kontroll punkten. |
 | Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
-| Stoppas |Jobbet stoppas av systemet. |
+| Stoppar |Jobbet stoppas av systemet. |
 | Uppehåll |Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början av runbooken. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Runbooken pausas bara av systemet när ett undantag inträffar. Som standard är Erroractionpreference satt inställd på att **fortsätta**, vilket innebär att jobbet fortsätter att köras vid ett fel. Om den här preferens variabeln är inställd på **Avbryt**pausas jobbet vid ett fel. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
 | Pausar |Systemet försöker pausa jobbet på användarens begäran. Runbooken måste komma fram till nästa kontroll punkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
 

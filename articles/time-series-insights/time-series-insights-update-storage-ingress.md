@@ -49,9 +49,9 @@ Azure Time Series Insights stöder UTF8-kodad JSON som skickas via Azure IoT Hub
 
 Nedan visas en lista över data typer som stöds.
 
-| Datatyp | Beskrivning |
+| Datatyp | Description |
 |-----------|------------------|-------------|
-| bool      |   En datatyp med ett av två tillstånd: true eller false.       |
+| booleska      |   En datatyp med ett av två tillstånd: true eller false.       |
 | Datum/tid    |   Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Datum/tid ska vara i formatet ISO 8601.      |
 | double    |   En dubbel precision 64-bitars IEEE 754-svävande punkt
 | sträng    |   Text värden, bestående av Unicode-tecken.          |

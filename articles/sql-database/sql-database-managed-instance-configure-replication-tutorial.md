@@ -19,7 +19,7 @@ ms.locfileid: "76719899"
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan två hanterade instanser och SQL Server
 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > - Konfigurera en hanterad instans som en replik utgivare. 
@@ -34,7 +34,7 @@ Läs mer i [Översikt över Azure SQL Database hanterade instanser](sql-database
 
 Information om hur du konfigurerar replikering mellan en hanterad instans utgivare och en hanterad instans prenumerant finns i [Konfigurera transaktionell replikering mellan två hanterade instanser](replication-with-sql-database-managed-instance.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 

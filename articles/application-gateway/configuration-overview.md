@@ -25,7 +25,7 @@ Den här bilden illustrerar ett program som har tre lyssnare. De första två ä
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Virtuellt Azure-nätverk och dedikerat undernät
 
@@ -121,7 +121,7 @@ Välj den IP-adress för klient delen som du planerar att associera med den här
 
 Välj klient dels port. Välj en befintlig port eller skapa en ny. Välj ett värde från det [tillåtna port intervallet](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Du kan använda inte bara välkända portar, till exempel 80 och 443, men alla tillåtna anpassade portar som är lämpliga. En port kan användas för offentliga lyssnare eller privata lyssnare.
 
-### <a name="protocol"></a>Protokoll
+### <a name="protocol"></a>Protocol
 
 Välj HTTP eller HTTPS:
 
@@ -241,7 +241,7 @@ Mer information om omdirigering finns i:
 
 #### <a name="rewrite-the-http-header-setting"></a>Skriv om inställningen för HTTP-huvud
 
-Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Mer information finns här:
+Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Mer information finns i:
 
  - [Översikt över Skriv över HTTP-rubriker](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Konfigurera omskrivning av HTTP-huvud](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
@@ -258,7 +258,7 @@ Den här funktionen är användbar när du vill behålla en användarsession på
 
 Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistrering av instanser på grund av en Gateway-hanterad session tillhörighet och fortsätter att vidarebefordras till Avregistrerings instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
 
-### <a name="protocol"></a>Protokoll
+### <a name="protocol"></a>Protocol
 
 Application Gateway stöder både HTTP och HTTPS för routnings begär anden till backend-servrarna. Om du väljer HTTP är trafik till backend-servrarna okrypterad. Om okrypterad kommunikation inte är acceptabel väljer du HTTPS.
 

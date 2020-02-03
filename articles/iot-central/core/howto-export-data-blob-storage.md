@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder funktionen för kontinuerlig data e
 > När du aktiverar kontinuerlig data export får du bara data från det här tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste vara administratör i IoT Centrals programmet
 

@@ -33,7 +33,7 @@ I karantän sänks frekvensen för stegvisa cykler gradvis till en gång per dag
 
 Det finns tre sätt att kontrol lera om ett program finns i karantän:
   
-- I Azure Portal navigerar du till **Azure Active Directory** > **företags program** > &lt;*program namn*&gt;- **etablering** och bläddra till förlopps indikatorn längst ned.  
+- I Azure Portal navigerar du till **Azure Active Directory** > **företags program** > &lt;*program namn*&gt;- **etablering** och bläddra till förlopps indikatorn längst ned. >   
 
   ![Status fältet för etablering visar karantän status](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 

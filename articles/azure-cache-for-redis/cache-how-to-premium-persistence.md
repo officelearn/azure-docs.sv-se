@@ -166,7 +166,7 @@ Mer information om skalning finns i [Vad händer om jag har skalat till en annan
 
 Data som lagras i AOF-filer delas upp i flera sid-blobar per nod för att öka prestanda för att spara data till lagring. I följande tabell visas hur många sid-blobar som används för varje pris nivå:
 
-| Premiumnivå | Blobbar |
+| Premiumnivå | Blobar |
 |--------------|-------|
 | P1           | 4 per Shard    |
 | P2           | 8 per Shard    |

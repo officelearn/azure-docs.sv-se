@@ -17,7 +17,7 @@ ms.locfileid: "76748853"
 ---
 Storage-optimerade VM-storlekar erbjuder hög disk data flöde och IO och är idealiska för Big data, SQL, NoSQL-databaser, data lager hantering och stora transaktions databaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lokalt lagrings data flöde och nätverks bandbredd för varje optimerad storlek.
 
-Lsv2-serien har högt data flöde, kort svars tid, direkt mappad lokal NVMe-lagring som körs på [AMD EPYC &trade; 7551-processorn](https://www.amd.com/en/products/epyc-7000-series) med all Core-höjning på 2.55 GHz och en maximal förstärkning på 3,0 GHz. Virtuella datorer i Lsv2-serien finns i storlekar mellan 8 och 80 vCPU:er i en konfiguration med simultan flertrådskörning.  Det finns 8 GiB minne per vCPU och en NVMe SSD M.2-enhet på 1,92 TB per 8 vCPU:er, med upp till 19,2 TB (10 x 1,92 TB) tillgängligt på L80s v2.
+Lsv2-serien har högt data flöde, kort svars tid, direkt mappad lokal NVMe-lagring som körs på [AMD EPYC &trade; 7551-processorn](https://www.amd.com/en/products/epyc-7000-series) med all Core-höjning på 2.55 GHz och en maximal förstärkning på 3,0 GHz. De virtuella datorerna i Lsv2-serien har storlekar från 8 till 80 vCPU i en samtidig multi-threading-konfiguration.  Det finns 8 GiB minne per vCPU och en 1.92 TB NVMe SSD M. 2-enhet per 8 virtuella processorer, med upp till 19,2 TB (10X 1.92 TB) tillgängligt på L80s v2.
 
 > [!NOTE]
 > De virtuella datorerna i Lsv2-serien är optimerade för att använda den lokala disken på noden som är ansluten direkt till den virtuella datorn i stället för att använda varaktiga data diskar Detta möjliggör större IOPs/data flöde för dina arbets belastningar. Lsv2 och LS-serien stöder inte att en lokal cache skapas för att öka IOPs som kan nås av varaktiga data diskar.
@@ -35,7 +35,7 @@ Premium Storage: stöds
 
 Premium Storage caching: stöds inte
 
-| Storlek          | vCPU | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Högsta data flöde för ej cachelagrade data diskar (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal data diskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek          | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Högsta data flöde för ej cachelagrade data diskar (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal data diskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200  |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x 1.92 TB  | 800000/4000  | 16000/320  | 32 | 4 / 6400  |

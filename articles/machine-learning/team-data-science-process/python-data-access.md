@@ -40,9 +40,9 @@ Den har ett beroende på följande paket:
 * Python-dateutil
 * pandas
 
-Vi rekommenderar att du använder en Python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [trädtak](https://store.enthought.com/downloads/), som kommer med Python, IPython och tre paketen som listas ovan installerad. IPython inte är nödvändigt, är det en perfekt miljö för hantering och visualisera data interaktivt.
+Vi rekommenderar att du använder en python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [Canopy](https://store.enthought.com/downloads/), som medföljer python, ipython och de tre paket som anges ovan installerade. IPython inte är nödvändigt, är det en perfekt miljö för hantering och visualisera data interaktivt.
 
-### <a name="installation"></a>Så här installerar du Azure Machine Learning Python-klientbiblioteket
+### <a name="installation"></a>Så här installerar du Azure Machine Learning python-klient biblioteket
 Installera Azure Machine Learning python-klient biblioteket för att slutföra de aktiviteter som beskrivs i det här avsnittet. Det här biblioteket är tillgängligt från [python-paketets index](https://pypi.python.org/pypi/azureml). Om du vill installera appen i Python-miljön, kör du följande kommando från den lokala Python-miljön:
 
     pip install azureml
@@ -61,18 +61,18 @@ Python-klientbiblioteket ger dig programmatisk åtkomst till dina befintliga dat
 
 Från Azure Machine Learning Studio-webbgränssnittet (klassisk) kan du generera kodfragment som innehåller all nödvändig information för att ladda ned och deserialisera data uppsättningar som Pandas DataFrame-objekt på den lokala datorn.
 
-### <a name="security"></a>Säkerhet för åtkomst till data
+### <a name="security"></a>Säkerhet för data åtkomst
 Kodfragmenten som tillhandahålls av Azure Machine Learning Studio (klassisk) för användning med python-klient biblioteket innehåller ditt arbetsyte-ID och autentiseringstoken. Dessa ger full åtkomst till din arbetsyta och måste skyddas som ett lösenord.
 
-Av säkerhetsskäl kod kodfragment funktioner är endast tillgänglig för användare som har sin roll som **ägare** för arbetsytan. Din roll visas i Azure Machine Learning Studio (klassisk) på sidan **användare** under **Inställningar**.
+Av säkerhets skäl är funktionen för kodfragment bara tillgänglig för användare som har rollen som **ägare** till arbets ytan. Din roll visas i Azure Machine Learning Studio (klassisk) på sidan **användare** under **Inställningar**.
 
 ![Säkerhet][security]
 
-Om din roll inte har angetts som **ägare**, kan du antingen begäran om att bjudas in som ägare eller be ägaren av arbetsytan för att förse dig med kodfragmentet.
+Om rollen inte har angetts som **ägare**kan du antingen begära att bli inbjuden till en ägare eller be ägaren av arbets ytan att förse dig med kodfragmentet.
 
 Du kan välja något av följande alternativ för att hämta autentiseringstoken:
 
-* Be om en token från en ägare. Ägare kan komma åt sina autentiseringstoken från inställnings sidan för deras arbets yta i Azure Machine Learning Studio (klassisk). Välj **inställningar** från den vänstra rutan och klicka på **AUKTORISERINGSTOKEN** att se de primära och sekundära token. Även om primärt eller sekundära auktoriseringstoken kan användas i kodfragmentet, rekommenderar vi att ägare bara dela de sekundära auktoriseringstoken.
+* Be om en token från en ägare. Ägare kan komma åt sina autentiseringstoken från inställnings sidan för deras arbets yta i Azure Machine Learning Studio (klassisk). Välj **Inställningar** i den vänstra rutan och klicka på **autentiseringstoken för att** se de primära och sekundära tokens. Även om primärt eller sekundära auktoriseringstoken kan användas i kodfragmentet, rekommenderar vi att ägare bara dela de sekundära auktoriseringstoken.
 
    ![Auktoriseringstoken](./media/python-data-access/ml-python-access-settings-tokens.png)
 
@@ -80,12 +80,12 @@ Du kan välja något av följande alternativ för att hämta autentiseringstoken
 
 När utvecklare har fått arbets ytans ID och autentiseringstoken kan de komma åt arbets ytan med hjälp av kodfragmentet oavsett deras roll.
 
-Auktoriseringstoken som hanteras på den **AUKTORISERINGSTOKEN** sidan **inställningar**. Du kan återskapa dem, men den här proceduren återkallar tillgång till den föregående token.
+Tokens hanteras på sidan **AUTHORIZATION tokens** under **Inställningar**. Du kan återskapa dem, men den här proceduren återkallar tillgång till den föregående token.
 
-### <a name="accessingDatasets"></a>Åtkomst till datauppsättningar från en lokal Python-program
+### <a name="accessingDatasets"></a>Få åtkomst till data uppsättningar från ett lokalt python-program
 1. I Machine Learning Studio (klassisk) klickar du på **data uppsättningar** i navigerings fältet till vänster.
-2. Välj den datauppsättning som du vill ha åtkomst till. Du kan välja någon av datauppsättningarna från den **Mina DATAUPPSÄTTNINGAR** lista eller från den **exempel** lista.
-3. I verktygsfältet längst ned klickar du på **generera Dataåtkomstkoden**. Om data är i ett format som är inte kompatibel med Python-klientbiblioteket, är den här knappen inaktiverad.
+2. Välj den datauppsättning som du vill ha åtkomst till. Du kan välja någon av data uppsättningarna från listan **mina data uppsättningar** eller från listan **samples** .
+3. Klicka på **generera data åtkomst kod**i det nedre verktygsfältet. Om data är i ett format som är inte kompatibel med Python-klientbiblioteket, är den här knappen inaktiverad.
    
     ![Datauppsättningar][datasets]
 4. Välj kodfragmentet i fönstret som visas och kopiera den till Urklipp.
@@ -95,7 +95,7 @@ Auktoriseringstoken som hanteras på den **AUKTORISERINGSTOKEN** sidan **instäl
    
     ![Klistra in koden i anteckningsboken][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Åtkomst till mellanliggande datauppsättningar från Machine Learning-experiment
+## <a name="accessingIntermediateDatasets"></a>Få åtkomst till mellanliggande data uppsättningar från Machine Learning experiment
 När ett experiment körs i Machine Learning Studio (klassisk) är det möjligt att komma åt mellanliggande data uppsättningar från utdata-noderna i moduler. Mellanliggande datauppsättningar är data som har skapats och används för mellanliggande steg om ett modell-verktyg har körts.
 
 Mellanliggande datauppsättningar kan nås så länge dataformatet är kompatibel med Python-klientbiblioteket.
@@ -121,12 +121,12 @@ Du måste använda en Conversion-modul, till exempel [konvertera till CSV][conve
 Följande steg visar ett exempel som skapar ett experiment, kör den och har åtkomst till den mellanliggande datauppsättningen.
 
 1. Skapa ett nytt experiment.
-2. Infoga en **vuxet insamlade inkomst binär klassificering datauppsättning** modulen.
+2. Infoga en **data uppsättnings modul för binärdata med vuxen räknings inkomst** .
 3. Infoga en [delad][split] modul och Anslut dess indata till utdata för datauppsättnings modulen.
 4. Infoga en [Convert to CSV][convert-to-csv] -modul och Anslut dess indata till någon av utdata för [delade][split] moduler.
 5. Spara experimentet, kör det och vänta tills jobbet har slutförts.
 6. Klicka på noden utdata i modulen [konvertera till CSV][convert-to-csv] .
-7. När snabbmenyn visas väljer du **generera Dataåtkomstkoden**.
+7. När snabb menyn visas väljer du **generera kod för data åtkomst**.
    
     ![Snabbmeny][experiment]
 8. Välj kodfragmentet och kopiera den till Urklipp från fönstret som visas.
@@ -139,7 +139,7 @@ Följande steg visar ett exempel som skapar ett experiment, kör den och har åt
     
     ![Histogram][ipython-histogram]
 
-## <a name="clientApis"></a>Använd Machine Learning Python-klientbiblioteket för att komma åt, läsa, skapa och hantera datauppsättningar
+## <a name="clientApis"></a>Använd Machine Learning python-klient biblioteket för att få åtkomst till, läsa, skapa och hantera data uppsättningar
 ### <a name="workspace"></a>Arbetsyta
 Arbetsytan är startpunkten för Python-klientbiblioteket. Ange `Workspace`-klassen med arbetsyte-ID och autentiseringstoken för att skapa en instans:
 
@@ -172,7 +172,7 @@ Eller så kan du använda tjänsten efter index:
     ds = ws.datasets[0]
 
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>metadata
 Datauppsättningar har metadata, utöver innehåll. (Mellanliggande datauppsättningar är ett undantag till den här regeln och har inte alla metadata.)
 
 Vissa metadatavärdena tilldelas vid tidpunkten för skapandet av användaren:
@@ -188,10 +188,10 @@ Andra är värden som tilldelats av Azure ML:
     print(ds.created_date)
     print(ds.size)
 
-Se den `SourceDataset` klass mer information om tillgängliga metadata.
+Mer information om tillgängliga metadata finns i `SourceDataset`-klassen.
 
 ### <a name="read-contents"></a>Läs innehållet
-Kodfragmenten som tillhandahålls av Machine Learning Studio (klassisk) hämtar och deserialiserar data uppsättningen automatiskt till ett Pandas DataFrame-objekt. Detta görs med den `to_dataframe` metoden:
+Kodfragmenten som tillhandahålls av Machine Learning Studio (klassisk) hämtar och deserialiserar data uppsättningen automatiskt till ett Pandas DataFrame-objekt. Detta görs med metoden `to_dataframe`:
 
     frame = ds.to_dataframe()
 
@@ -236,7 +236,7 @@ Om dina data redan serialiseras, kan du använda:
         description='my description'
     )
 
-Python-klientbiblioteket kan serialisera en pandas-DataFrame i följande format (konstanter för dessa finns i den `azureml.DataTypeIds` klass):
+Python-klient biblioteket kan serialisera en Pandas-DataFrame till följande format (konstanter för dessa är i klassen `azureml.DataTypeIds`):
 
 * Oformaterad text
 * GenericCSV
@@ -255,7 +255,7 @@ Om du vill uppdatera en befintlig datamängd måste du först hämta en referens
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Använd sedan `update_from_dataframe` att serialisera och Ersätt innehållet i datauppsättningen i Azure:
+Använd sedan `update_from_dataframe` för att serialisera och ersätta innehållet i data uppsättningen på Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -265,7 +265,7 @@ Använd sedan `update_from_dataframe` att serialisera och Ersätt innehållet i 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Om du vill att serialisera data till ett annat format, ange ett värde för den valfria `data_type_id` parametern.
+Ange ett värde för den valfria `data_type_id` parametern om du vill serialisera data till ett annat format.
 
     from azureml import DataTypeIds
 
@@ -280,7 +280,7 @@ Om du vill att serialisera data till ett annat format, ange ett värde för den 
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Du kan också ange en ny beskrivning genom att ange ett värde för den `description` parametern.
+Alternativt kan du ange en ny beskrivning genom att ange ett värde för parametern `description`.
 
     dataset = ws.datasets['existing dataset']
 
@@ -293,7 +293,7 @@ Du kan också ange en ny beskrivning genom att ange ett värde för den `descrip
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to feb 2015'
 
-Du kan också ange ett nytt namn genom att ange ett värde för den `name` parametern. Hädanefter, ska du hämta datauppsättningen med det nya namnet. Följande kod uppdaterar data, namn och beskrivning.
+Alternativt kan du ange ett nytt namn genom att ange ett värde för parametern `name`. Hädanefter, ska du hämta datauppsättningen med det nya namnet. Följande kod uppdaterar data, namn och beskrivning.
 
     dataset = ws.datasets['existing dataset']
 
@@ -310,9 +310,9 @@ Du kan också ange ett nytt namn genom att ange ett värde för den `name` param
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-Den `data_type_id`, `name` och `description` parametrar är valfria och deras tidigare värdet som standard. Den `dataframe` parametern krävs alltid.
+Parametrarna `data_type_id`, `name` och `description` är valfria och standardvärdet för deras tidigare värde. Parametern `dataframe` måste alltid anges.
 
-Om dina data redan serialiseras, använda `update_from_raw_data` i stället för `update_from_dataframe`. Om du bara skickar i `raw_data` i stället för `dataframe`, den fungerar på liknande sätt.
+Om dina data redan är serialiserade använder du `update_from_raw_data` i stället för `update_from_dataframe`. Om du bara skickar i `raw_data` i stället för `dataframe`, fungerar det på ett liknande sätt.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

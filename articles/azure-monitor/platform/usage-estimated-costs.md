@@ -25,7 +25,7 @@ ms.locfileid: "76715783"
 
 ## <a name="azure-monitor-pricing-model"></a>Azure Monitor pris modell
 
-Den grundläggande Azure Monitor fakturerings modellen är en molnbaserad, konsumtions-baserad prissättning ("betala per användning"). Du betalar bara för det du använder. Pris information är tillgänglig för [aviseringar, statistik, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+Den grundläggande Azure Monitor fakturerings modellen är en molnbaserad, konsumtions-baserad prissättning ("betala per användning"). Betala endast för det du använder. Pris information är tillgänglig för [aviseringar, statistik, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
 Förutom modellen betala per användning för loggdata, har Log Analytics kapacitets reservationer, vilket gör att du kan spara så mycket som 25% jämfört med priset för betala per användning. Med kapacitets reservations priset kan du köpa en reservation som börjar på 100 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om priser för kapacitets reservationer.
 
@@ -60,7 +60,7 @@ Om du sedan vill se de Azure Monitor kostnaderna under de senaste 30 dagarna kli
 1. Azure Monitor
 2. Application Insights
 3. Log Analytics
-4. Insight and Analytics
+4. Insikter och analys
 
 Detta resulterar i en vy, till exempel:
 
@@ -87,7 +87,7 @@ Välj länken i kolumnen månatlig användning för att öppna ett diagram som v
 
 ## <a name="operations-management-suite-subscription-entitlements"></a>Operations Management Suite-prenumerations rättigheter
 
-Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigade till per nod datainmatning rättigheter för [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Att ta emot dessa rättigheter för Log Analytics-arbetsytor och Application Insights-resurser i en viss prenumeration: 
+Kunder som köpte Microsoft Operations Management Suite E1 och E2 är berättigade till data inmatnings rättigheter per nod för [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Att ta emot dessa rättigheter för Log Analytics-arbetsytor och Application Insights-resurser i en viss prenumeration: 
 
 - Log Analytics-arbetsytor bör använda den ”Per nod (OMS)” prisnivå.
 - Application Insights resurser bör använda pris nivån "Enterprise".

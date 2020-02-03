@@ -15,7 +15,7 @@ ms.locfileid: "76748825"
 
 [Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [Library Source Code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Package (NPM) | -](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) [exempel](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org/).
@@ -87,7 +87,7 @@ Skapa ett nytt [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@
 [!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
 
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
 Skapa en lista över lexikon objekt som innehåller dokumenten som du vill analysera. Anropa klientens [sentiment ()-](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#sentiment-models-textanalyticsclientsentimentoptionalparams-) Metod och hämta den returnerade [SentimentBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/sentimentbatchresult). Upprepa listan över resultat och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
@@ -104,7 +104,7 @@ Kör koden med `node index.js` i konsol fönstret.
 [ { id: '4', score: 1.00 } ]
 ```
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
 Skapa en lista över lexikon objekt som innehåller dina dokument. Anropa klientens [detectLanguage ()-](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#detectlanguage-models-textanalyticsclientdetectlanguageoptionalparams-) Metod och hämta den returnerade [LanguageBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/languagebatchresult). Iterera sedan igenom resultaten och skriv ut dokumentets ID och språk.
 
@@ -158,7 +158,7 @@ Document ID: 2
     Offset: 88, Length: 7,  Score: 0.9998779296875
 ```
 
-## <a name="key-phrase-extraction"></a>Extraktion av nyckelfraser
+## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
 Skapa en lista med objekt som innehåller dina dokument. Anropa klientens [()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient#keyphrases-models-textanalyticsclientkeyphrasesoptionalparams-) -Metod och hämta det returnerade [KeyPhraseBatchResult](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/keyphrasebatchresult) -objektet. Iterera igenom resultaten och skriv ut varje dokuments ID och alla identifierade nyckel fraser.
 

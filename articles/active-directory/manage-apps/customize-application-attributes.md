@@ -318,8 +318,8 @@ Om du väljer det här alternativet tvingas en omsynkronisering av alla använda
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Automatisera användaren etablering/avetablering för SaaS-appar](user-provisioning.md)
+- [Automatisera användar etablering/avetablering för SaaS-appar](user-provisioning.md)
 - [Skriva uttryck för attribut-mappningar](functions-for-customizing-application-data.md)
-- [Omfångsfilter för etableringen av användare](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Omfångs filter för användar etablering](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Använda SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
-- [Lista över guider om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)

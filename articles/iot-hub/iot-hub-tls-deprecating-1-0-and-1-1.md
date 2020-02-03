@@ -35,4 +35,4 @@ Endast följande chiffer tillåts under TLS-handskakning:
 
 ## <a name="customer-feedback"></a>Kundfeedback
 
-Även om TLS 1.2-framtvingande är ett branschledande krypteringsalternativ och kommer att aktiveras som planerat vill vi fortfarande höra från kunder om deras olika distributioner och problem med att införa TLS 1.2. För det här ändamålet kan du skicka dina kommentarer till [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).
+Även om TLS 1,2-tvång är ett branschledande krypterings alternativ och kommer att aktive ras som planerat, vill vi fortfarande höra från kunder om sina olika distributioner och problem som inför TLS 1,2. För det här ändamålet kan du skicka dina kommentarer till [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com).

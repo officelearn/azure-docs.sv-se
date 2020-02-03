@@ -103,7 +103,7 @@ På varje virtuell dator som du vill replikera installerar du tjänsten på någ
 - [Manuell installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) från användar gränssnittet eller PowerShell
 - Distribution med hjälp av ett distributions verktyg som [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Hanterade diskar
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Var replikerar Site Recovery data till?
 
@@ -188,7 +188,7 @@ Nej, Site Recovery stöder inte replikering till Azure Storage i virtuella nätv
 
 ## <a name="component-upgrade"></a>Komponent uppgradering
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag nu?
 
 Site Recovery följer support modellen för N-4. [Läs mer](https://aka.ms/asr_support_statement) om hur du uppgraderar från mycket gamla versioner.
 

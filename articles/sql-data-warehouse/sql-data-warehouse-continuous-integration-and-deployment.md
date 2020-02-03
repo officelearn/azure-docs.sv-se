@@ -1,5 +1,5 @@
 ---
-title: Kontinuerlig integration och distribution
+title: Kontinuerlig integrering och distribution
 description: Databas DevOps-upplevelse i företags klass för SQL Data Warehouse med inbyggt stöd för kontinuerlig integrering och distribution med hjälp av Azure pipelines.
 services: sql-data-warehouse
 author: kevinvngo

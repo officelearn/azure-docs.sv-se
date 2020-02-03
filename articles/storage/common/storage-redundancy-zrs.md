@@ -33,18 +33,18 @@ För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande region
 - Nordeuropa
 - Västeuropa
 - Frankrike, centrala
-- Japan, östra
+- Östra Japan
 - Sydafrika, norra
 - Storbritannien, södra
 - USA, centrala
-- USA, östra
+- USA, Östra
 - USA, östra 2
 - USA, västra 2
 
 För FileStorage-konton (Premium-filresurser) och BlockBlobStorage-konton (Premium block-blobbar) är ZRS allmänt tillgänglig i följande regioner:
 
 - Västeuropa
-- USA, östra
+- USA, Östra
 
 Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/) regelbundet hittar du information om nya regioner.
 

@@ -31,13 +31,13 @@ I slutet av den här självstudien har du två C-appar:
 > [!NOTE]
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och din lösnings Server del finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 * Senaste [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -385,7 +385,7 @@ int main(void)
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
+Mer information om hur du kan komma igång med IoT Hub och utforska andra IoT-scenarier finns här:
 
 * [Komma igång med enhets hantering](iot-hub-node-node-device-management-get-started.md)
 * [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

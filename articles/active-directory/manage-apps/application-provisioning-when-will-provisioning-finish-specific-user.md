@@ -40,7 +40,7 @@ När du först konfigurerar automatisk etablering visas statusen för den inleda
 
 När en etablerings cykel är klar visar **statistik till datum** avsnittet det ackumulerade antalet användare och grupper som har etablerats till datum, tillsammans med slutdatum och varaktighet för den senaste cykeln. **Aktivitets-ID: t** identifierar unikt den senaste etablerings cykeln. **Jobb-ID: t** är en unik identifierare för etablerings jobbet och är särskilt för appen i din klient organisation.
 
-Etablerings förloppet kan visas i Azure Portal i **Azure Active Directory &gt; Enterprise Apps &gt; \[program namn\] etablering** fliken.
+Etablerings förloppet kan visas i Azure Portal i **Azure Active Directory &gt; Enterprise Apps &gt; \[program namn\] etablering** fliken.&gt;
 
 ![Förlopps indikator för etablerings Sidan](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -74,13 +74,13 @@ I följande tabell sammanfattas synkroniserings tider för vanliga etablerings s
 | Omfattnings konfiguration | Användare, grupper och medlemmar i omfattningen | Första cykel tid | Stegvis cykel tid |
 | -------- | -------- | -------- | -------- |
 | Synkronisera endast tilldelade användare och grupper |  < 1 000 |  < 30 minuter | < 30 minuter |
-| Synkronisera endast tilldelade användare och grupper |  1 000 – 10 000 | 142 – 708 minuter | < 30 minuter |
+| Synkronisera endast tilldelade användare och grupper |  1 000 – 10 000 | 142 – 708 minuter | < 30 minuter |
 | Synkronisera endast tilldelade användare och grupper |   10 000 – 100 000 | 1 170 – 2 340 minuter | < 30 minuter |
 | Synkronisera alla användare och grupper i Azure AD |  < 1 000 | < 30 minuter  | < 30 minuter |
-| Synkronisera alla användare och grupper i Azure AD |  1 000 – 10 000 | < 30-120 minuter | < 30 minuter |
+| Synkronisera alla användare och grupper i Azure AD |  1 000 – 10 000 | < 30-120 minuter | < 30 minuter |
 | Synkronisera alla användare och grupper i Azure AD |  10 000 – 100 000  | 713 – 1 425 minuter | < 30 minuter |
 | Synkronisera alla användare i Azure AD|  < 1 000  | < 30 minuter | < 30 minuter |
-| Synkronisera alla användare i Azure AD | 1 000 – 10 000  | 43 – 86 minuter | < 30 minuter |
+| Synkronisera alla användare i Azure AD | 1 000 – 10 000  | 43 – 86 minuter | < 30 minuter |
 
 
 För den konfigurations **synkronisering som tilldelas användare och grupper**kan du använda följande formler för att fastställa den ungefärliga minsta och högsta förväntade **första cykel** tiden:

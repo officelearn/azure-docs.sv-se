@@ -30,7 +30,7 @@ I den här artikeln får du lära dig hur du samlar in data från och övervakar
 [Läs mer om Azure Application insikter](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 
@@ -52,15 +52,15 @@ Du kan aktivera och inaktivera Azure Application insikter i Azure Portal.
 
 1. På fliken **distributioner** väljer du den tjänst där du vill aktivera Azure Application insikter
 
-   [![Lista över tjänster på fliken distributioner](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![lista över tjänster på fliken distributioner](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Välj **Redigera**
 
-   [![Knappen Redigera](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![knappen Redigera](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. I **Avancerade inställningar**markerar du kryss rutan **Aktivera AppInsights-diagnostik**
 
-   [![Markerad kryssruta för att aktivera diagnostik](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![markerad kryss ruta för att aktivera diagnostik](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Välj **Uppdatera** längst ned på skärmen för att tillämpa ändringarna
 
@@ -69,11 +69,11 @@ Du kan aktivera och inaktivera Azure Application insikter i Azure Portal.
 1. Öppna arbets ytan i [Azure Portal](https://portal.azure.com)
 1. Välj **distributioner**, Välj tjänsten och välj sedan **Redigera**
 
-   [![Använd redigeringsknappen](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Använd knappen Redigera](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. I **Avancerade inställningar**avmarkerar du kryss rutan **Aktivera AppInsights-diagnostik**
 
-   [![Avmarkerad kryssruta för att aktivera diagnostik](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![avmarkerad kryss ruta för aktivering av diagnostik](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Välj **Uppdatera** längst ned på skärmen för att tillämpa ändringarna
  
@@ -95,7 +95,7 @@ Du kan aktivera och inaktivera Azure Application insikter i Azure Portal.
 
 ### <a name="log-custom-traces-in-your-service"></a>Anpassade loggspårningar i din tjänst
 
-Om du vill logga anpassade spårningar följer standard distributionsprocessen för AKS eller ACI i den [hur du distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
+Om du vill logga anpassade spår följer du standard distributions processen för AKS eller ACI i avsnittet [så här distribuerar och var](how-to-deploy-and-where.md) dokumentet. Använd sedan följande steg:
 
 1. Uppdatera bedömnings filen genom att lägga till utskrifts uttryck
     
@@ -130,7 +130,7 @@ Visa den:
 
 1. Välj fliken **Översikt** om du vill se en grundläggande uppsättning mått för din tjänst
 
-   [![Översikt över](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+   [Översikt över ![](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
 
 1. Om du vill titta på metadata och svar för webb tjänst begär Anden väljer du tabellen **förfrågningar** i avsnittet **loggar (analys)** och väljer **Kör** för att Visa begär Anden
 
@@ -138,9 +138,9 @@ Visa den:
 
 
 3. Om du vill titta på dina anpassade spår väljer du **analys**
-4. Markera under schemat **spårningar**. Välj sedan **kör** att köra frågan. Data ska visas i tabell format och bör mappas till dina anpassade anrop i din bedömnings fil
+4. I avsnittet schema väljer du **spår**. Välj **Kör** för att köra frågan. Data ska visas i tabell format och bör mappas till dina anpassade anrop i din bedömnings fil
 
-   [![Anpassade spårningar](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![anpassade spår](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
 
 Mer information om hur du använder Azure Application Insights finns i [Application Insights?](../azure-monitor/app/app-insights-overview.md).
 

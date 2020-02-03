@@ -21,12 +21,12 @@ ms.locfileid: "76716679"
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
 Den här artikeln förklarar för val av funktioner och innehåller exempel på dess roll i processen för data förbättring av machine learning. Följande exempel hämtas från Azure Machine Learning Studio.
 
-Teknik- och urval funktioner är en del av Team Data Science Process (TDSP) som beskrivs i artikeln [vad är Team Data Science Process?](overview.md). Funktioner och egenskapsval är delar av den **utveckla funktioner** steg i TDSP.
+Teknikerna och valet av funktioner är en del av TDSP (Team data science process) som beskrivs i artikeln [Vad är team data science-processen?](overview.md). Funktions teknik och urval är delar av steget **utveckla funktioner** i TDSP.
 
-* **funktionstekniker**: den här processen försöker att skapa ytterligare relevanta funktioner från de befintliga raw-funktionerna i data och för att öka förutsägande kraften att Inlärningsalgoritmen.
-* **Funktionsval**: den här processen väljer viktiga delmängd av den ursprungliga datafunktioner i ett försök att minska dimensionaliteten för utbildning-problem.
+* **funktions teknik**: den här processen försöker skapa ytterligare relevanta funktioner från befintliga RAW-funktioner i data och öka förutsägande kraft för inlärningen.
+* **Val av funktion**: den här processen väljer en nyckel del av de ursprungliga data funktionerna i ett försök att minska inlärnings problemets dimensionalitet.
 
-Normalt **funktionstekniker** tillämpas först för att generera ytterligare funktioner, och sedan den **Funktionsval** steg utförs för att ta bort irrelevanta, redundant eller mycket korrelerade funktioner.
+Normalt **används funktionerna först** för att generera ytterligare funktioner och sedan utförs **funktions urvalet** för att eliminera irrelevanta, redundanta eller mycket korrelerade funktioner.
 
 ## <a name="filter-features-from-your-data---feature-selection"></a>Filtrera funktioner från dina data, val av funktioner
 Funktions val kan användas för klassificerings-eller Regressions uppgifter. Målet är att välja en delmängd av funktionerna i den ursprungliga datauppsättningen som minska dess storlek med hjälp av en minimal uppsättning funktioner som representerar längsta avvikelse i data. Den här delmängd av funktionerna för att träna modellen. Val av funktioner har två huvudsakliga syften.
@@ -58,7 +58,7 @@ Motsvarande poäng för de valda funktionerna visas i följande bild:
 
 Genom att använda den här [filterbaserade modulen för funktions val][filter-based-feature-selection] är 50 av 256 funktioner markerade eftersom de har de mest korrelerade funktionerna med Target-variabeln "Col1", baserat på bedömnings metoden "Pearson korrelation".
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Funktions teknik och funktions val är två vanliga och valda funktioner som ökar effektiviteten i inlärnings processen som försöker extrahera nyckelinformation som finns i data. De kan även förbättra kraften hos dessa modeller att klassificera indata korrekt och att förutsäga resultat av intresse mer kraftigare. Funktioner och egenskapsval kan också kombinera för att göra utbildningsresurser mer beräkningsmässigt tractable. Detta sker genom bättre och minskar antalet funktioner som behövs för att kalibrera eller tränar en modell. De funktioner som valts för att träna modellen är matematiskt sett en minimal uppsättning oberoende variabler som förklarar mönster i data och förutsäga resultat har.
 
 Det är inte alltid nödvändigtvis för val av teknik eller funktion av funktioner. Om det behövs eller inte beror på de data som samlas in, den algoritm som valts och syftet med experimentet.

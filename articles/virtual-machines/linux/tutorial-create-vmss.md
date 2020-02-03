@@ -25,7 +25,7 @@ ms.locfileid: "76716551"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Självstudie: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Linux med Azure CLI
 
-Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure. Lär dig att:
+Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt, eller definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure. Lär dig att:
 
 > [!div class="checklist"]
 > * Använda cloud-init för att skapa ett skalbart program
@@ -117,7 +117,7 @@ az vmss create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Det kan ta några minuter innan du kan öppna appen.
+Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer. Det finns bakgrundsaktiviteter som fortsätter köras när Azure CLI återgår till frågan. Det kan ta några minuter innan du kan öppna programmet.
 
 
 ## <a name="allow-web-traffic"></a>Tillåt webbtrafik

@@ -34,7 +34,7 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de här självstudierna, behöver du:
 
 * Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse](create-data-warehouse-portal.md) och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt](sql-data-warehouse-load-sample-databases.md).

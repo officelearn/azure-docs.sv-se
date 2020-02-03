@@ -1,5 +1,5 @@
 ---
-title: Felsöka
+title: Felsökning
 description: Felsöka Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -22,7 +22,7 @@ ms.locfileid: "76721055"
 Den här artikeln innehåller vanliga fel söknings frågor.
 
 ## <a name="connecting"></a>Sker
-| Problem                                                        | Upplösning                                                   |
+| Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS LOGON. (Microsoft SQL Server, fel: 18456) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda problemet genom att antingen ange den SQL Data Warehouse-instans du vill ansluta till när anslutningen görs eller lägga till användaren i huvuddatabasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
 | Serverns huvudnamn MyUserName kan inte komma åt huvuddatabasen i den aktuella säkerhetskontexten. Det går inte att öppna användarens standarddatabas. Det gick inte att logga in. Inloggningen misslyckades för användaren MyUserName. (Microsoft SQL Server, fel: 916) | Det här felet inträffar när en AAD-användare försöker ansluta till huvuddatabasen men inte har någon användare där.  Du kan åtgärda problemet genom att antingen ange den SQL Data Warehouse-instans du vill ansluta till när anslutningen görs eller lägga till användaren i huvuddatabasen.  Mer information finns i [säkerhets översikts](sql-data-warehouse-overview-manage-security.md) artikeln. |
@@ -31,14 +31,14 @@ Den här artikeln innehåller vanliga fel söknings frågor.
 | Det går inte att ansluta med verktyget eller driv rutinen                           | SQL Data Warehouse rekommenderar att du använder [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15), [SSDT för Visual Studio](sql-data-warehouse-install-visual-studio.md)eller [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md) för att fråga dina data. Mer information om driv rutiner och hur du ansluter till SQL Data Warehouse finns i [driv rutiner för Azure SQL Data Warehouse](sql-data-warehouse-connection-strings.md) och [ansluta till Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md) artiklar. |
 
 ## <a name="tools"></a>Verktyg
-| Problem                                                        | Upplösning                                                   |
+| Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | AAD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användarna i [sys. database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?view=sql-server-ver15).  Mer information om hur du använder Azure Active Directory med SQL Data Warehouse finns i [autentisering till Azure SQL Data Warehouse](sql-data-warehouse-authentication.md) . |
 | Manuell skript användning med skript guiden eller anslutning via SSMS är långsam, svarar inte eller skapar fel | Se till att användarna har skapats i huvud databasen. I skript alternativ ser du också till att motor versionen är inställd på "Microsoft Azure SQL Data Warehouse Edition" och att motor typen är "Microsoft Azure SQL Database". |
 | Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för SQL Data Warehouse om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ-> SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
 
 ## <a name="performance"></a>Prestanda
-| Problem                                                        | Upplösning                                                   |
+| Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Felsöka prestanda fel sökning                            | Om du försöker Felsöka en viss fråga börjar du med [att lära dig hur du övervakar dina frågor](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-query-execution). |
 | Problem med TempDB-utrymme | [Övervaka](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md#monitor-tempdb) användning av tempdb-utrymme.  Vanliga orsaker till att slut på TempDB-utrymme körs är:<br>-Inte tillräckligt med resurser allokeras till den fråga som orsakar att data spiller till TempDB.  Se [hantering av arbets belastning](resource-classes-for-workload-management.md) <br>– Statistik saknas eller är inaktuell och orsakar onödig data förflyttning.  Se [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) för information om hur du skapar statistik<br>– TempDB-utrymme tilldelas per service nivå.  Om du [skalar SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md#scaling-compute) till en högre DWU-inställning allokerar mer tempdb-utrymme.|
@@ -49,7 +49,7 @@ Den här artikeln innehåller vanliga fel söknings frågor.
 | Dåliga frågeresultat på grund av dålig index kvalitet     | Vissa gånger kan frågor sakta ned på grund av [dålig kolumn kvalitet i columnstore-index](../sql-data-warehouse/sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality).  Se den här artikeln för mer information och hur du [bygger om index för att förbättra segment kvaliteten](../sql-data-warehouse/sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). |
 
 ## <a name="system-management"></a>System hantering
-| Problem                                                        | Upplösning                                                   |
+| Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | MSG 40847: det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna kvoten för databas transaktions enheten på 45000. | Du kan antingen minska [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) för den databas som du försöker skapa eller [begära en kvot ökning](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Undersöka utrymmes användningen                              | Se [tabell storlekar]( ../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) för att förstå systemets utrymmes användning. |
@@ -58,7 +58,7 @@ Den här artikeln innehåller vanliga fel söknings frågor.
 
 
 ## <a name="differences-from-sql-database"></a>Skillnader från SQL Database
-| Problem                                 | Upplösning                                                   |
+| Problem                                 | Lösning                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | SQL Database funktioner som inte stöds     | Se [tabell funktioner som inte stöds](../sql-data-warehouse/sql-data-warehouse-tables-overview.md#unsupported-table-features). |
 | SQL Database data typer som inte stöds   | Se [data typer som inte stöds](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md#identify-unsupported-data-types).        |

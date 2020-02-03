@@ -1,5 +1,5 @@
 ---
-title: Dynamisk datamaskering
+title: Dynamisk datamaskning
 description: Dynamisk data maskning begränsar känslig data exponering genom att maskera den till icke-privilegierade användare för SQL Database och informations lagret
 services: sql-database
 ms.service: sql-database

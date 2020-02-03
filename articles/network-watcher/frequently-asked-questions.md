@@ -89,7 +89,7 @@ NSG Flow-loggar är compantible med tjänst slut punkter utan att kräva någon 
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Vad är skillnaden mellan flödes loggar version 1 & 2?
-Flödes loggar version 2 introducerar konceptet *flödes tillstånd* & lagrar information om byte och paket som överförs. [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
+Flödes loggar version 2 introducerar konceptet *flödes tillstånd* & lagrar information om byte och paket som överförs. [Lär dig mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
  - Gå till vår [översikts sida för dokumentation](https://docs.microsoft.com/azure/network-watcher/) för några självstudier för att komma igång med Network Watcher.

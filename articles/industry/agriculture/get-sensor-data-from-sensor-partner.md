@@ -149,7 +149,7 @@ Följ de här stegen.
 1. På Start sidan väljer du **sensorer** på menyn för att visa sidan **sensorer** .
 2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
 
-    ![Knappen Ta bort](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Ta bort knapp](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 Ett bekräftelse meddelande visas om att sensorn har tagits bort.
 
@@ -160,7 +160,7 @@ Följ de här stegen.
 1. På sidan start väljer du **enheter** på menyn för att visa sidan **enheter** .
 2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
 
-    ![Knappen Ta bort](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
+    ![Ta bort knapp](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

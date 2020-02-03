@@ -34,7 +34,7 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 | **Sammanfattning\***               | Kort sammanfattning av erbjudandet. Maximal längd på 100 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Lång Sammanfattning\***          | Längre sammanfattning av erbjudandet (även om det kan vara samma som i **sammanfattningen**).  Maximal längd på 256 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Beskrivning\***           | Beskrivning av erbjudandet.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering.<br/> Det måste innehålla ett stycke med *minsta maskin varu krav* längst ned. Exempel: <br/> <p><u>Minsta maskin varu krav:</u> Linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme</p>
-| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Ett exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Förhandsgranska prenumerations-ID: n** | Lägg till en till 100 prenumerations-ID för för hands visare. Dessa vita prenumerationer kommer att ha åtkomst till erbjudandet när det har publicerats, innan det går live. |
 | **Användbara länkar**          | Flera val av affärs-och teknik kategorier som erbjuder passar bäst för.  Högst 10 tillåts. Se till att lägga till minst en länk till din dokumentation och en länk till de kompatibla IoT Edge enheterna från [Azure IoT-katalogen](https://catalog.azureiotsolutions.com/). |
 | **Föreslagna kategorier\*** | Hämta upp till fem kategorier. De visas på produkt informations sidan. På sidan bläddra visas alla IoT Edge moduler under kategorin *Sakernas Internet \> IoT Edge modul* .|
@@ -159,7 +159,7 @@ När du har publicerat erbjudandet verifieras ledar anslutningen och ett test-le
 4. amp.com the tile -->
 
 
-## <a name="legal"></a>Juridisk information
+## <a name="legal"></a>A4
 
 I det här avsnittet kan du ange de två juridiska dokument som krävs för varje erbjudande: sekretess policy och användnings villkor.
 

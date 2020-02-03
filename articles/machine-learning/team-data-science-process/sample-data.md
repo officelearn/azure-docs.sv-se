@@ -18,17 +18,17 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76718611"
 ---
-# <a name="heading"></a>Exempeldata i Azure blob-behållare, SQL Server och Hive-tabeller
+# <a name="heading"></a>Exempel data i Azure Blob-behållare, SQL Server-och Hive-tabeller
 
 I följande artiklar beskrivs hur du sampla data som lagras i något av tre olika Azure-platser:
 
-* [**Azure container-blobbdata** ](sample-data-blob.md) samplas genom att hämta den via programmering och samlar det med Python-exempelkod.
-* [**SQL Server-data** ](sample-data-sql-server.md) samplas med både SQL och Python Programming språk. 
-* [**Hive-tabelldata** ](sample-data-hive.md) samplas med hjälp av Hive-frågor.
+* [**Azure Blob container-data**](sample-data-blob.md) samplas genom att ladda ned det program mässigt och sedan sampla det med hjälp av python-kod.
+* [**SQL Server data**](sample-data-sql-server.md) samplas med både SQL och python-programmeringsspråket. 
+* [**Hive-tabell data**](sample-data-hive.md) samplas med hjälp av Hive-frågor.
 
-Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-**Varför sampla data?**
+**Varför exempel data?**
 
 Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Downsizing kan under lätta data förståelse, utforskning och funktions teknik. Den här samplings rollen i Cortana Analytics-processen är att möjliggöra snabb prototyper av data bearbetnings funktioner och maskin inlärnings modeller.
 

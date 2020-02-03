@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76718488"
 ---
-# <a name="heading"></a>Bearbeta Data i SQL Server-dator på Azure
+# <a name="heading"></a>Bearbeta data i SQL Server virtuell dator på Azure
 Det här dokumentet beskriver hur du utforska data och generera funktioner för data som lagras i en SQL Server-VM på Azure. Det här målet kan utföras av data datatransformering med SQL eller genom att använda ett programmeringsspråk som python.
 
 > [!NOTE]
@@ -26,17 +26,17 @@ Det här dokumentet beskriver hur du utforska data och generera funktioner för 
 > 
 > 
 
-## <a name="SQL"></a>Med hjälp av SQL
+## <a name="SQL"></a>Använda SQL
 Vi beskriver data följande wrangling uppgifter i det här avsnittet med hjälp av SQL:
 
-1. [Datautforskning](#sql-dataexploration)
-2. [Funktionen Generation](#sql-featuregen)
+1. [Data utforskning](#sql-dataexploration)
+2. [Generering av funktioner](#sql-featuregen)
 
-### <a name="sql-dataexploration"></a>Datautforskning
+### <a name="sql-dataexploration"></a>Data utforskning
 Här följer några exempel SQL-skript som kan användas för att utforska datalager i SQL Server.
 
 > [!NOTE]
-> En praktiska exempel: du kan använda den [NYC Taxi datauppsättning](https://www.andresmh.com/nyctaxitrips/) och referera till IPNB benämnt [NYC Datatransformering med IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) en slutpunkt till slutpunkt genomgång.
+> I ett praktiskt exempel kan du använda [NYC taxi-datauppsättningen](https://www.andresmh.com/nyctaxitrips/) och REFERERA till IPNB- [NYC data datatransformering med hjälp av IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) för en slut punkt till slut punkt.
 > 
 > 
 
@@ -53,19 +53,19 @@ Här följer några exempel SQL-skript som kan användas för att utforska datal
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Funktionen Generation
+### <a name="sql-featuregen"></a>Generering av funktioner
 I det här avsnittet beskrivs olika sätt att generera funktioner med hjälp av SQL:  
 
-1. [Antal baserat funktionen Generation](#sql-countfeature)
-2. [Datagruppering funktionen Generation](#sql-binningfeature)
-3. [Lansera funktionerna från en enda kolumn](#sql-featurerollout)
+1. [Antal baserade funktions generationer](#sql-countfeature)
+2. [Generering av diskretisering-funktioner](#sql-binningfeature)
+3. [Distribuera funktionerna från en enda kolumn](#sql-featurerollout)
 
 > [!NOTE]
 > När du har genererat ytterligare funktioner kan du lägga till dem som kolumner i den befintliga tabellen eller skapa en ny tabell med ytterligare funktioner och primär nyckel, som kan kopplas till den ursprungliga tabellen. 
 > 
 > 
 
-### <a name="sql-countfeature"></a>Antal baserat funktionen Generation
+### <a name="sql-countfeature"></a>Antal baserade funktions generationer
 I följande exempel visar två sätt att generera antal funktioner. Den första metoden använder villkorlig summan och den andra metoden använder ”where”-satsen. De här resultaten kan sedan kopplas till den ursprungliga tabellen (med primär nyckel kolumner) för att räkna funktioner tillsammans med ursprungliga data.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -73,16 +73,16 @@ I följande exempel visar två sätt att generera antal funktioner. Den första 
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="sql-binningfeature"></a>Datagruppering funktionen Generation
+### <a name="sql-binningfeature"></a>Generering av diskretisering-funktioner
 I följande exempel visas hur du skapar binned funktioner av diskretisering (med fem lagerplatser) en numerisk kolumn som kan användas som en funktion i stället:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Lansera funktionerna från en enda kolumn
+### <a name="sql-featurerollout"></a>Distribuera funktionerna från en enda kolumn
 I det här avsnittet visar vi hur du ska distribuera en enda kolumn i en tabell för att generera ytterligare funktioner. I exemplet förutsätter vi att det finns en latitud och longitud kolumn i tabellen som du vill generera funktioner.
 
-Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas från stackoverflow [hur du använder det arbete du utfört latitud och longitud?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Den här vägledningen är användbar för att förstå innan du inkluderar platsen som en eller flera funktioner:
+Här är en kort introduktion till plats data för latitud/longitud (omursprungs från StackOverflow [hur du mäter precisionen för latitud och longitud?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Den här vägledningen är användbar för att förstå innan du inkluderar platsen som en eller flera funktioner:
 
 * Tecknet talar om för oss om vi är norr eller söder, Öst eller Väst i världen.
 * Ett annat värde än noll hundratals siffra talar om för oss att vi använder longitud, latitud inte!
@@ -111,17 +111,17 @@ Platsinformationen kan vara trädmodell på följande sätt att separera region,
 Dessa funktioner för plats-baserade kan ytterligare används för att generera ytterligare antal funktioner enligt beskrivningen ovan. 
 
 > [!TIP]
-> Du kan via programmering Infoga posterna språk du föredrar. Du kan behöva infogar data i segment för att förbättra effektiviteten för skrivning (ett exempel på hur du gör detta med hjälp av pyodbc finns i [A HelloWorld-exemplet för att komma åt SQLServer med python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Ett annat alternativ är att infoga data i databasen med den [BCP för](https://msdn.microsoft.com/library/ms162802.aspx).
+> Du kan via programmering Infoga posterna språk du föredrar. Du kan behöva infoga data i segment för att förbättra Skriv effektiviteten (ett exempel på hur du gör detta med hjälp av pyodbc finns i [ett HelloWorld-exempel för att få åtkomst till SQLServer med python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Ett annat alternativ är att infoga data i databasen med hjälp av [BCP-verktyget](https://msdn.microsoft.com/library/ms162802.aspx).
 > 
 > 
 
-### <a name="sql-aml"></a>Ansluta till Azure Machine Learning
+### <a name="sql-aml"></a>Ansluter till Azure Machine Learning
 Funktionen nygenererade kan läggas till som en kolumn i en befintlig tabell eller lagras i en ny tabell och anslutits med den ursprungliga tabellen för machine learning. Funktioner kan genereras eller nås om de redan har skapats, med hjälp av modulen [Importera data][import-data] i Azure Machine Learning som visas nedan:
 
 ![azureml-läsare][1] 
 
-## <a name="python"></a>Med hjälp av ett programmeringsspråk som Python
-Med hjälp av Python att utforska data och generera funktioner om data finns i SQL Server är liknande för bearbetning av data i Azure-blob med hjälp av Python som beskrivs i [processen Azure Blob-data i miljön data science](data-blob.md). Läs in data från databasen till en Pandas data ram för mer bearbetning. Vi dokumenterar hur du ansluter till databasen och läser in data till dataram i det här avsnittet.
+## <a name="python"></a>Använda ett programmeringsspråk som python
+Använda python för att utforska data och generera funktioner när data är i SQL Server liknar bearbetning av data i Azure Blob med hjälp av python som dokumenterade i [bearbeta Azure blob-data i din data vetenskaps miljö](data-blob.md). Läs in data från databasen till en Pandas data ram för mer bearbetning. Vi dokumenterar hur du ansluter till databasen och läser in data till dataram i det här avsnittet.
 
 Följande formatet för anslutningssträngen kan användas för att ansluta till en SQL Server-databas från Python med pyodbc (Ersätt servername, dbname, användarnamn och lösenord med dina specifika värden):
 
@@ -129,15 +129,15 @@ Följande formatet för anslutningssträngen kan användas för att ansluta till
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas biblioteket](https://pandas.pydata.org/) tillhandahåller en omfattande uppsättning datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering i Python. Koden nedan läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
+[Pandas-biblioteket](https://pandas.pydata.org/) i python innehåller en omfattande uppsättning data strukturer och data analys verktyg för data manipulation för python-programmering. Koden nedan läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
-Nu kan du arbeta med Pandas dataram som beskrivs i artikeln [processen Azure Blob-data i miljön data science](data-blob.md).
+Nu kan du arbeta med data ramen Pandas som beskrivs i artikeln [bearbeta Azure blob-data i din data science-miljö](data-blob.md).
 
 ## <a name="azure-data-science-in-action-example"></a>Azure Data Science i åtgärden exemplet
-En slutpunkt till slutpunkt genomgång av exempel på Azure Data Science Process använder en offentlig datauppsättning finns [Azure Data Science Process i praktiken](sql-walkthrough.md).
+Ett exempel på en fullständig genom gång av Azure Data Science-processen med hjälp av en offentlig data uppsättning finns [i Azure Data Science process](sql-walkthrough.md).
 
 [1]: ./media/sql-server-virtual-machine/reader_db_featurizedinput.png
 

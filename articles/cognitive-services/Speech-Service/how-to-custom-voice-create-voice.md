@@ -44,11 +44,11 @@ Data uppsättningar verifieras automatiskt när du trycker på knappen Överför
 
 Följande tabell visar bearbetnings tillstånd för importerade data uppsättningar:
 
-| Status | Betydelse |
+| Tillstånd | Betydelse |
 | ----- | ------- |
 | Bearbetar | Din data uppsättning har tagits emot och bearbetas. |
 | Lyckades | Din data uppsättning har verifierats och kan nu användas för att bygga en röst modell. |
-| Misslyckad | Data uppsättningen har misslyckats under bearbetningen på grund av många orsaker, till exempel filfel, data problem eller nätverks problem. |
+| Misslyckades | Data uppsättningen har misslyckats under bearbetningen på grund av många orsaker, till exempel filfel, data problem eller nätverks problem. |
 
 När verifieringen är klar kan du se det totala antalet matchade yttranden för varje data uppsättning i kolumnen **yttranden** . Om den datatyp som du har valt kräver en tids segmentering, motsvarar den här kolumnen bara den yttranden vi har segmenterat för dig antingen baserat på dina avskrifter eller genom tal avskrifts tjänsten. Du kan hämta data uppsättningen ytterligare om du vill visa detaljerad information om hur yttranden har importer ATS och deras mappnings avskrifter. Tips: lång ljud segmentering kan ta mer än en timme att slutföra data bearbetningen.
 
@@ -86,11 +86,11 @@ I övnings tabellen visas en ny post som motsvarar den nyligen skapade modellen.
 
 Den status som visas visar processen för att konvertera data uppsättningen till en röst modell, som visas här.
 
-| Status | Betydelse |
+| Tillstånd | Betydelse |
 | ----- | ------- |
 | Bearbetar | Din röst modell skapas. |
 | Lyckades | Din röst modell har skapats och kan distribueras. |
-| Misslyckad | Din röst modell har misslyckats i utbildningen på grund av många orsaker, till exempel osett data problem eller nätverks problem. |
+| Misslyckades | Din röst modell har misslyckats i utbildningen på grund av många orsaker, till exempel osett data problem eller nätverks problem. |
 
 Inlärnings tiden varierar beroende på mängden ljud data som bearbetas. Vanliga tider sträcker sig från cirka 30 minuter för hundratals yttranden till 40 timmar för 20 000 yttranden. När modell utbildningen har slutförts kan du börja testa den.
 

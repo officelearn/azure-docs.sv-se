@@ -18,26 +18,26 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76717655"
 ---
-# <a name="heading"></a>Exempeldata i SQL Server på Azure
+# <a name="heading"></a>Exempel data i SQL Server på Azure
 
 Den här artikeln visar hur du exempel på data som lagras i SQL Server på Azure med SQL- eller Python-programmeringsspråket. Den visar också hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure-blob och läser den i Azure Machine Learning Studio.
 
-Python sampling använder den [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket att ansluta till SQL Server på Azure och [Pandas](https://pandas.pydata.org/) bibliotek som ska göra är samplingen.
+Python-samplingen använder [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket för att ansluta till SQL Server på Azure och [Pandas](https://pandas.pydata.org/) -biblioteket för att utföra samplingen.
 
 > [!NOTE]
-> SQL-exempelkoden i det här dokumentet förutsätter att data är i en SQL Server på Azure. Om den inte avser [flytta data till SQL Server på Azure](move-sql-server-virtual-machine.md) artikeln anvisningar om hur du flyttar dina data till SQL Server på Azure.
+> SQL-exempelkoden i det här dokumentet förutsätter att data är i en SQL Server på Azure. Om så inte är fallet kan du läsa mer i avsnittet [Flytta data till SQL Server i Azure](move-sql-server-virtual-machine.md) för instruktioner om hur du flyttar dina data till SQL Server på Azure.
 > 
 > 
 
-**Varför prov på dina data?**
-Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
+**Varför ska du testa dina data?**
+Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) är att möjliggöra snabb prototyper av data bearbetnings funktioner och maskin inlärnings modeller.
 
-Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="SQL"></a>Med hjälp av SQL
+## <a name="SQL"></a>Använda SQL
 Det här avsnittet beskrivs flera metoder som använder SQL för att utföra enkla stickprov mot data i databasen. Välj en metod baserat på datastorleken på din och motsvarande distribution.
 
-Följande två objekt visar hur du använder `newid` i SQL Server för att utföra är samplingen. Vilken metod du väljer beror på hur slumpmässiga du vill att exemplet ska vara (pk_id i följande exempel kod antas vara en automatiskt genererad primär nyckel).
+Följande två objekt visar hur du använder `newid` i SQL Server för att utföra samplingen. Vilken metod du väljer beror på hur slumpmässiga du vill att exemplet ska vara (pk_id i följande exempel kod antas vara en automatiskt genererad primär nyckel).
 
 1. Mindre strikta slumpmässigt urval
    
@@ -59,19 +59,19 @@ Tablesample kan användas för sampling data samt. Det här alternativet kan var
 > 
 > 
 
-### <a name="sql-aml"></a>Ansluta till Azure Machine Learning
+### <a name="sql-aml"></a>Ansluter till Azure Machine Learning
 Du kan direkt använda exempel frågorna ovan i modulen Azure Machine Learning [Importera data][import-data] för att nedåt – sampla data i farten och ta dem i ett Azure Machine Learning experiment. En skärm bild av hur du använder modulen läsare för att läsa exempel data visas här:
 
 ![läsare sql][1]
 
-## <a name="python"></a>Med hjälp av Python programmeringsspråket
-Det här avsnittet visar hur du använder den [pyodbc biblioteket](https://code.google.com/p/pyodbc/) att upprätta en ODBC ansluta till en SQL server-databas i Python. Databas anslutnings strängen ser ut så här: (Ersätt servername, dbname, username och Password med din konfiguration):
+## <a name="python"></a>Använda python-programmeringsspråk
+Det här avsnittet visar hur du använder [pyodbc-biblioteket](https://code.google.com/p/pyodbc/) för att upprätta en ODBC-anslutning till en SQL Server-databas i python. Databas anslutnings strängen ser ut så här: (Ersätt servername, dbname, username och Password med din konfiguration):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas](https://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Följande kod läser ett 0,1% exempel av data från en tabell i Azure SQL Database till en Pandas-data:
+[Pandas](https://pandas.pydata.org/) -biblioteket i python innehåller en omfattande uppsättning data strukturer och data analys verktyg för data manipulation för python-programmering. Följande kod läser ett 0,1% exempel av data från en tabell i Azure SQL Database till en Pandas-data:
 
     import pandas as pd
 
@@ -80,7 +80,7 @@ Den [Pandas](https://pandas.pydata.org/) i Python-bibliotek innehåller ett stor
 
 Du kan nu arbeta med exempeldata i dataram Pandas. 
 
-### <a name="python-aml"></a>Ansluta till Azure Machine Learning
+### <a name="python-aml"></a>Ansluter till Azure Machine Learning
 Du kan använda följande exempelkod för att spara data samplas ned till en fil och överföra den till en Azure-blob. Data i blobben kan läsas direkt i ett Azure Machine Learning experiment med hjälp av modulen [Importera data][import-data] . Stegen är följande: 
 
 1. Skriva dataram pandas till en lokal fil

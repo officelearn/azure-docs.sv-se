@@ -33,7 +33,7 @@ Vanliga problem som kan uppstå är:
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -194,7 +194,7 @@ Nu returnerar R ett enda värde som resultatet.
 |---|
 |1542|
 
-Varför det? I det här fallet, eftersom de två argumenten kan hanteras som vektorer av samma längd, returnerar R den inre produkten som en matris.  Detta är det förväntade beteendet enligt reglerna för linjära algebra. Det kan dock orsaka problem om det underordnade programmet förväntar sig att schemat inte ändras!
+Varför? I det här fallet, eftersom de två argumenten kan hanteras som vektorer av samma längd, returnerar R den inre produkten som en matris.  Detta är det förväntade beteendet enligt reglerna för linjära algebra. Det kan dock orsaka problem om det underordnade programmet förväntar sig att schemat inte ändras!
 
 ## <a name="merge-or-multiply-columns-of-different-length"></a>Sammanfoga eller multiplicera kolumner med olika längd
 

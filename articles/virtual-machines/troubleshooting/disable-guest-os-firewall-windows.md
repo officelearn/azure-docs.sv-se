@@ -118,7 +118,7 @@ Följ dessa steg om du vill använda [fjär registret](https://support.microsoft
 
 Om du har en situation där du inte kan komma åt den virtuella datorn med någon annan metod kommer det inte att gå att använda det anpassade skript tillägget och du måste arbeta i OFFLINELÄGE genom att gå direkt genom system disken. Det gör du genom att följa dessa steg:
 
-1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 
@@ -160,6 +160,6 @@ Om du har en situation där du inte kan komma åt den virtuella datorn med någo
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Koppla från systemdisken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
+10. [Koppla från system disken och skapa den virtuella datorn på nytt](troubleshoot-recovery-disks-portal-windows.md).
 
 11. Kontrollera om problemet är löst.

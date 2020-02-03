@@ -215,7 +215,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
 
 * * *
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Kontrol lera följande om ett problem inträffar:
 

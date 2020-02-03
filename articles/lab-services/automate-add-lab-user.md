@@ -25,7 +25,7 @@ Azure DevTest Labs gör att du snabbt kan skapa självbetjänings utvecklings-oc
 Om du vill lägga till en användare i ett labb lägger du till användaren i **användar rollen DevTest Labs** för labbet. Den här artikeln visar hur du automatiserar hur du lägger till en användare i ett labb på något av följande sätt:
 
 - Azure Resource Manager-mallar
-- Azure PowerShell-cmdlets 
+- Azure PowerShell-cmdletar 
 - Azure CLI.
 
 ## <a name="use-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
@@ -176,7 +176,7 @@ Om du planerar att använda mallen flera gånger för att lägga till flera Acti
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"
 ```
 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 Som beskrivs i introduktionen skapar du en ny roll tilldelning i Azure för att lägga till en användare i **användar rollen DevTest Labs** för labbet. I PowerShell gör du det med hjälp av cmdleten [New-AzureRMRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment?view=azurermps-6.13.0) . Denna cmdlet har många valfria parametrar som gör det möjligt för flexibiliteten. `ObjectId`, `SigninName`eller `ServicePrincipalName` kan anges som det objekt som beviljas behörigheter.  
 
 Här är ett exempel på Azure PowerShell kommandot som lägger till en användare i användar rollen DevTest Labs i det angivna labbet.

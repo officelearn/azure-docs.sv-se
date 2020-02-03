@@ -28,11 +28,11 @@ Certifierings testerna kontrollerar att:
 - Enhets koden implementerar enhets informations gränssnittet.
 - Kapacitets modellen och enhets koden fungerar med IoT Central.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
-- [Visual Studio-kod](https://code.visualstudio.com/download)
+- [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Tools för vs Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) Extension Pack
 
 Du måste också slutföra en enhets [kapacitets modell för att skapa en enhets](quickstart-create-pnp-device-windows.md) snabb start för Windows. Snabb starten visar hur du konfigurerar din utvecklings miljö med Vcpkg och skapar ett exempel projekt.

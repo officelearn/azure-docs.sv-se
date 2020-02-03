@@ -20,12 +20,12 @@ ms.locfileid: "76721276"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>Utforska data i TDSP (Team Data Science Process)
 
-Utforska data är ett steg i den [Team Data Science Process](overview.md).
+Att utforska data är ett steg i [processen för team data vetenskap](overview.md).
 
 I följande artiklar beskrivs hur du utforska data i tre olika lagringsmiljöer som vanligtvis används i Data Science Process:
 
-* Utforska [Azure blob-behållare](explore-data-blob.md) data med hjälp av den [Pandas](https://pandas.pydata.org/) Python-paketet.
-* Utforska [SQL Server](explore-data-sql-server.md) data med hjälp av SQL och med hjälp av ett programmeringsspråk som Python.
-* Utforska [Hive-tabell](explore-data-hive-tables.md) data med hjälp av Hive-frågor.
+* Utforska data i [Azure Blob-behållare](explore-data-blob.md) med [Pandas](https://pandas.pydata.org/) python-paketet.
+* Utforska [SQL Server](explore-data-sql-server.md) data med hjälp av SQL och genom att använda ett programmeringsspråk som python.
+* Utforska [Hive-tabell](explore-data-hive-tables.md) data med Hive-frågor.
 
 Dessutom beskriver videon för bearbetning av [data i Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)de moduler som används ofta för att rengöra och transformera data.

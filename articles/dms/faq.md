@@ -51,7 +51,7 @@ Azure Database Migration Service är den bästa metoden för migrering av databa
 **F. Hur jämför Azure Database Migration Service med det Azure Migrate erbjudandet?**
 Azure Migrate hjälper till med migrering av lokala virtuella datorer till Azure IaaS. Tjänsten utvärderar migreringens lämplighet och prestanda beroende storlek och ger kostnads uppskattningar för att köra dina lokala virtuella datorer i Azure. Azure Migrate är användbart för migrering av lokala VM-baserade arbets belastningar till virtuella Azure IaaS-datorer. Men till skillnad från Azure Database Migration Service är Azure Migrate inte en specialiserad databas migrations tjänst för Azure PaaS Relations databas plattformar som Azure SQL Database eller Azure SQL Database Hanterad instans.
 
-## <a name="setup"></a>Installation
+## <a name="setup"></a>Konfiguration
 
 **F. vilka är kraven för att använda Azure Database Migration Service?**
 Det krävs flera krav för att säkerställa att Azure Database Migration Service fungerar smidigt när du utför databas migreringar. Vissa krav gäller för alla scenarier (käll mål par) som stöds av tjänsten, medan andra krav är unika för ett visst scenario.

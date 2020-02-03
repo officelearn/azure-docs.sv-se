@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76748972"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -27,7 +27,7 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Skapa en C++-källfil med namnet `helloworld.cpp` och klistra in följande kod i den.
 

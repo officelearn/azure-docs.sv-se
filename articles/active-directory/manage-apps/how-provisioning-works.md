@@ -44,7 +44,7 @@ Azure AD Provisioning-tjänsten använder [SCIM 2,0-protokollet](https://techcom
 
 Om du vill begära en automatisk Azure AD Provisioning-anslutning för en app som för närvarande inte har en, fyller du i en [Azure Active Directory program förfrågan](https://aka.ms/aadapprequest).
 
-## <a name="authorization"></a>Autentisering
+## <a name="authorization"></a>Auktorisering
 
 Autentiseringsuppgifter krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. När du konfigurerar automatisk användar etablering för ett program måste du ange giltiga autentiseringsuppgifter. Du kan hitta autentiseringstypen och kraven för programmet genom att titta på själv studie kursen. I Azure Portal kan du testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etablerings app med de angivna autentiseringsuppgifterna.
 
@@ -67,7 +67,7 @@ När du konfigurerar etablering till ett SaaS-program, är en av typerna av attr
 
 För utgående etablering från Azure AD till ett SaaS-program är det vanligaste sättet att avgöra [vilka användare som](assign-user-or-group-access-portal.md) befinner sig i omfång för etablering. Eftersom användar tilldelningar också används för att aktivera enkel inloggning, kan samma metod användas för att hantera både åtkomst och etablering. Tilldelnings omfång gäller inte för inkommande etablerings scenarier som Workday och SuccessFactors.
 
-* **Grupper.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt.
+* **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt.
 
 * **Dynamiska grupper.** Azure AD-tjänsten för användar etablering kan läsa och etablera användare i [dynamiska grupper](../users-groups-roles/groups-create-rule.md). Tänk på dessa varningar och rekommendationer i åtanke:
 
@@ -154,7 +154,7 @@ Om ett fel i mål systemet förhindrar att en enskild användare läggs till, up
 
 Lös de här felen genom att justera attributvärdena för den berörda användaren i käll systemet, eller genom att justera mappningarna för attribut så att de inte orsakar konflikter.
 
-### <a name="quarantine"></a>Vistelse
+### <a name="quarantine"></a>Karantän
 
 Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekvent på grund av ett fel (till exempel ogiltiga administratörsautentiseringsuppgifter), försätts etablerings jobbet i "karantän". Det här läget anges i [sammanfattnings rapporten för etablering](check-status-user-account-provisioning.md) och via e-post om e-postaviseringar har kon figurer ats i Azure Portal.
 
@@ -188,7 +188,7 @@ Om någon av ovanstående fyra händelser inträffar och mål programmet inte st
 
 Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Planera en distribution av automatisk användar etablering](plan-auto-user-provisioning.md)
 

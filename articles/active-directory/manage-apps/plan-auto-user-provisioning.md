@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Inlärning
+## <a name="learn"></a>Läs mer
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -69,14 +69,14 @@ I den här artikeln används följande villkor:
 
 | Resurser| Länk och beskrivning |
 | - | - |
-| Webbseminarier on-demand| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
-| Videor| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
-| Nätbaserade kurser| SkillUp online: [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
+| Webbseminarier på begäran| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
+| Videoklipp| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Onlinekurser| SkillUp online: [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
-| Självstudiekurser| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
-| FAQ| [Vanliga frågor](user-provisioning.md) om automatisk användar etablering |
+| Självstudier| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
+| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](user-provisioning.md) om automatisk användar etablering |
 
-### <a name="solution-architectures"></a>Lösningsarkitekturer
+### <a name="solution-architectures"></a>Lösnings arkitekturer
 
 Azure AD Provisioning-tjänsten etablerar användare för att SaaS appar och andra system genom att ansluta till användar hanterings-API-slutpunkter som tillhandahålls av varje program leverantör. Dessa API-slutpunkter för användar hantering tillåter Azure AD att program mässigt skapa, uppdatera och ta bort användare.
 
@@ -293,7 +293,7 @@ Administratörer bör kontrol lera sammanfattnings rapporten för etablering fö
 
 Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rapporter på en takt som uppfyller organisationens krav. Azure AD behåller de flesta gransknings data i 30 dagar.
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Se följande länkar för att felsöka eventuella problem som kan uppstå under etableringen:
 

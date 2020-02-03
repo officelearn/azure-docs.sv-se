@@ -52,7 +52,7 @@ Program som kräver att en användar post finns i programmet innan en användare
 
 * Sänk kostnaderna för att vara värd för och underhålla anpassade etablerings lösningar.
 
-## <a name="choose-a-provisioning-method"></a>Välj en etablerings metod
+## <a name="choose-a-provisioning-method"></a>Välj en etableringsmetod
 
 Azure AD tillhandahåller flera integrerings vägar för att aktivera automatisk användar etablering för programmet.
 
@@ -113,7 +113,7 @@ Om du bara vill etablera användare vid första inloggningen till ditt program o
 
 SAML JIT använder anspråks informationen i SAML-token för att skapa och uppdatera användar information i programmet. Kunder kan konfigurera dessa nödvändiga anspråk i Azure AD-programmet efter behov. Ibland måste JIT-etableringen aktive ras från program sidan så att kunden kan använda den här funktionen. SAML JIT är användbart för att skapa och uppdatera användare, men det går inte att ta bort eller inaktivera användare i programmet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Aktivera enkel inloggning för ditt program](isv-sso-content.md)
 

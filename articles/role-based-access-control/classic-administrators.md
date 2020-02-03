@@ -125,8 +125,8 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Ja | Inga | Inga |
-| Azure AD-konto | Ja | Ja | Inga |
+| Microsoft-konto | Ja | Nej | Nej |
+| Azure AD-konto | Ja | Ja | Nej |
 
 Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. abby@contoso.com kan till exempel ändra tjänst administratören till bob@contoso.com, men kan inte ändra tjänst administratören till john@notcontoso.com om john@notcontoso.com har en närvaro i contoso.com-katalogen.
 

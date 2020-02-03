@@ -20,16 +20,16 @@ ms.locfileid: "76718641"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 
-Den här genomgången använder HDInsight Spark för att utföra datagranskning och binär klassificering och regression modellering uppgifter på ett exempel på NYC Taxitransport resa och färdavgiften 2013 datauppsättning.  Vi går igenom stegen i den [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), slutpunkt till slutpunkt, använda ett HDInsight Spark-kluster för bearbetning och Azure BLOB för att lagra data och modeller. Processen utforskar och visualiserar data som tillkommit från en Azure Storage Blob och förbereder data för att skapa förutsägelsemodeller. De här modellerna är build med hjälp av Spark MLlib verktygen till binär klassificering och regression modellering aktiviteter.
+Den här genomgången använder HDInsight Spark för att utföra datagranskning och binär klassificering och regression modellering uppgifter på ett exempel på NYC Taxitransport resa och färdavgiften 2013 datauppsättning.  Det vägleder dig genom stegen i [data vetenskaps processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), från slut punkt till slut punkt, med ett HDInsight Spark-kluster för bearbetning och Azure-blobbar för att lagra data och modeller. Processen utforskar och visualiserar data som tillkommit från en Azure Storage Blob och förbereder data för att skapa förutsägelsemodeller. De här modellerna är build med hjälp av Spark MLlib verktygen till binär klassificering och regression modellering aktiviteter.
 
-* Den **binär klassificering** uppgift är att förutsäga om ett tips betalas för resan. 
-* Den **regression** uppgift är att förutsäga mängden tips baserat på andra funktioner som tips. 
+* Den **binära klassificerings** uppgiften är att förutsäga om ett tips betalas ut för resan. 
+* **Regressions** uppgiften är att förutsäga hur mycket av tipset som baseras på andra Tip-funktioner. 
 
 Modeller som vi använder är logistic och linjär regression, slumpmässigt skogar och gradient bättre träd:
 
-* [Linjär regression med Descent](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) är en linjär regressionsmodell som använder en Stokastisk brantaste Lutningsmetoden (Descent)-metod och skalning för att förutsäga tips belopp betalas för optimering och funktion. 
-* [Logistic regression med LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) eller ”logit” regression är en regressionsmodell som kan användas när den beroende variabeln är kategoriska göra dataklassificering. LBFGS är en kvasi Karlsson optimering algoritm som tillhandahåller algoritmen Broyden – Fletcher – Goldfarb – Shanno (BFGS) med hjälp av en begränsad del av minnet och som ofta används i machine learning.
-* [Slumpmässig skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för beslutsträd.  De kombinera många beslutsträd för att minska risken för overfitting. Slumpmässig skogar för regression och klassificering och kan hantera kategoriska funktioner och kan utökas till inställningen multiklass-baserad klassificering. De kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. Slumpmässig skogar är en av de mest framgångsrika machine learning-modeller för klassificering och regression.
+* [Linjär regression med SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) är en linjär Regressions modell som använder sig av en Stochastic gradient BRANTASTE (SGD)-metod och för optimering och funktions skalning för att förutsäga Tip-beloppen som betalas. 
+* [Logistisk regression med LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) eller "Logit" regression är en Regressions modell som kan användas när den beroende variabeln är kategoriska för att utföra data klassificering. LBFGS är en kvasi Karlsson optimering algoritm som tillhandahåller algoritmen Broyden – Fletcher – Goldfarb – Shanno (BFGS) med hjälp av en begränsad del av minnet och som ofta används i machine learning.
+* [Slumpmässiga skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för besluts träd.  De kombinera många beslutsträd för att minska risken för overfitting. Slumpmässig skogar för regression och klassificering och kan hantera kategoriska funktioner och kan utökas till inställningen multiklass-baserad klassificering. De kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. Slumpmässig skogar är en av de mest framgångsrika machine learning-modeller för klassificering och regression.
 * [Tonings utökat träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) är ensembler i besluts träd. GBTS träna besluts träd iterativt för att minimera en förlust funktion. GBTS används för regression och klassificering och kan hantera kategoriska-funktioner, kräver inte funktions skalning och kan fånga icke-linjära och funktions interaktioner. De kan också användas i en inställning för multiclass-klassificering.
 
 Modellering stegen också innehålla kod som visar hur du tränar, utvärdera och spara varje typ av modellen. Python har använts för att skriva kod till lösningen och för att visa relevanta områden.   
@@ -39,38 +39,38 @@ Modellering stegen också innehålla kod som visar hur du tränar, utvärdera oc
 > 
 > 
 
-## <a name="prerequisites"></a>Krav
-Du behöver ett Azure-konto och en Spark 1.6 (eller Spark 2.0) HDInsight-kluster för att slutföra den här genomgången. Se den [översikt över datavetenskap med Spark på Azure HDInsight](spark-overview.md) för instruktioner om hur du uppfyller dessa krav. Avsnittet innehåller också en beskrivning av NYC 2013 Taxi-data som används här och instruktioner om hur du kör kod från en Jupyter notebook i Spark-klustret. 
+## <a name="prerequisites"></a>Förutsättningar
+Du behöver ett Azure-konto och en Spark 1.6 (eller Spark 2.0) HDInsight-kluster för att slutföra den här genomgången. Mer information om hur du uppfyller dessa krav finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md) . Avsnittet innehåller också en beskrivning av NYC 2013 Taxi-data som används här och instruktioner om hur du kör kod från en Jupyter notebook i Spark-klustret. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Spark-kluster och bärbara datorer
-Steg för konfiguration och kod finns i den här genomgången för att använda ett HDInsight Spark 1.6. Men tillhandahålls Jupyter notebooks för HDInsight Spark 1.6- och Spark 2.0. En beskrivning av anteckningsböcker och länkar till dem finns i den [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-lagringsplatsen som innehåller dessa. Dessutom koden här och i länkade anteckningsböcker är generisk och bör fungera i ett Spark-kluster. Om du inte använder HDInsight Spark, konfiguration och hantering av steg kanske skiljer sig från vad som anges här. För enkelhetens skull följer du länkarna till Jupyter-anteckningsböcker för Spark 1.6 (för att köras i pySpark-kerneln för Jupyter Notebook-server) och Spark 2.0 (för att köras i pySpark3 kernel Jupyter Notebook-server):
+Steg för konfiguration och kod finns i den här genomgången för att använda ett HDInsight Spark 1.6. Men tillhandahålls Jupyter notebooks för HDInsight Spark 1.6- och Spark 2.0. En beskrivning av antecknings böckerna och länkar till dem finns i [Readme.MD](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-databasen som innehåller dem. Dessutom koden här och i länkade anteckningsböcker är generisk och bör fungera i ett Spark-kluster. Om du inte använder HDInsight Spark, konfiguration och hantering av steg kanske skiljer sig från vad som anges här. För enkelhetens skull följer du länkarna till Jupyter-anteckningsböcker för Spark 1.6 (för att köras i pySpark-kerneln för Jupyter Notebook-server) och Spark 2.0 (för att köras i pySpark3 kernel Jupyter Notebook-server):
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 anteckningsböcker
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): innehåller information om hur du utför datagranskning, modellering och bedömning med flera olika algoritmer.
+[pySpark-Machine-Learning-data-science-Spark-data-utforskning-modellering. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): ger information om hur du utför data granskning, modellering och poäng med flera olika algoritmer.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0-anteckningsböcker
 Regression och klassificering uppgifter som implementeras med hjälp av ett Spark 2.0-kluster finns i separata anteckningsböcker och klassificering anteckningsboken använder en annan datauppsättning:
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning, modellering, och bedömning i Spark 2.0-kluster med NYC Taxi-resa och avgiften-datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har lagt till för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi-data, visas i nästa anteckningsboken i den här listan. Se anteckningarna som följer den här listan och som jämför dessa antecknings böcker. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av välkända flygbolag i tid avgår datauppsättningen från 2011 och 2012. Vi integrerade flyg data uppsättningen med flyg platsens väder data (till exempel windspeed, temperatur, höjd osv.) före modellering, så att dessa väder funktioner kan ingå i modellen.
+- [Spark 2.0-pySpark3-Machine-Learning-data-science-Spark-Advanced-data-utforskning-modellering. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför data granskning, modellering och poängsättning i Spark 2,0-kluster med NYC taxi-resa och pris data uppsättning som beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har lagt till för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi-data, visas i nästa anteckningsboken i den här listan. Se anteckningarna som följer den här listan och som jämför dessa antecknings böcker. 
+- [Spark 2.0-pySpark3_NYC_Taxi_Tip_Regression. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data Datatransformering (Spark SQL-och dataframe-åtgärder), utforskning, modellering och bedömning med hjälp av NYC taxi resa och pris data uppsättning som beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark 2.0-pySpark3_Airline_Departure_Delay_Classification. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data Datatransformering (Spark SQL-och dataframe-åtgärder), utforskning, modellering och bedömning med hjälp av den välkända flyg data uppsättningen från 2011 och 2012. Vi integrerade flyg data uppsättningen med flyg platsens väder data (till exempel windspeed, temperatur, höjd osv.) före modellering, så att dessa väder funktioner kan ingå i modellen.
 
 <!-- -->
 
 > [!NOTE]
 > Flygbolag datauppsättningen har lagts till Spark 2.0-anteckningsböcker för att ge en bättre illustrering användningen av algoritmer för klassificering. Se följande länkar för information om flygbolag i tid avgång datauppsättningen och väder datauppsättning:
 > 
-> - Flygbolag i tid avgång data: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> - Flyg-vid-tid-sändnings data: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
 > 
-> - Flygplats weather-data: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
+> - Flyg plats väder data: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-> Spark 2.0-anteckningsböcker på NYC taxi och flygbolag flygning fördröjning-datauppsättningar kan ta 10 minuter eller mer att köra (beroende på storleken på HDI-kluster). Första anteckningsboken i listan ovan visar många aspekter av datagranskning, visualisering och ML modellera utbildning på en bärbar dator som tar mindre tid att köra med ned samplas NYC datamängd, där filerna taxi och avgiften har redan domänansluten: [ Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) anteckningsboken tar mycket kortare tid att slutföra (2-3 minuter) och kan vara en bra startpunkt för att snabbt utforska koden har vi lagt till för Spark 2.0. 
+> Spark 2.0-anteckningsböcker på NYC taxi och flygbolag flygning fördröjning-datauppsättningar kan ta 10 minuter eller mer att köra (beroende på storleken på HDI-kluster). Den första bärbara datorn i listan ovan visar många aspekter av utbildningen för data utforskning, visualisering och ML-modell i en bärbar dator som tar mindre tid att köra med insamlade NYC data uppsättningar. i vilka taxi-och avgifts filerna har varit kopplade till varandra: [Spark 2.0-pySpark3-Machine-Learning-data-science-Spark-Advanced-data-utforskning-modellering. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) den här antecknings boken tar mycket kortare tid att slutföra (2-3 minuter) och kan vara en bra utgångs punkt för att snabbt utforska den kod vi har angett för Spark 2,0. 
 
 <!-- -->
 
@@ -128,7 +128,7 @@ PySpark-kärnor som tillhandahålls med Jupyter-anteckningsböcker har en förin
 
 PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med %%. Det finns två kommandon som används i följande kodexempel.
 
-* **%% lokala** anger att koden i efterföljande rader är att köras lokalt. Koden måste vara giltig Python-kod.
+* **%% lokal** Anger att koden i efterföljande rader ska köras lokalt. Koden måste vara giltig Python-kod.
 * **%% SQL-o \<variabel namn >** Kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokal Python-kontext som en Pandas-DataFrame.
 
 Mer information om Jupyter Notebook-kärnor och de fördefinierade "MAGICS" finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -202,7 +202,7 @@ Här är koden för datainmatning.
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Åtgången tid att köra ovanför cellen: 51.72 sekunder
 
@@ -212,8 +212,8 @@ När data har trätt i Spark, är nästa steg i data science process att få bä
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Rita ett histogram för passagerar antal frekvenser i taxi och RETUR-exemplet
 Den här koden och efterföljande kodfragment kan du använda SQL magic för att fråga exemplet och lokala magic data ska ritas.
 
-* **SQL magic (`%%sql`)** The HDInsight PySpark-kernel har stöd för enkel infogade HiveQL frågor mot sqlContext. Den (-o VARIABLE_NAME) argumentet kvarstår utdata från SQL-frågan som en Pandas-DataFrame på Jupyter-servern. Den här inställningen gör utdata tillgängligt i lokalt läge.
-* Den  **`%%local` magic** används för att köra kod lokalt på servern och Jupyter, som är huvudnoden på HDInsight-klustret. Normalt använder du `%%local` magic tillsammans med den `%%sql` magic med parametern -o. Parametern -o skulle spara utdata av SQL-frågan lokalt och sedan %% lokala magic ska utlösa nästa uppsättning kodfragmentet att köra lokalt mot utdata från SQL-frågor som sparas lokalt
+* **SQL-Magic (`%%sql`)** HDInsight PySpark-kärnan stöder enkla infogade HiveQL-frågor mot sqlContext. Den (-o VARIABLE_NAME) argumentet kvarstår utdata från SQL-frågan som en Pandas-DataFrame på Jupyter-servern. Den här inställningen gör utdata tillgängligt i lokalt läge.
+* **`%%local` Magic** används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. Normalt använder du `%%local` Magic tillsammans med parametern `%%sql` Magic with-o. Parametern -o skulle spara utdata av SQL-frågan lokalt och sedan %% lokala magic ska utlösa nästa uppsättning kodfragmentet att köra lokalt mot utdata från SQL-frågor som sparas lokalt
 
 Utdata visualiseras automatiskt när du kör koden.
 
@@ -228,7 +228,7 @@ Den här frågan hämtar kommunikation efter passagerartrafik antal.
     WHERE passenger_count > 0 and passenger_count < 7 
     GROUP BY passenger_count 
 
-Den här koden skapar en lokal dataram från frågeresultatet visas och visar data. Den `%%local` magic skapar en lokal dataram, `sqlResults`, som kan användas för med matplotlib. 
+Den här koden skapar en lokal dataram från frågeresultatet visas och visar data. `%%local` Magic skapar en lokal data ram `sqlResults`som kan användas för att rita med matplotlib. 
 
 > [!NOTE]
 > Den här PySpark-magic används flera gånger i den här genomgången. Om mängden data som är stor, bör du ta prov för att skapa en dataram som ryms i lokalt minne.
@@ -259,11 +259,11 @@ Här är koden för att rita kommunikation med passagerar-antal
     fig.set_ylabel('Trip counts')
     plt.show()
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 ![Resans frekvens efter passagerar-antal](./media/spark-data-exploration-modeling/trip-freqency-by-passenger-count.png)
 
-Du kan välja bland flera olika typer av visualiseringar (register, cirkel, rad, området eller fält) med hjälp av den **typ** menyn knappar i anteckningsboken. Fältet området visas här.
+Du kan välja bland flera olika typer av visualiseringar (tabell, cirkel, linje, yta eller stapel) med hjälp av meny knapparna **typ** i antecknings boken. Fältet området visas här.
 
 ### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>Rita ett histogram för tips belopp och hur mycket tips varierar beroende på passagerartrafik antal och avgiften belopp.
 Använd en SQL-fråga till exempeldata.
@@ -313,7 +313,7 @@ Den här kodcell använder SQL-fråga för att skapa tre områden data.
     plt.show()
 
 
-**UTDATA:** 
+**UTDATAPARAMETRAR** 
 
 ![Fördelning av tips](./media/spark-data-exploration-modeling/tip-amount-distribution.png)
 
@@ -353,15 +353,15 @@ Den här koden visar hur du skapar en ny funktion med datagrupperingen timmar ti
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
-**UTDATA:** 
+**UTDATAPARAMETRAR** 
 
 126050
 
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>Indexera och koda kategoriska funktioner för mata in modellering funktioner
 Det här avsnittet visar hur du indexera eller koda kategoriska funktioner för mata in modelleringsfunktioner. Modellering och förutsäga funktioner för MLlib kräver funktioner med kategoriska indata till indexerade eller kodade före användning. Beroende på modellen måste du indexera eller koda dem på olika sätt:  
 
-* **Trädet-baserade modellering** kräver kategorier som ska kodas som numeriska värden (till exempel en funktion med tre kategorier kan kodas med 0, 1, 2). Den här algoritmen tillhandahålls av MLlib [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) -funktionen. Den här funktionen kodar en strängkolumn för etiketter till en kolumn med etiketten index som sorteras efter frekvenser som etikett. Även om indexeras med numeriska värden för indata och datahantering kan i trädet-baserade algoritmer anges för att hantera dem på lämpligt sätt som kategorier. 
-* **Logistic och linjära Regressionsmodeller** kräver en frekvent kodning, var, till exempel en funktion med tre kategorier kan expanderas till tre kolumner i funktionen, med varje som innehåller 0 eller 1 beroende på kategorin för en uppmaning i. MLlib ger [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) som utför en frekvent kodning. Den här encoder mappar en kolumn med etiketten index till en kolumn med binära vektorer, med högst ett ett-värde. Den här kodningen kan algoritmer som förväntar sig numeriska värden funktioner, till exempel logistic regression som ska tillämpas på kategoriska funktioner.
+* **Tree-baserad modellering** kräver att kategorier kodas som numeriska värden (till exempel kan en funktion med tre kategorier kodas med 0, 1, 2). Den här algoritmen tillhandahålls av MLlib [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) -funktionen. Den här funktionen kodar en strängkolumn för etiketter till en kolumn med etiketten index som sorteras efter frekvenser som etikett. Även om indexeras med numeriska värden för indata och datahantering kan i trädet-baserade algoritmer anges för att hantera dem på lämpligt sätt som kategorier. 
+* **Logistik-och linjära Regressions modeller** kräver en-frekvent kodning, där till exempel en funktion med tre kategorier kan utökas till tre funktions kolumner, där var och en innehåller 0 eller 1 beroende på en observations kategori. MLlib tillhandahåller funktionen [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) för att göra en snabb kodning. Den här encoder mappar en kolumn med etiketten index till en kolumn med binära vektorer, med högst ett ett-värde. Den här kodningen kan algoritmer som förväntar sig numeriska värden funktioner, till exempel logistic regression som ska tillämpas på kategoriska funktioner.
 
 Här är koden för att indexera och koda kategoriska funktioner:
 
@@ -406,14 +406,14 @@ Här är koden för att indexera och koda kategoriska funktioner:
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Åtgången tid att köra ovanför cellen: 1,28 sekunder
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Skapa taggade point-objekt för mata in ML-funktioner
-Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som datatypen taggade punkt och koda den så att den kan användas för att träna och testa MLlib logistic regression och andra klassificering modeller. Taggade point-objekt är flexibel distribuerade datauppsättningar (RDD) formaterad på ett sätt som krävs som indata av de flesta ML-algoritmer i MLlib. En [märkta punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) är en lokal vector kompakta eller null-optimerade, som är associerad med en etikett/svar.  
+Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som datatypen taggade punkt och koda den så att den kan användas för att träna och testa MLlib logistic regression och andra klassificering modeller. Taggade point-objekt är flexibel distribuerade datauppsättningar (RDD) formaterad på ett sätt som krävs som indata av de flesta ML-algoritmer i MLlib. En [märkt punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) är en lokal vektor, antingen kompakt eller sparse, som är associerad med en etikett/ett svar.  
 
-Det här avsnittet innehåller koden som visar hur du indexerar kategoriska textdata som en [märkta punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) datatypen och koda den så att den kan användas för att träna och testa MLlib logistic regression och andra klassificering modeller. Taggade point-objekt är flexibel distribuerade datauppsättningar (RDD) som består av en etikett (mål/svar-variabel) och funktionen vektor. Det här formatet krävs som indata av många ML-algoritmer i MLlib.
+Det här avsnittet innehåller kod som visar hur du kan indexera kategoriska text data som en [etikettad punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) data typ och koda den så att den kan användas för att träna och testa MLlib logistik regression och andra klassificerings modeller. Taggade point-objekt är flexibel distribuerade datauppsättningar (RDD) som består av en etikett (mål/svar-variabel) och funktionen vektor. Det här formatet krävs som indata av många ML-algoritmer i MLlib.
 
 Här är koden för att indexera och koda textfunktioner för binär klassificering.
 
@@ -501,12 +501,12 @@ Den här koden skapar ett slumpmässigt urval av data (25% används här). Även
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Tids åtgång för att köra ovanför cell: 0,24 sekund
 
 ### <a name="feature-scaling"></a>Funktionen skalning
-Funktionen skalning, även kallat databasnormalisering försäkrar att funktioner med brett erläggas värden har inte gett överdriven väga i funktionen servicenivåmål. Koden för funktionen skalning använder den [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) skala funktioner till enhet avvikelse. Den tillhandahålls av MLlib för användning i linjär regression med Stokastisk brantaste Lutningsmetoden (Descent), en populär algoritm för att träna en mängd andra maskininlärningsmodeller som reglerats upprepningar eller support vector datorer (SVM).
+Funktionen skalning, även kallat databasnormalisering försäkrar att funktioner med brett erläggas värden har inte gett överdriven väga i funktionen servicenivåmål. I koden för funktions skalning används [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) för att skala funktionerna till enhets avvikelse. Den tillhandahålls av MLlib för användning i linjär regression med Stokastisk brantaste Lutningsmetoden (Descent), en populär algoritm för att träna en mängd andra maskininlärningsmodeller som reglerats upprepningar eller support vector datorer (SVM).
 
 > [!NOTE]
 > Vi har hittat LinearRegressionWithSGD-algoritmen för att vara känslig för funktionen skalning.
@@ -544,7 +544,7 @@ Här är koden för att skala variabler för användning med regularized linjär
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Åtgången tid att köra ovanför cellen: 13.17 sekunder
 
@@ -575,7 +575,7 @@ Den tid det tar för träning och testning av ML-algoritmer kan minskas genom ca
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:** 
+**UTDATAPARAMETRAR** 
 
 Tids åtgång för att köra ovanför cell: 0,15 sekund
 
@@ -588,14 +588,14 @@ Det här avsnittet visas hur användning tre modeller för binär klassificering
 
 Varje modell att skapa avsnitt med exempelkod delas upp i steg: 
 
-1. **Modellera utbildning** data med en parameteruppsättning
-2. **Modellera utvärdering** på en datauppsättning för testning med mått
-3. **Sparar modell** i blob för framtida användning
+1. **Modellera tränings** data med en parameter uppsättning
+2. **Modell utvärdering** av en test data uppsättning med mått
+3. **Spara modell** i BLOB för framtida användning
 
 ### <a name="classification-using-logistic-regression"></a>Klassificering med hjälp av logistic regression
-Koden i det här avsnittet visar hur du tränar, utvärdera och spara en logistic regression-modellen med [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) som förutsäger om huruvida ett tips betalas för en resa i NYC taxi resa och avgiften datauppsättningen.
+Koden i det här avsnittet visar hur du tränar, utvärderar och sparar en logistik Regressions modell med [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) som förutsäger om ett tips är betalt för en resa i NYC taxi-resan och pris data uppsättningen.
 
-**Träna logistic regression-modellen med hjälp av KA och finjustering oinskränkt**
+**Träna logistik Regressions modellen med hjälp av ka och dess parameter Svep**
 
     # LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
 
@@ -628,7 +628,7 @@ Koden i det här avsnittet visar hur du tränar, utvärdera och spara en logisti
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**UTDATA:** 
+**UTDATAPARAMETRAR** 
 
 Koefficienter: [0.0082065285375,-0.0223675576104,-0.0183812028036, -3.48124578069e - 05,-0.00247646947233,-0.00165897881503, 0.0675394837328,-0.111823113101,-0.324609912762,-0.204549780032,-1.36499216354, 0.591088507921, - 0.664263411392,-1.00439726852, 3.46567827545,-3.51025855172,-0.0471341112232,-0.043521833294, 0.000243375810385, 0.054518719222]
 
@@ -636,7 +636,7 @@ Skärningspunkt för:-0.0111216486893
 
 Åtgången tid att köra ovanför cellen: 14.43 sekunder
 
-**Utvärdera modellen binär klassificering med standardmått**
+**Utvärdera den binära klassificerings modellen med standard mått**
 
     #EVALUATE LOGISTIC REGRESSION MODEL WITH LBFGS
 
@@ -682,7 +682,7 @@ Skärningspunkt för:-0.0111216486893
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds";
 
-**UTDATA:** 
+**UTDATAPARAMETRAR** 
 
 Området under PR = 0.985297691373
 
@@ -698,9 +698,9 @@ F1 Poäng = 0.984304060189
 
 Åtgången tid att köra ovanför cellen: 57.61 sekunder
 
-**Rita ROC-kurvan.**
+**Rita upp ROC-kurvan.**
 
-Den *predictionAndLabelsDF* registreras som en tabell, *tmp_results*, i föregående cell. *tmp_results* kan användas för att gör frågor och utdataresultat i sqlResults dataram för. Här är koden.
+*PredictionAndLabelsDF* är registrerad som en tabell *tmp_results*i föregående cell. *tmp_results* kan användas för att utföra frågor och utmatnings resultat i sqlResults data-ram för att rita. Här är koden.
 
     # QUERY RESULTS                              
     %%sql -q -o sqlResults
@@ -735,7 +735,7 @@ Här är koden för att göra förutsägelser och rita ROC-kurvan.
     plt.show()
 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 ![Logistic regression ROC curve.png](./media/spark-data-exploration-modeling/logistic-regression-roc-curve.png)
 
@@ -785,7 +785,7 @@ Koden i det här avsnittet visar hur du tränar, utvärdera och spara en slumpm�
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Området under ROC = 0.985297691373
 
@@ -831,7 +831,7 @@ Koden i det här avsnittet visar hur du tränar, utvärdera, och spara en gradie
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Området under ROC = 0.985297691373
 
@@ -846,9 +846,9 @@ Det här avsnittet visas hur användning tre modeller för regression uppgiften 
 
 Dessa modeller beskrivs i inledningen. Varje modell att skapa avsnitt med exempelkod delas upp i steg: 
 
-1. **Modellera utbildning** data med en parameteruppsättning
-2. **Modellera utvärdering** på en datauppsättning för testning med mått
-3. **Sparar modell** i blob för framtida användning
+1. **Modellera tränings** data med en parameter uppsättning
+2. **Modell utvärdering** av en test data uppsättning med mått
+3. **Spara modell** i BLOB för framtida användning
 
 ### <a name="linear-regression-with-sgd"></a>Linjär regression med Descent
 Koden i det här avsnittet visar hur du använder skalade funktioner för att träna en linjär regression som använder stokastisk brantaste lutningsmetoden (Descent) för optimering och hur du poäng, utvärdera och spara modellen i Azure Blob Storage (WASB).
@@ -897,7 +897,7 @@ Koden i det här avsnittet visar hur du använder skalade funktioner för att tr
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 Koefficienter: [0.00457675809917,-0.0226314167349,-0.0191910355236, 0.246793409578, 0.312047890459, 0.359634405999, 0.00928692253981,-0.000987181489428,-0.0888306617845, 0.0569376211553, 0.115519551711, 0.149250164995,- 0.00990211159703,-0.00637410344522, 0.545083566179,-0.536756072402, 0.0105762393099,-0.0130117577055, 0.0129304737772,-0.00171065945959]
 
@@ -953,7 +953,7 @@ Koden i det här avsnittet visar hur du tränar, utvärdera och spara en slumpm�
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 RMSE = 0.891209218139
 
@@ -1004,7 +1004,7 @@ Koden i det här avsnittet visar hur du tränar, utvärdera och spara en gradien
     timedelta = round((timeend-timestart).total_seconds(), 2) 
     print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 RMSE = 0.908473148639
 
@@ -1012,9 +1012,9 @@ R-sqr = 0.753835096681
 
 Åtgången tid att köra ovanför cellen: 34.52 sekunder
 
-**Rita**
+**Basera**
 
-*tmp_results* registreras som en Hive-tabell i föregående cell. Resultat från tabellen matats ut till den *sqlResults* dataram för. Här är koden
+*tmp_results* registreras som en Hive-tabell i föregående cell. Resultat från tabellen är utdata till *sqlResults* data-ram för att rita. Här är koden
 
     # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1040,12 +1040,12 @@ Här är koden för att rita data med Jupyter-server.
     plt.show(ax)
 
 
-**UTDATA:**
+**UTDATAPARAMETRAR**
 
 ![Aktuella-vs-förutse-tips-belopp](./media/spark-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="clean-up-objects-from-memory"></a>Rensa objekt från minnet
-Använd `unpersist()` att ta bort objekt som cachelagrats i minnet.
+Använd `unpersist()` för att ta bort objekt som cachelagrats i minnet.
 
     # REMOVE ORIGINAL DFs
     taxi_df_train_cleaned.unpersist()
@@ -1069,7 +1069,7 @@ Använd `unpersist()` att ta bort objekt som cachelagrats i minnet.
 
 
 ## <a name="record-storage-locations-of-the-models-for-consumption-and-scoring"></a>Post lagringsplatser av modeller för förbrukning och bedömning
-Att använda och bedöma en oberoende datauppsättning som beskrivs i den [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md) avsnittet, som du behöver kopiera och klistra in dessa filnamn som innehåller de sparade modeller som skapats här i förbrukningen Jupyter-anteckningsboken. Här är koden för att skriva ut sökvägar till modellfiler som du behöver det inte.
+Om du vill förbruka en oberoende data uppsättning som beskrivs i avsnittet [Poäng och utvärdera Spark-skapade maskin inlärnings modeller](spark-model-consumption.md) måste du kopiera och klistra in dessa fil namn som innehåller de sparade modeller som skapats här i den Jupyter Notebook. Här är koden för att skriva ut sökvägar till modellfiler som du behöver det inte.
 
     # MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1080,7 +1080,7 @@ Att använda och bedöma en oberoende datauppsättning som beskrivs i den [poän
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**UTDATA**
+**UTDATAPARAMETRAR**
 
 logisticRegFileLoc = modelDir + ”LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568”
 
@@ -1094,10 +1094,10 @@ BoostedTreeClassificationFileLoc = modelDir + ”GradientBoostingTreeClassificat
 
 BoostedTreeRegressionFileLoc = modelDir + ”GradientBoostingTreeRegression_2016-05-0317_06_51.737282”
 
-## <a name="whats-next"></a>Vad står på tur?
+## <a name="whats-next"></a>Nästa steg
 Nu när du har skapat regression och klassificering modeller med Spark MlLib kan är du redo att lära dig hur du bedöma och utvärdera dessa modeller. Avancerad datagranskning och modellering notebook aktivitetsgruppsrapport djupare i inklusive korsvalidering, hyper-parametern oinskränkt, och modellera utvärdering. 
 
-**Modellera förbrukning:** information om hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet finns [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
+**Modell förbrukning:** Information om hur du utvärderar och utvärderar klassificerings-och Regressions modeller som skapats i det här avsnittet finns i [Poäng och utvärdera Spark-skapade maskin inlärnings modeller](spark-model-consumption.md).
 
-**Korsvalidering och finjustering oinskränkt**: se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parameter
+**Rensning av kors validering och Cross-parameter**: se [Avancerad data granskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med kors validering och rensning av Hyper-parameter
 

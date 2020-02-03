@@ -23,12 +23,12 @@ I den här artikeln får du lära dig hur du använder python, TensorFlow och Az
 > * Bygg en server lös HTTP API för att klassificera en avbildning som innehåller en hund eller en katt.
 > * Använda API: et från en webbapp.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python-3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 och python 3.6. x verifieras med Azure Functions. Python 3,8 och senare versioner stöds inte ännu.)
 - [Azure Functions Core tools](functions-run-local.md#install-the-azure-functions-core-tools)
-- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/)
+- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/)
 
 ### <a name="prerequisite-check"></a>Krav kontroll
 

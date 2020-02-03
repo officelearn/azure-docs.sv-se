@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 De tillgängliga alternativen är:
 
-| Alternativ | Information | Default |
+| Alternativ | Information | Standard |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | /p: "plats" |Sökväg till installationsmappen för Azure Backup agenten. |C:\Program\Microsoft Azure Recovery Services agent |
@@ -122,7 +122,7 @@ De tillgängliga alternativen är:
 | /ph |Proxyvärd |- |
 | /po |Proxy-värdens Port nummer |- |
 | /pu |Användar namn för proxy-värd |- |
-| /pw |Lösen ord för proxy |- |
+| /pw |Lösenord för proxy |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Registrera en Windows Server-eller Windows-klientdator i ett Recovery Services-valv
 
@@ -203,7 +203,7 @@ Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 
-## <a name="encryption-settings"></a>Krypterings inställningar
+## <a name="encryption-settings"></a>Krypteringsinställningar
 
 De säkerhets kopierings data som skickas till Azure Backup krypteras för att skydda data sekretessen. Krypterings lösen frasen är "Password" för att dekryptera data vid tidpunkten för återställningen.
 

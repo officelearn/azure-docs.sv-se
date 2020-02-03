@@ -22,23 +22,23 @@ ms.locfileid: "76722177"
 
 Den här artikeln innehåller exempel Hive-skript som används för att utforska data i Hive-tabeller i ett HDInsight Hadoop-kluster.
 
-Den här uppgiften är ett steg i den [Team Data Science Process](overview.md).
+Den här uppgiften är ett steg i [processen för team data vetenskap](overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
-* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md)
-* Etablerat en anpassade Hadoop-kluster med HDInsight-tjänsten. Om du behöver mer information, se [anpassa Azure HDInsight Hadoop-kluster för Advanced Analytics](customize-hadoop-cluster.md).
-* Data har överförts till Hive-tabeller i Azure HDInsight Hadoop-kluster. Om den inte har det, följ instruktionerna i [skapa och läsa in data till Hive-tabeller](move-hive-tables.md) först överföra data till Hive-tabeller.
-* Aktivera fjärråtkomst till klustret. Om du behöver mer information, se [åt Head noden av Hadoop-klustret](customize-hadoop-cluster.md).
-* Om du behöver mer information om hur du gör Hive-frågor, se [så skicka Hive-frågor](move-hive-tables.md#submit)
+* Skapa ett Azure storage-konto. Om du behöver instruktioner, se [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md)
+* Etablerat en anpassade Hadoop-kluster med HDInsight-tjänsten. Om du behöver instruktioner, se [anpassa Azure HDInsight Hadoop kluster för avancerad analys](customize-hadoop-cluster.md).
+* Data har överförts till Hive-tabeller i Azure HDInsight Hadoop-kluster. Om den inte har det följer du anvisningarna i [skapa och läsa in data till Hive-tabeller](move-hive-tables.md) för att ladda upp data till Hive-tabeller först.
+* Aktivera fjärråtkomst till klustret. Om du behöver instruktioner, se [åtkomst till Head-noden i Hadoop-klustret](customize-hadoop-cluster.md).
+* Om du behöver instruktioner om hur du skickar Hive-frågor, se [så här skickar du Hive-frågor](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Exempelskript Hive-fråga för datautforskning
-1. Få ett värde för observationer per partition  `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Få ett värde för observationer per dag  `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+1. Hämta antalet observationer per partition `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Hämta antalet observationer per dag `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 3. Hämta nivåer i en kategoriska kolumn  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. Hämta antalet nivåer i kombination med två kategoriska kolumner  `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Hämta antalet nivåer i kombination av två kategoriska kolumner `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 5. Hämta fördelningen för numeriska kolumner  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extrahera poster från två tabeller
@@ -69,5 +69,5 @@ Den här artikeln förutsätter att du har:
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Ytterligare skript för taxi resans datascenarier
-Exempel på frågor som är specifika för [NYC Taxi Resedata](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarier finns också i [GitHub-lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). De här frågorna har dataschema som angetts redan och är redo att skickas för att köra.
+Exempel på frågor som är speciella för [NYC taxi rese data](https://chriswhong.com/open-data/foil_nyc_taxi/) scenarier finns också i [GitHub-lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). De här frågorna har dataschema som angetts redan och är redo att skickas för att köra.
 

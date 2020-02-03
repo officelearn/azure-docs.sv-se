@@ -21,7 +21,7 @@ ms.locfileid: "76716994"
 
 Med följande steg kan du enkelt skala Azure Cognitive Services-program i molnet med Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Skapa behållare hjälper dig att fokusera på att skapa dina program i stället för att hantera infrastrukturen. Mer information om hur du använder behållare finns i [funktioner och förmåner](../cognitive-services-container-support.md#features-and-benefits).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Receptet fungerar med alla Cognitive Services behållare. Kognitiva tjänst resursen måste skapas i Azure Portal innan du kan använda receptet. Varje kognitiv tjänst som stöder behållare har ett "hur man installerar"-dokumentet för att installera och konfigurera tjänsten för en behållare. Vissa tjänster kräver en fil eller en uppsättning filer som indata för behållaren, det är viktigt att du förstår och har använt behållaren innan du använder den här lösningen.
 

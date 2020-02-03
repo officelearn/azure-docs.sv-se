@@ -20,12 +20,12 @@ ms.locfileid: "76721344"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Skapa och optimera tabeller för snabb parallella import av data till en SQL Server på en Azure VM
 
-Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För inläsning av stordata/överföring till en SQL-databas, importerar data till SQL DB och efterföljande frågor kan förbättras genom att använda *partitionerade tabeller och vyer*. 
+Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas. För stor data inläsning/överföring till en SQL-databas kan du förbättra data importen till SQL DB och efterföljande frågor genom att använda *partitionerade tabeller och vyer*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Skapa en ny databas och en uppsättning filgrupper
 * [Skapa en ny databas](https://technet.microsoft.com/library/ms176061.aspx), om den inte redan finns.
 * Lägg till databas filgrupper i databasen, som innehåller de partitionerade fysiska filerna. 
-* Detta kan göras med [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) om nya eller [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) om databasen finns redan.
+* Detta kan göras med [skapa databas](https://technet.microsoft.com/library/ms176061.aspx) om det redan finns en ny databas eller [Alter Database](https://msdn.microsoft.com/library/bb522682.aspx) .
 * Lägga till en eller flera filer (om det behövs) i varje filgrupp för databasen.
   
   > [!NOTE]
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur du skapar partitionerade tabeller för snabb par
   > 
   > 
 
-I följande exempel skapas en ny databas med tre filgrupper än primärt och loggrupper, som innehåller en fysisk fil i var och en. Databasfilerna skapas i standardmappen för SQL Server-Data som konfigurerats i SQL Server-instansen. Läs mer om standardsökvägar [filplatser för standard och namngivna instanser av SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+I följande exempel skapas en ny databas med tre filgrupper än primärt och loggrupper, som innehåller en fysisk fil i var och en. Databasfilerna skapas i standardmappen för SQL Server-Data som konfigurerats i SQL Server-instansen. Mer information om standard Sök vägarna finns i [fil platser för standard-och namngivna instanser av SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -58,7 +58,7 @@ I följande exempel skapas en ny databas med tre filgrupper än primärt och log
 Om du vill skapa partitionerade tabeller enligt dataschemat mappad till databasen-filgrupper som skapades i föregående steg, måste du först skapa en partitionsfunktion och schema. När data samtidigt som importerats till partitionerade tabeller är poster fördelade på filgrupper enligt ett partitionsschema enligt beskrivningen nedan.
 
 ### <a name="1-create-a-partition-function"></a>1. skapa en partitions funktion
-[Skapa en partitionsfunktion](https://msdn.microsoft.com/library/ms187802.aspx) den här funktionen definierar en uppsättning värden/gränser som ska ingå i varje enskild partitionstabell, till exempel, för att begränsa partitioner per månad (vissa\_datetime\_fält) i år 2013:
+[Skapa en partitions funktion](https://msdn.microsoft.com/library/ms187802.aspx) Den här funktionen definierar det värde/gränser som ska inkluderas i varje enskild partitionstabell, till exempel för att begränsa partitioner efter månad (vissa\_datetime-\_fältet) under året 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
@@ -86,7 +86,7 @@ Om du vill skapa partitionerade tabeller enligt dataschemat mappad till database
         WHERE pfun.name = <DatetimeFieldPFN>
 
 ### <a name="3-create-a-partition-table"></a>3. skapa en partitionstabell
-[Skapa en partitionerad tabell](https://msdn.microsoft.com/library/ms174979.aspx)(s) enligt ditt dataschema och ange partition schema och begränsning fält som används för att partitionera tabellen, till exempel:
+[Skapa partitionerade tabeller](https://msdn.microsoft.com/library/ms174979.aspx)enligt ditt data schema och ange det partitionsschema och det begränsnings fält som används för att partitionera tabellen, till exempel:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -95,8 +95,8 @@ Mer information finns i [skapa partitionerade tabeller och index](https://msdn.m
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Massimportera data för varje enskild partitionstabell
 
-* Du kan använda BCP, BULK INSERT eller andra metoder som [SQL Server Migration Wizard](https://sqlazuremw.codeplex.com/). Följande exempel används metoden BCP.
-* [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) att ändra schemat för loggning av transaktionen till bulkloggad att minimera arbetet med att loggning, till exempel:
+* Du kan använda BCP, BULK INSERT eller andra metoder som [SQL Server migreringsguiden](https://sqlazuremw.codeplex.com/). Följande exempel används metoden BCP.
+* Ändra [databasen](https://msdn.microsoft.com/library/bb522682.aspx) för att ändra transaktions loggnings schema till BULK_LOGGED för att minimera kostnaderna för loggning, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 * Starta import massåtgärder parallellt för att bearbeta för inläsning av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
@@ -167,7 +167,7 @@ Följande PowerShell-skript är ett exempel på parallella datainläsning med BC
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Skapa index för att optimera kopplingar och frågeprestanda
 * Om du extraherar data för modellering från flera tabeller, kan du skapa index för koppling för att förbättra prestanda för koppling.
-* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrad eller icke-grupperade) riktar in sig på samma filgruppen för varje partition, till exempel:
+* [Skapa index](https://technet.microsoft.com/library/ms188783.aspx) (klustrade eller icke-klustrade) för att rikta in samma filgrupp för varje partition, till exempel:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)
@@ -182,5 +182,5 @@ Följande PowerShell-skript är ett exempel på parallella datainläsning med BC
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Processen för avancerad analys och teknik i åtgärden exempel
-En slutpunkt till slutpunkt genomgång av exempel med en offentlig datauppsättning Team Data Science Process finns i [Team Data Science Process i praktiken: med SQL Server](sql-walkthrough.md).
+För en fullständig genom gång av exempel som använder team data science-processen med en offentlig data uppsättning, se [team data science process i praktiken: använda SQL Server](sql-walkthrough.md).
 

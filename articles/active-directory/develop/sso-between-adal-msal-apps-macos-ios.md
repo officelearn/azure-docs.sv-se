@@ -52,8 +52,8 @@ I följande tabell sammanfattas skillnader i konto identifierare mellan ADAL och
 | Konto identifierare                | MSAL                                                         | ADAL 2.7. x      | Äldre ADAL (före ADAL 2.7. x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | visnings bara identifierare            | `username`                                                   | `userId`        | `userId`                       |
-| unikt ID som inte går att lyssna | `identifier`                                                 | `homeAccountId` | Gäller inte                            |
-| Inget konto-ID är känt               | Fråga alla konton via `allAccounts:`-API i `MSALPublicClientApplication` | Gäller inte             | Gäller inte                            |
+| unikt ID som inte går att lyssna | `identifier`                                                 | `homeAccountId` | E.t.                            |
+| Inget konto-ID är känt               | Fråga alla konton via `allAccounts:`-API i `MSALPublicClientApplication` | E.t.             | E.t.                            |
 
 Detta är `MSALAccount` gränssnittet som tillhandahåller dessa identifierare:
 
@@ -207,7 +207,7 @@ Eftersom `homeAccountId` inte är tillgänglig i äldre ADAL-versioner måste du
                               error:(NSError * __autoreleasing *)error;
 ```
 
-Ett exempel:
+Exempel:
 
 Mål-C:
 

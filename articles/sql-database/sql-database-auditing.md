@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76719814"
 ---
-# <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
+# <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL Database-granskning
 
 Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. Granskning:
 
@@ -73,17 +73,17 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Navigera till **granskning** under säkerhets rubriken i fönstret SQL Database/Server.
 
-    <a id="auditing-screenshot"></a>![Navigeringsfönstret][1]
+    <a id="auditing-screenshot"></a>![navigerings fönstret][1]
 
 3. Om du vill konfigurera en server gransknings princip kan du välja länken **Visa Server inställningar** på sidan databas granskning. Du kan sedan Visa eller ändra server gransknings inställningarna. Server gransknings principer gäller för alla befintliga och nyligen skapade databaser på den här servern.
 
-    ![Navigeringsfönster][2]
+    ![Navigeringsfönstret][2]
 
 4. Om du föredrar att aktivera granskning på databas nivån växlar du **granskning** till **på**.
 
     Om Server granskning är aktive rad, finns den databas-konfigurerade granskningen sida vid sida med Server granskningen.
 
-    ![Navigeringsfönster][3]
+    ![Navigeringsfönstret][3]
 
 5. **Ny** – nu har du flera alternativ för att konfigurera var gransknings loggar ska skrivas. Du kan skriva loggar till ett Azure Storage-konto till en Log Analytics arbets yta för användning genom att Azure Monitor loggar eller till Event Hub för användning med Event Hub. Du kan konfigurera valfri kombination av dessa alternativ och gransknings loggarna skrivs till var och en.
   
@@ -95,7 +95,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
     ![lagrings alternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
-6. Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka på **OK**.
+6. Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. De gamla loggarna tas bort. Klicka sedan på **OK**.
 
    > [!IMPORTANT]
    > - Standardvärdet för kvarhållningsperiod är 0 (obegränsad kvarhållning). Du kan ändra det här värdet genom att flytta skjutreglaget för **kvarhållning (dagar)** i **lagrings inställningarna** när du konfigurerar lagrings kontot för granskning.
@@ -111,7 +111,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
     ![Händelsehubb](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 10. Om du vill anpassa de granskade händelserna kan du göra detta via PowerShell- [cmdletar](#subheading-7) eller [REST API](#subheading-9).
 11. När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](sql-database-threat-detection-get-started.md).
 
@@ -161,7 +161,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 - Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
-    ![Navigeringsfönster][7]
+    ![Navigeringsfönstret][7]
 
     **Gransknings poster** öppnas där du kan visa loggarna.
 
@@ -169,14 +169,14 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
   - Du kan växla mellan gransknings poster som har skapats av *Server gransknings principen* och *databas gransknings principen* genom att växla **gransknings källa**.
   - Du kan bara visa SQL-injektering relaterade gransknings poster genom att markera kryss rutan **Visa endast gransknings poster för SQL-injektering** .
 
-       ![Navigeringsfönster][8]
+       ![Navigeringsfönstret][8]
 
 - Använd system funktionen **sys. fn_get_audit_file** (T-SQL) för att returnera Gransknings logg data i tabell format. Mer information om hur du använder den här funktionen finns i [sys. fn_get_audit_file](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Använda **sammanslagna gransknings filer** i SQL Server Management Studio (från och med SSMS 17):
     1. Från menyn SSMS väljer du **fil** > **öppnar** > **slå samman gransknings filer**.
 
-        ![Navigeringsfönster][9]
+        ![Navigeringsfönstret][9]
     2. Dialog rutan **Lägg till gransknings filer** öppnas. Välj ett av alternativen **Lägg** till för att välja om du vill slå samman gransknings filer från en lokal disk eller importera dem från Azure Storage. Du måste ange Azure Storage information och konto nyckeln.
 
     3. När du har lagt till alla filer som ska sammanfogas klickar du på **OK** för att slutföra sammanslagnings åtgärden.
@@ -217,10 +217,10 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
 1. Öppna **lagrings information**. I rutan **lagrings åtkomst nyckel** väljer du **sekundär**och klickar på **OK**. Klicka sedan på **Spara** högst upp på sidan gransknings konfiguration.
 
-    ![Navigeringsfönster][5]
+    ![Navigeringsfönstret][5]
 2. Gå till sidan lagrings konfiguration och återskapa den primära åtkomst nyckeln.
 
-    ![Navigeringsfönster][6]
+    ![Navigeringsfönstret][6]
 3. Gå tillbaka till sidan gransknings konfiguration, växla lagrings åtkomst nyckeln från sekundär till primär och klicka sedan på **OK**. Klicka sedan på **Spara** högst upp på sidan gransknings konfiguration.
 4. Gå tillbaka till sidan lagrings konfiguration och återskapa den sekundära åtkomst nyckeln (som förberedelse för nästa nyckels uppdaterings cykel).
 
@@ -251,9 +251,9 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 
     > [!IMPORTANT]
     > Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig och endast synlig i följande regioner:
-    > - USA, östra
-    > - USA, södra centrala
-    > - USA, västra 2
+    > - Östra USA
+    > - Södra centrala USA
+    > - Västra USA 2
 
 
 ## <a id="subheading-7"></a>Hantera Azure-SQL Server och databas granskning med Azure PowerShell

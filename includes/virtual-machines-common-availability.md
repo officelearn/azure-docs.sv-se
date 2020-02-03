@@ -54,7 +54,7 @@ Med skalnings uppsättningar för virtuella datorer kan du ange Orchestration-l�
 
 |   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |----|----|----|
-| Konfigurations modell för virtuell dator| Inget. VirtualMachineProfile är odefinierat i skalnings uppsättnings modellen. | Krävs. VirtualMachineProfile är ifyllt i skalnings uppsättnings modellen. |
+| Konfigurations modell för virtuell dator| Ingen. VirtualMachineProfile är odefinierat i skalnings uppsättnings modellen. | Obligatoriskt. VirtualMachineProfile är ifyllt i skalnings uppsättnings modellen. |
 | Lägger till ny virtuell dator i skalnings uppsättningen| Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning. |
 | Tillgänglighetszoner| Stöder regional distribution eller virtuella datorer i en tillgänglighets zon| Stöder regional distribution eller flera Tillgänglighetszoner; Kan definiera strategi för zon utjämning |
 | Feldomäner| Kan definiera antalet fel domäner. 2 eller 3 baserat på regional support och 5 för tillgänglighets zon. Den tilldelade VM-feldomänen behålls med VM-livscykeln, inklusive frigör och starta om. | Kan definiera 1, 2 eller 3 fel domäner för icke-zonindelade distributioner och 5 för distributioner av tillgänglighets zoner. Den tilldelade virtuella dator fel domänen är inte beständig med VM-livscykeln, virtuella datorer tilldelas en feldomän vid tidpunkten för tilldelningen. |

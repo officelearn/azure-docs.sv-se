@@ -23,7 +23,7 @@ I den här guiden får du lära dig hur du:
 
 ![Grupp utveckling för Azure dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).

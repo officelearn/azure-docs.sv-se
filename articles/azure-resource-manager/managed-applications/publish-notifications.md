@@ -28,12 +28,12 @@ Här är de rekommenderade stegen för att komma igång snabbt:
 6. Följ anvisningarna i avsnittet **meddelande schema** i den här artikeln för att analysera aviserings förfrågningar och implementera affärs logik baserat på meddelandet.
 
 ## <a name="add-service-catalog-application-definition-notifications"></a>Lägg till program definitions meddelanden för tjänst katalog
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure Portal
 Information om hur du kommer igång finns i [publicera ett tjänst katalog program via Azure Portal](./publish-portal.md).
 
 ![Aviseringar för program definition i tjänst katalogen i Azure Portal](./media/publish-notifications/service-catalog-notifications.png)
 
-#### <a name="rest-api"></a>REST API
+#### <a name="rest-api"></a>REST-API
 
 > [!NOTE]
 > För närvarande kan du bara ange en slut punkt i `notificationEndpoints` i egenskaperna för program definitionen.
@@ -69,13 +69,13 @@ I följande tabell beskrivs alla möjliga kombinationer av EventType och Provisi
 
 Typ | ProvisioningState | Utlösare för avisering
 ---|---|---
-PLACERA | Accept | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
+PLACERA | Accepted | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
 PLACERA | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en placering.
-PLACERA | Misslyckad | Det gick inte att ställa in program instansens etablerings plats.
+PLACERA | Misslyckades | Det gick inte att ställa in program instansens etablerings plats.
 9\.0a | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
-DELETE | Tas bort | Så snart användaren initierar en borttagning av en hanterad App-instans.
-DELETE | Borttagen | Efter en fullständig och lyckad borttagning av det hanterade programmet.
-DELETE | Misslyckad | Efter ett fel under avetablerings processen som blockerar borttagningen.
+DELETE | Rader | Så snart användaren initierar en borttagning av en hanterad App-instans.
+DELETE | Borttaget | Efter en fullständig och lyckad borttagning av det hanterade programmet.
+DELETE | Misslyckades | Efter ett fel under avetablerings processen som blockerar borttagningen.
 ## <a name="notification-schema"></a>Meddelande schema
 När du skapar en webhook-slutpunkt för att hantera meddelanden måste du parsa nytto lasten för att få viktiga egenskaper för att sedan agera på aviseringen. Tjänst katalogen och hanterade program meddelanden i Azure Marketplace innehåller många av samma egenskaper. Två små skillnader beskrivs i tabellen som följer exemplen.
 
@@ -176,13 +176,13 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-Parameter | Beskrivning
+Parameter | Description
 ---|---
 eventType | Typ av händelse som utlöste meddelandet. (Till exempel, skicka, korrigera, ta bort.)
 applicationId | Det fullständigt kvalificerade resurs-ID: t för det hanterade program som meddelandet utlöstes för.
 eventTime | Tidsstämpeln för händelsen som utlöste meddelandet. (Datum och tid i formatet UTC-ISO 8601.)
 ProvisioningState | Etablerings statusen för den hanterade program instansen. (Till exempel lyckad, misslyckad, borttagning, borttagen.)
-fel | *Anges bara när ProvisioningState misslyckades*. Innehåller felkod, meddelande och information om problemet som orsakade felet.
+error | *Anges bara när ProvisioningState misslyckades*. Innehåller felkod, meddelande och information om problemet som orsakade felet.
 applicationDefinitionId | *Anges endast för hanterade program i tjänst katalog*. Representerar det fullständigt kvalificerade resurs-ID: t för den program definition som den hanterade program instansen etablerades för.
 projektplan | *Anges endast för hanterade program i Azure Marketplace*. Representerar utgivare, erbjudande, SKU och version för den hanterade program instansen.
 billingDetails | *Anges endast för hanterade program i Azure Marketplace.* Fakturerings information för den hanterade program instansen. Innehåller resourceUsageId som du kan använda för att söka efter användnings information i Azure Marketplace.

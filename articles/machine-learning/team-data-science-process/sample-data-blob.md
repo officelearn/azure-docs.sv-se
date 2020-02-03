@@ -18,14 +18,14 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76720290"
 ---
-# <a name="heading"></a>Exempeldata i Azure blob-lagring
+# <a name="heading"></a>Exempel data i Azure Blob Storage
 
 Den här artikeln beskriver sampling av data lagras i Azure blob storage genom att hämta den via programmering och sampling den med hjälp av procedurerna som skrivits i Python.
 
-**Varför prov på dina data?**
+**Varför ska du testa dina data?**
 Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i Cortana Analytics-processen är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
 
-Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Den här samplings aktiviteten är ett steg i [TDSP (Team data science process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Ladda ned och nedåtsampla data
 1. Hämta data från Azure Blob Storage med hjälp av Blob Service från följande exempel på python-kod: 
@@ -53,7 +53,7 @@ Den här aktiviteten för sampling är ett steg i den [Team Data Science Process
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Nedåtsampla data med den `numpy`'s `random.choice` på följande sätt:
+3. Nedåt – sampla data med hjälp av `numpy``random.choice` enligt följande:
    
         # A 1 percent sample
         sample_ratio = 0.01 
@@ -63,7 +63,7 @@ Den här aktiviteten för sampling är ett steg i den [Team Data Science Process
 
 Nu kan du arbeta med ovanstående data ram med ett procent prov för ytterligare utforskning och funktion.
 
-## <a name="heading"></a>Överföra data och läsa in den i Azure Machine Learning
+## <a name="heading"></a>Ladda upp data och Läs den i Azure Machine Learning
 Du kan använda följande exempelkod för att nedåtsampla data och använda den direkt i Azure Machine Learning:
 
 1. Skriva dataramen till en lokal fil
@@ -92,7 +92,7 @@ Du kan använda följande exempelkod för att nedåtsampla data och använda den
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Läsa data från Azure-blob med hjälp av Azure Machine Learning [importdata](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) enligt bilden nedan:
+3. Läs data från Azure-blobben med Azure Machine Learning [Importera data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) som visas på bilden nedan:
 
 ![läsare blob](./media/sample-data-blob/reader_blob.png)
 

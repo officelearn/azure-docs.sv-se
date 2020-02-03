@@ -22,7 +22,7 @@ Den här funktionen stöds inte för ohanterade diskar. Men du kan enkelt [konve
 
  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Eftersom konverteringen kräver en omstart av den virtuella datorn (VM) bör du schemalägga migreringen av disk lagringen under ett redan befintligt underhålls fönster.
 * Om disken är ohanterad måste du först [konvertera den till en hanterad disk](convert-unmanaged-to-managed-disks.md) så att du kan växla mellan lagrings alternativen.

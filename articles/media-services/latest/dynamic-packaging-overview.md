@@ -44,7 +44,7 @@ Om du planerar att skydda ditt innehåll med hjälp av Media Services dynamisk k
 
 Den strömmande klienten kan ange följande HLS-format:
 
-|Protokoll|Exempel|
+|Protocol|Exempel|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
@@ -54,7 +54,7 @@ Den strömmande klienten kan ange följande HLS-format:
 
 Den strömmande klienten kan ange följande MPEG-streck-format:
 
-|Protokoll|Exempel|
+|Protocol|Exempel|
 |---|---|
 |MPEG-STRECK – CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
 |MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
@@ -63,7 +63,7 @@ Den strömmande klienten kan ange följande MPEG-streck-format:
 
 Den strömmande klienten kan ange följande Smooth Streaming Format:
 
-|Protokoll|Anteckningar/exempel| 
+|Protocol|Anteckningar/exempel| 
 |---|---|
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
 |Smooth Streaming 2,0 (bakåtkompatibelt manifest)|Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare har dock inte stöd för `r-tag`. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|

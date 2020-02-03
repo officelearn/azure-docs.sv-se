@@ -28,7 +28,7 @@ Följ stegen nedan om du vill skapa en Event Grid-prenumeration för någon av d
 
 1. Sök efter **Event Grid prenumerationer** och välj den från de tillgängliga alternativen.
 
-   ![Sök](./media/subscribe-through-portal/search.png)
+   ![Search](./media/subscribe-through-portal/search.png)
 
 1. Välj **+ Händelseprenumeration**.
 
@@ -66,6 +66,6 @@ Portalen innehåller alternativ för att skapa en händelse prenumeration som ä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om händelseleverans och återförsök, [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
+* Om du vill ha information om händelse leverans och försök kan du [Event Grid meddelande leverans och försöka igen](delivery-and-retry.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

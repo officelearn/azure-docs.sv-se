@@ -202,7 +202,7 @@ Om du vill ansluta virtuella datorer till en domän måste du ha en domänkontro
 
 ### <a name="can-i-use-a-self-signed-certificate-in-an-aad-ds-secure-ldap-setup-and-provision-an-esp-cluster"></a>Kan jag använda ett självsignerat certifikat i en AAD-DS säker LDAP-installation och etablera ett ESP-kluster?
 
-Du rekommenderas att använda ett certifikat som utfärdats av en certifikat utfärdare, men det går också att använda ett självsignerat certifikat på ESP. Mer information finns här:
+Du rekommenderas att använda ett certifikat som utfärdats av en certifikat utfärdare, men det går också att använda ett självsignerat certifikat på ESP. Mer information finns i:
 
 - [Aktivera Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
@@ -279,7 +279,7 @@ done
 
 För närvarande finns det inget Ranger-plugin-program för Blob Storage och Azure Data Lake Storage Gen1 eller Gen2. För ESP-kluster bör du använda Azure Data Lake Storage, eftersom du kan minst ange detaljerade behörigheter manuellt på fil system nivå med HDFS-verktyg. När du använder Azure Data Lake Storage kommer ESP-kluster också att göra en del av åtkomst kontrollen för fil system med Azure Active Directory på kluster nivå. 
 
-Du kan tilldela data åtkomst principer till dina användares säkerhets grupper med hjälp av Azure Storage Explorer. Mer information finns här:
+Du kan tilldela data åtkomst principer till dina användares säkerhets grupper med hjälp av Azure Storage Explorer. Mer information finns i:
 
 - [Hur gör jag för att ställer du in behörigheter för Azure AD-användare att fråga efter data i Data Lake Storage Gen2 med hjälp av Hive eller andra tjänster?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
 - [Ange behörigheter för fil-och katalog nivå med Azure Storage Explorer med Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
@@ -302,7 +302,7 @@ När du har skapat en Edge-nod kan du ansluta till den med hjälp av SSH på por
 
 Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i klustret genom skalnings åtgärder. Bestående skript gäller inte för Edge-noder.
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 ### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>Vad är REST API anrop för att hämta en Tez från klustret?
 

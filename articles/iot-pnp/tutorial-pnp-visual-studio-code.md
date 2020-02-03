@@ -22,7 +22,7 @@ Den här självstudien visar hur du, som enhets utvecklare, använder Visual Stu
 
 I avsnittet i den här självstudien som beskriver hur du skapar den genererade Skeleton-koden förutsätter vi att du använder Windows.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en enhets kapacitets modell
@@ -30,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Implementera stub-funktioner i den genererade koden
 > * Kör koden för att testa interaktionerna med en IoT-hubb
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill arbeta med enhets kapacitets modellen i den här självstudien behöver du:
 

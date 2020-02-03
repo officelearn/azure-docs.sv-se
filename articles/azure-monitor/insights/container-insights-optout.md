@@ -17,13 +17,13 @@ När du aktiverar övervakning av AKS-klustret måste stoppa du övervakningen k
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Använd den [az aks disable-tillägg](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kommando för att inaktivera Azure Monitor för behållare. Kommandot tar bort agenten från klusternoderna, den tar inte bort lösningen eller de data som redan har samlats in och lagrats i Azure Monitor resursen.  
+Använd kommandot [AZ AKS Disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) för att inaktivera Azure Monitor för behållare. Kommandot tar bort agenten från klusternoderna, den tar inte bort lösningen eller de data som redan har samlats in och lagrats i Azure Monitor resursen.  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-Om du vill återaktivera övervakning för ditt kluster, se [aktivera övervakning med hjälp av Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
+Om du vill aktivera övervakning för klustret igen går du till [Aktivera övervakning med Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli).
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
@@ -37,7 +37,7 @@ Om du inte är bekant med begreppet att distribuera resurser med hjälp av en ma
 >Mallen måste distribueras i samma resurs grupp i klustret. Om du utelämnar andra egenskaper eller tillägg när du använder den här mallen kan det leda till att de tas bort från klustret. Till exempel *enableRBAC* för RBAC-principer som implementeras i klustret eller *aksResourceTagValues* IF-Taggar har angetts för AKS-klustret.  
 >
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.27 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="create-template"></a>Skapa mallen
 
@@ -89,7 +89,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-2. Spara filen som **OptOutTemplate.json** till en lokal mapp.
+2. Spara filen som **OptOutTemplate. JSON** i en lokal mapp.
 
 3. Klistra in följande JSON-syntax i filen:
 
@@ -115,15 +115,15 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     }
     ```
 
-4. Redigera värdena för **aksResourceId** och **aksResourceLocation** med hjälp av värdena för AKS-kluster som finns på den **egenskaper** sidan för det markerade klustret .
+4. Redigera värdena för **aksResourceId** och **aksResourceLocation** med hjälp av värdena för AKS-klustret, som du hittar på **egenskaps** sidan för det valda klustret.
 
     ![Egenskapssidan för behållare](media/container-insights-optout/container-properties-page.png)
 
-    När du är på den **egenskaper** kan också kopiera den **Arbetssyteresurs-ID**. Det här värdet krävs om du vill att ta bort Log Analytics-arbetsytan senare. Ta bort Log Analytics-arbetsytan utförs inte som en del av den här processen.
+    När du är på sidan **Egenskaper** kopierar du även **arbets ytans resurs-ID**. Det här värdet krävs om du vill att ta bort Log Analytics-arbetsytan senare. Ta bort Log Analytics-arbetsytan utförs inte som en del av den här processen.
 
     Redigera värdena för **aksResourceTagValues** så att de matchar de befintliga taggvärde som angetts för AKS-klustret.
 
-5. Spara filen som **OptOutParam.json** till en lokal mapp.
+5. Spara filen som **OptOutParam. JSON** i en lokal mapp.
 
 6. Nu är det dags att distribuera den här mallen.
 
@@ -164,4 +164,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs kan behöva du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbetsyta kan se [ta bort en Azure Log Analytics-arbetsyta med Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Glöm inte att du har kopierat **resurs-ID för arbets ytan** tidigare i steg 4. du kommer att behöva det.
+Om arbetsytan har skapats enbart för att stöd för övervakning av klustret och inte längre behövs kan behöva du manuellt ta bort den. Om du inte är bekant med hur du tar bort en arbets yta, se [ta bort en Azure Log Analytics-arbetsyta med Azure Portal](../../log-analytics/log-analytics-manage-del-workspace.md). Glöm inte att du har kopierat **resurs-ID för arbets ytan** tidigare i steg 4. du kommer att behöva det.

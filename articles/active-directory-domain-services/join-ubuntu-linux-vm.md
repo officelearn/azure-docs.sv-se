@@ -24,7 +24,7 @@ För att användarna ska kunna logga in på virtuella datorer i Azure med en end
 
 Den här artikeln visar hur du ansluter en Ubuntu Linux virtuell dator till en hanterad Azure AD DS-domän.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -42,7 +42,7 @@ Om du har en befintlig Ubuntu Linux virtuell dator i Azure ansluter du till den 
 
 Om du behöver skapa en Ubuntu Linux virtuell dator, eller om du vill skapa en virtuell test dator för användning med den här artikeln, kan du använda någon av följande metoder:
 
-* [Azure-portalen](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 

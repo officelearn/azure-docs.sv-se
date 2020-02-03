@@ -35,7 +35,7 @@ Azure Load Balancer tillhandahåller flerdimensionella mått via Azure-måtten i
 
 De olika Standard Load Balancer-konfigurationerna tillhandahåller följande mått:
 
-| Mått | Resurstyp | Beskrivning | Rekommenderad agg regering |
+| Mått | Resurstyp | Description | Rekommenderad agg regering |
 | --- | --- | --- | --- |
 | Tillgänglighet för data Sök väg (VIP-tillgänglighet)| Offentlig och intern belastningsutjämnare | Standard Load Balancer använder kontinuerligt data Sök vägen inifrån en region för belastnings utjämningens klient del, hela vägen till den SDN-stack som har stöd för den virtuella datorn. Så länge som felfria instanser är kvar, följer måtten samma sökväg som programmets belastningsutjämnade trafik. Den data Sök väg som dina kunder använder verifieras också. Måttet är osynligt för ditt program och stör inte andra åtgärder.| Medel |
 | Status för hälso avsökning (DIP-tillgänglighet) | Offentlig och intern belastningsutjämnare | Standard Load Balancer använder en distribuerad hälso-/Bing-tjänst som övervakar din program slut punkts hälsa enligt dina konfigurations inställningar. Det här måttet innehåller en filtrerad mängd eller per slut punkt för varje instans slut punkt i belastningsutjämnaren. Du kan se hur Load Balancer visar hälso tillståndet för ditt program, som anges i konfigurationen för hälso avsökningen. |  Medel |
@@ -193,10 +193,10 @@ Så här visar du hälso tillståndet för dina offentliga Standard Load Balance
  
 De olika resurs hälso status och deras beskrivningar visas i följande tabell: 
 
-| Resurs hälso status | Beskrivning |
+| Resurs hälso status | Description |
 | --- | --- |
-| Tillgänglig | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
-| Inte tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
+| Tillgängligt | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
+| Ej tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
 | Okänt | Resursens hälso status för din standard belastnings Utjämnings resurs har ännu inte uppdaterats.<br>(*Okänd* status kan också betyda att resursen inte är ansluten till din standard belastningsutjämnare.)  |
 
 ## <a name="next-steps"></a>Nästa steg

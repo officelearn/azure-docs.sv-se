@@ -106,7 +106,7 @@ När du har bokfört till ämnes slut punkten får du ett svar. Svaret är en st
 |Lyckades  | 200 OK  |
 |Felaktigt format för händelse data | 400 Felaktig begäran |
 |Ogiltig åtkomst nyckel | 401 obehörig |
-|Felaktig slut punkt | 404 Hittades inte |
+|Felaktig slut punkt | 404 hittades inte |
 |Matris eller händelse överskrider storleks gränser | 413-nyttolasten är för stor |
 
 För fel har meddelande texten följande format:

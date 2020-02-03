@@ -30,7 +30,7 @@ Fel beskrivningen innehåller "matchning av värdnamn" misslyckades ".
 
 Felet pekar på ett problem med den anpassade DNS-konfigurationen. DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till Azures rekursiva matchare för att matcha värdnamn i det virtuella nätverket (se [namn matchning i virtuella nätverk](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) för mer information). Åtkomst till Azures rekursiva matchare tillhandahålls via den virtuella IP-168.63.129.16. Den här IP-adressen är bara tillgänglig från virtuella Azure-datorer. Det fungerar därför inte om du använder en OnPrem DNS-server, eller om DNS-servern är en virtuell Azure-dator, som inte ingår i klustrets virtuella nätverk.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Använd SSH i den virtuella datorn som ingår i klustret och kör kommandot `hostname -f`. Detta returnerar värdens fullständigt kvalificerade domän namn (kallas `<host_fqdn>` i nedanstående instruktioner).
 
@@ -56,7 +56,7 @@ Fel beskrivningen innehåller "Det gick inte att ansluta till Azure Storage kont
 
 Azure Storage och SQL har inte fasta IP-adresser, så vi måste tillåta utgående anslutningar till alla IP-adresser för att få åtkomst till dessa tjänster. De exakta lösnings stegen beror på om du har konfigurerat en nätverks säkerhets grupp (NSG) eller användardefinierade regler (UDR). Mer information om dessa konfigurationer finns i avsnittet om att [kontrol lera nätverks trafik med HDInsight med nätverks säkerhets grupper och användardefinierade vägar](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) .
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 * Om klustret använder en [nätverks säkerhets grupp (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -85,7 +85,7 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
 
 Förmodligen ett problem med den anpassade DNS-konfigurationen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Kontrol lera att 168.63.129.16 finns i den anpassade DNS-kedjan. DNS-servrar i ett virtuellt nätverk kan vidarebefordra DNS-frågor till Azures rekursiva matchare för att matcha värdnamn i det virtuella nätverket. Mer information finns i [namn matchning i virtuella nätverk](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). Åtkomst till Azures rekursiva matchare tillhandahålls via den virtuella IP-168.63.129.16.
 

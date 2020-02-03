@@ -24,11 +24,11 @@ Team data science-processen kräver att data matas in eller läses in på det l�
 
 I följande artiklar beskrivs hur du mata in data i olika målmiljöer där data lagras och bearbetas.
 
-* Till och från [Azure Blob Storage](move-azure-blob.md)
-* Att [SQLServer på Azure VM](move-sql-server-virtual-machine.md)
+* Till/från [Azure Blob Storage](move-azure-blob.md)
+* För att [SQL Server på virtuell Azure-dator](move-sql-server-virtual-machine.md)
 * För att [Azure SQL Database](move-sql-azure.md)
-* Att [Hive-tabeller](move-hive-tables.md)
-* Att [SQL partitionerade tabeller](parallel-load-sql-partitioned-tables.md)
-* Från [lokal SQLServer](move-sql-azure-adf.md)
+* Till [Hive-tabeller](move-hive-tables.md)
+* Till [partitionerade SQL-tabeller](parallel-load-sql-partitioned-tables.md)
+* Från [lokala SQL Server](move-sql-azure-adf.md)
 
 De tekniska och affärs behoven, samt den ursprungliga platsen, formatet och storleken på dina data avgör den bästa data inmatnings planen. Det är inte ovanligt att det finns flera steg i en bra plan. Den här aktivitetssekvensen kan exempelvis innehålla datagranskning, bearbeta data i förväg, rensning, ned sampling och modellen.  Azure Data Factory är en rekommenderad Azure-resurs för att dirigera data förflyttning och omvandling.

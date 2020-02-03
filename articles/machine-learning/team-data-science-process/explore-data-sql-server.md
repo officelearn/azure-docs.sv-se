@@ -22,7 +22,7 @@ ms.locfileid: "76720103"
 
 Den här artikeln beskriver hur du utforska data som lagras i en SQL Server-VM på Azure. Använd SQL eller python för att granska data.
 
-Den här uppgiften är ett steg i den [Team Data Science Process](overview.md).
+Den här uppgiften är ett steg i [processen för team data vetenskap](overview.md).
 
 > [!NOTE]
 > SQL-uttryck för exemplet i det här dokumentet förutsätter att data är i SQL Server. Om det inte finns på cloud data science process kartan för att lära dig hur du flyttar dina data till SQL Server.
@@ -46,12 +46,12 @@ Här följer några exempel SQL-skript som kan användas för att utforska datal
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
 > [!NOTE]
-> En praktiska exempel: du kan använda den [NYC Taxi datauppsättning](https://www.andresmh.com/nyctaxitrips/) och referera till IPNB benämnt [NYC Datatransformering med IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) en slutpunkt till slutpunkt genomgång.
+> I ett praktiskt exempel kan du använda [NYC taxi-datauppsättningen](https://www.andresmh.com/nyctaxitrips/) och REFERERA till IPNB- [NYC data datatransformering med hjälp av IPython Notebook och SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) för en slut punkt till slut punkt.
 > 
 > 
 
-## <a name="python"></a>Utforska SQL-data med Python
-Använda Python för att utforska data och generera funktioner om data finns i SQL Server är liknande för bearbetning av data i Azure-blob med hjälp av Python, enligt beskrivningen i [processen Azure Blob-data i miljön data science](data-blob.md). Läs in data från databasen till en Pandas-DataFrame och sedan kan du bearbeta dem ytterligare. Vi dokumenterar hur du ansluter till databasen och läser in data till dataram i det här avsnittet.
+## <a name="python"></a>Utforska SQL-data med python
+Använda python för att utforska data och generera funktioner när data är i SQL Server liknar bearbetning av data i Azure Blob med hjälp av python, enligt beskrivningen i [bearbeta Azure blob-data i din data vetenskaps miljö](data-blob.md). Läs in data från databasen till en Pandas-DataFrame och sedan kan du bearbeta dem ytterligare. Vi dokumenterar hur du ansluter till databasen och läser in data till dataram i det här avsnittet.
 
 Följande formatet för anslutningssträngen kan användas för att ansluta till en SQL Server-databas från Python med pyodbc (Ersätt servername, dbname, användarnamn och lösenord med dina specifika värden):
 
@@ -59,13 +59,13 @@ Följande formatet för anslutningssträngen kan användas för att ansluta till
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas biblioteket](https://pandas.pydata.org/) tillhandahåller en omfattande uppsättning datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering i Python. Följande kod läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
+[Pandas-biblioteket](https://pandas.pydata.org/) i python innehåller en omfattande uppsättning data strukturer och data analys verktyg för data manipulation för python-programmering. Följande kod läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
-Nu kan du arbeta med Pandas-DataFrame som beskrivs i avsnittet [processen Azure Blob-data i miljön data science](data-blob.md).
+Nu kan du arbeta med Pandas-DataFrame som beskrivs i artikeln [bearbeta Azure blob-data i din data vetenskaps miljö](data-blob.md).
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Team Data Science Process i åtgärden exemplet
-En slutpunkt till slutpunkt genomgång av exempel på Cortana Analytics-processen använder en offentlig datauppsättning finns [Team Data Science Process i praktiken: med SQL Server](sql-walkthrough.md).
+Ett exempel på en fullständig genom gång av Cortana Analytics-processen med hjälp av en offentlig data uppsättning finns [i processen team data science i praktiken: använda SQL Server](sql-walkthrough.md).
 

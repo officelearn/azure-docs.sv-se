@@ -37,7 +37,7 @@ Den virtuella utvecklings datorn kommer att konfigureras med:
 * [Git Credential Manager för Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
 * [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
 * [VS Code-tillägg](https://marketplace.visualstudio.com/search?target=VSCode)
   * [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)

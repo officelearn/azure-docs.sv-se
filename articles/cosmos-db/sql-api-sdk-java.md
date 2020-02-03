@@ -18,28 +18,28 @@ ms.locfileid: "76718181"
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST-resursleverantör](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
-SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron support den [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
+SQL API Java SDK har stöd för synkrona åtgärder. För asynkron support använder du [asynkron Java SDK för SQL API](sql-api-sdk-async-java.md). 
 
 | |  |
 |---|---|
-|**Hämta SDK**|[Maven 3.](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
-|**API-dokumentation**|[Java API-referensdokumentation](/java/api/com.microsoft.azure.documentdb)|
+|**SDK-hämtning**|[Maven 3.](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API-dokumentation**|[Referens dokumentation för Java API](/java/api/com.microsoft.azure.documentdb)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Komma igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
-|**Självstudier om webbappen**|[Utveckling av webbappar med Azure Cosmos DB](sql-api-java-application.md)|
-|**Lägsta stödda körningar**|[Java Development Kit (JDK 7 +)](https://aka.ms/azure-jdks)|
+|**Kom igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
+|**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-java-application.md)|
+|**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Viktig information
 
@@ -127,7 +127,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Förbättrad prestanda för Json-serialisering.
-* Den SDK-versionen kräver att den senaste versionen av Azure Cosmos DB-emulatorn tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
+* Den här SDK-versionen kräver att den senaste versionen av Azure Cosmos DB emulator är tillgänglig för nedladdning från https://aka.ms/cosmosdb-emulator.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 * Interna ändringar för Microsoft vänner bibliotek.
@@ -154,7 +154,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * Korrigerat några fel i sessionen behållaren som kan orsaka ett ”ägare resursen hittades inte”-undantag för begäranden omedelbart när samlingen har skapats.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [aggregering support](sql-query-aggregates.md).
+* Stöd har lagts till för mängdfrågor (COUNT, MIN, MAX, SUM och Genomsnittlig). Se [agg regerings stöd](sql-query-aggregates.md).
 * Tillagt stöd för ändringsfeed.
 * Stöd har lagts till för samlingen kvotinformation via RequestOptions.setPopulateQuotaInfo.
 * Stöd har lagts till för lagrad procedur skriptet loggning via RequestOptions.setScriptLoggingEnabled.
@@ -212,7 +212,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * Extra tid att live (TTL)-stöd för dokument.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
-* Implementerat [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md).
+* Implementerade [partitionerade samlingar](partition-data.md) och [användardefinierade prestanda nivåer](performance-levels.md).
 
 ### <a name="a-name151151"></a><a name="1.5.1"/>1.5.1
 * Ett fel har åtgärdats i HashPartitionResolver att generera hash-värden i little endian för att överensstämma med andra SDK: er.
@@ -229,7 +229,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Har stöd för geospatiala Index
-* Verifierar ID-egenskapen för alla resurser. ID: n för resurser får inte innehålla?, /, #, \, tecken eller sluta med ett blanksteg.
+* Verifierar ID-egenskapen för alla resurser. ID: n för resurser får inte innehålla?,/, #, \, tecken eller sluta med ett blank steg.
 * Lägger till ny rubrik ”index omvandling status” ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
@@ -239,7 +239,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * GA-SDK
 
 ## <a name="release-and-retirement-dates"></a>Versionen och dras tillbaka datum
-Microsoft meddelar meddelande minst **12 månader** förväg dra tillbaka en SDK för att utjämna övergången till en nyare/stöds version.
+Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
 Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuella SDK, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
 
@@ -251,7 +251,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 >
 
 > [!WARNING]
-> Alla versioner av SQL-SDK för Java före version **1.0.0** drogs tillbaka **29 februari 2016**.
+> Alla versioner av SQL SDK för Java före version **1.0.0** drogs tillbaka den **29 februari 2016**.
 > 
 > 
 
@@ -260,8 +260,8 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
-| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
-| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
+| [punkt](#2.1.2) |Mar 09, 2018 |--- |
+| [punkt](#2.1.1) |Dec 13, 2018 |--- |
 | [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Den 21 september 2018 |--- |
 | [1.16.4](#1.16.4) |Den 10 september 2018 |30 maj 2020 |
@@ -302,9 +302,9 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 | 0.9.1-prelease |19 december 2014 |Den 29 februari 2016 |
 | 0.9.0-prelease |10 december 2014 |Den 29 februari 2016 |
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också
-Mer information om Cosmos DB finns [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
+Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
 

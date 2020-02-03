@@ -31,7 +31,7 @@ Säker autentisering och auktorisering kräver djupgående förståelse av säke
 
 Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Modulen för autentisering och auktorisering körs i samma sandbox som din program kod. När den är aktive rad passerar varje inkommande HTTP-begäran genom den innan den hanteras av din program kod.
 
@@ -75,7 +75,7 @@ Om du [aktiverar program loggning](troubleshoot-diagnostic-logs.md)ser du autent
 
 App Service använder [federerade identiteter](https://en.wikipedia.org/wiki/Federated_identity), där en tredjeparts identitets leverantör hanterar användar identiteter och autentiseringspaket åt dig. Fem identitets leverantörer är tillgängliga som standard: 
 
-| Leverantör | Inloggnings slut punkt |
+| Providern | Inloggnings slut punkt |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft-konto](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |

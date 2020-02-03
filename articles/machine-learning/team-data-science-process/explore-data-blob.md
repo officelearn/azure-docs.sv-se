@@ -20,15 +20,15 @@ ms.locfileid: "76722194"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Utforska data i Azure blob storage med pandas
 
-Den här artikeln beskriver hur du utforska data som lagras i Azure blob-behållaren med [pandas](https://pandas.pydata.org/) Python-paketet.
+Den här artikeln beskriver hur du utforskar data som lagras i Azure Blob-behållare med hjälp av [Pandas](https://pandas.pydata.org/) python-paket.
 
-Den här uppgiften är ett steg i den [Team Data Science Process](overview.md).
+Den här uppgiften är ett steg i [processen för team data vetenskap](overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
-* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md)
-* Lagras dina data i ett Azure blob storage-konto. Om du behöver anvisningar läser [flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md)
+* Skapa ett Azure storage-konto. Om du behöver instruktioner, se [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md)
+* Lagras dina data i ett Azure blob storage-konto. Om du behöver instruktioner, se [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Läsa in data i en pandas-DataFrame
 För att utforska och ändra en datauppsättning, måste den först ned från blob-källan till en lokal fil som sedan kan läsas in i en pandas-DataFrame till. Här följer stegen för den här proceduren:
@@ -62,16 +62,16 @@ dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 Nu är du redo att utforska data och generera funktioner för den här datauppsättningen.
 
-## <a name="blob-dataexploration"></a>Exempel på datagranskning med pandas
+## <a name="blob-dataexploration"></a>Exempel på data utforskning med Pandas
 Här följer några exempel på hur du kan utforska data med hjälp av pandas:
 
-1. Granska den **antal rader och kolumner**
+1. Kontrol lera **antalet rader och kolumner**
 
 ```python
 print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 ```
 
-1. **Inspektera** de första eller sista få **rader** i följande datauppsättningen:
+1. **Granska** de första eller sista **raderna** i följande data uppsättning:
 
 ```python
 dataframe_blobdata.head(10)
@@ -79,14 +79,14 @@ dataframe_blobdata.head(10)
 dataframe_blobdata.tail(10)
 ```
 
-1. Kontrollera den **datatypen** varje kolumn har importerats som med hjälp av följande exempelkod
+1. Kontrol lera **data typen** varje kolumn importerades med hjälp av följande exempel kod
 
 ```python
 for col in dataframe_blobdata.columns:
     print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 ```
 
-1. Kontrollera den **grundläggande statistik** för kolumnerna i följande data
+1. Kontrol lera den **grundläggande statistiken** för kolumnerna i data uppsättningen enligt följande
 
 ```python
 dataframe_blobdata.describe()
@@ -98,14 +98,14 @@ dataframe_blobdata.describe()
 dataframe_blobdata['<column_name>'].value_counts()
 ```
 
-1. **Räkna värden som saknas** jämfört med det faktiska antalet poster i varje kolumn med hjälp av följande exempelkod
+1. **Räkna värden som saknas** respektive det faktiska antalet poster i varje kolumn med hjälp av följande exempel kod
 
 ```python
 miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
 print miss_num
 ```
 
-1. Om du har **saknade värden** för en viss kolumn i data, kan du släppa dem på följande sätt:
+1. Om du saknar **värden** för en speciell kolumn i data kan du släppa dem på följande sätt:
 
 ```python
 dataframe_blobdata_noNA = dataframe_blobdata.dropna()
@@ -119,7 +119,7 @@ dataframe_blobdata_mode = dataframe_blobdata.fillna(
     {'<column_name>': dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
-1. Skapa en **histogram** rita med hjälp av variabeln antal lagerplatser ska ritas distributionen av en variabel
+1. Skapa en **histogram** -kurva med varierande antal lager platser för att rita fördelningen av en variabel
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -127,7 +127,7 @@ dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 ```
 
-1. Titta på **korrelationer** mellan variabler med hjälp av en spridningsdiagrammet eller inbyggda korrelationen
+1. Titta på **korrelationer** mellan variabler med en scatterplot eller med hjälp av den inbyggda funktionen korrelation
 
 ```python
 # relationship between column_a and column_b using scatter plot

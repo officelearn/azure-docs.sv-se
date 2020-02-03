@@ -34,7 +34,7 @@ Ambari-agenter utför ständigt hälso kontroller för att övervaka hälso till
 
 * Några värdar i klustret kan vara värdar för många komponenter och kan därför krävas för att köra många aviseringar. Om antalet komponenter är stort är det möjligt att aviserings jobben kan missa sina schemalagda intervall
 
-## <a name="resolution"></a>Upplösning
+## <a name="resolution"></a>Lösning
 
 ### <a name="increase-alert-interval-time"></a>Öka tid för aviserings intervall
 

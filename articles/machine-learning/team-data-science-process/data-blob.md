@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721106"
 ---
-# <a name="heading"></a>Bearbeta Azure-blobbdata med avancerade analyser
+# <a name="heading"></a>Bearbeta Azure blob-data med avancerad analys
 Det här dokumentet beskriver utforska data och skapar funktioner från data lagrade i Azure Blob storage. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Läsa in data i en dataram Pandas
@@ -48,7 +48,7 @@ För att kunna utforska och ändra en data uppsättning måste den laddas ned fr
 
 Nu är du redo att utforska data och generera funktioner för den här datauppsättningen.
 
-## <a name="blob-dataexploration"></a>Datautforskning
+## <a name="blob-dataexploration"></a>Data utforskning
 Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
 
 1. Granska antalet rader och kolumner 
@@ -94,7 +94,7 @@ Här följer några exempel på hur du kan utforska data med hjälp av Pandas:
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Funktionen Generation
+## <a name="blob-featuregen"></a>Generering av funktioner
 Vi kan ge funktioner med hjälp av Python enligt följande:
 
 ### <a name="blob-countfeature"></a>Generering av indikator värde-baserad funktion
@@ -116,7 +116,7 @@ Kategoriska funktioner kan skapas på följande sätt:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Datagruppering funktionen Generation
+### <a name="blob-binningfeature"></a>Generering av diskretisering-funktioner
 För att generera binned funktioner, fortsätter vi på följande sätt:
 
 1. Lägg till en sekvens med kolumner till lagerplats en numerisk kolumn
@@ -130,7 +130,7 @@ För att generera binned funktioner, fortsätter vi på följande sätt:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Skriva data tillbaka till Azure-blob och använda i Azure Machine Learning
+## <a name="sql-featuregen"></a>Skriva tillbaka data till Azure blob och förbruka i Azure Machine Learning
 När du har utforskat data och skapat de nödvändiga funktionerna kan du överföra data (sampled eller bearbetas) till en Azure-blob och använda den i Azure Machine Learning med hjälp av följande steg: ytterligare funktioner kan skapas i Azure Machine Learning Studio (klassisk) också. 
 
 1. Skriv dataramen som lokal fil

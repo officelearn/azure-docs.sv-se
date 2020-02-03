@@ -32,7 +32,7 @@ Om du säljer erbjudanden i Azure Marketplace ser du också information om lycka
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Roller och behörighet för att få åtkomst till utbetalnings rapporten
 
-| Rapporter/sidor    | Kontoägare    | Manager  | Utvecklare | Företags deltagare |  Ekonomi deltagare | Rika marknads föraren |
+| Rapporter/sidor    | Kontoinnehavare    | Manager  | Developer | Företags deltagare |  Ekonomi deltagare | Rika marknads föraren |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Anskaffnings rapport (inklusive nära real tids data) | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
 | Feedback-rapport/svar | Kan visa och skicka feedback | Kan visa och skicka feedback | Kan visa och skicka feedback | Ingen åtkomst | Ingen åtkomst | Kan visa och skicka feedback |
@@ -44,7 +44,7 @@ Om du säljer erbjudanden i Azure Marketplace ser du också information om lycka
 
 ## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>Utbetalnings rapport: skillnaden mellan Cloud Partner Portal och partner Center
 
-| | Partnerportalen i molnet | Partnercenter |
+| | Partnerportalen i molnet | Partner Center |
 |---------|---------|---------|
 | Länkar | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) och [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navigering | Utbetalnings rapportering som tillhandahålls i insikts utbetalning | Utbetalnings rapportering som tillhandahålls i Partner Center – utbetalnings ikon |
@@ -68,7 +68,7 @@ Till exempel om kunden köper med ett kredit kort.
 
 ## <a name="corelation-between-payout-and-usage"></a>Relation mellan utbetalning och användning
 
-|Beskrivning    |    Datum  | Beställningar/användning  | Payout |
+|Description    |    Date  | Beställningar/användning  | Payout |
 |----------|----------|-----------|-------------|
 |Order period   | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>Kund</li> </ul> <br> **Användning** <br> <ul> <li>Kund </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> |  |
 |Slut period (månad)   | 30 aug 2019 | | |
@@ -82,12 +82,12 @@ Till exempel om kunden köper med ett kredit kort.
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise Agreement (kvartals Visa/månads kunder)
 
-| Beskrivning |    Datum  | Användning | Payout |
+| Description |    Date  | Användning | Payout |
 |----------|----------|---------|-----------|
 |Order period | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>Kund</li> </ul> <br> **Användnings rapport** <br> <ul> <li>Kund </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> | |
 |Slut period (kvartal) | 30 september 2019 | | |
 |Fakturerings datum | 15 oktober 2019 | | |
-|Depositions period (endast kredit kort, 30 dagar) | Ej tillämpligt | | |
+|Depositions period (endast kredit kort, 30 dagar) | Saknas | | |
 |Start för samlings period | 15 oktober 2019 | | |
 |Endast kredit kort, 30 dagar | Nov 1, 2019 – 30 november 2019 | | |
 |Samlings period slut (maximalt 90 dagar) | 15 Jan 2020 | | |
@@ -99,7 +99,7 @@ Till exempel om kunden köper med ett kredit kort.
 
 Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för stimulans programmet.
 
-| kolumn namn     | Beskrivning    |
+| kolumn namn     | Description    |
 |-------------|-------------------------------|
 | earningId                      | Unikt ID för varje tilltjänande                                                                                                       |
 | participantId                  | Den primära identiteten för partnern enligt programmet                                                                            |
@@ -115,7 +115,7 @@ Det här alternativet innehåller en nedladdning av varje rad objekt som du ser 
 | transactionAmountUSD           | Transaktions belopp i USD                                                                                                                |
 | handtag                          | Indikerar affärs regel för att tjäna                                                                                                  |
 | earningRate                    | Incitaments grad som tillämpas på transaktions belopp för att generera en tjänande                                                                      |
-| kvantitet                       | Varierar beroende på program. Anger Fakturerat antal för transaktions program                                                            |
+| quantity                       | Varierar beroende på program. Anger Fakturerat antal för transaktions program                                                            |
 | quantityType                   | Anger typ av kvantitet, till exempel: fakturerad kvantitet, MAU                                                                                     |
 | earningType                    | Anger om det är avgift, rabatt, Coop, försäljning osv.                                                                                          |
 | earningAmount                  | Tjänande belopp i den ursprungliga transaktions valutan                                                                                      |

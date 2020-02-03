@@ -31,7 +31,7 @@ Du får fel meddelanden från Apache Ambari som liknar:
 
 De angivna katalogerna från Ambari-aviseringen saknas på arbetsnoder som påverkas.
 
-## <a name="resolution"></a>Upplösning
+## <a name="resolution"></a>Lösning
 
 Skapa saknade kataloger manuellt på de berörda arbetsnoderna.
 

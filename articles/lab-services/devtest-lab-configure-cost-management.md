@@ -39,7 +39,7 @@ Följ de här stegen om du vill visa ett uppskattat månatligt kostnads trend di
 
     Det **beräknade kostnad** svärdet är den aktuella kalender månadens uppskattade kostnad hittills. Projektkostnaden **är den** uppskattade kostnaden för hela den aktuella kalender månaden, beräknad med hjälp av labb kostnaden för de föregående fem dagarna.
 
-    Kostnads beloppen avrundas uppåt till närmaste heltal. Ett exempel: 
+    Kostnads beloppen avrundas uppåt till närmaste heltal. Exempel: 
 
    * 5,01 avrundar upp till 6 
    * 5,50 avrundar upp till 6

@@ -21,7 +21,7 @@ ms.locfileid: "76721854"
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
 
 > [!Important]
-> Den här artikeln är inaktuell. Diskussion om förebyggande underhåll av flygplansmotorer är fortfarande relevanta, men för aktuell information, se [översikt över lösning för Business målgrupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
+> Den här artikeln är inaktuell. Diskussionen om förutsägelse underhåll i Aerospace är fortfarande relevant, men för aktuell information, se [lösnings översikt för företags mål grupper](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
 
 Lösningsmallar är utformade att skynda på processen för att skapa en E2E-demo ovanpå Cortana Intelligence Suite. En mall för distribuerade etablerar din prenumeration med nödvändiga komponenter i Cortana Intelligence och bygger relationer mellan dem sedan. Det lägger även datapipeline med exempeldata från en data-generator programmet, vilket du hämta och installera på den lokala datorn när du har distribuerat lösningsmallen. Data från generatorn hydrates datapipeline och börja skapa machine learning-förutsägelser som sedan kan visualiseras i Power BI-instrumentpanelen.
@@ -43,7 +43,7 @@ Målen för den här artikeln är att:
 ![Arkitektur för förebyggande underhåll](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 När du distribuerar lösningen, aktiverar Azure-tjänster inom Cortana Analytics Suite (inklusive Event Hub, Stream Analytics, HDInsight, Datafabrik och Machine Learning). I arkitekturdiagrammet visas hur Förutsägelseunderhåll för flyg lösningsmallen är uppbyggd. Du kan undersöka de här tjänsterna i Azure portal genom att klicka på dem i mallen lösningsdiagrammet skapat med distributionen av lösningen (med undantag för HDInsight som har etablerats på begäran när relaterade pipeline-aktiviteter som krävs för att köra och är ta bort efteråt).
-Ladda ned en [bilden version av diagrammet](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Ladda ned en [full storleks version av diagrammet](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 I följande avsnitt beskrivs delarna av lösningen.
 
@@ -51,22 +51,22 @@ I följande avsnitt beskrivs delarna av lösningen.
 ### <a name="synthetic-data-source"></a>Datakälla för syntetiskt
 För den här mallen genereras data källan som används från ett nedladdat Skriv bords program som du kör lokalt efter en lyckad distribution.
 
-Välj den första noden och förutsägande Underhåll Datagenerator på diagrammet för mall för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. Det här programmet feeds den [Azure Event Hub](#azure-event-hub) tjänst med datapunkter eller händelser som används i resten av lösningsflödet. Den här datakällan härleds från offentligt tillgängliga data från den [NASA datalager](https://c3.nasa.gov/dashlink/resources/139/) med hjälp av den [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Välj den första noden och förutsägande Underhåll Datagenerator på diagrammet för mall för att hitta instruktionerna för att ladda ned och installera det här programmet. Anvisningarna finns i fältet egenskaper. I det här programmet matas tjänsten [Azure Event Hub](#azure-event-hub) med data punkter eller händelser som används i resten av lösnings flödet. Den här data källan härleds från offentligt tillgängliga data från data [lagringen för NASA](https://c3.nasa.gov/dashlink/resources/139/) med [turbofan-datauppsättningen för motor degraderingen](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 Händelsen generation programmet fyller Azure Event Hub endast medan det körs på datorn.  
 
-### <a name="azure-event-hub"></a>Azure Event Hub  
-Den [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) tjänsten är mottagaren av indata som angetts av syntetiska datakällan.
+### <a name="azure-event-hub"></a>Azure händelsehubb  
+Tjänsten [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) är mottagaren av de indata som tillhandahålls av den syntetiska data källan.
 
 ## <a name="data-preparation-and-analysis"></a>Förberedelse av data och analys  
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) att tillhandahålla analys på Indataströmmen från nära realtid den [Azure Event Hub](#azure-event-hub) service. Du kan sedan publicera resultaten på en [Power BI](https://powerbi.microsoft.com) instrumentpanelen samt arkiverar alla inkommande råhändelser i [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)service.
+Använd [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) för att tillhandahålla analys i nära real tid i indata-dataströmmen från tjänsten [Azure Event Hub](#azure-event-hub) . Sedan publicerar du resultaten på en [Power BI](https://powerbi.microsoft.com) instrument panel och arkiverar alla rå inkommande händelser till tjänsten [Azure Storage](https://azure.microsoft.com/services/storage/) för senare bearbetning av [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) -tjänsten.
 
 ### <a name="hdinsight-custom-aggregation"></a>Anpassade HDInsight-aggregering
 Kör [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript (dirigerad av Azure Data Factory) med HDInsight för att tillhandahålla agg regeringar för de råa händelser som arkiveras med hjälp av Azure Stream Analytics resursen.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Göra förutsägelser kring återstående livslängd (RUL) för en viss flygplansmotor med hjälp av indata som tagits emot med [Azure Machine Learning-tjänsten](https://azure.microsoft.com/services/machine-learning/) (orkestreras via Azure Data Factory). 
+Gör förutsägelser för återstående livs längd (RUL) för en viss flyg Plans motor med hjälp av de indata som tagits emot med [Azure Machine Learning-tjänsten](https://azure.microsoft.com/services/machine-learning/) (dirigerad av Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publicering av data
 ### <a name="azure-sql-database"></a>Azure SQL Database
@@ -74,16 +74,16 @@ Använd [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 
 ## <a name="data-consumption"></a>Dataförbrukning
 ### <a name="power-bi"></a>Power BI
-Använd [Power BI](https://powerbi.microsoft.com) att visa en instrumentpanel som innehåller aggregeringar och aviseringar som tillhandahålls av [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), samt RUL förutsägelser som lagras i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som skapas med hjälp av [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+Använd [Power BI](https://powerbi.microsoft.com) för att visa en instrument panel som innehåller agg regeringar och aviseringar som tillhandahålls av [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), samt RUL förutsägelser lagrade i [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som har producerats med [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
 ## <a name="how-to-bring-in-your-own-data"></a>Hur du hanterar dina egna data
 Det här avsnittet beskrivs hur du hanterar dina egna data till Azure och vilka områden kräver ändringar för de data du sätta i den här arkitekturen.
 
-Det är inte troligt att din datauppsättning matchar den datauppsättning som används av den [Turbofan Engine Degradation Simulation Data Set](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) används för den här lösningsmallen. Förstå dina data och kraven är avgörande i hur du ändrar den här mallen ska fungera med dina egna data. 
+Det är osannolikt att din data uppsättning matchar den data uppsättning som används av den [turbofan](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) som används för den här lösnings mal len. Förstå dina data och kraven är avgörande i hur du ändrar den här mallen ska fungera med dina egna data. 
 
 I följande avsnitt beskrivs de delar av mallen som kräver ändringar när en ny datauppsättning införs.
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### <a name="azure-event-hub"></a>Azure händelsehubb
 Azure Event Hub är allmänt; data kan publiceras till hubben i CSV eller JSON-format. Ingen särskild bearbetning sker i Azure Event Hub, men det är viktigt att du förstår de data som matas in.
 
 Det här dokumentet beskriver inte hur att mata in dina data, men du kan enkelt skicka händelser eller data till en Azure-Händelsehubb med hjälp av API: er för Event Hub.
@@ -96,60 +96,60 @@ Förutsägande Underhåll för flyg lösningsmallen består Azure Stream Analyti
 Azure Stream Analytics-fråga kan hittas genom att:
 
 * Ansluta till Azure-portalen
-* Hitta Stream Analytics-jobb ![Stream Analytics-ikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) som genererades när lösningen har distribuerats (*till exempel*, **maintenancesa02asapbi** och **maintenancesa02asablob** för lösningen för förebyggande underhåll)
+* Hitta Stream Analytics jobb ![Stream Analytics ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-stream-analytics.png) som genererades när lösningen distribuerades (*till exempel* **maintenancesa02asapbi** och **maintenancesa02asablob** för lösningen för förutsägelse underhåll)
 * Att välja
   
-  * ***INDATA*** kan du se frågan indata
-  * ***FRÅGA*** kan du se frågan själva
-  * ***Matar ut*** att visa olika utdata
+  * ***Indata*** för att Visa frågans indata
+  * ***Fråga*** för att Visa själva frågan
+  * ***Utdata*** för att visa olika utdata
 
-Information om Azure Stream Analytics frågekonstruktion finns i den [referens för Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) på MSDN.
+Information om hur du Azure Stream Analytics Query-konstruktion finns i [referensen Stream Analytics frågor](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) på MSDN.
 
 I den här lösningen utdatauppsättningar frågorna tre med nära realtidsanalys information om inkommande dataström till en Power BI-instrumentpanel som tillhandahålls som en del av den här lösningsmallen. Eftersom det finns implicit kunskap om dataformat för inkommande, måste de här frågorna ändras baserat på dataformat.
 
-Frågan i det andra Stream Analytics-jobbet **maintenancesa02asablob** bara matar ut alla [Händelsehubb](https://azure.microsoft.com/services/event-hubs/) händelser till [Azure Storage](https://azure.microsoft.com/services/storage/) och därför kräver inga ändringar oavsett dina dataformat som den fullständiga händelsen strömmas information till lagring.
+Frågan i det andra Stream Analytics jobb- **maintenancesa02asablob** skapar helt enkelt alla [Event Hub](https://azure.microsoft.com/services/event-hubs/) -händelser som ska [Azure Storage](https://azure.microsoft.com/services/storage/) och kräver därför ingen ändring oavsett ditt data format eftersom all händelse information strömmas till lagrings utrymmet.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-Den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) dirigerar förflyttning och bearbetning av data. I den förebyggande underhåll för flyg lösningsmallen data factory består av tre [pipelines](../../data-factory/concepts-pipelines-activities.md) som flytta och bearbeta data med olika tekniker.  Komma åt din data factory genom att öppna noden Data Factory längst ned i mallen lösningsdiagrammet skapat med distribution av lösningen. Fel under dina datauppsättningar som på grund av data factory distribueras innan datageneratorn startades. Dessa fel kan ignoreras och förhindrar inte att din data factory fungerar
+Tjänsten [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) dirigerar flyttningen och bearbetningen av data. I det förutsägande underhållet av flyg lösnings mal len består data fabriken av tre [pipelines](../../data-factory/concepts-pipelines-activities.md) som flyttar och bearbetar data med hjälp av olika tekniker.  Komma åt din data factory genom att öppna noden Data Factory längst ned i mallen lösningsdiagrammet skapat med distribution av lösningen. Fel under dina datauppsättningar som på grund av data factory distribueras innan datageneratorn startades. Dessa fel kan ignoreras och förhindrar inte att din data factory fungerar
 
 ![Fel för data Factory-datauppsättningen](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-Det här avsnittet beskrivs nödvändiga [pipelines och aktiviteter](../../data-factory/concepts-pipelines-activities.md) i den [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Här är en diagramvy av lösningen.
+I det här avsnittet beskrivs nödvändiga [pipeliner och aktiviteter](../../data-factory/concepts-pipelines-activities.md) som finns i [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Här är en diagramvy av lösningen.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-Två av pipelines för den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript som används för att partitionera och aggregera data. När anges är skript som finns i den [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under konfigurationen. Var de är: maintenancesascript\\\\skriptet\\\\hive\\ \\ (eller https://[Your lösning name].blob.core.windows.net/maintenancesascript).
+Två av pipelinen i den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript\\\\skriptet\\\\Hive\\\\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
 
-Liknar [Azure Stream Analytics](#azure-stream-analytics-1) frågor, den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript har implicit kunskap om dataformat för inkommande och måste ändras baserat på dataformat.
+Precis som med [Azure Stream Analytics](#azure-stream-analytics-1) frågor, har [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skripten implicit kunskap om det inkommande data formatet och måste ändras baserat på ditt data format.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för att partitionera data placeras i [Azure Storage](https://azure.microsoft.com/services/storage/) under den [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
+Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – en [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet som använder en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript för att partitionera data i [Azure Storage](https://azure.microsoft.com/services/storage/) under [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobbet.
 
-Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***AggregateFlightInfo.hql***
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skriptet för den här partitionerings aktiviteten är ***AggregateFlightInfo. HQL***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
-Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter vars slutresultatet är poängsatta förutsägelser från den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment som är associerade med den här lösningsmallen.
+Den här [pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller flera aktiviteter vars slut resultat är de poäng förutsägelser från det [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet som är associerat med den här lösnings mal len.
 
 Aktiviteter som ingår är:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör en [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skriptet för att utföra aggregeringar och funktionstekniker som krävs för den [Azure-dator Learning](https://azure.microsoft.com/services/machine-learning/) experimentera.
-  Den [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) skript för detta partitionering är ***PrepareMLInput.hql***.
-* [Kopiera](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultaten från den [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) aktivitet till en enda [Azure Storage](https://azure.microsoft.com/services/storage/) blob som nås av den [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet.
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) aktivitet anropar den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experiment med resultat i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktivitet med en [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) som kör ett [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript för att utföra agg regeringar och funktions teknik som krävs för [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet.
+  [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skriptet för den här partitionerings aktiviteten är ***PrepareMLInput. HQL***.
+* [Kopierings](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet från [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) -aktiviteten till en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob som används av [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) -aktiviteten.
+* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) -aktiviteten anropar [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet med resultat som finns i en enda [Azure Storage](https://azure.microsoft.com/services/storage/) -blob.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Detta [pipeline](../../data-factory/concepts-pipelines-activities.md) innehåller en enda aktivitet – en [kopia](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet av den [Azure Machine Learning](#azure-machine-learning) experiment från den  ***MLScoringPipeline*** till den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) etablerats som en del av lösningen mall installationen.
+Den [här pipelinen](../../data-factory/concepts-pipelines-activities.md) innehåller en enskild aktivitet – [en kopierings](https://msdn.microsoft.com/library/azure/dn835035.aspx) aktivitet som flyttar resultatet av [Azure Machine Learning](#azure-machine-learning) experimentet från ***MLScoringPipeline*** till den [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som ingår i installationen av lösnings mal len.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Den [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentera används för den här lösningsmallen erbjuder den återstående driftstid (RUL) för en flygplansmotor. Experimentet är specifik för den datauppsättning som används och kräver ändring av eller ersättning som är specifika för data som finns.
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentet som används för den här lösnings mal len tillhandahåller återstående livs längd (RUL) för en flyg Plans motor. Experimentet är specifik för den datauppsättning som används och kräver ändring av eller ersättning som är specifika för data som finns.
 
-Information om hur Azure Machine Learning-experiment har skapats, finns i [förebyggande underhåll: steg 1 av 3, förberedelse av data och funktionsframställning](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Information om hur Azure Machine Learning experimentet har skapats finns i [förutsägande underhåll: steg 1 av 3, förberedelse av data och funktioner](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>Övervaka förloppet
 När Datageneratorn startas pipelinen börjar dehydratisera och de olika komponenterna i din lösning starta starta i åtgärden följande kommandon som utfärdas av data factory. Det finns två sätt att övervaka pipelinen.
 
-* En av Stream Analytics-jobb skriver inkommande rådata till blob storage. Om du klickar på Blob Storage-komponenten i din lösning från skärmen för att du har distribuerat lösningen och klickar sedan på Öppna i den högra panelen, det tar att den [Azure-portalen](https://portal.azure.com/). När det, klickar du på BLOB-objekt. Nästa panelen visas en lista över behållare. Klicka på **maintenancesadata**. I nästa panelen är den **\data** mapp. I mappen \data är mappar med namn, t.ex timme = 17 och timme = 18. Förekomsten av dessa mappar anger rådata som genereras på datorn och lagras i blob storage. Du bör se csv-filer med begränsad storlek i MB i dessa mappar.
-* Det sista steget i pipelinen är att skriva data (till exempel förutsägelser från maskininlärning) i SQL-databas. Du kan behöva vänta högst tre timmar innan data visas i SQL-databas. Ett sätt att övervaka hur mycket data är tillgängliga i SQL-databasen är via den [Azure-portalen](https://portal.azure.com/). På den vänstra panelen, leta upp SQL-databaser ![SQL-ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) och klicka på den. Leta upp din databas **pmaintenancedb** och klicka på den. På nästa sida längst ned på sidan, klicka på Hantera
+* En av Stream Analytics-jobb skriver inkommande rådata till blob storage. Om du klickar på Blob Storage komponent i din lösning från skärmen har du distribuerat lösningen och klickar sedan på öppna i den högra panelen, så tar du till [Azure Portal](https://portal.azure.com/). När det, klickar du på BLOB-objekt. Nästa panelen visas en lista över behållare. Klicka på **maintenancesadata**. I nästa panel finns mappen **rawData** . I mappen \data är mappar med namn, t.ex timme = 17 och timme = 18. Förekomsten av dessa mappar anger rådata som genereras på datorn och lagras i blob storage. Du bör se csv-filer med begränsad storlek i MB i dessa mappar.
+* Det sista steget i pipelinen är att skriva data (till exempel förutsägelser från maskininlärning) i SQL-databas. Du kan behöva vänta högst tre timmar innan data visas i SQL-databas. Ett sätt att övervaka hur mycket data som är tillgängligt i SQL Database är genom [Azure Portal](https://portal.azure.com/). På den vänstra panelen, leta upp SQL-databaser ![SQL-ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) och klicka på den. Leta sedan reda på databasens **pmaintenancedb** och klicka på den. På nästa sida längst ned på sidan, klicka på Hantera
    
     ![Hantera ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
@@ -172,73 +172,73 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
 
 1. Hämta autentiseringsuppgifterna på databasen.
    
-   Du behöver **databasen servernamnet, databasnamnet, användarnamnet och lösenordet** innan du fortsätter till nästa steg. Här följer stegen för att guida dig hur du hittar dem.
+   Du behöver **databas server namn, databas namn, användar namn och lösen ord** innan du fortsätter till nästa steg. Här följer stegen för att guida dig hur du hittar dem.
    
-   * En gång **Azure SQL-databas** på din mall diagram blir grön, klickar du på den och klicka sedan på **”öppna'** .
-   * Du ser en ny webbflik/fönster som visar Azure Portal sidan. Klicka på **”resursgrupper”** på den vänstra panelen.
-   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **' YourSolutionName\_ResourceGroup'** .
-   * I den nya frigörs panelen, klickar du på den ![SQL ikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) ikon för att komma åt databasen. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '** ) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
-   * Din databas **användarnamn** och **lösenord** är samma som användarnamnet och lösenordet tidigare registreras under distributionen av lösningen.
+   * När **Azure SQL Database** i lösningens diagram blir grönt, klickar du på det och sedan på **Öppna**.
+   * Du ser en ny webbflik/fönster som visar Azure Portal sidan. Klicka på **resurs grupper** på den vänstra panelen.
+   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **YourSolutionName\_ResourceGroup**.
+   * I den nya popup-panelen klickar du på ikonen för ![SQL-ikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) för att komma åt databasen. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '** ) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
+   * Ditt **användar namn** och **lösen ord** för databasen är samma som det användar namn och lösen ord som tidigare registrerades under distributionen av lösningen.
 2. Uppdatera datakällan för rapportfilen kalla sökvägen med Power BI Desktop.
    
-   * I den mapp där du hämtade och packat Generator-filen, dubbelklickar du på den **PowerBI\\PredictiveMaintenanceAerospace.pbix** fil. Om du ser alla varningsmeddelanden när du öppnar filen kan ignorera dem. Överst i filen, klickar du på **redigera frågor**.
+   * I mappen där du laddade ned och zippa Generator-filen dubbelklickar du på filen **PowerBI\\PredictiveMaintenanceAerospace. pbix** . Om du ser alla varningsmeddelanden när du öppnar filen kan ignorera dem. Klicka på **Redigera frågor**överst i filen.
      
      ![Redigera frågor](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
-   * Du ser två tabeller, **RemainingUsefulLife** och **PMResult**. Välj den första tabellen och klicka på ![fråga inställningsikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) bredvid **'Source'** under **TILLÄMPADE steg** till höger **'Frågeinställningar'** panelen. Ignorera alla varningsmeddelanden som visas.
-   * I frigörs fönster, ersätter **'Server'** och **”databas”** med din egen och databasnamn och sedan på **'OK'** . För Server namn, se till att du anger port 1433 (**YourSolutionName.Database.Windows.net, 1433**). Lämna fältet databas som **pmaintenancedb**. Ignorera varningsmeddelanden som visas på skärmen.
-   * I nästa frigörs fönstret, ser du två alternativ i det vänstra fönstret (**Windows** och **databasen**). Klicka på **"databas"** , Fyll i ditt **"username"** och **"Password"** (användar namn och lösen ord som du angav när du först distribuerade lösningen och skapade en Azure SQL Database). I ***väljer vilken nivå dessa inställningar ska tillämpas***, kontrollera nivån databasalternativ. Klicka sedan på **”Anslut”** .
-   * Klicka på den andra tabellen **PMResult** klickar ![ikonen Rapportnavigering](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) bredvid **'Source'** under **TILLÄMPADE steg** till höger **'Frågeinställningar'** panelen och uppdatera namnen på servern och databasen som i ovanstående steg och klicka på OK.
-   * Stäng fönstret när du är interaktiva tillbaka till föregående sida. Ett meddelande visas – Klicka på **tillämpa**. Klicka slutligen på den **spara** för att spara ändringarna. Power BI-filen har nu upprätta anslutningen till servern. Om dina visualiseringar är tomma, kontrollera att du radera markeringarna på visualiseringar i visualisera alla data genom att klicka på raderingsikonen i det övre högra hörnet av seriemönstren. Använd uppdateringsknappen ska visa nya data på visualiseringar. Första gången se du bara seed-data på dina visualiseringar som data factory schemaläggs för uppdatering var tredje timme. När 3 timmar visas nya förutsägelser som visas i dina visualiseringar när du uppdaterar data.
-3. (Valfritt) Publicera instrumentpanelen kalla sökvägen till [Power BI online](https://www.powerbi.com/). Det här steget behöver ett Power BI konto (eller ett Office 365-konto).
+   * Du ser två tabeller, **RemainingUsefulLife** och **PMResult**. Välj den första tabellen och klicka på ikonen för ![frågeinställningar](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel. Ignorera alla varningsmeddelanden som visas.
+   * Ersätt **"Server"** och **"Database"** i fönstret för popup-fönster med dina egna Server-och databas namn och klicka sedan på **OK**. För Server namn, se till att du anger port 1433 (**YourSolutionName.Database.Windows.net, 1433**). Lämna databas fältet som **pmaintenancedb**. Ignorera varningsmeddelanden som visas på skärmen.
+   * I nästa popup-fönster visas två alternativ i den vänstra rutan (**Windows** och **databas**). Klicka på **"databas"** , Fyll i ditt **"username"** och **"Password"** (användar namn och lösen ord som du angav när du först distribuerade lösningen och skapade en Azure SQL Database). I ***Välj vilken nivå som inställningarna ska tillämpas på***kontrollerar du alternativet på databas nivå. Klicka sedan på **Anslut**.
+   * Klicka på den andra tabellen **PMResult** klicka sedan på ![navigerings ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) bredvid **"källa"** under **"tillämpade steg"** på den **högra panelen** och uppdatera Server-och databas namnen som i ovanstående steg och klicka på OK.
+   * Stäng fönstret när du är interaktiva tillbaka till föregående sida. Ett meddelande visas – klicka på **Använd**. Klicka slutligen på knappen **Spara** för att spara ändringarna. Power BI-filen har nu upprätta anslutningen till servern. Om dina visualiseringar är tomma, kontrollera att du radera markeringarna på visualiseringar i visualisera alla data genom att klicka på raderingsikonen i det övre högra hörnet av seriemönstren. Använd uppdateringsknappen ska visa nya data på visualiseringar. Första gången se du bara seed-data på dina visualiseringar som data factory schemaläggs för uppdatering var tredje timme. När 3 timmar visas nya förutsägelser som visas i dina visualiseringar när du uppdaterar data.
+3. Valfritt Publicera instrument panelen för kall bana till [Power BI online](https://www.powerbi.com/). Det här steget behöver ett Power BI konto (eller ett Office 365-konto).
    
-   * Klicka på **”publicera”** och några sekunder senare ett fönster visas med ”publicering till Power BI lyckades”! med en grön bockmarkering. Klicka på länken nedan ”öppna PredictiveMaintenanceAerospace.pbix i Power BI”. Detaljerade anvisningar finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Att skapa en ny instrumentpanel: Klicka på den **+** logga bredvid den **instrumentpaneler** avsnitt i det vänstra fönstret. Ange namnet ”förutsägande Underhåll Demo” för den här nya instrumentpanelen.
-   * När du öppnar rapporten klickar du på ![fästikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) att fästa alla visualiseringar på instrumentpanelen. Detaljerade anvisningar finns i [fästa en panel på en Power BI-instrumentpanel från en rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
-     Gå till instrumentpanelssidan och justera storleken och platsen för dina visualiseringar och redigera sina titlar. Detaljerade anvisningar om hur du redigerar dina paneler finns i [redigera en panel – ändra storlek, flytta, Byt namn på, PIN-kod, ta bort, lägga till hyperlänk](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Här är en exempel-instrumentpanel med vissa kalla sökvägen visualiseringar fästa på den.  Beroende på hur länge du kör din datagenerator, skilja dina nummer på visualiseringar sig.
+   * Klicka på **publicera** och få sekunder senare visas ett fönster som visar publicering till Power BI lyckades! med en grön bockmarkering. Klicka på länken nedan ”öppna PredictiveMaintenanceAerospace.pbix i Power BI”. Detaljerade instruktioner finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
+   * För att skapa en ny instrument panel: Klicka på **+** tecknet bredvid avsnittet **instrument paneler** i det vänstra fönstret. Ange namnet ”förutsägande Underhåll Demo” för den här nya instrumentpanelen.
+   * När du har öppnat rapporten klickar du på ![fäst ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) för att fästa alla visualiseringar på instrument panelen. Detaljerade instruktioner finns i [fästa en panel på en Power BI instrument panel från en rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
+     Gå till instrumentpanelssidan och justera storleken och platsen för dina visualiseringar och redigera sina titlar. Detaljerade anvisningar om hur du redigerar dina paneler finns i [Redigera en panel – ändra storlek, flytta, byta namn, fästa, ta bort, Lägg till hyperlänk](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Här är en exempel-instrumentpanel med vissa kalla sökvägen visualiseringar fästa på den.  Beroende på hur länge du kör din datagenerator, skilja dina nummer på visualiseringar sig.
      <br/>
-     ![Sista vy](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
+     ![slutlig vy](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
    * Om du vill schemalägga uppdatering av data håller du mus pekaren över **PredictiveMaintenanceAerospace** -datauppsättningen, klickar på ![ellips-ikon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) och väljer sedan **Schemalägg uppdatering**.
      <br/>
-     **Obs:** om du ser en varning massage, klickar du på **redigera autentiseringsuppgifter** och se till att dina autentiseringsuppgifter på databasen är samma som de som beskrivs i steg 1.
+     **Obs:** Om du ser ett varnings massage klickar du på **Redigera autentiseringsuppgifter** och kontrollerar att autentiseringsuppgifterna för databasen är desamma som de som beskrivs i steg 1.
      <br/>
      ![Schemalägg uppdatering](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
-   * Expandera den **Schemalägg uppdatering** avsnittet. Aktivera ”Håll dina data aktuella”.
+   * Expandera avsnittet **schema uppdatering** . Aktivera ”Håll dina data aktuella”.
      <br/>
-   * Schemalägga en uppdatering efter dina behov. Mer information finns i [datauppdatering i Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
+   * Schemalägga en uppdatering efter dina behov. Mer information finns i [data uppdatering i Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### <a name="setup-hot-path-dashboard"></a>Konfigurera heta sökvägen instrumentpanel
-Följande steg hjälper dig hur du visualisera data utdata från Stream Analytics-jobb som genererades vid tidpunkten för distribution. En [Power BI online](https://www.powerbi.com/) konto krävs för att utföra följande steg. Om du inte har ett konto, kan du [skapar ett](https://powerbi.microsoft.com/pricing).
+Följande steg hjälper dig hur du visualisera data utdata från Stream Analytics-jobb som genererades vid tidpunkten för distribution. Det krävs ett [Power BI online](https://www.powerbi.com/) -konto för att utföra följande steg. Om du inte har något konto kan du [skapa ett](https://powerbi.microsoft.com/pricing).
 
 1. Lägg till Power BI-utdata i Azure Stream Analytics (ASA).
    
-   * Du måste följa anvisningarna i [Azure Stream Analytics och Power BI: en analysinstrumentpanel för realtidsinsyn för strömmande data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) att ställa in utdata från ditt Azure Stream Analytics-jobb som Power BI-instrumentpanelen.
-   * ASA-frågan har tre utdata som är **aircraftmonitor**, **aircraftalert**och **flightsbyhour**. Du kan visa frågan genom att klicka på fliken fråga. motsvarar var och en av tabellerna måste du lägga till utdata till ASA. När du lägger till den första utdatan (**aircraftmonitor**) se till att den **Utdataaliaset**, **Datamängdsnamn** och **tabellnamn** är samma (**aircraftmonitor**). Upprepa stegen för att lägga till utdata för **aircraftalert**, och **flightsbyhour**. När du har lagt till alla tre utdatatabellerna och igång ASA-jobbet, bör du få ett bekräftelsemeddelande (”starta Stream Analytics-jobbet maintenancesa02asapbi lyckades”).
+   * Du måste följa anvisningarna i [Azure Stream Analytics & Power BI: en analys instrument panel för real tids visning av strömmande data](../../stream-analytics/stream-analytics-power-bi-dashboard.md) för att konfigurera utdata för ditt Azure Stream Analytics-jobb som Power BI instrument panel.
+   * ASA-frågan har tre utdata som är **aircraftmonitor**, **aircraftalert**och **flightsbyhour**. Du kan visa frågan genom att klicka på fliken fråga. motsvarar var och en av tabellerna måste du lägga till utdata till ASA. När du lägger till den första utdatan (**aircraftmonitor**) kontrollerar du att **utdata-aliaset**, **data uppsättningens namn** och **tabell namnet** är samma (**aircraftmonitor**). Upprepa stegen för att lägga till utdata för **aircraftalert**och **flightsbyhour**. När du har lagt till alla tre utdatatabellerna och igång ASA-jobbet, bör du få ett bekräftelsemeddelande (”starta Stream Analytics-jobbet maintenancesa02asapbi lyckades”).
 2. Logga in på [Power BI online](https://www.powerbi.com)
    
-   * På den vänstra panelen datauppsättningar avsnitt i Min arbetsyta i ***DATAUPPSÄTTNING*** namn **aircraftmonitor**, **aircraftalert**, och **flightsbyhour** bör visas. Det här är den strömmande data som du push-överfört från Azure Stream Analytics i föregående steg. Datauppsättningen **flightsbyhour** kanske inte visas på samma gång som de andra två datauppsättningarna på grund av SQL-frågan bakom den. Men bör den visas efter en timme.
-   * Kontrollera att den ***visualiseringar*** fönstret är öppet och visas på höger sida av skärmen.
+   * På den vänstra panelens data uppsättnings avsnitt i min arbets yta visas ***data uppsättnings*** namnen **aircraftmonitor**, **aircraftalert**och **flightsbyhour** . Det här är den strömmande data som du push-överfört från Azure Stream Analytics i föregående steg. Data uppsättningen **flightsbyhour** får inte visas samtidigt som de andra två data uppsättningarna på grund av SQL-frågans natur. Men bör den visas efter en timme.
+   * Kontrol lera att ***visualiserings*** fönstret är öppet och visas på höger sida av skärmen.
 3. När du har data som flödar till Power BI kan börja du visualisera strömmande data. Nedan är en exempel-instrumentpanel med vissa heta sökvägen visualiseringar som fästs till den. Du kan skapa andra instrumentpaneler som baseras på lämpliga datauppsättningar. Beroende på hur länge du kör din datagenerator, skilja dina nummer på visualiseringar sig.
 
     ![Instrumentpanelsvy](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. Här följer några steg för att skapa en av panelerna ovan – panelen "flottan av sensor 11 vs. Threshold 48,26":
    
-   * Klicka på datauppsättningen **aircraftmonitor** på den vänstra panelen datauppsättningar avsnittet.
-   * Klicka på den **linjediagram** ikon.
-   * Klicka på **bearbetade** i den **fält** fönstret så att den visar under ”axel” i den **visualiseringar** fönstret.
-   * Klicka på ”s11” och ”s11\_aviseringen” så att de båda visas under ”Values”. Klicka på den lilla pilen bredvid **s11** och **s11\_avisering**, ändra ”Sum” till ”Average”.
-   * Klicka på **spara** högst upp och namn på rapporten ”aircraftmonitor”. Rapporten med namnet ”aircraftmonitor” visas i den **rapporter** i avsnittet den **Navigator** fönstret till vänster.
+   * Klicka på data uppsättning **aircraftmonitor** i avsnittet data uppsättningar för den vänstra panelen.
+   * Klicka på **linje diagrams** ikonen.
+   * Klicka på **bearbetad** i fönstret **fält** så att det visas under axel i fönstret **visualiseringar** .
+   * Klicka på "S11" och "S11\_Alert" så att båda visas under "värden". Klicka på den lilla pilen bredvid **S11** och **S11\_varning**, ändra sum till Average.
+   * Klicka på **Spara** högst upp och ge rapporten namnet "aircraftmonitor". Rapporten med namnet "aircraftmonitor" visas i avsnittet **rapporter** i **navigerings** fönstret till vänster.
    * Klicka på den **visuella ikonen fäst** i det övre högra hörnet i det här linje diagrammet. Ett fönster ”fäst på instrumentpanelen” kanske visas där du kan välja en instrumentpanel. ”Förutsägande Underhåll Demo” och sedan klicka på ”PIN-kod”.
    * Hovra över musen över den här panelen på instrument panelen, klicka på ikonen "redigera" i det övre högra hörnet för att ändra titeln till "flottan av sensor 11 vs. Threshold 48,26" och under rubrik till "genomsnitt över flottan över tid".
 
 ## <a name="delete-your-solution"></a>Ta bort lösningen
-Se till att du stoppar datageneratorn när du inte aktivt använder lösningen som att köra datageneratorn medför större kostnader. Ta bort lösningen om du inte använder den. Tar bort lösningen tar du bort alla komponenter som etablerats i din prenumeration när du distribuerade lösningen. Om du vill ta bort lösningen, klickar du på din lösning i den vänstra panelen i lösningsmallen och klicka sedan på **ta bort**.
+Se till att du stoppar datageneratorn när du inte aktivt använder lösningen som att köra datageneratorn medför större kostnader. Ta bort lösningen om du inte använder den. Tar bort lösningen tar du bort alla komponenter som etablerats i din prenumeration när du distribuerade lösningen. Om du vill ta bort lösningen klickar du på lösningens namn i den vänstra panelen i lösnings mal len och sedan på **ta bort**.
 
 ## <a name="cost-estimation-tools"></a>Verktyg för kostnadsuppskattning
 Följande två verktyg är tillgängliga för att bättre förstå totala kostnader för att köra förebyggande underhåll för flyg lösningsmallen i din prenumeration:
 
-* [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (skrivbord)](https://www.microsoft.com/download/details.aspx?id=43376)
+* [Verktyget Microsoft Azure kostnads uppskattning (online)](https://azure.microsoft.com/pricing/calculator/)
+* [Verktyget Microsoft Azure kostnads uppskattning (skriv bord)](https://www.microsoft.com/download/details.aspx?id=43376)
 

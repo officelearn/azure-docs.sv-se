@@ -48,7 +48,7 @@ Både redigerings-och förutsägelse slut punkts-API: er är tillgängliga från
 
 ### <a name="language-based-sdks"></a>Språkbaserade SDK: er
 
-|Språk |Referensdokumentation|Paket|Exempel|Snabbstarter|
+|Språk |Referens dokumentation|Paket|Exempel|Snabbstarter|
 |--|--|--|--|--|
 |C#|[Redigering](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Förutsägelse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet-redigering](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet förutsägelse](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Skapa och hantera app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Slut punkt för fråga förutsägelse](sdk-query-prediction-endpoint.md)|
 |Go|[Redigering och förutsägelse](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Förutsägelse](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Redigering och förutsägelse med REST](luis-get-started-get-intent-from-rest.md)|
@@ -57,7 +57,7 @@ Både redigerings-och förutsägelse slut punkts-API: er är tillgängliga från
 |Python|[Redigering och förutsägelse](sdk-authoring.md?pivots=programming-language-python)|[–](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Redigering](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Redigering](sdk-authoring.md?pivots=programming-language-python)<br>[Förutsägelse med REST](luis-get-started-get-intent-from-rest.md)
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 
 Language Understanding (LUIS) innehåller en [behållare](luis-container-howto.md) för att tillhandahålla lokala och befintliga versioner av din app.
 

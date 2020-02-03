@@ -31,7 +31,7 @@ Om du fastställer att cachen inte längre uppfyller programmets krav kan du ska
 ## <a name="scale-a-cache"></a>Skala en cache
 Om du vill skala cacheminnet [bläddrar du till cachen](cache-configure.md#configure-azure-cache-for-redis-settings) i [Azure Portal](https://portal.azure.com) och klickar på **skala** på **resurs-menyn**.
 
-![Skalning](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+![Skala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
 Välj önskad pris nivå på bladet **Välj pris nivå** och klicka på **Välj**.
 

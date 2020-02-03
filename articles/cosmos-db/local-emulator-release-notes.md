@@ -22,7 +22,7 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 | | |
 |---------|---------|
 |**Ladda ned MSI**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
+|**Kom igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
 

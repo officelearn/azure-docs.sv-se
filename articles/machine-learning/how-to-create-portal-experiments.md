@@ -25,13 +25,13 @@ ms.locfileid: "76720409"
 
  Om du föredrar en mer kod baserad upplevelse kan du också [Konfigurera dina automatiserade maskin inlärnings experiment i python](how-to-configure-auto-train.md) med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning arbets yta med en typ av **Enterprise-utgåva**. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbets yta till Enterprise Edition finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Kom igång
 
 1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com). 
 
@@ -64,11 +64,11 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
-        Field| Beskrivning
+        Fält| Description
         ----|----
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
-        Encoding| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
+        Kodning| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
         Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.
     
@@ -91,7 +91,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
 
-    Field|Beskrivning
+    Fält|Description
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
@@ -115,7 +115,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Valfritt Ytterligare konfigurationer: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
-    Ytterligare konfigurationer|Beskrivning
+    Ytterligare konfigurationer|Description
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
     Automatisk funktionalisering| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. [Läs mer om för bearbetning](#preprocess).
@@ -133,14 +133,14 @@ Du kan få en mängd olika sammanfattnings statistik över din data uppsättning
 >[!NOTE]
 > Tomma poster visas för funktioner med irrelevanta typer.
 
-Statistik|Beskrivning
+Statistik|Description
 ------|------
 Funktion| Namn på den kolumn som sammanfattas.
 Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
 Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så den här visualiseringen är användbar för att identifiera udda eller saknade värden.
 Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
 Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (t. ex. booleska värden).
-Max.| Max värde för kolumnen. 
+Max| Max värde för kolumnen. 
 Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
 Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
 Quantiles| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
@@ -157,13 +157,13 @@ Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data 
 
 När du konfigurerar experimenten kan du aktivera den avancerade inställningen `feauturization`. 
 
-|Funktionalisering-konfiguration | Beskrivning |
+|Funktionalisering-konfiguration | Description |
 | ------------- | ------------- |
 |"feauturization" = ' FeaturizationConfig '| Anger att det anpassade funktionalisering-steget ska användas. [Lär dig hur du anpassar funktionalisering](how-to-configure-auto-train.md#customize-feature-engineering).|
 |"feauturization" = "av"| Anger att funktionalisering-steget inte ska göras automatiskt.|
 |"feauturization" = ' auto '| Anger att som en del av förbehandling av följande data guardrails och funktionalisering-steg utförs automatiskt.|
 
-|Förbearbeta&nbsp;steg| Beskrivning |
+|Förbearbeta&nbsp;steg| Description |
 | ------------- | ------------- |
 |Ta bort hög kardinalitet- eller inga varians-funktioner|Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med mycket hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |Sedan imputera värden som saknas|För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|
@@ -224,12 +224,12 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Field| Värde
+    Fält| Värde
     ----|----
-    Namn| Ange ett unikt namn för din distribution.
-    Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
+    Name| Ange ett unikt namn för din distribution.
+    Description| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
     Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)* .
-    Namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
+    Name| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.
     Använda anpassade distributions till gångar| Aktivera den här funktionen om du vill överföra ditt eget bedömnings skript och miljö fil. [Lär dig mer om bedömnings skript](how-to-deploy-and-where.md#script).
 

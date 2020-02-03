@@ -38,5 +38,5 @@ Du måste först fylla i och skicka in ett [formulär för avvikelse detektor co
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [installations-och körnings behållare](../anomaly-detector-container-configuration.md) för att hämta behållar avbildningen och köra behållaren
-* Granska [konfigurera behållare](../anomaly-detector-container-configuration.md) för konfigurationsinställningar
+* Granska [Konfigurera behållare](../anomaly-detector-container-configuration.md) för konfigurations inställningar
 * [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

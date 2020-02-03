@@ -62,7 +62,7 @@ Följande diagram och steg beskriver CI/CD-pipeline-arkitekturen:
 
 ## <a name="see-also"></a>Se också
 
-- [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
+- [TDSP (Team data science process)](/azure/machine-learning/team-data-science-process/)
 - [Azure Machine Learning (AML)](/azure/machine-learning/)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Azure Kubernetes-tjänster (AKS)](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)

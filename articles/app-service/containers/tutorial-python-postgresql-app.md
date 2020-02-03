@@ -21,7 +21,7 @@ Med [Azure App Service](app-service-linux-intro.md) får du en automatiskt uppda
 
 ![Python django-webbapp i Azure App Service](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Database for PostgreSQL-databas och Anslut en webbapp till den
@@ -31,7 +31,7 @@ I den här självstudiekursen får du lära du dig att:
 
 Du kan följa stegen i den här artikeln på macOS, Linux eller Windows. Stegen är liknande i de flesta fall, även om skillnaderna inte beskrivs i den här självstudien. De flesta av exemplen nedan använder ett `bash` terminalfönster i Linux. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -341,7 +341,7 @@ git commit -am "configure for App Service"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 

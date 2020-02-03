@@ -33,13 +33,13 @@ I för hands versionen stöds dessa funktioner:
 - Skapa avbildningar i VHD-format.
  
 
-## <a name="regions"></a>Regioner
+## <a name="regions"></a>Regions
 Azure Image Builder-tjänsten är tillgänglig för för hands version i dessa regioner. Avbildningar kan distribueras utanför dessa regioner.
-- USA, östra
+- Östra USA
 - USA, östra 2
-- USA, västra centrala
-- USA, västra
-- USA, västra 2
+- Västra centrala USA
+- Västra USA
+- Västra USA 2
 
 ## <a name="os-support"></a>OS-stöd
 AIB kommer att ha stöd för Azure Marketplace Base OS-avbildningar:
@@ -60,7 +60,7 @@ AIB kommer att stödja RHEL ISO som källa för:
 
 RHEL 7,6-ISO stöds inte, men testas.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 
 ![Konceptuell ritning i Azure Image Builder](./media/virtual-machines-image-builder-overview/image-builder.png)

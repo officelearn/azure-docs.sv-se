@@ -19,9 +19,9 @@ ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721803"
 ---
 # <a name="architecture-of-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Arkitektur för Cortana Intelligence-lösningsmallen för förebyggande underhåll i flygindustrin
-Diagrammet nedan ger en översikt över arkitekturen för den [Cortana Intelligence-lösningsmallen för förebyggande underhåll](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
+Diagrammet nedan innehåller en arkitektur översikt över [mallen för Cortana Intelligence lösning för förutsägande underhåll](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).
 
-Du kan hämta en bilden version av det här diagrammet: [arkitekturdiagrammet: lösningsmallen för förebyggande underhåll](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Du kan ladda ned en full storleks version av diagrammet här: [arkitektur diagram: lösnings mal len för förutsägande underhåll](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 ![Arkitekturdiagram för lösningen mallen för förebyggande underhåll][image]
 

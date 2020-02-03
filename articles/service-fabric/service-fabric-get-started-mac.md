@@ -22,7 +22,7 @@ ms.locfileid: "76722585"
 
 Du kan skapa Azure Service Fabric-program som körs i Linux-kluster i Mac OS X. Det här dokumentet visar hur du konfigurerar din utvecklingsmiljö i Mac.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Azure Service Fabric kan inte köras internt i Mac OS X. För att du ska kunna köra ett lokalt Service Fabric-kluster tillhandahåller vi en förkonfigurerad Docker-containeravbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne.
@@ -186,7 +186,7 @@ När du har skapat ett Service Fabric-program så kan du distribuera det med [CL
     bash install.sh
     ```
 
-## <a name="set-up-net-core-20-development"></a>Installera .NET Core 2.0 för utveckling
+## <a name="set-up-net-core-20-development"></a>Konfigurera .NET Core 2.0 för utveckling
 
 Installera [.NET Core 2.0 SDK för Mac](https://www.microsoft.com/net/core#macos) om du vill börja [skapa Service Fabric-program i C#](service-fabric-create-your-first-linux-application-with-csharp.md). Paket för .NET Core 2.0 Service Fabric-program finns på NuGet.org, som för närvarande finns som förhandsversion.
 
@@ -194,7 +194,7 @@ Installera [.NET Core 2.0 SDK för Mac](https://www.microsoft.com/net/core#macos
 
 Azure Service Fabric har ett plugin-program för Eclipse Neon (eller senare) för Java IDE. Med det här plugin-programmet blir det enklare att skapa och distribuera Java-tjänster. Gör [så här](service-fabric-get-started-eclipse.md#install-or-update-the-service-fabric-plug-in-in-eclipse) om du vill installera eller uppdatera Service Fabric plugin-programmet för Eclipse till den senaste versionen. De andra stegen i [Service Fabric för Eclipse-dokumentationen](service-fabric-get-started-eclipse.md) är också relevanta: skapa ett program, lägga till en tjänst i ett program, avinstallera ett program och så vidare.
 
-Det sista steget är att skapa en instans av containern med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-containern på din Mac. Ett exempel:
+Det sista steget är att skapa en instans av containern med en sökväg som delas med värden. Den här typen av instansiering krävs för att plugin-programmet ska fungera med Docker-containern på din Mac. Exempel:
 
 ```bash
 docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:/tmp/mySFWorkspace --name sfonebox microsoft/service-fabric-onebox

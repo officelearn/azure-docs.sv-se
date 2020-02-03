@@ -20,7 +20,7 @@ Azure Monitor for containers introducerar stöd för att samla in mått från Az
 
 Följande mått är aktiverade som en del av den här funktionen:
 
-| Mått namn område | Mått | Beskrivning |
+| Mått namn område | Mått | Description |
 |------------------|--------|-------------|
 | Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Detta är *nod* -mått och inkluderar *värd* som en dimension, och de innehåller också<br> nodens namn som värde för *värd* dimensionen. |
 | Insights. container/poddar | podCount | Dessa är *Pod* mått och inkluderar följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
@@ -29,14 +29,14 @@ Uppdatering av klustret för att stödja de här nya funktionerna kan utföras f
 
 Antingen tilldelar den **övervaknings mått utgivar** rollen rollen som övervaknings mått till klustrets huvud namn, så att data som samlas in av agenten kan publiceras i kluster resursen. Övervaknings mått utgivare har bara behörighet att skicka mått till resursen, den kan inte ändra något tillstånd, uppdatera resursen eller läsa data. Mer information om rollen finns i [övervaknings mått utgivar rollen](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera följande:
 
 * Anpassade mått är bara tillgängliga i en delmängd av Azure-regioner. En lista över regioner som stöds dokumenteras [här](../platform/metrics-custom-overview.md#supported-regions).
 * Du är medlem i **[ägar](../../role-based-access-control/built-in-roles.md#owner)** rollen på AKS-klusterresursen för att aktivera insamling av nod-och Pod anpassade prestanda mått. 
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Uppgradera ett kluster från Azure Portal
 

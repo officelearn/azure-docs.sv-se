@@ -24,7 +24,7 @@ ms.locfileid: "76719185"
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
 
-I den här självstudien gör du följande:
+I de här självstudierna gör du följande:
 
 > [!div class="checklist"]
 > * Skapa ett klassrumslabb
@@ -32,7 +32,7 @@ I den här självstudien gör du följande:
 > * Ange schema för labbet
 > * Skicka inbjudan via e-post till studenter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: ägare, labb skapare eller deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
 
 En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbägare lägger exempelvis till universitetslärare till rollen Labbskaparen. Sedan skapar universitetsläraren labbar med virtuella datorer för deras klasser. Elever använder registreringslänken som de får från universitetslärarna för att registrera sig i labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. Detaljerade anvisningar för att lägga till användare till rollen Labbskaparen finns i [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).

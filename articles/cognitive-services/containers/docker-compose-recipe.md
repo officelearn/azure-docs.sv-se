@@ -25,7 +25,7 @@ Den här artikeln visar hur du distribuerar flera Azure Cognitive Services-behå
 
 Det kan vara användbart att dirigera flera behållar avbildningar på en dator med en enda värddator. I den här artikeln ska vi samla ihop Identifiera text-och formulär igenkännings behållarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt:
 

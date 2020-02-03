@@ -15,9 +15,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721667"
 ---
-# <a name="map-custom-fields-to-event-grid-schema"></a>Mappa anpassade fält till ett Event Grid-schema
+# <a name="map-custom-fields-to-event-grid-schema"></a>Mappa eget fält till Event Grid-schema
 
-Om dina händelsedata inte matchar den förväntade [Event Grid-schemat](event-schema.md), du kan fortfarande använda Event Grid på vägen händelse till prenumeranter. Den här artikeln beskriver hur du mappar ditt schema i Event Grid-schemat.
+Om dina händelse data inte matchar det förväntade [Event Grid schemat](event-schema.md)kan du fortfarande använda Event Grid för att dirigera händelser till prenumeranter. Den här artikeln beskriver hur du mappar ditt schema i Event Grid-schemat.
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -45,11 +45,11 @@ Anta att du har ett program som skickar händelser i följande format:
 
 När du skapar ett anpassat ämne, ange mappning från din ursprungliga händelse i event grid-schemat. Det finns tre värden som du använder för att anpassa mappningen:
 
-* Den **inmatningsschemat** värdet anger vilken typ av schema. De tillgängliga alternativen är CloudEvents-schema, schemat för anpassad händelse eller Event Grid-schemat. Standardvärdet är Event Grid-schemat. När du skapar anpassade mappningen mellan ditt schema och event grid-schemat kan du använda anpassad Händelseschema. Använd Cloudevents-schema när händelser är i CloudEvents-schema.
+* Värdet för **indatavärdet** anger typ av schema. De tillgängliga alternativen är CloudEvents-schema, schemat för anpassad händelse eller Event Grid-schemat. Standardvärdet är Event Grid-schemat. När du skapar anpassade mappningen mellan ditt schema och event grid-schemat kan du använda anpassad Händelseschema. Använd Cloudevents-schema när händelser är i CloudEvents-schema.
 
-* Den **mappning standardvärden** egenskap anger standardvärden för fält i Event Grid-schemat. Du kan ange standardvärden för `subject`, `eventtype`, och `dataversion`. Normalt använder du den här parametern när din anpassade schemat inte innehåller ett fält som överensstämmer med någon av dessa tre fält. Du kan till exempel ange att dataversion har alltid värdet **1.0**.
+* Egenskapen **Mappning av standardvärden** anger standardvärden för fält i Event Grid schemat. Du kan ange standardvärden för `subject`, `eventtype`och `dataversion`. Normalt använder du den här parametern när din anpassade schemat inte innehåller ett fält som överensstämmer med någon av dessa tre fält. Du kan till exempel ange att data versionen alltid är inställd på **1,0**.
 
-* Den **Mappa fält** värdet mappar fält från ditt schema i event grid-schemat. Du anger värden i blankstegsavgränsad nyckel/värde-par. Använd namnet på event grid fältet Namn på nyckeln. Använd namnet på fältet som värde. Du kan använda nyckelnamnen för `id`, `topic`, `eventtime`, `subject`, `eventtype`, och `dataversion`.
+* Värdet Maps **Fields** mappar från schemat till Event Grid-schemat. Du anger värden i blankstegsavgränsad nyckel/värde-par. Använd namnet på event grid fältet Namn på nyckeln. Använd namnet på fältet som värde. Du kan använda nyckel namn för `id`, `topic`, `eventtime`, `subject`, `eventtype`och `dataversion`.
 
 Om du vill skapa ett anpassat ämne med Azure CLI, använder du:
 
@@ -135,7 +135,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="publish-event-to-topic"></a>Publicera händelsen till ämnet
 
-Du är nu redo att skicka en händelse till det anpassade ämnet och se resultatet av mappningen. Följande skript för att publicera en händelse i den [exempel schemat](#original-event-schema):
+Du är nu redo att skicka en händelse till det anpassade ämnet och se resultatet av mappningen. Följande skript för att publicera en händelse i [exempel schemat](#original-event-schema):
 
 Om du använder Azure CLI använder du:
 
@@ -189,7 +189,7 @@ Den första prenumerationen används event grid-schemat. Formatet på levererade
 }
 ```
 
-Dessa fält som innehåller mappningar från det anpassade ämnet. **myEventTypeField** mappas till **händelsetyp**. Standardvärdena för **DataVersion** och **ämne** används. Den **Data** objekt innehåller fälten schemat ursprungliga händelse.
+Dessa fält som innehåller mappningar från det anpassade ämnet. **myEventTypeField** mappas till **EventType**. Standardvärdena för **DataVersion** och **subject** används. **Data** -objektet innehåller de ursprungliga händelse schema fälten.
 
 Den andra prenumerationen används inmatningshändelse schemat. Formatet på levererade händelsen är:
 
@@ -207,6 +207,6 @@ Observera att de ursprungliga fält har levererats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om händelseleverans och återförsök, [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
+* Om du vill ha information om händelse leverans och försök kan du [Event Grid meddelande leverans och försöka igen](delivery-and-retry.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

@@ -24,7 +24,7 @@ ms.locfileid: "76719049"
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudie: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
 
-I den här självstudien gör du följande:
+I de här självstudierna gör du följande:
 
 > [!div class="checklist"]
 > * Skapa ett labbkonto

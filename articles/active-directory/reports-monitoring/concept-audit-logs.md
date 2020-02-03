@@ -81,7 +81,7 @@ Du kan filtrera gransknings data i följande fält:
 - Kategori
 - Aktivitet
 - Status
-- Målinrikta
+- Mål
 - Initierad av (aktör)
 - Datumintervall
 
@@ -97,13 +97,13 @@ Med **tjänst** filtret kan du välja från en listruta med följande tjänster:
 - B2C
 - Villkorlig åtkomst
 - Kärnkatalog
-- Berättigandehantering
+- Hantering av rättigheter
 - Identity Protection
 - Inbjudna användare
 - PIM
 - Självbetjäning, grupphantering
 - Hantering av lösenord för självbetjäning
-- Användningsvillkor
+- Villkor för användning
 
 Med filtret **kategori** kan du välja något av följande filter:
 
@@ -111,14 +111,14 @@ Med filtret **kategori** kan du välja något av följande filter:
 - AdministrativeUnit
 - ApplicationManagement
 - Autentisering
-- Autentisering
-- Kontakt
+- Auktorisering
+- Kontakta
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Övrigt
+- Annat
 - Princip
 - ResourceManagement
 - RoleManagement
@@ -139,7 +139,7 @@ Med **mål** filtret kan du söka efter ett visst mål efter namn eller User Pri
 Med filtret **initierad av** kan du definiera en aktörs namn eller ett universellt huvud namn (UPN). Namnet och UPN är Skift läges känsliga.
 
 Med filtret för **datum intervall** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden:
+Möjliga värden är:
 
 - 1 månad
 - 7 dagar

@@ -69,7 +69,7 @@ En objekt identifierare har följande allmänna format:
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-Var:  
+Där:  
 
 |||  
 |-|-|  
@@ -330,7 +330,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 > [!Note] 
 > Om ett Key Vault certifikat upphör att gälla, är det adresser bara nyckeln och hemligheten blir oanvändbar.  
 
-#### <a name="tags"></a>Taggar
+#### <a name="tags"></a>Tags
 
  Klientens angivna ord lista med nyckel värdes par, liknar Taggar i nycklar och hemligheter.  
 
@@ -363,16 +363,16 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 
 |**Användnings flaggor för X509-nyckel**|**Key Vault Key OPS**|**Standard beteende**|
 |----------|--------|--------|
-|DataEncipherment|kryptera, dekryptera| Gäller inte |
-|DecipherOnly|innehållet| Gäller inte  |
+|DataEncipherment|kryptera, dekryptera| E.t. |
+|DecipherOnly|innehållet| E.t.  |
 |DigitalSignature|signera, verifiera| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|EncipherOnly|encrypt| Gäller inte |
-|KeyCertSign|signera, verifiera|Gäller inte|
+|EncipherOnly|encrypt| E.t. |
+|KeyCertSign|signera, verifiera|E.t.|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|Oavvislig het|signera, verifiera| Gäller inte |
-|cRLSign|signera, verifiera| Gäller inte |
+|Oavvislig het|signera, verifiera| E.t. |
+|cRLSign|signera, verifiera| E.t. |
 
-### <a name="certificate-issuer"></a>Certifikat utfärdare
+### <a name="certificate-issuer"></a>Certifikatutfärdare
 
 Ett Key Vault certifikat objekt innehåller en konfiguration som används för att kommunicera med en vald certifikat utfärdare-Provider för att beställa x509-certifikat.  
 

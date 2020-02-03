@@ -171,7 +171,7 @@ Gransknings loggar från en hanterad instans kan skickas till även hubbar eller
 
 5. Välj ett mål för gransknings händelserna – Event Hub, Azure Monitor loggar eller båda. Konfigurera för varje mål nödvändiga parametrar (t. ex. Log Analytics arbets yta).
 
-6. Klicka på **Spara**.
+6. Klicka på **Save** (Spara).
 
     ![Konfigurera diagnostikinställningar](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 

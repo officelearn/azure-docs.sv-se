@@ -40,5 +40,5 @@ Det här skriptet använder följande kommandon för att skapa händelseprenumer
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till hanterade program finns i [Azure Managed Application overview](../overview.md) (Översikt över Azure Managed Application).
+* En introduktion till hanterade program finns i [översikten över Azure Managed Application](../overview.md).
 * Mer information om PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/get-started-azureps).

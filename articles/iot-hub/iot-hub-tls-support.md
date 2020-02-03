@@ -58,9 +58,9 @@ Den skapade IoT Hub-resursen som använder den här konfigurationen kommer att n
 
 IoT-hubbar som kräver användning av TLS 1,2 kan skapas i följande regioner:
 
-* USA, östra
-* USA, södra centrala
-* USA, västra 2
+* Östra USA
+* Södra centrala USA
+* Västra USA 2
 
 > [!NOTE]
 > Vid redundans fortsätter egenskapen `minTlsVersion` för IoT Hub att gälla i den geo-kopplade regionen efter redundansväxlingen.

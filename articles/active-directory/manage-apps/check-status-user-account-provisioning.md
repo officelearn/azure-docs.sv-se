@@ -67,7 +67,7 @@ Den **aktuella statusen** bör vara den första plats som administratörer ser f
 
 Alla aktiviteter som utförs av etablerings tjänsten registreras i Azure AD- [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Du kan komma åt etablerings loggarna i Azure Portal genom att välja **Azure Active Directory** &gt; **Enterprise-appar** &gt; **etablerings loggar (för hands version)** i avsnittet **aktivitet** . Du kan söka i etablerings data baserat på användarens namn eller identifieraren i antingen käll systemet eller mål systemet. Mer information finns i [etablerings loggar (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Händelse typer för loggade aktiviteter är:
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Sammanfattnings rapporten för etablering och etablerings loggar spelar en nyckel roll som hjälper administratörer att felsöka olika problem med etablering av användar konto.
 

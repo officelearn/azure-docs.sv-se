@@ -32,7 +32,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
 * Länkar till uppgifterna i var och en av Node.js-exempelprojektfilerna.
 * Länkar till det relaterade API-referensinnehållet.
 
-**Krav**
+**Förutsättningar**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

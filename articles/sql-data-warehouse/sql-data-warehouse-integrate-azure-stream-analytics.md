@@ -23,7 +23,7 @@ Azure Stream Analytics är en helt hanterad tjänst som tillhandahåller låg la
 
 I den här artikeln får du lära dig hur du använder informations lager databasen som utgående mottagare för dina Stream Analytics jobb.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Börja med att köra följande steg i själv studie kursen [komma igång med Azure Stream Analytics](../stream-analytics/stream-analytics-real-time-fraud-detection.md) .  
 
 1. Skapa en Event Hub-inmatare

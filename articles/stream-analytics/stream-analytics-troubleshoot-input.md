@@ -15,16 +15,16 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76720307"
 ---
-# <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
+# <a name="troubleshoot-input-connections"></a>Felsök inkommande anslutningar
 
 Den här sidan beskriver vanliga problem med inkommande anslutningar och hur du felsöker dem.
 
 ## <a name="input-events-not-received-by-job"></a>Inkommande händelser som inte tagits emot av jobb 
-1.  Testa anslutningen. Kontrollera anslutningen till in- och utdata med hjälp av den **Testanslutningen** knappen för varje indata och utdata.
+1.  Testa anslutningen. Kontrol lera anslutningen till indata och utdata genom att använda knappen **Testa anslutning** för varje indata och utdata.
 
 2.  Granska dina indata.
 
-    1. Använd för att kontrollera att data flödar till Event Hub, [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) att ansluta till Azure Event Hub (om Händelsehubben indata används).
+    1. Du kan kontrol lera att indata flödar till Händelsehubben genom att använda [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) för att ansluta till Azure Event Hub (om indata för Event Hub används).
         
     1. Använd [**exempel data**](stream-analytics-sample-data-input.md) knappen för varje inmatning. Hämta exempel data för indata.
         
@@ -32,10 +32,10 @@ Den här sidan beskriver vanliga problem med inkommande anslutningar och hur du 
 
 3.  Se till att du har valt ett tidsintervall i förhands granskningen. Välj **Välj tidsintervall**och ange sedan en tids längd innan du testar frågan.
 
-## <a name="malformed-input-events-causes-deserialization-errors"></a>Felaktiga indatahändelser resulterar i deserialiseringsfel 
+## <a name="malformed-input-events-causes-deserialization-errors"></a>Fel vid deserialisering av felaktig inmatningshändelser orsaker 
 Deserialisering problem orsakas när Indataströmmen för Stream Analytics-jobbet innehåller felaktig meddelanden. Ett felaktigt meddelande kan exempelvis ha orsakats av en parentes saknas eller en klammerparentes i JSON-objektet, eller en felaktig tidstämpelformatet i fältet. 
  
-När ett Stream Analytics-jobb tar emot ett felaktigt meddelande från indata, ignoreras meddelandet och meddelar dig med en varning. En varningssymbol visas på den **indata** panelen för ditt Stream Analytics-jobb. Den här varningen logga finns så länge som jobbet är i körningstillstånd:
+När ett Stream Analytics-jobb tar emot ett felaktigt meddelande från indata, ignoreras meddelandet och meddelar dig med en varning. En varnings symbol visas på panelen **inmatningar** i ditt Stream Analytics jobb. Den här varningen logga finns så länge som jobbet är i körningstillstånd:
 
 ![Azure Stream Analytics-indata panelen](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
@@ -53,11 +53,11 @@ Du kan vidta följande steg för att analysera de inkommande händelserna i deta
 
    ![Stream Analytics varnings meddelande med förskjutning](media/stream-analytics-malformed-events/warning-message-with-offset.png)
    
-3. Om du vill söka efter JSON-data med felaktigt format, kör du CheckMalformedEvents.cs kod i den [GitHub-lagringsplats med exempel](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Den här koden läsningar partitions-ID, förskjutning och skriver ut de data som finns i förskjutningen. 
+3. Om du vill hitta JSON-data med fel format kör du CheckMalformedEvents.cs-koden som finns i [lagrings platsen för GitHub-exempel](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Den här koden läsningar partitions-ID, förskjutning och skriver ut de data som finns i förskjutningen. 
 
 4. När du läser dessa data kan du sedan analysera och korrigera serialiseringsformatet.
 
-5. Du kan också [läsa händelser från en IoT-hubb med Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
+5. Du kan också [läsa händelser från en IoT Hub med Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
 
 ## <a name="job-exceeds-maximum-event-hub-receivers"></a>Jobb överskrider högsta Händelsehubbmottagare
 Bästa praxis för att använda Event Hubs är att använda flera konsumentgrupper för att se till att jobbet skalbarhet. Antalet läsare i Stream Analytics-jobb för en specifik indata påverkar antalet läsare i en enskild konsument-grupp. Det exakta antalet mottagare baseras på interna implementeringsdetaljer för skalbar topologi logiken och exponeras inte externt. Antalet läsare kan ändra när ett jobb startas eller uppgradering av jobbet.
@@ -74,13 +74,13 @@ Följ dessa steg för att lägga till en ny konsumentgrupp i Event Hubs-instans:
 
 2. Leta upp dina Event Hubs.
 
-3. Välj **Händelsehubbar** under den **entiteter** rubrik.
+3. Välj **Event Hubs** under rubriken **entiteter** .
 
 4. Välj Event Hub efter namn.
 
-5. På den **Event Hubs-instans** sidan under den **entiteter** väljer **konsumentgrupper**. En konsumentgrupp med namnet **$Default** visas.
+5. På sidan **Event Hubs instans** , under rubriken **entiteter** , väljer du **konsument grupper**. En konsument grupp med namnet **$default** visas.
 
-6. Välj **+ konsumentgrupp** att lägga till en ny konsumentgrupp. 
+6. Välj **+ konsument grupp** för att lägga till en ny konsument grupp. 
 
    ![Lägg till en konsumentgrupp i Event Hubs](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
@@ -93,9 +93,9 @@ Om strömmande frågesyntaxen hänvisar till samma inkommande Event Hub-resurs f
 
 Scenarier där antalet läsare per partition är längre än Händelsehubbar fem är följande:
 
-* Flera SELECT-satser: Om du använder flera SELECT-satser som refererar till **samma** händelsehubb indata, gör en ny mottagare som ska skapas för varje SELECT-instruktion.
-* UNION: När du använder en UNION, det är möjligt att ha flera inmatningar som refererar till den **samma** event hub och konsument-grupp.
-* SJÄLVKOPPLING: När du använder en SJÄLVSIGNERAT JOIN-åtgärd, det är möjligt att referera till den **samma** händelsehubb flera gånger.
+* Flera SELECT-uttryck: om du använder flera SELECT-uttryck som refererar till **samma** Event Hub-inmatare, kan varje SELECT-instruktion orsaka att en ny mottagare skapas.
+* UNION: när du använder en UNION är det möjligt att ha flera indata som refererar till **samma** händelsehubben och konsument grupp.
+* SJÄLV koppling: när du använder en självbetjänings åtgärd är det möjligt att referera till **samma** händelsehubben flera gånger.
 
 Följande metoder kan minimera scenarier där antalet läsare per partition är längre än Händelsehubbar fem.
 
@@ -139,7 +139,7 @@ Skapa separata konsumentgrupper för frågor som tre eller flera inmatningar är
 
 ## <a name="get-help"></a>Få hjälp
 
-För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova vårt [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 

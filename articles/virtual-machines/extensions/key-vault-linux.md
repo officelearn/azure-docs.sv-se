@@ -30,7 +30,7 @@ Key Vault VM-tillägget stöder dessa Linux-distributioner:
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Närmare bestämt:  
+Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Mer specifikt:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -67,17 +67,17 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskapsvärden
 
-| Namn | Värdet / exempel | Datatyp |
+| Name | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | datum |
 | publisher | Microsoft.Azure.KeyVault | sträng |
-| typ | KeyVaultForLinux | sträng |
+| type | KeyVaultForLinux | sträng |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | sträng |
 | Certifikat Arkiv | MY | sträng |
-| linkOnRenewal | false | boolean |
+| linkOnRenewal | false | Booleskt värde |
 | certificateStoreLocation  | LocalMachine | sträng |
-| requiredInitialSync | sant | boolean |
+| requiredInitialSync | true | Booleskt värde |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | sträng mat ris
 
 
@@ -193,7 +193,7 @@ Observera följande begränsningar/krav:
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsökning
+### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 
@@ -209,4 +209,4 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

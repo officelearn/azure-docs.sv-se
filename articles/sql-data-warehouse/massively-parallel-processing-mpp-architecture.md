@@ -19,7 +19,7 @@ ms.locfileid: "76720324"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics-arkitektur (tidigare SQL DW) 
 
-Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse sammanför de två världarna med en enhetlig upplevelse för att mata in, förbereda, hantera och hämta data för snabba BI- och maskininlärningsbehov.
+Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure synapse ger de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov.
 
  Azure-Synapse har fyra komponenter:
 - SQL Analytics: fullständig T-SQL-baserad analys 

@@ -18,7 +18,7 @@ ms.locfileid: "76714668"
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-konsol för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.Net Core SDK](https://dotnet.microsoft.com/download) – även tillgängligt i [Azure Cloud Shell](https://shell.azure.com).

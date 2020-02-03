@@ -33,7 +33,7 @@ I exemplen i den här artikeln visas hur du:
 
 En översikt över hur miljöer fungerar i Azure Machine Learning finns i [Vad är ml-miljöer?](concept-environments.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)

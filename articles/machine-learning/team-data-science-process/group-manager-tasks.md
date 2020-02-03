@@ -151,7 +151,7 @@ Så här anpassar du lagrings innehållet:
      
    - Om du vill ladda upp filer väljer du **Ladda upp fil (er)** . 
      
-     ![Ladda upp filer](./media/group-manager-tasks/upload-files.png)
+     ![Överföra filer](./media/group-manager-tasks/upload-files.png)
      
    - Om du vill redigera befintliga filer navigerar du till filen och väljer sedan **Redigera**. 
      
@@ -166,7 +166,7 @@ Så här anpassar du lagrings innehållet:
 Om du vill göra ändringar med hjälp av din lokala dator eller DSVM och skicka ändringarna till grupp databaserna, kontrollerar du att du har förutsättningarna för att arbeta med git och Dsvm:
 
 - En Azure-prenumeration, om du vill skapa en DSVM.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -258,6 +258,6 @@ Konfigurera behörigheter för medlemmar:
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna i team data science-processen:
 
-- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
-- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
+- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
+- [Projekt ledar uppgifter för ett data vetenskaps team](project-lead-tasks.md)
 - [Projicera enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

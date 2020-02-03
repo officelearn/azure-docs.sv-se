@@ -36,7 +36,7 @@ Du kan aktivera/inaktivera offentliga miljöer för ditt labb och även göra en
 
 1. Välj **konfiguration och principer** för ditt labb. 
 2. I avsnittet **Virtual Machine Bases** väljer du **offentliga miljöer**.
-3. Välj **Ja**om du vill aktivera offentliga miljöer för labbet. Annars väljer **nr**. 
+3. Välj **Ja**om du vill aktivera offentliga miljöer för labbet. Annars väljer du **Nej**. 
 4. Om du har aktiverat offentliga miljöer är alla miljöer i lagrings platsen aktiverade som standard. Du kan välja en miljö för att göra den inte tillgänglig för dina labb användare. 
 
 ![Sidan offentliga miljöer](media/devtest-lab-configure-use-public-environments/public-environments-page.png)

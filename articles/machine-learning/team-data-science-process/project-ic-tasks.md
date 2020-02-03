@@ -32,7 +32,7 @@ Följande diagram visar de aktiviteter som Projects enskilda deltagare (data exp
 > [!NOTE] 
 > I den här artikeln används Azure databaser och en Data Science Virtual Machine (DSVM) för att konfigurera en TDSP-miljö, eftersom det är hur du implementerar TDSP på Microsoft. Om ditt team använder andra kod värdar eller utvecklings plattformar, är de enskilda deltagar uppgifterna samma, men sättet att slutföra dem kan vara olika.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätter vi att följande resurser och behörigheter har kon figurer ATS av din [grupp chef](group-manager-tasks.md), [grupp ledare](team-lead-tasks.md)och [projekt ledare](project-lead-tasks.md):
 
@@ -45,7 +45,7 @@ I den här självstudien förutsätter vi att följande resurser och behörighet
 Om du vill klona databaser och ändra innehåll på din lokala dator eller DSVM, eller montera Azure File Storage till din DSVM, måste du tänka på den här check listan:
 
 - En Azure-prenumeration.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -100,7 +100,7 @@ Om ditt team eller projekt har delade resurser i Azure File Storage monterar du 
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna som definieras av team data science-processen:
 
-- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
-- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
-- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
+- [Grupp chefs aktiviteter för ett data vetenskaps team](group-manager-tasks.md)
+- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
+- [Projekt ledar uppgifter för ett data vetenskaps team](project-lead-tasks.md)
 

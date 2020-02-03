@@ -27,12 +27,12 @@ ms.locfileid: "76719508"
 
 Den här snabb starten visar hur du använder en Node. js-app för att ansluta till [SQL API](sql-api-introduction.md) -kontot i Azure Cosmos dB. Du kan sedan använda Azure Cosmos DB SQL-frågor för att fråga och hantera data. Node. js-appen som du skapar i den här artikeln använder [SQL JavaScript SDK](sql-api-sdk-node.md). I den här snabbstarten används version 2.0 av [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Dessutom gäller följande:
+* Dessutom:
     * [Node.js](https://nodejs.org/en/) version v6.0.0 eller senare
     * [Git](https://git-scm.com/)
 
@@ -44,7 +44,7 @@ Den här snabb starten visar hur du använder en Node. js-app för att ansluta t
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="add-sample-data"></a>Lägga till exempeldata
+## <a name="add-sample-data"></a>Lägg till exempeldata
 
 [!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
@@ -136,7 +136,7 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
 1. I det [Azure Portal](https://portal.azure.com/)går du till ditt Azure Cosmos-konto, i det vänstra navigerings fönstret, klickar på **nycklar**och klickar sedan på **Läs-och skriv nycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i `config.js`-filen i nästa steg.
 
-    ![Visa och kopiera en åtkomstnyckel i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
+    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
 2. Öppna filen `config.js`. 
 
@@ -144,7 +144,7 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
     `config.endpoint = "<Your Azure Cosmos account URI>"`
 
-4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för `config.key` i `config.js`. Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
+4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för `config.key` i `config.js`. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
     `config.key = "<Your Azure Cosmos account key>"`
     
@@ -156,7 +156,7 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
 Du kan nu gå tillbaka till Datautforskaren, ändra och arbeta med dessa nya data.
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

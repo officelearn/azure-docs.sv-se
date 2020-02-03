@@ -36,7 +36,7 @@ Steg 6: Konfigurera säkerhets kontroll för projekt lagrings plats, se [Lägg t
 > [!NOTE] 
 > I den här artikeln används Azure databaser för att skapa ett TDSP-projekt, eftersom det är hur du implementerar TDSP på Microsoft. Om ditt team använder en annan kod värd plattform är projektets lead-uppgifter samma, men det kan vara olika att slutföra dem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien förutsätter vi att [grupp chefen](group-manager-tasks.md) och [teamets lead](team-lead-tasks.md) har ställt in följande resurser och behörigheter:
 
@@ -48,7 +48,7 @@ I den här självstudien förutsätter vi att [grupp chefen](group-manager-tasks
 Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator eller Data Science Virtual Machine (DSVM), eller konfigurera Azure File Storage och montera det på din DSVM, måste du också tänka på den här check listan:
 
 - En Azure-prenumeration.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -95,6 +95,6 @@ Om du behöver anpassa innehållet i projekt lagrings platsen för att uppfylla 
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna som definieras av team data science-processen:
 
-- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
-- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
+- [Grupp chefs aktiviteter för ett data vetenskaps team](group-manager-tasks.md)
+- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
 - [Enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

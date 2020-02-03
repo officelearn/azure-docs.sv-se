@@ -37,7 +37,7 @@ I den här självstudien beskrivs hur du integrerar ditt SSDT-databas projekt (S
 
    ![Hantera anslutningar](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Hantera anslutningar")
 
-   ![Anslut](media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
+   ![Anslut](media/sql-data-warehouse-source-control-integration/3-connect.png "Anslut")
 
 3. Klona din Azure lagrings platsen-lagringsplats från projektet till din lokala dator
 

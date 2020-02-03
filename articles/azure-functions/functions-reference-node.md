@@ -265,7 +265,7 @@ context.log(message)
 Gör att du kan skriva till strömnings funktions loggarna på standard spårnings nivån. På `context.log`finns ytterligare loggnings metoder som låter dig skriva funktions loggar på andra spårnings nivåer:
 
 
-| Metod                 | Beskrivning                                |
+| Metod                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **fel (_meddelande_)**   | Skriver till loggning på fel nivå eller lägre.   |
 | **Varna (_meddelande_)**    | Skriver till loggning på varnings nivå eller lägre. |
@@ -342,14 +342,14 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 `context.req` (Request)-objektet har följande egenskaper:
 
-| Egenskap      | Beskrivning                                                    |
+| Egenskap      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Ett objekt som innehåller bröd texten i begäran.               |
-| _headers_     | Ett objekt som innehåller begärandehuvuden.                   |
-| _method_      | HTTP-metoden för begäran.                                |
+| _brödtext_        | Ett objekt som innehåller bröd texten i begäran.               |
+| _sidhuvud_     | Ett objekt som innehåller begärandehuvuden.                   |
+| _metodsignatur_      | HTTP-metoden för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
-| _params_      | Ett objekt som innehåller Dirigerings parametrarna för begäran. |
-| _query_       | Ett objekt som innehåller frågeparametrarna.                  |
+| _parametrar_      | Ett objekt som innehåller Dirigerings parametrarna för begäran. |
+| _frågeterm_       | Ett objekt som innehåller frågeparametrarna.                  |
 | _rawBody_     | Bröd texten i meddelandet som en sträng.                           |
 
 
@@ -357,12 +357,12 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 Objektet `context.res` (Response) har följande egenskaper:
 
-| Egenskap  | Beskrivning                                               |
+| Egenskap  | Description                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Ett objekt som innehåller bröd texten i svaret.         |
-| _headers_ | Ett objekt som innehåller svarshuvuden.             |
+| _brödtext_    | Ett objekt som innehåller bröd texten i svaret.         |
+| _sidhuvud_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formateringen hoppas över för svaret.    |
-| _status_  | HTTP-statuskod för svaret.                     |
+| _statusfältet_  | HTTP-statuskod för svaret.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Åtkomst till begäran och svar 
 
@@ -574,7 +574,7 @@ TypeScript-filer (. TS) delas in i JavaScript-filer (. js) i katalogen `dist` ut
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-kod
+### <a name="visual-studio-code"></a>Visual Studio-koden
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

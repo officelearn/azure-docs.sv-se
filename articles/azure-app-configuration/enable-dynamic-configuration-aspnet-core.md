@@ -34,13 +34,13 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera ditt program för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen i dina programs kontrollanter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -58,7 +58,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 
 1. Öppna *program.cs*och uppdatera metoden `CreateWebHostBuilder` för att lägga till `config.AddAzureAppConfiguration()`-metoden.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -124,7 +124,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 
 3. Öppna *startup.cs*och Använd `IServiceCollection.Configure<T>` i `ConfigureServices`-metoden för att binda konfigurations data till `Settings`-klassen.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -148,7 +148,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 4. Uppdatera `Configure`-metoden, Lägg till `UseAzureAppConfiguration` mellanprogram för att tillåta att konfigurations inställningarna som registreras för uppdatering uppdateras medan ASP.NET Core-webbappen fortsätter att ta emot begär Anden.
 
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -217,7 +217,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 
 2. Uppdatera `HomeController`-klassen för att ta emot `Settings` via beroende insprutning och använd dess värden.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
     public class HomeController : Controller

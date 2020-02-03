@@ -31,7 +31,7 @@ Om du har problem med din SQL Data Warehouse kan du skapa ett support ärende s�
    Välj din [Azure-supportplan](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/).
    
    * Stöd för **fakturerings-, kvot- och prenumerationhantering** finns tillgängligt på alla supportnivåer.
-   * **Reparations** support tillhandahålls via [utvecklare](https://azure.microsoft.com/support/plans/developer/), [standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)eller [Premier](https://azure.microsoft.com/support/plans/premier/) support. Supporten för avbrott och reparationer gäller problem som uppstår i samband med att kunden använder Azure. Denna support gäller endast när det är rimligt att anta att problemen orsakats av Microsoft.
+   * **Reparations** support tillhandahålls via [utvecklare](https://azure.microsoft.com/support/plans/developer/), [standard](https://azure.microsoft.com/support/plans/standard/), [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/)eller [Premier](https://azure.microsoft.com/support/plans/premier/) support. Reparationsärenden är problem som kunder upplever när de använder Azure och där det rimligen kan antas att Microsoft orsakade problemet.
    * **Utvecklarhandledning** och **rådgivningstjänster** finns tillgängliga på supportnivåerna [Professional Direct](https://azure.microsoft.com/support/plans/prodirect/) och [Premier](https://azure.microsoft.com/support/plans/premier/). 
      
      Om du har en Premier-supportplan kan du även rapportera SQL Data Warehouse-relaterade problem via [Microsoft Premier-onlineportalen](https://premier.microsoft.com/). Se [support](https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/) avtalen för Azure om du vill veta mer om olika support avtal, inklusive omfattning, svars tider, priser osv.  Vanliga frågor och svar om support för Azure finns i vanliga frågor och [svar om support för Azure](https://azure.microsoft.com/support/faq/).  
@@ -59,7 +59,7 @@ När du har skickat in support förfrågan kontaktar support teamet för Azure. 
 
 ![Kontrollera status](./media/sql-data-warehouse-get-started-create-support-ticket/Monitor_ticket.PNG)
 
-## <a name="other-resources"></a>Övriga resurser
+## <a name="other-resources"></a>Andra resurser
 Du kan också ansluta till SQL Data Warehouse communityn på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/) eller via [Azure SQL Data Warehouse MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
 
  

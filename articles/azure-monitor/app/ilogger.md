@@ -362,7 +362,7 @@ Följande kodfragment konfigurerar loggar för *Varning* och över från alla ka
                         ("Microsoft", LogLevel.Error);
 ```
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="what-are-the-old-and-new-versions-of-applicationinsightsloggerprovider"></a>Vilka är de gamla och nya versionerna av ApplicationInsightsLoggerProvider?
 

@@ -219,7 +219,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är värd servern igång?</li><li>Körs Internet Information Server?</li><li>Körs belastningsutjämnaren?</li><li>Kan webb programmet nås från data centret?</li><li>Är lagrings kontot som är värd för plats innehållet tillgängligt?</li></ul>|
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 -  Se [Introduktion till Azure Service Health instrument panel](service-health-overview.md) och [Introduktion till Azure Resource Health](resource-health-overview.md) om du vill veta mer om dem. 
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
 - Konfigurera aviseringar så att du får ett meddelande om hälso problem. Mer information finns i [Konfigurera aviseringar för service Health-händelser](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

@@ -4,33 +4,18 @@ description: I den här artikeln får du lära dig hur du skapar och hanterar s�
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554894"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963860"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
 
 Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery Services-valv beskrivs i [princip REST API dokumentet](/rest/api/backup/protectionpolicies/createorupdate). Låt oss använda det här dokumentet som en referens för att skapa en princip för säkerhets kopiering av virtuella Azure-datorer.
 
-## <a name="backup-policy-essentials"></a>Säkerhets kopierings princip Essentials
-
-- En säkerhets kopierings policy skapas per valv.
-- Du kan skapa en säkerhets kopierings princip för säkerhets kopiering av följande arbets belastningar
-  - Azure VM
-  - SQL i virtuell Azure-dator
-  - Azure-filresurs
-- En princip kan tilldelas till många resurser. En princip för säkerhets kopiering av virtuella Azure-datorer kan användas för att skydda många virtuella Azure-datorer.
-- En princip består av två komponenter
-  - Schema: när säkerhets kopieringen ska utföras
-  - Kvarhållning: för hur länge varje säkerhets kopia ska behållas.
-- Schemat kan definieras som "dagligen" eller "veckovis" med en viss tidpunkt.
-- Kvarhållning kan definieras för "dagliga", "veckovis", "årliga" säkerhets kopierings punkter.
-- "veckovis" syftar på en säkerhets kopia på en viss dag i veckan, "månad" innebär en säkerhets kopiering på en viss dag i månaden och "årlig" avser en säkerhets kopia på en viss dag på året.
-- Kvarhållning för "månads", "årliga" säkerhets kopierings punkter kallas "LongTermRetention".
-- När ett valv skapas, skapas även en princip för säkerhets kopiering av virtuella Azure-datorer med namnet "DefaultPolicy" och kan användas för att säkerhetskopiera virtuella Azure-datorer.
+## <a name="create-or-update-a-policy"></a>Skapa eller uppdatera en princip
 
 Om du vill skapa eller uppdatera en Azure Backup-princip använder *du följande åtgärd*
 

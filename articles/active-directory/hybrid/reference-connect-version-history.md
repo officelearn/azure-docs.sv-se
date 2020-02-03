@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756308"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963214"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: versions historik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -39,7 +39,7 @@ Medan vi går igenom den här processen visas versions numret för versionen med
 Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> Från och med den 1 november 2020 börjar vi implementera en utfasnings process där versioner av Azure AD Connect som gavs ut mer än 18 månader sedan blir föråldrade. Vid den tiden kommer vi att påbörja den här processen genom att alla versioner av Azure AD Connect med version 1.1.751.0 (som släpptes den 4/12/2018) och äldre versioner utvärderas, och vi fortsätter att utvärdera utfasningen av äldre versioner av Azure AD Connect varje gång en ny version släpps.
+> Från och med den 1 november 2020 börjar vi implementera en utfasnings process där versioner av Azure AD Connect som gavs ut mer än 18 månader sedan blir föråldrade. Vid den tiden kommer vi att påbörja den här processen genom att alla versioner av Azure AD Connect med version 1.3.20.0 (som släpptes den 4/24/2019) och äldre versioner utvärderas, och vi fortsätter att utvärdera utfasningen av äldre versioner av Azure AD Connect varje gång en ny version släpps.
 >
 > Du måste kontrol lera att du kör en ny version av Azure AD Connect för att få en optimal support upplevelse. 
 >

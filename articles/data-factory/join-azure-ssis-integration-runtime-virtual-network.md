@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/01/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: fec34c54971878178b2a5ea4548ad20d3b51b104
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119945"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964366"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk
 
@@ -288,7 +288,7 @@ Använd portalen för att konfigurera ett Azure Resource Manager virtuellt nätv
 
 1. Starta Microsoft Edge eller Google Chrome. För närvarande stöder endast dessa webbläsare Data Factory användar gränssnitt. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk**. 
 
@@ -318,7 +318,7 @@ Använd portalen för att konfigurera ett klassiskt virtuellt nätverk innan du 
 
 1. Starta Microsoft Edge eller Google Chrome. För närvarande stöder endast dessa webbläsare Data Factory användar gränssnitt. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). 
+1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
 1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk (klassisk)** . 
 
@@ -428,6 +428,20 @@ När du har konfigurerat ditt Azure Resource Manager virtuella nätverk eller et
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+### <a name="define-the-variables"></a>Definiera variablerna
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
+```
+
 ### <a name="configure-a-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
 Innan du kan ansluta dina Azure-SSIS IR till ett virtuellt nätverk måste du konfigurera det virtuella nätverket. Lägg till följande skript för att automatiskt konfigurera behörigheter och inställningar för virtuella nätverk för din Azure-SSIS IR att ansluta till det virtuella nätverket:
@@ -463,26 +477,15 @@ I artikeln [skapa en Azure-SSIS IR](create-azure-ssis-integration-runtime.md) vi
 1. Konfigurera Azure-SSIS IR att ansluta till det virtuella nätverket. 
 1. Starta Azure-SSIS IR. 
 
-### <a name="define-the-variables"></a>Definiera variablerna
-
-```powershell
-$ResourceGroupName = "<your Azure resource group name>"
-$DataFactoryName = "<your Data Factory name>" 
-$AzureSSISName = "<your Azure-SSIS IR name>"
-# Specify the information about your classic or Azure Resource Manager virtual network.
-$VnetId = "<your Azure virtual network resource ID>"
-$SubnetName = "<the name of subnet in your virtual network>"
-```
-
 ### <a name="stop-the-azure-ssis-ir"></a>Stoppa Azure-SSIS IR
 
 Du måste stoppa Azure-SSIS IR innan du kan ansluta den till ett virtuellt nätverk. Detta kommando frigör alla noder och avslutar faktureringen:
 
 ```powershell
 Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                            -DataFactoryName $DataFactoryName `
-                                            -Name $AzureSSISName `
-                                            -Force 
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force 
 ```
 
 ### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Konfigurera inställningar för virtuella nätverk för Azure-SSIS IR att ansluta till
@@ -515,11 +518,20 @@ Om du vill ansluta din Azure-SSIS IR till ett virtuellt nätverk kör du kommand
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Type Managed `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
+}
 ```
 
 ### <a name="start-the-azure-ssis-ir"></a>Starta Azure-SSIS IR
@@ -528,10 +540,9 @@ Kör följande kommando för att starta Azure-SSIS IR:
 
 ```powershell
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
-
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 ```
 
 Det här kommandot tar 20 till 30 minuter att slutföra.

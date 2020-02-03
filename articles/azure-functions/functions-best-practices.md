@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433300"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963672"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimera prestanda och tillförlitlighet för Azure Functions
 
@@ -74,7 +74,9 @@ Det finns ett antal faktorer som påverkar hur instanser av Function-appen skala
 
 ### <a name="avoid-sharing-storage-accounts"></a>Undvik att dela lagrings konton
 
-När du skapar en Function-app måste du associera den med ett lagrings konto. Lagrings konto anslutningen upprätthålls i [program inställningen AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Använd ett separat lagrings konto för varje Function-app för att maximera prestanda. Detta är särskilt viktigt när du har inaktiverat funktioner i Durable Functions eller Event Hub, som båda genererar en stor mängd lagrings transaktioner. När din program logik interagerar med Azure Storage, antingen direkt (med Storage SDK) eller genom en av lagrings bindningarna, bör du använda ett dedikerat lagrings konto. Om du till exempel har en Event Hub-utlöst funktion som skriver vissa data till blob-lagring, använder du två lagrings konton&mdash;ett för Function-appen och en annan för de blobbar som lagras av funktionen.
+När du skapar en Function-app måste du associera den med ett lagrings konto. Lagrings konto anslutningen upprätthålls i [program inställningen AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+
+[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Blanda inte test-och produktions kod i samma Function-app
 

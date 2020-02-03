@@ -11,16 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 079cfcee543cf1ce36c4a1394479a622b3658789
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cf5f89197798f95dced5bfd8817f1df050297048
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935129"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962007"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö medC#
 
 Den här artikeln visar hur du C#kombinerar, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)och Azure Active Directory för att göra API-begäranden i programmering till Azure Time Series Insights ga [Reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+
+> [!TIP]
+> Visa GA C# -kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -52,9 +55,6 @@ Slutför följande steg innan du kompilerar och kör exempel koden:
 1. Redigera exempel koden nedan genom att ersätta varje **#PLACEHOLDER #** med rätt miljö identifierare.
 
 1. Kör `dotnet run` i projektets rot Katalog. När du uppmanas använder du din användar profil för att logga in på Azure. 
-
-> [!TIP]
-> * Visa andra GA C# -kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Projektberoenden
 

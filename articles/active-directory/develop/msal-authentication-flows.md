@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/30/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bf241bc15ccdcf9e7d65f277c235f1aa668fcbe0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696648"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962107"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
 
@@ -39,7 +39,7 @@ I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls
  
 Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika tokens (id_tokens, uppdatera tokens, åtkomsttoken) och auktoriseringsregler, och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
  
-|Flow | Kräver | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flow | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -74,7 +74,7 @@ Många moderna webb program skapas som program på klient sidan, med en sida, sk
 
 Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk, till exempel Electron och reagerar-Native, eftersom de kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
 
-## <a name="authorization-code"></a>Authorization code (Auktoriseringskod)
+## <a name="authorization-code"></a>auktoriseringskod
 
 MSAL stöder [utfärdande av OAuth 2-auktoriseringskod](v2-oauth2-auth-code-flow.md). Det här bidraget kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. 
 
@@ -101,7 +101,7 @@ MSAL har stöd för [OAuth 2 på uppdrag av autentiseringspaket](v2-oauth2-on-be
 
 ![Diagram över flöde på samma vägnar](media/msal-authentication-flows/on-behalf-of.png)
 
-I diagrammet ovan:
+I föregående diagram:
 
 1. Programmet hämtar en åtkomsttoken för webb-API: et.
 2. En klient (webb-, skriv bords-, mobil-eller Enkels Ides program) anropar ett skyddat webb-API och lägger till åtkomsttoken som en Bearer-token i HTTP-begärans Authentication-huvud. Webb-API: et autentiserar användaren.
@@ -149,7 +149,7 @@ Genom att använda enhets kod flödet hämtar programmet token via en två stegs
 
 ![Diagram över enhets kod flöde](media/msal-authentication-flows/device-code.png)
 
-I diagrammet ovan:
+I föregående diagram:
 
 1. När användarautentisering krävs ger appen en kod och ber användaren att använda en annan enhet (till exempel en Internet-ansluten smartphone) för att gå till en URL (till exempel https://microsoft.com/devicelogin). Användaren uppmanas sedan att ange koden och fortsätter med en normal autentisering, inklusive medgivande-prompter och Multi-Factor Authentication om det behövs.
 

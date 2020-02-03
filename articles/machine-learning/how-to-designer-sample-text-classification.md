@@ -5,25 +5,25 @@ description: Bygg en logistik Regressions klassificerare i multiklass för att f
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311056"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963249"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Bygg en klassificerare för att förutse företags kategori med Azure Machine Learning designer.
 
-**Design exempel 7**
+**Designer (för hands version) exempel 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Det här exemplet visar hur du använder text analys moduler för att bygga en pipeline för text klassificering i Azure Machine Learning designer.
+Det här exemplet visar hur du använder text analys moduler för att bygga en pipeline för text klassificering i Azure Machine Learning designer (för hands version).
 
 Målet med text klassificering är att tilldela vissa text delar till en eller flera fördefinierade klasser eller kategorier. Texten kan vara ett dokument, nyhets artikel, Sök fråga, e-post, Tweet, support biljetter, kundfeedback, användar produkt granskning osv. Program med text klassificering inkluderar kategorisering av tidnings artiklar och nyhets brev innehåll i ämnen, organisering av webb sidor i hierarkiska kategorier, filtrering av skräp post, sentiment analys, förutsägelse av användar avsikt från Sök frågor, routning Support biljetter och analys av kundfeedback. 
 
@@ -35,7 +35,7 @@ De grundläggande stegen för en utbildnings maskin inlärnings modell med text 
 
 1. I förväg bearbeta text data
 
-1. Funktionsframställning
+1. Funktions teknik
 
    Funktionen omvandla text till den numeriska funktionen med funktionen för att extrahera funktioner, till exempel funktion-hash, extrahera n-gram-funktionen från text data.
 
@@ -65,7 +65,7 @@ Det gick inte att hitta artiklar för vissa företag, så antalet poster är min
 
 Vi använder modulen för **Förbearbetad text** för att Förbearbeta text data, inklusive identifiera meningar, Tokenize och så vidare. Du har hittat alla alternativ som stöds i artikeln [**Förbearbeta text**](algorithm-module-reference/preprocess-text.md) . Efter bearbetning av tex-data använder vi modulen **dela data** för att slumpmässigt dela in indata så att träning-datauppsättningen innehåller 50% av de ursprungliga data och test data uppsättningen innehåller 50% av den ursprungliga informationen.
 
-## <a name="feature-engineering"></a>Funktionsframställning
+## <a name="feature-engineering"></a>Funktions teknik
 I det här exemplet ska vi använda två metoder för att utföra funktions teknik.
 
 ### <a name="feature-hashing"></a>Funktions-hash

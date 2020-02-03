@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0210317ef74433b740feb043a1cc4f1f9bc2ef57
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e67cd8c85d9ba85e32ef7aece402f97ab24243e5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901150"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963452"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
-Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklusive att lägga till dem i portalen, komma åt dem via REST API eller genom att fråga dem med hjälp av PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som för närvarande är tillgängliga med Azure Monitor mått pipelinen. Andra mått kan vara tillgängliga i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med den konsoliderade Azure Monitor mått pipelinen. Använd [2018-01-01 API-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) för att fråga efter och komma åt dessa mått.
+Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklusive att lägga till dem i portalen, komma åt dem via REST API eller genom att fråga dem med hjälp av PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som för närvarande är tillgängliga med Azure Monitor mått pipelinen. Andra mått kan vara tillgängliga i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med den konsoliderade Azure Monitor mått pipelinen. Måtten ordnas efter namn område. En lista över tjänster och de namn områden som hör till dem finns i [Resource providers för Azure-tjänster](../../azure-resource-manager/management/azure-services-resource-providers.md). Om du vill fråga efter och komma åt dessa mått program mässigt kan du använda [2018-01-01 API-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
@@ -25,7 +25,6 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 > *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 >
 > En lista över plattforms mått som kan exporteras via diagnostikinställningar finns i [den här artikeln](metrics-supported-export-diagnostic-settings.md).
-
 
 
 

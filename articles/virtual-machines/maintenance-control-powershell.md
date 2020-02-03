@@ -7,14 +7,14 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/06/2019
+ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 7ca98723511cc7297b462747d4e1e12ca9bd38c2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fc9cebd24b67e2991e89384e93479beafa889a7a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979021"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964863"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>För hands version: kontrol lera uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -37,7 +37,7 @@ Med underhålls kontroll kan du:
 
 - Virtuella datorer måste finnas på en [dedikerad värd](./linux/dedicated-hosts.md)eller skapas med en [isolerad VM-storlek](./linux/isolation.md).
 - Efter 35 dagar tillämpas en uppdatering automatiskt.
-- Användaren måste ha åtkomst till **resurs ägare** .
+- Användaren måste ha åtkomst till **resurs deltagare** .
 
 
 ## <a name="enable-the-powershell-module"></a>Aktivera PowerShell-modulen
@@ -131,7 +131,19 @@ New-AzConfigurationAssignment `
 
 Använd [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) för att se om det finns väntande uppdateringar. Använd `-subscription` för att ange Azure-prenumerationen för den virtuella datorn om den skiljer sig från den som du är inloggad på.
 
-Om det inte finns några uppdateringar returnerar kommandot ett fel meddelande: `Resource not found...StatusCode: 404`.
+Om det inte finns några uppdateringar att Visa kommer det här kommandot att returnera ingenting. Annars returneras ett PSApplyUpdate-objekt:
+
+```json
+{
+   "maintenanceScope": "Host",
+   "impactType": "Freeze",
+   "status": "Pending",
+   "impactDurationInSec": 9,
+   "notBefore": "2020-02-21T16:47:44.8728029Z",
+   "properties": {
+      "resourceId": "/subscriptions/39c6cced-4d6c-4dd5-af86-57499cd3f846/resourcegroups/Ignite2019/providers/Microsoft.Compute/virtualMachines/MCDemo3"
+} 
+```
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -144,6 +156,7 @@ Get-AzMaintenanceUpdate `
   -ResourceType VirtualMachines `
   -ProviderName Microsoft.Compute | Format-Table
 ```
+
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
@@ -158,6 +171,7 @@ Get-AzMaintenanceUpdate `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute | Format-Table
 ```
+
 
 ## <a name="apply-updates"></a>Tillämpa uppdateringar
 
@@ -174,6 +188,8 @@ New-AzApplyUpdate `
    -ResourceType VirtualMachines `
    -ProviderName Microsoft.Compute
 ```
+
+Vid lyckad kommer det här kommandot att returnera ett `PSApplyUpdate`-objekt. Du kan använda attributet name i kommandot `Get-AzApplyUpdate` för att kontrol lera uppdaterings statusen. Se [kontrol lera uppdaterings status](#check-update-status).
 
 ### <a name="dedicated-host"></a>Dedikerad värd
 
@@ -192,7 +208,16 @@ New-AzApplyUpdate `
 ## <a name="check-update-status"></a>Kontrol lera uppdaterings status
 Använd [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) för att kontrol lera status för en uppdatering. De kommandon som visas nedan visar status för den senaste uppdateringen genom att använda `default` för `-ApplyUpdateName`-parametern. Du kan ersätta namnet på uppdateringen (som returneras av kommandot [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) för att hämta status för en speciell uppdatering.
 
-Om det inte finns några uppdateringar att visa, returnerar kommandot ett fel meddelande: `Resource not found...StatusCode: 404`.
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -219,7 +244,7 @@ Get-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute `
-   -ApplyUpdateName default
+   -ApplyUpdateName myUpdateName
 ```
 
 ## <a name="remove-a-maintenance-configuration"></a>Ta bort en underhålls konfiguration

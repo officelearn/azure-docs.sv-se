@@ -330,16 +330,13 @@
     - name: Övervaka
       items:
         - name: Övervaka logikappar
-          href: logic-apps-monitor-your-logic-apps.md
+          href: monitor-logic-apps.md
         - name: Övervaka logikappar med Azure Monitor-loggar
-          href: logic-apps-monitor-your-logic-apps-oms.md
+          href: monitor-logic-apps-log-analytics.md
         - name: Övervaka B2B-meddelanden med Azure Monitor-loggar
-          href: logic-apps-monitor-b2b-message.md
-          items:
-            - name: Spåra B2B-meddelanden med Azure Monitor-loggar
-              href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Skapa frågor för B2B-meddelanden med Azure Monitor-loggar
-              href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+          href: monitor-b2b-messages-log-analytics.md
+        - name: Skapa frågor om övervakning och spårning
+          href: create-monitoring-tracking-queries.md
     - name: 'Exempel, scenarier och genomgångar'
       href: logic-apps-examples-and-scenarios.md
       items:

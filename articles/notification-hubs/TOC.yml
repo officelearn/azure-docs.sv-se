@@ -79,6 +79,8 @@
       href: samples-powershell.md
 - name: Begrepp
   items:
+    - name: Transport Layer Security (TLS)
+      href: notification-hubs-tls12.md
     - name: Push-arkitekturvägledning för företag
       href: notification-hubs-enterprise-push-notification-architecture.md
     - name: Enhetsregistreringar
@@ -90,7 +92,7 @@
           href: notification-hubs-templates-cross-platform-push-messages.md
     - name: Säkerhetsmodell
       href: notification-hubs-push-notification-security.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ändra prisnivå
       href: change-pricing-tier.md

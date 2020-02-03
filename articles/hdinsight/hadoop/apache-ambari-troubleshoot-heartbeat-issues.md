@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895392"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964625"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problem med Apache Ambari-pulsslag i Azure HDInsight
 
@@ -82,6 +82,21 @@ Aviseringarna orsakas av att Ambari-agenten inte körs.
     ```
 
     Om tjänster för redundansväxling inte körs beror det förmodligen på ett problem som förhindrar att HDInsight-agenten startar redundansväxling. Kontrol lera HDInsight-agentens logg från `/var/log/hdinsight-agent/hdinsight-agent.out`-filen.
+
+## <a name="scenario-heartbeat-lost-for-ambari"></a>Scenario: pulsslag förlorat för Ambari
+
+### <a name="issue"></a>Problem
+
+Ambari pulsslags agent förlorades.
+
+### <a name="cause"></a>Orsak
+
+OMS-loggar orsakar hög CPU-användning.
+
+### <a name="resolution"></a>Upplösning
+
+* Inaktivera OMS-loggning med hjälp av PowerShell [-modulen Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) . 
+* Ta bort `mdsd.warn` logg filen
 
 ---
 

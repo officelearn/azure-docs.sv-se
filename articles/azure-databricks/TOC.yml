@@ -888,13 +888,19 @@
             - name: Få tillgång till spårning externt
               href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
+        - name: Skapa instrumentpaneler med MLflow Search API
+          href: /azure/databricks/applications/mlflow/build-dashboards
+          maintainContext: true
         - name: 'Spara, läsa in och distribuera modeller'
           items:
             - name: 'Översikt över spara, läsa in och distribuera'
               href: /azure/databricks/applications/mlflow/models
               maintainContext: true
             - name: MLflow-modellexempel
-              href: /azure/databricks/applications/mlflow/  model-examples
+              href: /azure/databricks/applications/mlflow/model-example
+              maintainContext: true
+            - name: Modelldistribution med scikit learn på Azure
+              href: /azure/databricks/applications/mlflow/scikit-learn-model-deployment-on-azure-ml
               maintainContext: true
         - name: Reproducera körningar med MLflow-projekt
           href: /azure/databricks/applications/mlflow/projects
@@ -1411,7 +1417,7 @@
               maintainContext: true
         - name: Python
           items:
-            - name: Skapa ett kluster med Anaconda
+            - name: Skapa ett kluster med Conda
               href: /azure/databricks/kb/python/anaconda-environment
               maintainContext: true
             - name: Installera och kompilera Cython
@@ -1465,6 +1471,9 @@
           items:
             - name: Köra C++-kod i Scala
               href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
+              maintainContext: true
+            - name: Samtidiga Spark JAR-jobb misslyckas
+              href: /azure/databricks/kb/scala/spark-jar-job-error
               maintainContext: true
         - name: SQL
           items:

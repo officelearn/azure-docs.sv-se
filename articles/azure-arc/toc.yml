@@ -5,12 +5,12 @@
   items:
     - name: Vad är Azure Arc för servrar?
       href: ./servers/overview.md
-- name: Snabbstarter
+- name: Ansluta till Azure Arc
   expanded: true
   items:
-    - name: Ansluta datorer till Azure med Azure Arc för servrar – Portal
+    - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
       href: ./servers/quickstart-onboard-portal.md
-    - name: Ansluta datorer i stor skala med Azure Arc för servrar – PowerShell
+    - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
       href: ./servers/quickstart-onboard-powershell.md
 - name: Referens
   items:

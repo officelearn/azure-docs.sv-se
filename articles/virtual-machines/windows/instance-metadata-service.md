@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045882"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964659"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -471,10 +471,10 @@ namn | Namn på den virtuella datorn | 2017-04-02
 offer | Erbjudande information för den virtuella dator avbildningen och finns bara för avbildningar som distribuerats från Azures avbildnings Galleri | 2017-04-02
 osType | Linux eller Windows | 2017-04-02
 placementGroupId | [Placerings grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för den virtuella datorns skalnings uppsättning | 2017-08-01
-planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om det är en Azure Marketplace-avbildning | 2018-04-02
+projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om det är en Azure Marketplace-avbildning | 2018-04-02
 platformUpdateDomain |  [Uppdatera den domän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
 platformFaultDomain | [Feldomän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
-provider | Provider för den virtuella datorn | 2018-10-01
+CSP | Provider för den virtuella datorn | 2018-10-01
 publicKeys | [Samling offentliga nycklar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) som har tilldelats den virtuella datorn och sökvägar | 2018-04-02
 publisher | Utgivare av VM-avbildningen | 2017-04-02
 resourceGroupName | [Resurs grupp](../../azure-resource-manager/management/overview.md) för den virtuella datorn | 2017-08-01
@@ -482,7 +482,7 @@ resourceId | Resursens [fullständigt kvalificerade](https://docs.microsoft.com/
 sku | En speciell SKU för VM-avbildningen | 2017-04-02
 storageProfile | Se [lagrings profil](#storage-profile) | 2019-06-01
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
-tagg | [Taggar](../../azure-resource-manager/management/tag-resources.md) för den virtuella datorn  | 2017-08-01
+tags | [Taggar](../../azure-resource-manager/management/tag-resources.md) för den virtuella datorn  | 2017-08-01
 tagsList | Taggar formaterade som en JSON-matris för enklare programmerings parsning  | 2019-06-04
 version | Version av VM-avbildningen | 2017-04-02
 vmId | [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn | 2017-04-02
@@ -542,7 +542,7 @@ Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokume
 
 Instansens metadata kan hämtas i Windows via PowerShell-verktyget `curl`:
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -821,7 +821,7 @@ Verification successful
 Data | Beskrivning
 -----|------------
 Nnär | Användaren angav valfri sträng med begäran. Om inget nonce angavs i begäran returneras den aktuella UTC-tidsstämpeln
-planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare
+projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare
 timestamp/createdOn | UTC-tidsstämpeln då det första signerade dokumentet skapades
 timestamp/expiresOn | UTC-tidsstämpeln då det signerade dokumentet upphör att gälla
 vmId |  [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn
@@ -930,8 +930,8 @@ diskSizeGB | Disk storlek i GB
 mallar   | Virtuell hård disk för käll användar avbildning
 enheten     | Diskens logiska enhets nummer
 managedDisk | Parametrar för hanterade diskar
-namn    | Disknamn
-disken     | Virtuell hårddisk
+namn    | Disk namn
+disken     | Virtuell hård disk
 writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
 Data disks-matrisen innehåller en lista över data diskar som är anslutna till den virtuella datorn. Varje data disk objekt innehåller följande information:
@@ -945,9 +945,9 @@ diskSizeGB | Disk storlek i GB
 encryptionSettings | Krypterings inställningar för disken
 mallar   | Virtuell hård disk för käll användar avbildning
 managedDisk | Parametrar för hanterade diskar
-namn    | Disknamn
+namn    | Disk namn
 osType  | Typ av operativ system som ingår i disken
-disken     | Virtuell hårddisk
+disken     | Virtuell hård disk
 writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
 Följande är ett exempel på hur du frågar den virtuella datorns lagrings information.
@@ -1055,7 +1055,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. Hur gör jag för att få support för tjänsten?
    * Om du vill få support för tjänsten skapar du ett support ärende i Azure Portal för den virtuella datorn där du inte kan få svar på metadata efter långa återförsök.
 9. Jag får en timeout för mitt samtal till tjänsten?
-   * Anrop till metadata måste göras från den primära IP-adress som tilldelats till nätverkskortet på den virtuella datorn, och om du har ändrat dina vägar måste det finnas en väg för 169.254.0.0/16-adressen från nätverkskortet.
+   * Metadata-anrop måste göras från den primära IP-adress som tilldelats till det primära nätverkskortet på den virtuella datorn, förutom om du har ändrat dina vägar måste det finnas en väg för 169.254.0.0/16-adressen från nätverkskortet.
 10. Jag uppdaterade mina taggar i den virtuella datorns skalnings uppsättning men de visas inte i de här instanserna till skillnad från virtuella datorer?
     * För närvarande för ScaleSets-taggar visas bara för den virtuella datorn vid en omstart/återavbildning/eller en disk ändring till instansen.
 

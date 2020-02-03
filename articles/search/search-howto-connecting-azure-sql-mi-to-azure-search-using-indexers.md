@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863129"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964897"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL-hanterad instans
 
@@ -35,11 +35,14 @@ Kontrol lera att nätverks säkerhets gruppen har rätt **inkommande säkerhets 
    ![NSG inkommande säkerhets regel](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG inkommande säkerhets regel")
 
 > [!NOTE]
-> Du kan välja att vara mer restriktiv i den inkommande åtkomsten till din hanterade SQL-instans genom att ersätta den aktuella regeln (`public_endpoint_inbound`) med 2 regler:
+> Indexerare kräver fortfarande att SQL-hanterad instans konfigureras med en offentlig slut punkt för att läsa data.
+> Du kan dock välja att begränsa den inkommande åtkomsten till den offentliga slut punkten genom att ersätta den aktuella regeln (`public_endpoint_inbound`) med följande 2 regler:
 >
-> * Tillåta inkommande åtkomst från `AzureCognitiveSearch` [service tag gen](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch`)
+> * Tillåter inkommande åtkomst från `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch`, "namn" = `cognitive_search_inbound`)
 >
-> * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`). ("Källa" = `IP address`)
+> * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`). ("Källa" = `IP address`, "namn" = `search_service_inbound`)
+>
+> För var och en av dessa 2 regler anger du "PORT" = `3342`, "protokoll" = `TCP`, "DESTINATION" = `Any`, "åtgärd" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Hämta anslutnings sträng för offentlig slut punkt
 Se till att du använder anslutnings strängen för den **offentliga slut punkten** (port 3342, inte port 1433).

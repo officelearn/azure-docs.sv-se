@@ -11,15 +11,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 5b3f3eea4d23d84d684648d19fb67258d1ea2050
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 0e04f7e190ef22fb5c2b288e478cac5ffaf89141
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906996"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962517"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -748,7 +748,7 @@ Fältet `tags` är en sträng med taggarna avgränsade med semikolon. Detta kan 
 **Förfrågan**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=json"
 ```
 
 **Svar**
@@ -1054,7 +1054,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. Hur gör jag för att få support för tjänsten?
    * Om du vill få support för tjänsten skapar du ett support ärende i Azure Portal för den virtuella datorn där du inte kan få svar på metadata efter långa återförsök.
 9. Jag får en timeout för mitt samtal till tjänsten?
-   * Anrop till metadata måste göras från den primära IP-adress som tilldelats till nätverkskortet på den virtuella datorn, och om du har ändrat dina vägar måste det finnas en väg för 169.254.0.0/16-adressen från nätverkskortet.
+   * Metadata-anrop måste göras från den primära IP-adress som tilldelats till det primära nätverkskortet på den virtuella datorn, förutom om du har ändrat dina vägar måste det finnas en väg för 169.254.0.0/16-adressen från nätverkskortet.
 10. Jag uppdaterade mina taggar i den virtuella datorns skalnings uppsättning men de visas inte i de här instanserna till skillnad från virtuella datorer?
     * För närvarande för ScaleSets-taggar visas bara för den virtuella datorn vid en omstart/återavbildning/eller en disk ändring till instansen.
 

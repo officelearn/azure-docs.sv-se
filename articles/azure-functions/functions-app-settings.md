@@ -3,12 +3,12 @@ title: Referens för appinställningar för Azure Functions
 description: Referensdokumentation för appinställningar för Azure Functions eller miljövariabler.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921101"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963707"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referens för appinställningar för Azure Functions
 
@@ -32,14 +32,14 @@ I version 2. x och senare versioner av Functions-körningen konfigurerar du appe
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Valfritt lagringskontots anslutningssträng för att lagra loggar och visa dem i den **övervakaren** i portalen. Lagringskontot måste vara ett allmänt som har stöd för blobar, köer och tabeller. Se [lagringskonto](functions-infrastructure-as-code.md#storage-account) och [krav för Lagringskonto](functions-create-function-app-portal.md#storage-account-requirements).
+Valfritt lagringskontots anslutningssträng för att lagra loggar och visa dem i den **övervakaren** i portalen. Den här inställningen är endast giltig för appar som är riktade till version 1. x i Azure Functions Runtime. Lagringskontot måste vara ett allmänt som har stöd för blobar, köer och tabeller. Mer information finns i [krav för lagrings konton](storage-considerations.md#storage-account-requirements).
 
 |Nyckel|Exempelvärde|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [key]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
 
-> [!TIP]
-> För prestanda och upplevelse rekommenderar vi att du använder APPINSIGHTS_INSTRUMENTATIONKEY och App Insights för övervakning i stället för AzureWebJobsDashboard
+> [!NOTE]
+> För bättre prestanda och erfarenhet använder kör som version 2. x och senare versioner APPINSIGHTS_INSTRUMENTATIONKEY och App Insights för övervakning i stället för `AzureWebJobsDashboard`.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -79,7 +79,7 @@ Anger lagringsplatsen eller provider som ska användas för lagring av nycklar. 
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure Functions-runtime använder den här anslutningssträng för lagringskonto för alla funktioner utom HTTP-utlöst funktion. Lagringskontot måste vara ett allmänt som har stöd för blobar, köer och tabeller. Se [lagringskonto](functions-infrastructure-as-code.md#storage-account) och [krav för Lagringskonto](functions-create-function-app-portal.md#storage-account-requirements).
+Azure Functions-runtime använder den här anslutningssträng för lagringskonto för alla funktioner utom HTTP-utlöst funktion. Lagringskontot måste vara ett allmänt som har stöd för blobar, köer och tabeller. Se [lagringskonto](functions-infrastructure-as-code.md#storage-account) och [krav för Lagringskonto](storage-considerations.md#storage-account-requirements).
 
 |Nyckel|Exempelvärde|
 |---|------------|

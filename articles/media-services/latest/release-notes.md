@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719848"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962951"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -36,6 +36,13 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 
 Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2020"></a>Januari 2020
+
+### <a name="improvements-in-media-processors"></a>Förbättringar i medie processorer
+
+- Förbättrat stöd för sammanflätade källor i video analys – det här innehållet är nu sammanflätat på rätt sätt innan de skickas till en härlednings motor.
+- När du skapar miniatyrer med "bästa" läge söker kodaren nu över 30 sekunder för att välja en ram som inte är monokrom.
+ 
 ## <a name="november-2019"></a>November 2019
 
 ### <a name="live-transcription-preview"></a>Förhands granskning av direktsänd skrift

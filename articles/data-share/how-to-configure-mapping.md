@@ -6,16 +6,16 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 754977788c5f6e5e574500552f670ba9083cf683
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ff432c2073536448c8194ebe537c8bf8cf00663
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490626"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964251"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Så här konfigurerar du en data uppsättnings mappning för en mottagen resurs i Azure Data Share
 
-Den här artikeln beskriver hur du konfigurerar en data uppsättnings mappning för en mottagen resurs med hjälp av Azure Data Share. Du måste göra detta om du har accepterat en inbjudan om data delning men valt att godkänna och konfigurera senare. Du kanske vill konfigurera en data uppsättnings mappning om du behöver ändra målet för data som delas med dig, eller om du vill ta emot data i en SQL Server. 
+Den här artikeln beskriver hur du konfigurerar en data uppsättnings mappning för en mottagen resurs med hjälp av Azure Data Share. Du måste göra detta om du har accepterat en inbjudan om data delning men valt att godkänna och konfigurera senare, eller om data delas på plats. Du kanske vill konfigurera en data uppsättnings mappning om du behöver ändra målet för data som delas med dig, eller om du vill ta emot data i en SQL Server. 
 
 ## <a name="navigate-to-a-received-data-share"></a>Navigera till en mottagen data resurs
 
@@ -27,9 +27,9 @@ Markera kryss rutan bredvid den data uppsättning som du vill tilldela ett mål.
 
 ![Mappa till mål](./media/dataset-map-target.png "Mappa till mål") 
 
-## <a name="select-a-new-destination-store"></a>Välj ett nytt mål lager
+## <a name="select-a-new-target-store"></a>Välj ett nytt mål lager
 
-Välj en mål data typ som du vill att data ska hamna i. Observera att alla data som redan finns i tidigare mappade lagrings konton automatiskt flyttas till det nya målet.
+Välj en mål data typ som du vill att data ska hamna i. För ögonblicks bilds-baserad delning flyttas alla data som redan finns i tidigare mappade lagrings konton automatiskt till det nya mål arkivet. För delning på plats väljer du ett data lager på den angivna platsen. Platsen är Azure Data Center där dataproviderns käll data lager finns.
 
 ![Mål lagrings konto](./media/dataset-map-target-sql.png "Mål lagring") 
 

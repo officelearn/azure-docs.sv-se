@@ -6,13 +6,13 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: e22621083a44555cb3eda615c610f673cd841ec1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 02/03/2020
+ms.openlocfilehash: 0711484c4fff24c5dcd3c18effce596a92bc30c3
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581840"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964523"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren viaC#
 
@@ -25,7 +25,7 @@ Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för lo
 
 Du får lära dig att program mässigt skapa en resurs grupp, ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Du lär dig också att program mässigt konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -45,7 +45,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 I följande kod exempel får du en stegvis process som resulterar i data inhämtning i Azure Datautforskaren. 
 
-Först skapar du en resurs grupp. Du kan också skapa Azure-resurser, till exempel ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Sedan skapar du en Azure Event Grid-prenumeration, tillsammans med en tabell-och kolumn mappning, i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot. 
+Först skapar du en resurs grupp. Du kan också skapa Azure-resurser som ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas och lägga till huvud konton. Sedan skapar du en Azure Event Grid-prenumeration, tillsammans med en tabell-och kolumn mappning, i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -69,6 +69,16 @@ string kustoTableName = "Events";
 string kustoColumnMappingName = "Events_CSV_Mapping";
 string kustoDataConnectionName = deploymentName + "kustoeventgridconnection";
 
+//principals
+string principalIdForCluster = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+string roleForClusterPrincipal = "AllDatabasesAdmin";
+string tenantIdForClusterPrincipal = tenantId;
+string principalTypeForCluster = "App";
+string principalIdForDatabase = "xxxxxxxx@xxxxxxxx.com";//User Email
+string roleForDatabasePrincipal = "Admin";
+string tenantIdForDatabasePrincipal = tenantId;
+string principalTypeForDatabase = "User";
+
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
 var resourceManagementClient = new ResourceManagementClient(serviceCreds);
 Console.WriteLine("Step 1: Create a new resource group in your Azure subscription to manage all the resources for using Azure Data Explorer.");
@@ -77,8 +87,23 @@ await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(resourceGroupN
     new ResourceGroup() { Location = locationSmallCase });
 
 Console.WriteLine(
-    "Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, and database by using an Azure Resource Manager template.");
-var parameters = $"{{\"eventHubNamespaceName\":{{\"value\":\"{eventHubNamespaceName}\"}},\"eventHubName\":{{\"value\":\"{eventHubName}\"}},\"storageAccountName\":{{\"value\":\"{storageAccountName}\"}},\"containerName\":{{\"value\":\"{storageContainerName}\"}},\"kustoClusterName\":{{\"value\":\"{kustoClusterName}\"}},\"kustoDatabaseName\":{{\"value\":\"{kustoDatabaseName}\"}}}}";
+    "Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, database, and add principals by using an Azure Resource Manager template.");
+var parameters = new Dictionary<string, Dictionary<string, object>>();
+parameters["eventHubNamespaceName"] = new Dictionary<string, object>(capacity: 1) {{"value", eventHubNamespaceName}};
+parameters["eventHubName"] = new Dictionary<string, object>(capacity: 1) {{"value", eventHubName }};
+parameters["storageAccountName"] = new Dictionary<string, object>(capacity: 1) {{"value", storageAccountName }};
+parameters["containerName"] = new Dictionary<string, object>(capacity: 1) {{"value", storageContainerName }};
+parameters["kustoClusterName"] = new Dictionary<string, object>(capacity: 1) {{"value", kustoClusterName }};
+parameters["kustoDatabaseName"] = new Dictionary<string, object>(capacity: 1) {{"value", kustoDatabaseName }};
+parameters["principalIdForCluster"] = new Dictionary<string, object>(capacity: 1) {{"value", principalIdForCluster }};
+parameters["roleForClusterPrincipal"] = new Dictionary<string, object>(capacity: 1) {{"value", roleForClusterPrincipal }};
+parameters["tenantIdForClusterPrincipal"] = new Dictionary<string, object>(capacity: 1) {{"value", tenantIdForClusterPrincipal }};
+parameters["principalTypeForCluster"] = new Dictionary<string, object>(capacity: 1) {{"value", principalTypeForCluster }};
+parameters["principalIdForDatabase"] = new Dictionary<string, object>(capacity: 1) {{"value", principalIdForDatabase }};
+parameters["roleForDatabasePrincipal"] = new Dictionary<string, object>(capacity: 1) {{"value", roleForDatabasePrincipal }};
+parameters["tenantIdForDatabasePrincipal"] = new Dictionary<string, object>(capacity: 1) {{"value", tenantIdForDatabasePrincipal }};
+parameters["principalTypeForDatabase"] = new Dictionary<string, object>(capacity: 1) {{"value", principalTypeForDatabase }};
+            
 string template = File.ReadAllText(azureResourceTemplatePath, Encoding.UTF8);
 await resourceManagementClient.Deployments.CreateOrUpdateAsync(resourceGroupName, deploymentName,
     new Deployment(new DeploymentProperties(DeploymentMode.Incremental, template: template,
@@ -151,7 +176,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **Inställning** | **Fältbeskrivning** |
 |---|---|---|
-| TenantId | Ditt klient-ID. Det kallas även för ett katalog-ID.|
+| tenantId | Ditt klient-ID. Det kallas även för ett katalog-ID.|
 | subscriptionId | Det prenumerations-ID som du använder för att skapa resurser.|
 | clientId | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
 | clientSecret | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |

@@ -3,12 +3,12 @@ title: Utveckla Azure Functions med Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845399"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964029"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
@@ -79,6 +79,8 @@ Med funktionen Functions kan du skapa ett app-projekt med funktioner, tillsamman
 
     ![Mall för HTTP-utlöst funktion i Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
 
+### <a name="generated-project-files"></a>Genererade projektfiler
+
 Projekt mal len skapar ett projekt i ditt valda språk och installerar nödvändiga beroenden. För alla språk har det nya projektet följande filer:
 
 * **Host. JSON**: gör att du kan konfigurera funktions värden. Dessa inställningar gäller när du kör funktioner lokalt och när du kör dem i Azure. Mer information finns i [Host. JSON-referens](functions-host-json.md).
@@ -87,6 +89,30 @@ Projekt mal len skapar ett projekt i ditt valda språk och installerar nödvänd
 
     >[!IMPORTANT]
     >Eftersom filen Local. Settings. JSON kan innehålla hemligheter måste du undanta den från projekt käll kontrollen.
+
+Dessa filer skapas, beroende på ditt språk:
+
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+* [HttpExample.cs klass biblioteks fil](functions-dotnet-class-library.md#functions-class-library-project) som implementerar funktionen.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+* En Package. JSON-fil i rotmappen.
+
+* En HttpExample-mapp som innehåller [definitions filen function. JSON](functions-reference-node.md#folder-structure) och [filen index. js](functions-reference-node.md#exporting-a-function), en Node. js-fil som innehåller funktions koden.
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
 
 Nu kan du lägga till indata och utgående bindningar i din funktion genom att [ändra function. JSON-filen](#add-a-function-to-your-project) eller genom [att lägga till en parameter C# i en klass biblioteks funktion](#add-a-function-to-your-project).
 

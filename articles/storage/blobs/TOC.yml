@@ -82,11 +82,7 @@
             - name: 4 – Verifiera dataflöde och mått för svarstid
               href: storage-blob-scalable-app-verify-metrics.md
         - name: Var värd för en statisk webbplats
-          items:
-            - name: 1 – Skapa en statisk webbplats
-              href: storage-blob-static-website-host.md
-            - name: 2 – Aktivera en anpassad domän med SSL
-              href: storage-blob-static-website-custom-domain.md
+          href: storage-blob-static-website-host.md
         - name: Utforma program för hög tillgänglighet
           items:
             - name: 1 – Skapa hög tillgänglighet för ditt program
@@ -383,10 +379,12 @@
             - name: Använda Azure Storage-emulatorn
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Var värd för en statisk webbplats
-          href: storage-blob-static-website-how-to.md
-        - name: Mappa Azure CDN till en anpassad domän för åtkomst via HTTPS
-          href: storage-https-custom-domain-cdn.md
-        - name: Konfigurera ett anpassat domännamn
+          items:
+            - name: Var värd för en statisk webbplats
+              href: storage-blob-static-website-how-to.md
+            - name: Integrera med Azure CDN
+              href: static-website-content-delivery-network.md
+        - name: Använda en anpassad domän
           href: storage-custom-domain-name.md
         - name: Dirigera händelser till en anpassad slutpunkt
           href: storage-blob-event-quickstart.md

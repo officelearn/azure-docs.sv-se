@@ -3,12 +3,12 @@ title: Beräkna kostnader för förbruknings plan i Azure Functions
 description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta på när du kör din Function-app i en förbruknings plan i Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890325"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963996"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
 
@@ -47,7 +47,7 @@ När du uppskattar den totala kostnaden för din Function-app och relaterade tj�
 
 | Relaterad kostnad | Beskrivning |
 | ------------ | ----------- |
-| **Lagringskonto** | Varje Function-app kräver att du har ett associerat Generell användning [Azure Storage konto](../storage/common/storage-introduction.md#types-of-storage-accounts), som [faktureras separat](https://azure.microsoft.com/pricing/details/storage/). Det här kontot används internt av Functions-körningen, men du kan också använda det för lagrings utlösare och bindningar. Om du inte har ett lagrings konto skapas ett åt dig när Function-appen skapas. Mer information finns i [krav för lagrings konton](functions-scale.md#storage-account-requirements).|
+| **Lagringskonto** | Varje Function-app kräver att du har ett associerat Generell användning [Azure Storage konto](../storage/common/storage-introduction.md#types-of-storage-accounts), som [faktureras separat](https://azure.microsoft.com/pricing/details/storage/). Det här kontot används internt av Functions-körningen, men du kan också använda det för lagrings utlösare och bindningar. Om du inte har ett lagrings konto skapas ett åt dig när Function-appen skapas. Mer information finns i [krav för lagrings konton](storage-considerations.md#storage-account-requirements).|
 | **Application Insights** | Funktioner förlitar sig på [Application Insights](../azure-monitor/app/app-insights-overview.md) för att tillhandahålla en övervaknings upplevelse med hög prestanda för dina funktions appar. Om det inte behövs bör du [aktivera Application Insights-integrering](functions-monitoring.md#enable-application-insights-integration). En kostnads fri beviljande av telemetri data ingår varje månad. Mer information finns [på sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Nätverks bandbredd** | Du betalar inte för data överföring mellan Azure-tjänster i samma region. Du kan dock debiteras kostnader för utgående data överföringar till en annan region eller utanför Azure. Mer information finns i [pris information för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/). |
 

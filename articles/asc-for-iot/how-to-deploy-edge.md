@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/08/2019
+ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: b2af392dc4dc848a099b8297bb58e7d4a7104fa6
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543893"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964047"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
@@ -169,7 +169,7 @@ Om du stöter på problem är behållar loggarna det bästa sättet att lära si
    
    | Namn | AVBILDNING |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
    

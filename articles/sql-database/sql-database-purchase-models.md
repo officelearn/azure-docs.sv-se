@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/01/2020
+ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973534"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964778"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Välj mellan vCore och DTU inköps modeller
 
@@ -47,9 +47,9 @@ I följande tabell och diagram jämförs och kontrasterar vCore-baserade och DTU
 
 I den allokerade beräknings nivån återspeglar beräknings kostnaden den totala beräknings kapaciteten som är etablerad för programmet.
 
-I nivån verksamhets kritisk tjänst allokerar vi automatiskt minst tre repliker. För att avspegla den här ytterligare allokeringen av beräknings resurser, är priset i den vCore-baserade inköps modellen cirka 2.7 x högre i nivån affärs kritisk tjänst än den är i tjänst nivån allmän användning. På samma sätt återspeglar det högre lagrings priset per GB i nivån för verksamhets kritiska tjänster den höga I/O och låg latens för SSD-lagringen.
+I Affärskritisk tjänst nivån allokerar vi automatiskt minst tre repliker. För att avspegla den här ytterligare allokeringen av beräknings resurser, är priset i den vCore-baserade inköps modellen ungefär 2.7 x högre på den Affärskritisk tjänst nivån än på Generell användning tjänst nivå. På samma sätt återspeglar det högre lagrings priset per GB i Affärskritisk tjänst nivån de högre i/o-gränserna och lägre latens för SSD-lagringen.
 
-Kostnaden för lagring av säkerhets kopior är samma för nivån affärs kritisk tjänst och tjänst nivån generell användning eftersom båda nivåerna använder standard lagring.
+Kostnaden för lagring av säkerhets kopior är samma för Affärskritisk tjänst nivå och Generell användning tjänst nivå eftersom båda nivåerna använder standard lagring för säkerhets kopiering.
 
 ### <a name="serverless-compute-costs"></a>Beräknings kostnader utan Server
 
@@ -67,7 +67,7 @@ Mer information om lagrings priser finns på sidan med [priser](https://azure.mi
 
 En virtuell kärna (vCore) representerar en logisk CPU och ger dig möjlighet att välja mellan generationens maskin vara och maskin varans fysiska egenskaper (till exempel antalet kärnor, minne och lagrings storlek). Den vCore-baserade inköps modellen ger dig flexibilitet, kontroll, transparens för enskild resursanvändning och ett enkelt sätt att översätta lokala arbets belastnings krav till molnet. Med den här modellen kan du välja beräknings-, minnes-och lagrings resurser baserat på dina arbets belastnings behov.
 
-I den vCore-baserade inköps modellen kan du välja mellan [allmänna syften](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärs kritiska](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänst nivåer för [enskilda databaser](sql-database-single-database-scale.md), [elastiska pooler](sql-database-elastic-pool.md)och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser kan du också välja den [storskaliga tjänst nivån](sql-database-service-tier-hyperscale.md).
+I den vCore-baserade inköps modellen kan du välja mellan [generell användning](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) och [affärskritisk](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) tjänst nivåer för [enskilda databaser](sql-database-single-database-scale.md), [elastiska pooler](sql-database-elastic-pool.md)och [hanterade instanser](sql-database-managed-instance.md). För enskilda databaser kan du också välja den [storskaliga tjänst nivån](sql-database-service-tier-hyperscale.md).
 
 Med den vCore-baserade inköps modellen kan du välja beräknings-och lagrings resurser oberoende av varandra, matcha lokala prestanda och optimera priset. I den vCore-baserade inköps modellen betalar du för:
 
@@ -83,8 +83,8 @@ Om den enskilda databasen eller den elastiska poolen förbrukar mer än 300 DTU:
 
 Om du vill konvertera från den DTU-baserade inköps modellen till den vCore-baserade inköps modellen väljer du beräknings storlek med hjälp av följande regler:
 
-- Varje 100 DTU: er på standard nivån kräver minst 1 vCore i tjänst nivån allmän användning.
-- Varje 125 DTU: er på Premium nivån kräver minst 1 vCore i nivån affärs kritisk tjänst.
+- Varje 100 DTU: er på standard nivån kräver minst 1 vCore på Generell användning tjänst nivå.
+- Varje 125 DTU: er på Premium nivån kräver minst 1 vCore på Affärskritisk tjänst nivå.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
@@ -102,7 +102,7 @@ De resurser som används av arbets belastningen påverkar inte resurserna som ä
 
 ![avgränsnings ruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Exempel:
+DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Ett exempel:
 
 - Att dubblera DTU: er genom att öka beräknings storleken för en databas, motsvarar att dubblera den uppsättning av resurser som är tillgängliga för den databasen.
 - En Premium Service Tier p11-databas med 1750 DTU: er ger beräkningskraft mer DTU-beräknings kraft än en grundläggande tjänst nivå databas med 5 DTU: er.  
@@ -125,7 +125,19 @@ Du kan lägga till ytterligare eDTU: er i en befintlig pool utan avbrott i datab
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Fastställa antalet DTU: er som krävs av en arbets belastning
 
-Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets belastning till Azure SQL Database använder du DTU- [kalkylatorn](https://dtucalculator.azurewebsites.net/) för att uppskatta antalet DTU: er som behövs. För en befintlig Azure SQL Database arbets belastning kan du använda [frågor om prestanda](sql-database-query-performance.md) för att förstå din databas resurs förbrukning (DTU: er) och få djupare insikter för att optimera din arbets belastning. I [sys. dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) dynamisk Management View (DMV) kan du Visa resursförbrukning för den senaste timmen. I vyn [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) Catalog visas resursförbrukning under de senaste 14 dagarna, men med en lägre åter givning på fem minuters genomsnitt.
+Om du vill migrera en befintlig lokal eller SQL Server virtuell dators arbets belastning till Azure SQL Database använder du DTU- [kalkylatorn](https://dtucalculator.azurewebsites.net/) för att uppskatta antalet DTU: er som behövs. För en befintlig Azure SQL Database arbets belastning kan du använda [frågor om prestanda](sql-database-query-performance.md) för att förstå din databas resurs förbrukning (DTU: er) och få djupare insikter för att optimera din arbets belastning. Med [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) Dynamic Management View (DMV) kan du Visa resursförbrukning för den senaste timmen. I vyn [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) Catalog visas resursförbrukning under de senaste 14 dagarna, men med en lägre åter givning på fem minuters genomsnitt.
+
+### <a name="determine-dtu-utilization"></a>Fastställa DTU-användning
+
+Använd följande formel för att fastställa den genomsnittliga procent andelen DTU/eDTU-användning i relation till gränsen för DTU/eDTU för en databas eller elastisk pool:
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+Indatavärdena för den här formeln kan hämtas från [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)och [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMV: er. Med andra ord, för att fastställa procent andelen DTU/eDTU-användning mot gränsen för DTU/eDTU för en databas eller en elastisk pool, väljer du det största procentuella värdet från följande: `avg_cpu_percent`, `avg_data_io_percent`och `avg_log_write_percent` vid en viss tidpunkt.
+
+> [!NOTE]
+> DTU-gränsen för en databas bestäms av CPU, läsningar, skrivningar och minne som är tillgängligt för databasen. Men eftersom SQL Server Database Engine vanligt vis använder allt tillgängligt minne för Datacachen för att förbättra prestanda, är `avg_memory_usage_percent`-värdet vanligt vis nära 100% oavsett den aktuella databas belastningen. Det innebär att även om minnet påverkar DTU-gränsen, används den inte i formeln DTU-användning.
+>
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Arbets belastningar som drar nytta av en elastisk pool av resurser
 

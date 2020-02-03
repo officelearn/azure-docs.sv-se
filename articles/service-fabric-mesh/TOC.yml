@@ -51,7 +51,7 @@
       href: service-fabric-mesh-storing-state.md
     - name: Hemligheter
       href: service-fabric-mesh-secrets-overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ställt in din utvecklingsmiljö
       href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
@@ -71,6 +71,8 @@
       href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
     - name: Hantera hemligheter
       href: service-fabric-mesh-howto-manage-secrets.md
+    - name: Flytta ett program till en annan Azure-region
+      href: move-across-regions.md
     - name: Hitta exempel
       href: service-fabric-mesh-howto-find-samples.md
 - name: Referens

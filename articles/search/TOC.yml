@@ -64,15 +64,15 @@
 - name: Exempel
   items:
     - name: 'C#-exempel'
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp'
     - name: Java-exempel
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java'
     - name: JavaScript-exempel
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=javascript'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=javascript'
     - name: Python-exempel
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: REST-exempel
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
 - name: Utbildning
   items:
     - name: Introduktion (Microsoft Learn)
@@ -131,6 +131,8 @@
       items:
         - name: API-versioner
           href: search-api-versions.md
+        - name: Lista över förhandsgranskningsfunktioner
+          href: search-api-preview.md
         - name: Utveckla i .NET
           href: search-howto-dotnet-sdk.md
         - name: Uppgradera SDK
@@ -149,7 +151,7 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: 'Uppgradera REST-API:et'
           href: search-api-migration.md
-    - name: Skapa index
+    - name: Skapa ett index
       items:
         - name: Skapa ett grundläggande index
           href: search-what-is-an-index.md
@@ -181,7 +183,7 @@
           href: search-howto-complex-data-types.md
         - name: Modeller med relationsdata
           href: index-sql-relational-data.md
-    - name: Importera (indexering)
+    - name: Indexering (import)
       items:
         - name: Översikt över dataimport
           href: search-what-is-data-import.md
@@ -193,43 +195,45 @@
           href: search-howto-large-index.md
         - name: Hantera samtidiga uppdateringar
           href: search-howto-concurrency.md
-    - name: Indexera Azure Blob-data
+    - name: Använda en indexerare
       items:
-        - name: Använda AI med blobdata
-          href: search-blob-ai-integration.md
-        - name: Lägga till fulltextsökning
-          href: search-blob-storage-integration.md
-        - name: Konfigurera en blobindexerare
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Konfigurera en indexerare för Azure Data Lake Storage Gen2
-          href: search-howto-index-azure-data-lake-storage.md
-        - name: Indexera en-till-många blobar
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Indexera CSV-blobar
-          href: search-howto-index-csv-blobs.md
-        - name: Indexera JSON-blobar
-          href: search-howto-index-json-blobs.md
-    - name: Indexera med ”indexerare”
-      items:
-        - name: Översikt över indexerare
+        - name: Konfigurera indexerare
           href: search-indexer-overview.md
-        - name: Azure Table Storage-indexerare
-          href: search-howto-indexing-azure-tables.md
-        - name: Azure SQL DB-indexerare
-          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Azure Cosmos DB-indexeraren
-          href: search-howto-index-cosmosdb.md
-        - name: Schema för indexerare
-          href: search-howto-schedule-indexers.md
         - name: Mappa fält
           href: search-indexer-field-mappings.md
-        - name: Ansluta till hanterad SQL-instans
-          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-        - name: Ansluta till virtuella SQL Server-datorer
-          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Övervaka indexerare
           href: search-howto-monitor-indexers.md
-    - name: Berika med AI
+        - name: Schema för indexerare
+          href: search-howto-schedule-indexers.md
+        - name: Datakällor
+          items:
+            - name: Azure-blobar
+              items:
+                - name: Söka över blobar
+                  href: search-blob-storage-integration.md
+                - name: Förstå blobar med AI
+                  href: search-blob-ai-integration.md
+                - name: Konfigurera en blobindexerare
+                  href: search-howto-indexing-azure-blob-storage.md
+                - name: Indexera en-till-många blobar
+                  href: search-howto-index-one-to-many-blobs.md
+                - name: Indexera CSV-blobar
+                  href: search-howto-index-csv-blobs.md
+                - name: Indexera JSON-blobar
+                  href: search-howto-index-json-blobs.md
+            - name: Azure Cosmos DB
+              href: search-howto-index-cosmosdb.md
+            - name: Azure Data Lake Storage Gen2
+              href: search-howto-index-azure-data-lake-storage.md
+            - name: Azure SQL Database
+              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+            - name: Azure Table Storage
+              href: search-howto-indexing-azure-tables.md
+            - name: SQL-hanterade instanser
+              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+            - name: Virtuella SQL Server-datorer
+              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: AI-berikning
       items:
         - name: Bifoga en resurs för Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
@@ -326,27 +330,31 @@
 - name: Referens
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+      href: /cli/azure/search?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.search
-    - name: .NET
-      href: /dotnet/api/?term=microsoft.azure.search
-    - name: .NET (hantering)
-      href: /dotnet/api/?term=microsoft.azure.management.search
-    - name: Python (hantering)
-      href: /python/api/?view=azure-python&term=search
-    - name: REST
-      href: /rest/api/searchservice
-    - name: REST (hantering)
-      href: /rest/api/searchmanagement
-    - name: REST (förhandsversion)
-      items:
-        - name: API-version 2019-05-06-Preview
-          href: search-api-preview.md
-        - name: Återställ kompetens-API
-          href: preview-api-resetskills.md
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.search/searchservices
+    - name: .NET
+      items:
+        - name: microsoft.azure.search
+          href: /dotnet/api/overview/azure/search?view=azure-dotnet
+        - name: microsoft.azure.management.search
+          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+    - name: REST
+      items:
+        - name: Sökning 2019-05-06
+          href: /rest/api/searchservice
+        - name: Återställ kompetens (api-version=2019-05-06-förhandsversion)
+          href: preview-api-resetskills.md
+        - name: Hantering 2015-08-15
+          href: /rest/api/searchmanagement
+        - name: Hantering 2019-10-01-förhandsversion
+          href: /rest/api/searchmanagement/index-2019-10-01-preview
+    - name: Python
+      items:
+        - name: Hanterings-API
+          href: /python/api/overview/azure/search?view=azure-python
     - name: Språkreferens för OData
       items:
         - name: Översikt
@@ -373,44 +381,47 @@
           href: search-query-odata-search-score-function.md
         - name: Språkgrammatik för OData
           href: search-query-odata-syntax-reference.md
-    - name: Referens för kognitiva färdigheter
-      href: cognitive-search-predefined-skills.md
+    - name: Referens för färdigheter
       items:
-        - name: Extrahering av nyckelfraser
-          href: cognitive-search-skill-keyphrases.md
-        - name: Språkidentifiering
-          href: cognitive-search-skill-language-detection.md
-        - name: Igenkänning av enhet
-          href: cognitive-search-skill-entity-recognition.md
-        - name: Textsammanslagning
-          href: cognitive-search-skill-textmerger.md
-        - name: Textuppdelning
-          href: cognitive-search-skill-textsplit.md
-        - name: Sentiment
-          href: cognitive-search-skill-sentiment.md
-        - name: Textöversättning
-          href: cognitive-search-skill-text-translation.md
-        - name: Bildanalys
-          href: cognitive-search-skill-image-analysis.md
-        - name: OCR
-          href: cognitive-search-skill-ocr.md
-        - name: Formaren
-          href: cognitive-search-skill-shaper.md
-        - name: Villkorsstyrd
-          href: cognitive-search-skill-conditional.md
-        - name: Extrahering av dokument
-          href: cognitive-search-skill-document-extraction.md
-        - name: PII-identifiering
-          href: cognitive-search-skill-pii-detection.md
-    - name: Anpassade färdigheter
-      items:
-        - name: Anpassat webb-API
-          href: cognitive-search-custom-skill-web-api.md
-    - name: Inaktuella färdigheter
-      href: cognitive-search-skill-deprecated.md
-      items:
-        - name: Igenkänning av namngiven enhet
-          href: cognitive-search-skill-named-entity-recognition.md
+        - name: Inbyggda färdigheter
+          items:
+            - name: Översikt
+              href: cognitive-search-predefined-skills.md
+            - name: Villkorsstyrd
+              href: cognitive-search-skill-conditional.md
+            - name: Extrahering av dokument
+              href: cognitive-search-skill-document-extraction.md
+            - name: Igenkänning av enhet
+              href: cognitive-search-skill-entity-recognition.md
+            - name: Bildanalys
+              href: cognitive-search-skill-image-analysis.md
+            - name: Extrahering av nyckelfraser
+              href: cognitive-search-skill-keyphrases.md
+            - name: Språkidentifiering
+              href: cognitive-search-skill-language-detection.md
+            - name: OCR
+              href: cognitive-search-skill-ocr.md
+            - name: PII-identifiering
+              href: cognitive-search-skill-pii-detection.md
+            - name: Sentiment
+              href: cognitive-search-skill-sentiment.md
+            - name: Formaren
+              href: cognitive-search-skill-shaper.md
+            - name: Textsammanslagning
+              href: cognitive-search-skill-textmerger.md
+            - name: Textuppdelning
+              href: cognitive-search-skill-textsplit.md
+            - name: Textöversättning
+              href: cognitive-search-skill-text-translation.md
+        - name: Anpassade färdigheter
+          items:
+            - name: Anpassat webb-API
+              href: cognitive-search-custom-skill-web-api.md
+        - name: Inaktuella färdigheter
+          href: cognitive-search-skill-deprecated.md
+          items:
+            - name: Igenkänning av namngiven enhet
+              href: cognitive-search-skill-named-entity-recognition.md
 - name: Resurser
   items:
     - name: Support av Azure-communityn

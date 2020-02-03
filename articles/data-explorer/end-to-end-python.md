@@ -6,13 +6,13 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 22a7ab7aa5d85e716d9b594ee3fb11aad3fa6a36
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/03/2020
+ms.openlocfilehash: 61864c51c2ab99e5266e39f2c9a7344aaf7413c1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496549"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964316"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren via python
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="install-the-python-package"></a>Installera Python-paketet
 
-Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör dessa kommandon:
+Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommandon:
 
 ```
 pip install azure-common
@@ -49,7 +49,7 @@ pip install azure-storage-blob
 
 I följande kod exempel får du en stegvis process som resulterar i data inhämtning i Azure Datautforskaren. 
 
-Först skapar du en resurs grupp. Du kan också skapa Azure-resurser, till exempel ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Sedan skapar du en Azure Event Grid-prenumeration, tillsammans med en tabell-och kolumn mappning, i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
+Först skapar du en resurs grupp. Du kan också skapa Azure-resurser som ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas och lägga till huvud konton. Sedan skapar du en Azure Event Grid-prenumeration, tillsammans med en tabell-och kolumn mappning, i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -87,6 +87,16 @@ kusto_table_name = "Events"
 kusto_column_mapping_name = "Events_CSV_Mapping"
 kusto_data_connection_name = deployment_name + "kustoeventgridconnection"
 
+#principals
+principal_id_for_cluster = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+role_for_cluster_principal = "AllDatabasesAdmin";
+tenant_id_for_cluster_principal = tenant_id;
+principal_type_for_cluster = "App";
+principal_id_for_database = "xxxxxxxx@xxxxxxxx.com";//User Email
+role_for_database_principal = "Admin";
+tenant_id_for_database_principal = tenant_id;
+principal_type_for_database = "User";
+
 
 credentials = ServicePrincipalCredentials(
     client_id=client_id,
@@ -103,7 +113,7 @@ resource_client.resource_groups.create_or_update(
     }
 )
 
-print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, and database by using an Azure Resource Manager template.')
+print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, database, and add principals by using an Azure Resource Manager template.')
 #Read the Azure Resource Manager template
 with open(azure_resource_template_path, 'r') as template_file_fd:
     template = json.load(template_file_fd)
@@ -114,7 +124,15 @@ parameters = {
     'storageAccountName': storage_account_name,
     'containerName': storage_container_name,
     'kustoClusterName': kusto_cluster_name,
-    'kustoDatabaseName': kusto_database_name
+    'kustoDatabaseName': kusto_database_name,
+    'principalIdForCluster': principal_id_for_cluster,
+    'roleForClusterPrincipal': role_for_cluster_principal,
+    'tenantIdForClusterPrincipal': tenant_id_for_cluster_principal,
+    'principalTypeForCluster': principal_type_for_cluster,
+    'principalIdForDatabase': principal_id_for_database,
+    'roleForDatabasePrincipal': role_for_database_principal,
+    'tenantIdForDatabasePrincipal': tenant_id_for_database_principal,
+    'principalTypeForDatabase': principal_type_for_database
 }
 parameters = {k: {'value': v} for k, v in parameters.items()}
 deployment_properties = {

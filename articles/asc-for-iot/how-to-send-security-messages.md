@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 8bbbd8248c7418b667e34389cb47bd3f6b4f06ab
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937138"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963826"
 ---
 # <a name="send-security-messages-sdk"></a>Skicka Security-meddelanden SDK
 
@@ -46,7 +46,7 @@ Azure Security Center for IoT definierar ett säkerhets meddelande med följande
 - Om meddelandet överensstämmer med [säkerhets meddelandets schema](https://aka.ms/iot-security-schemas)
 - Om meddelandet angavs som ett säkerhets meddelande innan det skickas
 
-Varje säkerhets meddelande innehåller metadata för avsändaren, till `AgentId`exempel `AgentVersion` `MessageSchemaVersion` , och en lista över säkerhets händelser.
+Varje säkerhets meddelande innehåller metadata för avsändaren, till exempel `AgentId`, `AgentVersion`, `MessageSchemaVersion` och en lista över säkerhets händelser.
 Schemat definierar de giltiga och nödvändiga egenskaperna för säkerhets meddelandet, inklusive typer av händelser.
 
 >[!Note]
@@ -91,7 +91,7 @@ När det har angetts som ett säkerhets meddelande och skickats, kommer det här
 
 ## <a name="send-security-messages"></a>Skicka säkerhets meddelanden 
 
-Skicka säkerhets meddelanden *utan att* använda Azure Security Center för IoT-agenten med hjälp av [Azure IoT C-enhets-SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview): n, [Azure IoT C# -enhetens SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), [Azure IoT Node. js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT python SDK](https://github.com/Azure/azure-iot-sdk-python)eller [Azure IoT Java SDK ](https://github.com/Azure/azure-iot-sdk-java).
+Skicka säkerhets meddelanden *utan att* använda Azure Security Center för IoT-agenten med hjälp av [Azure IoT C-enhets-SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview): n, [Azure C# IoT-enhetens SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), [Azure IoT Node. js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT python SDK](https://github.com/Azure/azure-iot-sdk-python)eller [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
 Om du vill skicka enhets data från dina enheter för bearbetning av Azure Security Center för IoT, använder du någon av följande API: er för att markera meddelanden för korrekt routning till Azure Security Center för IoT-bearbetnings pipelinen. 
 
@@ -192,14 +192,21 @@ function SendSecurityMessage(messageContent)
 
 #### <a name="python-api"></a>Python API
 
+Om du vill använda python-API: et måste du installera paketet [Azure-IoT-Device](https://pypi.org/project/azure-iot-device/).
+
+När du använder python-API: et kan du antingen skicka säkerhets meddelandet via modulen eller via enheten med hjälp av anslutnings strängen för den unika enheten eller modulen. När du använder följande Python-skript exempel med en enhet, använder du **IoTHubDeviceClient**och använder en modul, använder du **IoTHubModuleClient**. 
+
 ```python
+from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient
+from azure.iot.device import Message
+
 async def send_security_message_async(message_content):
     conn_str = os.getenv("<connection_string>")
     device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
     await device_client.connect()
     security_message = Message(message_content)
     security_message.set_as_security_message()
-    await device_client.send_d2c_message(security_message)
+    await device_client.send_message(security_message)
     await device_client.disconnect()
 ```
 

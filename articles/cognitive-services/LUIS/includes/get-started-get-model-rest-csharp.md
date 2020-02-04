@@ -6,37 +6,33 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 503482243f5aa2e7f833257a3a6eb91a3b5c5ec1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503747"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76966921"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Start nyckel.
+* Azure Language Understanding-redigering av resurs 32-tangenten och URL: en för redigering av slut punkter. Skapa med [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importera [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) -appen från kognitiva-tjänsterna – språkförståelseing GitHub-lagringsplatsen.
 * LUIS program-ID för den importerade TravelAgent-appen. Program-ID visas på programmets instrumentpanel.
 * Versions-ID: t i programmet som tar emot yttranden. Standard-id:t är ”0.1”.
 * [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
-## <a name="get-luis-key"></a>Hämta LUIS-nyckel
-
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
-
 ## <a name="change-model-programmatically"></a>Ändra modell program mässigt
 
-Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-authoring) som har registrerats av enheten i programmet. 
+Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-authoring) som har registrerats av enheten i programmet.
 
-1. Skapa ett nytt konsol program som riktar C# sig mot språket, med ett projekt-och mappnamn med `model-with-rest`. 
+1. Skapa ett nytt konsol program som riktar C# sig mot språket, med ett projekt-och mappnamn med `model-with-rest`.
 
     ```console
     dotnet new console -lang C# -n model-with-rest
@@ -58,29 +54,29 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using System.Linq;
-    
+
     // 3rd party NuGet packages
     using JsonFormatterPlus;
-    
+
     namespace AddUtterances
     {
         class Program
         {
-            // NOTE: use your starter key value
+            // NOTE: use your LUIS authoring key - 32 character value
             static string authoringKey = "YOUR-KEY";
-    
-            // NOTE: Replace this endpoint with your starter key endpoint
-            // for example, westus.api.cognitive.microsoft.com
+
+            // NOTE: Replace this endpoint with your authoring key endpoint
+            // for example, your-resource-name.api.cognitive.microsoft.com
             static string endpoint = "YOUR-ENDPOINT";
-    
+
             // NOTE: Replace this with the ID of your LUIS application
             static string appID = "YOUR-APP-ID";
-    
+
             // NOTE: Replace this your version number
             static string appVersion = "0.1";
-    
+
             static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
-    
+
             // GET request with authentication
             async static Task<HttpResponseMessage> SendGet(string uri)
             {
@@ -101,21 +97,21 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
                 {
                     request.Method = HttpMethod.Post;
                     request.RequestUri = new Uri(uri);
-    
+
                     if (!String.IsNullOrEmpty(requestBody))
                     {
                         request.Content = new StringContent(requestBody, Encoding.UTF8, "text/json");
                     }
-    
+
                     request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
                     return await client.SendAsync(request);
                 }
-            }        
+            }
             // Add utterances as string with POST request
             async static Task AddUtterances(string utterances)
             {
                 string uri = host + "examples";
-    
+
                 var response = await SendPost(uri, utterances);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Added utterances.");
@@ -125,12 +121,12 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
             async static Task Train()
             {
                 string uri = host  + "train";
-    
+
                 var response = await SendPost(uri, null);
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Sent training request.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Check status of training
             async static Task Status()
             {
@@ -138,7 +134,7 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
                 var result = await response.Content.ReadAsStringAsync();
                 Console.WriteLine("Requested training status.");
                 Console.WriteLine(JsonFormatter.Format(result));
-            }    
+            }
             // Add utterances, train, check status
             static void Main(string[] args)
             {
@@ -161,7 +157,7 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
                         'entityLabels': []
                     }
                 ]
-                ";            
+                ";
                 AddUtterances(utterances).Wait();
                 Train().Wait();
                 Status().Wait();
@@ -170,13 +166,17 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
     }
     ```
 
-1. Ersätt följande värden:
+1. Ersätt värdena som börjar med `YOUR-` med dina egna värden.
 
-    * `YOUR-KEY` med din start nyckel
-    * `YOUR-ENDPOINT` med slut punkten, till exempel `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` med appens ID
+    |Information|Syfte|
+    |--|--|
+    |`YOUR-KEY`|Din redigerings nyckel för 32-tecknen.|
+    |`YOUR-ENDPOINT`| URL-slutpunkten för redigering. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`. Du anger resurs namnet när du skapade resursen.|
+    |`YOUR-APP-ID`| Ditt LUIS app-ID. |
 
-1. Skapa konsolprogrammet. 
+    Tilldelade nycklar och resurser visas i LUIS-portalen i avsnittet hantera på sidan **Azure-resurser** . App-ID: t är tillgängligt i samma hantera-avsnitt på sidan **program inställningar** .
+
+1. Skapa konsolprogrammet.
 
     ```console
     dotnet build
@@ -188,13 +188,9 @@ Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-au
     dotnet run
     ```
 
-## <a name="luis-keys"></a>LUIS-nycklar
-
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är färdig med den här snabb starten tar du bort filen från fil systemet. 
+När du är färdig med den här snabb starten tar du bort filen från fil systemet.
 
 ## <a name="next-steps"></a>Nästa steg
 

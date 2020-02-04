@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 0540c7b01d693975f34515c7d13f0477ac74d4a1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 26313c68305f4d7e6411d31fa12366442ce4bd38
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842264"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964177"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Snabb start: skapa ett Azure Functions projekt med Visual Studio Code
 
@@ -18,31 +18,39 @@ I den här artikeln använder du Visual Studio Code för att skapa en funktion s
 
 Det finns också en [CLI-baserad version](functions-create-first-azure-function-azure-cli.md) av den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="configure-your-environment"></a>Konfigurera din miljö
 
-+ [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
-::: zone pivot="programming-language-csharp"
-+ Tillägget för Visual Studio Code. [ C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ [Node. js](https://nodejs.org/), aktiva LTS och underhåll LTS-versioner (8.11.1 och 10.14.1 rekommenderas).
-::: zone-end
+Innan du börjar bör du kontrol lera att du har följande krav på plats:
+
++ Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
++ [Node. js](https://nodejs.org/), som krävs av Windows för NPM. Endast [aktiva LTS-och underhålls LTS-versioner ](https://nodejs.org/about/releases/). Använd kommandot `npm --version` för att kontrol lera din version.
+    Krävs inte för lokal utveckling på MacOS och Linux.   
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
++ [Node. js](https://nodejs.org/), aktiva LTS och underhåll LTS-versioner (10.14.1 rekommenderas). Använd kommandot `npm --version` för att kontrol lera din version.
+::: zone-end 
 ::: zone pivot="programming-language-python"
 + [Python 3,7](https://www.python.org/downloads/release/python-375/) eller [python 3,6](https://www.python.org/downloads/release/python-368/), som stöds av Azure Functions. Python 3,8 stöds inte ännu. 
-
-+ [Python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för Visual Studio Code.
-::: zone-end
+::: zone-end   
 ::: zone pivot="programming-language-powershell"
 + [PowerShell-kärna](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.Net Core SDK 2.2 +](https://www.microsoft.com/net/download)
-
-+ [PowerShell-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
-::: zone-end
++ [.Net Core SDK 2.2 +](https://www.microsoft.com/net/download)  
+::: zone-end  
++ [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
+::: zone pivot="programming-language-csharp"  
++ Tillägget för Visual Studio Code. [ C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  
+::: zone-end  
+::: zone pivot="programming-language-python"
++ [Python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-powershell"
++ [PowerShell-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
+::: zone-end  
 
 + [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code. 
-
-+ Ett [Azure-konto](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) med en aktiv prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 ## <a name="create-an-azure-functions-project"></a>Skapa ditt lokala projekt 
 
@@ -60,111 +68,36 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
 1. Ange följande information i prompten:
 
     ::: zone pivot="programming-language-csharp"
-
-    | Uppmaning | Värde | 
-    | ------ | ----- | 
-    | Välj ett språk för ditt funktions projekt | C# |
-    | Välj en version | Azure Functions v2 | 
-    | Välj en mall för projektets första funktion | HTTP-utlösare | 
-    | Ange ett funktions namn | HttpExample | 
-    | Ange ett namn område | Mina. Functions | 
-    | Auktorisationsnivå | Anonym | 
-    | Välj hur du vill öppna projektet | Lägg till i arbets ytan |
-
+    + **Välj ett språk för ditt funktions projekt**: Välj `C#`.
     ::: zone-end
-
     ::: zone pivot="programming-language-javascript"
-
-    | Uppmaning | Värde | 
-    | ------ | ----- | 
-    | Välj ett språk för ditt funktions projekt | JavaScript | 
-    | Välj en version | Azure Functions v2 | 
-    | Välj en mall för projektets första funktion | HTTP-utlösare | 
-    | Ange ett funktions namn | HttpExample | 
-    | Auktorisationsnivå | Anonym | 
-    | Välj hur du vill öppna projektet | Lägg till i arbets ytan |
-
+    + **Välj ett språk för ditt funktions projekt**: Välj `JavaScript`.
     ::: zone-end
-
     ::: zone pivot="programming-language-typescript"
-
-    | Uppmaning | Värde | 
-    | ------ | ----- | 
-    | Välj ett språk för ditt funktions projekt | TypeScript | 
-    | Välj en version | Azure Functions v2 | 
-    | Välj en mall för projektets första funktion | HTTP-utlösare | 
-    | Ange ett funktions namn | HttpExample | 
-    | Auktorisationsnivå | Anonym | 
-    | Välj hur du vill öppna projektet | Lägg till i arbets ytan |
-
+    + **Välj ett språk för ditt funktions projekt**: Välj `TypeScript`.
     ::: zone-end
-
     ::: zone pivot="programming-language-powershell"
-
-    | Uppmaning | Värde | 
-    | ------ | ----- | 
-    | Välj ett språk för ditt funktions projekt | PowerShell | 
-    | Välj en version | Azure Functions v2 | 
-    | Välj en mall för projektets första funktion | HTTP-utlösare | 
-    | Ange ett funktions namn | HttpExample | 
-    | Auktorisationsnivå | Anonym | 
-    | Välj hur du vill öppna projektet | Lägg till i arbets ytan |
-
+    + **Välj ett språk för ditt funktions projekt**: Välj `PowerShell`.
     ::: zone-end
-
     ::: zone pivot="programming-language-python"
+    + **Välj ett språk för ditt funktions projekt**: Välj `Python`.
 
-    | Uppmaning | Värde | 
-    | ------ | ----- | 
-    | Välj ett språk för ditt funktions projekt | Python | 
-    | Välj en version | Azure Functions v2 | 
-    | Välj ett python-alias för att skapa en virtuell miljö | Python-alias | 
-    | Välj en mall för projektets första funktion | HTTP-utlösare | 
-    | Ange ett funktions namn | HttpExample | 
-    | Auktorisationsnivå | Anonym | 
-    | Välj hur du vill öppna projektet | Lägg till i arbets ytan | 
-
+    + **Välj ett python-alias för att skapa en virtuell miljö**: Välj platsen för din python-tolk. Om platsen inte visas anger du den fullständiga sökvägen till din python-binärfil.  
     ::: zone-end
 
-1. Visual Studio Code gör följande:
-
-    + Skapar ett Azure Functions-projekt i en ny arbets yta som innehåller konfigurationsfilerna [Host. JSON](functions-host-json.md) och [Local. Settings. JSON](functions-run-local.md#local-settings-file) . 
-
+    + **Välj en mall för projektets första funktion**: Välj `HTTP trigger`.
+    
+    + **Ange ett funktions namn**: Skriv `HttpExample`.
+    
     ::: zone pivot="programming-language-csharp"
+    + **Ange ett namn område**: typ `My.Functions`. 
+    ::: zone-end
 
-    + Skapar en [HttpExample.cs klass biblioteks fil](functions-dotnet-class-library.md#functions-class-library-project) som implementerar funktionen.
+    + **Autentiseringsnivå**: Välj `Anonymous`som gör att vem som helst kan anropa funktions slut punkten. Mer information om autentiseringsnivå finns i [Authorization Keys](functions-bindings-http-webhook.md#authorization-keys).
 
-    ::: zone-end
-        
-    ::: zone pivot="programming-language-javascript"
-    
-    + Skapar en Package. JSON-fil i rotmappen.
+    + **Välj hur du vill öppna projektet**: Välj `Add to workspace`.
 
-    + Skapar en HttpExample-mapp som innehåller [definitions filen function. JSON](functions-reference-node.md#folder-structure) och [filen index. js](functions-reference-node.md#exporting-a-function), en Node. js-fil som innehåller funktions koden.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-typescript"
-    
-    + Skapar en Package. JSON-fil och en tsconfig. JSON-fil i rotmappen.
-
-    + Skapar en HttpExample-mapp som innehåller [definitions filen function. JSON](functions-reference-node.md#folder-structure) och [index. TS-filen](functions-reference-node.md#typescript), en typescript-fil som innehåller funktions koden.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-powershell"
-    
-    + Skapar en HttpExample-mapp som innehåller [definitions filen function. JSON](functions-reference-python.md#programming-model) och filen Run. ps1, som innehåller funktions koden.
-    
-    ::: zone-end
-    
-    ::: zone pivot="programming-language-python"
-    
-    + Skapar en fil med kraven. txt på projekt nivå som visar paket som krävs av functions.
-    
-    + Skapar en HttpExample-mapp som innehåller [definitions filen function. JSON](functions-reference-python.md#programming-model) och den \_\_init\_\_. py-fil som innehåller funktions koden.
-    
-    ::: zone-end
+1. Med hjälp av den här informationen genererar Visual Studio Code ett Azure Functions-projekt med en HTTP-utlösare. Du kan visa de lokala projektfilerna i Utforskaren. Mer information om filer som skapas finns i [genererade projektfiler](functions-develop-vs-code.md#generated-project-files). 
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -186,13 +119,15 @@ När du har kontrollerat att funktionen fungerar korrekt på den lokala datorn �
 
 ## <a name="run-the-function-in-azure"></a>Kör funktionen i Azure
 
-1. Kopiera URL:en för HTTP-utlösaren från panelen **Utdata**. Lägg återigen till `name` frågesträngen som `?name=<yourname>` i slutet av den här URL: en och kör begäran.
+1. Gå tillbaka till avsnittet **Azure: Functions** i sido fältet och expandera den nya Function-appen under din prenumeration. Expandera **funktioner**, högerklicka på (Windows) eller Ctrl + klicka (MacOS) på **HttpExample**och välj sedan **Kopiera funktions webb adress**.
 
-    Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
+    ![Kopiera funktions webb adressen för den nya HTTP-utlösaren](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=<yourname> 
+1. Klistra in den här URL: en för HTTP-begäran i webbläsarens Adress fält, Lägg till `name` frågesträng som `?name=Functions` till slutet av den här URL: en och kör sedan begäran. Den URL som anropar den HTTP-utlösta funktionen ska ha följande format:
 
-1. Klistra in den nya URL:en för HTTP-begäran i webbläsarens adressfält. I följande exempel visas svaret i webbläsaren till den fjärranslutna GET-begäran som returnerades av funktionen: 
+        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+        
+    I följande exempel visas svaret i webbläsaren till den fjärranslutna GET-begäran som returnerades av funktionen: 
 
     ![Funktionssvar i webbläsaren](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
 

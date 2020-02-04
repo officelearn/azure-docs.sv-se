@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: f1553a5c9d55366b2764877b48d0606ff8e0b370
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8c63d314c253152d2815a70831870fe331071c68
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842187"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964165"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
@@ -21,29 +21,24 @@ I det här avsnittet ska du skapa en Function-app och relaterade resurser i din 
 
 1. Ange följande information i prompten:
 
-    ::: zone pivot="programming-language-csharp,programming-language-powershell"
+    + **Välj prenumeration**: Välj den prenumeration som ska användas. Du ser inte det här om du bara har en prenumeration.
 
-    | Uppmaning | Värde | Beskrivning |
-    | ------ | ----- | ----- |
-    | Välj prenumeration | Din prenumeration | Visas när du har flera prenumerationer. |
-    | Välj Funktionsapp i Azure | + Skapa nytt Funktionsapp | Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. |
-    | Ange ett globalt unikt namn för Function-appen | Unikt namn | Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
-    | Välj en plats för nya resurser | Region | Välj en [region](https://azure.microsoft.com/regions/) nära dig. | 
-
+    + **Välj Funktionsapp i Azure**: Välj `+ Create new Function App` (inte `Advanced`). Den här artikeln stöder inte det [avancerade publicerings flödet](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options). 
+    
+    >[!IMPORTANT]
+    > Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. 
+    
+    + **Ange ett globalt unikt namn för Function-appen**: Ange ett namn som är giltigt i en URL-sökväg. Namnet du skriver verifieras för att säkerställa att det är unikt i Azure Functions. 
+    
+    ::: zone pivot="programming-language-python"
+    + **Välj en körning**: Välj den version av python som du har kört lokalt. Du kan kontrol lera din version med hjälp av kommandot `python --version`.
     ::: zone-end
 
-    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
-
-    | Uppmaning | Värde | Beskrivning |
-    | ------ | ----- | ----- |
-    | Välj prenumeration | Din prenumeration | Visas när du har flera prenumerationer. |
-    | Välj Funktionsapp i Azure | + Skapa nytt Funktionsapp | Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. |
-    | Ange ett globalt unikt namn för Function-appen | Unikt namn | Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
-    | Välj en körning | Din version | Välj den språk version som du har kört lokalt. |
-    | Välj en plats för nya resurser | Region | Välj en [region](https://azure.microsoft.com/regions/) nära dig. | 
-
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    + **Välj en körning**: Välj den version av Node. js som du har kört lokalt. Du kan kontrol lera din version med hjälp av kommandot `node --version`.
     ::: zone-end
 
+    + **Välj en plats för nya resurser**: om du vill ha bättre prestanda väljer du en [region](https://azure.microsoft.com/regions/) nära dig. 
     
 1.  När det är slutfört skapas följande Azure-resurser i din prenumeration:
 
@@ -55,10 +50,6 @@ I det här avsnittet ska du skapa en Function-app och relaterade resurser i din 
 
     Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. 
     
-1. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
+1. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat. Om du saknar meddelandet väljer du klock ikonen i det nedre högra hörnet för att se den igen.
 
     ![Skapa fullständig avisering](media/functions-publish-project-vscode/function-create-notifications.png)
-
-1. Gå tillbaka till avsnittet **Azure: Functions** i sido fältet och expandera den nya Function-appen under din prenumeration. Expandera **funktioner**, högerklicka på (Windows) eller Ctrl + klicka (MacOS) på **HttpExample**och välj sedan **Kopiera funktions webb adress**.
-
-    ![Kopiera funktions webb adressen för den nya HTTP-utlösaren](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/16/2020
 ms.author: glenga
-ms.openlocfilehash: c54145cf48912d3911a39e681d85cb6907be8e52
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 916aa2552e5dd004ec767df98ce7c78f7320efd0
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842324"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964150"
 ---
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -28,11 +28,17 @@ Azure Functions Core Tools integreras med Visual Studio Code så att du kan kör
     Hello PowerShell
     ```
 
-    Du kan också köra GET-begäran från en webbläsare.
+    Du kan också köra GET-begäran från en webbläsare från följande URL:
 
-    När du anropar HttpTrigger-slutpunkten utan att skicka en `name` parameter antingen som en frågeparameter eller i bröd texten returnerar funktionen ett [HttpStatusCode]:: BadRequest-fel. När du granskar koden i Run. ps1 ser du att felet uppstår i design läge.
+    <http://localhost:7071/api/HttpExample?name=PowerShell>
 
-1. Tryck på SKIFT+F5 för att stoppa felsökningen.
+    När du anropar HttpTrigger-slutpunkten utan att skicka en `name` parameter antingen som en frågeparameter eller i bröd texten, returnerar funktionen ett `BadRequest` fel. När du granskar koden i Run. ps1 ser du att felet uppstår i design läge.
+
+1. Information om begäran visas på panelen **Terminal** .
+
+    ![Funktions körning i Terminal panel](./media/functions-run-function-test-local-vs-code-ps/function-execution-terminal.png)
+
+1. Om du vill stoppa fel sökningen trycker du på CTRL + C för att stoppa Core tools.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 

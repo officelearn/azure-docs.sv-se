@@ -1,6 +1,6 @@
 ---
-title: Övervaka webbplatser med Azure Monitor Application Insights
-description: Innehåller instruktioner för att snabbt konfigurera webbplatsövervakning på klient-/webbläsarsidan med Azure Monitor Application Insights
+title: 'Snabb start: övervaka webbplatser med Azure Monitor Application Insights'
+description: Innehåller snabb starts instruktioner installation av övervakning av klient/webb sida på webbplats med Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,36 +8,30 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 54bd12db9a85cf237d6c22ad63e6f20f7d2b713a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770228"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963627"
 ---
-# <a name="start-monitoring-your-website"></a>Börja övervaka din webbplats
+# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Snabb start: börja övervaka din webbplats med Azure Monitor Application Insights
 
-Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Application Insights erbjuder funktioner för övervakning både på serversidan samt på klient-/webbläsarsidan.
+I den här snabb starten lär du dig att lägga till Application Insights Java Script SDK med öppen källkod på din webbplats. Du lär dig också hur du bättre förstår klient-och webb läsar upplevelsen för besökare på din webbplats.
 
-Den här snabbstarten vägleder dig genom att lägga till [Application Insights JavaScript SDK med öppen källkod](https://github.com/Microsoft/ApplicationInsights-JS) så att du förstår upplevelsen på klient-/webbläsarsidan för användarna på din webbplats.
+Med Azure Monitor Application Insights kan du enkelt övervaka din webbplats med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Application Insights tillhandahåller övervakning på både server sidan och klient-och webb läsar sidan.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten behöver du:
-
-- Du behöver en Azure-prenumeration.
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
-
-Logga in på [Azure-portalen](https://portal.azure.com/).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* En webbplats där du kan lägga till Application Insights JavaScript SDK.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
 Application Insights kan samla in telemetridata från alla Internetanslutna appar som körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Välj **Skapa en resurs** > **Hanteringsverktyg** > **Application Insights**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Välj **Skapa en resurs** > **Hanteringsverktyg** > **Application Insights**.
 
    > [!NOTE]
    >Om det här är första gången du skapar en Application Insights-resurs kan du lära dig mer genom att gå till artikeln [skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
@@ -46,11 +40,11 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
 
     | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
-   | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som värd för App Insights-data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
+   | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
+   | **Resursgrupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data. Du kan skapa en ny resursgrupp eller välja en befintlig. |
    | **Plats** | USA, östra | Välj en plats nära dig eller nära där appen finns |
 
-2. Klicka på **Skapa**.
+3. Klicka på **Skapa**.
 
 ## <a name="create-an-html-file"></a>Skapa en HTML-fil
 
@@ -70,11 +64,11 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
     </html>
     ```
 
-## <a name="configure-app-insights-sdk"></a>Konfigurera App Insights SDK
+## <a name="configure-application-insights-sdk"></a>Konfigurera Application Insights SDK
 
 1. Välj **Översikt** > **Essentials** > kopiera appens **instrumenteringsnyckel**.
 
-   ![Nytt App Insights-resursformulär](media/website-monitoring/instrumentation-key-001.png)
+   ![Nytt Application Insights-resursformulär](media/website-monitoring/instrumentation-key-001.png)
 
 2. Lägg till följande skript till ``hello_world.html`` före den avslutande ``</head>``-taggen:
 
@@ -90,13 +84,13 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
 
 3. Redigera ``hello_world.html`` och Lägg till din instrumentationsnyckel.
 
-4. Öppna ``hello_world.html`` i en lokal webbläsarsession. Detta skapar en enda sidvisning. Du kan uppdatera webbläsaren för att generera flera testsidvisningar.
+4. Öppna ``hello_world.html`` i en lokal webbläsarsession. Den här åtgärden skapar en enda sid visningar. Du kan uppdatera webbläsaren för att generera flera testsidvisningar.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Börja övervaka i Azure-portalen
 
-1. Nu kan du öppna sidan **Översikt** i Application Insights i Azure-portalen, där du hämtade instrumenteringsnyckeln, för att visa information om den app som körs. De fyra standarddiagrammen på översiktssidan är begränsade till programdata på serversidan. Eftersom vi instrumenterar interaktioner på klient-/webbläsarsidan med JavaScript SDK gäller inte just den här vyn såvida vi inte även har en serverdels-SDK installerad.
+1. Nu kan du öppna sidan Application Insights **Översikt** i Azure Portal för att visa information om ditt program som körs. På sidan **Översikt** har du hämtat din Instrumentation-nyckel. De fyra standarddiagrammen på översiktssidan är begränsade till programdata på serversidan. Eftersom vi instrumenterar klient-och webb läsar interaktioner med Java Script SDK, gäller inte den här vyn om vi även har installerat SDK för Server sidan.
 
-2. Klicka på ![program mappnings ikon](media/website-monitoring/006.png) **analys**.  Då öppnas **Analys**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. Visa data relaterade till klientsidans webbläsarbegäranden genom att köra följande fråga:
+2. Klicka på ![program mappnings ikon](media/website-monitoring/006.png) **analys**.  Den här åtgärden öppnar **analys**, som innehåller ett omfattande frågespråk för analys av alla data som samlas in av Application Insights. Visa data relaterade till klientsidans webbläsarbegäranden genom att köra följande fråga:
 
     ```kusto
     // average pageView duration by name
@@ -115,11 +109,11 @@ Application Insights kan samla in telemetridata från alla Internetanslutna appa
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/website-monitoring/analytics-query.png)
 
-3. Gå tillbaka till sidan **Översikt**. Klicka på **Webbläsare** under rubriken **Undersök** och välj sedan **Prestanda**. Här hittar du prestandamått för din webbplats. Det finns även en motsvarande vy för att analysera fel och undantag på webbplatsen. Du kan klicka på **Exempel** för att visa detaljer för enskilda transaktioner. Härifrån kan du komma åt upplevelsen [transaktionsinformation från början till slut](../../azure-monitor/app/transaction-diagnostics.md).
+3. Gå tillbaka till sidan **Översikt**. Klicka på **Webbläsare** under rubriken **Undersök** och välj sedan **Prestanda**. Här hittar du prestandamått för din webbplats. Det finns också en motsvarande vy för att analysera fel och undantag på din webbplats. Du kan klicka på **Exempel** för att visa detaljer för enskilda transaktioner. Härifrån kan du komma åt upplevelsen [transaktionsinformation från början till slut](../../azure-monitor/app/transaction-diagnostics.md).
 
    ![Diagram för servermått](./media/website-monitoring/browser-performance.png)
 
-4. För att börja utforska [analysverktygen för användarbeteende](../../azure-monitor/app/usage-overview.md) går du till Application Insights-huvudmenyn och väljer [**Användare**](../../azure-monitor/app/usage-segmentation.md) under rubriken **Användning**. Eftersom vi testar från en enskild dator ser vi bara data för en användare. För en webbplats som är live kan fördelningen av användare se ut på följande sätt:
+4. För att börja utforska [analysverktygen för användarbeteende](../../azure-monitor/app/usage-overview.md) går du till Application Insights-huvudmenyn och väljer [**Användare**](../../azure-monitor/app/usage-segmentation.md) under rubriken **Användning**. Eftersom vi testar från en enda dator ser vi bara data för en användare. För en webbplats som är live kan fördelningen av användare se ut på följande sätt:
 
      ![Användardiagram](./media/website-monitoring/usage-users.png)
 
@@ -131,7 +125,7 @@ Om du vill lära dig mer om avancerade konfigurationer för att övervaka webbpl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta att arbeta med efterföljande snabbstarter eller med självstudierna ska du inte rensa resurserna som skapas i denna snabbstart. Om du inte planerar att fortsätta följer du annars stegen nedan för att ta bort alla resurser som du skapade i den här snabbstarten på Azure-portalen.
+Om du planerar att fortsätta att arbeta med ytterligare snabb starter eller med självstudierna ska du inte rensa resurserna som du skapade i den här snabb starten. Annars, om du inte planerar att fortsätta, använder du följande steg för att ta bort alla resurser som skapats i den här snabb starten i Azure Portal.
 
 > [!NOTE]
 > Om du använde en befintlig resurs grupp kommer instruktionerna nedan inte att fungera och du behöver bara ta bort den enskilda Application Insights resursen. Kom ihåg att du tar bort en resurs grupp när alla underyling-resurser som är medlemmar i gruppen tas bort.

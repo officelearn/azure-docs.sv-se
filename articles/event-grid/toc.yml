@@ -138,6 +138,8 @@
       href: custom-disaster-recovery.md
     - name: Felsöka fel
       href: troubleshoot-errors.md
+    - name: Aktivera diagnostikloggar för ett ämne
+      href: enable-diagnostic-logs-topic.md
 - name: Referens
   items:
     - name: Azure CLI

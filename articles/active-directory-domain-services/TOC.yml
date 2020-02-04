@@ -79,6 +79,8 @@
           href: delete-aadds.md
         - name: Migrera från en klassisk distribution (förhandsversion)
           href: migrate-from-classic-vnet.md
+        - name: Ändra SKU
+          href: change-sku.md
     - name: Säker Azure AD DS
       items:
         - name: Skydda din hanterade domän

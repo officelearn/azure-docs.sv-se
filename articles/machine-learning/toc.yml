@@ -142,6 +142,8 @@
           href: how-to-manage-workspace.md
         - name: Använda Azure CLI
           href: how-to-manage-workspace-cli.md
+        - name: Använda REST
+          href: how-to-manage-rest.md
         - name: Använda Resource Manager-mallar
           displayName: arm
           href: how-to-create-workspace-template.md
@@ -194,6 +196,9 @@
         - name: Skapa datauppsättningar med etiketter
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: DevOps för datainmatning
+          displayName: 'data, ingestion, devops'
+          href: how-to-cicd-data-ingestion.md
     - name: Inlärningsmodeller
       items:
         - name: Använda designern

@@ -1,9 +1,9 @@
-- name: VMware Solution från CloudSimple
+- name: VMware Solution by CloudSimple
   href: /azure/vmware-cloudsimple
   items:
     - name: Översikt
       items:
-        - name: Vad är VMware Solution från CloudSimple
+        - name: Vad är VMware Solution by CloudSimple
           href: cloudsimple-vmware-solutions-overview.md
         - name: Viktiga begrepp för administration
           href: key-concepts.md
@@ -112,7 +112,7 @@
               href: azure-create-vm.md
             - name: Hantera virtuella CloudSimple-datorer i Azure
               href: azure-manage-vm.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       items:
         - name: Skydda din miljö
           href: private-cloud-secure.md
@@ -136,6 +136,8 @@
               href: on-premises-dns-setup.md
             - name: Konfigurera plats-till-plats-VPN-anslutningar med hög tillgänglighet
               href: high-availability-vpn-connection.md
+            - name: Konfigurera DNS för privat moln till lokal miljö
+              href: private-cloud-dns-forwarding.md
         - name: VMware-plattform
           items:
             - name: Lär dig behörighetsmodellen för privat moln

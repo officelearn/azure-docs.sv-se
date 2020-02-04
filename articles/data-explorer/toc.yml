@@ -174,12 +174,28 @@
               href: manage-cluster-vertical-scaling.md
             - name: Kontrollera klusterhälsa
               href: check-cluster-health.md
+            - name: Lägg till huvudkonto för kluster
+              items:
+                - name: 'C#'
+                  href: cluster-principal-csharp.md
+                - name: Python
+                  href: cluster-principal-python.md
+                - name: Azure Resource Manager-mall
+                  href: cluster-principal-resource-manager.md
         - name: Databas
           items:
             - name: Uppföljningsdatabaser
               href: follower.md
             - name: Hantera databasbehörigheter
               href: manage-database-permissions.md
+            - name: Lägg till huvudkonto för databas
+              items:
+                - name: 'C#'
+                  href: database-principal-csharp.md
+                - name: Python
+                  href: database-principal-python.md
+                - name: Azure Resource Manager-mall
+                  href: database-principal-resource-manager.md
             - name: Principer
               items:
                 - name: 'C#'

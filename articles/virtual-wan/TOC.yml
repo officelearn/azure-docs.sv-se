@@ -42,11 +42,12 @@
       href: openvpn-azure-ad-tenant.md
     - name: Aktivera Multi-Factor Authentication (MFA) för användar-VPN
       href: openvpn-azure-ad-mfa.md
-    - name: Konfigurera Azure AD-autentisering för användar-VPN (förhandsversion)
+    - name: Konfigurera Azure AD-autentisering för användar-VPN (Förhandsversion)
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Konfigurera Azure AD-autentisering för flera program för användar-VPN (förhandsversion)
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Konfigurera automation (Virtual WAN-partner)
+    - name: Ladda ned globala och navbaserade VPN-profiler
       href: virtual-wan-configure-automation-providers.md
     - name: Konfigurera routning
       items:

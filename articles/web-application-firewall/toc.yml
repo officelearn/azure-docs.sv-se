@@ -38,8 +38,12 @@
           href: ./ag/application-gateway-crs-rulegroups-rules.md
         - name: Översikt över anpassade regler
           href: ./ag/custom-waf-rules-overview.md
+        - name: Geomatcha anpassade regler
+          href: ./ag/geomatch-custom-rules.md
         - name: Begränsningar för begärandestorlek och undantagslistor
           href: ./ag/application-gateway-waf-configuration.md
+        - name: Översikt över WAF-principer
+          href: ./ag/policy-overview.md
     - name: Front Door
       items:
         - name: Anpassade regler

@@ -389,6 +389,8 @@
               href: cognitive-search-predefined-skills.md
             - name: Villkorsstyrd
               href: cognitive-search-skill-conditional.md
+            - name: Anpassad enhetssökning
+              href: cognitive-search-skill-custom-entity-lookup.md
             - name: Extrahering av dokument
               href: cognitive-search-skill-document-extraction.md
             - name: Igenkänning av enhet

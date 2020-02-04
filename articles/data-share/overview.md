@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660808"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964455"
 ---
 # <a name="what-is-azure-data-share"></a>Vad är Azure Data Share?
 
@@ -37,7 +37,7 @@ Ett annat användnings fall för Azure Data Share är att upprätta ett data kon
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-Azure data sharing erbjuder för närvarande ögonblicks bilds delning och delning på plats (i begränsad för hands version). 
+Azure data sharing erbjuder för närvarande ögonblicks bilds delning och delning på plats. 
 
 I ögonblicks bilds-baserad delning flyttas data från data leverantörens Azure-prenumeration och hamnar i data konsumentens Azure-prenumeration. Som data leverantör etablerar du en data resurs och bjuder in mottagare till data resursen. Data konsumenter får en inbjudan till din data resurs via e-post. När en data konsument accepterar inbjudan kan de utlösa en fullständig ögonblicks bild av de data som delas med dem. Dessa data tas emot i lagrings kontot för data konsumenter. Data konsumenter kan ta emot regelbundna, stegvisa uppdateringar av data som delas med dem så att de alltid har den senaste versionen av datan. 
 
@@ -47,7 +47,7 @@ Data leverantörer kan erbjuda sina data konsumenters stegvisa uppdateringar av 
 
 När en data konsument accepterar en data resurs kan de ta emot data i ett valfritt data lager. Om dataprovidern t. ex. delar data med Azure Blob Storage kan data konsumenten ta emot dessa data i Azure Data Lake Store. Om data leverantören delar data från en Azure SQL Data Warehouse kan data konsumenten välja om de vill ta emot data i en Azure Data Lake Store, en Azure SQL Database eller en Azure SQL Data Warehouse. Vid delning från SQL-baserade källor kan data konsumenten även välja om de ska ta emot data i Parquet eller CSV. 
 
-Delning på plats är för närvarande en begränsad för hands version för Azure Datautforskaren. Data leverantörer kan dela data där de finns, utan data förflyttning via en symbolisk länk. Registrera dig för den begränsade för hands versionen av Azure Datautforskaren som du delar på plats [här](https://aka.ms/azuredatasharepreviewsignup). 
+Med delning på plats kan data leverantörer dela data där de finns utan att kopiera data. När delnings relationen har upprättats genom Inbjudnings flödet skapas en symbolisk länk mellan dataproviderns käll data lager och data konsument mål data lagret. Data konsumenten kan läsa och fråga efter data i real tid med hjälp av ett eget data lager. Ändringar i käll data lagret är omedelbart tillgängliga för data konsumenten. Delning på plats är för närvarande en för hands version för Azure Datautforskaren.
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -56,6 +56,8 @@ Azure Data Share gör det möjligt för data leverantörer att:
 * Dela data från listan över [data lager som stöds](supported-data-stores.md) med kunder och partner utanför organisationen
 
 * Håll koll på vem du har delat dina data med
+
+* Val av ögonblicks bilder eller delning på plats
 
 * Hur ofta dina data konsumenter tar emot uppdateringar av dina data
 
@@ -69,13 +71,13 @@ Azure Data Share gör det möjligt för data konsumenter att:
 
 * Acceptera eller avvisa en Azure Data Share-inbjudan
 
-* Utlös en fullständig eller stegvis ögonblicks bild av en data resurs som en organisation har delat med dig
-
-* Prenumerera på en data resurs för att ta emot den senaste kopian av data via en stegvis ögonblicks bilds kopia
-
 * Acceptera data som delas med dig i ett [data lager som stöds](supported-data-stores.md).
 
-Alla viktiga funktioner som anges ovan stöds via Azure eller via REST-API: er. Mer information om hur du använder Azure Data Share via REST-API: er finns i vår referens dokumentation. 
+* Utlös en fullständig eller stegvis ögonblicks bild av en data resurs som en organisation har delat med dig
+
+* Prenumerera på en data resurs för att ta emot den senaste kopian av data via en stegvis ögonblicks bild
+
+Alla viktiga funktioner som anges ovan stöds via Azure Portal eller via REST-API: er. Mer information om hur du använder Azure Data Share via REST-API: er finns i vår referens dokumentation. 
 
 ## <a name="security"></a>Säkerhet
 
@@ -88,9 +90,9 @@ Azure Data Share utnyttjar hanterade identiteter för Azure-resurser (kallades t
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-En lista över Azure-regioner som gör Azure-dataresursen tillgänglig finns på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share/) och Sök efter Azure Data Share. 
+En lista över Azure-regioner som gör Azure-dataresursen tillgänglig finns på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) och Sök efter Azure Data Share. 
 
-Azure Data Share lagrar inga data. Data lagras i det underliggande data lager som delas. Om en data producent till exempel lagrar sina data i ett Azure Data Lake Store konto som finns i västra USA, är det där data lagras. Om de delar data med ett Azure Storage konto som finns i Europa, västra, överförs data direkt till det Azure Storage konto som finns i Västeuropa. 
+Azure Data Share lagrar inte en kopia av själva data. Data lagras i det underliggande data lager som delas. Om en data producent till exempel lagrar sina data i ett Azure Data Lake Store konto som finns i västra USA, är det där data lagras. Om de delar data med ett Azure Storage konto som finns i västra Europa via ögonblicks bilder, överförs vanligt vis data direkt till det Azure Storage-konto som finns i Västeuropa.
 
 Azure Data Share-tjänsten behöver inte vara tillgänglig i din region för att utnyttja tjänsten. Om du till exempel har data som lagras i ett Azure Storage konto som finns i en region där Azure Data Share inte är tillgängligt ännu, kan du fortfarande använda tjänsten för att dela dina data. 
 

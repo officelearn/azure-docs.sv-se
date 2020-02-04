@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: e13a55143e554a55a2902fc2350f6fde6a8afb09
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989298"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Felsöka Azure-registrering
@@ -32,7 +32,7 @@ Ett problem kan uppstå när du försöker registrera ett nytt konto i Microsoft
 
 Lös eventuella problem genom att välja det problem som uppstår för dig när du försöker registrera dig för Azure.
 
-### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Fel: det *går inte att fortsätta med registreringen på grund av ett problem med ditt konto. Kontakta fakturerings supporten.*
+### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>Fel: *Det går inte att fortsätta med registreringen på grund av ett problem med ditt konto. Kontakta faktureringssupporten.*
 
 Följ dessa anvisningar för att lösa problemet:
 
@@ -109,7 +109,7 @@ Kontrollera att du använder rätt inloggningsuppgifter. Kontrollera sedan förm
 
 För att kunna skapa en Azure In Open-prenumeration måste du ha en giltig OSA-nyckel (Online Service Activation) som har minst en Azure In Open-token associerad. Om du inte har en OSA-nyckel kontaktar du en av de Microsoft-partner som anges i [Microsoft Pinpoint](https://pinpoint.microsoft.com/).
 
-### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Fel: *du är inte berättigad till en Azure-prenumeration*
+### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>Fel: *Du är inte berättigad till en Azure-prenumeration*
 
 Lös det här problemet genom att kontrollera om följande saker stämmer:
 
@@ -117,7 +117,7 @@ Lös det här problemet genom att kontrollera om följande saker stämmer:
 - Kreditkortsuppgifterna stämmer.
 - Du har inte redan ett Microsoft-konto där samma uppgifter används.
 
-### <a name="error-your-current-account-type-is-not-supported"></a>Fel: *den aktuella konto typen stöds inte*
+### <a name="error-your-current-account-type-is-not-supported"></a>Fel: *Din aktuella kontotyp stöds inte*
 
 Det här problemet kan uppstå om kontot är registrerat i en [ohanterad Azure AD-katalog](../../active-directory/users-groups-roles/directory-self-service-signup.md) och inte finns i din organisations Azure AD-katalog.
 

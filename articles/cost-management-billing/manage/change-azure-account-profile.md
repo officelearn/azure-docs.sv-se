@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1cbbbcb110e9943f9714d9f6463c01b408fc1d7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993055"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Ändra profilinformationen för ditt Azure-konto
@@ -76,7 +76,7 @@ Du kan ändra din kontakt-e-postadress med hjälp av någon av följande metoder
 
 * Gå till avsnittet [Kontaktinformation](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) på Azure-portalen och ange en e-postadress. Information om tjänster och marknadsföring skickas till den adress som du anger. E-postadressen i profilen för Azure-kontocenter uppdateras automatiskt så att den matchar. Din e-postadress för inloggning uppdateras inte när du uppdaterar e-postadressen.
 
-* På [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) väljer du ikonen med dina initialer eller din bild. Välj sedan snabb menyn ( **...** ). Välj sedan **min kontakt information** på menyn och ange en e-postadress. Information om tjänster och marknadsföring skickas till den adress som du anger. E-postadressen i din profil för Azure-kontocenter uppdateras automatiskt så att den matchar. Din e-postadress för inloggning uppdateras inte när du uppdaterar e-postadressen.
+* På [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) väljer du ikonen med dina initialer eller din bild. Välj sedan snabbmenyn ( **...** ). Välj **Mina kontaktuppgifter** på menyn och ange en e-postadress. Information om tjänster och marknadsföring skickas till den adress som du anger. E-postadressen i din profil för Azure-kontocenter uppdateras automatiskt så att den matchar. Din e-postadress för inloggning uppdateras inte när du uppdaterar e-postadressen.
 
 ![Exempel på uppdatering av en e-postadress i Azure](./media/change-azure-account-profile/azure-contact-information.png)
 

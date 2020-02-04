@@ -1,5 +1,5 @@
 ---
-title: Azure EA-portaladministration
+title: Administration i Azure EA-portalen
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 keywords: ''
 author: bandersmsft
@@ -8,20 +8,20 @@ ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
-ms.translationtype: MT
+ms.openlocfilehash: dfb46a40291a74cb8a2c172700f621ef835ef50e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547582"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769672"
 ---
-# <a name="azure-ea-portal-administration"></a>Azure EA-portaladministration
+# <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
 I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen (https://ea.azure.com). Azure EA-portalen är en onlinehanteringsportal där kunder kan hantera kostnaden för sina Azure EA-tjänster. Grundläggande information om Azure EA-portalen finns i artikeln [Kom igång med Azure EA-portalen](ea-portal-get-started.md).
 
 ## <a name="add-a-new-enterprise-administrator"></a>Lägga till en ny företagsadministratör
 
-Företagsadministratörer har fullständig behörighet i hanteringen av en Azure EA-registrering. Den första Azure EA-administratören skapades när EA-avtalet tecknades. Du kan dock när som helst lägga till och ta bort administratörer. Det är bara befintliga administratörer som kan lägga till nya administratörer. Mer information om hur du lägger till ytterligare företags administratörer finns i [skapa en annan företags administratör](ea-portal-get-started.md#create-another-enterprise-admin). Mer information om roller och uppgifter för fakturerings profiler finns i [fakturerings profil roller och uppgifter](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Företagsadministratörer har fullständig behörighet i hanteringen av en Azure EA-registrering. Den första Azure EA-administratören skapades när EA-avtalet tecknades. Du kan dock när som helst lägga till och ta bort administratörer. Det är bara befintliga administratörer som kan lägga till nya administratörer. Du kan läsa mer om att lägga till fler företagsadministratörer i [Skapa en ny företagsadministratör](ea-portal-get-started.md#create-another-enterprise-administrator). Mer information om roller och uppgifter för faktureringsprofiler finns i [Roller och uppgifter för faktureringsprofiler](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-user-state-from-pending-to-active"></a>Uppdatera användarstatus från Väntar till Aktiv
 
@@ -31,7 +31,7 @@ När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras
 
 När en Azure EA-administratör skapar en avdelning så kan Azure-företagsadministratören lägga till avdelningsadministratörer och koppla dem till en avdelning. En avdelningsadministratör kan skapa nya konton. Nya konton behövs till att skapa Azure EA-prenumerationer.
 
-Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en Azure EA-avdelningsadministratör](ea-portal-get-started.md#add-a-department-admin).
+Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en Azure EA-avdelningsadministratör](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associera ett konto med en avdelning
 
@@ -40,7 +40,7 @@ Företagsadministratörer kan associera befintliga konton till avdelningar under
 ### <a name="to-associate-an-account-to-a-department"></a>Associera ett konto med en avdelning
 
 1. Logga in i Azure EA-portalen som företagsadministratör.
-1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
 1. Klicka på **Department** (Avdelning).
 1. Hovra över raden med det önskade kontot och klicka på pennikonen till höger.
 1. Välj önskad avdelning i den nedrullningsbara menyn.
@@ -55,7 +55,7 @@ Avdelningsadministratören kan visa utgiftskvoten utan bara företagsadministrat
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Företagsadministratör för att ange kvoten:
 
  1. Öppna Azure EA-portalen.
- 1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+ 1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
  1. Klicka på fliken **Department** (Avdelning).
  1. Klicka på önskad avdelning.
  1. Klicka på pennikonen i avsnittet Avdelningsinformation eller klicka på knappen **+ Add Department** (+ Lägg till avdelning) för att lägga till en utgiftskvot tillsammans med en ny avdelning.
@@ -63,14 +63,14 @@ Avdelningsadministratören kan visa utgiftskvoten utan bara företagsadministrat
     - Avdelningsnamnet och kostnadsstället kan också redigeras nu.
  1. Tryck på **Save** (Spara).
 
-Nu visas utgifts kvoten för avdelningen i vyn avdelnings lista under fliken avdelning. I slutet av det aktuella åtagandet behåller Azure EA-portalen utgifts kvoterna för nästa åtagande villkor.
+Avdelningens utgiftskvot syns nu i vyn Department List (Avdelningslista) under fliken Department (Avdelning). I slutet av det aktuella åtagandet behåller Azure EA-portalen utgiftskvoterna till nästa åtagandeperiod.
 
 Avdelningskvotens belopp är oberoende av det aktuella betalningsåtagandet, och kvotbeloppet och aviseringarna gäller bara för förstapartsanvändning. Avdelningens utgiftskvot är bara för information och tillämpar inte utgiftsgränser.
 
 ### <a name="department-administrator-to-view-the-quota"></a>Avdelningsadministratör för att visa kvoten:
 
 1. Öppna Azure EA-portalen.
-1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
 1. Klicka på fliken **Department** (Avdelning) och visa vyn Department List (Avdelningslista) med utgiftskvoter.
 
 Om du är en indirekt kund måste din kanalpartner aktivera kostnadsfunktioner.
@@ -81,7 +81,7 @@ Du kan administrera kostnader och användning för Azure EA i Azure EA-portalen.
 
 - EA-administratör
 - Avdelningsadministratör
-- Kontoägare
+- Kontoinnehavare
 
 De olika rollerna har olika åtkomstnivå och behörighet.
 
@@ -104,7 +104,7 @@ Det här erbjudandet gör det möjligt för aktiva Visual Studio-prenumeranter a
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Konfigurera Enterprise Dev/Test-erbjudandet:
 
 1. Logga in som företagsadministratör.
-1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
 1. Klicka på fliken **Account** (Konto).
 1. Klicka på raden för det konto där du vill aktivera Dev/Test-åtkomst.
 1. Klicka på pennikonen till höger om raden.
@@ -203,12 +203,12 @@ Så här visar du användare med rollbaserad åtkomst för prenumerationen:
 Om prenumerationen överförs till ett konto i en annan klientorganisation i Azure AD så kommer alla användare, grupper och huvudnamn för tjänster med [rollbaserad åtkomst (RBAC)](../../role-based-access-control/overview.md) för hantering av resurser att _förlora_ sin behörighet. Även utan rollbaserad åtkomst kan användare få åtkomst till prenumerationen via olika säkerhetsmekanismer. Här är några exempel:
 
 - Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
-- Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [kontoöversikten för Azure Storage](../../storage/common/storage-account-overview.md).
-- Autentiseringsuppgifter för fjärråtkomst för tjänster såsom Azure Virtual Machines.
+- Åtkomstnycklar för tjänster som Storage. Mer information finns i [kontoöversikten för Azure Storage](../../storage/common/storage-account-overview.md).
+- Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
 
 Om mottagaren behöver begränsa åtkomsten till sina Azure-resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Alla resurser** i hubbmenyn.
 3. Välj resursen.
 4. Klicka på **Inställningar** på resurssidan för att visa och uppdatera befintliga hemligheter.
@@ -265,7 +265,7 @@ Varje partneradministratör i Azure EA-portalen kan lägga till eller ta bort an
 Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren klickar du på fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
 
 1. Logga in som partneradministratör.
-1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
 1. Klicka på fliken **Partner**.
 1. Klicka på **+ Add Administrator** (+ Lägg till administratör) och fyll i e-postadress, meddelandekontakt och meddelandeinformation.
 1. Tryck på **Add** (Lägg till).
@@ -275,7 +275,7 @@ Om du vill visa en lista över alla registreringar som är associerade till samm
 Om du vill visa en lista över alla registreringar som är associerade till samma partnerorganisation som den aktuella användaren klickar du på fliken **Enrollment** (Registrering) och väljer en önskad registreringsruta.
 
 1. Logga in som partneradministratör.
-1. Klicka på **Hantera** i det vänstra navigeringsfältet.
+1. Klicka på **Manage** (Hantera) i det vänstra navigeringsfältet.
 1. Klicka på fliken **Partner**.
 1. Under avsnittet Administrator (Administratör) väljer du lämplig rad för den administratör du vill ta bort.
 1. Tryck på X-ikonen till höger.

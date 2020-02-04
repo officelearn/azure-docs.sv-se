@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: bb3aa7970f993ec5e0ceb50d10cc0907ed225c2f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995876"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimera Azure Databricks-kostnader med ett förhandsköp
@@ -27,9 +27,9 @@ Förhandsköpsrabatten gäller endast för DBU-användningen. Andra avgifter fö
 
 Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i Databricks. Förhandsköp kan liknas vid en pool av förbetalda DBCU:er. Användningen dras av från poolen, oberoende av arbetsbelastning eller nivå. Användningen dras av enligt följande förhållande:
 
-| **Arbetsbelastning** | **DBU-tillämpningsgrad – Standard-nivå** | **DBU-tillämpningsgrad — Premium-nivå** |
+| **Arbetsbelastning** | **DBU-tillämpningsgrad – Standard-nivå** | **DBU-tillämpningsgrad – Premium-nivå** |
 | --- | --- | --- |
-| Datanalys | 0,4 | 0,55 |
+| Dataanalys | 0,4 | 0,55 |
 | Datateknik | 0,15 | 0,30 |
 | Datateknik (lättversion) | 0,07 | 0,22 |
 
@@ -41,8 +41,8 @@ Innan du köper bör du beräkna den totala DBU-kvantitet som förbrukas för ol
 
 Du kan köpa Databricks-planer i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). För att kunna köpa reserverad kapacitet måste du ha rollen som ägare för minst en Enterprise-prenumeration.
 
-- Du måste ha ägar rollen för minst en Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P).
-- För EA-prenumerationer måste alternativet Lägg till reserverade instanser vara aktiverat i EA-portalen. Eller, om inställningen är inaktive rad, måste du vara en EA-administratör för prenumerationen.
+- Du måste ha ägarrollen för minst ett Enterprise-avtal (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P).
+- För EA-prenumerationer måste alternativet Lägg till reserverade instanser vara aktiverat på EA-portalen. Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
 - För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om den inställningen är inaktiverad måste du vara EA-administratör för prenumerationen.
 
 **Så här köper du:**
@@ -50,9 +50,9 @@ Du kan köpa Databricks-planer i [Azure-portalen](https://portal.azure.com/#blad
 1. Gå till [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
 1. Välj en prenumeration. Använd **prenumerationslistan** och välj den prenumeration som används till att betala för den reserverade kapaciteten. Betalningsmetoden för prenumerationen debiteras förhandskostnaderna för den reserverade kapaciteten. Avgifterna dras från registreringens saldo för ekonomiskt åtagande eller debiteras som överförbrukning.
 1. Välj ett omfång. Använd **omfångslistan** till att välja ett prenumerationsomfång:
-    - **Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.
+    - **Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.
     - **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
-    - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är registreringen faktureringskontext.
+    - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För Enterprise-avtalskunder är det registreringen som är faktureringskontext.
 1. Välj hur många förhandsköpta Azure Databricks-enheter som du vill köpa och slutför köpet.
 
 

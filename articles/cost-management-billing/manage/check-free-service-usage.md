@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 83937e31d844ba0cc8efc17f1ecefa2ad6e7a7c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992834"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av kostnadsfria tjänster som ingår i ditt kostnadsfria Azure-konto
@@ -38,13 +38,13 @@ Du debiteras inte för tjänster som ingår utan kostnad i ditt kostnadsfria Azu
 
     Tabellen innehåller följande kolumner:
 
-* **Mätare:** Identifierar mått enheten för den tjänst som förbrukas.
-* **Användning/gräns:** Nuvarande månads användning och gräns för mätaren.
-* **Status:** Tjänstens användnings status. Baserat på din användning kan du ha en av följande statusar:
-  * **Används inte:** Du har inte använt mätaren eller användningen för mätaren har inte nått fakturerings systemet.
-  * **Överskrids \<>:** Du har överskridit gränsen för mätning på \<s datum >.
-  * **Troligen inte överstiga:** Du är troligen inte större än begränsningen för mätaren.
-  * **Överskrider \<s datum >:** Du kan förmodligen överskrida gränsen för mätningen på \<datum >.
+* **Mätare:** Anger måttenheten för den tjänsten som förbrukas.
+* **Användning/gräns:** Aktuell månads användning och gräns för mätaren.
+* **Status:** Användningsstatus för tjänsten. Baserat på din användning kan du ha en av följande statusar:
+  * **Används inte:** Du har inte använt mätaren, eller så har användningen för mätaren inte nått faktureringssystemet.
+  * **Överskriden den \<Datum>:** Du har överskridit gränsen för mätaren på \<Datum>.
+  * **Överskrider sannolikt inte:** Du överskrider sannolikt inte mätarens gräns.
+  * **Överskrids den \<Datum>:** Du överskrider sannolikt mätarens gräns den \<Datum>.
 
 > [!IMPORTANT]
 >

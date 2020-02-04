@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995629"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Förstå hur reservationsrabatten tillämpas för Azure Data Explorer
@@ -23,7 +23,7 @@ När du har köpt en reserverad Azure Data Explorer-kapacitet tillämpas reserva
 
 Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget *försvinner* de reserverade timmarna.
+När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
 ## <a name="reservation-discount-applied-to-azure-data-explorer-clusters"></a>Reservationsrabatt som tillämpas på Azure Data Explorer-kluster
 
@@ -36,7 +36,7 @@ En reservationsrabatt tillämpas på Azure Data Explorer-påläggsförbrukningen
 ## <a name="examples"></a>Exempel
 
 I följande exempel visas hur rabatten för reserverad Azure Data Explorer-kapacitet tillämpas beroende på det antal påläggsenheter som du har köpt och när de körs.
-Till exempel för motor kluster storlek: **2 D11_v2 virtuella datorer**är dina totala avgifter på begäran för fyra enheter av Azure datautforskaren markerings mätare per timme. 
+Exempel för motorklusterstorlek: **2 virtuella D11_v2-datorer**: dina totala på begäran-avgifter är för fyra enheter Azure Data Explorer-påläggsmätare per timme. 
 
 **Scenario 1** 
 

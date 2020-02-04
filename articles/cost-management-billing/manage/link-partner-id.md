@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: a67f2985e2db8c48d7e50a91d20c76b88c1c55e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991924"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
@@ -28,11 +28,11 @@ Microsoft-partner tillhandahåller tjänster som hjälper kunder att uppnå aff�
 
 Innan du länkar ditt partner-ID måste kunden ge dig åtkomst till sina Azure-resurser med hjälp av något av följande alternativ:
 
-- **Gäst användare**: din kund kan lägga till dig som gäst användare och tilldela roller som baseras på rollbaserad åtkomst kontroll (RBAC). Mer information finns i [Lägga till gästanvändare från en annan katalog](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Gästanvändare**: Din kund kan lägga till dig som gästanvändare och tilldela valfria roller för rollbaserad åtkomstkontroll (RBAC). Mer information finns i [Lägga till gästanvändare från en annan katalog](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Katalog konto**: din kund kan skapa ett användar konto åt dig i en egen katalog och tilldela en RBAC-roll.
+- **Katalogkonto**: Kunden kan skapa ett användarkonto åt dig i en egen katalog och tilldela valfri roll för rollbaserad åtkomst.
 
-- **Tjänstens huvud namn**: din kund kan lägga till en app eller ett skript från din organisation i katalogen och tilldela en RBAC-roll. Appens eller skriptets identitet kallas för tjänstens huvudnamn.
+- **Tjänstens huvudnamn**: Kunden kan lägga till en app eller ett skript från din organisation i katalogen och tilldela en roll för rollbaserad åtkomstkontroll. Appens eller skriptets identitet kallas för tjänstens huvudnamn.
 
 ## <a name="link-to-a-partner-id"></a>Länka till ett partner-ID
 
@@ -120,7 +120,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 Delta i diskussionen i [Microsofts community för partner](https://aka.ms/PALdiscussion) och få uppdateringar eller skicka feedback.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Vem kan länka partner-ID:t?**
 

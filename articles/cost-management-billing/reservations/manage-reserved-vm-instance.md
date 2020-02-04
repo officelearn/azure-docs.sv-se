@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
 ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994056"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
@@ -28,7 +28,7 @@ Om du har köpt Azure Reserved Virtual Machine Instances kan du ändra reservati
 
 ## <a name="reservation-order-and-reservation"></a>Reservationsbeställningar och reservationer
 
-När du köper en reservation skapas två objekt: **reservations order** och **reservation**.
+När du köper en reservation skapas två objekt: En **reservationsbeställning** och en **reservation**.
 
 Vid inköpstillfället har en reservationsbeställning en underordnad reservation. Med åtgärder som att dela, koppla, delåterbetala eller byta reservationer så skapar du nya reservationer under **reservationsbeställningen**.
 
@@ -122,7 +122,7 @@ Så här uppdaterar du optimeringsinställningen för en reservation:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster** > **Reservationer**.
-3. Markera reservationen.
+3. Välj reservationen.
 4. Välj **Inställningar** > **Konfiguration**.
 5. Ändra inställningen **Optimera för**.
 

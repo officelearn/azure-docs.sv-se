@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: f7d6c6cbe5b99cb429b5399df7ba9765c1553901
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991118"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Få faktureringsägarskap för Azure-prenumerationer från andra konton
@@ -35,29 +35,29 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 
     ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. På sidan fakturerings omfattningar väljer du det fakturerings konto som ska användas för att betala för prenumerationens användning. Fakturerings kontot bör vara av typen **Microsofts kund avtal**.
+3. På sidan för faktureringsomfång väljer du det faktureringskonto som ska användas för att betala för användningen av prenumerationerna. Faktureringskontot bör vara ett **Microsoft-kundavtal**.
 
     ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/list-of-scopes.png)
 
     > [!NOTE]
     >
-    > Azure Portal ommedlemmars den senaste fakturerings omfattningen som du kommer åt och visar omfånget nästa gång du kommer till Cost Management + fakturerings sida. Sidan fakturerings omfattningar visas inte om du har besökt Cost Management + fakturering tidigare. I så fall, kontrol lera att du är i [rätt omfång](#check-for-access). Om inte, [byter du omfattning](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) för att välja fakturerings konto för ett Microsoft-kundavtal.
+    > Azure-portalen kommer ihåg det senaste faktureringsomfånget som du använder och visar omfånget nästa gång du kommer till sidan Kostnadshantering + fakturering. Sidan för faktureringsomfång visas inte om du har besökt sidan Kostnadshantering + fakturering. I så fall kontrollerar du att du befinner dig i [rätt omfång](#check-for-access). Annars [byter du omfång](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) och väljer faktureringskontot för ett Microsoft-kundavtal.
 
-4. Välj **fakturerings profiler** från vänster sida.
+4. Välj **Faktureringsprofiler** till vänster.
 
-    ![Skärm bild som visar val av fakturerings profiler](./media/mca-request-billing-ownership/mca-select-profiles.png)     
+    ![Skärmbild som visar hur du väljer faktureringsprofiler](./media/mca-request-billing-ownership/mca-select-profiles.png)     
 
     > [!Note]
     >
-    > Om du inte ser fakturerings profiler är du inte i rätt fakturerings omfång. Du måste välja ett fakturerings konto för ett Microsofts kund avtal och sedan välja fakturerings profiler. Information om hur du ändrar omfång finns i ändra [fakturerings omfång i Azure Portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+    > Om du inte ser Faktureringsprofiler beror det på att du inte är i rätt faktureringsomfång. Du måste välja ett faktureringskonto för ett Microsofts-kundavtal och sedan välja Faktureringsprofiler. Information om hur du byter omfång finns i avsnittet om hur du [byter faktureringsomfång på Azure-portalen](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
-5. Välj en **fakturerings profil** i listan. När du tar över prenumerationens ägarskap kommer deras användning att debiteras till den här fakturerings profilen.
+5. Välj en **faktureringsprofil** i listan. När du tar över ägarskapet av prenumerationerna kommer deras användning att debiteras till den här faktureringsprofilen.
 
 6. Välj **Fakturaavsnitt** på den vänstra sidan.
 
     ![Skärmbild som visar val av fakturaavsnitt](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
 
-7. Välj ett fakturaavsnitt i listan. När du tar över prenumerationens ägarskap, tilldelas deras användning till det här avsnittet i fakturerings profilens faktura.
+7. Välj ett fakturaavsnitt i listan. När du tar över ägarskapet av prenumerationerna tilldelas användningen till det här avsnittet i faktureringsprofilens faktura.
 
 8. Välj **Överföringsbegäranden** nere till vänster och välj sedan **Lägg till en ny begäran**.
 
@@ -83,19 +83,19 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 
     ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. På sidan fakturerings omfattningar väljer du det fakturerings konto som överföringsbegäran skickades för.
+3. På sidan för faktureringsomfång väljer du det faktureringskonto som överföringsbegäran skickades för.
 
-4. Välj **fakturerings profiler** från vänster sida.
+4. Välj **Faktureringsprofiler** till vänster.
 
-    ![Skärm bild som visar val av fakturerings profiler](./media/mca-request-billing-ownership/mca-select-profiles.png)     
+    ![Skärmbild som visar hur du väljer faktureringsprofiler](./media/mca-request-billing-ownership/mca-select-profiles.png)     
 
-5. Välj den **fakturerings profil** som överföringsbegäran skickades för.
+5. Välj den **faktureringsprofil** som överföringsbegäran skickades för.
 
 6. Välj **Fakturaavsnitt** på den vänstra sidan.
 
     ![Skärmbild som visar val av fakturaavsnitt](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
 
-7. Välj faktura avsnittet i listan där överföringsbegäran skickades.
+7. Välj det fakturaavsnitt i listan som överföringsbegäran skickades för.
 
 8. Välj **Överföringsbegäranden** på den nedre vänstra sidan. På sidan Överföringsbegäranden visas följande information:
 
@@ -126,7 +126,7 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 
    |Kolumn  |Definition|
    |---------|---------|
-   |ID för överföringsbegäran|Unikt ID för din överföringsbegäran. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda ärendet|
+   |ID för överföringsbegäran|Unikt ID för din överföringsbegäran. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda supportbegäran|
    |Överföringen begärdes den|Det datum då överföringsbegäran skickades|
    |Överföringen begärdes av|E-postadressen för den användare som skickade överföringsbegäran|
    |Överföringsbegäran upphör den| Det datum då överföringsbegäran upphör|

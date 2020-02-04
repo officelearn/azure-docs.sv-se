@@ -12,23 +12,23 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: c8ea083e216331904c9d5741b97f69b7f5a8249a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991339"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
-Du kan kontrol lera Azures kredit balans för ditt fakturerings konto för ett Microsofts kund avtal i Azure Portal eller via REST API: er.
+Du kan kontrollera Azure-kreditsaldot för ditt faktureringskonto för ett Microsoft-kundavtal på Azure-portalen eller via REST API:er.
 
-Krediter tilldelas till en faktureringsprofil på faktureringskontot för ett Microsoft-kundavtal. Varje fakturerings profil har sina egna krediter som automatiskt tillämpas på kostnaderna på fakturan. Du måste ha rollen ägare, deltagare, läsare eller fakturaansvarig för faktureringsprofilen eller rollen ägare, deltagare eller läsare för faktureringskontot för att kunna visa Azure-kreditsaldot för en faktureringsprofil. Du kan läsa mer om rollerna i [Förstå administrativa roller för Microsoft-kundavtal i Azure](understand-mca-roles.md).
+Krediter tilldelas till en faktureringsprofil på faktureringskontot för ett Microsoft-kundavtal. Varje faktureringsprofil har sina egna krediter, som tillämpas automatiskt på kostnaderna på fakturan. Du måste ha rollen ägare, deltagare, läsare eller fakturaansvarig för faktureringsprofilen eller rollen ägare, deltagare eller läsare för faktureringskontot för att kunna visa Azure-kreditsaldot för en faktureringsprofil. Du kan läsa mer om rollerna i [Förstå administrativa roller för Microsoft-kundavtal i Azure](understand-mca-roles.md).
 
 Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="check-your-credit-balance"></a>Kontrollera ditt kreditsaldo
 
-### <a name="azure-portaltabportal"></a>[Azure-portalen](#tab/portal)
+### <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -36,25 +36,25 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
     ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. På sidan fakturerings omfattningar väljer du det fakturerings konto som du vill spåra kredit balansen för. Fakturerings kontot bör vara av typen **Microsofts kund avtal**.
+3. På sidan för faktureringsomfång väljer du det faktureringskonto som du vill spåra kreditsaldot för. Faktureringskontot bör vara ett **Microsoft-kundavtal**.
 
     ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-check-azure-credits-balance/list-of-scopes.png)
 
     > [!NOTE]
     >
-    > Azure Portal ommedlemmars den senaste fakturerings omfattningen som du kommer åt och visar omfånget nästa gång du kommer till Cost Management + fakturerings sida. Sidan fakturerings omfattningar visas inte om du har besökt Cost Management + fakturering tidigare. I så fall, kontrol lera att du är i [rätt omfång](#check-access-to-a-microsoft-customer-agreement). Om inte, [byter du omfattning](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) för att välja fakturerings konto för ett Microsoft-kundavtal.
+    > Azure-portalen kommer ihåg det senaste faktureringsomfånget som du använder och visar omfånget nästa gång du kommer till sidan Kostnadshantering + fakturering. Sidan för faktureringsomfång visas inte om du har besökt sidan Kostnadshantering + fakturering. I så fall kontrollerar du att du befinner dig i [rätt omfång](#check-access-to-a-microsoft-customer-agreement). Annars [byter du omfång](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) och väljer faktureringskontot för ett Microsoft-kundavtal.
 
-3. Välj **betalnings metoder** från vänster sida och välj sedan **Azure-krediter**.
+3. Välj **Betalningsmetoder** till vänster och välj sedan **Azure-krediter**.
 
-   ![Skärm bild av kredit balans för en fakturerings profil](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
+   ![Skärmbild av kreditsaldo för en faktureringsprofil](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
 
 4. Sidan Azure-krediter innehåller följande avsnitt:
 
    #### <a name="balance"></a>Saldo
 
-   I avsnittet saldo visas en översikt över ditt Azure-saldo.
+   I saldoavsnittet visas en översikt över ditt Azure-saldo.
 
-   ![Skärm bild av kredit balans för en fakturerings profil](./media/mca-check-azure-credits-balance/mca-credit-balance.png)
+   ![Skärmbild av kreditsaldo för en faktureringsprofil](./media/mca-check-azure-credits-balance/mca-credit-balance.png)
 
    | Period               | Definition                           |
    |--------------------|--------------------------------------------------------|
@@ -63,9 +63,9 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
    När ditt beräknade saldo sjunker till 0 debiteras du för all användning, inklusive för produkter som omfattas av krediter.
 
-   #### <a name="credits-list"></a>Kredit lista
+   #### <a name="credits-list"></a>Kreditlista
 
-   I avsnittet kredit lista visas en lista över Azure-krediter.
+   I kreditlistan visas en lista över Azure-krediter.
 
    ![Skärmbild av kreditlistor för en faktureringsprofil](./media/mca-check-azure-credits-balance/mca-credits-list.png)
 
@@ -80,26 +80,26 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
    #### <a name="transactions"></a>Transaktioner
 
-   I avsnittet om transaktioner visas alla transaktioner som påverkat kredit balansen.
+   I avsnittet om transaktioner visas alla transaktioner som påverkat ditt kreditsaldo.
 
-   ![Skärm bild av kredit transaktioner för en fakturerings profil](./media/mca-check-azure-credits-balance/mca-credits-transactions.png)
+   ![Skärmbild av kredittransaktioner för en faktureringsprofil](./media/mca-check-azure-credits-balance/mca-credits-transactions.png)
 
    | Period | Definition |
    |---|---|
-   | Transaktions datum | Datumet då transaktionen skedde |
+   | Transaktionsdatum | Datumet då transaktionen gjordes |
    | Beskrivning | En beskrivning av transaktionen |
-   | Mängd| Transaktionsbeloppet |
+   | Belopp| Transaktionsbeloppet |
    | Saldo | Saldot efter transaktionen |
 
     > [!NOTE]
     >
-    > Om du inte ser Azure-krediter på sidan betalnings metoder kan du antingen inte ha krediter eller så har du inte valt rätt omfång. Välj det fakturerings konto som har krediter eller någon av dess fakturerings profiler. Information om hur du ändrar omfång finns i ändra [fakturerings omfång i Azure Portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+    > Om du inte ser Azure-krediter på sidan för betalningsmetoder beror det på att du inte har krediter eller att du inte har valt rätt omfång. Välj det faktureringskonto som har krediter eller någon av dess faktureringsprofiler. Information om hur du byter omfång finns i avsnittet om hur du [byter faktureringsomfång på Azure-portalen](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
-5. Om du visar Azure-krediter i fakturerings konto omfånget och fakturerings kontot har fler än en fakturerings profil, visar sidan Azure-krediter en tabell med en sammanfattning av Azure-krediterna för varje fakturerings profil. Välj en fakturerings profil i listan, Välj betalnings metoder och sedan Azure-krediter för att visa information om en fakturerings profil.
+5. Om du visar Azure-krediter i faktureringskontoomfånget och faktureringskontot har mer än en faktureringsprofil visar sidan Azure-krediter en tabell med en översikt över Azure-krediterna för varje faktureringsprofil. Välj en faktureringsprofil i listan, välj betalningsmetoder och sedan Azure-krediter för att visa information om en faktureringsprofil.
 
-    ![Skärm bild av kredit lista för ett fakturerings konto](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
+    ![Skärmbild av kreditlista för ett faktureringskonto](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+### <a name="rest-apitabrest"></a>[REST-API](#tab/rest)
 
 Du kan använda API:erna [Azure Billing](https://docs.microsoft.com/rest/api/billing/) och [Consumption](https://docs.microsoft.com/rest/api/consumption/) till att kontrollera kreditsaldot för ditt faktureringskonto programmatiskt.
 
@@ -154,11 +154,11 @@ I API-svaret ser du en lista med faktureringskonton och tillhörande fakturering
 }
 ```
 
-Använd egenskapen `displayName` för fakturerings profilen för att identifiera den fakturerings profil som du vill kontrol lera kredit balansen för. Kopiera egenskapen `id` för faktureringsprofilen. Om du till exempel vill kontrollera kreditsaldot för faktureringsprofilen **Development** kopierar du ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
+Använd egenskapen `displayName` för faktureringsprofilen för att identifiera den faktureringsprofil som du vill kontrollera kreditsaldot för. Kopiera egenskapen `id` för faktureringsprofilen. Om du till exempel vill kontrollera kreditsaldot för faktureringsprofilen **Development** kopierar du ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Klistra in det här värdet någonstans så att du kan använda det i nästa steg.
 
 ### <a name="get-azure-credit-balance"></a>Hämta kreditsaldot för Azure
 
-Gör följande begäran och ersätt `<billingProfileId>` med `id` kopieras i det första steget (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
+Gör följande begäran och ersätt `<billingProfileId>` med värdet för `id` som du kopierade i det första steget (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -209,7 +209,7 @@ Du ser uppskattat och aktuellt saldo för faktureringsprofilen i API-svaret.
 
 ### <a name="get-list-of-credits"></a>Hämta en lista med krediter
 
-Gör följande begäran och ersätt `<billingProfileId>` med `id` kopieras i det första steget (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
+Gör följande begäran och ersätt `<billingProfileId>` med värdet för `id` som du kopierade i det första steget (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```).
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
@@ -273,7 +273,7 @@ Du ser en lista med Azure-krediter för en faktureringsprofil i API-svaret.
 
 ### <a name="get-transactions-that-affected-credit-balance"></a>Hämta transaktioner som påverkat kreditsaldot
 
-Gör följande begäran och ersätt `<billingProfileId>` med `id` kopieras i det första steget (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Du måste skicka ett värde för **startDate** och **endDate** för att få transaktioner för din begärda tidsperiod.
+Gör följande begäran och ersätt `<billingProfileId>` med värdet för `id` som du kopierade i det första steget (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Du måste skicka ett värde för **startDate** och **endDate** för att få transaktioner för din begärda tidsperiod.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
@@ -385,7 +385,7 @@ Du tilldelar dina krediter till en faktureringsprofil. När en faktura genereras
 - Visual Studio Professional (månatligen)
 - Visual Studio Professional (årsvis)
 - Azure Marketplace-produkter
-- Supportavtal för Azure
+- Azure-supportplaner
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

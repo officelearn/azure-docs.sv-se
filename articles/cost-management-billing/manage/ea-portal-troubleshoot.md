@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 41af65c2bfa35da30a0172ae7a39b3bad56597b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992132"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Felsöka åtkomst till Azure EA-portalen
@@ -148,7 +148,7 @@ Om felsökningsstegen ovan misslyckades skickar du en begäran på [https://aka.
 
 **Microsoft-konto:** Konton som har associerats med Live ID på [https://signup.live.com](https://signup.live.com).
 
-**Arbets-/skol konto:** Endast tillgängligt för företag som har konfigurerat Active Directory med Federation till molnet och alla konton finns på en enda klient. Användare kan läggas till med auktoriseringstypen arbete/skola om företagets interna Active Directory är federerat i molnet.
+**Arbets-/skolkonto:** Bara tillgängligt för företag som har konfigurerat Active Directory med federation till molnet och där alla konton finns i en enda klientorganisation. Användare kan läggas till med auktoriseringstypen arbete/skola om företagets interna Active Directory är federerat i molnet.
 
   Från september 2016 tillåter Microsoft inte längre att arbets- eller skolkonton registreras som Microsoft-konton. Mer information finns i följande material: [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/).
 

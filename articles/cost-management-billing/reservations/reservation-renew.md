@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: dfff02c554c94daf1dd7fd844cea461fd76589d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995720"
 ---
 # <a name="automatically-renew-reservations"></a>Förnya reservationer automatiskt
@@ -29,7 +29,7 @@ Det finns ingen skyldighet att förnya, och du kan välja avbryta förnyelsen n�
 
 Gå till Azure-portalen > **Reservationer**.
 
-1. Markera reservationen.
+1. Välj reservationen.
 2. Klicka på **Förnyelse**.
 3. Välj **Automatically purchase a new reservation upon expiry** (Köp en ny reservation automatiskt vid upphörande).  
   ![Exempel som visar en reservationsförnyelse](./media/reservation-renew/reservation-renewal.png)

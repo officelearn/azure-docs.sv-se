@@ -12,17 +12,17 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 7555fc490804a847e61a46f194e77c62f0a985d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989753"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termer på fakturan för ditt Microsoft-partneravtal
 
 Den här artikeln gäller Azure-faktureringskontot för ett Microsoft-partneravtal. [Kontrollera om du har åtkomst till ett Microsoft-partneravtal](#check-access-to-a-microsoft-partner-agreement).
 
-Din faktura innehåller en sammanfattning av dina avgifter och instruktioner för betalning. Du kan ladda ned den i PDF-format (.pdf) från [Azure-portalen](https://portal.azure.com/) och du kan få den skickad via e-post. Mer information finns i [Visa och ladda ned din Microsoft Azure-faktura](download-azure-invoice.md).
+Din faktura innehåller en sammanfattning av dina avgifter och instruktioner för betalning. Du kan ladda ned den i PDF-format (.pdf) från [Azure-portalen](https://portal.azure.com/) eller få den skickad via e-post. Mer information finns i [Visa och ladda ned din Microsoft Azure-faktura](download-azure-invoice.md).
 
 I följande avsnitt anges viktiga termer som står på fakturan samt beskrivningar för respektive term.
 
@@ -41,7 +41,7 @@ Du faktureras per månad. Kostnader som inträffar mellan slutet av fakturerings
 | Såldes till |Adress för din juridiska person, som finns i egenskaperna för faktureringskonto|
 | Fakturera till |Faktureringsadressen för den faktureringsprofil som tar emot fakturan, som finns i egenskaperna för faktureringsprofil|
 | Faktureringsprofil |Namnet på den faktureringsprofil som tar emot fakturan |
-| IO- nummer |Ett valfritt inköpsordernummer som tilldelar i spårningssyfte |
+| IO- nummer |Ett valfritt inköpsordernummer som du tilldelar i spårningssyfte |
 | Fakturanummer |Ett unikt fakturanummer som Microsoft genererar i spårningssyfte |
 | Fakturadatum |Det datum då fakturan genereras, vanligtvis fem till tolv dagar efter faktureringsperiodens slut. Du kan kontrollera fakturadatumet i egenskaperna för faktureringsprofil.|
 | Betalningsvillkor |Hur du betalar för din Microsoft-faktura. *60 dagar netto* innebär att du betalar inom 60 dagar från fakturadatumet. |
@@ -55,7 +55,7 @@ I **faktureringssammanfattningen** visas kostnaderna för faktureringsprofilen s
 | Period | Beskrivning |
 | --- | --- |
 | Avgifter|Totalt antal Microsoft-avgifter för den här faktureringsprofilen sedan den senaste faktureringsperioden |
-| Meriter |Krediter som du fått från returer |
+| Krediter |Krediter som du fått från returer |
 | Tillämpade Azure-krediter | Azure-krediter som automatiskt tillämpas på Azure-avgifter varje faktureringsperiod |
 | Delsumma |Restbelopp före skatt |
 | Skatt |Typ av och belopp för skatt som du betalar, beroende på land/region för din faktureringsprofil. Om du inte behöver betala skatt står ingen skatt på din faktura. |

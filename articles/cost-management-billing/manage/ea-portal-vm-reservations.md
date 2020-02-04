@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 26c132d42bfc89c9b6e887c8ca02232848513698
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992080"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
@@ -40,7 +40,7 @@ Information om priser finns i [Prissättning för virtuella Linux-datorer](https
 
 ## <a name="reserved-instances-api-support"></a>API-stöd för reserverade instanser
 
-Du kan använda Azures API:er till att programmatiskt hämta information om organisationens reservationer av tjänster eller programvara i Azure. Mer information finns i [API:er för automatisk reservation i Azure](../reservations/reservation-apis.md).
+Du kan använda Azures API:er till att programmatiskt hämta information om organisationens reservationer av tjänster eller programvara i Azure. Mer information finns i [API:er för automation av Azure-reservation](../reservations/reservation-apis.md).
 
 ## <a name="azure-reserved-virtual-machine-instances"></a>Reserverade instanser för virtuella Azure-datorer
 
@@ -54,7 +54,7 @@ När EA-registreringen har aktiverats för att lägga till reserverade instanser
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Så här visar du köpinformation om reserverade instanser
 
-Du kan visa köpinformationen om reserverade instanser via menyn _Reservationer_ på den vänstra sidan av [Azure-portalen](https://aka.ms/reservations) eller via [Azure EA-portalen](https://ea.azure.com/). Välj **rapporter** på menyn i den vänstra menyn och rulla ned till avsnittet _avgifter per tjänster_ på fliken _användnings översikt_ . Rulla längst ned i avsnittet och dina reserverade inköpare och användning visas i slutet som anges av beteckningen "1 år" eller "3 år" bredvid tjänst namnet, till exempel: Standard_DS1_v2 öster 1 år eller Standard_D2s_v3 eastus2 3 år.
+Du kan visa köpinformationen om reserverade instanser via menyn _Reservationer_ på den vänstra sidan av [Azure-portalen](https://aka.ms/reservations) eller via [Azure EA-portalen](https://ea.azure.com/). Välj **Reports** (Rapporter) i menyn till vänster och rulla ned till avsnittet _Charges by Services_ (Avgifter per tjänst) på fliken _Usage Summary_ (Användningsöversikt). Rulla längst ned i avsnittet så listas dina reserverad instans-köp och -användning i slutet, enligt det som anges av beteckningstexten ”1 year” (1 år) och ”3 years” (3 år) bredvid tjänstens namn, till exempel: Standard_DS1_v2 eastus 1 year eller Standard_D2s_v3 eastus2 3 years.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Hur ändrar jag prenumerationen som är kopplad till reserverad instans eller överföra mina reserverad instans-förmåner till en prenumeration under samma konto?
 
@@ -65,7 +65,7 @@ Vid en specifik tidpunkt kan bara en prenumeration ta emot reserverad instans-f�
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Så här visar du användningsinformation om reserverade instanser
 
-Du kan visa din reserverad instans-användningsinformation i [Azure-portalen](https://aka.ms/reservations) eller i [Azure EA-portalen](https://ea.azure.com/) (för EA-kunder som har åtkomst till att visa faktureringsinformation) under _Reports_ > _Usage Summary_ > _Charges by Services_ (Rapporter > Användningsöversikt > Avgifter per tjänst). Reserverade instanser kan identifieras som tjänst namn som innehåller "reservation", till exempel: Reserverade instanser – bas-VM eller Virtual Machines reservation-Windows Server instanser (1 kärna).
+Du kan visa din reserverad instans-användningsinformation i [Azure-portalen](https://aka.ms/reservations) eller i [Azure EA-portalen](https://ea.azure.com/) (för EA-kunder som har åtkomst till att visa faktureringsinformation) under _Reports_ > _Usage Summary_ > _Charges by Services_ (Rapporter > Användningsöversikt > Avgifter per tjänst). Dina reserverade instanser kan identifieras som tjänstnamn som innehåller ”Reservation” (Reserverad instans), till exempel: Reserverade instanser – bas-VM eller Virtual Machines Reservation-Windows Svr (1 kärna).
 
 Din nedladdningsfil i CSV-format med användningsinformation och avancerad rapport innehåller ytterligare användningsinformation om reserverad instans. Fältet _Additional Info_ (Mer information) gör det enklare att identifiera reserverad instans-användningen.
 

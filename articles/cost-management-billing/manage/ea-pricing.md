@@ -13,10 +13,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 14346ceda9574d18050108e585d5ff4cdb133e31
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992028"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och ladda ned din organisations Azure-priser
@@ -36,7 +36,7 @@ Beroende på vilka policyer som företagsadministratören har ställt in för or
 
    ![Skärmbild som visar användning och kostnader under Fakturering](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. Välj ![skärmbild som visar Azure portal-sökning](./media/ea-pricing/download-icon.png) **hämta** för månaden.
+1. Välj ![Skärmbild som visar en sökning i Azure-portalen](./media/ea-pricing/download-icon.png) **Ladda ned** för månaden.
 
 1. Välj **Hämta CSV** under **Prisdokument**.
 
@@ -49,7 +49,7 @@ Om du har ett MCA-konto måste du vara ägare, deltagare, läsare eller fakturaa
 ### <a name="download-price-sheets-for-billed-charges"></a>Ladda ned prisdokument för fakturerade avgifter
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter *Kostnadshantering + fakturering*.
+1. Sök efter *Kostnadshantering och fakturering*.
 1. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
 1. Välj **Fakturor**.
 1. Leta rätt på fakturaraden i rutnätet som motsvarar det prisdokument du vill ladda ned.
@@ -66,7 +66,7 @@ Om du har ett MCA-konto måste du vara ägare, deltagare, läsare eller fakturaa
 Om du har ett MCA-konto kan du ladda ned priser för den aktuella faktureringsperioden.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter *Kostnadshantering + fakturering*.
+1. Sök efter *Kostnadshantering och fakturering*.
 1. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
 1. Du hittar nedladdningslänkarna i avsnittet **Översikt** under kostnaderna hittills under månaden.
 1. Välj **Azure-prisdokument**.
@@ -96,7 +96,7 @@ Du kan också använda organisationens priser till att beräkna kostnaderna i pr
 Om du är EA-kund kan du läsa:
 
 - [Hantera åtkomst till din EA-faktureringsinformation för Azure](manage-billing-access.md)
-- [Visa och ladda ned din Microsoft Azure-faktura](../understand/download-azure-invoice.md)
+- [Visa och ladda ned din faktura för Microsoft Azure](../understand/download-azure-invoice.md)
 - [Visa och ladda ned information om din användning och dina avgifter för Microsoft Azure](../understand/download-azure-daily-usage.md)
 - [Förstå din faktura för EA-kunder](../understand/review-enterprise-agreement-bill.md)
 

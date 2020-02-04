@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: a78edc29ef85430dc8af57e60dfcba1f2e46413e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991482"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
@@ -34,7 +34,7 @@ När du registrerar dig för Azure finns det flera saker du kan göra för att f
 Använd något av följande verktyg för att beräkna kostnaden för att använda en Azure-tjänst:
 - Priskalkylator för Azure
 - Azure-prisdokument
-- Azure portal
+- Azure Portal
 
 Bilderna i följande avsnitt innehåller exempel på priser i amerikanska dollar.
 
@@ -82,7 +82,7 @@ När dina Azure-tjänster är igång bör du regelbundet kontrollera kostnaderna
 
 4. Du kan filtrera efter olika egenskaper som etiketter, resurstyper och tidsintervall. Klicka på **Lägg till filter** för att lägga till filtret för en egenskap och välja vilka värden du vill filtrera. Välj **Exportera** för att exportera vyn till en fil med kommaavgränsade värden (.csv).
 
-5. Du kan också klicka på etiketterna i diagrammet om du vill se historiken för dagliga utgifter för etiketten. För ex: i skärm bilden nedan visas den dagliga kostnaden för att köra de virtuella datorerna genom att klicka på virtuella datorer.
+5. Du kan också klicka på etiketterna i diagrammet om du vill se historiken för dagliga utgifter för etiketten. Här är ett exempel: I skärmbilden nedan ser du den dagliga kostnaden för att köra dina virtuella datorer genom att klicka på de virtuella datorerna.
 
     ![Skärmbild av utgiftshistorikvyn på Azure-portalen](./media/getting-started/costhistory.png)
 
@@ -131,8 +131,8 @@ Prata med din kontoansvarige eller Azure-partner för att komma igång.
 | Erbjudande | Resurser |
 |-------------------------------|-----------------------------------------------------------------------------------|
 | Enterprise-avtal (EA) | [EA-portal](https://ea.azure.com/), [hjälpdokument](https://ea.azure.com/helpdocs) och [Power BI-rapport](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
-| Cloud Solution Provider (CSP) | Prata med din leverantör |
-| Sponsring av Azure | [Sponsringsportalen](https://www.microsoftazuresponsorships.com/) |
+| Leverantör av molnlösningar (CSP) | Prata med din leverantör |
+| Azure-sponsring | [Sponsringsportalen](https://www.microsoftazuresponsorships.com/) |
 
 Om du hanterar IT för en stor organisation rekommenderar vi att du läser [Azure Enterprise-kodskelett](/azure/architecture/cloud-adoption-guide/subscription-governance) och [faktabladet om företags-IT](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (nedladdning av PDF-fil, endast på engelska).
 
@@ -162,7 +162,7 @@ Om du har åtkomst till Azure via ett MCA-faktureringskonto (Microsoft-kundavtal
 
 ### <a name="request-a-service-level-agreement-credit-for-a-service-incident"></a>Begära en SLA-kredit för en tjänstincident
 
-Serviceavtalet beskriver Microsofts åtaganden för drifttid och anslutning. En tjänstincident, eller *avbrott*, rapporteras när det har uppstått problem med Azure-tjänster som påverkar driften eller anslutningen till tjänsten i fråga. Om vi inte lyckas upprätthålla tjänstnivåerna för respektive tjänst enligt relevant SLA kan du ha rätt till en kredit för en del av dina månatliga tjänstavgifter.
+Serviceavtalet beskriver Microsofts åtaganden vad gäller drifttid och anslutning. En tjänstincident, eller *avbrott*, rapporteras när det har uppstått problem med Azure-tjänster som påverkar driften eller anslutningen till tjänsten i fråga. Om vi inte lyckas upprätthålla tjänstnivåerna för respektive tjänst enligt relevant SLA kan du ha rätt till en kredit för en del av dina månatliga tjänstavgifter.
 
 Så här begär du en kredit:
 

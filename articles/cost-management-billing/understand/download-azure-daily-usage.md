@@ -9,10 +9,10 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 02d446d1b70b64092501804e793b400e983a4d80
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995135"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och ladda ned information om din användning och dina avgifter i Azure
@@ -31,8 +31,8 @@ Om du har ett Microsoft-kundavtal (MCA) måste du vara ägare, deltagare, läsar
 1. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil.
 1. Välj **Fakturor** under **Fakturering** i den vänstra menyn.
 1. Leta rätt på raden i rutnätet för faktureringsperioden som motsvarar den användning du vill ladda ned.
-1. Välj **nedladdnings ikonen** eller ellipsen (`...`) till höger.
-1. Hämtnings fönstret öppnas till höger. Välj **Hämta** i avsnittet **användnings information** .
+1. Välj **nedladdningsikonen** eller ellipsen (`...`) till höger.
+1. Nedladdningsfönstret öppnas till höger. Välj **Ladda ned** i avsnittet **Användningsinformation**.
 
 ## <a name="download-usage-for-ea-customers"></a>Ladda ned användningsdata för EA-kunder
 
@@ -53,7 +53,7 @@ Om du har ett Microsoft-kundavtal kan du ladda ned månadens användning fram ti
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter *Kostnadshantering + fakturering*.
 3. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
-4. Du hittar nedladdningslänkarna i avsnittet **Översikt** under kostnaderna hittills under månaden.
+4. I området **Översikt** finns nedladdningslänkarna nedanför avgifterna hittills under månaden.
 5. Välj **Användning och avgifter för Azure**.
 
     ![Skärmbild som visar nedladdning från Översikt](./media/download-azure-daily-usage/open-usage01.png)

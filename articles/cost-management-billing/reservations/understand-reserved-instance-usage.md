@@ -1,5 +1,5 @@
 ---
-title: Azure reservation-användning för en enskild prenumeration
+title: Användning av Azure-reservation för en enskild prenumeration
 description: Lär dig hur du läser av din användning för att förstå hur Azure-reservationen tillämpas för din enskilda prenumeration med Betala per användning-priser.
 author: bandersmsft
 manager: yashr
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1404f8626086124aa2c6affcf2d173cef0be7df3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995369"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Förstå användning av Azure-reservationer för din enskilda prenumeration med Betala per användning-priser
@@ -55,7 +55,7 @@ Filtrera på **Ytterligare information** och skriv in ditt **reservations-ID**. 
 
 1. **ReservationId** i fältet **Ytterligare information** är reservationen som tillämpas på den virtuella datorn.
 2. **ConsumptionMeter** är den virtuella datorns mätar-ID.
-3. Linjen med under kategorin **reserverade instanser – bas-VM** **mätare** representerar $0-kostnaden i instruktions avsnittet. Kostnaden för att köra den här virtuella datorn täcks av reservationen.
+3. Raden **Reserverade instanser – bas-VM** **Mätarunderkategori** representerar kostnaden $0 i informationsavsnittet. Kostnaden för att köra den här virtuella datorn täcks av reservationen.
 4. **Mätar-ID** är reservationens mätar-ID. Kostnaden för den här mätaren är $0. Detta mätar-ID visas för alla virtuella datorer som är kvalificerade för reservationsrabatten.
 5. Standard_DS1_v2 är en virtuell dator med vCPU och den virtuella datorn är distribuerad utan Azure Hybrid-förmånen. Den här mätaren täcker alltså den extra kostnaden för Windows-programvaran. Om du vill hitta mätaren som motsvarar den virtuella datorn i D-serien med 1 kärna kan du läsa i [Kostnader för Windows-program i reserverade Azure VM-instanser](reserved-instance-windows-software-costs.md). Om du har Azure Hybrid-förmånen tas inte den här extra avgiften ut.
 

@@ -10,10 +10,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995564"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Förstå hur reservationsrabatten tillämpas för Azure Cosmos DB
@@ -24,7 +24,7 @@ När du har köpt en reserverad Azure Cosmos DB-kapacitet tillämpas reservation
 
 Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget *försvinner* de reserverade timmarna.
+När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Reservationsrabatt som tillämpas på Azure Cosmos DB-konton
 
@@ -51,11 +51,11 @@ Reservationsrabatten tillämpas på kostnader för Azure Cosmos DB-dataflöden t
 |Azure Cosmos DB – 100 RU/s/timme – Storbritannien, södra 2|   Storbritannien, södra 2      |     1    |
 |Azure Cosmos DB – 100 RU/s/timme – USA, östra 2|  USA, östra 2     |     1    |
 |Azure Cosmos DB – 100 RU/s/timme – USA, norra centrala|   USA, norra centrala      |     1    |
-|Azure Cosmos DB – 100 RU/s/timme – USA, västra|   USA, västra      |     1    |
+|Azure Cosmos DB – 100 RU/s/timme – USA, västra|   USA, Västra      |     1    |
 |Azure Cosmos DB – 100 RU/s/timme – USA, centrala| USA, centrala        |     1    |
 |Azure Cosmos DB – 100 RU/s/timme – USA, västra 2|   USA, västra 2      |      1   |
 |Azure Cosmos DB – 100 RU/s/timme – USA, västra centrala|   USA, västra centrala      |       1  |
-|Azure Cosmos DB – 100 RU/s/timme – USA, östra|   USA, östra      |  1       |
+|Azure Cosmos DB – 100 RU/s/timme – USA, östra|   USA, Östra      |  1       |
 |Azure Cosmos DB – 100 RU/s/timme – SA, norra|     SA, norra    |   1      |
 |Azure Cosmos DB – 100 RU/s/timme – SA, västra |    SA, västra      |    1     |
 |Azure Cosmos DB – 100 RU/s/timme – Indien, södra|    Indien, södra     |    1.0375    |
@@ -76,7 +76,7 @@ Reservationsrabatten tillämpas på kostnader för Azure Cosmos DB-dataflöden t
 
 Tänk dig att du har följande krav för en reservation:
 
-* Nödvändigt data flöde: 50 000 RU/s  
+* Nödvändigt dataflöde: 50 000 RU/s  
 * Regioner som används: 2
 
 I det här fallet gäller användningen på begäran en kvantitet på 500 st. 100 RU/s-mätare i dessa två regioner. Den totala förbrukningen av RU/s är 100 000 varje timme.
@@ -85,12 +85,12 @@ I det här fallet gäller användningen på begäran en kvantitet på 500 st. 10
 
 Anta till exempel att du behöver Azure Cosmos DB-distributioner i regionerna USA, norra centrala och USA, västra. Varje region har en dataflödesförbrukning på 50 000 RU/s. Ett reservationsköp på 100 000 RU/s skulle helt täcka dina utgifter för användningen på begäran.
 
-Rabatten som reservationen täcker beräknas så här: dataflödesförbrukning * reservationsrabattens_förhållande_i_regionen. För regionerna USA, norra centrala och USA, västra är det här förhållandet 1. Den totala mängden rabatterade RU/s är alltså 100 000. Värdet beräknas som: 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Du behöver inte betala några ytterligare avgifter enligt de vanliga Betala per användning-priserna.
+Rabatten som reservationen täcker beräknas så här: dataflödesförbrukning * reservationsrabattens_förhållande_i_regionen. För regionerna USA, norra centrala och USA, västra är det här förhållandet 1. Den totala mängden rabatterade RU/s är alltså 100 000. Värdet beräknas så här: 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Du behöver inte betala några ytterligare avgifter enligt de vanliga Betala per användning-priserna.
 
 |Mätarbeskrivning | Region |Dataflödesförbrukning (RU/s) |Reservationsrabatt tillämpad på RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB – 100 RU/s/timme – USA, norra centrala  |   USA, norra centrala  | 50 000  | 50 000  |
-|Azure Cosmos DB – 100 RU/s/timme – USA, västra  |  USA, västra   |  50 000  |  50 000 |
+|Azure Cosmos DB – 100 RU/s/timme – USA, västra  |  USA, Västra   |  50 000  |  50 000 |
 
 **Scenario 2**
 
@@ -101,9 +101,9 @@ Anta till exempel att du behöver Azure Cosmos DB-distributioner i regionerna Au
 |Azure Cosmos DB – 100 RU/s/timme – Australien, centrala 2  |  Australien, centrala 2   |  50 000  |  50 000   |
 |Azure Cosmos DB – 100 RU/s/timme – Frankrike, södra  |  Frankrike, södra   |  50 000 |  15 384  |
 
-En användning på 50 000 enheter i regionen Australien, centrala 2 motsvarar en fakturerbar användning (eller normaliserad användning) på 75 000 RU/s. Värdet beräknas så här: dataflödesförbrukning * reservationsrabattens_förhållande_i_regionen. Beräkningen motsvarar 75 000 RU/s fakturerbar eller normaliserad användning. Värdet beräknas som: 50 000 * 1,5 = 75 000 RU/s.
+En användning på 50 000 enheter i regionen Australien, centrala 2 motsvarar en fakturerbar användning (eller normaliserad användning) på 75 000 RU/s. Värdet beräknas så här: dataflödesförbrukning * reservationsrabattens_förhållande_i_regionen. Beräkningen motsvarar 75 000 RU/s fakturerbar eller normaliserad användning. Värdet beräknas så här: 50 000 * 1.5 = 75 000 RU/s.
 
-Reservationsköpet på 100 000 RU/s skulle täcka användningen på 75 000 RU/s i Australien, centrala 2. Det lämnar 25 000 RU/s till regionen Frankrike, södra. De återstående 25 000 RU/s ger en reservationsrabatt på 15 384 RU/s i regionen Frankrike, södra. Rabatt svärdet beräknas som: 25 000/1,625 = 15 384 RU/s. Återstående 34 616 RU/s i regionen Frankrike, södra debiteras enligt de vanliga Betala per användning-priserna.
+Reservationsköpet på 100 000 RU/s skulle täcka användningen på 75 000 RU/s i Australien, centrala 2. Det lämnar 25 000 RU/s till regionen Frankrike, södra. De återstående 25 000 RU/s ger en reservationsrabatt på 15 384 RU/s i regionen Frankrike, södra. Rabattvärdet beräknas så här: 25 000/1.625 = 15 384 RU/s. Återstående 34 616 RU/s i regionen Frankrike, södra debiteras enligt de vanliga Betala per användning-priserna.
 
 Azure-faktureringssystemet tilldelar reservationsrabatten till den första instansen som bearbetas och som matchar reservationskonfigurationen. I det här fallet är det Australien, centrala 2.
 

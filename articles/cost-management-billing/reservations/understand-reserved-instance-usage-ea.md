@@ -12,19 +12,19 @@ ms.workload: na
 ms.date: 06/30/2019
 ms.author: banders
 ms.openlocfilehash: af0769ae4e242c86a56ff63d5f7c9ecbe9382b48
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995421"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta data om reservationskostnader och reservationsanvändning för Enterprise-avtal (EA)
 
 Reservationskostnader och användningsdata är tillgängliga för Enterprise-avtalskunder från Azure-portalen och REST-API:er. I den här artikeln lär du dig hur du:
 
-- Hämta data om reservationsinköp
+- Hämtar data om reservationsköp
 - Ser vilken prenumeration, resursgrupp eller resurs som använt reservationen
-- Få återbetalning för reservationsanvändning
+- Allokerar reservationsförbrukning
 - Beräknar reservationsbesparingar
 - Hämtar data om underutnyttjade reservationer
 - Amorterar reservationskostnader
@@ -33,7 +33,7 @@ Marketplace-kostnaderna slås samman med användningsdata. Du kan visa avgifter 
 
 ## <a name="reservation-charges-in-azure-usage-data"></a>Reservationsavgifter i Azure-användningsdata
 
-Data delas upp i två separata data uppsättningar: _verklig kostnad_ och _periodiserad kostnad_. De två datauppsättningarna skiljer sig åt på följande sätt:
+Data delas upp i två separata datauppsättningar: _Verklig kostnad_ och _Amorterad kostnad_. De två datauppsättningarna skiljer sig åt på följande sätt:
 
 **Faktisk kostnad** – Tillhandahåller data för avstämning med din månadsfaktura. Dessa data innehåller kostnader för reservationsköp och information om reservationsprogram. Med dessa data kan du se vilken prenumeration eller resursgrupp eller resurs som reservationsrabatten tillämpades på en viss dag. EffectivePrice för den användning som reservationsrabatten tillämpas på är noll.
 
@@ -46,7 +46,7 @@ Jämförelse av två datauppsättningar:
 | Reservationsköp | Tillgängligt i den här vyn.<br><br>  Du kan hämta dessa data genom att filtrera på ChargeType = &quot;Purchase&quot;. <br><br> ReservationID eller ReservationName anger vilken reservation avgiften avser.  | Inte tillämpligt för den här vyn. <br><br> Inköpskostnader visas inte i amorterade data. |
 | EffectivePrice | Värdet är noll för användning som erhåller reservationsrabatt. | Värdet är den beräknade kostnaden per timme för den reservation som reservationsrabatten tillämpas på. |
 | Oanvänd reservation (visar antalet timmar som reservationen inte användes under en dag och penningvärdet för den outnyttjade tiden) | Inte tillämpligt i den här vyn. | Tillgängligt i den här vyn.<br><br> Du kan hämta dessa data genom att filtrera på ChargeType = &quot;UnusedReservation&quot;.<br><br>  ReservationID eller ReservationName indikerar vilken reservation som underutnyttjades. Detta avser hur mycket av reservationen som inte utnyttjades under dagen.  |
-| UnitPrice (pris för resursen från prisdokumentet) | Tillgänglig | Tillgänglig |
+| UnitPrice (pris för resursen från prisdokumentet) | Tillgängligt | Tillgängligt |
 
 Annan information som är tillgänglig i Azures användningsdata har ändrats:
 
@@ -65,9 +65,9 @@ Du kan hämta data med hjälp av API:et eller ladda ned det från Azure-portalen
 
 Du anropar [API:et för användningsinformation](/rest/api/consumption/usagedetails/list) för att hämta nya data. Mer information om terminologi finns i [användningsvillkoren](../understand/understand-usage.md). Anroparen måste vara en företagsadministratör för Enterprise-avtalet och använda [EA-portalen](https://ea.azure.com). Företagsadministratörer som har skrivskyddad behörighet kan också hämta data.
 
-Observera att dessa data inte är tillgängliga i [rapporterings-API: er för företags kunder – användnings information](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Observera att dessa data inte är tillgängliga i [rapporterings-API:er för Enterprise-kunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Här är ett exempel på ett anrop till API: et för användnings information:
+Här är ett exempel på ett anrop till API:et för användningsinformation:
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ Informationen i följande tabell om mått och filter kan hjälpa dig att lösa v
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Ladda ned CSV-filen med nya användningsdata
 
-Om du är EA-administratör kan du ladda ned CSV-filen som innehåller nya användningsdata från Azure-portalen. Dessa data är inte tillgängliga från EA-portalen (ea.azure.com), du måste hämta användnings filen från Azure Portal (portal.azure.com) för att se nya data.
+Om du är EA-administratör kan du ladda ned CSV-filen som innehåller nya användningsdata från Azure-portalen. Dessa data är inte tillgängliga från EA-portalen (ea.azure.com). Du måste hämta användningsfilen från Azure-portalen (portal.azure.com) för att se nya data.
 
 Navigera till [Kostnadshantering + fakturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts) på Azure-portalen.
 
@@ -111,9 +111,9 @@ Kostnader för reservationsköp är tillgängliga i data om faktiska kostnader. 
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>Hämta antal och kostnader för outnyttjade reservationer
 
-Hämta periodiserade kostnads data och filter för _ChargeType_ _= UnusedReservation_. Den dagliga outnyttjade reservationskvantiteten och kostnaden visas. Du kan filtrera data för en reservation eller reservationsorder med hjälp av fälten _ReservationId_ och _ProductOrderId_. Om 100 % av en reservation användes, visar posten antalet 0.
+Hämta data om amorterade kostnader och filtrera baserat på _ChargeType_ _= UnusedReservation_. Den dagliga outnyttjade reservationskvantiteten och kostnaden visas. Du kan filtrera data för en reservation eller reservationsorder med hjälp av fälten _ReservationId_ och _ProductOrderId_. Om 100 % av en reservation användes, visar posten antalet 0.
 
-### <a name="amortize-reservation-costs"></a>Amorterar reservationskostnader
+### <a name="amortize-reservation-costs"></a>Amortera reservationskostnader
 
 Hämta data om amorterade kostnader och filtrera fram en reservationsorder med hjälp av _ProductOrderID_ för att visa dagliga amorterade kostnader för en reservation.
 
@@ -148,7 +148,7 @@ Reservationskostnader är tillgängliga i [kostnadsanalysen](https://aka.ms/cost
 
 ![Exempel som visar var du väljer amorterad kostnad i kostnadsanalys](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Gruppera efter avgiftstyp om du vill visa en uppdelning av användning, inköp och återbetalningar, eller efter reservation om du vill visa en uppdelning av reservationskostnader och kostnader på begäran. Kom ihåg att de enda reservations kostnader som du ser när du tittar på den faktiska kostnaden är inköp, men kostnaderna allokeras till de enskilda resurserna som använde förmånen när du tittar på en periodiserad kostnad. Du ser också en ny **UnusedReservation**-avgiftstyp när du tittar på en amorterad kostnad.
+Gruppera efter avgiftstyp om du vill visa en uppdelning av användning, inköp och återbetalningar, eller efter reservation om du vill visa en uppdelning av reservationskostnader och kostnader på begäran. Kom ihåg att de enda reservationskostnader du ser när du tittar på den faktiska kostnaden är inköp, men att kostnaderna är allokerade till de enskilda resurserna som använde förmånen när du tittar på en amorterad kostnad. Du ser också en ny **UnusedReservation**-avgiftstyp när du tittar på en amorterad kostnad.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

@@ -1,5 +1,5 @@
 ---
-title: Fil villkor för användning och debitering av Microsofts kund avtal för Azure
+title: Termer relaterade till Azure-användning och -avgifter för Microsoft-kundavtal
 description: Lär dig hur du läser och förstår avsnitten i CSV-filen för Azure-användning och -avgifter för din faktureringsprofil.
 author: bandersmsft
 manager: jureid
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: b48cc5d5a36a382909adb250dd76b4f5783a4340
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990910"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termer i filen för Azure-användning och -avgifter för ett Microsoft-kundavtal
@@ -35,16 +35,16 @@ Om du var EA-kund ser du att termerna i CSV-filen med användning av Azure-faktu
 | CSV med Azure EA-användning | CSV med Azure-användning och -avgifter för Microsoft-kundavtal |
 | --- | --- |
 | Datum | date |
-| Månad| date |
-| Day | date |
-| Year | date |
+| Month| date |
+| Dag | date |
+| År | date |
 | Produkt | produkt |
 | MeterId | meterID |
 | MeterCategory | meterCategory |
 | MeterSubCategory | meterSubCategory |
 | MeterRegion | meterRegion |
 | MeterName | meterName |
-| ConsumedQuantity | kvantitet |
+| ConsumedQuantity | quantity |
 | ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
@@ -53,8 +53,8 @@ Om du var EA-kund ser du att termerna i CSV-filen med användning av Azure-faktu
 | ServiceInfo1 | serviceInfo1 |
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
-| Taggar | tagg |
-| StoreServiceIdentifier | Gäller inte |
+| Taggar | tags |
+| StoreServiceIdentifier | Ej tillämpligt |
 | DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
@@ -87,7 +87,7 @@ productOrderName | Unikt namn för produktbeställningen
 consumedService | Namnet på den förbrukade tjänsten
 meterId | Unik identifierare för mätaren
 meterName | Namnet på mätaren
-meterCategory | Namn på mätarens klassificeringskategori. Det här kan till exempel vara *Molntjänster* eller *Nätverk*.
+meterCategory | Namnet på mätarens klassificeringskategori. Det här kan till exempel vara *Molntjänster* eller *Nätverk*.
 meterSubCategory | Namnet på mätarens underkategori
 meterRegion | Namnet på den region där mätaren för tjänsten är tillgänglig. Anger datacentrets plats för vissa tjänster som prissätts beroende på var datacentret ligger.
 offer | Namnet på det köpta erbjudandet
@@ -105,14 +105,14 @@ resourceId | Unik identifierare för resursinstansen
 resourceType | Typ av resursinstans
 resourceLocation | Identifierar platsen för det datacenter där resursen körs.
 location | Normaliserad plats för resursen om olika resursplatser konfigureras för samma regioner
-kvantitet | Antalet köpta eller förbrukade enheter
-unitOfMeasure | Måttenheten för fakturering av tjänsten. Beräkningstjänster debiteras exempelvis per timme.
-chargeType | Typen av avgift. Värden: <ul><li>Avgifts användning: avgifter som periodiseras baserat på användningen av en Azure-tjänst. Detta inkluderar användning mot virtuella datorer som inte debiteras på grund av reserverade instanser.</li><li>Debiterad-PurchaseMarketplace: antingen engångs-eller fasta återkommande avgifter från Marketplace-inköp</li><li>Debiterad-UsageMarketplace: avgifter för Marketplace-tjänster som debiteras baserat på förbruknings enheter</li></ul>
-isAzureCreditEligible | Flagga som anger om avgiften mot tjänsten är berättigad att betalas för användning av Azure-krediter (värden: true, false)
+quantity | Antalet köpta eller förbrukade enheter
+unitOfMeasure | Måttenheten för fakturering av tjänsten. Till exempel faktureras beräkningstjänster per timme.
+chargeType | Typen av avgift. Värden: <ul><li>AsCharged-Usage: Avgifter som ådras baserat på användning av en Azure-tjänst. Detta inkluderar användning mot virtuella datorer som inte debiteras på grund av reserverade instanser.</li><li>AsCharged-PurchaseMarketplace: Antingen engångsavgifter eller fasta återkommande avgifter från Marketplace-inköp</li><li>AsCharged-UsageMarketplace: Avgifter för Marketplace-tjänster som debiteras baserat på förbrukningsenheter</li></ul>
+isAzureCreditEligible | Flagga som anger huruvida avgiften mot tjänsten är berättigad att betalas för med hjälp av Azure-krediter (värden: True, False)
 serviceInfo1 | Tjänstspecifika metadata
 serviceInfo2 | Ett äldre fält som registrerar valfria tjänstspecifika metadata
 additionalInfo | Ytterligare tjänstspecifika metadata.
-tagg | Taggar som du tilldelar till resursen
+tags | Taggar som du tilldelar till resursen
 
 ### <a name="make-sure-that-charges-are-correct"></a>Kontrollera att avgifterna är korrekta
 

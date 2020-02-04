@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
 ms.openlocfilehash: f7382fc81bbb7e0f3ac61b19c1efa1e7de3e9ed7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995473"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Så tillämpas en reservationsrabatt på Azure SQL-databaser
@@ -29,21 +29,21 @@ Information om reserverade VM-instanser finns i artikeln om [hur rabatt för Azu
 
 Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget *försvinner* de reserverade timmarna.
+När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
 ## <a name="discount-applied-to-sql-databases"></a>Rabatt som tillämpas på SQL-databaser
 
- Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs under en hel timme tillämpas automatiskt reservationen på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte den fullständiga fördelen med reservationsrabatten för den timmen.
+ Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs timmen ut tillämpas reservationen automatiskt på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte den fullständiga fördelen med reservationsrabatten för den timmen.
 
 I följande exempel visas hur rabatten för reserverad SQL Database-kapacitet tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
-- Scenario 1: du köper en SQL Database reserverad kapacitet för en 8 core SQL Database. Du kör en 16-kärnig SQL Database som matchar resten av reservationens attribut. Du debiteras Betala per användning-pris för 8 kärnor med SQL Database-beräkningsanvändning. Du får reservationsrabatten för en timme med 8-kärnig SQL Database-beräkningsanvändning.
+- Scenario 1: Du köper en reserverad SQL Database-kapacitet för en 8-kärnig SQL Database. Du kör en 16-kärnig SQL Database som matchar resten av reservationens attribut. Du debiteras Betala per användning-pris för 8 kärnor med SQL Database-beräkningsanvändning. Du får reservationsrabatten för en timme med 8-kärnig SQL Database-beräkningsanvändning.
 
 För resten av dessa exempel förutsätter vi att den reserverade SQL Database-kapacitet som du köper är avsedd för en 16-kärnig SQL Database och att resten av reservationens attribut matchar de SQL-databaser som körs.
 
-- Scenario 2: du kör två SQL-databaser med 8 kärnor per timme. Reservationsrabatten för 16 kärnor används för beräkningsanvändning för båda de 8-kärniga SQL-databaserna.
-- Scenario 3: du kör 1 16 core SQL Database från 1 PM till 1:30 PM. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Båda omfattas av reservationsrabatten.
-- Scenario 4: du kör 1 16 core SQL Database från 1 PM till 1:45 PM. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
+- Scenario 2: Du kör två 8-kärniga SQL-databaser i en timme. Reservationsrabatten för 16 kärnor används för beräkningsanvändning för båda de 8-kärniga SQL-databaserna.
+- Scenario 3: Du kör en 16-kärnig SQL Database från kl. 13:00 till 13:30. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Båda omfattas av reservationsrabatten.
+- Scenario 4: Du kör en 16-kärnig SQL Database från kl. 13:00 till 13:45. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
 
 Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](understand-reserved-instance-usage-ea.md).
 

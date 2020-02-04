@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 8680a575872053f4b575db70ec649b6c1669b961
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992145"
 ---
 # <a name="azure-enterprise-rest-apis"></a>REST-API:er för Azure Enterprise
@@ -70,7 +70,7 @@ Skicka API-nyckeln i varje anrop för autentisering och auktorisering. Skicka f�
 
 | Nyckel för begärandehuvud | Värde |
 | --- | --- |
-| Autentisering | Ange värdet på det här formatet: **bearer {API\_KEY}**
+| Auktorisering | Ange värdet på det här formatet: **bearer {API\_KEY}**
 Exempel: bearer \&lt;APIKey\&gt; |
 
 ### <a name="swagger"></a>Swagger
@@ -86,8 +86,8 @@ När du använder ett API returneras statuskoder. De beskrivs i följande tabell
 | 200 | OK | Inget fel |
 | 401 | Behörighet saknas | Det gick inte att hitta API-nyckeln – ogiltig, har gått ut eller liknande |
 | 404 | Inte tillgänglig | Det gick inte att hitta rapportslutpunkten |
-| 400 | Felaktig begäran | Ogiltiga parametrar – datumintervall, EA-nummer eller liknande |
-| 500 | Serverfel | Ett oväntat fel inträffade när begäran bearbetades |
+| 400 | Felaktig förfrågan | Ogiltiga parametrar – datumintervall, EA-nummer eller liknande |
+| 500 | Serverfel | Ett oväntat fel inträffade när förfrågan bearbetades |
 
 ### <a name="usage-and-billing-data-update-frequency"></a>Uppdateringsfrekvens för användnings- och faktureringsdata
 
@@ -122,9 +122,9 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Prenumerationens namn | SubscriptionName | SubscriptionName |   |
 | Datum | Datum | Datum | Visar datumet när tjänstkatalogsrapporten kördes. Formatet är en datumsträng utan tidstämpel. |
-| Månad | Månad | Månad |   |
-| Day | Day | Day |   |
-| Year | Year | Year |   |
+| Month | Month | Month |   |
+| Day | Dag | Dag |   |
+| År | År | Year |   |
 | Produkt | BillableItemName | Produkt |   |
 | Mätar-ID | ResourceGUID | MeterId |   |
 | Mätarkategori | Tjänst | MeterCategory | Användbar när du ska hitta tjänster. Relevant för tjänster som har flera tjänsttyper. Ett exempel är virtuella datorer. |
@@ -144,7 +144,7 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 | Id för Store-tjänst   | OrderNumber | StoreServiceIdentifier   |   |
 | Avdelningsnamn | DepartmentName | DepartmentName |   |
 | Kostnadsställe | CostCenter | CostCenter |   |
-| Måttenhet | UnitOfMeasure | UnitOfMeasure | Exempel värden: timmar, GB, händelser, push-meddelanden, enhet, Enhetstimmar, MB, dagliga enheter |
+| Måttenhet | UnitOfMeasure | UnitOfMeasure | Exempelvärden: Timmar, GB, händelser, push-meddelanden, enhet, enhetstimmar, MB, dagliga enheter |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Azure Marketplace-rapport
@@ -157,9 +157,9 @@ JSON-formatet genereras från CSV-rapporten. Formatet är därför detsamma som 
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Prenumerationens namn | SubscriptionName |  SubscriptionName |
 | Datum | BillingCycle |  Datum (endast datum sträng, ingen tidsstämpel)
-| Månad | Månad |  Månad |
-| Day | Day |  Day |
-| Year | Year |  Year |
+| Month | Month |  Month |
+| Day | Dag |  Dag |
+| År | År |  År |
 | Mätar-ID | MeterResourceId |  MeterId |
 | Utgivarens namn | PublisherFriendlyName |  PublisherName |
 | Erbjudandets namn | OfferFriendlyName |  OfferName |

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera fakturering för Microsofts kund avtal – Azure
+title: Konfigurera fakturering för Microsoft-kundavtal – Azure
 description: Lär dig hur du konfigurerar ditt faktureringskonto för ett Microsoft-kundavtal.
 author: amberbhargava
 manager: amberb
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 117d657712eba8d24ab18987f3e761553c15a858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994641"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för ett Microsoft-kundavtal
@@ -86,7 +86,7 @@ Ditt nya faktureringskonto förenklar faktureringen för din organisation och ge
 1. Du använder faktureringskontot för att hantera faktureringen för ditt Microsoft-kundavtal. Enterprise-administratörer blir ägare till faktureringskontot. Mer information om faktureringskonto finns i [förstå faktureringskonto](../understand/mca-overview.md#your-billing-account).
 2. Du använder faktureringsprofilen för att hantera faktureringen för din organisation på ett liknande sätt som för din Enterprise-avtalsregistrering. Företagsadministratörer blir ägare till faktureringsprofilen. Mer information om faktureringsprofiler finns i [förstå faktureringsprofiler](../understand/mca-overview.md#billing-profiles).
 3. Du kan använda ett fakturaavsnitt för att organisera dina kostnader utifrån dina behov, ungefär som avdelningar i din Enterprise-avtalsregistrering. Avdelning blir fakturaavsnitt, och avdelningsadministratörer blir ägare av respektive fakturaavsnitt. Mer information om fakturaavsnitt finns i [förstå fakturaavsnitt](../understand/mca-overview.md#invoice-sections).
-4. De konton som skapades i ditt Enterprise-avtal stöds inte i det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt.
+4. De konton som skapades i ditt Enterprise-avtal stöds inte på det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt.
 
 ## <a name="changes-to-billing-administrator-access"></a>Ändringar av faktureringsadministratörers åtkomst
 
@@ -132,7 +132,7 @@ Följande avsnitt innehåller ytterligare information om hur du konfigurerar dit
 
 ### <a name="no-service-downtime"></a>Inget avbrott i tjänsten
 
-Azure-tjänster i din prenumeration löper på utan avbrott. Vi flyttar bara faktureringsrelationen för dina Azure-prenumerationer. Befintliga resurser, resursgrupper eller hanteringsgrupper påverkas inte.
+Azure-tjänster i din prenumeration fortsätter att köras utan avbrott. Vi flyttar bara faktureringsrelationen för dina Azure-prenumerationer. Befintliga resurser, resursgrupper och hanteringsgrupper påverkas inte.
 
 ### <a name="user-access-to-azure-resources"></a>Användaråtkomst till Azure-resurser
 
@@ -140,7 +140,7 @@ Azure-tjänster i din prenumeration löper på utan avbrott. Vi flyttar bara fak
 
 ### <a name="azure-reservations"></a>Azure-reservationer
 
-Azure-reservationer i din Enterprise-avtalsregistrering flyttas till ditt nya faktureringskonto. Vid övergången tillämpas inga ändringar av reservationsrabatter som tillämpas på dina prenumerationer.
+Azure-reservationer i din Enterprise-avtalsregistrering flyttas till ditt nya faktureringskonto. Vid övergången sker inga ändringar av reservationsrabatter som tillämpas på dina prenumerationer.
 
 ### <a name="azure-marketplace-products"></a>Azure Marketplace-produkter
 
@@ -186,7 +186,7 @@ För att slutföra konfigurationen behöver du tillgång till både det nya fakt
 
     - En faktureringshierarki som motsvarar din Enterprise-avtalshierarki skapas i det nya faktureringskontot. Mer information finns i [förstå ändringar i din faktureringshierarki](#understand-changes-to-your-billing-hierarchy).
     - Administratörer från din Enterprise-avtalsregistrering får åtkomst till det nya faktureringskontot så att de fortsätter att hantera faktureringen för din organisation.
-    - Faktureringen för dina Azure-prenumerationer överförs till det nya kontot. **Det påverkar inte dina Azure-tjänster under över gången. De kommer att fortsätta köras utan avbrott**.
+    - Faktureringen för dina Azure-prenumerationer överförs till det nya kontot. **Dina Azure-tjänster påverkas inte under övergången. De fortsätter att köras utan avbrott**.
     - Om du har Azure-reservationer flyttas de till det nya faktureringskontot utan att fördelarna eller perioden ändras.
 
 4. Du kan övervaka status för övergången på sidan **Övergångsstatus**.

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: 74cf3f197895823bcbd94db0bf3c7bd8065df767
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988141"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Felsöka problem med inloggning för Azure-prenumeration
@@ -32,7 +32,7 @@ Om sidan i webbläsaren låser sig provar du vart och ett av följande steg till
 
 - Uppdatera sidan.
 - Använd en annan webbläsare.
-- Använd privat surfläge för webbläsaren. För Internet Explorer: Klicka på **verktyg** > **säkerhet** > **InPrivate-surfning**och bläddra sedan och logga in i [Azure Portal](https://portal.azure.com/) eller [Azure konto Center](https://account.azure.com/Subscriptions).
+- Använd privat surfläge för webbläsaren. För Internet Explorer: Klicka på**Verktyg** > **Säkerhet** > **InPrivate-surfning** och gå till och logga in på[Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.azure.com/Subscriptions).
 
 ### <a name="you-are-automatically-signed-in-as-a-different-user"></a>Du loggas automatiskt in som en annan användare
 
@@ -42,22 +42,22 @@ Försök att lösa problemet på något av följande sätt:
 
 - Rensa cacheminnet och ta bort Internet-cookies. I Internet Explorer klickar du på **Verktyg** > **Internetalternativ** > **Ta bort**. Kontrollera att kryssrutorna för temporära filer, cookies, lösenord och webbläsarhistorik är markerade och klicka sedan på ta bort.
 - Återställ Internet Explorer-inställningarna för att återställa alla personliga inställningar som du har gjort. Klicka på **Verktyg** > **Internetalternativ** > **Avancerat** > välj rutan **Ta bort personliga inställningar** > **Återställ**.
-- Använd privat surfläge för webbläsaren. För Internet Explorer: Klicka på **verktyg** > **säkerhet** > **InPrivate-surfning**och bläddra sedan och logga in i [Azure Portal](https://portal.azure.com/) eller [Azure konto Center](https://account.azure.com/Subscriptions).
+- Använd privat surfläge för webbläsaren. För Internet Explorer:  Klicka på**Verktyg** > **Säkerhet** > **InPrivate-surfning** och gå till och logga in på[Azure-portalen](https://portal.azure.com/) eller [Azure-kontocentret](https://account.azure.com/Subscriptions).
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>Jag kan logga in men det står *Inga prenumerationer hittades*
 
-Det här problemet inträffar om du har valt fel katalog eller om kontot inte har tillräcklig behörighet.
+Det här problemet uppstår om du har valt fel katalog eller om ditt konto inte har tillräcklig behörighet.
 
-**Scenario 1:** Fel meddelandet tas emot i [Azure Portal](https://portal.azure.com/)
+**Scenario 1:** Felmeddelande visas i [Azure-portalen](https://portal.azure.com/)
 
 Så här åtgärdar du problemet:
 
-- Se till att du har valt rätt Azure-katalog genom att klicka på ditt konto längst upp till höger.
+- Se till att rätt Azure-katalog har valts genom att klicka på ditt konto längst uppe till höger.
 - Om rätt Azure-katalog har valts men du fortfarande får felmeddelandet ska du [lägga till ditt konto som ägare](add-change-subscription-administrator.md).
 
-**Scenario 2:** Fel meddelandet tas emot i [Azure-kontocenter](https://account.windowsazure.com/Subscriptions)
+**Scenario 2:** Felmeddelande visas i [Azure-kontocentret](https://account.windowsazure.com/Subscriptions)
 
-Kontrollera om kontot du använder är en kontoadministratör. Så här kontrollerar du vem som är kontoadministratör:
+Kontrollera om det konto som du använde är kontoadministratören. Så här kontrollerar du vem som är kontoadministratör:
 
 1. Logga in i [vyn Prenumerationer i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 

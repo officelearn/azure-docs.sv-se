@@ -12,10 +12,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 5ac0918fcd8c5a1eb9242d603a7e3433d0f709ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988466"
 ---
 # <a name="azure-consumption-api-overview"></a>Översikt över API:erna för Azure-förbrukning
@@ -92,7 +92,7 @@ API:et ger tillgång till:
 -   **Filtrering** – Filtrera din budget till en mindre delmängd resurser genom att använda följande konfigurerbara filter
     - Resursgrupp
     - Resursnamn
-    - Meter
+    - Mätare
 -   **Konfigurerbara tidsperioder för budget** – Ange hur ofta budgeten ska återställas och hur länge budgeten är giltig.
 
 Mer information finns i den tekniska specifikationen för [API:et för budgetar](https://docs.microsoft.com/rest/api/consumption/budgets).

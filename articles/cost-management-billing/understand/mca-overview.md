@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Microsoft kund avtals fakturering – Azure
+title: Kom igång med faktureringen för Microsoft-kundavtal – Azure
 description: Få bättre förståelse för faktureringskontot för ditt Microsoft-kundavtal
 author: bandersmsft
 manager: amberbhargava
@@ -11,15 +11,15 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: 7d26c98ae8e5b9b95038a4a775134282703fa7c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995122"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Kom igång med faktureringskontot för ditt Microsoft-kundavtal
 
-När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du använder faktureringskontot till att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Du kan även ha åtkomst till Azure via organisationens Enterprise-avtal eller Microsoft-kundavtal. För var och en av dessa scenarier skulle du ha ett separat faktureringskonto.
+När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du använder faktureringskontot till att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Du kan även ha åtkomst till Azure via organisationens Enterprise-avtal eller Microsoft-kundavtal. I den här situationen skulle du ha två separata faktureringskonton.
 
 Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
@@ -65,7 +65,7 @@ Med en faktureringsprofil kan du använda policyer för köp på Azure Marketpla
 
 Priser och servicenivåavtal för Azure-prenumerationer fastställs i Azure-planer. De aktiveras automatiskt när du skapar en faktureringsprofil. Alla fakturaavsnitt som är associerade med faktureringsprofilen kan använda dessa planer. Användare med åtkomst till fakturaavsnittet kan använda de här planerna till att skapa Azure-prenumerationer. Du kan använda följande Azure-planer i faktureringskonton för Microsoft-kundavtal:
 
-| Plan             | Definition  |
+| Planera             | Definition  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Användare kan skapa prenumerationer som kan köra alla typer av arbetsbelastningar.  |
 |Microsoft Azure Plan for Dev/Test | Visual Studio-prenumeranter kan skapa prenumerationer som är begränsade till arbetsbelastningar för utveckling eller tester. Dessa prenumerationer har fördelar som lägre priser och åtkomst till exklusiva avbildningar av virtuella datorer i Azure-portalen. |

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 986af72ed2ac10a285cfe32768d8541b7fce2428
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990000"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Felsöka betalningsproblem med Azure
@@ -50,7 +50,7 @@ Information om hur du felsöker det här problemet finns i [Inloggningsfelet Ing
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Det går inte att betala för en prenumeration
 
-Om du får fel meddelandet: *betalningen har förfallit. Det har uppstått ett problem med din betalnings metod* eller *så kan du tyvärr inte spara informationen. Stäng webbläsaren och försök igen.* det finns en väntande betalning på kortet eftersom kortet nekades av ditt finansiella institut.
+Om du får följande felmeddelande: *Betalningen har förfallit. Det föreligger ett problem med betalningsmetoden* eller *Det går inte att spara informationen. Stäng webbläsaren och försök igen.* finns det en väntande betalning på kortet eftersom kortet nekades av ditt finansinstitut.
 
 Kontrollera att kreditkortet har tillräckligt med saldo för att betala. Om det inte har det använder du ett annat kort för att betala eller kontaktar finansinstitutet för att lösa problemet.
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: e6858d51eec1bbcb100f71418337d74d19d6db5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994732"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren i din faktura från Microsoft Azure
@@ -53,7 +53,7 @@ Avsnittet med kontoinformation på fakturan står överst på den första sidan 
 | Betalningsmetod |Typ av betalning som används för kontot (faktura eller kreditkort) |
 | Fakturera till |Den faktureringsadress som är angiven för kontot |
 | Prenumerationserbjudande (betala per användning) |Typen av prenumerationserbjudande som har köpts (som betala per användning, BizSpark Plus eller Azure-pass). Mer information finns i [Typer av Azure-erbjudanden](https://azure.microsoft.com/support/legal/offer-details/). |
-| E-postadress till kontoägaren | Den e-postadress som Microsoft Azure-kontot är registrerat under. <br /><br />Om du vill ändra e-postadressen kan du läsa artikeln [Så ändrar du informationen i din Azure-kontoprofil som e-postadress, postadress och telefonnummer](../manage/change-azure-account-profile.md). |
+| E-postadress till kontoägaren | Den e-postadress som är registrerad för Microsoft Azure-kontot. <br /><br />Om du vill ändra e-postadressen kan du läsa artikeln [Så ändrar du informationen i din Azure-kontoprofil som e-postadress, postadress och telefonnummer](../manage/change-azure-account-profile.md). |
 
 ### <a name="understand-the-invoice-summary"></a>Förstå sammanfattningen av fakturan
 I avsnittet **Fakturasammanfattning** på fakturan står de totala transaktionsbeloppen sedan din senaste faktureringsperiod och aktuella avgifter för användning.
@@ -76,7 +76,7 @@ I avsnittet med aktuella avgifter på fakturan visas information om dina månads
 
 | Period | Beskrivning |
 | --- | --- |
-| Användningsdebitering |Avgifter för användning är summan av månadsavgifterna i prenumerationen under den aktuella faktureringsperioden|
+| Avgifter för användning |Avgifter för användning är summan av månadsavgifterna i prenumerationen under den aktuella faktureringsperioden|
 | Rabatter |Rabatter för olika tjänster under den aktuella faktureringsperioden|
 | Justeringar |Diverse krediter (som kostnadsfri användning eller krediter) eller utestående avgifter som påförts den aktuella faktureringsperioden.<br/><br/>Om du till exempel har erbjudandet Visual Studio Enterprise med MSDN ser du en månatlig kredit här. Om du avbryter din prenumeration ser du eventuella avgifter för månatlig användning som överstiger den månatliga krediten som du får med prenumerationserbjudandet. Avgifterna debiteras från början av den aktuella faktureringsperioden fram till datumet när prenumerationen avbröts. |
 
@@ -89,7 +89,7 @@ I följande tabell beskrivs termerna Såldes till och Betalningsanvisningar som 
 | Såldes till |Profiladress som är registrerad för kontot. <br/><br/>Om du behöver ändra adressen kan du läsa artikeln [Så ändrar du informationen i din Azure-kontoprofil som e-postadress, postadress och telefonnummer](../manage/change-azure-account-profile.md).|
 | Betalningsanvisningar |Betalningsanvisningar som beror på betalningsmetoden (till exempel kreditkort eller faktura). |
 
-#### <a name="usage-charges"></a>Användningsdebitering
+#### <a name="usage-charges"></a>Avgifter för användning
 
 I avsnittet Avgifter för användning på fakturan ser du information på mätarnivå om dina avgifter.
 
@@ -106,7 +106,7 @@ I följande tabell beskrivs kolumnrubrikerna för avgifterna för användning p�
 | Förbrukad |Mängden av mätaren som använts under faktureringsperioden |
 | Ingår |Mängden av mätaren som ingår utan kostnad under den aktuella faktureringsperioden |
 | Faktureringsbar |Visar skillnaden mellan mängden under Förbrukad och under Ingår. Det här är beloppet du faktureras. För erbjudanden med betalning per användning där inget belopp ingår i erbjudandet är denna summa samma som summan under Förbrukad |
-| Kurs |Priset du debiteras per faktureringsbar enhet |
+| Pris |Priset du debiteras per faktureringsbar enhet |
 | Värde |Resultatet av kolumnen Faktureringsbar gånger kolumnen Pris. Om mängden under Förbrukad inte överstiger mängden under Ingår visas inga avgifter i den här kolumnen. |
 | Delsumma |Summan av alla avgifter exklusive moms för den här faktureringsperioden |
 | Totalsumma |Summan av alla avgifter inklusive moms för den här faktureringsperioden |

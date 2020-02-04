@@ -1,5 +1,5 @@
 ---
-title: Reservations rabatter för Azure App Service
+title: Reservationsrabatter för Azure App Service
 description: Lär dig hur reservationsrabatter tillämpas på Azure App Service Isolerad-stämplar.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1294ee126ecef1f635ffc4d6bec6da02c6171897
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995798"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Så tillämpas reservationsrabatter på Azure App Service Isolerad-stämplar
@@ -39,10 +39,10 @@ Den enda gång du bör köpa en Linux-reservation är om du planerar att _endast
 
 I följande exempel visas hur rabatten reserverad instans för isolerad stämpelavgift tillämpas beroende på distributionerna.
 
-- **Exempel 1**: du köper en instans av isolerad reserverad stämpel i en region utan några App Service isolerad stämplar. Du distribuerar en ny stämpel till regionen och betalar reserverade priser för den stämpeln.
-- **Exempel 2**: du köper en instans av isolerad reserverad Stamp-kapacitet i en region som redan har en app service isolerad-stämpel distribuerad. Du börjar få det reserverade priset för den distribuerade stämpeln.
-- **Exempel 3**: du köper en instans av isolerad reserverad Stamp-kapacitet i en region med en app service isolerad stämpel som redan har distribuerats. Du börjar få det reserverade priset för den distribuerade stämpeln. Senare tar du bort stämpeln och distribuerar en ny. Du får det reserverade priset för den nya stämpeln. Rabatter förs inte vidare för varaktigheter utan distribuerade stämplar.
-- **Exempel 4**: du köper en instans av en isolerad Linux-standardstämpel i en region och sedan distribuerar en ny stämpel till regionen. När stämpeln ursprungligen distribueras utan arbetare skickar den Windows-stämpelmätaren. Ingen rabatt fås. När det första Linux-arbetet distribueras till stämpeln skickar det Linux-stämpelmätaren, och reservationsrabatten tillämpas. Om ett Windows-arbete senare distribueras till stämpeln återgår stämpelmätaren till Windows. Du får inte längre rabatt för reservationen av reserverad isolerad Linux-stämpel.
+- **Exempel 1**: Du köper en instans av reserverad kapacitet för isolerad stämpel i en region utan App Service Isolerad-stämplar. Du distribuerar en ny stämpel till regionen och betalar reserverade priser för den stämpeln.
+- **Exempel 2**: Du köper en instans av reserverad kapacitet för isolerad stämpel i en region där det redan finns en App Service Isolerad-stämpel distribuerad. Du börjar få det reserverade priset för den distribuerade stämpeln.
+- **Exempel 3**: Du köper en instans av reserverad kapacitet för isolerad stämpel i en region där det redan finns en App Service Isolerad-stämpel distribuerad. Du börjar få det reserverade priset för den distribuerade stämpeln. Senare tar du bort stämpeln och distribuerar en ny. Du får det reserverade priset för den nya stämpeln. Rabatter förs inte vidare för varaktigheter utan distribuerade stämplar.
+- **Exempel 4**: Du köper en instans av reserverad kapacitet för isolerad stämpel i en region och distribuerar sedan en ny stämpel i den regionen. När stämpeln ursprungligen distribueras utan arbetare skickar den Windows-stämpelmätaren. Ingen rabatt fås. När det första Linux-arbetet distribueras till stämpeln skickar det Linux-stämpelmätaren, och reservationsrabatten tillämpas. Om ett Windows-arbete senare distribueras till stämpeln återgår stämpelmätaren till Windows. Du får inte längre rabatt för reservationen av reserverad isolerad Linux-stämpel.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 992e46cd8f10ff3c434f34a9f90c777870f3ada4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995824"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API:er för Azure-reservationsautomation
@@ -82,7 +82,7 @@ Om du är EA-kund kan du programmatiskt visa hur organisationens reservationer a
 Gör så här om du märker att organisationens reservationer underutnyttjas:
 
 - Se till att de virtuella datorer som organisationen skapar matchar reservationens VM-storlek.
-- Se till att flexibilitet gällande instansernas storlek är aktiverad. Mer information finns i [Hantera reservationer – ändra optimeringsinställningen för reserverade VM-instanser](manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+- Se till att flexibel instansstorlek är aktiverat. Mer information finns i [Hantera reservationer – ändra optimeringsinställningen för reserverade VM-instanser](manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Ändra reservationsomfånget till delat så att det gäller mer allmänt. Mer information finns i [Hantera reservationer – ändra omfånget för en reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 - Byt ut den outnyttjade kvantiteten. Mer information finns i [Hantera reservationer](manage-reserved-vm-instance.md).
 
@@ -96,7 +96,7 @@ Hämta listan över alla reservationer som en användare har åtkomst till med h
 
 ## <a name="split-or-merge-reservation"></a>Dela eller sammanslå reservation
 
-När du har köpt fler än en resursinstans i en reservation kanske du vill tilldela instanserna i reservationen till olika prenumerationer. Du kan ändra reservationsomfånget så att det gäller för alla prenumerationer inom samma faktureringskontext. Men för kostnadshantering eller budgetering vill du kanske behålla omfånget som ”enstaka prenumeration” och tilldela reservationsinstanser till en specifik prenumeration.
+När du har köpt fler än en resursinstans i en reservation vill du kanske tilldela instanserna i den reservationen till olika prenumerationer. Du kan ändra reservationsomfånget så att det gäller för alla prenumerationer inom samma faktureringskontext. Men för kostnadshantering eller budgetering vill du kanske behålla omfånget som ”enstaka prenumeration” och tilldela reservationsinstanser till en specifik prenumeration.
 
 Du delar en reservation med hjälp av API:et [Reservation – dela](/rest/api/reserved-vm-instances/reservation/split). Du kan även dela en reservation med hjälp av PowerShell. Mer information finns i [Hantera reservationer – dela upp en reservation i två reservationer](manage-reserved-vm-instance.md#split-a-single-reservation-into-two-reservations).
 

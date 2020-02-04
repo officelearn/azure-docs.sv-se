@@ -1,7 +1,7 @@
 ---
 title: Ladda ned din Azure-faktura och information om den dagliga användningen | Microsoft Docs
 description: Här beskrivs hur du laddar ned eller visar din Azure-faktura och information om den dagliga användningen.
-keywords: billing invoice,invoice download,azure invoice,azure usage
+keywords: faktura,ladda ned faktura,Azure-faktura,Azure-användning
 services: billing
 documentationcenter: ''
 author: genlin
@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: c5068dc38597d64634f19297fa7784de8d55d590
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992561"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din Azure-faktura och information om den dagliga användningen
@@ -54,7 +54,7 @@ För de flesta prenumerationer kan du ladda ned dina fakturor från Azure-portal
 
     ![Skärmbild som visar Ladda ned faktura och förbrukningssidan](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-Mer information om din faktura finns i [Förstå fakturan för Microsoft Azure](../understand/review-individual-bill.md). Om du behöver hjälp att hantera dina kostnader kan du läsa [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](getting-started.md).
+Mer information om din faktura finns i [Förstå fakturan för Microsoft Azure](../understand/review-individual-bill.md). Om du behöver hjälp att hantera dina kostnader kan du läsa [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](getting-started.md).
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Ladda ned fakturor för Microsoft-kundavtal
 
@@ -63,9 +63,9 @@ Fakturor genereras för varje [faktureringsprofil](../understand/mca-overview.md
 1. Sök efter **Kostnadshantering + fakturering**.
 2. Välj en faktureringsprofil.
 3. Välj **Fakturor**.
-4. Leta rätt på raden med fakturan du vill ladda ned i rutnätet.
+4. I fakturarutnätet letar du upp raden för den faktura som du vill ladda ned.
 5. Klicka på nedladdningsknappen i slutet av raden.
-6. Välj **Faktura** på snabbmenyn för nedladdningen.
+6. I snabbmenyn för nedladdning väljer du **Faktura**.
 
 Om du inte ser någon faktura för den senaste faktureringsperioden kan du läsa **Ytterligare information**. <!-- Fix this -->
 ### <a name="noinvoice"></a> Varför finns det inte en faktura för den senaste faktureringsperioden?
@@ -82,11 +82,11 @@ Det kan finnas flera orsaker till att den inte visas:
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Få din fakturera via e-post (.pdf)
 
-Du kan välja och konfigurera ytterligare mottagare som ska få din Azure-faktura via e-post. Den här funktionen är kanske inte tillgänglig för vissa prenumerationer såsom supporterbjudanden, Enterprise-avtal eller Azure i Open. Om du har ett Microsoft-kundavtal kan du läsa under Få fakturor för faktureringsprofilen via e-post.
+Du kan välja och konfigurera ytterligare mottagare som ska få din Azure-faktura via e-post. Den här funktionen kanske inte är tillgänglig för vissa prenumerationer som supporterbjudanden, Enterprise-avtal eller Azure i Open. Om du har ett Microsoft-kundavtal kan du läsa under Få fakturor för faktureringsprofilen via e-post.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Få prenumerationens fakturor via e-post
 
-1. Välj prenumerationen på sidan [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Anmäl dig för varje prenumeration som du äger. Klicka på **Fakturor** och sedan på **Skicka min faktura via e-post**.
+1. Välj prenumerationen på sidan [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Anmäl dig för varje prenumeration du äger. Klicka på **Fakturor** och sedan på **Skicka min faktura via e-post**.
 
     ![Skärmbild som visar anmälningsflödet](./media/download-azure-invoice-daily-usage-date/invoicesdeeplink01.png)
 
@@ -119,7 +119,7 @@ Om du har ett Microsoft-kundavtal kan du anmäla dig för att få dina fakturor 
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>Avanmäl dig från att få fakturor för fakturaprofilen via e-post
 
-Du kan välja att få din faktura via e-post genom att följa stegen ovan och klicka på ta **bort**. Alla ägare, deltagare, läsare och faktura hanterare kommer också att ingå i att få fakturan via e-post. Om du är läsare kan du inte ändra e-postinställningarna.
+Du kan välja att inte få din faktura via e-post genom att följa stegen ovan och klicka på **Avanmäl dig**. Alla ägare, deltagare, läsare och fakturaansvariga avanmäls också från att få fakturan via e-post. Om du är läsare kan du inte ändra e-postinställningarna.
 
 ## <a name="download-usage-in-azure-portal"></a>Nedladdningsförbrukning i Microsoft Azure-portalen
 

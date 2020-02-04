@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: c148351a4475bfdbee474a5e0951cc3b5717404e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995733"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Så här tillämpas rabatter för förhandsköp av Azure Databricks
@@ -29,7 +29,7 @@ Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i D
 
 | **Arbetsbelastning** | **DBU-tillämpningsgrad — Standard-nivå** | **DBU-tillämpningsgrad — Premium-nivå** |
 | --- | --- | --- |
-| Datanalys | 0,4 | 0,55 |
+| Dataanalys | 0,4 | 0,55 |
 | Datateknik | 0,15 | 0,30 |
 | Datateknik (lättversion) | 0,07 | 0,22 |
 

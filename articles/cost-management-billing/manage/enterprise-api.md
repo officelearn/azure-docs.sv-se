@@ -16,10 +16,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 513dac3a1cdcefa7a49116ea02af5410265af3ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992002"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över rapporterings-API:er för Enterprise-kunder
@@ -31,7 +31,7 @@ Med rapporterings-API:erna kan Enterprise-kunder hämta förbruknings- och faktu
 
 |Nyckel för begärandehuvud | Värde|
 |-|-|
-|Autentisering| Ange värdet i det här formatet: **bearer {API_KEY}** <br/> Exempel: bearer eyr....09|
+|Auktorisering| Ange värdet i det här formatet: **bearer {API_KEY}** <br/> Exempel: bearer eyr....09|
 
 ## <a name="consumption-apis"></a>Förbruknings-API:er
 En Swagger-slutpunkt [finns här](https://consumption.azure.com/swagger/ui/index) för API:erna som beskrivs nedan och bör underlätta introspektion av API:et och möjligheten att generera klient-SDK:er med hjälp av [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data från den 1 maj 2014 är tillgängliga via det här API:et.

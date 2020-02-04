@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: 33fa553e9148a1ac838e6bf53fc83cf7eadd7499
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992587"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
@@ -35,8 +35,8 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 |Faktureringskonto  |Behörighet  |
 |---------|---------|
 |Enterprise-avtal (EA) |  Rollen som kontoägare för Enterprise-avtalsregistreringen. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](understand-ea-roles.md).    |
-|Microsofts kundavtal |  Rollen som ägare eller deltagare för fakturaavsnittet, faktureringsprofilen eller faktureringskontot. Eller rollen som Azure-prenumerationsförfattare för fakturaavsnittet.  Mer information finns i [Roller och uppgifter för prenumerationsfakturering](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Microsoft-partneravtal (MPA) |   Rollen som global administratör eller administratörsrepresentant för CSP-partnerorganisationen. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).  Användaren måste logga in på partner innehavaren för att kunna skapa Azure-prenumerationer.   |
+|Microsoft-kundavtal (MCA) |  Rollen som ägare eller deltagare för fakturaavsnittet, faktureringsprofilen eller faktureringskontot. Eller rollen som Azure-prenumerationsförfattare för fakturaavsnittet.  Mer information finns i [Roller och uppgifter för prenumerationsfakturering](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
+|Microsoft-partneravtal (MPA) |   Rollen som global administratör eller administratörsrepresentant för CSP-partnerorganisationen. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).  Användaren måste logga in på partnerklientorganisationen för att skapa Azure-prenumerationer.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Skapa en prenumeration i Azure-portalen
 
@@ -66,7 +66,7 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 |---------|---------|
 |Faktureringsprofil     | Avgifterna för din prenumeration faktureras till den valda faktureringsprofilen. Om du bara har åtkomst till en faktureringsprofil blir valet nedtonat.     |
 |Fakturaavsnitt     | Avgifterna för din prenumeration visas i det här avsnittet på faktureringsprofilens faktura. Om du bara har åtkomst till ett enda fakturaavsnitt blir valet nedtonat.  |
-|Plan     | Välj Microsoft Azure-plan för DevTest om du planerar att använda den här prenumerationen för utvecklings- eller testningsarbetsbelastningar. I annat fall väljer du Microsoft Azure-plan. Om det bara är ett prenumerationsavtal aktiverat för faktureringsprofilen är det här valet nedtonat.  |
+|Planera     | Välj Microsoft Azure-plan för DevTest om du planerar att använda den här prenumerationen för utvecklings- eller testningsarbetsbelastningar. I annat fall väljer du Microsoft Azure-plan. Om det bara är ett prenumerationsavtal aktiverat för faktureringsprofilen är det här valet nedtonat.  |
 |Namn     | Visningsnamnet som gör att du enkelt kan identifiera prenumerationen i Azure-portalen.  |
 
 **Microsoft-partneravtal**

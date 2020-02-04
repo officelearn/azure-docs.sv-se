@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.openlocfilehash: 2f1843690861a463c634f523e82facffc72b6743
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995512"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Så tillämpas en reservationsrabatt på Azure Database for PostgreSQL – enskild server
@@ -32,15 +32,15 @@ Rabatten för reserverad kapacitet för Azure Database for PostgreSQL – enskil
 
 I följande exempel visas hur rabatten för reserverad kapacitet för Azure Database for PostgreSQL – enskild server tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
-* **Exempel 1**: du köper en Azure Database for PostgreSQL reserverad Server kapacitet för en 8-vcore. Om du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för PostgreSQL – enskild server och du får en reservationsrabatt för PostgreSQL – enskild server med 8 virtuella kärnor.</br>
+* **Exempel 1**: Du köper en reserverad kapacitet för Azure Database for PostgreSQL – enskild server för en med 8 virtuella kärnor. Om du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för PostgreSQL – enskild server och du får en reservationsrabatt för PostgreSQL – enskild server med 8 virtuella kärnor.</br>
 
 För resten av dessa exempel förutsätter vi att den reserverade kapaciteten för Azure Database for PostgreSQL – enskild server som du köper är avsedd för Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor och att resten av reservationens attribut matchar de enskilda Azure Database for PostgreSQL-servrar som körs.
 
-* **Exempel 2**: du kör två Azure Database for PostgreSQL enskilda servrar med 8 vCore per timme. Reservationsrabatten för 16 virtuella kärnor används för beräkningsanvändning för båda Azure Database for PostgreSQL – enskild server med 8 virtuella kärnor.
+* **Exempel 2**: Du kör två enskilda Azure Database for PostgreSQL-servrar med 8 virtuella kärnor i en timme. Reservationsrabatten för 16 virtuella kärnor används för beräkningsanvändning för båda Azure Database for PostgreSQL – enskild server med 8 virtuella kärnor.
 
-* **Exempel 3**: du kör 1 16 VCore Azure Database for PostgreSQL en server från 1 pm till 1:30 PM. Du kör en annan Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Båda omfattas av reservationsrabatten.
+* **Exempel 3**: Du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:00 till kl. 13:30. Du kör en annan Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Båda omfattas av reservationsrabatten.
 
-* **Exempel 4**: du kör 1 16 VCore Azure Database for PostgreSQL en server från 1 pm till 1:45 PM. Du kör en annan Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
+* **Exempel 4**: Du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:00 till kl. 13:45. Du kör en annan Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
 
 Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 

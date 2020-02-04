@@ -1,5 +1,5 @@
 ---
-title: Spara på SQL Data Warehouse avgifter med reserverad Azure-kapacitet
+title: Sänk dina SQL Data Warehouse-kostnader med reserverad kapacitet i Azure
 description: Lär dig hur du kan sänka dina SQL Data Warehouse-kostnader med reserverad kapacitet.
 services: billing
 author: yashesvi
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: b4069c9b18f9591e79d983a1317f00df11cf0611
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995850"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Sänk dina SQL Data Warehouse-kostnader med reserverad kapacitet
 
-Du kan spara pengar med Azure SQL Data Warehouse genom att köpa en reservation för din cDWU-användning under ett eller tre år. Om du vill köpa reserverad kapacitet för SQL Data Warehouse måste du välja Azure-region och period. Lägg därefter till SQL Data Warehouse SKU:n till din kundvagn och välj den mängd cDWU-enheter du vill köpa.
+Du kan spara pengar med Azure SQL Data Warehouse genom att köpa en reservation för din cDWU-användning under ett eller tre år. Om du vill köpa reserverad kapacitet för SQL Data Warehouse måste du välja Azure-region och period. Sedan lägger du till SKU:er för SQL Data Warehouse i kundvagnen och väljer hur många cDWU-enheter du vill köpa.
 
-När du köper en reservation debiteras inte längre den SQL Data Warehouse-användning som matchar reservationsattributen enligt användningsbaserade priser.
+När du köper en reservation används inte längre Betala per användning-priser för SQL Data Warehouse-användning som matchar reservationsattributen.
 
-En reservation täcker inte lagrings- eller nätverkskostnader kopplade till SQL Data Warehouse-användningen.
+En reservation täcker inte avgifter för lagrings eller nätverk kopplade till SQL Data Warehouse-användningen.
 
-När den reserverade kapaciteten löper ut, fortsätter SQL Data Warehouse-instanserna att köras men debiteras enligt användningsbaserade priser. Reservationer förnyas inte automatiskt.
+När den reserverade kapaciteten löper ut fortsätter SQL Data Warehouse-instanserna att köras men debiteras då enligt Betala per användning-priser. Reservationer förnyas inte automatiskt.
 
 Du hittar prisinformation i [Erbjudanden om reserverad kapacitet för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
@@ -45,13 +45,13 @@ Anta till exempel att din totala förbrukning av SQL Data Warehouse är DW3000c.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Alla tjänster** > **Reservationer**.
-3. Välj en prenumeration. Använd prenumerationslistan och välj den prenumeration som används till att betala för den reserverade kapaciteten. Den reserverade kapaciteten debiteras via betalningsmetoden för prenumerationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P).
+3. Välj en prenumeration. Använd prenumerationslistan och välj den prenumeration som används till att betala för den reserverade kapaciteten. Den reserverade kapaciteten debiteras via betalningsmetoden för prenumerationen. Prenumerationstypen måste vara EA (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P), betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P).
    - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
    - Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.
 4. Välj ett omfång. Välj ett prenumerationsomfång i omfångslistan.
-   - **Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.
+   - **Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.
    - **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
-   - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är registreringen faktureringskontext. För enskilda prenumerationer med Betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.
+   - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är registreringen faktureringskontext. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
    - För Enterprise-kunder är EA-registreringen faktureringskontext.
    - För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.
 5. Välj en region som den reserverade kapaciteten ska täcka.

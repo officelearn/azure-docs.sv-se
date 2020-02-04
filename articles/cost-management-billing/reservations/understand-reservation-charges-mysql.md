@@ -10,10 +10,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.openlocfilehash: 7be3a7913559947be1291db35ac3531f152dfae9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995551"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Så tillämpas en reservationsrabatt på Azure Database for MySQL
@@ -32,15 +32,15 @@ Rabatten för reserverad Azure Database for MySQL-kapacitet tillämpas timvis p�
 
 I följande exempel visas hur rabatten för reserverad Azure Database for MySQL-kapacitet tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
-* **Exempel 1**: du köper en Azure Database for MySQL reserverad kapacitet för en 8-vcore. Om du kör en Azure Database for MySQL-server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för MySQL-servern och du får en reservationsrabatt för MySQL-server med 8 virtuella kärnor.</br>
+* **Exempel 1**: Du köper en reserverad Azure Database for MySQL-kapacitet för en med 8 virtuella kärnor. Om du kör en Azure Database for MySQL-server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för MySQL-servern och du får en reservationsrabatt för MySQL-server med 8 virtuella kärnor.</br>
 
 För resten av dessa exempel förutsätter vi att den reserverade Azure Database for MySQL-kapacitet som du köper är avsedd för en SQL Database med 16 virtuella kärnor och att resten av reservationens attribut matchar de MySQL-servrar som körs.
 
-* **Exempel 2**: du kör två Azure Database for MySQL-servrar med 8 vCore per timme. Reservationsrabatten för 16 virtuella kärnor används för beräkningsanvändning för båda Azure Database for MySQL-servrarna med 8 virtuella kärnor.
+* **Exempel 2**: Du kör två Azure Database for MySQL-servrar med 8 virtuella kärnor i en timme. Reservationsrabatten för 16 virtuella kärnor används för beräkningsanvändning för båda Azure Database for MySQL-servrarna med 8 virtuella kärnor.
 
-* **Exempel 3**: du kör 1 16 vCore Azure Database for MySQL server från 1 pm till 1:30 PM. Du kör en annan Azure Database for MySQL-server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Båda omfattas av reservationsrabatten.
+* **Exempel 3**: Du kör en Azure Database for MySQL-server med 16 virtuella kärnor från kl. 13:00 till kl. 13:30. Du kör en annan Azure Database for MySQL-server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Båda omfattas av reservationsrabatten.
 
-* **Exempel 4**: du kör 1 16 vCore Azure Database for MySQL server från 1 pm till 1:45 PM. Du kör en annan Azure Database for MySQL-server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
+* **Exempel 4**: Du kör en Azure Database for MySQL-server med 16 virtuella kärnor från kl. 13:00 till kl. 13:45. Du kör en annan Azure Database for MySQL-server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
 
 Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 

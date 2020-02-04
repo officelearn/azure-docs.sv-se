@@ -13,10 +13,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989428"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Förstå dina kostnader för externa Azure-tjänster
@@ -29,7 +29,7 @@ Externa tjänster publiceras av tredjepartsleverantörer av programvara på Azur
 - Varje extern tjänst har en specifik faktureringsmodell. Vissa tjänster debiteras med användningsbaserad betalning, medan andra har fasta månadsavgifter.
 - Du kan inte använda månatliga kostnadsfria krediter för externa tjänster. Om du använder en Azure-prenumeration som ger rätt till [kostnadsfria krediter](https://azure.microsoft.com/pricing/spending-limits/) kan de inte användas för debiteringar från externa tjänster. När du etablerar en ny extern tjänst eller resurs visas en varning:
 
-    ![Marketplace-inköpsvarning](./media/understand-azure-marketplace-charges/credit-warning.png)
+    ![Varning om inköp på Marketplace](./media/understand-azure-marketplace-charges/credit-warning.png)
 
 <!-- ## View external service spending and history in the Azure portal
 You can view a list of the external services that are on each subscription within the [Azure portal](https://portal.azure.com/):
@@ -57,7 +57,7 @@ Om du inte har något MCA eller MPA får du separata fakturor för avgifter frå
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter **Kostnadshantering + fakturering**.
 1. På den vänstra menyn väljer du **Fakturor**.
-1. Klicka på fliken **Azure Marketplace och reservationer** .  ![bild av fliken för Azure Marketplace och reservationer](./media/understand-azure-marketplace-charges/invoice-tabs.png)
+1. Klicka på fliken **Azure Marketplace och reservationer**.  ![Bild av fliken Azure Marketplace och reservationer](./media/understand-azure-marketplace-charges/invoice-tabs.png)
 1. I listrutan för prenumerationer väljer du den prenumeration som innehåller de externa tjänster som du vill visa fakturor för.
 
 ## <a name="external-spending-for-ea-customers"></a>Externa utgifter för EA-kunder

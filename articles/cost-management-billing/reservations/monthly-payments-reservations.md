@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: banders
 ms.openlocfilehash: cf9bb7f3b9661d5957ad569fce7112fe16659761
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995954"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Betala för reservationer via månadsbetalningar
 
-Fram till nu har du varit tvungen att betala för Azure-reservationer i förväg. Nu kan du betala för reservationer via månadsbetalningar. När du betalar per månad delar du upp totalkostnaden för reservationen mellan de avtalade månaderna snarare än att betala hela beloppet i förväg. Totalbeloppet för reservationer är detsamma oavsett om du betalar i förväg eller per månad. Det tillkommer inte några extra avgifter när du väljer månadsbetalning.
+Fram till nu har du varit tvungen att betala för Azure-reservationer i förväg. Nu kan du betala för reservationer via månadsbetalningar. När du betalar per månad delar du upp totalkostnaden för reservationen mellan de avtalade månaderna snarare än att betala hela beloppet i förväg. Totalbeloppet är detsamma oavsett om du betalar i förväg eller per månad, det tillkommer inte några extra avgifter när du väljer månadsbetalning.
 
 Beloppet du betalar per månad kan variera beroende på den aktuella månadens växelkurs för din lokala valuta.
 
 Månadsbetalningar är tillgängliga för:
 
-- Virtuella maskiner
+- Virtuella datorer
 - Azure Storage
 - SQL Database
 - SQL Data Warehouse

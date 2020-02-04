@@ -1,5 +1,5 @@
 ---
-title: Villkor i pris dokumentet för ditt Microsoft-kund avtal – Azure
+title: Termer i prisdokumentet för ett Microsoft-kundavtal – Azure
 description: Lär dig att läsa och förstå din användning och fakturering för ett Microsoft-kundavtal.
 author: bandersmsft
 manager: jureid
@@ -12,15 +12,15 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
 ms.openlocfilehash: 44ead1d376bf8b57134380db90733ed48deda14e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994485"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termer i prisdokumentet för ett Microsoft-kundavtal
 
-Den här artikeln gäller för ett Azure-faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
+Den här artikeln gäller ett Azure-faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
 Om du har rollen ägare, deltagare, läsare eller fakturaansvarig för en faktureringsprofil kan du ladda ned organisationens prisdokument från Azure-portalen. Läs mer i [Visa och ladda ned din organisations priser](ea-pricing.md).
 
@@ -43,18 +43,18 @@ I följande avsnitt beskrivs de viktigaste termerna i prisdokumentet för ett Mi
 | includedQuantity | De kvantiteter av en specifik tjänst som en kund har rätt att använda utan ytterligare avgifter. |
 | marketPrice | Aktuellt, gällande marknadspris för en specifik tjänst. |
 | meterId  | Unik identifierare för mätaren. |
-| meterCategory  | Namn på mätarens klassificeringskategori. Det här kan till exempel vara _Molntjänster_ eller _Nätverk_. |
+| meterCategory  | Namnet på mätarens klassificeringskategori. Det här kan till exempel vara _Molntjänster_ eller _Nätverk_. |
 | meterName  | Namnet på mätaren. Mätaren representerar den distribuerbara resursen för en Azure-tjänst. |
 | meterSubCategory  | Namnet på mätarens underkategori.  |
 | meterType  |  Namnet på mätartypen. |
-| meterRegion  | Namnet på den region där mätaren för tjänsten är tillgänglig. Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.    |
-| Produkt  | Namnet på den produkt som påförs avgifterna. Ex: Basic SQL DB vs standard SQL DB  |
+| meterRegion  | Namnet på regionen där mätaren för tjänsten är tillgänglig. Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.    |
+| Produkt  | Namnet på produkten som avgifterna gäller, till exempel Basic SQL DB eller Standard SQL DB  |
 | productId  | Unik identifierare för produkten vars mätare förbrukas. |
 | productOrderName  | Namnet på den köpta produktplanen. |
-| serviceFamily  | Typ av Azure-tjänst. Till exempel: Compute, Analytics, Security |
+| serviceFamily  | Typ av Azure-tjänst, till exempel Compute, Analytics, Security |
 | tierMinimumUnits  | Definierar den nedre gränsen för nivåintervallet som priserna gäller. Om intervallet till exempel är 0 till 100 skulle tierMinimumUnits vara 0.  |
-| unitOfMeasure  | Anger måttenheten för fakturering av tjänsten. Beräkningstjänster debiteras exempelvis per timme. |
-| unitPrice  | Pris per enhet vid faktureringstillfället (inte det effektiva blandade priset) som är specifikt för en mätare och ett produktbeställningsnamn.  Obs! enhets priset är inte detsamma som det effektiva priset i användnings informationen laddas ned i händelse av tjänster som har differentiella priser på flera nivåer.  När det gäller tjänster med olika priser för olika nivåer så är det effektiva priset en blandning av de olika prisnivåerna och då visas inget nivåspecifikt enhetspris. Det blandade priset eller det effektiva priset är nettopriset för den förbrukade kvantiteten och sträcker sig över flera nivåer (där varje nivå har ett visst enhetspris). |
+| unitOfMeasure  | Anger måttenheten för fakturering av tjänsten. Till exempel faktureras beräkningstjänster per timme. |
+| unitPrice  | Pris per enhet vid faktureringstillfället (inte det effektiva blandade priset) som är specifikt för en mätare och ett produktbeställningsnamn.  Obs! Enhetspriset är inte detsamma som det effektiva priset i användningsinformationen när det gäller tjänster som har olika priser för olika nivåer.  När det gäller tjänster med olika priser för olika nivåer så är det effektiva priset en blandning av de olika prisnivåerna och då visas inget nivåspecifikt enhetspris. Det blandade priset eller det effektiva priset är nettopriset för den förbrukade kvantiteten och sträcker sig över flera nivåer (där varje nivå har ett visst enhetspris). |
 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal

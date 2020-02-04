@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: d748be3a304222831a55bb9319a04fba1e28e955
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992366"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA-avtal och ändringar
@@ -72,16 +72,16 @@ Microsoft använder inte det angivna pålägget och tillhörande priser för nå
 
 ### <a name="how-the-calculation-works"></a>Så här fungerar beräkningen
 
-Licenstjänsteleverantören tillhandahåller ett enda procentvärde i EA-portalen.  All kommersiell information på portalen lyfts upp med den procent andel som tillhandahålls av LSP. Exempel:
+Licenstjänsteleverantören tillhandahåller ett enda procentvärde i EA-portalen.  All kommersiell information på portalen lyfts upp av procenttalet som anges av licenstjänsteleverantören. Exempel:
 
 - Kunden registrerar ett Enterprise-avtal med ekonomiskt åtagande på 100 000 USD.
 - Mätarpriset för tjänst A är 10 USD/timme.
 - Licenstjänsteleverantören anger en påläggsprocent på 10 % på EA-portalen.
 - Exemplet nedan är hur kunden ser den kommersiella informationen:
-    - Monetärt saldo: 110 000 USD.
-    - Mätar frekvens för tjänst A: USD 11/timme.
-    - Användning/värd information för service A när den används i 100 timmar: USD 1 100.
-    - Monetärt saldo som är tillgängligt för kunden som bokför avdrag för tjänst A förbrukning: USD 108 900.
+    - Saldo: 110 000 USD.
+    - Mätarpris för tjänst A: 11 USD/timme.
+    - Användnings-/värdinformation för tjänst A för användning i 100 timmar: 1 100 USD.
+    - Tillgängligt saldo för kunden efter avdrag för förbrukning av tjänst A: 108 900 USD.
 
 ### <a name="when-to-use-a-markup"></a>När du ska använda ett pålägg
 
@@ -101,14 +101,14 @@ Se till att granska den kommersiella informationen – saldo, prislista osv inna
 
 ### <a name="how-to-add-a-price-markup"></a>Så här lägger du till ett prispålägg
 
-**Steg ett: Lägg till pris markering**
+**Steg ett: Lägga till prispålägg**
 
 1. I EA-portalen väljer du **Reports** (Rapporter) i det vänstra navigeringsfältet.
 1. Under _Usage Summary_ (Användningssammanfattning) klickar du på den blå frasen **Markup** (Pålägg).
 1. Ange påläggsprocenten (mellan -100 till 100) och klicka på **Preview** (Förhandsversion).
 
 
-**Steg två: granska och validera**
+**Steg två: Granska och verifiera**
 
 Granska påläggspriset i _Usage Summary_ (Användningssammanfattning) för åtagandeperioden i kundvyn. Microsoft-priset är fortfarande tillgängligt i partnervyn. Vyerna kan växlas med hjälp av partnerpåläggets växlingsknapp för personer högst upp till höger.
 
@@ -116,7 +116,7 @@ Granska påläggspriset i _Usage Summary_ (Användningssammanfattning) för åta
 1. Du kan göra ändringar innan du publicerar genom att välja **Edit** (Redigera) på fliken _View Usage Summary > Customer View_ (Visa användningssammanfattning > Kundvy).  
   Pålägg görs för både tjänsterna och åtagandesaldon med samma procentsatser. Om du har olika procentsatser för saldo och mätarpriser, eller olika procentsatser för olika tjänster, ska du inte använda den här funktionen.
 
-**Steg tre: publicera**
+**Steg tre: Publicera**
 
 När priserna har granskats och verifierats klickar du på **Publish** (Publicera).
   
@@ -124,7 +124,7 @@ Priser med pålägg blir tillgängliga för företagsadministratörer direkt eft
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Vilka registreringar har pålägg aktiverat?
 
-Om du vill kontrol lera om en registrering har en markering publicerad, klickar du på **Hantera** i det vänstra navigerings fönstret och sedan på fliken **registrering** . Markera rutan registrering för att kontrol lera och Visa status för status under _registrerings information_. Här visas den aktuella statusen för påläggsfunktionen för det Enterprise-avtalet som Disabled (Inaktiverad), Preview (Förhandsversion) eller Published (Publicerad).
+Om du vill kontrollera om en registrering har en pålägg publicerad klickar du på **Manage** (Hantera) i det vänstra navigeringsfältet och klickar på fliken **Enrollment** (Registrering). Välj den registreringsrutan du vill markera och ser påläggsstatusen under _Enrollment Detail_ (Registreringsinformation). Här visas den aktuella statusen för påläggsfunktionen för det Enterprise-avtalet som Disabled (Inaktiverad), Preview (Förhandsversion) eller Published (Publicerad).
 
 ### <a name="how-can-the-customer-download-usage-estimates"></a>Hur kan kunden ladda ned användningsberäkningar?
 
@@ -145,7 +145,7 @@ Partners kan använda påläggsfunktionen (på Azure EA) efter att ett byte av k
 | Microsoft Azure Hosted Services | 6 värdtjänster | Den här gränsen för värdtjänster kan inte höjas till högre än sex för en enskild prenumeration. Om du behöver fler värdtjänster lägger du till ytterligare prenumerationer. |
 | Microsoft Azure Storage | 5 lagringskonton, med maxstorlek på 100 TB för varje konto. | Du kan öka antalet lagringskonton till upp till 20 per prenumeration. Om du behöver fler lagringskonton lägger du till ytterligare prenumerationer. |
 | SQL Azure | 149 databaser av någon typ (t.ex. Web Edition eller Business Edition). |   |
-| Access Control | 50 namnområden per konto. 100 miljoner Access Control-transaktioner per månad |   |
+| Åtkomstkontroll | 50 namnområden per konto. 100 miljoner Access Control-transaktioner per månad |   |
 | Service Bus | 50 namnområden per konto. 40 Service Bus-anslutningar | Kunder som köper Service Bus-anslutningar via anslutningspaket får kvoter som motsvarar mittpunkten mellan anslutningspaketet de har köpt och det näst högsta anslutningspaketstorleken. Kunder som väljer ett 500-paket har en kvot på 750. |
 
 ## <a name="resource-commitment"></a>Resursåtagande
@@ -192,7 +192,7 @@ Företagsadministratörer kan tilldela kontoinnehavare för att etablera tidigar
 ### <a name="view-the-price-sheet-to-check-included-quantity"></a>Visa prisdokumentet för att kontrollera inkluderad mängd
 
 1. Logga in som företagsadministratör.
-1. Klicka på **Rapporter** i det vänstra navigeringsfältet.
+1. Klicka på **Reports** (Rapporter) i det vänstra navigeringsfältet.
 1. Klicka på fliken **Price Sheet** (Prisdokument).
 1. Klicka på nedladdningsikonen i det övre högra hörnet.
 1. Hitta motsvarande plan-SKU-artikelnummer med filter på kolumnen ”Included Quantity” (Inkluderad mängd) och välj värden större än ”0”.
@@ -238,7 +238,7 @@ Första gången du lägger till en prenumeration på ett konto måste du ange di
 
 Första gången du lägger till en prenumeration på ditt konto uppmanas du att godkänna MOSA-avtalet och en prisplan. Dessa avsnitt gäller INTE för Enterprise-avtalskunder men är nödvändiga just nu för att etablera din prenumeration. Tillägget till din Microsoft Azure Enterprise-avtalsregistrering ersätter ovanstående, och din kontraktsmässiga relation ändras inte. Markera rutan som anger att du godkänner villkoren.
 
-**Steg två: uppdatera prenumerations namn**
+**Steg två: Uppdatera prenumerationens namn**
 
 Alla nya prenumerationer läggs till med det standardmässiga prenumerationsnamnet ”Microsoft Azure Enterprise”. Det är viktigt att uppdatera prenumerationsnamnet för att skilja det från andra prenumerationer i företagsregistreringen och se till att det går att känna igen på rapporter för företagsnivå.
 
@@ -249,7 +249,7 @@ Det kan ta upp till 24 timmar innan nya prenumerationer sprids i prenumerationsl
 
 Bara kontoinnehavare kan visa och hantera prenumerationer.
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 **Kontoinnehavare visas med väntande status**
 
@@ -259,11 +259,11 @@ När nya kontoinnehavare läggs till i registreringen första gången visas allt
 
 Det här scenariot inträffar när kunden har distribuerat tjänster under fel registreringsnummer eller valt fel tjänster.
 
-För att verifiera om du distribuerar under rätt registrering kan du kontrollera informationen om dina inkluderade enheter via prisdokumentet. Logga in som företags administratör och klicka på **rapporter** i det vänstra navigerings fönstret och välj fliken **pris dokument** . Klicka på ikonen Hämta i det övre högra hörnet och leta upp motsvarande plan SKU-delsnummer med filter på kolumnen "inkluderad mängd" och välj värden större än "0".
+För att verifiera om du distribuerar under rätt registrering kan du kontrollera informationen om dina inkluderade enheter via prisdokumentet. Logga in som företagsadministratör och klicka på **Reports** (Rapporter) i det vänstra navigeringsfältet och välj fliken **Price Sheet** (Prisdokument). Klicka på nedladdningsikonen i det övre högra hörnet och hitta motsvarande plan-SKU-artikelnummer med filter på kolumnen ”Included Quantity” (Inkluderad mängd) och välj värden större än ”0”.
 
 Se till att din OMS-plan visas i prisdokumentet under inkluderade enheter. Om det inte finns några inkluderade enheter för OMS-plan för registreringen kan din OMS-plan finnas under en annan registrering. Kontakta supporten för Azure EA-portalen på [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).
 
-Om de inkluderade enheterna för tjänsterna i pris dokumentet inte matchar det du har distribuerat, t. ex. Operational Insights Premium-data som analyseras jämfört med Operational Insights standard data som analyser ATS, innebär det att du kan ha distribuerade tjänster som inte omfattas av planen, kontakta Azure Enterprise Portal support på [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) så att vi kan hjälpa dig.
+Om de inkluderade enheterna för tjänsterna i prisdokumentet inte stämmer överens med det du har distribuerat, t.ex. Operational Insights Premium – analyserade data kontra Operational Insights Standard – analyserade data, betyder det att du kan ha distribuerat tjänster som inte omfattas av planen. Kontakta supporten för Azure EA-portalen på [https://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport) så att vi kan hjälpa dig.
 
 **Etablerade plan-SKU-tjänster på fel registrering**
 
@@ -271,5 +271,5 @@ Om du har flera registreringar och har distribuerat tjänster under fel registre
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill börja använda Azure EA-portalen kan du läsa [Komma igång med Azure EA-portalen](ea-portal-get-started.md).
+- Om du vill börja använda Azures EA-portalen kan du läsa [Kom igång med Azure EA-portalen](ea-portal-get-started.md).
 - Administratörer i Azure EA-portalen bör läsa [Administration i Azure EA-portalen](ea-portal-administration.md). Där finns mer information om vanliga administrativa uppgifter.

@@ -14,10 +14,8 @@
   items:
     - name: Klientbibliotek
       items:
-        - name: Analysera text med v3.0-preview
+        - name: Analysera text med klientbiblioteket
           href: quickstarts/text-analytics-sdk.md
-        - name: Analysera text med v2
-          href: quickstarts/text-analytics-sdk-v2.md
     - name: REST-API
       items:
         - name: Använda Java

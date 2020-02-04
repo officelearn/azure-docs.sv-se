@@ -47,8 +47,9 @@
     - name: Konfigurera Azure AD-autentisering för flera program för användar-VPN (förhandsversion)
       href: openvpn-azure-ad-tenant-multi-app.md
     - name: Konfigurera automation (Virtual WAN-partner)
-    - name: Ladda ned globala och navbaserade VPN-profiler
       href: virtual-wan-configure-automation-providers.md
+    - name: Ladda ned globala och navbaserade VPN-profiler
+      href: global-hub-profile.md
     - name: Konfigurera routning
       items:
         - name: Dirigera trafik från en virtuell hubb till en NVA

@@ -46,7 +46,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
      |Anslutnings läge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
+     |Gateway-  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
      |Direct    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
 
      Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. TCP-protokollet använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
@@ -165,7 +165,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
    > [!NOTE] 
    > Egenskapen maxItemCount bör inte användas bara för sid brytnings ändamål. Det är den viktigaste användningen för att förbättra prestanda för frågor genom att minska det maximala antalet objekt som returneras på en enda sida.  
 
-   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Ett exempel:
+   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Exempel:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -189,7 +189,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     - För ASP.NET webb program som distribueras i Azure kan du göra detta genom att välja **plattformen som 64-bit** i **program inställningarna** på Azure Portal.
 
-## <a name="indexing-policy"></a>Indexeringsprincip
+## <a name="indexing-policy"></a>Indexeringspolicy
  
 1. **Utesluta sökvägar som inte används från indexering för att få snabbare skrivning**
 

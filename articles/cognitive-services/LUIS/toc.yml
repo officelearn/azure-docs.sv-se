@@ -67,21 +67,11 @@
     - name: Använda med robot
       items:
         - name: 'Med C#'
-          items:
-            - name: 1. Skapa grundläggande robot
-              href: luis-csharp-tutorial-bf-v4.md
-              displayName: 'bot framework, framework, sdk, abs'
-            - name: 2. Lägga till telemetri i Application Insights
-              href: luis-tutorial-bot-csharp-appinsights.md
-              displayName: 'Application insight, kusto'
+          href: luis-csharp-tutorial-bf-v4.md
+          displayName: 'bot framework, framework, sdk, abs'
         - name: Med Node.js
-          items:
-            - name: 1. Skapa grundläggande robot
-              displayName: 'bot framework, framework, sdk, abs'
-              href: luis-nodejs-tutorial-bf-v4.md
-            - name: 2. Lägga till telemetri i Application Insights
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
+          displayName: 'bot framework, framework, sdk, abs'
+          href: luis-nodejs-tutorial-bf-v4.md
 - name: Begrepp
   items:
     - name: Utvecklingscykel

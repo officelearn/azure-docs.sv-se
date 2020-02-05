@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 77d952666be12d7dea780b3aa8f094cf5f70f2d3
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bae47e2f5cd473893d97678977030643cc9949fe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911135"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988625"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Lägg till ett polygon-lager till kartan
 
-Den här artikeln visar hur du återger områdena i `Polygon` och `MultiPolygon` funktions Geometries på kartan med ett polygon-lager. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktioner Geometries kan också enkelt uppdateras om de omslutits med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
+Den här artikeln visar hur du återger områdena i `Polygon` och `MultiPolygon` funktions Geometries på kartan med ett polygon-lager. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktions Geometries kan enkelt uppdateras när de omslutits med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
 
 ## <a name="use-a-polygon-layer"></a>Använda ett polygon-lager 
 
-När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges arean för en `Polygon` och `MultiPolygon` funktioner. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med ett polygon-lager med hjälp av klassen [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) .
+När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges ytan med `Polygon`-och `MultiPolygon`-funktioner. Om du vill skapa en polygon lägger du till den i en data källa och återger den med ett polygon lager med hjälp av klassen [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -47,7 +47,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 }));
 ```
 
-Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+Nedan visas ett komplett och löpande exempel på ovanstående kod.
 
 <br/>
 
@@ -56,14 +56,14 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 ## <a name="use-a-polygon-and-line-layer-together"></a>Använda ett polygon-och linje lager tillsammans
 
-Ett linje lager kan användas för att återge konturen för polygoner. I följande kod exempel återges en polygon som i föregående exempel, men nu läggs ett linje lager till som ett andra lager som är anslutet till data källan.  
+Ett linje lager används för att återge konturen för polygoner. I följande kod exempel återges en polygon som i föregående exempel, men nu läggs ett linje lager till. Detta linje skikt är ett andra lager som är anslutet till data källan.  
 
 <iframe height='500' scrolling='no' title='Polygon och linje skikt för att lägga till polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Lägg till polygon genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>i Pen- <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>polygonen och linje lagret</a> .
 </iframe>
 
 ## <a name="fill-a-polygon-with-a-pattern"></a>Fylla en polygon med ett mönster
 
-Förutom att fylla en polygon med en färg kan du också använda ett bild mönster. Läs in ett bild mönster i Maps-avbildningen Sprite-resurser och referera sedan till den här bilden med egenskapen `fillPattern` för polygon-lagret.
+Förutom att fylla i en polygon med en färg kan du använda ett bild mönster för att fylla polygonen. Läs in ett bild mönster i Maps-avbildningen Sprite-resurser och referera sedan till den här bilden med egenskapen `fillPattern` för polygon-lagret.
 
 <br/>
 
@@ -88,7 +88,7 @@ Polygon-lagret har bara några få format alternativ. Här är ett verktyg för 
 
 ## <a name="add-a-circle-to-the-map"></a>Lägg till en cirkel till kartan
 
-Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](extend-geojson.md#circle). En cirkel kan återges på kartan genom att skapa en `Point`-funktion som har en `subType`-egenskap med värdet `"Circle"` och en `radius`-egenskap som har ett tal som representerar radien i meter. Ett exempel:
+Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar, som du ser [här](extend-geojson.md#circle). En cirkel återges på kartan genom att en `Point` funktion skapas. Den här `Point` har en `subType` egenskap med värdet `"Circle"` och en `radius`-egenskap med en siffra som representerar radien i meter. 
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Azure Maps använder en utökad version av det injson-schema som tillhandahålle
 }  
 ```
 
-Azure Maps Web SDK konverterar dessa `Point`s funktioner till `Polygon` funktioner under försättsblad och kan återges på kartan med hjälp av polygon-och linje lager som visas i följande kod exempel.
+Azure Maps Web SDK konverterar dessa `Point` funktioner till `Polygon` funktioner. Sedan återges dessa funktioner på kartan med hjälp av polygon-och linje lager enligt följande kod exempel.
 
 <br/>
 
@@ -113,7 +113,7 @@ Azure Maps Web SDK konverterar dessa `Point`s funktioner till `Polygon` funktion
 
 ## <a name="make-a-geometry-easy-to-update"></a>Gör en geometri lätt att uppdatera
 
-En `Shape` klass radbryter en [geometri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) eller [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) och gör det enkelt att uppdatera och underhålla dem. En form kan skapas genom att skicka i en geometri och en uppsättning egenskaper, eller genom att skicka in en funktion som visas i följande kod.
+En `Shape` klass radbryter en [geometri](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) eller [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) och gör det enkelt att uppdatera och underhålla dessa funktioner. Om du vill instansiera en form variabel skickar du en geometri eller en uppsättning egenskaper till form-konstruktorn.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -123,7 +123,7 @@ var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
 ```
 
-Följande kod exempel visar hur du omsluter ett cirkel-interjson-objekt med en Shape-klass och enkelt uppdaterar dess RADIUS-egenskap med ett skjutreglage. När RADIUS-värdet ändras i formen uppdateras åter givningen av cirkeln automatiskt på kartan.
+Följande kod exempel visar hur du omsluter ett cirkel-interjson-objekt med en Shape-klass. Som värdet för RADIUS-ändringar i formen återges cirkeln automatiskt på kartan.
 
 <br/>
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a967fdb4b9c742a0ac7f372e5cd7eeb99171a906
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1bd7a2bb6d3393aca397686a2817f1dcd5f89a38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966847"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987818"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ ms.locfileid: "76966847"
 
 1. Logga in på [Azure Portal](https://portal.azure.com)
 1. Klicka på [skapa **language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Ange alla nödvändiga inställningar för körnings nyckel:
+1. Ange alla nödvändiga inställningar för **körnings** nyckel:
 
     |Inställning|Värde|
     |--|--|
@@ -73,7 +73,7 @@ Använd Java för att fråga efter [förutsägelse slut punkten](https://aka.ms/
                 // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
                 String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
 
-                // Add your endpoint key
+                // Add your prediction Runtime key
                 String Key = "YOUR-KEY";
 
                 // Add your endpoint, example is your-resource-name.api.cognitive.microsoft.com
@@ -117,11 +117,11 @@ Använd Java för att fråga efter [förutsägelse slut punkten](https://aka.ms/
     }
     ```
 
-1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse nyckel och slut punkt.
+1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse **körnings** nyckel och slut punkt.
 
     |Information|Syfte|
     |--|--|
-    |`YOUR-KEY`|Din nyckel för att förutsäga 32-tecknen.|
+    |`YOUR-KEY`|Din 32-teckenuppsättning med **körnings** nyckel.|
     |`YOUR-ENDPOINT`| URL-slutpunkten för förutsägelse. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 

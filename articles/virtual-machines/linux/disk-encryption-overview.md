@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896358"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988428"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
-Azure Disk Encryption hjälper till att skydda dina data så att din verksamhet uppfyller både interna och externa krav och åtaganden. Den använder [dm-crypt-](https://en.wikipedia.org/wiki/Dm-crypt) funktionen i Linux för att tillhandahålla volym kryptering för operativ system och data diskar för virtuella Azure-datorer (VM) och är integrerat med [Azure Key Vault](../../key-vault/index.yml) för att hjälpa dig att styra och hantera disk krypterings nycklar och hemligheter. 
+Azure Disk Encryption skyddar och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Den använder [dm-crypt-](https://en.wikipedia.org/wiki/Dm-crypt) funktionen i Linux för att tillhandahålla volym kryptering för operativ system och data diskar för virtuella Azure-datorer (VM) och är integrerat med [Azure Key Vault](../../key-vault/index.yml) för att hjälpa dig att styra och hantera disk krypterings nycklar och hemligheter. 
 
 Om du använder [Azure Security Center](../../security-center/index.yml)får du en avisering om du har virtuella datorer som inte är krypterade. Aviseringar visas med hög angelägenhetsgrad och rekommendationen är att kryptera dessa virtuella datorer.
 
@@ -58,16 +58,16 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | Ubuntu | 18,04| OS- och disk |
 | Ubuntu | 16.04| OS- och disk |
 | Ubuntu | 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | OS- och disk |
-| RHEL | 7.7 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 7.6 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 7,7 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 7,6 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.5 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.4 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.3 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.2 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 6.8 | Data disk (se OBS! nedan) |
 | RHEL | 6.7 | Data disk (se OBS! nedan) |
-| CentOS | 7.7 | OS- och disk |
-| CentOS | 7.6 | OS- och disk |
+| CentOS | 7,7 | OS- och disk |
+| CentOS | 7,6 | OS- och disk |
 | CentOS | 7.5 | OS- och disk |
 | CentOS | 7.4 | OS- och disk |
 | CentOS | 7.3 | OS- och disk |
@@ -78,7 +78,9 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | SLES | 12-SP3 | Datadisk |
 
 > [!NOTE]
-> Den nya ADE-implementeringen stöds för RHEL OS och datadisk för RHEL7 avbildningar enligt principen betala per användning. ADE stöds för närvarande inte för RHEL-avbildningar (BYOS). 
+> Den nya Azure Disk Encryption-implementeringen stöds för RHEL OS och datadisk för RHEL7 avbildningar enligt principen betala per användning.  
+>
+> ADE stöds också för RHEL-egna prenumerations guld bilder, men endast **efter** att prenumerationen har registrerats. Mer information finns i [Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Ytterligare krav för virtuell dator
 

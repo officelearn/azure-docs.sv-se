@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533267"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989100"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
@@ -83,7 +83,8 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
 5. Kopiera en av nycklarna (uteslut de dubbla citattecknen) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i följande steg.  
 
-## <a name="install-the-integration-runtime"></a>Installera Integration Runtime
+## <a name="install-the-integration-runtime-tool"></a>Installera integration runtime-verktyget
+
 1. Om du redan har Integration Runtime på din dator ska du avinstallera det med **Lägg till eller ta bort program**. 
 
 2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) Integration Runtime med egen värd på en lokal Windows-dator. Kör installationen.
@@ -135,5 +136,4 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
     h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server. Du ser en grön bockmarkering om anslutningen är klar. Om anslutningen inte lyckats får du ett felmeddelande. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till SQL Server.    
 
     > [!NOTE]
-    > Anteckna värdena för autentiseringstyp, server, databas, användare och lösenord. Du använder det senare i den här självstudien. 
-    
+    > Anteckna värdena för autentiseringstyp, server, databas, användare och lösenord. Du använder det senare i den här självstudien.

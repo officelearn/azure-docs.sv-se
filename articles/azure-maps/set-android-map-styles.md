@@ -1,6 +1,6 @@
 ---
 title: Ange en kart stil med Azure Maps Android SDK | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om hur du Microsoft Azure mappar stil relaterade funktioner för Android SDK.
+description: I den här artikeln får du lära dig mer om Microsoft Azure Maps-relaterade funktioner för Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910491"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988965"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Ange kart stil med Azure Maps Android SDK
 
@@ -59,7 +59,7 @@ Attributet `mapcontrol_style` ovan anger mappnings formatet till **grayscale_dar
 
 ## <a name="set-map-style-in-the-activity-class"></a>Ange kart stil i aktivitets klassen
 
-Du kan ställa in kart stil i aktivitets klassen. Kopiera följande kodfragment till metoden **onCreate ()** i `MainActivity.java`-klassen. Detta anger kart formatet till **satellite_road_labels**.
+Du kan ställa in kart stil i aktivitets klassen. Kopiera följande kodfragment till metoden **onCreate ()** i `MainActivity.java`-klassen. Den här koden anger kart formatet till **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {

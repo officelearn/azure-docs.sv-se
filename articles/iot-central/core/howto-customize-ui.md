@@ -3,23 +3,23 @@ title: Anpassa Azure IoT Central-ANVÄNDARGRÄNSSNITTET | Microsoft Docs
 description: Anpassa temat och hjälp Länkar för ditt Azure IoT Central-program
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 829ea1bcca36dfba2da3e3946b48b7249f69ee62
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3afa86aae3b51ea20610dcbff5211e59fb341650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953595"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018439"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Anpassa Azure IoT Central UI
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+Den här artikeln beskriver hur du, som administratör, kan anpassa användar gränssnittet för ditt program genom att använda anpassade teman och ändra hjälp länkar så att de pekar på dina egna anpassade hjälp resurser. 
 
-Den här artikeln beskriver hur du, som administratör, kan anpassa användar gränssnittet för ditt program genom att använda anpassade teman och ändra hjälp länkar så att de pekar på dina egna anpassade hjälp resurser.
+
 
 På följande skärm bild visas en sida med standard temat:
 
@@ -41,7 +41,7 @@ På den här sidan kan du anpassa följande aspekter av ditt program:
 
 En PNG-bild, som inte är större än 1 MB, med en genomskinlig bakgrund. Logo typen visas till vänster i namn listen för IoT Centrals programmet.
 
-Om logo typens bild innehåller namnet på ditt program kan du dölja texten i program namnet. Mer information finns i [Hantera ditt program](./howto-administer.md#change-application-name-and-url).
+Om logo typens bild innehåller namnet på ditt program kan du dölja texten i program namnet. Mer information finns i [Hantera ditt program](howto-administer.md#change-application-name-and-url).
 
 ### <a name="browser-icon-favicon"></a>Webb läsar ikon (favicon)
 
@@ -78,4 +78,4 @@ Du kan också lägga till nya poster på Hjälp-menyn och ta bort standard poste
 Nu när du har lärt dig hur du anpassar användar gränssnittet i ditt IoT Central-program, är det här några förslag på nästa steg:
 
 - [Administrera ditt program](./howto-administer.md)
-- [Lägga till paneler på din instrument panel](./howto-add-tiles-to-your-dashboard.md)
+- [Lägga till paneler på din instrument panel](howto-add-tiles-to-your-dashboard.md)

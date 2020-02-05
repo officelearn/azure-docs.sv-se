@@ -3,20 +3,20 @@ title: Montera ett virtuellt fil system på en pool – Azure Batch | Microsoft 
 description: Lär dig hur du monterar ett virtuellt fil system i en batch-pool.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: jushiman
-ms.openlocfilehash: eab8e509e4978de50968bc1d960ee34d46bc73b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029140"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023046"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montera ett virtuellt fil system i en batch-pool
 
@@ -176,13 +176,13 @@ Om du vill hämta loggfilerna för fel sökning använder du [OutputFiles](batch
 | Canonical | UbuntuServer | 16,04-LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Obs: kompatibel med CentOS 7,4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | CentOS-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| microsoft-azure-batch | CentOS-container | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | CentOS-container-RDMA | 7.4 | :heavy_check_mark: <br>Obs: stöder A_8-eller 9-lagring</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| OpenLogic | CentOS | 7,6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS-HPC | 7,4, 7,3, 7,1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
+| Oracle | Oracle-Linux | 7,6 | :x: | :x: | :x: | :x: |
 | Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -2,21 +2,21 @@
 title: Start händelse för Azure Batch uppgift
 description: Referensinformation för start händelse för batch-aktivitet. Den här händelsen genereras när en aktivitet har schemalagts att starta på en Compute-nod av Scheduler.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: 517a5c58bc1de7dd6ffa4dfd39d09f4b6b4fac1a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: bed3749e29867298f3e8258a08448b7b094055ec
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939074"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022825"
 ---
 # <a name="task-start-event"></a>Starthändelse för uppgift
 

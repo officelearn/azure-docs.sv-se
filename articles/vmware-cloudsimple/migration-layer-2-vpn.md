@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning genom CloudSimple – sträck ut ett Layer 2-nätverk lokalt till ett privat moln
-description: Beskriver hur du konfigurerar ett Layer 2 VPN mellan NSX-T i ett CloudSimple-privat moln och en lokal fristående NSX Edge-klient
+title: Azure VMware-lösningar (AVS) – vidga ett Layer 2-nätverk lokalt till ett lokalt AVS-moln
+description: Beskriver hur du konfigurerar en Layer 2 VPN mellan NSX-T i ett moln privat moln och en lokal fristående NSX Edge-klient
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,29 +8,29 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232384"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019833"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
 
-I den här guiden får du lära dig hur du använder Layer 2 VPN (L2VPN) för att sträcka ut ett nätverk på nivå 2 från din lokala miljö till ditt CloudSimple-privata moln. Med den här lösningen kan du migrera arbets belastningar som körs i din lokala VMware-miljö till det privata molnet i Azure inom samma adress utrymme för under nätet utan att behöva IP-adresser för arbets belastningen.
+I den här guiden får du lära dig hur du använder Layer 2 VPN (L2VPN) för att sträcka ut ett nätverk på nivå 2 från din lokala miljö till ditt moln privata moln. Med den här lösningen kan du migrera arbets belastningar som körs i din lokala VMware-miljö till det molnbaserade privata molnet i Azure inom samma adress utrymme för under nätet utan att behöva göra om IP-adresser för dina arbets belastningar.
 
 L2VPN-baserad utsträckning av Layer 2-nätverk kan fungera med eller utan NSX nätverk i din lokala VMware-miljö. Om du inte har NSX-baserade nätverk för arbets belastningar lokalt kan du använda en fristående NSX Edge Services-Gateway.
 
 > [!NOTE]
-> Den här guiden beskriver scenariot där lokala och privata moln Data Center är anslutna via plats-till-plats-VPN.
+> Den här guiden beskriver scenariot där data Center för lokala och molnet i molnet är anslutna via plats-till-plats-VPN.
 
 ## <a name="deployment-scenario"></a>Distributions scenario
 
-För att sträcka ut ditt lokala nätverk med hjälp av L2VPN, måste du konfigurera en L2VPN-Server (målet NSX-T Tier0 router) och en L2VPN-klient (fristående källa).  
+För att sträcka ut ditt lokala nätverk med hjälp av L2VPN, måste du konfigurera en L2VPN-Server (målet NSX-T Tier0 router) och en L2VPN-klient (fristående källa). 
 
-I det här distributions scenariot är ditt privata moln anslutet till din lokala miljö via en plats-till-plats-VPN-tunnel som gör det möjligt för lokala hanterings-och vMotion-undernät att kommunicera med de privata moln hanterings-och vMotion-undernätet. Den här ordningen är nödvändig för Cross vCenter vMotion (xVC-vMotion). En NSX-T Tier0-router distribueras som en L2VPN-server i det privata molnet.
+I det här distributions scenariot är ditt moln privata moln anslutet till din lokala miljö via en plats-till-plats-VPN-tunnel som gör det möjligt för lokala hanterings-och vMotion-undernät att kommunicera med molnets hantering av privata moln och vMotion-undernät. Den här ordningen är nödvändig för Cross vCenter vMotion (xVC-vMotion). En NSX-T Tier0-router distribueras som en L2VPN-server i det privata AVS-molnet.
 
-Fristående NSX-Edge distribueras i din lokala miljö som en L2VPN-klient och sedan kopplas till L2VPN-servern. En GRE-tunnel slut punkt skapas på varje sida och konfigureras för att sträcka ut det lokala nivå 2-nätverket till ditt privata moln. Den här konfigurationen illustreras i följande bild.
+Fristående NSX-Edge distribueras i din lokala miljö som en L2VPN-klient och sedan kopplas till L2VPN-servern. En GRE-tunnel slut punkt skapas på varje sida och konfigureras för att sträcka ut det lokala nivå 2-nätverket till ditt moln privata moln. Den här konfigurationen illustreras i följande bild.
 
 ![Distributions scenario](media/l2vpn-deployment-scenario.png)
 
@@ -42,18 +42,18 @@ Kontrol lera att följande är på plats innan du distribuerar och konfigurerar 
 
 * Den lokala vSphere-versionen är 6,7 U1 + eller 6.5 P03 +.
 * Den lokala vSphere-licensen finns på Enterprise Plus-nivå (för vSphere-distribuerad växel).
-* Identifiera arbets belastnings skikt 2-nätverket som ska sträckas till ditt privata moln.
+* Identifiera arbets belastnings skikt 2-nätverket som sträcks ut till ditt moln privata moln.
 * Identifiera ett Layer 2-nätverk i din lokala miljö för att distribuera L2VPN-klientprogramvaran.
-* [Ett privat moln har redan skapats](create-private-cloud.md).
-* Versionen av den fristående NSX-T Edge-enheten är kompatibel med NSX-T Manager-versionen (NSX-T 2.3.0) som används i din privata moln miljö.
+* [Ett privat AVS-moln har redan skapats](create-private-cloud.md).
+* Versionen av den fristående NSX-T Edge-installationen är kompatibel med NSX-T Manager-versionen (NSX-T 2.3.0) som används i din AVS-miljö för privata moln.
 * En segment grupp för trunkering har skapats i den lokala vCenteren med förfalskade överföringar aktiverade.
 * En offentlig IP-adress har reserver ATS för att användas för NSX-T fristående klientens IP-adress för överordnad länk och 1:1 NAT finns för översättning mellan de två adresserna.
-* DNS-vidarebefordran ställs in på lokala DNS-servrar för az.cloudsimple.io-domänen så att de pekar på de privata molnets DNS-servrar.
+* DNS-vidarebefordran är inställd på lokala DNS-servrar för AZ. AVS.io-domän för att peka på DNS-servrarna för molnets privata moln.
 * Svars tids fördröjningen är mindre än eller lika med 150 ms, vilket krävs för att vMotion ska fungera på de två platserna.
 
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 
-I följande tabell visas vilka vSphere-versioner och typer av nätverks anpassning som stöds.  
+I följande tabell visas vilka vSphere-versioner och typer av nätverks anpassning som stöds. 
 
 | vSphere-version | Typ av vSwitch-källa | Virtuell NIC-drivrutin | Typ av mål vSwitch | Stöds? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
@@ -64,7 +64,7 @@ I följande tabell visas vilka vSphere-versioner och typer av nätverks anpassni
 
 Från och med VMware NSX-T 2,3-versionen:
 
-* Den logiska växeln på den privata moln sidan som sträcker sig över till lokal över L2VPN kan inte dirigeras samtidigt. Den utsträckta logiska växeln kan inte anslutas till en logisk router.
+* Den logiska växeln på den privata AVS-moln sidan som sträcks ut till lokal över L2VPN kan inte dirigeras samtidigt. Den utsträckta logiska växeln kan inte anslutas till en logisk router.
 * L2VPN-och Route-baserade IPSEC-VPN: er kan bara konfigureras med API-anrop.
 
 Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704) i VMware-dokumentationen.
@@ -88,7 +88,7 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 | VLAN | 472 |
 | CIDR| 10.250.3.0/24 |
 
-### <a name="private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>IP-schema för privata moln för NSX-T Tier0-routern (L2-VPN fungerar)
+### <a name="avs-private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>IP-schema för molnets privata moln för NSX-T Tier0-routern (L2-VPN fungerar)
 
 | **Objekt** | **Värde** |
 |------------|-----------------|
@@ -97,7 +97,7 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 | Logisk växel (utsträckt) | Stretch_LS |
 | Loopback-gränssnitt (NAT IP-adress) | 104.40.21.81 |
 
-### <a name="private-cloud-network-to-be-mapped-to-the-stretched-network"></a>Ett privat moln nätverk som ska mappas till det ambitiösa nätverket
+### <a name="avs-private-cloud-network-to-be-mapped-to-the-stretched-network"></a>AVS-nätverk för privat moln som ska mappas till det ambitiösa nätverket
 
 | **Objekt** | **Värde** |
 |------------|-----------------|
@@ -116,7 +116,7 @@ Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logic
 
     ![Anmärkning för hantering av IP](media/l2vpn-fetch02.png)
 
-3. Öppna en SSH-session med hanterings-IP-adressen för den virtuella Edge-datorn. Kör ```get logical-router```-kommandot med användar namns **administratör** och lösen ord **CloudSimple 123!** .
+3. Öppna en SSH-session med hanterings-IP-adressen för den virtuella Edge-datorn. Kör kommandot ```get logical-router``` med användar namns **administratör** och lösen ord **AVS 123!** .
 
     ![Hämta utdata för logiska routrar](media/l2vpn-fetch03.png)
 
@@ -126,7 +126,7 @@ Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logic
 
     ![Skapa logisk växel](media/l2vpn-fetch04.png)
 
-6. Anslut provdockans växel till 1-routern med en länk lokal IP-adress eller ett undernät som inte överlappar från lokalt eller i ditt privata moln. Se [lägga till en Downlink-port på en logisk nivå 1-router](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) i VMware-dokumentationen.
+6. Anslut dummy-växeln till 1-routern med en länk lokal IP-adress eller ett undernät som inte överlappar från lokalt eller ditt privata moln i molnet. Se [lägga till en Downlink-port på en logisk nivå 1-router](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) i VMware-dokumentationen.
 
     ![Bifoga dummy-växel](media/l2vpn-fetch05.png)
 
@@ -148,7 +148,7 @@ För att upprätta en IPsec Route-baserad VPN mellan NSX-T Tier0-routern och den
 
 ### <a name="allow-udp-5004500-for-ipsec"></a>Tillåt UDP 500/4500 för IPsec
 
-1. [Skapa en offentlig IP-adress](public-ips.md) för loopback-gränssnittet NSX-T Tier0 på CloudSimple-portalen.
+1. [Skapa en offentlig IP-adress](public-ips.md) för NSX-T Tier0-loopback-gränssnittet i AVS-portalen.
 
 2. [Skapa en brand Väggs tabell](firewall.md) med tillstånds känsliga regler som tillåter UDP 500/4500 inkommande trafik och koppla brand Väggs tabellen till NSX-T HostTransport-undernätet.
 
@@ -163,7 +163,7 @@ För att upprätta en IPsec Route-baserad VPN mellan NSX-T Tier0-routern och den
 
     ![Skapa lista över IP-prefix](media/l2vpn-routing-security02.png)
 
-4. Logga in på NSX-T-hanteraren och välj **nätverk** > **routning** > **routrar** > **Provider – LR** > **routning** > **BGP** > - **grannar**. Välj den första grannen. Klicka på **redigera** > **adress familjer**. För IPv4-serien redigerar du kolumnen **ut filter** och väljer listan IP-prefix som du har skapat. Klicka på **Save** (Spara). Upprepa det här steget för den andra grannen.
+4. Logga in på NSX-T-hanteraren och välj **nätverk** > **routning** > **routrar** > **Provider – LR** > **routning** > **BGP** > - **grannar**. Välj den första grannen. Klicka på **redigera** > **adress familjer**. För IPv4-serien redigerar du kolumnen **ut filter** och väljer listan IP-prefix som du har skapat. Klicka på **Spara**. Upprepa det här steget för den andra grannen.
 
     ![bifoga IP-prefix, lista 1](media/l2vpn-routing-security03.png) ![bifoga IP-prefixlängd lista 2](media/l2vpn-routing-security04.png)
 
@@ -173,9 +173,9 @@ För att upprätta en IPsec Route-baserad VPN mellan NSX-T Tier0-routern och den
 
 ## <a name="configure-a-route-based-vpn-on-the-nsx-t-tier0-router"></a>Konfigurera en Route-baserad VPN på NSX-T Tier0-routern
 
-Använd följande mall för att fylla i all information om hur du konfigurerar en routad VPN-anslutning på NSX-T Tier0-routern. UUID: n i varje POST-anrop krävs i efterföljande anrop. IP-adresserna för loopback-och tunnel gränssnitten för L2VPN måste vara unika och inte överlappa varandra i nätverk för lokala eller privata moln.
+Använd följande mall för att fylla i all information om hur du konfigurerar en routad VPN-anslutning på NSX-T Tier0-routern. UUID: n i varje POST-anrop krävs i efterföljande anrop. IP-adresserna för loopback-och tunnel gränssnittet för L2VPN måste vara unika och får inte överlappa varandra för lokala eller AVS-privata moln nätverk.
 
-De IP-adresser som valts för loopback-och tunnel gränssnitt som används för L2VPN måste vara unika och får inte överlappa varandra. Loopback-gränssnittets nätverk måste alltid vara/32.
+De IP-adresser som valts för loopback-och tunnel gränssnittet som används för L2VPN måste vara unika och inte överlappa varandra i nätverk med lokala eller AVS-privata moln. Loopback-gränssnittets nätverk måste alltid vara/32.
 
 ```
 Loopback interface ip : 192.168.254.254/32
@@ -422,13 +422,13 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 ## <a name="deploy-the-nsx-t-standalone-client-on-premises"></a>Distribuera NSX-T fristående klient (lokal)
 
-Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler tillåter inkommande och utgående UDP 500/4500-trafik från/till den offentliga IP-CloudSimple som reserver ATS tidigare för loopback-gränssnittet NSX-T t0 router. 
+Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler tillåter inkommande och utgående UDP 500/4500-trafik från/till den offentliga AVS-IP-adressen som reserver ATS tidigare för loopback-gränssnittet NSX-T t0 router. 
 
 1. [Hämta den fristående NSX Edge-klienten](https://my.vmware.com/group/vmware/details?productId=673&rPId=33945&downloadGroup=NSX-T-230) OVF och extrahera filerna från det hämtade paketet till en mapp.
 
     ![Hämta fristående NSX Edge-klient](media/l2vpn-deploy-client01.png)
 
-2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Nästa**.
+2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Next**.
 
     ![Välj mall](media/l2vpn-deploy-client02.png) ![Välj mall](media/l2vpn-deploy-client03.png)
 
@@ -440,7 +440,7 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
     ![Välj data lager](media/l2vpn-deploy-client06.png)
 
-5. Välj rätt port grupper för trunkering (trunk PG), offentlig (PG PG) och HA-gränssnitt (överordnad) för NSX-T fristående klienten. Klicka på **Nästa**.
+5. Välj rätt port grupper för trunkering (trunk PG), offentlig (PG PG) och HA-gränssnitt (överordnad) för NSX-T fristående klienten. Klicka på **Next**.
 
     ![Välj Port grupper](media/l2vpn-deploy-client07.png)
 
@@ -448,14 +448,14 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
     Expandera L2T:
 
-    * **Peer-adress**. Ange IP-adressen som reserver ATS på Azure CloudSimple-portalen för NSX-T Tier0 loopback-gränssnitt.
+    * **Peer-adress**. Ange den IP-adress som reserver ATS på Azure AVS-portalen för NSX-T Tier0 loopback-gränssnitt.
     * **Peer-kod**. Klistra in peer-koden som hämtades från det sista steget i L2VPN Server-distribution.
     * **Under gränssnitt VLAN (tunnel-ID)** . Ange det VLAN-ID som ska sträckas ut. I parenteser () anger du det tunnel-ID som tidigare har kon figurer ATS.
 
     Expandera gränssnitt för överordnad länk:
 
     * **DNS-IP-adress**. Ange den lokala DNS-IP-adressen.
-    * **Standardgateway.**  Ange standardgateway för det VLAN som ska fungera som standard-gateway för den här klienten.
+    * **Standardgateway.** Ange standardgateway för det VLAN som ska fungera som standard-gateway för den här klienten.
     * **IP-adress**. Ange den fristående klientens IP-adress för överordnad länk.
     * **Prefixlängd**. Ange prefixlängden för LAN/undernät för överordnad länk.
     * **CLI-administratör/aktivera/rot användar lösen ord**. Ange lösen ordet för administratörs kontot/Enable/root.

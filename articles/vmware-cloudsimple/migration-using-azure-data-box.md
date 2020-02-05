@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f368ad7cf9b83195e35a2283de7a3644cc9fc317
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552908"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019765"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migrera data till Azure VMware-lösning med hjälp av Azure Data Box
 
 Med moln lösningen Microsoft Azure Data Box-enhet kan du skicka terabyte (TBs) av data till Azure på ett snabbt, Billigt och tillförlitligt sätt. Den säkra dataöverföringen påskyndas genom att skicka en upphovsrättsskyddad Data Box-lagringsenhet. Varje lagrings enhet har en maximal användbar lagrings kapacitet på 80 TB och transporteras till ditt data Center av en regional bärvåg. Enheten har ett robust hölje för att skydda och skydda dina data under överföringen.
 
-Med hjälp av Data Box-enhet kan du massredigera dina VMware-data till ditt privata moln. Data från din lokala VMware vSpheres miljö kopieras till Data Box-enhet via NFS-protokollet (Network File System). Med datamigreringen för flera data kan du spara en tidpunkts kopia av virtuella datorer, konfiguration och tillhör ande data till Data Box-enhet och sedan leverera den manuellt till Azure.
+Med hjälp av Data Box-enhet kan du överföra dina VMware-data till ditt moln privata moln. Data från din lokala VMware vSpheres miljö kopieras till Data Box-enhet via NFS-protokollet (Network File System). Med datamigreringen för flera data kan du spara en tidpunkts kopia av virtuella datorer, konfiguration och tillhör ande data till Data Box-enhet och sedan leverera den manuellt till Azure.
 
 I den här artikeln får du lära dig om:
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig om:
 * Kopiera data från den lokala VMware-miljön till Data Box-enhet via NFS.
 * Förbereder för att returnera Data Box-enhet.
 * Förbereda BLOB-data för kopiering till Azure VMware-lösning.
-* Kopiera data från Azure till ditt privata moln.
+* Kopiera data från Azure till ditt moln privata moln.
 
 ## <a name="scenarios"></a>Scenarier
 
@@ -44,11 +44,11 @@ Använd Data Box-enhet i följande scenarier för migrering av datareplikering:
 
 * Skapa ett virtuellt nätverk och ett lagrings konto i samma region som din Azure VMware-lösning har tillhandahållits.
 
-* Skapa en [virtuell Azure-nätverksanslutning](cloudsimple-azure-network-connection.md) från ditt privata moln till det virtuella nätverk där lagrings kontot skapas genom att följa stegen i [ansluta Azure Virtual Network till CloudSimple med ExpressRoute](virtual-network-connection.md).
+* Skapa en [virtuell Azure-nätverksanslutning](cloudsimple-azure-network-connection.md) från ditt moln privata moln till det virtuella nätverk där lagrings kontot skapas genom att följa stegen i [ansluta Azure Virtual Network till AVS med ExpressRoute](virtual-network-connection.md).
 
 ## <a name="set-up-data-box-for-nfs"></a>Konfigurera Data Box-enhet för NFS
 
-Anslut till din Data Box-enhet lokala webb gränssnittet genom att följa stegen i avsnittet "ansluta till din enhet" i [Självstudier: kabel och Anslut till din Azure Data Box](../databox/data-box-deploy-set-up.md).  Konfigurera Data Box-enhet för att tillåta åtkomst till NFS-klienter:
+Anslut till din Data Box-enhet lokala webb gränssnittet genom att följa stegen i avsnittet "ansluta till din enhet" i [Självstudier: kabel och Anslut till din Azure Data Box](../databox/data-box-deploy-set-up.md). Konfigurera Data Box-enhet för att tillåta åtkomst till NFS-klienter:
 
 1. Gå till sidan **Anslut och kopiera** i det lokala webb gränssnittet. Under **NFS-inställningar**väljer du **NFS-klient åtkomst**. 
 
@@ -95,7 +95,7 @@ NFS-resursen från din Data Box-enhet måste monteras som ett data lager på dit
 
    ![Lägg till ny data lager-NFS-konfiguration](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. I steg 4 i guiden väljer du de ESXi-värdar där du vill att data lagret ska monteras och väljer sedan **Nästa**.  I ett kluster väljer du alla värdar för att säkerställa migrering av de virtuella datorerna.
+6. I steg 4 i guiden väljer du de ESXi-värdar där du vill att data lagret ska monteras och väljer sedan **Nästa**. I ett kluster väljer du alla värdar för att säkerställa migrering av de virtuella datorerna.
 
    ![Lägg till nytt data lager – Välj värdar](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -103,7 +103,7 @@ NFS-resursen från din Data Box-enhet måste monteras som ett data lager på dit
 
 ## <a name="copy-data-to-the-data-box-nfs-datastore"></a>Kopiera data till Data Box-enhet NFS-datalager
 
-Virtuella datorer kan migreras eller klonas till det nya data lagret.  Alla oanvända virtuella datorer som du vill migrera kan migreras till Data Box-enhet NFS-datalagret med alternativet **Storage vMotion** . Aktiva virtuella datorer kan klonas till Data Box-enhet NFS-datalagret.
+Virtuella datorer kan migreras eller klonas till det nya data lagret. Alla oanvända virtuella datorer som du vill migrera kan migreras till Data Box-enhet NFS-datalagret med alternativet **Storage vMotion** . Aktiva virtuella datorer kan klonas till Data Box-enhet NFS-datalagret.
 
 * Identifiera och lista de virtuella datorer som kan **flyttas**.
 * Identifiera och lista de virtuella datorer som måste **klonas**.
@@ -133,7 +133,7 @@ Den virtuella datorn kommer att migreras till NFS-datalagret från Data Box-enhe
 
 ### <a name="clone-a-virtual-machine-or-a-virtual-machine-template-to-the-data-box-datastore"></a>Klona en virtuell dator eller en mall för virtuella datorer till Data Box-enhet data lager
 
-1. Högerklicka på en virtuell dator eller en mall för virtuella datorer som du vill klona. Välj **klona**  > **klona till den virtuella datorn**.
+1. Högerklicka på en virtuell dator eller en mall för virtuella datorer som du vill klona. Välj **klona** > **klona till den virtuella datorn**.
 
     ![Kloning av virtuell dator](media/databox-migration-vm-clone.png)
 
@@ -157,7 +157,7 @@ Virtuella datorer kommer att klonas och lagras på NFS-datalagret från Data Box
 
 ### <a name="copy-iso-files-to-the-data-box-datastore"></a>Kopiera ISO-filer till Data Box-enhet data lager
 
-1. Från ditt lokala vCenter-webbgränssnitt går du till **lagring**.  Välj **data-data lager** och välj sedan **filer**. Skapa en ny mapp för att lagra ISO-filer.
+1. Från ditt lokala vCenter-webbgränssnitt går du till **lagring**. Välj **data-data lager** och välj sedan **filer**. Skapa en ny mapp för att lagra ISO-filer.
 
     ![Kopiera ISO – skapa ny mapp](media/databox-migration-create-folder.png)
 
@@ -213,28 +213,28 @@ Följ stegen som beskrivs i artikeln [returnera Azure Data Box och kontrol lera 
 
 ## <a name="copy-data-from-azure-storage-to-azure-vmware-solution"></a>Kopiera data från Azure Storage till Azure VMware-lösning
 
-Data som kopieras till Data Box-enhet-enheten kommer att finnas tillgängliga på ditt Azure Storage-konto när beställnings statusen för din Data Box-enhet visas som slutförd. Data kan nu kopieras till din Azure VMware-lösning. Data i lagrings kontot måste kopieras till virtuellt San-datalagret för ditt privata moln med hjälp av NFS-protokollet. 
+Data som kopieras till Data Box-enhet-enheten kommer att finnas tillgängliga på ditt Azure Storage-konto när beställnings statusen för din Data Box-enhet visas som slutförd. Data kan nu kopieras till din Azure VMware-lösning. Data i lagrings kontot måste kopieras till virtuellt San-datalagret för ditt AVS-privata moln med hjälp av NFS-protokollet. 
 
-Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dator i Azure med hjälp av **AzCopy**. Gör den hanterade disken tillgänglig via NFS, montera NFS-resursen som ett data lager i ditt privata moln och kopiera sedan data. Med den här metoden kan du snabbare kopiera data till ditt privata moln.
+Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dator i Azure med hjälp av **AzCopy**. Gör den hanterade disken tillgänglig via NFS, montera NFS-resursen som ett data lager i ditt moln privata moln och kopiera sedan data. Den här metoden möjliggör snabbare kopiering av data till ditt moln privata moln.
 
-### <a name="copy-data-to-your-private-cloud-using-a-linux-virtual-machine-and-managed-disks-and-then-export-as-nfs-share"></a>Kopiera data till ditt privata moln med en virtuell Linux-dator och Managed disks och exportera sedan som NFS-resurs
+### <a name="copy-data-to-your-avs-private-cloud-using-a-linux-virtual-machine-and-managed-disks-and-then-export-as-nfs-share"></a>Kopiera data till ditt moln privata moln med en virtuell Linux-dator och Managed disks och exportera sedan som NFS-resurs
 
-1. Skapa en [virtuell Linux-dator](../virtual-machines/linux/quick-create-portal.md) i Azure i samma region där ditt lagrings konto skapas och har en virtuell Azure-nätverksanslutning till ditt privata moln.
+1. Skapa en [virtuell Linux-dator](../virtual-machines/linux/quick-create-portal.md) i Azure i samma region där ditt lagrings konto har skapats och har en Azure Virtual Network-anslutning till ditt moln privata moln.
 
-2. Skapa en hanterad disk vars lagrings kapacitet är större än mängden BLOB-data och [koppla den till den virtuella Linux-datorn](../virtual-machines/linux/attach-disk-portal.md).  Om mängden BLOB-data är större än kapaciteten för den största hanterade disken som är tillgänglig, måste data kopieras i flera steg eller med hjälp av flera hanterade diskar.
+2. Skapa en hanterad disk vars lagrings kapacitet är större än mängden BLOB-data och [koppla den till den virtuella Linux-datorn](../virtual-machines/linux/attach-disk-portal.md). Om mängden BLOB-data är större än kapaciteten för den största hanterade disken som är tillgänglig, måste data kopieras i flera steg eller med hjälp av flera hanterade diskar.
 
 3. Anslut till den virtuella Linux-datorn och montera den hanterade disken.
 
 4. Installera [AzCopy på den virtuella Linux-datorn](../storage/common/storage-use-azcopy-v10.md).
 
-5. Hämta data från Azure Blob Storage till den hanterade disken med AzCopy.  Kommandosyntax: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  Ersätt `<storage-account-name>` med namnet på ditt Azure Storage-konto och `<container-name>` med den behållare som innehåller data som kopieras via Data Box-enhet.
+5. Hämta data från Azure Blob Storage till den hanterade disken med AzCopy. Kommandosyntax: `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`. Ersätt `<storage-account-name>` med namnet på ditt Azure Storage-konto och `<container-name>` med den behållare som innehåller data som kopieras via Data Box-enhet.
 
 6. Installera NFS-servern på den virtuella Linux-datorn:
 
     - På en Ubuntu/Debian-distribution: `sudo apt install nfs-kernel-server`.
     - I en Enterprise Linux-distribution: `sudo yum install nfs-utils`.
 
-7. Ändra behörigheten för mappen på din hanterade disk där data från Azure Blob Storage kopierades.  Ändra behörigheterna för alla mappar som du vill exportera som en NFS-resurs.
+7. Ändra behörigheten för mappen på din hanterade disk där data från Azure Blob Storage kopierades. Ändra behörigheterna för alla mappar som du vill exportera som en NFS-resurs.
 
     ```bash
     chmod -R 755 /<folder>/<subfolder>
@@ -247,7 +247,7 @@ Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dat
     sudo vi /etc/exports
     ```
     
-    Ange följande rader i filen för varje ESXi-värd-IP för ditt privata moln.  Om du skapar resurser för flera mappar ska du lägga till alla mappar.
+    Ange följande rader i filen för varje ESXi-värd-IP för ditt AVS-privata moln. Om du skapar resurser för flera mappar ska du lägga till alla mappar.
 
     ```bash
     /<folder>/<subfolder> <ESXiNode1IP>(rw,sync,no_root_squash,no_subtree_check)
@@ -261,11 +261,11 @@ Kopiera först Blob Storage-data till en hanterad disk på en virtuell Linux-dat
 10. Starta om NFS-kernel-server genom att använda kommandot `sudo systemctl restart nfs-kernel-server`.
 
 
-### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-a-private-cloud-vcenter-cluster-and-then-copy-data"></a>Montera den virtuella Linux-datorns NFS-resurs som ett data lager i ett privat moln vCenter-kluster och kopiera sedan data
+### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-an-avs-private-cloud-vcenter-cluster-and-then-copy-data"></a>Montera den virtuella Linux-datorns NFS-resurs som ett data lager i ett moln för molnets privata moln vCenter och kopiera sedan data
 
-NFS-resursen från din virtuella Linux-dator måste monteras som ett data lager i ditt privata moln vCenter-kluster. När den har monterats kan data kopieras från NFS-datalagret till det privata molnets virtuellt San-datalager.
+NFS-resursen från din virtuella Linux-dator måste monteras som ett data lager i ditt molns vCenter-kluster i molnet. När den har monterats kan data kopieras från NFS-datalagret till virtuellt San-datalagret i AVS-molnet.
 
-1. Logga in på den privata moln vCenter-servern.
+1. Logga in på ditt molns vCenter-Server i molnet.
 
 2. Högerklicka på **Data Center**, Välj **lagring**, Välj **nytt data lager**och välj sedan **Nästa**.
 
@@ -279,11 +279,11 @@ NFS-resursen från din virtuella Linux-dator måste monteras som ett data lager 
 
    ![Lägg till ny data lager-NFS-version](media/databox-migration-add-datastore-nfs-version.png)
 
-5. I steg 3 i guiden anger du namnet på data lagret, sökvägen och servern.  Du kan använda IP-adressen för din virtuella Linux-dator för-servern.  Mappsökvägen är i `/<folder>/<subfolder>/` format.
+5. I steg 3 i guiden anger du namnet på data lagret, sökvägen och servern. Du kan använda IP-adressen för din virtuella Linux-dator för-servern. Mappsökvägen är i `/<folder>/<subfolder>/` format.
 
    ![Lägg till ny data lager-NFS-konfiguration](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. I steg 4 i guiden väljer du de ESXi-värdar där du vill att data lagret ska monteras och väljer sedan **Nästa**.  I ett kluster väljer du alla värdar för att säkerställa migrering av de virtuella datorerna.
+6. I steg 4 i guiden väljer du de ESXi-värdar där du vill att data lagret ska monteras och väljer sedan **Nästa**. I ett kluster väljer du alla värdar för att säkerställa migrering av de virtuella datorerna.
 
    ![Lägg till nytt data lager – Välj värdar](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -291,13 +291,13 @@ NFS-resursen från din virtuella Linux-dator måste monteras som ett data lager 
 
 ### <a name="add-virtual-machines-and-virtual-machine-templates-from-an-nfs-datastore-to-the-inventory"></a>Lägg till virtuella datorer och mallar för virtuella datorer från ett NFS-datalager till inventeringen
 
-1. Från ditt privata moln vCenter-webbgränssnitt går du till **lagring**.  Välj en virtuell Linux-dators NFS-datalager och välj sedan **filer**.
+1. Gå till **lagring**i ditt molns vcenters vCenter-webbgränssnitt. Välj en virtuell Linux-dators NFS-datalager och välj sedan **filer**.
 
     ![Välj filer från NFS-datalager](media/databox-migration-datastore-select-files.png)
 
-2. Välj en mapp som innehåller en virtuell dator eller en mall för virtuella datorer.  I informations fönstret väljer du en. VMX-fil för en virtuell dator eller en. vmtx filnamnstillägget-fil för en mall för virtuella datorer.
+2. Välj en mapp som innehåller en virtuell dator eller en mall för virtuella datorer. I informations fönstret väljer du en. VMX-fil för en virtuell dator eller en. vmtx filnamnstillägget-fil för en mall för virtuella datorer.
 
-3. Välj **Registrera VM** för att registrera den virtuella datorn i ditt privata moln vCenter.
+3. Välj **Registrera VM** för att registrera den virtuella datorn i ditt molns privata moln vCenter.
 
     ![Registrera virtuell dator](media/databox-migration-datastore-register-vm.png)
 
@@ -305,29 +305,29 @@ NFS-resursen från din virtuella Linux-dator måste monteras som ett data lager 
 
 4. Upprepa steg 3 och 4 för alla virtuella datorer och mallar för virtuella datorer.
 
-5. Gå till den mapp som innehåller ISO-filerna.  Välj ISO-filerna och välj sedan **Kopiera för** att kopiera filerna till en mapp på ditt virtuellt San-datalager.
+5. Gå till den mapp som innehåller ISO-filerna. Välj ISO-filerna och välj sedan **Kopiera för** att kopiera filerna till en mapp på ditt virtuellt San-datalager.
 
-Mallarna för virtuella datorer och virtuella datorer är nu tillgängliga i ditt privata moln vCenter. De här virtuella datorerna måste flyttas från NFS-datalagret till virtuellt San data lagret innan du aktiverar dem. Du kan använda alternativet **Storage vMotion** och välja virtuellt San data lager som mål för de virtuella datorerna.
+Mallarna för virtuella datorer och virtuella datorer är nu tillgängliga i din moln-vCenter vCenter. De här virtuella datorerna måste flyttas från NFS-datalagret till virtuellt San data lagret innan du aktiverar dem. Du kan använda alternativet **Storage vMotion** och välja virtuellt San data lager som mål för de virtuella datorerna.
 
 Mallarna för virtuella datorer måste klonas från ditt virtuella Linux-datalager för virtuella Linux-datorer till ditt virtuellt San-datalager.
 
 ### <a name="clean-up-your-linux-virtual-machine"></a>Rensa den virtuella Linux-datorn
 
-När alla data har kopierats till ditt privata moln kan du ta bort NFS-datalagret från ditt privata moln:
+När alla data har kopierats till ditt moln i molnet kan du ta bort NFS-datalagret från ditt AVS-moln:
 
 1. Se till att alla virtuella datorer och mallar flyttas och klonas till ditt virtuellt San-datalager.
 
 2. Ta bort från inventering alla mallar för virtuella datorer från NFS-datalagret.
 
-3. Demontera den virtuella Linux-datorns data lager från ditt privata moln vCenter.
+3. Demontera den virtuella Linux-datorns data lager från ditt molns privata moln vCenter.
 
 4. Ta bort den virtuella datorn och den hanterade disken från Azure.
 
-5. Om du inte vill behålla de data som överfördes av Data Box-enhet i ditt lagrings konto tar du bort Azure Storage-kontot.  
+5. Om du inte vill behålla de data som överfördes av Data Box-enhet i ditt lagrings konto tar du bort Azure Storage-kontot. 
     
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [data Box-enhet](../databox/data-box-overview.md).
-* Läs mer om olika alternativ för [att migrera arbets belastningar till ditt privata moln](migrate-workloads.md).
+* Läs mer om olika alternativ för [att migrera arbets belastningar till ditt moln privata moln](migrate-workloads.md).

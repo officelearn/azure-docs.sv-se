@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: cab593990369bb8a4135e82534a2eb409b574e96
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582769"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024321"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arkitektur för smart avläsning av program vara
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Den här artikeln innehåller en översikt över arkitekturen för appar för smart avläsning av övervakning. Diagrammet nedan visar en arkitektur för smart avläsning av appar på Azure med hjälp av IoT Centrals plattform.
 
@@ -28,7 +28,7 @@ Den här arkitekturen består av följande komponenter. Vissa lösningar kanske 
 
 ## <a name="smart-meters-and-connectivity"></a>Smarta mätare och anslutningar 
 
-En smart mätare är en av de viktigaste enheterna bland alla energi till gångar. Den registrerar och kommunicerar energi förbruknings data till verktyg för övervakning och andra användnings fall, till exempel fakturerings-och svars tid för begäran. Baserat på mätar typen kan den ansluta till IoT Central antingen via gatewayer eller via andra mellanliggande enheter eller system, t. ex. enheter och huvud system. Skapa IoT Central enhets brygga för att ansluta enheter, som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+En smart mätare är en av de viktigaste enheterna bland alla energi till gångar. Den registrerar och kommunicerar energi förbruknings data till verktyg för övervakning och andra användnings fall, till exempel fakturerings-och svars tid för begäran. Baserat på mätar typen kan den ansluta till IoT Central antingen med hjälp av gatewayer eller andra mellanliggande enheter eller system, t. ex. enheter och huvud system. Skapa IoT Central enhets brygga för att ansluta enheter, som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 ## <a name="iot-central-platform"></a>IoT Central plattform

@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
-ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715842"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016263"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Uppdatera till Azure aktivitets logg samling och exportera
 [Azure aktivitets loggen](platform-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Metoden att skicka aktivitets logg poster till [ett händelsehubben eller ett lagrings konto](activity-log-export.md) eller till en [Log Analytics arbets yta](activity-log-collect.md) har ändrats för att använda [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs skillnaden mellan metoderna och hur du rensar äldre inställningar i förberedelser för att ändra inställningarna för diagnostik.
@@ -53,6 +53,9 @@ Följande kolumn har lagts till:
 - Authorization_d
 - Claims_d
 - Properties_d
+
+> [!IMPORTANT]
+> I vissa fall kan värdena i dessa kolumner vara i alla versaler. Om du har en fråga som innehåller dessa kolumner bör du använda [operatorn = ~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) för att göra en Skift läges okänslig jämförelse.
 
 ## <a name="work-with-legacy-settings"></a>Arbeta med äldre inställningar
 Äldre inställningar för att samla in aktivitets loggen fortsätter att fungera om du inte väljer att ersätta med en diagnostisk inställning. Använd följande metod för att hantera logg profilen för en prenumeration.

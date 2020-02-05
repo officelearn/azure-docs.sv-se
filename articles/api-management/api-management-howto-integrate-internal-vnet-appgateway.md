@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 4e4d4c69eb51e0058d3b6b561b5167051079bf89
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 129f407dd66b32ea097daf4ed9110ffbba23660c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442692"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017607"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
 
@@ -185,6 +185,9 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 När kommandot ovan har slutförts refererar den [DNS-konfiguration som krävs för att komma åt den interna VNET API Management-tjänsten](api-management-using-with-internal-vnet.md#apim-dns-configuration) att komma åt den. Det här steget kan ta mer än en halvtimme.
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Konfigurera ett anpassat domän namn i API Management
+
+> [!IMPORTANT]
+> Den [nya Developer-portalen](api-management-howto-developer-portal.md) kräver också att du aktiverar anslutning till API Managements hanterings slut punkt utöver stegen nedan.
 
 ### <a name="step-1"></a>Steg 1
 

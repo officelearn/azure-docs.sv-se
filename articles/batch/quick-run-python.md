@@ -2,22 +2,22 @@
 title: 'Snabb start: köra ett Azure Batch jobb – python API'
 description: Kör snabbt ett Azure Batch exempel jobb och aktiviteter med hjälp av batch python-klientprogrammet. Lär dig viktiga begrepp i batch-tjänsten.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: 3e87649e82bba295d8baaf06a71ace222ceeb0be
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 87c08c403a1e5eefd7645572f593b20037a8212b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029376"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017113"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -128,7 +128,7 @@ blob_client = azureblob.BlockBlobService(
     account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
-Appen använder referensen `blob_client` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna definieras som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan ladda ned till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en container i lagringskontot och för att överföra filer till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
 
 ```python
 input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),

@@ -1,17 +1,17 @@
 ---
 title: GitHub åtgärder & Azure Kubernetes service
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: Granska och testa ändringar från en pull-begäran direkt i Azure Kubernetes-tjänsten med hjälp av GitHub-åtgärder och Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, GitHub Actions, Helm, service nät, service mask-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 7d96726e829154847744d9aec07a9cb0938f75de
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771129"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026106"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub-åtgärder & Azure Kubernetes service (för hands version)
 
@@ -58,7 +58,6 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Spara JSON-utdata eftersom det används i ett senare steg.
 
-
 Använd [AZ AKS show][az-aks-show] för att visa *ID: t* för ditt AKS-kluster:
 
 ```cmd
@@ -93,7 +92,6 @@ Navigera till din förgrenade lagrings plats och klicka på *Inställningar*. Kl
 1. *CLUSTER_NAME*: namnet på ditt AKS-kluster, som i det här exemplet är *MyAKS*.
 1. *CONTAINER_REGISTRY*: *namnet* för ACR.
 1. *Värd*: värden för ditt dev Space, som tar formuläret *< MASTER_SPACE >. < APP_NAME >. <* HOST_SUFFIX >, som i det här exemplet är *dev.bikesharingweb.fedcab0987.EUs.azds.io*.
-1. *HOST_SUFFIX*: värd suffixet för ditt dev Space, som i det här exemplet är *fedcab0987.EUs.azds.io*.
 1. *IMAGE_PULL_SECRET*: namnet på hemligheten som du vill använda, till exempel *demo-Secret*.
 1. *MASTER_SPACE*: namnet på det överordnade dev-utrymmet, som i det här exemplet är *dev*.
 1. *REGISTRY_USERNAME*: *clientId* från JSON-utdata från det att tjänstens huvud namn skapas.
@@ -101,6 +99,8 @@ Navigera till din förgrenade lagrings plats och klicka på *Inställningar*. Kl
 
 > [!NOTE]
 > Alla dessa hemligheter används av GitHub-åtgärden och konfigureras i [. GitHub/arbets flöden/Bikes. yml][github-action-yaml].
+
+Om du vill uppdatera huvud utrymmet efter att din PR har slagits samman lägger du till *GATEWAY_HOST* hemlighet, som tar formuläret *< MASTER_SPACE >. GATEWAY. < HOST_SUFFIX >* , som i det här exemplet är *dev.Gateway.fedcab0987.EUs.azds.io*. När du har slagit samman ändringarna i huvud grenen i din förgrening, kommer en annan åtgärd att köras för att återskapa och köra hela programmet i huvud utvecklings utrymmet. I det här exemplet är huvud utrymmet *dev*. Den här åtgärden har kon figurer ATS i [. GitHub/Workflows/bikesharing. yml][github-action-bikesharing-yaml].
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Skapa en ny gren för kod ändringar
 

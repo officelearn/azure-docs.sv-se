@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e5a2f40611f6b358a8b5ff1dfb99cadebae4fab6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901537"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014002"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
@@ -123,7 +123,7 @@ När du ställer in replikeringen med hjälp av den ägg-mall som finns i Azure 
 
 - Lär dig mer om [krav för replikering](migrate-replication-appliance.md#appliance-requirements) av VMware.
 - MySQL måste vara installerat på enheten. Lär dig mer om [installations alternativ](migrate-replication-appliance.md#mysql-installation).
-- Lär dig mer om [webb adresser](migrate-replication-appliance.md#url-access) och [portar]() som krävs för att få åtkomst till replikerings enheten.
+- Lär dig mer om [webb adresser](migrate-replication-appliance.md#url-access) och [portar](migrate-replication-appliance.md#port-access) som krävs för att få åtkomst till replikerings enheten.
 
 ## <a name="agent-based-ports"></a>Agenter-baserade portar
 

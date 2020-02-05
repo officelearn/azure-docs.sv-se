@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple-behörighets modell för privata moln
-description: Beskriver behörighets modellen, grupper och kategorier för CloudSimple privata moln
+title: Azure VMware-lösningar (AVS) – behörighets modell för molnets privata moln
+description: Beskriver behörighets modellen, grupper och kategorier för AVS-privata moln
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9488c59ead23fb68633ccc56a0df905ebfeea079
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544318"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014954"
 ---
-# <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>CloudSimple privata moln behörighets modell för VMware vCenter
+# <a name="avs-private-cloud-permission-model-of-vmware-vcenter"></a>Behörighets modell för molnets privata moln i VMware vCenter
 
-CloudSimple behåller fullständig administrativ åtkomst till den privata moln miljön. Varje CloudSimple-kund beviljas tillräckligt med administratörs behörighet för att kunna distribuera och hantera de virtuella datorerna i sin miljö.  Om det behövs kan du tillfälligt eskalera dina privilegier för att utföra administrativa funktioner.
+AVS behåller fullständig administrativ åtkomst till molnets privata moln miljö. Varje AVS-kund beviljas tillräckligt med administratörs behörighet för att kunna distribuera och hantera de virtuella datorerna i sin miljö. Om det behövs kan du tillfälligt eskalera dina privilegier för att utföra administrativa funktioner.
 
 ## <a name="cloud-owner"></a>Moln ägare
 
-När du skapar ett privat moln skapas en **CloudOwner** -användare i domänen för vCenter-enkel inloggning med åtkomst till **moln ägar rollen** för att hantera objekt i det privata molnet. Den här användaren kan också konfigurera ytterligare [vCenter identitets källor](set-vcenter-identity.md)och andra användare till det privata molnet vCenter.
+När du skapar ett moln privat moln skapas en **CloudOwner** -användare i domänen vCenter Single Sign-on, med åtkomst till **moln ägar rollen** för hantering av objekt i det privata moln molnet. Den här användaren kan också ställa in ytterligare [vCenter-identitets källor](set-vcenter-identity.md)och andra användare i molnets privata moln vCenter.
 
 > [!NOTE]
-> Standard användaren för din CloudSimple-privata moln vCenter är cloudowner@cloudsimple.local när ett privat moln skapas.
+> Standard användaren för ditt molns privata moln vCenter är cloudowner@AVS.local när ett privat moln moln skapas.
 
 ## <a name="user-groups"></a>Användargrupper
 
-En grupp som kallas **moln ägar grupp** skapas vid distributionen av ett privat moln. Användare i den här gruppen kan administrera olika delar av vSphere-miljön i det privata molnet. Den här gruppen tilldelas automatiskt **moln-ägar-roll-** privilegier och **CloudOwner** -användaren läggs till som medlem i den här gruppen.  CloudSimple skapar ytterligare grupper med begränsade behörigheter för enkel hantering.  Du kan lägga till vilken användare som helst i de grupper som skapats i förväg och de behörigheter som definieras nedan tilldelas användare i grupperna automatiskt.
+En grupp som kallas **moln ägar grupp** skapas vid distributionen av ett privat AVS-moln. Användare i den här gruppen kan administrera olika delar av vSphere-miljön i det privata AVS-molnet. Den här gruppen tilldelas automatiskt **moln-ägar-roll-** privilegier och **CloudOwner** -användaren läggs till som medlem i den här gruppen. AVS skapar ytterligare grupper med begränsade behörigheter för enkel hantering. Du kan lägga till vilken användare som helst i de grupper som skapats i förväg och de behörigheter som definieras nedan tilldelas användare i grupperna automatiskt.
 
 ### <a name="pre-created-groups"></a>I förväg skapade grupper
 
 | Gruppnamn | Syfte | Roll |
 | -------- | ------- | ------ |
-| Moln-ägar grupp | Medlemmar i den här gruppen har administratörs behörighet för det privata molnet vCenter | [Moln-ägar-roll](#cloud-owner-role) |
-| Moln-globalt-kluster-admin-grupp | Medlemmar i den här gruppen har administratörs behörighet för det privata molnet vCenter-kluster | [Moln-kluster-admin-roll](#cloud-cluster-admin-role) |
-| Cloud – Global Storage – admin-Group | Medlemmar i den här gruppen kan hantera lagring i det privata molnet vCenter | [Cloud-Storage – admin-Role](#cloud-storage-admin-role) |
-| Cloud – Global-Network-admin-Group | Medlemmar i den här gruppen kan hantera nätverks-och distribuerade Port grupper i det privata molnet vCenter | [Cloud-network-admin-Role](#cloud-network-admin-role) |
-| Moln – global-VM-admin-Group | Medlemmar i den här gruppen kan hantera virtuella datorer i det privata molnet vCenter | [Cloud-VM-admin-Role](#cloud-vm-admin-role) |
+| Moln-ägar grupp | Medlemmar i den här gruppen har administrativ behörighet till den privata AVS-molnets vCenter | [Moln-ägar-roll](#cloud-owner-role) |
+| Moln-globalt-kluster-admin-grupp | Medlemmar i den här gruppen har administratörs behörighet för det offentliga molnet i Cloud vCenter-klustret | [Moln-kluster-admin-roll](#cloud-cluster-admin-role) |
+| Cloud – Global Storage – admin-Group | Medlemmar i den här gruppen kan hantera lagring i molnets privata moln vCenter | [Cloud-Storage – admin-Role](#cloud-storage-admin-role) |
+| Cloud – Global-Network-admin-Group | Medlemmar i den här gruppen kan hantera nätverks-och distribuerade Port grupper i molnets privata moln vCenter | [Cloud-network-admin-Role](#cloud-network-admin-role) |
+| Moln – global-VM-admin-Group | Medlemmar i den här gruppen kan hantera virtuella datorer i AVS-molnets privata moln vCenter | [Cloud-VM-admin-Role](#cloud-vm-admin-role) |
 
-Om du vill ge enskilda användare behörighet att hantera det privata molnet, skapar du användar konton Lägg till i lämpliga grupper.
+Om du vill ge enskilda användare behörighet att hantera det privata moln molnet skapar du användar konton i lämpliga grupper.
 
 > [!CAUTION]
 > Nya användare får endast läggas till i *moln-ägar-grupp*, *Cloud-global-Cluster-admin-Group*, *Cloud-Global-Storage-admin-Group*, *Cloud-Global-Network-admin-Group* eller, *Cloud-global-VM-admin-Group*.  Användare som lagts till i gruppen *Administratörer* tas då bort automatiskt.  Endast tjänst konton måste läggas till i *Administratörs* gruppen och tjänst kontona får inte användas för att logga in på vSphere-webbgränssnittet.
@@ -54,7 +54,7 @@ Om du vill ge enskilda användare behörighet att hantera det privata molnet, sk
 | **Larm** | Bekräfta larm <br> Skapa alarm <br> Inaktivera alarm åtgärd <br> Ändra alarm <br> Ta bort alarm <br> Ange alarm status |
 | **Behörigheter** | Ändra behörighet |
 | **Innehålls bibliotek** | Lägg till biblioteks objekt <br> Skapa lokalt bibliotek <br> Skapa prenumerations bibliotek <br> Ta bort biblioteks objekt <br> Ta bort lokalt bibliotek <br> Ta bort prenumerations bibliotek <br> Hämta filer <br> Avlägsna biblioteks objekt <br> Ta bort prenumerations bibliotek <br> Importera lagring <br> Avsöknings prenumerations information <br> Läs lagring <br> Synkronisera biblioteks objekt <br> Synkronisera prenumerations bibliotek <br> Skriv introspektionsfunktionerna <br> Uppdatera konfigurations inställningar <br> Uppdatera filer <br> Uppdatera bibliotek <br> Uppdatera biblioteks objekt <br> Uppdatera lokalt bibliotek <br> Uppdatera prenumerations bibliotek <br> Visa konfigurations inställningar |
-| **Kryptografiska åtgärder** | Lägg till disk <br> Klona <br> Avkryptera <br> Direktåtkomst <br> Kryptera <br> Kryptera ny <br> Hantera KMS <br> Hantera krypterings principer <br> Hantera nycklar <br> Migrera <br> Dekryptera om <br> Registrera VM <br> Registrera värd |
+| **Kryptografiska åtgärder** | Lägg till disk <br> Klona <br> Avkryptera <br> Direkt åtkomst <br> Kryptera <br> Kryptera ny <br> Hantera KMS <br> Hantera krypterings principer <br> Hantera nycklar <br> Migrera <br> Dekryptera om <br> Registrera VM <br> Registrera värd |
 | **dvPort-grupp** | Create <br> Ta bort <br> Ändra <br> Princip åtgärd <br> Omfattnings åtgärd |
 | **Lager** | Allokera utrymme <br> Bläddra i data lager <br> Konfigurera data lager <br> Fil åtgärder på låg nivå <br> Flytta data lager <br> Ta bort data lager <br> Ta bort fil <br> Byt namn på data lager <br> Uppdatera filer för virtuella datorer <br> Uppdatera metadata för virtuell dator |
 | **ESX Agent Manager** | Config <br> Ändra <br> Visa |
@@ -77,11 +77,11 @@ Om du vill ge enskilda användare behörighet att hantera det privata molnet, sk
 | **Lagringspooler** | Konfigurera tjänst <br> Visa |
 | **Uppgifter** | Skapa uppgift <br> Uppdatera uppgift |
 | **Överförings tjänst**| Hantera <br> Övervaka |
-| **vApp** | Lägg till virtuell dator <br> Tilldela resurspool <br> Tilldela vApp <br> Klona <br> Create <br> Ta bort <br> Exportera <br> Importera <br> Flytta <br> Avstängning <br> Slå på <br> Byt namn <br> Pausa <br> Avregistrera <br> Visa OVF-miljö <br> vApp program konfiguration <br> konfiguration av vApp-instans <br> vApp managedBy-konfiguration <br> resurs konfiguration för vApp |
+| **vApp** | Lägg till virtuell dator <br> Tilldela resurspool <br> Tilldela vApp <br> Klona <br> Create <br> Ta bort <br> Exportera <br> Importera <br> Flytta <br> Stäng av <br> Slå på <br> Byt namn <br> Pausa <br> Avregistrera <br> Visa OVF-miljö <br> vApp program konfiguration <br> konfiguration av vApp-instans <br> vApp managedBy-konfiguration <br> resurs konfiguration för vApp |
 | **VRMPolicy** | Fråga VRMPolicy <br> Uppdatera VRMPolicy |
 | **Konfiguration av virtuell dator >** | Lägg till befintlig disk <br> Lägg till ny disk <br> Lägg till eller ta bort enhet <br> Advanced <br> Ändra antal processorer <br> Ändra resurs <br> Konfigurera managedBy <br> Disk ändrings spårning <br> Disk lån <br> Visa anslutnings inställningar <br> Utöka virtuell disk <br> Värd USB-enhet <br> Minne <br> Ändra enhets inställningar <br> Kompatibilitet för fel tolerans för fråga <br> Fråga efter filer som inte ägs <br> RAW-enhet <br> Läs in på nytt från sökväg <br> Ta bort disk <br> Byt namn <br> Återställ gäst information <br> Ange anteckning <br> Inställningar <br> Swapfile placering <br> Växla överordnad förgrening <br> Lås upp virtuell dator <br> Uppgradera kompatibilitet för virtuell dator |
 | **> Gäst åtgärder för virtuell dator** | Ändra alias för gäst åtgärd <br> Fråga om gäst åtgärds Ali Aset <br> Ändringar av gäst åtgärd <br> Körning av gäst åtgärds program <br> Gäst åtgärds frågor |
-| **> Interaktion för virtuell dator** | Svars fråga <br> Säkerhets kopierings åtgärd på virtuell dator <br> Konfigurera CD-medier <br> Konfigurera diskett medium <br> Konsol interaktion <br> Skapa skärm bild <br> Defragmentera alla diskar <br> Enhets anslutning <br> Dra och släpp <br> Hantering av gäst operativ system med VIX-API <br> Mata in USB HID-sökkoder <br> Pausa eller pausa <br> Utför rensnings-eller krympnings åtgärder <br> Avstängning <br> Slå på <br> Spela in session på virtuell dator <br> Replay-session på virtuell dator <br> Återställ <br> Återuppta fel tolerans <br> Pausa <br> Pausa fel tolerans <br> Redundanstest <br> Testa att starta om sekundär virtuell dator <br> Stäng av fel tolerans <br> Aktivera fel tolerans <br> Installera VMware-verktyg |
+| **> Interaktion för virtuell dator** | Svars fråga <br> Säkerhets kopierings åtgärd på virtuell dator <br> Konfigurera CD-medier <br> Konfigurera diskett medium <br> Konsol interaktion <br> Skapa skärm bild <br> Defragmentera alla diskar <br> Enhets anslutning <br> Dra och släpp <br> Hantering av gäst operativ system med VIX-API <br> Mata in USB HID-sökkoder <br> Pausa eller pausa <br> Utför rensnings-eller krympnings åtgärder <br> Stäng av <br> Slå på <br> Spela in session på virtuell dator <br> Replay-session på virtuell dator <br> Återställ <br> Återuppta fel tolerans <br> Pausa <br> Pausa fel tolerans <br> Redundanstest <br> Testa att starta om sekundär virtuell dator <br> Stäng av fel tolerans <br> Aktivera fel tolerans <br> Installera VMware-verktyg |
 | **> Inventering av virtuell dator** | Skapa från befintlig <br> Skapa ny <br> Flytta <br> Registrera dig <br> Ta bort <br> Avregistrera |
 | **Etablering av virtuell dator >** | Tillåt disk åtkomst <br> Tillåt fil åtkomst <br> Tillåt skrivskyddad disk åtkomst <br> Tillåt nedladdning av virtuell dator <br> Tillåt uppladdning av filer för virtuella datorer <br> Klona mall <br> Klona virtuell dator <br> Skapa mall från virtuell dator <br> Anpassa <br> Distribuera mallen <br> Markera som mall <br> Markera som virtuell dator <br> Ändra anpassnings specifikation <br> Marknadsför diskar <br> Läs anpassnings specifikationer |
 | **Konfiguration av > tjänst för virtuell dator** | Tillåt meddelanden <br> Tillåt avsökning av globala händelse meddelanden <br> Hantera tjänst konfigurationer <br> Ändra tjänst konfiguration <br> Query service-konfigurationer <br> Läs tjänst konfiguration |
@@ -99,11 +99,11 @@ Om du vill ge enskilda användare behörighet att hantera det privata molnet, sk
 | **vSphere taggning** | Tilldela eller ta bort tilldelning av vSphere-tagg <br> Skapa vSphere-tagg <br> Skapa vSphere tag-kategori <br> Ta bort vSphere-tagg <br> Ta bort vSphere tag-kategori <br> Redigera vSphere-tagg <br> Redigera vSphere tag-kategori <br> Ändra UsedBy-fält för kategori <br> Ändra fältet UsedBy för tagg |
 | **Nätverk** | Tilldela nätverk |
 | **Resurs** | Använd rekommendation <br> Tilldela vApp till resurspoolen <br> Tilldela en virtuell dator till en resurspool <br> Skapa resurspool <br> Migrera avstängd virtuell dator <br> Migrera på den virtuella datorn <br> Ändra resurspool <br> Flytta resurspool <br> Fråga vMotion <br> Ta bort resurspool <br> Byt namn på resurspool |
-| **vApp** | Lägg till virtuell dator <br> Tilldela resurspool <br> Tilldela vApp <br> Klona <br> Create <br> Ta bort <br> Exportera <br> Importera <br> Flytta <br> Avstängning <br> Slå på <br> Byt namn <br> Pausa <br> Avregistrera <br> Visa OVF-miljö <br> vApp program konfiguration <br> konfiguration av vApp-instans <br> vApp managedBy-konfiguration <br> resurs konfiguration för vApp |
+| **vApp** | Lägg till virtuell dator <br> Tilldela resurspool <br> Tilldela vApp <br> Klona <br> Create <br> Ta bort <br> Exportera <br> Importera <br> Flytta <br> Stäng av <br> Slå på <br> Byt namn <br> Pausa <br> Avregistrera <br> Visa OVF-miljö <br> vApp program konfiguration <br> konfiguration av vApp-instans <br> vApp managedBy-konfiguration <br> resurs konfiguration för vApp |
 | **VRMPolicy** | Fråga VRMPolicy <br> Uppdatera VRMPolicy |
 | **Konfiguration av virtuell dator >** | Lägg till befintlig disk <br> Lägg till ny disk <br> Lägg till eller ta bort enhet <br> Advanced <br> Ändra antal processorer <br> Ändra resurs <br> Konfigurera managedBy <br> Disk ändrings spårning <br> Disk lån <br> Visa anslutnings inställningar <br> Utöka virtuell disk <br> Värd USB-enhet <br> Minne <br> Ändra enhets inställningar <br> Kompatibilitet för fel tolerans för fråga <br> Fråga efter filer som inte ägs <br> RAW-enhet <br> Läs in på nytt från sökväg <br> Ta bort disk <br> Byt namn <br> Återställ gäst information <br> Ange anteckning <br> Inställningar <br> Swapfile placering <br> Växla överordnad förgrening <br> Lås upp virtuell dator <br> Uppgradera kompatibilitet för virtuell dator |
 | **> Gäst åtgärder för virtuell dator** | Ändra alias för gäst åtgärd <br> Fråga om gäst åtgärds Ali Aset <br> Ändringar av gäst åtgärd <br> Körning av gäst åtgärds program <br> Gäst åtgärds frågor |
-| **> Interaktion för virtuell dator** | Svars fråga <br> Säkerhets kopierings åtgärd på virtuell dator <br> Konfigurera CD-medier <br> Konfigurera diskett medium <br> Konsol interaktion <br> Skapa skärm bild <br> Defragmentera alla diskar <br> Enhets anslutning <br> Dra och släpp <br> Hantering av gäst operativ system med VIX-API <br> Mata in USB HID-sökkoder <br> Pausa eller pausa <br> Utför rensnings-eller krympnings åtgärder <br> Avstängning <br> Slå på <br> Spela in session på virtuell dator <br> Replay-session på virtuell dator <br> Återställ <br> Återuppta fel tolerans <br> Pausa <br> Pausa fel tolerans <br> Redundanstest <br> Testa att starta om sekundär virtuell dator <br> Stäng av fel tolerans <br> Aktivera fel tolerans <br> Installera VMware-verktyg
+| **> Interaktion för virtuell dator** | Svars fråga <br> Säkerhets kopierings åtgärd på virtuell dator <br> Konfigurera CD-medier <br> Konfigurera diskett medium <br> Konsol interaktion <br> Skapa skärm bild <br> Defragmentera alla diskar <br> Enhets anslutning <br> Dra och släpp <br> Hantering av gäst operativ system med VIX-API <br> Mata in USB HID-sökkoder <br> Pausa eller pausa <br> Utför rensnings-eller krympnings åtgärder <br> Stäng av <br> Slå på <br> Spela in session på virtuell dator <br> Replay-session på virtuell dator <br> Återställ <br> Återuppta fel tolerans <br> Pausa <br> Pausa fel tolerans <br> Redundanstest <br> Testa att starta om sekundär virtuell dator <br> Stäng av fel tolerans <br> Aktivera fel tolerans <br> Installera VMware-verktyg
 | **> Inventering av virtuell dator** | Skapa från befintlig <br> Skapa ny <br> Flytta <br> Registrera dig <br> Ta bort <br> Avregistrera |
 | **Etablering av virtuell dator >** | Tillåt disk åtkomst <br> Tillåt fil åtkomst <br> Tillåt skrivskyddad disk åtkomst <br> Tillåt nedladdning av virtuell dator <br> Tillåt uppladdning av filer för virtuella datorer <br> Klona mall <br> Klona virtuell dator <br> Skapa mall från virtuell dator <br> Anpassa <br> Distribuera mallen <br> Markera som mall <br> Markera som virtuell dator <br> Ändra anpassnings specifikation <br> Marknadsför diskar  <br> Läs anpassnings specifikationer |
 | **Konfiguration av > tjänst för virtuell dator** | Tillåt meddelanden <br> Tillåt avsökning av globala händelse meddelanden <br> Hantera tjänst konfigurationer <br> Ändra tjänst konfiguration <br> Query service-konfigurationer <br> Läs tjänst konfiguration
@@ -139,7 +139,7 @@ Om du vill ge enskilda användare behörighet att hantera det privata molnet, sk
 | **vApp** | Exportera <br> Importera |
 | **Konfiguration av virtuell dator >** | Lägg till befintlig disk <br> Lägg till ny disk <br> Lägg till eller ta bort enhet <br> Advanced <br> Ändra antal processorer <br> Ändra resurs <br> Konfigurera managedBy <br> Disk ändrings spårning <br> Disk lån <br> Visa anslutnings inställningar <br> Utöka virtuell disk <br> Värd USB-enhet <br> Minne <br> Ändra enhets inställningar <br> Kompatibilitet för fel tolerans för fråga <br> Fråga efter filer som inte ägs <br> RAW-enhet <br> Läs in på nytt från sökväg <br> Ta bort disk <br> Byt namn <br> Återställ gäst information <br> Ange anteckning <br> Inställningar <br> Swapfile placering <br> Växla överordnad förgrening <br> Lås upp virtuell dator <br> Uppgradera kompatibilitet för virtuell dator |
 | **> Gäst åtgärder för virtuell dator** | Ändra alias för gäst åtgärd <br> Fråga om gäst åtgärds Ali Aset <br> Ändringar av gäst åtgärd <br> Körning av gäst åtgärds program <br> Gäst åtgärds frågor    |
-| **> Interaktion för virtuell dator** | Svars fråga <br> Säkerhets kopierings åtgärd på virtuell dator <br> Konfigurera CD-medier <br> Konfigurera diskett medium <br> Konsol interaktion <br> Skapa skärm bild <br> Defragmentera alla diskar <br> Enhets anslutning <br> Dra och släpp <br> Hantering av gäst operativ system med VIX-API <br> Mata in USB HID-sökkoder <br> Pausa eller pausa <br> Utför rensnings-eller krympnings åtgärder <br> Avstängning <br> Slå på <br> Spela in session på virtuell dator <br> Replay-session på virtuell dator <br> Återställ <br> Återuppta fel tolerans <br> Pausa <br> Pausa fel tolerans <br> Redundanstest <br> Testa att starta om sekundär virtuell dator <br> Stäng av fel tolerans <br> Aktivera fel tolerans <br> Installera VMware-verktyg |
+| **> Interaktion för virtuell dator** | Svars fråga <br> Säkerhets kopierings åtgärd på virtuell dator <br> Konfigurera CD-medier <br> Konfigurera diskett medium <br> Konsol interaktion <br> Skapa skärm bild <br> Defragmentera alla diskar <br> Enhets anslutning <br> Dra och släpp <br> Hantering av gäst operativ system med VIX-API <br> Mata in USB HID-sökkoder <br> Pausa eller pausa <br> Utför rensnings-eller krympnings åtgärder <br> Stäng av <br> Slå på <br> Spela in session på virtuell dator <br> Replay-session på virtuell dator <br> Återställ <br> Återuppta fel tolerans <br> Pausa <br> Pausa fel tolerans <br> Redundanstest <br> Testa att starta om sekundär virtuell dator <br> Stäng av fel tolerans <br> Aktivera fel tolerans <br> Installera VMware-verktyg |
 | **> Inventering av virtuell dator** | Skapa från befintlig <br> Skapa ny <br> Flytta <br> Registrera dig <br> Ta bort <br> Avregistrera |
 | **Etablering av virtuell dator >** | Tillåt disk åtkomst <br> Tillåt fil åtkomst <br> Tillåt skrivskyddad disk åtkomst <br> Tillåt nedladdning av virtuell dator <br> Tillåt uppladdning av filer för virtuella datorer <br> Klona mall <br> Klona virtuell dator <br> Skapa mall från virtuell dator <br> Anpassa <br> Distribuera mallen <br> Markera som mall <br> Markera som virtuell dator <br> Ändra anpassnings specifikation <br> Marknadsför diskar <br> Läs anpassnings specifikationer |
 | **Konfiguration av > tjänst för virtuell dator** | Tillåt meddelanden <br> Tillåt avsökning av globala händelse meddelanden <br> Hantera tjänst konfigurationer <br> Ändra tjänst konfiguration <br> Query service-konfigurationer <br> Läs tjänst konfiguration

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895985"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016756"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -34,7 +34,7 @@ Du kan ansluta till flera platser med hjälp av Windows PowerShell och Azure RES
 
 Nej. 
 
-### <a name="what-are-my-cross-premises-connection-options"></a>Vilka alternativ finns det för min anslutning till flera platser?
+### <a name="what-are-my-cross-premises-connection-options"></a>Vad är mina anslutningsalternativ mellan olika platser?
 
 Följande anslutningar mellan flera platser stöds:
 
@@ -68,14 +68,15 @@ Principbaserade gateways implementerar principbaserade VPN:er. Principbaserade V
 
 Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbaserade VPN:er använder ”vägar” i IP-vidarebefordringen eller i routningstabellen för att dirigera paket till sina respektive tunnelgränssnitt. Tunnelgränssnitten krypterar eller dekrypterar sedan paketen in och ut från tunnlarna. Principen eller trafikväljaren för routningsbaserade VPN:er konfigureras som alla-till-alla (eller jokertecken).
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan jag uppdatera min principbaserade VPN-gateway till att bli routningsbaserad?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan jag uppdatera min principbaserade VPN-gateway till routing-based?
+
 Nej. En Azure VNet Gateway-typ kan inte ändras från principbaserad till Route-baserad eller på annat sätt. Gatewayen måste tas bort och återskapas, en process som tar cirka 60 minuter. IP-adressen till gatewayen bevaras inte och inte heller den i förväg delade nyckeln (PSK).
 1. Ta bort alla anslutningar som är associerade med gatewayen som ska tas bort.
 1. Ta bort gatewayen:
-1. [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell – klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Skapa en ny gateway av efterfrågad typ och slutför VPN-konfigurationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+   - [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell-klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Skapa en ny Gateway av den typ som du vill ha och slutför VPN-installationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Behöver jag ett gatewayundernät?
 
@@ -89,11 +90,15 @@ Nej.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Kan jag få min IP-adress för VPN-gatewayen innan jag skapar den?
 
-Nej. Du måste skapa din gateway innan du kan hämta IP-adressen. IP-adressen ändras om du tar bort och återskapar din VPN-gateway.
+Zoner-redundanta och zonindelade-gatewayer (Gateway-SKU: er som har _AZ_ i namnet) båda förlitar sig på en offentlig Azure-resurs med _standard-SKU_ . Azure standard SKU offentliga IP-resurser måste använda en statisk allokeringsmetod. Därför kommer du att ha den offentliga IP-adressen för din VPN-gateway så snart du skapar den offentliga standard-IP-resursen som du vill använda för den.
+
+För icke-zoner-redundanta och icke-zonindelade gatewayer (Gateway-SKU: er som _inte_ har _AZ_ i namnet) kan du inte hämta IP-adressen för VPN-gatewayen innan den skapas. IP-adressen ändras endast om du tar bort och återskapar din VPN-gateway.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Kan jag begära en statisk offentlig IP-adress för min VPN-gateway?
 
-Nej. Endast dynamisk IP-adresstilldelning stöds. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången VPN-gatewayens IP-adress ändras är när gatewayen tas bort och återskapas. VPN-gatewayens offentliga IP-adress ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway. 
+Som anges ovan förlitar sig zoner-redundanta och zonindelade-gatewayer (Gateway-SKU: er som har _AZ_ i namnet) både för en offentlig Azure-resurs med _standard-SKU_ . Azure standard SKU offentliga IP-resurser måste använda en statisk allokeringsmetod.
+
+För icke-zoner-redundanta och icke-zonindelade gatewayer (Gateway-SKU: er som _inte_ har _AZ_ i namnet), stöds endast dynamisk IP-adresstilldelning. Detta betyder dock inte att IP-adressen ändras efter att den har tilldelats till din VPN-gateway. Den enda gången som VPN-gatewayens IP-adress ändras är när gatewayen tas bort och sedan skapas på nytt. VPN-gatewayens offentliga IP-adress ändras inte när du ändrar storlek på, återställer eller Slutför annat internt underhåll och uppgraderingar av din VPN-gateway.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Hur blir min VPN-tunnel autentiserad?
 

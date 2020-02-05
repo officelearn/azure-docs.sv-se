@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d31ef856103d809fc02a183603bc45f9d94939c8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1bad4ab6320e757ac766776a95b8dbe6ebaa3259
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990578"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016433"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten förbrukning i IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 I den här självstudien får du hjälp med att skapa ett program för övervakning av Azure IoT Central vatten förbrukning från program mal len för övervakning av IoT Central. 
 
-I självstudien får du lära dig att: 
+I den här självstudien får du lära dig hur man: 
 
 > [!div class="checklist"]
 > * Använd övervaknings mal len Azure IoT Central **vattenförbrukning** för att skapa ett program för övervakning av vatten förbrukning
@@ -34,12 +34,12 @@ I självstudien får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 -  En Azure-prenumeration rekommenderas. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
 ## <a name="create-water-consumption-monitoring-app-in-iot-central"></a>Skapa appen för övervakning av vattenförbrukning i IoT Central
 
-I det här avsnittet ska vi använda mallen för övervakning av Azure IoT Central- **vattenförbrukning** för att skapa ett program för övervakning av vatten förbrukning i IoT Central.
+I det här avsnittet använder du **övervaknings mal len Azure IoT Central vattenförbrukning** för att skapa ett program för vattenförbruknings övervakning i IoT Central.
 
 Så här skapar du ett nytt program för övervakning av Azure IoT Central vatten förbrukning:  
 
@@ -60,13 +60,14 @@ Så här skapar du ett nytt program för övervakning av Azure IoT Central vatte
     * **URL**: IoT Central genererar automatiskt en URL åt dig baserat på programmets namn. Du kan välja att uppdatera URL: en till dina önskemål. Du kan ändra URL: en senare. 
     * Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central.md).
 
 5. Klicka på knappen **skapa** längst ned på sidan. 
 
     ![Sidan Skapa program i Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
 
     ![Azure IoT Central skapa program fakturerings information](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
+
 6. Nu har du skapat en app för övervakning av dricks-appar med hjälp av mallen Azure IoT Central **vattenförbruknings övervakning** .
 
 Grattis! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
@@ -94,7 +95,7 @@ Instrument panelen består av olika typer av paneler:
 
 * KPI-panelen i **genomsnitts flöde**: KPI-panelen är konfigurerad att visa som ett exempel *på genomsnittet under de senaste 30 minuterna*. Du kan anpassa KPI-paneler och ange en annan typ och ett tidsintervall.
 
-* Sedan har den rätt i panel *enhetens kommando* paneler för att **stänga ventil**, **öppna ventiler**eller **ställa in ventil position**. Om du klickar på kommandona tas du till kommando sidan simulerad enhets enhet. I IoT Central ett *kommando* är en *enhets kapacitets* typ som vi kommer att utforska senare i **enhetens mall-avsnitt** i den här självstudien.
+* Sedan har den rätt i panel *enhetens kommando* paneler för att **stänga ventil**, **öppna ventiler**eller **ställa in ventil position**. Om du klickar på kommandona tas du till kommando sidan simulerad enhet. I IoT Central är ett *kommando* en *enhets kapacitets* typ, som du kan utforska senare i **avsnittet enhets mal len** i den här självstudien.
 
 *  **Områdes mappning för vatten distribution**: kartan använder Azure Maps, som du kan konfigurera direkt i Azure IoT Central. Kart panelen visar enhetens plats. Försök att hovra över kartan och testa kontrollerna över kartan, t. ex. *Zooma in*, *Zooma ut* eller *expandera*. 
 
@@ -106,7 +107,7 @@ Instrument panelen består av olika typer av paneler:
 
 * **Återställ innehålls panelen för aviserings tröskeln**: du kan ta med anrop till innehålls paneler för åtgärds innehåll som bäddar in länken till en åtgärds sida. I detta fall återställs aviserings tröskeln till de program **jobb** där du kan köra uppdateringar av enhets egenskaper, som vi kommer att utforska senare i avsnittet **Konfigurera jobb** i den här självstudien.
 
-* **Egenskaps paneler**: instrument panelen visar **ventilens operativa information**, **flödes tröskelvärden för aviseringar**och **underhålls information** som är enhets egenskaper.  
+* **Egenskaps paneler**: instrument panelen visar **ventilens operativa information**, **flödes tröskelvärden för aviseringar**och **underhålls information**. 
 
 
 ### <a name="customize-dashboard"></a>Anpassa instrument panelen 
@@ -147,7 +148,7 @@ Försök att anpassa följande:
 ### <a name="add-a-cloud-property"></a>Lägg till en moln egenskap 
 1. Gå till **moln egenskap** från enhetens mall-menyn
 2. Lägg till en ny moln egenskap genom att klicka på **+ Lägg till moln egenskap**. 
-    I IoT Central kan du lägga till en egenskap som är relevant för enheten. Som exempel kan en moln egenskap vara en aviserings tröskel som är speciell för installations områden, till gångs information eller underhålls information osv. 
+    I IoT Central kan du lägga till en egenskap som är relevant för enheten. Som exempel kan en moln egenskap vara en aviserings tröskel som är speciell för installations områden, till gångs information eller annan underhålls information. 
 3. **Spara** ändringar 
  
 ### <a name="views"></a>Vyer 
@@ -156,7 +157,7 @@ Enhets mal len för vattenförbruknings övervakning levereras med fördefiniera
   ![Vyer för enhets mal len](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-views.png)
 
 ### <a name="publish"></a>Publicera 
-Om du har gjort några ändringar måste du **publicera** enhets mal len. 
+Om du har gjort några ändringar ska du se till att **publicera** enhets mal len. 
 
 ### <a name="create-a-new-device-template"></a>Skapa en ny enhetsmall 
 - Välj **+ nytt** för att skapa en ny enhets mall och följ proceduren för att skapa. Du kommer att kunna skapa en anpassad enhets mall från början eller välja en enhets mall från Azures enhets katalog. 
@@ -193,7 +194,7 @@ Det program för **övervakning av vatten förbrukning** som du har skapat malle
 
    ![Regler](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-2. Välj och klicka på **hög pH-avisering** , vilket är en av de förkonfigurerade reglerna i programmet.
+2. Välj och klicka på **hög pH-avisering**, som är en av de förkonfigurerade reglerna i programmet.
 
      ![Hög pH-avisering](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 

@@ -6,13 +6,13 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688297"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016977"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med en Azure-Virtual Network
 Det här dokumentet beskriver den Azure App Service funktionen för integrering av virtuella nätverk och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Med [Azure Virtual Networks][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett dirigerbart nätverk som inte är Internet.  
@@ -33,10 +33,10 @@ En app kan bara använda en form av funktionen VNet-integrering i taget. Frågan
 
 | Problem  | Lösning | 
 |----------|----------|
-| Vill komma åt en RFC 1918-adress (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) i samma region | Regional VNet-integrering |
+| Vill komma åt en RFC 1918-adress (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) i samma region | regional VNet-integrering |
 | Vill du komma åt resurser i ett klassiskt VNet eller ett VNet i en annan region | Gateway krävs VNet-integrering |
-| Vill komma åt RFC 1918-slutpunkter över ExpressRoute | Regional VNet-integrering |
-| Vill du uppnå resurser över tjänst slut punkter | Regional VNet-integrering |
+| Vill komma åt RFC 1918-slutpunkter över ExpressRoute | regional VNet-integrering |
+| Vill du uppnå resurser över tjänst slut punkter | regional VNet-integrering |
 
 Ingen av funktionerna gör att du kan komma åt icke-RFC 1918-adresser i ExpressRoute. Om du vill göra det måste du använda en ASE för tillfället.
 
@@ -74,7 +74,7 @@ Den här funktionen är i för hands version men stöds för Windows-appens arbe
 * Du kan bara komma åt adresser i RFC 1918-intervallet. De är adresser i adress blocken 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.
 * Du kan inte komma åt resurser över global peering anslutningar
 * Du kan inte ange vägar för trafik som kommer från din app till ditt VNet
-* Funktionen är endast tillgänglig från nyare App Service skalnings enheter som stöder PremiumV2 App Service-planer.
+* Funktionen är endast tillgänglig från nyare App Service skalnings enheter som stöder PremiumV2 App Service-planer. Observera att detta inte innebär att din app måste köras på en PremiumV2-SKU, bara att den måste köras i en App Service plan där alternativet PremiumV2 är tillgängligt (vilket innebär att det är en nyare skalnings enhet där denna VNet-integrering också är tillgänglig).
 * Integrations under nätet kan bara användas av ett App Service plan
 * Funktionen kan inte användas av isolerade plan-appar som finns i en App Service-miljön
 * Funktionen kräver ett oanvänt undernät som är a/27 med 32 adresser eller större i ditt Resource Manager VNet

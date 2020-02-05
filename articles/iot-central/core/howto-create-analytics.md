@@ -1,86 +1,95 @@
 ---
 title: Analysera enhets data i ditt Azure IoT Central-program | Microsoft Docs
-description: Den här artikeln beskriver hur du analyserar enhets data i ditt Azure IoT Central-program med hjälp av frågor och visualiseringar.
-author: lmasieri
-ms.author: lmasieri
-ms.date: 06/09/2019
+description: Analysera enhets data i ditt Azure IoT Central-program.
+author: ankitgup
+ms.author: ankitgup
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: a467e0e6e8967cf963ad099f83de6718330aa43f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+manager: abjork
+ms.openlocfilehash: 7627421317458eb0ff9637b3497df11dacfddbff
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827983"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023862"
 ---
-# <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Använda analyser för att analysera enhets data
+# <a name="how-to-use-analytics-to-analyze-device-data"></a>Använda analys för att analysera enhets data
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
-Azure IoT Central tillhandahåller omfattande analys funktioner för att kunna ta del av stora mängder data från dina enheter. Kom igång genom att gå till **Analytics** i det vänstra fönstret.
+
+
+Azure IoT Central ger omfattande analys funktioner för att analysera historiska trender och korrelera olika telemetrivärden från dina enheter. Kom igång genom att gå till **Analytics** i det vänstra fönstret.
+
+## <a name="understanding-the-analytics-ui"></a>Förstå användar gränssnittet för analys
+Analytics User Interface består av tre huvud komponenter:
+- **Data konfigurations panel:** På konfigurations panelen startar du genom att välja den enhets grupp som du vill analysera data för. Välj sedan den telemetri som du vill analysera och välj agg regerings metoden för varje telemetri. **Dela med** kontroll hjälper till att gruppera data med hjälp av enhets egenskaperna som dimensioner.
+
+- **Tids kontroll:** Tids kontroll används för att välja varaktigheten för vilken du vill analysera data. Du kan dra i endera änden av skjutreglaget för att välja tids rymden. Tids kontrollen har också ett skjutreglage för **intervall storlek** som styr Bucket eller intervall storleken som används för att samla in data. 
+
+- **Diagram kontroll:** Diagram kontrollen visualiserar data som ett linje diagram. Du kan växla synligheten för vissa linjer genom att interagera med diagram förklaringen. 
+
+
+  ![Översikt över Analytics UI](media/howto-create-analytics/analyticsui.png)
+
 
 ## <a name="querying-your-data"></a>Fråga dina data
 
-Du måste välja en **enhets uppsättning**, lägga till ett **filter** (valfritt) och välja en **tids period** för att komma igång. När du är klar väljer du **Visa resultat** för att börja visualisera dina data.
+Du måste starta genom att välja en **enhets grupp**och den telemetri som du vill analysera. När du är klar väljer du **analysera** för att börja visualisera dina data.
 
-* **Enhets uppsättningar:** En [enhets uppsättning](howto-use-device-sets.md) är en användardefinierad grupp av dina enheter. Till exempel alla kyl skåp i Oakland eller alla vridnings turbiner på rev 2,0.
+- **Enhets grupp:** En [enhets grupp](tutorial-use-device-groups.md) är en användardefinierad grupp av dina enheter. Till exempel alla kyl skåp i Oakland eller alla version 2,0 lindnings turbiner.
 
-* **Filter:** Du kan också lägga till filter i sökningen för att finslipa i dina data. Du kan lägga till upp till 10 filter i taget. I alla kyl skåp i Oakland hittar du till exempel de som har haft en temperatur på över 60 grader.
-* **Tids period:** Som standard hämtar vi data från de senaste 10 minuterna. Du kan ändra det här värdet till ett av de fördefinierade tidsintervallen eller välja en anpassad tids period.
+- **Telemetri:** Välj den telemetri som du vill analysera och utforska. Du kan välja flera telemetrivärden för att analysera varandra. Standard agg regerings metoden har angetts till Average för numeriskt och antal för sträng data typerna. Sammansättnings metoder som stöds för numeriska data typer är genomsnitt, högsta, lägsta, antal och sum.  Sammansättnings metoder som stöds för data typen String är Count.
 
-  ![Analytics-fråga](media/howto-create-analytics/analytics-query.png)
+- **Dela efter:** "Dela med"-kontrollen hjälper till att gruppera data med hjälp av enhets egenskaperna som dimensioner. Värdena för enhets-och moln egenskaperna är anslutna tillsammans med Telemetrin som och när den skickas av enheten. Om molnet eller enhets egenskapen har uppdaterats visas telemetri grupperat efter olika värden i diagrammet.
 
-## <a name="visualizing-your-data"></a>Visualisera dina data
-
-När du har frågat dina data kan du börja visualisera det. Du kan visa/dölja mått, ändra hur data aggregeras och ytterligare dela data efter olika enhets egenskaper.  
-
-* **Dela efter:** Genom att dela data efter enhets egenskaper kan du öka detalj nivån för dina data. Du kan till exempel dela upp resultaten efter enhets-ID eller plats.
-
-* **Mått:** Du kan välja att visa/dölja upp till 10 olika telemetridata som rapporteras av enheterna i taget. Mätningar är saker som temperatur och fuktighet.
-
-* **Sammansättning:** Som standard samlar vi in data i genomsnitt, men du kan välja att ändra data agg regeringen till något annat för att passa dina behov.
-
-   ![Analys visualisering delas av](media/howto-create-analytics/analytics-splitby.png)
+    > [!TIP]
+    > Om du vill visa data för varje enhet separat väljer du enhets-ID i kontrollen "dela efter".
 
 ## <a name="interacting-with-your-data"></a>Interagera med dina data
 
-Du har olika sätt att ändra frågeresultaten så att de passar dina visualiserings behov. Du kan växla mellan en diagramvy och en rutnätsvy, zooma in och ut, uppdatera data uppsättningen och ändra hur rader visas.
+När du har frågat dina data kan du börja visualisera dem i linje diagrammet. Du kan visa/dölja telemetri, ändra varaktigheten för tiden, Visa telemetri i ett data rutnät.
 
-* **Visa rutnät:** Resultaten är tillgängliga i ett tabell format så att du kan se det exakta värdet för varje data punkt. Den här vyn uppfyller även tillgänglighets standarder.
-* **Visa diagram:** Resultaten visas i ett linje format för att hjälpa dig att identifiera uppåt eller nedåt i trender och avvikelser.
+- **Tids redigerings panel:** Som standard hämtar vi data från den senaste dagen. Du kan dra i båda ändarna av skjutreglaget för att ändra varaktigheten för tiden. Du kan också använda Kalender kontrollen för att välja en av de fördefinierade tidsintervallen eller välja ett anpassat tidsintervall. Tids kontrollen har också ett skjutreglage för **intervall storlek** som styr Bucket eller intervall storleken som används för att samla in data.
 
-  ![Visar diagramvyn för analys](media/howto-create-analytics/analytics-showgrid.png)
+    ![Tids redigeraren](media/howto-create-analytics/timeeditorpanel.png)
 
-Med zoomning kan du gå in på dina data. Om du hittar en tids period som du vill fokusera på i din resultat uppsättning kan du använda markören för att hämta området som du vill zooma in på och använda de tillgängliga kontrollerna för att utföra någon av följande åtgärder:
+    - **Skjutreglaget för inre datum intervall**: Använd de två slut punkts kontrollerna genom att dra dem under den tidsrymd du vill ha. Det här interna datum intervallet begränsas av skjutreglaget för yttre datum intervall.
+    
+   
+    - **Skjutreglage för yttre datum intervall**: Använd slut punkts kontrollerna för att välja det yttre datum intervallet, som är tillgängligt för den interna datum intervalls kontrollen.
 
-* **Zooma in:** När du har valt en tids period är zooma in aktiverat och du kan zooma in till dina data.
-* **Zooma ut:** Med den här kontrollen kan du zooma ut en nivå från din senaste zoomning. Om du till exempel har zoomat in till dina data tre gånger tar du en titt på ett steg i taget när du zoomar ut.
-* **Återställ zoom:** När du har utfört olika nivåer av zoomning kan du använda kontrollen zooma tillbaka för att återgå till den ursprungliga resultat uppsättningen.
+    - **Öka och minska datum intervallet knappar**: öka eller minska din tid sträcker sig över genom att välja någon av knapparna för intervallet.
 
-  ![Utför zoomning på dina data](media/howto-create-analytics/analytics-zoom.png)
+    - **Skjutreglage för intervall storlek**: Använd det för att zooma in och ut ur intervall över samma tids period. Den här åtgärden ger mer exakt kontroll av flytt mellan stora sektorer tid. Du kan använda den för att visa detaljerade och högupplösta vyer över dina data, till och med millisekunder. Skjutreglagets standard start punkt anges som den mest optimala vyn av data från ditt val, som balanserar lösning, frågans hastighet och granularitet.
+    
+    - **Väljare för datum intervall**: med den här webb kontrollen kan du enkelt välja de datum-och tidsintervall som du vill använda. Du kan också använda kontrollen för att växla mellan olika tidszoner. När du har gjort ändringarna som ska gälla för din aktuella arbets yta väljer du spara.
 
-Du kan ändra linje formatet så att det passar dina behov. Du har fyra alternativ:
+    > [!TIP]
+    > Intervall storleken bestäms dynamiskt baserat på det valda tidsintervallet. Kortare tidsintervaller gör det möjligt att aggregera data i mycket detaljerade intervall på upp till några sekunder.
 
-* **Rad:** En plan linje mellan var och en av data punkterna.
-* **Mjukt:** En böjd linje mellan varje punkt.
-* **Steg:** Linje mellan varje punkt i diagrammet är ett steg.
-* **Punkt:** Alla punkter ritas i diagrammet utan linjer som ansluter dem.
 
-  ![Olika linje typer som är tillgängliga i Analytics](media/howto-create-analytics/analytics-linetypes.png)
+- **Diagram förklaring:** Diagram förklaring visar den valda Telemetrin i diagrammet. Du kan hovra över varje objekt på förklaringen så att det blir i fokus på diagrammet. När du använder "Split by" grupperas telemetri efter respektive värde för den valda dimensionen. Du kan växla synligheten för varje speciell telemetri eller hela gruppen genom att klicka på grupp namnet.  
 
-Slutligen kan du ordna data på Y-axeln genom att välja ett av tre lägen:
 
-* **Staplad:** En graf för varje mått är staplad och varje graf har sin egen Y-axel. Staplade diagram är användbara när du har valt flera mått och vill ha en distinkt vy över dessa mått.
-* **Unstacked:** En graf för varje mått ritas mot en Y-axel, men värdena för Y-axeln ändras baserat på det markerade måttet. Staplade diagram är användbara när du vill täcka över flera mått och vill se mönster över dessa mått för samma tidsintervall.
-* **Delad Y-axel:** Alla grafer delar samma Y-axel och värdena för axeln ändras inte. Delade Y-axel-diagram är användbara när du vill titta på ett enda mått och dela upp data med Split-by.
+- **Kontroll av y-axelns format:** y-axelns läge växlar mellan tillgängliga visnings alternativ för y-axel. Den här kontrollen är bara tillgänglig när olika telemetrivärden visualiseras. Du kan ställa in y-axeln genom att välja ett av tre lägen:
 
-  ![Arrangera data över y-axeln med olika visualiserings lägen](media/howto-create-analytics/analytics-yaxis.png)
+    - **Staplad:** En graf för varje telemetri är staplad och varje graf har sin egen y-axel. Det här läget anges som standard.
+    - **Delad:** En graf för varje telemetri ritas mot samma y-axel.
+    - **Överlappa:** Använd den för att stapla flera rader på samma y-axel, med data för y-axeln som har ändrats baserat på den markerade linjen.
 
-## <a name="next-steps"></a>Nästa steg
+  ![Arrangera data över y-axeln med olika visualiserings lägen](media/howto-create-analytics/yaxiscontrol.png)
 
-Nu när du har lärt dig hur du skapar anpassade analyser för ditt Azure IoT Central-program så är det föreslagna nästa steg:
+- **Zoomnings kontroll:** Med zoomning kan du öka detalj nivån i dina data. Om du hittar en tids period som du vill fokusera på i din resultat uppsättning använder du mus pekaren för att hämta området och drar det sedan till den valda slut punkten. Högerklicka på det valda fältet och klicka på Zooma.
 
-> [!div class="nextstepaction"]
-> [Förbereda och ansluta ett Node. js-program](howto-connect-nodejs.md)
+  ![Zooma in data](media/howto-create-analytics/zoom.png)
+
+Under ellipsen finns det flera diagram kontroller för att interagera med data.
+
+- **Visa rutnät:** Resultaten är tillgängliga i ett tabell format så att du kan se det exakta värdet för varje data punkt.
+
+- **Släpp en markör:** Med släpp markör-kontrollen kan du fästa vissa data punkter i diagrammet. Det är användbart när du försöker jämföra data för flera rader över olika tids perioder.
+
+  ![Visar diagramvyn för analys](media/howto-create-analytics/additionalchartcontrols.png)

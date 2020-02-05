@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 860577938eab0f7561e9b66d0f58c9fc0d077b26
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4a4e9d8d1d100fe2e8c35053cea31c55b0f030d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704161"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023165"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Snabb start: Konfigurera en klient
 
@@ -57,7 +57,7 @@ Om du inte har en befintlig klient som är kopplad till ditt konto kan du ser et
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Skapa en ny Azure AD-klient
 
-Om du inte redan har en Azure AD-klientorganisation eller vill skapa en ny för utveckling använder du [funktionerna för katalogskapande](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Du måste ange följande information för att skapa den nya klientorganisationen:
+Om du inte redan har en Azure AD-klient eller vill skapa en ny för utveckling, kan du läsa [snabb](../fundamentals/active-directory-access-create-new-tenant.md) starten eller följa [skapandet av katalogen](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Du måste ange följande information för att skapa den nya klientorganisationen:
 
 - **Organisationens namn**
 - **Initial domän** – kommer att vara en del av *.onmicrosoft.com. Du kan anpassa domänen mer senare.

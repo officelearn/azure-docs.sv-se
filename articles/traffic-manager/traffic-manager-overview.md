@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: rohink
-ms.openlocfilehash: 8b323d4fe1a60cc54756958fd623cdf4c1e106e5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8f604c042aee8b1af30af9da5a43ed2cd79f214
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938525"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014393"
 ---
 # <a name="what-is-traffic-manager"></a>Vad är Traffic Manager?
 Azure Traffic Manager är en lastbalanserare för DNS-baserad trafik som hjälper dig att distribuera trafiken optimalt till tjänster i globala Azure-regioner, med hög tillgänglighet och korta svarstider.
@@ -28,7 +28,8 @@ Traffic Manager använder DNS för att dirigera klientbegäranden till den lämp
 > Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du är intresserad av TLS-avslut (Transport Layer Security) (”SSL-avlastning”) eller bearbetning på programnivå för enskilda HTTP/HTTPS-begäranden läser du avsnittet om [Application Gateway](../application-gateway/application-gateway-introduction.md). Om du är intresserad av regional belastningsutjämning läser du avsnittet om [Load Balancer](../load-balancer/load-balancer-overview.md). Du kan med fördel kombinera dessa lösningar efter behov för dina slutpunkts-till-slutpunkts-scenarier.
 >
 > En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
-Traffic Manager ger följande funktioner:
+
+Traffic Manager erbjuder följande funktioner:
 
 ## <a name="increase-application-availability"></a>Öka tillgängligheten för program
 

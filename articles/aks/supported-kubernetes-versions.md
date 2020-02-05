@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: bba4196547bda3d3ddcf3344032de5b9286639a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996756"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026123"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes service (AKS)
 
@@ -96,7 +96,7 @@ New Supported Version List
 * För nya **mindre** versioner av Kubernetes
   * Alla användare meddelas offentligt om den nya versionen och vilken version som ska tas bort.
   * När en ny uppdaterings version släpps tas den äldsta korrigerings versionen bort samtidigt.
-  * Kunder har **60 dagar** från det offentliga meddelande datumet för att uppgradera till en del versions version som stöds.
+  * Kunder har **30 dagar** från det offentliga meddelande datumet för att uppgradera till en lägre versions version som stöds.
 * För nya **korrigerings** versioner av Kubernetes
   * Alla användare meddelas om den nya korrigerings versionen som släpps och uppgraderas till den senaste korrigerings versionen.
   * Användare har **30 dagar** på sig att uppgradera till en nyare uppdaterings version som stöds. Användare har **30 dagar** på sig att uppgradera till en korrigerings version som stöds innan den äldsta tas bort.
@@ -139,7 +139,7 @@ az aks get-versions --location eastus --output table
 
 **Vad händer när en kund uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 
-Om du använder *n-3-* versionen är du utanför supporten och kommer att bli ombedd att uppgradera. Om uppgraderingen från version n-3 till n-2 lyckas är du nu i våra support principer. Exempel:
+Om du använder *n-3-* versionen är du utanför supporten och kommer att bli ombedd att uppgradera. Om uppgraderingen från version n-3 till n-2 lyckas är du nu i våra support principer. Ett exempel:
 
 - Om den äldsta AKS-versionen som stöds är *1.13. a* och du är på *1.12. b* eller äldre är du utanför supporten.
 - Om uppgraderingen från *1.12. b* till *1.13. a* eller senare lyckas är du tillbaka inom våra support principer.

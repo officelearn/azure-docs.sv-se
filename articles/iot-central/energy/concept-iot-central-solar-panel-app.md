@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: b2b0fff225eee52f8ffe308317f06793728e5d1f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 44171a08e69cfa058e0a9e75e3220fb996b7789d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585328"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018014"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>App-arkitektur för Azure IoT Central-solpanel
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Den här artikeln innehåller en översikt över mallen för att övervaka appar i sol panelen. Diagrammet nedan visar en arkitektur för solpanel-appen på Azure som använder IoT Central plattform.
@@ -29,7 +29,7 @@ Den här arkitekturen består av följande komponenter. Vissa program kanske int
 
 ## <a name="solar-panels-and-connectivity"></a>Sol paneler och anslutningar 
 
-Sol-paneler är en av de betydande källorna till förnybar energi. Beroende på vilken typ av sol panel du har och konfigurerat kan du ansluta den antingen via gatewayer eller via andra mellanliggande enheter och patentskyddade system. Du kan behöva skapa IoT Central enhets brygga för att ansluta enheter som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Sol-paneler är en av de betydande källorna till förnybar energi. Beroende på typ av sol panel och konfiguration kan du ansluta den antingen med hjälp av gatewayer eller andra mellanliggande enheter och patentskyddade system. Du kan behöva skapa IoT Central enhets brygga för att ansluta enheter som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 

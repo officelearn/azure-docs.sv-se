@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 8a6e8dad7549b3656d4387cfad1d0c3a44b13975
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b219b507ac14b2a66b23f93d9fb1035f56cb8164
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965984"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018694"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
@@ -33,7 +33,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 Om du vill köra det här exemplet behöver du:
 
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) eller [python 3 +](https://www.python.org/downloads/release/python-364/)
-- [Kolv](http://flask.pocoo.org/), [kolv](https://pythonhosted.org/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org//en/master/)
+- [Kolv](http://flask.pocoo.org/), [kolv](https://pythonhosted.org/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org/en/master/)
 - [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -51,7 +51,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >

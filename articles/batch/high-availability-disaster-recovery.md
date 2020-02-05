@@ -3,8 +3,8 @@ title: Hög tillgänglighet och haveri beredskap – Azure Batch
 description: Lär dig hur du utformar ditt batch-program för ett regionalt avbrott. Arbets belastningar bör redundansväxla till en annan region eller delas upp mellan två eller flera regioner.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: jushiman
-ms.openlocfilehash: 11546a6a664e6fb185a32d8e6cd593a850803fe8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930131"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026089"
 ---
 # <a name="design-your-application-for-high-availability"></a>Utforma ditt program för hög tillgänglighet
 

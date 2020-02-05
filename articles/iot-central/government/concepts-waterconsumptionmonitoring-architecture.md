@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d979c4210c7de4588338c8e3c30b179056102d0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3a64ca5b0c2a092f895873e097ea6beb9a235a37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498804"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017708"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Referensarkitektur för övervakning av vattenförbrukning 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Lösningar för övervakning av vattenförbrukning kan skapas med **Azure IoT Central app-mallen** som ett program starts-IoT-program. Den här artikeln innehåller en översikt över referens arkitektur på hög nivå om hur du skapar en lösning från slut punkt till slut punkt. 
 
@@ -32,9 +32,9 @@ Koncept:
 Låt oss ta en titt på viktiga komponenter som vanligt vis spelar en del i en övervaknings lösning för vatten förbrukning.
 
 ## <a name="devices-and-connectivity"></a>Enheter och anslutningar 
-I det här avsnittet kommer vi att referera till enheter som används för smarta vatten lösningar, till exempel övervakning av vatten kvalitet eller övervakning av vattenförbrukning, vanligt vis som smarta vatten enheter. Smarta vatten enheter kan vara flödes mätare, vatten kvalitet övervakare, smarta ventiler, läckor osv.
+Det här avsnittet avser enheter som används för smarta vatten lösningar, till exempel övervakning av vatten kvalitet eller övervakning av vattenförbrukning, vanligt vis som smarta vatten enheter. Smarta vatten enheter kan vara Flow-mätare, vatten kvalitets övervakare, smarta ventiler, läckage för identifiering och så vidare.
 
-Enheter som används i smarta vatten lösningar är vanligt vis anslutna via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du utnyttja [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
+Enheter som används i smarta vatten lösningar är vanligt vis anslutna via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du använda [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 Azure IoT Central är en IoT app-plattform som hjälper dig att snabbt komma igång med din IoT-lösning. Du kan märka, anpassa och integrera din lösning med tjänster från tredje part.
@@ -44,11 +44,11 @@ När du ansluter dina Smart vatten enheter till IoT Central får du enhets komma
 ## <a name="extensibility-and-integrations"></a>Utökning och integrering 
 Du kan utöka IoT-programmet i IoT Central och om du vill:
 * transformera och integrera IoT-data för avancerad analys, till exempel utbildning av maskin inlärnings modeller, genom kontinuerlig data export från IoT Central program
-* Automatisera arbets flöden i andra system genom att utlösa åtgärder via Microsoft Flow eller Webhooks från IoT Central program
+* Automatisera arbets flöden i andra system genom att utlösa åtgärder med hjälp av Microsoft Flow eller Webhooks från IoT Central program
 * program mässigt åtkomst till ditt IoT-program i IoT Central via IoT Central-API: er
 
 ## <a name="business-applications"></a>Affärsprogram 
-IoT-data kan användas för att driva olika affärs program i ett vatten verktyg. Om du vill lära dig hur du ansluter appen IoT Central vattenförbrukning med fält tjänster följer du själv studie kursen om [hur du integrerar med Dynamics 365 Field Services](./how-to-configure-connected-field-services.md) 
+IoT-data kan användas för att driva olika typer av affärs program i ett vatten verktyg. Om du vill lära dig hur du ansluter appen IoT Central vattenförbrukning med fält tjänster följer du själv studie kursen om [hur du integrerar med Dynamics 365 Field Services](./how-to-configure-connected-field-services.md) 
 
 
 ## <a name="next-steps"></a>Nästa steg

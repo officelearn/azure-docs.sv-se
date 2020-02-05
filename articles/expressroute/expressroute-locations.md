@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2f76d94cc50d1451835bd14577efc8f68acb0390
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3ea5b63642328db6996a322e64360c3af5d757b2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901589"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022485"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -45,7 +45,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Australiensiska myndigheter** |Australien, centrala, Australien, centrala 2 |Canberra, Canberra2 |
 | **Europa** | Frankrike, centrala, Frankrike, södra, Tyskland, norra, Tyskland, västra centrala, norra Europa, östra Norge, västra Norge, Schweiz, norra, Schweiz, västra, Storbritannien, västra, Storbritannien, södra, Västeuropa |Amsterdam, Amsterdam2, köpen hamn, Dublin, Frankfurt, Genève, London, London2, Marseille, Milano, München, Newport (Wales), Oslo, Paris, Stavanger, Stockholm, Zürich |
 | **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA, västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
-| **Asien** | Asien, östra, Sydostasien |Hong Kong SAR, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei, |
+| **Asien** | Asien, östra, Sydostasien | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei, |
 | **Indien** | Indien, västra, Indien, centrala, Indien, södra |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japan** | Japan, västra, Japan, östra |Osaka, Tokyo |
 | **Oceanien** | Australien, sydöstra, Australien, östra |Auckland, Melbourne, Perth, Sydney, Sydney2 |
@@ -78,6 +78,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Stöds |Stöds |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Stöds | Stöds | Chennai2, Mumbai2 |
+| **[AIS](http://business.ais.co.th/solution/microsoft-azure.html?category=cloud)** | Stöds | Stöds | Bangkok |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Stöds |Stöds |Amsterdam, Chicago, Borås, Hongkong SAR, Sao Paulo, Seattle, Silicon dal, Singapore, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Stöds |Stöds |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |

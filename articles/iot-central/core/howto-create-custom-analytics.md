@@ -3,24 +3,24 @@ title: Utöka Azure IoT Central med anpassad analys | Microsoft Docs
 description: Som en lösnings utvecklare konfigurerar du ett IoT Central program för att göra anpassade analyser och visualiseringar. Den här lösningen använder Azure Databricks.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 39d99b8b6167411fc75677878b7f82a27deab958
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7e5e8331509e99a7e556105ff1ea8ca2d0b285e7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987636"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023845"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Utöka Azure IoT Central med anpassad analys med Azure Databricks
 
 Den här instruktions guiden visar dig som lösnings utvecklare och hur du kan utöka ditt IoT Central program med anpassade analyser och visualiseringar. Exemplet använder en [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) arbets yta för att analysera IoT Central telemetri-dataströmmen och för att generera visualiseringar som [låddiagram](https://wikipedia.org/wiki/Box_plot).
 
-Den här instruktions guiden visar hur du utökar IoT Central bortom det som redan kan utföras med de [inbyggda analys verktygen](howto-create-analytics.md).
+Den här instruktions guiden visar hur du utökar IoT Central bortom det som redan kan utföras med de [inbyggda analys verktygen](./howto-create-custom-analytics.md).
 
 I den här instruktions guiden får du lära dig att:
 
@@ -40,14 +40,16 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 | Inställning | Värde |
 | ------- | ----- |
 | Pris plan | Standard |
-| Programmall | Äldre program |
+| Programmall | In-Store Analytics – villkors övervakning |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
 | Katalog | Din Azure Active Directory klient |
 | Azure-prenumeration | Din Azure-prenumeration |
-| Region | USA |
+| Region | Din närmaste region |
 
 I exemplen och skärm bilderna i den här artikeln används den **USA** regionen. Välj en plats nära dig och se till att du skapar alla resurser i samma region.
+
+Den här program mal len innehåller två simulerade termostat-enheter som skickar telemetri.
 
 ### <a name="resource-group"></a>Resursgrupp
 
@@ -101,7 +103,7 @@ Event Hubs namn området ser ut som på följande skärm bild:
 
 På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentral) navigerar du till det IoT Central program som du skapade från contoso-mallen. I det här avsnittet konfigurerar du programmet för att strömma Telemetrin från dess simulerade enheter till händelsehubben. Konfigurera exporten:
 
-1. Gå till sidan för **kontinuerlig data export** , Välj **+ ny**och sedan **Azure Event Hubs**.
+1. Gå till sidan **data export** , Välj **+ ny**och sedan **Azure Event Hubs**.
 1. Använd följande inställningar för att konfigurera exporten och välj sedan **Spara**:
 
     | Inställning | Värde |
@@ -114,7 +116,7 @@ På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentra
     | Enheter | Av |
     | Enhetsmallar | Av |
 
-![Konfiguration av kontinuerlig data export](media/howto-create-custom-analytics/cde-configuration.png)
+![Konfiguration av data export](media/howto-create-custom-analytics/cde-configuration.png)
 
 Vänta tills export status är **igång** innan du fortsätter.
 
@@ -132,7 +134,7 @@ Använd informationen i följande tabell för att skapa klustret:
 | ------- | ----- |
 | Klusternamn | centralanalysis |
 | Kluster läge | Standard |
-| Databricks Runtime version | 5,3 (Scala 2,11, Spark 2.4.0) |
+| Databricks Runtime version | 5,5 LTS (Scala 2,11, Spark 2.4.3) |
 | Python-version | 3 |
 | Aktivera automatisk skalning | Inga |
 | Avsluta efter minuter av inaktivitet | 30 |
@@ -229,4 +231,4 @@ I den här instruktions guiden har du lärt dig att:
 * Strömma telemetri från ett IoT Central program med *kontinuerlig data export*.
 * Skapa en Azure Databricks-miljö för att analysera och rita telemetridata.
 
-Nu när du vet hur du skapar anpassade analyser är det föreslagna nästa steg att lära dig att [visualisera och analysera dina Azure IoT Central-data på en Power BI instrument panel](howto-connect-powerbi.md).
+Nu när du vet hur du skapar anpassade analyser är det föreslagna nästa steg att lära dig hur du [hanterar ditt program](howto-administer.md).

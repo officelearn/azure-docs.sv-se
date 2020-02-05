@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: df663861010177ba54c56ee4495458ea1b928359
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a95b59c6cc0d486c1d4b10f39d0d272dd4b34f54
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985721"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019000"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
 
@@ -61,30 +61,24 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -DisplayName "My Custom Display Name"
 ```
 
-Skriptet skapar först en resurs grupp på platsen USA, östra för programmet. I följande tabell beskrivs de parametrar som används med kommandot **New-AzIotCentralApp** :
+Skriptet skapar först en resurs grupp i regionen USA, östra för programmet. I följande tabell beskrivs de parametrar som används med kommandot **New-AzIotCentralApp** :
 
 |Parameter         |Beskrivning |
 |------------------|------------|
 |ResourceGroupName |Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-|Location |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i **USA**, **Australien**, **Asien och Stillahavsområdet**eller på platser i **Europa** .  |
+|Location |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** i regionerna **Australien** eller **Asien och Stillahavsområdet** .  |
 |Namn              |Namnet på programmet i Azure Portal. |
 |under domän         |Under domänen i programmets URL. I exemplet är programmets URL https://mysubdomain.azureiotcentral.com. |
 |Sku               |För närvarande kan du använda antingen **ST1** eller **ST2**. Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Mall          | Den program mal len som ska användas. Mer information finns i följande tabell: |
 |DisplayName       |Namnet på programmet som det visas i användar gränssnittet. |
 
-**Programmall med allmänt tillgängliga funktioner**
+**Programmallar**
 
 | Mallens namn            | Beskrivning |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter.
-
-
-**Programmallar med funktioner för offentlig för hands version**
-
-| Mallens namn            | Beskrivning |
-| ------------------------ | ----------- |
-| iotc-pnp-preview@1.0.0   | Skapar ett tomt för hands versions program för plug-and-Play som du kan fylla i med dina egna enhets mallar och enheter. |
+| iotc-pnp-preview@1.0.0   | Skapar ett tomt Plug and Play-program (för hands version) som du kan fylla i med dina egna enhets mallar och enheter. |
 | iotc-condition@1.0.0     | Skapar ett program med en mall för övervakning av villkor i butiken. Använd den här mallen för att ansluta och övervaka lagrings miljön. |
 | iotc-consumption@1.0.0   | Skapar ett program med en övervaknings mall för vattenkonsumtion. Använd den här mallen för att övervaka och kontrol lera vatten flödet. |
 | iotc-distribution@1.0.0  | Skapar ett program med en mall för digital distribution. Använd den här mallen för att förbättra lagrets uteffekts effektivitet genom att digitala nyckel till gångar och åtgärder. |
@@ -96,9 +90,6 @@ Skriptet skapar först en resurs grupp på platsen USA, östra för programmet. 
 | iotc-quality@1.0.0       | Skapar ett program med en mall för övervakning av vatten kvalitet. Använd den här mallen om du vill övervaka vatten kvaliteten digitalt.|
 | iotc-store@1.0.0         | Skapar ett program med en mall för analys i butiken – check. Använd den här mallen för att övervaka och hantera kassa flödet inuti ditt lager. |
 | iotc-waste@1.0.0         | Skapar ett program med en mall för anslutet avfalls hantering. Använd den här mallen för att övervaka avfalls platser och operatörer för sändnings fält. |
-
-> [!NOTE]
-> För hands versions programmen är för närvarande endast tillgängliga i **Europa** och **USA** platser.
 
 ## <a name="view-your-iot-central-applications"></a>Visa dina IoT Central-program
 

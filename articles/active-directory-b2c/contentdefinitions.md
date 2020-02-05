@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 50e17fae88f16d7579997b3b356638777ec3163a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119660"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014291"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -146,11 +146,11 @@ ID-attributet för **ContentDefinition** -elementet anger vilken typ av sida som
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida** – visar en felsida när ett undantag eller ett fel påträffas. |
 | **API. idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sidan Val av identitetsprovider** – visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. Alternativen är vanligt vis företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Val av identitetsprovider för registrering** – visar en lista över identitets leverantörer som användarna kan välja bland vid registreringen. Alternativen är vanligt vis företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton. |
-| **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sidan glömt lösen ord** – visar ett formulär som användarna måste utföra för att initiera en lösen ords återställning. |
-| **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Inloggnings sida för lokalt konto** – visar ett formulär för att logga in med ett lokalt konto som baseras på en e-postadress eller ett användar namn. Formuläret kan innehålla text rutorna text rutor och lösen ord. |
-| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registrerings sida för lokalt konto** – visar ett formulär för att registrera ett lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. |
+| **api.localaccountpasswordreset** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sidan glömt lösen ord** – visar ett formulär som användarna måste utföra för att initiera en lösen ords återställning. |
+| **api.localaccountsignin** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Inloggnings sida för lokalt konto** – visar ett formulär för att logga in med ett lokalt konto som baseras på en e-postadress eller ett användar namn. Formuläret kan innehålla text rutorna text rutor och lösen ord. |
+| **api.localaccountsignup** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registrerings sida för lokalt konto** – visar ett formulär för att registrera ett lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, t. ex. en text inmatnings ruta, en ruta för lösen ords inmatning, en alternativ knapp, en listruta med flera val och kryss rutor med flera val. |
 | **API. phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Sidan Multi-Factor Authentication** – verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
-| **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registrerings sida för socialt konto** – visar ett formulär som användarna måste slutföra när de registrerar sig genom att använda ett befintligt konto från en social identitetsprovider. Den här sidan liknar inloggnings sidan för det föregående sociala kontot, förutom fälten för lösen ords inmatning. |
-| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan profil uppdatering** – visar ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar registrerings sidan för sociala konton, förutom fälten för lösen ords inmatning. |
-| **api.signuporsignin** | [Unified. html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrering eller inloggnings sida** – hanterar användarens registrerings-och inloggnings process. Användare kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton. |
+| **api.selfasserted** | [selfasserted. cshtml](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registrerings sida för socialt konto** – visar ett formulär som användarna måste slutföra när de registrerar sig genom att använda ett befintligt konto från en social identitetsprovider. Den här sidan liknar inloggnings sidan för det föregående sociala kontot, förutom fälten för lösen ords inmatning. |
+| **api.selfasserted.profileupdate** | [updateprofile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan profil uppdatering** – visar ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar registrerings sidan för sociala konton, förutom fälten för lösen ords inmatning. |
+| **api.signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrering eller inloggnings sida** – hanterar användarens registrerings-och inloggnings process. Användare kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton. |
 

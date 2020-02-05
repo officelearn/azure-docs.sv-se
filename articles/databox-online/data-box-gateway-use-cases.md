@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Box Gateway användningsfall | Microsoft Docs
-description: Beskriver användningsfallen för Azure Data Box-Gateway, en virtuell installation lagringslösning som gör att du överför data till Azure
+title: Microsoft Azure Data Box Gateway användnings fall | Microsoft Docs
+description: Beskriver användnings fall för Azure Data Box Gateway, en lagrings lösning för virtuella enheter som gör att du kan överföra data till Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,90 +8,90 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754174"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022689"
 ---
-# <a name="use-cases-for-azure-data-box-gateway"></a>Användningsfall för Azure Data Box-Gateway
+# <a name="use-cases-for-azure-data-box-gateway"></a>Användnings fall för Azure Data Box Gateway
 
-Azure Data Box-Gateway är en cloud storage-gatewayenhet som finns lokalt och skickar din avbildning, media och andra data till Azure. Den här cloud storage-gateway är en virtuell dator som etablerats i din hypervisor-program. Du kan skriva data till den här virtuella enheten med NFS och SMB-protokoll, som sedan skickas till Azure. Den här artikeln innehåller en detaljerad beskrivning av de scenarier där du kan distribuera den här enheten.
+Azure Data Box Gateway är en gateway för en moln lagrings enhet som finns på din lokala plats och skickar din avbildning, media och annan data till Azure. Den här moln lagrings-gatewayen är en virtuell dator som är etablerad i hypervisorn. Du skriver data till den här virtuella enheten med hjälp av NFS-och SMB-protokollen, som sedan skickas till Azure. Den här artikeln innehåller en detaljerad beskrivning av de scenarier där du kan distribuera den här enheten.
 
-Använd Data Box-Gateway för följande scenarier:
+Använd Data Box Gateway för följande scenarier:
 
-- Mata in stora mängder data kontinuerligt.
-- För arkivering av data i ett säkert och effektivt sätt.
-- För att överföra inkrementella data över nätverket efter den första stora överföringen är klar med hjälp av Data Box.
+- För att kontinuerligt Hämta enorma mängder data.
+- För lagring av data i molnet på ett säkert och effektivt sätt.
+- För stegvis data överföring över nätverket när den första Mass överföringen är klar med Data Box-enhet.
 
 Var och en av dessa scenarier beskrivs i detalj i följande avsnitt.
 
 
-## <a name="continuous-data-ingestion"></a>Kontinuerlig datainmatning
+## <a name="continuous-data-ingestion"></a>Kontinuerlig data inmatning
 
-En av de viktigaste fördelarna med Data Box-Gateway är möjligheten att mata in data i enheten för att kopiera till molnet, oavsett storleken på data kontinuerligt.
+En av de främsta fördelarna med Data Box Gateway är möjligheten att kontinuerligt mata in data i enheten för att kopiera till molnet, oavsett data storlek.
 
-När data skrivs till gateway-enheten, överför data till Azure Storage med hjälp av enheten. Enheten hanterar lagringen automatiskt genom att ta bort filerna lokalt samtidigt behålla metadata när den når ett visst tröskelvärde. Att hålla en lokal kopia av metadata kan gateway-enhet att ladda upp ändringarna endast när filen har uppdaterats. Data som överförts till din gatewayenhet ska vara enligt riktlinjerna i [dataöverföring varningar](data-box-gateway-limits.md#data-upload-caveats).
+När data skrivs till gateway-enheten överför enheten data till Azure Storage. Enheten hanterar lagringen automatiskt genom att ta bort filerna lokalt samtidigt som de behåller metadata när de når ett visst tröskelvärde. Om du behåller en lokal kopia av metadata kan gateway-enheten bara överföra ändringarna när filen uppdateras. De data som överförs till din gateway-enhet bör vara enligt rikt linjerna i [data överförings varningar](data-box-gateway-limits.md#data-upload-caveats).
 
-Den startar när enheten fylls med data, begränsning ingress-frekvens (om det behövs) för att matcha den hastighet med vilken data har överförts till molnet. För att övervaka kontinuerlig datainmatningen på enheten, kan du använda aviseringar. Aviseringarna aktiveras när begränsningen startas och raderas när den begränsning har stoppats.
+När enheten fyller med data börjar den begränsa ingångs frekvensen (efter behov) för att matcha den hastighet med vilken data överförs till molnet. Om du vill övervaka den kontinuerliga inmatningen på enheten använder du aviseringar. De här aviseringarna utlöses när begränsningen börjar och rensas när begränsningen har stoppats.
 
-## <a name="cloud-archival-of-data"></a>Molnet arkivering av data
+## <a name="cloud-archival-of-data"></a>Lagring av data i molnet
 
-Använd Data Box Gateway när du vill behålla dina data för långsiktig i molnet. Du kan använda den **Arkiv** lagringsnivå för långsiktig kvarhållning.
+Använd Data Box Gateway när du vill behålla dina data för lång sikt i molnet. Du kan använda lagrings nivån **Arkiv** för långsiktig kvarhållning.
 
-Arkivnivån optimeras som sällan lagrar data i minst 180 dagar. Den **Arkiv** nivå erbjuder de lägsta lagringskostnaderna men har de högsta åtkomstkostnaderna. Mer information går du till [arkivåtkomstnivå](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
+Arkiv nivån är optimerad för att lagra data som sällan används i minst 180 dagar. **Arkiv** nivån ger de lägsta lagrings kostnaderna men har de högsta åtkomst kostnaderna. Mer information finns på [Arkiv åtkomst nivå](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
 
-### <a name="move-data-to-archive-tier"></a>Flytta data till arkivnivån
+### <a name="move-data-to-archive-tier"></a>Flytta data till Arkiv lag ring
 
-Innan du börjar måste du kontrollera att du har en aktiv gatewayenhet för Data Box. Följ stegen som beskrivs i [självstudien: Förbereda för distribution av Azure Data Box Gateway](data-box-gateway-deploy-prep.md) och hålla avancera till nästa självstudie förrän du har en operational enhet.
+Innan du börjar ska du kontrol lera att du har en Data Box Gateway enhet som körs. Följ stegen som beskrivs i [själv studie kursen: Förbered för att distribuera Azure Data Box Gateway](data-box-gateway-deploy-prep.md) och fortsätt gå vidare till nästa självstudie tills du har en fungerande enhet.
 
-- Använda Data Box-Gateway-enheten för att ladda upp data till Azure via vanliga överföringen enligt beskrivningen i [överföra data via rutan Datagateway](data-box-gateway-deploy-add-shares.md).
-- När data har överförts kommer du behöva flytta den till arkivnivån. Du kan ange blob-nivå på två sätt: Azure PowerShell-skript eller en princip för livscykelhantering för Azure Storage.  
-    - Om du använder Azure PowerShell, följer du dessa [steg](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) att flytta data till arkivnivån.
-    - Om du använder Azure livscykelhantering, Följ stegen nedan för att flytta data till arkivnivån.
-        - [Registrera](/azure/storage/common/storage-lifecycle-management-concepts) förhandsversionen av Blob Lifecycle management-tjänsten att använda arkivet nivå.
-        - Använd följande princip att [Arkivera data på mata in](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
-- När blobarna som är markerade som Arkiv, kan de inte längre ändras med gatewayen flytta varma eller kalla nivån. Om filen finns i den lokala lagringen, överförs inte ändringar som görs i den lokala kopian (inklusive borttagningar) för att arkivera nivå.
-- Om du vill läsa data i arkivlagring, som ska extraheras genom att ändra blob-nivå för att frekvent eller lågfrekvent. [Uppdatera resursen](data-box-gateway-manage-shares.md#refresh-shares) på gatewayen inte rehydrate blob.
+- Använd Data Box Gateway-enheten för att ladda upp data till Azure via den vanliga överförings proceduren enligt beskrivningen i [överför data via data Box Gateway](data-box-gateway-deploy-add-shares.md).
+- När data har överförts måste du flytta den till Arkiv lag rings nivå. Du kan ställa in BLOB-nivån på två sätt: Azure PowerShell skript eller en Azure Storage hanterings princip för livs cykel.  
+    - Om du använder Azure PowerShell, följer du dessa [steg](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) för att flytta data till Arkiv lag rings nivå.
+    - Om du använder Azures livs cykel hantering följer du dessa steg för att flytta data till Arkiv lag rings nivå.
+        - [Registrera dig](/azure/storage/common/storage-lifecycle-management-concepts) för för hands versionen av tjänsten BLOB Lifecycle Management för att använda Arkiv nivå.
+        - Använd följande princip för att [arkivera data vid inmatning](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
+- När Blobbarna har marker ATS som Arkiv kan de inte längre ändras av gatewayen om de inte flyttas till frekvent eller kall nivå. Om filen finns i den lokala lagringen överförs inte alla ändringar som görs i den lokala kopian (inklusive borttagningar) till Arkiv nivån.
+- Om du vill läsa data i Arkiv lag ring måste den rehydratiseras genom att ändra BLOB-nivån till frekvent eller låg frekvent. Att [Uppdatera resursen](data-box-gateway-manage-shares.md#refresh-shares) på gatewayen dehydratiserar inte blobben.
 
-Lär dig mer om hur du vill veta mer [hantera Azure Blob-Lagringslivscykeln](/azure/storage/common/storage-lifecycle-management-concepts).
+Mer information finns i Lär dig mer om hur du [hanterar Azure Blob Storage Lifecycle](/azure/storage/common/storage-lifecycle-management-concepts).
 
-## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Inledande bulk överföring följt av inkrementella överföringen
+## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Första Mass överföring följt av stegvis överföring
 
-Använd tillsammans Data och Data Box Gateway när du vill göra en bulköverföring av en stor mängd data följt av inkrementella överföringar. Använd Data Box för bulk-överföringen i en offline-läge (inledande seed) och Data Box-Gateway för inkrementella överföringar (pågående matning) över nätverket.
+Använd Data Box-enhet och Data Box Gateway tillsammans när du vill göra en Mass uppladdning av en stor mängd data som följs av stegvisa överföringar. Använd Data Box-enhet för Mass överföring i ett offline-läge (första startvärdet) och Data Box Gateway för stegvisa överföringar (pågående matning) över nätverket.
 
-### <a name="seed-the-data-with-data-box"></a>Mata in data med Data Box
+### <a name="seed-the-data-with-data-box"></a>Dirigera data med Data Box-enhet
 
-Följ stegen nedan för att kopiera data till Data Box och överföra den till Azure Storage.
+Följ dessa steg om du vill kopiera data till Data Box-enhet och ladda upp till Azure Storage.
 
-1. [Beställa Data Box](/azure/databox/data-box-deploy-ordered).
-2. [Konfigurera din Data Box](/azure/databox/data-box-deploy-set-up).
-3. [Kopiera data till Data Box via SMB](/azure/databox/data-box-deploy-copy-data).
-4. [Returnera Data Box, kontrollera ladda upp data till Azure](/azure/databox/data-box-deploy-picked-up).
-5. När ladda upp data till Azure är klar ska alla data i Azure storage-behållare. I storage-konto för Data Box går du till behållaren Blob (och fil) för att se till att alla data har kopierats. Notera namnet på behållaren som du använder det här namnet senare. Exempel på följande skärmbild `databox` behållare kommer att användas för den inkrementella överföringen.
+1. [Beställ dina data Box-enhet](/azure/databox/data-box-deploy-ordered).
+2. [Konfigurera din data Box-enhet](/azure/databox/data-box-deploy-set-up).
+3. [Kopiera data till data Box-enhet via SMB](/azure/databox/data-box-deploy-copy-data).
+4. [Returnera data Box-enhet, verifiera data överföringen till Azure](/azure/databox/data-box-deploy-picked-up).
+5. När data överföringen till Azure har slutförts bör alla data finnas i Azure Storage-behållare. I lagrings kontot för Data Box-enhet går du till BLOB-behållaren (och filen) för att kontrol lera att alla data har kopierats. Anteckna behållar namnet eftersom du kommer att använda det här namnet senare. I följande skärm bild används till exempel `databox` container för den stegvisa överföringen.
 
-    ![Behållare med data på Data Box](media/data-box-gateway-use-cases/data-container1.png)
+    ![Container med data på Data Box-enhet](media/data-box-gateway-use-cases/data-container1.png)
 
-Den här bulk-överföringen Slutför den inledande seeding fasen.
+Den här Mass överföringen Slutför den inledande initierings fasen.
 
-### <a name="ongoing-feed-with-data-box-gateway"></a>Pågående feed med Data Box-Gateway
+### <a name="ongoing-feed-with-data-box-gateway"></a>Pågående matning med Data Box Gateway
 
-Följ dessa steg för pågående inmatning av Data Box-gatewayen.
+Följ de här stegen för pågående inhämtning av Data Box Gateway.
 
-1. Skapa en cloud-resurs på Data Box-Gateway. Den här resursen Överför automatiskt data till Azure Storage-kontot. Gå till **resurser** i din Data Box Gateway-resursen och klicka på **+ Lägg till resurs**.
+1. Skapa en moln resurs på Data Box Gateway. Den här resursen överför automatiskt data till Azure Storage-kontot. Gå till **resurser** i data Box gateway resurs och klicka på **+ Lägg till resurs**.
 
     ![Klicka på + Lägg till resurs](media/data-box-gateway-use-cases/add-share1.png)
 
-2. Kontrollera att den här resursen som mappar till den behållare som innehåller förpopulerad data. För **väljer blobbehållare**, Välj **Använd befintlig** och bläddra till den behållare där data från Data Box har överförts.
+2. Se till att den här resursen mappar till den behållare som innehåller de data som har dirigerats. För **Välj BLOB-behållare**väljer du **Använd befintlig** och bläddra till den behållare där data från data Box-enhet överfördes.
 
-    ![Resursinställningar](media/data-box-gateway-use-cases/share-settings-select-existing-container1.png)
+    ![Delnings inställningar](media/data-box-gateway-use-cases/share-settings-select-existing-container1.png)
 
-3. När resursen har skapats kan du uppdatera resursen. Den här åtgärden uppdaterar en lokal resurs med innehåll från Azure.
+3. Uppdatera resursen när resursen har skapats. Den här åtgärden uppdaterar den lokala resursen med innehållet från Azure.
 
     ![Uppdatera resurs](media/data-box-gateway-use-cases/refresh-share1.png)
 
-    När resursen har synkroniserats Data Box-Gateway kommer att överföra de inkrementella ändringarna om filerna som har ändrats på klienten.
+    När resursen synkroniseras, kommer Data Box Gateway att överföra de stegvisa ändringarna om filerna har ändrats på klienten.
 
 ## <a name="next-steps"></a>Nästa steg
 

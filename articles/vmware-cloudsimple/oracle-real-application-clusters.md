@@ -1,5 +1,5 @@
 ---
-title: Azure VMware-lösning av CloudSimple – optimera ditt CloudSimple privata moln för Oracle RAC
+title: Azure VMware-lösningar (AVS) – optimera ditt moln privata moln för Oracle RAC
 description: Beskriver hur du distribuerar ett nytt kluster och optimerar en virtuell dator för installationen och konfigurationen av Oracle Real Application Clusters (RAC)
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,29 +8,29 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 733a225c66040cb2ab819f041647120c8b63b6a0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: fe4f7bf71b4836404a4f878b37c3ea7fab138588
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972412"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016025"
 ---
-# <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple privata moln för att installera Oracle RAC
+# <a name="optimize-your-avs-private-cloud-for-installing-oracle-rac"></a>Optimera ditt AVS-privata moln för att installera Oracle RAC
 
-Du kan distribuera Oracle Real Application Clusters (RAC) i din CloudSimple privata moln miljö. I den här guiden beskrivs hur du distribuerar ett nytt kluster och optimerar en virtuell dator för Oracle RAC-lösningen. När du har slutfört stegen i det här avsnittet kan du installera och konfigurera Oracle RAC.
+Du kan distribuera Oracle Real Application Clusters (RAC) i din AVS-miljö för privata moln. I den här guiden beskrivs hur du distribuerar ett nytt kluster och optimerar en virtuell dator för Oracle RAC-lösningen. När du har slutfört stegen i det här avsnittet kan du installera och konfigurera Oracle RAC.
 
 ## <a name="storage-policy"></a>Lagrings princip
 
-Lyckad implementering av Oracle RAC kräver ett tillräckligt antal noder i klustret.  I virtuellt San lagrings princip tillämpas felen på tolerera (FTT) på data diskar som används för att lagra databasen, logga och gör om diskar.  Antalet noder som krävs för att effektivt tolerera felen är 2N + 1 där N är värdet för FTT.
+Lyckad implementering av Oracle RAC kräver ett tillräckligt antal noder i klustret. I virtuellt San lagrings princip tillämpas felen på tolerera (FTT) på data diskar som används för att lagra databasen, logga och gör om diskar. Antalet noder som krävs för att effektivt tolerera felen är 2N + 1 där N är värdet för FTT.
 
-Exempel: Om det önskade FTT är 2 måste det totala antalet noder i klustret vara 2 * 2 + 1 = 5.
+Exempel: om det önskade FTT är 2, måste det totala antalet noder i klustret vara 2 * 2 + 1 = 5.
 
 ## <a name="overview-of-deployment"></a>Översikt över distribution
 
-I följande avsnitt beskrivs hur du konfigurerar din CloudSimple privata moln miljö för Oracle RAC.
+I följande avsnitt beskrivs hur du konfigurerar din AVS-miljö för privata moln för Oracle RAC.
 
 1. Metod tips för disk konfiguration
-2. Distribuera CloudSimple Private Cloud vSphere-kluster
+2. Distribuera vSphere-kluster för AVS-moln
 3. Konfigurera nätverk för Oracle RAC
 4. Konfigurera virtuellt San Storage policies
 5. Skapa virtuella Oracle-datorer och skapa delade VM-diskar
@@ -38,7 +38,7 @@ I följande avsnitt beskrivs hur du konfigurerar din CloudSimple privata moln mi
 
 ## <a name="best-practices-for-disk-configuration"></a>Metod tips för disk konfiguration
 
-Virtuella Oracle RAC-datorer har flera diskar som används för en speciell funktion.  Delade diskar monteras på alla virtuella datorer som används av Oracle RAC-kluster.  Installations diskarna för operativ system och program vara monteras bara på de enskilda virtuella datorerna.  
+Virtuella Oracle RAC-datorer har flera diskar som används för en speciell funktion. Delade diskar monteras på alla virtuella datorer som används av Oracle RAC-kluster. Installations diskarna för operativ system och program vara monteras bara på de enskilda virtuella datorerna. 
 
 ![Översikt över virtuella Oracle RAC-datorer](media/oracle-vm-disks-overview.png)
 
@@ -46,10 +46,10 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 | Disk                                      | Syfte                                       | Delad disk |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| OS                                        | Operativsystemsdisk                         | Nej          |
-| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Nej          |
-| DATABAS                                  | Installations plats för Oracle Database-programvara | Nej          |
-| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Nej          |
+| OS                                        | Operativsystemdisk                         | Inga          |
+| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Inga          |
+| DATABASE                                  | Installations plats för Oracle Database-programvara | Inga          |
+| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Inga          |
 | DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Ja         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Ja         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Ja         |
@@ -68,44 +68,44 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 ### <a name="operating-system-and-software-disk-configuration"></a>Konfiguration av operativ system och program disk
 
-Varje virtuell Oracle-dator har kon figurer ATS med flera diskar för värd operativ systemet, växling, program varu installation och andra operativ system funktioner.  Diskarna delas inte mellan de virtuella datorerna.  
+Varje virtuell Oracle-dator har kon figurer ATS med flera diskar för värd operativ systemet, växling, program varu installation och andra operativ system funktioner. Diskarna delas inte mellan de virtuella datorerna. 
 
 * Tre diskar för varje virtuell dator konfigureras som virtuella diskar och monteras på virtuella Oracle RAC-datorer.
     * OS-disk
     * Disk för att lagra Oracle-rutnät installerar filer
     * Disk för lagring av filer för Oracle Database-installation
 * Diskar kan konfigureras som **tunt allokerade**.
-* Varje disk monteras på den första SCSI-styrenheten (SCSI0).  
+* Varje disk monteras på den första SCSI-styrenheten (SCSI0). 
 * Delning har angetts till **Ingen delning**.
-* Redundans definieras på lagrings platsen med virtuellt SAN-principer.  
+* Redundans definieras på lagrings platsen med virtuellt SAN-principer. 
 
 ![Konfiguration av Oracle RAC data disk Group](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Konfiguration av data disk
 
-Data diskar används främst för att lagra databasfiler.  
+Data diskar används främst för att lagra databasfiler. 
 
 * Fyra diskar konfigureras som virtuella diskar och monteras på alla virtuella Oracle RAC-datorer.
 * Varje disk monteras på en annan SCSI-styrenhet.
-* Varje virtuell disk konfigureras som **tjocka etablerings Eager nollställd**.  
-* Delning har angetts till **multi-Writer**.  
-* Diskarna måste vara konfigurerade som en enhets grupp för automatisk lagrings hantering (ASM).  
-* Redundans definieras på lagrings platsen med virtuellt SAN-principer.  
+* Varje virtuell disk konfigureras som **tjocka etablerings Eager nollställd**. 
+* Delning har angetts till **multi-Writer**. 
+* Diskarna måste vara konfigurerade som en enhets grupp för automatisk lagrings hantering (ASM). 
+* Redundans definieras på lagrings platsen med virtuellt SAN-principer. 
 * ASM-redundans är inställt på **extern** redundans.
 
 ![Konfiguration av Oracle RAC data disk Group](media/oracle-vm-data-disks.png)
 
 ### <a name="redo-log-disk-configuration"></a>Gör om logg disk konfiguration
 
-Gör om loggfiler som används för att lagra en kopia av de ändringar som gjorts i databasen.  Loggfilerna används när data måste återställas efter eventuella problem.
+Gör om loggfiler som används för att lagra en kopia av de ändringar som gjorts i databasen. Loggfilerna används när data måste återställas efter eventuella problem.
 
-* Gör om logg diskar måste konfigureras som flera disk grupper.  
+* Gör om logg diskar måste konfigureras som flera disk grupper. 
 * Sex diskar skapas och monteras på alla virtuella Oracle RAC-datorer.
 * Diskar monteras på olika SCSI-styrenheter
 * Varje virtuell disk konfigureras som **tjocka etablerings Eager nollställd**.
-* Delning har angetts till **multi-Writer**.  
+* Delning har angetts till **multi-Writer**. 
 * Diskarna måste vara konfigurerade som två ASM-diskenheter.
-* Varje ASM-diskavbildning innehåller tre diskar, som finns på olika SCSI-styrenheter.  
+* Varje ASM-diskavbildning innehåller tre diskar, som finns på olika SCSI-styrenheter. 
 * ASM-redundans har angetts till **Normal** redundans.
 * Fem göra om-loggfiler skapas på båda ASM recreate-logg gruppen
 
@@ -139,7 +139,7 @@ Röstnings diskar tillhandahåller funktioner för kvorum som en ytterligare kom
 
 ### <a name="oracle-fast-recovery-area-disk-configuration-optional"></a>Disk konfiguration för snabb återställnings utrymme i Oracle (valfritt)
 
-Det snabba återställnings fältet (FRA) är fil system som hanteras av Oracle ASM-diskavbildning.  FRA tillhandahåller en delad lagrings plats för säkerhets kopierings-och återställnings filer. Oracle skapar arkiverade loggar och Flashback-loggar i snabb återställnings ytan. Oracle Recovery Manager (RMAN) kan lagra sina säkerhets kopior och avbildnings kopior i snabb återställnings fältet och använda dem när de återställer filer under medie återställning.
+Det snabba återställnings fältet (FRA) är fil system som hanteras av Oracle ASM-diskavbildning. FRA tillhandahåller en delad lagrings plats för säkerhets kopierings-och återställnings filer. Oracle skapar arkiverade loggar och Flashback-loggar i snabb återställnings ytan. Oracle Recovery Manager (RMAN) kan lagra sina säkerhets kopior och avbildnings kopior i snabb återställnings fältet och använda dem när de återställer filer under medie återställning.
 
 * Två diskar skapas och monteras på alla virtuella Oracle RAC-datorer.
 * Diskar monteras på en annan SCSI-styrenhet
@@ -150,40 +150,40 @@ Det snabba återställnings fältet (FRA) är fil system som hanteras av Oracle 
 
 ![Konfiguration av disk grupp för Oracle RAC-röstning](media/oracle-vm-fra-disks.png)
 
-## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Distribuera CloudSimple Private Cloud vSphere-kluster
+## <a name="deploy-avs-private-cloud-vsphere-cluster"></a>Distribuera vSphere-kluster för AVS-moln
 
-Följ den här processen om du vill distribuera ett vSphere-kluster i ditt privata moln:
+Följ den här processen om du vill distribuera ett vSphere-kluster i ditt moln privata moln:
 
-1. [Skapa ett privat moln](create-private-cloud.md)från CloudSimple-portalen. CloudSimple skapar en standard-vCenter-användare med namnet "cloudowner" i det nyligen skapade privata molnet. Mer information om standard användar-och behörighets modellen för privata moln finns i [Lär dig mer om behörighets modellen för privata moln](learn-private-cloud-permissions.md).  Det här steget skapar det primära hanterings klustret för ditt privata moln.
+1. [Skapa ett privat moln](create-private-cloud.md)i AVS-portalen. AVS skapar en standard-vCenter-användare med namnet ' cloudowner ' i det nyligen skapade AVS-molnet. Mer information om användar-och behörighets modellen i AVS-standardmolnet finns i [Lär dig om behörighets modellen för molnets privata moln](learn-private-cloud-permissions.md). Det här steget skapar det primära hanterings klustret för ditt AVS-privata moln.
 
-2. Från CloudSimple-portalen [expanderar du det privata molnet](expand-private-cloud.md) med ett nytt kluster.  Det här klustret kommer att användas för att distribuera Oracle RAC.  Välj antalet noder baserat på önskad fel tolerans (minst tre noder).
+2. I AVS-portalen [expanderar du det privata AVS-molnet](expand-private-cloud.md) med ett nytt kluster. Det här klustret kommer att användas för att distribuera Oracle RAC. Välj antalet noder baserat på önskad fel tolerans (minst tre noder).
 
 ## <a name="set-up-networking-for-oracle-rac"></a>Konfigurera nätverk för Oracle RAC
 
-1. I ditt privata moln [skapar du två VLAN](create-vlan-subnet.md), ett för det offentliga Oracle-nätverket och ett för det privata Oracle-nätverket och tilldelar lämpliga CIDR-exempel för undernät.
-2. När VLAN har skapats skapar du de [distribuerade port grupperna i det privata molnet vCenter](create-vlan-subnet.md#use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere).
+1. I ditt moln privata moln [skapar du två VLAN](create-vlan-subnet.md), ett för det offentliga Oracle-nätverket och ett för det privata Oracle-nätverket, och tilldelar lämpliga CIDR-exempel för undernät.
+2. När du har skapat VLAN skapar du de [distribuerade port grupperna i molnets privata vCenter vCenter](create-vlan-subnet.md#use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere).
 3. Konfigurera en [virtuell DHCP-och DNS-serverdator](dns-dhcp-setup.md) i hanterings klustret för Oracle-miljön.
-4. [Konfigurera DNS-vidarebefordran på den DNS-Server](on-premises-dns-setup.md#create-a-conditional-forwarder) som är installerad i det privata molnet.
+4. [Konfigurera DNS-vidarebefordran på den DNS-Server](on-premises-dns-setup.md#create-a-conditional-forwarder) som är installerad i det privata AVS-molnet.
 
 ## <a name="set-up-vsan-storage-policies"></a>Konfigurera lagrings principer för virtuellt San
 
-Virtuellt SAN-principer definierar felen för att tolerera och diska randning för de data som lagras på de virtuella dator diskarna.  Den lagrings princip som skapas måste tillämpas på de virtuella dator diskarna när den virtuella datorn skapas.
+Virtuellt SAN-principer definierar felen för att tolerera och diska randning för de data som lagras på de virtuella dator diskarna. Den lagrings princip som skapas måste tillämpas på de virtuella dator diskarna när den virtuella datorn skapas.
 
-1. [Logga](https://docs.azure.cloudsimple.com/vsphere-access) in på vSphere-klienten för ditt privata moln.
+1. [Logga in på vSphere-klienten](https://docs.azure.cloudsimple.com/vsphere-access) för ditt AVS-privata moln.
 2. Välj **principer och profiler**på den översta menyn.
 3. På den vänstra menyn väljer du **lagrings principer för virtuella datorer** och väljer sedan **skapa en princip för VM-lagring**.
 4. Ange ett beskrivande namn för principen och klicka på **Nästa**.
 5. I avsnittet **princip struktur** väljer du **Aktivera regler för virtuellt SAN-lagring** och klickar på **Nästa**.
-6. I avsnittet **virtuellt San** > -**tillgänglighet** väljer du **ingen** för plats katastrof tolerans. För att Miss lyckas med att tolerera väljer du alternativet **RAID-spegling** för önskad FTT.
-    ![Virtuellt San-](media/oracle-rac-storage-wizard-vsan.png)inställningar.
-7. I avsnittet **Avancerat** väljer du antalet disk ränder per objekt. För objekt utrymmes reservation väljerdu tjockt tillhandahållen. Välj **inaktivera objekt kontroll Summa**. Klicka på **Nästa**.
+6. I avsnittet **virtuellt san** > **tillgänglighet** väljer du **ingen** för plats katastrof tolerans. För att Miss lyckas med att tolerera väljer du alternativet **RAID-spegling** för önskad FTT.
+    ![virtuellt San inställningar](media/oracle-rac-storage-wizard-vsan.png).
+7. I avsnittet **Avancerat** väljer du antalet disk ränder per objekt. För objekt utrymmes reservation väljer du **tjockt tillhandahållen**. Välj **inaktivera objekt kontroll Summa**. Klicka på **Nästa**.
 8. Följ anvisningarna på skärmen för att visa en lista över kompatibla virtuellt San-datalager, granska inställningarna och slutför installationen.
 
 ## <a name="create-oracle-vms-and-create-shared-vm-disks-for-oracle"></a>Skapa virtuella datorer i Oracle och skapa delade VM-diskar för Oracle
 
-För att skapa en virtuell dator för Oracle, klona en befintlig virtuell dator eller skapa en ny.  I det här avsnittet beskrivs hur du skapar en ny virtuell dator och sedan klonar den för att skapa en andra efter att du har installerat det grundläggande operativ systemet.  När de virtuella datorerna har skapats kan du skapa en Lägg till diskar i dem.  Oracle-kluster använder delade diskar för lagring, data, loggar och gör om-loggar.
+För att skapa en virtuell dator för Oracle, klona en befintlig virtuell dator eller skapa en ny. I det här avsnittet beskrivs hur du skapar en ny virtuell dator och sedan klonar den för att skapa en andra efter att du har installerat det grundläggande operativ systemet. När de virtuella datorerna har skapats kan du skapa en Lägg till diskar i dem. Oracle-kluster använder delade diskar för lagring, data, loggar och gör om-loggar.
 
-### <a name="create-vms"></a>Skapa VM:ar
+### <a name="create-vms"></a>Skapa virtuella datorer
 
 1. I vCenter klickar du på ikonen **värdar och kluster** . Välj det kluster som du skapade för Oracle.
 2. Högerklicka på klustret och välj **ny virtuell dator**.
@@ -205,7 +205,7 @@ När operativ systemet har installerats kan du klona en andra virtuell dator. H�
 
 ### <a name="create-shared-disks-for-vms"></a>Skapa delade diskar för virtuella datorer
 
-Oracle använder delad disk för att lagra data, logga och gör om loggfiler.  Du kan skapa en delad disk på vCenter och montera den på båda de virtuella datorerna.  För högre prestanda kan du placera data diskarna på olika SCSI-styrenheter steg nedan och se hur du skapar en delad disk på vCenter och sedan kopplar den till en virtuell dator. vCenter Flash client används för att ändra egenskaperna för den virtuella datorn.
+Oracle använder delad disk för att lagra data, logga och gör om loggfiler. Du kan skapa en delad disk på vCenter och montera den på båda de virtuella datorerna. För högre prestanda kan du placera data diskarna på olika SCSI-styrenheter steg nedan och se hur du skapar en delad disk på vCenter och sedan kopplar den till en virtuell dator. vCenter Flash client används för att ändra egenskaperna för den virtuella datorn.
 
 #### <a name="create-disks-on-the-first-vm"></a>Skapa diskar på den första virtuella datorn
 
@@ -241,10 +241,10 @@ Upprepa steg 2 – 7 för alla nya diskar som krävs för Oracle-data, loggar oc
 
 ## <a name="set-up-vm-host-affinity-rules"></a>Konfigurera tillhörighets regler för virtuell dator värd
 
-Regler för VM-till-värd-tillhörighet kontrollerar att den virtuella datorn körs på önskad värd.  Du kan definiera regler på vCenter för att se till att den virtuella Oracle-datorn körs på värden med tillräckliga resurser och uppfyller eventuella särskilda licensierings krav.
+Regler för VM-till-värd-tillhörighet kontrollerar att den virtuella datorn körs på önskad värd. Du kan definiera regler på vCenter för att se till att den virtuella Oracle-datorn körs på värden med tillräckliga resurser och uppfyller eventuella särskilda licensierings krav.
 
-1. I CloudSimple-portalen eskalerar du [behörigheterna](escalate-private-cloud-privileges.md) för cloudowner-användaren.
-2. [Logga in på vSphere-klienten](https://docs.azure.cloudsimple.com/vsphere-access) för ditt privata moln.
+1. Eskalera cloudowner-användarens [privilegier](escalate-private-cloud-privileges.md) i AVS-portalen.
+2. [Logga in på vSphere-klienten](https://docs.azure.cloudsimple.com/vsphere-access) för ditt AVS-privata moln.
 3. I vSphere-klienten väljer du det kluster där de virtuella Oracle-datorerna ska distribueras och klickar på **Konfigurera**.
 4. Under Konfigurera väljer du **VM/värd grupper**.
 5. Klicka på **+** .

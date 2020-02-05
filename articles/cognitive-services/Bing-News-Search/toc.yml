@@ -44,7 +44,7 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera träffmarkering
       href: ../Bing-Web-Search/hit-highlighting.md
@@ -56,10 +56,6 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: 'Uppgradera från v5 till v7 av API:et'
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Arbeta med Visual Studio
-      items:
-        - name: Använda den anslutna tjänsten för nyhetssökning i Bing
-          href: vs-bing-news-search-connected-service.md
 - name: Begrepp
   items:
     - name: Skicka sökfrågor

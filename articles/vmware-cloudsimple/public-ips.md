@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple-allokerade offentliga IP-adresser
-description: Beskriver hur du allokerar offentliga IP-adresser för virtuella datorer i den privata moln miljön
+title: Azure VMware-lösningar (AVS) – allokera offentliga IP-adresser
+description: Beskriver hur du allokerar offentliga IP-adresser för virtuella datorer i molnets privata moln miljö
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 87133f5efb9f096d3fdb0956aab1caac58b4bd94
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773789"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024304"
 ---
-# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Allokera offentliga IP-adresser för privat moln miljö
+# <a name="allocate-public-ip-addresses-for-avs-private-cloud-environment"></a>Allokera offentliga IP-adresser för molnets privata moln miljö
 
-Öppna fliken offentliga IP-adresser på sidan nätverk för att allokera offentliga IP-adresser för virtuella datorer i din privata moln miljö.
+Öppna fliken offentliga IP-adresser på sidan nätverk för att allokera offentliga IP-adresser för virtuella datorer i din AVS-miljö för privata moln.
 
-1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
+1. [Gå till AVS-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
 2. Välj **offentliga IP-adresser**.
 3. Klicka på **ny offentlig IP-adress**.
 

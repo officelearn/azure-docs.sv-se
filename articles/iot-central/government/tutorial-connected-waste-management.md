@@ -7,22 +7,23 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 771e4a822df3e7d8eeee53174d657426bf226372
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990050"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016501"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 I den här självstudien får du hjälp med att skapa ett program för hantering av program som är kopplat till Azure IoT Central från program mal len IoT Central **anslutet** 
 
-I självstudien får du lära dig att: 
+I den här självstudien får du lära dig hur man: 
 
 > [!div class="checklist"]
+
 > * Använd mallen Azure IoT Central- **ansluten avfalls hantering** för att skapa ett anslutet hanterings program för skräp post
 > * Utforska och anpassa instrument panelen för operatör 
 > * Utforska enhets mal len för den anslutna avfalls platsen
@@ -33,12 +34,12 @@ I självstudien får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 -  En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
 ## <a name="create-connected-waste-management-app-in-iot-central"></a>Skapa ansluten app för avfalls hantering i IoT Central
 
-I det här avsnittet ska vi använda mallen Azure IoT Central- **ansluten avfalls hantering** för att skapa ett anslutet hanterings program för skräp post i IoT Central.
+I det här avsnittet använder du mallen Azure IoT Central- **ansluten avfalls hantering** för att skapa ett anslutet hanterings program för avfalls hantering i IoT Central.
 
 Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för skräp hantering:  
 
@@ -59,7 +60,7 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
     * **URL** – du kan också välja att ange önskad URL. Du kan ändra URL: en senare. 
     * Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central.md).
 
 5. Klicka på knappen **skapa** längst ned på sidan. 
 
@@ -132,9 +133,9 @@ Så här visar du enhets mal len:
 
     ![Enhets mall](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-2. I listan mallar för enhets information visas **anslutet pappers lager**. Öppna genom att klicka på namnet.
+2. I listan mallar för enheter visas **anslutet avfall**. Öppna genom att klicka på namnet.
 
-3. Bekanta dig med funktionerna i enhets mal len. Du kan se att den definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats* osv.
+3. Bekanta dig med funktionerna i enhets mal len. Du kan se att det definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats*och andra.
 
    ![Enhets mall](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
@@ -152,7 +153,7 @@ Försök att anpassa följande:
 ### <a name="add-a-cloud-property"></a>Lägg till en moln egenskap 
 
 1. Gå till **moln egenskap** från enhetens mall-menyn
-2. Lägg till en ny moln egenskap genom att klicka på **+ Lägg till moln egenskap**. I IoT Central kan du lägga till en egenskap som är relevant för enheten men som inte förväntas skickas av en enhet. Som exempel kan en moln egenskap vara en aviserings tröskel som är speciell för installations områden, till gångs information eller underhålls information osv. 
+2. Lägg till en ny moln egenskap genom att klicka på **+ Lägg till moln egenskap**. I IoT Central kan du lägga till en egenskap som är relevant för enheten men som inte förväntas skickas av en enhet. Som exempel kan en moln egenskap vara en aviserings tröskel som är speciell för installations-, till gångs information eller underhålls information och annan information. 
 3. **Spara** ändringar 
  
 ### <a name="views"></a>Vyer 

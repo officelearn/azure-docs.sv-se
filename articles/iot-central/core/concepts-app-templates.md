@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867445"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019051"
 ---
 # <a name="what-are-application-templates"></a>Vad är programmallar?
 
@@ -26,33 +26,16 @@ Programmallar består av:
 - Förkonfigurerade regler och jobb
 - Omfattande dokumentation inklusive själv studie kurser och instruktioner
 
-## <a name="preview-templates"></a>Förhandsgranska mallar
+Du väljer program mal len när du skapar programmet. Du kan inte ändra mallen när programmet har skapats.
 
-Valet av program mal len avgör om programmet använder IoT Central för hands versions funktioner som Plug and Play för enheter.
+## <a name="custom-templates"></a>Anpassade mallar
 
-För närvarande är program mal len som använder _allmänt tillgängliga_ funktioner:
+Om du vill skapa ditt program från grunden väljer du någon av de två anpassade Programmallarna:
 
-- Anpassad app > äldre program
+- Anpassat program
+- Anpassat program (bakåtkompatibelt)
 
-
-För närvarande är Programmallarna som använder _offentliga för hands versions_ funktioner:
-
-- Anpassad app > för hands versions program
-- Återförsäljar > ansluten logistik
-- Retail > Digital Distribution Center
-- Detalj handels > i butiken Analytics – villkors övervakning
-- Detalj handel > in-Store-analys – utcheckning
-- Retail > Micro-uppfyllelse Center
-- Retail > Smart Inventory Management
-- Övervakning av energi > smart mätare
-- Övervakning av energi > sol panel
-- Myndigheter > ansluten avfalls hantering
-- Övervakning av myndigheter > vatten förbrukning
-- Övervakning av myndigheter > vatten kvalitet
-- Sjukvård > kontinuerlig övervakning av patienter
-
-> [!NOTE]
-> **Äldre** programmallar är för närvarande tillgängliga i **USA**, **Australien**, **Asien och Stillahavsområdet**eller på **Europa** platserna, medan andra mallar för närvarande endast är tillgängliga i **Europa** och **amerikanska** platser.
+Välj den **anpassade program** mal len om du inte har en specifik anledning att använda den äldre mallen.
 
 ## <a name="industry-focused-templates"></a>Bransch fokuserade mallar
 
@@ -63,7 +46,7 @@ Azure IoT Central är en plattform för oberoende-program. Programmallar är bra
   - Digitalt distributionscenter
   - In-Store Analytics – villkors övervakning
   - In-Store-analys-utcheckning
-  - Hantering av smarta lager
+  - Smart lagerhantering
 - [Energi](../energy/overview-iot-central-energy.md)
   - Smart mätarövervakning
   - Solpanelsövervakning

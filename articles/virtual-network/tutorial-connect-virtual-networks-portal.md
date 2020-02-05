@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a3966615d28630fdd2ab799f478ef7edaa3377e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 65749182bf93e84c8712409cd16bd3a60184c7ca
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775297"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016059"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
@@ -171,6 +171,6 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du kopplar samman två nätverk i samma Azure-region, med peerkoppling av virtuella nätverk. Du kan också peerkoppla virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region) och i [olika Azure-prenumerationer](create-peering-different-subscriptions.md#portal), samt skapa [nav- och ekernätverksdesigner](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) med peerkoppling. Mer information om peerkoppling av virtuella nätverk finns i [Översikt över peerkoppling av virtuella nätverk](virtual-network-peering-overview.md) och [Hantera peerkopplingar av virtuella nätverk](virtual-network-manage-peering.md).
+I den här självstudien har du lärt dig hur du kopplar samman två nätverk i samma Azure-region, med peerkoppling av virtuella nätverk. Du kan också peerkoppla virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region) och i [olika Azure-prenumerationer](create-peering-different-subscriptions.md#portal), samt skapa [nav- och ekernätverksdesigner](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) med peerkoppling. Mer information om peerkoppling av virtuella nätverk finns i [Översikt över peerkoppling av virtuella nätverk](virtual-network-peering-overview.md) och [Hantera peerkopplingar av virtuella nätverk](virtual-network-manage-peering.md).
 
 Information om hur du ansluter din egen dator till ett virtuellt nätverk via en VPN-anslutning, och interagerar med resurser i ett virtuellt nätverk, eller i peerkopplade virtuella nätverk, finns i [Ansluta datorn till ett virtuellt nätverk](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

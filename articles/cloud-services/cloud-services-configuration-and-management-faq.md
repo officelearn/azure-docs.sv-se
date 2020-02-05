@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 50dd6e2387abbf5b24adcee708dd2ff387e33261
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845389"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019425"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -174,11 +174,11 @@ Se [ny: konfigurerbar tids gräns för inaktivitet för Azure Load Balancer](htt
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hur gör jag för att associera en statisk IP-adress till min moln tjänst?
 Om du vill konfigurera en statisk IP-adress måste du skapa en reserverad IP-adress. Den här reserverade IP-adressen kan kopplas till en ny moln tjänst eller till en befintlig distribution. Mer information finns i följande dokument:
-* [Så här skapar du en reserverad IP-adress](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Reservera IP-adressen för en befintlig moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Koppla en reserverad IP-adress till en ny moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Koppla en reserverad IP-adress till en distribution som körs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Så här skapar du en reserverad IP-adress](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
+* [Reservera IP-adressen för en befintlig moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Koppla en reserverad IP-adress till en ny moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Koppla en reserverad IP-adress till en distribution som körs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
+* [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller?
 Azure har IP-adresser/ID: n i Data Center fysiska servrar för att skydda mot hot. Dessutom kan kunderna distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering, skydds system (ID/IP-adresser) med mera. Mer information finns i [skydda dina data och till gångar och följa globala säkerhets standarder](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).

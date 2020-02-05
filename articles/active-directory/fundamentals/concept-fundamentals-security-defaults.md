@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978894"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024593"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -95,6 +95,8 @@ När du har aktiverat säkerhets inställningarna i din klient, måste alla anv�
 
 Om användaren inte har registrerats för Multi-Factor Authentication måste användaren registrera sig med hjälp av Microsoft Authenticator-appen för att kunna fortsätta. Ingen 14-dagars Multi-Factor Authentication registrerings period kommer att tillhandahållas.
 
+Exchange Online-klienter före 2017 har modern autentisering inaktive rad som standard. För att undvika risken för en inloggnings slinga vid autentisering via dessa klienter måste du [Aktivera modern autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+
 > [!NOTE]
 > Kontot för Azure AD Connect-synkronisering exkluderas från säkerhets inställningarna och kommer inte att uppmanas att registrera sig för eller utföra Multi-Factor Authentication. Organisationer bör inte använda det här kontot för andra orsaker.
 
@@ -109,9 +111,9 @@ Säkerhets standarder tillåter registrering och användning av Azure-Multi-Fact
 |   | Standardinställningar för säkerhet | Villkorlig åtkomst |
 | --- | --- | --- |
 | Meddelande via mobilapp | X | X |
-| Verifieringskod från mobilapp eller maskinvarutoken |   | X |
+| Verifierings kod från mobilapp eller maskinvaru-token |   | X |
 | Textmeddelande till telefon |   | X |
-| Samtal till telefon |   | X |
+| Ring till telefon |   | X |
 | Applösenord |   | X * * |
 
 \* * Applösenord är bara tillgängliga i MFA per användare med äldre autentiseringar endast om de aktive ras av administratörer.

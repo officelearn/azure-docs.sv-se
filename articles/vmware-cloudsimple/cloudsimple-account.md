@@ -1,6 +1,6 @@
 ---
-title: CloudSimple-konto hantering – Azure
-description: Lär dig mer om att hantera CloudSimple-konton
+title: Konto hantering i molnet – Azure
+description: Lär dig mer om att hantera AVS-konton
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
@@ -8,31 +8,31 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: f00ea9590dfa81703ec76b1e866c72f7ff41176a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563192"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025120"
 ---
-# <a name="account-management-overview"></a>Översikt över konto hantering
+# <a name="account-management-overview"></a>Översikt över kontohantering
 
-När du skapar din CloudSimple-tjänst skapas ett konto på CloudSimple.  Kontot är associerat med din Azure-prenumeration där tjänsten finns.  Alla användare med rollen **ägare** och **deltagare** i prenumerationen har åtkomst till CloudSimple-portalen.  Det ID för Azure-prenumeration och klient-ID som är associerat med CloudSimple-tjänsten finns på [konto sidan](account.md).
+När du skapar en AVS-tjänst skapas ett konto i AVS. Kontot är associerat med din Azure-prenumeration där tjänsten finns. Alla användare med rollen **ägare** och **deltagare** i prenumerationen har åtkomst till AVS-portalen. Det ID för Azure-prenumeration och klient-ID som är kopplat till AVS-tjänsten finns på [konto sidan](account.md).
 
 ## <a name="additional-alert-emails"></a>Ytterligare e-postaviseringar
 
-Du kan konfigurera e-ID: n i CloudSimple för att ta emot aviseringar:
+Du kan konfigurera e-post-ID i AVS för att ta emot aviseringar:
 
 * Relaterat till din tjänst
 * För automatisk bearbetning
 
-## <a name="cloudsimple-operator-access"></a>Åtkomst till CloudSimple-operatör
+## <a name="avs-operator-access"></a>Åtkomst till AVS-operatör
 
-Du kan kontrol lera åtkomsten till CloudSimple-portalen för tjänste drifts personal.  Tjänste åtgärds personal loggar in på portalen när du skickar in ett support ärende.  Tjänst åtgärder åtgärdar eventuella problem som rapporteras och de åtgärder som vidtas är tillgängliga i gransknings loggar.
+Du kan kontrol lera åtkomsten till AVS-portalen för tjänste drifts personal. Tjänste åtgärds personal loggar in på portalen när du skickar in ett support ärende. Tjänst åtgärder åtgärdar eventuella problem som rapporteras och de åtgärder som vidtas är tillgängliga i gransknings loggar.
 
 ## <a name="users"></a>Användare
 
-Alla användare som har rollen **ägare** och **deltagare** i prenumerationen har åtkomst till CloudSimple-portalen.  När du ansluter till portalen skapas användaren på CloudSimple-kontot.  Du kan inaktivera åtkomst till CloudSimple-portalen för vissa användare från sidan konton.
+Alla användare som har rollen **ägare** och **deltagare** i prenumerationen har åtkomst till AVS-portalen. När du ansluter till portalen skapas användaren på AVS-kontot. Du kan inaktivera åtkomst till AVS-portalen för vissa användare från sidan konton.
 
 ## <a name="next-steps"></a>Nästa steg
 

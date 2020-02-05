@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561962"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024644"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-prenumerationsavtal
 
@@ -37,7 +37,7 @@ Följande funktioner är tillgängliga för Function-appar som distribueras till
 
 ### <a name="pre-warmed-instances"></a>Förvärmade instanser
 
-Om inga händelser och körningar inträffar idag i förbruknings planen kan din app skalas ned till noll instanser. När nya händelser kommer in måste en ny instans vara anpassad med din app som körs på den.  Det kan ta lite tid att utföra särskilda nya instanser beroende på appen.  Den ytterligare svars tiden för det första anropet kallas ofta app kall start.
+Om inga händelser och körningar inträffar idag i förbruknings planen kan din app skalas upp till noll instanser. När nya händelser kommer in måste en ny instans vara anpassad med din app som körs på den.  Det kan ta lite tid att utföra särskilda nya instanser beroende på appen.  Den ytterligare svars tiden för det första anropet kallas ofta app kall start.
 
 I Premium-planen kan du ha din app förvärmad på ett angivet antal instanser, upp till din minsta schema storlek.  Förvärmade instanser gör det också möjligt för dig att förskala en app innan hög belastning. När appen skalas ut skalas den först till de förvärmade instanserna. Ytterligare instanser fortsätter att buffras och värmas omedelbart i förberedelser inför nästa skalnings åtgärd. Genom att ha en buffert för förvärmade instanser kan du effektivt förhindra kall start fördröjning.  Förvärmade instanser är en funktion i Premium-planen och du måste behålla minst en instans som körs och som är tillgänglig hela tiden när planen är aktiv.
 

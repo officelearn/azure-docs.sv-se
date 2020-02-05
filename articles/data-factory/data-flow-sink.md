@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440269"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020054"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
 
@@ -47,11 +47,17 @@ När du har lagt till en mottagare konfigurerar du via fliken **mottagare** . H�
 
 **Verifiera schema:** Om verifiera schema väljs, Miss kommer data flödet om någon kolumn i det definierade schemat för data uppsättningen inte hittas.
 
-## <a name="field-mapping"></a>Fältmappning
+## <a name="field-mapping"></a>Fält mappning
 
 På samma sätt som i en SELECT-omvandling, på fliken **mappning** för mottagaren, kan du bestämma vilka inkommande kolumner som ska skrivas. Som standard mappas alla inmatade kolumner, inklusive ingångna kolumner. Detta kallas för **automatisk mappning**.
 
 När du inaktiverar automatisk mappning har du möjlighet att lägga till antingen fasta kolumnbaserade mappningar eller regelbaserade mappningar. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning medan en fast mappning mappar logiska och fysiska kolumn namn. Mer information om regelbaserade mappning finns [i kolumn mönster i mappa data flöde](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+
+## <a name="custom-sink-ordering"></a>Beställning av anpassad mottagare
+
+Som standard skrivs data till flera handfat i en icke deterministisk ordning. Körnings motorn skriver data parallellt eftersom omvandlings logiken har slutförts och mottagar ordningen kan variera varje gång. Om du vill ange och exakt den exakta Sink-ordningen aktiverar du **anpassad sortering av mottagare** på fliken Allmänt i data flödet. När den är aktive rad skrivs Sinks sekventiellt i stigande ordning.
+
+![Beställning av anpassad mottagare](media/data-flow/custom-sink-ordering.png "Beställning av anpassad mottagare")
 
 ## <a name="data-preview-in-sink"></a>Förhands granskning av data i mottagare
 

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773056"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022145"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Azure IoT Central är en IoT app-plattform som minskar den börda och kostnad som är kopplad till utveckling, hantering och underhåll av IoT-lösningar i företags klass. Genom att välja att skapa med Azure IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
 
@@ -78,7 +78,7 @@ Mer information finns i själv studie kursen [distribuera och gå igenom en app-
 
 För många åter försäljare är miljö förhållanden inom sina butiker en viktig särskiljare från sina konkurrenter. Åter försäljare vill ha Pleasant-villkor inom sina butiker för att få nytta av sina kunder.  
 
-Som Solution Builder kan du använda programmallen IoT Central in-Store Analytics-övervakning för att skapa en lösning från slut punkt till slut punkt. Med program mal len kan du ansluta till och övervaka en detalj handels miljö med olika sensor enheter. Dessa sensor enheter genererar telemetri som du kan konvertera till affärs insikter som hjälper åter försäljare att minska drifts kostnaderna och skapa en bra upplevelse för kunderna.
+Som Solution Builder kan du använda programmallen IoT Central in-Store Analytics-övervakning för att skapa en lösning från slut punkt till slut punkt. Med program mal len kan du ansluta till och övervaka en detalj handels miljö som använder olika typer av sensor enheter. Dessa sensor enheter genererar telemetri som du kan konvertera till affärs insikter som hjälper åter försäljare att minska drifts kostnaderna och skapa en bra upplevelse för kunderna.
 
 Använd program mal len för att:
 
@@ -149,8 +149,8 @@ Med programmallen IoT Central Micro-uppfyllelse Center kan lösningar som hjälp
 
 Med program mal len kan du: 
 
-- Anslut smidigt en mängd IoT-sensorer som robots eller villkors övervaknings sensorer till en IoT Central program instans.
-- Övervaka och hantera hälso tillståndet för sensor nätverket samt alla gateway-enheter i miljön.
+- Anslut sömlöst olika typer av IoT-sensorer, till exempel robotar eller villkors övervaknings sensorer till en IoT Central program instans.
+- Övervaka och hantera hälso tillståndet för sensor nätverket och alla gateway-enheter i miljön.
 - Skapa anpassade regler kring miljö villkoren i ett uppfyllande Center för att utlösa lämpliga aviseringar.
 - Transformera miljö villkoren i uppfyllande centrum till insikter som kan utnyttjas av butiks lager teamet.
 - Exportera de aggregerade insikterna till befintliga eller nya affärs program till förmån för medlemmarna i detalj handels personalen.

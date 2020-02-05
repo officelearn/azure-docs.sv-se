@@ -101,8 +101,6 @@
           href: ea-portal-vm-reservations.md
         - name: Felsöka åtkomst till Azure EA-portalen
           href: ea-portal-troubleshoot.md
-        - name: EA-uppgifter i Microsoft-kundavtal
-          href: mca-enterprise-operations.md
 - name: Felsöka
   items:
     - name: Inga prenumerationer hittades

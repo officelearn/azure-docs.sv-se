@@ -2,8 +2,8 @@
 title: Använd beräknings intensiva virtuella Azure-datorer med batch
 description: Hur du kan dra nytta av virtuella datorer i HPC och GPU i Azure Batch pooler. Lär dig mer om OS-beroenden och se flera scenario exempel.
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.author: jushiman
-ms.openlocfilehash: 1fb490c6db5115edf32ff2562e43cf1084e0a6c8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026791"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023607"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
 
@@ -42,7 +42,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Linux-pooler – konfiguration av virtuell dator
 
-| Storlek | Kapacitet | Operativsystem | Programvara som krävs | Poolinställningar |
+| Storlek | Kapacitet | Operativsystem | Nödvändig program vara | Inställningar för pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16,04 LTS eller<br/>CentOS-baserat HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
 | [NC, NCv2, NCv3, NDv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Ubuntu 16,04 LTS eller<br/>CentOS 7,3 eller 7,4<br/>(Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner | Gäller inte | 
@@ -52,7 +52,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows-pooler – konfiguration av virtuell dator
 
-| Storlek | Kapacitet | Operativsystem | Programvara som krävs | Poolinställningar |
+| Storlek | Kapacitet | Operativsystem | Nödvändig program vara | Inställningar för pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 eller<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera körning av samtidiga aktiviteter |
 | [NC, NCv2, NCv3, ND, NDv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar per serie) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA-eller CUDA Toolkit-drivrutiner| Gäller inte | 
@@ -66,7 +66,7 @@ RDMA-eller GPU-funktionerna för beräknings intensiva storlekar i batch stöds 
 > N-seriens storlekar stöds inte i batch-pooler med moln tjänst konfigurationen.
 >
 
-| Storlek | Kapacitet | Operativsystem | Programvara som krävs | Poolinställningar |
+| Storlek | Kapacitet | Operativsystem | Nödvändig program vara | Inställningar för pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 eller<br/>2008 R2 (gäst operativ system familj) | Microsoft MPI 2012 R2 eller senare, eller<br/>Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder,<br/> Inaktivera körning av samtidiga aktiviteter |
 

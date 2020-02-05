@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cd2e34be7ef55c4ee6d18c6db6010134a7d935d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76895951"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020632"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -136,7 +137,7 @@ Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexera
 > [!NOTE]
 > Azure Kognitiv sökning begränsar hur mycket text den extraherar beroende på pris nivå: 32 000 tecken för kostnads fri nivå, 64 000 för Basic, 4 000 000 för standard, 8 000 000 för standard S2 och 16 000 000 för standard S3. En varning ingår i status svaret för indexeraren för trunkerade dokument.  
 
-* Användare-angivna metadataegenskaper som finns i blobben extraheras orda Grant.
+* Användare-angivna metadataegenskaper som finns i blobben extraheras orda Grant. Observera att detta kräver att ett fält definieras i indexet med samma namn som metadata-nyckeln för blobben. Om din BLOB till exempel har en nyckel för `Sensitivity` med värde `High`, bör du definiera ett fält med namnet `Sensitivity` i Sök indexet så att det fylls med värdet `High`.
 * Standard egenskaper för BLOB-metadata extraheras i följande fält:
 
   * **metadata\_lagrings\_namn** (EDM. String) – fil namnet för blobben. Om du till exempel har en BLOB-/My-container/My-Folder/subfolder/Resume.pdf är värdet för det här fältet `resume.pdf`.

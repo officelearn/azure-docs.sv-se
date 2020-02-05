@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows-datorer med MARS-agenten
 description: Använd MARS-agenten (Azure Backup Microsoft Recovery Services) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: c6e5ea1ed1ec9dd922793dfc6834238c431ddc38
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 990929cc95d1c25117873ca39415d33370456b91
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "76290877"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025545"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Säkerhetskopiera Windows-datorer med Azure Backup MARS-agenten
 
@@ -49,7 +49,7 @@ Vad du kan säkerhetskopiera beror på var agenten är installerad.
 
 Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa URL: er och IP-adress:
 
-#### <a name="urls"></a>Webbadresser
+#### <a name="urls"></a>Er
 
 * www\.msftncsi.com
 * *.Microsoft.com
@@ -68,7 +68,7 @@ Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inst
 
 Ett Recovery Services-valv lagrar alla säkerhets kopior och återställnings punkter som du skapar med tiden och innehåller den säkerhets kopierings princip som tillämpas på säkerhetskopierade datorer. Skapa ett valv på följande sätt:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/) med din Azure-prenumeration.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med din Azure-prenumeration.
 
 2. Sök efter och välj **Recovery Services valv**.
 
@@ -215,10 +215,10 @@ Skapa en princip på följande sätt:
         -   Säkerhets kopieringar som gjorts på lördag den senaste veckan i månaden vid midnatt och 6:00 PM behålls i 12 månader.
         -   Säkerhets kopieringar som gjorts på en lördag under den senaste veckan i mars behålls i 10 år.
 
-    ![Exempel på kvarhållning](./media/backup-configure-vault/retention-example.png)
+        ![Exempel på kvarhållning](./media/backup-configure-vault/retention-example.png)
 
 
-11. I **Välj typ av första säkerhets kopiering** bestämmer du om du vill ta den första säkerhets kopian över nätverket eller använda säkerhets kopiering offline (mer information om offline-säkerhetskopiering finns i den här [artikeln](backup-azure-backup-import-export.md)). Om du vill ta den första säkerhets kopieringen över nätverket väljer du **automatiskt över nätverket** och klickar på **Nästa**.
+11. I **Välj typ av första säkerhets kopiering** bestämmer du om du vill ta den första säkerhets kopian över nätverket eller använda säkerhets kopiering offline (mer information om offline-säkerhetskopiering finns i den här [artikeln](offline-backup-azure-data-box.md)). Om du vill ta den första säkerhets kopieringen över nätverket väljer du **automatiskt över nätverket** och klickar på **Nästa**.
 
     ![första säkerhets kopierings typ](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -245,7 +245,7 @@ Du kan köra en första säkerhets kopiering automatiskt via nätverket eller of
 5. På data centret kopieras disk data till ett Azure Storage-konto.
 6. Azure Backup kopierar data från lagrings kontot till valvet och stegvisa säkerhets kopieringar schemaläggs.
 
-[Lär dig mer](backup-azure-backup-import-export.md) om seeding offline.
+[Lär dig mer](offline-backup-azure-data-box.md) om seeding offline.
 
 ### <a name="enable-network-throttling"></a>Aktivera nätverks begränsning
 
@@ -259,7 +259,7 @@ Aktivera nätverks begränsning enligt följande:
 1. Klicka på **ändra egenskaper**i mars-agenten.
 2. På fliken **begränsning** markerar du **Aktivera användnings begränsning för Internet bandbredd för säkerhets kopierings åtgärder**.
 
-    ![Nätverksbegränsning](./media/backup-configure-vault/throttling-dialog.png)
+    ![Nätverks begränsning](./media/backup-configure-vault/throttling-dialog.png)
 3. Ange tillåten bandbredd under arbets tid och utanför arbets tid. Bandbredds värden börjar på 512 kbit/s och går upp till 1 023 Mbit/s. Klicka på **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Köra en säkerhets kopiering på begäran

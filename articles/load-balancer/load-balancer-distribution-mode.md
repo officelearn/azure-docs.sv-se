@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225364"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023539"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Konfigurera Distributionsläge för belastningsutjämnare i Azure
 
@@ -59,7 +59,7 @@ En annan användningsfall är media ladda upp. Ladda upp data sker via UDP, men 
 
 ## <a name="configure-source-ip-affinity-settings"></a>Konfigurera inställningar för datakälla IP-tillhörighet
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Du kan ändra konfigurationen för distributions läget genom att ändra belastnings Utjämnings regeln i portalen.
 
@@ -154,7 +154,7 @@ I följande exempel visas hur du konfigurerar om Distributionsläge för belastn
 
 ### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Ändra Distributionsläge för distribuerade belastningsutjämnad uppsättning
 
-Använd den klassiska distributionsmodellen för att ändra en befintlig distributionskonfiguration. Lägg till `x-ms-version` rubriken och ange värdet till version 2014-09-01 eller senare.
+Använd den klassiska distributionsmodellen för att ändra en befintlig distributionskonfiguration. Lägg till den `x-ms-version` rubrik och ange version 2014-09-01 eller senare.
 
 #### <a name="request"></a>Förfrågan
 
@@ -193,6 +193,6 @@ Som tidigare har beskrivits, ställer du in `LoadBalancerDistribution`-elementet
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över interna Azure-Load Balancer](load-balancer-internal-overview.md)
-* [Kom igång med att konfigurera en Internet-riktad belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md)
+* [Översikt över Azure intern belastningsutjämnare](load-balancer-internal-overview.md)
+* [Kom igång med att konfigurera en internetuppkopplad belastningsutjämnare](quickstart-create-standard-load-balancer-powershell.md)
 * [Konfigurera timeout-inställningar för inaktiv TCP för en lastbalanserare](load-balancer-tcp-idle-timeout.md)

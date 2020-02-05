@@ -3,12 +3,12 @@ title: System tillstånd och Bare Metal Recovery-skydd
 description: Använd Azure Backup Server för att säkerhetskopiera system tillstånd och ge skydd mot Bare Metal Recovery (BMR).
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0e89b149fe8b06bdd70c72aa442f50125c5e3786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172251"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025511"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Säkerhetskopiera system tillstånd och Återställ till Bare Metal med Azure Backup Server
 
@@ -28,7 +28,7 @@ I följande tabell sammanfattas vad du kan säkerhetskopiera och återställa. D
 |**Fildata**<br /><br />Vanlig säkerhets kopiering av data<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorade fildata|Y|N|N|
 |**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorat eller skadat operativ system|N|Y|Y|
 |**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorad Server (data volymer är intakta)|N|N|Y|
-|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorad Server (data volymer förlorade)|Y|Nej|Ja (BMR, följt av regelbunden återställning av säkerhetskopierade fildata)|
+|**Fildata**<br /><br />Azure Backup Server säkerhets kopiering av fildata<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorad Server (data volymer förlorade)|Y|Inga|Ja (BMR, följt av regelbunden återställning av säkerhetskopierade fildata)|
 |**SharePoint-data**:<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR/säkerhets kopiering av system tillstånd|Borttappad webbplats, listor, list objekt, dokument|Y|N|N|
 |**SharePoint-data**:<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR/säkerhets kopiering av system tillstånd|Förlorat eller skadat operativ system|N|Y|Y|
 |**SharePoint-data**:<br /><br />Azure Backup Server säkerhets kopiering av Server grupps data<br /><br />BMR/säkerhets kopiering av system tillstånd|Haveriberedskap|N|N|N|
@@ -140,7 +140,7 @@ Konfigurera en skydds grupp enligt beskrivningen i [distribuera skydds grupper](
 
 12. På sidan **Ange bevarande princip för online** väljer du hur återställnings punkterna som skapas från de dagliga, vecko Visa, månatliga och årliga säkerhets kopiorna ska behållas i Azure.
 
-13. På sidan **Välj replikering online** väljer du hur den första fullständiga replikeringen av data ska ske. Du kan replikera över nätverket eller göra en offline-säkerhetskopiering (offline-dirigering). Offline-säkerhetskopiering använder Azure import-funktionen. Mer information finns i [arbets flöde för säkerhets kopiering offline i Azure Backup](backup-azure-backup-import-export.md).
+13. På sidan **Välj replikering online** väljer du hur den första fullständiga replikeringen av data ska ske. Du kan replikera över nätverket eller göra en offline-säkerhetskopiering (offline-dirigering). Offline-säkerhetskopiering använder Azure import-funktionen. Mer information finns i [arbets flöde för säkerhets kopiering offline i Azure Backup](offline-backup-azure-data-box.md).
 
 14. På sidan **Sammanfattning** granskar du inställningarna. När du har valt **Skapa grupp**sker inledande replikering av data. När datareplikeringen har slutförts på sidan **status** är skydds gruppens status **OK**. Säkerhets kopieringen sker sedan per skydds grupps inställningar.
 

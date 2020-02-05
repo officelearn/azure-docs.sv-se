@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961540"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024287"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsöka & begränsningar i Azure Cloud Shell
 
@@ -36,8 +36,8 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Inaktivera Cloud Shell i en låst nätverks miljö
 
-- **Information**: administratörer kan vilja inaktivera åtkomst till Cloud Shell för sina användare. Cloud Shell använder åtkomst till `ux.console.azure.com`s domän, som kan nekas, vilket hindrar all åtkomst till Cloud Shell entrypoints, inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension och docs.microsoft.com.
-- **Lösning**: begränsa åtkomsten till `ux.console.azure.com` via nätverks inställningar till din miljö. Cloud Shells ikonen finns fortfarande i portal.azure.com, men kommer inte att kunna ansluta till tjänsten.
+- **Information**: administratörer kan vilja inaktivera åtkomst till Cloud Shell för sina användare. Cloud Shell använder åtkomst till `ux.console.azure.com`s domän, som kan nekas, vilket hindrar all åtkomst till Cloud Shell entrypoints, inklusive portal.azure.com, shell.azure.com, Visual Studio Code Azure Account extension och docs.microsoft.com. I det amerikanska regerings molnet är start punkten `ux.console.azure.us`; Det finns ingen motsvarande shell.azure.us.
+- **Lösning**: begränsa åtkomsten till `ux.console.azure.com` eller `ux.console.azure.us` via nätverks inställningar till din miljö. Cloud Shell ikonen finns kvar i Azure Portal, men kommer inte att kunna ansluta till tjänsten.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Dialog rutan lagring – fel: 403 RequestDisallowedByPolicy
 

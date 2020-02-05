@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef577f5d086b22779392cd6d8b5d43a340f7329
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423102"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024610"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Snabb start: skapa en ny klient i Azure Active Directory
 Du kan utföra alla administrativa aktiviteter med hjälp av Azure Active Directory (Azure AD)-portalen, inklusive att skapa en ny klient för din organisation. 
@@ -31,7 +31,7 @@ När du har loggat in på Azure-portalen kan du skapa en ny klient för din orga
 
 ### <a name="to-create-a-new-tenant"></a>Så här skapar du en ny klient
 
-1. Logga in på din organisations [Azure-portal](https://portal.azure.com/) med ett konto som global administratör.
+1. Logga in på din organisations [Azure Portal](https://portal.azure.com/).
 
 1. Från Azure Portal-menyn väljer du **skapa en resurs**.  
 
@@ -58,6 +58,7 @@ Den nya klientorganisationen skapas med domänen contoso.onmicrosoft.com.
 ## <a name="clean-up-resources"></a>Rensa resurser
 Om du inte planerar att fortsätta använda det här programmet kan du ta bort klienten med följande steg:
 
+- Se till att du är inloggad på den katalog som du vill ta bort via katalog-och **prenumerations** filtret i Azure Portal och växla till mål katalogen om det behövs.
 - Välj **Azure Active Directory** och klicka sedan på sidan **Contoso – översikt** och **Ta bort katalogen**.
 
     Klienten och dess tillhörande information tas bort.

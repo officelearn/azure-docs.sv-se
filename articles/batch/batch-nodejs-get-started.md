@@ -3,7 +3,7 @@ title: Självstudiekurs – Använda Azure Batch-klientbiblioteket för Node.js 
 description: Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med Node.js.
 services: batch
 author: shwetams
-manager: gwallace
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
-ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323405"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023658"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
 Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har kunskaper om Node.js och att du är bekant med Linux. Den förutsätter också att du har ett Azure-konto med behörighet att skapa batch- och lagringstjänster.
 
 Vi rekommenderar att du läser [Azure Batch, teknisk översikt](batch-technical-overview.md) innan du går igenom stegen som beskrivs i den här artikeln.
@@ -67,7 +67,7 @@ Med hjälp av det här kommandot installerar du den senaste versionen av azure-b
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Steg 2: Skapa ett Azure Batch-konto
 
-Du kan skapa ett konto i [Azure Portal](batch-account-create-portal.md) eller från kommandoraden ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure)).
+Du kan skapa den från [Azure Portal](batch-account-create-portal.md) eller från kommando raden ([POWERSHELL](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
 Nedan beskrivs kommandon som kan användas för att skapa ett sådant med hjälp av Azure CLI.
 
@@ -282,10 +282,10 @@ En förberedande aktivitet anges vid överföring av Azure Batch-jobbet. Här f�
 * **ID**: En unik identifierare för den förberedande aktiviteten
 * **commandLine**: Den kommandorad som exekverar den körbara filen
 * **resourceFiles**: En uppsättning objekt som tillhandahåller detaljerad information om de filer som måste laddas ned innan aktiviteten kan köras.  Här visas alternativen
-    - blobSource: SAS-URI för filen
-    - filePath: Lokal sökväg för nedladdning och sparande av filen
-    - fileMode: fileMode har ett oktalt format med standardvärdet 0770 (gäller endast Linux-noder)
-* **waitForSuccess**: Om värdet är satt till sant går det inte att köra aktiviteten om den förberedande aktiviteten misslyckas
+    - blobSource: SAS-URI för filen.
+    - filePath: Lokal sökväg för nedladdning och sparande av filen.
+    - fileMode: fileMode har ett oktalt format med standardvärdet 0770 (gäller endast Linux-noder).
+* **waitForSuccess**: Om värdet är satt till sant går det inte att köra aktiviteten om den förberedande aktiviteten misslyckas.
 * **runElevated**: Sätt värdet till sant om det krävs utökad behörighet för att få köra uppgiften.
 
 Följande kodfragment innehåller ett exempel på skriptkonfigurering för den förberedande aktiviteten:
@@ -317,8 +317,8 @@ Nu när vi har skapat ett jobb för bearbetning av CSV-filer kan vi börja skapa
 
 Om vi tittar på [Python-skriptet](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) så godtas två möjliga parametrar:
 
-* containernamn: Den Storage-container som du vill ladda ned filer från
-* mönster: En valfri parameter för filnamnsmönster
+* container name: Den Storage-behållare som du vill ladda ned filer från
+* pattern: En valfri parameter för filnamnsmönster
 
 Anta att vi har fyra containrar – ”con1”, ”con2”, ”con3” och ”con4”. Följande kod visar hur man skickar aktiviteter till Azure Batch-jobbet ”process csv” som vi skapade tidigare.
 

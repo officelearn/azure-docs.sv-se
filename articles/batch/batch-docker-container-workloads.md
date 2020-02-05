@@ -2,20 +2,20 @@
 title: Arbets belastningar för behållare – Azure Batch
 description: Lär dig hur du kör och skalar appar från behållar avbildningar på Azure Batch. Skapa en pool av datornoder som stöder körning av container aktiviteter.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 493c9b30f6c7f735d69e113f3f1efe26ca6c1576
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 9e61cab2782abfc808020f627a6dc4efd0e502c1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935051"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023743"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
 

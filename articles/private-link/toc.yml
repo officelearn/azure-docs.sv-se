@@ -16,6 +16,8 @@
           href: create-private-endpoint-powershell.md
     - name: Skapa en Private Link-tjänst
       items:
+        - name: Azure Portal
+          href: create-private-link-service-portal.md
         - name: Azure PowerShell
           href: create-private-link-service-powershell.md
         - name: Azure CLI

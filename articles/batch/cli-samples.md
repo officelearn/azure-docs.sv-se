@@ -3,8 +3,8 @@ title: Azure CLI-exempel – batch
 description: Azure CLI-exempel för Azure Batch tjänst. Lär dig hur du skapar ett batch-konto och lägger till ett program.
 services: batch
 documentationcenter: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 ms.date: 01/29/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 9ee364c4256c88738e02a9f3dd47a5e531a958b2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: dd95511365a25c8f642cb7dcc5ef477f90926d31
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026160"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022706"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Azure CLI-exempel för Azure Batch
 

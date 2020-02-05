@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: e5be2490ebf756c030e6a53b226f91c49c7bccaf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605588"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020037"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Kör Azure Marketplace-erbjudandet för att etablera en ny värdbaserad pool
 
@@ -55,7 +55,7 @@ Det här kan du göra på bladet **grundläggande** :
 3. Ange en kommaavgränsad lista med användare som kan logga in på de virtuella Windows-klienterna och få åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user1@contoso.com och user2@contoso.com åtkomst anger duuser1@contoso.comuser2@contoso.com.
 4. Välj **Skapa nytt** och ange ett namn för den nya resurs gruppen.
 5. För **plats**väljer du samma plats som det virtuella nätverk som har anslutning till Active Directory-servern.
-6. Välj **OK**.
+6. Välj **Nästa: Konfigurera virtuella datorer >** .
 
 >[!IMPORTANT]
 >Om du använder en ren Azure Active Directory Domain Services-och Azure Active Directory-lösning, se till att distribuera din värddator i samma region som din Azure Active Directory Domain Services för att undvika fel i domän anslutning och autentiseringsuppgifter.
@@ -66,7 +66,7 @@ För bladet **Konfigurera virtuella datorer** :
 
 1. Acceptera standardvärdena eller anpassa antalet och storleken på de virtuella datorerna.
 2. Ange ett prefix för namnen på de virtuella datorerna. Om du till exempel anger namnet "prefix" kommer de virtuella datorerna att kallas "prefix-0," prefix-1, "och så vidare.
-3. Välj **OK**.
+3. Välj **Nästa: inställningar för virtuella datorer**.
 
 ### <a name="virtual-machine-settings"></a>Inställningar för virtuella datorer
 
@@ -80,7 +80,7 @@ För bladet **Inställningar för virtuell dator** :
 1. För **avbildnings källa**väljer du källan och anger den information som krävs för att hitta den och hur den ska lagras. Om du väljer att inte använda hanterade diskar väljer du det lagrings konto som innehåller VHD-filen.
 2. Ange User Principal Name och lösen ord för det domän konto som ska ansluta till de virtuella datorerna till Active Directorys domänen. Samma användar namn och lösen ord kommer att skapas på de virtuella datorerna som ett lokalt konto. Du kan återställa de här lokala kontona senare.
 3. Välj det virtuella nätverk som har anslutning till Active Directory-servern och välj sedan ett undernät som är värd för de virtuella datorerna.
-4. Välj **OK**.
+4. Välj **Nästa: information om virtuella Windows-datorer**.
 
 ### <a name="windows-virtual-desktop-tenant-information"></a>Klient information för virtuella Windows-datorer
 
@@ -90,15 +90,14 @@ För bladet **information om virtuella Windows-datorer med virtuella skriv bord*
 2. Ange namnet på den klient där du vill skapa den här poolen för **Windows Virtual Desktop klient namn**.
 3. Ange vilken typ av autentiseringsuppgifter du vill använda för att autentisera som Windows-ägare för klient organisation för virtuella skriv bord. Om du har slutfört [guiden skapa tjänst huvud namn och roll tilldelningar med PowerShell](./create-service-principal-role-powershell.md)väljer du **tjänstens huvud namn**. När **Azure AD-klient-ID** visas anger du ID: t för Azure Active Directory-instansen som innehåller tjänstens huvud namn.
 4. Ange autentiseringsuppgifterna för klient organisationens administratörs konto. Det finns bara stöd för tjänst huvud namn med autentiseringsuppgifter för lösen ord.
-5. Välj **OK**.
+5. Välj **Nästa: granska + skapa**.
 
 ## <a name="complete-setup-and-create-the-virtual-machine"></a>Slutför installationen och skapa den virtuella datorn
 
 För de två sista bladen:
 
-1. Granska installations informationen på bladet **Sammanfattning** . Om du behöver ändra något går du tillbaka till lämpligt blad och gör din ändring innan du fortsätter. Om informationen ser bra ut väljer du **OK**.
-2. På bladet **köp** granskar du ytterligare information om ditt köp på Azure Marketplace.
-3. Välj **skapa** för att distribuera din värd-pool.
+1. Granska installations informationen på bladet **Granska och skapa** . Om du behöver ändra något går du tillbaka till lämpligt blad och gör din ändring innan du fortsätter. Om informationen ser bra ut väljer du **OK**.
+2. Välj **skapa** för att distribuera din värd-pool.
 
 Beroende på hur många virtuella datorer du skapar kan den här processen ta 30 minuter eller mer att slutföra.
 

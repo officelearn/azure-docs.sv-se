@@ -6,37 +6,30 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Java-program i Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: a814516eb002eadb19100182d1917fd4aaa0cec6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 8ceb48bf60438442b63fab698091fdb5064793af
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293580"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025205"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes med Visual Studio Code och Java-Azure dev Spaces
 
-I den här guiden får du lära dig hur du:
-
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
-- Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
-- Felsök koden i ditt dev Space från Visual Studio Code.
-
-Med Azure dev Spaces kan du också felsöka och iterera med:
-- [Node. js och Visual Studio Code](quickstart-nodejs.md)
-- [.NET Core och Visual Studio Code](quickstart-netcore.md)
-- [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
+I den här snabb starten ställer du in Azure dev Spaces med ett hanterat Kubernetes-kluster och använder en Java-app i Visual Studio Code för att skapa och felsöka kod i behållare iterativt. Med Azure dev Spaces kan du felsöka och testa alla komponenter i ditt program i Azure Kubernetes service (AKS) med minimal utvecklings maskin installation. 
 
 ## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
-- [Visual Studio Code installerat](https://code.visualstudio.com/download).
-- [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [Java-felsökning för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) -tillägg för Visual Studio Code installerat.
-- [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Maven har installerats och kon figurer ATS](https://maven.apache.org).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Java Development Kit (JDK) 1.8.0 +](https://aka.ms/azure-jdks).
+- [Maven 3.5.0 +](https://maven.apache.org/download.cgi).
+- [Visual Studio Code](https://code.visualstudio.com/download).
+- [Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) och [Java-felsökning för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds) -tillägg för Visual Studio Code.
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- [Git](https://www.git-scm.com/downloads).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Följande kommandon skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -45,13 +38,14 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
-Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
+Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Följande kommando aktiverar dev Spaces i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
 
 > [!NOTE]
-> Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
+> Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Du kan inte installera Azure dev Spaces CLI i Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+
 
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
@@ -80,11 +74,11 @@ git clone https://github.com/Azure/dev-spaces
 
 ## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Förbereda exempel programmet i Visual Studio Code
 
-Öppna Visual Studio Code, klicka på *Arkiv* och *Öppna...* , navigera till katalogen *dev-Spaces/samples/Java/kom-start/webfrontend* och klicka på *Öppna*.
+Öppna Visual Studio Code, Välj **Arkiv** och sedan **Öppna**, navigera till katalogen *dev-Spaces/samples/Java/kom igång/webfrontend* och välj **Öppna**.
 
 Du har nu öppnat *webfrontend* -projektet i Visual Studio Code. Om du vill köra programmet i ditt dev-utrymme genererar du Docker-och Helm-diagrammets till gångar med tillägget Azure dev Spaces i paletten Command.
 
-Öppna kommando paletten i Visual Studio Code genom att klicka på *Visa* och sedan på *kommando-palett*. Börja skriva `Azure Dev Spaces` och klicka på `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+Om du vill öppna kommando-paletten i Visual Studio Code väljer du **Visa** och sedan **kommando-palett**. Börja skriva `Azure Dev Spaces` och välj **Azure dev Spaces: Förbered konfigurationsfiler för Azure dev Spaces**.
 
 ![Förbereda konfigurationsfiler för Azure dev Spaces](./media/common/command-palette.png)
 
@@ -101,26 +95,26 @@ Det här kommandot förbereder projektet att köras i Azure dev Spaces genom att
 > [!TIP]
 > [Dockerfile-och Helm-diagrammet](how-dev-spaces-works.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Skapa och kör kod i Kubernetes från Visual Studio
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Skapa och kör kod i Kubernetes från Visual Studio Code
 
-Klicka på ikonen *Felsök* till vänster och klicka på *starta Java-program (AZDS)* överst.
+Välj ikonen **Felsök** till vänster och välj **starta Java-program (AZDS)** överst.
 
 ![Starta Java-program](media/get-started-java/debug-configuration.png)
 
-Det här kommandot skapar och kör tjänsten i Azure dev Spaces. *Terminalfönstret* längst ned visar Bygg utdata och URL: er för din tjänst som kör Azure dev Spaces. *Fel söknings konsolen* visar loggens utdata.
+Det här kommandot skapar och kör tjänsten i Azure dev Spaces. **Terminalfönstret** längst ned visar Bygg utdata och URL: er för din tjänst som kör Azure dev Spaces. **Fel söknings konsolen** visar loggens utdata.
 
 > [!Note]
-> Om du inte ser några Azure dev Spaces-kommandon i *paletten*, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/Java/Hämta/webfrontend* i Visual Studio Code.
+> Om du inte ser några Azure dev Spaces-kommandon i **paletten**, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/Java/Hämta/webfrontend* i Visual Studio Code.
 
 Du kan se den tjänst som körs genom att öppna den offentliga URL: en.
 
-Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings programmet.
+Välj **Felsök** och **stoppa** fel sökningen för att stoppa fel söknings programmet.
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *starta Java-program (AZDS)* igen. Ett exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra **starta Java-program (AZDS)** igen. Ett exempel:
 
-1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
+1. Om programmet fortfarande körs väljer du **Felsök** och stoppar sedan **fel sökningen** för att stoppa det.
 1. Uppdatera [rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) till:
     
     ```java
@@ -128,30 +122,30 @@ Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla 
     ```
 
 1. Spara ändringarna.
-1. Kör om *starta Java-program (AZDS)* .
+1. Kör om **starta Java-program (AZDS)** .
 1. Navigera till den tjänst som körs och observera dina ändringar.
-1. Klicka på *Felsök* och *stoppa fel sökningen* för att stoppa programmet.
+1. Välj **Felsök** och **stoppa fel sökningen** för att stoppa programmet.
 
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Inställning och användning av Bryt punkter för fel sökning
 
-Starta tjänsten med *starta Java-program (AZDS)* . Detta kör också tjänsten i fel söknings läge.
+Starta tjänsten med **starta Java-program (AZDS)** . Detta kör också tjänsten i fel söknings läge.
 
-Gå tillbaka *till trädvyn genom* att klicka på *Visa* och sedan på *Explorer*. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java` och klicka någonstans på rad 19 för att placera markören där. Ange en Bryt punkt genom att trycka på *F9* eller klicka på *Felsök* och sedan på *Växla Bryt punkt*.
+Gå tillbaka till **Explorer** -vyn genom att välja **Visa** och sedan **Utforskaren**. Öppna *src/main/Java/com/MS/Sample/webfrontend/Application. java* och klicka någonstans på rad 19 för att placera markören där. Om du vill ange en Bryt punkt trycker du på **F9** eller väljer **Felsök** och sedan **Växla Bryt punkt**.
 
-Öppna din tjänst i en webbläsare och Observera att inget meddelande visas. Gå tillbaka till Visual Studio Code och Observera att rad 19 är markerad. Den Bryt punkt som du har angett har pausat tjänsten på rad 19. Tryck på *F5* eller klicka på *Felsök* och *Fortsätt*om du vill återuppta tjänsten. Gå tillbaka till webbläsaren och Observera att meddelandet visas nu.
+Öppna din tjänst i en webbläsare och Observera att inget meddelande visas. Gå tillbaka till Visual Studio Code och Observera att rad 19 är markerad. Den Bryt punkt som du har angett har pausat tjänsten på rad 19. Om du vill återuppta tjänsten trycker du på **F5** eller väljer **Felsök** och sedan **Fortsätt**. Gå tillbaka till webbläsaren och Observera att meddelandet visas nu.
 
 När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort Bryt punkten genom att placera markören på rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java` och trycka på *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 19 i *src/main/Java/com/MS/Sample/webfrontend/Application. java* och trycka på **F9**.
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 
-När tjänsten körs i fel söknings läge uppdaterar du rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java`. Ett exempel:
+När tjänsten körs i fel söknings läge uppdaterar du rad 19 i *src/main/Java/com/MS/Sample/webfrontend/Application. java*. Ett exempel:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```
 
-Spara filen. Klicka på *Felsök* och *starta om fel sökning* eller klicka på knappen *starta om fel sökning* i *verktygsfältet Felsök*.
+Spara filen. Välj **Felsök** och **starta om fel sökning** eller klicka på knappen **starta om fel sökning** i **verktygsfältet Felsök**.
 
 ![Uppdatera fel sökning](media/common/debug-action-refresh.png)
 

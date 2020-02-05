@@ -3,12 +3,12 @@ title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873105"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023199"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -140,7 +140,8 @@ Förväntad **typ** av villkor `equals` är _sträng_. Eftersom **allowedLocatio
 
 ### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som har **\[\*\]** kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen, **\[\*\]** gör det möjligt att utvärdera varje element i matrisen. Det finns tre standard scenarier för utvärdering av objekt per objekt är det användbart i: ingen, alla och alla. För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
+Alias som har **\[\*\]** kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen, **\[\*\]** gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska och mellan dem. Det finns tre standard scenarier för utvärdering av objekt per objekt är användbart i: _ingen_, _alla_eller _alla_ element matchar.
+För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
 
 Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
 Detta faktum är viktigt att förstå i sammanhang som **\[\*\]** utvärderar varje enskilt element i matrisen.
@@ -183,16 +184,16 @@ Ersätt `<field>` med `"field": "Microsoft.Storage/storageAccounts/networkAcls.i
 
 Följande resultat är resultatet av kombinationen av villkoret och exempel princip regeln och matrisen med befintliga värden ovan:
 
-|Tillstånd |Resultat |Förklaring |
-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Ingenting |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_ och effekterna utlöses inte. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Princip påverkan |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_ och resultatet utlöses. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Princip påverkan |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Princip påverkan |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), vilket innebär **att villkoret är** _false_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Princip påverkan |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Ingenting |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_. Den logiska operatorn utvärderar sig som falskt (**inte** _Sant_), så det utlöses inte. |
-|`{<field>,"Equals":"127.0.0.1"}` |Ingenting |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
-|`{<field>,"Equals":"10.0.4.1"}` |Ingenting |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
+|Villkor |Resultat | Scenario |Förklaring |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Alls |Ingen matchning |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_ och effekterna utlöses inte. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Princip påverkan |Ingen matchning |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_ och resultatet utlöses. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Princip påverkan |En eller flera matchningar |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Alls |En eller flera matchningar |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_. Den logiska operatorn utvärderar sig som falskt (**inte** _Sant_), så det utlöses inte. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Princip påverkan |Ingen matchning |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Princip påverkan |Ingen matchning |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), vilket innebär **att villkoret är** _false_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
+|`{<field>,"Equals":"127.0.0.1"}` |Alls |Alla matchningar |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
+|`{<field>,"Equals":"10.0.4.1"}` |Alls |Alla matchningar |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
 
 ## <a name="the-append-effect-and-arrays"></a>Lägg till effekter och matriser
 

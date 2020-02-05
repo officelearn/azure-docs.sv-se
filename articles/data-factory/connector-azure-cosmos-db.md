@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893143"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025817"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Cosmos DB (SQL API) med Azure Data Factory
 
@@ -24,7 +24,7 @@ ms.locfileid: "75893143"
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Aktuell version](connector-azure-cosmos-db.md)
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Azure Cosmos DB (SQL API) och använda data flöden för att transformera data i Azure Cosmos DB (SQL API). Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
+I den här artikeln beskrivs hur du använder kopieringsaktivitet i Azure Data Factory till att kopiera data från och till Azure Cosmos DB (SQL API) samt hur du använder dataflöden till att transformera data i Azure Cosmos DB (SQL API). Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
 
 >[!NOTE]
 >Den här anslutningen har endast stöd för Cosmos DB SQL API. För MongoDB-API, se [Connector för Azure Cosmos DB s API för MongoDB](connector-azure-cosmos-db-mongodb-api.md). Andra API-typer stöds inte nu.
@@ -249,7 +249,7 @@ Om du använder typen "DocumentDbCollectionSink"-källa stöds den fortfarande f
 ]
 ```
 
-### <a name="schema-mapping"></a>Schemamappning
+### <a name="schema-mapping"></a>Schema mappning
 
 Om du vill kopiera data från Azure Cosmos DB till tabell mottagare eller omvänd, se [schema mappning](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
@@ -268,6 +268,18 @@ Inställningar som är aktuella för Azure Cosmos DB finns tillgängliga på fli
 **Data flöde:** Ange ett valfritt värde för det antal ru: er som du vill använda för din CosmosDB-samling för varje körning av det här data flödet under Läs åtgärden. Minimum är 400.
 
 **Prioriterade regioner:** Välj önskade Läs regioner för den här processen.
+
+#### <a name="json-settings"></a>JSON-inställningar
+
+**Enstaka dokument:** Välj det här alternativet om ADF ska behandla hela filen som ett enda JSON-dokument.
+
+**Icke-citerade kolumn namn:** Välj det här alternativet om kolumn namn i JSON inte anges som citerade.
+
+**Har kommentarer:** Använd det här alternativet om dina JSON-dokument har kommentarer i data.
+
+**Enkelt citat tecken:** Välj det här alternativet om kolumnerna och värdena i dokumentet är citat tecken med enkla citat tecken.
+
+**Omvänt snedstreck Escaped:** Välj det här alternativet om du använder omvända snedstreck för att kringgå tecken i JSON.
 
 ### <a name="sink-transformation"></a>Omvandling av mottagare
 

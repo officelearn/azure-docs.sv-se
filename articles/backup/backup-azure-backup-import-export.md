@@ -4,12 +4,12 @@ description: Lär dig hur Azure Backup ger dig möjlighet att skicka data från 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 162d129eaea83ef6623daaa063e8a088c021e25d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997368"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022621"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 
@@ -75,6 +75,15 @@ I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering s�
 
     ![Sidan importera](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
+2. Välj alternativ **överföring med mina egna diskar**.
+
+    >[!NOTE]
+    >Vi rekommenderar att du använder Azure Data Box alternativet för att överföra första säkerhets kopierings data offline. Med det här alternativet sparas de ansträngningar som krävs för att skaffa dina egna Azure-kompatibla diskar genom att leverera Microsoft-tillverkarspecifika, säkra och manipulering av Azure Data Box-enheter som säkerhetskopierade data kan skrivas direkt till av MARS-agenten.
+
+3. Klicka på **Nästa** och fyll i indata noggrant:
+
+    ![Ange din disk information](./media/backup-azure-backup-import-export/your-disk-details.png)
+
    Beskrivningen av indata är följande:
 
     * **Mellanlagringsplats**: den tillfälliga lagrings plats som den första säkerhets kopian skrivs till. Mellanlagrings platsen kan vara en nätverks resurs eller en lokal dator. Om kopierings datorn och käll datorn skiljer sig åt rekommenderar vi att du anger den fullständiga nätverks Sök vägen för mellanlagringsplatsen.
@@ -85,15 +94,15 @@ I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering s�
   
    Ange indata på skärmen och klicka på **Nästa**. Spara den angivna *mellanlagringsplatsen* och *Azures import jobbnamn*, eftersom den här informationen krävs för att förbereda diskarna.
 
-2. Logga in på din Azure-prenumeration när du uppmanas till det. Du måste logga in så att Azure Backup kan skapa Azure Active Directory programmet och ange de behörigheter som krävs för att få åtkomst till Azure import service.
+4. Logga in på din Azure-prenumeration när du uppmanas till det. Du måste logga in så att Azure Backup kan skapa Azure Active Directory programmet och ange de behörigheter som krävs för att få åtkomst till Azure import service.
 
-    ![Säkerhetskopiera nu](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Säkerhetskopiera nu](./media/backup-azure-backup-import-export/azure-login.png)
 
-3. Slutför arbets flödet och klicka på **Säkerhetskopiera nu**i Azure Backup Agent-konsolen.
+5. Slutför arbets flödet och klicka på **Säkerhetskopiera nu**i Azure Backup Agent-konsolen.
 
     ![Säkerhetskopiera nu](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. På sidan bekräftelse i guiden klickar du på **säkerhetskopiera**. Den första säkerhets kopian skrivs till mellanlagringsområdet som en del av installationen.
+6. På sidan bekräftelse i guiden klickar du på **säkerhetskopiera**. Den första säkerhets kopian skrivs till mellanlagringsområdet som en del av installationen.
 
    ![Bekräfta att du är redo att säkerhetskopiera nu](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -133,7 +142,7 @@ I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering s�
 
 3. Ange enhets beteckningen utan avslutande kolon för den monterade disk som du vill förbereda för överföring till Azure.
 4. Ange en bekräftelse för enhetens formatering vid uppmaning.
-5. Du uppmanas att logga in på din Azure-prenumeration. Skriv in dina inloggningsuppgifter.
+5. Du uppmanas att logga in på din Azure-prenumeration. Ange dina autentiseringsuppgifter.
 
     ![Inmatade Azure disk Preparation-verktyg](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
@@ -206,4 +215,3 @@ När den första säkerhets kopieringen är klar kan du på ett säkert sätt ta
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du har frågor om Azures import/export-arbetsflöde läser du [Använd tjänsten Microsoft Azure import/export för att överföra data till Blob Storage](../storage/common/storage-import-export-service.md).
-

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 186e8ee232fc8e0500f55404b65e00d7af696230
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 376741005f0755d01c95baad8d3a3d33e9952933
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760937"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023913"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
-*Belastnings utjämning* syftar på att fördela belastningen jämnt (inkommande nätverks trafik) över en grupp server dels resurser eller servrar. Azure erbjuder en [mängd olika alternativ för belastnings utjämning](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) som du kan välja bland utifrån dina behov. Det här dokumentet täcker Azure Load Balancer.
+*Belastnings utjämning* syftar på att fördela belastningen jämnt (inkommande nätverks trafik) över en grupp server dels resurser eller servrar. 
 
 Azure Load Balancer arbetar i lager fyra av OSI-modellen (Open Systems Interconnection). Det är den enda kontakt punkten för-klienter. Load Balancer distribuerar inkommande flöden som anländer till belastningsutjämnarens klient del till instanser av backend-poolen. Dessa flöden sker enligt konfigurerade regler för belastnings utjämning och hälso avsökningar. Instanserna för backend-poolen kan vara Azure-Virtual Machines eller instanser i en skalnings uppsättning för virtuella datorer.
 
@@ -38,6 +38,11 @@ En **[intern (eller privat) belastningsutjämnare](./concepts-limitations.md#int
 *Bild: balansera program på flera nivåer med både offentliga och interna Load Balancer*
 
 Mer information om de enskilda komponenterna för belastnings utjämning finns i [Azure Load Balancer komponenter och begränsningar](./concepts-limitations.md)
+
+>[!NOTE]
+> Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du behöver hög prestanda, låg latens, Layer-4 belastnings utjämning, se [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md) Om du letar efter global belastnings utjämning för DNS, se [Vad är Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Dina scenarier från slut punkt till slut punkt kan dra nytta av att kombinera dessa lösningar.
+>
+> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-azure-load-balancer"></a>Varför ska jag använda Azure Load Balancer?
 Med Standard Load Balancer kan du skala dina program och skapa tjänster med hög tillgänglighet. Belastnings utjämning stöder både inkommande och utgående scenarier. Load Balancer ger låg latens och högt data flöde, och skalar upp till miljon tals flöden för alla TCP-och UDP-program.

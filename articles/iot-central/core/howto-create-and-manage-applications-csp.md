@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 22ed36c3c55d55ab9a733c2a0552f0ac3dcce1f5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 40c5f612b5b1571bb3d39f452d64a7005701f7c1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987686"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023811"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -23,25 +23,27 @@ Som KRYPTOGRAFIPROVIDER kan du skapa och hantera Microsoft Azure IoT Central pro
 
 Kom igång genom att logga in på ditt konto på Microsoft Partner Portal och välj en kund för vilken du vill skapa ett Azure IoT Central-program. Navigera till Service Management för kunden från det vänstra navigerings fältet.
 
-![Microsoft Partner Center, kund visning](media/howto-create-application-csp/image1.png)
+![Microsoft Partner Center, kund visning](media/howto-create-and-manage-applications-csp/image1.png)
 
 Azure IoT Central listas som en tjänst som är tillgänglig för administration. Välj Azure IoT Central-länken på sidan för att skapa nya program eller hantera befintliga program för den här kunden.
 
-![Azure-IoT Central tillgängligt för hantering](media/howto-create-application-csp/image2.png)
+![Azure-IoT Central tillgängligt för hantering](media/howto-create-and-manage-applications-csp/image2.png)
 
 Du land på sidan för Azure IoT Central Application Manager. Azure IoT Central håller kontexten som du kom från Microsoft Partner Center och som du kom att hantera den specifika kunden. Du ser det här bekräftelsen i rubriken på program hanterings sidan. Härifrån kan du antingen navigera till ett befintligt program som du har skapat tidigare för den här kunden för att hantera eller skapa ett nytt program för kunden.
 
-![Skapa hanterare för kryptografiproviders](media/howto-create-application-csp/image3.png)
+![Skapa hanterare för kryptografiproviders](media/howto-create-and-manage-applications-csp/image3.png)
 
 Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vänstra menyn. Välj en av bransch mallarna eller Välj **äldre program** för att skapa ett program från grunden. Då öppnas sidan Skapa program. Du måste fylla i alla fält på den här sidan och sedan välja **skapa**. Du hittar mer information om vart och ett av fälten nedan.
 
-![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4.png)
+![Skapa program sida för kryptografiproviders](media/howto-create-and-manage-applications-csp/image4.png)
 
-![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4-1.png)
+![Skapa program sida för kryptografiproviders](media/howto-create-and-manage-applications-csp/image4-1.png)
 
-![Information om att skapa program sida för CSP-fakturering](media/howto-create-application-csp/image4-2.png)
+![Information om att skapa program sida för CSP-fakturering](media/howto-create-and-manage-applications-csp/image4-2.png)
 
 ## <a name="pricing-plan"></a>Pris plan
+
+Du kan bara skapa program som använder en standard pris plan som en CSP. För att kunna presentera Azure-IoT Central till kunden kan du skapa ett program som använder den kostnads fria pris Planen separat. Läs mer om kostnads fria priser och standard priser på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 Du kan bara skapa program som använder en standard pris plan som en CSP. För att kunna presentera Azure-IoT Central till kunden kan du skapa ett program som använder den kostnads fria pris Planen separat. Läs mer om kostnads fria priser och standard priser på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
@@ -75,9 +77,6 @@ Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure
 
 Välj den region eller det [geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill skapa ett Azure IoT Central-program. Normalt bör du välja den region som är närmast fysiskt till dina enheter för att få optimala prestanda.
 
-> [!NOTE]
-> För hands versions programmen är för närvarande endast tillgängliga i **Europa** och **USA** platser.
-
 Mer information finns i [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/) och [Azure-geografiska](https://azure.microsoft.com/global-infrastructure/geographies/)områden.
 
 Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) .
@@ -87,11 +86,7 @@ Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produk
 
 ## <a name="application-template"></a>Programmall
 
-Du kan välja program mal len nedan för ditt nya Azure IoT Central-program.
-
-| Programmall | Beskrivning |
-| -------------------- | ----------- |
-| Äldre program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
+Välj den program mall som du vill använda för ditt program.
 
 
 ## <a name="next-steps"></a>Nästa steg

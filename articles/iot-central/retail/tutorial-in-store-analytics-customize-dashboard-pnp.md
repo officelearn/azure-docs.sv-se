@@ -11,20 +11,19 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: f9624f516d5f38f1db02c6a103c40d01f8dc26ca
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702689"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022179"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudie: anpassa instrument panelen för operatör och hantera enheter i Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-I den här självstudien får du som ett verktyg som beskriver hur du anpassar instrument panelen för operatören i Azure IoT Central i Store Analytics-program. Program operatörer kan använda den anpassade instrument panelen för att köra programmet och hantera anslutna enheter.
+I den här självstudien får du lära dig att anpassa instrument panelen för operatören i Azure IoT Central i Store Analytics-program. Program operatörer kan använda den anpassade instrument panelen för att köra programmet och hantera anslutna enheter.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Ändra instrument panelens namn
 > * Anpassa bild paneler på instrument panelen
@@ -35,12 +34,12 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du påbörjar den här själv studie kursen bör du slutföra den första självstudien för att skapa Azure IoT Central in-Store Analytics-program och lägga till enheter:
+Verktyget bör slutföra självstudien för att skapa Azure IoT Central i Store Analytics-program och lägga till enheter:
 
 * [Skapa ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (krävs)
 
 ## <a name="change-the-dashboard-name"></a>Ändra instrument panelens namn
-Om du vill anpassa instrument panelen för operatören redigerar du standard instrument panelen i ditt program. Du kan också skapa ytterligare nya instrument paneler. Det första steget för att anpassa instrument panelen i programmet är att ändra namnet.
+Om du vill anpassa instrument panelen för operatören måste du redigera standard instrument panelen i ditt program. Du kan också skapa ytterligare nya instrument paneler. Det första steget för att anpassa instrument panelen i programmet är att ändra namnet.
 
 1. Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
 
@@ -54,7 +53,7 @@ Om du vill anpassa instrument panelen för operatören redigerar du standard ins
 
 1. Ange ett eget namn för instrument panelen i **namn på instrument panelen.** I den här självstudien används ett fiktivt företag som heter Contoso, och exempel på instrument panelen är *contoso-instrumentpanel*. 
 
-1. Välj **Spara**. Detta sparar ändringarna på instrument panelen och inaktiverar redigerings läget.
+1. Välj **Spara**. Ändringarna sparas i instrument panelen och redigerings läget är inaktiverat.
 
     ![Azure IoT Central ändra instrument panels namn](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -93,7 +92,7 @@ För att anpassa bild panelen som visar en karta över sensor zonerna i butiken:
 
     ![Azure IoT Central Spara butiks karta](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-map-save.png)
 
-    I exemplet contoso Store-kartan visas fyra zoner: två arbets zoner, en zon för kläder och personlig vård samt en zon för livsmedels-och Le. I den här självstudien ska du koppla sensorer till dessa zoner för att ge telemetri.
+    I exemplet contoso Store-kartan visas fyra zoner: två arbets zoner, en zon för kläder och personlig vård samt en zon för livsmedels-och Le. I den här självstudien kopplar du sensorer till dessa zoner för att ge telemetri.
 
     ![Azure IoT Central lagrings zoner](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-zones.png)
 
@@ -108,7 +107,7 @@ Ta bort paneler som du inte planerar att använda i ditt program:
 
 1. Välj **Redigera** i instrument panelens verktygsfält. 
 
-1. Välj **X ta** bort för att ta bort följande paneler: **tillbaka till alla zoner**, **gå till butiks instrument panel**, **vänte tid**och alla tre paneler som är kopplade till **utcheckning 3**. Contoso Store-instrumentpanelen använder inte de här panelerna. 
+1. Välj **X ta** bort för att ta bort följande paneler: **tillbaka till alla zoner**, **gå till butiks instrument panel**, **vänte tid**och alla tre paneler som är kopplade till **utcheckning 3**. Contoso Store-instrumentpanelen använder inte dessa paneler. 
 
     ![Ta bort paneler i Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles.png)
 
@@ -185,7 +184,7 @@ Så här redigerar du panelen **personers trafik** för att Visa telemetri för 
 
 1. I **telemetri** väljer du **antal 1**, **antal 2**och **antal 3**. 
 
-1. Välj **uppdaterings konfiguration**. Detta rensar den befintliga konfigurationen på panelen. 
+1. Välj **uppdaterings konfiguration**. Den befintliga konfigurationen på panelen rensas. 
 
 1. Välj **Konfigurera** igen på **personens trafik** panel.
 
@@ -233,7 +232,7 @@ Så här lägger du till en kommando panel för att starta om gatewayen:
 
 1. Välj **Redigera**. 
 
-1. Välj `C500` i listan **enhets mal len** . Detta är mallen för Rigado C500-gatewayen. 
+1. Välj `C500` i listan **enhets mal len** . Det är mallen för Rigado C500-gatewayen. 
 
 1. Välj Gateway-instansen i **enhets instansen**.
 

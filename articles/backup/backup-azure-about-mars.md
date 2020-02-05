@@ -1,67 +1,66 @@
 ---
-title: About the MARS Agent
-description: Learn how the MARS Agent supports the backup scenarios
+title: Om MARS-agenten
+description: Lär dig hur MARS-agenten stöder säkerhets kopierings scenarier
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d558a19b3025ab1400e873f97b0ce5e5a860c75a
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 348980b840b814c09ce46627f286489d4caa9f8f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902865"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023964"
 ---
-# <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>About the Microsoft Azure Recovery Services (MARS) agent
+# <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Om Microsoft Azure Recovery Services (MARS)-agenten
 
-This article describes how the Azure Backup service uses the Microsoft Azure Recovery Services (MARS) agent to back up and restore files, folders, and the volume or system state from an on-premises computer to Azure.
+I den här artikeln beskrivs hur Azure Backup tjänsten använder MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera och återställa filer, mappar och volym eller system tillstånd från en lokal dator till Azure.
 
-The MARS agent supports the following backup scenarios:
+MARS-agenten stöder följande säkerhets kopierings scenarier:
 
-![MARS backup scenarios](./media/backup-try-azure-backup-in-10-mins/backup-scenarios.png)
+![Scenarier med MARS-säkerhetskopiering](./media/backup-try-azure-backup-in-10-mins/backup-scenarios.png)
 
-- **Files and Folders**: Selectively protect Windows files and folders.
-- **Volume Level**: Protect an entire Windows volume of your machine.
-- **System Level**: Protect an entire Windows system state.
+- **Filer och mappar**: selektivt skydda Windows-filer och mappar.
+- **Volym nivå**: skydda en hel Windows-volym på din dator.
+- **System nivå**: skydda ett helt Windows-system tillstånd.
 
-The MARS agent supports the following restore scenarios:
+MARS-agenten stöder följande återställnings scenarier:
 
-![MARS recovery scenarios](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
+![Scenarier för MARS-återställning](./media/backup-try-azure-backup-in-10-mins/restore-scenarios.png)
 
--   **Same Server**: The server on which the backup was originally created.
-    -    **Files and Folders**: Choose the individual files and folders that you want to restore.
-    -    **Volume Level**: Choose the volume and recovery point that you want to restore and then restore it to the same location or an alternate location on the same machine.  Create a copy of existing files, overwrite existing files, or skip recovering existing files.
-    -    **System Level**: Choose the system state and recovery point to restore to the same machine at a specified location.
+-   **Samma server**: den server där säkerhets kopian skapades.
+    -    **Filer och mappar**: Välj de enskilda filer och mappar som du vill återställa.
+    -    **Volym nivå**: Välj den volym och återställnings punkt som du vill återställa och Återställ den sedan till samma plats eller en annan plats på samma dator.  Skapa en kopia av befintliga filer, Skriv över befintliga filer eller hoppa över att återskapa befintliga filer.
+    -    **System nivå**: Välj system tillstånd och återställnings punkt för att återställa till samma dator på en angiven plats.
 
 
--   **Alternate Server**: A server other than the server where the backup was taken.
-    -    **Files and Folders**: Choose the individual files and folders whose recovery point you want to restore to a target machine.
-    -    **Volume Level**: Choose the volume and recovery point that you want to restore to another location. Create a copy of existing files, overwrite existing files, or skip recovering existing files.
-    -    **System Level**: Choose the system state and recovery point to restore as a System State file to an alternate machine.
+-   **Alternativ server**: en annan server än den server där säkerhets kopian gjordes.
+    -    **Filer och mappar**: Välj de enskilda filerna och mapparna vars återställnings punkt du vill återställa till mål datorn.
+    -    **Volym nivå**: Välj den volym och återställnings punkt som du vill återställa till en annan plats. Skapa en kopia av befintliga filer, Skriv över befintliga filer eller hoppa över att återskapa befintliga filer.
+    -    **System nivå**: Välj system tillstånd och återställnings punkt för att återställa som en system tillstånds fil till en annan dator.
 
-## <a name="backup-process"></a>Säkerhetskopieringsprocessen
+## <a name="backup-process"></a>Säkerhets kopierings process
 
-1. From the Azure portal, create a [Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-recovery-services-vault), and choose files, folders, and the system state from the Backup goals.
-2. [Download the Recovery Services vault credentials and agent installer](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) to an on-premises machine. 
+1. Skapa ett [Recovery Services-valv](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-recovery-services-vault)från Azure Portal och välj filer, mappar och system tillstånd från säkerhets kopierings målen.
+2. [Ladda ned autentiseringsuppgifterna för Recovery Services valvet och agent installations programmet](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) till en lokal dator. 
 
-    To protect the on-premises machine by selecting the Backup option, choose files, folders, and the system state, and then download the MARS agent.
+    Om du vill skydda den lokala datorn genom att välja alternativet säkerhets kopiering väljer du filer, mappar och system tillstånd och laddar sedan MARS-agenten.
 
-3. Prepare the infrastructure:
+3. Förbered infrastrukturen:
 
-    a. Run the installer to [install the agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent).
+    a. Kör installations programmet för att [Installera agenten](https://docs.microsoft.com/azure/backup/backup-configure-vault#install-and-register-the-agent).
 
-    b. Use your downloaded vault credentials to register the machine to the Recovery Services vault.
-4. From the agent console on the client, [configure the backup](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-backup-policy). Specify the retention policy of your backup data to start protecting it.
+    b. Använd de hämtade autentiseringsuppgifterna för valvet för att registrera datorn i Recovery Services-valvet.
+4. [Konfigurera säkerhets kopieringen](https://docs.microsoft.com/azure/backup/backup-configure-vault#create-a-backup-policy)från agent konsolen på klienten. Ange bevarande principen för dina säkerhets kopierings data för att börja skydda den.
 
-![Azure Backup agent diagram](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+![Azure Backup Agent diagram](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 
 ### <a name="additional-scenarios"></a>Fler scenarier
--   **Back up specific files and folders within Azure virtual machines**: The primary method for backing up Azure virtual machines (VMs) is to use an Azure Backup extension on the VM. The extension backs up the entire VM. If you want to back up specific files and folders within a VM, you can install the MARS agent in the Azure VMs. For more information, see [Architecture: Built-in Azure VM Backup](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+-   **Säkerhetskopiera vissa filer och mappar i Azure Virtual Machines**: den primära metoden för att säkerhetskopiera virtuella datorer i Azure är att använda ett Azure Backup-tillägg på den virtuella datorn. Tillägget säkerhetskopierar hela den virtuella datorn. Om du vill säkerhetskopiera vissa filer och mappar i en virtuell dator kan du installera MARS-agenten på de virtuella Azure-datorerna. Mer information finns i [arkitektur: inbyggd virtuell Azure-säkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
 
--   **Offline seeding**: Initial full backups of data to Azure typically transfer large amounts of data and require more network bandwidth. Subsequent backups transfer only the delta, or incremental, amount of data. Azure Backup compresses the initial backups. Through the process of *offline seeding*, Azure Backup can use disks to upload the compressed initial backup data offline to Azure. For more information, see [Offline-backup workflow for DPM and Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
-
+-   **Offline-seeding**: inledande fullständiga säkerhets kopieringar av data till Azure överför vanligt vis stora mängder data och kräver mer nätverks bandbredd. Vid efterföljande säkerhets kopieringar överförs endast delta eller stegvis mängd data. Azure Backup komprimerar de första säkerhets kopiorna. Genom processen för *dirigering av dirigering*kan Azure Backup använda diskar för att ladda upp komprimerade första säkerhets kopierings data offline till Azure. Mer information finns i [Azure Backup offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[MARS agent support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[Matris för MARS agent-support](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
 
-[MARS agent FAQ](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[Vanliga frågor och svar om MARS-agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)

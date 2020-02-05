@@ -1,6 +1,6 @@
 ---
-title: Snabb start – skapa en virtuell VMware-dator i ett privat moln
-description: Beskriver hur du skapar och en virtuell VMware-dator på CloudSimple privata moln
+title: Snabb start – skapa en virtuell VMware-dator på ett privat AVS-moln
+description: Beskriver hur du skapar en virtuell VMware-dator på ett privat moln i molnet
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,42 +8,42 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cbe88afc4f566bad4bacb408346d4dd25a2f6c96
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972403"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020071"
 ---
-# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Skapa virtuella VMware-datorer i ditt privata moln
+# <a name="create-vmware-virtual-machines-on-your-avs-private-cloud"></a>Skapa virtuella VMware-datorer i ditt moln privata moln
 
-Börja med att komma åt CloudSimple-portalen från Azure Portal om du vill skapa virtuella datorer i ditt privata moln.
+Börja med att komma åt AVS-portalen från Azure Portal för att skapa virtuella datorer i ditt moln privata moln.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-cloudsimple-portal"></a>Få åtkomst till CloudSimple-portalen
+## <a name="access-the-avs-portal"></a>Åtkomst till AVS-portalen
 
 1. Välj **Alla tjänster**.
-2. Sök efter **CloudSimple-tjänster**.
-3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
-4. På sidan **Översikt** klickar du på **gå till CloudSimple-portalen** för att öppna en ny flik i webbläsaren för CloudSimple-portalen.  Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta.  
+2. Sök efter **AVS-tjänster**.
+3. Välj den AVS-tjänst som du vill skapa ditt AVS-privata moln på.
+4. På sidan **Översikt** klickar du på **gå till AVS-portalen** för att öppna en ny flik i webbläsaren för AVS-portalen. Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta. 
 
-    ![Starta CloudSimple-portalen](media/launch-cloudsimple-portal.png)
+    ![Starta AVS-portalen](media/launch-cloudsimple-portal.png)
 
 ## <a name="launch-vcenter-web-ui"></a>Starta vCenter Web-UI
 
 Du kan nu starta vCenter för att konfigurera virtuella datorer och principer.
 
-Kom åt vCenter genom att starta från CloudSimple-portalen. På Start sidan, under **vanliga uppgifter**, klickar du på **Starta vSphere-klient**.  Välj det privata molnet och klicka sedan på **Starta vSphere-klient** i det privata molnet.
+Starta från AVS-portalen för att få åtkomst till vCenter. På Start sidan, under **vanliga uppgifter**, klickar du på **Starta vSphere-klient**. Välj det privata AVS-molnet och klicka sedan på **Starta vSphere-klient** i det privata moln molnet.
 
    ![Starta vSphere-klienten](media/launch-vcenter-from-cloudsimple-portal.png)
 
 ## <a name="upload-an-iso-or-vsphere-template"></a>Ladda upp en ISO-eller vSphere-mall
 
   > [!WARNING]
-  > För ISO-överföring använder du vSphere HTML5-klienten.  Att använda Flash-klienten kan resultera i ett fel.
+  > För ISO-överföring använder du vSphere HTML5-klienten. Att använda Flash-klienten kan resultera i ett fel.
 
 1. Hämta ISO-eller vSphere-mallen som du vill överföra till vCenter för att skapa en virtuell dator och ha den tillgänglig i det lokala systemet.
 2. Klicka på **disk** ikonen i vCenter och välj **vsanDatastore**. Klicka på **filer** och sedan på **ny mapp**.
@@ -58,51 +58,51 @@ Kom åt vCenter genom att starta från CloudSimple-portalen. På Start sidan, un
 1. I vCenter klickar du på ikonen **värdar och kluster** .
 
 2. Högerklicka på **arbets belastning** och välj **ny virtuell dator**.
-    ![Ny virtuell dator](media/vcvm01.png)
+    ![ny virtuell dator](media/vcvm01.png)
 
 3. Välj **Skapa ny virtuell dator** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm02.png)
+    ![ny virtuell dator](media/vcvm02.png)
 
 4. Namnge datorn, Välj platsen för **arbets Belastningens VM** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm03.png)
+    ![ny virtuell dator](media/vcvm03.png)
 
 5. Välj resurs för beräkning av **arbets belastning** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm04.png)
+    ![ny virtuell dator](media/vcvm04.png)
 
 6. Välj **vsanDatastore** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm05.png)
+    ![ny virtuell dator](media/vcvm05.png)
 
 7. Behåll standard valet av ESXi 6,5 och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm06.png)
+    ![ny virtuell dator](media/vcvm06.png)
 
 8. Välj gäst operativ systemet för ISO-filen för den virtuella dator som du skapar och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm07.png)
+    ![ny virtuell dator](media/vcvm07.png)
 
-9. Välj alternativ för hård disk och nätverk. För ny CD/DVD-enhet väljer du **data lager ISO-fil**.  Om du vill tillåta trafik från den offentliga IP-adressen till den här virtuella datorn väljer du nätverket som **VM-1**.
-    ![Ny virtuell dator](media/vcvm08.png)
+9. Välj alternativ för hård disk och nätverk. För ny CD/DVD-enhet väljer du **data lager ISO-fil**. Om du vill tillåta trafik från den offentliga IP-adressen till den här virtuella datorn väljer du nätverket som **VM-1**.
+    ![ny virtuell dator](media/vcvm08.png)
 
 10. Ett val fönster öppnas. Välj den fil som du tidigare laddade upp till mappen ISO och mallar och klicka på **OK**.
-    ![Ny virtuell dator](media/vcvm10.png)
+    ![ny virtuell dator](media/vcvm10.png)
 
 11. Granska inställningarna och klicka på **OK** för att skapa den virtuella datorn.
-    ![Ny virtuell dator](media/vcvm11.png)
+    ![ny virtuell dator](media/vcvm11.png)
 
 Den virtuella datorn läggs nu till i beräknings resurserna för arbets belastningen och är redo att användas. 
-![Ny virtuell dator](media/vcvm12.png)
+![ny virtuell dator](media/vcvm12.png)
 
-Den grundläggande installationen slutförs nu. Du kan börja använda ditt privata moln på samma sätt som du använder din lokala infrastruktur för virtuella datorer.
+Den grundläggande installationen slutförs nu. Du kan börja använda ditt molns privata moln på liknande sätt som du använder din lokala infrastruktur för virtuella datorer.
 
-Följande avsnitt innehåller information om hur du konfigurerar DNS-och DHCP-servrar för privata moln arbets belastningar och hur du ändrar standard konfigurationen för nätverk.
+I följande avsnitt finns information om hur du konfigurerar DNS-och DHCP-servrar för arbets belastningar i molnets privata moln och ändrar standard konfigurationen för nätverk.
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>Lägg till användare och identitets källor till vCenter (valfritt)
 
-CloudSimple tilldelar ett standard-vCenter-användarkonto med användar namn `cloudowner@cloudsimple.local`. Det krävs inga ytterligare konto inställningar för att komma igång.  CloudSimple tilldelar vanligt vis administratörer de privilegier de behöver för att utföra normala åtgärder.  Konfigurera din lokala Active Directory eller Azure AD som en [ytterligare identitets källa](set-vcenter-identity.md) i ditt privata moln.
+AVS tilldelar ett standard-vCenter-användarkonto med användar namn `cloudowner@AVS.local`. Det krävs inga ytterligare konto inställningar för att komma igång. AVS tilldelar normalt administratörer de behörigheter de behöver för att utföra normala åtgärder. Konfigurera din lokala Active Directory eller Azure AD som en [ytterligare identitets källa](set-vcenter-identity.md) i ditt moln privata moln.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>Skapa en DNS-och DHCP-server (valfritt)
 
-Program och arbets belastningar som körs i en privat moln miljö kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator i vCenter för att tillhandahålla dessa tjänster i din privata moln miljö.
+Program och arbets belastningar som körs i en moln miljö för privata moln kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator i vCenter för att tillhandahålla dessa tjänster i din moln miljö för privata moln.
 
-Förutsättningar
+Krav
 
 * En distribuerad port grupp med VLAN konfigurerat
 
@@ -114,7 +114,7 @@ Följande länkar ger vägledning om hur du konfigurerar DHCP-och DNS-servrar i 
 
 #### <a name="linux-based-dns-server-setup"></a>Installation av Linux-baserad DNS-Server
 
-Linux erbjuder olika paket för att konfigurera DNS-servrar.  Här är en länk till instruktioner för att skapa en BIND DNS-server med öppen källkod.
+Linux erbjuder olika paket för att konfigurera DNS-servrar. Här är en länk till instruktioner för att skapa en BIND DNS-server med öppen källkod.
 
 [Exempel på installation](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
@@ -128,11 +128,11 @@ Dessa Microsoft-avsnitt beskriver hur du konfigurerar en Windows-Server som en D
 
 ## <a name="customize-networking-configuration-optional"></a>Anpassa nätverks konfiguration (valfritt)
 
-På nätverks sidorna i CloudSimple-portalen kan du ange konfigurationen för brand Väggs tabeller och offentliga IP-adresser för virtuella datorer.
+På nätverks sidorna i AVS-portalen kan du ange konfigurationen för brand Väggs tabeller och offentliga IP-adresser för virtuella datorer.
 
 ### <a name="allocate-public-ips"></a>Allokera offentliga IP-adresser
 
-1. Navigera till **nätverks > offentlig IP-adress** i CloudSimple-portalen.
+1. Navigera till **nätverks > offentlig IP-adress** i AVS-portalen.
 2. Klicka på **allokera offentlig IP**.
 3. Ange ett namn för att identifiera IP-adress posten.
 4. Behåll standard platsen.
@@ -141,7 +141,7 @@ På nätverks sidorna i CloudSimple-portalen kan du ange konfigurationen för br
 7. Ange ett associerat DNS-namn om du vill.
 8. Klicka på **Klar**.
 
-    ![Offentlig IP](media/quick-create-pc-public-ip.png)
+    ![Offentlig IP-adress](media/quick-create-pc-public-ip.png)
 
 Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrol lera status för aktiviteten på sidan **aktiviteter > uppgifter** . När allokeringen är klar visas den nya posten på sidan offentliga IP-adresser.
 
@@ -179,7 +179,7 @@ Aktivera gränssnittet manuellt.
 sudo ifup eth0
 ```
 
-Som standard nekas all inkommande trafik från Internet. Skapa en [brand Väggs tabell](firewall.md)om du vill öppna någon annan port.
+Som standard **nekas**all inkommande trafik från Internet. Skapa en [brand Väggs tabell](firewall.md)om du vill öppna någon annan port.
 
 När du har konfigurerat en intern IP-adress som statisk IP-adress kontrollerar du att du kan ansluta till Internet från den virtuella datorn.
 
@@ -207,10 +207,10 @@ python3 -m http.server 80
 ```
 Starta en webbläsare på Skriv bordet och peka på port 80 för den offentliga IP-adressen för att bläddra bland filerna på den virtuella datorn.
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>Standard brand Väggs regler för offentlig IP-CloudSimple
+### <a name="default-avs-firewall-rules-for-public-ip"></a>Standard regler för AVS-brandvägg för offentlig IP
 
-* VPN-trafik: All trafik mellan (från/till) VPN och alla arbets belastnings nätverk och hanterings nätverk tillåts.
-* Intern trafik för privat moln: All öst-väst-trafik mellan (från/till) arbets belastnings nätverk och hanterings nätverket (visas ovan) tillåts.
+* VPN-trafik: all trafik mellan (från/till) VPN-nätverket och alla arbets belastnings nätverk och hanterings nätverk tillåts.
+* Intern trafik i AVS-molnet: all öst-väst-trafik mellan (från/till) arbets belastnings nätverk och hanterings nätverket (visas ovan) tillåts.
 * Internet trafik:
   * All inkommande trafik från Internet nekas till arbets belastnings nätverk och hanterings nätverket.
   * All utgående trafik till Internet från arbets belastnings nätverk eller hanterings nätverk tillåts.
@@ -219,7 +219,7 @@ Du kan också ändra hur trafiken skyddas med hjälp av funktionen brand Väggs 
 
 ## <a name="install-solutions-optional"></a>Installera lösningar (valfritt)
 
-Du kan installera lösningar på ditt privata moln i CloudSimple för att dra full nytta av din privata moln vCenter-miljö. Du kan konfigurera säkerhets kopiering, katastrof återställning, replikering och andra funktioner för att skydda dina virtuella datorer. Exempel på detta är VMware Site Recovery Manager (VMware SRM) och säkerhets kopiering & replikering av Veeam.
+Du kan installera lösningar i ditt moln privata moln för att dra full nytta av din organisations vCenter-miljö i molnet. Du kan konfigurera säkerhets kopiering, katastrof återställning, replikering och andra funktioner för att skydda dina virtuella datorer. Exempel på detta är VMware Site Recovery Manager (VMware SRM) och säkerhets kopiering & replikering av Veeam.
 
 Om du vill installera en lösning måste du begära ytterligare behörigheter under en begränsad period. Se [eskalera privilegier](escalate-private-cloud-privileges.md).
 
@@ -227,4 +227,4 @@ Om du vill installera en lösning måste du begära ytterligare behörigheter un
 
 * [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
 * [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](on-premises-connection.md)
-* [Konfigurera VPN-gatewayer i CloudSimple-nätverk](vpn-gateway.md)
+* [Konfigurera VPN-gatewayer i AVS-nätverk](vpn-gateway.md)

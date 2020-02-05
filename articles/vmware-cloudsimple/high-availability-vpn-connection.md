@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple – konfigurera hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
-description: Beskriver hur du konfigurerar en anslutning med hög tillgänglighet från din lokala miljö till en CloudSimple VPN-gateway som är aktive rad för hög tillgänglighet
+title: Azure VMware-lösningar (AVS) – Konfigurera hög tillgänglighet från lokal till AVS-VPN-gateway
+description: Beskriver hur du konfigurerar en anslutning med hög tillgänglighet från din lokala miljö till en AVS-VPN-gateway som är aktive rad för hög tillgänglighet
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b6dc309c1405a07cf192301208a97975ca9ce256
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927292"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025273"
 ---
-# <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från lokal plats till CloudSimple VPN-gateway
+# <a name="configure-a-high-availability-connection-from-on-premises-to-an-avs-vpn-gateway"></a>Konfigurera en anslutning med hög tillgänglighet från en lokal plats till en AVS-VPN-gateway
 
-Nätverks administratörer kan konfigurera en IPsec-plats-till-plats-VPN-anslutning med hög tillgänglighet från sin lokala miljö till en CloudSimple VPN-gateway.
+Nätverks administratörer kan konfigurera en IPsec-plats-till-plats-VPN-anslutning med hög tillgänglighet från sin lokala miljö till en AVS VPN-gateway.
 
 Den här guiden beskriver steg för att konfigurera en lokal brand vägg för en IPsec-anslutning med VPN för plats-till-plats-anslutning med hög tillgänglighet. De detaljerade stegen är särskilda för typen av lokal brand vägg. Som exempel visar den här guiden steg för två typer av brand väggar: Cisco ASA och Palo-nätverk.
 
@@ -25,8 +25,8 @@ Den här guiden beskriver steg för att konfigurera en lokal brand vägg för en
 
 Utför följande åtgärder innan du konfigurerar den lokala brand väggen.
 
-1. Kontrol lera att din organisation har [allokerat](create-nodes.md) de nödvändiga noderna och skapat minst ett CloudSimple privat moln.
-2. [Konfigurera en plats-till-plats-VPN-gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) mellan ditt lokala nätverk och ditt CloudSimple privata moln.
+1. Kontrol lera att din organisation har [allokerat](create-nodes.md) de nödvändiga noderna och skapat minst ett moln privat moln.
+2. [Konfigurera en plats-till-plats-VPN-gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) mellan ditt lokala nätverk och ditt moln privata moln.
 
 Se [Översikt över VPN-gatewayer](cloudsimple-vpn-gateways.md) för förslag på fas 1 och fas 2.
 
@@ -34,7 +34,7 @@ Se [Översikt över VPN-gatewayer](cloudsimple-vpn-gateways.md) för förslag p�
 
 Anvisningarna i det här avsnittet gäller Cisco ASA version 8,4 och senare. I konfigurations exemplet distribueras Cisco adaptiv Security-program version 9,10 och konfigureras i IKEv1-läge.
 
-För att VPN för plats-till-plats ska fungera måste du tillåta UDP 500/4500 och ESP (IP-protokoll 50) från den primära och den sekundära offentliga IP-CloudSimple (peer-IP) på det externa gränssnittet för den lokala Cisco ASA VPN-gatewayen.
+För att plats-till-plats-VPN ska fungera måste du tillåta UDP 500/4500 och ESP (IP-protokoll 50) från den primära och den sekundära IP-adressen (peer-IP) i gränssnittet för den lokala Cisco ASA VPN-gatewayen.
 
 ### <a name="1-configure-phase-1-ikev1"></a>1. Konfigurera fas 1 (IKEv1)
 
@@ -71,7 +71,7 @@ ikev1 pre-shared-key *****
 
 ### <a name="4-configure-phase-2-ipsec"></a>4. Konfigurera fas 2 (IPsec)
 
-Om du vill konfigurera fas 2 (IPsec) skapar du en åtkomst kontrol lista (ACL) som definierar den trafik som ska krypteras och tunnlas. I följande exempel är trafiken av ränta från den tunnel som har sitt ursprung i det lokala lokala under nätet (10.16.1.0/24) till det privata molnets fjärrundernät (192.168.0.0/24). ACL: en kan innehålla flera poster om det finns flera undernät mellan platserna.
+Om du vill konfigurera fas 2 (IPsec) skapar du en åtkomst kontrol lista (ACL) som definierar den trafik som ska krypteras och tunnlas. I följande exempel är trafiken av ränta från den tunnel som är inloggad från det lokala lokala under nätet (10.16.1.0/24) till fjärrundernätet AVS-privata moln (192.168.0.0/24). ACL: en kan innehålla flera poster om det finns flera undernät mellan platserna.
 
 I Cisco ASA version 8,4 och senare kan objekt eller objekt grupper skapas som fungerar som behållare för nätverk, undernät, värd-IP-adresser eller flera objekt. Skapa ett objekt för det lokala objektet och ett objekt för de fjärranslutna under näten och Använd dem för krypterings-ACL och NAT-uttryck.
 
@@ -82,7 +82,7 @@ object network AZ_inside
 subnet 10.16.1.0 255.255.255.0
 ```
 
-#### <a name="define-the-cloudsimple-remote-subnet-as-an-object"></a>Definiera CloudSimple-fjärrundernätet som ett objekt
+#### <a name="define-the-avs-remote-subnet-as-an-object"></a>Definiera AVS-fjärrundernätet som ett objekt
 
 ```
 object network CS_inside
@@ -97,7 +97,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. Konfigurera Transformations uppsättningen
 
-Konfigurera transformerings uppsättningen (TS), som måste omfatta nyckelordet ```ikev1```. De krypterings-och hash-attribut som anges i TS måste matcha de parametrar som anges i [standard konfigurationen för CloudSimple VPN-gatewayer](cloudsimple-vpn-gateways.md).
+Konfigurera transformerings uppsättningen (TS), som måste omfatta nyckelordet ```ikev1```. De krypterings-och hash-attribut som anges i TS måste matcha de parametrar som anges i [standard konfigurationen för AVS VPN-gatewayer](cloudsimple-vpn-gateways.md#cryptographic-parameters).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -143,13 +143,13 @@ Fas 2-utdata:
 
 Anvisningarna i det här avsnittet gäller Palo-nätverk version 7,1 och senare. I det här konfigurations exemplet distribueras Palo--nätverk VM-seriens program varu version 8.1.0 och konfigureras i IKEv1-läge.
 
-För att plats-till-plats-VPN ska fungera måste du tillåta UDP 500/4500 och ESP (IP-protokoll 50) från den primära och den sekundära offentliga IP-CloudSimple (peer-IP) i det externa gränssnittet för den lokala Palo-nätverks-gatewayen.
+För att plats-till-plats-VPN ska fungera måste du tillåta UDP 500/4500 och ESP (IP-protokoll 50) från den primära och den sekundära och den sekundära IP-adressen (peer-IP) i det externa gränssnittet för den lokala Palo-nätverks-gatewayen.
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. skapa primära och sekundära tunnel gränssnitt
 
 Logga in på Palo-brand väggen, Välj **Network** > **Interfaces** > **tunnel** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
-* Gränssnitts namn. Det första fältet fylls i automatiskt med nyckelordet tunnel. I det intilliggande fältet anger du ett värde mellan 1 och 9999. Det här gränssnittet används som ett primärt tunnel gränssnitt för plats-till-plats-trafik mellan det lokala data centret och det privata molnet.
+* Gränssnitts namn. Det första fältet fylls i automatiskt med nyckelordet tunnel. I det intilliggande fältet anger du ett värde mellan 1 och 9999. Det här gränssnittet används som ett primärt tunnel gränssnitt för plats-till-plats-trafik mellan det lokala data centret och det privata AVS-molnet.
 * Kommentar. Ange kommentarer för enkel identifiering av syftet med tunneln
 * Netflow-profil. Lämna standardvärdet.
 * Konfigurationsfil. Tilldela gränssnittet till: virtuell router: Välj **standard**. 
@@ -158,14 +158,16 @@ Logga in på Palo-brand väggen, Välj **Network** > **Interfaces** > **tunnel**
 
 Eftersom den här konfigurationen gäller för VPN med hög tillgänglighet krävs två tunnel gränssnitt: en primär och en sekundär. Upprepa föregående steg för att skapa det sekundära tunnel gränssnittet. Välj ett annat tunnel-ID och en annan oanvänd/32-IP-adress.
 
-### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Konfigurera statiska vägar för privata moln under nät som ska nås via plats-till-plats-VPN
+### <a name="2-set-up-static-routes-for-avs-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. Konfigurera statiska vägar för att AVS-undernät för privata moln ska nås via plats-till-plats-VPN
 
-Vägar är nödvändiga för lokala undernät för att uppnå CloudSimple privata moln under nät.
+Vägar är nödvändiga för lokala undernät för att komma åt AVS-undernät för privata moln.
 
 Välj **nätverk** > **virtuella routrar** > *standard* > **statiska vägar** > **Lägg till**, konfigurera följande fält och klicka på **OK**.
 
 * Namn. Ange ett namn för att enkelt identifiera syftet med vägen.
-* Mål. Ange de CloudSimple-undernät för privata moln som ska nås via S2S tunnel Interfaces från lokala platser
+
+* Mål. Ange de AVS-undernät för privata moln som ska nås via S2S tunnel Interfaces från lokala platser
+
 * Gränssnitt. Välj det primära tunnel gränssnittet som skapades i steg-1 (avsnitt 2) i list rutan. I det här exemplet är det tunnel. 20.
 * Nästa hopp. Välj **Ingen**.
 * Administratörens avstånd. Lämna standardvärdet.
@@ -174,7 +176,7 @@ Välj **nätverk** > **virtuella routrar** > *standard* > **statiska vägar** > 
 * BFD-profil. Lämna standardvärdet.
 * Sök vägs övervakning. Lämna omarkerad.
 
-Upprepa föregående steg för att skapa en annan väg för privata moln under nät som ska användas som sekundär-/säkerhets kopierings väg via sekundärt tunnel gränssnitt. Den här gången väljer du ett annat tunnel-ID och ett högre mått än för den primära vägen.
+Upprepa föregående steg för att skapa en annan väg för undernät i molnets privata moln som ska användas som sekundär-/säkerhets kopierings väg via sekundärt tunnel gränssnitt. Den här gången väljer du ett annat tunnel-ID och ett högre mått än för den primära vägen.
 
 ### <a name="3-define-the-cryptographic-profile"></a>3. definiera den kryptografiska profilen
 
@@ -197,17 +199,17 @@ Välj **nätverks** > **expandera nätverks profiler** > **IKE-gatewayer** > **L
 
 Fliken Allmänt:
 
-* Namn. Ange namnet på IKE-gatewayen som ska peer-kopplas till den primära CloudSimple VPN-peer.
+* Namn. Ange namnet på IKE-gatewayen som ska peer-kopplas till den primära AVS-VPN-peer.
 * 2\.0.1. Välj **läget endast ikev1**.
 * Adress typ. Välj **IPv4**.
 * Gränssnitt. Välj det offentliga gränssnittet eller utsidan.
 * Lokal IP-adress. Lämna standardvärdet.
 * Typ av peer-IP-adress. Välj **IP**.
-* Peer-adress. Ange IP-adressen för den primära CloudSimple VPN-peer.
+* Peer-adress. Ange den primära IP-adressen för AVS-peer.
 * Anspråksautentisering. Välj i **förväg delad nyckel**.
-* I förväg delad nyckel/bekräfta i förväg delad nyckel. Ange den i förväg delade nyckeln som matchar CloudSimple VPN gateway-nyckeln.
+* I förväg delad nyckel/bekräfta i förväg delad nyckel. Ange den i förväg delade nyckeln som matchar nyckeln för AVS-VPN-gateway.
 * Lokal identifiering. Ange den offentliga IP-adressen för den lokala Palo-brand väggen.
-* Peer-identifiering. Ange IP-adressen för den primära CloudSimple VPN-peer.
+* Peer-identifiering. Ange den primära IP-adressen för AVS-peer.
 
 Fliken Avancerade alternativ:
 
@@ -234,7 +236,7 @@ Välj **nätverks** > **expandera nätverks profiler** > **IPSec-kryptering** > 
 * Giltighet. Ange som 30 minuter.
 * Använd. Lämna rutan omarkerad.
 
-Upprepa föregående steg för att skapa en annan IPsec-kryptografi profil som ska användas som sekundär CloudSimple VPN-peer. Samma IPSEC-kryptografi profil kan också användas både för de primära och sekundära IPsec-tunnlarna (se följande procedur).
+Upprepa föregående steg för att skapa en annan IPsec-kryptografi profil som ska användas för den sekundära AVS-peer-datorn. Samma IPSEC-kryptografi profil kan också användas både för de primära och sekundära IPsec-tunnlarna (se följande procedur).
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. definiera övervaknings profiler för tunnel övervakning
 
@@ -251,7 +253,7 @@ Välj **nätverks** > **IPSec-tunnlar** > **Lägg till**, konfigurera följande 
 
 Fliken Allmänt:
 
-* Namn. Ange ett namn för den primära IPSEC-tunneln som ska peer-kopplas med primär CloudSimple VPN-peer.
+* Namn. Ange ett namn för den primära IPSEC-tunneln som ska peer-kopplas till den primära AVS-VPN-peer.
 * Tunnel gränssnitt. Välj det primära tunnel gränssnittet.
 * bastyp. Lämna standardvärdet.
 * Adress typ. Välj **IPv4**.
@@ -260,17 +262,17 @@ Fliken Allmänt:
 * Aktivera uppspelnings skydd. Lämna standardvärdet.
 * Kopiera TOS-rubrik. Lämna rutan omarkerad.
 * Tunnel övervakare. Markera kryss rutan.
-* Mål-IP. Ange en IP-adress som tillhör det CloudSimple privata moln under nätet som tillåts via plats-till-plats-anslutningen. Se till att tunnel gränssnitten (t. ex. tunnel. 20-10.64.5.2/32 och tunnel. 30-10.64.6.2/32) på Palo-kan komma åt den CloudSimple privata molnets IP-adress via VPN för plats till plats. Se följande konfiguration för proxy-ID: n.
+* Mål-IP. Ange en IP-adress som tillhör det AVS-undernät för privata moln som tillåts över plats-till-plats-anslutningen. Se till att tunnel gränssnitten (t. ex. tunnel. 20-10.64.5.2/32 och tunnel. 30-10.64.6.2/32) på Palo-kan komma åt IP-adressen för det privata molnet i molnet via plats-till-plats-VPN. Se följande konfiguration för proxy-ID: n.
 * Upphandlarprofil. Välj Monitor-profilen.
 
 Fliken Proxy-ID: Klicka på **IPv4** > **Lägg till** och konfigurera följande:
 
 * Proxy-ID. Ange ett namn för den intressanta trafiken. Det kan finnas flera proxy-ID i en IPsec-tunnel.
-* Inställningar. Ange lokala lokala undernät som tillåts att kommunicera med privata moln under nät över plats-till-plats-VPN.
-* Fjärrserveradministrationsverktyg. Ange de privata moln-fjärrundernät som tillåts kommunicera med de lokala under näten.
+* Inställningar. Ange lokala lokala undernät som tillåts att kommunicera med AVS-undernät för privata moln över plats-till-plats-VPN.
+* Fjärrserveradministrationsverktyg. Ange de fjärrundernät för molnets privata nätverk som tillåts kommunicera med de lokala under näten.
 * Protokollhanterare. Välj **valfri**.
 
-Upprepa föregående steg för att skapa en annan IPsec-tunnel som ska användas för den sekundära CloudSimple VPN-peer.
+Upprepa föregående steg för att skapa en annan IPsec-tunnel som ska användas för den sekundära AVS VPN-peer.
 
 ## <a name="references"></a>Referenser
 

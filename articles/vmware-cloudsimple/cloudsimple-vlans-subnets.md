@@ -1,6 +1,6 @@
 ---
-title: VLAN och undernät i Azure VMware-lösning av CloudSimple
-description: Läs om VLAN och undernät i CloudSimple privata moln
+title: VLAN och undernät i Azure VMware-lösningar (AVS)
+description: Läs mer om VLAN och undernät i ett privat AVS-moln
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -8,42 +8,42 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0ce15c782ae70e16f55a28ec8c4b70f3b080f54
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372745"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024899"
 ---
 # <a name="vlans-and-subnets-overview"></a>Översikt över VLAN och undernät
 
-CloudSimple tillhandahåller ett nätverk per region där din CloudSimple-tjänst har distribuerats.  Nätverket är ett enskilt adress utrymme för TCP-skikt 3 med Routning aktiverat som standard.  Alla privata moln och undernät som skapats i den här regionen kan kommunicera med varandra utan ytterligare konfiguration.  Du kan skapa distribuerade Port grupper på vCenter med hjälp av VLAN.
+AVS tillhandahåller ett nätverk per region där din AVS-tjänst distribueras. Nätverket är ett enskilt adress utrymme för TCP-skikt 3 med Routning aktiverat som standard. Alla privata moln och undernät som skapats i den här regionen kan kommunicera med varandra utan ytterligare konfiguration. Du kan skapa distribuerade Port grupper på vCenter med hjälp av VLAN.
 
-![CloudSimple nätverk sto pol Ogin](media/cloudsimple-network-topology.png)
+![AVS-nätverkstopologi](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
-Ett VLAN (Layer 2-nätverk) skapas för varje privat moln.  Layer 2-trafiken ligger kvar inom gränserna för ett privat moln, så att du kan isolera den lokala trafiken i det privata molnet.  Ett VLAN som skapats i det privata molnet kan bara användas för att skapa distribuerade Port grupper i det privata molnet.  Ett VLAN som skapats i ett privat moln konfigureras automatiskt på alla växlar som är anslutna till värdarna i ett privat moln.
+Ett VLAN (Layer 2-nätverk) skapas för varje AVS-privat moln. Layer 2-trafiken ligger kvar inom gränserna för ett privat moln i molnet, så att du kan isolera den lokala trafiken i det privata moln molnet. Ett VLAN som skapats i det privata moln molnet kan bara användas för att skapa distribuerade Port grupper i det AVS-privata molnet. Ett VLAN som skapats i ett moln privat moln konfigureras automatiskt på alla växlar som är anslutna till värdarna för ett privat moln i molnet.
 
 ## <a name="subnets"></a>Undernät
 
 Du kan skapa ett undernät när du skapar ett VLAN genom att definiera adress utrymmet för under nätet. En IP-adress från adress utrymmet tilldelas som en under näts Gateway. Ett enskilt privat lager 3-adressutrymme tilldelas per kund och region. Du kan konfigurera alla RFC 1918 icke-överlappande adress utrymmen, med ditt lokala nätverk eller Azure Virtual Network, i din nätverks region.
 
-Alla undernät kan kommunicera med varandra som standard, vilket minskar konfigurationen för routning mellan privata moln. Öst-väst-data mellan datorer i samma region förblir i samma nivå 3-nätverk och överföringar över den lokala nätverks infrastrukturen i regionen. Ingen utgående krävs för kommunikation mellan privata moln i en region. Den här metoden eliminerar alla WAN/utgångs prestanda straff vid distribution av olika arbets belastningar i olika privata moln.
+Alla undernät kan kommunicera med varandra som standard, vilket minskar konfigurationen för routning mellan privata AVS-moln. Öst-väst-data mellan datorer i samma region förblir i samma nivå 3-nätverk och överföringar över den lokala nätverks infrastrukturen i regionen. Ingen utgående krävs för kommunikation mellan AVS-privata moln i en region. Den här metoden eliminerar alla WAN-och utgångs prestanda straff vid distribution av olika arbets belastningar i olika AVS-privata moln.
 
 ## <a name="vspherevsan-subnets-cidr-range"></a>CIDR-intervall för vSphere/virtuellt San-undernät
 
-Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server.  Hanterings komponenter distribueras i det nätverk som valts för vSphere/virtuellt San-undernät CIDR.  Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.
+Ett privat AVS-moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server. Hanterings komponenter distribueras i det nätverk som valts för vSphere/virtuellt San-undernät CIDR. Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.
 
 * Minsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/24**
 * Maximalt vSphere/virtuellt San-undernät CIDR-intervall prefix: **/21**
 
-> [!CAUTION]
-> IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av den privata moln infrastrukturen.  Använd inte IP-adressen i det här intervallet på någon virtuell dator.
+> [!IMPORTANT]
+> IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av molnets privata moln infrastruktur. Använd inte IP-adressen i det här intervallet på någon virtuell dator.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/virtuellt San-undernät CIDR-intervall gränser
 
-Valet av vSphere/virtuellt San-undernät CIDR-intervall storleken påverkar storleken på ditt privata moln.  Följande tabell visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt San-undernät CIDR.
+Att välja vSphere/virtuellt San-undernät CIDR-intervall storleken påverkar storleken på ditt AVS-privata moln. Följande tabell visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt San-undernät CIDR.
 
 | Angivna vSphere/virtuellt San-undernät CIDR-prefix längd | Maximalt antal noder |
 |---------------------------------------------------|-------------------------|
@@ -52,9 +52,9 @@ Valet av vSphere/virtuellt San-undernät CIDR-intervall storleken påverkar stor
 | /22 | 118 |
 | /21 | 220 |
 
-### <a name="management-subnets-created-on-a-private-cloud"></a>Hanterings under nät som skapats i ett privat moln
+### <a name="management-subnets-created-on-an-avs-private-cloud"></a>Hanterings under nät som skapats i ett moln privat moln
 
-Följande hanterings under nät skapas när du skapar ett privat moln.
+Följande hanterings under nät skapas när du skapar ett privat AVS-moln.
 
 * **System hantering**. VLAN och undernät för ESXi värd hanterings nätverk, DNS-server, vCenter-Server.
 * **VMotion**. VLAN och undernät för ESXi-värdar vMotion-nätverk.
@@ -66,7 +66,7 @@ Följande hanterings under nät skapas när du skapar ett privat moln.
 
 ### <a name="management-network-cidr-range-breakdown"></a>Hantering av CIDR-intervall i hanterings nätverk
 
-det angivna CIDR-intervallet för vSphere/virtuellt San-undernät delas upp i flera undernät.  I följande tabell visas ett exempel på en analys av tillåtna prefix.  Exemplet använder 192.168.0.0 som CIDR-intervall.
+det angivna CIDR-intervallet för vSphere/virtuellt San-undernät delas upp i flera undernät. I följande tabell visas ett exempel på en analys av tillåtna prefix. Exemplet använder 192.168.0.0 som CIDR-intervall.
 
 Exempel:
 

@@ -2,20 +2,20 @@
 title: Köra en parallell arbetsbelastning – Azure Batch Python
 description: Självstudie – Bearbeta mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch Python
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: bc73c3c40754d1c3eeb6c86f6c9578047a22d73e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: d4277e383a5cb69ef5395cb6dc477d888abd1d0d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029245"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023097"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>Ladda upp indatafiler
 
-Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna definieras som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan ladda ned till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)

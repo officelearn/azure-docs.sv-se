@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809799"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023760"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Översikt över funktioner för begäran om kund information
+# <a name="summary-of-customer-data-request-features"></a>Sammanfattning av kundens datafunktioner
 
 Azure IoT Central är en fullständigt hanterad Sakernas Internet-som-tjänst-lösning (IoT) som gör det enkelt att ansluta, övervaka och hantera dina IoT-tillgångar i skala, skapa djupgående insikter från dina IoT-data och vidta välgrundade åtgärder.
 
@@ -31,15 +31,13 @@ För enheter har Microsoft ingen information och har ingen åtkomst till data so
 
 När du använder Microsoft Enterprise Services genererar Microsoft viss information, som kallas system genererade loggar. Dessa loggar utgör faktiska åtgärder som utförs i tjänsten och diagnostikdata som är relaterade till enskilda enheter och som inte är relaterade till användar aktiviteter. Azure IoT Central systemgenererade loggar kan inte nås eller exporteras av program administratörer.
 
-## <a name="deleting-customer-data"></a>Tar bort kund information
+## <a name="deleting-customer-data"></a>Tar bort kunddata
 
 Möjligheten att ta bort användar data tillhandahålls bara via sidan IoT Central administration. Program administratörer kan välja vilken användare som ska tas bort och välja **ta bort** i det övre högra hörnet i programmet för att ta bort posten. Program administratörer kan också ta bort enskilda konton som inte längre är associerade med programmet i fråga.
 
 När en användare har tagits bort skickas inga ytterligare aviseringar till dem. Deras e-postadress måste dock tas bort individuellt från varje konfigurerad avisering.
 
-Mer information finns i [Konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md).
-
-## <a name="exporting-customer-data"></a>Exportera kund information
+## <a name="exporting-customer-data"></a>Exportera kunddata
 
 Möjligheten att exportera data tillhandahålls bara via sidan IoT Central administration. Kund information, inklusive tilldelade roller, kan väljas, kopieras och klistras in av en program administratör.
 

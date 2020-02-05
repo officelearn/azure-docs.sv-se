@@ -9,34 +9,34 @@ ms.author: magoedte
 ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 165ed8d0aad7011f1ea71ff870ee4629f1f12613
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 81083a9d94f782201a8eb765ac1f88093c0337c4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898596"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024100"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
-Du kan aktivera Azure Arc for Servers (för hands version) för ett eller flera Windows-eller Linux-datorer i din miljö genom att utföra en uppsättning steg manuellt eller använda en automatiserad metod genom att köra ett mall-skript som vi tillhandahåller. Det här skriptet automatiserar nedladdning och installation av båda agenterna.
+Du kan aktivera Azure Arc for Servers (för hands version) för ett eller ett litet antal Windows-eller Linux-datorer i din miljö genom att utföra en uppsättning steg manuellt. Du kan också använda en automatiserad metod genom att köra ett mall-skript som vi tillhandahåller. Det här skriptet automatiserar nedladdning och installation av båda agenterna.
 
-Den här installations metoden kräver att du har administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och Windows, är du medlem i den lokala gruppen Administratörer.
+Den här metoden kräver att du har administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, är du medlem i den lokala gruppen Administratörer.
 
 Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](overview.md#prerequisites) resurser uppfyller kraven.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="generate-install-script-from-the-azure-portal"></a>Generera installations skript från Azure Portal
+## <a name="generate-the-installation-script-from-the-azure-portal"></a>Generera installations skriptet från Azure Portal
 
-Det finns ett skript för att automatisera hämtningen, installationen och upprättandet av anslutningen till Azure Arc från Azure Portal. Följande steg beskriver hur du slutför den här processen.
+Skriptet för att automatisera nedladdningen och installationen, och för att upprätta anslutningen till Azure Arc, är tillgängligt från Azure Portal. Slutför processen genom att göra följande:
 
-1. Starta [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)i webbläsaren.
+1. Gå till [Azure Portal](https://aka.ms/hybridmachineportal)i webbläsaren.
 
-2. På sidan **datorer – Azure-båge** väljer du antingen **+ Lägg till** i det övre vänstra hörnet eller väljer alternativet **skapa dator-Azure-båge** längst ned i fönstret i mitten. 
+1. På sidan **datorer – Azure-båge** väljer du antingen **Lägg till**, längst upp till vänster eller alternativet **skapa dator-Azure-båge** längst ned i fönstret i mitten. 
 
-3. På sidan **Välj en metod** väljer du från sidan **Lägg till datorer med interaktiv skript** panel **generera skript**.
+1. På sidan **Välj en metod** markerar du rutan **Lägg till datorer med interaktiv skript** och väljer sedan **skapa skript**.
 
-4. På sidan **skapa skript** väljer du den prenumeration och resurs grupp där du vill att datorn ska hanteras i Azure. Välj en Azure-plats där datorns metadata ska lagras.
+1. På sidan **skapa skript** väljer du den prenumeration och resurs grupp där du vill att datorn ska hanteras i Azure. Välj en Azure-plats där datorns metadata ska lagras.
 
     >[!NOTE]
     >Azure-båge för servrar (för hands version) stöder endast följande regioner:
@@ -45,22 +45,24 @@ Det finns ett skript för att automatisera hämtningen, installationen och uppr�
     >- WestAsia
     >
 
-5. På sidan **generera skript** , under List rutan **operativ system** , väljer du lämpligt operativ system som skriptet körs på.
+1. På sidan **generera skript** i list rutan **operativ system** väljer du det operativ system som skriptet ska köras på.
 
-6. Om datorn kommunicerar via en proxyserver för att ansluta till Internet väljer du alternativet **Nästa: proxyserver >** . På fliken **proxyserver** anger du IP-adressen eller namnet och port numret för proxyservern som datorn ska använda för att kommunicera med proxyservern. Ange värdet efter formatet `http://<proxyURL>:<proxyport>`. När du är klar väljer du **Granska + generera**.  Annars väljer du **Granska + generera** för att slutföra stegen.
+1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet väljer du **Nästa: proxyserver**. 
+1. På fliken **proxyserver** anger du IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>`. 
+1. Välj **Granska + generera**.
 
-7. På fliken **Granska och skapa** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Annars kan du välja **föregående**om du behöver göra ändringar.
+1. På fliken **Granska och skapa** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Installera och verifiera agenten i Windows
 
 ### <a name="install-manually"></a>Installera manuellt
+Du kan installera den anslutna dator agenten manuellt genom att köra Windows Installer-paketet *AzureConnectedMachineAgent. msi*. 
 
-Du kan installera den anslutna dator agenten manuellt genom att köra installations paketet för Windows Installer `AzureConnectedMachineAgent.msi` när du har laddat ned det och kopiera det till en mapp på mål servern eller från en delad nätverksmapp. Om du kör installations paketet utan några alternativ startas en installations guide som du kan följa för att installera agenten interaktivt.
+> [!NOTE]
+> * Du måste ha *Administratörs* behörighet för att installera eller avinstallera agenten.
+> * Du måste först hämta och kopiera installations paketet till en mapp på mål servern eller från en delad nätverksmapp. Om du kör installations paketet utan några alternativ startas en installations guide som du kan följa för att installera agenten interaktivt.
 
->[!NOTE]
->*Administratören* behörighet krävs för att installera eller avinstallera agenten.
-
-Om datorn behöver kommunicera via en proxyserver till tjänsten efter det att du har installerat agenten måste du köra ett kommando som beskrivs i ett avsnitt nedan för att ställa in miljövariabeln för proxyserverns system miljö `https_proxy`.
+Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs senare i artikeln när du har installerat agenten. Detta anger `https_proxy`för proxyserverns system miljö variabel.
 
 Följande tabell visar de parametrar som stöds av installationsprogrammet för agenten från kommandoraden.
 
@@ -73,23 +75,23 @@ Om du till exempel vill köra installations programmet med parametern `/?` anger
 
 Filer för den anslutna dator agenten installeras i *C:\Program Files\AzureConnectedMachineAgent* som standard. Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
 
-### <a name="install-using-scripted-method"></a>Installera med skript metod
+### <a name="install-with-the-scripted-method"></a>Installera med den skriptbaserade metoden
 
 1. Logga in på servern.
 
-2. Öppna en upphöjd PowerShell-kommandotolk.
+1. Öppna en upphöjd PowerShell-kommandotolk.
 
-3. Ändra till den mapp eller resurs som du kopierade skriptet till och kör det på servern genom att köra kommandot `./OnboardingScript.ps1`.
+1. Ändra till den mapp eller resurs som du kopierade skriptet till och kör det på servern genom att köra `./OnboardingScript.ps1`-skriptet.
 
-### <a name="configure-agent-proxy-setting"></a>Konfigurera agentens proxyinställningar
+### <a name="configure-the-agent-proxy-setting"></a>Konfigurera agentens proxyinställningar
 
-Kör följande kommando för att ange miljövariabeln för proxyservern.
+Kör följande kommando för att ange miljövariabeln för proxyservern:
 
 ```powershell
-# If a proxy server is needed, execute these commands with proxy URL and port
+# If a proxy server is needed, execute these commands with the proxy URL and port.
 [Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
 $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
+# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
 Restart-Service -Name himds
 ```
 
@@ -105,18 +107,19 @@ När du har installerat agenten måste du konfigurera agenten att kommunicera me
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Installera och verifiera agenten på Linux
 
-Den anslutna dator agenten för Linux finns i det önskade paket formatet för distributionen (. RPM eller. DEB) som finns på Microsofts [paket lagrings plats](https://packages.microsoft.com/). Ett paket för gränssnitts skript `Install_linux_azcmagent.sh` som finns på [https://aka.ms/azcmagent](https://aka.ms/azcmagent) utför följande åtgärder:
+Den anslutna dator agenten för Linux finns i det önskade paket formatet för distributionen (. RPM eller. DEB) som finns i Microsoft- [paketets lagrings plats](https://packages.microsoft.com/). [Paket för gränssnitts skript `Install_linux_azcmagent.sh`](https://aka.ms/azcmagent) utför följande åtgärder:
 
 - Konfigurerar värd datorn för att ladda ned agent paketet från packages.microsoft.com.
 - Installerar hybrid resurs leverantörs paketet.
-- Du kan också konfigurera agenten med din proxyinformation genom att inkludera `--proxy "{proxy-url}:{proxy-port}"`-parametern.
 
-Skriptet innehåller också logik för att identifiera stödda distributioner som stöds och som inte stöds, samt verifiera nödvändiga behörigheter för att utföra installationen. 
+Alternativt kan du konfigurera agenten med din proxyinformation genom att inkludera `--proxy "{proxy-url}:{proxy-port}"`-parametern.
 
-Exemplet nedan laddar ned agenten och installerar den, utan att utföra några av de villkorliga kontrollerna.
+Skriptet innehåller också logik för att identifiera de distributioner som stöds och som inte stöds, och det verifierar de behörigheter som krävs för att utföra installationen. 
+
+I följande exempel hämtas agenten och installeras:
 
 ```bash
-# Download the installation package
+# Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
 # Install the connected machine agent. 
@@ -126,60 +129,62 @@ bash ~/Install_linux_azcmagent.sh
 Om du vill ladda ned och installera agenten, inklusive `--proxy` parameter för att konfigurera agenten att kommunicera via proxyservern, kör du följande kommandon:
 
 ```bash
-# Download the installation package
+# Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
 # Install the connected machine agent. 
 bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 ```
 
-### <a name="configure-agent-communication"></a>Konfigurera agent kommunikation
+### <a name="configure-the-agent-communication"></a>Konfigurera agent kommunikation
 
-När du har installerat agenten måste du konfigurera agenten att kommunicera med Azure Arc-tjänsten genom att köra följande kommando:
+När du har installerat agenten konfigurerar du den för att kommunicera med Azure Arc-tjänsten genom att köra följande kommando:
 
 `/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
-## <a name="verify-connection-with-azure-arc"></a>Kontrol lera anslutningen till Azure-bågen
+## <a name="verify-the-connection-with-azure-arc"></a>Kontrol lera anslutningen till Azure-bågen
 
-När du har utfört stegen för att installera agenten och konfigurerar den för att ansluta till Azure-bågen för servrar (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Du kan visa dina datorer i Azure Portal genom att besöka [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure Portal](https://aka.ms/hybridmachineportal).
 
-![Lyckad onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
+![En lyckad Server anslutning](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
 ## <a name="clean-up"></a>Rensa
 
-Om du vill koppla bort en dator från Azure-bågen för servrar (för hands version) måste du utföra följande steg.
+Gör så här om du vill koppla bort en dator från Azure båg for Servers (för hands version):
 
-1. Öppna Azure båg for Servers (för hands version) genom att besöka [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal).
+1. Öppna Azure båg for Servers (för hands version) genom att gå till [Azure Portal](https://aka.ms/hybridmachineportal).
 
-2. Välj datorn i listan, klicka på ellipsen (`...`) och välj **ta bort**.
+1. Välj datorn i listan, Välj ellipsen (.. **.** ) och välj sedan **ta bort**.
 
-3. Om du vill avinstallera Windows-agenten från datorn gör du följande:
+1. Om du vill avinstallera Windows-agenten från datorn gör du följande:
 
-    1. Logga in på datorn med ett konto som har administratörs behörighet.
+    a. Logga in på datorn med ett konto som har administratörs behörighet.  
+    b. Välj **program och funktioner**på **kontroll panelen**.  
+    c. I **program och funktioner**väljer du **Azure Connected Machine agent**, väljer **Avinstallera**och väljer sedan **Ja**.  
 
-    2. Välj **program och funktioner**på **kontroll panelen**.
+    >[!NOTE]
+    > Du kan också köra installations guiden för agenten genom att dubbelklicka på installations paketet **AzureConnectedMachineAgent. msi** .
 
-    3. I **program och funktioner**väljer du **Azure Connected Machine agent**, väljer **Avinstallera**och väljer sedan **Ja**.
+    Om du vill skripta avinstallationen kan du använda följande exempel, som hämtar produkt koden och avinstallerar agenten med hjälp av kommando raden msiexec. exe-`msiexec /x {Product Code}`. Gör så här:  
+    
+    a. Öppna Registereditorn.  
+    b. Leta upp och kopiera produkt kod-GUID under register nyckel `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`.  
+    c. Du kan sedan avinstallera agenten med hjälp av Msiexec.
 
-        >[!NOTE]
-        >Installations guiden för agenten kan också köras genom att dubbelklicka på **AzureConnectedMachineAgent. msi** installations paket.
+    Följande exempel visar hur du avinstallerar agenten:
 
-    Om du vill skripta avinstallationen kan du använda följande exempel, som hämtar produkt koden och avinstallerar agenten med hjälp av kommando raden msiexec. exe: `msiexec /x {Product Code}`. Öppna Registereditorn och titta under register nyckeln `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` och hitta produkt kodens GUID. Sedan kan du avinstallera agenten med hjälp av Msiexec.
+    ```powershell
+    Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+    Get-ItemProperty | `
+    Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+    ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
+    ```
 
-   Exemplet nedan visar hur du avinstallerar agenten.
+1. Om du vill avinstallera Linux-agenten kör du följande kommando:
 
-   ```powershell
-   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
-   Get-ItemProperty | `
-   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
-   ForEach-Object {MsiExec.exe /x "$($_.PsChildName)" /qn}
-   ```
-
-4. Avinstallera Linux-agenten genom att köra följande kommando för att avinstallera agenten.
-
-   ```bash
-   sudo apt purge hybridagent
-   ```
+      ```bash
+      sudo apt purge hybridagent
+      ```
 
 ## <a name="next-steps"></a>Nästa steg
 

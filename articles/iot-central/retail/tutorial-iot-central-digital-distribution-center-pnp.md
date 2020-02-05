@@ -7,24 +7,24 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890660"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025494"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Självstudie: Distribuera och gå igenom en app-mall för digital distributions Center
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Den här självstudien visar hur du kommer igång genom att distribuera en IoT Central **digital distributions Center** -Programmall. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kanske vill göra härnäst.
 
 I den här självstudien får du lära dig att 
 * Skapa ett program för digital distributions Center 
-* gå igenom programmet 
+* Gå igenom programmet 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 * Inga särskilda krav krävs för att distribuera den här appen
 * Vi rekommenderar att du har en Azure-prenumeration, men du kan även prova utan den
 
@@ -34,19 +34,22 @@ Du kan skapa program med följande steg
 
 1. Gå till webbplatsen för Azure IoT Central Application Manager. Välj **Bygg** i det vänstra navigerings fältet och klicka sedan på fliken **detalj handel** .
 
-> [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Digital distributions Center](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
-2. Välj fliken **butik** och välj **skapa app** under * * Digital distributions Center program * *
+2. Välj fliken **butik** och välj **skapa app** under appen **digital distribution Center**
 
 3. **Skapa app** öppnar nytt program formulär och fyller i den begärda informationen som visas nedan.
    **Program namn**: du kan använda det föreslagna standard namnet eller ange ett eget program namn.
-   **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, minnes värt URL. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Annars kan du börja med en kostnads fri utvärderings period på sju dagar och välja att konvertera betala per användning när som helst innan det kostnads fria förfallo datumet.
+   **URL**: du kan använda den föreslagna standard-URL: en eller ange en egen, unik minnes adress. Sedan rekommenderas standardinställningen om du redan har en Azure-prenumeration. Du kan börja med en kostnads fri utvärderings prenumerations plan på 7 dagar och välja att konvertera till en standard pris plan när som helst innan det kostnads fria slutet går ut.
    **Fakturerings information**: katalog, Azure-prenumeration och regions information krävs för att etablera resurserna.
    **Skapa**: Välj Skapa längst ned på sidan för att distribuera programmet.
 
-> [!div class="mx-imgBorder"]
-> ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Digital distributions Center](./media/tutorial-iot-central-ddc/ddc-create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![fakturerings information för digital distribution](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Gå igenom program instrument panelen 
 
@@ -113,4 +116,4 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort pr
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om digital distributions Center lösnings arkitektur för [digital distributions Center](./architecture-digital-distribution-center-pnp.md)
 * Läs mer om andra [IoT Central mallar för butik](./overview-iot-central-retail-pnp.md)
-* Läs mer om IoT Central referera till [IoT Central översikt](../preview/overview-iot-central.md)
+* Läs mer om IoT Central referera till [IoT Central översikt](../core/overview-iot-central.md)

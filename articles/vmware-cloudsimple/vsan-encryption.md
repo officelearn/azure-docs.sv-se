@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple – konfigurera virtuellt San-kryptering för privat moln
-description: Beskriver hur du konfigurerar virtuellt San Software Encryption-funktionen så att ditt CloudSimple privata moln kan arbeta med en nyckel hanterings server som körs i ditt virtuella Azure-nätverk.
+title: Azure VMware-lösningar (AVS) – Konfigurera virtuellt San-kryptering för molnets privata moln
+description: Beskriver hur du konfigurerar virtuellt San Software Encryption-funktionen så att ditt moln privata moln kan arbeta med en nyckel hanterings server som körs i ditt virtuella Azure-nätverk.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 638b60bd3612fa25350ecef0a738fea75c2f53d3
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 056c05701a3915610fb17a7e8c04feb743e38286
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972337"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020649"
 ---
-# <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>Konfigurera virtuellt San-kryptering för CloudSimple privat moln
+# <a name="configure-vsan-encryption-for-avs-private-cloud"></a>Konfigurera virtuellt San-kryptering för molnets privata moln
 
-Du kan konfigurera funktionen för program kryptering i virtuellt San så att ditt CloudSimple privata moln kan arbeta med en nyckel hanterings server som körs i ditt virtuella Azure-nätverk.
+Du kan konfigurera funktionen för program kryptering i virtuellt San så att ditt moln privata moln kan arbeta med en nyckel hanterings server som körs i ditt virtuella Azure-nätverk.
 
 VMware kräver att du använder en extern KMIP 1,1-kompatibel server för nyckel hanterings Server (KMS) från tredje part när du använder virtuellt San-kryptering. Du kan utnyttja alla KMS-certifikat som stöds och som certifierats av VMware och är tillgänglig för Azure.
 
@@ -27,11 +27,11 @@ Denna KMS-lösning kräver att du:
 
 * Installera, konfigurera och hantera ett VMware-certifierat KMS-verktyg från tredje part i ditt virtuella Azure-nätverk.
 * Ange dina egna licenser för KMS-verktyget.
-* Konfigurera och hantera virtuellt San-kryptering i ditt privata moln med hjälp av KMS-verktyget från tredje part som körs i det virtuella Azure-nätverket.
+* Konfigurera och hantera virtuellt San-kryptering i ditt moln privata moln med hjälp av KMS-verktyget från tredje part som körs i det virtuella Azure-nätverket.
 
 ## <a name="kms-deployment-scenario"></a>Scenario för KMS-distribution
 
-KMS-serverkluster körs i det virtuella Azure-nätverket och det går att komma åt IP från det privata molnet vCenter över den konfigurerade Azure ExpressRoute-anslutningen.
+KMS-serverkluster körs i det virtuella Azure-nätverket och det går att komma åt IP från molnets privata moln vCenter över den konfigurerade Azure ExpressRoute-anslutningen.
 
 ![.. /media/KMS-kluster i Azure Virtual Network](media/vsan-kms-cluster.png)
 
@@ -40,9 +40,9 @@ KMS-serverkluster körs i det virtuella Azure-nätverket och det går att komma 
 Distributions processen innehåller följande steg:
 
 1. [Kontrol lera att kraven är uppfyllda](#verify-prerequisites-are-met)
-2. [CloudSimple-Portal: Hämta information om ExpressRoute-peering](#cloudsimple-portal-obtain-expressroute-peering-information)
-3. [Azure-portalen: Anslut det virtuella nätverket till det privata molnet](#azure-portal-connect-your-virtual-network-to-your-private-cloud)
-4. [Azure-portalen: Distribuera ett HyTrust-i ditt virtuella nätverk](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
+2. [AVS-Portal: Hämta ExpressRoute peering-information](#avs-portal-obtain-expressroute-peering-information)
+3. [Azure Portal: Anslut ditt virtuella nätverk till molnets privata moln](#azure-portal-connect-your-virtual-network-to-the-avs-private-cloud)
+4. [Azure Portal: Distribuera ett HyTrust-kluster för i ditt virtuella nätverk](#azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network)
 5. [HyTrust WebUI: Konfigurera KMIP-Server](#hytrust-webui-configure-the-kmip-server)
 6. [vCenter-gränssnitt: Konfigurera virtuellt San-kryptering för att använda KMS-kluster i ditt virtuella Azure-nätverk](#vcenter-ui-configure-vsan-encryption-to-use-kms-cluster-in-your-azure-virtual-network)
 
@@ -54,32 +54,32 @@ Kontrol lera följande innan du distribuerar:
 * Den valda leverantören har stöd för en version av verktyget som kan köras i Azure.
 * Azure-versionen av KMS-verktyget är KMIP 1,1-kompatibel.
 * En Azure Resource Manager och ett virtuellt nätverk har redan skapats.
-* Ett privat CloudSimple-moln har redan skapats.
+* Ett lokalt AVS-moln har redan skapats.
 
-### <a name="cloudsimple-portal-obtain-expressroute-peering-information"></a>CloudSimple-Portal: Hämta information om ExpressRoute-peering
+### <a name="avs-portal-obtain-expressroute-peering-information"></a>AVS-Portal: Hämta ExpressRoute peering-information
 
-Om du vill fortsätta med installationen behöver du verifierings nyckeln och peer-kretsens URI för ExpressRoute plus åtkomst till din Azure-prenumeration. Den här informationen finns på sidan Virtual Network anslutning på CloudSimple-portalen. Instruktioner finns i [Konfigurera en virtuell nätverks anslutning till det privata molnet](virtual-network-connection.md). Om du har problem med att hämta informationen öppnar du en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du vill fortsätta med installationen behöver du verifierings nyckeln och peer-kretsens URI för ExpressRoute plus åtkomst till din Azure-prenumeration. Den här informationen finns på sidan Virtual Network anslutning i AVS-portalen. Instruktioner finns i [Konfigurera en virtuell nätverks anslutning till molnets privata moln](virtual-network-connection.md). Om du har problem med att hämta informationen öppnar du en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### <a name="azure-portal-connect-your-virtual-network-to-your-private-cloud"></a>Azure-portalen: Anslut ditt virtuella nätverk till ditt privata moln
+### <a name="azure-portal-connect-your-virtual-network-to-the-avs-private-cloud"></a>Azure Portal: Anslut ditt virtuella nätverk till molnets privata moln
 
 1. Skapa en virtuell nätverksgateway för ditt virtuella nätverk genom att följa anvisningarna i [Konfigurera en virtuell nätverksgateway för ExpressRoute med hjälp av Azure Portal](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
-2. Länka ditt virtuella nätverk till CloudSimple ExpressRoute-kretsen genom att följa anvisningarna i [ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
-3. Använd informationen om CloudSimple ExpressRoute-kretsen som togs emot i välkomst meddelandet från CloudSimple för att länka ditt virtuella nätverk till CloudSimple ExpressRoute-kretsen i Azure.
+2. Länka ditt virtuella nätverk till AVS ExpressRoute-kretsen genom att följa anvisningarna i [ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av portalen](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+3. Använd informationen om AVS-ExpressRoute som togs emot i välkomst meddelandet från AVS för att länka ditt virtuella nätverk till AVS ExpressRoute-kretsen i Azure.
 4. Ange verifierings nyckeln och peer-kretsens URI, ge anslutningen ett namn och klicka på **OK**.
 
 ![Ange CS peer-krets-URI när det virtuella nätverket skapas](media/vsan-azureportal01.png) 
 
-### <a name="azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network"></a>Azure-portalen: Distribuera ett HyTrust-gruppkluster i Azure Resource Manager i ditt virtuella nätverk
+### <a name="azure-portal-deploy-a-hytrust-keycontrol-cluster-in-the-azure-resource-manager-in-your-virtual-network"></a>Azure Portal: Distribuera ett HyTrust-kluster för i Azure Resource Manager i det virtuella nätverket
 
 Om du vill distribuera ett HyTrust-i Azure Resource Manager det virtuella nätverket utför du följande uppgifter. Mer information finns i [HyTrust-dokumentationen](https://docs.hytrust.com/DataControl/Admin_Guide-4.0/Default.htm#OLH-Files/Azure.htm%3FTocPath%3DHyTrust%2520DataControl%2520and%2520Microsoft%2520Azure%7C_____0) .
 
 1. Skapa en Azure-nätverks säkerhets grupp (NSG-HyTrust) med angivna regler för inkommande trafik genom att följa anvisningarna i HyTrust-dokumentationen.
 2. Generera ett SSH-nyckelpar i Azure.
-3. Distribuera den inledande kontrollen av en-nod från avbildningen i Azure Marketplace.  Använd den offentliga nyckeln för det nyckel par som genererades och välj **NSG-HyTrust** som nätverks säkerhets grupp för noden nyckel kontroll.
+3. Distribuera den inledande kontrollen av en-nod från avbildningen i Azure Marketplace. Använd den offentliga nyckeln för det nyckel par som genererades och välj **NSG-HyTrust** som nätverks säkerhets grupp för noden nyckel kontroll.
 4. Konvertera den privata IP-adressen för en kontroll till en statisk IP-adress.
 5. SSH till den virtuella nyckel styrnings datorn med dess offentliga IP-adress och den privata nyckeln för det tidigare nämnda nyckel paret.
-6. När du uppmanas till SSH-gränssnittet `No` väljer du att ange noden som den första noden för att kontrol lera.
-7. Lägg till ytterligare Control-noder genom att upprepa steg 3-5 i den här `Yes` proceduren och välja när du tillfrågas om du vill lägga till i ett befintligt kluster.
+6. När du uppmanas att göra det i SSH-gränssnittet väljer du `No` för att ställa in noden som den inledande noden för att kontrol lera.
+7. Lägg till ytterligare Control-noder genom att upprepa steg 3-5 av den här proceduren och välja `Yes` när du tillfrågas om du vill lägga till i ett befintligt kluster.
 
 ### <a name="hytrust-webui-configure-the-kmip-server"></a>HyTrust WebUI: Konfigurera KMIP-servern
 

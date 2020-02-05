@@ -3,12 +3,12 @@ title: Skapa en Azure Load Balancer regel för ett kluster
 description: Konfigurera en Azure Load Balancer för att öppna portar för ditt Azure Service Fabric-kluster.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351484"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025392"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Öppna portar för ett Service Fabric kluster
 
@@ -60,7 +60,7 @@ Azure CLI-kommandot har några parametrar som beskrivs i följande tabell:
 
 
 >[!NOTE]
->Mer information om hur du skapar en belastningsutjämnare med Azure CLI finns i [skapa en belastningsutjämnare med Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>Mer information om hur du skapar en belastningsutjämnare med Azure CLI finns i [skapa en belastningsutjämnare med Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 Om `New-AzLoadBalancerRuleConfig` kommandot representerar `-FrontendPort` den port som belastningsutjämnaren exponerar för externa anslutningar och `-BackendPort` representerar den port som Service Fabric-appen lyssnar på.
 
 >[!NOTE]
->Mer information om hur du skapar en belastningsutjämnare med PowerShell finns i [skapa en belastningsutjämnare med PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>Mer information om hur du skapar en belastningsutjämnare med PowerShell finns i [skapa en belastningsutjämnare med PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

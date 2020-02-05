@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132277"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021652"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudie: Bygg en Power BI leverantörs instrument panel
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-När du skapar en kontinuerlig övervaknings lösning för patienter kanske du också vill skapa en instrument panel för ett sjukhus för att visualisera patient data. Den här självstudien vägleder dig genom stegen för att skapa en Power BI direkt uppspelnings instrument panel i real tid från din IoT Central Mall för kontinuerlig övervakning av patienter.
+
+När du skapar en kontinuerlig övervaknings lösning för patienter kan du också skapa en instrument panel för ett sjukhus för att visualisera patient data. I den här självstudien får du lära dig hur du skapar en Power BI direkt uppspelnings instrument panel i real tid från din IoT Central Mall för kontinuerlig övervakning av patienter.
 
 >[!div class="mx-imgBorder"]
 >GIF-![instrument panel](media/dashboard-gif-3.gif)
@@ -29,7 +29,7 @@ Den grundläggande arkitekturen följer den här strukturen:
 >[!div class="mx-imgBorder"] 
 >![providern prioritering Dashboard](media/dashboard-architecture.png)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Exportera data från Azure IoT Central till Azure Event Hubs
@@ -51,7 +51,7 @@ I den här självstudiekursen får du lära du dig att:
 * Ett Power BI-tjänst konto. Om du inte redan har en, kan du [skapa ett kostnads fritt utvärderings konto för Power BI-tjänst](https://app.powerbi.com/). Om du inte har använt Power BI tidigare kan det vara bra att gå igenom [Kom igång med Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Konfigurera en kontinuerlig data export till Azure Event Hubs
-Du måste först konfigurera en kontinuerlig data export från din Azure IoT Central-app-mall till Azure Event Hub i din prenumeration. Det kan du göra genom att följa stegen i den här Azure IoT Central själv studie kursen för [att exportera till Event Hubs](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data). Du behöver bara exportera för telemetri för den här självstudien.
+Du måste först konfigurera en kontinuerlig data export från din Azure IoT Central-app-mall till Azure Event Hub i din prenumeration. Det kan du göra genom att följa stegen i den här Azure IoT Central själv studie kursen för [att exportera till Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Du behöver bara exportera för telemetri för den här självstudien.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Skapa en Power BI strömmande data uppsättning
 
@@ -86,12 +86,12 @@ Om du vill ansluta din Logic app till Azure Event Hubs kan du följa instruktion
 I slutet av det här steget bör din Logic Apps designer se ut så här:
 
 >[!div class="mx-imgBorder"] 
->![Logic Apps ansluta till Event Hubs](media/eh-logic-app.png)
+>![Logic Apps ansluter till Event Hubs](media/eh-logic-app.png)
 
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Strömma data till Power BI från din Logic app
 Nästa steg är att parsa de data som kommer från Händelsehubben för att strömma dem till de Power BI data uppsättningar som du har skapat tidigare.
 
-1. Innan du kan göra detta måste du förstå den JSON-nyttolast som skickas från din enhet till Händelsehubben. Du kan göra detta genom att titta på det här [exempel schemat](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) och ändra det så att det matchar ditt schema eller använder [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) för att granska meddelandena. Om du använder de kontinuerliga programmen för patient övervakning ser dina meddelanden ut så här:
+1. Innan du kan göra detta måste du förstå den JSON-nyttolast som skickas från din enhet till Händelsehubben. Du kan göra detta genom att titta på det här [exempel schemat](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) och ändra det så att det matchar ditt schema eller använder [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) för att granska meddelandena. Om du använder de kontinuerliga programmen för patient övervakning ser dina meddelanden ut så här:
 
 **Smart viktigare patch-telemetri**
 
@@ -143,8 +143,8 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 
     |Parameter|Värde|
     |---|---|
-    |Namn|Gränssnitts namn|
-    |Typ|Sträng|
+    |Namn|Namn på gränssnitt|
+    |Typ|String|
 
     Tryck på **Save** (Spara). 
 

@@ -117,7 +117,7 @@
       href: concept-recognizing-text.md
     - name: Identifiering av innehåll som är olämpligt för barn
       href: concept-detecting-adult-content.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: 'Anropa API:et för visuellt innehåll'
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
@@ -135,8 +135,6 @@
         - name: Använda containerinstanser
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Använda en ansluten tjänst för visuellt innehåll
-      href: vs-computer-vision-connected-service.md
     - name: Analysera videor i realtid
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Referens

@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 6fa4521cb50ecfc37004cbf9cff08644dc53f000
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6b89b667855d827acfb7c181da014cd0d0b4bfc4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990663"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022111"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 I självstudien visas lösnings verktyg för att skapa ett Azure IoT Central i Store Analytics-program. Exempel programmet är för ett detalj handels lager. Det är en lösning på det vanliga företaget som behöver övervaka och anpassa sig till användning och miljö förhållanden.
 
@@ -64,7 +64,7 @@ Så här skapar du ett nytt Azure IoT Central-program:
 
 1. Välj **åter försäljning**.  På sidan detalj handel visas flera mallar för åter försäljning.
 
-Så här skapar du ett nytt program för BA-utcheckning i butiken som använder för hands versions funktioner:  
+Skapa ett nytt program för BA-utcheckning i butiken:  
 
 1. Välj programmallen **in-Store Analytics-check** . Den här mallen innehåller enhetsspecifika för alla enheter som används i självstudien utom RuuviTag-sensorer. Mallen tillhandahåller också en instrument panel för instrument panelen för övervakning av utcheckning och miljö förhållanden och enhets status. 
 
@@ -75,7 +75,7 @@ Så här skapar du ett nytt program för BA-utcheckning i butiken som använder 
 
 1. Om du har en Azure-prenumeration anger du din *katalog, din Azure-prenumeration och region*. Om du inte har någon prenumeration kan du aktivera den **kostnads fria utvärderings versionen på 7 dagar** och slutföra den kontakt information som krävs.  
 
-    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../preview/quick-deploy-iot-central.md).
+    Mer information om kataloger och prenumerationer finns i [snabbstarten om att skapa ett program](../core/quick-deploy-iot-central.md).
 
 1. Välj **Skapa**.
 
@@ -84,6 +84,7 @@ Så här skapar du ett nytt program för BA-utcheckning i butiken som använder 
     ![Azure IoT Central skapa program fakturerings information](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
 
 ## <a name="customize-application-settings"></a>Anpassa program inställningar
+
 Som verktyg kan du ändra flera inställningar för att anpassa användar upplevelsen i ditt program. I det här avsnittet väljer du ett fördefinierat program tema. Du kan också lära dig att skapa ett anpassat tema och uppdatera program avbildningen. Med ett anpassat tema kan du ange program webbläsarens färger, webb läsar ikonen och program logo typen som visas i huvud rubriken.
 
 Så här väljer du ett fördefinierat program tema:
@@ -162,7 +163,7 @@ Sedan kan du anpassa dina enhets mallar genom att lägga till moln egenskaper. M
 
 Börja med att anpassa mallar för enheter genom att skapa anpassade vyer. Vyer ger operatörer möjlighet att visualisera telemetri och metadata för dina enheter, till exempel enhets mått och hälso tillstånd.
 
-Här använder du de första två metoderna för att anpassa enhets mal len för dina RuuviTag-sensorer. Information om hur du skapar vyer för sensorer finns i snabb starten för att [lägga till en simulerad enhet i IoT Central programmet](../preview/quick-create-pnp-device.md) .
+Här använder du de första två metoderna för att anpassa enhets mal len för dina RuuviTag-sensorer. Information om hur du skapar vyer för sensorer finns i snabb starten för att [lägga till en simulerad enhet i IoT Central programmet](../core/quick-create-pnp-device.md) .
 
 Så här anpassar du de inbyggda gränssnitten för enhets mal len RuuviTag:
 
@@ -202,7 +203,7 @@ Ange följande värden för att skapa en anpassad egenskap som lagrar platsen f�
 
 1. Ange värde *platsen* för **visnings namnet**. Värdet kopieras automatiskt till fältet **namn** , vilket är ett eget namn för egenskapen. Du kan använda det kopierade värdet eller ändra det.
 
-1. Välj *sträng* i list rutan **schema** . Med en sträng typ kan du associera en plats namn sträng med vilken enhet som helst baserat på mallen. Du kan till exempel associera ett utrymme i en butik med varje enhet. Om du vill kan du ange en **semantisk typ** för din egenskap till *plats*, och detta ställer automatiskt in **schemat** till en *punkt*. På så sätt kan du koppla GPS-koordinater till en enhet. 
+1. Välj *sträng* i list rutan **schema** . Med en sträng typ kan du associera en plats namn sträng med vilken enhet som helst baserat på mallen. Du kan till exempel associera ett utrymme i en butik med varje enhet. Om du vill kan du ange en **semantisk typ** för din egenskap till *plats*, och detta ställer automatiskt in **schemat** till en *punkt*. Det gör att du kan koppla GPS-koordinater till en enhet. 
 
 1. Ange den **minsta längden** till *2*. 
 
@@ -227,10 +228,10 @@ I den här självstudien använder du följande uppsättning verkliga och simule
 > [!NOTE]
 > Om du inte har några riktiga enheter kan du fortfarande slutföra den här självstudien genom att skapa simulerade RuuviTag-sensorer. Följande anvisningar innehåller steg för att skapa en simulerad RuuviTag. Du behöver inte skapa en simulerad Gateway.
 
-Slutför stegen i följande två artiklar för att ansluta en riktig Rigado-gateway och RuuviTag-sensorer. När du är färdig kan du gå tillbaka till den här självstudien. Eftersom du redan har skapat enhetsspecifika mallar i den här självstudien behöver du inte skapa dem igen i följande riktnings uppsättningar.
+Slutför stegen i följande två artiklar för att ansluta en riktig Rigado-gateway och RuuviTag-sensorer. När du är klar kan du gå tillbaka till den här självstudien. Eftersom du redan har skapat enhetsspecifika mallar i den här självstudien behöver du inte skapa dem igen i följande riktnings uppsättningar.
 
-- Information om hur du ansluter en Rigado-Gateway finns i [ansluta en Rigado kaskad 500 till ditt Azure IoT Central-program](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
-- Information om hur du ansluter RuuviTag-sensorer finns i [ansluta en RuuviTag-sensor till ditt Azure IoT Central-program](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Du kan också använda de här anvisningarna för att skapa två simulerade sensorer, om det behövs.
+- Information om hur du ansluter en Rigado-Gateway finns i [ansluta en Rigado kaskad 500 till ditt Azure IoT Central-program](../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json).
+- Information om hur du ansluter RuuviTag-sensorer finns i [ansluta en RuuviTag-sensor till ditt Azure IoT Central-program](../core/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json). Du kan också använda de här anvisningarna för att skapa två simulerade sensorer, om det behövs.
 
 ## <a name="add-rules-and-actions"></a>Lägg till regler och åtgärder
 Som en del av att använda sensorer i ditt Azure IoT Central-program för att övervaka villkor, kan du skapa regler för att köra åtgärder när vissa villkor är uppfyllda. En regel är kopplad till en enhets mall och en eller flera enheter och innehåller villkor som måste uppfyllas utifrån enhetens telemetri eller händelser. En regel har också en eller flera associerade åtgärder. Åtgärderna kan omfatta att skicka e-postmeddelanden eller utlösa en webhook-åtgärd för att skicka data till andra tjänster. Program mal len **BA-utcheckning i butiken** innehåller några fördefinierade regler för enheterna i programmet.
@@ -249,7 +250,7 @@ Så här skapar du en regel:
 
 1. Välj enhets mal len RuuviTag i **omfång**. Regeln som du definierar gäller för alla sensorer som är baserade på den mallen. Du kan också skapa ett filter som endast tillämpar regeln på en definierad del av sensorerna. 
 
-1. Välj `Relative humidity` som **telemetri**. Detta är enhets funktionen som du har anpassat i föregående steg.
+1. Välj `Relative humidity` som **telemetri**. Det är enhets funktionen som du har anpassat i föregående steg.
 
 1. Välj `Is greater than` som **operator**. 
 

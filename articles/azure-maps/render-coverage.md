@@ -1,6 +1,6 @@
 ---
 title: Rendera täckning | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om regioner med Microsoft Azure Maps rendera täckning tillsammans med deras nivå av återgivna uppgifter.
+description: I den här artikeln lär du dig om regioner med Microsoft Azure Maps återger täckning tillsammans med deras nivå av återgivna uppgifter.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910674"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025460"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
 
-Azure Maps använder både raster paneler och vektor paneler för att skapa kartor. Med den lägsta upplösningen får hela världen en enda panel. Vid den högsta upplösningen representerar en enda panel 38 kvadratmeter. När du zoomar in på en karta kan du därför se mer information om kontinenter, regioner, städer och enskilda gator. Mer information finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
+Azure Maps använder både raster paneler och vektor paneler för att skapa kartor. Med den lägsta lösningen passar hela världen i en enda panel. Med den högsta upplösningen representerar en enda panel 38 kvadratmeter. När du zoomar in visas mer information om kontinenter, regioner, städer och enskilda gator. Mer information om paneler finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
 
-Maps har dock inte samma nivå av information och exakthet för alla regioner. Följande tabeller innehåller information om vilken nivå av återgiven information som du kan förväntar dig från varje region.
+Maps har dock inte samma nivå av information och exakthet för alla regioner. Följande tabeller beskriver den informations nivå som du kan återge för varje region.
 
-## <a name="legend"></a>Förklaring
+## <a name="legend"></a>Mönstret
 
 | Symbol | Betydelse |
 |--------|---------|
@@ -164,7 +164,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Brunei                    | ✓ | ✓ |
 | Kambodja                  |   | Ø |
 | Kina                     |   | Ø |
-| Kokosöarna   |   | Ø |
+| Kokos öarna   |   | Ø |
 | Demokratiska folkrepubliken Korea |   | Ø |
 | Hongkong SAR             | ✓ | ✓ |
 | Indien                     | Ø | ✓ | 
@@ -189,7 +189,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Pakistan                  |   | Ø |
 | Filippinerna               | ✓ | ✓ |
 | Qatar                     | ✓ | ✓ |
-| Sydkorea         | ✓ | Ø |
+| Republiken Korea         | ✓ | Ø |
 | Saudiarabien              | ✓ | ✓ |
 | Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien           |   | ✓ |
 | Singapore                 | ✓ | ✓|
@@ -217,7 +217,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Franska Polynesien          |   | Ø |
 | Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
-| Marshallöarna          |   | Ø |
+| Marshall öarna          |   | Ø |
 | Mikronesien                |   | Ø |
 | Nauru                     |   | Ø |
 | Nya Kaledonien             |   | Ø |
@@ -261,7 +261,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Tyskland                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grekland                    | ✓ | ✓ |
-| Guernsey                  | ✓ | ✓ |
+| Guernseypund                  | ✓ | ✓ |
 | Ungern                   | ✓ | ✓ |
 | Island                   | ✓ | ✓ |
 | Irland                   | ✓ | ✓ |

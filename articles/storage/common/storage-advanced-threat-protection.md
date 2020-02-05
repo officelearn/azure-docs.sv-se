@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 8efbf2107104f31bcfc5e4e5669dbed1835a034b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f9889f58ead8d1dd35ceb50fa100b2b466cbe7cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457406"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022400"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera Avancerat skydd för Azure Storage
 
@@ -29,7 +29,7 @@ Avancerat skydd för Azure Storage matar in diagnostikloggar för Läs-, skriv-o
 
 ## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd
 
-Avancerat skydd är aktiverat för ditt lagrings konto som standard. Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
+Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avsnitt.
 
 ### <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
@@ -79,7 +79,7 @@ Använd en Azure Policy för att aktivera avancerat skydd mellan lagrings konton
 
     ![Sidan princip definitioner](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-apitabrest-api"></a>[REST-API](#tab/rest-api)
+### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
 
 Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett angivet lagrings konto.
 
@@ -101,7 +101,7 @@ Använd följande PowerShell-cmdletar:
 När avvikelser i lagrings aktiviteter inträffar får du ett e-postmeddelande med information om den misstänkta säkerhets händelsen. Information om händelsen är:
 
 * Avvikelsens karaktär
-* Lagringskontots namn
+* Lagrings kontots namn
 * Händelse tiden
 * Lagrings typ
 * Möjliga orsaker

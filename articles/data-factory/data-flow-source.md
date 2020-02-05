@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440225"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023522"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Käll omvandling i data flöde för mappning 
 
@@ -44,6 +44,8 @@ När du har lagt till en källa konfigurerar du via fliken **käll inställninga
 
 ![Fliken käll inställningar](media/data-flow/source1.png "Fliken käll inställningar")
 
+**Testa anslutning:** Testa om data flödet Spark-tjänsten kan ansluta till den länkade tjänsten som används i din käll data uppsättning. Fel söknings läge måste vara aktiverat för att den här funktionen ska vara aktive rad.
+
 **Schema avvikelse:** [schema avvikelse](concepts-data-flow-schema-drift.md) är data fabriks möjlighet att hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar.
 
 * Markera kryss rutan **Tillåt schema avvikelse** om käll kolumnerna ska ändras ofta. Med den här inställningen kan alla inkommande källfält flöda genom omvandlingarna till mottagaren.
@@ -69,13 +71,17 @@ Som scheman i data uppsättningar definierar projektionen i en källa data kolum
 
 ![Inställningar på fliken projektion](media/data-flow/source3.png "Projektion")
 
-Om text filen inte har något definierat schema väljer du **identifiera data typ** så att Data Factory kan sampla och härleda data typerna. Välj **definiera standardformat** för att automatiskt identifiera standard data formaten. 
+Om text filen inte har något definierat schema väljer du **identifiera data typ** så att Data Factory kan sampla och härleda data typerna. Välj **definiera standardformat** för att automatiskt identifiera standard data formaten.
+
+**Återställ schema** återställer projektionen till det som definieras i den refererade data uppsättningen.
 
 Du kan ändra kolumn data typerna i en nedströms härledd kolumn-omvandling. Använd en SELECT-omvandling för att ändra kolumn namnen.
 
 ### <a name="import-schema"></a>Importera schema
 
-Data uppsättningar som Avro och CosmosDB som stöder komplexa data strukturer kräver inte att schema definitioner finns i data uppsättningen. Därför kan du klicka på knappen **Importera schema** på fliken **projektion** för dessa typer av källor.
+Knappen **Importera schema** på fliken **projektion** gör att du kan använda ett aktivt fel söknings kluster för att skapa en schema projektion. När du importerar schemat i varje källtyp åsidosätts den projektion som definierats i data uppsättningen. Dataset-objektet kommer inte att ändras.
+
+Detta är användbart i data uppsättningar som Avro och CosmosDB som stöder komplexa data strukturer kräver inte att schema definitioner finns i data uppsättningen.
 
 ## <a name="optimize-the-source-transformation"></a>Optimera käll omvandlingen
 

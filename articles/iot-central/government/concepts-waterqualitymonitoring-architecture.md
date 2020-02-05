@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: cffa571028dac192e8b8806ee9ec932cf89eb1fe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0c4b13c56a68205195bd5ad4b696d9e01786a8dd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498789"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016552"
 ---
 # <a name="water-quality-monitoring-reference-architecture"></a>Referensarkitektur för övervakning av vattenkvalitet 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Lösningar för övervakning av vatten kvalitet kan byggas med **Azure IoT Central app-mallen** som ett kick start programmet IoT-program. Den här artikeln innehåller en översikt över referens arkitektur på hög nivå om hur du skapar en lösning från slut punkt till slut punkt. 
 
@@ -33,7 +33,7 @@ Koncept:
 Låt oss ta en titt på viktiga komponenter som vanligt vis spelar en del av en lösning för att övervaka vatten kvalitet.
 
 ## <a name="devices-and-connectivity"></a>Enheter och anslutningar 
-I det här avsnittet kommer vi att referera till enheter som används för övervakning av vatten kvalitet eller vattenkonsumtion, vanligt vis som smarta vatten enheter. Smarta vatten enheter kan vara flödes mätare, vatten kvalitet övervakare, smarta ventiler, läckor osv.
+I det här avsnittet kommer vi att referera till enheter som används för övervakning av vatten kvalitet eller vattenkonsumtion, vanligt vis som smarta vatten enheter. Smarta vatten enheter kan vara Flow-mätare, vatten kvalitets övervakare, smarta ventiler, läckage för identifiering och så vidare.
 
 Enheter som används i smarta vatten lösningar är vanligt vis anslutna via låg Energis LPWAN (Wide Area Network) via en nätverks operatör från tredje part. För dessa typer av enheter kan du utnyttja [azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) för att skicka enhets data till IoT-programmet i Azure IoT Central. Du kan också ha enhets-gatewayer som är IP-kompatibla och kan ansluta direkt till IoT Central.
 
@@ -44,7 +44,7 @@ När du ansluter dina Smart vatten enheter till IoT Central får du enhets komma
 ## <a name="extensibility-and-integrations"></a>Utökning och integrering 
 Du kan utöka IoT-programmet i IoT Central och om du vill:
 * transformera och integrera IoT-data för avancerad analys, till exempel utbildning av maskin inlärnings modeller, genom kontinuerlig data export från IoT Central program
-* Automatisera arbets flöden i andra system genom att utlösa åtgärder via Microsoft Flow eller Webhooks från IoT Central program
+* Automatisera arbets flöden i andra system genom att utlösa åtgärder med hjälp av Microsoft Flow eller Webhooks från IoT Central program
 * program mässigt åtkomst till ditt IoT-program i IoT Central via IoT Central-API: er
 
 ## <a name="business-applications"></a>Affärsappar 

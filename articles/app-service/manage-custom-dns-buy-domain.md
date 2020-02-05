@@ -5,22 +5,22 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 6bc6f1ca29343e027730cbbd99d210f911fcb492
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: afb40d0f3681bc02351e43166fccfaafe7741128
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967304"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023420"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domän namn för Azure App Service
 
 App Service domäner är toppnivå domäner som hanteras direkt i Azure. De gör det enkelt att hantera anpassade domäner för [Azure App Service](overview.md). Den här självstudien visar hur du köper en App Service domän och tilldelar DNS-namn till Azure App Service.
 
-Information om virtuella Azure-datorer eller Azure Storage finns i [tilldela App Service domän till Azure VM eller Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
+Information om virtuella Azure-datorer eller Azure Storage finns i [tilldela App Service domän till Azure VM eller Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
 * [Ta bort utgifts gränsen för din prenumeration](../cost-management-billing/manage/spending-limit.md#remove). Du kan inte köpa App Service domäner med kostnads fria prenumerations krediter.
@@ -108,7 +108,7 @@ Välj sedan önskade alternativ för din domän. I följande tabell finns förkl
 
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
-|Sekretesskydd | Aktivera | Anmäl dig till "Sekretess skydd", som ingår i inköps priset _kostnads fritt_. Vissa domäner på den översta nivån hanteras av registratorer som inte har stöd för sekretess skydd och de visas på sidan för skydds **skydd** . |
+|Sekretess skydd | Aktivera | Anmäl dig till "Sekretess skydd", som ingår i inköps priset _kostnads fritt_. Vissa domäner på den översta nivån hanteras av registratorer som inte har stöd för sekretess skydd och de visas på sidan för skydds **skydd** . |
 | Tilldela standard värdnamn | **www** och **\@** | Välj önskade bindningar för värdnamn, om så önskas. När du har slutfört åtgärden för domänen kan din app nås på de valda värd namnen. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)kan du inte se alternativet för att tilldela rot domänen (@), eftersom Traffic Manager inte stöder poster. Du kan ändra värdnamnnas tilldelningar när domänen har köpts. |
 
 ### <a name="accept-terms-and-purchase"></a>Godkänn villkor och Köp

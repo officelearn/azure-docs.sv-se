@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293461"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016042"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -85,7 +85,7 @@ Så här skapar du en Windows Server 2019 datacenter-VM i Azure med Azure AD-inl
 1. Logga in på [Azure Portal](https://portal.azure.com)med ett konto som har åtkomst till att skapa virtuella datorer och välj **+ skapa en resurs**.
 1. Skriv **Windows Server** i Sök i Sök fältet i Marketplace.
    1. Klicka på **Windows Server** och välj **Windows Server 2019 Data Center** i list rutan Välj en program varu plan.
-   1. Klicka på **Skapa**.
+   1. Klicka på **skapa**.
 1. På fliken "hantering" aktiverar du alternativet att **Logga in med AAD-autentiseringsuppgifter (för hands version)** under avsnittet Azure Active Directory från till **på**.
 1. Se till att **systemtilldelad hanterad identitet** under avsnittet identitet är inställt **på on**. Den här åtgärden ska ske automatiskt när du aktiverar inloggning med autentiseringsuppgifter för Azure AD.
 1. Gå igenom resten av upplevelsen med att skapa en virtuell dator. Under för hands versionen måste du skapa ett administratörs användar namn och lösen ord för den virtuella datorn.
@@ -239,9 +239,9 @@ AADLoginForWindows-tillägget måste kunna installeras för att den virtuella da
 
    | Kommando som ska köras | Förväntad utdata |
    | --- | --- |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Korrigera information om den virtuella Azure-datorn |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | Giltigt klient-ID som är associerat med Azure-prenumerationen |
-   | klammer-H metadata: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Korrigera information om den virtuella Azure-datorn |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Giltigt klient-ID som är associerat med Azure-prenumerationen |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Giltig åtkomsttoken utfärdat av Azure Active Directory för den hanterade identitet som har tilldelats den här virtuella datorn |
 
    > [!NOTE]
    > Åtkomsttoken kan avkodas med hjälp av ett verktyg som [http://calebb.net/](http://calebb.net/). Verifiera att "AppID" i åtkomsttoken matchar den hanterade identitet som tilldelats den virtuella datorn.

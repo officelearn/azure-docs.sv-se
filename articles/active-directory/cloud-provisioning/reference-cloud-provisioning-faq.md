@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3c4a943f24ba1f987aa1daf513b9e05ada65a7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310007"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020768"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
 
@@ -31,6 +31,10 @@ Moln etablering är schemalagt att köras var 2: e minut. Var 2: e minut, kommer
 **F: se synkroniseringsfel vid synkronisering av lösen ord vid första körningen. Varför?**
 
 Detta är normalt. Felen beror på att användarobjektet inte finns i Azure AD. När användaren har allokerats till Azure AD bör hash-värden för lösen ord tillhandahållas i den efterföljande körningen. Vänta på några körningar och bekräfta att det inte längre finns några fel i lösen ordets hash-synkronisering.
+
+**F: Vad händer om Active Directory-instansen har attribut som inte stöds av Cloud provisoning (till exempel katalog tillägg)?**
+
+Moln etablering kommer att köras och etablera de attribut som stöds. Attribut som inte stöds är inte etablerade i Azure AD. Granska katalog tilläggen i Active Directory och se till att du inte behöver dessa attribut för att flöda till Azure AD. Om det krävs ett eller flera attribut kan du överväga att använda Azure AD Connect synkronisera eller flytta nödvändig information till ett av de attribut som stöds (t. ex. tilläggets attribut 1-15).
 
 **F: Vad är skillnaden mellan Azure AD Connect synkronisering och moln etablering?**
 

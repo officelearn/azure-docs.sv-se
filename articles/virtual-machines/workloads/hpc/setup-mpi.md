@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Message Passing Interface för HPC - Azure-datorer | Microsoft Docs
-description: Lär dig hur du ställer in MPI för HPC på Azure.
+title: Konfigurera gränssnitt för meddelande överföring för HPC-Azure-Virtual Machines | Microsoft Docs
+description: Lär dig hur du konfigurerar MPI för HPC i Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797516"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023998"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Konfigurera Message Passing Interface för HPC
 
-Arbetsbelastningar för Message Passing Interface (MPI) är en betydande del av traditionella HPC-arbetsbelastningar. SR-IOV aktiverade storlekar för Virtuella datorer på Azure Tillåt nästan vilken smak av MPI som ska användas. 
+MPI-arbetsbelastningar (Message Passing Interface) är en viktig del av traditionella HPC-arbetsbelastningar. SR-IOV-aktiverade VM-storlekar på Azure tillåter nästan vilken variant av MPI som ska användas. 
 
-Kör MPI-jobb på virtuella datorer ska ställas in för partitionsnycklar (p-nycklar) mellan en klient. Följ stegen i den [identifiera partitionsnycklar](#discover-partition-keys) information om hur du bestämmer p-key-värden.
+Att köra MPI-jobb på virtuella datorer kräver att du konfigurerar partitionsnyckel (p-Keys) över en klient. Följ stegen i avsnittet [identifiera partitionerings nycklar](#discover-partition-keys) om du vill ha mer information om att fastställa p-nyckel värden.
 
 ## <a name="ucx"></a>UCX
 
-[UCX](https://github.com/openucx/ucx) ger bästa prestanda på IB och fungerar med MPICH och OpenMPI.
+[UCX](https://github.com/openucx/ucx) erbjuder bästa prestanda i IB och fungerar med mpich och OpenMPI.
 
 ```bash
 wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
@@ -45,7 +45,7 @@ Installera UCX enligt beskrivningen ovan.
 sudo yum install –y openmpi
 ```
 
-Skapa OpenMPI.
+Bygg OpenMPI.
 
 ```bash
 wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.gz
@@ -61,13 +61,13 @@ Kör OpenMPI.
 <ompi-install-path>/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
 ```
 
-Kontrollera din partitionsnyckel som nämns ovan.
+Kontrol lera partitionsnyckel som nämnts ovan.
 
 ## <a name="mpich"></a>MPICH
 
 Installera UCX enligt beskrivningen ovan.
 
-Skapa MPICH.
+Bygg MPICH.
 
 ```bash
 wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
@@ -83,11 +83,11 @@ Kör MPICH.
 <mpich-install-path>/bin/mpiexec -n 2 -hostfile ~/hostfile -env UCX_IB_PKEY=0x0003 -bind-to hwthread ./osu_latency
 ```
 
-Kontrollera din partitionsnyckel som nämns ovan.
+Kontrol lera partitionsnyckel som nämnts ovan.
 
 ## <a name="mvapich2"></a>MVAPICH2
 
-Skapa MVAPICH2.
+Bygg MVAPICH2.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.tar.gz
@@ -103,9 +103,9 @@ Kör MVAPICH2.
 <mvapich2-install-path>/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=48 ./osu_latency
 ```
 
-## <a name="platform-mpi-community-edition"></a>Platform MPI Community Edition
+## <a name="platform-mpi-community-edition"></a>Plattform MPI Community Edition
 
-Installera nödvändiga paket för MPI-plattformen.
+Installera nödvändiga paket för plattformen MPI.
 
 ```bash
 sudo yum install libstdc++.i686
@@ -114,19 +114,19 @@ Download platform MPI at https://www.ibm.com/developerworks/downloads/im/mpi/ind
 sudo ./platform_mpi-09.01.04.03r-ce.bin
 ```
 
-Följ installationsprocessen.
+Följ installations processen.
 
-## <a name="intel-mpi"></a>Intel MPI
+## <a name="intel-mpi"></a>Intel-MPI
 
-[Ladda ned Intel MPI](https://software.intel.com/mpi-library/choose-download).
+[Hämta Intel-MPI](https://software.intel.com/mpi-library/choose-download).
 
-Ändra miljövariabeln I_MPI_FABRICS beroende på vilken version. Intel MPI 2018, använda `I_MPI_FABRICS=shm:ofa` och 2019, använda `I_MPI_FABRICS=shm:ofi`.
+Ändra I_MPI_FABRICS-miljövariabeln beroende på version. För Intel MPI 2018 använder du `I_MPI_FABRICS=shm:ofa` och för 2019 använder du `I_MPI_FABRICS=shm:ofi`.
 
-Processen fästa fungerar som 15, 30 och 60 PPN som standard.
+Processen att fästa fungerar korrekt för 15, 30 och 60 PPN som standard.
 
-## <a name="osu-mpi-benchmarks"></a>OSU MPI prestandamått
+## <a name="osu-mpi-benchmarks"></a>OSU MPI-prestandatest
 
-[Ladda ned OSU MPI prestandamått](http://mvapich.cse.ohio-state.edu/benchmarks/) och untar.
+[Ladda ned Osu MPI-benchmarks](http://mvapich.cse.ohio-state.edu/benchmarks/) och untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -134,26 +134,26 @@ tar –xvf osu-micro-benchmarks-5.5.tar.gz
 cd osu-micro-benchmarks-5.5
 ```
 
-Skapa prestandamått som använder ett visst MPI-bibliotek:
+Bygg benchmarks med ett visst MPI-bibliotek:
 
 ```bash
 CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure 
 make
 ```
 
-MPI prestandamått är `mpi/` mapp.
+MPI-prestandatest finns under `mpi/` mapp.
 
 
-## <a name="discover-partition-keys"></a>Identifiera partitionsnycklar
+## <a name="discover-partition-keys"></a>Identifiera partitionerings nycklar
 
-Upptäck partitionsnycklar (p-nycklar) för att kommunicera med andra virtuella datorer i samma klient (Tillgänglighetsuppsättning eller VM-Skalningsuppsättning).
+Identifiera partitionsalternativ (p-Keys) för att kommunicera med andra virtuella datorer inom samma klient organisation (tillgänglighets uppsättning eller VM Scale set).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 ```
 
-Det största värdet för två är klientnyckeln som ska användas med MPI. Exempel: Om följande är p-nycklar bör 0x800b användas tillsammans med MPI.
+Den större av de två är den klient nyckel som ska användas med MPI. Exempel: om följande är p-Keys ska 0x800b användas med MPI.
 
 ```bash
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -162,14 +162,14 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-Använd partition än standard (0x7fff) partitionsnyckel. UCX kräver MSB av p-nyckel som ska tas bort. Till exempel UCX_IB_PKEY som 0x000b för 0x800b.
+Använd en annan partition än standard-0x7FFF (partition Key). UCX kräver att MSB för p-nyckeln har rensats. Ange till exempel UCX_IB_PKEY som 0x000B för 0x800b.
 
-Observera också att så länge klienten (AVSet eller VMSS) finns PKEYs förblir desamma. Detta gäller även när noderna är har lagts till/tas bort. Nya klienter få olika PKEYs.
+Observera också att PKEYs förblir samma så länge klient organisationen (AVSet eller VMSS) finns. Detta gäller även när noder läggs till/tas bort. Nya klienter får olika PKEYs.
 
 
-## <a name="set-up-user-limits-for-mpi"></a>Konfigurera användarbegränsningar för MPI
+## <a name="set-up-user-limits-for-mpi"></a>Konfigurera användar begränsningar för MPI
 
-Ställ in användarbegränsningar för MPI.
+Konfigurera användar begränsningar för MPI.
 
 ```bash
 cat << EOF | sudo tee -a /etc/security/limits.conf
@@ -183,7 +183,7 @@ EOF
 
 ## <a name="set-up-ssh-keys-for-mpi"></a>Konfigurera SSH-nycklar för MPI
 
-Konfigurera SSH-nycklar för MPI-typer som kräver detta.
+Konfigurera SSH-nycklar för MPI-typer som kräver det.
 
 ```bash
 ssh-keygen -f /home/$USER/.ssh/id_rsa -t rsa -N ''
@@ -192,11 +192,12 @@ Host *
     StrictHostKeyChecking no
 EOF
 cat /home/$USER/.ssh/id_rsa.pub >> /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
 chmod 644 /home/$USER/.ssh/config
 ```
 
-Syntaxen ovan förutsätter en delad arbetskatalog, annat .ssh-katalogen måste kopieras till varje nod.
+Ovanstående syntax förutsätter en delad arbets katalog, annars måste du kopiera SSH-katalogen till varje nod.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) på Azure.
+Lär dig mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) i Azure.

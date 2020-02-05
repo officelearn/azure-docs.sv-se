@@ -4,24 +4,22 @@ description: Kör flera åtgärder från en enda IoT Central regel och skapa åt
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: 1992b8925d5d9ba59c36452187f5b6eb510e72dc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7c60728ab501d03e9c40928e730225575e76efbc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990818"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023828"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder för att köra från en eller flera regler
 
 *Den här artikeln gäller för byggare och administratörer.*
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
-
-I Azure IoT Central skapar du regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på telemetri eller händelser på enheten. Du kan till exempel meddela en operatör när temperaturen i en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../../azure-monitor/overview.md) *Åtgärds grupper* för att koppla flera åtgärder till en IoT Central-regel. Du kan koppla en åtgärds grupp till flera regler. En [Åtgärds grupp](../../azure-monitor/platform/action-groups.md) är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration.
+I Azure IoT Central skapar du regler för att köra åtgärder när ett villkor uppfylls. Regler baseras på telemetri eller händelser på enheten. Du kan till exempel meddela en operatör när temperaturen på en enhet överskrider ett tröskelvärde. Den här artikeln beskriver hur du använder [Azure Monitor](../../azure-monitor/overview.md) *Åtgärds grupper* för att koppla flera åtgärder till en IoT Central-regel. Du kan koppla en åtgärds grupp till flera regler. En [Åtgärds grupp](../../azure-monitor/platform/action-groups.md) är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -45,7 +43,7 @@ Om du vill använda en åtgärds grupp i en IoT Central regel måste åtgärds g
 
 ## <a name="use-an-action-group"></a>Använda en åtgärds grupp
 
-Om du vill använda en åtgärds grupp i ditt IoT Central program måste du först skapa en telemetri eller händelse regel. När du lägger till en åtgärd i regeln väljer du **Azure Monitor åtgärds grupper**:
+Om du vill använda en åtgärds grupp i ditt IoT Central program skapar du först en regel. När du lägger till en åtgärd i regeln väljer du **Azure Monitor åtgärds grupper**:
 
 ![Välj åtgärd](media/howto-use-action-groups/chooseaction.png)
 
@@ -64,52 +62,11 @@ I följande tabell sammanfattas informationen som skickas till de åtgärds type
 | E-post       | Standard IoT Central e-postmall |
 | SMS         | Azure IoT Central-avisering: $ {applicationName}-"$ {ruleName}" utlöses på "$ {enhets namn}" på $ {triggerDate} $ {triggerTime} |
 | Röst       | Azure I. O. T Central avisering: regel "$ {ruleName}" utlöst på enheten "$ {enhets namn}" vid $ {triggerDate} $ {triggerTime}, i programmet $ {applicationName} |
-| Webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[Normal webhook-nyttolast](#payload)}} |
+| Webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[Normal webhook-nyttolast](howto-create-webhooks.md#payload)}} |
 
 Följande text är ett exempel på ett SMS-meddelande från en åtgärds grupp:
 
-`iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
-
-<a id="payload"></a>Följande JSON visar ett exempel på en nytto last för webhook-åtgärd:
-
-```json
-{
-  "schemaId":"AzureIoTCentralRuleWebhook",
-  "data":{
-    "id":"97ae27c4-17c5-4e13-9248-65c7a2c57a1b",
-    "timestamp":"2019-03-20T10:53:17.059Z",
-    "rule":{
-      "id":"031b660e-528d-47bb-b33d-f1158d7e31bf",
-      "name":"Low pressure alert",
-      "enabled":true,
-      "deviceTemplate":{
-        "id":"c318d580-39fc-4aca-b995-843719821049",
-        "version":"1.0.0"
-      }
-    },
-    "device":{
-      "id":"2383d8ba-c98c-403a-b4d5-8963859643bb",
-      "name":"Refrigerator 2",
-      "simulated":true,
-      "deviceId":"2383d8ba-c98c-403a-b4d5-8963859643bb",
-      "deviceTemplate":{
-        "id":"c318d580-39fc-4aca-b995-843719821049",
-        "version":"1.0.0"
-      },
-      "measurements":{
-        "telemetry":{
-           "pressure":343.269190673549
-        }
-      }
-    },
-    "application":{
-      "id":"8e70742b-0d5c-4a1d-84f1-4dfd42e61c7b",
-      "name":"Sample Contoso",
-      "subdomain":"sample-contoso"
-    }
-  }
-}
-```
+`iotcentral: Azure IoT Central alert: Contoso - "Low pressure alert" triggered on "Motion sensor 2" at March 20, 2019 10:12 UTC`
 
 ## <a name="next-steps"></a>Nästa steg
 

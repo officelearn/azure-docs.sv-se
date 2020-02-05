@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921921"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024661"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -26,7 +26,7 @@ Både förbruknings-och Premium planer lägger automatiskt till beräknings kraf
 
 Premium-prenumerationen innehåller ytterligare funktioner, till exempel Premium Compute-instanser, möjligheten att hålla instanserna varmt under obestämd tid och VNet-anslutning.
 
-Med App Service plan kan du dra nytta av dedikerad infrastruktur som du hanterar. Din Function-app skalar inte baserat på händelser, vilket innebär att aldrig skalas ned till noll. (Kräver att [Always on](#always-on) är aktiverat.)
+Med App Service plan kan du dra nytta av dedikerad infrastruktur som du hanterar. Din Function-app skalar inte baserat på händelser, vilket innebär att aldrig skalas in till noll. (Kräver att [Always on](#always-on) är aktiverat.)
 
 ## <a name="hosting-plan-support"></a>Support Plans support
 
@@ -44,9 +44,9 @@ Följande tabell visar den aktuella support nivån för de tre värd planerna, n
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
-När du använder förbruknings planen läggs instanser av Azure Functions-värden dynamiskt till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras bara för beräkningsresurser när dina funktioner körs. I en förbrukningsplan får en funktions körningstid timeout efter en konfigurerbar tidsperiod.
+När du använder förbruknings planen läggs instanser av Azure Functions-värden dynamiskt till och tas bort baserat på antalet inkommande händelser. Den här server lös planen skalas automatiskt och du debiteras för beräknings resurser endast när funktionerna körs. I en förbruknings plan är en funktions körning tids gräns efter en konfigurerbar tids period.
 
-Fakturering baseras på antalet körningar, körningstid och använt minne. Fakturering slås samman över alla funktioner inom en funktionsapp. Mer information finns på sidan med [Azure Functions priser](https://azure.microsoft.com/pricing/details/functions/).
+Faktureringen baseras på antalet körningar, körnings tid och använt minne. Faktureringen sammanställs för alla funktioner i en Function-app. Mer information finns på sidan med [Azure Functions priser](https://azure.microsoft.com/pricing/details/functions/).
 
 Förbruknings planen är standard värd planen och ger följande fördelar:
 
@@ -152,7 +152,7 @@ Skalnings enheten för Azure Functions är Function-appen. När funktions progra
 
 Skalning kan variera beroende på ett antal faktorer och skala på olika sätt beroende på vilken utlösare och vilket språk som valts. Det finns några erna för skalnings beteenden som kan vara medvetna om:
 
-* En enskild funktionsapp skalar bara upp till högst 200 instanser. En enskild instans kan bearbeta mer än ett meddelande eller en begäran i taget, så det finns ingen angiven gräns för antalet samtidiga körningar.
+* En enda Function-app skalar bara ut till högst 200 instanser. En enskild instans kan bearbeta mer än ett meddelande eller en begäran i taget, så det finns ingen angiven gräns för antalet samtidiga körningar.
 * För HTTP-utlösare allokeras nya instanser bara högst en gång var 1: a sekund.
 * För icke-HTTP-utlösare allokeras nya instanser bara högst en gång var 30: e sekund.
 

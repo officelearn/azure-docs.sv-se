@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 02/03/2020
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: ecc55c0d41f552d2c29fe5c964a7c40ab9e382ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701390"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022638"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
 
@@ -71,7 +71,9 @@ För att Microsoft Identity Platform ska kunna ta reda på vilka program som kan
 
 På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
 
-APP1 omdirigering av URI: `msauth.com.contoso.mytestapp1://auth` APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth` App3 omdirigerings-URI: `msauth.com.contoso.mytestapp3://auth`
+APP1 omdirigerings-URI: `msauth.com.contoso.mytestapp1://auth`  
+APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth`  
+App3 omdirigerings-URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > Formatet för omdirigerings-URI: er måste vara kompatibelt med formatet MSAL stöder, som dokumenteras i [kraven för omdirigerings-URI-format](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -96,6 +98,18 @@ När rättigheter har ställts in korrekt visas en `entitlements.plist`-fil i di
 </plist>
 ```
 
+#### <a name="add-a-new-keychain-group"></a>Lägg till en ny nyckel rings grupp
+
+Lägg till en ny nyckel rings grupp till dina projekt **funktioner**. Nyckel rings gruppen ska vara:
+* `com.microsoft.adalcache` på iOS 
+* `com.microsoft.identity.universalstorage` på macOS.
+
+![exempel på nyckel Ring](media/single-sign-on-macos-ios/keychain-example.png)
+
+Mer information finns i [nyckel rings grupper](howto-v2-keychain-objc.md).
+
+## <a name="configure-the-application-object"></a>Konfigurera programobjektet
+
 När du har aktiverat nyckel ringen i varje program och du är redo att använda SSO, konfigurerar du `MSALPublicClientApplication` med din nyckel rings åtkomst grupp som i följande exempel:
 
 Mål-C:
@@ -113,16 +127,14 @@ Införliva
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
-        
+
 do {
-    let application = try MSALPublicClientApplication(configuration: config)
-  // continue on with application          
+   let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
 } catch let error as NSError {
   // handle error here
-}       
+}
 ```
-
-
 
 > [!WARNING]
 > När du delar en nyckel Ring i dina program kan alla program ta bort användare eller till och med alla tokens i ditt program.
@@ -206,7 +218,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
-    
+
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md)

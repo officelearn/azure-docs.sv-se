@@ -1,6 +1,6 @@
 ---
 title: Skapa VLAN/undernät
-description: Azure VMware-lösning av CloudSimple – beskriver hur du skapar och hanterar VLAN/undernät för dina privata moln och sedan använder brand Väggs regler.
+description: Azure VMware-lösningar (AVS) – beskriver hur du skapar och hanterar VLAN/undernät för dina moln privata moln och sedan använder brand Väggs regler.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 56e0f720221f8de531087e8b8d0476688feb2547
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 249c48500dbcd75f62f856b3345b3a2c02502d1a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601488"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024780"
 ---
-# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Skapa och hantera VLAN/undernät för privata moln
+# <a name="create-and-manage-vlanssubnets-for-your-avs-private-clouds"></a>Skapa och hantera VLAN/undernät för dina moln privata moln
 
-Öppna fliken VLAN/undernät på sidan nätverk för att skapa och hantera VLAN/undernät för privata moln. När du har skapat ett VLAN/undernät kan du använda brand Väggs regler.
+Öppna fliken VLAN/undernät på sidan nätverk för att skapa och hantera VLAN/undernät för dina moln privata moln. När du har skapat ett VLAN/undernät kan du använda brand Väggs regler.
 
 ## <a name="create-a-vlansubnet"></a>Skapa ett VLAN/undernät
 
-1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
+1. [Gå till AVS-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
 2. Välj **VLAN/undernät**.
 3. Klicka på **skapa VLAN/undernät**.
 
     ![Sidan VLAN/undernät](media/vlan-subnet-page.png)
 
-4. Välj det privata molnet för det nya VLAN/undernät.
+4. Välj det molnbaserade privata molnet för det nya VLAN/undernät.
 5. Ange ett VLAN-ID.
 6. Ange under nätets namn.
 7. Om du vill aktivera routning på VLAN (undernät) anger du CIDR-intervallet för under nätet. Se till att CIDR-intervallet inte överlappar något av dina lokala undernät, Azure-undernät eller gateway-undernät.
@@ -41,13 +41,13 @@ ms.locfileid: "73601488"
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Använd VLAN-information för att konfigurera en distribuerad port grupp i vSphere
 
-Om du vill skapa en distribuerad port grupp i vSphere följer du anvisningarna i avsnittet VMware Lägg till en distribuerad port grupp i <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">nätverks guiden för vSphere</a>. När du konfigurerar den distribuerade port gruppen anger du VLAN-informationen från CloudSimple-konfigurationen.
+Om du vill skapa en distribuerad port grupp i vSphere följer du anvisningarna i avsnittet VMware Lägg till en distribuerad port grupp i <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">nätverks guiden för vSphere</a>. När du konfigurerar den distribuerade port gruppen anger du VLAN-informationen från AVS-konfigurationen.
 
 ![Distribuerad port grupp](media/distributed-port-group.png)
 
 ## <a name="select-a-firewall-table"></a>Välj en brand Väggs tabell
 
-Brand Väggs tabeller och associerade regler definieras på sidan **nätverks > brand Väggs tabeller** . Välj den brand Väggs tabell som ska användas för VLAN/undernät för ett privat moln genom att välja VLAN/undernät Klicka på **brand Väggs tabell bilaga** på sidan **VLAN/undernät** . Se [brand Väggs tabeller](firewall.md) för instruktioner om hur du konfigurerar brand Väggs tabeller och definierar regler.
+Brand Väggs tabeller och associerade regler definieras på sidan **nätverks > brand Väggs tabeller** . Välj den brand Väggs tabell som ska användas för VLAN/undernät för ett moln privat moln genom att välja VLAN/undernät Klicka på **brand Väggs tabell bilaga** på sidan **VLAN/undernät** . Se [brand Väggs tabeller](firewall.md) för instruktioner om hur du konfigurerar brand Väggs tabeller och definierar regler.
 
 ![Länk till brand Väggs tabell](media/vlan-subnet-firewall-link.png)
 

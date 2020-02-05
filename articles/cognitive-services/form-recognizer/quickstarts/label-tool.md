@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770296"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025919"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -26,7 +26,6 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För att slutföra den här snabb starten måste du ha:
 - Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess). Du får ett e-postmeddelande med en länk för att skapa en formulär igenkännings resurs.
-- Åtkomst till formulär tolkens exempel etikett verktyg. För att få åtkomst kan du fylla i och skicka [formulärets formulär för formulär igenkännings etikett](https://aka.ms/LabelToolRequestAccess). Du får ett e-postmeddelande med anvisningar om hur du hämtar dina autentiseringsuppgifter och får åtkomst till det privata behållar registret. 
 - En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
@@ -38,18 +37,13 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
     |:--|:--|:--|
     |Exempel på etikett verktyg|2 kärnor, 4 GB minne|4 kärnor, 8 GB minne|
     
-1. Sedan behöver du [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Installera det på din dator om du inte redan gjort det.
-1. Ange sedan följande kommando i en kommando tolk. Värdena för `<username>` och `<password>` finns i Välkommen till formulär tolkens e-postmeddelande.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
 1. Hämta exempel på etiketting Tool-behållaren med kommandot `docker pull`.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. Nu är du redo att köra behållaren med `docker run`.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
    Det här kommandot gör verktyget för exempel etiketter tillgängligt via en webbläsare. Gå till [http://localhost:3000](http://localhost:3000).

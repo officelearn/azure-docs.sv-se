@@ -7,16 +7,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 6450169ae2b2d74006eedc66f35338494257594a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 756f15f6cb0d797d2a7db5fbe5c6157b2913b40b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889092"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020870"
 ---
 # <a name="architecture-of-iot-central-smart-inventory-management-application-template"></a>Arkitektur för IoT Central Mall för smart inventerings hantering
 
-Partner & kunden kan utnyttja appens mall & följande rikt linjer för att utveckla lösningar för **hantering av Smart inventering** från slut punkt till slut punkt.
+Partner och kunder kan använda appens mall och följande rikt linjer för att utveckla lösningar för **hantering av Smart inventering** från slut punkt till slut punkt.
 
 > [!div class="mx-imgBorder"]
 > ![Smart Inventory Management](./media/concept-smart-inventory-mgmt-architecture/smart-inventory-management-architecture.png)
@@ -24,8 +24,8 @@ Partner & kunden kan utnyttja appens mall & följande rikt linjer för att utvec
 1. Uppsättning IoT-sensorer som skickar telemetridata till en gateway-enhet
 2. Gateway-enheter skickar telemetri och sammanställda insikter till IoT Central
 3. Data dirigeras till önskad Azure-tjänst för manipulering
-4. Azure-tjänster som ASA eller Azure Functions kan utnyttjas för att formatera om data strömmar och skicka till önskade lagrings konton 
-5. Bearbetade data lagras i snabb lagring för nära real tids åtgärder eller kall lagring för ytterligare Insight-förbättringar baserat på ML-eller batch-analys. 
+4. Azure-tjänster som ASA eller Azure Functions kan användas för att formatera om data strömmar och skicka till önskade lagrings konton 
+5. Bearbetade data lagras i frekvent lagring för nära real tids åtgärder eller kall lagring för ytterligare Insight-förbättringar som baseras på ML-eller batch-analys. 
 6. Logic Apps kan användas för att driva olika arbets flöden i affärs program för slutanvändare
 
 ## <a name="details"></a>Information
@@ -38,20 +38,20 @@ RFID-taggar överför data om ett objekt via radio vågor. RFID-taggar har vanli
 Energy Beacon skickar paket med data med jämna mellanrum. Beacon-data identifieras av TABELLbaserade läsare eller installerade tjänster på smartphones och överför sedan till molnet.
 
 ## <a name="rfid--ble-readers"></a>RFID-& tabell läsare
-RFID-läsaren konverterar radio vågor till en mer användbar data form. Information som samlas in från taggarna lagras sedan i den lokala Edge-servern eller skickas till molnet via JSON-RPC 2,0 över MQTT.
-Bell Reader är även känt som åtkomst punkter (AP) liknar RFID-läsaren. Dessa används för att identifiera närliggande Bluetooth-signaler och vidarebefordra sitt meddelande till lokala Azure IoT Edge eller molnet via JSON-RPC 2,0 över MQTT.
-Många läsare kan läsa RFID & Beacon-signaler och tillhandahålla ytterligare sensor kapacitet för temperaturen, fuktighet, accelerometer & gyro.
+RFID-läsaren konverterar radio vågor till en mer användbar data form. Information som samlas in från taggarna lagras sedan i den lokala Edge-servern eller skickas till molnet med JSON-RPC 2,0 över MQTT.
+Bell Reader är även känt som åtkomst punkter (AP) liknar RFID-läsaren. Den används för att identifiera närliggande Bluetooth-signaler och vidarebefordra sitt meddelande till lokala Azure IoT Edge eller molnet med JSON-RPC 2,0 över MQTT.
+Många läsare kan läsa RFID-och Beacon-signaler och tillhandahålla ytterligare sensor kapacitet för temperatur, fuktighet, accelerometer och Gyroscope.
 
 ## <a name="azure-iot-edge-gateway"></a>Azure IoT Edge Gateway
-Azure IoT Edge Server är en plats för att Förbearbeta data lokalt innan de skickas till molnet. Vi kan även distribuera moln arbets belastningar, artificiell intelligens, Azure och tjänster från tredje part, affärs logik via standard behållare.
+Azure IoT Edge Server är en plats för att Förbearbeta data lokalt innan de skickas till molnet. Vi kan även distribuera moln arbets belastningar, artificiell intelligens, Azure och tjänster från tredje part, affärs logik med hjälp av standard behållare.
 
 ## <a name="device-management-with-iot-central"></a>Enhets hantering med IoT Central 
 Azure IoT Central är en plattform för lösnings utveckling som gör det enklare att ansluta, konfigurera och hantera IoT-enheter. Plattformen minskar avsevärt belastningen och kostnaderna för IoT-enhetens hantering, åtgärder och relaterad utveckling. Kunder & partner kan skapa en slut punkt för företags lösningar för att få en digital feedback-slinga i inventerings hanteringen.
 
-## <a name="business-insights--actions-via-data-egress"></a>Affärs insikter & åtgärder via utgående data 
-IoT Central Platform tillhandahåller omfattande utöknings alternativ via Center (kontinuerlig data export) och API: er. Affärs insikter baserade på telemetri data behandling eller rå telemetri exporteras vanligt vis till ett prioriterat branschspecifika program. Detta kan uppnås via webhook, Service Bus, Event Hub eller Blob Storage för att bygga, träna och distribuera maskin inlärnings modeller & ytterligare förbättra insikter.
+## <a name="business-insights--actions-using-data-egress"></a>Affärs insikter & åtgärder med utgående data 
+IoT Central Platform tillhandahåller omfattande utöknings alternativ via Center (kontinuerlig data export) och API: er. Affärs insikter baserade på telemetri data behandling eller rå telemetri exporteras vanligt vis till ett prioriterat branschspecifika program. Det kan åstadkommas med hjälp av webhook, Service Bus, Event Hub eller Blob Storage för att skapa, träna och distribuera maskin inlärnings modeller & ytterligare förbättra insikter.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du distribuerar [Smart Inventory Management-mall](./tutorial-iot-central-smart-inventory-management-pnp.md)
 * Läs mer om [IoT Central mallar för butik](./overview-iot-central-retail-pnp.md)
-* Läs mer om IoT Central referera till [IoT Central översikt](../preview/overview-iot-central.md)
+* Läs mer om IoT Central referera till [IoT Central översikt](../core/overview-iot-central.md)

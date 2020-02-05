@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9633975f53b3e398537067b17a870f621d9a7435
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 03daafd383810a5e6cf086ca8e546981b06fa6eb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045062"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025715"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.74 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.81 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -162,9 +162,14 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
-## <a name="show-the-outbound-rule-for-your-load-balancer"></a>Visa utgående regel för belastningsutjämnaren
+## <a name="configure-outbound-ports-and-idle-timeout"></a>Konfigurera utgående portar och tids gräns för inaktivitet
 
-Om du vill visa den utgående regeln som skapats i belastningsutjämnaren använder du [AZ Network lb utgående regel List][az-network-lb-outbound-rule-list] och anger resurs gruppen för AKS för ditt-kluster:
+> [!WARNING]
+> Följande avsnitt är avsett för avancerade scenarier med större skalnings nätverk eller för att hantera SNAT-överbelastnings problem med standardkonfigurationerna. Du måste ha en korrekt inventering av tillgänglig kvot för virtuella datorer och IP-adresser innan du ändrar *AllocatedOutboundPorts* eller *IdleTimeoutInMinutes* från standardvärdet för att upprätthålla felfria kluster.
+> 
+> Att ändra värdena för *AllocatedOutboundPorts* och *IdleTimeoutInMinutes* kan markant ändra beteendet för utgående regel för belastningsutjämnaren. Granska [Load Balancer utgående regler][azure-lb-outbound-rules-overview], [utgående regler för belastningsutjämnare][azure-lb-outbound-rules]och [utgående anslutningar i Azure][azure-lb-outbound-connections] innan du uppdaterar dessa värden för att helt förstå effekten av dina ändringar.
+
+Utgående, allokerade portar och deras tids gränser för inaktivitet används för [SNAT][azure-lb-outbound-connections]. Som standard använder *standard* -SKU-belastningsutjämnaren [automatisk tilldelning för antalet utgående portar baserat på storleken på backend-poolen][azure-lb-outbound-preallocatedports] och en tids gräns på 30 minuters inaktivitet för varje port. Om du vill se dessa värden använder du [AZ Network lb utgående regel lista][az-network-lb-outbound-rule-list] för att visa utgående regel för belastningsutjämnaren:
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -179,7 +184,46 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-I exempel resultatet är *AllocatedOutboundPorts* 0. Värdet för *AllocatedOutboundPorts* innebär att SNAT-port tilldelningen återgår till automatisk tilldelning baserat på storleken på backend-poolen. Mer information finns i [Load Balancer utgående regler][azure-lb-outbound-rules] och [utgående anslutningar i Azure][azure-lb-outbound-connections] .
+I exempel resultatet visas standardvärdet för *AllocatedOutboundPorts* och *IdleTimeoutInMinutes*. Värdet 0 för *AllocatedOutboundPorts* anger antalet utgående portar som använder automatisk tilldelning för antalet utgående portar baserat på storleken på backend-poolen. Om klustret till exempel har 50 eller färre noder allokeras 1024-portar för varje nod.
+
+Överväg att ändra inställningen för *allocatedOutboundPorts* eller *IdleTimeoutInMinutes* om du förväntar dig att du förväntar dig att du ska slösa med sitt ansikte enligt konfigurationen ovan. Varje ytterligare IP-adress aktiverar 64 000 ytterligare portar för tilldelning, men Azure-Standard Load Balancer ökar inte automatiskt portarna per nod när fler IP-adresser läggs till. Du kan ändra dessa värden genom att ställa *in belastnings Utjämnings-utgående-portarna* och *belastnings Utjämnings parametrarna Idle-timeout* . Ett exempel:
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+> [!IMPORTANT]
+> Du måste [Beräkna den kvot som krävs][calculate-required-quota] innan du anpassar *allocatedOutboundPorts* för att undvika problem med anslutning eller skalning. Värdet som du anger för *allocatedOutboundPorts* måste också vara en multipel av 8.
+
+Du kan också använda *belastnings Utjämnings-utgående-portarna* och *belastnings utjämning-parametrarna för Idle-timeout* när du skapar ett kluster, men du måste också ange antingen *belastningsutjämnare-hanterad, utgående-IP-antal*, *belastningsutjämnare-utgående-* IP-adresser eller *Load-Balancer-utgående-IP-prefix* .  Ett exempel:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-managed-outbound-ip-count 2 \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+När du ändrar *belastnings Utjämnings-utgående-portarna* och *belastningsutjämnarens belastnings Utjämnings* parametrar från standardvärdet påverkas belastnings Utjämnings profilens beteende, som påverkar hela klustret.
+
+### <a name="required-quota-for-customizing-allocatedoutboundports"></a>Nödvändig kvot för att anpassa allocatedOutboundPorts
+Du måste ha tillräckligt med utgående IP-kapacitet baserat på antalet virtuella noder och önskade allokerade portar. Om du vill kontrol lera att du har tillräckligt med utgående IP-kapacitet använder du följande formel: 
+ 
+*outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
+ 
+Om du till exempel har 3 *nodeVMs*och 50 000 *desiredAllocatedOutboundPorts*måste du ha minst 3 *outboundIPs*. Vi rekommenderar att du införlivar ytterligare utgående IP-kapacitet utöver det du behöver. Dessutom måste du ha ett konto för den automatiska skalnings tjänsten för klustret och möjligheten att uppgradera noder i noden när du beräknar utgående IP-kapacitet. Granska antalet aktuella noder och maximalt antal noder och Använd det högre värdet för klustrets autoskalning. För att uppgradera måste du konto för en ytterligare virtuell nod för varje nod som tillåter uppgradering.
+ 
+När du anger *IdleTimeoutInMinutes* till ett annat värde än standardvärdet på 30 minuter bör du fundera på hur länge dina arbets belastningar behöver en utgående anslutning. Tänk också på att standardvärdet för timeout för en *standard* -SKU-belastningsutjämnare som används utanför AKS är 4 minuter. Ett *IdleTimeoutInMinutes* -värde som bättre återspeglar din speciella AKS-arbetsbelastning kan minska SNAT-belastningen som orsakas av att de kopplings anslutningar som inte längre används.
 
 ## <a name="restrict-access-to-specific-ip-ranges"></a>Begränsa åtkomsten till vissa IP-intervall
 
@@ -239,9 +283,12 @@ Läs mer om Kubernetes Services i [dokumentationen för Kubernetes Services][kub
 [azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
+[azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
+[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports

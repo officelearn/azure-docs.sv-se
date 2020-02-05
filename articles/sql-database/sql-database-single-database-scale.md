@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: e23a4c39f93ea4de7f5dd38bb266d63ed52913cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845853"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023148"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
 
@@ -93,8 +93,8 @@ else {
 - Om du uppgraderar till en högre tjänst nivå eller beräknings storlek, ökar inte databasens maximala storlek om du inte uttryckligen anger en större storlek (MaxSize).
 - För att nedgradera en databas måste det databas utrymme som används vara mindre än den största tillåtna storleken för mål tjänst nivån och beräknings storleken.
 - Vid nedgradering från **Premium** till **standard** -nivån gäller en extra lagrings kostnad om både (1) databasens Max storlek stöds i mål beräknings storleken och (2) Max storleken överskrider den mängd lagrings storlek som används för mål beräknings storleken. Om t. ex. en P1-databas med en Max storlek på 500 GB är downsized till S3, gäller en extra lagrings kostnad eftersom S3 har stöd för en Max storlek på 1 TB och den inkluderade lagrings mängden är bara 250 GB. Det extra lagrings utrymmet är 500 GB – 250 GB = 250 GB. Prissättning av extra lagrings utrymme finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden utrymme som används är mindre än den mängd lagrings mängd som används, kan den här extra kostnaden undvikas genom att max storleken för databasen minskas till den inkluderade mängden.
-- När du uppgraderar en databas med [geo-replikering](sql-database-geo-replication-portal.md) aktive rad uppgraderar du dess sekundära databaser till önskad tjänste nivå och beräknings storlek innan du uppgraderar den primära databasen (allmän vägledning för bästa prestanda). När du uppgraderar till en annan krävs en uppgradering av den sekundära databasen först.
-- Vid nedgradering av en databas med [geo-replikering](sql-database-geo-replication-portal.md) aktiverat, nedgradera dess primära databaser till önskad tjänste nivå och beräknings storlek innan du degraderar den sekundära databasen (allmän vägledning för bästa prestanda). Vid nedgradering till en annan utgåva krävs en nedgradering av den primära databasen först.
+- När du uppgraderar en databas med [geo-replikering](sql-database-geo-replication-portal.md) aktive rad uppgraderar du dess sekundära databaser till önskad tjänste nivå och beräknings storlek innan du uppgraderar den primära databasen (allmän vägledning för bästa prestanda). När du uppgraderar till en annan utgåva är det ett krav att den sekundära databasen uppgraderas först.
+- Vid nedgradering av en databas med [geo-replikering](sql-database-geo-replication-portal.md) aktiverat, nedgradera dess primära databaser till önskad tjänste nivå och beräknings storlek innan du degraderar den sekundära databasen (allmän vägledning för bästa prestanda). Vid nedgradering till en annan utgåva är det ett krav att den primära databasen nedgraderas först.
 - Erbjudandena för återställningstjänsterna är olika för de olika tjänstnivåerna. Om du nedgraderar nivån **Basic** finns det en lägre kvarhållningsperiod för säkerhets kopior. Se [Azure SQL Database säkerhets kopieringar](sql-database-automated-backups.md).
 - De nya egenskaperna för databasen tillämpas inte förrän ändringarna har slutförts.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910439"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025443"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
 
@@ -72,7 +72,7 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 | MK – MK      | Makedonska             |       |       |         |     ✓    |                   |                |
 | MS-Mina      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
 | Mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
-| NB-NO      | Norska (bokmål)       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| NB-NO      | Norska, bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Neutrala mark sanningen-officiella språk för alla regioner i lokala skript om det är tillgängligt |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | Neutral mark sanningen – Latin exonyms. Latinska skript kommer att användas om det är tillgängligt |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -82,7 +82,7 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 | RO-RO      | Rumänska               |       |    ✓    |         |     ✓    |         ✓         |                |
 | ru-RU      | Ryska                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | sr-Cyrl-RS | Serbiska (kyrillisk)     |       |   SR-RS  |         |    SR-RS     |                   |                |
-| sr-Latn-RS | Serbiska (latinsk)        |       |       |         |     SR-latn    |                   |                |
+| SR-latn-RS | Serbiska (latinsk)        |       |       |         |     SR-latn    |                   |                |
 | sk-SK      | Slovakiska             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | sl-SL      | Slovenska              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
 | es-ES      | Spanska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -101,13 +101,15 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 ## <a name="azure-maps-supported-views"></a>Azure Maps vyer som stöds
 
 > [!Note]
-> Azure Maps släpptes i följande länder/regioner den 1 augusti 2019:
+> Den 1 augusti 2019 släpptes Azure Maps i följande länder/regioner:
 >  * Argentina
 >  * Indien
 >  * Marocko
 >  * Pakistan
 >
-> Efter den 1 augusti 2019 definierar **parameter inställningen** det returnerade kart innehållet för de nya regionerna/länderna som anges ovan. Vi rekommenderar att du ser till att du har ställt in parametern Visa som krävs för de REST-API: er och SDK: er som dina tjänster använder.
+> Efter den 1 augusti 2019 definierar **visnings** parametern det returnerade kart innehållet för de nya regionerna/länderna som anges ovan. Azure Maps **View** -parametern (kallas även för "användar region parameter") är en ISO-3166-landskod som visar rätt kartor för landet/regionen och som anger vilken uppsättning geografi innehåll som anges av polypolitiskt som returneras via Azure Maps Services, inklusive kant linjer och etiketter som visas på kartan. 
+
+Se till att du har ställt in parametern **Visa** som krävs för de REST-API: er och SDK: er som dina tjänster använder.
 >  
 >
 >  **REST-API: er:**
@@ -135,15 +137,12 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 >    
 >  **Er**
 >
->  Kontrol lera att du har ställt in parametern Visa efter behov och att du har den senaste versionen av Web SDK och Android SDK. Berörda SDK: er:
+>  Kontrol lera att du har ställt in parametern **Visa** efter behov och att du har den senaste versionen av Web SDK och Android SDK. Berörda SDK: er:
 >
 >    * Azure Maps webb-SDK
 >    * Azure Maps Android SDK
 
-
-Azure Maps **View** -parametern (kallas även för "användar region parameter") är en ISO-3166-landskod som visar rätt kartor för landet/regionen och som anger vilken uppsättning geografi innehåll som anges av polypolitiskt som returneras via Azure Maps Services, inklusive kant linjer och etiketter som visas på kartan. 
-
-Som standard har parametern View värdet **Unified**, även om du inte har definierat den i begäran. Det är ditt ansvar att bestämma platsen för dina användare och sedan ange parametern View korrekt för den platsen. Alternativt kan du välja "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern View i Azure Maps måste användas i enlighet med tillämplig lagstiftning, inklusive de som gäller kart läggning av det land där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
+Som standard anges parametern View till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för användarna och ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med gällande lagar, inklusive de lagar som gäller mappning av det land där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
 
 
 Följande tabell innehåller vyer som stöds.
@@ -166,5 +165,5 @@ Följande tabell innehåller vyer som stöds.
 | SA           | Saudiarabien (arabisk vy)            |   ✓   |        |     ✓          |
 | SY           | Syrien (arabisk vy)                   |   ✓   |        |     ✓          |
 | CHANSEN           | Jemen (arabisk vy)                   |   ✓   |        |     ✓          |
-| Auto         | Returnera mappnings data baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
+| Disk         | Returnera mappnings data baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
 | Enhetligt      | Enhetlig vy (andra)                  |   ✓   |   ✓     |     ✓          |

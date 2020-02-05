@@ -3,8 +3,8 @@ title: Installera programpaket på Compute-noder – Azure Batch | Microsoft Doc
 description: Använd funktionen programpaket i Azure Batch för att enkelt hantera flera program och versioner för installation på batch Compute-noder.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/26/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc136a0359c73b164eb1e175092a97f2fde4bdfa
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6cad3b3b01a98462e37a4b4b96ba02a1b61a5f62
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029786"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025936"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
@@ -110,7 +110,7 @@ När du väljer det här meny alternativet öppnas fönstret **program** :
 I det här fönstret visas ID: t för varje program i ditt konto och följande egenskaper:
 
 * **Paket**: antalet versioner som är associerade med det här programmet.
-* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Denna inställning är ett tillval.
+* **Standard version**: program versionen som installeras om du inte anger en version när du anger programmet för en pool. Den här inställningen är valfri.
 * **Tillåt uppdateringar**: det värde som anger om paket uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **Nej**, inaktive ras paket uppdateringar och borttagningar för programmet. Det går bara att lägga till nya programpaket versioner. Standardinställningen är **Ja**.
 
 Om du vill se fil strukturen för programpaketet på din Compute-nod går du till ditt batch-konto i portalen. Gå till **pooler**på ditt batch-konto. Välj den pool som innehåller de Compute-noder som du är intresse rad av.

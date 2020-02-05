@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure VMware-lösning av CloudSimple-noder
-description: Lär dig mer om CloudSimple-noder och-koncept.
+title: Översikt över Azure VMware-lösningar (AVS) – noder
+description: Lär dig mer om AVS-noder och-koncept.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,22 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 08d8fc3e6f1f2f83cf3c4fee3fdafb0bd07e336c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899022"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024933"
 ---
-# <a name="cloudsimple-nodes-overview"></a>Översikt över CloudSimple-noder
+# <a name="avs-nodes-overview"></a>Översikt över AVS-noder
 
-Noder är Bygg blocken i ett privat moln. En nod är:
+Noder är Bygg stenarna i ett moln privat moln. En nod är:
 
 * En dedikerad beräknings värd för Bare Metal där en VMware ESXi-hypervisor installeras  
-* En beräknings enhet som du kan etablera eller reservera för att skapa privata moln
-* Tillgängligt för etablering eller reserv i en region där CloudSimple-tjänsten är tillgänglig
+* En enhet med data behandling som du kan köpa eller reservera för att skapa moln privata moln
+* Tillgängligt för köp eller reserv i en region där AVS-tjänsten är tillgänglig
 
-Du skapar ett privat moln från de etablerade noderna. Om du vill skapa ett privat moln måste du ha minst tre noder av samma SKU. Lägg till ytterligare noder för att expandera ett privat moln.  Du kan lägga till noder i ett befintligt kluster eller skapa ett nytt kluster genom att etablering av noder i Azure Portal och associera dem med CloudSimple-tjänsten.  Alla etablerade noder är synliga under CloudSimple-tjänsten.  
+Du skapar ett privat AVS-moln från de köpta noderna. Om du vill skapa ett moln privat moln måste du ha minst tre noder av samma SKU. Om du vill expandera ett moln privat moln lägger du till ytterligare noder. Du kan lägga till noder i ett befintligt kluster eller skapa ett nytt kluster genom att köpa noder i Azure Portal och associera dem med AVS-tjänsten. Alla köpta noder visas under AVS-tjänsten. 
 
 ## <a name="provisioned-nodes"></a>Etablerade noder
 
@@ -32,7 +32,7 @@ Etablerade noder ger kapacitet för att betala per användning. Med etablerings 
 * Om du betalar för Azure-prenumerationen via kredit kort faktureras kortet direkt.
 * Om du faktureras per faktura visas avgifterna på nästa faktura.
 
-## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>VMware-lösning av CloudSimple Nodes SKU
+## <a name="vmware-solution-by-avs-nodes-sku"></a>VMware-lösning per AVS-noder SKU
 
 Följande typer av noder är tillgängliga för etablering eller reservation.
 
@@ -47,16 +47,18 @@ Följande typer av noder är tillgängliga för etablering eller reservation.
 
 ## <a name="limits"></a>Begränsningar
 
-Följande Node-gränser gäller för privata moln.
+Följande Node-gränser gäller för moln privata moln.
 
 | Resurs | Gräns |
 |----------|-------|
-| Minsta antal noder för att skapa ett privat moln | 3 |
-| Maximalt antal noder i ett kluster i ett privat moln | 16 |
-| Maximalt antal noder i ett privat moln | 64 |
+| Minsta antal noder för att skapa ett privat AVS-moln | 3 |
+| Maximalt antal noder i ett kluster i ett privat AVS-moln | 16 |
+| Maximalt antal noder i ett privat AVS-moln | 64 |
 | Minsta antal noder i ett nytt kluster | 3 |
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Lär dig hur du [köper noder](create-nodes.md)
+* Lär dig mer om [moln privata moln](cloudsimple-private-cloud.md)
 * Lär dig hur du [etablerar noder](create-nodes.md)
 * Lär dig mer om [privata moln](cloudsimple-private-cloud.md)

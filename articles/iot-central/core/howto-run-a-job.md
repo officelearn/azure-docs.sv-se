@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 114946fa37ae161aeb2efd5b7cd50444c5df4c2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 68d4dbff364f8d3fda72fc2377722031e9cccc3d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906710"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018898"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
@@ -38,7 +38,9 @@ I det här avsnittet visas hur du skapar och kör ett jobb. Det visar hur du ök
 
     ![Konfigurera jobb](./media/howto-run-a-job/configurejob.png)
 
-6. När du har valt enheter väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . I den här vyn kan du se jobbet som körs och historiken för tidigare körnings jobb. Jobbet som körs visas alltid överst i listan. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera eller köra.
+6. På den högra sidan väljer du de enheter som du vill köra jobbet på. Genom att markera kryss rutan överst markeras alla enheter i hela enhets uppsättningen. Genom att markera kryss rutan nära **namn**, markeras alla enheter på den aktuella sidan.
+
+7. När du har valt enheter väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . I den här vyn kan du se jobbet som körs och historiken för tidigare körnings jobb. Jobbet som körs visas alltid överst i listan. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera eller köra.
 
     ![Visa jobb](./media/howto-run-a-job/viewjob.png)
 
@@ -103,6 +105,5 @@ Om du vill visa status för jobbet och alla berörda enheter väljer du jobbet. 
 
 Nu när du har lärt dig hur du skapar jobb i ditt Azure IoT Central-program kan du använda följande steg:
 
-- [Använda enhetsuppsättningar](howto-use-device-sets.md)
 - [Hantera dina enheter](howto-manage-devices.md)
 - [Version din enhets mall](howto-version-device-template.md)

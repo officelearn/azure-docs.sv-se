@@ -2,31 +2,38 @@
 title: Uppdatera profil & konto information från mina apps-portalen – Azure AD
 description: Lär dig hur du uppdaterar din profil och din arbets-eller skol konto information, inklusive hur du ändrar ditt lösen ord, aktiverar lösen ords återställning, uppdaterar dina säkerhets verifierings metoder, visar din organisations användnings villkor och loggar ut från var du har loggat in med ditt arbets-eller skol konto.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704875"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022287"
 ---
-# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Uppdatera din profil-och arbets-eller skol konto information på portalen Mina appar
+# <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>Uppdatera din profil-och konto information på portalen Mina appar
 
-Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och för att utföra **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
+Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att 
+
+- Visa och starta många av organisationens molnbaserade appar
+- Uppdatera viss profil-och konto information
+- Visa information om din **grupp**
+- Utför **åtkomst granskningar** för dina appar och grupper. 
+
+Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> [!Important]
+> Det här innehållet är avsett för **Mina Apps** -användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-organization-related-profile-information"></a>Visa information om din organisatoriska profil
 

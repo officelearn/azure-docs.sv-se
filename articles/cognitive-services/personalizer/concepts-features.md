@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760835"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026157"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -132,6 +132,8 @@ Följande avsnitt är vanliga metoder för att förbättra funktioner som skicka
 Det är möjligt att förbättra dina funktions uppsättningar genom att ändra dem så att de blir större och mer eller mindre kompakta.
 
 En tidsstämpel till den andra är till exempel en mycket sparse-funktion. Det kan göras mer kompakt (effektiv) genom att klassificera tiderna i "morgon", "kulminera", "eftermiddag" osv.
+
+Plats informationen ger även vanligt vis fördelar från att skapa bredare klassificeringar. Till exempel är en Latitude-longitud-koordinat, till exempel Lat: 47,67402 ° N, Long: 122,12154 ° W är för exakt och tvingar modellen att lära sig latitud och longitud som distinkta dimensioner. När du försöker anpassa baserat på plats information kan du gruppera plats information i större sektorer. Ett enkelt sätt att göra det är att välja en lämplig avrundnings precision för lat-long-talen och kombinera latitud och longitud i "områden" genom att göra dem till en sträng. Till exempel är ett bra sätt att representera 47,67402 ° N, långt: 122,12154 ° W i regionerna cirka några kilo meter breda skulle vara "plats": "34.3, 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandera funktions uppsättningar med extrapolerad information

@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple-privata moln
-description: Lär dig mer om CloudSimple privata moln och koncept.
+title: Azure VMware-lösningar (AVS)-AVS privata moln
+description: Lär dig mer om molnets privata moln och begrepp.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,29 +8,29 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2688edf281a6d8bc3d61e8e294c920f115f0f3f6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877952"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024966"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>Översikt över CloudSimple privata moln
+# <a name="avs-private-cloud-overview"></a>Översikt över AVS-privata moln
 
-CloudSimple transformerar och utökar VMware-arbetsbelastningar till offentliga moln på några minuter. Med hjälp av CloudSimple-tjänsten kan du distribuera VMware internt i Azure Bare Metal-infrastruktur. Din distribution finns på Azure-platser och integreras helt med resten av Azure-molnet.
+AVS transformerar och utökar VMware-arbetsbelastningar till offentliga moln på några minuter. Med hjälp av AVS-tjänsten kan du distribuera VMware internt i Azure Bare Metal-infrastruktur. Din distribution finns på Azure-platser och integreras helt med resten av Azure-molnet.
 
-CloudSimple-lösningen ger fullständig VMware-operationell kontinuitet. Den här lösningen ger dig fördelarna med offentliga moln för:
+AVS-lösningen ger fullständig VMware-operationell kontinuitet. Den här lösningen ger dig fördelarna med offentliga moln för:
 
 * Elasticitet
 * Innovation
 * Effektivitet
 
-Med CloudSimple kan du dra nytta av en moln förbruknings modell som sänker den totala ägande kostnaden. Den erbjuder även etablering på begäran, betala per användning och kapacitets optimering.
+Med AVS drar du nytta av en moln förbruknings modell som sänker den totala ägande kostnaden. Den erbjuder även etablering på begäran, betala per användning och kapacitets optimering.
 
-CloudSimple är helt kompatibelt med:
+AVS är helt kompatibelt med:
 
 * Befintliga verktyg
-* Färdigheter
+* Kunskaper
 * Processer
 
 Den här kompatibiliteten gör det möjligt för dina team att hantera arbets belastningar i Azure-molnet, utan att störa dessa typer av principer:
@@ -40,28 +40,28 @@ Den här kompatibiliteten gör det möjligt för dina team att hantera arbets be
 * Dataskydd  
 * Granska
 
-CloudSimple hanterar infrastrukturen och alla nödvändiga nätverks-och hanterings tjänster. CloudSimple-tjänsten gör det möjligt för ditt team att fokusera på:
+AVS hanterar infrastrukturen och alla nödvändiga nätverks-och hanterings tjänster. Med AVS-tjänsten kan ditt team fokusera på:
 
 * Affärs värde
 * Program etablering
-* Verksamhetskontinuitet
+* Kontinuitet i verksamheten
 * Support
-* Principframtvingande
+* Policyframtvingande
 
-## <a name="private-cloud-environment-overview"></a>Översikt över privat moln miljö
+## <a name="avs-private-cloud-environment-overview"></a>Översikt över molnets privata moln miljö
 
-Ett privat moln är en isolerad VMware-stack som stöder:
+Ett privat AVS-moln är en isolerad VMware-stack som stöder:
 
 * ESXi-värdar
 * vCenter
 * vSAN
 * NSX
 
-Privata moln hanteras via CloudSimple-portalen. De har sina egna vCenter-servrar i sin egen hanterings domän.
+Molnets privata moln hanteras via AVS-portalen. De har sina egna vCenter-servrar i sin egen hanterings domän.
 
 Stacken körs på:
 
-* Reserverade noder
+* Dedikerade noder
 * Isolerade Bare Metal-maskinvarukonfigurationer
 
 Användare använder stacken via inbyggda VMware-verktyg, inklusive:
@@ -69,25 +69,25 @@ Användare använder stacken via inbyggda VMware-verktyg, inklusive:
 * vCenter
 * NSX Manager
 
-Du kan distribuera dedikerade noder på Azure-platser. Sedan kan du hantera dem med Azure och CloudSimple. Ett privat moln består av ett eller flera vSphere-kluster, och varje kluster innehåller 3 till 16 noder.
+Du kan distribuera dedikerade noder på Azure-platser. Sedan kan du hantera dem med Azure och AVS. Ett privat AVS-moln består av ett eller flera vSphere-kluster, och varje kluster innehåller 3 till 16 noder.
 
-Du kan skapa ett privat moln med hjälp av köpta noder, betala per användning eller reserverade, dedikerade noder.
+Du kan skapa ett privat AVS-moln med hjälp av köpta noder, betala per användning eller reserverade, dedikerade noder.
 
-Du kan ansluta det privata molnet till din lokala miljö och Azure-nätverket med följande anslutningar:
+Du kan ansluta det privata moln molnet till din lokala miljö och Azure-nätverket med följande anslutningar:
 
-* Skydda
+* Säkert
 * Privat VPN
 * Azure ExpressRoute
 
-Den privata moln miljön är utformad för att eliminera enskilda punkter:
+Molnets privata moln miljö är utformad för att eliminera enskilda felpunkter:
 
 * ESXi-kluster konfigureras med vSphere hög tillgänglighet och har minst en reserv nod för återhämtning.
 * Virtuellt San tillhandahåller redundant primär lagring. Virtuellt San kräver minst tre noder för att ge skydd mot ett enskilt haveri. Du kan konfigurera virtuellt San för att ge högre återhämtnings kapacitet för större kluster.
 * Du kan konfigurera vCenter-, PSC-och NSX Manager-VM: ar med RAID-10 Storage-principer för att skydda mot lagrings problem. vSphere HA skyddar mot nod-och nätverks problem.
 
-## <a name="scenarios-for-deploying-a-private-cloud"></a>Scenarier för att distribuera ett privat moln
+## <a name="scenarios-for-deploying-an-avs-private-cloud"></a>Scenarier för distribution av ett privat AVS-moln
 
-Här är några exempel på användnings fall för distribution av privata moln.
+Här är några exempel på användnings fall för distribution av molnets privata moln.
 
 ### <a name="data-center-retirement-or-migration"></a>Pension eller migrering av data Center
 
@@ -106,11 +106,11 @@ Här är några exempel på användnings fall för distribution av privata moln.
 
 * Upprätta fjärråtkomst till data, appar och skriv bord i Azure-molnet. Med anslutningar med hög bandbredd laddar du upp/ladda ned data snabbt för att återställa från incidenter. Nätverk med låg latens ger snabba svars tider som användarna förväntar sig från en Skriv bords app.
 
-* Replikera alla principer och nätverk i molnet med hjälp av CloudSimple-portalen och välkända VMware-verktyg. Replikering minskar ansträngningen och risken för att skapa och hantera DR-och VDI-implementeringar.
+* Replikera alla principer och nätverk i molnet med hjälp av AVS-portalen och välkända VMware-verktyg. Replikering minskar ansträngningen och risken för att skapa och hantera DR-och VDI-implementeringar.
 
 ### <a name="high-performance-applications-and-databases"></a>Program och databaser med hög prestanda
 
-* Kör dina mest krävande arbets belastningar med den konvergerade arkitekturen från CloudSimple.
+* Kör dina mest krävande arbets belastningar med den konvergerade arkitekturen som tillhandahålls av AVS.
 * Kör Oracle, Microsoft SQL Server, mellanprogram och databaser med höga prestanda SQL.
 * Upplev molnet som ditt eget Data Center med höghastighets nätverks anslutningar med 25 Gbit/s. Med höghastighets anslutningar kan du köra hybrid program som omfattar lokala, VMware på Azure och privata Azure-arbetsbelastningar, utan att kompromissa med prestanda.
 
@@ -123,16 +123,16 @@ Här är några exempel på användnings fall för distribution av privata moln.
 
 ## <a name="limits"></a>Begränsningar
 
-I följande tabell visas de olika noderna för resurser i ett privat moln.
+I följande tabell visas de olika noderna för resurser i ett privat moln moln.
 
-| Resource | Gräns |
+| Resurs | Gräns |
 |----------|-------|
-| Minsta antal noder för att skapa ett privat moln | 3 |
-| Maximalt antal noder i ett kluster i ett privat moln | 16 |
-| Maximalt antal noder i ett privat moln | 64 |
+| Minsta antal noder för att skapa ett privat AVS-moln | 3 |
+| Maximalt antal noder i ett kluster i ett privat AVS-moln | 16 |
+| Maximalt antal noder i ett privat AVS-moln | 64 |
 | Minsta antal noder i ett nytt kluster | 3 |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [skapar ett privat moln](create-private-cloud.md)
-* Lär dig hur du [konfigurerar en privat moln miljö](quickstart-create-private-cloud.md)
+* Lär dig hur du [skapar ett privat AVS-moln](create-private-cloud.md)
+* Lär dig hur du [konfigurerar en moln miljö för privata moln](quickstart-create-private-cloud.md)

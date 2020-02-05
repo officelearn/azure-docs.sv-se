@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d3a76b06c08d670cfb3ab0757e8c46dac0988c5f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833372"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025188"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -124,7 +124,7 @@ Varningar: om det finns synkroniserade konton som måste ha lösen ord som inte 
 > [!NOTE]
 > Den här funktionen finns nu i offentlig för hands version.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>Offentlig för hands version av synkronisering av temporära lösen ord och "tvinga lösen ords återställning vid nästa inloggning"
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Offentlig för hands version av synkronisering av temporära lösen ord och "tvinga lösen ords ändring vid nästa inloggning"
 
 Det är vanligt att tvinga en användare att ändra sina lösen ord under sin första inloggning, särskilt efter att administratörs lösen ordet har återställts.  Det kallas vanligt vis att ange ett "tillfälligt" lösen ord och slutförs genom att markera flaggan "användaren måste byta lösen ord vid nästa inloggning" på ett användar objekt i Active Directory (AD).
   

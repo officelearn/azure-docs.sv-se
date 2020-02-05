@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988659"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024151"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduktion till stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
@@ -26,7 +26,7 @@ Avancerad berikning ger till gång till cachelagring och statefulness till en an
 
 Stegvis anrikning lägger till en cache i pipelinen. Indexeraren cachelagrar resultaten från dokument sprickor plus utdata för varje kunskap för varje dokument. När en färdigheter uppdateras, körs bara de ändrade eller underordnade färdigheterna igen. De uppdaterade resultaten skrivs till cachen och dokumentet uppdateras i Sök indexet eller i kunskaps lagret.
 
-Fysiskt lagras cacheminnet i en BLOB-behållare i ditt Azure Storage-konto. Alla index i en Sök tjänst kan dela samma lagrings konto för indexeraren cache. Varje indexerare tilldelas en unik och oföränderlig cache-identifierare till den behållare som den använder.
+Fysiskt lagras cacheminnet i en BLOB-behållare i ditt Azure Storage-konto. Cachen använder också Table Storage för en intern post av bearbetnings uppdateringar. Alla index i en Sök tjänst kan dela samma lagrings konto för indexeraren cache. Varje indexerare tilldelas en unik och oföränderlig cache-identifierare till den behållare som den använder.
 
 ## <a name="cache-configuration"></a>Cache-konfiguration
 

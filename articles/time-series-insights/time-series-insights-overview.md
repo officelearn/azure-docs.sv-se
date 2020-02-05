@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/11/2019
+ms.date: 02/04/2020
 ms.custom: seodec18
-ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a938dc69b2b0401a062b1db314d71100b4fbbc4f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861803"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024389"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
@@ -84,7 +84,7 @@ Följ dessa steg för att komma igång.
 1. Överför referens data. Detta är inte en extra tjänst.
 1. Granska och Visa dina data på några minuter med Time Series Insights Explorer.
 
-## <a name="explorer"></a>Explorer
+## <a name="explorer"></a>Utforskarvyn
 
 Visa, analysera och identifiera trender i dina data med hjälp av Azure Time Series Insights Explorer.
 

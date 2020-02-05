@@ -1,6 +1,6 @@
 ---
 title: Skapa ett Azure IoT Central-program | Microsoft Docs
-description: Skapa ett nytt Azure IoT Central-program. Skapa en utvärderingsversion eller betala per användning-program med en mall för program.
+description: Skapa ett nytt Azure IoT Central-program. Skapa programmet med antingen den kostnads fria pris planen eller en av standard pris avtalen.
 author: viv-liu
 ms.author: viviali
 ms.date: 08/02/2019
@@ -9,55 +9,57 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: cb9968d3bcc30fe8e0f0023bcf7101cde5e4a196
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09ff84bf17bbc07ee86e90f3985a949f70d9fe27
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453901"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018303"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Skapa ett Azure IoT Central-program
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
-
-Som _byggare_ använder du Azure IoT Central-användargränssnittet till att definiera ditt Microsoft Azure IoT Central-program. Den här snabb starten visar hur du skapar ett Azure IoT Central-program som innehåller en exempel _enhets mall_. Det program som du skapar använder inte några för hands versions funktioner.
+Den här snabb starten visar hur du skapar ett Azure IoT Central-program.
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Gå till webbplatsen för [Azure IoT Central build](https://aka.ms/iotcentral) . Logga sedan in med ett Microsoft personal-, arbets-eller skol konto.
+Gå till bygg webbplatsen för [Azure IoT Central](https://aka.ms/iotcentral) . Logga sedan in med ett Microsoft personal-, arbets-eller skol konto.
 
-Välj **skapa**om du vill börja skapa ett Azure IoT Central-program utan att Visa aktiverade funktioner. Med den här länken går du till sidan för att **bygga IoT-program** .
+Du skapar ett nytt program antingen från listan över bransch relevanta IoT Central mallar som hjälper dig att komma igång snabbt eller börja från början med hjälp av mallen för **anpassad app** . I den här snabb starten använder du mallen för **anpassade appar** .
 
-![Sidan Azure IoT Central build](media/quick-deploy-iot-central/iotcentralcreate.png)
+Så här skapar du ett nytt Azure IoT Central-program från den **anpassade app** -mallen:
 
-Välj sedan **anpassad app**.
+1. Gå till **Bygg** sidan:
 
-Så här skapar du ett nytt Azure IoT Central-program:
+    ![Bygg din IoT-programsida](media/quick-deploy-iot-central/iotcentralcreate-new-application.png)
 
-1. Azure IoT Central föreslår automatiskt ett program namn baserat på den program mall som du har valt. Du kan acceptera namnet eller ange ett eget vänligt program namn, till exempel **contoso IoT**. Azure IoT Central genererar också en unik URL åt dig, baserat på programmets namn. Du är kostnads fri att ändra detta URL-prefix till något mer minnes värt om du vill.
+1. Välj **anpassad app** och se till att den **anpassade program** mal len är markerad.
 
-1. Välj den **äldre program** mal len som inte använder för hands versions funktioner.
+1. Azure IoT Central föreslår automatiskt ett **program namn** baserat på den program mall som du har valt. Du kan använda det här namnet eller ange ett eget vänligt program namn.
 
-    | Programmall | Beskrivning |
-    | -------------------- | ----------- |
-    | Äldre program   | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
+1. Azure IoT Central genererar också ett unikt **program-URL** -prefix åt dig, baserat på program namnet. Du använder den här URL: en för att få åtkomst till ditt program. Ändra detta URL-prefix till något mer minnes värde om du vill.
 
-1. Välj en betalningsplan:
-   - **7 dagars kostnads fria utvärderings versioner** är kostnads fria i sju dagar innan de upphör att gälla. De kan konverteras till " **betala per** användning" när som helst innan de upphör att gälla. Om du skapar ett **utvärderings** program måste du ange din kontakt information och välja om du vill få information och tips från Microsoft.
-   - **Betala** per användning-program debiteras per enhet och de första fem Enheterna är kostnads fria. Om du skapar ett program **enligt principen betala per** användning måste du välja *katalog*, *Azure-prenumeration*och *plats*:
-        - *Directory* är Azure Active Directory (AD) för att skapa ditt program. Den innehåller användaridentiteter, autentiseringsuppgifter och övrig organisatorisk information. Om du inte har en Azure AD skapas en åt dig när du skapar en Azure-prenumeration.
-        - Med en *Azure-prenumeration* kan du skapa instanser av Azure-tjänster. IoT Central etablerar resurser i din prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en på [Azures registreringssida](https://aka.ms/createazuresubscription). När du har skapat Azure-prenumerationen går du tillbaka till sidan **skapa ett program** . Din nya prenumeration visas i listrutan **Azure-prenumeration**.
-        - *Plats* är den [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill skapa ditt program. Normalt bör du välja den plats som är fysiskt närmast dina enheter för att få optimala prestanda. Azure IoT Central är för närvarande tillgängligt i **USA**, **Australien**, **Asien och Stillahavsområdet**eller i **Europa**.  När du har valt en plats kan du inte flytta programmet till en annan plats senare.
+    ![Sidan skapa en program-Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-custom.png)
 
-        Läs mer om prissättning på [sidan med prisinformation för Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
+    ![Information om Azure IoT Central fakturering](media/quick-deploy-iot-central/iotcentralcreate-billinginfo-pnp.png)
 
-1. Fyll i ytterligare information som krävs för den betalnings plan som du valde tidigare i steg 1.
+    > [!NOTE]
+    > Om du väljer **anpassad app** på föregående sida visas en listruta för **Programmall** . Härifrån kan du växla mellan anpassade och äldre mallar. Du kan också se andra mallar som har gjorts tillgängliga för din organisation.
 
-1. Välj **Skapa** längst ned på sidan.
+1. Välj att skapa det här programmet med hjälp av pris avtalet för den kostnads fria utvärderings versionen eller en av standard pris avtalen:
+
+    - Program som du skapar med hjälp av den *kostnads fria* planen är kostnads fria i sju dagar och har stöd för upp till fem enheter. Du kan konvertera dem till att använda en standard pris plan när som helst innan de upphör att gälla.
+    - Program som du skapar med en *standard* -plan debiteras per enhet. du kan välja standard pris Planen för **standard 1** eller **Standard 2** med de två första enheterna som är kostnads fria. Läs mer om kostnads fria priser och standard priser på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). Om du skapar ett standard program måste du välja *katalog*, *Azure-prenumeration*och *plats*:
+        - *Katalog* är den Azure Active Directory som du skapar programmet i. En Azure Active Directory innehåller användar identiteter, autentiseringsuppgifter och annan organisations information. Om du inte har en Azure Active Directory skapas en åt dig när du skapar en Azure-prenumeration.
+        - Med en *Azure-prenumeration* kan du skapa instanser av Azure-tjänster. IoT Central etablerar resurser i din prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en kostnads fri på [sidan för Azure-registrering](https://aka.ms/createazuresubscription). När du har skapat Azure-prenumerationen går du tillbaka till sidan **nytt program** . Den nya prenumerationen visas nu i list rutan för **Azure-prenumeration** .
+        - *Plats* är den [geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill skapa ditt program. Normalt bör du välja den plats som är fysiskt närmast dina enheter för att få optimala prestanda. När du har valt en plats kan du inte senare flytta programmet till en annan plats.
+
+1. Granska de allmänna villkoren och välj **skapa** längst ned på sidan. Efter några minuter kan du IoT Central programmet är redo att använda:
+
+    ![Azure IoT Central-program](media/quick-deploy-iot-central/iotcentral-application.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här snabbstarten har skapat du ett IoT Central-program. Här är nästa föreslagna steg:
 
 > [!div class="nextstepaction"]
-> [Definiera en ny enhets typ i ditt Azure IoT Central-program](./tutorial-define-device-type.md)
+> [Lägg till en simulerad enhet till ditt IoT Central program](./quick-create-pnp-device.md)

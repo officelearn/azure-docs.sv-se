@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 6d45e3d911b8070529c43d9069a3d0d2fa5d3e69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0429bf4968f457e201491db3df16f0004f216f30
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979003"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023284"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverks-peering-olika distributions modeller och prenumerationer
 
@@ -325,4 +325,4 @@ När du är klar med den här självstudien kanske du vill ta bort de resurser s
 
 - Bekanta dig med viktiga [peering-begränsningar och beteenden för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints) innan du skapar en virtuell nätverks-peering för produktions användning.
 - Lär dig mer om alla [peering-inställningar för virtuella nätverk](virtual-network-manage-peering.md#create-a-peering).
-- Lär dig hur du [skapar en nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) med peering av virtuella nätverk.
+- Lär dig hur du [skapar en nätverkstopologi med nav och ekrar](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) med peering av virtuella nätverk.

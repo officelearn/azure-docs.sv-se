@@ -284,7 +284,7 @@
         - name: Loggmått för träningskörningar
           href: how-to-track-experiments.md
         - name: Spåra experiment med MLflow
-          displayName: 'log, monitor, metrics'
+          displayName: 'log, monitor, metrics, Databricks'
           href: how-to-use-mlflow.md
         - name: Visualisera körningar med TensorBoard
           displayName: 'log, monitor, metrics'

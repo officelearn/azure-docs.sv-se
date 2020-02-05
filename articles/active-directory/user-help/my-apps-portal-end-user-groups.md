@@ -2,22 +2,22 @@
 title: Uppdatera dina grupp information på portalen för Mina appar – Azure AD
 description: Lär dig hur du visar och uppdaterar grupprelaterad information, inklusive hur du visar de grupper du äger, skapar nya grupper, visar de grupper som du redan är medlem i och hur du kopplar ihop grupper som du inte redan ingår i.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704960"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022332"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Uppdatera dina grupp information på portalen Mina appar
 
@@ -98,8 +98,6 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
 När du har skapat en grupp kan du redigera dess information, inklusive uppdatera all befintlig information.
 
-### <a name="to-edit-your-details"></a>Så här redigerar du information
-
 1. Välj den grupp som du vill redigera på sidan **grupper** och välj sedan **Redigera information** på sidan *&lt;GROUP_NAME&gt;* .
 
     Rutan **Redigera information** visas och du kan uppdatera den information som du lade till när du skapade gruppen första gången.
@@ -108,9 +106,7 @@ När du har skapat en grupp kan du redigera dess information, inklusive uppdater
 
 ## <a name="add-or-remove-a-member"></a>Lägga till eller ta bort en medlem
 
-Du kan lägga till eller ta bort medlemmar för någon av dina egna grupper.
-
-### <a name="to-add-or-remove-a-member"></a>Lägga till eller ta bort en medlem
+Du kan lägga till eller ta bort medlemmar för alla grupper som du äger.
 
 1. Välj den grupp som du vill lägga till medlemmar i och välj sedan **+** på sidan *&lt;GROUP_NAME&gt;* .
 
@@ -130,8 +126,6 @@ Du kan lägga till eller ta bort medlemmar för någon av dina egna grupper.
 
 Om din organisation tillåter det kan du förnya en Office 365-grupp och förlänga ditt förfallo datum.
 
-### <a name="to-renew-a-group"></a>Förnya en grupp
-
 1. Välj den Office 365-grupp som du vill förnya och välj sedan **förnya grupp**.
 
     ![Förnya en Office 365-grupp och utöka förfallo datumet](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -144,8 +138,6 @@ Om din organisation tillåter det kan du förnya en Office 365-grupp och förlä
 
 Du kan när som helst ta bort alla egna grupper. Men om du tar bort en grupp av misstag måste du skapa den och lägga till medlemmar igen.
 
-### <a name="to-delete-the-group"></a>Ta bort gruppen
-
 1. Välj den grupp som du vill ta bort permanent och välj sedan **ta bort grupp** på sidan *&lt;GROUP_NAME&gt;* .
 
     ![Sidan < Group_name > med länken Ta bort grupp markerad](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -156,9 +148,7 @@ Du kan när som helst ta bort alla egna grupper. Men om du tar bort en grupp av 
 
 ## <a name="join-an-existing-group"></a>Anslut till en befintlig grupp
 
-Du kan ansluta en redan befintlig grupp från sidan **grupper** .
-
-### <a name="to-join-or-leave-a-group"></a>För att koppla eller lämna en grupp
+Du kan koppla eller lämna en befintlig grupp från sidan **grupper** .
 
 1. På sidan **grupper** väljer du **Anslut grupp** från **grupper som jag bor i** .
 
@@ -172,7 +162,7 @@ Du kan ansluta en redan befintlig grupp från sidan **grupper** .
 
 3. Om du har anslutit en grupp av misstag eller om du inte längre behöver vara en del av den, kan du välja grupp namnet på sidan **Anslut grupper** och sedan välja **lämna grupp**.
 
-    ![Sidan Anslut till grupper med knappen lämna grupp markerad](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Sidan Anslut till grupper med knappen lämna grupp markerad](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

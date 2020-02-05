@@ -1,34 +1,34 @@
 ---
-title: Hantera program behörigheter från portalen Mina appar (för hands version) – Azure Active Directory | Microsoft Docs
-description: Lär dig hur du hanterar program behörigheter för din organisations molnbaserade appar från min Apps-portal (för hands version).
+title: Hantera program behörigheter från portalen Mina appar – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du hanterar program behörigheter för din organisations molnbaserade appar från portalen Mina appar.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bac33386371b13950163727497cabd0f262df135
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705062"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022417"
 ---
-# <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Redigera eller återkalla program behörigheter i portalen Mina appar (för hands version)
+# <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Redigera eller återkalla program behörigheter i portalen Mina appar
 
-När du använder organisations program på portalen **Mina appar** (för hands version) ger du ofta behörigheter och sparar konto information. För att skydda dina data, kanske du vill granska och återkalla behörigheter eller rensa sparade autentiseringsuppgifter för kontot. Om du tar bort behörigheter eller konton kan vissa app-funktioner brytas. Om du har problem när du har tagit bort behörigheter eller konton kan du kontakta din organisations supportavdelning om du behöver ytterligare hjälp.
+När du använder organisations program i portalen **Mina appar** , beviljar du ofta behörigheter och sparar konto information. För att skydda dina data, kanske du vill granska och återkalla behörigheter eller rensa sparade autentiseringsuppgifter för kontot. Om du tar bort behörigheter eller konton kan vissa app-funktioner brytas. Om du har problem när du har tagit bort behörigheter eller konton kan du kontakta din organisations supportavdelning om du behöver ytterligare hjälp.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
-## <a name="manage-app-permissions"></a>Hantera programbehörigheter
+## <a name="manage-app-permissions"></a>Hantera program behörigheter
 
 Om du vill visa de behörigheter som du eller administratören har skickat till väljer du **...** när du hovrar över en app i portalen för **Mina appar** väljer du **Hantera ditt program**:
 
@@ -46,11 +46,11 @@ I den nedre delen av fönstret behörigheter visas vad administratören har skic
 
 När du har hanterat app-behörigheter och sparade konton i portalen **Mina appar** kan du:
 
-- Organisera dina appar i de olika kategorier som skapas och tillhandahålls av din organisation. Mer information finns i [åtkomst och Använd arbets ytor i portalen Mina appar (för hands version)](my-applications-portal-workspaces.md).
+- Organisera dina appar i de olika kategorier som skapas och tillhandahålls av din organisation. Mer information finns i [Access and use Collections in the My Apps-portalen](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Uppdatera din profil och konto information](my-account-portal-overview.md). Anvisningar om hur du uppdaterar din personliga information som visas på portalen **min profil** (för hands version).
+- [Uppdatera din profil och konto information](my-account-portal-overview.md). Anvisningar om hur du uppdaterar din personliga information som visas i **min profil** Portal.
 
 - [Hantera dina organisationer](my-account-portal-organizations-page.md). Anvisningar om hur du visar och hanterar din organisations information på sidan **organisationer** i **min profil** Portal.
 

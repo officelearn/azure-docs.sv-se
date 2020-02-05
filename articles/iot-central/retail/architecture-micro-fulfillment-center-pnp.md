@@ -9,18 +9,16 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35f99abaf5e0142c29d6dd43c968b66b21a28a50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f752c77a6a62b9b259a8bb1869ca03ff6a19b1f5
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75899218"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020887"
 ---
 # <a name="micro-fulfillment-center-architecture"></a>Arkitektur för Micro-uppfyllelse Center
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
-
-Med lösningar för Micro-uppfyllelse Center kan du ansluta, övervaka och hantera alla aspekter av ett helt automatiserat uppfyllande Center för att minska kostnaderna genom att eliminera drift stoppet och öka säkerheten och den övergripande effektiviteten. Dessa lösningar kan skapas genom att använda en av Programmallarna i IoT Central och arkitekturen nedan som vägledning.
+Med lösningar för Micro-uppfyllelse Center kan du ansluta, övervaka och hantera alla aspekter av ett helt automatiserat uppfyllande Center för att minska kostnaderna genom att eliminera drift stoppet och öka säkerheten och den övergripande effektiviteten. Dessa lösningar kan skapas med hjälp av en av Programmallarna i IoT Central och arkitekturen nedan som vägledning.
 
 ![Azure IoT Central Store Analytics](./media/architecture/micro-fulfillment-center-architecture-frame.png)
 
@@ -34,11 +32,11 @@ Låt oss ta en titt på viktiga komponenter som vanligt vis spelar en del i en l
 
 ## <a name="robotic-carriers"></a>Robot bärare
 
-En lösning för Micro-uppfyllelse Center har troligen en stor uppsättning robot bärare som genererar olika telemetri signaler. Dessa signaler kan matas in av en gateway-enhet, aggregeras och sedan skickas till IoT Central som återges av den vänstra sidan av arkitektur diagrammet.  
+En lösning för Micro-uppfyllelse Center har troligen en stor uppsättning robot bärare som genererar olika typer av telemetri signaler. Dessa signaler kan matas in av en gateway-enhet, aggregeras och sedan skickas till IoT Central som återges av den vänstra sidan av arkitektur diagrammet.  
 
 ## <a name="condition-monitoring-sensors"></a>Villkor för övervakning av sensorer
 
-En IoT-lösning börjar med en uppsättning sensorer som fångar in meningsfulla signaler från ditt uppfyllande Center. Det avspeglas av en rad sensorer längst till vänster i arkitektur diagrammet ovan.
+En IoT-lösning börjar med en uppsättning sensorer som fångar in meningsfulla signaler från ditt uppfyllande Center. Den återspeglas av olika typer av sensorer längst till vänster i arkitektur diagrammet ovan.
 
 ## <a name="gateway-devices"></a>Gatewayenheter
 
@@ -46,7 +44,7 @@ Många IoT-sensorer kan mata ut RAW-signaler direkt till molnet eller till en ga
 
 ## <a name="iot-central-application"></a>IoT Central program
 
-Azure IoT Central-programmet matar in data från en rad olika IoT-sensorer, robots och välsamma gateway-enheter i den uppfyllande Center miljön och genererar en uppsättning meningsfulla insikter.
+Azure IoT Central-programmet matar in data från olika typer av IoT-sensorer, robots, som bra gateway-enheter inom den uppfyllande Center miljön och genererar en uppsättning meningsfulla insikter.
 
 Azure IoT Central ger också en skräddarsydd upplevelse för Store-operatören som gör det möjligt för dem att fjärrövervaka och hantera infrastruktur enheter.
 
@@ -54,8 +52,8 @@ Azure IoT Central ger också en skräddarsydd upplevelse för Store-operatören 
 Azure IoT Central-programmet i en lösning kan konfigureras för att exportera rå eller sammanställda insikter till en uppsättning med Azure PaaS-tjänster (Platform-as-a-Service) som kan utföra data manipulation och förbättra dessa insikter innan de informerar dem i ett företag applicering. 
 
 ## <a name="business-application"></a>Affärs program
-IoT-data kan användas för att driva en mängd olika affärs program som distribueras i en detalj handels miljö. En uppfyllelse Center Manager eller medarbetare kan använda dessa program för att visualisera affärs insikter och vidta meningsfulla åtgärder i real tid. Om du vill lära dig hur du skapar en instrument panel i real tid Power BI för din butiks grupp följer du [själv studie kursen](./tutorial-in-store-analytics-create-app-pnp.md).
+IoT-data kan användas för att driva olika typer av affärs program som distribueras i en detalj handels miljö. En ansvarig Center-hanterare eller medarbetare kan använda dessa program för att visualisera affärs insikter och vidta meningsfulla åtgärder i real tid. Om du vill lära dig hur du skapar en instrument panel i real tid Power BI för din butiks grupp följer du [själv studie kursen](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Kom igång med programmallen för [Micro-uppfyllelse Center](https://aka.ms/checkouttemplate) . 
-* Ta en titt på [självstudien](https://aka.ms/mfc-tutorial) som vägleder dig genom hur du skapar en lösning som utnyttjar app-mallen för Micro-utförande.
+* Ta en titt på [självstudien](https://aka.ms/mfc-tutorial) som vägleder dig genom hur du skapar en lösning med hjälp av app-mallen för Micro-utförande.

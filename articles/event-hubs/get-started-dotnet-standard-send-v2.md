@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: fc9ffc62e765f3b8c8fa418f3189f84686987821
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c8c6e2741eeeadf2afc0c027da8f9cf957c29c95
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907119"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023250"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs-.NET Core (Azure. Messaging. EventHubs) 
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i Event Hubs kan du lagra data med ett lagrings kluster eller process händelser. Du kan till exempel transformera händelse data med hjälp av en real tids analys-Provider. Den här storskaliga händelse insamlings-och bearbetnings funktionen är en viktig komponent i moderna program arkitekturer, inklusive Sakernas Internet (IoT). En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -118,9 +118,9 @@ Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Skapa en Azure Storage och en BLOB-behållare
 I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. Följ dessa steg om du vill skapa ett Azure Storage-konto. 
 
-1. [Skapa ett Azure Storage konto](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal)
-2. [Skapa en BLOB-behållare](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
-3. [Hämta anslutnings strängen till lagrings kontot](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+1. [Skapa ett Azure Storage konto](/azure/storage/common/storage-account-create?tabs=azure-portal)
+2. [Skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+3. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md?#view-and-copy-a-connection-string)
 
     Anteckna anslutnings strängen och behållar namnet. Du kommer att använda dem i Receive-koden. 
 

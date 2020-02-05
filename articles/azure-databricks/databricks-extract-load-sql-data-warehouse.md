@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: 4c73a1e314888d99f4a5beea997265d28077e847
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a505145eeba47eda9950c5a4c8221e4c9ae4b3a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898615"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024083"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -65,7 +65,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
    * När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och hemliga värden i en textfil. Du kommer att behöva dem snart.
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Samla in den information som du behöver
 
@@ -216,7 +216,7 @@ Kör koden genom att trycka på **SKIFT + RETUR** i cellen.
 1. Du kan nu läsa in json-exempelfilen som en dataram i Azure Databricks. Klistra in följande kod i en ny cell. Ersätt platshållarna inom hakparentes med dina värden.
 
    ```scala
-   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
+   val df = spark.read.json("abfss://" + fileSystemName + "@" + storageAccountName + ".dfs.core.windows.net/small_radio_json.json")
    ```
 2. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 

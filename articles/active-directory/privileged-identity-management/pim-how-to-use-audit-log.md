@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275b08beac842c7d435d77d6b4c1338e817fbc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430108"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024185"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visa gransknings historik för Azure AD-roller i PIM
 
@@ -33,52 +33,6 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
     ![Ny version av Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-new-version.png)
-
-# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
-
-## <a name="view-audit-history"></a>Visa granskningshistorik
-
-Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
-
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
-
-1. Öppna **Azure AD Privileged Identity Management**.
-
-1. Välj **Azure AD-roller**.
-
-1. Välj **gransknings historik för katalog roller**.
-
-    Beroende på din gransknings historik visas ett stapeldiagram tillsammans med totalt antal aktiveringar, Max aktiveringar per dag och genomsnittlig aktivering per dag.
-
-    ![Granskningshistorik för katalogroller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
-
-    Längst ned på sidan visas en tabell med information om varje åtgärd i den tillgängliga gransknings historiken. Kolumnerna har följande betydelser:
-
-    | Kolumn | Beskrivning |
-    | --- | --- |
-    | Tid | När åtgärden utfördes. |
-    | Requestor | Användare som begärde roll aktiveringen eller ändringen. Om värdet är **Azure-system**kontrollerar du Azures gransknings historik för mer information. |
-    | Åtgärd | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
-    | Medlem | Användare som aktiverar eller har tilldelats en roll. |
-    | Roll | Roll som tilldelats eller Aktiver ATS av användaren. |
-    | Tanke | Text som angavs i orsaks fältet under aktiveringen. |
-    | Förfallotid | När en aktive rad roll upphör att gälla. Gäller endast berättigade roll tilldelningar. |
-
-1. Sortera gransknings historiken genom att klicka på knapparna **tid**, **åtgärd**och **roll** .
-
-## <a name="filter-audit-history"></a>Filtrera gransknings historik
-
-1. Klicka på knappen **filter** överst på sidan gransknings historik.
-
-    Fönstret **Parametrar för uppdaterings diagram** visas.
-
-1. I **tidsintervall**väljer du ett tidsintervall.
-
-1. I **roller**markerar du kryss rutorna för att ange de roller som du vill visa.
-
-    ![Fönstret uppdatera diagram parametrar](media/pim-how-to-use-audit-log/update-chart-parameters.png)
-
-1. Välj **färdig** om du vill visa den filtrerade gransknings historiken.
 
 # <a name="new-versiontabnew"></a>[Ny version](#tab/new)
 
@@ -113,6 +67,52 @@ I min granskning kan du Visa din personliga roll aktivitet.
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
     ![Gransknings lista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
+
+# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
+
+## <a name="view-audit-history"></a>Visa granskningshistorik
+
+Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
+
+1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+
+1. Öppna **Azure AD Privileged Identity Management**.
+
+1. Välj **Azure AD-roller**.
+
+1. Välj **gransknings historik för katalog roller**.
+
+    Beroende på din gransknings historik visas ett stapeldiagram tillsammans med totalt antal aktiveringar, Max aktiveringar per dag och genomsnittlig aktivering per dag.
+
+    ![Gransknings historik för katalog roller](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+
+    Längst ned på sidan visas en tabell med information om varje åtgärd i den tillgängliga gransknings historiken. Kolumnerna har följande betydelser:
+
+    | Kolumn | Beskrivning |
+    | --- | --- |
+    | Tid | När åtgärden utfördes. |
+    | Begär Ande | Användare som begärde roll aktiveringen eller ändringen. Om värdet är **Azure-system**kontrollerar du Azures gransknings historik för mer information. |
+    | Åtgärd | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
+    | Medlem | Användare som aktiverar eller har tilldelats en roll. |
+    | Roll | Roll som tilldelats eller Aktiver ATS av användaren. |
+    | Tanke | Text som angavs i orsaks fältet under aktiveringen. |
+    | Dag | När en aktive rad roll upphör att gälla. Gäller endast berättigade roll tilldelningar. |
+
+1. Sortera gransknings historiken genom att klicka på knapparna **tid**, **åtgärd**och **roll** .
+
+## <a name="filter-audit-history"></a>Filtrera gransknings historik
+
+1. Klicka på knappen **filter** överst på sidan gransknings historik.
+
+    Fönstret **Parametrar för uppdaterings diagram** visas.
+
+1. I **tidsintervall**väljer du ett tidsintervall.
+
+1. I **roller**markerar du kryss rutorna för att ange de roller som du vill visa.
+
+    ![Fönstret uppdatera diagram parametrar](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+
+1. Välj **färdig** om du vill visa den filtrerade gransknings historiken.
 
 ---
 

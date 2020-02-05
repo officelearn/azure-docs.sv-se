@@ -1,25 +1,49 @@
 ---
-title: Använda programmallar i Azure IoT Central | Microsoft Docs
-description: Som operatör använder du enhets uppsättningar i ditt Azure IoT Central-program.
+title: Exportera ett Azure IoT Central-program | Microsoft Docs
+description: Som lösnings hanterare vill jag exportera en Programmall för att kunna återanvända den.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/30/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3cc6f82676f426240fba4cc4910246073aa9a556
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b5c8f7fd1c87ce279a8edd39aacb332b8aef28be
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982468"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023454"
 ---
-# <a name="use-application-templates"></a>Använd programmallar
+# <a name="export-your-application"></a>Exportera ditt program
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Den här artikeln beskriver hur, som lösnings hanterare, för att skapa och använda programmallar.
+
+I den här artikeln beskrivs hur, som en lösnings hanterare, för att exportera ett IoT Central program för att kunna återanvända det.
+
+Du kan välja mellan två alternativ:
+
+- Du kan skapa en kopia av ditt program om du bara behöver skapa en kopia av ditt program.
+- Du kan skapa en Programmall från ditt program om du planerar att skapa flera kopior.
+
+## <a name="copy-your-application"></a>Kopiera ditt program
+
+Du kan skapa en kopia av alla program, minus enhets instanser, enhets data historik och användar data. I kopian används en standard pris plan som du debiteras för. Du kan inte skapa ett program som använder den kostnads fria pris Planen genom att kopiera ett program.
+
+Välj **Kopiera**. I dialog rutan anger du information om det nya programmet. Välj sedan **Kopiera** för att bekräfta att du vill fortsätta. Mer information om fälten i formuläret finns i snabb start för att [skapa ett program](quick-deploy-iot-central.md) .
+
+![Sidan program inställningar](media/howto-use-app-templates/appcopy2.png)
+
+När kopieringen av appen lyckas kan du navigera till det nya programmet med hjälp av länken.
+
+![Sidan program inställningar](media/howto-use-app-templates/appcopy3a.png)
+
+När du kopierar ett program kopieras även definitionen av regler och e-poståtgärden. Vissa åtgärder, till exempel Flow och Logic Apps, är knutna till vissa regler via regel-ID: t. När en regel kopieras till ett annat program får den ett eget regel-ID. I det här fallet måste användarna skapa en ny åtgärd och sedan koppla den nya regeln till den. I allmänhet är det en bra idé att kontrol lera reglerna och åtgärderna för att se till att de är uppdaterade i den nya appen.
+
+> [!WARNING]
+> Om en instrument panel innehåller paneler som visar information om specifika enheter visas **inte den begärda resursen** i det nya programmet. Du måste konfigurera om panelerna för att visa information om enheter i det nya programmet.
+
+## <a name="create-an-application-template"></a>Skapa en Programmall
 
 När du skapar ett Azure IoT Central-program kan du välja mellan inbyggda exempel mallar. Du kan också skapa egna programmallar från befintliga IoT Central-program. Du kan sedan använda dina egna programmallar när du skapar nya program.
 
@@ -42,8 +66,6 @@ När du skapar en Programmall innehåller den inte följande objekt:
 
 Lägg till dessa objekt manuellt i alla program som skapats från en Programmall.
 
-## <a name="create-an-application-template"></a>Skapa en Programmall
-
 Så här skapar du en Programmall från ett befintligt IoT Central-program:
 
 1. Gå till avsnittet **Administration** i ditt program.
@@ -53,7 +75,7 @@ Så här skapar du en Programmall från ett befintligt IoT Central-program:
 
 ![Skapa en Programmall](media/howto-use-app-templates/create-template.png)
 
-## <a name="use-an-application-template"></a>Använd en program mall
+### <a name="use-an-application-template"></a>Använd en program mall
 
 Om du vill använda en Programmall för att skapa ett nytt IoT Central-program behöver du en tidigare skapad **delnings bara länk**. Klistra in den **delnings bara länken** i webbläsarens Adress fält. Sidan **skapa ett program** visas med din anpassade program mal len vald:
 
@@ -61,7 +83,7 @@ Om du vill använda en Programmall för att skapa ett nytt IoT Central-program b
 
 Välj din pris plan och fyll i de andra fälten i formuläret. Välj sedan **skapa** för att skapa ett nytt IoT Central program från program mal len.
 
-## <a name="manage-application-templates"></a>Hantera programmallar
+### <a name="manage-application-templates"></a>Hantera programmallar
 
 På sidan **Exportera program mal len** kan du ta bort eller uppdatera program mal len.
 

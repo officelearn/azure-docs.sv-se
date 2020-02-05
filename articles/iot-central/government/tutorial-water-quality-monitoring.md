@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 47d1fa4e2911fa0f898804e6293af5754f572f7f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987564"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016382"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Den här självstudien vägleder dig genom skapandet av ett program för övervakning av vatten kvalitet i Azure IoT Central. Du skapar programmet från program mal len för övervakning av Azure IoT Central **vatten kvalitet** .
 
@@ -64,7 +64,9 @@ I det här avsnittet använder du mallen för övervakning av Azure IoT Central 
 
     ![Sidan Azure IoT Central New-Application](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
 
-    ![fakturerings informationen för Azure IoT Central New-Application](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png) nu har du skapat ett program för övervakning av vatten kvalitet med hjälp av mallen för övervakning av Azure IoT Central **vatten kvalitet** .
+    ![Fakturerings information för Azure IoT Central New-Application](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
+
+Nu har du skapat ett program för övervakning av vatten kvalitet med hjälp av mallen för övervakning av Azure IoT Central **vatten kvalitet** .
 
 Det nya programmet levereras med följande förkonfigurerade komponenter:
 

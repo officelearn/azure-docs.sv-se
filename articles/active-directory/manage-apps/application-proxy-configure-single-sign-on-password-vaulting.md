@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18510bd7ace6ca87278b5bf68f79b372251ac0e1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807811"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025749"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösenord vaulting för enkel inloggning med programproxy
 
@@ -34,9 +34,11 @@ Du bör redan har publicerats och testas din app med Application Proxy. Om inte,
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
 1. Välj **Azure Active Directory** > **företagsprogram** > **alla program**.
 1. Välj den app som du vill ställa in med enkel inloggning i listan.  
+1. Välj **programproxy**. 
+1. Ändra **typen för autentisering** till **passthrough** och välj **Spara**. Senare kan du växla tillbaka till **Azure Active Directory** typ igen! 
 1. Välj **enkel inloggning**.
 
-   ![Välj enkel inloggning från appens översiktssidan](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![Välj enkel inloggning på appens översikts sida](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
 1. SSO-läge, Välj **lösenordsbaserad inloggning**.
 1. För inloggnings-URL: en, anger du URL: en för sidan där användarna anger sina användarnamn och lösenord för att logga in på din app utanför företagets nätverk. Detta kan vara en extern URL som du skapade när du har publicerat appen via programproxyn.
@@ -44,6 +46,17 @@ Du bör redan har publicerats och testas din app med Application Proxy. Om inte,
    ![Välj lösenordsbaserad inloggning och anger en URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Välj **Spara**.
+1. Välj **programproxy**. 
+1. Ändra **typen för förautentisering** till **Azure Active Directory** och välj **Spara**. 
+1. Välj **användare och grupper**.
+1. Tilldela användare till programmet med att välja **Lägg till användare**. 
+1. Om du vill fördefiniera autentiseringsuppgifter för en användare markerar du kryss rutan framför användar namnet och väljer **uppdatera autentiseringsuppgifter**.
+1. Välj **Azure Active Directory** > **Appregistreringar** > **alla program**.
+1. I listan väljer du den app som du konfigurerade med lösen ordet SSO.
+1. Välj **anpassning**. 
+1. Uppdatera **Start sidans URL** med **inloggnings-URL:** en från inloggnings sidan för lösen ord och välj **Spara**.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -51,7 +64,7 @@ Du bör redan har publicerats och testas din app med Application Proxy. Om inte,
 
 ## <a name="test-your-app"></a>Testa din app
 
-Gå till externa URL: en som du konfigurerade för fjärråtkomst till ditt program. Logga in med dina autentiseringsuppgifter för appen (eller autentiseringsuppgifterna för ett testkonto som du har konfigurerat med åtkomst). När du loggar in har, bör du kunna lämna appen och gå tillbaka utan att ange dina autentiseringsuppgifter igen.
+Gå till portalen Mina appar. Logga in med dina autentiseringsuppgifter (eller autentiseringsuppgifterna för ett test konto som du har konfigurerat med åtkomst). När du har loggat in klickar du på ikonen för appen. Detta kan utlösa installationen av tillägget Mina appar säker inloggnings webbläsare. Om din användare hade fördefinierade autentiseringsuppgifter ska autentiseringen till appen ske automatiskt, annars måste du ange användar namnet eller lösen ordet för första gången. 
 
 ## <a name="next-steps"></a>Nästa steg
 

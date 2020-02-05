@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: c9a153cc5b1b8c43a42b37d591a8946a545f63ff
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986448"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021295"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudie: Distribuera och genom gång av en kontinuerlig app-mall för patient övervakning
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Den här självstudien visar dig som Solution Builder och hur du kommer igång genom att distribuera en IoT Central kontinuerlig övervaknings program mal len för patienter. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kanske vill göra härnäst.
+
+Den här självstudien visar dig som Solution Builder och hur du kommer igång genom att distribuera en IoT Central kontinuerlig övervaknings program mal len för patienter. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kan göra härnäst.
 
 I den här guiden får du lära dig hur man:
 
@@ -34,7 +34,7 @@ Gå till [webbplatsen för Azure IoT Central Application Manager](https://apps.a
 >[!div class="mx-imgBorder"] 
 >![-hälsovård för App Manager](media/app-manager-health.png)
 
-Klicka på knappen **skapa app** för att börja skapa ditt program och logga sedan in med ett Microsoft personal-, arbets-eller skol konto. Då går du till sidan **nytt program** .
+Klicka på knappen **skapa app** för att börja skapa ditt program och logga sedan in med ett Microsoft personal-, arbets-eller skol konto. Det tar dig till sidan **nytt program** .
 
 ![Skapa program hälso vård](media/app-manager-health-create.png)
 
@@ -52,13 +52,13 @@ Så här skapar du ditt program:
 
 ### <a name="dashboards"></a>Instrumentpaneler
 
-När du har distribuerat app-mallen hamnar du först på **lamna instrument panel för patient övervakning**. Lamna sjukvård är ett fiktivt sjukhus system som innehåller två sjukhus: Sparbanken sjukhus och Burkville sjukhus. På instrument panelen för den här operatorn för Sparbankens sjukhus visas information och telemetri om enheterna i den här mallen tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Från instrument panelen kan du:
+När du har distribuerat app-mallen hamnar du först på **lamna instrument panel för patient övervakning**. Lamna sjukvård är ett fiktivt sjukhus system som innehåller två sjukhus: Sparbanken sjukhus och Burkville sjukhus. På instrument panelen för den här operatorn för Sparbanken kommer du att se information och telemetri om enheterna i den här mallen tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Från instrument panelen kan du:
 
 * Se telemetri och egenskaper för enheten, till exempel enhetens **batteri nivå** eller dess **anslutnings** status.
 
 * Visa **våningsplanet** och platsen för den smarta viktigare korrigerings enheten.
 
-* **Etablera** om den smarta viktiga korrigerings filen för en ny patient.
+* **Reetablering** av den smarta viktiga korrigerings filen för en ny patient.
 
 * Se ett exempel på en **instrument panel** för en leverantör som ett sjukhus lag kan se för att spåra sina patienter.
 
@@ -78,14 +78,14 @@ På båda instrument panelerna kan du alltid länka tillbaka till den här dokum
 
 Om du klickar på fliken **enhets mallar** ser du att det finns två olika enhets typer som är en del av mallen:
 
-* **Smart Vital-korrigering**: den här enheten representerar en korrigering som mäter en rad viktiga tecken som kan användas för att övervaka patienter i och utanför sjukhus. Om du klickar på mallen, ser du att förutom att skicka enhets data, till exempel batteri nivå och enhets temperatur, så skickar korrigeringen även patient hälso data, till exempel andnings frekvensen och blod trycket.
+* **Smart Vital-korrigering**: den här enheten representerar en korrigering som mäter olika typer av viktiga tecken. Den kan användas för att övervaka patienter i och utanför sjukhus. Om du klickar på mallen, ser du att förutom att skicka enhets data, till exempel batteri nivå och enhets temperatur, så skickar korrigeringen även patient hälso data, till exempel andnings frekvensen och blod trycket.
 
 * **Smart Knee-klammer**: den här enheten representerar en Knee-klammer som patienter kan använda vid återställning från en Knee. Om du klickar på den här mallen ser du funktioner som rörelse-och accelerations intervall, förutom enhets data.
 
 >[!div class="mx-imgBorder"] 
 >![Smart Vital patch av enhets mal len](media/smart-vitals-device-template.png)
 
-Om du klickar på fliken **enhets grupper** ser du också att dessa enhets mallar automatiskt har enhets grupper som skapats för dem.
+Om du klickar på fliken **enhets grupper** ser du också att dessa enhets mallar automatiskt har enhets grupper skapade.
 
 ### <a name="rules"></a>Regler
 
@@ -102,7 +102,7 @@ När du hoppar till fliken regler visas tre regler som finns i program mal len:
 
 ### <a name="devices"></a>Enheter
 
-Klicka på fliken **enheter** och välj sedan en instans av den **smarta Knee-klammern**. Du ser att det finns tre vyer för att kunna utforska information om den specifika enhet som du har valt. Dessa vyer skapas och publiceras när du skapar enhets mal len för enheten. Det innebär att de kommer att vara konsekventa för alla enheter som du ansluter eller simulerar.
+Klicka på fliken **enheter** och välj sedan en instans av den **smarta Knee-klammern**. Du ser att det finns tre vyer för att utforska information om den specifika enhet som du har valt. Dessa vyer skapas och publiceras när du skapar enhets mal len för enheten, vilket innebär att de kommer att vara konsekventa över alla enheter som du ansluter eller simulerar.
 
 I vyn **instrument panel** får du en översikt över telemetri och egenskaper som kommer från den enhet som är inriktad på operatör.
 

@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc4b518cd2400cf3826b31a590d499c1ad031e7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896528"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025562"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management
 
@@ -38,61 +38,13 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 
 Följ stegen i den här artikeln för att godkänna eller neka begär Anden för Azure AD-roller.
 
-# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
-
-## <a name="view-pending-requests"></a>Visa väntande begär Anden
-
-Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
-
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-
-1. Öppna **Azure AD Privileged Identity Management**.
-
-1. Klicka på **Azure AD-roller**.
-
-1. Klicka på **Godkänn begär Anden**.
-
-    ![Azure AD-roller – Godkänn begär Anden](./media/azure-ad-pim-approval-workflow/approve-requests.png)
-
-    Du ser en lista över begär Anden som väntar på ditt godkännande.
-
-## <a name="approve-requests"></a>Godkänn förfrågningar
-
-1. Välj de begär Anden som du vill godkänna och klicka sedan på **Godkänn** för att öppna fönstret Godkänn valda begär Anden.
-
-    ![Listan Godkänn begär Anden med alternativet Godkänn markerat](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
-
-1. Skriv en orsak i rutan **Godkänn orsak** .
-
-    ![Godkänn fönstret valda begär Anden med en Godkänn orsak](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
-
-1. Klicka på **Godkänn**.
-
-    Status symbolen kommer att uppdateras med ditt godkännande.
-
-    ![Rutan Godkänn valda begär Anden efter att en Godkänn-knapp har klickats](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
-
-## <a name="deny-requests"></a>Neka förfrågningar
-
-1. Välj de begär Anden som du vill neka och klicka sedan på **neka** för att öppna fönstret neka valda begär Anden.
-
-    ![Listan Godkänn begär Anden med alternativet neka markerat](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
-
-1. Skriv en orsak i rutan **orsak till neka** .
-
-    ![Neka fönstret valda begär Anden med en orsak till neka](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
-
-1. Klicka på **neka**.
-
-    Status symbolen kommer att uppdateras med ditt avslag.
-
 # <a name="new-versiontabnew"></a>[Ny version](#tab/new)
 
 ## <a name="view-pending-requests"></a>Visa väntande begär Anden
 
 Som en delegerad god kännare får du ett e-postmeddelande när en Azure Resource Role-begäran väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -135,6 +87,54 @@ Här är lite information om arbets flödes meddelanden:
 
 >[!NOTE]
 >En resurs administratör som tror att en godkänd användare inte ska vara aktiv kan ta bort den aktiva roll tilldelningen i Privileged Identity Management. Även om resurs administratörer inte meddelas om väntande begär Anden om de inte är en god kännare, kan de Visa och avbryta väntande begär Anden för alla användare genom att visa väntande begär anden i Privileged Identity Management.
+
+# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
+
+## <a name="view-pending-requests"></a>Visa väntande begär Anden
+
+Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+
+1. Öppna **Azure AD Privileged Identity Management**.
+
+1. Klicka på **Azure AD-roller**.
+
+1. Klicka på **Godkänn begär Anden**.
+
+    ![Azure AD-roller – Godkänn begär Anden](./media/azure-ad-pim-approval-workflow/approve-requests.png)
+
+    Du ser en lista över begär Anden som väntar på ditt godkännande.
+
+## <a name="approve-requests"></a>Godkänn förfrågningar
+
+1. Välj de begär Anden som du vill godkänna och klicka sedan på **Godkänn** för att öppna fönstret Godkänn valda begär Anden.
+
+    ![Listan Godkänn begär Anden med alternativet Godkänn markerat](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+
+1. Skriv en orsak i rutan **Godkänn orsak** .
+
+    ![Godkänn fönstret valda begär Anden med en Godkänn orsak](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Klicka på **Godkänn**.
+
+    Status symbolen kommer att uppdateras med ditt godkännande.
+
+    ![Rutan Godkänn valda begär Anden efter att en Godkänn-knapp har klickats](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>Neka förfrågningar
+
+1. Välj de begär Anden som du vill neka och klicka sedan på **neka** för att öppna fönstret neka valda begär Anden.
+
+    ![Listan Godkänn begär Anden med alternativet neka markerat](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. Skriv en orsak i rutan **orsak till neka** .
+
+    ![Neka fönstret valda begär Anden med en orsak till neka](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Klicka på **neka**.
+
+    Status symbolen kommer att uppdateras med ditt avslag.
 
 ---
 

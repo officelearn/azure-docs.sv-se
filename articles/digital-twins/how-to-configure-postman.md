@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/03/2020
+ms.openlocfilehash: 377639d7a88478308709743ab842db71028686ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765404"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023318"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -33,45 +33,15 @@ Med Postman-klienten kan Solutions-utvecklare ange typen av HTTP-begäran (*post
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>Konfigurera Azure Active Directory att använda det implicita tilldelnings flödet för OAuth 2,0
 
-Konfigurera Azure Active Directory-appen så att den använder det implicita bidrags flödet OAuth 2,0.
-
-1. Öppna fönstret **API-behörigheter** för din app-registrering. Välj **Lägg till en behörighet** -knapp. I rutan **begär API-behörigheter** väljer du fliken **API: er min organisation använder** och söker sedan efter:
-    
-    1. `Azure Digital Twins`. Välj **Azure Digitals dubbla** API: er.
-
-        [![Sök-API eller digitala Azure-dubbla](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
-
-    1. Du kan också söka efter `Azure Smart Spaces Service`. Välj API för **Azure Smart Spaces-tjänsten** .
-
-        [![Sök-API för Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
-
-    > [!IMPORTANT]
-    > Det API-namn och ID för Azure AD som visas beror på din klient organisation:
-    > * Testa klient organisation och kund konton bör söka efter `Azure Digital Twins`.
-    > * Andra Microsoft-konton bör söka efter `Azure Smart Spaces Service`.
-
-1. Det valda API: et visas som **Azure Digitals dubbla** i samma **API-behörigheter för begäran** . Välj List rutan **Läs (1)** och välj sedan **Läs. Skriv** -kryss rutan. Välj knappen **Lägg till behörigheter** .
-
-    [![lägga till API-behörigheter för Azure Digital-dubbla](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
-
-1. Beroende på organisationens inställningar kan du behöva vidta ytterligare åtgärder för att bevilja administratörs åtkomst till det här API: et. Kontakta administratören om du vill ha mer information. När administratörs åtkomsten har godkänts visas kolumnen **Administratörs medgivande som krävs** i rutan **API-behörigheter** som liknar följande för dina API: er:
-
-    [![Konfigurera godkännande av administratörs godkännande](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
-
-1. Konfigurera en andra **omdirigerings-URI** till `https://www.getpostman.com/oauth2/callback`.
+1. Följ stegen i [snabb](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) starten för att skapa och konfigurera ett Azure Active Directory-program. Du kan också återanvända en befintlig app-registrering.
 
     [![konfigurera en ny Postman omdirigerings-URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. För att se till att [appen är registrerad som en **offentlig klient**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)öppnar du fönstret **autentisering** för din app-registrering och bläddrar nedåt i fönstret. I avsnittet **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**och trycker på **Spara**.
+1. Lägg nu till en **omdirigerings-URI** till `https://www.getpostman.com/oauth2/callback`.
 
-    Kontrol **lera åtkomsttoken för** att aktivera **oauth2AllowImplicitFlow** -inställningen i manifestet. JSON.
+1. Markera kryss rutan **implicit beviljande** > **åtkomsttoken** för att tillåta att det implicita tilldelnings flödet för OAuth-2,0 används. Välj **Konfigurera**och sedan **Spara**.
 
-    [konfigurations inställning för ![offentlig klient](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
-
-1. Kopiera och behåll **program-ID: t** för din Azure Active Directory-app. Den används i de steg som följer.
-
-   [![Azure Active Directory program-ID](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
-
+1. Kopiera **klient-ID** för din Azure Active Directory-app.
 
 ## <a name="obtain-an-oauth-20-token"></a>Hämta en OAuth 2,0-token
 
@@ -91,15 +61,13 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
 1. Gå till [www.getpostman.com](https://www.getpostman.com/) för att ladda ned appen.
 
-1. Öppna Postman-appen, klicka på New | Create new (Ny | Skapa ny), och välj Request (Begäran). Ange ett namn på begäran. Välj en samling eller mapp att spara den i och klicka på Spara. 
-
 1. Vi vill bli GET-begäran. Välj fliken **auktorisering** , välj OAuth 2,0 och välj sedan **Hämta ny**åtkomsttoken.
 
     | Field  | Värde |
     |---------|---------|
     | Typ av beviljande | `Implicit` |
     | Återanrops-URL | `https://www.getpostman.com/oauth2/callback` |
-    | URL för autentisering | Använd **URL:** en för auktorisering från **steg 2** |
+    | URL för autentisering | Använd **URL:** en för auktorisering från **steg 1** |
     | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory-app som skapades eller återanvändas från föregående avsnitt |
     | Omfång | Lämna tomt |
     | Status | Lämna tomt |

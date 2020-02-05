@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581507"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016570"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Skapa energilösningar med IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Smarta mätare och sol paneler spelar en viktig roll i energi branschens omvandling. De smarta mätarna ger fler kontroller och insikter i real tid om energi förbrukning och energi förbrukning, och tillväxt av sol panelerna är kraftiga i förnybar energi. Övervaknings appar för smart mätare och solpanel är exempel på mallar för att visa de olika funktionerna. Partner kan utnyttja dessa mallar för att bygga energi lösningar med IoT Central för sina specifika behov. Ingen ny kod och ingen ytterligare kostnad krävs för att distribuera och använda dessa program. Lär dig mer om Energy Application-mallar och deras funktioner.

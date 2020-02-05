@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7b04251211e716ef8e5f8c77aa3a2e74f6e9ef77
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982521"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016008"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Självstudie: skapa och gå igenom App-mallen för smart avläsning av övervakning 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Den här självstudien vägleder dig genom processen att skapa ett program för smart avläsning av övervakning, som innehåller en exempel enhets modell med simulerade data. I den här självstudiekursen lär du dig:
 
@@ -50,10 +50,11 @@ Du kan skapa det här programmet i tre enkla steg:
     * **URL**: välj en IoT Central URL, plattformen verifierar att den är unik.
     * **7-dagars kostnads fri utvärderings version**: om du redan har en Azure-prenumeration rekommenderas standardinställningen. Om du inte har en Azure-prenumeration börjar du med den kostnads fria utvärderings versionen.
     * **Fakturerings information**: själva programmet är kostnads fritt. Katalogen, Azure-prenumerationen och regions informationen krävs för att etablera resurserna för din app.
-    * Klicka på knappen **skapa** längst ned på sidan så skapas din app på en minut.     
-         ![nytt program formulär](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+    * Klicka på knappen **skapa** längst ned på sidan så skapas din app på en minut.
 
-         ![Fakturerings information för ny program form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
+        ![Nytt program formulär](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+
+        ![Fakturerings information för ny program form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verifiera programmet och simulerade data

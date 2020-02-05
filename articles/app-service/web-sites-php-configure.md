@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688265"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016807"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Konfigurera PHP i Azure App Service
 
@@ -34,20 +34,6 @@ Versionerna PHP 7,0 och PHP 7,2 är också tillgängliga, men inte aktiverade so
 2. Från **konfiguration**väljer du **allmänna inställningar** och sedan den nya php-versionen.
 
 3. Klicka på knappen **Spara** överst på bladet **allmänna inställningar** .
-
-### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Öppna Azure PowerShell och logga in på ditt konto:
-
-        PS C:\> Connect-AzAccount
-2. Ange PHP-versionen för appen.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. PHP-versionen har nu ställts in. Du kan bekräfta de här inställningarna:
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-cli"></a>Azure CLI 
 

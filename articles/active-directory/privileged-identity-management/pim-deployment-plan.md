@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/04/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021857"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026004"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -120,7 +120,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 Som en del av planerings processen måste du först godkänna och aktivera Privileged Identity Management genom att följa vår artikel för att [börja använda Privileged Identity Management](pim-getting-started.md) . Om du aktiverar Privileged Identity Management får du till gång till vissa funktioner som är särskilt utformade för att hjälpa dig med din distribution.
 
-Om målet är att distribuera Privileged Identity Management för Azure-resurser bör du följa våra [Azure-resurser för att hantera i Privileged Identity Management](pim-resource-roles-discover-resources.md) artikeln. Endast ägare av varje resurs, resurs grupp och prenumeration kommer att kunna identifiera dem i Privileged Identity Management. Om du är en global administratör som försöker distribuera Privileged Identity Management för dina Azure-resurser kan du [öka åtkomsten för att hantera alla Azure-prenumerationer](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) för att ge dig åtkomst till alla Azure-resurser i katalogen för identifiering. Vi rekommenderar dock att du får godkännande från var och en av dina prenumerations ägare innan du hanterar resurserna med Privileged Identity Management.
+Om målet är att distribuera Privileged Identity Management för Azure-resurser bör du följa våra [Azure-resurser för att hantera i Privileged Identity Management](pim-resource-roles-discover-resources.md) artikeln. Endast ägare av prenumerationer och hanterings grupper kan identifiera och publicera dessa resurser på Privileged Identity Management. När den har publicerats är PIM-funktionen tillgänglig för ägare på alla nivåer, inklusive hanterings grupp, prenumeration, resurs grupp och resurs. Om du är en global administratör som försöker distribuera Privileged Identity Management för dina Azure-resurser kan du [öka åtkomsten för att hantera alla Azure-prenumerationer](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) för att ge dig åtkomst till alla Azure-resurser i katalogen för identifiering. Vi rekommenderar dock att du får godkännande från var och en av dina prenumerations ägare innan du hanterar resurserna med Privileged Identity Management.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Tillämpa principen för minsta behörighet
 
@@ -198,7 +198,7 @@ Om det finns roller med tilldelade gäst användare är de särskilt utsatta fö
 > [!TIP]
 > : heavy_check_mark: **Microsoft rekommenderar** att du hanterar alla roller med gäst användare som använder Privileged Identity Management för att minska risken som är kopplad till komprometterade gäst användar konton.
 
-Reader-roller som katalog läsaren, meddelande Center läsaren och säkerhets läsaren antas ibland vara mindre viktiga jämfört med andra roller eftersom de inte har Skriv behörighet. Vi har dock sett att vissa kunder också skyddar dessa roller eftersom angripare som har fått åtkomst till dessa konton kan läsa känsliga data, till exempel personligt identifierbar information (PII). Du bör tänka på detta när du bestämmer om läsarnas roller i din organisation måste hanteras med hjälp av Privileged Identity Management.
+Reader-roller som katalog läsaren, meddelande Center läsaren och säkerhets läsaren antas ibland vara mindre viktiga jämfört med andra roller eftersom de inte har Skriv behörighet. Vi har dock sett att vissa kunder också skyddar dessa roller eftersom angripare som har fått åtkomst till dessa konton kan läsa känsliga data, till exempel personliga data. Du bör tänka på detta när du bestämmer om läsarnas roller i din organisation måste hanteras med hjälp av Privileged Identity Management.
 
 #### <a name="azure-resource-roles"></a>Azure-resursroller
 
@@ -243,16 +243,16 @@ Innan du implementerar din Privileged Identity Management-lösning är det bra a
 | Roll | Kräv MFA | Avisering | Incident biljett | Kräv godkännande | God kännare | Varaktighet för aktivering | Permanent administratör |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Global administratör | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra globala administratörer | 1 timme | Konton för nöd åtkomst |
-| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Ingen | 2 timme | Ingen |
-| Support administratör | :x: | :x: | :heavy_check_mark: | :x: | Ingen | 8 timmar | Ingen |
+| Exchange-administratör | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Inget | 2 timme | Inget |
+| Support administratör | :x: | :x: | :heavy_check_mark: | :x: | Inget | 8 timmar | Inget |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Privileged Identity Management inställningar för Azure-resurs roller
 
 | Roll | Kräv MFA | Avisering | Kräv godkännande | God kännare | Varaktighet för aktivering | Aktiv administratör | Aktiv utgång | Giltig förfallo datum |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Ingen | Saknas | 3 månad |
-| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :x: | Ingen | 1 timme | Ingen | Saknas | 3 månad |
-| Virtuell dator deltagare | :x: | :heavy_check_mark: | :x: | Ingen | 3 timmar | Ingen | Saknas | 6 månad |
+| Ägare till kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Andra ägare till prenumerationen | 1 timme | Inget | Ej tillämpligt | 3 månad |
+| Administratör för användar åtkomst för mindre kritiska prenumerationer | :heavy_check_mark: | :heavy_check_mark: | :x: | Inget | 1 timme | Inget | Ej tillämpligt | 3 månad |
+| Virtuell dator deltagare | :x: | :heavy_check_mark: | :x: | Inget | 3 timmar | Inget | Ej tillämpligt | 6 månad |
 
 I följande tabell beskrivs var och en av inställningarna.
 

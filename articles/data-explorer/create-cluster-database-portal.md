@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas'
+title: 'Snabb start: Skapa Azure Datautforskaren-kluster och-databas'
 description: I den här snabbstarten får du lära dig hur du skapar ett Azure Data Explorer-kluster och en -databas och matar in data (läsa in).
 author: orspod
 ms.author: orspodek
@@ -7,14 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326717"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984361"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -51,12 +51,12 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | Subscription | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
-    | Resource group | Din resurs grupp | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
+    | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
+    | Resursgrupp | Din resurs grupp | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
     | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 4 och 22 tecken.
     | Region | USA, *västra* eller *västra USA 2* | Välj *västra USA* eller *västra USA 2* (om du använder tillgänglighets zoner) för den här snabb starten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
     | Tillgänglighetszoner | *1*, *2*och/eller *3* | Placera kluster instanserna i olika tillgänglighets zoner i samma region (valfritt). [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) är unika fysiska platser inom samma Azure-region. De skyddar ett Azure Datautforskaren-kluster och data från delvis regions fel. Klusternoderna skapas som standard i samma data Center. Genom att välja flera tillgänglighets zoner kan du eliminera en enskild felpunkt och garantera hög tillgänglighet. Det går bara att distribuera till tillgänglighets zoner när klustret skapas och kan inte ändras vid ett senare tillfälle.
-    | Specifikationer för databearbetning | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
+    | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | | |
 
 1. Välj **Granska + skapa** för att granska din klusterinformation och **Skapa** för att etablera klustret. Etableringen tar normalt cirka 10 minuter.
@@ -123,6 +123,6 @@ Om du planerar att följa andra snabbstarter och självstudier kan du behålla a
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
+> [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
 
 

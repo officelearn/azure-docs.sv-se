@@ -1,14 +1,14 @@
 ---
 title: Snabb start – Bygg & kör behållar avbildning
-description: Kör snabbt uppgifter med Azure Container Registry för att skapa och köra en behållar avbildning på begäran i molnet.
+description: Kör snabbt uppgifter med Azure Container Registry för att skapa och köra en Docker-behållar avbildning på begäran i molnet.
 ms.topic: quickstart
-ms.date: 04/02/2019
-ms.openlocfilehash: f0b510607a4d0acf12e0b9caa43835c1cfe6a83d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/31/2020
+ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454943"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986282"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabb start: skapa och köra en behållar avbildning med Azure Container Registry uppgifter
 
@@ -44,7 +44,7 @@ I det här exemplet skapas ett *grundläggande* register, ett kostnads optimerat
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Bygg en avbildning från en Dockerfile
 
-Använd nu Azure Container Registry för att bygga en avbildning. Skapa först en arbets katalog och skapa sedan en Dockerfile med namnet *Dockerfile* med följande innehåll. Det här är ett enkelt exempel på att skapa en Linux container-avbildning, men du kan skapa egna standard-Dockerfile och bygga avbildningar för andra plattformar.
+Använd nu Azure Container Registry för att bygga en avbildning. Skapa först en arbets katalog och skapa sedan en Dockerfile med namnet *Dockerfile* med följande innehåll. Det här är ett enkelt exempel på att skapa en Linux container-avbildning, men du kan skapa egna standard-Dockerfile och bygga avbildningar för andra plattformar. Kommando exempel i den här artikeln är formaterade för bash-gränssnittet.
 
 ```bash
 echo FROM hello-world > Dockerfile
@@ -53,7 +53,9 @@ echo FROM hello-world > Dockerfile
 Kör kommandot [AZ ACR build][az-acr-build] för att skapa avbildningen. När den har skapats skickas avbildningen till registret. I följande exempel skickas `sample/hello-world:v1`-avbildningen. `.` i slutet av kommandot anger platsen för Dockerfile, i det här fallet den aktuella katalogen.
 
 ```azurecli-interactive
-az acr build --image sample/hello-world:v1 --registry myContainerRegistry008 --file Dockerfile . 
+az acr build --image sample/hello-world:v1 \
+  --registry myContainerRegistry008 \
+  --file Dockerfile . 
 ```
 
 Utdata från en lyckad version och push ser ut ungefär så här:
@@ -110,22 +112,16 @@ Run ID: ca8 was successful after 10s
 
 ## <a name="run-the-image"></a>Kör avbildningen
 
-Kör nu snabbt avbildningen som du har skapat och push-överförts till registret. I arbets flödet för container utveckling kan detta vara ett verifierings steg innan du distribuerar avbildningen.
+Kör nu snabbt avbildningen som du har skapat och push-överförts till registret. Här använder du [AZ ACR Run][az-acr-run] för att köra container-kommandot. I arbets flödet för container utveckling kan detta vara ett verifierings steg innan du distribuerar avbildningen, eller så kan du inkludera kommandot i en [yaml-fil med flera steg][container-registry-tasks-multi-step]. 
 
-Skapa en fil *quickrun. yaml* i en lokal arbets katalog med följande innehåll för ett enda steg. Ersätt inloggnings Server namnet för registret för *\<acrLoginServer\>* . Inloggnings serverns namn har formatet *\<register namn\>. azurecr.io* (alla gemener), till exempel *mycontainerregistry008.azurecr.io*. I det här exemplet förutsätts att du har skapat och pushat `sample/hello-world:v1` avbildningen i föregående avsnitt:
-
-```yml
-steps:
-  - cmd: <acrLoginServer>/sample/hello-world:v1
-```
-
-`cmd` steg i det här exemplet kör behållaren i dess standard konfiguration, men `cmd` stöder ytterligare `docker run` parametrar eller till och med andra `docker`-kommandon.
-
-Kör behållaren med följande kommando:
+I följande exempel används `$Registry` för att ange registret där du kör kommandot:
 
 ```azurecli-interactive
-az acr run --registry myContainerRegistry008 --file quickrun.yaml .
+az acr run --registry myContainerRegistry008 \
+  --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
+
+Parametern `cmd` i det här exemplet kör behållaren i dess standard konfiguration, men `cmd` stöder ytterligare `docker run` parametrar eller till och med andra `docker`-kommandon.
 
 De utdata som genereras liknar följande:
 
@@ -182,10 +178,10 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten använde du funktioner i ACR-aktiviteter för att snabbt skapa, skicka och köra en Docker-behållar avbildning i Azure. Fortsätt till Azure Container Registry självstudier om du vill lära dig mer om att använda ACR-uppgifter för att automatisera image-versioner och uppdateringar.
+I den här snabb starten har du använt funktioner i ACR-aktiviteter för att snabbt skapa, skicka och köra en Docker-behållar avbildning internt i Azure, utan en lokal Docker-installation. Fortsätt till självstudierna Azure Container Registry uppgifter och lär dig mer om att använda ACR-uppgifter för att automatisera avbildnings versioner och uppdateringar.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry själv studie kurser][container-registry-tutorial-quick-task]
+> [Azure Container Registry uppgifter – självstudier][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -201,10 +197,12 @@ I den här snabb starten använde du funktioner i ACR-aktiviteter för att snabb
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create
 [az-acr-build]: /cli/azure/acr#az-acr-build
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tasks-overview]: container-registry-tasks-overview.md
+[container-registry-tasks-multi-step]: container-registry-tasks-multi-step.md
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 [azure-cli-install]: /cli/azure/install-azure-cli

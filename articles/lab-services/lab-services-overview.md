@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
+ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4258bec3ceacd52f9679f48d8357be558ee0e27f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561630"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986639"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>En introduktion till Azure Lab Services
 Det finns två tjänster på Azure som gör att du kan konfigurera labb miljöer i molnet. 
@@ -36,9 +36,6 @@ Dessa tjänster (Azure DevTest Labs och Azure Lab Services) har stöd för följ
 - **Inbäddad säkerhet**. En labbägare kan konfigurera ett privat virtuellt nätverk och ett undernät för ett labb och aktivera en delad offentlig IP-adress. Labbanvändarna får säker åtkomst till resurserna via det virtuella nätverk som konfigurerats med ExpressRoute eller VPN för plats-till-plats (för närvarande tillgängligt endast i DevTest Labs).
 - **Integration i dina arbetsflöden och verktyg**. Med Azure Lab Services kan du integrera labb i din organisations webbplats och hanteringssystem. Du kan automatiskt etablera miljöer inifrån dina verktyg för kontinuerlig integration/kontinuerlig distribution (för närvarande tillgängligt endast i DevTest Labs).
 
-> [!NOTE]
-> Azure Lab Services stöder för närvarande endast virtuella datorer som skapas med Azure Marketplace-avbildningar. Om du vill använda anpassade avbildningar eller skapa andra PaaS-resurser i en labbmiljö kan du använda DevTest Labs. Mer information finns i [skapa en anpassad bild i DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) och [Skapa labb miljöer med Resource Manager-mallar](devtest-lab-create-environment-from-arm.md).
-
 ## <a name="scenarios"></a>Scenarier
 
 Här följer några av de scenarier som Azure DevTest Labs och Azure Lab Services support:
@@ -47,7 +44,7 @@ Här följer några av de scenarier som Azure DevTest Labs och Azure Lab Service
 
 - Skapa ett hanterat klassrumslabb. Du berättar bara för tjänsten exakt vad du behöver, så skapar och hanterar den labbets infrastruktur åt dig så att du kan fokusera på att undervisa din klass istället för att lägga tid på labbets tekniska detaljer.
 - Förse eleverna med ett labb med virtuella datorer som är konfigurerat med exakt det som behövs för en lektion. Ge varje elev ett begränsat antal timmar för användning av de virtuella datorerna för skolarbete.  
-- Flytta din skolas fysiska datorlabb till molnet. Skala automatiskt antalet virtuella datorer endast efter den maximala användning och de kostnadströsklar som du anger för labbet.
+- Flytta skolans fysiska datorlabb till molnet. Skala automatiskt antalet virtuella datorer endast efter den maximala användning och de kostnadströsklar som du anger för labbet.
 - Ta bort labbet med en enda klickning när du är klar.
 
 ### <a name="use-devtest-labs-for-development-environments"></a>Använda DevTest Labs för utvecklingsmiljöer
@@ -87,7 +84,7 @@ Här följer några av **användningsfallen för hanterade labbtyper**:
 
 - Förse eleverna med ett labb med virtuella datorer som är konfigurerat med exakt det som behövs för en lektion. Ge varje elev ett begränsat antal timmar för användning av de virtuella datorerna för läxor eller personliga projekt.
 - Konfigurera en pool med högpresterande virtuella datorer för att utföra beräkningsintensiv eller grafikintensiv research. Kör de virtuella datorerna efter behov och rensa datorerna när du är klar. 
-- Flytta din skolas fysiska datorlabb till molnet. Skala automatiskt antalet virtuella datorer endast efter den maximala användning och de kostnadströsklar som du anger för labbet.  
+- Flytta skolans fysiska datorlabb till molnet. Skala automatiskt antalet virtuella datorer endast efter den maximala användning och de kostnadströsklar som du anger för labbet.  
 - Etablera snabbt ett labb med virtuella datorer som värd för en hackathon. Ta bort labbet med en enda klickning när du är klar. 
 
 
@@ -112,7 +109,7 @@ I följande tabell jämförs två typer av labb som stöds av Azure Lab Services
 | Hantering av Azure-infrastrukturen i labbet |  Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Inbyggd motståndskraft mot infrastruktursproblem | Hanteras automatiskt av tjänsten | Du hanterar på egen hand  |
 | Prenumerationshantering | Tjänsten hanterar tilldelning av resurser i Microsoft-prenumerationer som stöder tjänsten. Skalning hanteras automatiskt av tjänsten | Du hanterar det på egen hand i din egen Azure-prenumeration. Ingen automatisk skalning av prenumerationer. |
-| Azure Resource Manager-distribution i labbet | Inte tillgänglig | Tillgänglig |
+| Azure Resource Manager-distribution i labbet | Inte tillgängligt | Tillgängligt |
 
 ## <a name="next-steps"></a>Nästa steg
 

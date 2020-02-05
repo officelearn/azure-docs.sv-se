@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469197"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989508"
 ---
 ### <a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -21,7 +21,7 @@ ms.locfileid: "75469197"
 
 ### <a name="publicip"></a>Behöver jag en offentlig IP-adress på min virtuella dator?
 
-Du behöver inte en offentlig IP-adress på den virtuella Azure-dator som du ansluter till med Azure skydds-tjänsten. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
+När du ansluter till en virtuell dator med hjälp av Azure skydds behöver du inte en offentlig IP-adress på den virtuella Azure-dator som du ansluter till. Skydds-tjänsten öppnar RDP/SSH-sessionen/-anslutningen till den virtuella datorn via den privata IP-adressen för den virtuella datorn i det virtuella nätverket.
 
 ### <a name="is-ipv6-supported"></a>Stöds IPv6?
 
@@ -29,15 +29,15 @@ För tillfället stöds inte IPv6. Azure skydds stöder endast IPv4.
 
 ### <a name="rdpssh"></a>Behöver jag en RDP-eller SSH-klient?
 
-Du behöver ingen RDP- eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure-portalen. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
+Du behöver inte en RDP-eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure Portal. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
 
 ### <a name="agent"></a>Behöver jag en agent som körs på den virtuella Azure-datorn?
 
-Du behöver inte installera någon agent eller programvara i webbläsaren eller den virtuella Azure-datorn. Tjänsten Bastion är agentlös och ingen ytterligare programvara krävs för RDP/SSH.
+Du behöver inte installera en agent eller någon program vara i din webbläsare eller din virtuella Azure-dator. Skydds-tjänsten är utan agent och kräver ingen ytterligare program vara för RDP/SSH.
 
 ### <a name="browsers"></a>Vilka webbläsare stöds?
 
-Använd Microsoft Edge-webbläsaren eller Google Chrome i Windows. För Apple Mac använder du webbläsaren Google Chrome. Microsoft Edge Chromium kan också användas på både Windows och Mac.
+Använd Microsoft Edge-webbläsaren eller Google Chrome i Windows. För Apple Mac använder du Google Chrome-webbläsaren. Microsoft Edge-krom stöds också både för Windows och Mac.
 
 ### <a name="roles"></a>Krävs det några roller för att få åtkomst till en virtuell dator?
 

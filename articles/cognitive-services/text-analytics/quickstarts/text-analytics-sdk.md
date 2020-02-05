@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Textanalys klient bibliotek v3 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten identifierar du språk genom att använda API för textanalys från Azure Cognitive Services.
+description: Använd den här snabb starten för att ansluta dina program till API för textanalys från Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,46 +10,79 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 89680ad61296cd225bb87d2d6b46259586304da2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+zone_pivot_groups: programming-languages-text-analytics
+ms.openlocfilehash: 87cf5f226a8b2d1efcc0ee967d84f6e0002cb03d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774108"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987939"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Snabb start: Använd Textanalys klient bibliotek v3
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
 Kom igång med Textanalys klient biblioteket. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
-Använd Textanalys klient biblioteks version `3.0-preview` för att utföra:
+Använd Textanalys klient bibliotek för att utföra:
 
-* Sentiment-analys (offentlig för hands version)
+* Känsloanalys
 * Språkspårning
-* Identifiering av namngiven entitet (offentlig för hands version)
+* Enhetsidentifiering
 * Extraktion av nyckelfraser
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
+> [!IMPORTANT]
+> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
+>    * Se till att du bara följer anvisningarna för den version som du använder.
+> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
+> [!IMPORTANT]
+> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
+>    * Se till att du bara följer anvisningarna för den version som du använder.
+> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
+> [!IMPORTANT]
+> * Den här snabb starten är endast till för version `3.0-preview` av Textanalys-klient biblioteket, som innehåller en offentlig för hands version för bättre [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>    * Se till att du bara följer anvisningarna för den version som du använder.
+> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+
+[!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
+> [!IMPORTANT]
+> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
+>    * Se till att du bara följer anvisningarna för den version som du använder.
+> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-other"
+
+## <a name="additional-language-support"></a>Ytterligare språk stöd
+
+Om du har klickat på den här fliken ser du förmodligen ingen snabb start på ditt favorit språk. Oroa dig inte, vi har ytterligare snabb starter tillgängliga. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk.
+
+| Språk | Tillgänglig version | 
+|----------|------------------------|
+| Ruby     | [Version 2,1](ruby-sdk.md)          | 
+| Go       | [Version 2,1](go-sdk.md)          | 
 
 ::: zone-end
 

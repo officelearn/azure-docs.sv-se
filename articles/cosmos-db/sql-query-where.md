@@ -1,17 +1,17 @@
 ---
 title: WHERE-sats i Azure Cosmos DB
 description: Läs om SQL WHERE-satsen för Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326647"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982237"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>WHERE-sats i Azure Cosmos DB
 
@@ -29,20 +29,20 @@ WHERE <filter_condition>
 
 - `<filter_condition>`  
   
-   Anger det villkor som ska uppfyllas för de dokument som ska returneras.  
+   Anger villkoret vara uppfyllda för dokument som ska returneras.  
   
 - `<scalar_expression>`  
   
-   Uttryck som representerar det värde som ska beräknas. Mer information finns i [skalära uttryck](sql-query-scalar-expressions.md) .  
+   Uttryck som representerar värdet som ska beräknas. Mer information finns i [skalära uttryck](sql-query-scalar-expressions.md) .  
   
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
   
-  För att det ska gå att returnera ett uttryck som har angetts som filter villkor måste det utvärderas till sant. Endast det booleska värdet True uppfyller villkoret, vilket innebär att alla andra värden: undefined, null, false, Number, array eller Object inte uppfyller villkoret. 
+  Villkoret måste utvärderas till SANT för dokumentet som ska returneras ett uttryck har angetts som filter. Endast booleska värdet true kommer uppfyller villkoren, ett annat värde: Odefinierad, null, false, tal, matris, eller ett objekt kommer inte uppfyller villkoret. 
 
 ## <a name="examples"></a>Exempel
 
-Följande fråga begär objekt som innehåller en `id`-egenskap vars värde är `AndersenFamily`. Alla objekt som saknar egenskapen `id` eller vars värde inte matchar `AndersenFamily` undantas.
+Följande fråga begär objekt som innehåller en `id`-egenskap vars värde är `AndersenFamily`. Alla objekt som inte har en `id` egenskap eller vars värde inte matchar `AndersenFamily`utelämnas.
 
 ```sql
     SELECT f.address
@@ -74,7 +74,7 @@ Du kan använda följande binära operatorer som stöds:
 |Binära    | \|, &, ^, <<, >>, >>> (högerskiftning med nollfyllning) |
 |Logiska    | AND, OR, NOT (och, eller, inte)      |
 |Jämförelse | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Sträng     |  \|\| (sammanfoga) |
+|String     |  \|\| (sammanfoga) |
 
 Följande frågor använder binära operatorer:
 
@@ -104,10 +104,10 @@ Du kan också använda unära operatorer +,-, ~ och inte i frågor, som du ser i
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Du kan också använda egenskaps referenser i frågor. @No__t-0 returnerar till exempel JSON-objektet som innehåller egenskapen `isRegistered` med värdet som är lika med `true`. Andra värden, till exempel `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`, eller `<array>`, utesluter objektet från resultatet. 
+Du kan också använda egenskaps referenser i frågor. `SELECT * FROM Families f WHERE f.isRegistered` returnerar till exempel JSON-objektet som innehåller egenskapen `isRegistered` med värdet lika med `true`. Andra värden, till exempel `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`eller `<array>`, utesluter objektet från resultatet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [FROM-sats](sql-query-from.md)
+- [I nyckelord](sql-query-keywords.md#in)
+- [FROM-satsen](sql-query-from.md)

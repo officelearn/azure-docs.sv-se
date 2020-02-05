@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b5c323bf3d5ff55c2c30961003e8c456cbe39c82
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823664"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987030"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Kom igång med Elastic Database verktyg
 
@@ -24,7 +24,7 @@ I det här dokumentet får du en introduktion till utvecklaren för [klient bibl
 
 ## <a name="elastic-database-tools-for-java"></a>Elastic Database verktyg för Java
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 * Java Developer Kit (JDK), version 1,8 eller senare
 * [Maven 3.](https://maven.apache.org/download.cgi)
@@ -54,7 +54,7 @@ Gör följande för att skapa JAR-filerna och komma igång med exempelprojektet:
     
 5. Om du vill veta mer om klient biblioteks funktionerna kan du experimentera med de olika alternativen. Titta gärna på koden för att lära dig mer om exempel på implementering av appen.
 
-    ![Förlopp – Java][5]
+    ![Progress-java][5]
     
 Grattis! Du har skapat och kört ditt första shardade-program genom att använda Elastic Database verktyg på Azure SQL Database. Använd Visual Studio eller SQL Server Management Studio för att ansluta till din SQL-databas och ta en titt på Shards som exemplet skapade. Du kommer att märka nya exempel på Shard-databaser och en Shard Map Manager-databas som exemplet har skapat. 
 
@@ -70,7 +70,7 @@ Om du vill lägga till klient biblioteket i ditt eget Maven-projekt lägger du t
 
 ## <a name="elastic-database-tools-for-net"></a>Elastic Database verktyg för .NET
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
 * Visual Studio 2012 eller senare med C#. Ladda ned en kostnads fri version vid [hämtning av Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2,7 eller senare. För att hämta den senaste versionen, se [Installera NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -81,7 +81,7 @@ Om du vill installera biblioteket går du till [Microsoft. Azure. SqlDatabase. E
 
 Följ dessa steg om du vill hämta och köra exemplet: 
 
-1. Hämta de [elastiska DB-verktygen för Azure SQL – komma igång exemplet](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) från MSDN. Packa upp exemplet på en plats som du väljer.
+1. Hämta de [elastiska DB-verktygen för Azure SQL-komma igång-exemplet](https://github.com/Azure/elastic-db-tools). Packa upp exemplet på en plats som du väljer.
 
 2. Om du vill skapa ett projekt öppnar du lösningen *ElasticScaleStarterKit. SLN* från *C#* katalogen.
 
@@ -91,7 +91,7 @@ Följ dessa steg om du vill hämta och köra exemplet:
 
 5. Om du vill veta mer om klient biblioteks funktionerna kan du experimentera med de olika alternativen. Observera de steg som programmet tar i konsolens utdata och Känn dig kostnads fritt för att utforska koden bakom kulisserna.
    
-    ![pågår][4]
+    ![Pågår][4]
 
 Grattis! Du har skapat och kört ditt första shardade-program genom att använda Elastic Database verktyg på SQL Database. Använd Visual Studio eller SQL Server Management Studio för att ansluta till din SQL-databas och ta en titt på Shards som exemplet skapade. Du kommer att märka nya exempel på Shard-databaser och en Shard Map Manager-databas som exemplet har skapat.
 
@@ -127,7 +127,7 @@ Information om priser finns i [SQL Database pris information](https://azure.micr
 Mer information om Elastic Database-verktyg finns i följande artiklar:
 
 * Kod exempel: 
-  * Elastic Database verktyg ([.net](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * Elastic Database verktyg ([.net](https://github.com/Azure/elastic-db-tools), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Elastic Database verktyg för Azure SQL-Entity Framework-integrering](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elastiskhet i Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blogg: [meddelande om elastisk skalning](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949124"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982916"
 ---
 # <a name="date-claims-transformations"></a>Transformeringar av datum anspråk
 
@@ -31,8 +31,8 @@ Kontrollerar att ett datum-och tids anspråk (sträng data typ) är senare än e
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | sträng | Första anspråkets typ, vilket bör vara senare än det andra anspråket. |
 | InputClaim | rightOperand | sträng | Andra anspråkets typ, som bör vara tidigare än det första anspråket. |
-| InputParameter | AssertIfEqualTo | boolesk | Anger om den här kontrollen ska passas om den vänstra operanden är lika med den högra operanden. |
-| InputParameter | AssertIfRightOperandIsNotPresent | boolesk | Anger om den här kontrollen ska passas om den högra operanden saknas. |
+| InputParameter | AssertIfEqualTo | boolean | Anger om den här kontrollen ska passas om den vänstra operanden är lika med den högra operanden. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolean | Anger om den här kontrollen ska passas om den högra operanden saknas. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder som ska tillåtas mellan de två datumen gånger för att överväga de tider som är lika med (till exempel för att ta hänsyn till klock skevning). |
 
 Omvandlingen av **AssertDateTimeIsGreaterThan** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md). **DateTimeGreaterThan** -metadata för självkontrollerad teknisk profil styr det fel meddelande som den tekniska profilen presenterar för användaren.
@@ -91,7 +91,7 @@ Konverterar en **datum** -claimType till en **datetime** -claimType. Omvandlinge
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | datum | Den ClaimType som ska konverteras. |
+| InputClaim | inputClaim | date | Den ClaimType som ska konverteras. |
 | OutputClaim | outputClaim | Datum/tid | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
 I följande exempel demonstreras konverteringen av anspråks `dateOfBirth` (datum data typ) till ett annat anspråk `dateOfBirthWithTime` (dateTime-datatyp).
@@ -113,6 +113,35 @@ I följande exempel demonstreras konverteringen av anspråks `dateOfBirth` (datu
     - **inputClaim**: 2019-06-01
 - Utgående anspråk:
     - **outputClaim**: 1559347200 (1 juni 2019 12:00:00 am)
+
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+
+Konverterar en **datetime** -claimType till en **datum** -claimType. Omvandlingen av anspråk tar bort tids formatet från datumet.
+
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | Datum/tid | Den ClaimType som ska konverteras. |
+| OutputClaim | outputClaim | date | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
+
+Följande exempel visar konverteringen av anspråks `systemDateTime` (dateTime-datatyp) till ett annat anspråk `systemDate` (datum data typ).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exempel
+
+- Inmatade anspråk:
+  - **inputClaim**: 1559347200 (1 juni 2019 12:00:00 am)
+- Utgående anspråk:
+  - **outputClaim**: 2019-06-01
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -145,7 +174,7 @@ Avgör om en dateTime är senare, tidigare eller lika med ett annat. Resultatet 
 | InputClaim | secondDateTime | Datum/tid | Den andra datum/tid för att jämföra om den är tidigare eller senare än den första dateTime-tiden. Null-värde behandlas som aktuellt datetTime. |
 | InputParameter | operator | sträng | Ett av följande värden: samma, senare än eller tidigare än. |
 | InputParameter | timeSpanInSeconds | int | Lägg till TimeSpan i första DateTime. |
-| OutputClaim | Resultatet | boolesk | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
+| OutputClaim | Resultatet | boolean | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. |
 
 Använd den här anspråks omvandlingen för att avgöra om två ClaimTypes är lika, senare eller tidigare. Du kan till exempel lagra den senaste gången som en användare godkände dina användar villkor (TOS). Efter 3 månader kan du be användaren att komma åt TOS-filen igen.
 Om du vill köra anspråks omvandlingen måste du först hämta aktuell dateTime och sedan den senaste gången användaren accepterar TOS.

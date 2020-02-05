@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892693"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989781"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudie: Använda Video Indexer-API:t
 
@@ -86,7 +86,7 @@ Parametern Konto-ID krävs i alla åtgärds-API-anrop. Konto-ID är ett GUID som
 
 * Använd **Video Indexer-utvecklarportalen** och hämta konto-ID:t programmatiskt.
 
-    Använd API:t [Hämta konton](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?).
+    Använd [Hämta konto](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) -API.
 
     > [!TIP]
     > Du kan generera åtkomsttoken för kontona genom att definiera `generateAccessTokens=true`.
@@ -214,4 +214,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska information i JSON-utdata](video-indexer-output-json-v2.md).
+- [Granska information om JSON för utdata](video-indexer-output-json-v2.md)
+- Kolla in [exempel koden](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) som visar viktig aspekt av att ladda upp och indexera en video. Efter koden kunna får du en bra uppfattning om hur du använder vårt API för grundläggande funktioner. Se till att läsa de infogade kommentarerna och Lägg märke till våra bästa praxis råd.
+

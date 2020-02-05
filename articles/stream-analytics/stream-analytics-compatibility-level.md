@@ -1,19 +1,19 @@
 ---
 title: Azure Stream Analytics kompatibilitetsnivå
-description: Lär dig hur du ställer in en kompatibilitetsnivå för ett Azure Stream Analytics jobb och större ändringar på den senaste kompatibilitetsnivån
+description: Lär dig hur du ställer in en kompatibilitetsnivå för Azure Stream Analytics-jobb och större ändringar i senaste kompatibilitetsnivå
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 02/03/2020
+ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925628"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989866"
 ---
-# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
+# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
 
 I den här artikeln beskrivs alternativet kompatibilitetsnivå i Azure Stream Analytics. Stream Analytics är en hanterad tjänst, med regelbundna funktions uppdateringar och prestanda förbättringar. De flesta av tjänstens körnings uppdateringar görs automatiskt tillgängliga för slutanvändare. 
 
@@ -21,13 +21,13 @@ Vissa nya funktioner i tjänsten kan dock medföra en större förändring, till
 
 ## <a name="choose-a-compatibility-level"></a>Välj en kompatibilitetsnivå
 
-Kompatibilitetsnivå styr körnings beteendet för ett Stream Analytics-jobb. 
+Kompatibilitetsnivån styr beteende under körning av ett stream analytics-jobb. 
 
 Azure Stream Analytics stöder för närvarande tre kompatibilitetsnivå:
 
 * 1,0-tidigare beteende
 * 1,1 – standard beteende
-* 1,2 (för hands version) – senaste beteende med de senaste förbättringarna i utvärderingen
+* 1,2-senaste beteende med de senaste förbättringarna
 
 Den ursprungliga 1,0-kompatibilitetsnivån introducerades under allmän tillgänglighet för Azure Stream Analytics flera år sedan.
 
@@ -40,16 +40,16 @@ Du kan ange kompatibilitetsnivån för ett Stream Analytics jobb i Azure Portal 
 Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
 1. Använd [Azure Portal](https://portal.azure.com) för att leta upp Stream Analytics jobb.
-2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivån om jobbet är i ett körnings läge.
+2. **Stoppa** jobbet innan du uppdaterar kompatibilitetsnivån. Du kan inte uppdatera kompatibilitetsnivå om jobbet är i körningstillstånd.
 3. Under **Konfigurera** rubrik väljer du **kompatibilitetsnivå**.
 4. Välj det värde för kompatibilitetsnivå som du vill använda.
 5. Välj **Spara** längst ned på sidan.
 
-![Stream Analytics kompatibilitetsnivå i Azure Portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Stream Analytics kompatibilitetsnivå i Azure-portalen](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-När du uppdaterar kompatibilitetsnivån verifierar T-SQL-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
+När du uppdaterar kompatibilitetsnivån verifierar T-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
 
-## <a name="compatibility-level-12-preview"></a>Kompatibilitetsnivå 1,2 (för hands version)
+## <a name="compatibility-level-12"></a>Kompatibilitetsnivå 1.2
 
 Följande större ändringar introduceras i kompatibilitetsnivån 1,2:
 
@@ -115,11 +115,11 @@ Om du använder prefixet "system" för användardefinierade funktioner resultera
 
 ## <a name="compatibility-level-11"></a>Kompatibilitetsnivå 1,1
 
-Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
+Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML-format
 
-**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Exempel:
+**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Ett exempel:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
@@ -132,19 +132,19 @@ Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 **1,1 nivå:** Skift läges känslighet är bestående för fält namn när de bearbetas av Azure Stream Analyticss motorn.
 
 > [!NOTE]
-> Kvarhållning av Skift läge – känslighet är inte tillgängligt ännu för Stream-analys jobb som hanteras med hjälp av gräns miljön. Detta innebär att alla fält namn konverteras till gemener om jobbet finns på gränsen.
+> Bevara skiftlägeskänslighet är ännu inte tillgängligt för Stream Analytics-jobb med hjälp av Edge-miljö. Därför kan konverteras alla fältnamn till gemener om ditt jobb finns i Microsoft Edge.
 
 ### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
 
-**1,0-nivå:** CREATE TABLE kommandot filtrerade inte händelser med NaN (inte ett tal. Till exempel oändligt, oändlighet) i en flytt ALS kolumn typ eftersom de ligger utanför det dokumenterade intervallet för dessa tal.
+**1,0-nivå:** CREATE TABLE kommandot filtrerade inte händelser med NaN (inte ett tal. Till exempel oändligt, -Infinity) i en kolumn för FLYTTAL anger eftersom de inte uppfyller det dokumenterade intervallet för dessa siffror.
 
-**1,1-nivå:** Med CREATE TABLE kan du ange ett starkt schema. Stream Analyticss motorn verifierar att data överensstämmer med det här schemat. Med den här modellen kan kommandot filtrera händelser med NaN-värden.
+**1,1-nivå:** Med CREATE TABLE kan du ange ett starkt schema. Stream Analytics-motorn validerar att informationen som överensstämmer med det här schemat. Med den här modellen kan kommandot Filtrera händelser med NaN-värden.
 
 ### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Inaktivera automatisk uppsändning för datetime-strängar i JSON
 
 **1,0-nivå:** JSON-parsern omvandlar automatiskt sträng värden med datum-/tids-/zon information till DateTime-typ och konverterar den sedan till UTC. Det här beteendet resulterade i förlust av tids zons informationen.
 
-**1,1-nivå:** Det går inte att automatiskt omvandla sträng värden automatiskt med datum-/tids-/zon information till DateTime-typen. Därför behålls timezone-informationen.
+**1,1-nivå:** Det går inte att automatiskt omvandla sträng värden automatiskt med datum-/tids-/zon information till DateTime-typen. Därför kan sparas informationen om tidszonen.
 
 ## <a name="next-steps"></a>Nästa steg
 

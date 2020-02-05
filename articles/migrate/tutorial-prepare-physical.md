@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a487e0c9d565993b45f7e271af23a622e61389ad
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028670"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990835"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
@@ -41,10 +41,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste ange behörigheter för Azure Migrate distribution.
 
-- Behörigheter för ditt Azure-konto för att skapa ett Azure Migrate-projekt.
-- Behörigheter för ditt konto för att registrera Azure Migrate-enheten. Enheten används för identifiering och migrering av Hyper-V. Under installationen av produkten skapar Azure Migrate två Azure Active Directory-appar (Azure AD) som unikt identifierar enheten:
-    - Den första appen kommunicerar med Azure Migrate tjänst slut punkter.
-    - Den andra appen får åtkomst till en Azure Key Vault som skapas under registreringen, för att lagra konfigurations inställningar för Azure AD-appen.
+**Aktivitet** | **Behörigheter**
+--- | ---
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha behörighet att skapa ett projekt.
+**Registrera Azure Migrates apparaten** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera fysiska servrar med Azure Migrate Server bedömning. Den här enheten identifierar servrar och skickar sina metadata och prestanda data till Azure Migrate.<br/><br/>Under installation av utrustning registreras följande registrerade leverantörer med den prenumeration som valts i enheten-Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel-valv. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.<br/><br/> Som en del av onboarding skapar Azure Migrate en Azure Active Directory (Azure AD)-app:<br/> AAD-appen används för kommunikation (autentisering och auktorisering) mellan de agenter som körs på enheten med deras respektive tjänster som körs på Azure. Den här appen har inte behörighet att göra ARM-anrop eller RBAC-åtkomst på någon resurs.
 
 
 
@@ -61,15 +61,14 @@ Kontrol lera att du har behörighet att skapa ett Azure Migrate-projekt.
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera produkten
 
-Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appar som skapas under registreringen av produkten med någon av följande metoder:
+Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen under registreringen av produkten med någon av följande metoder:
 
 - En klient/global-administratör kan bevilja behörigheter till användare i klienten, för att skapa och registrera Azure AD-appar.
 - En klient/global administratör kan tilldela rollen programutvecklare (som har behörighet) till kontot.
 
-Det är värt att notera att:
-
-- Apparna har inte någon annan åtkomst behörighet för prenumerationen förutom de som beskrivs ovan.
-- Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
+> [!NOTE]
+> - Appen har inte någon annan åtkomst behörighet för den prenumeration som beskrivs ovan.
+> - Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
 
 
 #### <a name="grant-account-permissions"></a>Bevilja konto behörigheter

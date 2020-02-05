@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 5c22e29e51d9f2fc58720c555b8ad3b03d791db6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39d99b8b6167411fc75677878b7f82a27deab958
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435039"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987636"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Utöka Azure IoT Central med anpassad analys med Azure Databricks
 
@@ -39,7 +39,7 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 
 | Inställning | Värde |
 | ------- | ----- |
-| Betalnings plan | Användningsbaserad betalning |
+| Pris plan | Standard |
 | Programmall | Äldre program |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
@@ -72,7 +72,7 @@ Använd [Azure Portal för att skapa en Azure Databricks tjänst](https://portal
 
 | Inställning | Värde |
 | ------- | ----- |
-| Namn på arbetsyta    | Välj namn på arbets yta |
+| Namn på arbets yta    | Välj namn på arbets yta |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | IoTCentralAnalysis |
 | Location | USA, östra |
@@ -131,14 +131,14 @@ Använd informationen i följande tabell för att skapa klustret:
 | Inställning | Värde |
 | ------- | ----- |
 | Klusternamn | centralanalysis |
-| Klusterläge | Standard |
-| Databricks Runtime-version | 5,3 (Scala 2,11, Spark 2.4.0) |
+| Kluster läge | Standard |
+| Databricks Runtime version | 5,3 (Scala 2,11, Spark 2.4.0) |
 | Python-version | 3 |
 | Aktivera automatisk skalning | Inga |
 | Avsluta efter minuter av inaktivitet | 30 |
-| Arbetartyp | Standard_DS3_v2 |
+| Typ av arbetare | Standard_DS3_v2 |
 | Arbetare | 1 |
-| Drivrutinstyp | Samma som arbetare |
+| Driv rutins typ | Samma som arbetare |
 
 Det kan ta flera minuter att skapa ett kluster, vänta tills klustret har skapats innan du fortsätter.
 

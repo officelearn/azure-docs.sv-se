@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5560cb31e31f7cf33ac8ae71d649e88be3dbb6e6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1f04bc18405c5a5a9612c0de6dd76f22450c7f04
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112500"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990406"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Självstudie: skapa och gå igenom en mall för övervakning av solpanels program 
 
@@ -31,7 +31,7 @@ Den här självstudien vägleder dig genom processen för att skapa övervakning
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
 ## <a name="prerequisites"></a>Krav
-- Ingen
+- Inget
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 
 
@@ -52,8 +52,9 @@ Du kan skapa det här programmet i tre enkla steg:
     * **7-dagars kostnads fri utvärderings version**: om du redan har en Azure-prenumeration rekommenderas standardinställningen. Om du inte har en Azure-prenumeration börjar du med den kostnads fria utvärderings versionen.
     * **Fakturerings information**: själva programmet är kostnads fritt. Katalogen, Azure-prenumerationen och regions informationen krävs för att etablera resurserna för din app.
     * Klicka på knappen **skapa** längst ned på sidan så skapas din app på en minut.
-        > [!div class="mx-imgBorder"]
-        > ![nytt program formulär](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![nytt program formulär](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        
+        ![Fakturerings information för ny program form](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verifiera programmet och simulerade data

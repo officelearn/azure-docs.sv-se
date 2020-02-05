@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0e841b1f386d45ddb4af8598855d8e739750307e
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1f6f282406c6813b2b126c300f21bda21e8f9464
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910745"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988982"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrera från Google Maps till Azure Maps
 
@@ -22,11 +22,11 @@ I den här självstudien får du information om hur du migrerar webb-, mobil-och
 
 ## <a name="azure-maps-platform-overview"></a>Översikt över Azure Maps plattform
 
-Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner som packas med regelbundna uppdaterade kart data för att tillhandahålla geografisk kontext för webb-och mobil program. Azure Maps har en Azure One API-kompatibel uppsättning REST API: er för kartor, sökning, routning, trafik, tids zoner, geolokalisering, inhägnad, kart data, väder, rörlighet och spatiala åtgärder som åtföljs av både webb-och Android-SDK: er för att utveckla enkla, flexibla och bärbart över flera plattformar.
+Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner som packas med regelbundna uppdaterade kart data för att tillhandahålla geografisk kontext för webb-och mobil program. Azure Maps har en Azure One API-kompatibel uppsättning REST API: er. Dessa REST-API: er erbjuder kartor, sökning, routning, trafik, tids zoner, geolokalisering, avgränsning, kart data, väder, rörlighet och spatiala åtgärder. Åtgärder åtföljs av både webb-och Android-SDK: er för att utveckla enkla, flexibla och portabla över flera plattformar.
 
 ## <a name="high-level-platform-comparison"></a>Plattforms jämförelse på hög nivå
 
-I följande tabell finns en lista över Google Maps-funktioner på hög nivå och det relativa stödet för dessa funktioner i Azure Maps. Den här listan innehåller inte ytterligare Azure Maps funktioner, till exempel tillgänglighet, polyinhägnads-API: er, ISO Kron, spatiala åtgärder, direkt kart panels åtkomst, batch Services och data täcknings jämförelser (t. ex. bilder-täckning).
+I följande tabell finns en lista över Azure Maps funktioner på hög nivå som motsvarar Google Maps-funktioner. Den här listan visar inte alla Azure Maps funktioner. Ytterligare Azure Maps omfattar hjälpmedel, ISO Kron-API: er,, spatiala åtgärder, direkt kart panels åtkomst, batch Services och data täcknings jämförelser (det vill säga bilder-täckning).
 
 | Google Maps-funktion         | Azure Maps support                     |
 |-----------------------------|:--------------------------------------:|
@@ -49,14 +49,14 @@ I följande tabell finns en lista över Google Maps-funktioner på hög nivå oc
 | Mappar inbäddat API           | Gäller inte                                    |
 | Kart-URL: er                    | Gäller inte                                    |
 
-Google Maps innehåller grundläggande nyckelbaserad autentisering. Azure Maps tillhandahåller både grundläggande nyckelbaserad autentisering och mycket säker Azure Active Directory autentisering.
+Google Maps innehåller grundläggande nyckelbaserad autentisering. Azure Maps ger både grundläggande nyckelbaserad autentisering och den mycket säkra Azure Active Directory autentisering.
 
 ## <a name="licensing-considerations"></a>Licens överväganden
 
 När du migrerar till Azure Maps från Google Maps bör följande punkter beaktas med avseende på licensiering.
 
-- Azure Maps avgifter för användning av interaktiva kartor baserat på antalet inlästa kart paneler, medan Google Maps debiteras för inläsningen av kart kontrollen. I de interaktiva Azure Maps SDK: erna cachelagras kartor automatiskt för att minska kostnaderna för utvecklaren. En Azure Maps transaktion skapas för varje 15 kart paneler som läses in. I de interaktiva Azure Maps SDK: erna används 512-pixel-paneler och i genomsnitt genereras en eller färre transaktioner per sid-vy.
-- Det är ofta mycket mer kostnads effektivt att ersätta statiska kart bilder från Google Maps-webbtjänster med Azure Maps-webbsdk eftersom detta använder kart paneler och om användaren inte Pans och zoomar kartan, kommer de ofta bara att generera en bråkdel av en transaktion per kart belastning. Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK ett mycket mer visualiserings alternativ än en statisk kart webb tjänst.
+- Azure Maps avgifter för användning av interaktiva kartor, som baseras på antalet kart paneler som lästs in, men Google Maps-avgifter för inläsning av kart kontrollen. I de interaktiva Azure Maps SDK: erna cachelagras kartor automatiskt för att minska kostnaderna för utvecklaren. En Azure Maps transaktion skapas för varje 15 kart paneler som läses in. I de interaktiva Azure Maps SDK: erna används 512-pixel-paneler och i genomsnitt genereras en eller färre transaktioner per sid-vy.
+- Det är ofta mycket mer kostnads effektivt att ersätta statiska kart bilder från Google Maps-webbtjänster med Azure Maps Web SDK. Azure Maps Web SDK använder kart paneler och om inte användaren Pans och zoomar in kartan så genererar de ofta bara en bråkdel av en transaktion per kart belastning. Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK ett mycket mer visualiserings alternativ än en statisk kart webb tjänst.
 - Azure Maps tillåter att data från sin plattform lagras i Azure. Den kan också cachelagras på andra platser i upp till sex månader enligt [användnings villkoren](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
 Här följer några relaterade resurser för Azure Maps:

@@ -1,18 +1,18 @@
 ---
-title: 'Arbeta med virtuella datorer och NSG: er i Azure skydds | Microsoft Docs'
+title: 'Arbeta med virtuella datorer och NSG: er i Azure skydds'
 description: Den här artikeln beskriver hur du införlivar NSG-åtkomst med Azure skydds
 services: bastion
 author: ashjain
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 02/03/2020
 ms.author: ashishj
-ms.openlocfilehash: 8fb48b3dbe0d727f92bd2e0fec91ac2dbf33338b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 622333f58fb7ddf66fdf5be51e961a3005294afe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547633"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989475"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Arbeta med NSG-åtkomst och Azure skydds
 

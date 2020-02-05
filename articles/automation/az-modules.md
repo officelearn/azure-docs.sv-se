@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c832982a5525b0296155197d89684932cebaa95
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfbf54c19aef00cbda886a4531797cda7ef3a191
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418830"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986112"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Stöd för AZ-modul i Azure Automation
 
@@ -18,7 +18,7 @@ Azure Automation stöder möjligheten att använda [Azure PowerShell-modulen AZ]
 
 ## <a name="considerations"></a>Överväganden
 
-Det finns många saker att tänka på när du använder AZ-modulen i Azure Automation. Runbooks och moduler kan användas av lösningar på högre nivå i ditt Automation-konto. Att redigera Runbooks eller uppgradera moduler kan eventuellt orsaka problem med dina runbooks. Du bör testa alla Runbooks och lösningar noggrant i ett separat Automation-konto innan du importerar de nya `Az`-modulerna. Eventuella ändringar i moduler kan negativt [Starta/stoppa-](automation-solution-vm-management.md) lösningen. Vi rekommenderar att du inte ändrar moduler och Runbooks i Automation-konton som innehåller några lösningar. Detta beteende är inte särskilt för AZ-modulerna. Det här beteendet bör beaktas när du inför ändringar i ditt Automation-konto.
+Det finns många saker att tänka på när du använder AZ-modulen i Azure Automation. Runbooks och moduler kan användas av lösningar på högre nivå i ditt Automation-konto. Att redigera Runbooks eller uppgradera moduler kan eventuellt orsaka problem med dina runbooks. Du bör testa alla Runbooks och lösningar noggrant i ett separat Automation-konto innan du importerar de nya `Az`-modulerna. Eventuella ändringar i moduler kan påverka [Start-/stopp](automation-solution-vm-management.md) lösningen negativt. Vi rekommenderar inte att du ändrar moduler och Runbooks i Automation-konton som innehåller några lösningar. Detta beteende är inte särskilt för AZ-modulerna. Det här beteendet bör beaktas när du inför ändringar i ditt Automation-konto.
 
 Om du importerar en `Az`-modul i ditt Automation-konto importeras modulen inte automatiskt i PowerShell-sessionen som används av Runbooks. Moduler importeras till PowerShell-sessionen i följande situationer:
 

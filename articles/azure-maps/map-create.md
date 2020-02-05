@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 49c86f3e6c654ecbfcd07809f42a1b038ca3f8ab
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 578abae5b206b31674b00b9d27ef34174b93759f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911112"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988591"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar en karta och animerar en karta.
 
 ## <a name="loading-a-map"></a>Läser in en karta
 
-Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Vid initieringen av kartan skickas ett DIV-element-ID för att återge kartan och en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. När du har skapat kart instansen bifogar du en `ready`-eller `load`-händelse till kartan och lägger sedan till ytterligare kod som samverkar med kartan i den händelse hanteraren. `ready`-händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load` händelse utlöses efter att den inledande kart visningen har lästs in helt. 
+Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). När kartan initieras skickar du ett DIV-element-ID för att återge kartan och skicka en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. När du har skapat Map-instansen bifogar du en `ready`-eller `load`-händelse till kartan och lägger sedan till ytterligare kod som samverkar med kartan till händelse hanteraren. `ready`-händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load` händelse utlöses efter att den inledande kart visningen har lästs in helt. 
 
 <br/>
 
@@ -31,11 +31,11 @@ Se den <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>grundläggande kart in
 </iframe>
 
 > [!TIP]
-> Flera Maps kan läsas in på samma sida och var och en kan använda samma eller olika inställningar för autentisering och språk.
+> Du kan läsa in flera kartor på samma sida. Flera kartor på samma sida kan använda samma eller olika inställningar för autentisering och språk.
 
 ## <a name="show-a-single-copy-of-the-world"></a>Visa en enskild kopia av världen
 
-När kartan zoomas ut på en bred skärm visas flera kopior av världen vågrätt. Detta är bra för de flesta scenarier, men vissa för vissa program kan vara önskvärda att bara se en enda kopia av världen. Detta kan göras genom att ange Maps-`renderWorldCopies` alternativet för att `false`.
+När kartan zoomas ut på en bred skärm visas flera kopior av världen vågrätt. Det här alternativet är bra för vissa scenarier, men för andra program är det önskvärt att se en enda kopia av världen. Detta beteende implementeras genom att ställa in Maps-`renderWorldCopies` alternativet att `false`.
 
 <br/>
 
@@ -45,13 +45,13 @@ Se Pen- <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = f
 
 ## <a name="controlling-the-map-camera"></a>Styra kart kameran
 
-Det finns två sätt att ställa in det visade avsnittet i kartan med kameran. Du kan ställa in kamera alternativ som centrera och zooma när du läser in kartan, eller anropa alternativet `setCamera` när kartan har lästs in för att program mässigt uppdatera Map-vyn.  
+Det finns två sätt att ange det område som visas i kartan med hjälp av kameran på en karta. Du kan ställa in kamera alternativen när du läser in kartan. Du kan också anropa alternativet `setCamera` när kartan har lästs in för att program mässigt uppdatera Map-vyn.  
 
 <a id="setCameraOptions"></a>
 
 ### <a name="set-the-camera"></a>Ange kamera
 
-I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) och alternativen för centrum och zoomning är inställda. Kart egenskaper som Center och zoomnings nivå är en del av [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
+I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) och alternativen för centrum och zoomning är inställda. Kart egenskaper, till exempel Center och zoomnings nivå, ingår i [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -71,7 +71,7 @@ I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/a
 
 ### <a name="animate-map-view"></a>Animera Map-vy
 
-I följande kod skapar det första kod blocket en karta och anger kopplings formatet, värdena för centrum och zoomning. I det andra kod blocket skapas en klick händelse hanterare för knappen animera. När du klickar på den här knappen anropas funktionen setCamera med vissa slumpmässiga värden för [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
+I följande kod skapar det första kod blocket en karta och anger kart formaten Enter och zoom. I det andra kod blocket skapas en klick händelse hanterare för knappen animera. När du klickar på den här knappen anropas funktionen `setCamera` med vissa slumpmässiga värden för [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions) och [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
 
 <br/>
 
@@ -80,7 +80,7 @@ I följande kod skapar det första kod blocket en karta och anger kopplings form
 
 ## <a name="try-out-the-code"></a>Testa koden
 
-Ta en titt på exempel koden ovan. Du kan redigera JavaScript-koden på **fliken JS** till vänster och se ändringarna i Map-vyn på **fliken resultat** till höger. Du kan också klicka på knappen **Redigera på CodePen** och redigera koden i CodePen.
+Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och se ändringarna i Map-vyn på **fliken resultat**. Du kan också klicka på **Redigera på CodePen**, i det övre högra hörnet och ändra koden i CodePen.
 
 <a id="relatedReference"></a>
 
@@ -89,7 +89,7 @@ Ta en titt på exempel koden ovan. Du kan redigera JavaScript-koden på **fliken
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)

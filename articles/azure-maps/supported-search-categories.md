@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: de44d07b5ebc6a898e3c098f16e553e9d4a46150
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910413"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988301"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps kategorier som stöds
 
-När du gör en [kategoris ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) för intressanta punkter finns det fler än hundra olika kategorier som stöds. Nedan visas en lista över kategori koder för de kategori namn som stöds. Kategori koder skapas för kategorier på högsta nivån. Alla under Kategorier delar samma kategori kod. Observera att den här kategori listan kan ändras med nya data versioner.
+När du gör en [kategoris ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) för intressanta punkter finns det fler än hundra olika kategorier som stöds. Nedan visas en lista över kategori koder för de kategori namn som stöds. Kategori koder skapas för kategorier på den översta nivån. Alla under Kategorier delar samma kategori kod. Den här kategori listan kan ändras med nya data versioner.
 
 <br/>
 
@@ -86,7 +86,7 @@ När du gör en [kategoris ökning](https://docs.microsoft.com/rest/api/maps/sea
 | NIGHTLIFE | bar, Karaoke-klubb, jazz-klubb, privat klubb, vin bar, komedi-klubb, bäddar bar, Discotheque, Nightlife |
 | ICKE\_myndighets\_organisation | icke-statlig organisation |
 | ÖPPNA\_PARKERINGs\_s ytan | öppet parkerings utrymme, parkerings parti |
-| ANNAN | plats, fri handels zon, trafik cirkel, okänd |
+| ANDRA | plats, fri handels zon, trafik cirkel, okänd |
 | PARKERINGs\_GARAGE | parkerings garage |
 | PARK\_fritid\_-ytan | historisk plats, Lakeshore, Seashore, flod Scenic Area, fiske jakt område, Battlefield, vinter sport, båt lanserings ramp, bevara, skogs område, fritid, skid, Cemetery, historisk Park, Parkway, Memorial, Fairground, picknick område, Wilderness Area, Park rekreation Area, skog (er), fossil skog, trädgård (er), vilda djur, natur reserv, skogs Station, jakt reserv, skogs reserv, Park |
 | BENSIN\_STATION | bensin Station |

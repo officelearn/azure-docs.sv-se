@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0bda94344a22f39daf104e7b95e33723187c4aa1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836022"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983018"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -52,7 +52,7 @@ En anspråks leverantör innehåller en uppsättning [tekniska profiler](technic
 | Element | Förekomster | Beskrivning |
 | ------- | ---------- | ----------- |
 | Domain | 0:1 | En sträng som innehåller domän namnet för anspråks leverantören. Om din anspråks leverantör till exempel innehåller den tekniska Facebook-profilen för Facebook, är domän namnet Facebook.com. Det här domän namnet används för alla tekniska profiler som definierats i anspråks leverantören, såvida de inte åsidosätts av den tekniska profilen. Domän namnet kan också refereras till i en **domain_hint**. Mer information finns i avsnittet **omdirigera inloggning till en socialt leverantör** i [Konfigurera direkt inloggning med Azure Active Directory B2C](direct-signin.md). |
-| DisplayName | 1:1 | En sträng som innehåller namnet på anspråks leverantören som kan visas för användarna. |
+| DisplayName | 1:1 | En sträng som innehåller namnet på anspråks leverantören. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | En uppsättning tekniska profiler som stöds av anspråks leverantören |
 
 **ClaimsProvider** ordnar hur dina tekniska profiler är relaterade till anspråks leverantören. I följande exempel visas providern Azure Active Directory anspråk med Azure Active Directory tekniska profiler:

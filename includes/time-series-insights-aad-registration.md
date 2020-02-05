@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/06/2019
-ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/03/2020
+ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460413"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984597"
 ---
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 
@@ -34,18 +34,30 @@ ms.locfileid: "75460413"
 
 1. Bladet **autentisering** anger viktiga konfigurations inställningar för autentisering. 
 
+    1. Lägg till **omdirigerings-URI: er** och konfigurera **åtkomsttoken** genom att välja **+ Lägg till en plattform**.
+
+    1. Ta reda på om appen är en **offentlig klient** eller inte genom att välja **Ja** eller **Nej**.
+
+    1. Kontrol lera vilka konton och innehavare som stöds.
+
+    [![konfigurera implicit beviljande](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+
+1. När du har valt en lämplig plattform konfigurerar du **omdirigerings-URI: er** och **åtkomsttoken** på sido panelen till höger om användar gränssnittet.
+
     1. **Omdirigerings-URI: er** måste matcha adressen som anges av autentiseringsbegäran:
 
-        * För appar som finns i en lokal utvecklings miljö väljer du **offentlig klient (mobil & Desktop)** . Se till att ange **standard klient typ** till Ja.
+        * För appar som finns i en lokal utvecklings miljö väljer du **offentlig klient (mobil & Desktop)** . Se till att ange en **offentlig klient** till **Ja**.
         * För appar på en sida som finns på Azure App Service väljer du **webb**.
+
+    1. Avgör om en **utloggnings-URL** är lämplig.
 
     1. Aktivera det implicita tilldelnings flödet genom att kontrol lera **åtkomsttoken** eller **ID-token**.
 
-   [![skapa omdirigerings-URI: er och konfigurera implicit beviljande](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![skapa omdirigerings-URI: er](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-   Klicka på **Spara**.
+    Klicka på **Konfigurera**och sedan på **Spara**.
 
-1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet** för att skapa ett program lösen ord som klienten kan använda för att bevisa sin identitet.
+1. Välj **certifikat & hemligheter** och sedan **ny klient hemlighet** för att skapa ett program lösen ord som din klient program kan använda för att bevisa sin identitet.
 
    [![skapa en ny klient hemlighet](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 

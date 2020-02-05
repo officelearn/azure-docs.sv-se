@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ec6c1ef31b6cf92629be600b3b139bb2e1a0d3ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977258"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986669"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
 
@@ -105,7 +105,7 @@ function bingSearchOptions(form) {
     // Where option.
     options.push("mkt=" + form.where.value);
     // SafeSearch option.
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
     // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -128,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` kan anges till `strict`, `moderate` eller `off`, med `moderate` som standardinställningen för webbsökning i Bing. Det här formuläret använder en kryssruta som har två tillstånd. I det här kodfragmentet anges SafeSearch till `strict` eller `off`, `moderate` används inte.
+`SafeSearch` kan anges till `strict`, `moderate` eller `off`, med `moderate` som standardinställningen för webbsökning i Bing. Det här formuläret använder en kryss ruta som har två tillstånd: `strict` eller `moderate`.
 
 Om något av kryssrutorna **befordra** är markerade har parametern `answerCount` lagts till i frågan. `answerCount` krävs när du använder parametern `promote`. I det här kodfragmentet anges värdet till `9` för att returnera alla tillgängliga resultattyper.
 > [!NOTE]

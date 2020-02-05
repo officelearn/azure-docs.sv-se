@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989985"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -347,12 +347,13 @@ De typer av telemetri som kan tas med eller undantas från sampling är: `Depend
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Konfigurera fast pris sampling för python-program för openräkning
 
-1. Instrumentera ditt program med de senaste [Azure Monitor exportörerna för openräkning](../../azure-monitor/app/opencensus-python.md).
+Instrumentera ditt program med de senaste [Azure Monitor exportörerna för openräkning](../../azure-monitor/app/opencensus-python.md).
 
 > [!NOTE]
-> Fast Rate-sampling är bara tillgängligt med spårnings export verktyget. Det innebär att inkommande och utgående begär Anden är de enda typerna av telemetri där sampling kan konfigureras.
+> Fast priss insamling är inte tillgängligt för export verktyget för mått. Det innebär att anpassade mått är de enda typerna av telemetri där sampling inte kan konfigureras. Mått export verktyget skickar all telemetri som den spårar.
 
-2. Du kan ange en `sampler` som en del av din `Tracer`-konfiguration. Om inget explicit sampler anges används `ProbabilitySampler` som standard. `ProbabilitySampler` skulle använda en hastighet på 1/10000 som standard, vilket innebär att en av varje 10000-begäranden skickas till Application Insights. Se nedan om du vill ange en samplingsfrekvens.
+#### <a name="fixed-rate-sampling-for-tracing"></a>Fast pris sampling för spårning ####
+Du kan ange en `sampler` som en del av din `Tracer`-konfiguration. Om inget explicit sampler anges används `ProbabilitySampler` som standard. `ProbabilitySampler` skulle använda en hastighet på 1/10000 som standard, vilket innebär att en av varje 10000-begäranden skickas till Application Insights. Se nedan om du vill ange en samplingsfrekvens.
 
 Ange samplings frekvensen genom att se till att `Tracer` anger ett prov med en samplings frekvens på mellan 0,0 och 1,0. En samplings frekvens på 1,0 representerar 100%, vilket innebär att alla dina begär Anden skickas som telemetri till Application Insights.
 
@@ -362,6 +363,16 @@ tracer = Tracer(
         instrumentation_key='00000000-0000-0000-0000-000000000000',
     ),
     sampler=ProbabilitySampler(1.0),
+)
+```
+
+#### <a name="fixed-rate-sampling-for-logs"></a>Fast pris sampling för loggar ####
+Du kan konfigurera sampling med fast pris för `AzureLogHandler` genom att ändra `logging_sampling_rate` valfria argument. Om inget argument anges används en samplings frekvens på 1,0. En samplings frekvens på 1,0 representerar 100%, vilket innebär att alla dina begär Anden skickas som telemetri till Application Insights.
+
+```python
+exporter = metrics_exporter.new_metrics_exporter(
+    instrumentation_key='00000000-0000-0000-0000-000000000000',
+    logging_sampling_rate=0.5,
 )
 ```
 

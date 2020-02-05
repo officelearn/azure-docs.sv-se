@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772038"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990716"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -39,14 +39,7 @@ Om du får felet "den tillhandahållna manifest filen är ogiltig: ogiltig OVF-m
 Detta kan inträffa om installations datorn finns bakom en proxyserver.
 
 - Se till att du anger autentiseringsuppgifter för auktorisering om proxyn behöver dem.
-- Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar lägger du till dessa URL: er i en lista över tillåtna:
-
-    - [URL: er för VMware-utvärdering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL: er för Hyper-V-utvärdering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [URL: er för migrering av VMware-agent](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL: er för VMware agent-baserad migrering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL: er för Hyper-V-migrering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar lägger du till [dessa URL: er](migrate-appliance.md#url-access) i en lista över tillåtna.
 - Om du använder en avlyssnings-proxy för att ansluta till Internet importerar du det till den virtuella datorns dator med [de här stegen](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  <a name="datetime-synchronization-error"></a>Fel vid synkronisering av datum/tid

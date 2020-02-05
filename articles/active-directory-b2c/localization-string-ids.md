@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 349932073394a967da58bf521449d22a48c1f91d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931723"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982865"
 ---
 # <a name="localization-string-ids"></a>Sträng-ID för lokalisering
 
@@ -216,7 +216,8 @@ Följande är ID: n för en [verifierings visnings kontroll](display-control-ver
 |verification_control_but_send_new_code |Skicka ny kod |
 |verification_control_but_verify_code |Verifiera kod |
 
-### <a name="verification-display-control-error-messages"></a>Verifiering av visnings kontroll fel meddelanden
+## <a name="one-time-password-error-messages"></a>Ett lösen ord fel meddelanden
+Följande är ID: n för ett [lösen ord för teknisk profil](one-time-password-technical-profile.md) fel meddelanden
 
 | ID | Standardvärde |
 | -- | ------------- |

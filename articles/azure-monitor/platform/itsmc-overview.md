@@ -4,15 +4,15 @@ description: Den här artikeln innehåller en översikt över Anslutningsprogram
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 83d5b7ffb49a08d02d5dd34ad561ce725ead7e0e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289143"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990682"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -152,7 +152,7 @@ Instrument panelen innehåller också information om anslutnings status som kan 
 
 Du kan också visualisera de incidenter som synkroniseras mot de påverkade datorerna i Tjänstkarta-lösningen.
 
-Tjänstkarta identifierar automatiskt program komponenterna i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Du kan se dina servrar så som du tänker på dem: ett sammankopplat system som levererar viktiga tjänster. Med Service Map ser du anslutningarna mellan olika servrar, processer och portar i alla typer av TCP-anslutna arkitekturer, och den enda konfiguration som behövs är att installera en agent. [Läs mer](../../azure-monitor/insights/service-map.md).
+Tjänstkarta identifierar automatiskt program komponenterna i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Det gör att du kan visa dina servrar som du tänker på dem – som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan att någon konfiguration krävs förutom installation av en agent. [Läs mer](../../azure-monitor/insights/service-map.md).
 
 Om du använder Tjänstkarta-lösningen kan du Visa Service Desk-objekten som skapats i ITSM-lösningarna som visas i följande exempel:
 
@@ -245,14 +245,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ResolvedBy_s | Löst av|
 | ClosedBy_s  | Stängd av |
 | Source_s| Kontakt typ |
-| AssignedTo_s | Tilldelad till  |
+| AssignedTo_s | Tilldelad  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
-| CreatedDate_t|  Öppnad |
+| CreatedDate_t|  Inleddes |
 | ClosedDate_t| Stängd|
-| ResolvedDate_t|Löst|
-| Dator  | Konfigurationsobjekt |
+| ResolvedDate_t|Göras|
+| Dator  | Konfigurations objekt |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Utdata för en ServiceNow-ändringsbegäran
 
@@ -261,7 +261,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
-| AssignedTo_s | Tilldelad till  |
+| AssignedTo_s | Tilldelad  |
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Kategori |
@@ -271,13 +271,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risk|
 | Impact_s| Påverkan|
 | RequestedDate_t  | Begärd efter datum |
-| ClosedDate_t | Stängningsdatum |
+| ClosedDate_t | Stängnings datum |
 | PlannedStartDate_t  |     Planerat start datum |
 | PlannedEndDate_t  |   Planerat slutdatum |
-| WorkStartDate_t  | Verkligt startdatum |
+| WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
 | Description_s | Beskrivning |
-| Dator  | Konfigurationsobjekt |
+| Dator  | Konfigurations objekt |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar

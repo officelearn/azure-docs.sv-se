@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911028"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991399"
 ---
 # <a name="weather-services-in-azure-maps"></a>Väder tjänster i Azure Maps
 
@@ -21,13 +21,13 @@ Den här artikeln beskriver begrepp som gäller [Azure Maps väder tjänster](ht
 
 ## <a name="unit-types"></a>Enhets typer
 
-Vissa av API: erna för väder tjänster låter användaren ange om data returneras antingen i mått eller i Imperial enheter. Det returnerade svaret för dessa API: er innehåller även unitType, ett numeriskt värde som kan användas för enhets översättningar. Se tabellen nedan för att tolka dessa värden.
+Vissa av API: erna för väder tjänster låter användaren ange om data returneras antingen i mått eller i Imperial enheter. De svar som returneras för dessa API: er är unitType och ett numeriskt värde som kan användas för enhets översättningar. Se tabellen nedan för att tolka dessa värden.
 
 |unitType|Beskrivning         |
 |--------|--------------------|
 |0       |fot                |
 |1       |Mm              |
-|2       |miles               |
+|2       |tillryggalagda               |
 |3       |millimeter          |
 |4       |tum          |
 |5       |mätare               |
@@ -52,7 +52,7 @@ Vissa av API: erna för väder tjänster låter användaren ange om data returne
 
 ## <a name="weather-icons"></a>Väder ikoner
 
-Några av väder tjänstens API: er returnerar ikon koder (iconCode) i svaret, ett numeriskt värde som kan användas för att definiera ikonen. Länka inte direkt till dessa bilder från dina program, så kan webb adresserna och ändras.
+Några av API: erna för väder tjänster returnerar `iconCode` i svaret. `iconCode` är ett numeriskt värde som används för att definiera ikonen. Länka inte direkt till de här bilderna från dina program, webb adresserna kan och ändras.
 
 | Ikon nummer |Ikon| Day | Natten | Text |
 |-------------|:----:|-----|-------|------|
@@ -82,7 +82,7 @@ Några av väder tjänstens API: er returnerar ikon koder (iconCode) i svaret, e
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Ja |  Ja   | Frysning av regn|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Ja |  Ja   | Regn och snö|
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Ja |  Ja   | Frekvent|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Ja |  Ja   | Kall|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Ja |  Ja   | Kalla|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Ja |  Ja   | Lindning|
 | 33           |![](./media/weather-services-concepts/clear-night.png)                | Inga  |  Ja   | Rensa|
 | 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Inga  |  Ja   | Oftast rensa|

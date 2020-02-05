@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 35bcf822b97d5e4028ec99c417ec1f54952350a4
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 23ac98f91c989c9bedb6b91e6a7ce26dc164ac5a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966720"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987815"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ ms.locfileid: "76966720"
 
 1. Logga in på [Azure Portal](https://portal.azure.com)
 1. Klicka på [skapa **language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Ange alla nödvändiga inställningar för körnings nyckel:
+1. Ange alla nödvändiga inställningar för **körnings** nyckel:
 
     |Inställning|Värde|
     |--|--|
@@ -50,7 +50,7 @@ Använd python för att fråga efter [förutsägelse slut punkten](https://aka.m
 
     try:
 
-        key = 'YOUR-KEY'
+        key = 'YOUR-KEY' # your Runtime key
         endpoint = 'YOUR-ENDPOINT' # such as 'your-resource-name.api.cognitive.microsoft.com'
         appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
         utterance = 'turn on all lights'
@@ -75,11 +75,11 @@ Använd python för att fråga efter [förutsägelse slut punkten](https://aka.m
         print(f'{e}')
     ```
 
-1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse nyckel och slut punkt.
+1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse **körnings** nyckel och slut punkt.
 
     |Information|Syfte|
     |--|--|
-    |`YOUR-KEY`|Din nyckel för att förutsäga 32-tecknen.|
+    |`YOUR-KEY`|Din 32-teckenuppsättning med **körnings** nyckel.|
     |`YOUR-ENDPOINT`| URL-slutpunkten för förutsägelse. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Installera `requests` beroendet. Detta används för att göra HTTP-förfrågningar:

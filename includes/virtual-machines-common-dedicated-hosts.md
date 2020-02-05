@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833871"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013682"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Följande VM-serien stöds: DSv3 och ESv3. 
+- Följande VM-serien stöds: DSv3, ESv3 och Fsv2. 
 
 ## <a name="benefits"></a>Erbjudande 
 
@@ -73,7 +73,7 @@ Den infrastruktur som stöder dina virtuella datorer kan ibland uppdateras för 
 Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbundna plattforms uppdateringar som är schemalagda på sina dedikerade värdar, och sedan använda dem vid den tidpunkt som de väljer i ett rullande 35-dagars fönster.
 
 > [!NOTE]
->  Underhålls kontrollen är för närvarande i ett begränsat för hands versions steg och kräver en onboarding-process. Använd för den här för hands versionen genom att skicka en [betecknings undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+>  Underhålls kontrollen är för närvarande en offentlig för hands version. Mer information finns i **styra uppdateringar med underhålls kontroll med [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) eller [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)** .
 
 ## <a name="capacity-considerations"></a>Överväganden för kapacitet
 
@@ -115,7 +115,7 @@ Dedikerade värdar stöder följande värd SKU\types: DSv3_Type1 och ESv3_Type1
 
 Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd kommer att returneras när du frågar din värd:
 
-| Hälsotillstånd   | Beskrivning       |
+| Hälso tillstånd   | Beskrivning       |
 |----------|----------------|
 | Värd tillgänglig     | Det finns inga kända problem med värden.   |
 | Värd under undersökning  | Vi har problem med värden som vi tittar på. Detta är ett över gångs tillstånd som krävs för att Azure ska kunna testa och identifiera omfattningen och rotor saken för det problem som identifierats. Virtuella datorer som körs på värden kan påverkas. |

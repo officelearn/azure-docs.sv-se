@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715931"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986826"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -82,7 +82,7 @@ Om du vill visa lösningar i Azure Portal klickar du på **mer** i avsnittet om 
 
 
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 ### <a name="whats-the-difference-between-azure-monitor-logs-and-azure-data-explorer"></a>Vad är skillnaden mellan Azure Monitor loggar och Azure Datautforskaren?
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Monitor-loggar bygger på Azure-Datautforskaren och använder samma KQL (Kusto Query Language) med vissa mindre skillnader. Se [skillnader i Azure Monitor loggs frågespråk](log-query/data-explorer-difference.md).
@@ -90,7 +90,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 ### <a name="how-do-i-retrieve-log-data"></a>Hur gör jag för att hämta logg data?
 Alla data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som skrivits med hjälp av KQL (Kusto Query Language). Du kan skriva egna frågor eller använda lösningar och insikter som innehåller logg frågor för ett visst program eller en viss tjänst. Se [Översikt över logg frågor i Azure Monitor](log-query/log-query-overview.md).
 
-### <a name="what-is-a-log-analytics-workspace"></a>Vad är en Log Analytics arbets yta?
+### <a name="what-is-a-log-analytics-workspace"></a>Vad är en Log Analytics-arbetsyta?
 Alla loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta. En arbets yta är i grunden en behållare där loggdata samlas in från olika källor. Du kan ha en enda Log Analytics arbets yta för alla dina övervaknings data eller så kan det finnas krav för flera arbets ytor. Se [utforma distributioner av Azure Monitor loggar](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Kan du flytta en befintlig Log Analytics arbets yta till en annan Azure-prenumeration?
@@ -327,6 +327,11 @@ Du kan [använda Power BI](app/export-power-bi.md ) för att visa din begär and
 ### <a name="data"></a>Hur länge sparas data i portalen? Är det säkert?
 Ta en titt på [data kvarhållning och sekretess][data].
 
+### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>Vad händer med att program insikter telemetri när en server eller enhet förlorar anslutning till Azure?
+
+Alla våra SDK: er, inklusive Web SDK, innehåller "Reliable transport" eller "robust transport". När servern eller enheten förlorar anslutning till Azure [lagras telemetri lokalt i fil systemet](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server-SDK: er) eller i HTML5-session lagring (Web SDK). SDK gör ett nytt försök att skicka Telemetrin igen tills vår inmatnings tjänst tar hänsyn till "föråldrad" (48 timmar för loggar, 30 minuter för mått). Inaktuell telemetri kommer att tas bort. I vissa fall, t. ex. när den lokala lagringen är full, görs inget nytt försök.
+
+
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>Kan personliga data skickas i telemetri?
 
 Detta är möjligt om din kod skickar sådana data. Det kan också hända om variabler i stack spår innehåller person uppgifter. Utvecklings gruppen bör genomföra riskbedömningar för att säkerställa att person uppgifter hanteras korrekt. [Läs mer om data kvarhållning och sekretess](app/data-retention-privacy.md).
@@ -376,8 +381,8 @@ Använd en enda resurs för alla komponenter eller roller i ett enda företags s
 | Hämta stack spår från undantag |[Infoga TrackException-anrop i koden](app/asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
 | Sök logg spårningar |[Lägg till ett loggnings kort](app/asp-net-trace-logs.md) |Diagnostisera undantag, prestanda problem |
 | Grundläggande om klient användning: sidvyer, sessioner,... |[JavaScript-initierare på webb sidor](app/javascript.md) |Användningsanalys |
-| Anpassade mått för klienter |[Spåra samtal på webb sidor](app/api-custom-events-metrics.md) |Förbättra användar upplevelsen |
-| Anpassade mått för Server |[Spåra anrop i Server](app/api-custom-events-metrics.md) |Business Intelligence |
+| Anpassade mått för klienter |[Spåra samtal på webb sidor](app/api-custom-events-metrics.md) |Förbättrad användarupplevelse |
+| Anpassade mått för Server |[Spåra anrop i Server](app/api-custom-events-metrics.md) |Business intelligence |
 
 ### <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Varför är antalet i Sök-och mått diagram desamma?
 
@@ -515,7 +520,7 @@ Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om A
 
 För agent version ciprod12042019 och senare fylls dessa två egenskaper i som standard för varje loggnings rad för att minimera kostnaderna för loggdata som samlas in. Det finns två alternativ för att fråga tabellen som innehåller dessa egenskaper med sina värden:
 
-#### <a name="option-1"></a>alternativ 1 
+#### <a name="option-1"></a>Alternativ 1 
 
 Gå med i andra tabeller för att inkludera dessa egenskaps värden i resultaten.
 
@@ -673,7 +678,7 @@ Om du ändrar någon inställning för en hälso tillstånds instans ändras all
 Nej, enskilda processor-och logiska processor nivå hälso kriterier ingår inte i ett Windows, endast den totala processor användningen övervakas som standard för att effektivt utvärdera processor belastningen baserat på det totala antalet logiska processorer som är tillgängliga för den virtuella Azure-datorn. 
 
 ### <a name="are-all-health-criteria-thresholds-configurable"></a>Kan alla tröskelvärden för hälso kriterier konfigureras?  
-Tröskelvärden för hälso villkor som riktar sig mot en virtuell Windows-dator kan inte ändras eftersom deras hälso tillstånd är inställda på att *köras* eller *är tillgängliga*. När du frågar hälso tillståndet från API: [t för arbets belastnings övervakning](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)visas *comparisonOperator* -värdet för **LessThan** eller **GreaterThan** med *tröskelvärdet* **4** för tjänsten eller entiteten om:
+Tröskelvärden för health-villkor som är riktade till en virtuell Windows-dator inte kan ändras, eftersom deras hälsotillstånd är inställda på *kör* eller *tillgängliga*. När du frågar hälsotillståndet från den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), visas den *jämförelseoperator* värdet för **LessThan** eller **GreaterThan** med en *tröskelvärdet* värdet för **4** för tjänsten eller entiteten om:
    - Tjänstehälsa för DNS-klienten – tjänst inte körs. 
    - Tjänstehälsa för DHCP-klient – tjänst inte körs. 
    - Tjänstehälsa för RPC-tjänsten inte körs. 
@@ -683,13 +688,13 @@ Tröskelvärden för hälso villkor som riktar sig mot en virtuell Windows-dator
    - Windows remote management service health – tjänsten körs inte. 
    - Filsystemfel eller skadade data – logisk Disk är inte tillgänglig.
 
-Tröskelvärden för följande Linux-hälsovillkor kan inte ändras eftersom deras hälso tillstånd redan har angetts till *True*. Hälso tillståndet visar *comparisonOperator* med värdet **LessThan** och *tröskelvärdet* **1** när det efter frågas från API: et för arbets belastnings övervakning för entiteten, beroende på dess kontext:
+Tröskelvärden för följande kriterier för Linux-hälsotillstånd inte kan ändras, eftersom deras hälsotillstånd har redan angivits för *SANT*. Hälsotillståndet visar den *jämförelseoperator* med ett värde **LessThan** och *tröskelvärdet* värdet för **1** när en förfrågan från den Arbetsbelastningen övervaknings-API för entiteten, beroende på dess kontext:
    - Diskstatus för logisk – logisk disk är inte online / tillgängliga
    - Diskstatus – Disk är inte online / tillgängliga
    - Nätverkskortets Status - nätverkskort är inaktiverad
 
 ### <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>Hur gör jag för att ändra aviseringar som ingår i hälso funktionen?
-Varningsregler som har definierats för varje hälsotillstånd kriterium visas inte i Azure-portalen. Du kan endast aktivera eller inaktivera en hälso aviserings regel i [API: t för arbets belastnings övervakning](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Du kan inte heller tilldela en [Azure Monitor åtgärds grupp](platform/action-groups.md) för hälso aviseringar i Azure Portal. Du kan bara använda API: et för aviserings inställningar för att konfigurera en åtgärds grupp som ska utlösas när en hälso varning utlöses. För närvarande kan du tilldela åtgärds grupper mot en virtuell dator så att alla *hälso aviseringar* som utlöses mot den virtuella datorn utlöser samma åtgärds grupper. Till skillnad från traditionella Azure-aviseringar finns det ingen i en separat åtgärdsgrupp för varje health-aviseringsregel. Dessutom stöds endast åtgärdsgrupper som är konfigurerade för att tillhandahålla e-post eller SMS-meddelanden när hälsovarningar utlöses. 
+Varningsregler som har definierats för varje hälsotillstånd kriterium visas inte i Azure-portalen. Du kan aktivera eller inaktivera en hälsovarning regel bara i den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Du kan inte heller tilldela en [Azure Monitor åtgärds grupp](platform/action-groups.md) för hälso aviseringar i Azure Portal. Du kan bara använda API: et för aviserings inställningar för att konfigurera en åtgärds grupp som ska utlösas när en hälso varning utlöses. För närvarande kan du tilldela åtgärdsgrupper mot en virtuell dator så att alla *hälsovarningar* utlösta mot VM-utlösaren samma åtgärdsgrupper. Till skillnad från traditionella Azure-aviseringar finns det ingen i en separat åtgärdsgrupp för varje health-aviseringsregel. Dessutom stöds endast åtgärdsgrupper som är konfigurerade för att tillhandahålla e-post eller SMS-meddelanden när hälsovarningar utlöses. 
 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Jag ser inte vissa eller alla data i prestandadiagram för den virtuella datorn
 Om du inte ser prestanda data i disk tabellen eller i vissa prestanda diagram, kanske prestanda räknarna inte konfigureras på arbets ytan. Kör följande [PowerShell-skript](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell)för att lösa problemet.

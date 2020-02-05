@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846126"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989526"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
@@ -26,7 +26,7 @@ Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av p
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
@@ -336,9 +336,9 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
         main()
     ```
 
-6. Du kan också lägga till anpassade dimensioner i dina loggar. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
+6. Du kan också lägga till anpassade egenskaper till dina logg meddelanden i argumentet *extra* nyckelord med hjälp av fältet custom_dimensions. De visas som nyckel/värde-par i `customDimensions` i Azure Monitor.
 > [!NOTE]
-> För att den här funktionen ska fungera måste du skicka en ord lista som ett argument till dina loggar. alla andra data strukturer kommer att ignoreras. Om du vill underhålla sträng formateringen lagrar du dem i en ord lista och skickar dem som argument.
+> För att den här funktionen ska fungera måste du skicka en ord lista till fältet custom_dimensions. Om du skickar argument av någon annan typ kommer loggaren att ignorera dem.
 
     ```python
     import logging
@@ -350,7 +350,17 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+    # Use properties in logging statements
+    logger.warning('action', extra=properties)
+
+    # Use properties in exception logs
+    try:
+        result = 1 / 0  # generate a ZeroDivisionError
+    except Exception:
+    logger.exception('Captured an exception.', extra=properties)
     ```
 
 7. Mer information om hur du kan utöka dina loggar med spårnings kontext data finns i openräkningar python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation).

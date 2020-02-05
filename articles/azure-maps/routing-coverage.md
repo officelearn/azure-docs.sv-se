@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910619"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988948"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps routnings täckning
 
-Den här artikeln innehåller information om disponering för Azure Maps routning. När du söker efter optimal väg från plats A till B kan Azure Maps ge hög noggrannhet, direkt uppdaterad rese information och väg instruktioner. Vägen tar hänsyn till ytterligare Sök villkor, till exempel aktuell trafik, fordons typ och villkor för att undvika. Möjligheten att optimera vägen beror på regionen som Azure Maps har olika nivåer av information och exakthet för olika regioner. I följande tabell visas de regioner och vilken typ av information som du kan begära för dem.
+Den här artikeln innehåller information om disponering för Azure Maps routning. Vid en Sök fråga returnerar Azure Maps en optimal väg från plats A till plats B. Du får korrekta rese tider, direktsända uppdateringar av rese information och väg instruktioner. Du kan också lägga till ytterligare Sök parametrar som aktuell trafik, fordons typ och villkor för att undvika. Optimeringen av vägen är beroende av regionen. Det beror på att Azure Maps har olika nivåer av information och precision för olika regioner. I följande tabell visas de regioner och vilken typ av information som du kan begära för dem.
  
 Ta en titt på täckning för [**kodning**](geocoding-coverage.md).       
 Ta en titt på täckning för [**trafik**](traffic-coverage.md).  
 Kolla ut täckning för [**rendering**](render-coverage.md).
 <br>  
-**Förklaring**
+**Mönstret**
 
 | Symbol             | Betydelse                                |
 |--------------------|----------------------------------------|
@@ -112,7 +112,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Paraguay                       |        ✓       |                      |             |
 | Peru                           |        ✓       |         ✓            |             |
 | Saint Kitts och Nevis            |        ✓       |                      |             |
-| St. Lucia                      |        ✓       |                      |             |
+| Saint Lucia                      |        ✓       |                      |             |
 | Saint Vincent & grenadin       |        ✓       |                      |             |
 | Surinam                       |        ✓       |                      |             |
 | Trinidad & Tobago              |        ✓       |                      |             |
@@ -180,7 +180,7 @@ Följande tabell innehåller information om disponering för Azure Maps routning
 | Georgien                        |        ✓       |                      |             |
 | Tyskland                        |        ✓       |         ✓            |     ✓      | 
 | Grekland                         |        ✓       |         ✓            |     ✓      |  
-| Guernsey                       |        ✓       |                      |             |
+| Guernseypund                       |        ✓       |                      |             |
 | Ungern                        |        ✓       |         ✓            |     ✓      | 
 | Island                        |        ✓       |         ✓            |             |
 | Irland                        |        ✓       |         ✓            |     ✓      | 

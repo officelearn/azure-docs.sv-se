@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
-ms.openlocfilehash: 1268dc0d78bf64e0a4b79592c28a9c1e70db7bf3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/28/2020
+ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892913"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991021"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure SQL Database med Azure Data Factory
 
@@ -589,6 +589,10 @@ Inställningar som är aktuella för Azure SQL Database finns tillgängliga på 
 Inställningar som är tillgängliga för Azure SQL Database finns på fliken **Inställningar** i omvandlingen för mottagare.
 
 **Uppdaterings metod:** Avgör vilka åtgärder som tillåts på databas målet. Standardvärdet är att endast tillåta infogningar. Om du vill uppdatera, upsert eller ta bort rader krävs en Alter-Row-omvandling för att tagga rader för dessa åtgärder. För uppdateringar, upsertar och borttagningar måste en nyckel kolumn eller kolumner anges för att avgöra vilken rad som ska ändras.
+
+![Nyckel kolumner](media/data-flow/keycolumn.png "Nyckel kolumner")
+
+Kolumn namnet som du väljer som nyckel här kommer att användas av ADF som en del av den efterföljande uppdateringen, upsert, Delete. Därför måste du välja en kolumn som finns i Sink-mappningen. Om du inte vill skriva värdet till den här nyckel kolumnen klickar du på "hoppa över skrivning av nyckel kolumner".
 
 **Tabell åtgärd:** Bestämmer om du vill återskapa eller ta bort alla rader från mål tabellen innan du skriver.
 * Ingen: ingen åtgärd utförs i tabellen.

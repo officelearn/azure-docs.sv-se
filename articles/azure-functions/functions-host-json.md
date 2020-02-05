@@ -3,18 +3,18 @@ title: Host. JSON-referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c4cfbb40c0337a6141d3b1f9844a33227a4963f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978821"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988710"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Host. JSON-referens för Azure Functions 2. x och senare 
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
 > * [Version 1](functions-host-json-v1.md)
-> * [Version 2](functions-host-json.md)
+> * [Version 2 +](functions-host-json.md)
 
 *Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga från och med version 2. x i Azure Functions Runtime.  
 
@@ -27,7 +27,7 @@ Vissa värden. JSON-inställningar används bara när de körs lokalt i den [lok
 
 ## <a name="sample-hostjson-file"></a>Exempel på Host. JSON-fil
 
-Följande exempel på *Host. JSON* -fil har alla alternativ som anges (exklusive alla som endast används för internt bruk).
+Följande exempel på *Host. JSON* -fil för version 2. x + har alla möjliga alternativ angivna (exklusive alla som endast används för internt bruk).
 
 ```json
 {
@@ -280,7 +280,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 Konfigurations inställningar kan hittas i [http-utlösare och bindningar](functions-bindings-http-webhook.md#hostjson-settings).
 
-## <a name="logging"></a>loggning
+## <a name="logging"></a>Logging
 
 Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 
@@ -377,7 +377,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 
 ## <a name="version"></a>version
 
-Versions strängen `"version": "2.0"` krävs för en Function-app som är riktad mot v2-körningen.
+Det här värdet anger schema versionen av Host. JSON. Versions strängen `"version": "2.0"` krävs för en Function-app som är riktad mot v2-körningen eller en senare version. Det finns inga värden för Host. JSON-schemat mellan v2 och v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

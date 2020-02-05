@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf6b94418516f681bf6c782fe02f3434faa5374e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426284"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986996"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics-utdata till Azure Cosmos DB  
 Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några av metodtipsen för att implementera den här konfigurationen.
@@ -97,7 +97,7 @@ Antalet inkommande händelser i Event Hubs är två gånger högre än Azure Cos
 
 Med 1,2 är Stream Analytics mer intelligent med att använda 100 procent av det tillgängliga data flödet i Azure Cosmos DB med mycket få återsändningar från begränsning eller hastighets begränsning. Detta ger en bättre upplevelse för andra arbets belastningar, t. ex. frågor som körs på behållaren på samma gång. Om du vill se hur Stream Analytics skalas ut med Azure Cosmos DB som mottagare för 1 000 till 10 000 meddelanden per sekund, kan du prova [det här Azure-exempelprojektet](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
-Data flödet för Azure Cosmos DB utdata är identiskt med 1,0 och 1,1. Eftersom 1,2 för närvarande inte är standard, kan du [Ange kompatibilitetsnivå](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) för ett Stream Analytics jobb med hjälp av portalen eller genom att använda [jobbet skapa Stream Analytics jobb REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Vi *rekommenderar starkt* att du använder kompatibilitetsnivån 1,2 i Stream Analytics med Azure Cosmos dB.
+Data flödet för Azure Cosmos DB utdata är identiskt med 1,0 och 1,1. Vi *rekommenderar starkt* att du använder kompatibilitetsnivån 1,2 i Stream Analytics med Azure Cosmos dB.
 
 ## <a name="azure-cosmos-db-settings-for-json-output"></a>Azure Cosmos DB inställningar för JSON-utdata
 

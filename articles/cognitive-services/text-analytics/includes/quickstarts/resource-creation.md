@@ -4,15 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 9623398e51260d88df3d8fd88e3affaf7f906a64
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 254fe3602bdb6a05f3a3225035460b88ebd3e23f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76159031"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987364"
 ---
-Börja använda API för textanalys med något av alternativen nedan.
-
+Du behöver en nyckel och en slut punkt från en Textanalys resurs för att ansluta ditt program. Hämta dem genom att skapa en av resurserna nedan:
 
 * <a href="https://azure.microsoft.com/try/cognitive-services/my-apis/?api=text-analytics" title="skapa en test-Textanalys resurs" target="_blank">skapa en utvärderings resurs <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     * Ingen Azure-prenumeration krävs. 

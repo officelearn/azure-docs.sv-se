@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: alsin
-ms.openlocfilehash: 911d86dd7cb03479d9bde49d8fce0f7861e32e27
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: afda502bcd89423ecdd008c0297c85dd8a5b61fb
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980142"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989849"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
+
 Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en PAYG (pay-on-go) eller med en egen prenumerations modell (Red Hat Gold image). Det här dokumentet ger en översikt över de Red Hat Gold-avbildningarna i Azure.
 
 ## <a name="important-points-to-consider"></a>Viktiga saker att tänka på
@@ -170,25 +171,41 @@ Följande är ett exempel skript. Du bör ersätta resurs gruppen, platsen, namn
     New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
+## <a name="encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images"></a>Kryptera Red Hat Enterprise Linux Hämta guld bilder i din egen prenumeration
+
+Red Hat Enterprise Linux Gold-avbildningar med egen prenumeration kan säkras genom användning av [Azure Disk Encryption](../../linux/disk-encryption-overview.md). Men prenumerationen **måste** registreras innan kryptering aktive ras.  Information om hur du registrerar en RHEL BYOS guld-avbildning finns på Red Hat-webbplatsen. Se [hur du registrerar och prenumererar på ett system till Red Hat-kundportalen med Red Hat-prenumeration-Manager](https://access.redhat.com/solutions/253273); Om du har en aktiv Red Hat-prenumeration kan du också läsa [skapa Red Hat kund Portal aktiverings nycklar](https://access.redhat.com/articles/1378093).
+
+Azure Disk Encryption stöds inte för [anpassade Red Hat-bilder](/linux/redhat-create-upload-vhd). Ytterligare ADE-krav och nödvändiga komponenter finns dokumenterade i [Azure Disk Encryption för virtuella Linux-datorer](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+
+Steg för att använda Azure Disk Encryption finns i [Azure Disk Encryption scenarier för virtuella Linux-datorer](../../linux/disk-encryption-linux.md) och relaterade artiklar.  
+
 ## <a name="additional-information"></a>Ytterligare information
-- Om du försöker etablera en virtuell dator för en prenumeration som inte är aktive rad för det här erbjudandet får du följande fel meddelande och du bör kontakta Microsoft eller Red Hat för att aktivera din prenumeration.
+
+- Om du försöker etablera en virtuell dator för en prenumeration som inte är aktive rad för det här erbjudandet får du följande fel meddelande:
+
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
+    
+    I det här fallet kontaktar du Microsoft eller Red Hat för att aktivera din prenumeration.
 
-- Om du skapar en ögonblicks bild från RHEL BYOS-avbildningen och publicerar avbildningen i det [delade bild galleriet](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)måste du ange plan information som matchar den ursprungliga källan till ögonblicks bilden. Kommandot kan till exempel se ut så (Observera plan parametrarna på den sista raden):
+- Om du ändrar en ögonblicks bild från en RHEL BYOS-avbildning och försöker publicera den anpassade avbildningen i det [delade bild galleriet](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)måste du ange plan information som matchar den ursprungliga källan till ögonblicks bilden. Kommandot kan till exempel se ut så här:
+
     ```azurecli
     az vm create –image \
     "/subscriptions/GUID/resourceGroups/GroupName/providers/Microsoft.Compute/galleries/GalleryName/images/ImageName/versions/1.0.0" \
     -g AnotherGroupName --location EastUS2 -n VMName \
     --plan-publisher redhat --plan-product rhel-byos --plan-name rhel-lvm75
     ```
+    Observera plan parametrarna på den sista raden ovan.
+
+    [Azure Disk Encryption](#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) stöds inte för anpassade avbildningar.
 
 - Om du använder Automation för att etablera virtuella datorer från RHEL BYOS-avbildningar måste du ange plan parametrar som liknar vad som visades ovan. Om du till exempel använder terraform kan du ange plan informationen i ett [plan block](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan).
 
 ## <a name="next-steps"></a>Nästa steg
-* Steg-för-steg-guider och programinformation för Cloud Access finns i [dokumentationen för moln åtkomst i Red Hat.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
-* Läs mer om [Azure Red Hats uppdaterings infrastruktur](./redhat-rhui.md).
-* Om du vill veta mer om alla Red Hat-bilder i Azure går du till [dokumentations sidan](./redhat-images.md).
-* Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
-* Ytterligare dokumentation om RHEL Gold-avbildningar finns i [Red Hat-dokumentationen](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+- Steg-för-steg-guider och programinformation för Cloud Access finns i [dokumentationen för moln åtkomst i Red Hat.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
+- Läs mer om [Azure Red Hats uppdaterings infrastruktur](./redhat-rhui.md).
+- Om du vill veta mer om alla Red Hat-bilder i Azure går du till [dokumentations sidan](./redhat-images.md).
+- Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
+- Ytterligare dokumentation om RHEL Gold-avbildningar finns i [Red Hat-dokumentationen](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).

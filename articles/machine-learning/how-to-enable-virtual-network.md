@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fafb40c8505b7178782ab15c14184c5bec052a1b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937865"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988233"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -180,8 +180,8 @@ Använd följande steg om du inte vill använda de utgående standard reglerna o
 - Neka utgående Internet anslutning med NSG-reglerna.
 
 - För en __beräknings instans__ eller ett __beräknings kluster__begränsar du utgående trafik till följande objekt:
-   - Azure Storage, genom att använda __tjänst tag gen__ för __lagring__
-   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry__
+   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
+   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. RegionName__. Där `{RegionName}` är namnet på en Azure-region.
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
    
 - För en __beräknings instans__lägger du också till följande objekt:

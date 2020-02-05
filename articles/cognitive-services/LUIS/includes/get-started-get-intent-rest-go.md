@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 2dd74f13f9342e45e38dafed2de8338876c8ae36
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 02cb7738e20df6aba8690c9fe2ee718144bad114
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966953"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987819"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ ms.locfileid: "76966953"
 
 1. Logga in på [Azure Portal](https://portal.azure.com)
 1. Klicka på [skapa **language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Ange alla nödvändiga inställningar för körnings nyckel:
+1. Ange alla nödvändiga inställningar för **körnings** nyckel:
 
     |Inställning|Värde|
     |--|--|
@@ -63,7 +63,7 @@ Använd Go för att fråga efter [förutsägelse slut punkten](https://aka.ms/lu
         // utterance for public app
         var utterance = "turn on all lights"
 
-        // YOUR-KEY - your  key
+        // YOUR-KEY - your **Runtime** key
         var endpointKey = "YOUR-KEY"
 
         // YOUR-ENDPOINT - example is your-resource-name.api.cognitive.microsoft.com
@@ -96,11 +96,11 @@ Använd Go för att fråga efter [förutsägelse slut punkten](https://aka.ms/lu
     }
     ```
 
-1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse nyckel och slut punkt.
+1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse **körnings** nyckel och slut punkt.
 
     |Information|Syfte|
     |--|--|
-    |`YOUR-KEY`|Din nyckel för att förutsäga 32-tecknen.|
+    |`YOUR-KEY`|Din 32-teckenuppsättning med **körnings** nyckel.|
     |`YOUR-ENDPOINT`| URL-slutpunkten för förutsägelse. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Med en kommando tolk i samma katalog som den plats där du skapade filen, anger du följande kommando för att kompilera go-filen:

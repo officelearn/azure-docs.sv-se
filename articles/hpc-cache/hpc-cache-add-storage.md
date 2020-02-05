@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647242"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990614"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -38,8 +38,6 @@ Du kan skapa en ny behållare från den här sidan precis innan du lägger till 
 Ange den här informationen för att definiera en Azure Blob-behållare.
 
 ![skärm bild av sidan Lägg till lagrings mål, ifylld med information för ett nytt Azure Blob Storage-mål](media/hpc-cache-add-blob.png)
-
-<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **Lagrings mål namn** – ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
 * **Måltyp** – Välj **BLOB**.
@@ -151,7 +149,7 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 | Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 | ---- | ---- | ---- | ---- |
 | Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Inget |
-| Större än 15% skrivningar | Läsa/skriva | Aldrig | 1 timme |
+| Större än 15% skrivningar | Läs/skriv | Aldrig | 1 timme |
 | Klienterna kringgår cachen | Läsa | 30 sekunder | Inget |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,27 +1,23 @@
 ---
-title: Migrera lokala fysiska datorer eller virtualiserade datorer till Azure med Azure Migrate Server-migrering | Microsoft Docs
-description: I den här artikeln beskrivs hur du migrerar lokala fysiska datorer eller virtualiserade datorer till Azure med Azure Migrate Server-migrering.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrera datorer som fysiska servrar till Azure med Azure Migrate.
+description: I den här artikeln beskrivs hur du migrerar fysiska datorer till Azure med Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028797"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989764"
 ---
-# <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrera fysiska eller virtualiserade servrar till Azure 
+# <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
-Den här artikeln visar hur du migrerar fysiska eller virtualiserade servrar till Azure. Migreringsverktyg för Azure Migrate Server erbjuder migrering av fysiska och virtualiserade servrar, med hjälp av en agent-baserad replikering. Med det här verktyget kan du migrera en mängd olika datorer till Azure:
+Den här artikeln visar hur du migrerar datorer som fysiska servrar till Azure med hjälp av verktyget Azure Migrate: Migreringsverktyg för Server. Att migrera datorer genom att behandla dem som fysiska servrar är användbara i ett antal scenarier:
 
 - Migrera lokala fysiska servrar.
 - Migrera virtuella datorer som är virtualiserade med plattformar som xen, KVM.
-- Migrera virtuella Hyper-V-eller VMware-datorer. Detta är användbart om du av någon anledning inte kan använda det standardmigrerings flöde som Azure Migrate Server migration för [Hyper-V](tutorial-migrate-hyper-v.md), [VMware agent](tutorial-migrate-vmware.md) lös migrering eller [VMware-agent-baserad](tutorial-migrate-vmware-agent.md) migrering.
+- Migrera virtuella Hyper-V-eller VMware-datorer, om det av någon anledning inte går att använda standardmigreringen för [Hyper-v](tutorial-migrate-hyper-v.md)eller [VMware](server-migrate-overview.md) -migrering.
 - Migrera virtuella datorer som körs i privata moln.
 - Migrera virtuella datorer som körs i offentliga moln, till exempel Amazon Web Services (AWS) eller Google Cloud Platform (GCP).
 
@@ -176,7 +172,7 @@ Det första steget i migreringen är att konfigurera replikerings enheten. Du ka
 
 ### <a name="download-the-replication-appliance-installer"></a>Ladda ned installations programmet för replikerings enheten
 
-1. Klicka på **identifiera**i ***Azure Migrate: Server-migrering**i Azure Migrate Project >- **servrar**.
+1. I **Azure Migrate: Server-migrering**i Azure Migrate Project >- **servrar**klickar du på **identifiera**.
 
     ![Identifiera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -206,7 +202,7 @@ Det kan ta upp till 15 minuter innan registreringen har slutförts tills identif
 
 ## <a name="install-the-mobility-service"></a>Installera mobilitetstjänsten
 
-På datorer som du vill migrera måste du installera mobilitets tjänst agenten. Agent installationerna är tillgängliga på replikerings enheten. Du hittar rätt installations program och installerar agenten på varje dator som du vill migrera. Gör på följande sätt:
+På datorer som du vill migrera måste du installera mobilitets tjänst agenten. Agent installationerna är tillgängliga på replikerings enheten. Du hittar rätt installations program och installerar agenten på varje dator som du vill migrera. Gör detta på följande sätt:
 
 1. Logga in på replikerings enheten.
 2. Navigera till **%programdata%\ASR\home\svsystems\pushinstallsvc\repository**.
@@ -267,8 +263,7 @@ Välj datorer för migrering nu.
 
 2. I **Replikera**, > **käll inställningar** > **att datorerna har virtualiserats?** väljer du **inte virtualiserad/övrigt**.
 3. I **lokal**installation väljer du namnet på Azure Migrate-installationen som du konfigurerar.
-4. I **vCenter Server**anger du namnet på den vCenter-Server som hanterar de virtuella datorerna eller den vSphere-server som de virtuella datorerna finns på.
-5. I **processerver**väljer du namnet på replikerings enheten.
+4. I **processerver**väljer du namnet på replikerings enheten.
 6. I **autentiseringsuppgifter för gäst**anger du ett administratörs konto för den virtuella datorn som ska användas för push-installation av mobilitets tjänsten. I den här självstudien installerar vi mobilitets tjänsten manuellt, så du kan lägga till alla dummy-konton. Klicka sedan på **Nästa: virtuella datorer**.
 
     ![Replikera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
@@ -300,7 +295,7 @@ Välj datorer för migrering nu.
     - Du kan undanta diskar från replikering.
     - Om du undantar diskar kommer de inte att synas i den virtuella Azure-datorn efter migreringen. 
 
-    ![Diskinställningar](./media/tutorial-migrate-physical-virtual-machines/disks.png)
+    ![Disk inställningar](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
 
 14. I **Granska och starta replikering** kontrollerar du inställningarna och klickar på **Replikera** för att påbörja den första replikeringen för servrarna.

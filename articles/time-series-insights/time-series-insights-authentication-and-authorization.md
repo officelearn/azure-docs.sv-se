@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863486"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984600"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights-API
 
@@ -28,7 +28,7 @@ Det här dokumentet beskriver hur du registrerar en app i Azure Active Directory
 > * Det senaste [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
 > * [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
-## <a name="service-principal"></a>Tjänstens huvudnamn
+## <a name="service-principal"></a>Tjänstens huvud namn
 
 I följande avsnitt beskrivs hur du konfigurerar ett program för att få åtkomst till Time Series Insights-API: et för en app. Programmet kan sedan fråga eller publicera referens data i Time Series Insights-miljön med hjälp av egna programautentiseringsuppgifter via Azure Active Directory.
 
@@ -93,7 +93,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 
    1. Token kan sedan skickas i `Authorization`-rubriken när programmet anropar Time Series Insights-API: et.
 
-* Utvecklare kan också välja att autentisera med MSAL. Läs om hur [du migrerar till MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) för att lära dig mer. 
+* Utvecklare kan också välja att autentisera med MSAL. Läs om hur [du migrerar till MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) och se våra [Hantera ga-referens data för C# en Azure Time Series Insights miljö med hjälp av](time-series-insights-manage-reference-data-csharp.md) artikeln för mer information. 
 
 ## <a name="common-headers-and-parameters"></a>Vanliga rubriker och parametrar
 

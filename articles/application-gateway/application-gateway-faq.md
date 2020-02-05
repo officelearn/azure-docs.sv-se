@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770092"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986010"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -68,7 +68,9 @@ Om du använder en offentlig IP-adress som en slut punkt hittar du IP-och DNS-in
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Vad är inställningarna för Keep-Alive-timeout och timeout för TCP-inaktivitet?
 
- I Application Gateway v1 SKU är timeoutvärdet för Keep-Alive 120 sekunder. Timeoutvärdet för Keep-Alive för v2-SKU: n är 75 sekunder. Timeout för TCP-inaktivitet är en fyra minuters standard på den virtuella IP-adressen i klient delen (VIP) för Application Gateway.
+*Keep-Alive-timeout* styr hur länge Application Gateway väntar på att en klient ska skicka en annan http-begäran på en permanent anslutning innan den återanvänds eller stängas. *Timeout för TCP-inaktivitet* styr hur länge en TCP-anslutning hålls öppen om ingen aktivitet är öppen. 
+
+*Timeoutvärdet för Keep-Alive* i Application Gateway v1 sku är 120 sekunder och i v2-SKU: n är 75 sekunder. *Timeout för TCP-inaktivitet* är en fyra minuters standard på klient delens virtuella IP (VIP) för både v1-och v2-SKU: er för Application Gateway. 
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Ändras IP-eller DNS-namn under programgatewayens livs längd?
 

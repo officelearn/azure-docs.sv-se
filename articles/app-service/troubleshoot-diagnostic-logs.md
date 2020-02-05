@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121366"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985942"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -26,9 +26,9 @@ I den här artikeln används [Azure Portal](https://portal.azure.com) och Azure 
 |Typ|Plattform|Location|Beskrivning|
 |-|-|-|-|
 | Programloggning | Windows, Linux | App Service fil system och/eller Azure Storage blobbar | Loggar meddelanden som genereras av din program kod. Meddelandena kan genereras av det webb ramverk du väljer eller från din program kod direkt med hjälp av standard loggnings mönstret för ditt språk. Varje meddelande tilldelas en av följande kategorier: **kritisk**, **fel**, **Varning**, **information**, **fel sökning**och **spårning**. Du kan välja hur utförlig loggning ska ske genom att ange allvarlighets grad när du aktiverar program loggning.|
-| Webbserverloggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
+| Webb Server loggning| Windows | App Service fil system eller Azure Storage blobbar| Rå data för HTTP-begäran i [utökat logg fils format för W3C](/windows/desktop/Http/w3c-logging). Varje logg meddelande innehåller data, till exempel HTTP-metoden, resurs-URI, klient-IP, klient port, användar agent, svars kod och så vidare. |
 | Detaljerade fel meddelanden| Windows | App Service fil system | Kopior av *. htm* -felsidor som skulle ha skickats till klient webbläsaren. Av säkerhets skäl bör detaljerade felsidor inte skickas till klienter i produktion, men App Service kan spara felsidan varje gången ett program fel uppstår som har HTTP-kod 400 eller senare. Sidan kan innehålla information som kan hjälpa dig att avgöra varför servern returnerar felkoden. |
-| Spårning av misslyckade förfrågningar | Windows | App Service fil system | Detaljerad spårnings information om misslyckade förfrågningar, inklusive spårning av IIS-komponenter som används för att bearbeta begäran och den tid som tagits i varje komponent. Det är användbart om du vill förbättra platsens prestanda eller isolera ett särskilt HTTP-fel. En mapp skapas för varje misslyckad begäran, som innehåller XML-loggfilen och XSL-formatmallen för att Visa logg filen med. |
+| Spårning av misslyckade begär Anden | Windows | App Service fil system | Detaljerad spårnings information om misslyckade förfrågningar, inklusive spårning av IIS-komponenter som används för att bearbeta begäran och den tid som tagits i varje komponent. Det är användbart om du vill förbättra platsens prestanda eller isolera ett särskilt HTTP-fel. En mapp skapas för varje misslyckad begäran, som innehåller XML-loggfilen och XSL-formatmallen för att Visa logg filen med. |
 | Distributions loggning | Windows, Linux | App Service fil system | Loggar för när du publicerar innehåll till en app. Distributions loggning sker automatiskt och det finns inga konfigurerbara inställningar för distributions loggning. Det hjälper dig att avgöra varför en distribution misslyckades. Om du till exempel använder ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)kan du använda distributions loggning för att avgöra varför skriptet Miss söker. |
 
 > [!NOTE]
@@ -60,8 +60,8 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 | Nivå | Inkluderade kategorier |
 |-|-|
 |**Inaktiverad** | Inget |
-|**Fel** | Fel, kritiskt |
-|**Varning** | Varning, fel, kritiskt|
+|**Fels** | Fel, kritiskt |
+|**Honom** | Varning, fel, kritiskt|
 |**Mer** | Information, varning, fel, kritiskt|
 |**Utförlig** | Spåra, felsöka, info, varning, fel, kritiskt (alla kategorier) |
 
@@ -188,7 +188,7 @@ I följande tabell visas de logg typer och beskrivningar som stöds:
 | AppServiceHTTPLogs | Ja | Ja | Webb server loggar |
 | AppServiceEnvironmentPlatformLogs | Ja | Ja | App Service-miljön: skalning, konfigurations ändringar och status loggar|
 | AppServiceAuditLogs | Ja | Ja | Inloggnings aktivitet via FTP och kudu |
-| AppServiceFileAuditLogs | Kommer senare | Kommer senare | Fil ändringar via FTP och kudu |
+| AppServiceFileAuditLogs | Kommer senare | Ja | Fil ändringar via FTP och kudu |
 | AppServiceAppLogs | Kommer senare | Java SE & Tomcat | Program loggar |
 
 ## <a name="nextsteps"></a>Nästa steg

@@ -9,35 +9,73 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: a1d32bf7ea296ed2c4ed9351fcefe400c03effa5
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 76e3ac85a6725976ebd14dac1805079613c94ec6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861446"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76980995"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>Fråga efter data från Azure Time Series Insights Preview-miljön med hjälp avC#
 
-Det C# här exemplet visar hur du frågar efter data från Azure Time Series Insights för hands versions miljön.
+Det C# här exemplet visar hur du frågar data från [API: erna för för hands versions data åtkomst](https://docs.microsoft.com/rest/api/time-series-insights/preview) i Azure Time Series Insights Preview-miljöer.
 
-Exemplet visar flera grundläggande exempel på användning av fråge-API:
+> [!TIP]
+> Visa exempel C# kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
 
-1. Som förberedelse steg hämtar du åtkomsttoken via Azure Active Directory-API: et. Skicka denna token i `Authorization`-rubriken för varje fråge-API-begäran. För att konfigurera icke-interaktiva program, Läs [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Se också till att alla konstanter som definieras i början av exemplet är korrekt inställda.
-1. Listan över miljöer som användaren har åtkomst till hämtas. En av miljöerna hämtas som en miljö av intresse och ytterligare data efter frågas i den här miljön.
-1. Som ett exempel på en HTTPS-begäran begärs tillgänglighetsdata för den intressanta miljön.
-1. Innehåller ett exempel på stöd för automatisk generering av SDK från [Azure AutoRest](https://github.com/Azure/AutoRest).
+## <a name="summary"></a>Sammanfattning
 
-> [!NOTE]
-> Exempel koden och hur du kompilerar och kör den finns på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-preview-sample).
+Exempel koden nedan visar följande funktioner:
 
-## <a name="c-example"></a>C#exempel
+* Stöd för automatisk generering av SDK från [Azure AutoRest](https://github.com/Azure/AutoRest).
+* Så här hämtar du en åtkomsttoken via Azure Active Directory med [Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+* Så här skickar du den hämtade åtkomsttoken i `Authorization`s rubriken för efterföljande API-begäranden för data åtkomst. 
+* Exemplet innehåller ett konsol gränssnitt som demonstrerar hur HTTP-begäranden görs till:
+
+    * [API för för hands versions miljöer](https://docs.microsoft.com/rest/api/time-series-insights/preview#preview-environments-apis)
+        * [Hämta tillgänglighets-API för miljöer](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) och [Hämta API för Event schema](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema)
+    * [Förhandsgranska fråge-API](https://docs.microsoft.com/rest/api/time-series-insights/preview#query-apis)
+        * [Hämta händelse-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents), [Hämta serie-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries)och [Hämta API för sammanställd serie](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
+    * [API: er för Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)
+        * [Hämta hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/get) och [hierarkier batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeserieshierarchies/executebatch)
+        * [Hämta API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/get) och [typer batch API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch)
+        * [Hämta instanser API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/get) och [instanser batch-API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/executebatch)
+* Avancerade [Sök](https://docs.microsoft.com/rest/api/time-series-insights/preview#search-features) -och [TSX](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) -funktioner.
+
+## <a name="prerequisites-and-setup"></a>Krav och installation
+
+Slutför följande steg innan du kompilerar och kör exempel koden:
+
+1. [Etablera en förhands granskning Azure Time Series Insightss](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-how-to-manage#create-the-environment) miljö.
+1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). 
+1. Kör [GenerateCode. bat](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/GenerateCode.bat) enligt vad som anges i [Readme.MD](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClient/Readme.md) för att generera Time Series Insights för hands versions klient beroenden.
+1. Öppna `TSIPreviewDataPlaneclient.sln` lösning och ange `DataPlaneClientSampleApp` som standard projekt i Visual Studio.
+1. Installera de nödvändiga projekt beroendena med stegen som beskrivs [nedan](#project-dependencies) och kompilera exemplet till en körbar `.exe`-fil.
+1. Kör `.exe`-filen genom att dubbelklicka på den.
+
+## <a name="project-dependencies"></a>Projektberoenden
+
+Vi rekommenderar att du använder den senaste versionen av Visual Studio:
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) -version 16.4.2 +
+
+Exempel koden har flera nödvändiga beroenden som kan visas i filen [packages. config](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/csharp-tsi-preview-sample/DataPlaneClientSampleApp/packages.config) .
+
+Ladda ned paketen i Visual Studio 2019 genom att välja alternativet **build** - > **build-lösning** . 
+
+Du kan också lägga till varje paket med [NuGet 2.12 +](https://www.nuget.org/). Ett exempel:
+
+* `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
+
+## <a name="c-sample-code"></a>C#exempel kod
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
-> Kod exemplet ovan kan köras utan att ändra standard miljö värden.
+> * Kod exemplet kan köras utan att ändra standard miljövariablerna.
+> * Kod exemplet kompileras till en körbar app för .NET-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg
 

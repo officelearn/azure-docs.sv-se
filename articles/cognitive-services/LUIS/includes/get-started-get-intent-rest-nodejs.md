@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: c7354ecce9873cd65580dc2a9d79f9f3b8ac37db
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 9252fbbf0895bf821c119272ac37d3af1c91fc89
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966871"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987817"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,7 +25,7 @@ ms.locfileid: "76966871"
 
 1. Logga in på [Azure Portal](https://portal.azure.com)
 1. Klicka på [skapa **language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Ange alla nödvändiga inställningar för körnings nyckel:
+1. Ange alla nödvändiga inställningar för **körnings** nyckel:
 
     |Inställning|Värde|
     |--|--|
@@ -89,11 +89,11 @@ Använd Node. js för att fråga efter [förutsägelse slut punkten](https://aka
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse nyckel och slut punkt.
+1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse **körnings** nyckel och slut punkt.
 
     |Information|Syfte|
     |--|--|
-    |`YOUR-KEY`|Din nyckel för att förutsäga 32-tecknen.|
+    |`YOUR-KEY`|Din 32-teckenuppsättning med **körnings** nyckel.|
     |`YOUR-ENDPOINT`| URL-slutpunkten för förutsägelse. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
 1. Installera `request`, `request-promise`och `querystring` beroenden med det här kommandot:

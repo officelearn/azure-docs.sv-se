@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 01/23/2018
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5db3b978193ab51fc60f1bcb97d83b4d24037b54
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 69e6b7beecb95c0e89b60640353155fc7802a881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66511406"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982950"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -41,6 +41,7 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 | [openidconnect nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | En Node.js-app som ger ett snabbt och enkelt sätt att konfigurera ett webbprogram med Express med hjälp av OpenID Connect. |
 | [javascript-nodejs-webapp](https://github.com/AzureADQuickStarts/active-directory-b2c-javascript-nodejs-webapp) | En node.js-server som ger ett snabbt och enkelt sätt att konfigurera en REST API-tjänst som använder protokollet OAuth2. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | Ett litet node.js-webb-API för Azure AD B2C som visar hur du skyddar ditt webb-api och accepterar B2C-åtkomsttoken med passport.js. |
+| [MS-Identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Demonstrerar hur du integrerar B2C av Microsoft Identity Platform med ett python-webbprogram.  |
 
 ## <a name="single-page-apps"></a>Appar med en sida
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028509"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988659"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduktion till stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
@@ -97,7 +97,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 Syftet med cachen är att undvika onödig bearbetning, men vi antar att du gör en ändring i en färdighet som indexeraren inte identifierar (till exempel ändra något i extern kod, till exempel en anpassad färdighet).
 
-I det här fallet kan du använda [återställnings kunskaper](preview-api-resetskills.md) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
+I det här fallet kan du använda [återställnings kunskaper](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
 
 ## <a name="change-detection"></a>Ändrings identifiering
 
@@ -109,7 +109,7 @@ En ogiltig ändring är en där hela cachen inte längre är giltig. Ett exempel
 
 * Ändra till typ av data Källa
 * Ändra till data källans behållare
-* Autentiseringsuppgifter för datakälla
+* Autentiseringsuppgifter för data Källa
 * Princip för ändrings identifiering av data Källa
 * Ta bort identifierings princip för data källor
 * Fält mappningar för indexerare
@@ -136,39 +136,27 @@ Stegvis bearbetning utvärderar din färdigheter-definition och avgör vilka kun
 * Ändringar i kunskaps lagrets projektioner, resultat i omprojektering av dokument
 * Mappningar av utdatakolumner som har ändrats på en indexerare resulterar i omprojektering av dokument till indexet
 
-## <a name="api-reference-content-for-incremental-enrichment"></a>API-referens innehåll för stegvis anrikning
+## <a name="api-reference"></a>API-referens
 
-REST `api-version=2019-05-06-Preview` innehåller API: er för stegvis anrikning, med tillägg till indexerare, färdighetsuppsättningar och data källor. [Officiell referens dokumentation](https://docs.microsoft.com/rest/api/searchservice/) är för allmänt tillgängliga API: er och omfattar inte för hands versions funktioner. Följande avsnitt innehåller referens innehållet för påverkade API: er.
+REST API version `2019-05-06-Preview` ger stegvis berikning genom ytterligare egenskaper för indexerare, färdighetsuppsättningar och data källor. Utöver referens dokumentationen finns mer information om hur du anropar API: erna i [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md) .
 
-Användnings information och exempel finns i [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md).
++ [Skapa indexerare (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### <a name="indexers"></a>Indexerare
++ [Uppdatera indexerare (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-[Skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) och [Uppdatera indexeraren](https://docs.microsoft.com/rest/api/searchservice/update-indexer) kommer nu att visa nya egenskaper för cachen:
++ [Uppdatera färdigheter (API-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (ny URI-parameter på begäran)
 
-+ `StorageAccountConnectionString`: anslutnings strängen till det lagrings konto som ska användas för att cachelagra mellanliggande resultat.
++ [Återställa kunskaper (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: Ställ in på `true` som standard när det är inställt på `false`kommer dokumenten att fortsätta att skrivas till cacheminnet, men inga befintliga dokument ombearbetas baserat på cache-data.
++ Databas indexerare (Azure SQL, Cosmos DB). Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran- **ignoreResetRequirement**, som ska ställas in på `true` när din uppdaterings åtgärd inte ska göra en ogiltig verifiering av cachen. 
 
-+ `ID` (skrivskyddad): `ID` är identifieraren för behållaren i `annotationCache` lagrings kontot som ska användas som cache för den här indexeraren. Den här cachen är unik för den här indexeraren och om indexeraren tas bort och återskapas med samma namn kommer `ID` att återskapas. `ID` kan inte anges, den genereras alltid av tjänsten.
-
-### <a name="skillsets"></a>Kompetensuppsättningar
-
-+ [Update färdigheter](https://docs.microsoft.com/rest/api/searchservice/update-skillset) har stöd för en ny parameter på begäran: `disableCacheReprocessingChangeDetection`, vilket ska vara inställt på `true` när du inte vill ha några uppdateringar av befintliga dokument baserat på den aktuella åtgärden.
-
-+ [Återställning av färdigheter](preview-api-resetskills.md) är en ny åtgärd som används för att ogiltig förklara en färdigheter.
-
-### <a name="datasources"></a>Datakällor
-
-+ Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran `ignoreResetRequirement`, vilket ska vara inställt på `true` när uppdaterings åtgärden inte ska göra en ogiltig verifiering av cachen.
-
-Använd `ignoreResetRequirement` sparsamt eftersom det kan leda till oavsiktlig inkonsekvens i dina data som inte kommer att identifieras enkelt.
+  Använd **ignoreResetRequirement** sparsamt eftersom det kan leda till oavsiktlig inkonsekvens i dina data som inte kommer att identifieras enkelt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Stegvis anrikning är en kraftfull funktion som utökar ändrings spårningen till färdighetsuppsättningar och AI-anrikning. Allteftersom färdighetsuppsättningar utvecklas säkerställer den stegvisa anrikningen att det minst är möjligt när du fortfarande gör dina dokument till en eventuell konsekvens.
+Stegvis anrikning är en kraftfull funktion som utökar ändrings spårningen till färdighetsuppsättningar och AI-anrikning. AIncremental-anrikning möjliggör åter användning av befintligt bearbetat innehåll när du itererar över färdigheter-designen.
 
-Kom igång genom att lägga till ett cacheminne till en befintlig indexerare eller Lägg till cachen när du definierar en ny indexerare.
+I nästa steg ska du aktivera cachelagring på en befintlig indexerare eller lägga till ett cacheminne när du definierar en ny indexerare.
 
 > [!div class="nextstepaction"]
 > [Konfigurera cachelagring för stegvis anrikning](search-howto-incremental-index.md)

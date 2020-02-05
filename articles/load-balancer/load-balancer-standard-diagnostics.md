@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9fd1e72568b4f0c8813a5d050ce7fa7214ca7cd9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c362829b1babf954868452a3858da1f319008a9a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722449"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990784"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
@@ -35,12 +35,14 @@ Azure Load Balancer tillhandahåller flerdimensionella mått via Azure-måtten i
 
 De olika Standard Load Balancer-konfigurationerna tillhandahåller följande mått:
 
-| Mått | Resurstyp | Description | Rekommenderad agg regering |
+| Mått | Resurstyp | Beskrivning | Rekommenderad agg regering |
 | --- | --- | --- | --- |
 | Tillgänglighet för data Sök väg (VIP-tillgänglighet)| Offentlig och intern belastningsutjämnare | Standard Load Balancer använder kontinuerligt data Sök vägen inifrån en region för belastnings utjämningens klient del, hela vägen till den SDN-stack som har stöd för den virtuella datorn. Så länge som felfria instanser är kvar, följer måtten samma sökväg som programmets belastningsutjämnade trafik. Den data Sök väg som dina kunder använder verifieras också. Måttet är osynligt för ditt program och stör inte andra åtgärder.| Medel |
 | Status för hälso avsökning (DIP-tillgänglighet) | Offentlig och intern belastningsutjämnare | Standard Load Balancer använder en distribuerad hälso-/Bing-tjänst som övervakar din program slut punkts hälsa enligt dina konfigurations inställningar. Det här måttet innehåller en filtrerad mängd eller per slut punkt för varje instans slut punkt i belastningsutjämnaren. Du kan se hur Load Balancer visar hälso tillståndet för ditt program, som anges i konfigurationen för hälso avsökningen. |  Medel |
 | SYN-paket (Synchronization) | Offentlig och intern belastningsutjämnare | Standard Load Balancer avslutar inte Transmission Control Protocol (TCP) anslutningar eller interagerar med TCP-eller UDP-paketfilter. Flöden och deras hand skakningar är alltid mellan källan och den virtuella dator instansen. För att bättre felsöka dina scenarier med TCP-protokoll kan du använda räknare för SYN paket för att förstå hur många TCP-anslutningsfel som görs. Måttet rapporterar antalet TCP-SYN-paket som tagits emot.| Medel |
 | SNAT-anslutningar | Offentlig belastningsutjämnare |Standard Load Balancer rapporterar antalet utgående flöden som är maskerade till den offentliga IP-adressen klient delen. Käll Network Address Translations portar (SNAT) är en exhaustible-resurs. Det här måttet kan ge en indikation på hur mycket ditt program förlitar sig på SNAT för utgående, ursprungliga flöden. Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälso tillståndet för dina utgående flöden.| Medel |
+| Allokerade SNAT-portar | Offentlig belastningsutjämnare | Standard Load Balancer rapporterar antalet SNAT-portar som tilldelas per server dels instans | Snitt. |
+| Använda SNAT-portar | Offentlig belastningsutjämnare | Standard Load Balancer rapporterar antalet SNAT-portar som används per server dels instans. | Medel | 
 | Byte räknare |  Offentlig och intern belastningsutjämnare | Standard Load Balancer rapporterar de data som bearbetas per klient del. Du kanske märker att bytena inte distribueras jämnt över Server dels instanserna. Detta förväntas vara att Azures Load Balancer algoritmen baseras på flöden | Medel |
 | Paket räknare |  Offentlig och intern belastningsutjämnare | Standard Load Balancer rapporterar de paket som bearbetas per klient del.| Medel |
 
@@ -193,10 +195,10 @@ Så här visar du hälso tillståndet för dina offentliga Standard Load Balance
  
 De olika resurs hälso status och deras beskrivningar visas i följande tabell: 
 
-| Resurs hälso status | Description |
+| Resurs hälso status | Beskrivning |
 | --- | --- |
-| Tillgängligt | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
-| Ej tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
+| Tillgänglig | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
+| Inte tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
 | Okänt | Resursens hälso status för din standard belastnings Utjämnings resurs har ännu inte uppdaterats.<br>(*Okänd* status kan också betyda att resursen inte är ansluten till din standard belastningsutjämnare.)  |
 
 ## <a name="next-steps"></a>Nästa steg

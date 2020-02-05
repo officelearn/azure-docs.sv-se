@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 27b430ca6e90eba933662bd35d8d97b08234c84e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842460"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989033"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -130,9 +130,7 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 
 |Begränsning |Beskrivning |Åtgärd  |
 |---------|---------|---------|
-|Regler för nätverks säkerhets gruppen (NSG) och användardefinierade vägar gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät. Vägar i alla klient under nät kommer att använda ett/32-prefix, och om du ändrar standarduppförandet för routning krävs ett liknande UDR  | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter. Distribuera enskilda vägar med/32-prefix för att åsidosätta privata slut punkts flöden        |
-|  Peer-Virtual Network med enbart privata slut punkter stöds inte   |   När du ansluter till privata slut punkter på en peer-Virtual Network utan någon annan arbets belastning stöds inte       | Distribuera en enskild virtuell dator på peer-Virtual Network för att aktivera anslutningen |
-|Specialiserade arbets belastningar kan inte komma åt privata slut punkter    |   Följande tjänster som distribueras i det virtuella nätverket kan inte komma åt någon privat länk resurs med hjälp av privata slut punkter:<br>App Service-plan</br>Azure Container-instans</br>Azure NetApp Files</br>Dedikerad HSM i Azure<br>       |   Ingen minskning under för hands versionen.       |
+|Regler för nätverks säkerhets gruppen (NSG) och användardefinierade vägar gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät. Vägar i alla klient under nät kommer att använda ett/32-prefix, och om du ändrar standarduppförandet för routning krävs ett liknande UDR  | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter. Distribuera enskilda vägar med/32-prefix för att åsidosätta privata slut punkts vägar. NSG flödes loggar och övervaknings information för utgående anslutningar stöds fortfarande och kan användas        |
 
 
 ## <a name="next-steps"></a>Nästa steg

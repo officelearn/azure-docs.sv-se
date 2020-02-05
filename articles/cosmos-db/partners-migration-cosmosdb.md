@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530705"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988183"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -21,7 +21,6 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 
 |**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner som stöds**  |**Kontakta**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | Datamigrering från MongoDB till Azure Cosmos DB. <br/> Imanis Data kan globala företag snabbt och enkelt migrera sina lokala eller molnbaserade MongoDB-databaser till Azure Cosmos DB. Imanis Data tillhandahåller en agentfri, inkrementella alltid molnet förhållningssätt till Databasmigrering för MongoDB-datalager som förenklar migreringen och minskar avsevärt driftstopp.|  USA  |   [Webbplats](https://www.cohesity.com/products/imanis-data/)      |
 |![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims fören klar insamling och data flytt i real tid från en rad olika lokala källor, inklusive Enterprise-dokument och Relations databaser, sensorer och loggfiler till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systemintegrationspartner
@@ -59,7 +58,6 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 Mer information om några av Microsofts andra partner, finns det [Microsoft Partner-webbplats](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
-[1]: ./media/partners-migration-cosmosdb/imanisdata_logo.png
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png

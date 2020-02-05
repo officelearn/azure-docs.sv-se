@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281282"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988081"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -72,7 +72,7 @@ Och till följande IP-adresser:
 **Funktion** | **Detaljer**
 --- | ---
 Bandbredds kontroll | Stöds. I MARS-agenten använder du **ändra egenskaper** för att justera bandbredden.
-Nätverksbegränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
+Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Stöd för direkta säkerhets kopieringar
 
@@ -95,8 +95,6 @@ Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja | Inga |
 Windows Server 2016 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja |– .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
-Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja | Ja | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Inga | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe) <br> – Virtual Server 2005 Base + KB KB948515
 Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Inga | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 
@@ -129,10 +127,10 @@ Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
 Hårda länkar| Stöds inte. Hoppades.
-Referenspunkt| Stöds inte. Hoppades.
+Referens punkt| Stöds inte. Hoppades.
 Krypterad och sparse |Stöds inte. Hoppades.
 Komprimerad ström| Stöds inte. Hoppades.
-Utspridd ström| Stöds inte. Hoppades.
+Sparse-dataström| Stöds inte. Hoppades.
 OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering

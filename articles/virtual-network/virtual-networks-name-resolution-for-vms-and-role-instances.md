@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368043"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991039"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namn matchning för resurser i virtuella Azure-nätverk
 
@@ -31,13 +31,13 @@ När resurser som har distribuerats i virtuella nätverk behöver matcha domänn
 Vilken typ av namnmatchning du använder beror på hur dina resurser behöver kommunicera med varandra. I följande tabell visas scenarier och motsvarande namn matchnings lösningar:
 
 > [!NOTE]
-> Beroende på ditt scenario kanske du vill använda Azure DNS Private Zones funktionen, som för närvarande finns i en offentlig för hands version. Mer information finns på sidan om att [använda Azure DNS för privata domäner](../dns/private-dns-overview.md).
+> Beroende på ditt scenario kanske du vill använda Azure DNS privata zoner. Mer information finns på sidan om att [använda Azure DNS för privata domäner](../dns/private-dns-overview.md).
 >
 
 | **Scenario** | **Lösning** | **Suffix** |
 | --- | --- | --- |
-| Namn matchning mellan virtuella datorer som finns i samma virtuella nätverk, eller Azure Cloud Services roll instanser i samma moln tjänst. | [Azure DNS Private Zones](../dns/private-dns-overview.md) eller [Azure-angiven namn matchning](#azure-provided-name-resolution) |Värdnamn eller FQDN |
-| Namn matchning mellan virtuella datorer i olika virtuella nätverk eller roll instanser i olika moln tjänster. |[Azure DNS Private Zones](../dns/private-dns-overview.md) eller, kund hanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
+| Namn matchning mellan virtuella datorer som finns i samma virtuella nätverk, eller Azure Cloud Services roll instanser i samma moln tjänst. | [Azure DNS privata zoner](../dns/private-dns-overview.md) eller [namn matchning från Azure](#azure-provided-name-resolution) |Värdnamn eller FQDN |
+| Namn matchning mellan virtuella datorer i olika virtuella nätverk eller roll instanser i olika moln tjänster. |[Azure DNS privata zoner](../dns/private-dns-overview.md) eller kund hanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Namn matchning från en Azure App Service (webbapp, funktion eller robot) med hjälp av integrering av virtuella nätverk till roll instanser eller virtuella datorer i samma virtuella nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Namn matchning från App Service Web Apps till virtuella datorer i samma virtuella nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Namn matchning från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |

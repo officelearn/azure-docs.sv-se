@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754106"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988642"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introduktion till kunskaps lager i Azure Kognitiv sökning
 
@@ -133,147 +133,11 @@ När det finns lagrings utrymme kan alla verktyg och tekniker som ansluter till 
 
 ## <a name="api-reference"></a>API-referens
 
-Det här avsnittet är en version av referens dokumentet [create färdigheter (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) som har ändrats för att inkludera en `knowledgeStore`-definition. 
+REST API version `2019-05-06-Preview` ger kunskaps lager genom ytterligare definitioner på färdighetsuppsättningar. Förutom referensen kan du läsa [skapa ett kunskaps lager med Postman](knowledge-store-create-rest.md) för information om hur du anropar API: erna.
 
-### <a name="example---knowledgestore-embedded-in-a-skillset"></a>Exempel – knowledgeStore Embedded i en färdigheter
++ [Skapa färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
++ [Uppdatera färdigheter (API-version = 2019-05 -06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
 
-I följande exempel visas `knowledgeStore` längst ned i en färdigheter-definition. 
-
-* Använd **post** eller **placering** för att formulera begäran.
-* Använd `api-version=2019-05-06-Preview` versionen av REST API för att få åtkomst till kunskaps lager funktionerna. 
-
-```http
-POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
-api-key: [admin key]
-Content-Type: application/json
-```
-
-Bröd texten i begäran är ett JSON-dokument som definierar en färdigheter, vilket omfattar `knowledgeStore`.
-
-```json
-{
-  "name": "my-skillset-name",
-  "description": "Extract organization entities and generate a positive-negative sentiment score from each document.",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "mySentiment"
-        }
-      ]
-    },
-  ],
-  "cognitiveServices": 
-    {
-    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-    "description": "mycogsvcs resource in West US 2",
-    "key": "<YOUR-COGNITIVE-SERVICES-KEY>"
-    },
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [  
-                { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
-                { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
-                ], 
-                "objects": [ ], 
-                "files": [  ]       
-            }    
-        ]     
-    } 
-}
-```
-
-### <a name="request-body-syntax"></a>Syntax för begär ande text  
-
-Följande JSON anger en `knowledgeStore`, som är en del av en [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset), som anropas av en `indexer` (visas inte). Om du redan är bekant med AI-berikning bestämmer en färdigheter sammansättningen för ett berikat dokument. En färdigheter måste innehålla minst en kunskap, troligen en formaren-skicklighet om du är modulating data strukturer.
-
-Syntaxen för att strukturera nytto lasten för begäran är följande.
-
-```json
-{   
-    "name" : "Required for POST, optional for PUT requests which sets the name on the URI",  
-    "description" : "Optional. Anything you want, or null",  
-    "skills" : "Required. An array of skills. Each skill has an odata.type, name, input and output parameters",
-    "cognitiveServices": "A key to Cognitive Services, used for billing.",
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [ 
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    . . .
-                ], 
-                "objects": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>", 
-                    "source": "<DOCUMENT-PATH>", 
-                    }
-                ], 
-                "files": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>",
-                    "source": "/document/normalized_images/*"
-                    }
-                ]  
-            },
-            {
-                "tables": [ ],
-                "objects": [ ],
-                "files":  [ ]
-            }  
-        ]     
-    } 
-}
-```
-
-En `knowledgeStore` har två egenskaper: en `storageConnectionString` till ett Azure Storage-konto och `projections` som definierar fysiskt lagrings utrymme. Du kan använda valfritt lagrings konto, men det är kostnads effektivt att använda tjänster i samma region.
-
-En `projections`-samling innehåller projektions objekt. Varje projektions objekt måste ha `tables``objects``files` (ett av dem), som antingen har angetts eller är null. Syntaxen ovan visar två objekt, ett fullständigt angivet och det andra fullständigt null. När det har uttryckts i ett projekt objekt bevaras alla relationer mellan data, om de upptäcks. 
-
-Skapa så många projektions objekt som du behöver för att stödja isolering och vissa scenarier (till exempel data strukturer som används för prospektering, jämfört med de som krävs i en arbets belastning för data vetenskap). Du kan få isolering och anpassning för vissa scenarier genom att ange `source` och `storageContainer` eller `table` till olika värden i ett objekt. Mer information och exempel finns i [arbeta med projektioner i ett kunskaps lager](knowledge-store-projection-overview.md).
-
-|Egenskap      | Gäller | Beskrivning|  
-|--------------|------------|------------|  
-|`storageConnectionString`| `knowledgeStore` | Krävs. I det här formatet: `DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net`|  
-|`projections`| `knowledgeStore` | Krävs. En samling egenskaps objekt bestående av `tables`, `objects`, `files` och deras respektive egenskaper. Oanvända projektioner kan anges till null.|  
-|`source`| Alla projektioner| Sökvägen till noden i det berikande trädet som är roten för projektionen. Den här noden är resultatet av någon av färdigheterna i färdigheter. Sökvägar börjar med `/document/`som representerar det omfattande dokumentet men kan utökas till att `/document/content/` eller till noder i dokument trädet. Exempel: `/document/countries/*` (alla länder) eller `/document/countries/*/states/*` (alla stater i alla länder). Mer information om dokument Sök vägar finns i [färdigheter-koncept och sammansättning](cognitive-search-working-with-skillsets.md).|
-|`tableName`| `tables`| En tabell som ska skapas i Azure Table Storage. |
-|`storageContainer`| `objects`, `files`| Namnet på en behållare att skapa i Azure Blob Storage. |
-|`generatedKeyName`| `tables`| En kolumn som skapats i tabellen som unikt identifierar ett dokument. Pipelinen fyller i den här kolumnen med genererade värden.|
-
-
-### <a name="response"></a>Svar  
-
- För en lyckad begäran bör du se status koden "201 skapat". Som standard innehåller svars texten JSON för den färdigheter-definition som skapades. Kom ihåg att kunskaps lagret inte har skapats förrän du anropar en indexerare som refererar till den här färdigheter.
 
 ## <a name="next-steps"></a>Nästa steg
 

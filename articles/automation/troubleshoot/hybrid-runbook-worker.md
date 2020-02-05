@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a5885df67464095061d9a95aa59010a1629fb8f8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5adc94061cd656b0654fba6609d36ecfd38c75d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930352"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988047"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka hybrid Runbook Worker
 
@@ -22,7 +22,7 @@ Den här artikeln innehåller information om fel sökning av problem med hybrid 
 
 ## <a name="general"></a>Allmänt
 
-Hybrid Runbook Worker är beroende av en agent för att kommunicera med ditt Automation-konto för att registrera arbetaren, ta emot Runbook-jobb och rapportera status. För Windows är den här agenten Log Analytics agent för Windows (kallas även Microsoft Monitoring Agent (MMA)). För Linux är det Log Analytics-agenten för Linux.
+Hybrid Runbook Worker är beroende av en agent för att kommunicera med ditt Automation-konto för att registrera arbetaren, ta emot Runbook-jobb och rapportera status. För Windows är den här agenten Log Analytics agent för Windows, även kallat Microsoft Monitoring Agent (MMA). För Linux är det Log Analytics-agenten för Linux.
 
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook-körningen Miss lyckas
 
@@ -34,7 +34,7 @@ Runbook-körningen Miss lyckas och följande fel meddelande visas:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Din Runbook pausas strax efter det att den har försökt att köra den tre gånger. Det finns villkor som kan avbryta Runbook-flödet från att slutföras. Det relaterade fel meddelandet får inte innehålla ytterligare information.
+Din Runbook har pausats strax efter det att den försökt köras tre gånger. Det finns villkor som kan avbryta Runbook-flödet från att slutföras. Det relaterade fel meddelandet får inte innehålla ytterligare information.
 
 #### <a name="cause"></a>Orsak
 
@@ -52,7 +52,7 @@ Följande är möjliga orsaker:
 
 Kontrol lera att datorn har utgående åtkomst till *. azure-automation.net på port 443.
 
-Datorer som kör Hybrid Runbook Worker bör uppfylla minimi kraven för maskin vara innan arbets tagaren har kon figurer ATS för att vara värd för den här funktionen. Runbooks och bakgrunds processer som de använder kan orsaka att systemet överanvänds och orsakar fördröjningar eller tids gränser för Runbook-jobbet.
+Datorer som kör Hybrid Runbook Worker bör uppfylla minimi kraven för maskin vara innan arbets tagaren har kon figurer ATS för att vara värd för den här funktionen. Runbooks och bakgrunds processen som de använder kan orsaka att systemet överanvänds och orsakar fördröjningar eller tids gränser för Runbook-jobbet.
 
 Bekräfta att datorn som ska köra Hybrid Runbook Worker funktionen uppfyller minimi kraven för maskin vara. Om det gör det kan du övervaka processor-och minnes användning för att fastställa eventuella korrelationer mellan prestandan för Hybrid Runbook Worker processer och Windows. Minnes-eller processor belastningen kan indikera att du behöver uppgradera resurser. Du kan också välja en annan beräknings resurs som har stöd för minimi kraven och skala när arbets belastningen kräver att en ökning är nödvändig.
 
@@ -72,7 +72,6 @@ At line:3 char:1
     + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
 ```
-
 #### <a name="cause"></a>Orsak
 
 Det här felet uppstår när du försöker använda ett [Kör som-konto](../manage-runas-account.md) i en Runbook som körs på en hybrid Runbook Worker där kör som-kontots certifikat saknas. Hybrid Runbook Worker har inte certifikat till gången lokalt som standard, vilket krävs för att kör som-kontot ska fungera korrekt.
@@ -80,6 +79,33 @@ Det här felet uppstår när du försöker använda ett [Kör som-konto](../mana
 #### <a name="resolution"></a>Upplösning
 
 Om din Hybrid Runbook Worker är en virtuell Azure-dator kan du i stället använda [hanterade identiteter för Azure-resurser](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) . Det här scenariot fören klar autentiseringen genom att du kan autentisera till Azure-resurser med hjälp av den hanterade identiteten för den virtuella Azure-datorn i stället för kör som-kontot När Hybrid Runbook Worker är en lokal dator måste du installera kör som-användarkontot på datorn. Information om hur du installerar certifikatet finns i stegen för att köra PowerShell Runbook export-RunAsCertificateToHybridWorker i [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+
+### <a name="error-403-on-registration"></a>Scenario: fel 403 vid registrering av Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problem
+
+Arbetarens inledande registrerings fas Miss lyckas och du får följande fel (403).
+
+```error
+"Forbidden: You don't have permission to access / on this server."
+```
+
+#### <a name="cause"></a>Orsak
+
+Följande är möjliga orsaker:
+* Det finns ett felangett arbetsyte-ID eller en nyckel för arbets ytan (primär) i agentens inställningar. 
+* Hybrid Runbook Worker kan inte ladda ned konfigurationen, vilket leder till ett konto länknings fel. När Azure aktiverar lösningar stöder den bara vissa regioner för länkning av en Log Analytics-arbetsyta och ett Automation-konto. Det är också möjligt att ett felaktigt datum och/eller tid har angetts på datorn. Om tiden är +/-15 minuter från den aktuella tiden, Miss lyckas onboarding.
+
+#### <a name="resolution"></a>Upplösning
+
+##### <a name="mistyped-workspace-idkey"></a>Felangett arbetsyte-ID/nyckel
+För att kontrol lera att agentens arbetsyte-ID eller arbets ytans nyckel har skrivits in, se [lägga till eller ta bort en arbets yta – Windows-agent](../../azure-monitor/platform/agent-manage.md#windows-agent) för Windows-agenten eller [lägga till eller ta bort en arbets yta – Linux-Agent](../../azure-monitor/platform/agent-manage.md#linux-agent) för Linux-agenten.  Se till att välja hela strängen från Azure Portal och kopiera och klistra in den noggrant.
+
+##### <a name="configuration-not-downloaded"></a>Konfigurationen laddas inte ned
+
+Din Log Analytics arbets yta och Automation-konto måste vara i en länkad region. En lista över regioner som stöds finns i [Azure Automation och Log Analytics mappningar för arbets ytor](../how-to/region-mappings.md).
+
+Du kan också behöva uppdatera datum och eller tidszon på datorn. Om du väljer ett anpassat tidsintervall kontrollerar du att intervallet är UTC, vilket kan skilja sig från den lokala tids zonen.
 
 ## <a name="linux"></a>Linux
 
@@ -108,40 +134,13 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 I följande lista visas de processer som startas för en Linux-Hybrid Runbook Worker. De finns i `/var/opt/microsoft/omsagent/state/automationworker/`s katalogen.
 
 
-* **OMS. conf** – det här värdet är Worker Manager-processen. Den startas direkt från DSC.
+* **OMS. conf** – Worker Manager-processen. Den startas direkt från DSC.
 
-* **Worker. conf** – den här processen är den automatiskt registrerade hybrid arbets processen. den startas av Worker Manager. Den här processen används av Uppdateringshantering och är transparent för användaren. Den här processen är inte tillgänglig om Uppdateringshantering-lösningen inte är aktive rad på datorn.
+* **Worker. conf** – den automatiskt registrerade hybrid Worker-processen startas av Worker Manager. Den här processen används av Uppdateringshantering och är transparent för användaren. Den här processen är inte tillgänglig om Uppdateringshantering-lösningen inte är aktive rad på datorn.
 
-* **gör det själv/Worker. conf** – den här processen är gör det själv hybrid Worker-processen. GÖR det själv hybrid Worker-processen används för att köra användar-Runbooks på Hybrid Runbook Worker. Det skiljer sig bara från den automatiskt registrerade hybrid Worker-processen i den nyckel information som den använder en annan konfiguration. Den här processen är inte tillgänglig om Azure Automation-lösningen är inaktive rad och gör det själv Linux Hybrid Worker inte är registrerad.
+* **gör det själv/Worker. conf** – gör det själv hybrid Worker-processen. GÖR det själv hybrid Worker-processen används för att köra användar-Runbooks på Hybrid Runbook Worker. Det skiljer sig bara från den automatiskt registrerade hybrid Worker-processen i den nyckel information som den använder en annan konfiguration. Den här processen är inte tillgänglig om Azure Automation-lösningen är inaktive rad och gör det själv Linux Hybrid Worker inte är registrerad.
 
 Om agenten inte körs kör du följande kommando för att starta tjänsten: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### <a name="error-403-on-registration"></a>Scenario: fel 403 vid registrering av Hybrid Runbook Worker
-
-#### <a name="issue"></a>Problem
-
-Arbetarens inledande registrerings fas Miss lyckas och du får följande fel (403).
-
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
-
-#### <a name="cause"></a>Orsak
-
-Följande är möjliga orsaker:
-* Det finns ett felangett arbetsyte-ID eller en nyckel för arbets ytan (primär) i agentens inställningar. 
-* Hybrid Runbook Worker kan inte ladda ned konfigurationen, vilket leder till ett konto länknings fel. När Azure aktiverar lösningar stöder den bara vissa regioner för länkning av en Log Analytics-arbetsyta och ett Automation-konto. Det är också möjligt att ett felaktigt datum och/eller tid har angetts på datorn. Om tiden är +/-15 minuter från den aktuella tiden, Miss lyckas onboarding.
-
-#### <a name="resolution"></a>Upplösning
-
-##### <a name="mistyped-workspace-idkey"></a>Felangett arbetsyte-ID/nyckel
-För att kontrol lera att agentens arbetsyte-ID eller arbets ytans nyckel har skrivits in, se [lägga till eller ta bort en arbets yta – Windows-agent](../../azure-monitor/platform/agent-manage.md#windows-agent) för Windows-agenten eller [lägga till eller ta bort en arbets yta – Linux-Agent](../../azure-monitor/platform/agent-manage.md#linux-agent) för Linux-agenten.  Se till att välja hela strängen från Azure Portal och kopiera och klistra in den noggrant.
-
-##### <a name="configuration-not-downloaded"></a>Konfigurationen laddas inte ned
-
-Din Log Analytics arbets yta och Automation-konto måste vara i en länkad region. En lista över regioner som stöds finns i [Azure Automation och Log Analytics mappningar för arbets ytor](../how-to/region-mappings.md).
-
-Du kan också behöva uppdatera datum och eller tidszon på datorn. Om du väljer ett anpassat tidsintervall kontrollerar du att intervallet är UTC, vilket kan skilja sig från den lokala tids zonen.
 
 ### <a name="class-does-not-exist"></a>Scenario: den angivna klassen finns inte
 

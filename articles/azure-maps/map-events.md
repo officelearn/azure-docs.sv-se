@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 06fdb9733ad9c173c88936e5502214b58f5d10ee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911085"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985925"
 ---
 # <a name="interact-with-the-map"></a>Interagera med kartan
 
-Den här artikeln visar hur du använder egenskapen [Mappa klass händelser](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) för att markera händelser på kartan och på olika lager i kartan. Det visar också hur du använder egenskapen mappa klass händelser för att markera händelser när du interagerar med en HTML-markör.
+Den här artikeln visar hur du använder [Map Events-klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). Egenskaps markerings händelser på kartan och på olika lager i kartan. Du kan också markera händelser när du interagerar med en HTML-markör.
 
 ## <a name="interact-with-the-map"></a>Interagera med kartan
 
-Spela upp med kartan nedan och se motsvarande mus händelser markerade till höger. Du kan klicka på **fliken JS** för att visa och redigera JavaScript-koden. Du kan också klicka på knappen **Redigera på CodePen** och redigera koden på CodePen.
+Spela upp med kartan nedan och se motsvarande mus händelser markerade till höger. Du kan klicka på **fliken JS** för att visa och redigera JavaScript-koden. Du kan också klicka på **Redigera på CodePen** för att ändra koden på CodePen.
 
 <br/>
 
@@ -31,7 +31,7 @@ Spela upp med kartan nedan och se motsvarande mus händelser markerade till hög
 
 ## <a name="interact-with-map-layers"></a>Interagera med kart skikt
 
-I följande kod visas namnet på de händelser som utlöses när du interagerar med symbol lagret. Symbol-, bubbeldiagram-, linje-och polygon-lagret stöder samma uppsättning händelser. Värme kartan och panel lagren stöder inte någon av dessa händelser.
+Följande kod visar händelsen utlöst när du interagerar med symbol skiktet. Symbol-, bubbeldiagram-, linje-och polygon-lagret stöder samma uppsättning händelser. Värme kartan och panel lager stöder inte någon av dessa händelser.
 
 <br/>
 

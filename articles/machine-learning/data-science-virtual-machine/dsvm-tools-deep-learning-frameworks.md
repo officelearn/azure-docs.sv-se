@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 65bc11282726d9e66dbed8fa1fbb75fc1b89c1d1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3dfb2c201138a65379aa509ce1bf10894ab6819b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615507"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984718"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Djup inlärnings-och AI-ramverk för Azure-Data Science VM
 Ramverk för djup inlärning i DSVM visas nedan.
@@ -115,7 +115,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 |    |           |
 | ------------- | ------------- |
-| Version (er) som stöds | 1.2.0 |
+| Version (er) som stöds | 1.2.0 (Ubuntu 16,04, Windows 2016, Windows 2019), 1.4.0 (Ubuntu 18,04) |
 | DSVM-versioner som stöds      | Linux |
 | Hur är det konfigurerade / installerad på DSVM?  | Installerat i [Python 3,5](dsvm-tools-languages.md#python-linux-edition). Exempel på Jupyter-anteckningsböcker ingår och exempel finns i/dsvm/samples/pytorch. |
 | Så här kör du det      | Terminal: aktivera rätt miljö och kör sedan python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Anslut och öppna katalogen PyTorch för exempel.  |
@@ -124,7 +124,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 |    |           |
 | ------------- | ------------- |
-| Version (er) som stöds | 1.13 |
+| Version (er) som stöds | 1,13 |
 | DSVM-versioner som stöds      | Windows, Linux |
 | Hur är det konfigurerade / installerad på DSVM?  | Installerat i python 3,5 på [Linux](dsvm-tools-languages.md#python-linux-edition) och python 3,6 på [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | Så här kör du det      | Terminal: aktivera rätt miljö och kör sedan python. <br/> * Jupyter: Anslut till [Jupyter](provision-vm.md) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)och öppna sedan TensorFlow-katalogen för exempel.   |
@@ -133,7 +133,7 @@ Ramverk för djup inlärning i DSVM visas nedan.
 
 |    |           |
 | ------------- | ------------- |
-| Version (er) som stöds | 1.12 |
+| Version (er) som stöds | 1,12 |
 | DSVM-versioner som stöds      | Linux |
 | Hur är det konfigurerade / installerad på DSVM?  | tensorflow_model_server är tillgängligt på terminalen. |
 | Så här kör du det      |  Exempel finns [online](https://www.tensorflow.org/serving/).   |

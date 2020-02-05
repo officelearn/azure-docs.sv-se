@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: c7a21bb3f086257b7f6a5edde5cbfdf835645a70
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934052"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982627"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -135,11 +135,13 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Välj modulen **Välj kolumner i data uppsättning** .
 
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **alla kolumner**.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **Redigera kolumn**.
+
+1. Expandera List rutan med **kolumn namn** bredvid **Inkludera**och markera **alla kolumner**.
 
 1. Välj **+** för att lägga till en ny regel.
 
-1. I den nedrullningsbara menyn väljer du **Uteslut** och **kolumn namn**.
+1. I list menyerna väljer du **Uteslut** och **kolumn namn**.
     
 1. Ange *normaliserade förluster* i text rutan.
 

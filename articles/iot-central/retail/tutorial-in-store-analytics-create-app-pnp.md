@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6fa4521cb50ecfc37004cbf9cff08644dc53f000
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702031"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990663"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -34,7 +34,7 @@ Du utvecklar en lösning för utcheckning och villkors övervakning i tre delar:
 * Anpassa instrument panelen för att aktivera operatörer för att övervaka och hantera enheter
 * Konfigurera data export så att butiks hanterare kan köra analyser och visualisera insikter
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Använd Azure IoT Central **in-Store Analytics-** betalningsmall för att skapa ett Retail Store-program
 > * Anpassa program inställningarna
@@ -80,6 +80,8 @@ Så här skapar du ett nytt program för BA-utcheckning i butiken som använder 
 1. Välj **Skapa**.
 
     ![Sidan Skapa program i Azure IoT Central](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
+
+    ![Azure IoT Central skapa program fakturerings information](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template-billinginfo.png)
 
 ## <a name="customize-application-settings"></a>Anpassa program inställningar
 Som verktyg kan du ändra flera inställningar för att anpassa användar upplevelsen i ditt program. I det här avsnittet väljer du ett fördefinierat program tema. Du kan också lära dig att skapa ett anpassat tema och uppdatera program avbildningen. Med ett anpassat tema kan du ange program webbläsarens färger, webb läsar ikonen och program logo typen som visas i huvud rubriken.
@@ -186,7 +188,7 @@ För typen `humidity` telemetri gör du följande ändringar:
 
 1. Ändra alternativet för **semantisk typ** från *ingen* till *fukt*.  Du kan också ange schema värden för typen fuktighets telemetri i den expanderade vyn schema. Med schema inställningarna kan du skapa detaljerade verifierings krav för de data som sensorer spårar. Du kan till exempel ange lägsta och högsta värden för drift intervall för ett specifikt gränssnitt.
 
-1. Spara ändringarna genom att välja **Spara** .
+1. Välj **spara** att spara dina ändringar.
 
     ![Anpassning av mall för Azure IoT Central RuuviTag-enhet](./media/tutorial-in-store-analytics-create-app-pnp/ruuvitag-device-template-customize.png)
 

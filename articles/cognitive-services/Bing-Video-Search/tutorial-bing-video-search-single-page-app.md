@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382471"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988268"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Självstudie: Skapa en enkelsidig app med videosökning
 Med API för videosökning i Bing kan du söka på webben och få videoresultat som är relevanta för en sökfråga. I de här självstudierna skapar vi ett enkelsidigt program som använder API för sökning i Bing för att visa sökresultat på sidan. Programmet innehåller komponenterna HTML, CSS och JavaScript.
@@ -120,7 +120,7 @@ function bingSearchOptions(form) {
 
     var options = [];
     options.push("mkt=" + form.where.value);
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
 
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -138,7 +138,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Till exempel kan parametern `SafeSearch` i ett faktiskt API-anrop vara `strict`, `moderate`, eller `off`, med `moderate` som standardvärde. Vårt formulär använder en kryssruta som bara har två tillstånd. JavaScript-koden konverterar den här inställningen till antingen `strict` eller `off` (`moderate` används inte).
+`SafeSearch` parametern i ett faktiskt API-anrop kan till exempel vara `strict`eller `moderate`med `moderate` som standard.
 
 ## <a name="performing-the-request"></a>Utföra förfrågan
 Beroende på frågan, alternativsträngen och API-nyckeln använder funktionen `BingWebSearch` ett `XMLHttpRequest`-objekt för att göra begäran till slutpunkten för Bing-sökningen. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
@@ -369,14 +369,14 @@ Renderarfunktionen:
 > [!div class="checklist"]
 > * Skapar en styckestagg och tilldelar den till klassen `images` och skickar den till html-matrisen.
 > * Beräknar miniatyrbildstorlek (bredden är högst 60 bildpunkter, höjden beräknas proportionellt).
-> * Skapar HTML `<img>`-tagg för att visa miniatyrbilden. 
+> * Skapar HTML `<img>`-taggen för att visa miniatyrbilden. 
 > * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 > * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
 Storlek på miniatyrbilderna används i både `<img>`-taggen och fälten `h` och `w` i miniatyrbildens webbadress. Bing kommer att returnera en [miniatyr bild](../bing-web-search/resize-and-crop-thumbnails.md) av exakt den storleken.
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
-Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
+Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing Search används ska samma klient-ID användas för dem om möjligt.
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket innebär två viktiga fördelar.
 

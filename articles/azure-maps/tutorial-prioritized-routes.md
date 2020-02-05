@@ -3,22 +3,22 @@ title: 'Självstudie: Sök efter flera vägar i färd läge | Microsoft Azure Ma
 description: I den här självstudien får du lära dig hur du hittar vägar för olika färd sätt med hjälp av Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910851"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989662"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta vägar för olika färd sätt med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route Service för att hitta rutten till orienteringspunkt, prioriterad efter färdmedel. Du visar två olika vägar på kartan, en för bilar och lastbilar som kan ha vägbegränsningar på grund av höjd, vikt eller farlig last. I den här guiden får du lära dig hur man:
+I den här självstudien visas hur du använder ditt Azure Maps-konto och Route service. Route service kan hitta vägen till din intresse punkt, prioriterad av ditt rese läge. Du kan visa två olika vägar på kartan, en för bilar och en för Last bilar. Routningstjänsten tar hänsyn till begränsningar på grund av fordonets höjd och vikt, eller om fordonet bär farligt gods. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:n för kartkontroll
@@ -27,7 +27,7 @@ Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route S
 > * Visa flera vägar på kartan
 
 ## <a name="prerequisites"></a>Krav
-Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps konto prenumeration med pris nivån S1 och följer stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och väljer pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Skapa en ny karta
 
@@ -123,7 +123,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Definiera hur vägen ska renderas
 
-I den här självstudien beräknas och renderas två vägar på kartan. En väg som använder fartleder som är tillgängliga för bilar och den andra som är tillgänglig för lastbilar. Vid rendering visar vi en symbolikon för början och slutet på vägen samt linjer med olika färger för varje vägfärd.
+I den här självstudien beräknas och renderas två vägar på kartan. En väg som använder fartleder som är tillgängliga för bilar och den andra som är tillgänglig för lastbilar. När det återges visas en symbol ikon för vägens början och slut, och olika färgade linjer för varje väg Sök väg.
 
 1. När du har initierat kartan lägger du till följande JavaScript-kod i Maps-`ready` händelse hanteraren.
 
@@ -158,7 +158,7 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
     });
     ```
     
-    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg linjerna samt start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt. 
+    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg raderna och start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start-och slut punkterna ska renderas. I det här fallet har uttryck lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt. 
     
 2. För den här självstudien ska du ange en startpunkt som ett fiktivt företag i Seattle som heter Fabrikam, och målplatsen som ett Microsoft-kontor. Lägg till följande kod i händelse hanteraren för Maps-`ready`.
 
@@ -192,7 +192,7 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
 
     Start- och slutpunkterna läggs till i datakällan. Avgränsningsfältet för start- och slutpunkterna beräknas med hjälp av funktionen `atlas.data.BoundingBox.fromData`. Den här markerings rutan används för att ställa in kart kameror för visning över hela vägen med hjälp av funktionen `map.setCamera`. En utfyllnad läggs till för att kompensera för bildpunktsdimensionerna för symbolikonerna.
 
-4. Spara filen och uppdatera webbläsaren om du vill se de fästen som visas på kartan. Nu är kartan centrerad över Seattle, och du kan se de runda blå kartnålarna som markerar startpunkten, och den blå kartnålen som markerar slutpunkten.
+4. Spara filen och uppdatera webbläsaren om du vill se de fästen som visas på kartan. Nu centreras kartan över Seattle. Du kan se den runda blå PIN-koden för att markera start punkten och den blå PIN-koden för att markera slut punkten.
 
    ![Visa karta med start- och slutpunkter](./media/tutorial-prioritized-routes/pins-map.png)
 
@@ -244,7 +244,7 @@ Det här avsnittet visar hur du använder Maps Route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av metoden `geojson.getFeatures()`. Väg linjen läggs sedan till i data källan. Det lägger också till ett index på 0 för att säkerställa att det återges före andra rader i data källan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i väg linjen för trucken, en linje färg som är en bra nyans av blått och en linje bredd på nio bild punkter.
+    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av metoden `geojson.getFeatures()`. Väg linjen läggs sedan till i data källan. Ett index på 0 garanterar att det återges före andra rader i data källan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i väg linjen för trucken, en linje färg som är en bra nyans av blått och en linje bredd på nio bild punkter.
 
 3. Lägg till följande JavaScript-kod för att skapa en väg för en bil och visa resultatet.
 

@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476438"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986044"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: vanliga frågor
 
@@ -22,8 +22,10 @@ Den här artikeln innehåller de vanligaste frågorna som du kanske har relatera
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Hur gör jag för att köra GATK4-arbetsflöden på Microsoft Genomics?
-I filen config. txt för Microsoft Genomics anger du den PROCESS_NAME som `gatk4`. Observera att du debiteras enligt vanliga fakturerings kostnader.
+I filen config. txt i Microsoft Genomics-filen anger du process_name som ska `gatk4`. Observera att du debiteras enligt vanliga fakturerings kostnader.
 
+## <a name="how-do-i-enable-output-compression"></a>Hur gör jag för att aktivera komprimering av utdata?
+Du kan komprimera utdata-VCF-eller gvcf med ett valfritt argument för komprimering av utdata. Detta motsvarar att köra `-bgzip` följt av `-tabix` i VCF-eller gvcf-utdata för att skapa `.gz` (bgzip output) och `.tbi` filer (tabix output). `bgzip` komprimerar VCF-eller gvcf-filen och `tabix` skapar ett index för den komprimerade filen. Argumentet är ett booleskt värde som är inställt på `false` som standard för VCF-utdata och för att `true` som standard för gcvf-utdata. Om du vill använda på kommando raden anger du `-bz` eller `--bgzip-output` som `true` (kör bgzip och tabix) eller `false`. Om du vill använda det här argumentet i filen config. txt lägger du till `bgzip_output: true` eller `bgzip_output: false` till filen.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Vad är service avtalet för Microsoft Genomics?
 Vi garanterar att 99,9% av tiden Microsoft Genomics tjänsten kommer att vara tillgänglig för att ta emot API-begäranden för arbets flöden. Mer information finns i [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).
@@ -80,7 +82,7 @@ msgen förstår konfigurationsfilerna i följande format:
   |:-------------                   |:-------------                 |
   |`-u/--api-url-base https://url`  | *api_url_base: https://url*    |
   |`-k/--access-key KEY`            | *access_key: nyckel*              |      
-  |`-pa/--process-args R=B37m1`     | *process_args: R-b37m1*        |  
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Nästa steg
 

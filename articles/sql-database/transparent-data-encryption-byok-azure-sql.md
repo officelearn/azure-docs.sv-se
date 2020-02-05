@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 11/19/2019
-ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/03/2019
+ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981893"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990988"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
@@ -124,7 +124,7 @@ När åtkomst till nyckeln har återställts krävs ytterligare tid och steg, vi
 
 - Om nyckel åtkomsten återställs inom 8 timmar kommer databasen automatiskt att korrigeras inom nästa timma.
 
-- Om nyckel åtkomsten återställs efter mer än 8 timmar är den automatiska återställningen inte möjlig och det kan ta lång tid att återställa databasen, beroende på databasens storlek och du måste öppna ett support ärende. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) , punkt-i-tid-återställnings historik och taggar går förlorade. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
+- Om nyckel åtkomsten återställs efter mer än 8 timmar är det inte möjligt att Auto-läka och ta tillbaka databasen kräver ytterligare steg på portalen och kan ta lång tid beroende på databasens storlek. När databasen är online igen, har tidigare konfigurerade inställningar på server nivå, till exempel konfiguration av [redundanskonfiguration](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) , punkt-i-tid-återställnings historik och taggar går **förlorade**. Därför rekommenderar vi att du implementerar ett meddelande system som gör det möjligt att identifiera och åtgärda de underliggande åtkomst problemen för nycklar inom 8 timmar.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Oavsiktlig åtkomst till återkallning av TDE-skydd
 

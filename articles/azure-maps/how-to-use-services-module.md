@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 6bfbbb38d164dcb179541084de3ffeb89f44668d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e985fdda4638529e8ade2c700456d595ff355e8a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911320"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988744"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Använd modulen Azure Maps tjänster
 
@@ -31,7 +31,7 @@ Azure Maps Web SDK tillhandahåller en *Services-modul*. Den här modulen är et
 
     - Du kan också läsa in modulen tjänster för Azure Maps Web SDK-källkod lokalt genom att använda [Azure-Maps-rest NPM-](https://www.npmjs.com/package/azure-maps-rest) paketet och sedan vara värd för det med din app. Det här paketet innehåller även TypeScript-definitioner. Använd det här kommandot:
     
-        > **npm install azure-maps-rest**
+        > **NPM installera Azure-Maps-rest**
     
         Lägg sedan till en skript referens till filens `<head>` element:
 

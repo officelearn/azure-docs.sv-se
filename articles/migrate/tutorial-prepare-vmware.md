@@ -1,18 +1,15 @@
 ---
 title: Förbered virtuella VMware-datorer för utvärdering/migrering med Azure Migrate
 description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella VMware-datorer med Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 25dab303ce62e33a09346d14c0a08a43b715075d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028903"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989142"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -41,8 +38,12 @@ Du behöver dessa behörigheter.
 **Aktivitet** | **Behörigheter**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha behörighet att skapa ett projekt.
-**Registrera Azure Migrates apparaten** | Azure Migrate använder en förenklad Azure Migrate-apparat för att utvärdera virtuella VMware-datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server-migrering. Den här installationen identifierar virtuella datorer och skickar VM-metadata och prestanda data till Azure Migrate.<br/><br/>Under registreringen skapar Azure Migrate två Azure Active Directory-appar (Azure AD) som unikt identifierar installationen och behöver behörighet att skapa dessa appar.<br/> – Den första appen kommunicerar med Azure Migrate tjänstens slut punkter.<br/> -Den andra appen får åtkomst till en Azure Key Vault som skapas under registreringen för att lagra konfigurations inställningar för Azure AD-appen.
+**Registrera Azure Migrates apparaten** | Azure Migrate använder en förenklad Azure Migrate-apparat för att utvärdera virtuella VMware-datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server-migrering. Den här installationen identifierar virtuella datorer och skickar VM-metadata och prestanda data till Azure Migrate.<br/><br/>Under installation av utrustning registreras följande registrerade leverantörer med den prenumeration som valts i enheten-Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel-valv. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.<br/><br/> Som en del av onboarding skapar Azure Migrate två Azure Active Directory-appar (Azure AD):<br/> – Den första appen används för kommunikation (autentisering och auktorisering) mellan de agenter som körs på produkten med deras respektive tjänster som körs på Azure. Den här appen har inte behörighet att göra ARM-anrop eller RBAC-åtkomst på någon resurs.<br/> – Den andra appen används exklusivt för att komma åt nyckel valvet som skapats i användarens prenumeration för migrering utan agent. Den medföljer en RBAC-åtkomst på den Azure Key Vault (som skapats i kundens klient) när identifieringen initieras från enheten.
 **Skapa en Key Vault** | Om du vill migrera virtuella VMware-datorer med Azure Migrate Server-migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till replikeringens lagrings konto i din prenumeration. Om du vill skapa valvet behöver du Roll tilldelnings behörigheter för resurs gruppen där Azure Migrate-projektet finns.
+
+
+
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
@@ -80,9 +81,9 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
 
 Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
-### <a name="assign-role-assignment-permissions"></a>Tilldela behörigheter för roll tilldelning
+### <a name="assign-permissions-to-create-a-key-vault"></a>Tilldela behörigheter för att skapa en Key Vault
 
-Om du vill aktivera Azure Migrate skapa en Key Vault tilldelar du Roll tilldelnings behörigheter enligt följande:
+Om du vill aktivera Azure Migrate skapa en Key Vault tilldelar du behörighet enligt följande:
 
 1. I resurs gruppen i Azure Portal väljer du **åtkomst kontroll (IAM)** .
 2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.

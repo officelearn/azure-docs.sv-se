@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df640f11e8a0e8af22c96a662a602e0de508715c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442804"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985058"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Auktorisera utvecklares konton genom att använda Azure Active Directory i Azure API Management
 
@@ -50,17 +50,17 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
    ![Steg för att lägga till en identitets leverantör i Azure Portal](./media/api-management-howto-aad/api-management-with-aad001.png)  
 10. Öppna en annan flik i webbläsaren. 
 11. Navigera till [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) för att registrera en App i Active Directory.
-12. Välj **Appregistreringar** under **Hantera**.
+12. Under **Hantera**väljer du **Appregistreringar**.
 13. Välj **ny registrering**. På sidan **Registrera ett program** ställer du in värdena enligt följande:
     
-* Ange ett beskrivande namn som **namn** . t. ex. *Developer – Portal*
-* Ange **konto typer som stöds** till **konton endast i den här organisations katalogen**. 
-* Ange **omdirigerings-URI** till värdet som du fick från steg 9. 
-* Välj **Registrera**. 
+    * Ange ett beskrivande namn som **namn** . t. ex. *Developer – Portal*
+    * Ange **konto typer som stöds** till **konton endast i den här organisations katalogen**. 
+    * Ange **omdirigerings-URI** till värdet som du fick från steg 9. 
+    * Välj **Registrera**. 
 
 14.  När programmet har registrerats kopierar du **program-ID: t (klient)-ID: t** från **översikts** sidan. 
 15. Gå tillbaka till API Management-instansen. I fönstret **Lägg till identitetsprovider** klistrar du in **programmets (klient) ID-** värde i rutan **klient-ID** .
-16. Växla tillbaka till Azure AD-konfigurationen, Välj **certifikat & hemligheter** under **Hantera**. Klicka på knappen **Ny klienthemlighet**. Ange ett värde i **Beskrivning**, välj ett alternativ för **Förfaller** och välj **Lägg till**. Kopiera klientens hemliga värde innan du lämnar sidan. Du behöver den i nästa steg. 
+16. Växla tillbaka till Azure AD-konfigurationen, Välj **certifikat & hemligheter** under **Hantera**. Välj knappen **ny klient hemlighet** . Ange ett värde i **Beskrivning**, Välj ett alternativ för **upphör ande** och välj **Lägg till**. Kopiera klientens hemliga värde innan du lämnar sidan. Du behöver den i nästa steg. 
 17. Under **Hantera**väljer du **autentisering** och väljer sedan **ID-token** under **implicit beviljande**
 18. Gå tillbaka till API Management instansen och klistra in hemligheten i rutan **klient hemlighet** .
 
@@ -71,10 +71,10 @@ Den här artikeln visar hur du aktiverar åtkomst till Developer-portalen för a
 
 19. Fönstret **Lägg till identitetsprovider** innehåller också text rutan **tillåtna innehavare** . Där anger du domänerna för de Azure AD-instanser som du vill bevilja åtkomst till API: erna för API Management tjänst instansen. Du kan separera flera domäner med newlines, blank steg eller kommatecken.
 
-> [!NOTE]
-> Du kan ange flera domäner i avsnittet **tillåtna innehavare** . Innan en användare kan logga in från en annan domän än den ursprungliga domän där programmet registrerades måste en global administratör för den andra domänen ge behörighet för programmet för att få åtkomst till katalog data. För att bevilja behörighet bör den globala administratören: a. Gå till `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent).
-> b. Skriv in domän namnet för den Azure AD-klient som de vill ge åtkomst till.
-> c. Välj **Skicka**. 
+    > [!NOTE]
+    > Du kan ange flera domäner i avsnittet **tillåtna innehavare** . Innan en användare kan logga in från en annan domän än den ursprungliga domän där programmet registrerades måste en global administratör för den andra domänen ge behörighet för programmet för att få åtkomst till katalog data. För att bevilja behörighet bör den globala administratören: a. Gå till `https://<URL of your developer portal>/aadadminconsent` (till exempel https://contoso.portal.azure-api.net/aadadminconsent).
+    > b. Skriv in domän namnet för den Azure AD-klient som de vill ge åtkomst till.
+    > c. Välj **Skicka**. 
 
 20.  När du har angett önskad konfiguration väljer du **Lägg till**.
 
@@ -95,7 +95,7 @@ Nu kan du lägga till externa Azure AD-grupper från fliken **grupper** i API Ma
 
 1. Välj fliken **Grupper**.
 2. Välj knappen **Lägg till AAD-grupp** .
-   ![knappen Lägg till AAD-grupp](./media/api-management-howto-aad/api-management-with-aad008.png)
+    ![knappen Lägg till AAD-grupp](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Välj den grupp som du vill lägga till.
 4. Tryck på knappen **Välj** .
 
@@ -105,11 +105,11 @@ Användare från den konfigurerade Azure AD-instansen kan nu logga in på Develo
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Developer-portalen – Lägg till Azure AD-konto-autentisering
 
-I Developer-portalen är det möjligt att logga in med AAD med widgeten **OAuth-knappar** . Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
-
-![Widgeten AAD-knappar](./media/api-management-howto-aad/portal-oauth-widget.png)
+I Developer-portalen är det möjligt att logga in med AAD med **inloggnings knappen: OAuth-** widgeten. Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 
 Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD, kan du överväga att lägga till samma widget på registrerings sidan.
+
+**Registrerings formuläret: OAuth** widget representerar ett formulär som används för att registrera sig med OAuth.
 
 > [!IMPORTANT]
 > Du måste [publicera portalen](api-management-howto-developer-portal-customize.md#publish) igen för att ändringarna i AAD ska börja gälla.

@@ -4,12 +4,12 @@ description: Lär dig mer om att använda hanterade identiteter för Azure med S
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: f477acab332cf39de2504c675b04abb5b14a305f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934968"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986758"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Använda hanterade identiteter för Azure med Service Fabric (för hands version)
 
@@ -30,7 +30,7 @@ Hanterade identiteter för Azure baseras på flera viktiga begrepp:
 
 - **Tjänstens huvud namn** – ett Azure Active Directory objekt som representerar projektionen av ett AAD-program i en specifik klient organisation (se [tjänstens huvud namn](../active-directory/develop/developer-glossary.md#service-principal-object)).
 
-Är två typer av hanterade identiteter:
+Det finns två typer av hanterade identiteter:
 
 - En **systemtilldelad hanterad identitet** aktive ras direkt på en Azure-tjänstinstans.  Livs cykeln för en tilldelad identitet är unik för den Azure-tjänstinstans som den är aktive rad på.
 - En **användartilldelad hanterad identitet** skapas som en fristående Azure-resurs. Identiteten kan tilldelas till en eller flera Azure Service-instanser och hanteras separat från instansernas livscykler.
@@ -39,7 +39,7 @@ Om du vill veta mer om skillnaden mellan hanterade identitets typer kan du läsa
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenarier som stöds för Service Fabric program
 
-Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. ett program som inte har distribuerats som en Azure-resurs kan inte tilldelas en identitet. Det är konceptuellt att prata, stöd för hanterade identiteter i Azure Service Fabric-klustret består av två faser:
+Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. ett program som inte har distribuerats som en Azure-resurs kan inte tilldelas en identitet. Konceptuellt att tala, stöd för hanterade identiteter i ett Azure Service Fabric-kluster består av två faser:
 
 1. Tilldela program resursen en eller flera hanterade identiteter. ett program kan tilldelas en enda tilldelad system identitet och/eller upp till 32 användarspecifika identiteter.
 

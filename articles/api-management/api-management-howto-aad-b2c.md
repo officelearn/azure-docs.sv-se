@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 11dae2b6d771138503643c402ba4525df1f04a88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f311d2772a6a60798795b4f2e6237e8153b9547
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430753"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76981231"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Så här auktoriserar du utvecklares konton med hjälp av Azure Active Directory B2C i Azure API Management
 
@@ -38,61 +38,65 @@ Azure Active Directory B2C är en lösning för moln identitets hantering för w
    > [!NOTE]
    > Om du ännu inte har skapat en API Management tjänst instans, se [skapa en API Management tjänst instans][Create an API Management service instance] i [själv studie kursen komma igång med Azure API Management][Get started with Azure API Management].
 
-2. Under **identiteter**. Klicka på **+ Lägg till** överst.
+1. Under **identiteter**. Klicka på **+ Lägg till** överst.
 
    Fönstret **Lägg till identitetsprovider** visas till höger. Välj **Azure Active Directory B2C**.
     
    ![Lägg till AAD B2C som identitets leverantör][api-management-howto-add-b2c-identity-provider]
 
-3. Kopiera **omdirigerings-URL: en**.
+1. Kopiera **omdirigerings-URL: en**.
 
    ![Omdirigerings-URL för AAD B2C-identitetsprovider][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. På en ny flik öppnar du din Azure Active Directory B2C-klient i Azure Portal och öppnar bladet **program** .
+1. På en ny flik öppnar du din Azure Active Directory B2C-klient i Azure Portal och öppnar bladet **program** .
 
    ![Registrera ett nytt program 1][api-management-howto-aad-b2c-portal-menu]
 
-5. Klicka på knappen **Lägg till** för att skapa ett nytt Azure Active Directory B2C-program.
+1. Klicka på knappen **Lägg till** för att skapa ett nytt Azure Active Directory B2C-program.
 
    ![Registrera ett nytt program 2][api-management-howto-aad-b2c-add-button]
 
-6. På bladet **ny program** anger du ett namn för programmet. Välj **Ja** under **Web App/Web API**och välj **Ja** under **Tillåt implicit flöde**. Klistra sedan in **omdirigerings-URL: en** som kopierades i steg 3 i text rutan **svars-URL** .
+1. På bladet **ny program** anger du ett namn för programmet. Välj **Ja** under **Web App/Web API**och välj **Ja** under **Tillåt implicit flöde**. Klistra sedan in **omdirigerings-URL: en** som kopierades i steg 3 i text rutan **svars-URL** .
 
    ![Registrera ett nytt program 3][api-management-howto-aad-b2c-app-details]
 
-7. Klicka på knappen **Skapa**. När programmet har skapats visas det på bladet **program** . Klicka på program namnet om du vill se information om det.
+1. Om du använder den nya Developer-portalen (inte den äldre Developer-portalen) inkluderar du det **aktuella namnet** **, efter namn och** **användarens objekt-ID** i program anspråk.
+
+    ![Program anspråk](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
+
+1. Klicka på knappen **Skapa**. När programmet har skapats visas det på bladet **program** . Klicka på program namnet om du vill se information om det.
 
    ![Registrera ett nytt program 4][api-management-howto-aad-b2c-app-created]
 
-8. Kopiera **program-ID: t** till Urklipp från bladet **Egenskaper** .
+1. Kopiera **program-ID: t** till Urklipp från bladet **Egenskaper** .
 
    ![Program-ID 1][api-management-howto-aad-b2c-app-id]
 
-9. Växla tillbaka till fönstret API Management **Lägg till identitetsprovider** och klistra in ID: t i text rutan **klient-ID** .
+1. Växla tillbaka till fönstret API Management **Lägg till identitetsprovider** och klistra in ID: t i text rutan **klient-ID** .
     
-10. Växla tillbaka till B2C-appens registrering, klicka på knappen **nycklar** och klicka sedan på **generera nyckel**. Klicka på **Spara** för att spara konfigurationen och visa **appens nyckel**. Kopiera nyckeln till Urklipp.
+1.  Växla tillbaka till B2C-appens registrering, klicka på knappen **nycklar** och klicka sedan på **generera nyckel**. Klicka på **Spara** för att spara konfigurationen och visa **appens nyckel**. Kopiera nyckeln till Urklipp.
 
     ![App-nyckel 1][api-management-howto-aad-b2c-app-key]
 
-11. Gå tillbaka till fönstret API Management **Lägg till identitetsprovider** och klistra in nyckeln i text rutan för **klient hemlighet** .
+1.  Gå tillbaka till fönstret API Management **Lägg till identitetsprovider** och klistra in nyckeln i text rutan för **klient hemlighet** .
     
-12. Ange domän namnet för den Azure Active Directory B2C klienten i **inloggnings klienten**.
+1.  Ange domän namnet för den Azure Active Directory B2C klienten i **inloggnings klienten**.
 
-13. I fältet **auktoritet** kan du kontrol lera Azure AD B2C inloggnings-URL: en som ska användas. Ange värdet **< your_b2c_tenant_name >. b2clogin. com**.
+1.  I fältet **auktoritet** kan du kontrol lera Azure AD B2C inloggnings-URL: en som ska användas. Ange värdet **< your_b2c_tenant_name >. b2clogin. com**.
 
-14. Ange **registrerings principen** och **inloggnings principen** från B2C-klient principer. Alternativt kan du även ange **profil för profil redigering** och princip för **lösen ords återställning**.
+1. Ange **registrerings principen** och **inloggnings principen** från B2C-klient principer. Alternativt kan du även ange **profil för profil redigering** och princip för **lösen ords återställning**.
 
-15. När du har angett önskad konfiguration klickar du på **Spara**.
+1. När du har angett önskad konfiguration klickar du på **Spara**.
 
     När ändringarna har sparats kommer utvecklare att kunna skapa nya konton och logga in på Developer-portalen med hjälp av Azure Active Directory B2C.
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>Utvecklings Portal – Lägg till Azure AD B2C konto-autentisering
 
-I Developer-portalen är det möjligt att logga in med AAD B2C med widgeten **OAuth-knappar** . Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
-
-![Widgeten AAD-knappar](./media/api-management-howto-aad/portal-oauth-widget.png)
+I Developer-portalen är det möjligt att logga in med AAD B2C med **inloggnings knappen: OAuth-** widgeten. Widgeten är redan inkluderad på inloggnings sidan för standard innehållet i Developer-portalen.
 
 Även om ett nytt konto skapas automatiskt när en ny användare loggar in med AAD B2C, kan du överväga att lägga till samma widget på registrerings sidan.
+
+**Registrerings formuläret: OAuth** widget representerar ett formulär som används för att registrera sig med OAuth.
 
 > [!IMPORTANT]
 > Du måste [publicera portalen](api-management-howto-developer-portal-customize.md#publish) igen för att ändringarna i AAD ska börja gälla.

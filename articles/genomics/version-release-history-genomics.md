@@ -9,22 +9,25 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: 03bbbed53cd0494e8507a156d0fadac8dcd4297a
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249141"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991090"
 ---
 # <a name="version-release-history"></a>Versionshistorik
 Microsoft Genomicss teamet uppdaterar regelbundet Microsoft Genomics python-klienten för korrigeringar och nya funktioner. 
 
 ## <a name="latest-release"></a>Senaste versionen
-Den aktuella python-klienten är version 0.8.1. Den släpptes december 3 2018 och stöder arbets flöden som körs med användas 3,5 och GATK4. Det stöder också gVCF-utdata.
+Den aktuella python-klienten är version 0.9.0. Den släpptes februari 6 2019 och stöder arbets flöden som körs med användas 3,5 och GATK4. Det stöder gVCF-utdata och kan acceptera ett valfritt argument för komprimering av utdata.
 
 
 ## <a name="release-history"></a>Versions historik 
-Nya versioner av Microsoft Genomics python-klienten släpps cirka två gånger per år. När nya versioner av Microsoft Genomics python-klienten släpps uppdateras en lista över korrigeringar och funktioner här. När nya versioner släpps bör tidigare versioner fortsätta att stödjas i minst 90 dagar. När tidigare versioner inte längre stöds visas den på den här sidan. 
+Nya versioner av Microsoft Genomics python-klienten lanseras en gång per år. När nya versioner av Microsoft Genomics python-klienten släpps uppdateras en lista över korrigeringar och funktioner här. När nya versioner släpps bör tidigare versioner fortsätta att stödjas i minst 90 dagar. När tidigare versioner inte längre stöds visas den på den här sidan. 
+
+### <a name="version-090"></a>Version 0.9.0
+Version 0.9.0 innehåller stöd för komprimering av utdata. Det motsvarar att köra `-bgzip` följt av `-tabix` i VCF-eller gvcf-utdata. Mer information finns i [vanliga frågor och svar](frequently-asked-questions-genomics.md). 
 
 ### <a name="version-081"></a>Version 0.8.1
 Version 0.8.1 innehåller mindre fel korrigeringar.  

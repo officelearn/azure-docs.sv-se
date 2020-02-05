@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773441"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982289"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,7 +84,7 @@ Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | Domän namnet för den tekniska profilen. Om din tekniska profil exempelvis anger Facebook Identity Provider, är domän namnet Facebook.com. |
-| DisplayName | 0:1 | Namnet på den tekniska profil som kan visas för användarna. |
+| DisplayName | 1:1 | Namnet på den tekniska profil som kan visas för användarna. |
 | Beskrivning | 0:1 | Beskrivningen av den tekniska profil som kan visas för användarna. |
 | Protokoll | 0:1 | Protokollet som används för kommunikation med den andra parten. |
 | Metadata | 0:1 | En samling nyckel/värde-par som används av protokollet för att kommunicera med slut punkten i en transaktions kurs. |

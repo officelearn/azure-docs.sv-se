@@ -3,18 +3,18 @@ title: 'Självstudie: skapa ett program för Store Locator med Azure Maps | Micr
 description: I den här självstudien får du lära dig hur du skapar en app Locator-webbapp med hjälp av Microsoft Azure Maps-webbsdk.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910956"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987013"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
@@ -51,7 +51,7 @@ För att maximera butikslokaliserarens användbarhet använder vi en dynamisk la
 
 ![tråd block för Contoso kaffe Store Locator-programmet på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lista över närliggande butiker, en karta som har vissa markörer (symboler) och ett popup-fönster som visar ytterligare information när användaren väljer en markör. Närmare bestämt följer här de funktioner som vi bygger in i den här butikslokaliseraren i den här självstudien:
+Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lista över närliggande butiker och en karta som har vissa markörer, till exempel symboler. Och har ett popup-fönster som visar ytterligare information när användaren väljer en markör. Närmare bestämt följer här de funktioner som vi bygger in i den här butikslokaliseraren i den här självstudien:
 
 * Alla platser från den importerade tabbavgränsade datafilen har lästs in på kartan.
 * Användaren kan panorera och zooma på kartan, söka och välja knappen My Location GPS (Min plats-GPS).
@@ -81,12 +81,12 @@ När vi tittar på skärmbilden över data kan vi göra följande observationer:
     
 * Platsinformation lagras med hjälp av kolumnerna **AddressLine**, **Stad**, **Kommun** (län), **AdminDivision** (region), **PostCode** (postnummer) och **Land**.  
 * Kolumnerna **Latitud** och **Longitud** innehåller koordinaterna för varje plats för Contoso Coffee. Om du inte har koordinaternas information kan du använda Search-tjänsterna i Azure Maps för att fastställa platskoordinaterna.
-* Vissa ytterligare kolumner innehåller metadata som hör till kaféer: ett telefonnummer, booleska kolumner för Wi-Fi-hotspot och rullstolshjälpmedel och butikens öppettider i 24-timmarsformat. Du kan skapa egna kolumner som innehåller metadata som är mer relevant för dina platsdata.
+* Vissa ytterligare kolumner innehåller metadata som är relaterade till Café butiker: ett telefonnummer, booleska kolumner och lagrings tider i 24-timmarsformat. Booleska kolumner är för Wi-Fi-och Wheelchair-tillgänglighet. Du kan skapa egna kolumner som innehåller metadata som är mer relevant för dina platsdata.
 
 > [!Note]
 > Azure Maps renderar data i den sfäriska Mercator-projektionen ”EPSG:3857” men läser data i ”EPSG:4325”, som använder WGS84-datumet. 
 
-Det finns många sätt att exponera datauppsättningen för programmet. En metod är att läsa in data i en databas och exponera en webbtjänst som frågar efter data och skickar resultatet till användarens webbläsare. Det här alternativet är perfekt för stora datauppsättningar eller för datauppsättningar som uppdateras ofta. Det här alternativet kräver mycket större utvecklingsarbete och har en högre kostnad. 
+Det finns många sätt att exponera datauppsättningen för programmet. En metod är att läsa in data i en databas och exponera en webb tjänst som frågar data. Du kan sedan skicka resultatet till användarens webbläsare. Det här alternativet är perfekt för stora datauppsättningar eller för datauppsättningar som uppdateras ofta. Det här alternativet kräver dock mer utvecklings arbete och har en högre kostnad. 
 
 En annan metod är att konvertera datauppsättningen till en flat textfil som webbläsaren enkelt kan parsa. Själva filen kan finnas i resten av programmet. Det här alternativet gör allt enkelt, men det är endast ett bra alternativ för mindre datauppsättningar eftersom användaren hämtar alla data. Vi använder den flata textfilen för den här datauppsättningen eftersom filens datastorlek är mindre än 1 MB.  
 
@@ -105,7 +105,7 @@ Om du öppnar textfilen i anteckningar liknar den följande bild:
 
 ## <a name="set-up-the-project"></a>Konfigurera projektet
 
-För att skapa projektet använder du [Visual Studio](https://visualstudio.microsoft.com) eller valfritt kodredigeringsprogram. Skapa tre filer i din projektmapp: *index.html*, *index.css* och *index.js*. De här filerna definierar layout, stil och logik för programmet. Skapa en mapp med namnet *data* och Lägg till *ContosoCoffee.txt* till mappen. Skapa en annan mapp med namnet *images*. Vi använder tio bilder i det här programmet för ikoner, knappar och markörer på kartan. Du kan [ladda ned bilderna](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Din projektmapp bör nu se ut som följande bild:
+För att skapa projektet använder du [Visual Studio](https://visualstudio.microsoft.com) eller valfritt kodredigeringsprogram. Skapa tre filer i din projektmapp: *index.html*, *index.css* och *index.js*. De här filerna definierar layout, stil och logik för programmet. Skapa en mapp med namnet *data* och Lägg till *ContosoCoffee.txt* till mappen. Skapa en annan mapp med namnet *images*. Vi använder 10 bilder i det här programmet för ikoner, knappar och markörer på kartan. Du kan [ladda ned bilderna](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Din projektmapp bör nu se ut som följande bild:
 
 <center>
 
@@ -115,7 +115,7 @@ För att skapa projektet använder du [Visual Studio](https://visualstudio.micro
 
 Lägg till kod till *index.html* för att skapa användargränssnittet:
 
-1. Lägg till följande `meta`-taggar till `head` i *index.html*. Taggarna definierar teckenuppsättningen (UTF-8), meddelar Internet Explorer och Microsoft Edge att de ska använda de senaste versionerna av webbläsaren och anger ett visningsområde som fungerar bra för dynamiska layouter.
+1. Lägg till följande `meta`-taggar till `head` i *index.html*. Taggen `charset` definierar teckenuppsättningen (UTF-8). Värdet för `http-equiv` visar att Internet Explorer och Microsoft Edge använder de senaste webb läsar versionerna. Och den sista `meta`-taggen anger ett visnings område som fungerar bra för layouter som svarar.
 
     ```HTML
     <meta charset="utf-8">
@@ -375,13 +375,13 @@ Nästa steg är att definiera CSS-format. CSS-format anger hur programkomponente
     }
    ```
 
-Om du kör programmet nu kan du visa rubriken, sökrutan och sökknappen, men kartan visas inte eftersom den inte har lästs in ännu. Om du försöker göra en sökning händer ingenting. Vi behöver konfigurera JavaScript-logik som beskrivs i nästa avsnitt för att få åtkomst till alla funktioner i butikslokaliseraren.
+Kör programmet nu, du ser rubriken, sökrutan och Sök knappen. Men kartan syns inte eftersom den inte har lästs in ännu. Om du försöker göra en sökning händer ingenting. Vi behöver konfigurera JavaScript-logiken, som beskrivs i nästa avsnitt. Den här logiken har åtkomst till alla funktioner i Store Locator.
 
 ## <a name="wire-the-application-with-javascript"></a>Ställa in programmet med JavaScript
 
-Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till JavaScript för att läsa in och parsa data och sedan återge data på kartan. Kom igång genom att öppna *index.js* och lägg till kod till den, enligt beskrivningen i följande steg.
+Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande lägga till Java Script för att läsa in och parsa data och sedan återge data på kartan. Kom igång genom att öppna *index.js* och lägg till kod till den, enligt beskrivningen i följande steg.
 
-1. Lägg till globala alternativ för att göra det lättare att uppdatera inställningarna. Definiera även variabler för kartan, ett popup-fönster, en datakälla, ett ikonlager, en HTML-markör som visas i mitten av en sökområdet och en instans av klienten för Azure Maps-söktjänsten.
+1. Lägg till globala alternativ för att göra det lättare att uppdatera inställningarna. Definiera variablerna för kartan, popup-fönstret, data källan, ett ikon lager, en HTML-markör som visar mitten av ett Sök område och en instans av Azure Maps Sök tjänst klienten.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -395,7 +395,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Lägg till kod till *index.js*. Följande kod initierar kartan, lägger till en [händelselyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) som väntar tills sidan har lästs in färdigt, ställer in händelser för att övervaka inläsningen av kartan och driver sökknappen och My Location-knappen (Min plats).
+1. Lägg till kod till *index.js*. Följande kod initierar kartan. Vi har lagt till en [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att vänta tills sidan har lästs in. Sedan kabelansluter vi händelser för att övervaka inläsningen av kartan och ge funktioner till knappen Sök och min plats.
 
    När användaren väljer sökknappen, eller när användaren trycker på RETUR efter att ha angett en plats i sökrutan, initieras en fuzzy-sökning mot användarens fråga. Skicka i en matris med ISO 2-värden till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
   
@@ -544,7 +544,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
 
 1. När du läser in datauppsättningen i kartans `ready`-händelselyssnare definierar du en uppsättning lager för att återge data. Ett bubbellager används för att återge klustrade datapunkter. Ett symbollager används för att återge antalet punkter i varje kluster över bubbellagret. Ett andra symbollager visas med en anpassad ikon för enskilda platser på kartan.
 
-   Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den här `click`-händelsen zoomar kartan i två nivåer och centrerar kartan över ett kluster när du väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
+   Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den här `click` händelse zoomningar i kartan två nivåer och centrerar kartan över ett kluster när användaren väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -686,7 +686,7 @@ Nu har allt ställts in i användargränssnittet. Nu behöver vi lägga till Jav
     }
     ```
 
-1. När listpanelen uppdateras beräknas avståndet från mitten av kartan till alla punktfunktioner i den aktuella kartvyn. Funktionerna sorteras sedan efter avstånd. HTML genereras för att visa varje plats i listpanelen.
+1. När List panelen uppdateras beräknas avståndet. Avståndet är från mitten av kartan till alla punkt funktioner i den aktuella Map-vyn. Funktionerna sorteras sedan efter avstånd. HTML genereras för att visa varje plats i listpanelen.
 
     ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';

@@ -10,17 +10,22 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702529"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983103"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restriktioner och begränsningar för omdirigerings-URI/svars-URL
 
 En omdirigerings-URI eller svars-URL är den plats som auktoriseringsservern skickar användaren till när appen har godkänts och beviljats en auktoriseringskod eller åtkomsttoken. Koden eller token finns i omdirigerings-URI eller Reply-token, så det är viktigt att du registrerar rätt plats som en del av registrerings processen för appen.
 
+ Följande begränsningar gäller för svars-URL: er:
+
+    * Svars-URL: en måste börja med schemat `https`.
+    * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program till exempel innehåller som en del av sökvägen `.../abc/response-oidc`ska du inte ange `.../ABC/response-oidc` i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchning `.../ABC/response-oidc` URL.
+    
 ## <a name="maximum-number-of-redirect-uris"></a>Maximalt antal omdirigerings-URI: er
 
 Följande tabell visar det maximala antalet omdirigerings-URI: er som du kan lägga till när du registrerar din app.

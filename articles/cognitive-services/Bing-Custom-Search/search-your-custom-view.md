@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: maheshb
-ms.openlocfilehash: f04bfc306a89c7bb6caf3f928f5fdfec66358649
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 02/03/2020
+ms.author: aahi
+ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072749"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983120"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa din Anpassad sökning i Bing instans från portalen
 
@@ -33,7 +33,7 @@ Några viktiga parametrar är nedan:
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|Fråga     | Sök termen att söka efter. Endast tillgängligt för slut punkter för webb-, bild-, video-och automatiska förslag |
+|Söka i data     | Sök termen att söka efter. Endast tillgängligt för slut punkter för webb-, bild-, video-och automatiska förslag |
 |Anpassat konfigurations-ID | Konfigurations-ID för den valda anpassade Sök instansen. Det här fältet är skrivskyddat. |
 |Marknad     | Marknaden som resultatet kommer från. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt.        |
 |Prenumerations nyckel | Den prenumerations nyckel som ska testas med. Du kan välja en nyckel i list rutan eller ange en manuellt.          |
@@ -42,7 +42,7 @@ Om du klickar på **ytterligare parametrar upptäcks** följande parametrar:
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-|Safe Search     | Ett filter som används för att filtrera webb sidor för innehåll som är vuxna. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt.        |
+|Safe Search     | Ett filter som används för att filtrera webb sidor för innehåll som är vuxna. Endast tillgängligt för slut punkter för webb-, bild-, video-och värdbaserade gränssnitt. Observera att Bing Custom Videosökning endast stöder två värden: `moderate` och `strict`.        |
 |Användar gränssnittets språk    | Språket som används för användar gränssnitts strängar. Om du t. ex. aktiverar bilder och videor i värdbaserade användar gränssnitt använder flikarna **bild** och **video** det angivna språket.        |
 |Antal     | Det antal Sök resultat som ska returneras i svaret. Endast tillgängligt för slut punkter för webb, bild och video.         |
 |Offset    | Antalet Sök resultat som ska hoppas över innan resultat returneras. Endast tillgängligt för slut punkter för webb, bild och video.        |

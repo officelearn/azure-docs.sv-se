@@ -3,12 +3,12 @@ title: Ändra kluster inställningar för Azure Service Fabric
 description: I den här artikeln beskrivs de infrastruktur inställningar och de uppgraderings principer för infrastruktur resurser som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905197"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986197"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -831,7 +831,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|sträng, standard är ""| Statisk |Nätverks namnet som ska användas när ett behållar nätverk konfigureras.|
-|ContainerNetworkSetup|bool, standard är falskt| Statisk |Om ett behållar nätverk ska konfigureras.|
+|ContainerNetworkSetup|bool, standard är falskt (Linux) och standard är sant (Windows)| Statisk |Om ett behållar nätverk ska konfigureras.|
 |FabricDataRoot |String | Tillåts inte |Service Fabric data rot Katalog. Standard för Azure är d:\svcfab |
 |FabricLogRoot |String | Tillåts inte |Rot Katalog för Service Fabric-logg. Det är här som SF-loggar och-spår placeras. |
 |NodesToBeRemoved|sträng, standard är ""| Dynamisk |Noderna som ska tas bort som en del av konfigurations uppgraderingen. (Endast för fristående distributioner)|

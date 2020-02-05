@@ -1,26 +1,26 @@
 ---
 title: Kopiera flera tabeller stegvis med PowerShell
-description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
+description: I den här självstudien skapar du en Azure Data Factory pipeline som kopierar delta data stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
 manager: anandsub
-ms.reviewer: douglasl
+ms.reviewer: douglasl, maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/22/2018
-ms.openlocfilehash: f9d426562f4403776e3926564857b4cdbf0d4390
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 5654e1f8b8a55c705798368df70ce300241c9dff
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439239"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989099"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL Database
 
-I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta data från flera tabeller i lokala SQL Server till en Azure SQL Database.    
 
 I den här självstudiekursen får du göra följande:
 
@@ -41,12 +41,14 @@ I den här självstudiekursen får du göra följande:
 Här är några viktiga steg för att skapa den här lösningen: 
 
 1. **Markera vattenstämpelkolumnen**.
-    Markera en kolumn för varje tabell i källdatalagret som går att använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 
-1. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
+    Välj en kolumn för varje tabell i käll data lagret, som du kan använda för att identifiera de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
+
+2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.
+
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
 
-1. **Skapa en pipeline med följande aktiviteter**: 
+3. **Skapa en pipeline med följande aktiviteter**:
     
     a. Skapa en ForEach-aktivitet som upprepas över en lista med namn på källtabeller och som skickas som en parameter till pipelinen. För varje källtabell anropas följande aktiviteter som utför deltainläsningen för tabellen.
 
@@ -64,16 +66,17 @@ Här är några viktiga steg för att skapa den här lösningen:
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
+
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Skapa källtabeller i din SQL Server-databas
 
-1. Öppna SQL Server Management Studio och anslut till din lokala SQL-serverdatabas.
+1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och anslut till din lokala SQL Server-databas.
 
-1. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
+2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
 
-1. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
+3. Kör följande SQL-kommando mot databasen för att skapa tabeller med namnen `customer_table` och `project_table`:
 
     ```sql
     create table customer_table
@@ -104,16 +107,16 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ('project1','1/1/2015 0:00:00 AM'),
     ('project2','2/2/2016 1:23:00 AM'),
     ('project3','3/4/2017 5:16:00 AM');
-    
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Skapa måltabeller i Azure SQL-databasen
-1. Öppna SQL Server Management Studio och anslut till din SQL Serverdatabas.
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Skapa mål tabeller i din Azure SQL Database
 
-1. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
+1. Öppna [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)och anslut till din lokala SQL Server-databas.
 
-1. Kör följande SQL-kommando mot SQL-databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
-    
+2. I **Server Explorer (SSMS)** eller i **fönstret anslutningar (Azure Data Studio)** högerklickar du på databasen och väljer **ny fråga**.
+
+3. Kör följande SQL-kommando mot SQL-databasen för att skapa tabeller med namnen `customer_table` och `project_table`:  
+
     ```sql
     create table customer_table
     (
@@ -127,10 +130,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
         Project varchar(255),
         Creationtime datetime
     );
-
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL-databasen för att lagra värdet för högvattenmärket
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i Azure SQL Database för att lagra värdet för hög vatten märket
+
 1. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för högvattenmärket: 
     
     ```sql
@@ -141,7 +144,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
         WatermarkValue datetime,
     );
     ```
-1. Infoga inledande värden för högvattenmärket för båda källtabellerna i vattenmärkestabellen.
+2. Infoga inledande värden för högvattenmärket för båda källtabellerna i vattenmärkestabellen.
 
     ```sql
 
@@ -152,7 +155,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Skapa en lagrad procedur i Azure SQL-databasen 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Skapa en lagrad procedur i Azure SQL Database 
 
 Kör följande kommando för att skapa en lagrad procedur i din SQL-databas. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
 
@@ -170,10 +173,11 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Skapa datatyper och ytterligare lagrade procedurer i Azure SQL-databasen
+### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Skapa data typer och ytterligare lagrade procedurer i Azure SQL Database
+
 Kör följande fråga för att skapa två lagrade procedurer och två datatyper i SQL-databasen. De används för att slå samman data från källtabellerna till måltabellerna. 
 
-För att göra resan lätt att börja med, använder vi direkt dessa lagrade procedurer som skickar delta data i via en tabell variabel och sedan sammanfogar dem till mål lagret. Var försiktig med att det inte förväntar sig ett "stort" antal delta rader (mer än 100) som ska lagras i tabell variabeln.  
+För att göra resan lätt att börja med, använder vi direkt dessa lagrade procedurer som skickar delta data i via en tabell variabel och sedan sammanfogar dem till mål lagret. Var försiktig att det inte förväntar sig att ett "stort" antal delta rader (mer än 100) lagras i tabell variabeln.  
 
 Om du behöver slå samman ett stort antal delta-rader i mål lagret, rekommenderar vi att du använder kopierings aktivitet för att kopiera alla delta data till en tillfällig "mellanlagrings tabell" i mål lagret först och sedan skapa en egen lagrad procedur utan att använda tabell variation kan koppla dem från tabellen "mellanlagring" till den slutgiltiga tabellen. 
 
@@ -223,34 +227,35 @@ BEGIN
       INSERT (Project, Creationtime)
       VALUES (source.Project, source.Creationtime);
 END
-
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
 Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Ett exempel är `"adfrg"`. 
-   
+
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Ett exempel är `"adfrg"`.
+
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
 
-1. Definiera en variabel för datafabrikens plats. 
+2. Definiera en variabel för datafabrikens plats. 
 
     ```powershell
     $location = "East US"
     ```
-1. Kör följande kommando för att skapa en Azure-resursgrupp: 
+3. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
     ``` 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
 
-1. Definiera en variabel för datafabrikens namn. 
+4. Definiera en variabel för datafabrikens namn. 
 
     > [!IMPORTANT]
     >  Uppdateringen av datafabrikens namn för att göra det unikt globalt. Ett exempel är ADFIncMultiCopyTutorialFactorySP1127. 
@@ -258,9 +263,9 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-1. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet: 
+5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet: 
     
-    ```powershell       
+    ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
@@ -268,22 +273,27 @@ Observera följande punkter:
 
 * Namnet på datafabriken måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen:
 
+    ```powershell
+    Set-AzDataFactoryV2 : HTTP Status Code: Conflict
+    Error Code: DataFactoryNameInUse
+    Error Message: The specified resource name 'ADFIncMultiCopyTutorialFactory' is already in use. Resource names must be globally unique.
     ```
-    The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
-    ```
+
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna deltagare eller ägare, eller vara administratör för Azure-prenumerationen.
+
 * Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren ( Azure Storage, Azure SQL Database o.s.v.) och beräkningarna (Azure HDInsight o.s.v.) som används i datafabriken kan finnas i andra regioner.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
-
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet får du skapa länkade tjänster till din lokala SQL Server-databas och din Azure SQL-databas. 
+
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet skapar du länkade tjänster till din lokala SQL Server-databas och Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Skapa länkad tjänst till SQL Server
+
 I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
 
-1. Skapa en JSON-fil med namnet **SqlServerLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server. Skapa de lokala mapparna om de inte redan finns. 
+1. Skapa en JSON-fil med namnet **SqlServerLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial (skapa de lokala mapparna om de inte redan finns) med följande innehåll. Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.  
 
     > [!IMPORTANT]
     > Välj rätt avsnitt baserat på vilken autentisering du använder när du ansluter till SQL Server.
@@ -339,13 +349,13 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
     > - Ersätt &lt;servername>&lt;, databasename>, &lt;username>&lt; och password> med värdena för din SQL Serverdatabas innan du sparar filen.
     > - Om du behöver använda ett snedstreck (`\`) i ditt användarkonto eller användarnamn använder du escape-tecknet (`\`). Ett exempel är `mydomain\\myuser`.
 
-1. I PowerShell kör du följande cmdlet för att växla till mappen mappen c:\adftutorials\inccopymultitabletutorial.
+2. I PowerShell kör du följande cmdlet för att växla till mappen mappen c:\adftutorials\inccopymultitabletutorial.
 
     ```powershell
     Set-Location 'C:\ADFTutorials\IncCopyMultiTableTutorial'
     ```
 
-1. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*: 
+3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*: 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -361,6 +371,7 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
     ```
 
 ### <a name="create-the-sql-database-linked-service"></a>Skapa länkad SQL-databastjänst
+
 1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen mappen c:\adftutorials\inccopymultitabletutorial med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;servername&gt;, &lt;databas namn&gt;, &lt;användar namn&gt;och &lt;lösen ord&gt; med namnet på SQL Server-databasen, namnet på din databas, ditt användar namn och lösen ord innan du sparar filen. 
 
     ```json
@@ -377,7 +388,7 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
         }
     }
     ```
-1. I PowerShell kör du cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService. 
+2. I PowerShell kör du cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -393,6 +404,7 @@ I det här steget länkar du din lokala SQL Serverdatabas till datafabriken.
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
+
 I det här steget skapar du datauppsättningar som representerar datakällan, datamålet och platsen för vattenstämpeln.
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
@@ -421,7 +433,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
 
     Kopieringsaktivitet i pipelinen använder en SQL-fråga till att läsa in data, snarare än att läsa in hela tabellen.
 
-1. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SourceDataset.
+2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SourceDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -468,7 +480,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
     }
     ```
 
-1. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SinkDataset.
+2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SinkDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -485,6 +497,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
     ```
 
 ### <a name="create-a-dataset-for-a-watermark"></a>Skapa en datauppsättning för en vattenstämpel
+
 I det här steget skapar du en datauppsättning för att lagra ett värde för ett högvattenmärke. 
 
 1. Skapa en JSON-fil med namnet **WatermarkDataset. JSON** i samma mapp med följande innehåll: 
@@ -504,7 +517,7 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
         }
     }    
     ```
-1. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen WatermarkDataset.
+2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen WatermarkDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -521,17 +534,19 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
     ```
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
+
 Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrunds aktiviteten** itererar igenom listan med tabell namn och utför följande åtgärder: 
 
 1. Använd **Lookup-aktiviteten** för att hämta det gamla värdet för vatten märket (det första värdet eller det som användes i den senaste iterationen).
 
-1. Använd **Lookup-aktiviteten** för att hämta det nya värdet för vatten märket (max värdet för kolumnen vattenstämpel i käll tabellen).
+2. Använd **Lookup-aktiviteten** för att hämta det nya värdet för vatten märket (max värdet för kolumnen vattenstämpel i käll tabellen).
 
-1. Använd **kopierings aktiviteten** för att kopiera data mellan de två värdena för vatten märket från käll databasen till mål databasen.
+3. Använd **kopierings aktiviteten** för att kopiera data mellan de två värdena för vatten märket från käll databasen till mål databasen.
 
-1. Använd **StoredProcedure-aktiviteten** för att uppdatera det gamla värdet för vatten märket som ska användas i det första steget i nästa iteration. 
+4. Använd **StoredProcedure-aktiviteten** för att uppdatera det gamla värdet för vatten märket som ska användas i det första steget i nästa iteration. 
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
+
 1. Skapa en JSON-fil med namnet **IncrementalCopyPipeline. JSON** i samma mapp med följande innehåll: 
 
     ```json
@@ -748,7 +763,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
         }
     }
     ```
-1. Kör cmdleten **set-AzDataFactoryV2Pipeline** för att skapa pipelinen IncrementalCopyPipeline.
+2. Kör cmdleten **set-AzDataFactoryV2Pipeline** för att skapa pipelinen IncrementalCopyPipeline.
     
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -787,7 +802,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
         ]
     }
     ```
-1. Kör pipeline-IncrementalCopyPipeline med cmdleten **Invoke-AzDataFactoryV2Pipeline** . Ersätt platshållarna med din egen grupp och datafabrikens namn.
+2. Kör pipeline-IncrementalCopyPipeline med cmdleten **Invoke-AzDataFactoryV2Pipeline** . Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -797,23 +812,24 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj **Alla tjänster**, sök med nyckelordet *Datafabriker* och välj **Datafabriker**. 
+2. Välj **Alla tjänster**, sök med nyckelordet *Datafabriker* och välj **Datafabriker**. 
 
-1. Sök efter din datafabrik i listan med datafabriker och välj den så att du öppnar sidan **Datafabrik**. 
+3. Sök efter din datafabrik i listan med datafabriker och välj den så att du öppnar sidan **Datafabrik**. 
 
-1. På sidan **data fabrik** väljer du **Redigera & övervakare** för att starta Azure Data Factory på en separat flik.
+4. På sidan **data fabrik** väljer du **Redigera & övervakare** för att starta Azure Data Factory på en separat flik.
 
-1. På sidan **nu sätter vi igång** väljer du **övervaka** till vänster. 
+5. På sidan **nu sätter vi igång** väljer du **övervaka** till vänster. 
 ![pipelinen körs](media/doc-common-process/get-started-page-monitor-button.png)    
 
-1. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**.
+6. Du kan se alla pipelinekörningar och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**.
 
     ![Pipelinekörningar](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
-1. När du väljer länken i kolumnen **åtgärder** visas alla aktivitets körningar för pipelinen. 
+7. När du väljer länken i kolumnen **åtgärder** visas alla aktivitets körningar för pipelinen. 
 
-1. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar**. 
+8. Om du vill gå tillbaka till vyn **pipeline-körningar** väljer du **alla pipeline-körningar**. 
 
 ## <a name="review-the-results"></a>Granska resultaten
+
 Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna: 
 
 **Fråga** 
@@ -889,13 +905,14 @@ VALUES
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-1. Övervaka pipelinekörningarna genom att följa anvisningarna i avsnittet [Övervaka pipelinen](#monitor-the-pipeline). När status för pipelinen **pågår**, ser du en annan åtgärds länk under **åtgärder** för att avbryta pipeline-körningen. 
+2. Övervaka pipelinekörningarna genom att följa anvisningarna i avsnittet [Övervaka pipelinen](#monitor-the-pipeline). När status för pipelinen **pågår**, ser du en annan åtgärds länk under **åtgärder** för att avbryta pipeline-körningen. 
 
-1. Välj **Uppdatera** om du vill uppdatera listan tills pipelinekörningen lyckas. 
+3. Välj **Uppdatera** om du vill uppdatera listan tills pipelinekörningen lyckas. 
 
-1. Om du vill kan du välja **Visa aktivitetskörningar** under **Åtgärder** om du vill se alla aktivitetskörningar som är associerade med den här pipelinekörningen. 
+4. Om du vill kan du välja **Visa aktivitetskörningar** under **Åtgärder** om du vill se alla aktivitetskörningar som är associerade med den här pipelinekörningen. 
 
 ## <a name="review-the-final-results"></a>Granska de slutliga resultaten
+
 Kör följande frågor mot måldatabasen i SQL Server Management Studio för att verifiera att nya/uppdaterade data har kopierats från källtabellerna till måltabellerna. 
 
 **Fråga** 
@@ -954,7 +971,7 @@ project_table   2017-10-01 00:00:00.000
 ```
 
 Observera att vattenstämpelvärdena för båda tabellerna har uppdaterats.
-     
+
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen har du fått: 
 

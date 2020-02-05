@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 97a215d8f111753c8fcc857fe4c48956c1236b3b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: c9a153cc5b1b8c43a42b37d591a8946a545f63ff
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027449"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986448"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Självstudie: Distribuera och genom gång av en kontinuerlig app-mall för patient övervakning
 
@@ -21,7 +21,7 @@ ms.locfileid: "73027449"
 
 Den här självstudien visar dig som Solution Builder och hur du kommer igång genom att distribuera en IoT Central kontinuerlig övervaknings program mal len för patienter. Du får lära dig hur du distribuerar mallen, vad som ingår i rutan och vad du kanske vill göra härnäst.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en Programmall
@@ -36,14 +36,15 @@ Gå till [webbplatsen för Azure IoT Central Application Manager](https://apps.a
 
 Klicka på knappen **skapa app** för att börja skapa ditt program och logga sedan in med ett Microsoft personal-, arbets-eller skol konto. Då går du till sidan **nytt program** .
 
->[!div class="mx-imgBorder"] 
->![skapa program hälso vård](media/app-manager-health-create.png)
+![Skapa program hälso vård](media/app-manager-health-create.png)
+
+![Skapa fakturerings information för program hälso vård](media/app-manager-health-create-billinginfo.png)
 
 Så här skapar du ditt program:
 
 1. Azure IoT Central föreslår automatiskt ett program namn baserat på mallen som du har valt. Du kan acceptera namnet eller ange ett eget vänligt program namn, till exempel **kontinuerlig övervakning av patienter**. Azure IoT Central genererar också ett unikt URL-prefix åt dig baserat på programmets namn. Du är kostnads fri att ändra detta URL-prefix till något mer minnes värt om du vill.
 
-2. Du kan välja om du vill skapa ett **utvärderings** program eller ett program **som du betalar per** användning. **Utvärderings** program är kostnads fria i sju dagar innan de går ut och tillåter upp till fem kostnads fria enheter. De kan konverteras till betala per användning när som helst innan de upphör att gälla. Om du skapar ett utvärderings program måste du ange din kontakt information och välja om du vill få information och tips från Microsoft. **Betala per** användning-program stöder upp till två kostnads fria enheter och kräver att du anger din prenumerations information för Azure.
+2. Du kan välja om du vill skapa programmet med hjälp av den *kostnads fria* pris planen eller någon av *standard* pris avtalen. Program som du skapar med hjälp av den kostnads fria planen är kostnads fria i sju dagar innan de går ut och ger upp till fem kostnads fria enheter. Du kan när som helst flytta ett program från den kostnads fria planen till en standard pris plan innan den upphör att gälla. Om du väljer den kostnads fria planen måste du ange din kontakt information och välja om du vill få information och tips från Microsoft. Program som du skapar med hjälp av en standard plan stöder upp till två kostnads fria enheter och kräver att du anger din prenumerations information för Azure för fakturering.
 
 3. Klicka på **skapa** längst ned på sidan för att distribuera programmet.
 

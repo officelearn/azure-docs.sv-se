@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1315b52e4ee6f39c27d21e3307d228219bc953d7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028918"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984752"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
@@ -39,10 +39,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du måste ange behörigheter för Azure Migrate distribution.
 
-- Behörigheter för ditt Azure-konto för att skapa ett Azure Migrate-projekt.
-- Behörigheter för ditt konto för att registrera Azure Migrate-enheten. Enheten används för identifiering och utvärdering av virtuella Hyper-V-datorer som du migrerar. Under installationen av produkten skapar Azure Migrate två Azure Active Directory-appar (Azure AD) som unikt identifierar enheten:
-    - Den första appen kommunicerar med Azure Migrate tjänst slut punkter.
-    - Den andra appen får åtkomst till en Azure Key Vault som skapas under registreringen, för att lagra konfigurations inställningar för Azure AD-appen.
+**Aktivitet** | **Behörigheter**
+--- | ---
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha behörighet att skapa ett projekt.
+**Registrera Azure Migrates apparaten** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera virtuella Hyper-v-datorer med Azure Migrate Server utvärdering. Den här installationen identifierar virtuella datorer och skickar VM-metadata och prestanda data till Azure Migrate.<br/><br/>Under installation av utrustning registreras följande registrerade leverantörer med den prenumeration som valts i enheten-Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel-valv. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.<br/><br/> Som en del av onboarding skapar Azure Migrate en Azure Active Directory (Azure AD)-app:<br/> AAD-appen används för kommunikation (autentisering och auktorisering) mellan de agenter som körs på enheten med deras respektive tjänster som körs på Azure. Den här appen har inte behörighet att göra ARM-anrop eller RBAC-åtkomst på någon resurs.
 
 
 
@@ -59,15 +59,14 @@ Kontrol lera att du har behörighet att skapa ett Azure Migrate-projekt.
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera produkten
 
-Du kan tilldela behörigheter för Azure Migrate för att skapa de Azure AD-appar som skapas under registreringen av produkten med någon av följande metoder:
+Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen under registreringen av produkten med någon av följande metoder:
 
 - En klient/global-administratör kan bevilja behörigheter till användare i klienten, för att skapa och registrera Azure AD-appar.
 - En klient/global administratör kan tilldela rollen programutvecklare (som har behörighet) till kontot.
 
-Det är värt att notera att:
-
-- Apparna har inte någon annan åtkomst behörighet för prenumerationen förutom de som beskrivs ovan.
-- Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
+> [!NOTE]
+> - Appen har inte någon annan åtkomst behörighet för den prenumeration som beskrivs ovan.
+> - Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
 
 
 #### <a name="grant-account-permissions"></a>Bevilja konto behörigheter
@@ -108,7 +107,7 @@ Skriptet gör följande:
 - Kontrollerar att du kör skriptet på en PowerShell-version som stöds.
 - Verifierar att du (användaren som kör skriptet) har administratörs behörighet för Hyper-V-värden.
 - Gör att du kan skapa ett lokalt användar konto (inte administratör) som Azure Migrate tjänsten använder för att kommunicera med Hyper-V-värden. Det här användar kontot har lagts till i dessa grupper på värden:
-    - Fjärrhanteringsanvändare
+    - Fjärrstyrda användare
     - Hyper-V-administratörer
     - Användare av prestanda övervakning
 - Kontrollerar att värden kör en version av Hyper-V som stöds och Hyper-V-rollen.
@@ -140,7 +139,7 @@ Kör skriptet på följande sätt:
 
 Hash-värden är:
 
-| **Hash** | **Värde** |
+| **Beräkna** | **Värde** |
 | --- | --- |
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |
@@ -165,7 +164,7 @@ Azure Migrate behöver behörighet för att identifiera lokala virtuella datorer
     - Du behöver ett enda konto för alla värdar och kluster som du vill inkludera i identifieringen.
     - Kontot kan vara ett lokalt konto eller ett domän konto. Vi rekommenderar att den har administratörs behörighet för Hyper-V-värdar eller-kluster.
     - Alternativt, om du inte vill tilldela administratörs behörighet, krävs följande behörigheter:
-        - Fjärrhanteringsanvändare
+        - Fjärrstyrda användare
         - Hyper-V-administratörer
         - Användare av prestanda övervakning
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1eaf4e7b2d769217ceace3ece339adff727c7835
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 66bac2a063a3257a2101ca2f30e5946264adb9ae
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832055"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989560"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Konfigurera cachelagring för stegvis berikning i Azure Kognitiv sökning
 
@@ -36,7 +36,9 @@ Om du har en befintlig indexerare som redan har en färdigheter följer du stege
 
 ### <a name="step-1-get-the-indexer-definition"></a>Steg 1: Hämta indexare definition
 
-Börja med en giltig, befintlig indexerare som har dessa komponenter: data källa, färdigheter, index. Indexeraren ska vara körbara. Med en API-klient skapar du en [Get Indexer-begäran](https://docs.microsoft.com/rest/api/searchservice/get-indexer) för att hämta den aktuella konfigurationen av indexeraren.
+Börja med en giltig, befintlig indexerare som har dessa komponenter: data källa, färdigheter, index. Indexeraren ska vara körbara. 
+
+Med en API-klient skapar du en [Get Indexer-begäran](https://docs.microsoft.com/rest/api/searchservice/get-indexer) för att hämta den aktuella konfigurationen av indexeraren. När du använder för hands versionen av API-versionen för att hämta indexeraren läggs en `cache`-egenskap till null i definitionerna.
 
 ```http
 GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
@@ -48,12 +50,12 @@ Kopiera Indexer definitionen från svaret.
 
 ### <a name="step-2-modify-the-cache-property-in-the-indexer-definition"></a>Steg 2: ändra egenskapen cache i index definitions definitionen
 
-Som standard är egenskapen `cache` null. Använd en API-klient för att lägga till cache-konfigurationen (portalen stöder inte den här partikel uppdateringen). 
+Som standard är egenskapen `cache` null. Använd en API-klient för att ange cache-konfigurationen (portalen stöder inte den här partikel uppdateringen). 
 
 Ändra cache-objektet så att det innehåller följande obligatoriska och valfria egenskaper: 
 
 + `storageConnectionString` måste anges och måste vara en anslutnings sträng för Azure Storage. 
-+ Egenskapen `enableReprocessing` Boolean är valfri (`true` som standard) och anger att den stegvisa anrikningen är aktive rad. Du kan ställa in den på `false` för att pausa stegvis bearbetning medan andra resurs intensiva åtgärder, till exempel indexera nya dokument, pågår och sedan vända tillbaka till `true` senare.
++ Egenskapen `enableReprocessing` Boolean är valfri (`true` som standard) och anger att den stegvisa anrikningen är aktive rad. När det behövs kan du ställa in det på `false` för att pausa stegvis bearbetning medan andra resurs intensiva åtgärder, till exempel indexera nya dokument, pågår och sedan vända tillbaka till `true` senare.
 
 ```json
 {
@@ -83,7 +85,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### <a name="step-4-save-the-updated-definition"></a>Steg 4: Spara den uppdaterade definitionen
 
-Uppdatera Indexer-definitionen med en Request-begäran ska bröd texten i begäran innehålla den uppdaterade index definitions definitionen som har egenskapen cache. Om du får en 400 kontrollerar du indexerings definitionen för att se till att alla krav är uppfyllda (data källa, färdigheter, index).
+[Uppdatera indexeraren](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) med en Request-begäran ska bröd texten i begäran innehålla den uppdaterade index definitions definitionen som har egenskapen cache. Om du får en 400 kontrollerar du indexerings definitionen för att se till att alla krav är uppfyllda (data källa, färdigheter, index).
 
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
@@ -109,9 +111,9 @@ Om du nu utfärdar en annan GET-begäran på indexeraren, kommer svaret från tj
 
 ### <a name="step-5-run-the-indexer"></a>Steg 5: köra indexeraren
 
-Om du vill köra indexerare kan du också använda portalen. Välj indexeraren från listan indexerare och klicka på **Kör**. En fördel med att använda portalen är att du kan övervaka status för indexerare, anteckna varaktigheten för jobbet och hur många dokument som bearbetas. Portal sidor uppdateras en gång i minuten.
+Om du vill köra indexerare kan du använda portalen eller API: et. I portalen går du till listan Indexer och väljer indexeraren och klickar på **Kör**. En fördel med att använda portalen är att du kan övervaka status för indexerare, anteckna varaktigheten för jobbet och hur många dokument som bearbetas. Portal sidor uppdateras en gång i minuten.
 
-Du kan också använda REST för att köra indexeraren:
+Du kan också använda REST för att [köra indexeraren](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2019-05-06-Preview
@@ -127,13 +129,13 @@ När indexeraren har körts kan du hitta cachen i Azure Blob Storage. Behållare
 
 ### <a name="step-6-modify-a-skillset-and-confirm-incremental-enrichment"></a>Steg 6: ändra en färdigheter och bekräfta stegvis anrikning
 
-Om du vill ändra en färdigheter kan du använda portalen för att redigera JSON-definitionen. Om du till exempel använder text översättning räcker det med en enkel infogad ändring från `en` till `es` eller ett annat språk för koncept bevis testning av stegvis anrikning.
+Om du vill ändra en färdigheter kan du använda portalen eller API: et. Om du till exempel använder text översättning räcker det med en enkel infogad ändring från `en` till `es` eller ett annat språk för koncept bevis testning av stegvis anrikning.
 
 Kör indexeraren igen. Endast de delar av ett fördjupat dokument träd uppdateras. Om du har använt [portalen för snabb start](cognitive-search-quickstart-blob.md) som POC, ändrar text översättning till "es", ser du att endast åtta dokument uppdateras i stället för de ursprungliga 14. Bildfiler som inte påverkas av översättnings processen återanvänds från cachen.
 
 ## <a name="enable-caching-on-new-indexers"></a>Aktivera cachelagring på nya indexerare
 
-Om du vill ställa in stegvisa anrikning för en ny indexerare behöver du bara ta med `cache`-egenskapen i indexets definitions nytto Last när du anropar [skapa indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer). Kom ihåg att ange `2019-05-06-Preview` versionen av API: et när du skapar en indexerare med den här egenskapen. 
+Om du vill ställa in stegvisa anrikning för en ny indexerare måste du ta med egenskapen `cache` i definitions nytto lasten indexerare vid anrop av [skapa indexerare (2019-05-06-för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer). 
 
 
 ```json
@@ -167,10 +169,10 @@ I följande tabell sammanfattas hur olika API: er relaterar till cachen:
 
 | API           | Inverkan på cache     |
 |---------------|------------------|
-| [Skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) | Skapar och kör en indexerare vid första användningen, inklusive att skapa en cache om din Indexer-definition anger den. |
-| [Köra indexerare](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Kör en anriknings pipeline på begäran. Detta API läser från cachen om det finns eller skapar en cache om du har lagt till cachelagring i en uppdaterad index definition. När du kör en indexerare som har cachelagring aktiverat utelämnar indexeraren steg om cachelagrade utdata kan användas. |
-| [Återställ indexerare](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Rensar indexeraren för all stegvis indexerings information. Nästa indexerare körs (antingen på begäran eller schema) är fullständig ombearbetning från grunden, inklusive att köra om alla kunskaper och återskapa cacheminnet. Den fungerar som likvärdig för att ta bort indexeraren och återskapa den. |
-| [Återställ kunskaper](preview-api-resetskills.md) | Anger vilka kunskaper som ska köras igen vid nästa indexerare, även om du inte har ändrat några kunskaper. Cachen uppdateras i enlighet med detta. Utdata, t. ex. ett kunskaps lager eller sökindex, uppdateras med återanvändbara data från cachen plus nytt innehåll per uppdaterad kunskap. |
+| [Skapa indexerare (2019-05-06-för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) | Skapar och kör en indexerare vid första användningen, inklusive att skapa en cache om din Indexer-definition anger den. |
+| [Köra indexerare](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Kör en anriknings pipeline på begäran. Detta API läser från cachen om det finns eller skapar en cache om du har lagt till cachelagring i en uppdaterad index definition. När du kör en indexerare som har cachelagring aktiverat utelämnar indexeraren steg om cachelagrade utdata kan användas. Du kan använda den allmänt tillgängliga eller för hands versionen av API-versionen av detta API.|
+| [Återställ indexerare](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Rensar indexeraren för all stegvis indexerings information. Nästa indexerare körs (antingen på begäran eller schema) är fullständig ombearbetning från grunden, inklusive att köra om alla kunskaper och återskapa cacheminnet. Den fungerar som likvärdig för att ta bort indexeraren och återskapa den. Du kan använda den allmänt tillgängliga eller för hands versionen av API-versionen av detta API.|
+| [Återställ kunskaper (2019-05-06 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) | Anger vilka kunskaper som ska köras igen vid nästa indexerare, även om du inte har ändrat några kunskaper. Cachen uppdateras i enlighet med detta. Utdata, t. ex. ett kunskaps lager eller sökindex, uppdateras med återanvändbara data från cachen plus nytt innehåll per uppdaterad kunskap. |
 
 Mer information om hur du styr vad som händer med cachen finns i [Cache Management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

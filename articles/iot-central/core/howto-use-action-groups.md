@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: cc89033cedcdf185ce7e18c3981045e2a20569f5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1992b8925d5d9ba59c36452187f5b6eb510e72dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952178"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990818"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Gruppera flera åtgärder för att köra från en eller flera regler
 
@@ -25,7 +25,7 @@ I Azure IoT Central skapar du regler för att köra åtgärder när ett villkor 
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett program som du betalar per användning
+- Ett program som skapats med en standard pris plan
 - Ett Azure-konto och-prenumeration för att skapa och hantera Azure Monitor åtgärds grupper
 
 ## <a name="create-action-groups"></a>Skapa åtgärdsgrupper

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a9d008406e59c66a8b742194e2e2d388c778ac9e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289466"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989356"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: vanliga frågor
 
@@ -62,14 +62,14 @@ Du identifierar det verktyg som du behöver och lägger till det i ett Azure Mig
 - I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget med Azure Migrate.
 Du kan centralt spåra din migrerings resa från Azure Migrate-projektet, via Azure och andra verktyg.
 
-### <a name="how-do-i-delete-a-project"></a>Hur gör jag för att ta bort ett projekt?
+## <a name="how-do-i-delete-a-project"></a>Hur gör jag för att ta bort ett projekt?
 
 [Lär dig hur du](how-to-delete-project.md) tar bort ett projekt. 
 
 
+## <a name="do-machines-retain-domain-identity-after-migration"></a>Behåller datorer domän identitet efter migrering?
 
-
-
+Förutsatt att domän tjänsterna är [integrerade i Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/)behålls domän medlemskap och dator identitet i domänen efter migreringen. 
 
 ## <a name="next-steps"></a>Nästa steg
 Läs [Azure Migrate översikt](migrate-services-overview.md).

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c50edb03fe849c70596c0bfb3cdc2dafa15f136f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480208"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982797"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -77,6 +77,7 @@ Följande inställningar kan användas för att konfigurera kodgenerering och un
 | CodeLength | Inga | Längden på koden. Standardvärdet är `6`. |
 | CharacterSet | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
 | NumRetryAttempts | Inga | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `GenerateCode`eller `VerifyCode`. |
 | ReuseSameCode | Inga | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="returning-error-message"></a>Returnerar fel meddelande

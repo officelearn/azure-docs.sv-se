@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435005"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987602"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Utöka Azure IoT Central med anpassade regler med hjälp av Stream Analytics, Azure Functions och SendGrid
 
@@ -40,7 +40,7 @@ Skapa ett IoT Central-program på webbplatsen för [Azure IoT Central Applicatio
 
 | Inställning | Värde |
 | ------- | ----- |
-| Betalnings plan | Användningsbaserad betalning |
+| Pris plan | Standard |
 | Programmall | Äldre program |
 | Programnamn | Acceptera standardvärdet eller Välj ditt eget namn |
 | URL | Acceptera standardvärdet eller Välj ditt eget unika URL-prefix |
@@ -67,7 +67,7 @@ Använd [Azure Portal för att skapa ett Event Hubs-namnområde](https://portal.
 | Location | USA, östra |
 | Dataflödesenheter | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics-jobb
+### <a name="stream-analytics-job"></a>Stream Analytics jobb
 
 Använd [Azure Portal för att skapa ett Stream Analytics jobb](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) med följande inställningar:
 
@@ -90,10 +90,10 @@ Använd [Azure Portal för att skapa en Function-app](https://portal.azure.com/#
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | OS | Windows |
-| Värdplan | Förbrukningsplan |
+| Värd plan | Förbrukningsplan |
 | Location | USA, östra |
-| Körningsstack | .NET |
-| Storage | Skapa ny |
+| Körnings stack | .NET |
+| Lagring | Skapa ny |
 
 ### <a name="sendgrid-account"></a>SendGrid-konto
 
@@ -102,7 +102,7 @@ Använd [Azure Portal för att skapa ett SendGrid-konto](https://portal.azure.co
 | Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj ditt SendGrid-konto namn |
-| lösenord | Skapa ett lösen ord |
+| Lösenord | Skapa ett lösen ord |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Prisnivå | F1 Kostnadsfri |

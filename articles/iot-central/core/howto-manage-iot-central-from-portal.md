@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e206d9a1b14fc8ff1b92e4eb7217824d81212cf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435011"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990185"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Hantera IoT Central från Azure Portal
 
@@ -50,7 +50,6 @@ Du kan skapa IoT Central program med allmänt tillgängliga funktioner genom att
 > [!NOTE]
 > För hands versions programmen är för närvarande endast tillgängliga i **Europa** och **USA** platser.
 
-![Hanterings Portal: skapa IoT Central resurs](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 När du har fyllt i alla fält väljer du **skapa**.
 
@@ -59,7 +58,7 @@ När du har fyllt i alla fält väljer du **skapa**.
 Om du redan har ett Azure IoT Central-program kan du ta bort det eller flytta det till en annan prenumeration eller resurs grupp i Azure Portal.
 
 > [!NOTE]
-> Du kan inte se test program i Azure Portal eftersom de inte är associerade med din prenumeration.
+> Du kan inte se program som skapats i den kostnads fria pris planen i Azure Portal eftersom de inte är associerade med din prenumeration.
 
 Kom igång genom att välja **alla resurser** i huvud fönstret till vänster. Använd sökrutan för att ange namnet på programmet för att hitta det i listan över resurser. Välj sedan det IoT Central program som du vill hantera.
 

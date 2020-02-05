@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 963572e19be71bf572357aadeee443696210a262
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546358"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984973"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -1236,7 +1236,7 @@ Azure Machine Learning SDK för python v-1.0.30 har släppts.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning data prep SDK v 1.1.2
 
-Obs! data prepare för prepare installation kommer inte längre att installeras `numpy` och `pandas` paket. Se [uppdaterade installations anvisningar](https://aka.ms/aml-data-prep-installation).
+Obs! data prepare för prepare installation kommer inte längre att installeras `numpy` och `pandas` paket. Se [uppdaterade installations anvisningar](https://github.com/Microsoft/AMLDataPrepDocs).
 
 + **Nya funktioner**
   + Nu kan du använda Pivot-transformeringen.
@@ -1417,11 +1417,11 @@ Obs! data prepare för prepare installation kommer inte längre att installeras 
 + Ny dra och släpp diagram upplevelse för rapporter. Användare kan dra en kolumn eller ett attribut från det till diagram området där systemet automatiskt väljer en lämplig diagram typ för användaren baserat på typen av data. Användare kan ändra diagram typ till andra tillämpliga typer eller lägga till ytterligare attribut.
 
     Diagram typer som stöds:
-    - Linjediagram
+    - Linje diagram
     - Histogram
     - Liggande stapeldiagram
     - Låddiagram
-    - Punktdiagram
+    - Punkt diagram
     - Bubbeldiagram
 + Portalen genererar nu dynamiskt rapporter för experiment. När en användare skickar en körning till ett experiment genereras en rapport automatiskt med de inloggade måtten och graferna för att tillåta jämförelse mellan olika körningar.
 

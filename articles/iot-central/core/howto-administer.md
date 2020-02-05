@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4c729d2502464df021df4d03e989d489b2d1ecea
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 89c4dd294cbbf0953545e1055e32adfc5f7cce28
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954596"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990801"
 ---
 # <a name="manage-your-iot-central-application"></a>Hantera ditt IoT Central program
 
@@ -40,9 +40,9 @@ Information om hur du ändrar program avbildningen finns i [förbereda och ladda
 
 ## <a name="copy-an-application"></a>Kopiera ett program
 
-Du kan skapa en kopia av alla program, minus enhets instanser, enhets data historik och användar data. Kopieringen är ett program som du betalar per användning som du debiteras för. Du kan inte skapa ett utvärderings program på det här sättet.
+Du kan skapa en kopia av alla program, minus enhets instanser, enhets data historik och användar data. I kopian används en standard pris plan som du debiteras för. Du kan inte skapa ett program som använder den kostnads fria pris Planen på det här sättet.
 
-Välj **Kopiera**. I dialog rutan anger du information för det nya programmet betala per användning. Välj sedan **Kopiera** för att bekräfta att du vill fortsätta. Lär dig mer om fälten i det här formuläret i skapa snabb start för [program](quick-deploy-iot-central.md) .
+Välj **Kopiera**. I dialog rutan anger du information om det nya programmet. Välj sedan **Kopiera** för att bekräfta att du vill fortsätta. Lär dig mer om fälten i det här formuläret i skapa snabb start för [program](quick-deploy-iot-central.md) .
 
 ![Sidan program inställningar](media/howto-administer/appcopy2.png)
 
@@ -71,7 +71,7 @@ Du hittar exempel på hur du kan använda Azure Resource Manager SDK: er på [ht
 
 Mer information finns i följande GitHub-databaser och paket:
 
-| Språk | Lagrings platsen | Paket |
+| Språk | Lagringsplats | Paket |
 | ---------| ---------- | ------- |
 | Nod | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: b88327ea0b5d2958cc1c86fa317415f2441af894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7fe1c2f74ca2a7b0fa4aefad934c45edd6f85a73
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494477"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990449"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Ansluta med SSH till en virtuell Linux-dator med Azure skydds
 
@@ -27,13 +27,24 @@ Den privata SSH-nyckeln måste vara i ett format som börjar med `"-----BEGIN RS
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. Mer information finns i [skapa en Azure skydds-värd](bastion-create-host-portal.md). När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det här virtuella nätverket. När du använder skydds för att ansluta antar det att du använder RDP för att ansluta till en virtuell Windows-dator och SSH för att ansluta till dina virtuella Linux-datorer.
+Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella nätverk där den virtuella datorn finns. Mer information finns i [skapa en Azure skydds-värd](bastion-create-host-portal.md). När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella nätverket kan du använda den för att ansluta till en virtuell dator i det här virtuella nätverket. 
+
+När du använder skydds för att ansluta antar det att du använder RDP för att ansluta till en virtuell Windows-dator och SSH för att ansluta till dina virtuella Linux-datorer. Information om hur du ansluter till en virtuell Windows-dator finns i [ansluta till en VM-Windows](bastion-connect-vm-rdp.md).
+
+### <a name="required-roles"></a>Nödvändiga roller
 
 Följande roller krävs för att upprätta en anslutning:
 
 * Rollen läsare på den virtuella datorn
 * Rollen läsare på NÄTVERKSKORTet med den virtuella datorns privata IP-adress
 * Läsar roll på Azure skydds-resursen
+
+### <a name="ports"></a>Portar
+
+För att kunna ansluta till den virtuella Linux-datorn via SSH måste du ha följande portar öppna på den virtuella datorn:
+
+* Inkommande port: SSH (22)
+
 
 ## <a name="username"></a>Anslut: Använd användar namn och lösen ord
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Azure AD SAML Toolkit | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Azure AD SAML Toolkit | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Azure AD SAML Toolkit.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e5790a036a93c947a79bc2848e7be6febf30b6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122060"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983902"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Azure AD SAML Toolkit
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Azure AD SAML Toolkit
 
 I den här självstudien får du lära dig hur du integrerar Azure AD SAML Toolkit med Azure Active Directory (Azure AD). När du integrerar Azure AD SAML Toolkit med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Azure AD SAML Toolk
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med Azure AD SAML Toolkit slutför
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera Azure AD SAML Toolkit SSO](#configure-azure-ad-saml-toolkit-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa test användare i Azure AD SAML Toolkit](#create-azure-ad-saml-toolkit-test-user)** – om du vill ha en motsvarighet till B. Simon i Azure AD SAML Toolkit som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -76,21 +76,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan för **Azure AD SAML Toolkit** -programintegration i [Azure Portal](https://portal.azure.com/), letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna. Du kan hämta inställningar med hjälp av SAML Toolkit SAML-konfigurations sidan. 
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. På sidan **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://samltoolkit.azurewebsites.net/`
+    a. I rutan **Inloggnings-URL** anger du en URL: `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://samltoolkit.azurewebsites.net`
 
-    c. I textrutan **Svars-URL** skriver du en URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. Skriv en URL i textrutan **Svars-URL**: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/certificateraw.png)
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
 1. I avsnittet **Konfigurera Azure AD SAML Toolkit** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -101,14 +101,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Azure AD SAML Toolkit.
 
@@ -116,7 +116,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **Azure AD SAML Toolkit**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -160,7 +160,7 @@ I det här avsnittet skapas en användare som heter B. Simon i Azure AD SAML Too
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Azure AD SAML Toolkit på åtkomst panelen, bör du loggas in automatiskt på Azure AD SAML Toolkit som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

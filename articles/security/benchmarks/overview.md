@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2d12fa85fbc134ba2578795619db89f4a5058b26
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934750"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990597"
 ---
-# <a name="overview-of-azure-security-controls"></a>Översikt över Azures säkerhets kontroller
+# <a name="overview-of-azure-security-controls"></a>Översikt över Azure-säkerhetskontroller
 
 Azures säkerhets benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data på Azure.
 
@@ -26,7 +26,7 @@ Följande kontroller används i Azures säkerhets benchmark:
 - [Nätverks säkerhet](security-control-network-security.md)
 - [Loggning och övervakning](security-control-logging-monitoring.md)
 - [Identitets-och Access Control](security-control-identity-access-control.md)
-- [Dataskydd](security-control-data-protection.md)
+- [Data skydd](security-control-data-protection.md)
 - [Sårbarhets hantering](security-control-vulnerability-management.md)
 - [Inventering och till gångs hantering](security-control-inventory-asset-management.md)
 - [Säker konfiguration](security-control-secure-configuration.md)
@@ -51,4 +51,5 @@ Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets
 ## <a name="next-steps"></a>Efterföljande moment
 
 - Se den första säkerhets kontrollen: [nätverks säkerhet](security-control-network-security.md)
+- Läs [introduktionen till Azure Security benchmark](introduction.md)
 - Hämta [Excel-kalkylbladet för Azure Security benchmark v1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

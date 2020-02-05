@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 98c8db4e4b866879a437d1ffad6668cbae42fcdf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933593"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986248"
 ---
 # <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
@@ -49,7 +49,7 @@ map.sources.add(datasource);
 //Load a dataset of points, in this case earthquake data from the USGS.
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
 
-//Create a heatmap and add it to the map.
+//Create a heat map and add it to the map.
 map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
   radius: 10,
   opacity: 0.8
@@ -108,14 +108,12 @@ Se den <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>inkonsekventa den klic
 
 > [!TIP]
 > När du aktiverar klustring på data källan grupperas punkter som är nära varandra grupperade tillsammans som en klustrad punkt. Du kan använda antalet punkter för varje kluster som värme kartans vikt uttryck. Detta kan avsevärt minska antalet poäng som ska återges. Antalet poäng i ett kluster lagras i en `point_count`-egenskap för punkt funktionen: 
-
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
-
-> Om den klustrade radien bara är några få pixlar, finns det en liten visuell skillnad i åter givningen. En större RADIUS-grupp ger fler punkter i varje kluster och förbättrar prestandan för termisk karta.
+> Om den klustrade radien bara är några få pixlar, skulle det finnas en liten visuell skillnad i åter givningen. En större RADIUS-grupp ger fler punkter i varje kluster och förbättrar prestandan för termisk karta.
 
 ## <a name="next-steps"></a>Nästa steg
 

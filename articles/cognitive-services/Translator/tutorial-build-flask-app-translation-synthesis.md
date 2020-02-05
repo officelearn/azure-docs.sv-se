@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978466"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984175"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
 
@@ -128,7 +128,7 @@ Begär Anden är en populär modul som används för att skicka HTTP 1,1-begära
    ```
 
 > [!NOTE]
-> Om du vill veta mer om begär Anden, se [förfrågningar: http för människor](http://docs.python-requests.org/en/master/).
+> Om du vill veta mer om begär Anden, se [förfrågningar: http för människor](https://2.python-requests.org/en/master/).
 
 ### <a name="install-and-configure-flask"></a>Installera och konfigurera en kolv
 

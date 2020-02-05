@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: c2d6e3e42c581c255f207af4a5008e2d09c50a7d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 1a413ce55604ef8b5c3219e8de466fcc23d41bac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887129"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990949"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program
 
@@ -185,7 +185,7 @@ Tänk på följande viktiga överväganden när du överväger Azure NetApp File
 Först måste du skapa Azure NetApp Files volymerna. Distribuera de virtuella datorerna. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolerna.
 
 1. Skapa en resursgrupp
-1. Skapa ett virtuellt nätverk
+1. Skapa en Virtual Network
 1. Skapa en tillgänglighets uppsättning för ASCS  
    Ange Max uppdaterings domän
 1. Skapa virtuell dator 1  
@@ -341,7 +341,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    </code></pre>
 
    > [!NOTE]
-   > Använd inte bindestreck i värd namnen för klusternoderna. Annars fungerar inte klustret. Detta är en känd begränsning och SUSE arbetar på en lösning. Korrigeringen kommer att publiceras som en korrigering av SAP-SUSE-Cloud-Connector-paketet.
+   > Det kända problemet med att använda ett bindestreck i värdnamn korrigeras med version **3.1.1** av paketet **SAP-SUSE-Cluster-Connector**. Kontrol lera att du använder minst version 3.1.1 av paketet SAP-SUSE-Cluster-Connector, om du använder klusternoder med bindestreck i värd namnet. Annars fungerar inte klustret. 
 
    Se till att du har installerat den nya versionen av SAP SUSE Cluster Connector. Den gamla har anropats sap_suse_cluster_connector och den nya kallas **SAP-SUSE-Cluster-Connector**.
 

@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 446784155cf6f72cfaa80523ed3913eacc7e5cfc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513138"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988098"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ansluta till en skalnings uppsättning för virtuella datorer med hjälp av Azure skydds
 
@@ -26,7 +26,7 @@ Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella n�
 
 1. Öppna [Azure-portalen](https://portal.azure.com). Navigera till den skalnings uppsättning för virtuella datorer som du vill ansluta till.
 
-   ![Sökning](./media/bastion-connect-vm-scale-set/1.png)
+   ![sökning](./media/bastion-connect-vm-scale-set/1.png)
 2. Gå till den instans av skalnings uppsättningen för virtuell dator som du vill ansluta till och välj sedan **Anslut**. När du använder en RDP-anslutning bör skalnings uppsättningen för den virtuella datorn vara en skalnings uppsättning för virtuella Windows-datorer.
 
    ![skalnings uppsättning för virtuell dator](./media/bastion-connect-vm-scale-set/2.png)
@@ -35,7 +35,7 @@ Kontrol lera att du har konfigurerat en Azure skydds-värd för det virtuella n�
    ![Fliken skydds](./media/bastion-connect-vm-scale-set/3.png)
 4. På fliken skydds anger du användar namn och lösen ord för skalnings uppsättningen för den virtuella datorn och väljer sedan **Anslut**.
 
-   ![ansluta](./media/bastion-connect-vm-scale-set/4.png)
+   ![connect](./media/bastion-connect-vm-scale-set/4.png)
 5. RDP-anslutningen till den virtuella datorn via skydds öppnas direkt i Azure Portal (via HTML5) med port 443 och skydds-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d31ef856103d809fc02a183603bc45f9d94939c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112633"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990578"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten förbrukning i IoT Central
 
@@ -66,9 +66,10 @@ Så här skapar du ett nytt program för övervakning av Azure IoT Central vatte
 
     ![Sidan Skapa program i Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
 
+    ![Azure IoT Central skapa program fakturerings information](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 6. Nu har du skapat en app för övervakning av dricks-appar med hjälp av mallen Azure IoT Central **vattenförbruknings övervakning** .
 
-Gratulerar! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
+Grattis! Du är klar med att skapa ett program för övervakning av vatten kvalitet, som medföljer förkonfigurerat:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierade vatten flöden och ventiler för ventilbaserade enheter
 * Simulerade vatten flöden och smarta ventil enheter
@@ -126,7 +127,7 @@ Programmet för **övervakning av vattenförbrukning** levereras med två refere
 Så här visar du enhets mal len:
 
 1. Klicka på **mallar för enheter** i det vänstra navigerings fönstret i programmet i IoT Central. 
-    I listan mallar för enheter visas två **flödes mätare** för enhets mätare och **smarta ventiler**
+    I listan mallar för enheter visas två **flödes mätare** för enhets mallar och **smarta ventiler**
 
    ![Enhets mall](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 

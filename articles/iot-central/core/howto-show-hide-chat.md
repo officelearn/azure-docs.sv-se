@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f858e0dd475361ff097f5a05ae01df2af00e4eca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827407"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990002"
 ---
 # <a name="toggle-live-chat"></a>Växla livechatt
 
 Den här instruktions artikeln visar hur du växlar Live Chat i IoT Central-programmet. Du kan använda Live Chat för att få åtkomst till teknisk support.
 
 > [!NOTE]
-> Alternativet Chat är bara tillgängligt för utvärderings prenumerationer.
+> Alternativet chatt är bara tillgängligt för program som skapats med kostnads fri pris sättnings plan.
 
 ## <a name="chat-with-us"></a>Chatta med oss
 

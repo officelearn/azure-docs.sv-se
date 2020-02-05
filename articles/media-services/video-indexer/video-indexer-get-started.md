@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 01/13/2020
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1f3d442ea7cf6d95427aaa9c072410119e2735af
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941560"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989815"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
@@ -49,15 +49,17 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 
     När Video Indexer är klar med analysen får du ett meddelande med en länk till videon och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="see-also"></a>Se också
 
 Mer information finns i [Ladda upp och indexera videor](upload-index-videos.md) .
 
 När du har laddat upp och indexerat en video kan du börja använda [video Indexer](video-indexer-view-edit.md) webbplats eller [video Indexer Developer-portalen](video-indexer-use-apis.md) för att se insikterna för videon. 
 
-## <a name="see-also"></a>Se också
+[Börja använda API: er](video-indexer-use-apis.md)
 
-[Översikt över Video Indexer](video-indexer-overview.md)
+## <a name="next-steps"></a>Nästa steg
 
-[Börja använda API:er](video-indexer-use-apis.md).
+Detaljerad introduktion finns i [introduktions labbet](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md). 
+
+I slutet av workshopen får du en god förståelse för vilken typ av information som kan extraheras från video-och ljud innehåll, men du är mer beredd på att identifiera affärs möjligheter som rör innehålls intelligens, öka video AI på Azure och demonstrera flera scenarier för Video Indexer.
 

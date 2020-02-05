@@ -9,21 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 36914240caf3c1321dfa0102bd87cb29173f8b1d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f01e07ea2bbfd0f6b3b0cc19dd219d71984a0d45
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911054"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988574"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Lägg till ett polygon extrusion-lager på kartan
 
-Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden i `Polygon` och `MultiPolygon` funktions Geometries som extruderade former på kartan. Azure Maps Web SDK stöder även skapande av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar omvandlas till polygoner när de återges på kartan. Alla funktioner Geometries kan också enkelt uppdateras om de omslutits med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
-
+Den här artikeln visar hur du använder polygon extrusion-lagret för att återge områden i `Polygon` och `MultiPolygon` funktions Geometries som extruderade former. Azure Maps Web SDK stöder åter givning av cirkel-Geometries som definierats i det [utökade INTERjson-schemat](extend-geojson.md#circle). Dessa cirklar kan omvandlas till polygoner när de återges på kartan. Alla funktioner i Geometries kan uppdateras enkelt vid omslutning med [atlasen. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) -klass.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Använda ett polygon extrusion-lager
 
-När ett [polygon-extrusion-lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) är anslutet till data källan och läses in på kartan, återges områdena i en `Polygon` och `MultiPolygon` funktioner som extruderade former. Egenskaperna `height` och `base` för polygon extrusion-lagret definierar bas avståndet från den djupade formens och höjden i **meter**. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med hjälp av skikt klassen polygon extrusion.
+Anslut [polygon extrusion-skiktet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) till en data källa. Sedan läser du in den på kartan. Polygon extrusion-lagret återger områdena i en `Polygon` och `MultiPolygon` funktioner som extruderade former. Egenskaperna `height` och `base` för polygon extrusion-lagret definierar bas avståndet från den djupade formens och höjden i **meter**. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med hjälp av skikt klassen polygon extrusion.
 
 > [!Note]
 > `base` svärdet som definieras i polygon extrusion-lagret ska vara mindre än eller lika med `height`.
@@ -34,9 +33,9 @@ När ett [polygon-extrusion-lager](https://docs.microsoft.com/javascript/api/azu
 Se Penn <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>förskjutande polygon</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.</iframe>
 
 
-## <a name="add-data-driven-multipolygons"></a>Lägg till data drivna multipolygoner
+## <a name="add-data-driven-polygons"></a>Lägg till data drivna polygoner
 
-En choropleth-karta kan återges med hjälp av polygon extrusion-lagret genom att ställa in dess `height` och `fillColor` egenskaper i proportion till måttet för den statistiska variabeln i `Polygon` och `MultiPolygon` funktionen Geometries. I följande kod exempel visas en extruderad choropleth karta för U. S baserat på måttet för populationens densitet per tillstånd.
+En choropleth-karta kan återges med hjälp av polygon extrusion-lagret. Ange `height`-och `fillColor` egenskaperna för extrusion-lagret till måttet för den statistiska variabeln i `Polygon` och `MultiPolygon` funktionen Geometries. I följande kod exempel visas en extruderad choropleth karta för U. S baserat på måttet för populationens densitet per tillstånd.
 
 <br/>
 
@@ -62,7 +61,7 @@ Azure Maps använder en utökad version av det injson-schema som tillhandahålle
 } 
 ```
 
-Azure Maps Web SDK konverterar dessa `Point`s funktioner till `Polygon` funktioner under huven och kan återges på kartan med polygon extrusion-skiktet som visas i följande kod exempel.
+Azure Maps Web SDK konverterar dessa `Point`s funktioner till `Polygon` funktioner under huven. Dessa `Point` funktioner kan återges på kartan med polygon extrusion-skiktet som visas i följande kod exempel.
 
 <br/>
 
@@ -72,7 +71,7 @@ Se <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>polygon drönare-luft rumm
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>Anpassa ett polygon extrusion-lager
 
-Polygonen extrusion skikt flera format alternativ. Här är ett verktyg för att testa dem.
+Polygon extrusion-lagret har flera format alternativ. Här är ett verktyg för att testa dem.
 
 <br/>
 

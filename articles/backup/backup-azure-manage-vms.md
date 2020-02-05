@@ -4,12 +4,12 @@ description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopier
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 3c4c4341286b7ee4f382192d291e08c83ff64994
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dd4e9dc199048b3faf3da0cadfdf60bdcb26c5bc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172977"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989696"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -33,24 +33,24 @@ Visa virtuella datorer på valv-instrument panelen:
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. På menyn hubb väljer du **Bläddra**. I listan över resurser skriver du **Recovery Services**. När du skriver filtreras listan baserat på din inaktuella information. Välj **Recovery Services valv**.
 
-    ![Skapa ett Recovery Services-valv](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
+    ![skapar ett Recovery Services-valv](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. För enkel användning högerklickar du på valvet och väljer **Fäst på instrument panelen**.
 4. Öppna instrument panelen för valvet.
 
-    ![Öppna bladet valv-instrumentpanel och inställningar](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![Öppna panelen för valv-instrumentpanel och inställningar](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 5. På panelen **säkerhets kopierings objekt** väljer du **Azure Virtual Machines**.
 
     ![Öppna panelen säkerhets kopierings objekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. På bladet **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer. I det här exemplet skyddar valvet en virtuell dator: demobackup.  
+6. I rutan **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer. I det här exemplet skyddar valvet en virtuell dator: demobackup.  
 
-    ![Visa bladet säkerhets kopierings objekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Visa fönstret säkerhets kopierings objekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
 7. Ändra säkerhets kopierings principer från valv objektets instrument panel, kör en säkerhets kopiering på begäran, stoppa eller återupptar skyddet av virtuella datorer, ta bort säkerhetskopierade data, Visa återställnings punkter och kör en återställning.
 
-    ![Instrument panelen för säkerhets kopierings objekt och bladet inställningar](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![Instrument panelen för säkerhets kopierings objekt och fönstret inställningar](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
 ## <a name="manage-backup-policy-for-a-vm"></a>Hantera säkerhets kopierings princip för en virtuell dator
 
@@ -61,9 +61,9 @@ Så här hanterar du en säkerhets kopierings princip:
 
     ![Öppna panelen säkerhets kopierings objekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. På bladet **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer och senaste säkerhets kopierings status med tiden för senaste återställnings punkter.
+3. I rutan **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer och senaste säkerhets kopierings status med tiden för senaste återställnings punkter.
 
-    ![Visa bladet säkerhets kopierings objekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Visa fönstret säkerhets kopierings objekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
 4. Från valv objektets instrument panel kan du välja en säkerhets kopierings princip.
 
@@ -85,8 +85,8 @@ Så här utlöser du en säkerhets kopiering på begäran:
 
     ![Alternativet Säkerhetskopiera nu](./media/backup-azure-manage-vms/backup-now-button.png)
 
-2. Välj **virtuell Azure-dator**från **typ av säkerhets kopierings hantering**. Bladet **säkerhets kopierings objekt (virtuell Azure-dator)** visas.
-3. Välj en virtuell dator och välj **Säkerhetskopiera nu** för att skapa en säkerhets kopiering på begäran. Bladet **Säkerhetskopiera nu** visas.
+2. Välj **virtuell Azure-dator**från **typ av säkerhets kopierings hantering**. Fönstret **säkerhets kopierings objekt (virtuell Azure-dator)** visas.
+3. Välj en virtuell dator och välj **Säkerhetskopiera nu** för att skapa en säkerhets kopiering på begäran. Fönstret **Säkerhetskopiera nu** visas.
 4. I fältet **Behåll säkerhets kopian** till anger du ett datum då säkerhets kopian ska behållas.
 
     ![Kalendern Säkerhetskopiera nu](./media/backup-azure-manage-vms/backup-now-check.png)
@@ -128,7 +128,7 @@ Stoppa skyddet och ta bort data för en virtuell dator:
 
 ## <a name="resume-protection-of-a-vm"></a>Återuppta skyddet av en virtuell dator
 
-Om du har valt alternativet [stoppa skydd och behåll säkerhets kopierings data](#stop-protection-and-retain-backup-data) under stoppa VM-skyddet kan du använda **återuppta säkerhets kopiering**. Det här alternativet är inte tillgängligt om du väljer alternativet [stoppa skydd och ta bort säkerhets kopierings](#stop-protection-and-delete-backup-data) data eller [tar bort säkerhetskopierade data](#delete-backup-data).
+Om du väljer alternativet [stoppa skydd och behåll säkerhets kopierings data](#stop-protection-and-retain-backup-data) under stoppa VM-skyddet kan du använda **återuppta säkerhets kopiering**. Det här alternativet är inte tillgängligt om du väljer alternativet [stoppa skydd och ta bort säkerhets kopierings](#stop-protection-and-delete-backup-data) data eller [tar bort säkerhetskopierade data](#delete-backup-data).
 
 Återuppta skyddet för en virtuell dator:
 
@@ -157,6 +157,8 @@ Det finns två sätt att ta bort en virtuell dators säkerhets kopierings data:
     ![Ta bort säkerhetskopieringsdata](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
   * Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
+
+För att skydda dina data innehåller Azure Backup funktionen för mjuk borttagning. Med mjuk borttagning, även efter att säkerhets kopieringen (alla återställnings punkter) för en virtuell dator har tagits bort, behålls säkerhets kopierings data i ytterligare 14 dagar. Mer information finns i [dokumentationen om mjuk borttagning](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
   > [!NOTE]
   > När du tar bort säkerhetskopierade data tar du bort alla tillhör ande återställnings punkter. Du kan inte välja vissa återställnings punkter att ta bort.

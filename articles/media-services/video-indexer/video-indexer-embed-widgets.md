@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ed3e2cf9830e3776886e662fd27f43f76728d6b2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545899"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988727"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -86,9 +86,9 @@ Om du vill bädda in en privat video måste du skicka en åtkomsttoken i attribu
     
 Använd något av följande för att hämta innehåll för kognitiva Insights-widgeten:<br/>
 - API för [Get Insights-widgeten](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
-- [Hämta video åtkomst-token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Lägg till den som en frågeparameter till URL: en. Ange den här URL: en som **src** -värde för iframe, som visas ovan.
+- [Hämta video åtkomst-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Lägg till den som en frågeparameter till URL: en. Ange den här URL: en som **src** -värde för iframe, som visas ovan.
 
-Om du vill ge redigerings funktioner för insikter i din inbäddade widget måste du skicka en åtkomsttoken som innehåller redigerings behörigheter. Använd [Get Insights-widgeten](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) eller [Hämta video åtkomst-token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) med `&allowEdit=true`. 
+Om du vill ge redigerings funktioner för insikter i din inbäddade widget måste du skicka en åtkomsttoken som innehåller redigerings behörigheter. Använd [Get Insights-widgeten](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) eller [Hämta video åtkomst-token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) med `&allowEdit=true`. 
 
 ## <a name="widgets-interaction"></a>Interaktion med widgetar
 
@@ -264,6 +264,23 @@ Om du vill inaktivera under texter kan du skicka värdet för `captions` paramet
 
 #### <a name="autoplay"></a>Spela
 Som standard startar spelaren uppspelning av videon. Du kan välja att inte skicka `&autoplay=false` till den tidigare inbäddnings-URL: en.
+
+## <a name="code-samples"></a>Kodexempel
+
+Se de [kod exempel](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) lagrings platsen som innehåller exempel för video INDEXER-API och widgetar:
+
+| Fil/mapp                       | Beskrivning                                |
+|-----------------------------------|--------------------------------------------|
+| `azure-media-player`              | Läsa in video Indexer-video i en anpassad Azure Media Player                        |
+| `azure-media-player-vi-insights`  | Bädda in VI insikter med en anpassad Azure Media Player                             |
+| `control-vi-embedded-player`      | Bädda in VI Player och kontrol lera den från utsidan                                    |
+| `custom-index-location`           | Bädda in VI insikter från en anpassad extern plats (kan vara kund a BLOB)     |
+| `embed-both-insights`             | Grundläggande användning av VI insikter både i spelare och insikter                            |
+| `embed-insights-with-AMP`         | Bädda in VI Insights-widget med en anpassad Azure Media Player                      |
+| `customize-the-widgets`           | Bädda in VI-widgetar med anpassade alternativ                                     |
+| `embed-both-widgets`              | Bädda in VI och insikter och kommunicera mellan dem                      |
+| `url-generator`                   | Genererar anpassad inbäddnings-URL för widget baserat på användarspecifika alternativ             |
+| `html5-player`                    | Bädda in VI insikter med en standard HTML5 Videos pelare                            |
 
 ## <a name="next-steps"></a>Nästa steg
 

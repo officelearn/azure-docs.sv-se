@@ -3,18 +3,18 @@ title: 'Självstudie: hitta en väg till en plats | Microsoft Azure Maps'
 description: Den här självstudien visar hur du återger vägen till en plats (orienterings punkt) på en karta som använder Microsoft Azure Maps-routningstjänsten.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 3fedb045773cb975d37e2d866862e7863a6232e3
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910840"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989645"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Självstudie: dirigera till en orienterings punkt med hjälp av Azure Maps
 
@@ -27,7 +27,7 @@ Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route S
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps konto prenumeration med pris nivån S1 och följer stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps). du behöver en prenumeration med pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -139,7 +139,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
     });
     ```
     
-    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg linjen samt start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Väglinjen renderas som med en fin blå nyans och en bredd på 5 bildpunkter samt rundade linjekopplingar och omslutningar. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start- och slutpunkterna renderas. I det här fallet har uttryck lagts till för att hämta information om ikonbild och textetikett från egenskaperna för varje punktobjekt. 
+    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg linjen och start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Väg linjen kommer att återges som en bra nyans av blått. Den får en bredd på fem bild punkter, rundade linje kopplingar och versaler. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start-och slut punkterna återges. I det här fallet har uttryck lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt. 
     
 2. För den här självstudien anger du startpunkt som Microsoft, och målpunkt som en bensinstation i Seattle. Lägg till följande kod i händelse hanteraren för Maps-`ready`.
 
@@ -164,7 +164,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
     });
     ```
 
-    Den här koden skapar två objekt av punkt- [JSON-plats](https://en.wikipedia.org/wiki/GeoJSON) som representerar start-och slut punkterna för vägen och lägger till punkter i data källan. Egenskaperna `title` och `icon` har lagts till i varje punkt. Det sista blocket ställer in kameravy med information om latitud och longitud för start-och slut punkterna med hjälp av kart egenskapen [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) .
+    Den här koden skapar två objekt av punkt- [JSON-plats](https://en.wikipedia.org/wiki/GeoJSON) som representerar start-och slut punkterna för vägen och lägger till punkter i data källan. Egenskaperna `title` och `icon` har lagts till i varje punkt. Det sista blocket ställer in kameravy med latitud och longitud för start-och slut punkterna med hjälp av kart [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskapen.
 
 3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu centreras kartan över Seattle och du kan se att den blå fäst punkten markerar start punkten och den runda blå PIN-koden för att markera slut punkten.
 
@@ -174,9 +174,9 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
 
 ## <a name="get-directions"></a>Hämta anvisningar
 
-Det här avsnittet visar hur du använder API för Azure Maps Route service för att hitta vägen från en viss start punkt till slut punkt. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Alla följande funktioner bör läggas till **i kart klara eventListener** för att säkerställa att de läses in efter det att kart resurserna är klara att kommas åt.
+Det här avsnittet visar hur du använder API för Azure Maps Route service. Route service-API: et hittar vägen från en viss start punkt till en slut punkt. I den här tjänsten finns API: er för att planera *snabbast*, *kortaste*, *eko*eller *thrilLing* vägar mellan två platser. Den här tjänsten gör det också möjligt för användarna att planera vägar i framtiden genom att använda Azures omfattande historiska trafik databas. Användarna kan se förutsägelsen för vägens varaktighet vid alla valda dagar och tider. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Alla följande funktioner bör läggas till **i kart klara eventListener** för att säkerställa att de läses in efter det att kart resurserna är klara att kommas åt.
 
-1. I GetMap-funktionen lägger du till följande till JavaScript-kod.
+1. I GetMap-funktionen lägger du till följande i JavaScript-koden.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

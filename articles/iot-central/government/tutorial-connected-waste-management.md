@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 38da444779a56f39d4119f3797ddb5bd2f31aeae
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 771e4a822df3e7d8eeee53174d657426bf226372
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112636"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990050"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
@@ -64,10 +64,13 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
 5. Klicka på knappen **skapa** längst ned på sidan. 
 
     ![Sidan för att skapa ett anslutet avfall i Azure IoT Central](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    
+    ![Azure IoT Central skapa ansluten fakturerings information](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
+ 
 6. Nu har du skapat en ansluten app för avfalls hantering med hjälp av **mallen Azure IoT Central ansluten avfalls hantering**. 
 
-Gratulerar! Det nyligen skapade programmet levereras med förkonfigurerade:
+Grattis! Det nyligen skapade programmet levereras med förkonfigurerade:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierad enhet med fördefinierat antal anslutna avfalls platser
 * Simulerade anslutna avfalls lager enheter
@@ -131,7 +134,7 @@ Så här visar du enhets mal len:
 
 2. I listan mallar för enhets information visas **anslutet pappers lager**. Öppna genom att klicka på namnet.
 
-3. Familirize med enhets mal len funktioner. Du kan se att den definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats* osv.
+3. Bekanta dig med funktionerna i enhets mal len. Du kan se att den definierar sensorer som *Fyllnings nivå*, *odor-mätare*, *vikt*, *plats* osv.
 
    ![Enhets mall](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 

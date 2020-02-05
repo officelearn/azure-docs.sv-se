@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: 8fda8e3079084ad917ad5a7fcfc4f80a622e2d82
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277243"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988336"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Självstudie: distribuera din app till virtuella Linux-datorer i Azure med Azure DevOps Services och Azure-pipelines
 
@@ -86,7 +86,7 @@ Följ de ytterligare stegen som beskrivs nedan baserat på körnings stacken som
 
 - För att distribuera Java våren boot och våren Cloud based Apps skapar du en virtuell Linux-dator i Azure med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) mallen, som tillhandahåller en openjdk-baserad körning som stöds fullt ut.
 - För att distribuera Java-servlets på Tomcat-servern skapar du en virtuell Linux-dator med Java 8 med hjälp av [den här](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure-mallen och [konfigurerar Tomcat 9. x som en tjänst](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- För att distribuera Java EE-baserad app använder du en Azure-mall för att skapa en [virtuell Linux-dator + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) eller en [Linux VM + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleWebLogicServer12cEnterprise) eller en [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- För att distribuera Java EE-baserad app använder du en Azure-mall för att skapa en [virtuell Linux-dator + Java + WebSphere 9. x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) eller en [Linux VM + Java + WebLogic 12. x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) eller en [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
 
 #### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
 

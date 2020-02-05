@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 22ed36c3c55d55ab9a733c2a0552f0ac3dcce1f5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453978"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987686"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -39,9 +39,11 @@ Om du vill skapa ett Azure IoT Central-program väljer du **skapa** på den vän
 
 ![Skapa program sida för kryptografiproviders](media/howto-create-application-csp/image4-1.png)
 
-## <a name="payment-plan"></a>Betalnings plan
+![Information om att skapa program sida för CSP-fakturering](media/howto-create-application-csp/image4-2.png)
 
-Du kan bara skapa "betala per användning"-program som en CSP. För att presentera Azure-IoT Central till kunden kan du skapa ett utvärderings program separat. Läs mer om utvärderings versioner och program som du betalar per användning på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+## <a name="pricing-plan"></a>Pris plan
+
+Du kan bara skapa program som använder en standard pris plan som en CSP. För att kunna presentera Azure-IoT Central till kunden kan du skapa ett program som använder den kostnads fria pris Planen separat. Läs mer om kostnads fria priser och standard priser på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Programnamn
 

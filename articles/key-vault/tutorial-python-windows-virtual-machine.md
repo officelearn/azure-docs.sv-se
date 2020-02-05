@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003865"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988387"
 ---
-# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Självstudier: Använda Azure Key Vault med en virtuell Windows-dator i python
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Självstudie: använda Azure Key Vault med en virtuell Windows-dator i python
 
 Azure Key Vault hjälper dig att skydda hemligheter, t. ex. API-nycklar, databas anslutnings strängarna som du behöver för att få åtkomst till dina program, tjänster och IT-resurser.
 
@@ -36,7 +36,7 @@ Läs [Key Vault grundläggande koncept](basic-concepts.md)innan du börjar.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För Windows, Mac och Linux:
   * [Git](https://git-scm.com/downloads)
@@ -80,7 +80,7 @@ Du använder den nya resurs gruppen i den här självstudien.
 Ange följande information för att skapa ett nyckel valv i resurs gruppen som du skapade i föregående steg:
 
 * Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror (0-9), bokstäver (a-z, A-Z) och bindestreck (-)
-* Resursgruppsnamn
+* Namn på resursgrupp
 * Plats: **USA, västra**
 
 ```azurecli
@@ -136,7 +136,7 @@ Om du vill logga in på den virtuella datorn följer du anvisningarna i [Anslut 
 
 ## <a name="create-and-run-a-sample-python-app"></a>Skapa och kör en exempel-python-app
 
-I nästa avsnitt finns en exempel fil med namnet *Sample.py*. Det använder ett [begär](http://docs.python-requests.org/en/master/) ande bibliotek för att göra HTTP GET-anrop.
+I nästa avsnitt finns en exempel fil med namnet *Sample.py*. Det använder ett [begär](https://2.python-requests.org/en/master/) ande bibliotek för att göra HTTP GET-anrop.
 
 ## <a name="edit-samplepy"></a>Redigera Sample.py
 

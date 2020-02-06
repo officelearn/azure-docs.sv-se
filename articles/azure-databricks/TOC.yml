@@ -1150,6 +1150,9 @@
             - name: Analysera prestandaproblem i användargränssnittet
               href: /azure/databricks/kb/cloud/har-log-analysis
               maintainContext: true
+            - name: Jobben fortskrider inte i arbetsytan
+              href: /azure/databricks/kb/cloud/azure-vnet-jobs-not-progressing
+              maintainContext: true
         - name: Kluster
           items:
             - name: Beräkna antalet kärnor i ett kluster
@@ -1248,6 +1251,9 @@
               maintainContext: true
             - name: Det gick inte att läsa filer i WASB
               href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
+            - name: Optimera läsprestanda från JDBC-datakällor
+              href: /azure/databricks/kb/data-sources/jdbc-optimize-read
               maintainContext: true
         - name: DBFS
           items:

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 33b000d0ca5cdd4af2ed57c5db6e71ae5a1e4c58
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215799"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030986"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive frågor i Azure HDInsight
 
@@ -29,11 +29,11 @@ Genom att öka antalet arbetsnoder i ett HDInsight-kluster kan arbetet använda 
 
 * När du skapar ett kluster kan du ange antalet arbetsnoder med hjälp av Azure Portal, Azure PowerShell eller kommando rads gränssnittet.  Mer information finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md). Följande skärm bild visar konfigurationen för arbetsnoden på Azure Portal:
   
-    ![Noder i Azure Portal kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
+    ![Noder i Azure Portal kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
 * När du har skapat kan du också redigera antalet arbetsnoder för att skala ut ett kluster ytterligare utan att skapa ett nytt:
 
-    ![Azure Portal skalnings kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![Azure Portal skalnings kluster storlek](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
 
 Mer information om hur du skalar HDInsight finns i [skala HDInsight-kluster](hdinsight-scaling-best-practices.md)
 
@@ -122,7 +122,7 @@ Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confl
 
 ## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
 
-Hive stöder olika fil format. Till exempel:
+Hive stöder olika fil format. Exempel:
 
 * **Text**: standard fil formatet och fungerar med de flesta scenarier.
 * **Avro**: fungerar bra för samverkans scenarier.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Till exempel:
+Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Exempel:
 
 ```sql
 INSERT INTO TABLE lineitem_orc

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646905"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031637"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 
@@ -157,7 +157,7 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 
 - GitHub-integrering med Data Factory visuella redigerings verktyg fungerar bara i den allmänt tillgängliga versionen av Data Factory.
 
-- Högst 1 000 entiteter per resurs typ (till exempel pipelines och data uppsättningar) kan hämtas från en enda GitHub-gren. Om den här gränsen uppnås rekommenderar vi att du delar upp resurserna i separata fabriker.
+- Högst 1 000 entiteter per resurs typ (till exempel pipelines och data uppsättningar) kan hämtas från en enda GitHub-gren. Om den här gränsen uppnås rekommenderar vi att du delar upp resurserna i separata fabriker. Azure DevOps git har inte den här begränsningen.
 
 ## <a name="switch-to-a-different-git-repo"></a>Växla till en annan git-lagrings platsen
 
@@ -187,7 +187,7 @@ När du är redo att sammanfoga ändringarna från din funktions gren till samar
 
 ### <a name="configure-publishing-settings"></a>Konfigurera publicerings inställningar
 
-För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil till rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Ett exempel:
+För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil till rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Exempel:
 
 ```json
 {
@@ -249,8 +249,13 @@ Om publicerings grenen inte är synkroniserad med huvud grenen och innehåller i
 
 1. Ta bort din aktuella git-lagringsplats
 1. Konfigurera om git med samma inställningar, men se till att **Importera befintliga data Factory resurser till databasen** är markerat och välj **ny gren**
-1. Ta bort alla resurser från samarbets grenen
 1. Skapa en pull-begäran för att slå samman ändringarna i samarbets grenen 
+
+Nedan visas några exempel på situationer som kan orsaka en inaktuell publicerings gren:
+- En användare har flera grenar. I en funktions gren tog de bort en länkad tjänst som inte är associerad med AKV (icke-AKV länkade tjänster publiceras direkt oavsett om de är i git eller inte) och sammanfogar aldrig funktions grenen till samarbets brnach.
+- En användare ändrade data fabriken med hjälp av SDK eller PowerShell
+- En användare flyttade alla resurser till en ny gren och försökte publicera för första gången. Länkade tjänster ska skapas manuellt när du importerar resurser.
+- En användare laddar upp en icke-AKV länkad tjänst eller en Integration Runtime JSON manuellt. De hänvisar till resursen från en annan resurs, till exempel en data uppsättning, en länkad tjänst eller en pipeline. En icke-AKV länkad tjänst som skapats via UX publiceras direkt eftersom autentiseringsuppgifterna måste krypteras. Om du laddar upp en data uppsättning som refererar till den länkade tjänsten och försöker publicera, så tillåter UX det eftersom det finns i git-miljön. Den kommer att avvisas vid publicerings tiden eftersom den inte finns i Data Factory-tjänsten.
 
 ## <a name="provide-feedback"></a>Ge feedback
 Välj **feedback** för att kommentera om funktioner eller meddela Microsoft om problem med verktyget:

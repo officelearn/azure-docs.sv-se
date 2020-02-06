@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 71344f954990952856f031829f13273e062b62c5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933174"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031756"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
@@ -56,7 +56,7 @@ Det här felet har två primära orsaker:
 * Olika versioner av AzureRM-moduler.
 * Du försöker komma åt resurser i en separat prenumeration.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om du får det här felet när du har uppdaterat en AzureRM-modul bör du uppdatera alla dina AzureRM-moduler till samma version.
 
@@ -106,7 +106,7 @@ Det här felet kan inträffa om:
 
 * Den Azure Active Directory användare som försöker hämta prenumerations informationen har inte kon figurer ATS som administratör för prenumerationen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Vidta följande steg för att avgöra om du har autentiserat till Azure och har åtkomst till den prenumeration som du försöker välja:
 
@@ -140,7 +140,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 Om du har Multi-Factor Authentication på ditt Azure-konto kan du inte använda en Azure Active Directory användare för att autentisera till Azure. I stället måste du använda ett certifikat eller ett huvud namn för tjänsten för att autentisera till Azure.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om du vill använda ett certifikat med de klassiska cmdletarna för distributions modellen i Azure, se [skapa och lägga till ett certifikat för att hantera Azure-tjänster](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Om du vill använda ett huvud namn för tjänsten med Azure Resource Manager-cmdletar, se [skapa tjänstens huvud namn med Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera ett huvud namn för tjänsten med Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -166,7 +166,7 @@ At line:16 char:1
 
 Det här felet orsakas av både AzureRM-och AZ-cmdletar i en Runbook. Det inträffar när du importerar `Az` innan du importerar `AzureRM`.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 AZ-och AzureRM-cmdletar kan inte importeras och används i samma Runbook. Mer information om AZ-cmdletar i Azure Automation finns i [AZ-modulens stöd i Azure Automation](../az-modules.md).
 
@@ -184,7 +184,7 @@ Exception: A task was canceled.
 
 Det här felet kan orsakas av att inaktuella Azure-moduler används.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Det här felet kan lösas genom att uppdatera dina Azure-moduler till den senaste versionen.
 
@@ -200,7 +200,7 @@ När Runbooks körs kan inte Runbook Hantera Azure-resurser.
 
 Runbooken använder inte rätt kontext vid körning.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 När du arbetar med flera prenumerationer kan prenumerations kontexten försvinna när du anropar Runbooks. För att säkerställa att prenumerations kontexten skickas till Runbooks lägger du till `AzureRmContext`-parametern i cmdleten och skickar kontexten till den. Vi rekommenderar också att du använder `Disable-AzureRmContextAutosave`-cmdlet med **process** omfånget för att säkerställa att de autentiseringsuppgifter du använder bara används för den aktuella runbooken.
 
@@ -248,7 +248,7 @@ Detta fel kan bero på följande orsaker:
 * Modulen som innehåller cmdleten importeras inte till Automation-kontot.
 * Modulen som innehåller cmdleten importeras men är inaktuell.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Det här felet kan lösas genom att utföra en av följande uppgifter:
 
@@ -280,7 +280,7 @@ Det här felet uppstår på grund av något av följande problem.
 
 * För mycket undantags data. Din Runbook försökte skriva för mycket undantags data till utdataströmmen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 * Minnes gräns, nätverks platser. Föreslagna sätt att arbeta inom minnes gränserna är att dela arbets belastningen mellan flera Runbooks, bearbeta mindre data i minnet, undvika att skriva onödiga utdata från dina runbooks och fundera över hur många kontroll punkter som skrivs in i ditt PowerShell-arbetsflöde Runbooks. Använd Clear-metoden, till exempel `$myVar.clear`, för att rensa variabler och använda `[GC]::Collect` för att köra skräp insamling direkt. De här åtgärderna minskar din Runbooks minnes storlek under körning.
 
@@ -310,7 +310,7 @@ No certificate was found in the certificate store with thumbprint
 
 Det här felet uppstår om inloggnings namnet för autentiseringsuppgiften inte är giltigt. Det här felet kan också inträffa om det användar namn och lösen ord som du använde för att konfigurera inloggnings uppgifterna för Automation inte är giltiga.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Ta reda på vad som är fel genom att följa stegen nedan:
 
@@ -365,7 +365,7 @@ Object reference not set to an instance of an object
 
 Det finns ett känt problem där start-AzureRmAutomationRunbook inte hanterar utdataströmmen korrekt om den innehåller objekt.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 För att lösa det här problemet rekommenderar vi att du implementerar en avsöknings logik och använder cmdleten [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) för att hämta utdata. Ett exempel på den här logiken definieras i följande exempel.
 
@@ -407,7 +407,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Om din Runbook är ett PowerShell-arbetsflöde lagrar den komplexa objekt i ett avserialiserat format för att bevara ditt Runbook-tillstånd om arbets flödet har pausats.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Följande tre lösningar löser problemet:
 
@@ -429,7 +429,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Felet uppstår när jobb körningen överskrider den kostnads fria kvoten på 500 minuter för ditt konto. Den här kvoten gäller för alla typer av jobb körnings aktiviteter. Vissa av dessa uppgifter kan vara att testa ett jobb, starta ett jobb från portalen, köra ett jobb genom att använda Webhooks eller schemalägga ett jobb som ska köras med hjälp av antingen Azure Portal eller i ditt data Center. Läs mer om prissättning för Automation i avsnittet om [automatiserings priser](https://azure.microsoft.com/pricing/details/automation/).
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om du vill använda mer än 500 minuters bearbetning per månad måste du ändra din prenumeration från den kostnads fria nivån till Basic-nivån. Du kan uppgradera till nivån Basic genom att utföra följande steg:
 
@@ -452,7 +452,7 @@ Ditt Runbook-jobb Miss lyckas med felet:
 
 Det här felet beror på att PowerShell-motorn inte kan hitta den cmdlet som du använder i din Runbook. Det här felet kan bero på att modulen som innehåller cmdleten saknas från kontot. det finns en namn konflikt med ett Runbook-namn, eller så finns cmdleten även i en annan modul och automation kan inte matcha namnet.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Någon av följande lösningar löser problemet:
 
@@ -477,7 +477,7 @@ Det här beteendet är avsiktligt i Azure-sand lådor på grund av "god resurs" 
 
 Runbooken kördes över den gräns på 3 timmar som tillåts av rättvis resurs i en Azure-sandbox.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 En rekommenderad lösning är att köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
@@ -505,7 +505,7 @@ När du försöker anropa en webhook för en Azure Automation Runbook får du f�
 
 Webhooken som du försöker anropa är antingen inaktive rad eller har upphört att gälla.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om webhooken är inaktive rad kan du återaktivera webhooken via Azure Portal. När en webhook har upphört att gälla måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den inte redan har gått ut.
 
@@ -523,7 +523,7 @@ Du får följande fel meddelande när du kör cmdleten `Get-AzureRmAutomationJob
 
 Det här felet kan inträffa när jobbets utdata hämtas från en Runbook som har många [utförliga data strömmar](../automation-runbook-output-and-messages.md#verbose-stream).
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Det finns två sätt att lösa det här felet:
 
@@ -544,7 +544,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Det här felet kan inträffa när du startar ett PowerShell-jobb i en Runbook som körs i Azure. Det här problemet kan uppstå eftersom Runbooks som körs i en Azure-sandbox kanske inte körs i det [fullständiga språk läget](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Det finns två sätt att lösa det här felet:
 
@@ -552,6 +552,22 @@ Det finns två sätt att lösa det här felet:
 * Om din Runbook har det här fel meddelandet kan du köra det på en Hybrid Runbook Worker
 
 Mer information om det här beteendet och andra beteenden för Azure Automation runbooks finns i [Runbook-beteende](../automation-runbook-execution.md#runbook-behavior).
+
+## <a name="scenario-linux-hybrid-runbook-worker-receives-a-prompt-for-a-password-when-signing-a-runbook"></a>Scenario: Linux Hybrid Runbook Worker tar emot ett lösen ord när en Runbook signeras
+
+### <a name="issue"></a>Problem
+
+Om du kör **sudo** -kommandot för ett Linux-hybrid Runbook Worker hämtas en oväntad prompt för ett lösen ord.
+
+### <a name="cause"></a>Orsak
+
+Nxautomationuser-kontot för Log Analytics agent för Linux har inte kon figurer ATS korrekt i sudoers-filen. Hybrid Runbook Worker behöver lämplig konfiguration av konto behörigheter och andra data så att de kan signera Runbooks på Linux Runbook Worker.
+
+### <a name="resolution"></a>Lösning
+
+* Kontrol lera att den Hybrid Runbook Worker har den körbara filen GnuPG (GPG) på datorn.
+
+* Verifiera konfigurationen av nxautomationuser-kontot i sudoers-filen. Se [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
 
 ## <a name="other"></a>Mitt problem visas inte ovan
 

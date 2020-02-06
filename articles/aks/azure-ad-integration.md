@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9a82b51083a7d31bc39c4556712c1489bad8bca0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103791"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031483"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten
 
@@ -50,13 +50,13 @@ För att tillhandahålla Azure AD-autentisering för ett AKS-kluster skapas två
 
 Det första Azure AD-programmet används för att hämta användarens medlemskap i Azure AD-gruppen. Så här skapar du programmet i Azure Portal:
 
-1. Välj **Azure Active Directory** > Appregistreringarny > **registrering**.
+1. Välj **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 
     a. Ge programmet ett namn, till exempel *AKSAzureADServer*.
 
     b. För **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
     
-    c. Välj **webb** för den omdirigerings-URI-typen och ange sedan ett URI-formaterat *https://aksazureadserver* värde, till exempel.
+    c. Välj **webb** för den omdirigerings-URI-typen och ange sedan ett URI-formaterat värde, t. ex. *https://aksazureadserver* .
 
     d. Välj **Registrera** när du är klar.
 
@@ -110,13 +110,20 @@ Det första Azure AD-programmet används för att hämta användarens medlemskap
 
 Det andra Azure AD-programmet används när du loggar in med Kubernetes CLI (kubectl).
 
-1. Välj **Azure Active Directory** > Appregistreringarny > **registrering**.
+1. Välj **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
 
     a. Ge programmet ett namn, till exempel *AKSAzureADClient*.
 
     b. För **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**.
 
     c. Välj **webb** för den omdirigerings-URI-typen och ange sedan ett URI-formaterat värde, till exempel *https://aksazureadclient* .
+
+    >[!NOTE]
+    >Om du skapar ett nytt RBAC-aktiverat kluster för att stödja Azure Monitor för behållare lägger du till följande två ytterligare omdirigerings-URL: er i listan som **webb** program typer. Det första bas-URL-värdet ska vara `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och det andra bas-URL-värdet ska vara `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Om du använder den här funktionen i Azure Kina ska det första bas-URL-värdet vara `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och det andra bas-URL-värdet ska vara `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+    >
+    >Mer information finns i så här konfigurerar [du funktionen Live data (för hands version)](../azure-monitor/insights/container-insights-livedata-setup.md) för Azure Monitor för behållare och stegen för att konfigurera autentisering i avsnittet [Konfigurera AD-integrerad autentisering](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) .
 
     d. Välj **Registrera** när du är klar.
 
@@ -180,7 +187,7 @@ Det tar några minuter att skapa ett AKS-kluster.
 
 Innan du använder ett Azure Active Directory-konto med ett AKS-kluster måste du skapa roll bindning eller kluster roll-bindning. Roller definierar behörigheterna som ska beviljas och bindningar tillämpar dem på önskade användare. De här tilldelningarna kan tillämpas på ett angivet namn område eller i hela klustret. Mer information finns i [använda RBAC-auktorisering][rbac-authorization].
 
-Använd först kommandot [AZ AKS get-credentials][az-aks-get-credentials] med `--admin` argumentet för att logga in på klustret med administratörs åtkomst.
+Använd först kommandot [AZ AKS get-credentials][az-aks-get-credentials] med argumentet `--admin` för att logga in på klustret med administratörs åtkomst.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -254,7 +261,7 @@ Hämta kontexten för den icke-administratör som användaren använder kommando
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-När du har kört `kubectl` kommandot uppmanas du att autentisera med hjälp av Azure. Följ anvisningarna på skärmen för att slutföra processen, som du ser i följande exempel:
+När du har kört kommandot `kubectl` uppmanas du att autentisera med hjälp av Azure. Följ anvisningarna på skärmen för att slutföra processen, som du ser i följande exempel:
 
 ```console
 $ kubectl get nodes
@@ -278,7 +285,7 @@ error: You must be logged in to the server (Unauthorized)
 
 - Du definierade lämpligt objekt-ID eller UPN, beroende på om användar kontot finns i samma Azure AD-klient eller inte.
 - Användaren är inte medlem i fler än 200 grupper.
-- Hemligheten som definierats i program registreringen för servern matchar det värde som kon `--aad-server-app-secret`figurer ATS med hjälp av.
+- Hemligheten som definierats i program registreringen för servern matchar värdet som kon figurer ATS med hjälp av `--aad-server-app-secret`.
 
 ## <a name="next-steps"></a>Nästa steg
 

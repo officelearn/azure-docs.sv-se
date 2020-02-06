@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889530"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030905"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -31,7 +31,7 @@ Azure API Management kan distribueras inuti det virtuella nätverket (VNET), så
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -138,7 +138,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com där `East US 2` är eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure Kina       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Kina 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
 + **SMTP-relä**: utgående nätverks anslutning för SMTP-reläet, som löses under värden `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` och `ies.global.microsoft.com`
 
@@ -150,13 +150,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
   * Aktivera tjänst slut punkter i det undernät där API Managements tjänsten har distribuerats. [Tjänst slut punkter][ServiceEndpoints] måste aktive ras för Azure Sql, Azure Storage, Azure EventHub och Azure Service Bus. Genom att aktivera slut punkter direkt från API Management delegerade under nätet till dessa tjänster kan de använda det Microsoft Azure stamnät nätverket som tillhandahåller optimal routning för tjänst trafik. Om du använder tjänstens slut punkter med en Tvingad tunnel-API Management är ovanstående Azure-tjänstens trafik inte Tvingad tunnel trafik. Den andra API Management tjänst beroende trafik tvingas till tunnel trafik och går inte att förlora eller också fungerar inte tjänsten API Management.
     
-  * All kontroll Plans trafik från Internet till hanterings slut punkten för API Managements tjänsten dirigeras via en speciell uppsättning inkommande IP-adresser som API Management. När trafiken är Tvingad tunnel trafik mappas svaren inte symmetriskt till dessa inkommande käll-IP-adresser. För att undvika begränsningen måste vi lägga till följande användardefinierade vägar ([UDR][UDRs]) för att styra trafiken tillbaka till Azure genom att ställa in målet för dessa värd vägar till "Internet". Uppsättningen inkommande IP-adresser för kontroll Plans trafik är följande:
-    
-     | Azure Environment | IP-adresser för hantering                                                                                                                                                                                                                                                                                                                                                              |
-    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32, 13.71.49.1/32, 13.64.39.16/32, 20.40.160.107/32, 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32, 102.133.0.79/32, 51.116.96.0/32, 51.116.0.0/32 |
-    | Azure Government  | 52.127.42.160/32, 52.127.34.192/32 |
-    | Azure Kina       | 139.217.51.16/32, 139.217.171.176/32 |
+  * All kontroll Plans trafik från Internet till hanterings slut punkten för API Managements tjänsten dirigeras via en speciell uppsättning inkommande IP-adresser som API Management. När trafiken är Tvingad tunnel trafik mappas svaren inte symmetriskt till dessa inkommande käll-IP-adresser. För att undvika begränsningen måste vi lägga till följande användardefinierade vägar ([UDR][UDRs]) för att styra trafiken tillbaka till Azure genom att ställa in målet för dessa värd vägar till "Internet". Uppsättningen inkommande IP-adresser för kontroll Plans trafik är dokumenterade [kontroll Plans-IP-adresser](#control-plane-ips)
 
   * För andra API Management tjänst beroenden som tvingas tunnel trafik bör det finnas ett sätt att matcha värd namnet och kontakta slut punkten. Dessa inkluderar
       - Mått och hälso övervakning
@@ -182,7 +176,7 @@ Azure reserverar vissa IP-adresser i varje undernät och de här adresserna kan 
 
 Förutom de IP-adresser som används av Azure VNET-infrastrukturen använder varje API Management-instans i under nätet två IP-adresser per enhet av Premium-SKU eller en IP-adress för Developer-SKU: n. Varje instans reserverar en ytterligare IP-adress för den externa belastningsutjämnaren. När du distribuerar till ett internt virtuellt nätverk kräver det ytterligare en IP-adress för den interna belastningsutjämnaren.
 
-Beräkningen ovanför under nätets minsta storlek, där API Management kan distribueras är/29, vilket ger tre IP-adresser.
+Beräkningen ovanför under nätets minsta storlek, där API Management kan distribueras är/29, vilket ger tre användbara IP-adresser.
 
 ## <a name="routing"></a> Routning
 + En belastningsutjämnad offentlig IP-adress (VIP) är reserverad för att ge åtkomst till alla tjänst slut punkter.
@@ -196,12 +190,76 @@ Beräkningen ovanför under nätets minsta storlek, där API Management kan dist
 * För API Management distributioner i flera regioner som kon figurer ATS i internt virtuellt nätverks läge ansvarar användarna för att hantera belastnings utjämning över flera regioner, när de äger routningen.
 * Anslutning från en resurs i ett globalt peer-nätverk i en annan region till API Management tjänsten i det interna läget fungerar inte på grund av en plattforms begränsning. Mer information finns i [resurser i ett virtuellt nätverk kan inte kommunicera med Azures interna belastningsutjämnare i peer-kopplat virtuellt nätverk](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)
 
+## <a name="control-plane-ips"></a> Kontroll PLANENS IP-adresser
+
+IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkommande begär Anden som marker ATS med **Global** måste vara vit listas tillsammans med den **landsspecifika** IP-adressen.
+
+| **Azure-miljö**|   **Region**|  **IP-adress**|
+|-----------------|-------------------------|---------------|
+| Azure Public| Södra centrala USA (global)| 104.214.19.224|
+| Azure Public| Norra centrala USA (global)| 52.162.110.80|
+| Azure Public| USA, västra centrala| 52.253.135.58|
+| Azure Public| Sydkorea, centrala| 40.82.157.167|
+| Azure Public| Storbritannien, västra| 51.137.136.0|
+| Azure Public| Japan, västra| 40.81.185.8|
+| Azure Public| USA, norra centrala| 40.81.47.216|
+| Azure Public| Storbritannien, södra| 51.145.56.125|
+| Azure Public| Indien, västra| 40.81.89.24|
+| Azure Public| USA, östra| 52.224.186.99|
+| Azure Public| Europa, västra| 51.145.179.78|
+| Azure Public| Japan, östra| 52.140.238.179|
+| Azure Public| Frankrike, centrala| 40.66.60.111|
+| Azure Public| Kanada, östra| 52.139.80.117|
+| Azure Public| Förenade Arabemiraten, norra| 20.46.144.85|
+| Azure Public| Brasilien, södra| 191.233.24.179|
+| Azure Public| Sydostasien| 40.90.185.46|
+| Azure Public| Sydafrika, norra| 102.133.130.197|
+| Azure Public| Kanada, centrala| 52.139.20.34|
+| Azure Public| Sydkorea, södra| 40.80.232.185|
+| Azure Public| Indien, centrala| 13.71.49.1|
+| Azure Public| USA, västra| 13.64.39.16|
+| Azure Public| Australien, sydöstra| 20.40.160.107|
+| Azure Public| Australien, centrala| 20.37.52.67|
+| Azure Public| Indien, södra| 20.44.33.246|
+| Azure Public| USA, centrala| 13.86.102.66|
+| Azure Public| Australien, östra| 20.40.125.155|
+| Azure Public| USA, västra 2| 51.143.127.203|
+| Azure Public| USA, östra 2 EUAP| 52.253.229.253|
+| Azure Public| Centrala USA-EUAP| 52.253.159.160|
+| Azure Public| USA, södra centrala| 20.188.77.119|
+| Azure Public| USA, östra 2| 20.44.72.3|
+| Azure Public| Europa, norra| 52.142.95.35|
+| Azure Public| Asien, östra| 52.139.152.27|
+| Azure Public| Frankrike, södra| 20.39.80.2|
+| Azure Public| Schweiz, västra| 51.107.96.8|
+| Azure Public| Australien, centrala 2| 20.39.99.81|
+| Azure Public| Förenade Arabemiraten Central| 20.37.81.41|
+| Azure Public| Schweiz, norra| 51.107.0.91|
+| Azure Public| Sydafrika, västra| 102.133.0.79|
+| Azure Public| Tyskland, västra centrala| 51.116.96.0|
+| Azure Public| Tyskland, norra| 51.116.0.0|
+| Azure Public| Östra Norge| 51.120.2.185|
+| Azure Public| Norge, väst| 51.120.130.134|
+| Azure Kina 21Vianet| Kina, norra (global)| 139.217.51.16|
+| Azure Kina 21Vianet| Kina, östra (global)| 139.217.171.176|
+| Azure Kina 21Vianet| Kina, norra| 40.125.137.220|
+| Azure Kina 21Vianet| Kina, östra| 40.126.120.30|
+| Azure Kina 21Vianet| Kina, norra 2| 40.73.41.178|
+| Azure Kina 21Vianet| Kina, östra 2| 40.73.104.4|
+| Azure Government| USGov Virginia (global)| 52.127.42.160|
+| Azure Government| USGov Texas (global)| 52.127.34.192|
+| Azure Government| USGov Virginia| 52.227.222.92|
+| Azure Government| USGov Iowa| 13.73.72.21|
+| Azure Government| USGov Arizona| 52.244.32.39|
+| Azure Government| USGov Texas| 52.243.154.118|
+| Azure Government| USDoD Central| 52.182.32.132|
+| Azure Government| USDoD, öst| 52.181.32.192|
 
 ## <a name="related-content"> </a>Relaterat innehåll
 * [Ansluta en Virtual Network till Server delen med VPN-gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [Ansluta en Virtual Network från olika distributions modeller](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Så här använder du API-kontrollen för att spåra anrop i Azure API Management](api-management-howto-api-inspector.md)
-* [Virtual Network vanliga frågor och svar](../virtual-network/virtual-networks-faq.md)
+* [Vanliga frågor och svar om Virtual Network](../virtual-network/virtual-networks-faq.md)
 * [Service märken](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

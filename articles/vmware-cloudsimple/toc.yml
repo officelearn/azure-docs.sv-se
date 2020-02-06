@@ -1,9 +1,9 @@
-- name: VMware Solution by CloudSimple
+- name: VMware Solutions (AVS)
   href: /azure/vmware-cloudsimple
   items:
     - name: Översikt
       items:
-        - name: Vad är VMware Solution by CloudSimple
+        - name: Vad är VMware Solutions (AVS)?
           href: cloudsimple-vmware-solutions-overview.md
         - name: Viktiga begrepp för administration
           href: key-concepts.md
@@ -14,9 +14,9 @@
           href: cloudsimple-network-checklist.md
         - name: Initiera och etablera kapacitet
           href: quickstart-create-cloudsimple-service.md
-        - name: Konfigurera privat molnmiljö
+        - name: Konfigurera en privat AVS-molnmiljö
           href: quickstart-create-private-cloud.md
-        - name: Skapa virtuell VMware-dator i privat moln
+        - name: Skapa virtuell VMware-dator i ett privat AVS-moln
           href: quickstart-create-private-cloud-vmware-virtual-machine.md
         - name: Använda virtuella VMware-datorer på Azure
           href: quickstart-create-vmware-virtual-machine.md
@@ -26,7 +26,7 @@
           href: cloudsimple-service.md
         - name: Noder
           href: cloudsimple-node.md
-        - name: Privat moln
+        - name: Privat AVS-moln
           href: cloudsimple-private-cloud.md
         - name: Virtuella datorer
           href: cloudsimple-virtual-machines.md
@@ -44,7 +44,7 @@
           href: cloudsimple-account.md
         - name: Aktivitetsledning
           href: cloudsimple-activity.md
-        - name: VMware i privat moln
+        - name: VMware i ett privat AVS-moln
           href: vmware-components.md
         - name: Säkerhetsöversikt
           href: cloudsimple-security.md
@@ -56,9 +56,9 @@
           href: cloudsimple-faq.md
     - name: Självstudier
       items:
-        - name: Skapa CloudSimple-tjänsten
+        - name: Skapa AVS-tjänsten
           href: create-cloudsimple-service.md
-        - name: Få åtkomst till CloudSimple-portalen
+        - name: Få tillgång till AVS-portalen
           href: access-cloudsimple-portal.md
         - name: Konfiguration av lokal brandvägg
           href: on-premises-firewall-configuration.md
@@ -70,25 +70,25 @@
               href: create-nodes.md
             - name: Ta bort noder
               href: delete-nodes.md
-        - name: Hantera resurser för privat moln
+        - name: Hantera resurser för privat AVS-moln
           items:
-            - name: Skapa ett privat moln
+            - name: Skapa ett privat AVS-moln
               href: create-private-cloud.md
-            - name: Hantera dina privata moln
+            - name: Hantera dina privata AVS-moln
               href: manage-private-cloud.md
-            - name: Expandera ett privat moln
+            - name: Visa ett privat AVS-moln
               href: expand-private-cloud.md
-            - name: Krympa ett privat moln
+            - name: Krymp ett privat AVS-moln
               href: shrink-private-cloud.md
             - name: Mappa din Azure-prenumeration
               href: azure-subscription-mapping.md
             - name: Eskalera privilegier
               href: escalate-private-cloud-privileges.md
-            - name: Ta bort ett privat moln
+            - name: Ta bort ett privat AVS-moln
               href: delete-private-cloud.md
-        - name: Övervaka CloudSimple-aktivitet
+        - name: Övervaka AVS-aktivitet
           href: monitor-activity.md
-        - name: Konfigurera nätverk för privata moln
+        - name: Konfigurera nätverk för privata AVS-moln
           items:
             - name: Skapa och hantera virtuella lokala nätverk och undernät
               href: create-vlan-subnet.md
@@ -98,35 +98,35 @@
               href: public-ips.md
             - name: Konfigurera VPN-anslutningar
               href: vpn-gateway.md
-            - name: Virtuell nätverksanslutning till CloudSimple
+            - name: Anslutning för virtuellt nätverk till AVS
               href: virtual-network-connection.md
-        - name: Hantera konton för CloudSimple-portalen
+        - name: Hantera konton för AVS-portalen
           items:
             - name: Visa sammanfattning av kontot
               href: account.md
             - name: Visa listan över användare
               href: users.md
-        - name: Konfigurera virtuella CloudSimple-datorer
+        - name: Konfigurera virtuella AVS-datorer
           items:
-            - name: Skapa en virtuell CloudSimple-dator i Azure
+            - name: Skapa en virtuell AVS-dator i Azure
               href: azure-create-vm.md
-            - name: Hantera virtuella CloudSimple-datorer i Azure
+            - name: Hantera virtuella AVS-datorer i Azure
               href: azure-manage-vm.md
     - name: Anvisningar
       items:
         - name: Skydda din miljö
           href: private-cloud-secure.md
-        - name: Hantering av privata moln
+        - name: Hantering av privata AVS-moln
           items:
-            - name: Eskalera privilegier för privat moln
+            - name: Eskalera privilegier för privata AVS-moln
               href: escalate-privileges.md
             - name: DNS- och DHCP-konfiguration för arbetsbelastning
               href: dns-dhcp-setup.md
             - name: Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
               href: migration-layer-2-vpn.md
-        - name: Privata nätverk i molnet
+        - name: Nätverk för privat AVS-moln
           items:
-            - name: VPN-anslutning till privat moln
+            - name: VPN-anslutning till privat AVS-moln
               href: set-up-vpn.md
             - name: Lokal nätverksanslutning med ExpressRoute
               href: on-premises-connection.md
@@ -140,15 +140,15 @@
               href: private-cloud-dns-forwarding.md
         - name: VMware-plattform
           items:
-            - name: Lär dig behörighetsmodellen för privat moln
+            - name: Lär dig behörighetsmodellen för privat AVS-moln
               href: learn-private-cloud-permissions.md
             - name: vCenter-identitetskällor
               href: set-vcenter-identity.md
             - name: Azure Application Gateway med virtuella VMware-datorer
               href: azure-application-gateway.md
-            - name: Konfigurera vCenter-server för privat moln som vRealize-automationsslutpunkt
+            - name: Konfigurera vCenter-server för privat AVS-moln som vRealize-automatiseringsslutpunkt
               href: configure-server-vrealize-automation-endpoint.md
-            - name: Migrera virtuella arbetsbelastningsdatorer till ett privat moln
+            - name: Migrera virtuella arbetsbelastningsdatorer till ett privat AVS-moln
               href: migrate-workloads.md
             - name: Migrera med hjälp av Azure Data Box
               href: migration-using-azure-data-box.md
@@ -160,19 +160,19 @@
           items:
             - name: Säkerhetskopiera virtuella datorer med arbetsbelastningar
               href: backup-workloads-veeam.md
-            - name: Konfigurera privat moln som en haveriberedskapsplats med hjälp av Zerto
+            - name: Konfigurera ett privat AVS-moln som en haveriberedskapsplats med hjälp av Zerto
               href: disaster-recovery-zerto.md
-            - name: Konfigurera privat moln som en haveriberedskapsplats med hjälp av VMware SRM
+            - name: Konfigurera ett privat AVS-moln som en haveriberedskapsplats med hjälp av VMware SRM
               href: disaster-recovery-site-recovery-manager.md
             - name: Lösningsguide för VMware Horizon
               href: horizon-guide.md
-            - name: Konfigurera vSAN-kryptering för ditt privata moln
+            - name: Konfigurera vSAN-kryptering för ditt privata AVS-moln
               href: vsan-encryption.md
-            - name: Optimera ditt privata moln för Oracle RAC
+            - name: Optimera ditt privata AVS-moln för Oracle RAC
               href: oracle-real-application-clusters.md
         - name: Azure Core-integrering
           items:
-            - name: Azure AD-identitetskälla på privat moln i vCenter
+            - name: Azure AD-identitetskälla på privat AVS-moln i vCenter
               href: azure-ad.md
             - name: Lokal nätverksanslutning med ExpressRoute
               href: on-premises-connection.md

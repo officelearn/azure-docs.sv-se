@@ -345,8 +345,8 @@
       items:
         - name: Sökning 2019-05-06
           href: /rest/api/searchservice
-        - name: Återställ kompetens (api-version=2019-05-06-förhandsversion)
-          href: preview-api-resetskills.md
+        - name: Search 2019-05-06-Preview
+          href: /rest/api/searchservice/index-2019-05-06-preview
         - name: Hantering 2015-08-15
           href: /rest/api/searchmanagement
         - name: Hantering 2019-10-01-förhandsversion

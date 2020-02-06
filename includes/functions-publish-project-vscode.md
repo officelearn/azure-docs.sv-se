@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: 8c63d314c253152d2815a70831870fe331071c68
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 256510f855256e648ae9203f46eb9f66c9ffaed6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964165"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029275"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
@@ -46,7 +46,7 @@ I det här avsnittet ska du skapa en Function-app och relaterade resurser i din 
     + **[Lagrings konto](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : ett standard lagrings konto skapas med ett unikt namn som baseras på namnet på din Function-app.
     + **[Värd plan](../articles/azure-functions/functions-scale.md)** : en förbruknings plan skapas i regionen Västra USA för att vara värd för din server lös Function-app.
     + **Function-app**: ditt projekt distribueras till och körs i den här nya Function-appen.
-    + **[Application Insights]()** : en instans, som är ansluten till din Function-app, skapas baserat på funktions namnet.
+    + **Application Insights**: en instans, som är ansluten till din Function-app, skapas baserat på funktions namnet.
 
     Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. 
     

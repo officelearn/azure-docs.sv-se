@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6311f24a9c977b5f8b34384f0754f041a0c57ce7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990750"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031671"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -37,7 +37,7 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 **Hash-värde** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter Server/värd** | Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> vCenter Server som kör 5,5, 6,0, 6,5 eller 6,7.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
-**Identifiering** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
+**Identifikation** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
 **Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/> DRA: dirigerar VM-replikering och koordinerar kommunikationen mellan datorer/Azure.<br/> Gateway: skickar replikerade data till Azure.<br/> Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
 **VDDK (utan agent migrering)** | Om du kör en agent lös migrering med Azure Migrate Server-migrering, måste VMware vSphere VDDK installeras på den virtuella datorn.
 
@@ -48,14 +48,14 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 --- | ---
 **Hämta format** | Zippad mapp (med VHD)
 **Nedladdnings länk** | https://aka.ms/migrate/appliance/hyperv 
-**Hämtnings storlek** | 10 GB
+**Hämtnings storlek** | 10 GB
 **Licensavtalet** | Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 **Maskinvara** | Resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns installation.
 **Hash-värde** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V-värd** | Kör Windows Server 2012 R2 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
-**Identifiering** | En apparat kan identifiera upp till 5000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
+**Identifikation** | En apparat kan identifiera upp till 5000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
 **Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/>  Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
 
 
@@ -63,14 +63,14 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 
 **Krav** | **Mekanisk** 
 --- | ---
-**Hämta format** | Zippad mapp (med installations skript för PowerShell)
+**Hämta format** | Zippad mapp (med PowerShell-baserat installations skript)
 **Nedladdnings länk** | [Nedladdnings länk](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Hämtnings storlek** | 59,7 MB
-**Maskinvara** | Dedikerad fysisk dator eller virtuell dator. Datorn som kör produkten behöver 16 GB RAM-minne, 8 virtuella processorer, cirka 80 GB lagrings utrymme och en extern växel.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
+**Maskinvara** | Dedikerad fysisk dator eller Använd en virtuell dator. Datorn som kör produkten behöver 16 GB RAM-minne, 8 virtuella processorer, cirka 80 GB lagrings utrymme och en extern växel.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 **Hash-värde** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-**Programvara** | Installations datorn ska köra Windows Server 2016. 
+**Operativ system** | Installations datorn ska köra Windows Server 2016. 
 **Distribution av utrustning**   |  Installations skriptet för installationen laddas ned från portalen (i en zippad mapp). <br/> Du packar upp mappen och kör PowerShell-skriptet (AzureMigrateInstaller. ps1).
-**Identifiering** | En apparat kan identifiera upp till 250 fysiska servrar.
+**Identifikation** | En apparat kan identifiera upp till 250 fysiska servrar.
 **Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/>  Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
 
 
@@ -91,9 +91,10 @@ dc.services.visualstudio.com | Ladda upp program loggar som används för intern
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.
 aka.ms/* | Tillåt åtkomst till aka-länkar. Används för uppdateringar av Azure Migrates enheten.
 download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
-*.servicebus.windows.net | **Används för migrering av VMware-agent**<br/><br/> Kommunikation mellan installations programmet och tjänsten Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | **Används för migrering av VMware-agent**<br/><br/> Anslut till Azure Migrate tjänst-URL: er.
-*.blob.core.windows.net |  **Används för migrering av VMware-agent**<br/><br/>Ladda upp data till lagring.
+*.servicebus.windows.net | Kommunikation mellan installations programmet och tjänsten Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com | Anslut till Azure Migrate tjänst-URL: er.
+*.hypervrecoverymanager.windowsazure.com | **Används för migrering av VMware-agent**<br/><br/> Anslut till Azure Migrate tjänst-URL: er.
+*.blob.core.windows.net |  **Används för migrering av VMware-agent**<br/><br/>Överför data till lagring för migrering.
 
 
 

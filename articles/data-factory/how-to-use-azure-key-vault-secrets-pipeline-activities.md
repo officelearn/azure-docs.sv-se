@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca2ea6a45bdf37f15f2ab4fd9c685f11f6d7f64
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926760"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031500"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 
 Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault och använda dem under pipeline-körningen för att skicka till dina aktiviteter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här funktionen använder den hanterade identiteten för Data Factory.  Lär dig hur det fungerar från [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) och se till att data fabriken har en associerad.
 
@@ -49,7 +49,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
 
     |Egenskap  |Värde  |
     |---------|---------|
-    |Säkra utdata     |Sant         |
+    |Säkra utdata     |True         |
     |URL     |[Ditt hemliga URI-värde]? API-version = 7.0         |
     |Metod     |HÄMTA         |
     |Autentisering     |MSI         |
@@ -63,7 +63,7 @@ Den här funktionen använder den hanterade identiteten för Data Factory.  Lär
     > [!CAUTION]
     > Ange alternativet för säkra utdata till sant för att förhindra att det hemliga värdet loggas som oformaterad text.  Alla ytterligare aktiviteter som använder det här värdet ska ha sina säkra indatatyps-alternativ inställt på sant.
 
-5. Använd följande kod uttryck om du vill använda värdet i en annan aktivitet **@activity("webb"). output. Value)** .
+5. Använd följande kod uttryck om du vill använda värdet i en annan aktivitet **@activity("webb"). output. Value**.
 
     ![Kod uttryck](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901481"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030754"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -62,7 +62,7 @@ Information om hur du använder Azure Resource Manager mallar för att konfigure
 
 ## <a name="manage-your-action-groups"></a>Hantera dina åtgärds grupper
 
-När du har skapat en åtgärds grupp visas den i avsnittet **Åtgärds grupper** i **övervaknings** fönstret. Välj den åtgärds grupp som du vill hantera för att:
+När du har skapat en åtgärds grupp kan du Visa **Åtgärds grupper** genom att välja **Hantera åtgärder** på sidan **aviserings** landning i **övervaknings** fönstret. Välj den åtgärds grupp som du vill hantera för att:
 
 * Lägg till, redigera eller ta bort åtgärder.
 * Ta bort åtgärds gruppen.
@@ -103,7 +103,7 @@ ITSM-åtgärden kräver en ITSM-anslutning. Lär dig hur du skapar en [ITSM-ansl
 
 Du kan ha ett begränsat antal ITSM-åtgärder i en åtgärds grupp. 
 
-### <a name="logic-app"></a>Logisk app
+### <a name="logic-app"></a>Logikapp
 Du kan ha ett begränsat antal Logic app-åtgärder i en åtgärds grupp.
 
 ### <a name="secure-webhook"></a>Säker webhook

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: c5cb8366465d5983823184c87eb54fad6aaffbd0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705929"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031620"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Så här konfigurerar du ExpressRoute Direct
 
@@ -27,7 +27,13 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. Lista över alla platser där ExpressRoute Direct stöds.
+   
+2. Registrera prenumerationen på Microsoft. Network för att få åtkomst till expressrouteportslocation-och expressrouteport-API: erna.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. Lista över alla platser där ExpressRoute Direct stöds.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -60,7 +66,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. Ta reda på om en plats som anges ovan har tillgänglig bandbredd
+4. Ta reda på om en plats som anges ovan har tillgänglig bandbredd
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -82,7 +88,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
                           }
                         ]
    ```
-4. Skapa en ExpressRoute-Direct-resurs baserat på den plats som valts ovan
+5. Skapa en ExpressRoute-Direct-resurs baserat på den plats som valts ovan
 
    ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om QinQ väljs dynamiskt ska tilldelas en S-tagg varje ExpressRoute-krets och ska vara unikt i hela ExpressRoute Direct-resursen. Varje C-tagg i kretsen måste vara unikt i kretsen, men inte i ExpressRoute-direkt.  
 
@@ -149,7 +155,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Circuits                   : []
    ```
 
-## <a name="state"></a>Ändra administratör tillståndet för länkar
+## <a name="state"></a>Ändra administratörs tillstånd för länkar
 
   Den här processen ska användas för att utföra ett Lager1-test som säkerställer att varje korsanslutning korrekt korrigerad till varje router för primära och sekundära.
 1. Få ExpressRoute direkt information.
@@ -217,7 +223,7 @@ ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts global
    Circuits                   : []
    ```
 
-   Använd samma procedur med `AdminState = "Disabled"` att sänka portarna.
+   Använd samma procedur med `AdminState = "Disabled"` för att inaktivera portarna.
 
 ## <a name="circuit"></a>Skapa en krets
 
@@ -271,4 +277,4 @@ Skapa en krets på ExpressRoute Direct-resursen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om ExpressRoute Direct finns i den [översikt](expressroute-erdirect-about.md).
+Mer information om ExpressRoute Direct finns i [översikten](expressroute-erdirect-about.md).

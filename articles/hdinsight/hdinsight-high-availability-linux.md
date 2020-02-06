@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747869"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030886"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -270,7 +270,7 @@ När du skapar ett kluster kan du ange storleken på noderna. Följande informat
 
 * **Azure Portal**: när du skapar ett kluster kan du ange storleken på noderna som används av klustret:
 
-    ![Bild av guiden skapa kluster med val av Node-storlek](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![Bild av guiden skapa kluster med val av Node-storlek](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **Azure CLI**: när du använder kommandot [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kan du ange storleken på noderna Head, Work och ZooKeeper med hjälp av parametrarna `--headnode-size`, `--workernode-size`och `--zookeepernode-size`.
 

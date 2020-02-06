@@ -7,6 +7,8 @@
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Anslutningsövervakaren (förhandsversion)
+      href: connection-monitor-2-preview.md
     - name: Diagnostisera problem med VM-trafikfilter – Portal
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnostisera problem med VM-trafikfilter – PowerShell

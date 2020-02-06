@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242048"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030049"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med Azure Portal
 
@@ -27,7 +27,7 @@ Apache Kafka-API:et kan endast användas av resurser i samma virtuella nätverk.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,7 +35,7 @@ En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) m
 
 Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. På den vänstra menyn navigerar du till **+ skapa en resurs** > **Analytics** > **HDInsight**.
 
@@ -48,8 +48,8 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     |Prenumeration    |  Välj din Azure-prenumeration. |
     |Resursgrupp     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
     |Klusternamn   | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
-    |Plats    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
-    |Klustertyp| Välj **Välj kluster typ**. Välj sedan **Kafka** som kluster typ.|
+    |plats.    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
+    |Kluster typ| Välj **Välj kluster typ**. Välj sedan **Kafka** som kluster typ.|
     |Version|Standard versionen för kluster typen anges. Välj i list rutan om du vill ange en annan version.|
     |Användar namn och lösen ord för kluster inloggning    | Standard inloggnings namnet är **admin**. Lösen ordet måste bestå av minst 10 tecken och måste innehålla minst en siffra, en versal och en gemen bokstav, ett icke-alfanumeriskt tecken (förutom tecknen "" "\). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |Secure Shell (SSH)-användarnamn | Standardanvändarnamnet är **sshuser**.  Du kan ange ett annat namn som SSH-användarnamn. |
@@ -72,7 +72,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     |Primärt lagringskonto|Använd List rutan för att välja ett befintligt lagrings konto eller Välj **Skapa nytt**. Om du skapar ett nytt konto måste namnet vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener|
     |Container|Använd det automatiskt ifyllda värdet.|
 
-    ![HDInsight Linux kom igång ger kluster lagrings värden](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Ange lagrings värden för att skapa ett HDInsight-kluster")
+    ![HDInsight Linux kom igång ger kluster lagrings värden](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Ange lagrings värden för att skapa ett HDInsight-kluster")
 
     Välj fliken **säkerhet + nätverk** .
 
@@ -80,7 +80,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
    Om du vill ansluta ditt kluster till ett virtuellt nätverk väljer du ett virtuellt nätverk i listrutan **Virtuellt nätverk**.
 
-   ![Lägga till kluster i ett virtuellt nätverk](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Lägga till kluster i ett virtuellt nätverk](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Välj fliken **konfiguration + prissättning** .
 

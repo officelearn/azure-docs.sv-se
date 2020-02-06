@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: de644e49d998ad260532078de5c93c482cbc6fbc
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720279"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029499"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Vanliga frågor och svar om Azure Network Watcher
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -tjänsten innehåller en uppsättning verktyg för att övervaka, diagnostisera, Visa mått och aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. I den här artikeln besvaras vanliga frågor om tjänsten.
@@ -54,17 +54,29 @@ Besök [sidan med priser](https://azure.microsoft.com/pricing/details/network-wa
 ### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Vilka regioner Network Watcher stöds/är tillgängliga i?
 Du kan visa den senaste regionala tillgängligheten på [sidan tillgänglighet för Azure-tjänsten](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
-### <a name="what-are-resource-limits-on-network-watcher"></a>Vad är resurs gränser på Network Watcher?
-Se sidan [tjänst begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) för alla gränser.  
+### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Vilka behörigheter krävs för att använda Network Watcher?
+Se listan över [RBAC-behörigheter som krävs för att använda Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). För att distribuera resurser måste du ha deltagar behörighet till NetworkWatcherRG (se nedan).
 
-### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Varför är bara en instans av Network Watcher tillåtet per region?
-Network Watcher behöver bara aktive ras en gång för att en prenumeration på IT-funktioner ska fungera, är detta inte en tjänst gräns.
+### <a name="how-do-i-enable-network-watcher"></a>Hur gör jag för att välja Network Watcher?
+Tjänsten Network Watcher [aktive ras automatiskt](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) för varje prenumeration.
+
+### <a name="what-is-the-network-watcher-deployment-model"></a>Vad är Network Watcher distributions modell?
+Den Network Watcher överordnade resursen distribueras med en unik instans i varje region. Namngivnings format: NetworkWatcher_RegionName. Exempel: NetworkWatcher_centralus är Network Watcher resursen för regionen "Central US".
+
+### <a name="what-is-the-networkwatcherrg"></a>Vad är NetworkWatcherRG?
+Network Watcher-resurser finns i den dolda resurs gruppen **NetworkWatcherRG** som skapas automatiskt. Till exempel är resursen NSG Flow-loggar en underordnad resurs till Network Watcher och aktive ras i NetworkWatcherRG.
 
 ### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Varför måste jag installera Network Watcher-tillägget? 
 Network Watcher-tillägget krävs för alla funktioner som behöver generera eller avlyssna trafik från en virtuell dator. 
 
 ### <a name="which-features-require-the-network-watcher-extension"></a>Vilka funktioner kräver Network Watcher-tillägget?
-Endast paket fångst, anslutnings fel sökning och anslutnings övervakare behöver Network Watcher-tillägget för att finnas.
+Insamlings funktionerna för paket insamling, anslutning och anslutning för anslutning kräver att Network Watcher-tillägget är tillgängligt.
+
+### <a name="what-are-resource-limits-on-network-watcher"></a>Vad är resurs gränser på Network Watcher?
+Se sidan [tjänst begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) för alla gränser.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Varför är bara en instans av Network Watcher tillåtet per region?
+Network Watcher behöver bara aktive ras en gång för att en prenumeration på IT-funktioner ska fungera, är detta inte en tjänst gräns.
 
 ## <a name="nsg-flow-logs"></a>NSG flödes loggar
 
@@ -85,7 +97,7 @@ Du kan kontrollera lagringsloggarna efter några minuter och bör se en uppdater
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en tjänst slut punkt?
 
-NSG Flow-loggar är compantible med tjänst slut punkter utan att kräva någon extra konfiguration. Se [självstudien om hur du aktiverar tjänstens slut punkter](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) i det virtuella nätverket.
+NSG flödes loggar är kompatibla med tjänst slut punkter utan att kräva någon extra konfiguration. Se [självstudien om hur du aktiverar tjänstens slut punkter](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) i det virtuella nätverket.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Vad är skillnaden mellan flödes loggar version 1 & 2?

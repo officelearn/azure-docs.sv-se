@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668152"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031568"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -37,12 +37,12 @@ Den nya v2-SKU: n innehåller följande förbättringar:
 
 Standard_v2 och WAF_v2 SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, Västeuropa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien , Sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, Asien, östra, Korea, centrala, Korea, södra, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längre kopplad till instans antal eller storlekar. Priserna för v2-SKU har två komponenter:
 
 - **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2 eller WAF_v2 Gateway. Observera att 0 ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris.
-- **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Debiteringen av kapacitetsenheter beräknas per timme eller delvis utnyttjade timmar. Kapacitetsenheter har tre aspekter: beräkningsenheter, beständiga anslutningar och dataflöde. Beräkningsenheter mäter förbrukad processorkapacitet. Faktorer som påverkar beräknings enheten är TLS-anslutningar/s, URL-omskrivning och bearbetning av WAF-regler. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.  Faktureringen görs på en kapacitets enhets nivå för allt ovanför antalet reserverade instanser.
+- **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Kapacitets enhets avgiften beräknas också per timme eller delvis per timme. Det finns tre dimensioner för kapacitets enhet – beräknings enhet, beständiga anslutningar och data flöde. Compute Unit är ett mått på förbrukad processor kapacitet. Faktorer som påverkar beräknings enheten är TLS-anslutningar/s, URL-omskrivning och bearbetning av WAF-regler. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.  Faktureringen görs på en kapacitets enhets nivå för allt ovanför antalet reserverade instanser.
 
 Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
 
@@ -64,7 +64,7 @@ I följande tabell visas exempel priser och är endast för illustrations syfte.
 | Standard_v2                                       |    0,20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
-Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/application-gateway/). Faktureringen har schemalagts att starta den 1 juli 2019.
+Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Exempel 1**
 
@@ -157,7 +157,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 | Sessionstillhörighet                                  | &#x2713; | &#x2713; |
 | Anpassade felsidor                                | &#x2713; | &#x2713; |
 | WebSocket-stöd                                 | &#x2713; | &#x2713; |
-| HTTP/2-stöd                                    | &#x2713; | &#x2713; |
+| Stöd för HTTP/2                                    | &#x2713; | &#x2713; |
 | Anslutningstömning                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
@@ -165,18 +165,18 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
 ## <a name="differences-with-v1-sku"></a>Skillnader med v1 SKU
 
-|Avvikelse|Information|
+|Avvikelse|Detaljer|
 |--|--|
-|Certifikat för autentisering|Stöds ej.<br>Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Certifikat för autentisering|Stöds inte.<br>Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Mixa Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
 |Användardefinierad väg (UDR) i Application Gateway undernät|Stöds inte|
 |NSG för inkommande port intervall| – 65200 till 65535 för Standard_v2 SKU<br>– 65503 till 65534 för standard-SKU.<br>Mer information finns i [vanliga frågor och svar](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Prestanda loggar i Azure Diagnostics|Stöds ej.<br>Azure-mått ska användas.|
+|Prestanda loggar i Azure Diagnostics|Stöds inte.<br>Azure-mått ska användas.|
 |Fakturering|Faktureringen är schemalagd för att starta den 1 juli 2019.|
 |FIPS-läge|Dessa stöds inte för närvarande.|
 |Läge för endast ILB|Detta stöds inte för närvarande. Offentliga och ILB läge stöds tillsammans.|
-|NetWatcher-integrering|Stöds ej.|
-|Azure Security Center-integrering|Ännu inte tillgängligt.
+|NetWatcher-integrering|Stöds inte.|
+|Azure Security Center-integrering|Inte tillgänglig än
 
 ## <a name="migrate-from-v1-to-v2"></a>Migrera från v1 till v2
 

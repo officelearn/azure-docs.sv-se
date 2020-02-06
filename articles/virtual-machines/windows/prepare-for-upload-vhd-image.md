@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461126"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906777"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbered en Windows-VHD eller VHDX som ska överföras till Azure
 
@@ -33,6 +33,22 @@ Information om support policyn för virtuella Azure-datorer finns i [Microsoft S
 > Anvisningarna i den här artikeln gäller:
 >1. 64-bitars versionen av Windows Server 2008 R2 och senare Windows Server-operativsystem. Information om hur du kör ett 32-bitars operativ system i Azure finns i [stöd för 32-bitars operativ system i virtuella Azure-datorer](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
 >2. Om något katastrof återställnings verktyg används för att migrera arbets belastningen, t. ex. Azure Site Recovery eller Azure Migrate, måste den här processen fortfarande utföras och följas av gäst operativ systemet för att förbereda avbildningen före migreringen.
+
+## <a name="system-file-checker-sfc-command"></a>System fils Checker (SFC) kommando
+
+### <a name="run-windows-system-file-checker-utility-run-sfc-scannow-on-os-prior-to-generalization-step-of-creating-customer-os-image"></a>Kör Windows System File Checker-verktyget (kör sfc/scannow) på operativ systemet innan du skapar kund OS-avbildningen med hjälp av generalize-steget
+
+Kommandot system fils Checker (SFC) används för att verifiera och ersätta Windows-systemfiler.
+
+Köra SFC-kommandot:
+
+1. Öppna en upphöjd kommando tolk som administratör.
+1. Skriv `sfc /scannow` och välj **RETUR**.
+
+    ![System fils kontroll](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+När SFC-genomsökningen är klar kan du försöka installera Windows-uppdateringar och starta om datorn.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>Konvertera den virtuella disken till en fast storlek och till VHD
 
@@ -156,7 +172,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 Kontrol lera att följande inställningar är korrekt konfigurerade för fjärråtkomst:
 
 >[!NOTE] 
->Du kan få ett fel meddelande när du kör `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Du kan ignorera det här meddelandet. Det innebär bara att domänen inte skickar den konfigurationen via ett grupprincip-objekt.
+>Du kan få ett fel meddelande när du kör `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Du kan ignorera det här meddelandet på ett säkert sätt. Det innebär bara att domänen inte skickar den konfigurationen via ett grupprincip-objekt.
 
 1. Remote Desktop Protocol (RDP) är aktiverat:
    
@@ -346,9 +362,9 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
 
    - Administratörer
 
-   - Ansvariga för säkerhetskopiering
+   - Ansvariga för säkerhets kopiering
 
-   - Alla
+   - Grupperna
 
    - Användare
 
@@ -363,7 +379,7 @@ Helst bör du hålla datorn uppdaterad på *korrigerings nivå*. Om detta inte �
 
 | Komponent               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8,1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
-| Storage                 | disk. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
+| Lagring                 | disk. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
 |                         | NTFS. sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | Iologmsg.dll   | 6.1.7601.23403 - KB3125574                | 6.2.9200.16384 - KB2995387                  | -                                  | -                                                       | -                          | -                                               | -                                               |

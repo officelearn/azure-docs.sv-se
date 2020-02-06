@@ -7,114 +7,64 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/04/2020
+ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443953"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029528"
 ---
-# <a name="troubleshoot-azure-data-factory-data-flows"></a>Felsöka Azure Data Factory data flöden
+# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Felsöka data flöden i Azure Data Factory
 
 Den här artikeln utforskar vanliga fel söknings metoder för data flöden i Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Vanliga fel och meddelanden
 
-### <a name="error-message-df-sys-01-shadeddatabricksorgapachehadoopfsazureazureexception-commicrosoftazurestoragestorageexception-the-specified-container-does-not-exist"></a>Fel meddelande: DF-SYS-01: skuggad. databricks. org. apache. Hadoop. FS. Azure. AzureException: com. Microsoft. Azure. Storage. StorageException: den angivna behållaren finns inte.
+### <a name="error-code-df-executor-sourceinvalidpayload"></a>Felkod: DF-utförar-SourceInvalidPayload
+- **Meddelande**: det gick inte att köra data flöde för förhands granskning, fel sökning och pipeline-data flöde eftersom behållaren inte finns
+- **Orsaker**: när data uppsättningen innehåller en behållare som inte finns i lagringen
+- **Rekommendation**: kontrol lera att den behållare som refereras till i data uppsättningen finns eller är tillgänglig.
 
-- **Symptom**: för hands version av data flöde, fel sökning och pipeline-data flöde Miss lyckas eftersom behållaren inte finns
+### <a name="error-code-df-executor-systemimplicitcartesian"></a>Felkod: DF-utförar-SystemImplicitCartesian
 
-- **Orsak**: när data uppsättningen innehåller en behållare som inte finns i lagringen
+- **Meddelande**: implicit kartesiska-produkt för inre koppling stöds inte, Använd kors koppling i stället. Kolumner som används i Join ska skapa en unik nyckel för rader.
+- **Orsaker**: implicit kartesiska-produkt för inre koppling mellan logiska planer stöds inte. Om de kolumner som används i kopplingen skapar den unika nyckeln
+- **Rekommendation**: för icke-jämlikhetbaserade kopplingar måste du välja mellan koppling.
 
-- **Lösning**: kontrol lera att den behållare som du refererar till i din data uppsättning finns
+### <a name="error-code-df-executor-systeminvalidjson"></a>Felkod: DF-utförar-SystemInvalidJson
 
-### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>Fel meddelande: DF-SYS-01: Java. lang. AssertionError: kontroll fel: motstridiga katalog strukturer har identifierats. Misstänkta sökvägar
+- **Meddelande**: JSON-parsningsfel, kodning eller Multiline stöds inte
+- **Orsaker**: möjliga problem med JSON-filen: kodning som inte stöds, skadade byte eller med JSON-källa som enskilt dokument på flera kapslade rader
+- **Rekommendation**: kontrol lera att JSON-filens kodning stöds. På den käll omvandling som använder en JSON-datauppsättning expanderar du JSON-inställningar och aktiverar ett enskilt dokument.
+ 
+### <a name="error-code-df-executor-broadcasttimeout"></a>Felkod: DF-utförar-BroadcastTimeout
 
-- **Symptom**: när jokertecken används i käll omvandling med Parquet-filer
+- **Meddelande**: timeout-fel vid sändnings anslutning, kontrol lera att sändnings strömmen genererar data inom 60 sekunder i fel söknings körningar och 300 sekunder i jobb körningar
+- **Orsaker**: sändningen har en standard tids gräns på 60 sekunder i fel söknings körningar och 300 sekunder i jobb körningarna. Den data ström som valts för sändning verkar vara stor för att producera data inom den här gränsen.
+- **Rekommendation**: Undvik att sända stora data strömmar där bearbetningen kan ta mer än 60 sekunder. Välj en mindre ström att sända i stället. Stora SQL/DW-tabeller och källfiler är vanligt vis Felaktiga kandidater.
 
-- **Orsak**: felaktig eller ogiltig syntax för jokertecken
+### <a name="error-code-df-executor-conversion"></a>Felkod: DF-utförar-Conversion
 
-- **Lösning**: kontrol lera syntaxen för jokertecken som du använder i dina käll omvandlings alternativ
+- **Meddelande**: det gick inte att konvertera till ett datum eller en tid på grund av ett ogiltigt Character
+- **Orsaker**: data har inte förväntat format
+- **Rekommendation**: Använd rätt datatyp
 
-### <a name="error-message-df-src-002-container-container-name-is-required"></a>Fel meddelande: DF-SRC-002: container (container Name) måste anges
+### <a name="error-code-df-executor-invalidcolumn"></a>Felkod: DF-utförar-InvalidColumn
 
-- **Symptom**: för hands version av data flöde, fel sökning och pipeline-data flöde Miss lyckas eftersom behållaren inte finns
-
-- **Orsak**: när data uppsättningen innehåller en behållare som inte finns i lagringen
-
-- **Lösning**: kontrol lera att den behållare som du refererar till i din data uppsättning finns
-
-### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>Fel meddelande: DF-UNI-001: PrimaryKeyValue har inkompatibla typer IntegerType och StringType
-
-- **Symptom**: för hands version av data flöde, fel sökning och pipeline-data flöde Miss lyckas eftersom behållaren inte finns
-
-- **Orsak**: händer vid försök att infoga felaktig primär nyckel typ i databas mottagare
-
-- **Lösning**: Använd en härledd kolumn för att omvandla kolumnen som du använder för den primära nyckeln i ditt data flöde för att matcha data typen för mål databasen
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>Fel meddelande: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: TCP/IP-anslutningen till värden xxxxx.database.windows.net port 1433 har misslyckats. Fel: "xxxx.database.windows.net. Verifiera anslutnings egenskaperna. Se till att en instans av SQL Server körs på värden och accepterar TCP/IP-anslutningar på porten. Se till att TCP-anslutningar till porten inte blockeras av en brand vägg. "
-
-- **Symptom**: det går inte att förhandsgranska data eller köra pipeline med databas källa eller mottagare
-
-- **Orsak**: databasen skyddas av brand väggen
-
-- **Lösning**: öppna brand Väggs åtkomst till databasen
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>Fel meddelande: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: det finns redan ett objekt med namnet xxxxxx i databasen.
-
-- **Symptom**: mottagaren kan inte skapa tabellen
-
-- **Orsak**: det finns redan ett befintligt tabell namn i mål databasen med samma namn som definierats i din källa eller i data uppsättningen
-
-- **Lösning**: ändra namnet på den tabell som du försöker skapa
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>Fel meddelande: DF-SYS-01: com. Microsoft. SqlServer. JDBC. SQLServerException: sträng data eller binära data skulle trunkeras. 
-
-- **Symptom**: när du skriver data till en SQL-mottagare går det inte att köra data flödet i pipeline-körningen med möjliga trunkering-fel.
-
-- **Orsak**: ett fält från ditt data flöde mappar till en kolumn i din SQL-databas är inte tillräckligt brett för att lagra värdet, vilket gör att SQL-drivrutinen kan utlösa det här felet
-
-- **Lösning**: du kan minska längden på data för sträng kolumner med ```left()``` i en härledd kolumn eller implementera [mönstret "fel rad".](how-to-data-flow-error-rows.md)
-
-### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>Fel meddelande: sedan Spark 2,3 är frågorna från RAW JSON/CSV-filer inte tillåtna när de refererade kolumnerna bara innehåller kolumnen intern skadad post. 
-
-- **Symptom**: det går inte att läsa från en JSON-källa
-
-- **Orsak**: vid läsning från en JSON-källa med ett enda dokument på många kapslade rader kan inte ADF, via Spark, avgöra var ett nytt dokument börjar och det föregående dokumentet slutar.
-
-- **Lösning**: på käll omvandlingen som använder en JSON-datauppsättning expanderar du "JSON-inställningar" och aktiverar "enstaka dokument".
-
-### <a name="error-message-duplicate-columns-found-in-join"></a>Fel meddelande: duplicerade kolumner hittades i kopplingen
-
-- **Symptom**: sammanfognings omvandlingen resulterade i kolumner från både vänster och höger sida som innehåller dubbletter av kolumn namn
-
-- **Orsak**: de strömmar som har anslutits har gemensamma kolumn namn
-
-- **Lösning**: Lägg till en SELECT-omvandling efter kopplingen och välj Ta bort duplicerade kolumner för både indata och utdata.
-
-### <a name="error-message-possible-cartesian-product"></a>Fel meddelande: möjlig kartesiska-produkt
-
-- **Symptom**: JOIN-eller Lookup-omvandling upptäckte möjlig kartesiska-produkt vid körning av ditt data flöde
-
-- **Orsak**: om du inte uttryckligen riktar in ADF för att använda en kors koppling kan data flödet Miss lyckas
-
-- **Lösning**: ändra uppslags-eller kopplings omvandlingen till en koppling med hjälp av en anpassad kors koppling och ange Sök-eller kopplings villkor i uttrycks redigeraren. Om du vill skapa en fullständig kartesiska-produkt explicit använder du den härledda kolumn omvandlingen i var och en av de två oberoende strömmarna innan du börjar med att skapa en syntetisk nyckel att matcha på. Du kan till exempel skapa en ny kolumn i en härledd kolumn i varje data ström som heter ```SyntheticKey``` och ange den som lika med ```1```. Använd sedan ```a.SyntheticKey == b.SyntheticKey``` som ditt anpassade kopplings uttryck.
-
-> [!NOTE]
-> Se till att inkludera minst en kolumn från varje sida av din vänstra och högra relation i en anpassad kors koppling. Om du kör kors kopplingar med statiska värden i stället för kolumner från varje sida leder det till en fullständig genomsökning av hela data uppsättningen, vilket gör att ditt data flöde fungerar dåligt.
+- **Meddelande**: kolumn namnet måste anges i frågan, ange ett alias om du använder en SQL-funktion
+- **Orsaker**: inget kolumn namn har angetts
+- **Rekommendation**: Ange ett alias om du använder en SQL-funktion som min ()/max () osv.
 
 ## <a name="general-troubleshooting-guidance"></a>Allmän fel söknings vägledning
 
 1. Kontrol lera statusen för dina data uppsättnings anslutningar. I varje käll-och mottagar omvandling kan du gå till den länkade tjänsten för varje data uppsättning som du använder och testa anslutningarna.
-2. Kontrol lera status för dina fil-och tabell anslutningar från data flödes designern. Växla vid fel sökning och klicka på Förhandsgranska data på käll omvandlingarna för att säkerställa att du kan komma åt dina data.
-3. Om allt ser bra ut från data förhands granskningen, går du till pipeline-designern och sätter ditt data flöde i en pipeline-aktivitet. Felsök pipelinen för ett slut punkt till slut punkts test.
+1. Kontrol lera status för dina fil-och tabell anslutningar från data flödes designern. Växla vid fel sökning och klicka på Förhandsgranska data på käll omvandlingarna för att säkerställa att du kan komma åt dina data.
+1. Om allt ser bra ut från data förhands granskningen, går du till pipeline-designern och sätter ditt data flöde i en pipeline-aktivitet. Felsök pipelinen för ett slut punkt till slut punkts test.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill ha mer fel söknings hjälp kan du prova följande resurser:
-
 *  [Data Factory blogg](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory funktions begär Anden](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure-videor](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)

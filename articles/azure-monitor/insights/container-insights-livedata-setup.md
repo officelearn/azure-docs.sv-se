@@ -3,12 +3,12 @@ title: Installations Azure Monitor för behållare real tids data (förhands gra
 description: Den här artikeln beskriver hur du ställer in real tids visningen av behållar loggar (STDOUT/STDERR) och händelser utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404707"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030700"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
@@ -33,7 +33,7 @@ Den här artikeln förklarar hur du konfigurerar autentisering för att kontrol 
 >[!NOTE]
 >Den här funktionen är tillgänglig i alla Azure-regioner, inklusive Azure Kina. Den är för närvarande inte tillgänglig i Azure amerikanska myndigheter.
 
-## <a name="authentication-model"></a>Autentiseringsmodell
+## <a name="authentication-model"></a>Autentiserings modell
 
 Funktionerna för Live data (för hands version) använder Kubernetes-API: et, som är identiskt med kommando rads verktyget `kubectl`. Kubernetes API-slutpunkter använder ett självsignerat certifikat som webbläsaren inte kan verifiera. Den här funktionen använder en intern proxy för att validera certifikatet med AKS-tjänsten, vilket säkerställer att trafiken är betrodd.
 
@@ -101,7 +101,7 @@ Azure AD client Registration måste konfigureras om så att Azure Portal omdirig
 Mer information om avancerade säkerhets inställningar i Kubernetes finns i Kubernetes- [dokumentationen](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
 >[!NOTE]
->Om du skapar ett nytt RBAC-aktiverat kluster går du till [integrera Azure Active Directory med Azure Kubernetes-tjänsten](../../aks/azure-ad-integration.md) och följer stegen för att konfigurera Azure AD-autentisering. Under stegen för att skapa klient programmet visar en anteckning i avsnittet de två omdirigerings-URL: er som du måste skapa för att Azure Monitor för behållare. 
+>Om du skapar ett nytt RBAC-aktiverat kluster går du till [integrera Azure Active Directory med Azure Kubernetes-tjänsten](../../aks/azure-ad-integration.md) och följer stegen för att konfigurera Azure AD-autentisering. Under stegen för att skapa klient programmet visar en anteckning i avsnittet de två omdirigerings-URL: er som du måste skapa för att Azure Monitor för behållare som matchar de som anges i steg 3 nedan.
 
 ### <a name="client-registration-reconfiguration"></a>Omkonfiguration av klient registrering
 

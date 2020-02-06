@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 555596ba1040fcbd5c9131869fd275d749e0d734
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0930bbcfff41a667f08f5dfc5744c16476ddd8a1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934029"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031464"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -147,7 +147,7 @@ HDInsight innehåller skript för att installera följande komponenter i HDInsig
 | Namn | Skript |
 | --- | --- |
 | Lägg till ett Azure Storage konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagrings konton i HDInsight](hdinsight-hadoop-add-storage.md). |
-| Installera Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [Installera och använda nyans på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
+| Installera nyans |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [Installera och använda nyans på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
 | Förhandsladda Hive-bibliotek |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Se [Lägg till anpassade Apache Hive-bibliotek när du skapar ett HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Använd en skript åtgärd när klustret skapas
@@ -156,9 +156,9 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Använd en skript åtgärd när du skapar kluster från Azure Portal
 
-1. Börja skapa ett kluster enligt beskrivningen i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). När klustret skapas, kommer du till steg 6, **skript åtgärder**. Navigera till **valfri** >  **+ Skicka ny**.
+1. Börja skapa ett kluster enligt beskrivningen i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). På fliken **konfiguration och priser** väljer du **+ Lägg till skript åtgärd**.
 
-    ![Åtgärd för Azure Portal kluster skript](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
+    ![Åtgärd för Azure Portal kluster skript](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
 1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
@@ -180,9 +180,9 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
     ![Åtgärder för flera skript i HDInsight](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    När du är klar med att lägga till skript, väljer du knappen __Välj__ och sedan knappen __Nästa__ för att fortsätta till avsnittet __kluster Sammanfattning__ .
+    När du är klar med att lägga till skript, återgår du till fliken **konfiguration + prissättning** .
 
-1. Skapa klustret genom att välja __skapa__ från __kluster sammanfattnings__ valet.
+1. Slutför de återstående stegen för att skapa kluster som vanligt.
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Använda en skript åtgärd från Azure Resource Manager mallar
 
@@ -327,7 +327,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 ### <a name="the-azure-portal"></a>Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. I den vänstra menyn navigerar du till **alla tjänster** > **Analytics** > **HDInsight-kluster**.
 
@@ -349,7 +349,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| -cmdlet | Funktion |
+| kommandon | Funktion |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |Hämta information om beständiga skript åtgärder. |
 | `Get-AzHDInsightScriptActionHistory` |Hämta en historik över skript åtgärder som tillämpas på klustret eller information för ett speciellt skript. |
@@ -365,7 +365,7 @@ Följande exempel skript visar hur du använder cmdlet: ar för att befordra och
 
 ### <a name="the-azure-classic-cli"></a>Den klassiska Azure CLI
 
-| -cmdlet | Funktion |
+| kommandon | Funktion |
 | --- | --- |
 | `azure hdinsight script-action persisted list <clustername>` |Hämta en lista över beständiga skript åtgärder. |
 | `azure hdinsight script-action persisted show <clustername> <scriptname>` |Hämta information om en speciell bestående skript åtgärd. |
@@ -415,13 +415,13 @@ HDInsight-tjänsten tillhandahåller flera olika sätt att använda anpassade ko
 
 3. **Exempel**. För populära anpassade komponenter kan Microsoft och andra tillhandahålla exempel på hur dessa komponenter kan användas i HDInsight-kluster. De här exemplen tillhandahålls utan support.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Du kan använda Ambari-webbgränssnittet för att visa information som loggats av skript åtgärder. Om skriptet Miss lyckas när klustret skapas är loggarna också tillgängliga i det standard lagrings konto som är associerat med klustret. Det här avsnittet innehåller information om hur du hämtar loggarna med båda dessa alternativ.
 
 ### <a name="the-apache-ambari-web-ui"></a>Webb gränssnittet för Apache Ambari
 
-1. Gå till `https://CLUSTERNAME.azurehdinsight.net` i webbläsaren. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
+1. I webbläsaren går du till `https://CLUSTERNAME.azurehdinsight.net`. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
 
     När du uppmanas till det anger du administratörens konto namn, **administratör**och lösen ord för klustret. Du kanske måste ange administratörs behörigheten på ett webb formulär igen.
 

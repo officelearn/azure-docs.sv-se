@@ -4,16 +4,13 @@
   items:
     - name: Vad är autentisering?
       href: overview-authentication.md
-- name: Snabbstart
-  items:
-    - name: Konfigurera återställning av lösenord
-      href: quickstart-sspr.md
 - name: Självstudier
+  expanded: true
   items:
-    - name: 1 Aktivera MFA för program
+    - name: Aktivera lösenordsåterställning via självbetjäning
+      href: tutorial-enable-sspr.md
+    - name: Aktivera MFA för program
       href: tutorial-mfa-applications.md
-    - name: 2 Aktivera SSPR-pilot
-      href: tutorial-sspr-pilot.md
     - name: Aktivera lokal SSPR-integration
       href: tutorial-enable-writeback.md
     - name: Integrera Azure Identity Protection

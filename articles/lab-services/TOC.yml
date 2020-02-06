@@ -152,6 +152,8 @@
           href: deploy-nested-template-environments.md
         - name: Använda hanterade Azure-identiteter för att distribuera miljöer
           href: use-managed-identities-environments.md
+        - name: Säkerhetsaviseringar för miljöer
+          href: environment-security-alerts.md
     - name: Hantera återanvändbara mallar
       items:
         - name: Anpassade avbildningar kontra formler

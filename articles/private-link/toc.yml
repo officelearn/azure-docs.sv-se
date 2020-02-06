@@ -40,6 +40,12 @@
       href: disable-private-link-service-network-policy.md
     - name: Hantera privata slutpunkter
       href: manage-private-endpoint.md
+    - name: Felsöka
+      items:
+        - name: Felsöka anslutningsproblem för privata slutpunkter
+          href: troubleshoot-private-endpoint-connectivity.md
+        - name: Felsöka anslutningsproblem för Private Link-tjänsten
+          href: troubleshoot-private-link-connectivity.md
 - name: Referens
   items:
     - name: Azure CLI

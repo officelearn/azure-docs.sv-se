@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Dokumentation om Azure Data Explorer
 metadata:
-  title: 'Dokumentation om Azure Data Explorer – Snabbstarter, självstudier, samt språk- och API-referenser'
+  title: 'Snabbstarter, självstudier och språk/API-dokumentation – Azure Data Explorer'
   description: Azure Data Explorer är en molnplattform för logganalys som är optimerad för ad hoc-stordatafrågor.
   author: orspod
   ms.author: orspodek

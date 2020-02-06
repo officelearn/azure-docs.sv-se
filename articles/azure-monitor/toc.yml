@@ -14,11 +14,11 @@
       href: learn/quick-monitor-azure-resource.md
     - name: Övervakning av virtuella datorer
       items:
-        - name: Samla in – virtuella Azure-datorer
+        - name: Virtuella Azure-datorer
           href: learn/quick-collect-azurevm.md
-        - name: Samla in – Linux-dator
+        - name: Linux-dator
           href: learn/quick-collect-linux-computer.md
-        - name: Samla in – Windows-dator
+        - name: Windows-dator
           href: learn/quick-collect-windows-computer.md
     - name: Övervakning av program
       items:
@@ -439,6 +439,8 @@
               href: app/configuration-with-applicationinsights-config.md
             - name: Korrelera anpassade datakällor
               href: app/custom-data-correlation.md
+            - name: Anslutningssträngar
+              href: app/sdk-connection-string.md
             - name: Särskilda ämnen
               items:
                 - name: Djup diagnostik för webbappar och tjänster
@@ -535,23 +537,18 @@
               href: 'faq.md#agents'
             - name: Azure Diagnostics-tillägg
               items:
-                - name: Översikt
-                  href: platform/diagnostics-extension-overview.md
-                - name: Samla in loggar
-                  href: platform/azure-storage-iis-table.md
                 - name: Windows
+                  displayname: diagnostics extension
                   items:
-                    - name: Versionshistorik
-                      href: platform/diagnostics-extension-schema.md
-                    - name: Schema
-                      href: platform/diagnostics-extension-schema-1dot3.md
-                    - name: Skicka till Azure Storage
-                      href: platform/diagnostics-extension-to-storage.md
-                    - name: Skicka till Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Skicka till Event Hubs
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: Skicka till Azure Monitor som anpassade mått
+                    - name: Översikt
+                      href: platform/diagnostics-extension-overview.md
+                    - name: Installera och konfigurera
+                      items:
+                        - name: PowerShell
+                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                        - name: Resource Manager-mall
+                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                    - name: Skicka till Azure Monitor-mått
                       items:
                         - name: Virtuell dator
                           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
@@ -561,17 +558,28 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: Molntjänst
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Skicka till Event Hubs
+                      href: platform/diagnostics-extension-stream-event-hubs.md
+                    - name: Skicka till loggar
+                      href: platform/azure-storage-iis-table.md
+                    - name: Skicka till Azure Storage
+                      href: platform/diagnostics-extension-to-storage.md
+                    - name: Skicka till Application Insights
+                      href: platform/diagnostics-extension-to-application-insights.md
+                    - name: Versionshistorik
+                      href: platform/diagnostics-extension-schema.md
                     - name: JSON Lines-format för resursloggar
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: Felsökning
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
+                  displayname: diagnostics extension
                   items:
-                    - name: Använd med virtuella datorer
-                      href: ../virtual-machines/extensions/diagnostics-linux.md
-                    - name: Anpassade mått med Telegraf
+                    - name: Översikt
+                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                    - name: Samla in mått med Telegraf
                       href: platform/collect-custom-metrics-linux-telegraf.md
-            - name: Log Analytics-agenter
+            - name: Log Analytics-agent
               items:
                 - name: Översikt
                   href: platform/log-analytics-agent.md
@@ -589,6 +597,28 @@
                   href: platform/agent-manage.md
                 - name: Agenthälsa
                   href: insights/solution-agenthealth.md
+                - name: Datakällor
+                  items:
+                    - name: Översikt
+                      href: platform/agent-data-sources.md
+                    - name: Windows-händelser
+                      href: platform/data-sources-windows-events.md
+                    - name: Anpassade JSON-data
+                      href: platform/data-sources-json.md
+                    - name: CollectD-prestandadata
+                      href: platform/data-sources-collectd.md
+                    - name: Syslog
+                      href: platform/data-sources-syslog.md
+                    - name: Prestandaräknare
+                      href: platform/data-sources-performance-counters.md
+                    - name: Programprestanda på Linux
+                      href: platform/data-sources-linux-applications.md
+                    - name: IIS-loggar
+                      href: platform/data-sources-iis-logs.md
+                    - name: Anpassade loggar
+                      href: platform/data-sources-custom-logs.md
+                    - name: Anpassade fält
+                      href: platform/custom-fields.md
             - name: Felsöka
               items:
                 - name: Log Analytics-tillägg för virtuella datorer
@@ -600,28 +630,6 @@
                 - name: Log Analytics-agent för Linux
                   displayname: 'troubleshoot, troubleshooting'
                   href: platform/agent-linux-troubleshoot.md
-        - name: Agentdatakällor
-          items:
-            - name: Översikt
-              href: platform/agent-data-sources.md
-            - name: Windows-händelser
-              href: platform/data-sources-windows-events.md
-            - name: Anpassade JSON-data
-              href: platform/data-sources-json.md
-            - name: CollectD-prestandadata
-              href: platform/data-sources-collectd.md
-            - name: Syslog
-              href: platform/data-sources-syslog.md
-            - name: Prestandaräknare
-              href: platform/data-sources-performance-counters.md
-            - name: Programprestanda på Linux
-              href: platform/data-sources-linux-applications.md
-            - name: IIS-loggar
-              href: platform/data-sources-iis-logs.md
-            - name: Anpassade loggar
-              href: platform/data-sources-custom-logs.md
-            - name: Anpassade fält
-              href: platform/custom-fields.md
         - name: Azure Monitor för virtuella datorer
           items:
             - name: Översikt
@@ -660,14 +668,16 @@
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: Inaktivera övervakning
               href: insights/vminsights-optout.md
-        - name: Kapacitet och prestandalösning
-          href: insights/capacity-performance.md
-        - name: VMware Analytics-lösning
-          href: insights/vmware.md
-        - name: Wire Data-lösning
-          href: insights/wire-data.md
-        - name: Lösningen Tjänstkarta
-          href: insights/service-map.md
+        - name: Lösningar
+          items:
+            - name: Kapacitet och prestandalösning
+              href: insights/capacity-performance.md
+            - name: VMware Analytics-lösning
+              href: insights/vmware.md
+            - name: Wire Data-lösning
+              href: insights/wire-data.md
+            - name: Lösningen Tjänstkarta
+              href: insights/service-map.md
         - name: Datorgrupper
           href: platform/computer-groups.md
     - name: Övervaka containrar
@@ -1125,6 +1135,10 @@
   items:
     - name: Tjänstbegränsningar
       href: service-limits.md
+    - name: Diagnostics-tillägg
+      items:
+        - name: Schema
+          href: platform/diagnostics-extension-schema-1dot3.md
     - name: Application Insights
       items:
         - name: Automatisk insamling för beroenden

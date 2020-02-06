@@ -258,6 +258,8 @@
           href: backup-azure-backup-server-import-export-.md
     - name: Övervakning och aviseringar
       items:
+        - name: Använda säkerhetskopieringsutforskaren
+          href: monitor-azure-backup-with-backup-explorer.md
         - name: Använda Azure Portal
           href: backup-azure-monitoring-built-in-monitor.md
         - name: Använda Azure Monitor

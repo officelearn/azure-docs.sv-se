@@ -164,8 +164,6 @@
               href: concepts-data-flow-overview.md
             - name: Felsökningsläge
               href: concepts-data-flow-debug-mode.md
-            - name: JSON-hantering
-              href: concepts-data-flow-json.md
             - name: Schemadrift
               href: concepts-data-flow-schema-drift.md
             - name: Kolumnmönster

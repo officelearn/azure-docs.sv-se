@@ -4,6 +4,12 @@
   items:
     - name: Om Virtual WAN
       href: virtual-wan-about.md
+    - name: Arkitektur
+      items:
+        - name: Migrera till Virtual WAN
+          href: migrate-from-hub-spoke-topology.md
+        - name: Global Transit Network-arkitektur
+          href: virtual-wan-global-transit-network-architecture.md
 - name: Självstudier
   items:
     - name: Skapa en plats-till-plats-anslutning
@@ -18,12 +24,6 @@
       href: virtual-wan-locations-partners.md
     - name: IPSec-principer
       href: virtual-wan-ipsec.md
-    - name: Arkitektur
-      items:
-        - name: Migrera till Virtual WAN
-          href: migrate-from-hub-spoke-topology.md
-        - name: Global Transit Network-arkitektur
-          href: virtual-wan-global-transit-network-architecture.md
 - name: Anvisningar
   items:
     - name: Anslut virtuell nätverksgateway till Virtual WAN

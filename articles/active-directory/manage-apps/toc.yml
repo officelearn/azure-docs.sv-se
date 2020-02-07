@@ -5,10 +5,10 @@
   items:
     - name: Vad är molnprogramhantering och enkel inloggning?
       href: what-is-application-management.md
-    - name: Vad är programetablering?
-      href: user-provisioning.md
     - name: Vad är programproxy för lokala appar?
       href: what-is-application-proxy.md
+    - name: Vad är programetablering?
+      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Snabbstarter
   items:
     - name: Lägga till en molnbaserad app från galleriet
@@ -72,16 +72,6 @@
               href: howto-saml-token-encryption.md
             - name: Slutanvändarportaler
               href: end-user-experiences.md
-    - name: Programetablering (SCIM)
-      items:
-        - name: Så här fungerar etablering
-          href: how-provisioning-works.md
-        - name: Planera en distribution med automatisk användaretablering
-          href: plan-auto-user-provisioning.md
-    - name: Etablering av HR Cloud
-      items:
-        - name: Planera en distribution med HR-användaretablering i molnet
-          href: plan-cloud-hr-provision.md
     - name: Programproxy för lokala appar
       items:
         - name: Programproxy
@@ -237,60 +227,6 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Fel vid användning av appåtkomst via självbetjäning
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Programetablering (SCIM)
-      items:
-        - name: Konfigurera etablering för en galleriapp
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Skapa en SCIM-slutpunkt och konfigurera etablering
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Redigera attributmappningarna
-          items:
-            - name: Anpassa attributmappningar
-              href: Customize-application-attributes.md
-            - name: Skriva uttryck för attributmappningar
-              href: functions-for-customizing-application-data.md
-        - name: Inkludera eller exkludera användare och grupper från omfattningen
-          items:
-            - name: Hitta användare och grupper som ska etableras
-              href: define-conditional-rules-for-provisioning-user-accounts.md
-            - name: Hoppa över borttagning av användare utanför omfattningen
-              href: skip-out-of-scope-deletions.md
-        - name: Övervaka och rapportera etablering
-          items:
-            - name: Övervaka etableringsstatus och prestanda
-              href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Rapportera vid appetablering
-              href: check-status-user-account-provisioning.md
-            - name: Exportera och importera din konfiguration
-              href: export-import-provisioning-configuration.md
-        - name: Automatisera konfiguration med MS Graph
-          href: application-provisioning-configure-api.md
-        - name: Felsöka användaretablering
-          items:
-            - name: Felsöka appetablering
-              href: application-provisioning-config-problem.md
-            - name: Karantänstatus
-              href: application-provisioning-quarantine-status.md
-            - name: Etableringsloggar
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Synkronisera ett attribut för mappning – galleriappen
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Tar flera timmar – galleriapp
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Auktoriseringsproblem (kunde inte spara autentiseringsuppgifter för administratör)
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Användare har inte etablerats
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Fel användare har etablerats
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
-            - name: Etableringsjobb i karantän
-              href: application-provisioning-quarantine-status.md
-            - name: Källattribut saknas
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Etableringsjobbet är långsamt
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Etableringsloggar
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Programproxy för lokala appar
       items:
         - name: Konfigurera anslutningsappar
@@ -391,28 +327,10 @@
           href: secure-hybrid-access.md
 - name: Referens
   items:
-    - name: Programetablering (SCIM)
-      items:
-        - name: Skriva uttryck för attributmappningar
-          href: functions-for-customizing-application-data.md
-        - name: Välja en etableringsmetod
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-    - name: Etablering av HR Cloud
-      items:
-        - name: SuccessFactors-attributreferens
-          href: sap-successfactors-attribute-reference.md
-        - name: Workday-attributreferens
-          href: workday-attribute-reference.md
-    - name: Azure AD Connect-etableringsagent
-      items:
-        - name: Versionshistorik för etableringsagent
-          href: provisioning-agent-release-version-history.md
-    - name: Programproxy för lokala appar
-      items:
-        - name: Vanliga frågor och svar om programproxy
-          href: application-proxy-faq.md
-        - name: Versionshistorik för programproxy
-          href: application-proxy-release-version-history.md
+    - name: Vanliga frågor och svar om programproxy
+      href: application-proxy-faq.md
+    - name: Versionshistorik för programproxy
+      href: application-proxy-release-version-history.md
 - name: Resurser
   items:
     - name: Support- och hjälpalternativ för utvecklare

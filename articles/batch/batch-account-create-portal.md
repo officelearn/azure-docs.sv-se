@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025904"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048632"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -31,7 +31,7 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Logga in på [Azure-portalen][azure_portal].
+1. Logga in på [Azure Portal][azure_portal].
 
 1. Välj **Skapa en resurs** > **Beräkna** > **Batch-tjänst**.
 
@@ -51,9 +51,9 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
     e. **Lagrings konto**: ett valfritt Azure Storage-konto som du associerar med ditt batch-konto. Ett v2-lagringskonto för generell användning rekommenderas för bästa prestanda. Samtliga alternativ för lagringskonton i batch finns i [översikten över Batch-funktionen](batch-api-basics.md#azure-storage-account). I portalen väljer du ett befintligt lagringskonto eller skapar ett nytt.
 
-      ![Skapa ett lagringskonto][storage_account]
+      ![skapar ett lagringskonto][storage_account]
 
-    f. **Poolens fördelnings läge**: på fliken **avancerade** inställningar kan du ange poolens fördelnings läge som **Batch-tjänst** eller **användar prenumeration**. För de flesta scenarier accepterar du standard **batch-tjänsten**.
+    f. **Poolens fördelnings läge**: på fliken **avancerade** inställningar kan du ange poolens fördelnings läge som **Batch-tjänst** eller **användar prenumeration**. För de flesta scenarier kan du acceptera standardinställningarna för **Batch-tjänsten**.
 
       ![Batch-poolallokeringsläge][pool_allocation]
 
@@ -69,7 +69,7 @@ När kontot har skapats kan du välja kontot för att komma åt dess inställnin
 
     Om du vill visa åtkomstinformationen för Batch-kontot väljer du **Nycklar**.
 
-    ![Batch-kontonycklar på Azure Portal][account_keys]
+    ![Batch-kontonycklar på Azure-portalen][account_keys]
 
 * Om du vill visa namnet på och nycklarna för lagringskontot som är associerat med Batch-kontot väljer du **Lagringskonto**.
 
@@ -83,7 +83,7 @@ Om du väljer att skapa ett Batch-konto i läget Användarprenumeration ska du u
 
 När du skapar ditt första Batch-konto i användarprenumerationsläge behöver du registrera prenumerationen med Batch. (Om du redan har gjort detta går du vidare till nästa avsnitt.)
 
-1. Logga in på [Azure-portalen][azure_portal].
+1. Logga in på [Azure Portal][azure_portal].
 
 1. Välj **Fler tjänster** > **Prenumerationer** och välj den prenumeration som du vill använda för Batch-kontot.
 
@@ -118,6 +118,14 @@ Om du vill bevilja åtkomst till nyckel valvet manuellt går du till avsnittet *
 
 ![Hemliga behörigheter för Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
+
+> [!NOTE]
+> Kontrol lera att kryss rutorna **Azure Virtual Machines för distribution** och **Azure Resource Manager för mall distribution** är markerade under **åtkomst principer** för den länkade **Key Vault** resursen.
+> 
+> ![obligatorisk princip för Key Vault åtkomst](./media/batch-account-create-portal/key-vault-access-policy.png) detta är inte obligatoriskt när du skapar ett batch-konto i Azure Portal. Alternativet är valt som standard.
+
+
+
 ### <a name="configure-subscription-quotas"></a>Konfigurera prenumerationskvoter
 
 Kärnkvoter anges inte som standard på Batch-konton för användarprenumerationer. Kärnkvoter måste anges manuellt eftersom standardmässiga Batch-kärnkvoter inte gäller för konton i läget för användarprenumeration.
@@ -132,7 +140,7 @@ Se [Kvoter och begränsningar för Batch-tjänsten](batch-quota-limit.md) för m
 
 Förutom att använda Azure Portal kan du skapa och hantera Batch-konton med verktyg som följande:
 
-* [PowerShell-cmdlets för Batch](batch-powershell-cmdlets-get-started.md)
+* [PowerShell-cmdletar för Batch](batch-powershell-cmdlets-get-started.md)
 * [Azure CLI](batch-cli-get-started.md)
 * [Batch Management .NET](batch-management-dotnet.md)
 

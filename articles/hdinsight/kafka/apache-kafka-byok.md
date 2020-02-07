@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 72fd23e4283925b91d749fef0afac4e87e93405c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cba8a4fd64b948d7a3e443426ca1f779af68a3fe
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841696"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048995"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 
@@ -95,9 +95,13 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 ## <a name="create-hdinsight-cluster"></a>Skapa HDInsight-kluster
 
-Nu är du redo att skapa ett nytt HDInsight-kluster. BYOK kan bara tillämpas på nya kluster när klustret skapas. Det går inte att ta bort kryptering från BYOK-kluster och BYOK kan inte läggas till i befintliga kluster.
+Nu är du redo att skapa ett nytt HDInsight-kluster. Välj **Kafka** för **kluster typ**på fliken **grundläggande** .
 
-![Kafka disk kryptering i Azure Portal](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka.png)
+![Azure Portal Välj typ av Kafka](./media/apache-kafka-byok/azure-portal-cluster-basics-type-kafka.png)
+
+BYOK kan bara tillämpas på nya kluster när klustret skapas. Det går inte att ta bort kryptering från BYOK-kluster och BYOK kan inte läggas till i befintliga kluster.
+
+![Kafka disk kryptering i Azure Portal](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
 
 Under skapandet av klustret anger du den fullständiga nyckel-URL: en, inklusive nyckel versionen. Till exempel `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n. Information om hur du skapar ett fullständigt kluster finns i [skapa Apache Hadoop kluster med hjälp av Azure Portal](./apache-kafka-get-started.md)
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dcbc03257b8bfeacda700f60f2724f2d02ec147d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429274"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048276"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direkt metoder från IoT Hub
 
@@ -73,7 +73,10 @@ Direkta metod anrop på en enhet är HTTPS-anrop som består av följande objekt
     }
     ```
 
-Tids gränsen är i sekunder. Om timeout inte anges används den som standard på 30 sekunder.
+Värdet som anges som `responseTimeoutInSeconds` i begäran är den tid som IoT Hub tjänsten måste vänta på att en direkt metod ska slutföras på en enhet. Ange att denna tids gräns ska vara minst så lång som den förväntade körnings tiden för en direkt metod av en enhet. Om ingen tids gräns anges används standardvärdet på 30 sekunder. De lägsta och högsta värdena för `responseTimeoutInSeconds` är 5 respektive 300 sekunder.
+
+Värdet som anges som `connectTimeoutInSeconds` i begäran är tiden då det tar slut på en direkt metod som IoT Hub tjänsten måste vänta på att en frånkopplad enhet ska anslutas till onlineläge. Standardvärdet är 0, vilket innebär att enheterna redan måste vara online när den direkta metoden har anropats. Det maximala värdet för `connectTimeoutInSeconds` är 300 sekunder.
+
 
 #### <a name="example"></a>Exempel
 
@@ -98,7 +101,10 @@ curl -X POST \
 
 Backend-appen tar emot ett svar som består av följande objekt:
 
-* *HTTP-statuskod*, som används för fel som kommer från IoT Hub, inklusive ett 404-fel för enheter som inte är anslutna för tillfället.
+* *Http-status kod*:
+  * 200 indikerar lyckad körning av direkt metod;
+  * 404 anger att enhets-ID: t är ogiltigt eller att enheten inte var online när den direkta metoden har anropats, och för `connectTimeoutInSeconds` efteråt (Använd fel meddelande för att förstå rotor saken).
+  * 504 anger Gateway-timeout som orsakas av att enheten inte svarar på ett direkt metod anrop inom `responseTimeoutInSeconds`.
 
 * *Huvuden* som innehåller etag, FÖRFRÅGNINGS-ID, innehålls typ och innehålls kodning.
 

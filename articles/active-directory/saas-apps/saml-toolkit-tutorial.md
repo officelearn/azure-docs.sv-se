@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983902"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047956"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Azure AD SAML Toolkit
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Azure AD SAML Toolk
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -45,6 +45,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Azure AD SAML Toolkit stöder **SP** -INITIERAd SSO
+* När du har konfigurerat Azure AD SAML Toolkit kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-azure-ad-saml-toolkit-from-the-gallery"></a>Lägga till Azure AD SAML Toolkit från galleriet
 
@@ -76,17 +77,17 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan för **Azure AD SAML Toolkit** -programintegration i [Azure Portal](https://portal.azure.com/), letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna. Du kan hämta inställningar med hjälp av SAML Toolkit SAML-konfigurations sidan. 
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 1. På sidan **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I rutan **Inloggnings-URL** anger du en URL: `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
+    a. I rutan **Inloggnings-URL** anger du en URL: `https://samltoolkit.azurewebsites.net/`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://samltoolkit.azurewebsites.net`
 
-    c. Skriv en URL i textrutan **Svars-URL**: `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
+    c. I textrutan **Svars-URL** skriver du en URL: `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -162,7 +163,7 @@ I det här avsnittet skapas en användare som heter B. Simon i Azure AD SAML Too
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Azure AD SAML Toolkit på åtkomst panelen, bör du loggas in automatiskt på Azure AD SAML Toolkit som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Azure AD SAML Toolkit på åtkomst panelen, bör du loggas in automatiskt på Azure AD SAML Toolkit som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -173,3 +174,7 @@ När du klickar på panelen Azure AD SAML Toolkit på åtkomst panelen, bör du 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Testa Azure AD SAML Toolkit med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Skydda Azure AD SAML Toolkit med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/protect-azure)

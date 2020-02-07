@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662940"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054902"
 ---
 | Resurs | Standard/högsta gräns | Obs! |
 | --- | --- | --- |
@@ -21,11 +21,11 @@ ms.locfileid: "75662940"
 | HTTP-lyssnare |100<sup>1</sup> | |
 | Regler för belastnings utjämning i HTTP |100<sup>1</sup> | |
 | HTTP-inställningar på Server Sidan |100<sup>1</sup> | |
-| Instanser per gateway |32 | |
+| Instanser per gateway |V1 SKU – 32<br>V2 SKU – 125 | |
 | SSL-certifikat |100<sup>1</sup> |1 per HTTP-lyssnare |
 | Maximal storlek för SSL-certifikat |V1 SKU – 10 KB<br>V2 SKU – 16 KB| |
 | Autentiseringscertifikat |100 | |
-| Betrodda rotcertifikat |100 | |
+| Betrodda rot certifikat |100 | |
 | Lägsta timeout för begäran |1 sekund | |
 | Maximal timeout för begäran |24 timmar | |
 | Antal platser |100<sup>1</sup> |1 per HTTP-lyssnare |
@@ -37,7 +37,7 @@ ms.locfileid: "75662940"
 | Maximal sidhuvud storlek för HTTP/2 |4KB| |
 | Maximal fil överförings storlek, standard |2 GB | |
 | Maximal storlek för fil överföring WAF |v1 mellan WAF-gatewayer, 100 MB<br>v1 stora WAF-gatewayer, 500 MB<br>v2 WAF, 750 MB| |
-| Storleks gräns för WAF-Body, utan filer|128 kB||
+| Storleks gräns för WAF-Body, utan filer|128 KB||
 | Maximalt antal anpassade WAF-regler|100||
 | Maximalt antal WAF-undantag|100||
 

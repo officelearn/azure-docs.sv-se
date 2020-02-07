@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7f9bd55054fca6b45a25ef737a1a00872e536ca8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75908931"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048900"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community-projekt med öppen källkod
 
-Dessa är öppen källkod, community-drivna initiativ som skapats och underhålls av Azure Mapss teamet, men som inte ingår i standard produkt-eller tjänst erbjudanden. Här följer en lista över några av de populäraste Azure Maps skapade projekt med öppen källkod och exempel.
+Dessa community-drivna initiativ med öppen källkod skapas och underhålls av Azure Mapss teamet. De ingår inte i standard produkt-eller tjänst erbjudandena.
+
+Nedan visas några av de populäraste Azure Maps projekt och exempel med öppen källkod.
 
 | Projektnamn | Beskrivning |
 |-|-|
@@ -27,7 +29,7 @@ Dessa är öppen källkod, community-drivna initiativ som skapats och underhåll
 | [Azure Maps & Azure Active Directory exempel](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | En samling exempel som visar hur du använder Azure Active Directory med Azure Maps. | 
 | [Implementera IoT spatial Analytics med hjälp av Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Att spåra och fånga relevanta händelser som inträffar i utrymme och tid är ett vanligt IoT-scenario. |
 | [Azure Maps Jupyter Notebook exempel](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | En samling python-exempel som använder Azure Maps REST-tjänsterna. |
-| [Bot Framework – orienterings punkt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Orienterings punkten ger POI-relaterade funktioner till en virtuell assistent med hjälp av Azure Maps med Azure Bot Service-och bot-ramverket. |
+| [Bot Framework – orienterings punkt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Orienterings punkten ger POI funktioner till en virtuell assistent med hjälp av Azure Maps med Azure Bot Service-och bot-ramverket. |
 
 En längre lista som innehåller Community-skapade projekt med öppen källkod finns [här](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

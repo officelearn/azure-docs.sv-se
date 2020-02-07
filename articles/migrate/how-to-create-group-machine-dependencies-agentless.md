@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288971"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049754"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Konfigurera en agent utan beroende visualisering för utvärdering
 
@@ -62,7 +62,7 @@ Visualisering av beroenden för agenter kräver inte att du installerar några a
 
 Konfigurera ett användar konto som har de behörigheter som krävs så att Server utvärderingen kan komma åt den virtuella datorn för identifiering. Du kan ange ett användar konto.
 
-- **Nödvändig behörighet för virtuella Windows-datorer**: användar kontot kräver åtkomst till gästen.
+- **Nödvändig behörighet för virtuella Windows-datorer**: användar kontot måste vara lokalt eller ha en domän administratör.
 - **Nödvändig behörighet för virtuella Linux-datorer**: rot privilegiet krävs för kontot. Alternativt måste användar kontot ha dessa två funktioner på/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Lägg till användar kontot till enheten
@@ -76,7 +76,7 @@ Lägg till kontot enligt följande:
 3. Välj **operativ system**.
 4. Ange ett eget namn för kontot.
 5. Ange **användar namn** och **lösen ord**
-6. Klicka på **Spara**.
+6. Klicka på **Save** (Spara).
 7. Klicka på **Spara och starta identifiering**.
 
     ![Lägg till användar konto för virtuell dator](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

@@ -1,6 +1,6 @@
 ---
 title: Skapa en CI/CD-pipeline för Node. js med Azure DevOps Projects
-description: Det är enkelt att komma igång med Azure med DevOps-projekt. Det hjälper dig att starta en app på en Azure-tjänst med några enkla få steg.
+description: DevOps Projects gör det enkelt att komma igång med Azure. Det hjälper dig att starta en app på en Azure-tjänst med några enkla få steg.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -16,28 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 35eebeaa393ff75ada11752aaf9f195efddfa12b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256134"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049802"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Snabb start: skapa en CI/CD-pipeline i Azure-pipelines för Node. js med Azure DevOps Projects
 
-Azure DevOps-projektet ger ett förenklat sätt att skapa Azure-resurser och konfigurerar en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din Node.js-app i Azure Pipelines.  
+I den här snabb starten använder du den förenklade Azure DevOps Projects upplevelsen för att ställa in en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för Node. js-appen i Azure-pipelines. Du kan använda Azure DevOps Projects för att ställa in allt du behöver för att utveckla, distribuera och övervaka din app. 
 
-Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Förutsättningar
+
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Ett [Azure DevOps](https://azure.microsoft.com/services/devops/) -konto och en organisation.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Microsoft Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com)och välj **skapa en resurs**i den vänstra rutan. 
 
-1. I den vänstra fönsterrutan väljer du **Skapa en resurs** och söker sedan efter **DevOps Projects**. 
+   ![Skapa en Azure-resurs i Azure Portal](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-    ![Skapa konfigurations resurs för kontinuerlig leverans](_img/azure-devops-project-nodejs/create-azure-resource.png)
+1. Sök efter och välj **DevOps Projects**och välj sedan **skapa**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
 
@@ -52,17 +55,17 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
 
 1. Skapa en ny Azure DevOps-organisation eller använd en befintlig organisation. 
+   
+   1. Ange ett namn för projektet.
+      
+   1. Välj din Azure-prenumeration och plats, ange ett namn för programmet och välj sedan **Klar**.  
+      Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempelprogram konfigureras i en lagringsplats i din Azure DevOps-organisation, en version körs och programmet distribueras till Azure. Den här instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och ditt program i Azure.
+   
+1. Visa ditt körande program genom att välja **Bläddra**.
+   
+   ![Vyn instrument panel för CI/CD-pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-    a. Ange ett namn för projektet.
-
-    b. Välj din Azure-prenumeration och plats, ange ett namn för programmet och välj sedan **Klar**.  
-    Efter några minuter visas DevOps Projects-instrumentpanelen i Azure-portalen. Ett exempelprogram konfigureras i en lagringsplats i din Azure DevOps-organisation, en version körs och programmet distribueras till Azure. Den här instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och ditt program i Azure.
-     
-3. Visa ditt körande program genom att välja **Bläddra**.
-
-    ![Vyn instrument panel för CI/CD-pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
-    
-DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en Node.js-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
+DevOps Projects konfigurerar automatiskt en CI-version och släpper utlösaren.  Nu är du redo att samarbeta med ett team på en Node.js-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
 
@@ -79,10 +82,10 @@ Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 1. Välj **Redigera** och gör en ändring i h2-rubriken.  
     Ange till exempel **Kom igång direkt med Azure DevOps Projects** eller gör några andra ändringar.
 
-1. Välj **Incheckning** och spara sedan ändringarna.
+1. Välj **Checka in** och spara sedan ändringarna.
 
 1. I webbläsaren går du till DevOps Projects-instrumentpanelen.   
-Du bör nu se att en version håller på att skapas. De ändringar som du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
+Du bör nu se att en version håller på att skapas. De ändringar du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
 
 ## <a name="examine-the-azure-cicd-pipeline"></a>Granska Azure-CI/CD-pipelinen
 
@@ -109,7 +112,7 @@ I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringa
 1. Välj **utlösare**.   
  DevOps Projects skapade automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
-1. Välj **Kvarhållning**.   
+1. Välj **kvarhållning**.   
 Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
 1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
@@ -121,7 +124,7 @@ Versionspipelinen definierar versionsprocessen.
 12. Under **Artefakter** väljer du **Släpp**.  
     Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
-1. Bredvid ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
+1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
 Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
 
 
@@ -153,6 +156,6 @@ När du konfigurerade CI/CD-processen skapades bygg- och versionspipelines autom
 > [!div class="nextstepaction"]
 > [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 > [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

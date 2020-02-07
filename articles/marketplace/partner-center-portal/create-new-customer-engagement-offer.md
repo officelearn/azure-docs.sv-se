@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 9a2237c0cea5fcc67e093709a0b42193b7326d1d
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 498cbd982b565f498ddade2dbc9afafe17a2c4ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045982"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048710"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande
 
@@ -61,7 +61,7 @@ Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärdering
 
 Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Relations hip Management). Kunden uppmanas att ange behörighet för att dela sin information. Dessa kund uppgifter, tillsammans med erbjudande namnet, ID: t och Marketplace-källan där de hittade ditt erbjudande, skickas till det CRM-system som du har konfigurerat. Mer information om hur du konfigurerar din CRM finns i [Anslut lead management](#connect-lead-management). 
 
-### <a name="test-drive"></a>Testkör
+### <a name="test-drive"></a>Test enhet
 
 En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
@@ -112,19 +112,9 @@ Välj alla de Dynamics 365-produkter som det här erbjudandet gäller för.
 
 Ange versions numret för ditt erbjudande. Kunderna kommer att se den här versionen på erbjudandets detalj sida. Om du bara uppdaterar versions numret på grund av marknadsföring/beskrivande ändringar, markerar du rutan **endast marknadsförings** ändringar. Med det här alternativet kan erbjudandet kringgå certifierings-och etablerings stegen.
 
-### <a name="standard-contract"></a>Standard kontrakt
+### <a name="terms-and-conditions"></a>Allmänna villkor
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft en standard kontrakts mal len för att hjälpa till att under lätta en transaktion i Marketplace.
-
-I stället för att använda anpassade allmänna villkor kan du välja att erbjuda program varan under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång.
-
-Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Om du vill använda standard kontraktet kontrollerar du rutan **Använd standard kontrakt?** .
-
-#### <a name="terms-of-use"></a>Användningsvillkor
-
-Om du inte markerar kryss rutan **Använd standard kontrakt?** måste du ange dina egna juridiska användnings villkor i fältet **användningsvillkor** . Ange upp till 10 000 tecken text, eller ange URL: en där du kan hitta ytterligare licens villkor om dina användnings villkor kräver en längre beskrivning. Kunder måste acceptera dessa villkor innan de kan testa din app.
+Ange dina egna juridiska villkor i fältet **allmänna** villkor. Du kan också ange URL: en där du hittar dina villkor. Kunder måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
 ## <a name="offer-listing"></a>Erbjudande lista
 
@@ -238,7 +228,7 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videor
+#### <a name="videos"></a>Videoklipp
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 

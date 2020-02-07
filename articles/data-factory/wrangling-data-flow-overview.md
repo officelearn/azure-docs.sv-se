@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531384"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048349"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
@@ -42,9 +42,9 @@ Genomsök data visuellt i ett kod fritt sätt för att ta bort eventuella avvika
 
 | Anslutningsprogram | Dataformat | Autentiseringstyp |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | SKV | Konto nyckel |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | SKV | Tjänstens huvudnamn |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | SKV | Konto nyckel, tjänstens huvud namn |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Kontonyckel |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Tjänstens huvudnamn |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Konto nyckel, tjänstens huvud namn |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | SQL-autentisering |
 | [Azure Synapse-analys](connector-azure-sql-data-warehouse.md) | - | SQL-autentisering |
 

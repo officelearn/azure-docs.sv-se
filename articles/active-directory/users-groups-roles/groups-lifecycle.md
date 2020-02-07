@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 83133fed401dac51a8dd6a653ccfd86117e956ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768696"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046467"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera princip för förfallo datum för Office 365-grupper
 
@@ -28,10 +28,10 @@ Den här artikeln beskriver hur du hanterar livs cykeln för Office 365-grupper 
 
 När du har angett att en grupp upphör att gälla:
 
-- Grupper med användar aktiviteter förnyas automatiskt när de upphör snart
-- Ägare av gruppen meddelas om att förnya gruppen om gruppen inte förnyas automatiskt
-- Alla grupper som inte förnyas tas bort
-- Alla Office 365-grupper som tas bort kan återställas inom 30 dagar av gruppen ägare eller administratören
+- Grupper med användar aktiviteter förnyas automatiskt när de upphör snart.
+- Ägare av gruppen meddelas om att förnya gruppen om gruppen inte förnyas automatiskt.
+- Alla grupper som inte förnyas tas bort.
+- Alla Office 365-grupper som tas bort kan återställas inom 30 dagar av gruppen ägare eller administratören.
 
 För närvarande kan endast en princip för förfallo datum konfigureras för alla Office 365-grupper i en Azure AD-organisation.
 
@@ -55,6 +55,8 @@ Följande användar åtgärder orsakar automatisk grupp förnyelse:
 ### <a name="auditing-and-reporting"></a>Granskning och rapportering
 
 Administratörer kan hämta en lista över automatiskt förnyade grupper från aktivitets gransknings loggarna i Azure AD.
+
+![Automatisk förnyelse av grupper baserat på aktivitet](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## <a name="roles-and-permissions"></a>Roller och behörigheter
 
@@ -186,7 +188,7 @@ Följande cmdletar kan användas för att konfigurera principen i mer detalj. Me
 
 De här artiklarna innehåller ytterligare information om Azure AD-grupper.
 
-- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

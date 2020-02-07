@@ -1,5 +1,5 @@
 ---
-title: Aktivera en anpassad Azure AD-roll i Privileged Identity Management (PIM) | Microsoft Docs
+title: Aktivera anpassad roll för Azure AD – Privileged Identity Management (PIM)
 description: Så här aktiverar du en anpassad Azure AD-roll för tilldelning Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06ceb2d2c98c3f9b6b184b98ddaadea610d525d2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f2c096f41acd5852423205b0b185c8e1a8533c55
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896567"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048141"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktivera en anpassad Azure AD-roll i Privileged Identity Management
 
@@ -34,7 +34,7 @@ Privileged Identity Management i Azure Active Directory (Azure AD) har nu stöd 
 
 När du behöver aktivera en anpassad Azure AD-roll kan du begära aktivering genom att välja navigerings alternativet mina roller i Privileged Identity Management.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna Azure AD- [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
 
 1. Välj **Azure AD-anpassade roller** för att se en lista över dina berättigade Azure AD-anpassade roll tilldelningar.

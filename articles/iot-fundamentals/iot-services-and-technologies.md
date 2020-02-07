@@ -1,18 +1,18 @@
 ---
 title: Azure Sakernas Internet (IoT)-tekniker och -lösningar
 description: Beskriver en samling tekniker och tjänster som du kan använda för att bygga en Azure IoT-lösning.
-author: robinsh
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/09/2018
-ms.author: robinsh
-ms.openlocfilehash: cf707a0ddc3d5b46c7be7944a911ee03f00fc064
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.author: dobett
+ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457168"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046066"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Azure-tekniker och-tjänster för att skapa IoT-lösningar
 
@@ -24,7 +24,7 @@ Azure IoT-teknik och-tjänster ger dig alternativ för att skapa ett brett utbud
 
 ![Azure IoT-tekniker,-tjänster och-lösningar](./media/iot-services-and-technologies/iot-technologies-services.png)
 
-## <a name="azure-iot-central"></a>Utforska IoT Central
+## <a name="azure-iot-central"></a>Azure IoT Central
 
 [IoT Central applikations plattform](https://apps.azureiotcentral.com) minskar belastningen och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företags klass. Med IoT Centralens anpassningsbara webb gränssnitt i kan du övervaka enhets villkor, skapa regler och hantera miljon tals enheter och deras data under deras livs cykel. API-ytan i IoT Central ger dig programmatisk åtkomst till att konfigurera och interagera med din IoT-lösning.
 
@@ -42,7 +42,7 @@ Azure IoT Solution-acceleratorer ger en hög kontroll över din IoT-lösning. L�
 
   - Fjärrövervakning
   - Ansluten fabrik
-  - Förutsägande underhåll
+  - Förebyggande underhåll
   - Enhetssimulering
 
 Kod basen med öppen källkod för alla lösnings acceleratorer finns på GitHub. Ladda ned koden för att anpassa en lösnings Accelerator så att den uppfyller dina särskilda IoT-krav.
@@ -83,6 +83,8 @@ IoT Central använder digitala enheter för att synkronisera enheter och data i 
 ### <a name="data-and-analytics"></a>Data och analys
 
 IoT-enheter genererar vanligt vis stora mängder tids serie data, till exempel temperatur läsningar från sensorer. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) kan ansluta till en IoT-hubb, läsa telemetri-dataströmmen från dina enheter, lagra dessa data och göra det möjligt att fråga och visualisera den.
+
+[Azure Maps](/azure/azure-maps) är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla korrekt geografisk kontext till webb-och mobil program. Du kan använda en REST API, en webbaserad JavaScript-kontroll eller en Android SDK för att bygga dina program.
 
 ## <a name="next-steps"></a>Nästa steg
 

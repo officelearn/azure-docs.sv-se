@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Zscaler beta för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Zscaler beta för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Zscaler beta.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d5ca1efb607160447bdbca59522c8ac72bc7eeb3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 505cd7a3350c937885f0f03268ef326a4f784258
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515517"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062760"
 ---
-# <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler beta för automatisk användar etablering
+# <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler beta för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Zscaler beta och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Zscaler beta.
 
@@ -48,7 +48,7 @@ Innan du konfigurerar Zscaler beta för automatisk användar etablering med Azur
 
 **Gör så här om du vill lägga till Zscaler beta från Azure AD-programgalleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -56,7 +56,7 @@ Innan du konfigurerar Zscaler beta för automatisk användar etablering med Azur
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
@@ -83,7 +83,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Zscaler beta utifrån användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Zscaler beta, genom att följa anvisningarna i självstudien om [enkel inloggning med Zscaler beta](zscaler-beta-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Zscaler beta, genom att följa anvisningarna i [självstudien om enkel inloggning med Zscaler beta](zscaler-beta-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zscaler beta i Azure AD:
 
@@ -113,7 +113,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Välj **Aktivera scim-baserad etablering** för att hämta **bas-URL** och **Bearer**-token och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en**och **ha token token** till **hemlig token** i Azure Portal.
+    Välj **Aktivera scim-baserad etablering** för att hämta **bas-URL** och **Bearer-token**och spara sedan inställningarna. Kopiera **bas-URL** : en till klient- **URL: en**och **ha token token** till **hemlig token** i Azure Portal.
 
 7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Zscaler beta. Om anslutningen Miss lyckas kontrollerar du att Zscaler beta-kontot har administratörs behörighet och försöker igen.
 
@@ -123,7 +123,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler beta-etablering](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Zscaler beta**.
 
@@ -157,11 +157,11 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Zscaler beta.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../active-directory-saas-provisioning-reporting.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

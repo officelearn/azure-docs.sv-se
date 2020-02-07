@@ -1,125 +1,75 @@
 ---
 title: Introduktion till Sakernas Internet (IoT) i Azure
 description: Introduktionen förklarar grunderna i Azure IoT och IoT-tjänster, och innehåller exempel som kan illustrera användningen av IoT.
-author: robinsh
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/11/2018
-ms.author: robinsh
-ms.openlocfilehash: ce82a2cc4cc936d2e0a7a8b82cbc0ed7e5c6eb52
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.date: 01/15/2020
+ms.author: dobett
+ms.openlocfilehash: c79f18669e1b13f79491e98658107221b43f3ff5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048654"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046181"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
-Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals IoT-resurser. Enklare uttryckt består en IoT-lösning av en eller flera IoT-enheter och en eller flera serverdelstjänster som körs i molnet som kommunicerar med varandra. 
+Azure Sakernas Internet (IoT) är en samling Microsoft-hanterade molntjänster som ansluter, övervakar och styr miljontals IoT-resurser. I enklare termer består en IoT-lösning av en eller flera IoT-enheter som kommunicerar med en eller flera Server dels tjänster som finns i molnet. 
 
-Den här artikeln beskriver grunderna i IoT, tar upp användningsfall och beskriver kortfattat de åtta separata tjänsterna som är tillgängliga. Genom att förstå vad som är tillgängligt kan du ta reda på vad du vill titta på mer noggrant för att utforma ditt scenario.
+## <a name="iot-devices"></a>IoT-enheter
 
-## <a name="introduction"></a>Introduktion
+En IoT-enhet består vanligt vis av en kretskort med exponerade sensorer som använder WiFi för att ansluta till Internet. Exempel:
 
-De viktigaste delarna av en IoT-lösning är följande: enheter, serverdelstjänster och kommunikation mellan de båda. 
+* En tryck sensor på en fjärran sluten olje pump.
+* Temperatur-och fuktighets sensorer i en luft Konditionerings enhet.
+* En accelerometer i en hiss.
+* Närvaro sensorer i ett rum.
 
-### <a name="iot-devices"></a>IoT-enheter
+Det finns en mängd olika enheter som är tillgängliga från olika tillverkare för att bygga din lösning. En lista över enheter som har certifierats för att fungera med Azure IoT Hub finns i [enhets katalogen för Azure Certified för IoT](https://catalog.azureiotsolutions.com/alldevices). För prototyper kan du använda enheter som till exempel en [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-developer-kit/) eller en [Raspberry Pi](https://www.raspberrypi.org/). Devkit har inbyggda sensorer för temperatur, tryck, fuktighet och en Gyroscope, accelerometer och magnetometer. Med Raspberry Pi kan du koppla flera olika typer av sensorer. 
 
-Enheter består vanligtvis av ett kretskort med anslutna sensorer som ansluter till Internet. Många enheter kommunicerar via en Wi-Fi-krets. Här följer några exempel på IoT-enheter:
+Microsoft tillhandahåller [enhets-SDK](../iot-hub/iot-hub-devguide-sdks.md) : er med öppen källkod som du kan använda för att skapa appar som körs på dina enheter. Dessa [SDK: er fören klar och påskyndar](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/) utvecklingen av IoT-lösningar.
 
-* trycksensorer på en fjärransluten oljepump
-* temperatur- och fuktighetssensorer i en luftkonditioneringsenhet
-* accelerometrar i en hiss
-* närvarosensorer i ett rum
+## <a name="communication"></a>Kommunikation
 
-Två enheter som används ofta för prototyper är grundläggande MX-Chip IoT Devkit från Microsoft och Raspberry PI-enheter. MX-Chip Devkit har sensorer som skapats för temperatur, tryck och fuktighet, samt ett gyroskop och en accelerometer, en magnetometer och en Wi-Fi-krets. Raspberry PI är en IoT-enhet som du kan koppla många olika typer av sensorer till, så att du kan välja exakt det du behöver för ditt scenario. 
+Vanligt vis skickar IoT-enheter telemetri från sensorer till backend-tjänster i molnet. Andra typer av kommunikation är dock möjligt, till exempel en backend-tjänst som skickar kommandon till dina enheter. Här följer några exempel på enhets-till-moln-och moln-till-enhet-kommunikation:
 
-Mer information om tillgängliga IoT-enheter finns i branschens största [katalog med enheter som är certifierade för IoT](https://catalog.azureiotsolutions.com/alldevices).
+* En bilkylnings Truck skickar temperatur var 5: e minut till en IoT Hub. 
 
-[SDK:er för IoT-enheter](../iot-hub/iot-hub-devguide-sdks.md) hjälper dig att skapa appar som körs på dina enheter så att de kan utföra uppgifter som du behöver. Med SDK:er kan du skicka telemetri till din IoT-hubb, ta emot meddelanden och uppdateringar från IoT-hubb och så vidare.
+* Backend-tjänsten skickar ett kommando till en enhet för att ändra den frekvens som den skickar telemetri till för att hjälpa till att diagnostisera ett problem. 
 
-### <a name="communication"></a>Kommunikation
+* En enhet skickar aviseringar baserat på de värden som läses från dess sensorer. Till exempel en enhet som övervakar en batch reaktor i en kemisk anläggning, skickar en avisering när temperaturen överskrider ett visst värde.
 
-Enheten kan kommunicera med serverdelstjänster i båda riktningarna. Här följer några exempel på hur enheten kan kommunicera med serverdelslösningen.
+* Dina enheter skickar information som ska visas på en instrument panel för visning av mänskliga operatörer. Till exempel kan ett kontroll rum i en fin justering Visa temperatur, tryck och Flow-volymer i varje rörledning, vilket gör det möjligt för operatörer att övervaka anläggningen. 
 
-#### <a name="examples"></a>Exempel 
+[IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md) : er och IoT Hub stödja vanliga [kommunikations protokoll](../iot-hub/iot-hub-devguide-protocols.md) som http, MQTT och AMQP.
 
-* Din enhet kan skicka temperatur från en mobil kylbil var femte minut till en IoT-hubb. 
-
-* Serverdelstjänsten kan be enheten för att skicka telemetri oftare för att diagnostisera problem. 
-
-* Din enhet kan skicka aviseringar baserat på de värden som läses från dess sensorer. Om du till exempel övervakar en satsreaktor på en kemisk anläggning kanske du vill skicka en avisering när temperaturerna överskrider ett visst värde.
-
-* Din enhet kan skicka information till en instrumentpanel för visning av mänskliga operatörer. Exempelvis kan ett kontrollrum i en raffinaderi visa temperatur och tryck på varje rör, samt den volym som passerar genom röret, vilket gör att operatörerna kan titta på den. 
-
-Dessa uppgifter med flera kan implementeras med hjälp av [SDK:er för IoT-enheter](../iot-hub/iot-hub-devguide-sdks.md).
-
-#### <a name="connection-considerations"></a>Överväganden för anslutning
-
-Att ansluta enheter säkert och tillförlitligt är ofta den största utmaningen för IoT-lösningar. Det här beror på att IoT-enheter skiljer sig från andra klienter som till exempel webbläsare och mobilappar. IoT-enheter är mer specifikt:
+IoT-enheter har olika egenskaper jämfört med andra klienter, till exempel webbläsare och mobilappar. Enhets-SDK: er hjälper dig att lösa utmaningarna med att ansluta enheter på ett säkert och tillförlitligt sätt till Server dels tjänsten.  IoT-enheter är mer specifikt:
 
 * Ofta inbyggda system utan mänskliga operatörer (till skillnad från en telefon).
-
 * Kan distribueras på avlägsna platser, där fysisk åtkomst är dyr.
-
-* Kan i vissa fall enbart nås via lösningens serverdel. Det finns inget annat sätt att interagera med enheten.
-
+* Kan i vissa fall enbart nås via lösningens serverdel.
 * Kan ha begränsade ström- och bearbetningsresurser.
-
 * Kan ha oregelbunden, långsam eller dyr nätverksanslutning.
-
 * Kan behöva använda privatägda, anpassade eller branschspecifika programprotokoll.
 
-### <a name="back-end-services"></a>Serverdelstjänster 
+## <a name="back-end-services"></a>Serverdelstjänster 
 
-Här följer några av de funktioner som en serverdelstjänst kan ge.
+I en IoT-lösning tillhandahåller Server dels tjänsten funktioner som:
 
 * Ta emot stora mängder telemetri från dina enheter och bestämma hur telemetridata bearbetas och lagras.
-
 * Analysera telemetri för att ge insikter, oavsett om de skickas i realtid eller i efterhand.
-
 * Skicka kommandon från molnet till en specifik enhet. 
+* Konfigurera enheter och kontrol lera vilka enheter som kan ansluta till din infrastruktur.
+* Kontrol lera status för enheterna och övervakning av deras aktiviteter.
+* Hantering av den inbyggda program varan på dina enheter.
 
-* Etablera enheter och kontrollera vilka enheter som kan att ansluta till din infrastruktur.
+I en lösning för fjärrövervakning för en olje pump Station, använder till exempel Server delen telemetri från pumpar för att identifiera avvikande beteende. När backend-tjänsten identifierar en avvikelse kan den automatiskt skicka tillbaka ett kommando till enheten för att vidta en lämplig åtgärd. Den här processen skapar en automatisk feedback-loop mellan enheten och molnet som ökar effektiviteten för lösningen dramatiskt.
 
-* Kontrollera status för enheter och övervaka deras verksamhet.
+## <a name="azure-iot-examples"></a>Exempel på Azure IoT
 
-I ett förutsägande underhållsscenario lagrar till exempel molnserverdelen historisk telemetri. Lösningen använder dessa data för att identifiera potentiellt avvikande beteenden på specifika pumpar innan de orsakar verkliga problem. Med hjälp av dataanalys kan den identifiera att den förebyggande lösningen ska skicka ett kommando till enheten för att vidta en korrigerande åtgärd. Den här processen skapar en automatisk feedback-loop mellan enheten och molnet som ökar effektiviteten för lösningen dramatiskt.
-
-## <a name="an-iot-example"></a>Ett IoT-exempel
-
-Här är ett exempel på hur ett företag använde IoT för att spara miljontals dollar. 
-
-Det finns en enorm boskapsranch med hundratusentals kor. Det är svårt att hålla koll på så många kor, och veta hur de mår, och det kräver mycket omkringkörande. De kopplade sensorer till varje enskild ko som skickade information som GPS-koordinater och temperatur till en serverdelstjänst som ska skrivas till en databas.
-
-De har en analytisk tjänst som söker igenom inkommande data och analyserar data för varje ko för att kontrollera frågor som:
-
-* Har kon feber? Hur länge har kon haft feber? Om det är längre än en dag ska GPS-koordinater hämtas, och kon ska hittas och behandlas med antibiotika om det behövs. 
-
-* Är kon på samma plats i mer än en dag? I så fall hämtar du GPS-koordinaterna och letar reda på kon. Har kon fallit från en klippa? Är kon skadad? Behöver kon hjälp? 
-
-Företagets implementering av den här IoT-lösningen gjorde att de kunde kontrollera och behandla kor snabbt och minska tiden som de ägnade åt att köra omkring och kontrollera djuren, vilket gjorde att de sparade mycket pengar. Fler exempel från verkligheten på hur företag använder IoT finns i avsnittet om [Microsofts tekniska fallstudier för IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
-
-## <a name="iot-services"></a>IoT-tjänster
-
-Det finns flera IoT-relaterade tjänster i Azure och det kan vara förvirrande att ta reda på vilken du vill använda. Vissa, till exempel IoT Central och IoT-lösningsacceleratorer, ger mallar för att hjälpa dig att skapa en egen lösning och snabbt komma igång. Du kan också helt utveckla dina egna lösningar med hjälp av andra tjänster som är tillgängliga – det beror helt på hur mycket hjälp och hur stor kontroll du vill ha. Här följer en lista över tjänsterna som är tillgängliga, samt vad du kan använda dem för.
-
-1. [**IoT Central**](../iot-central/core/overview-iot-central.md): det här är en IoT-programplattform som fören klar skapandet av IoT-lösningar och hjälper till att minska belastningen och kostnaden för IoT-hanterings åtgärder och utveckling. Om du vill starta väljer du en mall för din typ av enhet och skapar och testar ett grundläggande IoT Central-program som kommer att användas av operatörer av enheten. Med programmet IoT Central kommer också att kunna övervaka enheterna och etablera nya enheter. Den här tjänsten är för enkla IoT-lösningar som inte kräver mycket tjänstanpassning.
-
-2. [**IoT-lösningsacceleratorer**](/azure/iot-suite): Det här är en samling av PaaS-lösningar som du kan använda för att påskynda utvecklingen av din IoT-lösning. Du börjar med en angiven IoT-lösning och sedan anpassar du lösningen efter dina behov. Du behöver Java- eller .NET-kunskaper för att anpassa serverdelen och kunskaper i JavaScript för att anpassa visualiseringen. 
-
-3. [**IoT Hub**](/azure/iot-hub/): Med den här tjänsten kan du ansluta från dina enheter till en IoT-hubb och övervaka och styra flera miljarder IoT-enheter. Detta är särskilt användbart om du behöver dubbelriktad kommunikation mellan dina IoT-enheter och serverdelen. Det här är den underliggande tjänsten för IoT Central och IoT-lösningsacceleratorer. 
-
-4. [**IoT Hub Device Provisioning Service**](/azure/iot-dps/): Det här är en hjälptjänst för IoT Hub som du kan använda för att etablera enheter till din IoT-hubb på ett säkert sätt. Med den här tjänsten kan du enkelt etablera miljontals enheter snabbt, i stället för att etablera dem en i taget. 
-
-5. [**IoT Edge**](/azure/iot-edge/): Den här tjänsten bygger på IoT Hub. Den kan användas för att analysera data på IoT-enheter i stället för i molnet. Färre meddelanden måste skickas till molnet eftersom delar av din arbetsbelastning flyttas till Edge. 
-
-6. [**Azure Digital Twins**](../digital-twins/index.yml): Med den här tjänsten kan du skapa omfattande modeller av den fysiska miljön. Du kan modellera relationer och interaktioner mellan människor, utrymmen och enheter. Du kan till exempel förutsäga underhållsbehov för en fabrik, analysera i realtidsenergikrav för ett elnät eller optimera användningen av tillgängligt utrymme för ett kontor.
-
-7. [**Time Series Insights**](/azure/time-series-insights): Med den här tjänsten kan du lagra, visualisera fråga stora mängder time series-data som genererats av IoT-enheter. Du kan använda den här tjänsten med IoT Hub. 
-
-8. [**Azure Maps**](/azure/azure-maps): Den här tjänsten tillhandahåller geografisk information till webbprogram och mobilappar. Det finns en fullständig uppsättning av REST API:er samt en webbaserad JavaScript-kontroll som kan användas för att skapa flexibla program som fungerar på datorer eller mobila appar för Windows- och Apple-enheter.
+I verkliga exempel på hur organisationer använder Azure IoT, se tekniska fallstudier från [Microsoft för IoT](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured). 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -127,6 +77,6 @@ För verkliga affärsfall och vilken arkitektur som använts finns i avsnittet o
 
 Vissa exempelprojekt som du kan prova med en IoT DevKit finns i [IoT DevKit-katalogen](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/). 
 
-En mer utförlig förklaring av de olika tjänsterna och hur de används finns i [Azure IoT-tjänster och tekniker](iot-services-and-technologies.md).
+En mer omfattande förklaring av de olika tjänsterna och hur de används finns i [Azure IoT-tjänster och-tekniker](iot-services-and-technologies.md).
 
 En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).

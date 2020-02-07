@@ -3,12 +3,12 @@ title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023199"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050070"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -140,8 +140,7 @@ Förväntad **typ** av villkor `equals` är _sträng_. Eftersom **allowedLocatio
 
 ### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som har **\[\*\]** kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen, **\[\*\]** gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska och mellan dem. Det finns tre standard scenarier för utvärdering av objekt per objekt är användbart i: _ingen_, _alla_eller _alla_ element matchar.
-För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
+Alias som har **\[\*\]** kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen, **\[\*\]** gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska och mellan dem. Det finns tre standard scenarier för utvärdering av objekt per objekt är användbart i: _ingen_, _alla_eller _alla_ element matchar. För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
 
 Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
 Detta faktum är viktigt att förstå i sammanhang som **\[\*\]** utvärderar varje enskilt element i matrisen.

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Figma automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Figma automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Figma.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 38ebba8803e584e9b5d1179281fcff3a3f98d5a4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: a50f1c81f5eda78ee6834aba3085f685c197b4dc
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848100"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057965"
 ---
-# <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Figma för automatisk användar etablering
+# <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Figma för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Figma och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Figma.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -67,11 +67,11 @@ Innan du konfigurerar Figma för automatisk användar etablering med Azure AD m�
 
     ![Skapa token för Figma](media/Figma-provisioning-tutorial/figma-tenantid.png)
 
-4. Rulla nedåt och klicka på **generera API**-token.
+4. Rulla nedåt och klicka på **generera API-token**.
 
     ![Skapa token för Figma](media/Figma-provisioning-tutorial/token.png)
 
-5. Kopiera värdet för **API** -token. Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt Figma-program i Azure Portal. 
+5. Kopiera värdet för **API-token** . Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt Figma-program i Azure Portal. 
 
     ![Skapa token för Figma](media/Figma-provisioning-tutorial/figma04.png)
 
@@ -85,7 +85,7 @@ Om du vill konfigurera Figma för automatisk användar etablering med Azure AD m
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -100,7 +100,7 @@ Om du vill konfigurera Figma för automatisk användar etablering med Azure AD m
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Figma baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Figma genom att följa anvisningarna i självstudien om [enkel inloggning med Figma](figma-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Figma genom att följa anvisningarna i [självstudien om enkel inloggning med Figma](figma-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-figma--in-azure-ad"></a>Konfigurera automatisk användar etablering för Figma i Azure AD:
 
@@ -120,7 +120,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://www.figma.com/scim/v2/<TenantID>` i klient- **URL** där **TenantID** är värdet som du hämtade från Figma tidigare. Mata in värdet för **API** -token i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Figma. Om anslutningen Miss lyckas kontrollerar du att Figma-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** anges `https://www.figma.com/scim/v2/<TenantID>` i **klient webb adressen** där **TenantID** är det värde som du hämtade från Figma tidigare. Mata in värdet för **API-token** i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Figma. Om anslutningen Miss lyckas kontrollerar du att Figma-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -128,7 +128,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
 10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Figma**.
 
@@ -138,7 +138,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Figma-användarattribut](media/Figma-provisioning-tutorial/figma06.png)
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Om du vill aktivera Azure AD Provisioning-tjänsten för Figma ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -154,13 +154,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Figma.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

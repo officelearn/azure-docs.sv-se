@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765750"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047851"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
 
@@ -37,7 +37,9 @@ Tidigare aktiverade vi ServiceMap-lösningen på din arbets yta och ställer in 
 
 
 ## <a name="how-do-i-upgrade"></a>Hur gör jag för att uppgradering?
-Varje virtuell dator som kräver uppgradering identifieras på fliken **Kom igång** i Azure Monitor for VMs i Azure Portal. Du kan uppgradera en enskild virtuell dator eller välja flera för att uppgradera tillsammans. Använd följande kommando för att uppgradera med PowerShell:
+När en Log Analytics arbets yta uppgraderas till den senaste versionen av Azure Monitor till virtuella datorer, uppgraderas beroende agenten på varje virtuell dator som är ansluten till arbets ytan. Varje virtuell dator som kräver uppgradering identifieras på fliken **Kom igång** i Azure Monitor for VMs i Azure Portal. När du väljer att uppgradera en virtuell dator uppgraderas arbets ytan för den virtuella datorn tillsammans med andra virtuella datorer som är kopplade till arbets ytan. Du kan välja en enskild virtuell dator eller flera virtuella datorer, resurs grupper eller prenumerationer. 
+
+Använd följande kommando för att uppgradera en arbets yta med hjälp av PowerShell:
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
@@ -97,7 +99,7 @@ Vi förväntar dig att lansera uppdateringen för Azure Monitor for VMs i börja
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>Hälso funktionen är i begränsad offentlig för hands version
 
-Vi har fått mycket bra feedback från kunder om vår funktions uppsättning för VM-hälsa. Intresset för den här funktionen är stort och många ser fram emot möjligheten att övervaka arbetsflöden. Vi planerar att göra ett antal ändringar för att utöka funktionerna och integrera den feedback vi fått. 
+Vi har fått mycket bra feedback från kunder om vår funktions uppsättning för VM-hälsa. Det är mycket intressantare för den här funktionen och du kan piffa över dess potential för att stödja övervaknings arbets flöden. Vi planerar att göra en serie ändringar för att lägga till funktioner och åtgärda den feedback vi har fått. 
 
 Vi har flyttat den här funktionen till en **begränsad offentlig för hands version**för att minimera effekten av dessa ändringar för nya kunder. Den här uppdateringen skedde i oktober 2019.
 
@@ -119,4 +121,4 @@ Om du är en befintlig kund som använder hälso funktionen och vill använda de
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer, granska [distribuera Azure Monitor för virtuella datorer](vminsights-enable-overview.md).
+Om du vill förstå de krav och metoder som hjälper dig att övervaka dina virtuella datorer kan du läsa [distribuera Azure Monitor for VMS](vminsights-enable-overview.md).

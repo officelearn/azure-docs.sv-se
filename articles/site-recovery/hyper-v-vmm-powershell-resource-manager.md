@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: a46bca5c5c55338f8bea7e1ff370f92ce6a2d577
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841054"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048603"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera katastrof återställning av virtuella Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
@@ -20,14 +20,14 @@ Den här artikeln visar hur du automatiserar stegen för replikering av virtuell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Granska [arkitekturen och komponenterna för scenariot](hyper-v-vmm-architecture.md).
 - Granska [kraven för stöd](site-recovery-support-matrix-to-sec-site.md) för alla komponenter.
 - Kontrol lera att Virtual Machine Manager-servrar och Hyper-V-värdar följer [support kraven](site-recovery-support-matrix-to-sec-site.md).
 - Kontrol lera att de virtuella datorer som du vill replikera följer den [replikerade datorns support](site-recovery-support-matrix-to-sec-site.md).
 
-## <a name="prepare-for-network-mapping"></a>Förbered för nätverksmappning
+## <a name="prepare-for-network-mapping"></a>Förbereda för nätverksmappning
 
 [Nätverks mappningen](hyper-v-vmm-network-mapping.md) mappar mellan lokala Virtual Machine Manager virtuella dator nätverk i käll-och mål moln. Mappning utför följande:
 
@@ -75,7 +75,7 @@ Kontrol lera att du har Azure PowerShell redo att gå:
    Set-AzContext –SubscriptionID <subscriptionId>
    ```
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 1. Skapa en Azure Resource Manager resurs grupp om du inte har någon.
 
@@ -219,9 +219,9 @@ Följ stegen i [Övervaka aktivitet](#monitor-activity)för att kontrol lera att
 1. Kör det här kommandot för att hämta nätverken för käll Virtual Machine Managers servern och mål Virtual Machine Manager servern.
 
    ```azurepowershell
-   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[0]
+   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
 
-   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
+   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[1]
    ```
 
    > [!NOTE]

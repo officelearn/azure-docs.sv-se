@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2019
 ms.author: aahi
-ms.openlocfilehash: 30c65abcbf469dd4f6e8987aa1e2ee8a36fef17a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: efeb8581bd300f393d3447e3303273f5139d86dd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987938"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054940"
 ---
 <a name="HOLTop"></a>
 
@@ -23,7 +23,7 @@ ms.locfileid: "76987938"
 
 ---
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -90,7 +90,7 @@ De här kodfragmenten visar hur du utför följande uppgifter med Textanalys kli
 * [Länkning av entitet](#entity-linking)
 * [Extrahering av nyckel fraser](#key-phrase-extraction)
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 #### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
 
@@ -104,7 +104,7 @@ def sentiment_analysis_example(endpoint, key):
 
     document = "I had the best day of my life. I wish you were there with me."
 
-    response = single_analyze_sentiment(endpoint=endpoint, key=key, input_text=document)
+    response = single_analyze_sentiment(endpoint=endpoint, credential=key, input_text=document)
     print("Document Sentiment: {}".format(response.sentiment))
     print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
         response.document_scores.positive,
@@ -162,7 +162,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ---
 
-## <a name="language-detection"></a>Språkspårning
+## <a name="language-detection"></a>Språkidentifiering
 
 #### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
 
@@ -177,7 +177,7 @@ from azure.ai.textanalytics import single_detect_language
 def language_detection_example(endpoint, key):
     try:
         document = "Ce document est rédigé en Français."
-        response = single_detect_language(endpoint=endpoint, key=key, input_text= document)
+        response = single_detect_language(endpoint=endpoint, credential=key, input_text= document)
         print("Language: ", response.primary_language.name)
 
     except Exception as err:
@@ -227,7 +227,7 @@ def entity_recognition_example(endpoint, key):
 
     try:
         document = "I had a wonderful trip to Seattle last week."
-        result = single_recognize_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_entities(endpoint=endpoint, credential=key, input_text= document)
         
         print("Named Entities:\n")
         for entity in result.entities:
@@ -264,7 +264,7 @@ def entity_pii_example(endpoint, key):
         document = "Insurance policy for SSN on file 123-12-1234 is here by approved."
 
 
-        result = single_recognize_pii_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_pii_entities(endpoint=endpoint, credential=key, input_text= document)
         
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
@@ -283,7 +283,7 @@ Personally Identifiable Information Entities:
 ```
 
 
-## <a name="entity-linking"></a>Entitetslänkning
+## <a name="entity-linking"></a>Entity Linking
 
 Skapa en ny funktion som kallas `entity_linking_example()` som tar slut punkten och nyckeln som argument, och anropar sedan funktionen `single_recognize_linked_entities()` och itererar igenom resultaten. Det returnerade Response-objektet innehåller listan över identifierade entiteter i `entities` om det lyckades och en `error` om inte. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `entity` objekt som en lista över `match` objekt.
 
@@ -298,7 +298,7 @@ def entity_linking_example(endpoint, key):
         During his career at Microsoft, Gates held the positions of chairman,
         chief executive officer, president and chief software architect, 
         while also being the largest individual shareholder until May 2014."""
-        result = single_recognize_linked_entities(endpoint=endpoint, key=key, input_text= document)
+        result = single_recognize_linked_entities(endpoint=endpoint, credential=key, input_text= document)
 
         print("Linked Entities:\n")
         for entity in result.entities:
@@ -413,7 +413,7 @@ Document ID: 2
 
 ---
 
-## <a name="key-phrase-extraction"></a>Extraktion av nyckelfraser
+## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
 
 #### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
@@ -428,7 +428,7 @@ def key_phrase_extraction_example(endpoint, key):
     try:
         document = "My cat might need to see a veterinarian."
 
-        response = single_extract_key_phrases(endpoint=endpoint, key=key, input_text= document)
+        response = single_extract_key_phrases(endpoint=endpoint, credential=key, input_text= document)
 
         if not response.is_error:
             print("\tKey Phrases:")

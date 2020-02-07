@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för VMware-utvärdering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846188"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048771"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -25,7 +25,7 @@ Om du vill utvärdera lokala datorer för migrering till Azure med den här arti
 --- | ---
 **Utvärderings gränser**| Upptäck och utvärdera upp till 35 000 virtuella VMware-datorer i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Ett projekt kan omfatta virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar, upp till utvärderings gränserna.
-**Identifiering** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
+**Identifikation** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
@@ -37,7 +37,7 @@ Förutom att identifiera datorer kan Azure Migrate: Server utvärdering kan iden
 
 **Support** | **Detaljer**
 --- | ---
-**Identifiering** | Identifieringen är agent lösa, använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer med WMI och SSH-samtal.
+**Identifikation** | Identifieringen är agent lösa, använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer med WMI och SSH-samtal.
 **Datorer som stöds** | Lokala virtuella VMware-datorer.
 **Datorns operativ system** | Alla Windows-och Linux-versioner.
 **autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
@@ -86,9 +86,9 @@ ESXi-värdar | **Krävs endast för [program identifiering](https://docs.microso
 **Internetanslutning** | Om datorerna inte är anslutna till Internet måste du installera Log Analytics gateway på dem.
 
 
-## <a name="agentless-dependency-visualization"></a>Agentfri visualisering av beroenden
+## <a name="agentless-dependency-visualization"></a>Beroende visualisering för agent utan agent
 
-Det här alternativet är för närvarande en för hands version. [Läs mer](how-to-create-group-machine-dependencies-agentless.md). Kraven sammanfattas i följande tabell.
+Detta alternativ förhandsvisas just nu. [Läs mer](how-to-create-group-machine-dependencies-agentless.md). Kraven sammanfattas i följande tabell.
 
 **Krav** | **Detaljer**
 --- | ---
@@ -96,7 +96,7 @@ Det här alternativet är för närvarande en för hands version. [Läs mer](how
 **Stöd för virtuella datorer** | Stöds för närvarande endast för virtuella VMware-datorer.
 **Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars)
 **Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Windows-konto** |  Visualiseringen behöver ett användar konto med gäst åtkomst.
+**Windows-konto** |  Visualiseringen behöver ett lokalt administratörs konto eller ett domän administratörs konto.
 **Linux-konto** | Visualiseringen behöver ett användar konto med rot behörighet.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
 **VM-agenter** | Ingen agent krävs på de virtuella datorerna.
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill analysera.

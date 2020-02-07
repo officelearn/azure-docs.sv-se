@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 9d00024351c18789e26120cc2af006b9aac4232d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767848"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057846"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ett nät för automatisk användar etablering
 
 I den här artikeln får du lära dig hur du konfigurerar Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användare eller grupper för att utnyttja.
 
 > [!NOTE]
-> Den här artikeln beskriver en anslutning som är byggd ovanpå Azure AD-tjänsten för användar etablering. Viktig information om den här tjänsten och svar på vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> Den här artikeln beskriver en anslutning som är byggd ovanpå Azure AD-tjänsten för användar etablering. Viktig information om den här tjänsten och svar på vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningsappen är för närvarande i förhandsversion. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här artikeln förutsätter att du redan har följande krav:
 
@@ -156,7 +156,7 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
     ![Fönster för grupp mappningar](media/harness-provisioning-tutorial/groupattributes.png)
 
-1. Information om hur du konfigurerar omfångs filter finns i [attribut-baserad program etablering med omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Information om hur du konfigurerar omfångs filter finns i [attribut-baserad program etablering med omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Aktivera Azure AD Provisioning-tjänsten för nät genom att växla **etablerings status** växeln **på på**under **Inställningar**.
 
@@ -172,13 +172,13 @@ Gör så här för att konfigurera automatisk användar etablering för nät i A
 
 Den här åtgärden startar den inledande synkroniseringen av de användare eller grupper som du håller på att konfigurera. Den inledande synkroniseringen tar längre tid att utföra än senare. Synkroniseringar sker ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. Gå till avsnittet **synkroniseringsinformation om** du vill övervaka förloppet. Du kan också följa länkar till en etablerings aktivitets rapport, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på nätet.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e9ab9dddad35708b58d32802452789adf84a19e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5eeb1c25264c36909774ec689b7410765881c8e2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759473"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064741"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Skydda en databas i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Brand Väggs regler används av både-servern och databasen för att avvisa ansl
 
 Ett bra tips är att du begränsar de IP-adressintervall som tillåts via serverbrandväggen så mycket som möjligt.  För att få åtkomst till Azure SQL Data Warehouse från den lokala datorn, se till att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
 
-Azure-Synapse använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../sql-database/sql-database-firewall-configure.md)
+Azure-Synapse använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i [Azure SQL Database brand Väggs regler](../sql-database/sql-database-firewall-configure.md)
 
 Anslutningar till SQL Data Warehouse krypteras som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
 
@@ -66,7 +66,7 @@ Om du vill ge en användare behörighet att utföra ytterligare åtgärder, till
 
 Mer information om dessa ytterligare roller och autentisering till en SQL Database finns [i hantera databaser och inloggningar i Azure SQL Database](../sql-database/sql-database-manage-logins.md).  Mer information om hur du ansluter med hjälp av Azure Active Directory finns i [ansluta med hjälp av Azure Active Directory autentisering](sql-data-warehouse-authentication.md).
 
-## <a name="authorization"></a>Autentisering
+## <a name="authorization"></a>Auktorisering
 Auktorisering syftar på vad du kan göra i en databas när du är autentiserad och ansluten. Behörigheterna för auktorisering bestäms av roll medlemskap och behörigheter. Ett bra tips är att du ska ge användare så få behörigheter som möjligt. Du kan använda följande lagrade procedurer för att hantera roller:
 
 ```sql

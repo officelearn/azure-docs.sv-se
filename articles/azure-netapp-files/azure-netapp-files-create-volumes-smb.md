@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867439"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049892"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,11 +45,11 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    Gäller inte       |    Eko svar    |
-    |    Kerberos           |    464       |    TCP           |
-    |    Kerberos           |    464       |    UDP           |
-    |    Kerberos           |    88        |    TCP           |
-    |    Kerberos           |    88        |    UDP           |
+    |    ICMPv4             |    Ej tillämpligt       |    Eko svar    |
+    |    Paket           |    464       |    TCP           |
+    |    Paket           |    464       |    UDP           |
+    |    Paket           |    88        |    TCP           |
+    |    Paket           |    88        |    UDP           |
     |    LDAP               |    389       |    TCP           |
     |    LDAP               |    389       |    UDP           |
     |    LDAP               |    3268      |    TCP           |
@@ -73,6 +73,8 @@ Ett undernät måste delegeras till Azure NetApp Files.
     Om du har domänkontrollanter som inte kan kommas åt via Azure NetApp Files delegerade under nätet kan du skicka en support förfrågan för Azure för att ändra omfånget från **Global** (standard) till **plats**.  Azure NetApp Files behöver endast kommunicera med domänkontrollanter på platsen där Azure NetApp Files-adress utrymmet för det delegerade under nätet finns.
 
     Se [utforma platstopologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
+    
+Se Azure NetApp Files [FAQ (FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) ) om ytterligare AD-information. 
 
 ## <a name="create-an-active-directory-connection"></a>Skapa en Active Directory anslutning
 
@@ -84,9 +86,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     * **Primär DNS**  
         Detta är den DNS som krävs för åtgärderna för att Active Directory domän anslutning och SMB-autentisering. 
-    * **Secondary DNS**   
+    * **Sekundär DNS-**    
         Det här är den sekundära DNS-servern för att säkerställa redundanta namn tjänster. 
-    * **Domän**  
+    * **Domänsuffix**  
         Detta är domän namnet för din Active Directory Domain Services som du vill ansluta till.
     * **Prefix för SMB-server (dator konto)**  
         Detta är namngivnings prefixet för dator kontot i Active Directory som Azure NetApp Files används för att skapa nya konton.

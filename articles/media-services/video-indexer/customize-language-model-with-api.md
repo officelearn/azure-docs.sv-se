@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: e8df7ffd285b0d49f5d4a87585e769b5b0bbafe9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513158"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049036"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språk modell med Video Indexer API: er
 
@@ -105,9 +105,8 @@ Svaret innehåller metadata för den nytränade språk modellen tillsammans med 
 }
 ```
 
-Du bör använda det returnerade **ID-** värdet för språk modellen för **linguisticModelId** -parametern när du [laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och för **languageModelId** -parametern när du [indexerar om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Det returnerade **ID** : t är ett unikt ID som används för att skilja mellan språk modeller, medan **languageModelId** används både för att [Ladda upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och [Indexera om ett video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) -api: er (kallas även **LinguisticModelId** i video Indexer upload/re-index-API: er).
 
- 
 ## <a name="delete-a-language-model"></a>Ta bort en språk modell
 
 [Ta bort ett språk modells](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) -API tar bort en anpassad språk modell från det angivna kontot. Alla videoklipp som använder den borttagna språk modellen behåller samma index tills du Omindexerar videon igen. Om du indexerar om videon kan du tilldela en ny språk modell till videon. Annars kommer Video Indexer använda sin standard modell för att indexera om videon.

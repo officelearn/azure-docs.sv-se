@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03de10f9ea3bc3bf13a0fffaf22805412456a6f9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e185f4065fee0399104feadc27f038dd9c4a612
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992354"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046683"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med EAB-navigering
 
@@ -32,7 +32,7 @@ I den här självstudien lär du dig att integrera EAB navigera med Azure Active
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -45,7 +45,8 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * EAB-navigering stöder **SP** -INITIERAd SSO
 
-* När du har konfigurerat EAB kan du använda sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-eab-navigate-from-the-gallery"></a>Lägga till EAB navigera från galleriet
 
@@ -57,7 +58,6 @@ Om du vill konfigurera integreringen av EAB navigera till Azure AD måste du lä
 1. Välj **nytt program**om du vill lägga till ett nytt program.
 1. I avsnittet **Lägg till från galleriet** , Skriv **EAB navigera** i sökrutan.
 1. Välj **EAB navigera** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate"></a>Konfigurera och testa enkel inloggning med Azure AD för EAB-navigering
 
@@ -82,32 +82,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du har **metadatafilen för tjänstleverantör**:
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
+    
+    I text rutan **identifierare (enhets-ID)** anger du exakt följande värde: `https://bouncer.eab.com`
+    
+    I text rutan **svars-URL för svar (intygs mottagar tjänst)** anger du båda följande värden som separata rader: `https://bouncer.eab.com/sso/saml2/acs`
+    `https://bouncer.eab.com/sso/saml2/acs/`
+    
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.navigate.eab.com/`
 
-    a. Klicka på **Ladda upp metadatafil**.
+    > [!NOTE]
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EAB och gå till kund support teamet](mailto:EABTechSupport@eab.com) för att hämta värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Ladda upp metadatafil](common/upload-metadata.png)
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
-    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
-
-    ![välj metadatafil](common/browse-upload-metadata.png)
-
-    c. När metadatafilen har laddats upp, fylls **ID** -värdet i automatiskt i avsnittet grundläggande SAML-konfiguration.
-
-    ![EAB navigera domän-och URL-information för enkel inloggning](common/sp-identifier.png)
-
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.navigate.eab.com`
-
-    > [!Note]
-    > Om värdet för **Identifierare** inte fylls i automatisk fyller du i värdet manuellt baserat på dina behov. Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EAB och gå till kund support teamet](mailto:jmahoney@eab.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
-
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
-
-    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
-
-1. I avsnittet **Konfigurera EAB navigera** kopierar du lämpliga URL: er baserat på ditt krav.
-
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -141,17 +130,17 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-eab-navigate-sso"></a>Konfigurera EAB navigera SSO
 
-Om du vill konfigurera enkel inloggning på **EAB-navigera** , måste du skicka det hämtade **certifikatet (RAW)** och lämpliga kopierade url: er från Azure Portal till [EAB navigera support teamet](mailto:jmahoney@eab.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **EAB navigera** på sidan måste du skicka **URL: en för appens Federations-metadata** till [EAB navigera support teamet](mailto:EABTechSupport@eab.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-eab-navigate-test-user"></a>Skapa EAB navigera test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i EAB-navigering. Arbeta med [EAB navigera support teamet](mailto:jmahoney@eab.com) för att lägga till användarna i EAB-navigerings plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i EAB-navigering. Arbeta med [EAB navigera support teamet](mailto:EABTechSupport@eab.com) för att lägga till användarna i EAB-navigerings plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för att navigera EAB i åtkomst panelen, bör du loggas in automatiskt till EAB-Navigeringset som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för att navigera EAB i åtkomst panelen, bör du loggas in automatiskt till EAB-Navigeringset som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Zscaler-ZSCloud för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Zscaler ZSCloud för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: I den här självstudien får du lära dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Zscaler ZSCloud.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 34d3a7fb299ba143eee01b6b7184f1c566d41aba
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: af9d4aa15a4ff2784d2e1ca1334d9c24a8d12251
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515448"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062684"
 ---
-# <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler-ZSCloud för automatisk användar etablering
+# <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler ZSCloud för automatisk användar etablering
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användare och/eller grupper till Zscaler ZSCloud.
 
@@ -78,7 +78,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och grupper i Zscaler-ZSCloud baserat på användar-och grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kanske också vill aktivera SAML-baserad enkel inloggning för Zscaler ZSCloud. Om du gör det följer du anvisningarna i självstudien om [Zscaler ZSCloud enkel inloggning](zscaler-zsCloud-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, men de två funktionerna kompletterar varandra.
+> Du kanske också vill aktivera SAML-baserad enkel inloggning för Zscaler ZSCloud. Om du gör det följer du anvisningarna i [självstudien om Zscaler ZSCloud enkel inloggning](zscaler-zsCloud-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, men de två funktionerna kompletterar varandra.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och välj **företags program** > **alla program** > **Zscaler ZSCloud**:
 
@@ -106,7 +106,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Konfigurera SAML-fönster](./media/zscaler-zscloud-provisioning-tutorial/secrettoken2.png)
 
-    Välj **Aktivera scim-baserad etablering** och kopiera **bas-URL: en** och **Bearer**-token och spara sedan inställningarna. I Azure Portal klistrar du in **bas-URL:** en i rutan **klient-URL** och Bearer- **token** i rutan **hemlig token** .
+    Välj **Aktivera scim-baserad etablering** och kopiera **bas-URL: en** och **Bearer-token**och spara sedan inställningarna. I Azure Portal klistrar du in **bas-URL:** en i rutan **klient-URL** och **Bearer-token** i rutan **hemlig token** .
 
 7. När du har angett värdena i rutorna **klient-URL** och **hemlig token** väljer du **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till Zscaler ZSCloud. Om anslutningen Miss lyckas kontrollerar du att Zscaler ZSCloud-kontot har administratörs behörighet och försöker igen.
 
@@ -122,9 +122,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Synkronisera Azure AD-användare](./media/zscaler-zscloud-provisioning-tutorial/usermappings.png)
 
-11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler ZSCloud i avsnittet mappningar för **attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler-ZSCloud för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler ZSCloud i avsnittet **mappningar för attribut** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler-ZSCloud för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
 
-    ![Attributmappningar](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Mappningar för attribut](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. I avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper till ZscalerZSCloud**:
 
@@ -132,7 +132,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 13. Granska gruppattributen som synkroniseras från Azure AD till Zscaler ZSCloud i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Zscaler-ZSCloud för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna.
 
-    ![Attributmappningar](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Mappningar för attribut](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Information om hur du konfigurerar omfångs filter finns i anvisningarna i [kursen omfångs filter](./../active-directory-saas-scoping-filters.md).
 
@@ -154,7 +154,7 @@ Information om hur du läser etablerings loggarna i Azure AD finns i [rapporteri
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

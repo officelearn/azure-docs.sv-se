@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f748764d0f61e4932b2d4710f5a6805a5eddf0e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430699"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047475"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveri beredskap med hjälp av säkerhets kopiering och återställning av tjänsten i Azure API Management
 
@@ -55,7 +55,7 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
 
 ### <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory program
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Med prenumerationen som innehåller din API Management tjänst instans navigerar du till fliken **Appregistreringar** i **Azure Active Directory** (Azure Active Directory > Hantera/Appregistreringar).
 
     > [!NOTE]
@@ -72,11 +72,10 @@ Alla aktiviteter som du gör på resurser som använder Azure Resource Manager m
 
 ### <a name="add-an-application"></a>Lägga till ett program
 
-1. När programmet har skapats klickar du på **Inställningar**.
-2. Klicka på **nödvändiga behörigheter**.
-3. Klicka på **+ Lägg till**.
-4. Tryck på **Välj ett API**.
-5. Välj **Windows** **Azure-Service Management-API**.
+1. När programmet har skapats klickar du på **API-behörigheter**.
+2. Klicka på **+ Lägg till en behörighet**.
+4. Tryck på **Välj Microsoft API: er**.
+5. Välj **Azure Service Management**.
 6. Tryck på **Välj**.
 
     ![Lägga till behörigheter](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -170,17 +169,20 @@ Ange värdet för `Content-Type` begär ande rubriken till `application/json`.
 
 Backup är en tids krävande åtgärd som kan ta mer än en minut att slutföra. Om begäran lyckades och säkerhets kopierings processen började visas, får du en `202 Accepted` svars status kod med ett `Location`-huvud. Gör GET-begäranden till URL: en i `Location`s rubriken för att ta reda på åtgärdens status. När säkerhets kopieringen pågår fortsätter du att ta emot status koden 202. Svars koden för `200 OK` visar att säkerhets kopieringen slutförts.
 
-Observera följande begränsningar när du gör en säkerhets kopierings förfrågan:
+Observera följande begränsningar när du gör en säkerhets kopierings-eller återställnings förfrågan:
 
 -   Den **behållare** som anges i begär ande texten **måste finnas**.
--   När säkerhets kopiering pågår, **Undvik ändringar i tjänst hanteringen** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn och mycket annat.
+-   När säkerhets kopiering pågår, **Undvik hanterings ändringar i tjänsten** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn med mera.
 -   Återställning av en **säkerhets kopia garanteras endast i 30 dagar** sedan den skapades.
 -   **Användnings data** som används för att skapa analys rapporter **ingår inte** i säkerhets kopian. Använd [Azure API Management REST API][azure api management rest api] för att regelbundet hämta analys rapporter för förvaring.
 -   Dessutom är följande objekt inte en del av säkerhets kopierings data: anpassade domän-SSL-certifikat och mellanliggande eller rot certifikat som laddats upp av kunden, utvecklarens Portal innehåll och inställningar för virtuella nätverks integrering.
 -   Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
 -   **Ändringar** som görs i tjänst konfigurationen (till exempel API: er, principer och utvecklarens Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade**.
--   **Tillåt** åtkomst från kontroll planet till Azure Storage konto. Kunden ska öppna följande uppsättning inkommande IP-adresser för lagrings kontot för säkerhets kopiering. 
-    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
+-   **Tillåt** åtkomst från kontroll planet till Azure Storage konto om [brand väggen][azure-storage-ip-firewall] är aktive rad. Kunden bör öppna uppsättningen [Azure API Management Control plan-IP-adresser][control-plane-ip-address] på deras lagrings konto för att säkerhetskopiera eller återställa från. 
+
+> [!NOTE]
+> Om du försöker Säkerhetskopiera/återställa från/till en API Management tjänst med ett lagrings konto som har [brand vägg][azure-storage-ip-firewall] aktiverat, i samma Azure-region, kommer detta inte att fungera. Detta beror på att begär Anden Azure Storage inte SNATed till en offentlig IP-adress från beräknings > (kontroll plan för Azure API Management). Lagrings förfrågan mellan regioner kommer att vara SNATed.
+
 ### <a name="step2"> </a>Återställa en API Management-tjänst
 
 Om du vill återställa en API Management tjänst från en tidigare skapad säkerhets kopia gör du följande HTTP-begäran:
@@ -241,3 +243,5 @@ Kolla in följande resurser för olika genom gångar av säkerhets kopierings-/�
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
+[control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

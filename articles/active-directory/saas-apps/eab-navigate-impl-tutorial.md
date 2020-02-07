@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d02a9dbc5b89c4156b7ff8b6a49adb7f00fef83
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969828"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046588"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med EAB navigera implementering
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig att integrera EAB navigera implemente
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -83,12 +83,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
-
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält: i text rutan **identifierare (enhets-ID)** anger du exakt följande värde: `https://impl.bouncer.eab.com`
+    
+    I text rutan **svars-URL för svar (intygs mottagar tjänst)** anger du båda följande värden som separata rader: `https://impl.bouncer.eab.com/sso/saml2/acs`
+    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EAB navigera implementering client support team](mailto:jmahoney@eab.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EAB navigera implementering client support team](mailto:EABTechSupport@eab.com) för att hämta värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
@@ -126,11 +129,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-eab-navigate-impl-sso"></a>Konfigurera EAB navigera implementering SSO
 
-Om du vill konfigurera enkel inloggning på **EAB navigera implementering** sida måste du skicka **URL: en för appens Federations-metadata** till [EAB navigera implementering support team](mailto:jmahoney@eab.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **EAB navigera implementering** sida måste du skicka **URL: en för appens Federations-metadata** till [EAB navigera implementering support team](mailto:EABTechSupport@eab.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-eab-navigate-impl-test-user"></a>Skapa EAB navigera implementering test User
 
-I det här avsnittet skapar du en användare som heter B. Simon i EAB navigera implementering. Arbeta med [EAB navigera implementering support team](mailto:jmahoney@eab.com) för att lägga till användarna i EAB navigera implementering-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i EAB navigera implementering. Arbeta med [EAB navigera implementering support team](mailto:EABTechSupport@eab.com) för att lägga till användarna i EAB navigera implementering-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 

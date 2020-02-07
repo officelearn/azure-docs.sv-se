@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026892"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049241"
 ---
-# <a name="overview"></a>Översikt
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Enhetlig anslutnings övervakning med anslutnings övervakaren (för hands version)
 
 Anslutnings övervakaren (för hands version) tillhandahåller enhetliga funktioner för övervakning av slut punkt till slut punkt i Azure Network Watcher för Hybrid-och Azure Cloud-distributioner. Azure Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
 
@@ -78,8 +78,8 @@ _Anslutnings övervakaren_ övervakar kommunikation med jämna mellanrum och inf
 
 ### <a name="accessing-connection-monitor-preview"></a>Åtkomst till anslutnings övervakaren (för hands version)
 
-1. Åtkomst Network Watcher med hjälp av följande länk:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Klicka på fliken "anslutnings övervakare (förhands granskning)" i avsnittet övervakning i Network Watcher vänstra fönstret. Den här fliken visas bara om Network Watcher nås med hjälp av länken som anges i steg 1.
+1. På Start sidan för Azure Portal går du till Network Watcher
+2. Klicka på fliken "anslutnings övervakare (förhands granskning)" i avsnittet övervakning i Network Watcher vänstra fönstret.
 3. Du kan se alla anslutnings Övervakare som skapats med hjälp av anslutnings övervakaren (förhands granskning). Alla anslutnings Övervakare som skapats med den klassiska upplevelsen av anslutnings övervakaren visas på fliken anslutnings övervakare.
 
     ![Skapa en anslutnings övervakare](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -423,7 +423,7 @@ Om du vill skapa en test grupp i en anslutnings övervakare anger du värdet fö
 
       ![Lägg till TG](./media/connection-monitor-2-preview/add-test-config.png)
 
-Alla källor och mål som läggs till i en test grupp med den angivna test konfigurationen får dela upp till enskilda tester. Ett exempel:
+Alla källor och mål som läggs till i en test grupp med den angivna test konfigurationen får dela upp till enskilda tester. Exempel:
 
 * Test grupp: TG1
 * Källor: 3 (A, B, C)
@@ -497,7 +497,7 @@ Du kan filtrera listan baserat på:
 
 ![Filtrera tester](./media/connection-monitor-2-preview/cm-view.png)
 
-Ett exempel:
+Exempel:
 
 1. För att titta på alla tester i alla anslutnings övervakare (för hands version) där Källans IP = 10.192.64.56:
    1. Ändra vy efter till "tests"
@@ -578,8 +578,8 @@ Resurs typ-Microsoft. Network/networkWatchers/connectionMonitors
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % Avsökningar misslyckades | Procent | Medel | % av anslutnings övervaknings avsökningarna misslyckades | Inga dimensioner |
 | AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Medel | Genomsnittlig tid för nätverks fördröjning (MS) för anslutnings övervaknings avsökningar som skickas mellan källa och mål |             Inga dimensioner |
-| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procent | Medel | % av kontrollerna misslyckades för ett test |Lista:-ConnectionMonitorResourceId-SourceAddress-SourceName-SourceResourceId-SourceType-Protocol-DestinationAddress-DestinationName-DestinationResourceId-DestinationType-destination port-TestGroupName-TestConfigurationName- Nationella |
-| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel | Fördröjning för svar (MS) för kontroller som skickas mellan källa och mål. Det här värdet är inte medelvärdet | Lista:-ConnectionMonitorResourceId-SourceAddress-SourceName-SourceResourceId-SourceType-Protocol-DestinationAddress-DestinationName-DestinationResourceId-DestinationType-destination port-TestGroupName-TestConfigurationName- Nationella |
+| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procent | Medel | % av kontrollerna misslyckades för ett test | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protokoll <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * Destination port <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
+| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel | Fördröjning för svar (MS) för kontroller som skickas mellan källa och mål. Det här värdet är inte medelvärdet | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protokoll <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * Destination port <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
 
  ![Övervaka mått](./media/connection-monitor-2-preview/monitor-metrics.png)
 

@@ -1,18 +1,17 @@
 ---
 title: Koncept – nätverk i Azure Kubernetes Services (AKS)
 description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusive Kubernetes och Azure CNI Networking, ingress controllers, belastningsutjämnare och statiska IP-adresser.
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547973"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047462"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -33,7 +32,7 @@ I Kubernetes grupperar *tjänster* logiskt poddar för att tillåta direkt åtko
 
 Azure-plattformen hjälper också till att förenkla virtuella nätverk för AKS-kluster. När du skapar en Kubernetes-belastningsutjämnare skapas och konfigureras den underliggande Azure Load Balancer-resursen. När du öppnar nätverks portar till poddar konfigureras motsvarande regler för Azure nätverks säkerhets grupper. För HTTP-programroutning kan Azure också konfigurera *extern DNS* eftersom nya ingress-vägar konfigureras.
 
-## <a name="services"></a>Services
+## <a name="services"></a>Tjänster
 
 För att förenkla nätverks konfigurationen för program arbets belastningar använder Kubernetes *tjänster* för att logiskt gruppera en uppsättning poddar tillsammans och tillhandahålla nätverks anslutning. Följande tjänst typer är tillgängliga:
 
@@ -57,7 +56,7 @@ IP-adressen för belastningsutjämnare och tjänster kan tilldelas dynamiskt, el
 
 Både *interna* och *externa* belastningsutjämnare kan skapas. Interna belastningsutjämnare tilldelas bara en privat IP-adress, så de kan inte nås från Internet.
 
-## <a name="azure-virtual-networks"></a>Azures virtuella nätverk
+## <a name="azure-virtual-networks"></a>Virtuella Azure-nätverk
 
 I AKS kan du distribuera ett kluster som använder någon av följande två nätverks modeller:
 
@@ -86,18 +85,18 @@ Mer information finns i [Konfigurera Azure-cni för ett AKS-kluster][aks-configu
 
 Både Kubernetes och Azure CNI ger nätverks anslutning till dina AKS-kluster. Det finns dock fördelar och nack delar med var och en. På hög nivå gäller följande aspekter:
 
-* **kubenet**
+* **Kubernetes**
     * Bevarar IP-adressutrymmet.
     * Använder intern eller extern belastningsutjämnare i Kubernetes för att uppnå poddar utanför klustret.
     * Du måste manuellt hantera och underhålla användardefinierade vägar (UDR).
     * Högst 400 noder per kluster.
-* **Azure CNI**
+* **Azure-CNI**
     * Poddar får fullständig virtuell nätverks anslutning och kan nås direkt via deras privata IP-adress från anslutna nätverk.
     * Kräver mer IP-adressutrymme.
 
 Det finns följande skillnader mellan Kubernetes och Azure CNI:
 
-| Kapacitet                                                                                   | Kubernetes   | Azure CNI |
+| Funktion                                                                                   | Kubernetes   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | Distribuera kluster i befintligt eller nytt virtuellt nätverk                                            | Stödd-UDR manuellt tillämpat | Stöds |
 | Pod – Pod-anslutning                                                                         | Stöds | Stöds |
@@ -115,9 +114,9 @@ Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI 
 * Azure-plattformen kan automatiskt skapa och konfigurera virtuella nätverks resurser när du skapar ett AKS-kluster.
 * Du kan manuellt skapa och konfigurera virtuella nätverks resurser och koppla dem till resurserna när du skapar ditt AKS-kluster.
 
-Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Ett exempel:
+Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Exempel:
 
-* Om du skapar virtuella nätverks resurser manuellt för ett AKS-kluster, så kan du använda dem när du konfigurerar dina egna UDR-eller tjänst slut punkter.
+* Om du manuellt skapar de virtuella nätverks resurserna för ett AKS-kluster, kan du konfigurera dina egna UDR-eller tjänst slut punkter.
 * Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.
 
 ## <a name="ingress-controllers"></a>Ingress-kontroller

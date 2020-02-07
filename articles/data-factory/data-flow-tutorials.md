@@ -1,19 +1,19 @@
 ---
-title: Video kurser för kartning av data flöde
+title: Videokurser för dataflödesmappning
 description: En lista med video kurser som förklarar kart data flödes koncept
 author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
-ms.translationtype: MT
+ms.openlocfilehash: 543d1599201a318a399b98ff855fd9cf241f1f4c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030028"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048262"
 ---
-# <a name="mapping-data-flow-video-tutorials"></a>Video kurser för kartning av data flöde
+# <a name="mapping-data-flow-video-tutorials"></a>Videokurser för dataflödesmappning
 
 Nedan visas en lista över videor för data flödes självstudie som skapats av Azure Data Factorys teamet.
 
@@ -27,7 +27,7 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 
 [Fel sökning och testning av mappnings data flöden](https://www.youtube.com/watch?v=3ANxyvDGfjA).
 
-[Datautforskning](https://www.youtube.com/watch?v=En1ztyh5GaA)
+[Data utforskning](https://www.youtube.com/watch?v=En1ztyh5GaA)
 
 [Snabb åtgärder för data förhands granskning](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
@@ -42,6 +42,8 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 [Transformering av härledd kolumn](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
 [Koppla omvandling](https://www.youtube.com/watch?v=zukwayEXRtg)
+
+[Själv kopplings mönster](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
 [Sök omvandling](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231734"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046198"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2
 
@@ -25,7 +25,7 @@ Det finns två steg i en migrering:
 
 Den här artikeln beskriver migrering av konfiguration. Migreringen av klient trafiken varierar beroende på din miljö. Några [övergripande rekommendationer finns](#migrate-client-traffic)dock.
 
-## <a name="migration-overview"></a>Migrering – en översikt
+## <a name="migration-overview"></a>Översikt över migrering
 
 Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
@@ -102,7 +102,7 @@ Kör skriptet så här:
    * **appgwName: [sträng]: valfritt**. Det här är en sträng som du anger för att använda som namn på den nya Standard_v2 eller WAF_v2 Gateway. Om den här parametern inte anges kommer namnet på din befintliga v1-Gateway att användas med suffixet *_v2* bifogad.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: valfritt**.  En kommaavgränsad lista med PSApplicationGatewaySslCertificate-objekt som du skapar för att representera SSL-certifikaten från din v1-Gateway måste överföras till den nya v2-gatewayen. För var och en av dina SSL-certifikat som har kon figurer ATS för din standard v1-eller WAF v1-Gateway, kan du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via kommandot `New-AzApplicationGatewaySslCertificate` som visas här. Du behöver sökvägen till SSL-cert-filen och lösen ordet.
 
-       Den här parametern är bara valfri om du inte har HTTPS-lyssnare som har kon figurer ATS för din v1-gateway eller WAF. Om du har minst en HTTPS Listener-installation måste du ange den här parametern.
+     Den här parametern är bara valfri om du inte har HTTPS-lyssnare som har kon figurer ATS för din v1-gateway eller WAF. Om du har minst en HTTPS Listener-installation måste du ange den här parametern.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,12 +114,17 @@ Kör skriptet så här:
         -Password $password
       ```
 
-      Du kan skicka in `$mySslCert1, $mySslCert2` (kommaavgränsad) i föregående exempel som värden för den här parametern i skriptet.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: valfritt**. En kommaavgränsad lista med PSApplicationGatewayTrustedRootCertificate-objekt som du skapar för att representera de [betrodda rot certifikaten](ssl-overview.md) för autentisering av Server dels instanserna från v2-gatewayen.  
+     Du kan skicka in `$mySslCert1, $mySslCert2` (kommaavgränsad) i föregående exempel som värden för den här parametern i skriptet.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: valfritt**. En kommaavgränsad lista med PSApplicationGatewayTrustedRootCertificate-objekt som du skapar för att representera de [betrodda rot certifikaten](ssl-overview.md) för autentisering av Server dels instanserna från v2-gatewayen.
+   
+      ```azurepowershell
+      $certFilePath = ".\rootCA.cer"
+      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+      ```
 
       Om du vill skapa en lista över PSApplicationGatewayTrustedRootCertificate-objekt, se [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [sträng]: valfritt**. En speciell privat IP-adress som du vill koppla till din nya v2-Gateway.  Detta måste vara från samma VNet som du allokerar för din nya v2-Gateway. Om detta inte anges allokerar skriptet en privat IP-adress för din v2-Gateway.
-    * **publicIpResourceId: [sträng]: valfritt**. Resurs-ID för en offentlig IP-adress (standard-SKU) i din prenumeration som du vill tilldela till den nya v2-gatewayen. Om detta inte anges allokerar skriptet en ny offentlig IP-adress i samma resurs grupp. Namnet är v2-gatewayens namn med *-IP* tillagt.
+   * **publicIpResourceId: [sträng]: valfritt**. Resurs-ID för befintlig offentlig IP-adress (standard-SKU) i din prenumeration som du vill tilldela till den nya v2-gatewayen. Om detta inte anges allokerar skriptet en ny offentlig IP-adress i samma resurs grupp. Namnet är v2-gatewayens namn med *-IP* tillagt.
    * **validateMigration: [växel]: valfritt**. Använd den här parametern om du vill att skriptet ska utföra vissa grundläggande konfigurations jämförelser när v2-gatewayen har skapats och konfigurations kopian. Ingen validering görs som standard.
    * **enableAutoScale: [växel]: valfritt**. Använd den här parametern om du vill att skriptet ska aktivera autoskalning på den nya v2-gatewayen när den har skapats. Autoskalning är inaktiverat som standard. Du kan alltid aktivera den manuellt senare på den nyligen skapade v2-gatewayen.
 
@@ -132,10 +137,10 @@ Kör skriptet så här:
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -sslCertificates $Certs `
+      -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceId "MyPublicIP" `
+      -publicIpResourceId "/subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

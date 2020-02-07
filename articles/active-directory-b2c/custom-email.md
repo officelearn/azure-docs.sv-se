@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3d9316f42c8d0ac5b44cda2e484ca4c92110813d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479155"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045940"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Anpassad e-postverifiering i Azure Active Directory B2C
 
@@ -36,9 +36,9 @@ Se till att slutföra det avsnitt där du [skapar en SendGrid-API-nyckel](../sen
 
 Sedan lagrar du SendGrid API-nyckeln i en Azure AD B2C princip nyckel för dina principer till referens.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj din Azure AD B2C katalog.
-1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
 1. För **alternativ**väljer du `Manual`.
@@ -389,6 +389,36 @@ Mer information finns i [självkontrollerad teknisk profil](restful-technical-pr
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
+```
+
+## <a name="optional-localize-your-email"></a>Valfritt Lokalisera ditt e-postmeddelande
+
+För att lokalisera e-postmeddelandet måste du skicka lokaliserade strängar till SendGrid eller din e-postprovider. Till exempel att lokalisera e-postmeddelandets ämne, brödtext, kod meddelande eller signatur för e-postmeddelandet. Om du vill göra det kan du använda [GetLocalizedStringsTransformation](string-transformations.md) Claims-omvandling för att kopiera lokaliserade strängar till anspråks typer. I transformeringen `GenerateSendGridRequestBody` anspråk, som genererar JSON-nyttolasten, använder ingångs anspråk som innehåller de lokaliserade strängarna.
+
+1. I principen definierar du följande sträng anspråk: ämne, meddelande, codeIntro och signatur.
+1. Definiera en [GetLocalizedStringsTransformation](string-transformations.md) -anspråks omvandling för att ersätta lokaliserade sträng värden i anspråken från steg 1.
+1. Ändra transformeringen `GenerateSendGridRequestBody` anspråk till att använda indata-anspråk med följande XML-kodfragment.
+1. Uppdatera din SendGrind-mall så att den använder dynamiska parametrar i stället för alla strängar som kommer att lokaliseras av Azure AD B2C.
+
+```XML
+<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
+    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
+    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
+    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

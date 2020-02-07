@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a17570a62728d5b4f9c99e3c4c939b5c77cb3df
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080219"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049929"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurera ExpressRoute Direct med hjälp av Azure CLI
 
@@ -38,7 +38,12 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
    az account set --subscription "<subscription ID>"
    ```
 
-2. Lista över alla platser där ExpressRoute Direct stöds:
+2. Registrera prenumerationen på Microsoft. Network igen för att få åtkomst till expressrouteportslocation-och expressrouteport-API: erna
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. Lista över alla platser där ExpressRoute Direct stöds:
     
    ```azurecli
    az network express-route port location list
@@ -105,7 +110,7 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
    }
    ]
    ```
-3. Avgöra om en av de platser som anges i föregående steg har tillgänglig bandbredd:
+4. Avgöra om en av de platser som anges i föregående steg har tillgänglig bandbredd:
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -131,7 +136,7 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. Skapa en ExpressRoute-Direct-resurs som baseras på den plats som du valde i föregående steg.
+5. Skapa en ExpressRoute-Direct-resurs som baseras på den plats som du valde i föregående steg.
 
    ExpressRoute Direct stöder både QinQ och Dot1Q inkapsling. Om du väljer QinQ varje ExpressRoute-krets tilldelas dynamiskt en S-tagg och är unikt i hela ExpressRoute Direct-resursen. Varje C-tagg i kretsen måste vara unikt i kretsen men inte mellan ExpressRoute Direct-resursen.  
 
@@ -146,7 +151,7 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
    ```
 
    > [!NOTE]
-   > Du kan också ställa in den **inkapsling** attributet **Dot1Q**. 
+   > Du kan också ange attributet **inkapsling** till **Dot1Q**. 
    >
 
    **Exempel på utdata**
@@ -207,7 +212,7 @@ Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsoft
 
 Använd den här processen för att genomföra en nivå 1-test. Se till att varje korsanslutning är korrekt uppdaterad i varje router i de primära och sekundära portarna.
 
-1. Anger länkar **aktiverad**. Upprepa det här steget om du vill ställa in varje länk till **aktiverad**.
+1. **Aktivera aktiverade**länkar. Upprepa det här steget för att ställa in varje länk till **aktive rad**.
 
    Länkar [0] är den primära och länkar [1] är den sekundära porten.
 
@@ -271,7 +276,7 @@ Använd den här processen för att genomföra en nivå 1-test. Se till att varj
    }
    ```
 
-   Använd samma procedur och äldre portarna med hjälp av `AdminState = "Disabled"`.
+   Använd samma procedur för att stänga portarna med `AdminState = "Disabled"`.
 
 ## <a name="circuit"></a>Skapa en krets
 
@@ -328,4 +333,4 @@ Skapa en krets på ExpressRoute Direct-resursen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om ExpressRoute Direct finns i den [översikt](expressroute-erdirect-about.md).
+Mer information om ExpressRoute Direct finns i [översikten](expressroute-erdirect-about.md).

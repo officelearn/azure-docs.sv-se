@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990716"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048690"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -78,7 +78,7 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
 Om du får felet 60030 eller 60031 kan du göra följande för att utföra en Azure Key Vault hanterings åtgärd:
 - Kontrol lera att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
 - Kontrol lera att kontot har åtkomst till nyckel valvet som anges i fel meddelandet och försök sedan igen.
-- Kontakta Microsoft-supporten om problemet kvarstår.
+- Kontakta Microsofts supportavdelning om problemet kvarstår.
 - [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Fel 60028: det gick inte att initiera identifiering
@@ -139,7 +139,7 @@ Om du tar bort virtuella datorer och de fortfarande visas i portalen väntar du 
 
 Azure Migrate stöder identifiering av program, roller och funktioner med hjälp av Azure Migrate: Server utvärdering. Identifiering av appar stöds för närvarande endast för VMware. [Läs mer](how-to-discover-applications.md) om kraven och stegen för att konfigurera identifiering av appar.
 
-Vanliga fel för identifiering av appar sammanfattas i tabellen.
+Vanliga fel för identifiering av appar sammanfattas i tabellen. 
 
 **Fels** | **Orsak** | **Åtgärd**
 --- | --- | --- | ---

@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026801"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049710"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Exportera dina Azure IoT Central-data
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder funktionen för kontinuerlig data e
 > [!Note]
 > När du aktiverar kontinuerlig data export får du bara data från det här tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
 
@@ -62,10 +62,14 @@ När du väljer Service Bus som export mål får inte köer och ämnen ha sessio
 
 Följ dessa steg om du inte har ett befintligt Azure Storage-konto att exportera till:
 
-1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Data export kan bara skriva data till lagrings konton som stöder block-blobbar. Följande är en lista över kända kompatibla typer av lagrings konton: 
 
-    - Om du väljer att exportera data till ett Azure Data Lake Storage v2-lagrings konto måste du välja **BlobStorage** som **konto typ**.
-    - Du kan exportera data till lagrings konton i andra prenumerationer än den för ditt IoT Central-program. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
+    |Prestanda nivå|Kontotyp|
+    |-|-|
+    |Standard|Generell användning v2|
+    |Standard|Generell användning v1|
+    |Standard|Blob Storage|
+    |Premium|Blockera Blob Storage|
 
 2. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
 

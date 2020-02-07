@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a480327efacee2d1eb74353b2d0ef7885a6194
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024219"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048090"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -43,12 +43,8 @@ Följ stegen i den här artikeln för att godkänna eller neka begär Anden för
 Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
-
-1. Öppna **Azure AD Privileged Identity Management**.
-
-1. Välj **Azure AD-roller**.
-
-1. Välj **roll inställningar**.
+gt
+1. Öppna **Azure AD Privileged Identity Management** &gt; **Azure AD-roller** &gt; **roll inställningar**.
 
     ![Sidan roll inställningar visar Azure-resurs roller](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -89,7 +85,7 @@ Privileged Identity Management tillhandahåller en valfri tillämpning av Azure 
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Kräv Multi-Factor Authentication för aktiv tilldelning
 
-I vissa fall kanske du vill tilldela en användare eller grupp till en roll under en kort varaktighet (till exempel en dag). I det här fallet behöver de tilldelade användarna inte begära aktivering. I det här scenariot kan Privileged Identity Management inte tillämpa Multi-Factor Authentication när användaren använder sin roll tilldelning eftersom de redan är aktiva i rollen från den tid som den tilldelas.
+I vissa fall kanske du vill tilldela en användare en roll för en kort varaktighet (till exempel en dag). I det här fallet behöver de tilldelade användarna inte begära aktivering. I det här scenariot kan Privileged Identity Management inte tillämpa Multi-Factor Authentication när användaren använder sin roll tilldelning eftersom de redan är aktiva i rollen från den tid som den tilldelas.
 
 För att säkerställa att resurs administratören som uppfyller tilldelningen är den som de säger att de är, kan du tillämpa Multi-Factor Authentication för aktiv tilldelning genom att markera rutan **kräv Multi-Factor Authentication i den aktiva tilldelningen** .
 
@@ -115,11 +111,11 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 1. Markera kryss rutan **Kräv godkännande för aktivering** .
 
-1. Välj **Välj god kännare** för att öppna sidan **Välj en medlem eller grupp** .
+1. Välj **Välj god kännare**.
 
     ![Välj en användare eller grupp fönster för att välja god kännare](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Välj minst en användare eller grupp och klicka sedan på **Välj**. Du kan lägga till valfri kombination av användare och grupper. Du måste välja minst en god kännare. Det finns inga standard god kännare.
+1. Välj minst en användare och klicka sedan på **Välj**. Du måste välja minst en god kännare. Det finns inga standard god kännare.
 
     Dina val kommer att visas i listan över valda god kännare.
 
@@ -135,7 +131,7 @@ Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 
 1. Välj **Azure AD-roller**.
 
-1. Välj **inställningar**.
+1. Välj **Inställningar**.
 
     ![Azure AD-roller – inställningar](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
@@ -167,7 +163,7 @@ Mer information finns i [e-postmeddelanden i Privileged Identity Management](pim
 
 Använd växeln **incident/begär biljett** för att kräva att berättigade administratörer inkluderar ett biljett nummer när de aktiverar sin roll. Den här metoden kan göra granskningar av roll åtkomsten mer effektiva.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Multifaktorautentisering
 
 Använd växeln **Multi-Factor Authentication** för att ange om du vill kräva att användarna verifierar sin identitet med MFA innan de kan aktivera sina roller. De behöver bara verifiera sin identitet en gång per session, inte varje gång de aktiverar en roll. Det finns två tips att tänka på när du aktiverar MFA:
 
@@ -208,7 +204,7 @@ Följ dessa steg om du vill delegera det godkännande som krävs för att aktive
 
     ![Azure AD-roller – inställningar – Kräv godkännande](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Välj en eller flera god kännare förutom den privilegierade roll administratören och klicka sedan på **Välj**. Du kan välja användare eller grupper. Vi rekommenderar att du lägger till minst två god kännare. Även om du lägger till dig själv som god kännare kan du inte själv godkänna en roll aktivering. Dina val kommer att visas i listan över valda god kännare.
+1. Välj en eller flera god kännare förutom den privilegierade roll administratören och klicka sedan på **Välj**. Vi rekommenderar att du lägger till minst två god kännare. Även om du lägger till dig själv som god kännare kan du inte själv godkänna en roll aktivering. Dina val kommer att visas i listan över valda god kännare.
 
 1. När du har angett alla dina roll inställningar väljer du **Spara** för att spara ändringarna.
 

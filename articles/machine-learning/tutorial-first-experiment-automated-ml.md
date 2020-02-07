@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/04/2020
+ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982442"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048290"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Visa experiment information.
 > * Distribuera modellen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
@@ -69,11 +69,15 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. Skapa en ny data uppsättning genom att välja **från lokala filer** från List rutan **+ skapa data uppsättning** . 
 
+    1. Ge din data uppsättning ett namn i formuläret **grundläggande information** och ange en valfri beskrivning. Automatisk ML i Azure Machine Learning Studio stöder för närvarande endast tabell data uppsättningar, så data uppsättnings typen ska vara standard i tabell.
+
+    1. Välj **Nästa** längst ned till vänster
+
+    1. I formuläret **data lager och fil markering** väljer du det standard data lager som konfigurerades automatiskt när arbets ytan skapades, **workspaceblobstore (Azure Blob Storage)** . Det är här du överför data filen för att göra den tillgänglig för din arbets yta.
+
     1. Välj **Bläddra**.
     
     1. Välj **bankmarketing_train. csv** -filen på den lokala datorn. Det här är den fil som du laddade ned som en [förutsättning](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
-
-    1. Välj **tabell** som data uppsättnings typ. 
 
     1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
 
@@ -86,10 +90,10 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
         Field|Beskrivning| Värde för självstudier
         ---|---|---
         Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
-        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Comma
-        Encoding|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
-        Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
-        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inget
+        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Kommaseparerade
+        Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
+        Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Ingen
 
     1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **Nästa**.
 
@@ -133,21 +137,21 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
         Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
-        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Inget
+        Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Ingen
         Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildning&nbsp;jobb&nbsp;tid (timmar): 1 <br> Mått&nbsp;Poäng&nbsp;tröskel: ingen
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal valideringar: 2
-        Samtidighet| Maximalt antal utförda parallella iterationer och kärnor som används per iteration| Max&nbsp;samtidiga&nbsp;iterationer: 5<br> Max&nbsp;kärnor&nbsp;per&nbsp;iteration: ingen
+        Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max&nbsp;samtidiga&nbsp;iterationer: 5
         
         Välj **Spara**.
 
-1. Klicka på **Slutför** om du vill köra experimentet. Skärmen **körnings information** öppnas med **körnings statusen** när experiment förberedelsen börjar.
+1. Klicka på **Slutför** om du vill köra experimentet. Skärmen **körnings information** öppnas med **körnings status** överst när experiment förberedelsen börjar.
 
 >[!IMPORTANT]
 > Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen.
 > När du har kört det tar det **2-3 minuter för varje iteration**.  
 > Välj **Uppdatera** regelbundet för att se statusen för körningen när experimentet fortskrider.
 >
-> I produktion skulle du förmodligen gå undan för en bit. I den här självstudien rekommenderar vi att du börjar utforska de testade algoritmerna på fliken modeller när de är klara medan de andra fortfarande körs. 
+> I produktion skulle du förmodligen gå undan för en bit. I den här självstudien rekommenderar vi att du börjar utforska de testade algoritmerna på fliken **modeller** när de är klara medan de andra fortfarande körs. 
 
 ##  <a name="explore-models"></a>Utforska modeller
 
@@ -165,7 +169,7 @@ Med automatisk maskin inlärning i Azure Machine Learning Studio kan du distribu
 
 För det här experimentet innebär distribution till en webb tjänst att finans Institutet nu har en iterativ och skalbar webb lösning för att identifiera potentiella fasta, långsiktiga kunder. 
 
-När körningen är klar går du tillbaka till sidan **körnings information** och väljer fliken **modeller** . Välj **Uppdatera**. 
+När körningen är klar går du tillbaka till sidan **körnings information** och väljer fliken **modeller** .
 
 I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra. Distributions processen innehåller flera steg som att registrera modellen, generera resurser och konfigurera dem för webb tjänsten.
 
@@ -177,9 +181,9 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
     ----|----
     Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning
-    Beräkningstyp | Välj Azure Compute Instance (ACI)
-    Aktivera autentisering| Inaktivera. 
-    Använd anpassade distributioner| Inaktivera. Tillåter att standard driv rutins filen (bedömnings skriptet) och miljö filen skapas automatiskt. 
+    Compute-typ | Välj Azure Compute Instance (ACI)
+    Aktivera autentisering| Tillåt. 
+    Använd anpassade distributioner| Tillåt. Tillåter att standard driv rutins filen (bedömnings skriptet) och miljö filen skapas automatiskt. 
     
     I det här exemplet använder vi de standardvärden som anges i menyn *Avancerat* . 
 
@@ -205,7 +209,7 @@ Ta bara bort distributions instansen från Azure Machine Learning Studio om du v
 
 1. Välj **Fortsätt**.
 
-### <a name="delete-the-resource-group"></a>Ta bort resursgruppen
+### <a name="delete-the-resource-group"></a>Ta bort resurs gruppen
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
@@ -216,11 +220,11 @@ I den här automatiska självstudien för maskin inlärning använde du Azure Ma
 > [!div class="nextstepaction"]
 > [Använda en webb tjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Läs mer om för [bearbetning](how-to-create-portal-experiments.md#preprocess).
++ Läs mer om [funktionalisering](how-to-create-portal-experiments.md#featurization).
 + Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
 + Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
 
 >[!NOTE]
 > Den här data uppsättningen för bank marknadsföring görs tillgänglig i [CCO-licensen för Creative Commons (: offentlig domän)](https://creativecommons.org/publicdomain/zero/1.0/). Alla rättigheter i det enskilda innehållet i databasen licensieras enligt [licensen för databas innehåll](https://creativecommons.org/publicdomain/zero/1.0/) och är tillgängliga på [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Den här data uppsättningen var ursprungligen tillgänglig i den [Machine Learning databasen](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
-> [Moro et al., 2014] S. Moro, P. Cortez och P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Besluts support system, Elsevier, 62:22-31, juni 2014.
+> [Moro et al., 2014] S. Moro, P. Cortez och P. Rita. En data driven metod för att förutse framgång för bank telemarketing. Besluts support system, Elsevier, 62:22-31, juni 2014.

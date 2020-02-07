@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 012300c95fd1edd135b97f52ed3702ce3e7ef0bd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894891"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048960"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -95,11 +95,11 @@ I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>Avancerad för bearbetning: valfria funktionalisering
 
-Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess). Aktivera den här inställningen med:
+Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#featurization). Aktivera den här inställningen med:
 
-+ Azure Machine Learning Studio: Välj **inställningarna för Visa funktionalisering** i avsnittet **konfigurations körning** [med de här stegen](how-to-create-portal-experiments.md).
++ Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-create-portal-experiments.md#create-and-run-experiment).
 
-+ Python SDK: Ange `"feauturization": auto' / 'off' / FeaturizationConfig` för [`AutoMLConfig`-klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
++ Python SDK: Ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` för [`AutoMLConfig`-klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## <a name="prevent-over-fitting"></a>Förhindra överanpassning
 
@@ -143,7 +143,7 @@ Tänk på följande utbildade modeller och deras motsvarande tåg-och test noggr
 |-------|----------------|---------------|
 | A | 99,9 % | 95% |
 | B | 87% | 87% |
-| C | 99,9 % | 45 % |
+| C | 99,9 % | 45% |
 
 Med tanke på modell **A**, finns det en vanlig felbegrepp att om test precisionen för osett-data är lägre än den korrekta inlärningen är modellen överdrivet. Test precisionen bör dock alltid vara mindre än inlärnings precisionen och skillnaden för överanpassning jämfört med lämplig anpassning visas till *hur mycket* mindre exakt. 
 
@@ -151,7 +151,7 @@ När du jämför modeller **a** och **B**är modell **a** en bättre modell efte
 
 Modell **C** är ett tydligt Skift läge vid överanpassning. inlärnings precisionen är mycket hög men test noggrannheten är inte tillgänglig någonstans i närheten. Den här skillnaden är underkänd, men kommer från kännedom om ditt problem och dina data och vilka fel som kan uppstå. 
 
-## <a name="time-series-forecasting"></a>Tidsserieprognoser
+## <a name="time-series-forecasting"></a>Prognoser för tids serier
 
 Att skapa prognoser är en viktig del av alla verksamheter, vare sig det gäller intäkter, inventering, försäljning eller kund efter frågan. Du kan använda automatiserad ML för att kombinera teknik och metoder och få en rekommenderad prognos för tids serier med hög kvalitet.
 

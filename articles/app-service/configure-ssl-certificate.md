@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845922"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046418"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -29,7 +29,7 @@ I följande tabell visas de alternativ som du har för att lägga till certifika
 | Ladda upp ett privat certifikat | Om du redan har ett privat certifikat från en tredje part kan du ladda upp det. Se [krav för privata certifikat](#private-certificate-requirements). |
 | Ladda upp ett offentligt certifikat | Offentliga certifikat används inte för att skydda anpassade domäner, men du kan läsa in dem i koden om du behöver dem för att få åtkomst till fjär resurser. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här instruktions guiden:
 
@@ -37,6 +37,9 @@ För att följa den här instruktions guiden:
 - Endast ledigt certifikat: mappa en under domän (till exempel `www.contoso.com`) för att App Service med en [CNAME-post](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## <a name="private-certificate-requirements"></a>Krav för privata certifikat
+
+> [!NOTE]
+> Azure Web Apps har **inte** stöd för AES256 och alla PFX-filer bör krypteras med TrippleDES.
 
 Det [kostnads fria app service-hanterade certifikatet](#create-a-free-certificate-preview) eller [app Services certifikatet](#import-an-app-service-certificate) uppfyller redan kraven i App Service. Om du väljer att överföra eller importera ett privat certifikat till App Service måste certifikatet uppfylla följande krav:
 
@@ -135,7 +138,7 @@ På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för 
 |-|-|
 | Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
 | Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
-| Location | Välj samma plats som App Service-appen. |
+| plats. | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |

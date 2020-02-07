@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934625"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064826"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub frågesyntaxen för meddelanderoutning
 
@@ -66,7 +66,7 @@ Program egenskaperna är användardefinierade strängar som kan läggas till i m
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Ett exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Exempel: 
 
 Så här frågar du efter system egenskapen contentEncoding 
 
@@ -196,7 +196,7 @@ Med meddelanderoutning kan du fråga på [enhetens dubbla](iot-hub-devguide-devi
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande text måste ha prefixet `$twin`. Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Detta gäller för både enhetens dubbla och modul. Du kan också avstå från att använda `twin`, `$twin`, `body`eller `$body`, som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
+En fråga om meddelandets dubbla måste föregås av `$twin`. Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Detta gäller för både enhetens dubbla och modul. Du kan också avstå från att använda `twin`, `$twin`, `body`eller `$body`, som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

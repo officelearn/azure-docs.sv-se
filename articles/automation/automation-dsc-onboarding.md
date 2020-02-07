@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: c5876dd293a97414ff4f48dbb8645e64226a6ba8
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 89e86a6702be7314b99975cac90818252eb07df7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834113"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046239"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Onboarding-datorer för hantering genom Azure Automation tillstånds konfiguration
 
@@ -29,7 +29,7 @@ Mer information om fördelarna med att använda Azure Automation tillstånds kon
 
 Azure Automation tillstånds konfiguration kan användas för att hantera flera olika datorer:
 
-- Azure Virtual Machines
+- Virtuella Azure-datorer
 - Virtuella Azure-datorer (klassisk)
 - Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure (inklusive AWS EC2-instanser)
 - Fysiska/virtuella Linux-datorer lokalt, i Azure eller i ett annat moln än Azure
@@ -48,12 +48,12 @@ I följande avsnitt beskrivs hur du kan publicera varje typ av dator för att Az
 >Om du vill bevilja Skriv behörighet till `omsagent` användare kör du följande kommandon: `setfacl -m u:omsagent:rwx /tmp`
 >
 
-## <a name="azure-virtual-machines"></a>Azure Virtual Machines
+## <a name="azure-virtual-machines"></a>Virtuella Azure-datorer
 
 Med Azure Automation tillstånds konfiguration kan du enkelt publicera virtuella Azure-datorer för konfigurations hantering med hjälp av antingen Azure Portal, Azure Resource Manager mallar eller PowerShell. Under huven, och utan att en administratör måste fjärrans luta till den virtuella datorn, registrerar det önskade tillstånds konfigurations tillägget för Azure VM den virtuella datorn med Azure Automation tillstånds konfiguration.
 Eftersom tillägget för Desired State Configuration för Azure VM körs asynkront, följer steg för att följa förloppet eller fel söknings funktionen finns i följande avsnitt om hur du [**felsöker Azure virtuell dator onboarding**](#troubleshooting-azure-virtual-machine-onboarding) .
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
 I [Azure Portal](https://portal.azure.com/)navigerar du till det Azure Automation konto där du vill publicera virtuella datorer. På sidan tillstånds konfiguration och fliken **noder** klickar du på **+ Lägg till**.
 

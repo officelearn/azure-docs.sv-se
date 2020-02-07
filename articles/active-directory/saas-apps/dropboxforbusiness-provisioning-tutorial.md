@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Dropbox for Business för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Dropbox för företag.
+title: 'Självstudie: Konfigurera Dropbox för företag för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Dropbox för företag.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a7a76c86100041b544916c7d10e43bf3aaa44d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 3acc2c271e590bddb13aaa01498f404da4340036
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672916"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058467"
 ---
-# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Dropbox for Business för automatisk användaretablering
+# <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Dropbox för företag för automatisk användar etablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Dropbox för företag och Azure Active Directory (Azure AD) att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Dropbox för företag.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Dropbox for Business och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Dropbox för företag.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,131 +35,131 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 * En Azure AD-klient
 * [En Dropbox för företag-klient](https://www.dropbox.com/business/pricing)
-* Ett användarkonto i Dropbox för företag med administratörsbehörighet.
+* Ett användar konto i Dropbox för företag med administratörs behörighet.
 
-## <a name="add-dropbox-for-business-from-the-gallery"></a>Lägg till Dropbox för företag från galleriet
+## <a name="add-dropbox-for-business-from-the-gallery"></a>Lägga till Dropbox för företag från galleriet
 
-Du måste lägga till Dropbox för företag från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Dropbox for Business för automatisk användarförsörjning med Azure AD.
+Innan du konfigurerar Dropbox för företag för automatisk användar etablering med Azure AD måste du lägga till Dropbox för företag från program galleriet i Azure AD till listan över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till Dropbox för företag från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till Dropbox för företag i program galleriet för Azure AD:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan **alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Dropbox for Business**väljer **Dropbox for Business** i resultatrutan och klicka sedan på den **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **Dropbox för företag**, väljer **Dropbox för företag** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Dropbox for Business i resultatlistan](common/search-new-app.png)
 
 ## <a name="assigning-users-to-dropbox-for-business"></a>Tilldela användare till Dropbox för företag
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Dropbox för företag. När du valt, kan du tilldela dessa användare och/eller grupper till Dropbox för företag genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver ha åtkomst till Dropbox för företag. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Dropbox för företag genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-dropbox-for-business"></a>Viktiga tips för att tilldela användare till Dropbox för företag
 
-* Vi rekommenderar att en enda Azure AD-användare är tilldelad till Dropbox för företag för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas till Dropbox för företag för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Dropbox för företag, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till Dropbox för företag måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-dropbox-for-business"></a>Konfigurera automatisk användaretablering till Dropbox för företag 
+## <a name="configuring-automatic-user-provisioning-to-dropbox-for-business"></a>Konfigurera automatisk användar etablering till Dropbox för företag 
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och/eller grupper i Dropbox for Business baserat på användare och/eller grupp tilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Dropbox för företag, baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Dropbox for Business, följa anvisningarna enligt den [Dropbox företag enkel inloggning genomgång](dropboxforbusiness-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Dropbox för företag, genom att följa anvisningarna i [självstudien för enkel inloggning i Dropbox for Business](dropboxforbusiness-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-dropbox-for-business-in-azure-ad"></a>Konfigurera automatisk användaretablering för Dropbox för företag i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-dropbox-for-business-in-azure-ad"></a>Konfigurera automatisk användar etablering för Dropbox för företag i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Dropbox for Business**.
+2. I listan program väljer du **Dropbox för företag**.
 
     ![Dropbox for Business-länken i programlistan](common/all-applications.png)
 
-3. Välj den **etablering** fliken.
+3. Välj fliken **etablering** .
 
-    ![Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under den **administratörsautentiseringsuppgifter** klickar du på **auktorisera**. En Dropbox for Business inloggningsruta öppnas den i ett nytt webbläsarfönster.
+5. Under avsnittet **admin credentials** klickar du på **auktorisera**. Den öppnar dialog rutan Dropbox for Business login i ett nytt webbläsarfönster.
 
     ![Etablering ](common/provisioning-oauth.png)
 
-6. På den **logga in på Dropbox för företag att länka med Azure AD** dialogrutan Logga in på din Dropbox för företag-klient och verifiera din identitet.
+6. På **inloggningen till Dropbox för företag att länka till Azure AD** -dialog rutan loggar du in på Dropbox för företag-klienten och verifierar din identitet.
 
-    ![Dropbox för att logga in företag](media/dropboxforbusiness-provisioning-tutorial/dropbox01.png)
+    ![Logga in för Dropbox för företag](media/dropboxforbusiness-provisioning-tutorial/dropbox01.png)
 
-7. När du slutfört steg 5 och 6, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Dropbox för företag. Om anslutningen misslyckas, kontrollera din Dropbox för företag-konto har administratörsbehörighet och försök igen.
+7. När du är klar med steg 5 och 6 klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till Dropbox för företag. Om anslutningen Miss lyckas kontrollerar du att ditt Dropbox för företag-kontot har administratörs behörighet och försöker igen.
 
     ![Token](common/provisioning-testconnection-oauth.png)
 
-8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
+8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
-10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Dropbox**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Dropbox**.
 
-    ![Dropbox Användarmappningar](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-mapping.png)
+    ![Användar mappningar för Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-mapping.png)
 
-11. Granska användarattribut som synkroniseras från Azure AD till Dropbox i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Dropbox för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till Dropbox i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Dropbox för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Dropbox användarattribut](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-attributes.png)
+    ![Dropbox-användarattribut](media/dropboxforbusiness-provisioning-tutorial/dropbox-user-attributes.png)
 
-12. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper till Dropbox**.
+12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Dropbox**.
 
-    ![Mappningar för dropbox-grupp](media/dropboxforbusiness-provisioning-tutorial/dropbox-group-mapping.png)
+    ![Grupp mappningar för Dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-group-mapping.png)
 
-13. Granska Gruppattribut som synkroniseras från Azure AD till Dropbox i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha grupper i Dropbox för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+13. Granska gruppattributen som synkroniseras från Azure AD till Dropbox i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Dropbox för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Attributen för dropbox](media/dropboxforbusiness-provisioning-tutorial/dropbox-group-attributes.png)
+    ![Attribut för Dropbox-grupp](media/dropboxforbusiness-provisioning-tutorial/dropbox-group-attributes.png)
 
-14. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Om du vill aktivera den Azure AD-etableringstjänsten för Dropbox, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+15. Om du vill aktivera Azure AD Provisioning-tjänsten för Dropbox ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus aktivt](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-16. Ange användare och/eller grupper som du vill att etablera till Dropbox genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+16. Definiera de användare och/eller grupper som du vill etablera till Dropbox genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablering omfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
-17. När du är redo att etablera, klickar du på **spara**.
+17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Sparar Etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Dropbox.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Dropbox.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutningen
+## <a name="connector-limitations"></a>Kopplings begränsningar
  
-* Dropbox har inte stöd för att pausa inbjudna användare. Om en inbjuden användare har pausats kan tas användaren bort.
+* Dropbox har inte stöd för att pausa inbjudna användare. Om en inbjuden användare har pausats tas den användaren bort.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

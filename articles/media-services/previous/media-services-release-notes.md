@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5b1daab724d979206983ee758760790967abc06d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 310b3778a43c74db30940368d35c39c99f64a28c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513430"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049992"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -60,7 +60,7 @@ Se även [Migrera från Azure Media Indexer och Azure Media Indexer 2 för att A
 
 ### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn), som dras tillbaka den 1 mars 2020.
+Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn). Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen.
 
 Mer information finns i [MIGRERA WAME till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) och [migrera amn till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
@@ -90,7 +90,7 @@ Med den senaste versionen av tjänsten finns det små formateringsändringar i d
 
 Med början den 12 maj 2018 kommer Live Channels inte längre att ha stöd för RTP/MPEG-2 Transport Stream-inmatnings protokoll. Migrera från RTP/MPEG-2 till RTMP eller fragmented MP4 (Smooth Streaming) insugnings protokoll.
 
-## <a name="october-2017-release"></a>Version oktober 2017
+## <a name="october-2017-release"></a>Utgåva från oktober 2017
 > [!IMPORTANT] 
 > Media Services är inaktuellt stöd för Azure Access Control Service-autentiseringsinställningar. Den 22 juni 2018 kan du inte längre autentisera med Media Services server delen via kod med hjälp av Access Control Service nycklar. Du måste uppdatera koden för att använda Azure Active Directory (Azure AD) per [Azure AD-baserad autentisering](media-services-use-aad-auth-to-access-ams-api.md). Titta efter varningar om den här ändringen i Azure Portal.
 
@@ -172,7 +172,7 @@ Från och med den senaste Service Release-versionen, efter att en kodnings uppgi
 > 
 > 
 
-Mer information finns i [det här blogginlägget](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
+Mer information finns i [den här bloggen](https://blogs.msdn.microsoft.com/randomnumber/2016/07/08/encoder-changes-within-azure-media-services-now-create-ismc-file/).
 
 ### <a name="known-issues"></a>Kända problem
 Vissa klienter kan komma över ett problem med upprepad tagg i Smooth Streaming manifestet. Mer information finns i [det här avsnittet](media-services-deliver-content-overview.md#known-issues).
@@ -208,7 +208,7 @@ De reserverade enheterna Basic, standard och Premium har bytt namn till S1-, S2-
 ### <a name="azure-sdk-for-php"></a>Azure SDK för PHP
 Azure SDK-teamet publicerade en ny version av [Azure SDK för php](https://github.com/Azure/azure-sdk-for-php) -paketet som innehåller uppdateringar och nya funktioner för Media Services. I synnerhet stöder Media Services SDK för PHP de senaste funktionerna för [innehålls skydd](media-services-content-protection-overview.md) . Dessa funktioner är dynamiska kryptering med AES och DRM (PlayReady och Widevine) med och utan token-begränsningar. Det stöder också skalnings [kodnings enheter](media-services-dotnet-encoding-units.md).
 
-Mer information finns här:
+Mer information finns i:
 
 * Följande [kod exempel](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hjälper dig att komma igång snabbt:
   * **vodworkflow_aes. php**: den här php-filen visar hur du använder aes-128 dynamisk kryptering och Key Delivery Service. Det baseras på .NET-exemplet som beskrivs i [använda AES-128 dynamisk kryptering och Key Delivery Service](media-services-protect-with-aes128.md).
@@ -216,9 +216,9 @@ Mer information finns här:
   * **scale_encoding_units. php**: den här php-filen visar hur du skalar kodade reserverade enheter.
 
 ## <a id="nov_changes_15"></a>Version november 2015
- Media Services erbjuder nu licens leverans tjänsten för Widevine i molnet. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [den här självstudien](media-services-protect-with-playready-widevine.md) och [GitHub-lagringsplatsen](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+ Media Services erbjuder nu licens leverans tjänsten för Widevine i molnet. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Se även [den här självstudien](media-services-protect-with-playready-widevine.md) och [GitHub-lagringsplatsen](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
-Widevine licens leverans tjänster som tillhandahålls av Media Services är i för hands version. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+Widevine licens leverans tjänster som tillhandahålls av Media Services är i för hands version. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
 
 ## <a id="oct_changes_15"></a>Utgåva från oktober 2015
 Media Services är nu Live i följande data Center: södra Brasilien, västra Indien, södra Indien och centrala Indien. Du kan nu använda Azure Portal för att [skapa media service-konton](media-services-portal-create-account.md) och utföra olika uppgifter som beskrivs på [webb sidan för Media Services dokumentation](https://azure.microsoft.com/documentation/services/media-services/). Live Encoding är inte aktive rad i dessa data Center. Dessutom är inte alla typer av kodnings bara reserverade enheter tillgängliga i dessa data Center.
@@ -232,30 +232,30 @@ Media Services erbjuder nu möjlighet att skydda både video på begäran och di
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
-Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
 Du kan använda [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (från och med version 3.5.1) eller REST API för att konfigurera din AssetDeliveryConfiguration för att använda Widevine. 
-* Media Services lagt till stöd för Apple ProRes-videor. Nu kan du ladda upp videor för QuickTime-källfiler som använder Apple-ProRes eller andra codec-filer. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
-* Du kan nu använda Media Encoder Standard för att göra under Urklipp och extrahering av direktsända arkiv. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+* Media Services lagt till stöd för Apple ProRes-videor. Nu kan du ladda upp videor för QuickTime-källfiler som använder Apple-ProRes eller andra codec-filer. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+* Du kan nu använda Media Encoder Standard för att göra under Urklipp och extrahering av direktsända arkiv. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Följande filtrerings uppdateringar har gjorts: 
   
   * Du kan nu använda Apple HLS-formatet med ett ljud filter. Du kan använda den här uppdateringen för att ta bort ett ljud spår genom att ange (endast ljud = falskt) i URL: en.
   * När du definierar filter för dina till gångar kan du nu kombinera flera (upp till tre) filter i en enda URL.
     
-    Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+    Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 * Media Services stöder nu i-ramar i HLS version 4. I-ram-stödet optimerar åtgärder för snabb spolning framåt och bakåt. Som standard innehåller alla HLS version 4-utdata i spelnings List rutan (EXT-X-I-FRAME-STREAM-INF).
-Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## <a id="august_changes_15"></a>Version augusti 2015
-* Media Services SDK för Java-version 0.8.0-versionen och nya exempel är nu tillgängliga. Mer information finns här:
+* Media Services SDK för Java-version 0.8.0-versionen och nya exempel är nu tillgängliga. Mer information finns i:
     
-* Azure Media Player har uppdaterats med stöd för flera ljud strömmar. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
+* Azure Media Player har uppdaterats med stöd för flera ljud strömmar. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Version juli 2015
-* Den allmänna tillgängligheten för Media Encoder Standard annonserades. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+* Den allmänna tillgängligheten för Media Encoder Standard annonserades. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
   
     Media Encoder Standard använder för inställningar enligt beskrivningen i [det här avsnittet](https://go.microsoft.com/fwlink/?LinkId=618336). När du använder en för inställning för 4K-kodningar hämtar du den reserverade enhets typen Premium. Mer information finns i [skala kodning](media-services-scale-media-processing-overview.md).
-* Real tids textning i real tid användes med Media Services och Media Player. Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+* Real tids textning i real tid användes med Media Services och Media Player. Mer information finns i [det här blogg inlägget](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
 Media Services .NET SDK är nu version 3.4.0.0. Följande uppdateringar har gjorts: 
@@ -291,7 +291,7 @@ Följande nya funktioner har annonser ATS:
 * Stöd för spanska språk har lagts till.
 * En ny konfiguration för XML-formatet har lagts till.
 
-Mer information finns i [det här blogginlägget](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK-uppdateringar
 Media Services .NET SDK är nu version 3.2.0.0. Följande uppdateringar har gjorts:

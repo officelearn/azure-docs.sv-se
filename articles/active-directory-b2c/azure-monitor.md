@@ -10,17 +10,17 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/03/2020
-ms.openlocfilehash: 108c9c1112327a3fcadeff4c4074f31f976a4e3d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 02/05/2020
+ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026762"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045964"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
-Använd Azure Monitor för att dirigera Azure Active Directory B2C (Azure AD B2C) användnings aktivitets händelser till olika övervaknings lösningar. Du kan behålla loggarna för långsiktig användning eller integrera med SIEM-verktyg från tredje part för att få insikter om din miljö.
+Använd Azure Monitor för att dirigera Azure Active Directory B2C (Azure AD B2C) inloggnings-och [gransknings](view-audit-logs.md) loggar till olika övervaknings lösningar. Du kan behålla loggarna för långsiktig användning eller integrera med SIEM-verktyg från tredje part för att få insikter om din miljö.
 
 Du kan dirigera logg händelser till:
 
@@ -30,7 +30,7 @@ Du kan dirigera logg händelser till:
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här artikeln distribuerar du en Azure Resource Manager-mall med hjälp av modulen Azure PowerShell.
 
@@ -84,8 +84,8 @@ Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resou
 
 Ladda ned Azure Resource Manager mall och parameterstyrda filer:
 
-- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement. JSON](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement. Parameters. JSON](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Sedan uppdaterar du parameter filen med de värden du registrerade tidigare. Följande JSON-kodfragment visar ett exempel på en fil med parametrar för Azure Resource Manager-mall. För `authorizations.value.roleDefinitionId`använder du det [inbyggda roll](../role-based-access-control/built-in-roles.md) svärdet för *rollen deltagare*`b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
@@ -213,10 +213,10 @@ När du har delegerat resurs hantering och valt din prenumeration är du redo at
 
 Konfigurera övervaknings inställningar för Azure AD B2C aktivitets loggar:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. Välj **Azure Active Directory**
-1. Under **övervakning**väljer **diagnostikinställningar**.
+1. Under **övervakning**väljer du **diagnostikinställningar**.
 1. Välj **+ Lägg till diagnostisk inställning**.
 
     ![Fönstret diagnostikinställningar i Azure Portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)

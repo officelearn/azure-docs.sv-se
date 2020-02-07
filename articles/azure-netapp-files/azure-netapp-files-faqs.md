@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 9559f1d52f87314670162482e10714dad13be5bb
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: aaa7e5e65ced2a9899bef5a811ee74be42a8548f
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046153"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048817"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -131,7 +131,9 @@ Ja, du måste skapa en Active Directory anslutning innan du distribuerar en SMB-
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Hur många Active Directory-anslutningar stöds?
 
-Azure NetApp Files stöder för närvarande endast en Active Directory anslutning per NetApp-konto, per prenumeration och i varje region. anslutningen delas inte mellan NetApp-konton.
+Azure NetApp Files har inte stöd för flera Active Directory (AD)-anslutningar i en *region*, även om AD-anslutningarna finns i olika NetApp-konton. Du kan dock ha flera AD-anslutningar i en enda *prenumeration*, förutsatt att AD-anslutningarna finns i olika regioner. Om du behöver flera AD-anslutningar i en enda region kan du använda separata prenumerationer för att göra det. 
+
+En AD-anslutning har kon figurer ATS per NetApp-konto. AD-anslutningen visas bara via det NetApp-konto som den skapas i.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Stöder Azure NetApp Files Azure Active Directory? 
 

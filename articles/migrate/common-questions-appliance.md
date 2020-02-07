@@ -3,12 +3,12 @@ title: Vanliga frågor om Azure Migrate-enheten
 description: Få svar på vanliga frågor om Azure Migrate-enheten
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292340"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064707"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate utrustning: vanliga frågor
 
@@ -16,6 +16,7 @@ I den här artikeln besvaras vanliga frågor om Azure Migrate-enheten. Om du har
 
 - [Allmänna frågor](resources-faq.md) om Azure Migrate.
 - [Frågor](common-questions-discovery-assessment.md) om identifiering, utvärdering och beroende visualisering.
+- [Frågor](common-questions-server-migration.md) om Server migrering.
 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Vad är Azure Migrates apparaten?

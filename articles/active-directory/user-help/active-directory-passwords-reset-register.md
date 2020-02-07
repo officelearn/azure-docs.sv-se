@@ -2,7 +2,7 @@
 title: Registrera autentiseringsinformation för att återställa ditt eget lösen ord – Azure AD
 description: Registrera din verifierings metod information för återställning av lösen ord i Azure AD, så att du kan återställa ditt eget lösen ord utan Administratörs hjälp.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
@@ -11,13 +11,13 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261848"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062650"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrera din verifierings metod information för att återställa ditt eget lösen ord
 
@@ -57,7 +57,7 @@ Administratören måste aktivera den här funktionen så att du kan registrera d
 
 | Felmeddelande |  Möjlig lösning |
 | --- | --- | --- |
-| Kontakta din administratör.<br>Vi har upptäckt att lösen ordet för ditt användar konto inte hanteras av Microsoft. Därför kan vi inte automatiskt återställa ditt lösen ord.<br>Kontakta IT-personalen om du vill ha mer hjälp.| Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation hanterar ditt lösen ord internt och inte vill att du återställer ditt lösen ord från länken **kan inte komma åt ditt konto** . Om du vill återställa lösen ordet i den här situationen måste du kontakta din organisations supportavdelning eller be administratören om hjälp. |
+| Kontakta administratören.<br>Vi har upptäckt att lösen ordet för ditt användar konto inte hanteras av Microsoft. Därför kan vi inte automatiskt återställa ditt lösen ord.<br>Kontakta IT-personalen om du vill ha mer hjälp.| Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation hanterar ditt lösen ord internt och inte vill att du återställer ditt lösen ord från länken **kan inte komma åt ditt konto** . Om du vill återställa lösen ordet i den här situationen måste du kontakta din organisations supportavdelning eller be administratören om hjälp. |
 | Ditt konto har inte Aktiver ATS för lösen ords återställning.<br>Din IT-personal har tyvärr inte konfigurerat ditt konto för användning med den här tjänsten.<br>Om du vill kan vi kontakta en administratör i din organisation för att återställa lösen ordet åt dig. | Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att antingen din organisation inte har aktiverat funktionen för lösen ords återställning eller om du inte får använda den. Om du vill återställa lösen ordet i den här situationen måste du välja länken **kontakta en administratör** . När du klickar på länken skickas ett e-postmeddelande till din organisations supportavdelning eller administratör, så att du vet att du vill återställa lösen ordet. |
 | Vi kunde inte verifiera ditt konto.<br>Om du vill kan vi kontakta en administratör i din organisation för att återställa lösen ordet åt dig. | Om du får det här fel meddelandet när du har skrivit ditt användar-ID, innebär det att din organisation har aktiverat lösen ords återställning och att du kan använda det, men som du inte har registrerat för tjänsten. I så fall måste du kontakta din organisations supportavdelning eller administratör för att återställa ditt lösen ord. Information om hur du registrerar dig för lösen ords återställning när du är tillbaka på enheten finns i processen ovan i den här artikeln. |
 

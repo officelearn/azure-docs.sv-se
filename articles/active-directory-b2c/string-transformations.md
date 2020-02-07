@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982765"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045339"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -81,7 +81,7 @@ Den självkontrollerade tekniska profilen anropar verifierings **inloggningen-in
 - Inmatade anspråk:
   - **inputClaim1**: someone@contoso.com
   - **inputClaim2**: someone@outlook.com
-    - Indataparametrar:
+- Indataparametrar:
   - **stringComparison**: ordinalIgnoreCase
 - Resultat: fel utlöst
 
@@ -326,7 +326,7 @@ Använd den här anspråks omvandlingen för att formatera en sträng med en par
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
-Formatera två anspråk enligt den angivna format strängen. Den här omvandlingen använder C# metoden **String. format** .
+Formatera två anspråk enligt den angivna format strängen. Den här omvandlingen använder C# metoden `String.Format`.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
@@ -361,6 +361,76 @@ Använd den här anspråks omvandlingen för att formatera en sträng med två p
     - **stringFormat**: {0} {1}
 - Utgående anspråk:
     - **outputClaim**: Johan Fernando
+
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+
+Kopierar lokaliserade strängar till anspråk.
+
+| Objekt | TransformationClaimType | Datatyp | Anteckningar |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | Namnet på den lokaliserade strängen | sträng | Lista med anspråks typer som skapas efter att den här anspråks omvandlingen har anropats. |
+
+Så här använder du omvandling av GetLocalizedStringsTransformation-anspråk:
+
+1. Definiera en [lokaliserings sträng](localization.md) och koppla den till en [självkontrollerad teknisk profil](self-asserted-technical-profile.md).
+1. `ElementType` för `LocalizedString`-elementet måste anges till `GetLocalizedStringsTransformationClaimType`.
+1. `StringId` är en unik identifierare som du definierar och använder den senare i din anspråks omvandling.
+1. I omvandling för anspråk anger du listan över anspråk som ska ställas in med den lokaliserade strängen. `ClaimTypeReferenceId` är en referens till en ClaimType som redan har definierats i avsnittet ClaimsSchema i principen. `TransformationClaimType` är namnet på den lokaliserade strängen som definieras i `StringId` för `LocalizedString`-elementet.
+1. I en [självkontrollerad teknisk profil](self-asserted-technical-profile.md), eller en transformering av [visnings kontroll](display-controls.md) indata eller utgående anspråk, gör du en referens till din anspråks omvandling.
+
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
+I följande exempel visas e-postmeddelandets ämne, brödtext, ditt kod meddelande och signaturen för e-postmeddelandet, från lokaliserade strängar. Dessa anspråk används senare av mallen för anpassad e-postverifiering.
+
+Definiera lokaliserade strängar för engelska (standard) och spanska.
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+     </LocalizedStrings>
+   </LocalizedResources>
+   <LocalizedResources Id="api.localaccountsignup.es">
+     <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Atentamente</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+Transformationen Claims anger värdet för anspråks typen som *omfattas* av värdet för `StringId` *email_subject*.
+
+```XML
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exempel
+
+- Utgående anspråk:
+  - **ämne**: e-postverifierings kod för Contoso-konto
+  - **meddelande**: Tack för att du verifierar ditt konto! 
+  - **codeIntro**: din kod är 
+  - **signatur**: vänliga hälsningar  
+
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 
@@ -414,7 +484,7 @@ Leta upp ett anspråks värde från en lista med värden baserat på värdet fö
 | InputClaim | inputParameterId | sträng | Det anspråk som innehåller uppslags värdet |
 | InputParameter | |sträng | Insamling av indataparametrar. |
 | InputParameter | errorOnFailedLookup | boolean | Kontrollerar om ett fel returneras när det inte finns någon matchande sökning. |
-| OutputClaim | inputParameterId | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Värdet för det matchande ID: t. |
+| OutputClaim | inputParameterId | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Värdet för den matchande `Id`. |
 
 I följande exempel söker du efter domän namnet i en av indataparametrar-samlingarna. Omvandlingen av anspråk söker upp domän namnet i identifieraren och returnerar dess värde (ett program-ID).
 
@@ -445,7 +515,7 @@ I följande exempel söker du efter domän namnet i en av indataparametrar-samli
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: falskt
 - Utgående anspråk:
-    - **outputClaim**:  c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
 
 ## <a name="nullclaim"></a>NullClaim
 
@@ -479,7 +549,7 @@ Hämtar domän delen av en e-postadress.
 | InputClaim | emailAddress | sträng | Den ClaimType som innehåller e-postadressen. |
 | OutputClaim | domänsuffix | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats – domänen. |
 
-Använd den här anspråks omvandlingen för att parsa domän namnet efter användarens @-symbol. Detta kan vara till hjälp när du tar bort personligt identifierbar information (PII) från gransknings data. Följande anspråks omvandling visar hur du kan parsa domän namnet från ett **e-** postanspråk.
+Använd den här anspråks omvandlingen för att parsa domän namnet efter användarens @-symbol. Följande anspråks omvandling visar hur du kan parsa domän namnet från ett **e-** postanspråk.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -641,7 +711,7 @@ Avgör om en angiven under sträng inträffar inom det inmatade anspråket. Resu
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | sträng | Anspråks typen, som ska genomsökas. |
-|InputParameter|contains|sträng|Det värde som ska genomsökas.|
+|InputParameter|innehåller|sträng|Det värde som ska genomsökas.|
 |InputParameter|ignoreCase|sträng|Anger om jämförelsen ska ignorera Skift läge för strängen som jämförs.|
 | OutputClaim | outputClaim | sträng | Den ClaimType som skapas efter att denna ClaimsTransformation har anropats. En boolesk indikator om under strängen inträffar i det inmatade anspråket. |
 
@@ -681,7 +751,7 @@ Extraherar delar av en sträng anspråks typ, med början vid tecknet vid den an
 | InputClaim | inputClaim | sträng | Anspråks typen, som innehåller strängen. |
 | InputParameter | startIndex | int | Den nollbaserade start tecken positionen för en under sträng i den här instansen. |
 | InputParameter | length | int | Antalet tecken i under strängen. |
-| OutputClaim | outputClaim | boolean | En sträng som motsvarar den del sträng med längd längd som börjar vid start index i denna instans, eller tom om start index är lika med längden på den här instansen och längden är noll. |
+| OutputClaim | outputClaim | boolean | En sträng som motsvarar den del sträng som börjar vid start index i denna instans, eller tom om start index är lika med längden på den här instansen och längden är noll. |
 
 Hämta till exempel telefonnumret till Country.  
 
@@ -758,7 +828,7 @@ Sammanfogar elementen i en angiven typ av sträng samlings anspråk med hjälp a
 | InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel komma `,`. |
 | OutputClaim | outputClaim | sträng | En sträng som består av medlemmarna i den `inputClaim` sträng samlingen som avgränsas av inparameteren `delimiter`. |
   
-I följande exempel används en sträng uppsättning användar roller och konverteras till en kommaavgränsad sträng. Du kan använda den här metoden för att lagra en sträng samling i Azure AD-användarkontot. När du senare läser kontot från katalogen använder du `StringSplit` för att konvertera kommatecken sträng tillbaka till sträng samling.
+I följande exempel används en sträng uppsättning med användar roller och konverterar den till en kommaavgränsad sträng. Du kan använda den här metoden för att lagra en sträng samling i Azure AD-användarkontot. När du senare läser kontot från katalogen använder du `StringSplit` för att konvertera kommatecken sträng tillbaka till sträng samling.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -794,7 +864,7 @@ Returnerar en sträng mat ris som innehåller under strängarna i den här insta
 | InputParameter | avgränsare | sträng | Strängen som ska användas som avgränsare, till exempel komma `,`. |
 | OutputClaim | outputClaim | stringCollection | En sträng samling vars element innehåller del strängarna i den här strängen som avgränsas av `delimiter` indataparameter. |
   
-I följande exempel används en kommaavgränsad sträng för användar roller och konvertera den till en sträng samling.
+I följande exempel används en kommaavgränsad sträng för användar roller och konverterar den till en sträng samling.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">

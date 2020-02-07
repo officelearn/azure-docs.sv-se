@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Comeet rekrytering programvara för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Comeet rekrytering programvara.
+title: 'Självstudie: Konfigurera samstämmande rekryterings program vara för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton så att de uppfyller rekryterings program varan.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,76 +15,76 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d54750e731f92a574ac6571612f8dbd9054a9530
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: f427fb75cfaeda79b037c327992e4ad482a7e689
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672970"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058347"
 ---
-# <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Comeet rekrytering programvara för automatisk användaretablering
+# <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Självstudie: Konfigurera samstämmande rekryterings program vara för automatisk användar etablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Comeet rekrytering programvara och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper Comeet rekrytering programvara.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i samarbetsen för rekrytering av program vara och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper för att uppfylla rekryterings program vara.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
-* [En Comeet rekrytering programvara-klient](https://www.comeet.co/)
-* Ett användarkonto i Comeet rekrytering programvara med administratörsbehörighet.
+* [En samstämmande rekryterings program varu klient](https://www.comeet.co/)
+* Ett användar konto i samtillfredsställer rekryterings program vara med administratörs behörighet.
 
-## <a name="add-comeet-recruiting-software-from-the-gallery"></a>Lägg till Comeet rekrytering programvara från galleriet
+## <a name="add-comeet-recruiting-software-from-the-gallery"></a>Lägg till samstämmande rekryterings program vara från galleriet
 
-Du måste lägga till Comeet rekrytering programvara från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Comeet rekrytering programvara för automatisk användaretablering med Azure AD.
+Innan du konfigurerar samstämmande av rekryterings program vara för automatisk användar etablering med Azure AD måste du lägga till samstämmande rekryterings program vara från Azure AD-programgalleriet till din lista över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till Comeet rekrytering programvara från Azure AD-programgalleriet:**
+**Gör så här för att lägga till samstämmande rekryterings program vara från Azure AD-programgalleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan **alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Comeet rekrytering programvara**väljer **Comeet rekrytering programvara** i resultatrutan och klicka sedan på den **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **samstämmande rekryterings program vara**, väljer **Samstämmande rekryterings program vara** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Comeet Recruiting Software i resultatlistan](common/search-new-app.png)
 
-## <a name="assigning-users-to-comeet-recruiting-software"></a>Tilldela användare till Comeet rekrytering programvara
+## <a name="assigning-users-to-comeet-recruiting-software"></a>Tilldela användare för att uppfylla rekryterings program
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Comeet rekrytering programvara. När du valt, kan du tilldela dessa användare och/eller grupper Comeet rekrytering programvara genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver ha åtkomst till samstämmande av rekryterings program. När du har bestämt dig kan du tilldela dessa användare och/eller grupper för att uppfylla rekryterings program varan genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-comeet-recruiting-software"></a>Viktiga tips för att tilldela användare till Comeet rekrytering programvara
+### <a name="important-tips-for-assigning-users-to-comeet-recruiting-software"></a>Viktiga tips för att tilldela användare en samstämmande rekryterings program vara
 
-* Vi rekommenderar att en enda Azure AD-användare har tilldelats Comeet rekrytering programvara för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare är tilldelad för att uppfylla rekryterings program vara för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Comeet rekrytering programvara, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare som uppfyller rekryterings program varan måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-comeet-recruiting-software"></a>Konfigurera automatisk användaretablering för Comeet rekrytering programvara 
+## <a name="configuring-automatic-user-provisioning-to-comeet-recruiting-software"></a>Konfigurera automatisk användar etablering för att uppfylla rekryterings program 
 
-Det här avsnittet guider dig genom stegen för att konfigurera Azure AD etableringstjänsten att skapa, uppdatera och inaktivera användare och/eller grupper i Comeet rekrytering programvara baserat på användare och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i samarbets rekryterings program vara baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Comeet rekrytering programvara, följa anvisningarna enligt den [Comeet rekrytering programvara enkel inloggning för självstudien](comeetrecruitingsoftware-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för samstämmande rekryterings program vara enligt anvisningarna i [själv studie kursen för att uppfylla rekryterings program vara med enkel inloggning](comeetrecruitingsoftware-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Konfigurera automatisk användaretablering för Comeet rekrytering programvara i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Konfigurera automatisk användar etablering för att uppfylla rekryterings program i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -92,66 +92,66 @@ Det här avsnittet guider dig genom stegen för att konfigurera Azure AD etabler
 
     ![Länken Comeet Recruiting Software i listan med program](common/all-applications.png)
 
-3. Välj den **etablering** fliken.
+3. Välj fliken **etablering** .
 
-    ![Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **klient-URL** och **hemlighet Token** för din Comeet rekrytering programvarans kontot enligt beskrivningen i steg 6.
+5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för den Samstämmande rekryterings program varans konto enligt beskrivningen i steg 6.
 
-6. I den [Comeet rekrytering programvara administratörskonsolen](https://app.comeet.co/), gå till **Comeet > Inställningar > autentisering > Microsoft Azure**, och kopiera den **hemlighet Token för ditt företag**värde till den **hemlighet Token** i Azure AD.
+6. I den [samstämmiga rekryterings program varans administratörs konsol](https://app.comeet.co/)navigerar du till **samstämmiga > inställningar > autentisering > Microsoft Azure**och kopierar den **hemliga token för ditt företags** värde till fältet **hemligt token** i Azure AD.
 
-    ![Comeet rekrytering tillhandahållande av programvara](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
+    ![Möt rekrytering av program varu etablering](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
-7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Comeet rekrytering programvara. Om anslutningen misslyckas, kontrollera Comeet rekrytering programvara-kontot har administratörsbehörighet och försök igen.
+7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till samstämmande rekryterings program. Om anslutningen Miss lyckas kontrollerar du att du har administratörs behörighet för det samstämmande program varu kontot och försöker igen.
 
     ![Token](common/provisioning-testconnection-token.png)
 
-8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
+8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
-10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Comeet**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare att samhöra**.
 
-    ![Comeet rekrytering Användarmappningar för programvara](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
+    ![Samliggande av användar mappningar för rekrytering av program vara](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
-11. Granska användarattribut som synkroniseras från Azure AD med Comeet rekrytering programvara i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i Comeet rekrytering programvara för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD för att uppfylla rekryterings program vara i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i samarbetet med rekryterings program vara för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Comeet rekrytering Gruppattributen för programvara](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
+    ![Samstämma med program gruppens attribut för rekrytering](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
-12. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Om du vill aktivera den Azure AD-etableringstjänsten för Comeet rekrytering programvara, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för att uppfylla rekryterings program, ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus aktivt](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-14. Ange användare och/eller grupper som du vill att etablera Comeet rekrytering programvara genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+14. Definiera de användare och/eller grupper som du vill etablera för att uppfylla rekryterings program varan genom att välja önskade värden i **området** i avsnittet **Inställningar** .
 
-    ![Etablering omfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
-15. När du är redo att etablera, klickar du på **spara**.
+15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Sparar Etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten Comeet rekrytering programvaran.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten för att uppfylla rekryterings program.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutningen
+## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* Comeet rekrytering programvara stöder för närvarande inte grupper.
+* Samstämmande av rekryterings program vara stöder för närvarande inte grupper.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ef2b98821b28d8a49e5f16bf1c6ac176eb8b5793
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407078"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047753"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för certifikat signerings förfrågan
 
@@ -26,6 +26,10 @@ Generera CSR-filen (certifikat signerings förfrågan) som Apple använder för 
 1. Välj **nyckel rings åtkomst**, expandera **certifikat assistenten**och välj sedan **begär ett certifikat från en certifikat utfärdare**.
 
     ![Använd nyckelhanterare för att begära ett nytt certifikat](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
+    
+> [!NOTE]
+> OS X som standard markeras det första objektet i den kategori som du har valt i åtkomst verktyget för nyckel ringar. Detta kan vara problematiskt om du befinner dig i avsnittet **certifikat** och **certifikat utfärdare för Apple Worldwide Developer-relationer** *inte* är det första objektet i listan. Innan du begär ett certifikat bör du se till att du befinner dig i avsnittet **certifikat** och väljer sedan **Apple Worldwide Developer-relationer certifikat utfärdare**.
+
 
 1. Välj din **användar-e-postadress**, ange ditt **eget namn** -värde, kontrol lera att du har angett **Spara på disk**och välj sedan **Fortsätt**. Lämna **ca-e-postadress** tomt eftersom det inte behövs.
 

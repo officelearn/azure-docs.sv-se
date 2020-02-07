@@ -8,19 +8,19 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.author: gregman
-ms.openlocfilehash: 99474246bf1ff5cbcc39861d56f05aa38f177f31
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.author: philmea
+ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510047"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045907"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Köra Azure IoT Edge på Windows Server Virtual Machines
 
 Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
 
-Läs mer om hur IoT Edge-körningen fungerar och vilka komponenter som ingår i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
+Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
 Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Windows Server 2019-dator med hjälp av [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet. Följ anvisningarna i [installera Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) i Windows för användning med andra versioner.
 
@@ -98,7 +98,7 @@ Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
+Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
 
 Om du har problem med att Edge runtime installeras på rätt sätt kan du läsa [fel söknings](troubleshoot.md) sidan.
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 695507b0d6997870dbea392e73e4f4470248d26c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985891"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046323"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -132,6 +132,9 @@ För Application Gateway är följande mått tillgängliga:
 - **Antal felaktiga värdar**
 
   Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera per server dels pool för att visa antalet felaktiga värdar i en viss backend-pool.
+  
+- **Begär Anden per minut per felfri värd** Det genomsnittliga antalet förfrågningar som tagits emot av varje felfritt medlem i en backend-pool på en minut. Du måste ange backend-poolen med hjälp av *BackendPool HttpSettings* -dimensionen.  
+  
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Mått som stöds av Application Gateway v1 SKU
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8e3c2b7f4087f0f47466eff47b22c59dad19892e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774946"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050010"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicera Azure Media Services innehåll med REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)
-> * [Portalen](media-services-portal-publish.md)
+> * [Portal](media-services-portal-publish.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ Du kan strömma en MP4-uppsättning med anpassad bit hastighet genom att skapa e
 
 Du kan också använda en OnDemand streaming-positionerare för att bygga URL: er som pekar på MP4-filer som kan laddas ned progressivt.  
 
-Den här artikeln visar hur du skapar en lokaliserare för OnDemand-direktuppspelning för att publicera din till gång och bygga ett smidigt, MPEG-streck och HLS strömnings-URL: er. Den visar också snabb hämtnings-URL: er.
+Den här artikeln visar hur du skapar en lokaliserare för OnDemand-direktuppspelning för att publicera din till gång och bygga ett smidigt, MPEG-streck och HLS strömnings-URL: er. Det visar också hur du skapar Progressive nedladdnings-URL: er.
 
 I [följande](#types) avsnitt visas de uppräknings typer vars värden används i rest-anropen.   
 
@@ -41,12 +41,12 @@ I [följande](#types) avsnitt visas de uppräknings typer vars värden används 
 > När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 > 
 
-## <a name="connect-to-media-services"></a>Anslut till Medietjänster
+## <a name="connect-to-media-services"></a>Ansluta till Media Services
 
 Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->När du har anslutit till https://media.windows.net får du en 301-omdirigering som anger en annan Media Services-URI. Du måste göra efterföljande anrop till den nya URI: n.
+>När du har anslutit till https://media.windows.netfår du en 301-omdirigering som anger en annan Media Services-URI. Du måste göra efterföljande anrop till den nya URI: n.
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Skapa en lokaliserare för OnDemand-direktuppspelning
 Om du vill skapa en OnDemand streaming-positionerare och hämta URL: er måste du göra följande:
@@ -62,7 +62,7 @@ Om du vill skapa en OnDemand streaming-positionerare och hämta URL: er måste d
 ### <a name="create-an-access-policy"></a>Skapa en åtkomst princip
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Begäran:
 
@@ -187,13 +187,13 @@ exempel:
         OnDemandOrigin = 2,
     }
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 [Översikt över Media Services åtgärder REST API](media-services-rest-how-to-use.md)
 
 [Konfigurera till gångs leverans princip](media-services-rest-configure-asset-delivery-policy.md)

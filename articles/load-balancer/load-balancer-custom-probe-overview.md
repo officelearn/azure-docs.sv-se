@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023556"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056690"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -29,15 +29,15 @@ Hälso avsökningar stöder flera protokoll. Tillgängligheten för ett speciell
 
 | | Standard-SKU | Grundläggande SKU |
 | --- | --- | --- |
-| [Avsökningen typer](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Avsökning av beteende](#probedown) | Alla avsökningar ned alla TCP-flöden fortsätter. | Alla avsökningar, alla TCP-flöden upphör att gälla. | 
+| [Avsöknings typer](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Beteende för avsökning](#probedown) | Alla avsökningar ned alla TCP-flöden fortsätter. | Alla avsökningar, alla TCP-flöden upphör att gälla. | 
 
 
 >[!IMPORTANT]
 >Granska det här dokumentet i sin helhet, inklusive viktig [design vägledning](#design) för att skapa en tillförlitlig tjänst.
 
 >[!IMPORTANT]
->Load Balancer hälso avsökningar kommer från IP-168.63.129.16 och får inte blockeras för avsökningar för att markera instansen.  Granska [avsökning källans IP-adress](#probesource) mer information.
+>Load Balancer hälso avsökningar kommer från IP-168.63.129.16 och får inte blockeras för avsökningar för att markera instansen.  Granska [IP-adressen för avsöknings källan](#probesource) för mer information.
 
 ## <a name="probes"></a>Avsöknings konfiguration
 
@@ -74,7 +74,7 @@ I det här exemplet tar plattformen en liten stund att reagera på den här änd
 
 Du kan anta att reaktionen på en misslyckad avsökning tar mellan minst 10 sekunder och högst en aning över 15 sekunder att reagera på en förändring i signalen från programmet.  Det här exemplet tillhandahålls för att illustrera vad som händer, men det är inte möjligt att prognostisera en exakt varaktighet utöver ovanstående rikt linjer som illustreras i det här exemplet.
  
-## <a name="types"></a>Avsökningen typer
+## <a name="types"></a>Avsöknings typer
 
 Protokollet som används av hälso avsökningen kan konfigureras till något av följande:
 
@@ -89,7 +89,7 @@ Vilka protokoll som är tillgängliga beror på vilken Load Balancer SKU som anv
 | Standard-SKU |    &#9989; |   &#9989; |   &#9989; |
 | Grundläggande SKU |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcpprobe"></a> TCP-avsökning
+### <a name="tcpprobe"></a>TCP-avsökning
 
 TCP-avsökningar initiera en anslutning genom att utföra en 3-vägs öppna TCP-handskakningen med definierade porten.  TCP-avsökningar avslutar en anslutning med en fyra vägs stängnings-TCP-handskakning.
 
@@ -112,10 +112,10 @@ Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration 
       },
 ```
 
-### <a name="httpprobe"></a> <a name="httpsprobe"></a> HTTP / HTTPS-avsökning
+### <a name="httpprobe"></a><a name="httpsprobe"></a> Http/https-avsökning
 
 >[!NOTE]
->HTTPS-avsökning är endast tillgänglig för [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
+>HTTPS-avsökning är endast tillgänglig för [standard Load Balancer](load-balancer-standard-overview.md).
 
 HTTP-och HTTPS-avsökningar bygger på TCP-avsökningen och utfärdar en HTTP-hämtning med den angivna sökvägen. Båda dessa avsökningar stöder relativa sökvägar för HTTP GET. HTTPS-avsökningar är samma som HTTP-avsökningar och Lägg till en Transport Layer Security (TLS, tidigare känd som SSL) omslutning. Hälsoavsökningen markeras när instansen svarar med en HTTP-statuskod 200 inom tidsgränsen.  Hälso avsökningen försöker kontrol lera den konfigurerade hälso avsöknings porten var 15: e sekund som standard. Minsta avsökningsintervallet är 5 sekunder. Den totala varaktigheten för alla intervall får inte överstiga 120 sekunder.
 
@@ -128,7 +128,7 @@ Om du använder Cloud Services och har web-roller som använder w3wp.exe kan få
 
 HTTP / HTTPS-avsökning misslyckas när:
 * Avsökningen slutpunkten returnerar ett HTTP-svarskoden än 200 (till exempel 403, 404 eller 500). Hälso avsökningen markeras omedelbart. 
-* Avsöknings slut punkten svarar inte alls under tids gränsen på 31 sekunder. Flera avsöknings begär Anden kan bli obesvarade innan avsökningen markeras som ej igång och tills summan av alla timeout-intervall har uppnåtts.
+* Avsöknings slut punkten svarar inte alls under minimivärdet för avsöknings intervallet och tids gränsen på 30 sekunder. Flera avsöknings begär Anden kan bli obesvarade innan avsökningen markeras som ej igång och tills summan av alla timeout-intervall har uppnåtts.
 * Avsökningen slutpunkten stängs anslutningen via en TCP-återställning.
 
 Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration i en Resource Manager-mall:
@@ -157,13 +157,13 @@ Följande visar hur du kan uttrycka den här typen av avsöknings konfiguration 
       },
 ```
 
-### <a name="guestagent"></a>Gästen agenten avsökning (klassisk)
+### <a name="guestagent"></a>Gästa Gent avsökning (endast klassiskt)
 
 Molntjänstroller (arbetarroller och webbroller) använda en gästagenten för avsökning övervakning som standard.  En gästa Gent avsökning är en sista utväg-konfiguration.  Använd alltid en hälso avsökning uttryckligen med en TCP-eller HTTP-avsökning. En avsökning för gäst-agenten är inte så effektiv som uttryckligen definierade avsökningar de flesta scenarier med programmet.
 
 En avsökning för gäst-agenten är en kontroll av gästagenten på den virtuella datorn. Sedan lyssnar och svarar med ett HTTP 200 OK-svar endast när instansen är i tillståndet klar. (Andra tillstånd är upptagen, återanvändning, eller stoppas.)
 
-Mer information finns i [konfigurera tjänstdefinitionsfilen (csdef) för hälsoavsökningar](https://msdn.microsoft.com/library/azure/ee758710.aspx) eller [Kom igång genom att skapa en offentlig belastningsutjämnare för cloud services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
+Mer information finns i [Konfigurera tjänst definitions filen (csdef) för hälso avsökningar](https://msdn.microsoft.com/library/azure/ee758710.aspx) eller [Kom igång genom att skapa en offentlig belastningsutjämnare för Cloud Services](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
 
 Om gästagenten inte kan svara med HTTP 200 OK, markerar belastningsutjämnaren instans som inte svarar. Den stoppas skicka flöden till den instansen. Belastningsutjämnaren fortsätter att kontrollera instansen. 
 
@@ -184,7 +184,7 @@ Alla backend-slutpunkter som har uppnått ett felfritt tillstånd är berättiga
 > [!NOTE]
 > Om hälso avsökningen fluktuerar väntar belastningsutjämnaren längre innan den placerar backend-slutpunkten igen i felfritt tillstånd. Den här extra väntetid skyddar användaren och infrastrukturen och är en avsiktlig princip.
 
-## <a name="probedown"></a>Avsökning av beteende
+## <a name="probedown"></a>Beteende för avsökning
 
 ### <a name="tcp-connections"></a>TCP-anslutningar
 
@@ -205,7 +205,7 @@ UDP anslutningslös och det finns inga läget för energiflöde som spåras för
 Om alla avsökningar för alla instanser i en serverdelspool misslyckas avslutas befintliga UDP-flöden för Basic och Standard belastningsutjämnare.
 
 <a name="source"></a>
-## <a name="probesource"></a>Avsökning för källans IP-adress
+## <a name="probesource"></a>IP-adress för avsöknings källa
 
 Belastningsutjämnaren använder en distribuerad avsöknings tjänst för sin interna hälsomodellen. Tjänsten för avsökning finns på varje värd där virtuella datorer och kan köras på begäran för att generera hälso avsökningar enligt kundens konfiguration. Hälso avsöknings trafiken är direkt mellan avsöknings tjänsten som genererar hälso avsökningen och den virtuella kunden. Alla Load Balancers hälsoavsökningar kommer från IP-adressen 168.63.129.16 som källa.  Du kan använda IP-adressutrymmet i ett VNet som inte är RFC1918 utrymme.  Med en globalt reserverad Microsoft-adress som ägs av Microsoft minskar risken för en IP-adresskonflikt med det IP-adressutrymme som du använder i VNet.  Den här IP-adressen är samma i alla regioner och ändras inte och är inte en säkerhets risk eftersom endast den interna Azure Platform-komponenten kan käll paket från den här IP-adressen. 
 
@@ -252,11 +252,11 @@ Grundläggande offentliga Load Balancer visar status för hälso avsökningar so
 ## <a name="limitations"></a>Begränsningar
 
 - HTTPS-avsökningar stöder inte ömsesidig autentisering med ett klientcertifikat.
-- Du bör assumehHealth-avsökningar Miss Miss kan när TCP-tidsstämplar är aktiverade.
+- Du bör anta att hälso avsökningar Miss söker när TCP-tidsstämplar är aktiverade.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Komma igång och skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](quickstart-create-standard-load-balancer-powershell.md)
-- [REST API för hälsoavsökningar](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
-- Begär nya hälsotillstånd avsökningen funktioner med [Belastningsutjämnarens Uservoice](https://aka.ms/lbuservoice)
+- [Kom igång med att skapa en offentlig belastningsutjämnare i Resource Manager med hjälp av PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [REST API för hälso avsökningar](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
+- Begär nya hälso avsöknings möjligheter med [Load Balancer UserVoice](https://aka.ms/lbuservoice)

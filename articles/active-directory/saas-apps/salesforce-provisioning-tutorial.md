@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed3307f2802e5372cf007f1df8eee2f26e6a39f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5b8038896a11b65e835ce71f5fc34e85723cc91a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714389"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060529"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
@@ -117,7 +117,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats Salesforce i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i Salesforce-appen.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="common-issues"></a>Vanliga problem
 * Om du har problem med att auktorisera åtkomst till Salesforce ser du till att följande:

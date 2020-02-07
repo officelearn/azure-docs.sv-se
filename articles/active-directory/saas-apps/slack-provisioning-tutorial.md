@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdc912c2df435f9b7e591d7c5475e126e6b0aeb7
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849162"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062837"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera slack för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i slack och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till slack.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -106,7 +106,7 @@ Alternativt kan du aktivera etableringen av grupp objekt från Azure AD till sla
 
 Detta resulterar i att alla grupp objekt som tilldelats slack i avsnittet **användare och grupper** är fullständigt synkroniserade från Azure AD till slack. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din slack-app.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
@@ -126,5 +126,5 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

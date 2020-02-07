@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e80373fa28f1ea24d6a2d5fc2c147bf81b2b279
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5ed04d8fdcc2d79c66e2ebc53c737c78664e4621
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276517"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058324"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudie: Konfigurera CERN central för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i CERN Central och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till en användar lista i CERN Central.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -121,13 +121,13 @@ För att kunna etablera användar konton till CERN Central måste du begära ett
 
 Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats till CERN Central i avsnittet användare och grupper. Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din CERN-centrala app.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [CERN, Central: publicera identitets data med Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Självstudie: Konfigurera CERN central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

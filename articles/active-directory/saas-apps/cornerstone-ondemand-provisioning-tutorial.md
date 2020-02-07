@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Hörnstenen OnDemand för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Hörnstenen OnDemand.
+title: 'Självstudie: Konfigurera en hörn OnDemand för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till ett hörn OnDemand.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -16,151 +16,151 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8170fc094f1515783fa51a0d579bc12094aab836
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6212e74ecbf8327d3939138de2e92868f29b0f1a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672943"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058455"
 ---
-# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Hörnstenen OnDemand för automatisk användaretablering
+# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en hörn OnDemand för automatisk användar etablering
 
-Den här kursen visar hur du utför i Hörnstenen OnDemand och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare eller grupper till Hörnstenen OnDemand.
+I den här självstudien beskrivs de steg som du utför i hörn OnDemand och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare eller grupper till ett hörn OnDemand.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-tjänst för användaretablering. Information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns [automatisera användaretablering och avetablering för software-as-a-service (SaaS)-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som är byggd ovanpå Azure AD-tjänsten för användar etablering. Information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering av SaaS-program (Software-as-a-Service) med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du har:
 
 * En Azure AD-klientorganisation.
-* En hörnsten OnDemand-klient.
-* Ett användarkonto i Hörnstenen OnDemand med administratörsbehörighet.
+* En hörn OnDemand OnDemand-klient.
+* Ett användar konto i hörn OnDemand med administratörs behörighet.
 
 > [!NOTE]
-> Azure AD etablering integration förlitar sig på den [Hörnstenen OnDemand webbtjänsten](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). Den här tjänsten är tillgänglig för Hörnstenen OnDemand-team.
+> Integreringen med Azure AD Provisioning förlitar sig på [webb tjänsten för hörn OnDemand](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). Den här tjänsten är tillgänglig för de viktigaste OnDemand-teamen.
 
-## <a name="add-cornerstone-ondemand-from-the-azure-marketplace"></a>Lägg till Hörnstenen OnDemand från Azure Marketplace
+## <a name="add-cornerstone-ondemand-from-the-azure-marketplace"></a>Lägg till ett hörn OnDemand från Azure Marketplace
 
-Innan du konfigurerar Hörnstenen OnDemand för automatisk användarförsörjning med Azure AD kan du lägga till Hörnstenen OnDemand från Marketplace till din lista över hanterade SaaS-program.
+Innan du konfigurerar ett hörn OnDemand för automatisk användar etablering med Azure AD lägger du till ett hörn OnDemand från Marketplace till din lista över hanterade SaaS-program.
 
-Följ dessa steg för att lägga till Hörnstenen OnDemand från Marketplace.
+Följ dessa steg om du vill lägga till ett hörn OnDemand från Marketplace.
 
-1. I den [Azure-portalen](https://portal.azure.com), i navigeringsfönstret till vänster, Välj **Azure Active Directory**.
+1. I navigerings fönstret till vänster i [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory**.
 
-    ![Azure Active Directory-ikonen](common/select-azuread.png)
+    ![Ikonen Azure Active Directory](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan **alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Lägg till ett nytt program genom att välja **Nytt program** längst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Hörnstenen OnDemand** och välj **Hörnstenen OnDemand** från panelen resultatet. Om du vill lägga till programmet, Välj **Lägg till**.
+4. I sökrutan anger du ett **hörn OnDemand** och väljer ett **hörn OnDemand** från resultat panelen. Om du vill lägga till programmet väljer du **Lägg till**.
 
     ![Cornerstone OnDemand i resultatlistan](common/search-new-app.png)
 
-## <a name="assign-users-to-cornerstone-ondemand"></a>Tilldela användare till Hörnstenen OnDemand
+## <a name="assign-users-to-cornerstone-ondemand"></a>Tilldela användare till hörn OnDemand
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras de användare eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, kan du bestämma vilka användare eller grupper i Azure AD behöver åtkomst till Hörnstenen OnDemand. Om du vill tilldela dessa användare eller grupper Hörnstenen OnDemand, följer du anvisningarna i [tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md).
+Innan du konfigurerar och aktiverar automatisk användar etablering ska du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till ett hörn OnDemand. Om du vill tilldela dessa användare eller grupper till ett hörn OnDemand, följer du anvisningarna i [tilldela en användare eller grupp till en Enterprise-App](../manage-apps/assign-user-or-group-access-portal.md).
 
-### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Viktiga tips för att tilldela användare till Hörnstenen OnDemand
+### <a name="important-tips-for-assigning-users-to-cornerstone-ondemand"></a>Viktiga tips för att tilldela användare till ett hörn OnDemand
 
-* Vi rekommenderar att du tilldelar en enda Azure AD-användare till Hörnstenen OnDemand att testa konfigurationen för automatisk användaretablering. Du kan tilldela ytterligare användare eller grupper senare.
+* Vi rekommenderar att du tilldelar en enda Azure AD-användare till ett hörn OnDemand för att testa den automatiska konfigurationen av användar etablering. Du kan tilldela ytterligare användare eller grupper senare.
 
-* När du tilldelar en användare till Hörnstenen OnDemand Välj en giltig programspecifika roll om det finns i dialogrutan tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till ett hörn OnDemand, väljer du en giltig programspecifik roll, om sådan finns, i dialog rutan tilldelning. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configure-automatic-user-provisioning-to-cornerstone-ondemand"></a>Konfigurera automatisk användaretablering till Hörnstenen OnDemand
+## <a name="configure-automatic-user-provisioning-to-cornerstone-ondemand"></a>Konfigurera automatisk användar etablering till hörn OnDemand
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera den Azure AD-etableringstjänsten. Du kan använda den för att skapa, uppdatera och inaktivera användare eller grupper i Hörnstenen OnDemand baserat på användar- eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten. Använd den för att skapa, uppdatera och inaktivera användare eller grupper i hörn OnDemand utifrån användar-eller grupp tilldelningar i Azure AD.
 
-Följ dessa steg om du vill konfigurera automatisk användaretablering för OnDemand-Hörnstenen i Azure AD.
+Följ dessa steg om du vill konfigurera automatisk användar etablering för ett hörn OnDemand i Azure AD.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram** > **alla program** > **Hörnstenen OnDemand**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program** > **alla program** > **hörn OnDemand**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Hörnstenen OnDemand**.
+2. I listan program väljer du **hörn OnDemand**.
 
-    ![Länken för OnDemand-Hörnstenen i listan med program](common/all-applications.png)
+    ![Länken för hörn OnDemandn i program listan](common/all-applications.png)
 
-3. Välj den **etablering** fliken.
+3. Välj fliken **etablering** .
 
-    ![Hörnstenen OnDemand-etablering](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningTab.png)
+    ![Konfiguration av hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningTab.png)
 
-4. Ange **Etableringsläge** till **automatisk**.
+4. Ange **etablerings läget** till **Automatisk**.
 
-    ![Hörnstenen OnDemand etablering läge](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
+    ![Etablerings läge för hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. Under den **administratörsautentiseringsuppgifter** Ange administratörens användarnamn, lösenord för serveradministratören och domänen för din Hörnstenen OnDemand konto:
+5. Under avsnittet **admin credentials** anger du administratörs användar namn, administratörs lösen ord och domän för ditt konto för ditt hörn OnDemand:
 
-    * I den **Admin Username** kryssar i domänen eller användarnamnet för administratörskontot på Hörnstenen OnDemand-klienten. Ett exempel är contoso\admin.
+    * I rutan **Administratörs användar namn** fyller du i domänen eller användar namnet för administratörs kontot på ditt hörn OnDemand-klient. Ett exempel är Contoso\admin.
 
-    * I den **adminlösenord** kryssar du i det lösenord som motsvarar administratörens användarnamn.
+    * I rutan **Administratörs lösen ord** fyller du i lösen ordet som motsvarar administratörens användar namn.
 
-    * I den **domän** kryssar i webbtjänstens URL Hörnstenen OnDemand-klient. Till exempel tjänsten finns på `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`, och för Contoso-domänen är `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Mer information om hur du hämtar webbtjänstens URL finns i [PDF-filen](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * I rutan **domän** fyller du i webb tjänstens URL för hörn ondemandn. Till exempel finns tjänsten på `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`och för contoso är domänen `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`. Mer information om hur du hämtar webb tjänstens URL finns i [den här PDF-filen](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
-6. När du har fyllt i rutorna som visas i steg 5 väljer **Testanslutningen** för att se till att Azure AD kan ansluta till Hörnstenen OnDemand. Om anslutningen misslyckas se till att din Hörnstenen OnDemand-kontot har administratörsbehörighet och försök igen.
+6. När du har fyllt i rutorna som visas i steg 5 väljer du **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till ett hörn OnDemand. Om anslutningen Miss lyckas kontrollerar du att ditt konto för ditt hörn OnDemand har administratörs behörighet och försöker igen.
 
-    ![Hörnstenen OnDemand Testa anslutning](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
+    ![Test anslutning för hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/TestConnection.png)
 
-7. I den **e-postmeddelande** anger du e-postadressen för personen eller grupp för att ta emot meddelanden etablering fel. Välj den **skicka ett e-postmeddelande när ett fel inträffar** markerar du kryssrutan.
+7. I rutan **aviserings-e** -postadress anger du e-postadressen till den person eller grupp som ska ta emot etablerings fel meddelanden. Markera kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
-    ![Hörnstenen OnDemand e-postmeddelandet](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
+    ![E-postmeddelande om ett hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
 8. Välj **Spara**.
 
-9. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Hörnstenen OnDemand**.
+9. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till hörn OnDemand**.
 
-    ![Hörnstenen OnDemand synkronisering](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
+    ![Synkronisering av hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMapping.png)
 
-10. Granska användarattribut som synkroniseras från Azure AD till Hörnstenen OnDemand i den **attributmappningar** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Hörnstenen OnDemand för uppdateringsåtgärder. Om du vill spara ändringarna, Välj **spara**.
+10. Granska de användarattribut som synkroniseras från Azure AD till en hörn-OnDemand i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i hörn-OnDemand för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
 
-    ![Hörnstenen OnDemand attributmappningar](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
+    ![Attribut mappningar för hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/UserMappingAttributes.png)
 
-11. Om du vill konfigurera Omfångsfilter, följer du anvisningarna i den [målgrupp filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Följ anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
 
-12. Så här aktiverar du den Azure AD-etableringstjänsten för Hörnstenen OnDemand i den **inställningar** ändrar **Etableringsstatus** till **på**.
+12. Om du vill aktivera Azure AD Provisioning-tjänsten för en hörn OnDemand i avsnittet **Inställningar** ändrar du **etablerings statusen** till **på**.
 
-    ![Hörnstenen OnDemand-Etableringsstatus](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
+    ![Etablerings status för hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/ProvisioningStatus.png)
 
-13. Definiera de användare eller grupper som önskas kan etableras på Hörnstenen OnDemand. I den **inställningar** väljer du de värden som du vill ha i **omfång**.
+13. Definiera de användare eller grupper som du vill etablera till hörn OnDemand. I avsnittet **Inställningar** väljer du de värden som du vill ha i **omfånget**.
 
-    ![Hörnstenen OnDemand omfång](./media/cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
+    ![Omfattning av hörn OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/SyncScope.png)
 
-14. När du är redo att etablera väljer **spara**.
+14. När du är redo att etablera väljer du **Spara**.
 
-    ![Hörnstenen OnDemand spara](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
+    ![Hörn OnDemand OnDemand Spara](./media/cornerstone-ondemand-provisioning-tutorial/Save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än senare synkroniseringar. De inträffar ungefär var 40 minut så länge den Azure AD-etableringtjänsten körs. 
+Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än senare synkroniseringar. De inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. 
 
-Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följa länkarna till aktivitetsrapporten för etablering. Rapporten beskriver de åtgärder som utförs av den Azure AD-etableringtjänsten på Hörnstenen OnDemand.
+Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten. Rapporten beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på hörn OnDemand.
 
-Information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutningen
+## <a name="connector-limitations"></a>Kopplings begränsningar
 
-Hörnstenen OnDemand **Position** attributet måste ha ett värde som motsvarar roller på Hörnstenen OnDemand-portalen. Att hämta en lista över giltiga **Position** värden, gå till **redigera användarpost > organisationsstruktur > Position** Hörnstenen OnDemand-portalen.
+Attributet för den här **positionen** förväntar sig ett värde som motsvarar rollerna i hörn OnDemand-portalen. Om du vill hämta en lista över giltiga **positions** värden går du till **redigera användar post > organisations struktur > position** i portalen för hörn OnDemand.
 
-![Hörnstenen OnDemand etablering redigera användarpost](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
+![Hörn OnDemand OnDemand-etablering redigera användar post](./media/cornerstone-ondemand-provisioning-tutorial/UserEdit.png)
 
-![Hörnstenen OnDemand etablering Position](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png)
+![Positions-OnDemand-etablerings position](./media/cornerstone-ondemand-provisioning-tutorial/UserPosition.png)
 
-![Hörnstenen OnDemand etablering listan](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
+![Placerings lista för plats-OnDemand-etablering](./media/cornerstone-ondemand-provisioning-tutorial/PostionId.png)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användarkontoetablering för företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/cornerstone-ondemand-provisioning-tutorial/tutorial_general_01.png

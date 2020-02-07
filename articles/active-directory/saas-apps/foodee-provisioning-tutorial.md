@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170075"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057836"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en livsmedelsingrediens för automatisk användar etablering
 
 Den här artikeln visar hur du konfigurerar Azure Active Directory (Azure AD) i en livsmedelsingrediens och Azure AD för att automatiskt etablera eller avetablera användare eller grupper till en livsmedelsingrediens.
 
 > [!NOTE]
-> I artikeln beskrivs en anslutning som är byggd ovanpå Azure AD-tjänsten för användar etablering. För att lära dig vad den här tjänsten gör och hur den fungerar och för att få svar på vanliga frågor, se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I artikeln beskrivs en anslutning som är byggd ovanpå Azure AD-tjänsten för användar etablering. För att lära dig vad den här tjänsten gör och hur den fungerar och för att få svar på vanliga frågor, se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här kopplingen är för närvarande en för hands version. Mer information om användnings funktionen för Azure i för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
+> Den här anslutningsappen är för närvarande i förhandsversion. Mer information om användnings funktionen för Azure i för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du uppfyller följande krav:
 
@@ -118,7 +118,7 @@ Konfigurera automatisk användar etablering för näring i Azure AD genom att g�
 
 1. Under **admin-autentiseringsuppgifter**gör du följande:
 
-   a. I rutan **klient webb adress** anger du värdet **https: \//concierge. Food. ee/scim/v2** som du hämtade tidigare.
+   a. I rutan **klient webb adress** anger du värdet **https:\//concierge.Food.ee/scim/v2** som du hämtade tidigare.
 
    b. I rutan **hemlig token** anger du det **API-token** -värde som du hämtade tidigare.
    
@@ -150,7 +150,7 @@ Konfigurera automatisk användar etablering för näring i Azure AD genom att g�
     ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/groupattribute.png)
 
 1. Om du vill spara ändringarna väljer du **Spara**.
-1. Konfigurera omfångs filter. Mer information finns i anvisningarna i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Konfigurera omfångs filter. Mer information finns i anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Om du vill aktivera Azure AD Provisioning-tjänsten för mat i avsnittet **Inställningar** ändrar du **etablerings statusen** till **på**.
 
@@ -164,15 +164,15 @@ Konfigurera automatisk användar etablering för näring i Azure AD genom att g�
 
     ![Knappen för att spara etablerings konfiguration](common/provisioning-configuration-save.png)
 
-Föregående åtgärd startar den inledande synkroniseringen av de användare eller grupper som du har definierat i list rutan **omfång** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information finns i [hur lång tid tar det att etablera användare?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Föregående åtgärd startar den inledande synkroniseringen av de användare eller grupper som du har definierat i list rutan **omfång** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information finns i [hur lång tid tar det att etablera användare?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten. Rapporten beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten för en livsmedelsingrediens. Mer information finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten. Rapporten beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten för en livsmedelsingrediens. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

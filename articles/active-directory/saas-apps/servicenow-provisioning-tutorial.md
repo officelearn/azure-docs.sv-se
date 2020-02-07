@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 04fb34ff9c0ba9822e9760bcd3989bd0b5675506
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 5e954de97e6573e330c42915b44bbc0c40abc54d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044731"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063258"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ServiceNow för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både ServiceNow och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [ServiceNow](https://www.servicenow.com/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i både ServiceNow och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [ServiceNow](https://www.servicenow.com/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
@@ -35,7 +35,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både ServiceNow
 > * Etablera grupper och grupp medlemskap i ServiceNow
 > * [Enkel inloggning](servicenow-tutorial.md) till ServiceNow (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -80,7 +80,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Konfigurera automatisk användar etablering för ServiceNow i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -114,7 +114,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 11. Granska gruppattributen som synkroniseras från Azure AD till ServiceNow i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i ServiceNow för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Om du vill aktivera Azure AD Provisioning-tjänsten för ServiceNow ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -137,7 +137,7 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
 3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
-## <a name="troubleshooting-tips"></a>Felsökningstips
+## <a name="troubleshooting-tips"></a>Fel söknings tips
 * **InvalidLookupReference:** Vid etablering av vissa attribut, till exempel avdelning och plats i ServiceNow, måste värdena redan finnas i en referens tabell i ServiceNow. Du kan till exempel ha två platser (Seattle, Los Angeles) och tre avdelningar (försäljning, ekonomi, marknadsföring) i tabellen **Infoga tabell namn** i ServiceNow. Om du försöker etablera en användare där hans avdelning är "försäljning" och platsen "Seattle", kommer han att etableras korrekt. Om du försöker etablera en användare med avdelning "försäljning" och platsen "LA" kan användaren inte etableras. Platsen LA måste antingen läggas till i referens tabellen i ServiceNow eller så måste attributet User i Azure AD uppdateras för att matcha formatet i ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Granska dina [mappningar av attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) för att identifiera matchande attribut. Det här värdet måste finnas på den användare eller grupp som du försöker etablera. 
 * Granska [SERVICENOW SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) för att förstå eventuella krav eller begränsningar (till exempel format för att ange landskod för en användare)
@@ -146,9 +146,9 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

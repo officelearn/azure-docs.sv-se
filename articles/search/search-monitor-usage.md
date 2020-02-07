@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793490"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059664"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Kognitiv sökning
 
@@ -76,24 +76,26 @@ I det här avsnittet får du lära dig hur du använder Blob Storage för att la
 
    Ditt lagrings konto måste finnas i samma region som Azure Kognitiv sökning.
 
-2. Öppna översikts sidan för Sök tjänsten. Rulla ned till **övervakning** i det vänstra navigerings fönstret och klicka på **Aktivera övervakning**.
+2. Öppna översikts sidan för Sök tjänsten. Rulla ned till **övervakning** i det vänstra navigerings fönstret och klicka på **diagnostikinställningar**.
 
-   ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
+   ![Diagnostikinställningar](./media/search-monitor-usage/diagnostic-settings.png "Diagnostikinställningar")
 
-3. Välj de data som du vill exportera: loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
+3. Välj **Lägg till diagnostisk inställning**
+
+4. Välj de data som du vill exportera: loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
 
    Endast lagrings kontot måste finnas för arkivering till blob-lagring. Behållare och blobbar skapas som nödvändiga när loggdata exporteras.
 
    ![Konfigurera Blob Storage-Arkiv](./media/search-monitor-usage/configure-blob-storage-archive.png "Konfigurera Blob Storage-Arkiv")
 
-4. Spara profilen.
+5. Spara profilen
 
-5. Testa loggning genom att skapa eller ta bort objekt (skapar logg händelser) och genom att skicka frågor (genererar mått). 
+6. Testa loggning genom att skapa eller ta bort objekt (skapar logg händelser) och genom att skicka frågor (genererar mått). 
 
 Loggning aktive ras när du sparar profilen. Behållare skapas endast när det finns en aktivitet som ska loggas eller mätas. När data kopieras till ett lagrings konto formateras data som JSON och placeras i två behållare:
 
-* Insights-logs-operationlogs: för Sök trafik loggar
-* Insights-mått – pt1m: för mått
+* Insights-logs-operationlogs: för search trafikloggar
+* Insights-mått-pt1m: för mått
 
 **Det tar en timme innan behållarna visas i Blob Storage. Det finns en BLOB, per timme, per behållare.**
 
@@ -105,52 +107,52 @@ Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) e
 resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
 ```
 
-## <a name="log-schema"></a>Logg schema
+## <a name="log-schema"></a>Log-schema
 Blobbar som innehåller dina Sök tjänst trafik loggar struktureras enligt beskrivningen i det här avsnittet. Varje Blob har ett rot objekt som kallas **poster** som innehåller en matris med logg objekt. Varje Blob innehåller poster för alla åtgärder som ägde rum under samma timme.
 
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559 Z" |Tidsstämpel för åtgärden |
-| resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/> Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Din ResourceId |
-| operationName |sträng |"Fråga. search" |Åtgärdens namn |
-| operationVersion |sträng |"2019-05-06" |Den API-version som används |
-| category |sträng |"OperationLogs" |konstant |
-| resultType |sträng |Resultatet |Möjliga värden: lyckades eller misslyckades |
-| resultSignature |int |200 |HTTP-resultat kod |
-| . Durationms |int |50 |Åtgärdens varaktighet i millisekunder |
-| properties |objekt |Se följande tabell |Objekt som innehåller åtgärds information |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Tidsstämpel för åtgärden |
+| resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/> MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |Din resurs-ID |
+| operationName |sträng |”Query.Search” |Åtgärdens namn |
+| operationVersion |sträng |"2019-05-06" |Api-versionen som används |
+| category |sträng |”OperationLogs” |konstant |
+| resultType |sträng |”Lyckades” |Möjliga värden: lyckad eller misslyckad |
+| resultSignature |int |200 |Resultatkod för HTTP |
+| . durationMS |int |50 |Varaktighet i millisekunder |
+| properties |objekt |Se följande tabell |Objekt som innehåller åtgärden-specifika data |
 
 **Egenskaps schema**
 
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| Beskrivning |sträng |"Hämta/Indexes (' Content ')/docs" |Åtgärdens slut punkt |
-| Fråga |sträng |"? search = AzureSearch & $count = True & API-version = 2019-05-06" |Frågeparametrar |
+| Beskrivning |sträng |”Hämta /indexes('content')/docs” |Åtgärdens slutpunkt |
+| Fråga |sträng |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Frågeparametrar |
 | Dokument |int |42 |Antal bearbetade dokument |
-| indexName |sträng |"testindex" |Namnet på det index som är associerat med åtgärden |
+| Indexnamn |sträng |”testindex” |Namnet på det index som är associerade med åtgärden |
 
-## <a name="metrics-schema"></a>Mått schema
+## <a name="metrics-schema"></a>Mått-schema
 
 Måtten fångas för fråge förfrågningar.
 
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/>Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |resurs-ID |
-| metricName |sträng |Svars tid |namnet på måttet |
-| time |datetime |"2018-12-07T00:00:43.6872559 Z" |åtgärdens tidsstämpel |
-| snitt |int |64 |Genomsnittligt värde för RAW-exemplen i Metric-tidsintervallet |
-| Lägst |int |37 |Det minimala värdet för RAW-exemplen i måttets tidsintervall |
-| Maximihalter |int |78 |Det maximala värdet för RAW-exemplen i måttets tidsintervall |
-| Totalt |int |258 |Det totala värdet för RAW-exemplen i måttets tidsintervall |
-| count |int |4 |Antalet RAW-exempel som används för att generera måttet |
-| timegrain |sträng |"PT1M" |Tids kornig het för måttet i ISO 8601 |
+| resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/>MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |resurs-ID |
+| metricName |sträng |”Svarstiden” |namnet på måttet |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |åtgärdens tidsstämpel |
+| genomsnittligt |int |64 |Medelvärdet för raw-exempel i mått tidsintervallet |
+| min |int |37 |Det lägsta värdet på raw exempel i mått tidsintervallet |
+| max |int |78 |Det högsta värdet för raw-exempel i mått tidsintervallet |
+| totalt |int |258 |Det totala värdet av rådata exempel i mått tidsintervallet |
+| count |int |4 |Antalet raw exempel som används för att generera måttet |
+| timegrain |sträng |”PT1M” |Tidsenhet för mått i ISO 8601 |
 
-Alla mått rapporteras i intervall på en minut. Varje mått visar de lägsta, högsta och genomsnittliga värdena per minut.
+Alla mått rapporteras i minuts intervall. Varje måttet visas lägsta, högsta och genomsnittliga värden per minut.
 
-För SearchQueriesPerSecond-måttet är minimivärdet det lägsta värdet för Sök frågor per sekund som registrerades under den minuten. Samma gäller för det högsta värdet. Average, är aggregatet över hela minuten.
-Tänk på det här scenariot under en minut: en sekund med hög belastning som är max för SearchQueriesPerSecond, följt av 58 sekunders genomsnittlig belastning och slutligen en sekund med bara en fråga, vilket är minimivärdet.
+För SearchQueriesPerSecond mått är minimivärdet det lägsta värdet för sökfrågor per sekund som registrerades under den minuten. Samma gäller för det högsta värdet. Genomsnittlig, är mängden för hela minuten.
+Tänk på hur det här scenariot under en minut: en sekund hög läsa in det vill säga maximalt för SearchQueriesPerSecond, följt av 58 sekunders genomsnittliga belastningen, och slutligen en sekund med enbart en fråga som är minst.
 
-För ThrottledSearchQueriesPercentage, lägsta, högsta, medelvärde och total, har alla samma värde: procent andelen Sök frågor som har begränsats från det totala antalet Sök frågor under en minut.
+För ThrottledSearchQueriesPercentage, lägsta, högsta, genomsnittlig och total, alla har samma värde: procentandelen sökfrågor som har begränsats från det totala antalet sökfrågor under en minut.
 
 ## <a name="download-and-open-in-visual-studio-code"></a>Ladda ned och öppna i Visual Studio Code
 

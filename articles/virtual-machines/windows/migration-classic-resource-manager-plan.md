@@ -3,8 +3,8 @@ title: Planera för migrering från klassisk till Azure Resource Manager
 description: Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
@@ -12,26 +12,23 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 04/01/2017
-ms.author: kasing
-ms.openlocfilehash: d5245f73520a77648fc590520185a2cf66bffd02
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 2d7eca56556c8a1097b625b8f4b0e2de2facbc60
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980892"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061615"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen för att se till att saker går smidigt. När du planerar planeringen ser du till att du inte stöter på problem när du kör migreringsåtgärder.
-
-> [!NOTE]
-> Följande rikt linjer drogs kraftigt till av Azures kund rådgivnings team och moln lösnings arkitekter som arbetar med kunder om att migrera stora miljöer. Det här dokumentet kommer även fortsättnings vis att uppdateras eftersom nya mönster på framgång visas, så kom tillbaka från tiden till gång för att se om det finns några nya rekommendationer.
 
 Det finns fyra allmänna faser för migrerings resan:<br>
 
 ![Faser för migrering](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Plan
+## <a name="plan"></a>Planera
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Tekniska överväganden och kompromisser
 
@@ -44,7 +41,7 @@ Beroende på din tekniska krav storlek, geografiska områden och operativa metod
 5. Kommer dina drift team nu att ha stöd för program/virtuella datorer i både klassiska och Azure Resource Manager?
 6. Hur (om hela) Azure Resource Manager ändra distributions-, hanterings-, övervaknings-och rapporterings processer för virtuella datorer?  Behöver dina distributions skript uppdateras?
 7. Vad är kommunikations planen för att meddela intressenter (slutanvändare, program ägare och infrastruktur ägare)?
-8. Bör det finnas en underhålls period där programmet inte är tillgängligt för slutanvändare och till program ägare, beroende på miljöns komplexitet?  Om så är fallet, hur länge?
+8. Bör det finnas en underhålls period där programmet inte är tillgängligt för slutanvändare och till program ägare, beroende på miljöns komplexitet?  I så fall, för hur lång tid?
 9. Vad är utbildnings planen för att säkerställa att intressenter är kunskaps bara och kunskaper i Azure Resource Manager?
 10. Vad är program hanterings-eller projekt hanterings planen för migreringen?
 11. Vilka är tids linjerna för migreringen av Azure Resource Manager och andra relaterade teknik vägar Maps?  Är de optimalt justerade?

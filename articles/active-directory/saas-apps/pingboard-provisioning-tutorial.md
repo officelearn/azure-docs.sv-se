@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278260"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061283"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Pingboard för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver följa för att aktivera automatisk etablering och avetablering av användar konton från Azure Active Directory (Azure AD) till Pingboard.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -88,7 +88,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Pingboard-A
 
 1. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Pingboard**.
 
-1. I avsnittet **mappningar för attribut** granskar du de användarattribut som ska synkroniseras från Azure AD till Pingboard. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Pingboard för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna. Mer information finns i [Anpassa mappningar av användar Provisioning-attribut](../manage-apps/customize-application-attributes.md).
+1. I avsnittet **mappningar för attribut** granskar du de användarattribut som ska synkroniseras från Azure AD till Pingboard. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Pingboard för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna. Mer information finns i [Anpassa mappningar av användar Provisioning-attribut](../app-provisioning/customize-application-attributes.md).
 
 1. Om du vill aktivera Azure AD Provisioning-tjänsten för Pingboard går du till avsnittet **Inställningar** och ändrar **etablerings statusen** till **på**.
 
@@ -96,10 +96,10 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till Pingboard-A
 
 Den första synkroniseringen tar längre tid att köra än följande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Använd avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar. Loggarna beskriver alla åtgärder som vidtas av etablerings tjänsten i din Pingboard-app.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](pingboard-tutorial.md)

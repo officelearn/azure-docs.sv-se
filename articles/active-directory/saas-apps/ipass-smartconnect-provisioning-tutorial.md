@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera iPass-SmartConnect för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera iPass SmartConnect för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till iPass SmartConnect.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 3141a32437e56bcefe830bc94109e93208e0258d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: fb3a5d03f390b88f9856f03bdc97a35b845874ff
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232151"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057554"
 ---
-# <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Självstudier: Konfigurera iPass-SmartConnect för automatisk användar etablering
+# <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Självstudie: Konfigurera iPass SmartConnect för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i iPass SmartConnect och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till iPass SmartConnect.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -41,7 +41,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assigning-users-to-ipass-smartconnect"></a>Tilldela användare till iPass-SmartConnect
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till iPass SmartConnect. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till iPass SmartConnect genom att följa anvisningarna här:
 * [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
@@ -71,7 +71,7 @@ Om du vill konfigurera iPass-SmartConnect för automatisk användar etablering m
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -86,7 +86,7 @@ Om du vill konfigurera iPass-SmartConnect för automatisk användar etablering m
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i iPass-SmartConnect baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
->  Du kan också välja att aktivera SAML-baserad enkel inloggning för BitaBIZ, genom att följa anvisningarna i självstudien om [IPass SmartConnect enkel inloggning](ipasssmartconnect-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+>  Du kan också välja att aktivera SAML-baserad enkel inloggning för BitaBIZ, genom att följa anvisningarna i [självstudien om IPass SmartConnect enkel inloggning](ipasssmartconnect-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-ipass-smartconnect-in-azure-ad"></a>Konfigurera automatisk användar etablering för iPass-SmartConnect i Azure AD:
 
@@ -106,15 +106,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , inmatat `https://openmobile.ipass.com/moservices/scim/v1` i klient- **URL**. Ange Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till iPass SmartConnect. Om anslutningen Miss lyckas kontrollerar du att iPass SmartConnect-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** , in`https://openmobile.ipass.com/moservices/scim/v1` i **klient-URL**. Ange Bearer-token som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till iPass SmartConnect. Om anslutningen Miss lyckas kontrollerar du att iPass SmartConnect-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till iPass SmartConnect**.
 
@@ -125,7 +125,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
     ![iPass SmartConnect användar mappningar](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
 
 
-10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för iPass-SmartConnect ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -141,7 +141,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på iPass SmartConnect.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
@@ -149,9 +149,9 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Wrike för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Wrike för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Wrike.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 46972209a8fa509ff2f17832ab8329aa3cef2548
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840333"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064206"
 ---
-# <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Wrike för automatisk användar etablering
+# <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Wrike för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som du utför i Wrike och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare eller grupper till Wrike.
 
@@ -40,7 +40,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 * Ett användar konto i Wrike med administratörs behörighet
 
 ## <a name="assign-users-to-wrike"></a>Tilldela användare till Wrike
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering ska du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till Wrike. Tilldela sedan dessa användare eller grupper till Wrike genom att följa anvisningarna här:
 
@@ -66,7 +66,7 @@ Innan du konfigurerar Wrike för automatisk användar etablering med Azure AD m�
 
 3.  Välj SCIM. Kopiera **bas-URL: en**.
 
-    ![Grundläggande URL](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
+    ![Bas-URL](media/Wrike-provisioning-tutorial/Wrike-tenanturl.png)
 
 4. Välj **API** > **Azure-scim**.
 
@@ -93,7 +93,7 @@ Följ dessa steg om du vill lägga till Wrike från Azure AD Application Gallery
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -135,7 +135,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 7. I rutan **aviserings-e** -postadress anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etablerings fel. Markera kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
-    ![E-postavisering](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
 8. Välj **Spara**.
 
@@ -147,7 +147,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Wrike-användarattribut](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
 
-11. Följ anvisningarna i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
+11. Följ anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
 
 12. Om du vill aktivera Azure AD Provisioning-tjänsten för Wrike ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -161,15 +161,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare eller grupper att etablera finns i [hur lång tid tar det att etablera användare?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare eller grupper att etablera finns i [hur lång tid tar det att etablera användare?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Wrike. Mer information finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Wrike. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

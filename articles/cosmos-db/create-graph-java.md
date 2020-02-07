@@ -9,39 +9,31 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212642"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062083"
 ---
-# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Snabbstart: Bygg en graf-databas med Java SDK och Azure Cosmos DB Tabell-API
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Snabb start: bygga en graf-databas med Java SDK och Azure Cosmos DB Gremlin-API: et
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [NET](create-graph-dotnet.md)
+> * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga hanterade dokument-, tabell- och grafdatabaser. 
+I den här snabb starten skapar och hanterar du ett Azure Cosmos DB Gremlin (Graph) API-konto från Azure Portal och lägger till data med hjälp av en Java-app som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-I den här snabbstarten skapar vi en enkel grafdatabas med hjälp av Azure Portal-verktyg för Azure Cosmos DB. Här visas också hur du snabbt skapar en Java-konsolapp med hjälp av en [Gremlin API](graph-introduction.md)-databas som använder OSS-drivrutinen [Apache TinkerPop](https://tinkerpop.apache.org/). Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. Den här snabbstarten visar hur du skapar och ändrar grafer, antingen i användargränssnittet eller programmässigt, beroende på vad du föredrar. 
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Dessutom:
-
-* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
-    * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
-* [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett [Maven](https://maven.apache.org/)-binärarkiv
-    * I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
-* [Git](https://www.git-scm.com/)
-    * I Ubuntu kan du köra `sudo apt-get install git` för att installera Git.
+## <a name="prerequisites"></a>Förutsättningar
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka din `JAVA_HOME` miljö variabel till den mapp där JDK är installerad.
+- Ett [binärt maven-Arkiv](https://maven.apache.org/download.cgi). 
+- [Git](https://www.git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -79,9 +71,11 @@ Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin API-app f
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-information).
 
-Följande kodfragment har hämtats från filen C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
+Följande kodfragment är alla hämtade från filen *C:\git-samples\azure-Cosmos-DB-Graph-Java-Getting-started\src\GetStarted\Program.java* .
 
-* Gremlin `Client` har initierats från konfigurationen i filen C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.
+Den här Java-konsolen använder en [Gremlin-API](graph-introduction.md) -databas med oss [Apache TinkerPop](https://tinkerpop.apache.org/) -drivrutinen. 
+
+- Gremlin-`Client` initieras från konfigurationen i *C:\git-samples\azure-Cosmos-DB-Graph-Java-Getting-started\src\remote.yaml* -filen.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -89,7 +83,7 @@ Följande kodfragment har hämtats från filen C:\git-samples\azure-cosmos-db-gr
     client = cluster.connect();
     ```
 
-* Serier med Gremlin-steg körs med `client.submit`-metoden.
+- Serier med Gremlin-steg körs med `client.submit`-metoden.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -106,14 +100,14 @@ Följande kodfragment har hämtats från filen C:\git-samples\azure-cosmos-db-gr
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure Portal](https://portal.azure.com/)väljer du **nycklar**. 
+1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar**. 
 
     Kopiera den första delen av URI-värdet.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, sidan Nycklar](./media/create-graph-java/copy-access-key-azure-portal.png)
-2. Öppna filen src/remote.yaml och klistra in det unika ID-värdet över `$name$` i `hosts: [$name$.graphs.azure.com]`.
+2. Öppna filen *src/Remote. yaml* och klistra in det unika ID-värdet över `$name$` i `hosts: [$name$.graphs.azure.com]`.
 
-    Rad 1 i remote.yaml bör nu se ut ungefär så här 
+    Rad 1 i *Remote. yaml* bör nu se ut ungefär så här 
 
     `hosts: [test-graph.graphs.azure.com]`
 
@@ -125,11 +119,11 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 4. I Azure Portal använder du kopieringsknappen för att kopiera PRIMÄR NYCKEL och klistra in den över `$masterKey$` i `password: $masterKey$`.
 
-    Rad 4 i remote.yaml bör nu se ut ungefär så här 
+    Rad 4 i *Remote. yaml* bör nu se ut ungefär så här 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. Ändra rad 3 i remote.yaml från
+5. Ändra rad 3 i *Remote. yaml* från
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -139,7 +133,7 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
     Om du använde ett unikt namn för din exempeldatabas eller exempeldiagram, så uppdatera värden efter behov.
 
-6. Spara filen remote.yaml.
+6. Spara filen *Remote. yaml* .
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
@@ -172,9 +166,9 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 
 Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i grafen, och lägga till ytterligare datapunkter.
 
-1. Välj **datautforskaren**, expandera **exempel diagram**, Välj **diagram**och välj sedan **Använd filter**. 
+1. I ditt Azure Cosmos DB konto i Azure Portal väljer du **datautforskaren**, expanderar **exempel diagram**, väljer **diagram**och väljer sedan **Använd filter**. 
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
+   ![Skapa nya dokument i datautforskaren i Azure-portalen](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
 2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och lägg märke till att användaren är kopplad till robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
@@ -182,7 +176,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 3. Vi ska nu lägga till några nya användare. Välj **ny nod** för att lägga till data i diagrammet.
 
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
+   ![Skapa nya dokument i datautforskaren i Azure-portalen](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. Ange *person* i etikettrutan.
 
@@ -213,11 +207,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 10. Välj **OK**. 
 
-11. ClSelectck knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
+11. Välj knappen **Använd filter** med standard `g.V()`s filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
 
     Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka filtret till `g.V()` och väljer **Använd filter** för att visa alla resultat igen.
 
-12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj ![sedan ändra målet för ett formhörn i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
+12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i listan **resultat** och välj ![ändra målet för ett formhörn i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
 
     ![Ändra målet för ett formhörn i ett diagram – Azure-CosmosDB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
@@ -229,7 +223,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     ![Två hörn anslutna i Datautforskaren – Azure-CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
+Då är delen om att skapa resurser slutförd i den här självstudien. Du kan fortsätta att lägga till hörn i diagrammet, ändra befintliga hörn eller ändra frågorna. Vi ska nu titta på de mått som Azure Cosmos DB tillhandahåller, och sedan ska vi rensa resurserna. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
@@ -241,7 +235,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du fått lära dig att skapa ett Azure Cosmos DB-konto, skapa en graf med datautforskaren och att köra en app. Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en graf med hjälp av Datautforskaren och kör en Java-app som lägger till data i grafen. Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Fråga med hjälp av Gremlin](tutorial-query-graph.md)

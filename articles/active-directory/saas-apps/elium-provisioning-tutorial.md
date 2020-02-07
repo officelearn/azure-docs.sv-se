@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: a4ddcf27869ea7484f98329d14d01bfad83af219
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709526"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058520"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Elium för automatisk användar etablering
 
 Den här självstudien visar hur du konfigurerar Elium och Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användare eller grupper till Elium.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som är byggd ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör och hur den fungerar och för vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som är byggd ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör och hur den fungerar och för vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningsappen är för närvarande i förhandsversion. Allmänna användnings villkor för Azure-funktioner i för hands version finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du redan har följande krav:
 
@@ -120,7 +120,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 1. I avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Elium**.
 
@@ -130,7 +130,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![Attribut mappningar mellan Azure AD och Elium](media/Elium-provisioning-tutorial/userattribute.png)
 
-1. Följ anvisningarna i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
+1. Följ anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
 
 1. Om du vill aktivera Azure AD Provisioning-tjänsten för Elium ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -144,15 +144,15 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för Eli
 
     ![Knappen Spara för etablering av konfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den här inledande synkroniseringsprocessen tar längre tid än senare synkroniseringar. Mer information om [hur lång tid det tar att etablera finns i hur lång tid tar det att etablera användare?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den här inledande synkroniseringsprocessen tar längre tid än senare synkroniseringar. Mer information om [hur lång tid det tar att etablera finns i hur lång tid tar det att etablera användare?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Använd avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten. Rapporten etablerings aktivitet beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Elium. Mer information finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Använd avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten. Rapporten etablerings aktivitet beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Elium. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

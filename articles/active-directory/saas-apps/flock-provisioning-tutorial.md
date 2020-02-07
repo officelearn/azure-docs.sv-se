@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera flock för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera flock för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till flock.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 216947f2e116b3e0de16fc9cf0563d11ee28426f
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: cd7aae05b064657c7b9072402f4bc4d4d7fef7a6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804709"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057922"
 ---
-# <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Självstudier: Konfigurera flock för automatisk användar etablering
+# <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Självstudie: Konfigurera flock för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som utförs i flock och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till flock.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -56,7 +56,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar flock för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på flock.
 
-1. Logga in i [flock](https://web.flock.com/?). Klicka på **Inställningar-ikonen** > **Hantera ditt team**.
+1. Logga in i [flock](https://web.flock.com/?). Klicka på **ikonen inställningar** > **Hantera ditt team**.
 
     ![Flock](media/flock-provisioning-tutorial/icon.png)
 
@@ -81,7 +81,7 @@ Om du vill konfigurera flock för automatisk användar etablering med Azure AD m
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -116,15 +116,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. `https://api.flock-staging.com/v2/scim` Under avsnittet admin credentials måste du skriva in och API- **token** som hämtades tidigare i klient- **URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till flock. Om anslutningen Miss lyckas kontrollerar du att ditt flock-konto har administratörs behörighet och försöker igen.
+5. Under avsnittet admin credentials kan du skriva in de `https://api.flock-staging.com/v2/scim`-och **API-token** som hämtades tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till flock. Om anslutningen Miss lyckas kontrollerar du att ditt flock-konto har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till flock**.
 
@@ -134,7 +134,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Användarattribut för flock](media/flock-provisioning-tutorial/userattribute.png)
 
-11. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Om du vill aktivera Azure AD Provisioning-tjänsten för flock ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -148,17 +148,17 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare och/eller grupper att etablera finns i [hur lång tid det tar att etablera användare](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på flock. Mer information finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på flock. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

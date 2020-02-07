@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906263"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062871"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Eftersom Azure Files är fullständigt hanterat är det mycket enklare att distribuera den i produktions scenarier än att distribuera och hantera en fil server eller NAS-enhet. Den här artikeln handlar om de ämnen som du bör tänka på när du distribuerar en Azure-filresurs för produktions användning i din organisation.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. Eftersom Azure Files är fullständigt hanterat är det mycket enklare att distribuera den i produktions scenarier än att distribuera och hantera en fil server eller NAS-enhet. Den här artikeln handlar om de ämnen som du bör tänka på när du distribuerar en Azure-filresurs för produktions användning i din organisation.
 
 ## <a name="management-concepts"></a>Hanterings begrepp
 
@@ -120,7 +120,7 @@ Det går att minska storleken på den allokerade resursen under den använda GiB
 
 I följande tabell visas några exempel på dessa formler för de allokerade resurs storlekarna:
 
-|Kapacitet (GiB) | Baslinje-IOPS | Burst IOPS | Utgående (MiB/s) | Ingress (MiB/s) |
+|Kapacitet (GiB) | Bas linje IOPS | Burst IOPS | Utgående (MiB/s) | Ingress (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Upp till 300     | 66   | 44   |
 |500         | 500     | Upp till 1 500   | 90   | 60   |
@@ -129,7 +129,7 @@ I följande tabell visas några exempel på dessa formler för de allokerade res
 |10 240      | 10 240  | Upp till 30 720  | 675 | 450   |
 |33 792      | 33 792  | Upp till 100 000 | 2 088 | 1 392   |
 |51 200      | 51 200  | Upp till 100 000 | 3 132 | 2 088   |
-|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
+|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
 
 > [!NOTE]
 > Fil resursernas prestanda är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. Till exempel, baserat på intern testning med 8 KiB i/o-storlek, kan en virtuell Windows-dator, *Standard F16s_v2*som är anslutna till Premium-filresurs via SMB uppnå 20 000 Read IOPS och 15 000 Skriv-IOPS. Med 512 MiB Läs-/skriv-i/o-storlekar kan samma virtuella dator uppnå 1,1 GiB/s utgående och 370 MiB/s ingress-genomflöde. För att uppnå maximal prestanda skalning sprider du belastningen över flera virtuella datorer. Se [fel söknings guiden](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
@@ -169,7 +169,7 @@ I följande avsnitt beskrivs skillnaderna mellan olika alternativ för redundans
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
-### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring.
+### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
 
 > [!Warning]  
 > Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
@@ -204,8 +204,7 @@ Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filre
 Standard fil resurser med 100 TiB-kapacitets gräns är tillgängliga globalt i alla Azure-regioner –
 
 - LRS: alla regioner, utom Sydafrika, norra och södra Afrika.
-   - Nationella moln (myndigheter, Tyskland, Kina) stöds via PowerShell och kommando rads gränssnittet för Azure (CLI). Inget stöd för portalen. 
-   - Östra USA, östra 2; USA, Västeuropa: alla nya konton stöds. Ett litet antal befintliga konton har inte slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
+   - USA, östra och Västeuropa: alla nya konton stöds. Ett litet antal befintliga konton har inte slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
 
 - ZRS: alla regioner, utom Japan, östra; Nord Europa, norra Sydafrika.
 - GRS/GZRS: stöds inte.

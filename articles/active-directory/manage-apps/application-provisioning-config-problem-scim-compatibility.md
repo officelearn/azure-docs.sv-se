@@ -16,18 +16,18 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cae5458a9b9456d26363802ee9b06aaa842e72
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712360"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063602"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
 
 Azure Active Directory (Azure AD) kan automatiskt etablera användare och grupper för program eller system som är uppkopplade av en webb tjänst med det gränssnitt som definierats i [systemet för scim (Cross-Domain Identity Management) 2,0 protokoll specifikation](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-Azure AD: s stöd för SCIM 2,0-protokollet beskrivs i [använda system för scim (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md), som listar de delar av protokollet som det implementerar för att automatiskt etablera användare och grupper från Azure AD till program som stöder scim 2,0.
+Azure AD: s stöd för SCIM 2,0-protokollet beskrivs i [använda system för scim (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](../app-provisioning/use-scim-to-provision-users-and-groups.md), som listar de delar av protokollet som det implementerar för att automatiskt etablera användare och grupper från Azure AD till program som stöder scim 2,0.
 
 I den här artikeln beskrivs aktuella och tidigare problem med Azure AD-tjänsten för användar etablering i SCIM 2,0-protokollet och hur du kan lösa problemen.
 
@@ -113,5 +113,5 @@ Ja. Om du har kodat ett program till det gamla beteende som fanns före korriger
 
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer om etablering och avetablering för SaaS-program](user-provisioning.md)
+[Lär dig mer om etablering och avetablering för SaaS-program](../app-provisioning/user-provisioning.md)
 

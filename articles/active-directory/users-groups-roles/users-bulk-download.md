@@ -4,21 +4,21 @@ description: Hämta användar poster i bulk i Azure administrations centret i Az
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720299"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063840"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Hämta en lista med användare (förhands granskning) i Azure Active Directory Portal
 
@@ -39,18 +39,17 @@ Du måste vara inloggad med en användare som är tilldelad en eller flera admin
 
    Nedladdnings filen innehåller den filtrerade listan över användare.
 
-   Följande användarattribut kommer att ingå: 
+   Följande användarattribut ingår:
 
    - userPrincipalName
    - displayName
    - surname
    - e-post
    - givenName
-   - objectId
+   - objekt-ID
    - userType
-   - Befattning
+   - jobTitle
    - avdelning
-   - Cachehanteraren
    - accountEnabled
    - usageLocation
    - streetAddress
@@ -58,9 +57,9 @@ Du måste vara inloggad med en användare som är tilldelad en eller flera admin
    - ursprungslandet
    - physicalDeliveryOfficeName
    - city
-   - Post nummer
+   - Postnummer
    - telephoneNumber
-   - enheter
+   - mobila
    - authenticationPhoneNumber
    - authenticationAlternativePhoneNumber
    - authenticationEmail

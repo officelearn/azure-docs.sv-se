@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549265"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063823"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Skapa och använda en NFS-volym (Network File System) manuellt med Azure Kubernetes service (AKS)
 Att dela data mellan behållare är ofta en nödvändig komponent i behållar tjänster och program. Du har vanligt vis olika poddar som behöver åtkomst till samma information på en extern permanent volym.    
@@ -74,7 +74,7 @@ echo "/export        localhost(rw,async,insecure,fsid=0,crossmnt,no_subtree_chec
 
 nohup service nfs-kernel-server restart
 ```
-Servern kommer att startas om (på grund av skriptet) och du kan montera NFS-servern till AKS
+Servern kommer att startas om (på grund av skriptet) och du kan montera NFS-servern till AKS.
 
 >[!IMPORTANT]  
 >Se till att ersätta **AKS_SUBNET** med rätt namn från klustret, annars kommer "*" att öppna din NFS-server för alla portar och anslutningar.
@@ -93,7 +93,8 @@ chmod +x ~/nfs-server-setup.sh
 ```
 
 ## <a name="connecting-aks-cluster-to-nfs-server"></a>Ansluta AKS-kluster till NFS-server
-Vi kan ansluta NFS-servern till vårt kluster genom att tillhandahålla en beständig volym och ett beständigt volym anspråk som anger hur du ska få åtkomst till volymen.  
+Vi kan ansluta NFS-servern till vårt kluster genom att tillhandahålla en beständig volym och ett beständigt volym anspråk som anger hur du ska få åtkomst till volymen.
+
 Det krävs att du ansluter de två tjänsterna i samma eller peer-kopplade virtuella nätverk. Anvisningar för att konfigurera klustret i samma VNET finns här: [skapa AKS-kluster i befintligt VNet][aks-virtual-network]
 
 När de finns i samma virtuella nätverk (eller peer-peer) måste du etablera en permanent volym och ett beständigt volym anspråk i ditt AKS-kluster. Behållarna kan sedan montera NFS-enheten i sin lokala katalog.
@@ -140,7 +141,7 @@ spec:
       type: nfs
 ```
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 Om du inte kan ansluta till servern från ett kluster kan ett problem vara den exporterade katalogen eller dess överordnade objekt har inte tillräcklig behörighet för att komma åt servern.
 
 Kontrol lera att både export katalogen och dess överordnade katalog har 777 behörigheter.

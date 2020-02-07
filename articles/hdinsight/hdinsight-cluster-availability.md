@@ -1,20 +1,19 @@
 ---
 title: 'Övervakning: Apache Ambari & Azure Monitor loggar – Azure HDInsight'
 description: Lär dig hur du använder Ambari och Azure Monitor loggar för att övervaka kluster hälsa och tillgänglighet.
-keywords: övervakning, Ambari, övervakning, logg analys, avisering, tillgänglighet, hälsa
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/25/2019
-ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 02/06/2020
+ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687834"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060190"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Övervaka kluster tillgänglighet med Apache Ambari och Azure Monitor loggar
 
@@ -58,7 +57,7 @@ Om du vill visa en lista över aviserings definitioner och deras status väljer 
 
 Ambari erbjuder många fördefinierade aviseringar relaterade till tillgänglighet, inklusive:
 
-| Aviserings namn                        | Beskrivning   |
+| Aviseringsnamn                        | Beskrivning   |
 |---|---|
 | DataNode hälso översikt           | Den här aviseringen på tjänst nivå utlöses om det finns DataNodes som inte är felfria|
 | NameNode-hälsa för hög tillgänglighet | Den här aviseringen på tjänst nivå utlöses om antingen den aktiva NameNode eller vänte läges NameNode inte körs.|
@@ -96,9 +95,9 @@ Som en förutsättning måste du ha en Log Analytics arbets yta för att lagra i
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Aktivera integrering av HDInsight Azure Monitor-loggar
 
-Välj **Operations Management Suite**på sidan HDInsight-kluster resurs på portalen. Välj sedan **Aktivera** och välj din Log Analytics arbets yta i list rutan.
+Välj **Azure Monitor**på sidan HDInsight-kluster resurs i portalen. Välj sedan **Aktivera** och välj din Log Analytics arbets yta i list rutan.
 
-![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/azure-portal-monitoring.png)
 
 ### <a name="query-metrics-and-logs-tables"></a>Fråga mått och logga tabeller
 

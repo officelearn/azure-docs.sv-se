@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: MVC
-ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028949"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057285"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
@@ -18,7 +18,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera käll miljön och distribuera en Azure Migrate Replication-enhet för agent-baserad migrering.
 > * Konfigurera mål miljön för migrering.
@@ -57,7 +57,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -271,7 +271,7 @@ När du har hämtat OVF-mallen importerar du den till VMware för att skapa repl
 3. När installationen är klar loggar du in på den virtuella datorn som administratör med hjälp av administratörs lösen ordet.
 4. Första gången du loggar in startas installations verktyget för replikeringstjänsten (Azure Site Recovery konfigurations verktyget) inom några sekunder.
 5. Ange ett namn som ska användas för att registrera enheten med Azure Migrate Server-migrering. Klicka sedan på **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in på din Azure-prenumeration.
 7. Vänta tills verktyget har slutfört registreringen av en Azure AD-App för att identifiera installationen. Enheten startas om.
 1. Logga in på datorn igen. Guiden Konfigurera serverhantering startar automatiskt om några sekunder.
 
@@ -402,7 +402,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 
 2. I **Replikera datorer** högerklickar du på den virtuella datorn > **Migrera**.
 3. I **Migrera** > **Stäng av virtuella datorer och utför en planerad migrering utan dataförlust** väljer du **Ja** > **OK**.
-    - Som standard stänger Azure Migrate av den lokala virtuella datorn och kör en replikering på begäran som synkroniserar eventuella VM-ändringar som har inträffat sedan den senaste replikeringen utfördes. Detta säkerställer att ingen dataförlust sker.
+    - Som standard stänger Azure Migrate av den lokala virtuella datorn för att säkerställa minsta möjliga data förlust. 
     - Om du inte vill stänga av den virtuella datorn väljer du **Nej**
 4. Ett migreringsjobb startas för den virtuella datorn. Spåra jobbet i Azure-meddelanden.
 5. När jobbet är klart kan du se och hantera den virtuella datorn på sidan **Virtual Machines**.
@@ -420,7 +420,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 
 ## <a name="post-migration-best-practices"></a>Metod tips för efter migreringen
 
-- Lokalt
+- Lokal
     - Flytta över apptrafiken till den app som körs på den migrerade Azure-VM-instansen.
     - Ta bort de lokala virtuella datorerna från ditt lokala VM-inventarie.
     - Ta bort de lokala virtuella datorerna från lokala säkerhetskopior.

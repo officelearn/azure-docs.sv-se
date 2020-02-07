@@ -3,12 +3,12 @@ title: Vanliga frågor – identifiering, utvärdering och beroende analys i Azu
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513294"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059495"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Vanliga frågor om identifiering, utvärdering och beroende analys
 
@@ -16,6 +16,8 @@ I den här artikeln besvaras vanliga frågor om identifiering, utvärdering och 
 
 - [Allmänna frågor](resources-faq.md) om Azure Migrate.
 - [Frågor](common-questions-appliance.md) om Azure Migrate-enheten.
+- [Frågor](common-questions-server-migration.md) om Server migrering.
+
 
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Hur många virtuella datorer kan jag identifiera med en apparat?

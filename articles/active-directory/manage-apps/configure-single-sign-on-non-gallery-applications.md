@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cf6c89e5f891c5f16551885fb40e8d5082fd6ba5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841973"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063517"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till program som inte är gallerier
 
@@ -55,8 +55,8 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
     | **Identifierare (enhets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https://<subdomain>. contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
     | **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
     | **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. Om det är tomt utför Azure AD IdP inloggning när en användare startar programmet från Office 365, Azure AD-åtkomst panelen eller URL: en för Azure AD SSO.|
-    | **Relä status** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
-    | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
+    | **Relä status** | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
+    | **Utloggnings-URL** | Valfri | Valfri | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 
 Mer information finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
 
@@ -163,4 +163,4 @@ Mer information finns i [FELSÖKA SAML-baserad enkel inloggning till program i A
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
-- [Konfigurera automatisk etablering av användar konto](configure-automatic-user-provisioning-portal.md)
+- [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)

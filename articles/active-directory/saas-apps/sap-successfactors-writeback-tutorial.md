@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530042"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060056"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Självstudie: Konfigurera tillbakaskrivning av attribut från Azure AD till SAP SuccessFactors (för hands version)
 Syftet med den här självstudien är att visa de steg som du behöver utföra för att ångra attribut från Azure AD till SuccessFactors personal Central. Det enda attribut som stöds för tillbakaskrivning är e-postattributet. 
@@ -134,7 +134,7 @@ Det här avsnittet innehåller steg för
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas kontrollerar du att autentiseringsuppgifterna och URL: en för SuccessFactors är giltiga.
     >[!div class="mx-imgBorder"]
-    >![Azure-portalen](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
+    >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
    * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen för **synkronisering Azure Active Directory användare till SuccessFactors**
 
@@ -152,7 +152,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från Success
 
 1. I avsnittet **mappningar av attribut** kan du bara ändra MATCHNINGS-ID som används för att länka en SuccessFactors användar profil med Azure AD-användare och vilket attribut i Azure AD som fungerar som källa till e-postmeddelandet. 
     >[!div class="mx-imgBorder"]
-    >![Azure-portalen](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
+    >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
 
    >[!NOTE]
    >SuccessFactors-tillbakaskrivning stöder bara e-postattributet. Använd inte **Lägg till ny mappning** för att lägga till nya attribut. 
@@ -170,7 +170,7 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
-2. Klicka på **Spara**.
+2. Klicka på **Save** (Spara).
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i SuccessFactors-klienten. Du kan kontrol lera förlopps indikatorn för att följa synkroniseringens förlopp. 
 
@@ -183,8 +183,8 @@ När SuccessFactors-konfigurationen har slutförts kan du aktivera etablerings t
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan SuccessFactors och Azure Active Directory](successfactors-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
-* [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../manage-apps/export-import-provisioning-configuration.md)
+* [Lär dig hur du exporterar och importerar dina etablerings konfigurationer](../app-provisioning/export-import-provisioning-configuration.md)
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074637"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057451"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Lesson.ly
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Lesson.ly med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -83,15 +83,17 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/signin`
+     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/signin`
 
     > [!NOTE]
     > När ett generiskt namn refereras måste **companyname** ersättas med ett faktiskt namn.
+    
+     b. I text rutan **svars-URL (intygad kund tjänst)** skriver du en URL med följande mönster: `https://<companyname>.lessonly.com/auth/saml/callback`
 
-    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://<companyname>.lessonly.com/auth/saml/metadata`
-
+     c. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/auth/saml/metadata`
+    
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Lessonly.com](mailto:support@lessonly.com) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare. Kontakta [kundsupporten för Lessonly.com](mailto:support@lessonly.com) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Lesson.ly-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -161,7 +163,7 @@ Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Lesson.ly på åtkomst panelen, bör du loggas in automatiskt på den Lesson.ly som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Lesson.ly på åtkomst panelen, bör du loggas in automatiskt på den Lesson.ly som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

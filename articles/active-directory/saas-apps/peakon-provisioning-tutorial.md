@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Peakon automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Peakon automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Peakon.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: cc572206e20a1f2ef1a77efb8120ad4d2f805174
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 0a67dc8069ee71305a47bd5d2a724a61cec234a0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67847962"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063420"
 ---
-# <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Peakon för automatisk användar etablering
+# <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Peakon för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i Peakon och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Peakon.
 
 > [!NOTE]
->  I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+>  I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 ## <a name="prerequisites"></a>Förutsättningar
@@ -40,7 +40,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assigning-users-to-peakon"></a>Tilldela användare till Peakon
 
-Azure Active Directory använder ett begrepp som  kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Peakon. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Peakon genom att följa anvisningarna här:
 
@@ -66,7 +66,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
     ![Peakon – etablering av medarbetare](media/Peakon-provisioning-tutorial/peakon05.png)
 
-4.  Kopiera värdena för **SCIM 2,0-URL: en** och **OAuth Bearer**-token. Dessa värden anges i fältet klient- **URL** och **hemligt token** på fliken etablering i Peakon-programmet i Azure Portal.
+4.  Kopiera värdena för **SCIM 2,0-URL: en** och **OAuth Bearer-token**. Dessa värden anges i fältet klient- **URL** och **hemligt token** på fliken etablering i Peakon-programmet i Azure Portal.
 
     ![Skapa token för Peakon](media/Peakon-provisioning-tutorial/peakon04.png)
 
@@ -80,7 +80,7 @@ Om du vill konfigurera Peakon för automatisk användar etablering med Azure AD 
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -95,7 +95,7 @@ Om du vill konfigurera Peakon för automatisk användar etablering med Azure AD 
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Peakon baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Peakon genom att följa anvisningarna i självstudien om [enkel inloggning med Peakon](peakon-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Peakon genom att följa anvisningarna i [självstudien om enkel inloggning med Peakon](peakon-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-peakon--in-azure-ad"></a>Konfigurera automatisk användar etablering för Peakon i Azure AD:
 
@@ -115,7 +115,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in **scim 2,0-URL: en** och **OAuth Bearer token** -värden som HÄMTAdes tidigare i klient- **URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Peakon. Om anslutningen Miss lyckas kontrollerar du att Peakon-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in **scim 2,0-URL: en** och **OAuth Bearer token** -värden som HÄMTAdes tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Peakon. Om anslutningen Miss lyckas kontrollerar du att Peakon-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -123,7 +123,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-8. Klicka på **Spara**.
+8. Klicka på **Save** (Spara).
 
 9. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Peakon**.
 
@@ -133,7 +133,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Peakon-användarattribut](media/Peakon-provisioning-tutorial/Peakon-user-attributes.png)
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
     
     ![Etablerings omfång](common/provisioning-scope.png)
 
@@ -143,16 +143,16 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på Peakon.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* Alla anpassade användarattribut i Peakon måste utökas från peakons anpassade SCIM User-tillägg `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`.
+* Alla anpassade användarattribut i Peakon måste utökas från peakons anpassade SCIM User Extension of `urn:ietf:params:scim:schemas:extension:peakon:2.0:User`.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

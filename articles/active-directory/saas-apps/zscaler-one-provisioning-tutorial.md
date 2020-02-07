@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Zscaler en för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera Zscaler en för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till Zscaler ett.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: de9dce04b6f27b6ae6f5c5caeed5728370359558
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515390"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064180"
 ---
-# <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zscaler en för automatisk användar etablering
+# <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Zscaler en för automatisk användar etablering
 
 Den här självstudien visar de steg som du utför i Zscaler en och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare och grupper till Zscaler en.
 
@@ -53,7 +53,7 @@ Följ dessa steg om du vill lägga till Zscaler från Marketplace.
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Lägg till ett nytt program genom att välja **Nytt program** längst upp i dialogrutan.
 
@@ -65,7 +65,7 @@ Följ dessa steg om du vill lägga till Zscaler från Marketplace.
 
 ## <a name="assign-users-to-zscaler-one"></a>Tilldela användare till Zscaler en
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering ska du bestämma vilka användare eller grupper i Azure AD som behöver ha åtkomst till Zscaler One. Om du vill tilldela dessa användare eller grupper till Zscaler en, följer du instruktionerna i [tilldela en användare eller grupp till en Enterprise-App](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
@@ -80,11 +80,11 @@ Innan du konfigurerar och aktiverar automatisk användar etablering ska du best�
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten. Använd den för att skapa, uppdatera och inaktivera användare eller grupper i Zscaler ett baserat på användar-eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också aktivera SAML-baserad enkel inloggning för Zscaler. Följ anvisningarna i självstudien om att [Zscaler en enkel inloggning](zscaler-One-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också aktivera SAML-baserad enkel inloggning för Zscaler. Följ anvisningarna i [självstudien om att Zscaler en enkel inloggning](zscaler-One-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Konfigurera automatisk användar etablering för Zscaler en i Azure AD
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program** > **alla program** > **Zscaler One**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program** > **alla program** > **Zscaler ett**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 5. Under avsnittet **admin-autentiseringsuppgifter** fyller du i rutorna **klient-URL** och **hemlig token** med inställningarna för ditt Zscaler-konto enligt beskrivningen i steg 6.
 
-6. Om du vill hämta klient-URL: en och den hemliga token går du till **Administration** > **autentiseringsinställningar** i Zscaler ett Portal gränssnitt. Under **Autentiseringstyp**väljer du **SAML**.
+6. Om du vill hämta klient-URL: en och den hemliga token går du till **Administration** > **autentiseringsinställningarna** i Zscaler ett Portal gränssnitt. Under **Autentiseringstyp**väljer du **SAML**.
 
     ![Zscaler en autentiseringsinställningar](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -110,7 +110,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en konfigurera SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Välj **Aktivera scim-baserad etablering** för att hämta inställningarna i bas- **URL** och Bearer- **token**. Spara inställningarna. Kopiera **bas-URL** -inställningen till **klient webb adressen** i Azure Portal. Kopiera inställningen för Bearer-token till **hemlig token** i Azure Portal.
+    b. Välj **Aktivera scim-baserad etablering** för att hämta inställningarna i bas- **URL** och **Bearer-token**. Spara inställningarna. Kopiera **bas-URL** -inställningen till **klient webb adressen** i Azure Portal. Kopiera inställningen för **Bearer-token** till **hemlig token** i Azure Portal.
 
 7. När du har fyllt i rutorna som visas i steg 5 väljer du **Testa anslutning** för att se till att Azure AD kan ansluta till Zscaler en. Om anslutningen Miss lyckas kontrollerar du att Zscaler ett konto har administratörs behörighet och försöker igen.
 
@@ -126,7 +126,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en användar-synkronisering](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
-11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler ett i avsnittet mappningar av **attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler ett för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till Zscaler ett i avsnittet **mappningar av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Zscaler ett för uppdaterings åtgärder. Välj **Spara**om du vill spara ändringarna.
 
     ![Zscaler ett matchande användarattribut](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
@@ -144,7 +144,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Zscaler en etablerings status](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 
-16. Definiera de användare eller grupper som du vill etablera för att Zscaler en. I avsnittet **Inställningar** väljer du de värden som du vill hai omfånget.
+16. Definiera de användare eller grupper som du vill etablera för att Zscaler en. I avsnittet **Inställningar** väljer du de värden som du vill ha i **omfånget**.
 
     ![Zscaler ett omfång](./media/zscaler-one-provisioning-tutorial/scoping.png)
 
@@ -160,7 +160,7 @@ Information om hur du läser etablerings loggarna i Azure AD finns i [rapporteri
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,94 +1,96 @@
 ---
-title: Fel sökning av Körmiljö för Azure Functions kan inte kontaktas.
+title: 'Fel söknings fel: Körmiljö för Azure Functions kan inte kontaktas'
 description: Lär dig hur du felsöker ett ogiltigt lagrings konto.
 author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 910b582cb40b9f8aff6a553621b4677d6b019826
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963894"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063789"
 ---
-# <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du "Functions runtime går inte att komma åt"
+# <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Fel söknings fel: "Körmiljö för Azure Functions kan inte kontaktas"
 
-Den här artikeln är avsedd att felsöka fel meddelandet "Functions runtime kan inte kontaktas" när det visas i Azure Portal. När det här felet uppstår visas följande fel sträng som visas i portalen.
+Den här artikeln hjälper dig att felsöka följande fel sträng som visas i Azure Portal:
 
-`Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
+> "Fel: Körmiljö för Azure Functions kan inte kontaktas. Klicka här om du vill ha mer information om lagrings konfiguration. "
 
-Detta inträffar när Körmiljö för Azure Functions inte kan starta. Den vanligaste orsaken till att det här felet inträffar är att appen förlorar åtkomsten till lagrings kontot. Mer information finns i [krav för lagrings konton](storage-considerations.md#storage-account-requirements).
+Det här problemet uppstår när Körmiljö för Azure Functions inte kan starta. Den vanligaste orsaken till problemet är att Function-appen har förlorat åtkomst till sitt lagrings konto. Mer information finns i [krav för lagrings konton](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
 
 Resten av den här artikeln hjälper dig att felsöka följande orsaker till det här felet, inklusive hur du identifierar och löser varje ärende.
 
-+ [Lagringskontot har tagits bort](#storage-account-deleted)
-+ [Programinställningar för lagringskontot har tagits bort](#storage-account-application-settings-deleted)
-+ [Autentiseringsuppgifterna för lagringskonto är ogiltiga](#storage-account-credentials-invalid)
-+ [Det går inte att komma åt lagringskontot](#storage-account-inaccessible)
-+ [Daglig körnings kvot har överskridits](#daily-execution-quota-full)
-+ [Din app ligger bakom en brand vägg](#app-is-behind-a-firewall)
+## <a name="storage-account-was-deleted"></a>Lagrings kontot har tagits bort
 
+Alla Functions-appar kräver ett lagrings konto för att fungera. Om kontot tas bort fungerar inte din funktion.
 
-## <a name="storage-account-deleted"></a>Lagrings kontot har tagits bort
+Börja med att leta upp ditt lagrings konto namn i dina program inställningar. Antingen `AzureWebJobsStorage` eller `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` innehåller namnet på ditt lagrings konto i en anslutnings sträng. Mer information finns i [referens för app-inställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
-Alla Functions-appar kräver ett lagrings konto för att fungera. Om kontot tas bort fungerar inte-funktionen.
+Sök efter ditt lagrings konto i Azure Portal för att se om det fortfarande finns. Om den har tagits bort återskapar du lagrings kontot och ersätter lagrings anslutnings strängarna. Funktions koden förloras och du måste distribuera den igen.
 
-### <a name="how-to-find-your-storage-account"></a>Så här hittar du ditt lagrings konto
+## <a name="storage-account-application-settings-were-deleted"></a>Program inställningarna för lagrings kontot har tagits bort
 
-Börja med att leta upp ditt lagrings konto namn i dina program inställningar. Antingen `AzureWebJobsStorage` eller `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` kommer att innehålla namnet på ditt lagrings konto i en anslutnings sträng. Läs mer om [program inställnings referensen här](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
-
-Sök efter ditt lagrings konto i Azure Portal för att se om det fortfarande finns. Om den har tagits bort måste du återskapa ett lagrings konto och ersätta lagrings anslutnings strängarna. Funktions koden går förlorad och du måste distribuera den igen.
-
-## <a name="storage-account-application-settings-deleted"></a>Program inställningar för lagrings kontot har tagits bort
-
-I föregående steg, om du inte har någon anslutnings sträng för lagrings kontot, togs den förmodligen bort eller skrivs över. Att ta bort appinställningar utförs vanligt vis när du använder distributions fack eller Azure Resource Manager skript för att ange program inställningar.
+I föregående steg, om du inte kan hitta någon anslutnings sträng för lagrings konton, har det förmodligen tagits bort eller skrivits över. Att ta bort program inställningar vanligaste inträffar när du använder distributions fack eller Azure Resource Manager skript för att ange program inställningar.
 
 ### <a name="required-application-settings"></a>Nödvändiga program inställningar
 
-* Krävs
+* Obligatoriskt:
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
-* Krävs för förbruknings plan funktioner
+* Krävs för förbruknings plan funktioner:
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[Läs om de här program inställningarna här](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
+Mer information finns i [referens för app-inställningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
-### <a name="guidance"></a>Vägledning
+### <a name="guidance"></a>Riktlinjer
 
-* Kontrol lera inte "plats inställning" för någon av dessa inställningar. När du växlar distributions platser bryts Function-appen.
+* Kontrol lera inte "plats inställning" för någon av dessa inställningar. Om du växlar distributions platser bryts funktionens app.
 * Ändra inte inställningarna som en del av automatiserade distributioner.
 * De här inställningarna måste tillhandahållas och vara giltiga vid skapande tillfället. En automatiserad distribution som inte innehåller de här inställningarna resulterar i en Function-app som inte körs, även om inställningarna läggs till senare.
 
-## <a name="storage-account-credentials-invalid"></a>Autentiseringsuppgifterna för lagrings kontot är ogiltiga
+## <a name="storage-account-credentials-are-invalid"></a>Autentiseringsuppgifterna för lagrings kontot är ogiltiga
 
-Ovanstående lagrings kontots anslutnings strängar måste uppdateras om du återskapar lagrings nycklar. [Läs mer om hantering av lagrings nycklar här](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+De tidigare diskuterade lagrings kontots anslutnings strängar måste uppdateras om du återskapar lagrings nycklar. Mer information om hantering av lagrings nycklar finns i [skapa ett Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
-## <a name="storage-account-inaccessible"></a>Lagrings kontot är oåtkomligt
+## <a name="storage-account-is-inaccessible"></a>Lagrings kontot är inte tillgängligt
 
-Din Function-app måste kunna komma åt lagrings kontot. Vanliga problem som blockerar en funktions åtkomst till ett lagrings konto är:
+Din Function-app måste kunna komma åt lagrings kontot. Vanliga problem som blockerar en funktions programmets åtkomst till ett lagrings konto är:
 
-+ function-appar som distribueras till App Service miljöer (ASE) utan rätt nätverks regler för att tillåta trafik till och från lagrings kontot.
+* Function-appen distribueras till din App Service-miljön utan rätt nätverks regler för att tillåta trafik till och från lagrings kontot.
 
-+ Lagrings kontots brand vägg är aktive rad och inte konfigurerad för att tillåta trafik till och från funktioner. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../storage/common/storage-network-security.md).
+* Lagrings kontots brand vägg är aktive rad och inte konfigurerad för att tillåta trafik till och från funktioner. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="daily-execution-quota-full"></a>Daglig körnings kvot full
+## <a name="daily-execution-quota-is-full"></a>Kvoten för daglig körning är full
 
 Om du har konfigurerat en daglig körnings kvot inaktive ras funktions appen tillfälligt, vilket gör att många av Portal kontrollerna blir otillgängliga. 
 
-+ Om du vill verifiera i [Azure Portal](https://portal.azure.com)öppnar du **plattforms funktioner** > **Funktionsapp inställningar** i din Function-app. När du befinner dig över den **dagliga användnings kvot** som du har angett visas följande meddelande:
+Om du vill verifiera kvoten i [Azure Portal](https://portal.azure.com)väljer du **plattforms funktioner** > **Funktionsapp inställningar** i din Function-app. Om du är över den **dagliga användnings kvoten** som du har angett visas följande meddelande:
 
-    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+  > "Funktionsapp har nått kvoten för daglig användning och har stoppats till nästa tidsram på 24 timmar."
 
-+ Lös problemet genom att ta bort eller öka den dagliga kvoten och starta om appen. Annars blockeras körningen av appen till nästa dag.
+Lös problemet genom att ta bort eller öka den dagliga kvoten och starta sedan om appen. Annars blockeras körningen av appen till nästa dag.
 
 ## <a name="app-is-behind-a-firewall"></a>Appen ligger bakom en brand vägg
 
-Funktions körningen kommer inte att kunna nås om din Function-app finns i en [internt belastningsutjämnad App Service-miljön](../app-service/environment/create-ilb-ase.md) och har kon figurer ATS för att blockera inkommande Internet trafik eller har [inkommande IP-begränsningar](functions-networking-options.md#inbound-ip-restrictions) som är konfigurerade för att blockera Internet åtkomst. Azure Portal gör anrop direkt till appen som körs för att hämta listan över funktioner och gör HTTP-anrop till KUDU-slutpunkten. Inställningarna för plattforms nivå på fliken `Platform Features` är fortfarande tillgängliga.
+Funktions körningen kan vara oåtkomlig av någon av följande orsaker:
 
-För att verifiera din ASE-konfiguration navigerar du till NSG i under nätet där ASE finns och validerar regler för inkommande trafik som tillåter trafik från den offentliga IP-adressen för den dator där du ansluter till programmet. Du kan också använda portalen från en dator som är ansluten till det virtuella nätverk som kör din app eller en virtuell dator som körs i det virtuella nätverket. [Läs mer om regel konfiguration för inkommande trafik här](../app-service/environment/network-info.md#network-security-groups)
+* Din Function-app finns i ett [internt belastningsutjämnad App Service-miljön](../app-service/environment/create-ilb-ase.md) som har kon figurer ATS för att blockera inkommande Internet trafik.
 
-## <a name="next-steps"></a>Efterföljande moment
+* Din Function-app har [inkommande IP-begränsningar](functions-networking-options.md#inbound-ip-restrictions) som är konfigurerade för att blockera Internet åtkomst. 
+
+Azure Portal gör anrop direkt till appen som körs för att hämta listan över funktioner, och det gör HTTP-anrop till kudu-slutpunkten. Inställningarna på plattforms nivå på fliken **plattforms funktioner** är fortfarande tillgängliga.
+
+Så här verifierar du din App Service-miljön-konfiguration:
+1. Gå till nätverks säkerhets gruppen (NSG) för under nätet där App Service-miljön finns.
+1. Validera inkommande regler för att tillåta trafik som kommer från den offentliga IP-adressen för den dator där du använder programmet. 
+   
+Du kan också använda portalen från en dator som är ansluten till det virtuella nätverk som kör din app eller till en virtuell dator som körs i det virtuella nätverket. 
+
+Mer information om konfiguration av inkommande regel finns i avsnittet "nätverks säkerhets grupper" i [nätverks överväganden för en app service-miljön](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om att övervaka dina funktions appar:
 

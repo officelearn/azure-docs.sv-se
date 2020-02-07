@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022366"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064044"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Använda samlingar i portalen Mina appar
 
-Arbets ytor är olika app-vyer som visas i portalen för **Mina appar** . Appar kan grupperas i samlingar efter avdelnings funktion eller användar roll, till exempel. Om du inte ser några samlingar eller kategorier tillgängliga, innebär det att administratören inte har konfigurerat eller delat några med dig. Kontakta din organisations supportavdelning om du behöver ytterligare hjälp eller behörigheter för att se delade samlingar.
+Samlingar är olika app-vyer som visas i portalen för **Mina appar** . Appar kan grupperas i samlingar efter avdelnings funktion eller användar roll, till exempel. Om du inte ser några samlingar eller kategorier tillgängliga, innebär det att administratören inte har konfigurerat eller delat några med dig. Kontakta din organisations supportavdelning om du behöver ytterligare hjälp eller behörigheter för att se delade samlingar.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

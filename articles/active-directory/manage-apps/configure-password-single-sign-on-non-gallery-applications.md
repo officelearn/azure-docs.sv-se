@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422624"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063534"
 ---
 # <a name="configure-password-single-sign-on"></a>Konfigurera enkel inloggning för lösen ord
 
@@ -32,7 +32,7 @@ Lösenordsbaserad SSO är ett bra sätt att komma igång med att integrera progr
 
 -   Tillåt att **användarna** anger sina egna användar namn och lösen ord för alla befintliga program konton som de skriver in manuellt på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
--   Tillåt en **medlem i företags gruppen** att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för självbetjänings [åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
+-   Tillåt en **medlem i företags gruppen** att ange användar namn och lösen ord som tilldelats en användare med hjälp av funktionen för [självbetjänings åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access)
 
 -   Tillåt en **administratör** att ange ett användar namn och lösen ord som ska användas av personer eller grupper vid inloggning till programmet med hjälp av funktionen uppdatera autentiseringsuppgifter 
 
@@ -68,7 +68,7 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 
 Om Azure AD parsing-försöket Miss lyckas kan du konfigurera inloggning manuellt.
 
-1. **Under\<program namn > konfiguration**väljer du **Konfigurera \<program namn > lösen ords inställningar för enkel inloggning** för att visa sidan **Konfigurera inloggning** . 
+1. Under **\<program namn > konfiguration**väljer du **Konfigurera \<program namn > inställningar för enkel inloggning med lösen ord** för att visa sidan **Konfigurera inloggning** . 
 
 2. Välj **identifiera inloggnings fält manuellt**. Ytterligare instruktioner som beskriver manuell identifiering av inloggnings fält visas.
 
@@ -95,4 +95,4 @@ När du har skapat inloggnings sidan kan du tilldela användare och grupper, och
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
-- [Konfigurera automatisk etablering av användar konto](configure-automatic-user-provisioning-portal.md)
+- [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)

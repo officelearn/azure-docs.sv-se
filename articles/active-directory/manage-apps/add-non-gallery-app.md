@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062779"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063619"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Lägg till ett ej listat program (ej Galleri) i din Azure AD-organisation
 
@@ -25,7 +25,7 @@ Förutom valen i [Azure AD-programgalleriet](https://azure.microsoft.com/documen
 
 - Självbetjänings integrering av alla program som stöder [Security Assertion Markup Language (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) identitets leverantörer (SP-initierad eller IDP-initierad)
 - Självbetjänings integrering av alla webb program som har en HTML-baserad inloggnings sida med [LÖSENORDSBASERAD SSO](what-is-single-sign-on.md#password-based-sso)
-- Anslutning via självbetjäning för program som använder [systemet för scim-protokoll (Cross-Domain Identity Management) för användar etablering](use-scim-to-provision-users-and-groups.md)
+- Anslutning via självbetjäning för program som använder [systemet för scim-protokoll (Cross-Domain Identity Management) för användar etablering](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Möjlighet att lägga till länkar till ett program i [Office 365-appens start](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) -eller [Azure AD Access-panel](what-is-single-sign-on.md#linked-sign-on)
 
 I den här artikeln beskrivs hur du lägger till ett program som inte är ett galleri program till **företags program** i Azure Portal utan att skriva kod. Om du i stället vill lära dig mer om hur du integrerar anpassade appar med Azure AD, se [autentiserings scenarier för Azure AD](../develop/authentication-scenarios.md). När du utvecklar en app som använder ett modernt protokoll som [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) för att autentisera användare, kan du registrera den med Microsoft Identity Platform genom att använda [Appregistreringar](../develop/quickstart-register-app.md) upplevelse i Azure Portal.

@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435843"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061649"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales`- och `marketingspend`-ämnen.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa domänanvändare
@@ -55,7 +55,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
    |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi sales* policy   |
-   |Ämne   |  sales* |
+   |Avsnitt   |  sales* |
    |Välj användare  |  sales_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -75,7 +75,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
    |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi marketing policy   |
-   |Ämne   |  marketingspend |
+   |Avsnitt   |  marketingspend |
    |Välj användare  |  marketing_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -147,6 +147,8 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
 4. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och konsument-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att säkerställa att `kafka-producer-consumer.jar` också är tillgängligt för **sales_user**.
 
+**Obs! i den här självstudien ska du använda Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i producent-konsument-projektet, som är för icke-domänanslutna scenarier).**
+
 5. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
 
    ```bash
@@ -194,6 +196,9 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 
 1. Klicka på **Ta bort**. Klicka på **Ja**.
+
+## <a name="troubleshooting"></a>Felsökning
+Om Kafka-Producer-Consumer. jar inte fungerar i ett domänanslutet kluster, se till att du använder Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i ett projekt som är ett under producent-konsument projekt, som är för icke-domän anslutna scenarier).
 
 ## <a name="next-steps"></a>Nästa steg
 

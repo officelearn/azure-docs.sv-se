@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f578840726543027a8c1b1db9bd88ea42f6e85fa
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264075"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062157"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -20,16 +20,16 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 
 Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [ansluta till lokala data källor](analysis-services-gateway.md). Mer information om avancerade installations scenarier och gatewayen i allmänhet finns i [dokumentationen om lokala datagatewayer](/data-integration/gateway/service-gateway-onprem).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-**Minimikrav**
+**Minimi krav:**
 
 * .NET 4.5 Framework
 * 64-bitars version av Windows 8/Windows Server 2012 R2 (eller senare)
 
-**Rekommenderas:**
+**Rekommenderas**
 
-* 8 CPU-kärnor
+* PROCESSOR med 8 kärnor
 * 8 GB minne
 * 64-bitars version av Windows 8/Windows Server 2012 R2 (eller senare)
 
@@ -43,8 +43,6 @@ Mer information om hur Azure Analysis Services fungerar med gatewayen finns i [a
 * När du installerar gatewayen måste det användar konto som du är inloggad på datorn med ha behörighet att logga in som tjänst. När installationen är klar använder den lokala datagateway-tjänsten NT SERVICE\PBIEgwService-kontot för att logga in som en tjänst. Ett annat konto kan anges under installationen eller i tjänster när installationen är klar. Se till att grupprincip inställningarna tillåter att både kontot du är inloggad med när du installerar och det tjänst konto du väljer har behörigheten Logga in som tjänst.
 * Logga in på Azure med ett konto i Azure AD för samma [klient organisation](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) som den prenumeration som du registrerar gatewayen i. Konton för Azure B2B (gäst) stöds inte när du installerar och registrerar en gateway.
 * Om data källor finns på ett Azure-Virtual Network (VNet) måste du konfigurera egenskapen [AlwaysUseGateway](analysis-services-vnet-gateway.md) Server.
-* Gatewayen (Unified) som beskrivs här stöds inte i Azure Germany-regioner. Använd i stället en **dedikerad lokal gateway för Azure Analysis Services som**installeras från serverns **Snabbstart** i portalen. 
-
 
 ## <a name="download"></a>Hämta
 
@@ -127,7 +125,7 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
     ![Anslutning av server till gateway-resurs lyckades](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-Det var allt. Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
+Klart! Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

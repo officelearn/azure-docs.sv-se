@@ -7,24 +7,24 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 93c0b3e27156655acee24d424cd890b48bb8e4e7
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780291"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064996"
 ---
-# <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Mata in data från IoT Hub till Azure Datautforskaren (förhands granskning)
+# <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Mata in data från IoT Hub i Azure Datautforskaren 
 
 > [!div class="op_single_selector"]
-> * [Portalen](ingest-data-iot-hub.md)
+> * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-iot-hub-resource-manager.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning (data inläsning) från IoT Hub, en Big data strömnings plattform och IoT-inmatnings tjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Skapa [ett test kluster och en databas](create-cluster-database-portal.md) med databas namnet *testdb*.

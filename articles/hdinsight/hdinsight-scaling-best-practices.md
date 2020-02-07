@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030938"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064639"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -216,6 +216,10 @@ Om Hive har lämnat kvar temporära filer kan du rensa filerna manuellt innan du
 Om klustret blir fastnat i fel säkert läge när du skalar ned till färre än tre arbetsnoder, och föregående steg inte fungerar, så kan du undvika att klustret går in i fel säkert läge helt genom att behålla minst tre arbetsnoder.
 
 Att behålla tre arbetsnoder är dyrare än att skala ned till bara en arbetsnoden, men det förhindrar att ditt kluster fastnar i fel säkert läge.
+
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Skala HDInsight ned till en arbetsnod
+
+Även om klustret skalas ned till 1 nod kommer arbetsnoden 0 fortfarande att överleva. Arbetsnoden 0 kan aldrig tas ur bruk.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Kör kommandot för att lämna fel säkert läge
 

@@ -1,138 +1,255 @@
 ---
-title: Dynamisk skala Windows Virtual Desktop-Session värdar – Azure
-description: Beskriver hur du konfigurerar skriptet för automatisk skalning för Windows virtuella skrivbord-värdar.
+title: Skala sessioner värdar Azure Automation – Azure
+description: Hur du automatiskt skalar värdar för virtuella Windows-fjärrskrivbordssessioner med Azure Automation.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c201df03bb156bac3f63d03cc4ca35215792f65c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451328"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061554"
 ---
-# <a name="scale-session-hosts-dynamically"></a>Skala sessionsvärdar dynamiskt
+# <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
-För många Windows-distributioner av virtuella datorer i Azure representerar kostnaderna för den virtuella datorn en betydande del av den totala distributions kostnaden för Windows Virtual Desktop. För att minska kostnaderna, är det bäst att stänga av och frigöra sessioner virtuella datorer (VM) under låg belastnings tider, och sedan starta om dem under hög användnings tid.
+Du kan minska din totala distributions kostnad för virtuella Windows-datorer genom att skala dina virtuella datorer (VM). Det innebär att du stänger av och avallokerar sessions värden för virtuella datorer vid låg belastnings tider, sedan aktiverar dem igen och omallokerar dem under hög belastnings tid.
 
-I den här artikeln används ett enkelt skalnings skript som automatiskt skalar virtuella datorer i Windows Virtual Desktop-miljön. Mer information om hur skalnings skriptet fungerar finns i avsnittet [hur skalnings skriptet fungerar](#how-the-scaling-script-works) .
+I den här artikeln får du lära dig om skalnings verktyget som skapats med Azure Automation och Azure Logic Apps som automatiskt skalar virtuella datorer i Windows Virtual Desktop-miljön. Om du vill lära dig hur du använder skalnings verktyget kan du gå vidare till [krav](#prerequisites).
 
-## <a name="prerequisites"></a>Krav
+## <a name="how-the-scaling-tool-works"></a>Hur skalnings verktyget fungerar
 
-Den miljö där du kör skriptet måste ha följande saker:
+Skalnings verktyget ger till gång till ett kostnads fritt automatiserings alternativ för kunder som vill optimera sina VM-kostnader för en värd.
 
-- En Windows-klient för virtuella skriv bord och-konto eller ett huvud namn för tjänsten med behörighet att fråga klienten (till exempel RDS-deltagare).
-- VM-poolen för sessioner har kon figurer ATS och registrerats med Windows Virtual Desktop-tjänsten.
-- En ytterligare virtuell dator som kör den schemalagda aktiviteten via Schemaläggaren och har nätverks åtkomst till sessionsbaserade värdar. Detta kommer att hänvisas till senare i dokumentet som en virtuell dator med scaleor.
-- [PowerShell-modulen för Microsoft Azure Resource Manager](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) är installerad på den virtuella datorn som kör den schemalagda aktiviteten.
-- [Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) är installerad på den virtuella datorn som kör den schemalagda aktiviteten.
+Du kan använda skalnings verktyget för att:
+ 
+- Schemalägg VM: ar för start och stopp baserat på kontors tid och låg belastning.
+- Skala ut virtuella datorer baserat på antalet sessioner per CPU-kärna.
+- Skala i virtuella datorer under låg belastnings tider och lämna det lägsta antalet virtuella dator värdar som körs.
 
-## <a name="recommendations-and-limitations"></a>Rekommendationer och begränsningar
+Skalnings verktyget använder en kombination av Azure Automation PowerShell-Runbooks, Webhooks och Azure Logic Apps för att fungera. När verktyget körs anropar Azure Logic Apps en webhook för att starta Azure Automation Runbook. Runbooken skapar sedan ett jobb.
 
-Tänk på följande när du kör skalnings skriptet:
+Under den högsta användnings tiden kontrollerar jobbet det aktuella antalet sessioner och VM-kapaciteten för den aktuella värddatorn som kör sessionen för varje adresspool. Den här informationen används för att beräkna om de virtuella datorerna som körs i sessionen kan stödja befintliga sessioner baserat på den *SessionThresholdPerCPU* -parameter som definierats för filen **createazurelogicapp. ps1** . Om de virtuella datorerna i sessionen inte har stöd för befintliga sessioner startar jobbet ytterligare virtuella dator värdar i den aktuella adresspoolen.
 
-- Detta skalnings skript kan bara hantera en adresspool per instans av den schemalagda aktivitet som kör skalnings skriptet.
-- Schemalagda aktiviteter som kör skalnings skript måste finnas på en virtuell dator som alltid är aktive rad.
-- Skapa en separat mapp för varje instans av skalnings skriptet och dess konfiguration.
-- Det här skriptet stöder inte inloggning som administratör till Windows Virtual Desktop med Azure AD-användarkonton som kräver Multi-Factor Authentication. Vi rekommenderar att du använder tjänstens huvud namn för att få åtkomst till tjänsten Windows Virtual Desktop och Azure. Följ [den här självstudien](create-service-principal-role-powershell.md) för att skapa ett huvud namn för tjänsten och en roll tilldelning med PowerShell.
-- Azures service avtals garanti gäller endast för virtuella datorer i en tillgänglighets uppsättning. Den aktuella versionen av dokumentet beskriver en miljö med en enskild virtuell dator som utför skalningen, vilket kanske inte uppfyller tillgänglighets kraven.
+>[!NOTE]
+>*SessionThresholdPerCPU* begränsar inte antalet sessioner på den virtuella datorn. Den här parametern bestämmer bara när nya virtuella datorer måste startas för att belastningsutjämna anslutningarna. Om du vill begränsa antalet sessioner måste du följa anvisningarna [set-RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) för att konfigurera *MaxSessionLimit* -parametern enligt detta.
 
-## <a name="deploy-the-scaling-script"></a>Distribuera skalnings skriptet
+Under den högsta användnings tiden avgör jobbet vilken virtuell dator i sessionen som ska stängas av baserat på parametern *MinimumNumberOfRDSH* . Jobbet ställer in de virtuella datorerna i den virtuella datorn i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du ställer in parametern *LimitSecondsToForceLogOffUser* på ett positivt värde som inte är noll meddelar skriptet om användare som är inloggade att spara sitt arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner på den virtuella datorns sessions värd har loggats ut stängs den virtuella datorn av av skriptet.
 
-Följande procedurer visar hur du distribuerar skalnings skriptet.
+Om du ställer in parametern *LimitSecondsToForceLogOffUser* på noll, kommer jobbet att tillåta konfigurations inställningen för sessionen i angivna grup principer för att hantera signering av användarsessioner. Om du vill se dessa grup principer går du till **dator konfiguration** > **principer** > **Administrativa mallar** > **Windows-komponenter** > **Terminal Services** > **Terminal Server** > **tids gränser för sessionen**. Om det finns aktiva sessioner på en virtuell dator för en virtuell dator kommer jobbet att lämna den virtuella dator som körs på sessionen. Om det inte finns några aktiva sessioner stängs jobbet för den virtuella datorns sessions värd.
 
-### <a name="prepare-your-environment-for-the-scaling-script"></a>Förbereda din miljö för skalnings skriptet
+Jobbet körs regelbundet baserat på ett angivet upprepnings intervall. Du kan ändra det här intervallet baserat på storleken på din Windows Virtual Desktop-miljö, men kom ihåg att starta och stänga av virtuella datorer kan ta lite tid, så kom ihåg att ta hänsyn till fördröjningen. Vi rekommenderar att du ställer in upprepnings intervallet på var 15: e minut.
 
-Börja med att förbereda din miljö för skalnings skriptet:
+Verktyget har dock också följande begränsningar:
 
-1. Logga in på den virtuella datorn (scaleor VM) som ska köra den schemalagda aktiviteten med ett domän administratörs konto.
-2. Skapa en mapp på den virtuella dator som innehåller skalnings skriptet och dess konfiguration (till exempel **C:\\skalning – HostPool1**).
-3. Hämta filerna **basicScale. ps1**, **config. JSON**och **Functions-PSStoredCredentials. ps1** och mappen **PowershellModules** från [skalnings skriptets lagrings plats](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) och kopiera dem till den mapp som du skapade i steg 2. Det finns två huvudsakliga sätt att hämta filerna innan du kopierar dem till den virtuella datorns skalar:
-    - Klona git-lagringsplatsen till den lokala datorn.
-    - Visa den **råa** versionen av varje fil, kopiera och klistra in innehållet i varje fil i en text redigerare och spara sedan filerna med motsvarande fil namn och filtyp. 
+- Den här lösningen gäller endast för virtuella datorer i pooler för sessioner.
+- Den här lösningen hanterar virtuella datorer i valfri region, men kan endast användas i samma prenumeration som ditt Azure Automation konto och Azure Logic Apps.
 
-### <a name="create-securely-stored-credentials"></a>Skapa säkerhets lagrade autentiseringsuppgifter
+>[!NOTE]
+>Skalnings verktyget styr belastnings Utjämnings läget för den värddator som skalan. Den anger den till bredd-första belastnings utjämning för både högsta och låg belastnings tid.
 
-Därefter måste du skapa de säkerhets lagrade autentiseringsuppgifterna:
+## <a name="prerequisites"></a>Förutsättningar
 
-1. Öppna PowerShell ISE som administratör.
-2. Importera modulen RDS PowerShell genom att köra följande cmdlet:
+Innan du börjar konfigurera skalnings verktyget ser du till att du har följande klart:
 
-    ```powershell
-    Install-Module Microsoft.RdInfra.RdPowershell
-    ```
-    
-3. Öppna fönstret Redigera och Läs in filen **Function-PSStoredCredentials. ps1** och kör sedan hela skriptet (F5)
-4. Kör följande cmdlet:
-    
-    ```powershell
-    Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
-    ```
-    
-    Ange till exempel **variabel namn nyckel Sök väg – omfång globalt värde "c:\\skalning-HostPool1"**
-5. Kör cmdleten **New-StoredCredential-path \$nyckel Sök väg** . När du uppmanas till det anger du dina autentiseringsuppgifter för ditt Windows-konto med behörigheter för att ställa frågor till fakturapoolen (värden anges i **config. JSON**).
-    - Om du använder olika tjänst huvud namn eller standard konto kör du cmdleten **New-StoredCredential-path \$sökväg för nyckel Sök väg** en gång för varje konto för att skapa lokala lagrade autentiseringsuppgifter.
-6. Kör **Get-StoredCredential-List** för att bekräfta att autentiseringsuppgifterna har skapats.
+- En [Windows-klient för virtuella skriv bord och värd bassäng](create-host-pools-arm-template.md)
+- VM-poolen för sessioner som kon figurer ATS och registrerats med Windows Virtual Desktop-tjänsten
+- En användare med [deltagar åtkomst](../role-based-access-control/role-assignments-portal.md) i Azure-prenumerationen
 
-### <a name="configure-the-configjson-file"></a>Konfigurera config. JSON-filen
+Datorn som du använder för att distribuera verktyget måste ha: 
 
-Ange de relevanta värdena i följande fält för att uppdatera skalnings skript inställningarna i config. JSON:
+- Windows PowerShell 5,1 eller senare
+- Microsoft AZ PowerShell-modulen
 
-| Field                     | Beskrivning                    |
-|-------------------------------|------------------------------------|
-| AADTenantId                   | Azure AD-klient-ID som associerar prenumerationen där sessionens värd för virtuella datorer körs     |
-| AADApplicationId              | Program-ID för tjänstens huvud namn                                                       |
-| AADServicePrincipalSecret     | Detta kan anges under test fasen, men ska vara tom när du skapar autentiseringsuppgifter med **Functions-PSStoredCredentials. ps1**    |
-| currentAzureSubscriptionId    | ID: t för den Azure-prenumeration där sessionens värd för virtuella datorer körs                        |
-| tenantName                    | Klient namn för Windows Virtual Desktop                                                    |
-| hostPoolName                  | Namn på Windows-adresspool för värd för virtuell dator                                                 |
-| RDBroker                      | URL till WVD-tjänsten, standardvärde https:\//rdbroker.wvd.microsoft.com             |
-| Användarnamn                      | Det program-ID för tjänstens huvud namn (det är möjligt att ha samma huvud namn för tjänsten som i AADApplicationId) eller en standard användare utan Multi-Factor Authentication |
-| isServicePrincipal            | Godkända värden är **True** eller **false**. Anger om den andra uppsättningen autentiseringsuppgifter som används är ett huvud namn för tjänsten eller ett standard konto. |
-| BeginPeakTime                 | När den högsta användnings tiden börjar                                                            |
-| EndPeakTime                   | När tiden för maximal användning upphör                                                              |
-| TimeDifferenceInHours         | Tids skillnad mellan lokal tid och UTC, i timmar                                   |
-| SessionThresholdPerCPU        | Maximalt antal sessioner per CPU-tröskel som används för att fastställa när en ny virtuell dator i sessionen måste startas under hög belastnings tid.  |
-| MinimumNumberOfRDSH           | Minsta antal virtuella värdar för virtuella datorer som ska fortsätta att köras vid låg belastnings tider             |
-| LimitSecondsToForceLogOffUser | Antal sekunder att vänta innan användarna tvingas att logga ut. Om värdet är 0 tvingas användarna inte att logga ut.  |
-| LogOffMessageTitle            | Rubriken på meddelandet som skickas till en användare innan de tvingas logga ut                  |
-| LogOffMessageBody             | Texten i varnings meddelandet som skickas till användarna innan de loggas ut. Exempel: "den här datorn stängs av om X minuter. Spara ditt arbete och logga ut. " |
+Om du har allt klart är det dags att sätta igång.
 
-### <a name="configure-the-task-scheduler"></a>Konfigurera Schemaläggaren
+## <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
-När du har konfigurerat JSON-konfigurationsfilen måste du konfigurera Schemaläggaren så att filen basicScaler. ps1 körs med jämna mellanrum.
+Först behöver du ett Azure Automation-konto för att köra PowerShell-runbooken. Så här konfigurerar du ditt konto:
 
-1. Starta **Schemaläggaren**.
-2. I fönstret **Schemaläggaren** väljer du **Skapa aktivitet...**
-3. I dialog rutan **Skapa uppgift** väljer du fliken **Allmänt** , anger ett **namn** (till exempel "dynamiskt RDSH") och väljer **Kör oavsett om användaren är inloggad eller inte** och **Kör med högsta behörighet**.
-4. Gå till fliken **utlösare** och välj sedan **nytt...**
-5. I dialog rutan **Ny utlösare** , under **Avancerade inställningar**, markerar du **Upprepa aktivitet varje** och väljer lämplig period och varaktighet (till exempel **15 minuter** eller **oändligt**).
-6. Välj fliken **åtgärder** och **ny...**
-7. I dialog rutan **ny åtgärd** anger du **PowerShell. exe** i fältet **program/skript** och anger sedan **C:\\skalning\\basicScale. ps1** i fältet **Lägg till argument (valfritt)** .
-8. Gå till fliken **villkor** och **Inställningar** och välj **OK** om du vill godkänna standardinställningarna för var och en.
-9. Ange lösen ordet för det administratörs konto där du planerar att köra skalnings skriptet.
+1. Öppna Windows PowerShell som administratör.
+2. Kör följande cmdlet för att logga in på ditt Azure-konto.
 
-## <a name="how-the-scaling-script-works"></a>Hur skalnings skriptet fungerar
+     ```powershell
+     Login-AzAccount
+     ```
 
-Detta skalnings skript läser inställningar från en config. JSON-fil, inklusive start och slut för den högsta användnings perioden under dagen.
+     >[!NOTE]
+     >Ditt konto måste ha deltagar behörighet för den Azure-prenumeration som du vill distribuera skalnings verktyget på.
 
-Under den högsta användnings tiden kontrollerar skriptet det aktuella antalet sessioner och den aktuella RDSH-kapaciteten som körs för varje adresspool. Det beräknar om de virtuella datorerna som körs på den virtuella datorn har tillräckligt med kapacitet för att stödja befintliga sessioner baserat på den SessionThresholdPerCPU-parameter som definierats i filen config. JSON. Om inte, startar skriptet ytterligare virtuella datorer i sessions värden i poolen.
+3. Kör följande cmdlet för att ladda ned skriptet för att skapa Azure Automation-kontot:
 
-Under den högsta användnings tiden avgör skriptet vilken virtuell dator i sessionen som ska stängas av baserat på parametern MinimumNumberOfRDSH i filen config. JSON. Skriptet ställer in sessionens värden för virtuella datorer i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du anger parametern **LimitSecondsToForceLogOffUser** i filen config. JSON till ett positivt värde som inte är noll, meddelar skriptet om användare som är inloggade att spara arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner har signerats på en virtuell dator i en fjärrskrivbordssession stängs-servern av.
+     ```powershell
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     ```
 
-Om du ställer in parametern **LimitSecondsToForceLogOffUser** i config. JSON-filen på noll, tillåter skriptet konfigurations inställningen för sessionen i egenskaperna för den värdbaserade poolen för att hantera signering av användarsessioner. Om det finns några sessioner på en virtuell dator i en session, lämnar den virtuella datorn som körs av sessionen. Om det inte finns några sessioner stängs skriptet av den virtuella datorns sessions värd.
+4. Kör följande cmdlet för att köra skriptet och skapa Azure Automation-kontot:
 
-Skriptet är utformat för att köras regelbundet på den virtuella dator servern för skalnings datorer med hjälp av Schemaläggaren. Välj lämpligt tidsintervall baserat på storleken på din Fjärrskrivbordstjänsters miljö och kom ihåg att det kan ta en stund att starta och stänga av virtuella datorer. Vi rekommenderar att du kör skalnings skriptet var 15: e minut.
+     ```powershell
+     .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
+     ```
 
-## <a name="log-files"></a>Loggfiler
+5. Cmdletens utdata kommer att innehålla en webhook-URI. Se till att spara en post i URI: n eftersom du kommer att använda den som en parameter när du konfigurerar körnings schema för Azure Logic Apps.
 
-Skalnings skriptet skapar två loggfiler, **WVDTenantScale. log** och **WVDTenantUsage. log**. **WVDTenantScale. log** -filen kommer att logga händelser och fel (om sådana finns) under varje körning av skalnings skriptet.
+När du har konfigurerat ditt Azure Automation-konto loggar du in på din Azure-prenumeration och kontrollerar att ditt Azure Automation-konto och att den relevanta runbooken har visats i den angivna resurs gruppen, som du ser i följande bild:
 
-Filen **WVDTenantUsage. log** registrerar det aktiva antalet kärnor och det aktiva antalet virtuella datorer varje gång du kör skalnings skriptet. Du kan använda den här informationen för att uppskatta den faktiska användningen av Microsoft Azure virtuella datorer och kostnaden. Filen formateras som kommaavgränsade värden, där varje objekt innehåller följande information:
+![En bild av sidan för Azure-översikten visar det nyligen skapade Automation-kontot och runbooken.](media/automation-account.png)
 
->tid, värdbaserad pool, kärnor, virtuella datorer
+Om du vill kontrol lera om webhooken är den som ska användas går du till listan resurser på vänster sida av skärmen och väljer **webhook**.
 
-Fil namnet kan också ändras till att ha ett. csv-tillägg som läses in i Microsoft Excel och analyseras.
+## <a name="create-an-azure-automation-run-as-account"></a>Skapa ett Kör som-konto för Azure Automation
+
+Nu när du har ett Azure Automation konto måste du också skapa ett Azure Automation kör som-konto för att få åtkomst till dina Azure-resurser.
+
+Ett [Azure Automation kör som-konto](../automation/manage-runas-account.md) tillhandahåller autentisering för att hantera resurser i Azure med Azure-cmdletar. När du skapar ett Kör som-konto skapas en ny tjänst huvud användare i Azure Active Directory och deltagar rollen tilldelas till tjänstens huvud namns användare på prenumerations nivån, kör som-kontot i Azure är ett bra sätt att autentisera på ett säkert sätt med certifikat och ett huvud namn för tjänsten utan att du behöver lagra ett användar namn och lösen ord i ett Credential-objekt. Mer information om kör som-autentisering finns i [begränsa behörigheter för kör som-kontot](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+
+Alla användare som är medlemmar i rollen prenumerations administratörer och administratören av prenumerationen kan skapa ett Kör som-konto genom att följa anvisningarna i nästa avsnitt.
+
+Skapa ett Kör som-konto på ditt Azure-konto:
+
+1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser anger och väljer du **Automation-konton**.
+
+2. På sidan **Automation-konton** väljer du namnet på ditt Automation-konto.
+
+3. I fönstret till vänster i fönstret väljer du **Kör som-konton** under avsnittet konto inställningar.
+
+4. Välj **Kör som-konto i Azure**. När fönstret **Lägg till Azure kör som-konto** visas granskar du översiktlig information och väljer sedan **skapa** för att starta processen för att skapa kontot.
+
+5. Vänta några minuter för Azure för att skapa kör som-kontot. Du kan spåra hur du skapar en förloppet i menyn under meddelanden.
+
+6. När processen har slutförts skapas en till gång med namnet AzureRunAsConnection i det angivna Automation-kontot. Anslutnings till gången innehåller program-ID, klient-ID, prenumerations-ID och tumavtryck för certifikatet. Kom ihåg program-ID: t eftersom du kommer att använda det senare.
+
+### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Skapa en roll tilldelning i Windows Virtual Desktop
+
+Därefter måste du skapa en roll tilldelning så att AzureRunAsConnection kan samverka med det virtuella Windows-skrivbordet. Se till att använda PowerShell för att logga in med ett konto som har behörighet att skapa roll tilldelningar.
+
+Börja med att hämta och importera [Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det. Kör följande PowerShell-cmdlets för att ansluta till det virtuella Windows-skrivbordet och Visa dina klienter.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+
+Get-RdsTenant
+```
+
+När du hittar klienten med de värdar som du vill skala, följer du instruktionerna i [skapa ett Azure Automation konto](#create-an-azure-automation-account) och använder klient namnet som du fick från föregående cmdlet i följande cmdlet för att skapa roll tilldelningen:
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
+```
+
+## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Skapa Azure Logic-appen och körnings schemat
+
+Slutligen måste du skapa Azure Logic-appen och konfigurera ett körnings schema för det nya skalnings verktyget.
+
+1.  Öppna Windows PowerShell som administratör
+
+2.  Kör följande cmdlet för att logga in på ditt Azure-konto.
+
+     ```powershell
+     Login-AzAccount
+     ```
+
+3. Kör följande cmdlet för att ladda ned skript filen createazurelogicapp. ps1 på den lokala datorn.
+
+     ```powershell
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     ```
+
+4. Kör följande cmdlet för att logga in på Windows Virtual Desktop med ett konto som har behörighet som RDS-ägare eller RDS-deltagare.
+
+     ```powershell
+     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+     ```
+
+5. Kör följande PowerShell-skript för att skapa Azure Logic-appen och körnings schemat.
+
+     ```powershell
+     $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
+     
+     $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
+
+     $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
+
+     $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
+
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+
+     $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
+
+     $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
+
+     $timeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
+
+     $sessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
+
+     $minimumNumberOfRdsh = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
+
+     $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
+
+     $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
+
+     $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
+
+     $location = Read-Host -Prompt "Enter the name of the Azure region where you will be creating the logic app"
+
+     $connectionAssetName = Read-Host -Prompt "Enter the name of the Azure RunAs connection asset"
+
+     $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
+
+     $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
+
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+
+     .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
+       -AADTenantID $aadTenantId `
+       -SubscriptionID $subscriptionId `
+       -TenantName $tenantName `
+       -HostPoolName $hostPoolName `
+       -RecurrenceInterval $recurrenceInterval `
+       -BeginPeakTime $beginPeakTime `
+       -EndPeakTime $endPeakTime `
+       -TimeDifference $timeDifference `
+       -SessionThresholdPerCPU $sessionThresholdPerCPU `
+       -MinimumNumberOfRDSH $minimumNumberOfRdsh `
+       -LimitSecondsToForceLogOffUser $limitSecondsToForceLogOffUser `
+       -LogOffMessageTitle $logOffMessageTitle `
+       -LogOffMessageBody $logOffMessageBody `
+       -Location $location `
+       -ConnectionAssetName $connectionAssetName `
+       -WebHookURI $webHookURI `
+       -AutomationAccountName $automationAccountName `
+       -MaintenanceTagName $maintenanceTagName
+     ```
+
+     När du har kört skriptet ska den logiska appen visas i en resurs grupp, som du ser i följande bild.
+
+     ![En bild av översikts sidan för ett exempel på en Azure Logic-app.](media/logic-app.png)
+
+Om du vill göra ändringar i körnings schemat, till exempel ändra intervallet eller tids zonen för upprepning, går du till autoskalning Scheduler och väljer **Redigera** för att gå till Logic Apps designer.
+
+![En bild av Logic Apps designer. De upprepnings-och webhook-menyer som låter användaren redigera upprepnings tider och webhook-filen är öppen.](media/logic-apps-designer.png)
+
+## <a name="manage-your-scaling-tool"></a>Hantera skalnings verktyget
+
+Nu när du har skapat skalnings verktyget kan du komma åt dess utdata. I det här avsnittet beskrivs några funktioner som du kan ha nytta av.
+
+### <a name="view-job-status"></a>Visa jobbstatus
+
+Du kan visa en sammanfattnings status för alla Runbook-jobb eller Visa en mer djupgående status för ett särskilt Runbook-jobb i Azure Portal.
+
+Till höger om det valda Automation-kontot under "jobb statistik" kan du Visa en lista över sammanfattningar av alla Runbook-jobb. Om du öppnar sidan **jobb** till vänster i fönstret visas aktuella jobb status, start tider och slut för ande tider.
+
+![En skärm bild av sidan jobb status.](media/jobs-status.png)
+
+### <a name="view-logs-and-scaling-tool-output"></a>Visa utdata för loggar och skalnings verktyg
+
+Du kan visa loggarna för skalnings-och skalnings åtgärder genom att öppna din Runbook och välja namnet på jobbet.
+
+Navigera till runbooken (standard namnet är WVDAutoScaleRunbook) i resurs gruppen som är värd för Azure Automation konto och välj **Översikt**. På sidan Översikt väljer du ett jobb under senaste jobb för att Visa skalnings verktygets utdata, som du ser i följande bild.
+
+![En bild av utdatafönstret för skalnings verktyget.](media/tool-output.png)

@@ -1,18 +1,18 @@
 ---
 title: Problem med Apache Ambari-pulsslag i Azure HDInsight
 description: Granskning av olika orsaker till problem med Apache Ambari-pulsslag i Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
-ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
+ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964625"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057081"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problem med Apache Ambari-pulsslag i Azure HDInsight
 
@@ -22,13 +22,13 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ### <a name="issue"></a>Problem
 
-Ambari-agenten har hög processor användning, vilket resulterar i aviseringar från Ambari-ANVÄNDARGRÄNSSNITTET som för vissa noder går Ambari agent-pulsslag förlorat. Aviseringen om förlorat pulsslag är vanligt vis tillfällig. 
+Ambari-agenten har hög processor användning, vilket resulterar i aviseringar från Ambari-ANVÄNDARGRÄNSSNITTET som för vissa noder går Ambari agent-pulsslag förlorat. Aviseringen om förlorat pulsslag är vanligt vis tillfällig.
 
 ### <a name="cause"></a>Orsak
 
 På grund av olika Ambari-buggar, i sällsynta fall, kan din Ambari-agent ha hög (nära 100) processor användning i procent.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Identifiera process-ID (PID) för Ambari-agent:
 
@@ -67,7 +67,7 @@ Ambari-agenten har inte startat som resulterar i aviseringar från Ambari-gräns
 
 Aviseringarna orsakas av att Ambari-agenten inte körs.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 1. Bekräfta status för Ambari-agent:
 
@@ -93,9 +93,9 @@ Ambari pulsslags agent förlorades.
 
 OMS-loggar orsakar hög CPU-användning.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-* Inaktivera OMS-loggning med hjälp av PowerShell [-modulen Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) . 
+* Inaktivera Azure Monitor loggning med hjälp av PowerShell-cmdleten [disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) .
 * Ta bort `mdsd.warn` logg filen
 
 ---

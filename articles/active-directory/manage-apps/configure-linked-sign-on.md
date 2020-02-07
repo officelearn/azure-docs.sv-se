@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c4547bddeea8b67bd3377124b1c299662fea3e6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274174"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063551"
 ---
 # <a name="configure-linked-sign-on"></a>Konfigurera länkad inloggning
 
@@ -50,4 +50,4 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela användare eller grupper till programmet](methods-for-assigning-users-and-groups.md)
-- [Konfigurera automatisk etablering av användar konto](configure-automatic-user-provisioning-portal.md)
+- [Konfigurera automatisk etablering av användar konto](../app-provisioning/configure-automatic-user-provisioning-portal.md)

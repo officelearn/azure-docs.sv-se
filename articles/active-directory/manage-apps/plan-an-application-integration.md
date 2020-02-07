@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895939"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063388"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Att integrera Azure Active Directory med program komma igång-guide
 
@@ -85,7 +85,7 @@ Om du vill lägga till ett anpassat program i Azure Application galleriet, se ["
 I följande artiklar beskrivs hur du kan hantera åtkomst till program när de har integrerats med Azure AD med hjälp av Azure AD-anslutningar och Azure AD.
 
 * [Hantera åtkomst till appar med hjälp av Azure AD](what-is-access-management.md)
-* [Automatisera med Azure AD-anslutningar](user-provisioning.md)
+* [Automatisera med Azure AD-anslutningar](../app-provisioning/user-provisioning.md)
 * [Tilldela användare till ett program](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Tilldela grupper till ett program](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Dela konton](../active-directory-sharing-accounts.md)
@@ -95,7 +95,7 @@ För detaljerad information kan du hämta Azure Active Directory distributions p
 
 Så här hämtar du en distributions plan från Azure Portal:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **företags program** | **välj en app** | **distributions plan**.
 
 Ge feedback om distributions planer genom att ta [undersökningen om distributions planen](https://aka.ms/DeploymentPlanFeedback).

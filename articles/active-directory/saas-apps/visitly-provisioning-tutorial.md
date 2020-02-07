@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera besök för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera besök för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton för att gå vidare.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 942f0aa685ff7e2278aae159f7e97917a105f5fa
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 73cc1a58689db7902843f222aa4874a5e188be44
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840150"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063180"
 ---
-# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Självstudier: Konfigurera besök för automatisk användar etablering
+# <a name="tutorial-configure-visitly-for-automatic-user-provisioning"></a>Självstudie: Konfigurera besök för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som du utför i gång och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare eller grupper.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering av SaaS-program (Software-as-a-Service) med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering av SaaS-program (Software-as-a-Service) med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -41,7 +41,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assign-users-to-visitly"></a>Tilldela användare till gång 
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bestämmer du vilka användare eller grupper i Azure AD som behöver åtkomst till. Tilldela sedan dessa användare eller grupper till gång till genom att följa anvisningarna här:
 * [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
@@ -56,7 +56,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bestämmer d
 
 Innan du konfigurerar för automatisk användar etablering med Azure AD måste du aktivera system för SCIM-etablering (Cross-Domain Identity Management) på plats.
 
-1. Logga in för att [besöka](https://app.visitly.io/login). Välj **integrationer** > -**värd-synkronisering**.
+1. Logga in för att [besöka](https://app.visitly.io/login). Välj **integrationer** > **värd synkronisering**.
 
     ![Synkronisering av värd](media/Visitly-provisioning-tutorial/login.png)
 
@@ -81,7 +81,7 @@ Följ dessa steg om du vill lägga till besök från Azure AD-programgalleriet.
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -116,13 +116,13 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings läge inställt på automatiskt](common/provisioning-automatic.png)
 
-5. Under avsnittet admin credentials måste du skriva in de `https://api.visitly.io/v1/usersync/SCIM` och **API-nyckel** värden som hämtades tidigare i **klient-URL** respektive **hemlig token**. Välj **Testa anslutning** för att säkerställa att Azure AD kan ansluta till den. Om anslutningen Miss lyckas måste du kontrol lera att ditt konto för besöks konto har administratörs behörighet och försök igen.
+5. Under avsnittet admin credentials kan du skriva in de `https://api.visitly.io/v1/usersync/SCIM`-och **API-nyckelvärdena** som hämtades tidigare i **klient-URL** respektive **hemlig token**. Välj **Testa anslutning** för att säkerställa att Azure AD kan ansluta till den. Om anslutningen Miss lyckas måste du kontrol lera att ditt konto för besöks konto har administratörs behörighet och försök igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I rutan **aviserings-e** -postadress anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etablerings fel. Markera kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
-    ![E-postavisering](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Välj **Spara**.
 
@@ -134,7 +134,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Besöks användar-attribut](media/visitly-provisioning-tutorial/userattribute.png)
 
-10. Följ anvisningarna i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
+10. Följ anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)för att konfigurera omfångs filter.
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för besök kan du ändra **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -148,9 +148,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare eller grupper att etablera finns i [hur lång tid tar det att etablera användare?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Den här åtgärden startar den första synkroniseringen av alla användare eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information om hur lång tid det tar för användare eller grupper att etablera finns i [hur lång tid tar det att etablera användare?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på besök. Mer information finns i [kontrol lera status för användar etablering](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på besök. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
@@ -158,9 +158,9 @@ Det finns inte stöd för hårda borttagningar på sidan. Allt är endast mjuk b
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

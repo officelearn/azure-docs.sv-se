@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790a948611c6cfa336964397282a38d2b9c00e11
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848790"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061462"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords hantering
 
@@ -114,7 +114,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   >
 * **F: Hur kan jag utbilda mina användare om var man ska återställa sina lösen ord?**
 
-  > **A:** Prova några av förslagen i vår [SSPR-distributions](howto-sspr-deployment.md#communications-plan) artikel.
+  > **A:** Prova några av förslagen i vår [SSPR-distributions](howto-sspr-deployment.md#plan-communications) artikel.
   >
   >
 * **F: kan jag använda den här sidan från en mobil enhet?**

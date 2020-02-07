@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/06/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a222aa63387f7c57f8896b013f71f0c1bf40b2e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f7bf9fea1b1e15d1ca24686a84e272dd60ceaf5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849622"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061598"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory för flera innehavare med anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76849622"
 
 Den här artikeln visar hur du aktiverar inloggning för användare som använder slut punkten för flera innehavare för Azure Active Directory (Azure AD) med hjälp av [anpassade principer](custom-policy-overview.md) i Azure AD B2C. Detta gör att användare från flera Azure AD-klienter kan logga in med hjälp av Azure AD B2C, utan att du behöver konfigurera en identitets leverantör för varje klient. Gäst medlemmar i någon av dessa klienter **kommer dock inte** att kunna logga in. För det måste du [Konfigurera varje klient för sig](identity-provider-azure-ad-single-tenant-custom.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -63,6 +63,19 @@ Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisa
 1. I **hemlighet**anger du din klient hemlighet som du registrerade tidigare.
 1. För **nyckel användning**väljer du `Signature`.
 1. Välj **Skapa**.
+
+## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
+
+Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Logga in på [Azure Portal](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Välj det program som du vill konfigurera valfria anspråk för i listan.
+1. I avsnittet **Hantera** väljer du **konfiguration av token (för hands version)** .
+1. Välj **Lägg till valfritt anspråk**.
+1. Välj den tokentyp som du vill konfigurera.
+1. Välj de valfria anspråk som ska läggas till.
+1. Klicka på **Lägg till**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
 
@@ -134,7 +147,7 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 
 Du måste uppdatera listan över giltiga token-utfärdare och begränsa åtkomsten till en särskild lista över Azure AD-Innehavaradministratörer som kan logga in.
 
-Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Ett exempel:
+Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Exempel:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

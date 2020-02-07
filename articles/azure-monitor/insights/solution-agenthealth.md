@@ -6,18 +6,18 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
-ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402432"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062140"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Agenthälsa lösning i Azure Monitor
 Agenthälsa lösning i Azure hjälper dig att förstå, för alla agenter som rapporterar direkt till arbets ytan Log Analytics i Azure Monitor eller en System Center Operations Manager hanterings grupp som är ansluten till Azure Monitor, som inte svarar och skickar drift data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du distribuerar den här lösningen ska du kontrol lera att du för närvarande har stöd för [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) som rapporteras till Log Analytics arbets yta eller rapportering till en [Operations Manager hanterings grupp](../../azure-monitor/platform/om-agents.md) som är integrerad med arbets ytan
 
 ## <a name="solution-components"></a>Lösningskomponenter
@@ -79,7 +79,7 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 | `Version` | Log Analytics agent-eller Operations Manager agent-version.|
 | `SCAgentChannel` | Värdet är *Direkt* och/eller *SCManagementServer*.|
 | `IsGatewayInstalled` | Om Log Analytics Gateway är installerat är värdet *Sant*, annars är värdet *falskt*.|
-| `ComputerIP` | IP-adressen för datorn.|
+| `ComputerIP` | Datorns offentliga IP-adress. På virtuella Azure-datorer visas den offentliga IP-adressen om en sådan finns tillgänglig. För virtuella datorer som använder privata IP-adresser visas Azure SNAT-adressen (inte den privata IP-adressen). |
 | `RemoteIPCountry` | Geografisk plats där datorn har distribuerats.|
 | `ManagementGroupName` | Namn på Operations Manager-hanteringsgrupp.|
 | `SourceComputerId` | Unikt ID för datorn.|
@@ -91,7 +91,7 @@ Varje agent som rapporterar till en Operations Manager hanterings server skickar
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för poster som har samlats in av den här lösningen.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Totalt antal agenter |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Antal agenter som inte har svarat de senaste 24 timmarna |

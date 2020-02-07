@@ -3,12 +3,12 @@ title: Förstå resurs låsning
 description: Lär dig mer om låsnings alternativen i Azure-ritningar för att skydda resurser när du tilldelar en skiss.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406411"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057353"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
@@ -24,8 +24,8 @@ Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstån
 |Läge|Artefakt resurs typ|Status|Beskrivning|
 |-|-|-|-|
 |Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här läget används också för resurser som läggs till i en **skrivskyddad** eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
-|Skrivskyddad|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
-|Skrivskyddad|Icke-resurs grupp|Skrivskyddad|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
+|Skrivskydd|Resursgrupp|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
+|Skrivskydd|Icke-resurs grupp|Skrivskydd|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
 |Ta inte bort|*|Kan inte ta bort|Resurserna kan ändras, men de kan inte tas bort. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 
 ## <a name="overriding-locking-states"></a>Åsidosätter lås tillstånd
@@ -53,7 +53,7 @@ När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen �
 
 |Läge |Behörigheter. åtgärder |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskyddad |**\*** |**\*/Read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Skrivskydd |**\*** |**\*/Read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 |Ta inte bort |**\*/Delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]
@@ -102,6 +102,26 @@ I vissa design-eller säkerhets scenarier kan det vara nödvändigt att undanta 
   }
 }
 ```
+
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Undanta en åtgärd från en neka-tilldelning
+
+På samma sätt som du utesluter [ett huvud konto](#exclude-a-principal-from-a-deny-assignment) för en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) i en skiss tilldelning kan du undanta vissa [RBAC-åtgärder](../../../role-based-access-control/resource-provider-operations.md). I blocket **Properties. låsen** , på samma plats som **excludedPrincipals** , kan du lägga till en **excludedActions** :
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+**ExcludedPrincipals** måste vara explicit, men **excludedActions** -poster kan använda för att använda `*` för JOKERTECKen som matchar RBAC-åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 

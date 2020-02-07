@@ -3,60 +3,66 @@ title: Migrera en lokal Jupyter-anteckningsbok till Azure Notebooks för hands v
 description: Du kan snabbt överföra en Jupyter-anteckningsbok till Azure Notebooks för hands version från din lokala dator eller en webb-URL och sedan dela den för samarbete.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e5270c59a64f9510f9108bbe4d00b922178888c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: baf05d7adb1340d712ff0fc87436d5bbac51bc8f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647058"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064333"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook-in-azure-notebooks-preview"></a>Snabb start: Migrera en lokal Jupyter-anteckningsbok i Azure Notebooks för hands version
 
-Jupyter-anteckningsböcker som du skapar lokalt på din egen dator är bara tillgängliga för dig. Du kan dela dina filer via en mängd olika sätt, men sedan mottagare har sina egna lokala kopia av anteckningsboken och det är svårt att inga ändringar som de kan göra. Du kan också lagra anteckningsböcker i en delad databas som är online, till exempel GitHub, men detta kräver fortfarande att varje medarbetare har sina egna lokal Jupyter-installation med samma konfiguration som din.
+I den här snabb starten migrerar du en Jupyter-anteckningsbok från den lokala datorn eller en annan tillgänglig fil-URL till Azure Notebooks. 
 
-Genom att migrera dina lokala eller databasen-baserade anteckningsböcker till Azure-datorer kan lagra du dem i molnet från vilken du kan direkt dela dem med dina medarbetare. Dessa medarbetare behöver bara en webbläsare för att visa och köra din bärbara dator och om de [logga in](quickstart-sign-in-azure-notebooks.md) till Azure-datorer kan de också göra ändringar.
+Jupyter-anteckningsböcker på din dator är bara tillgängliga för dig. Du kan dela dina filer, men mottagarna har sina egna lokala kopior av antecknings boken och det är svårt att införliva sina ändringar. Även om du lagrar antecknings böcker i en delad onlinebutik, till exempel GitHub, måste varje medarbetare ha en lokal Jupyter-installation som har kon figurer ATS som din.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Genom att migrera dina lokala eller databasbaserade antecknings böcker till Azure Notebooks kan du genast dela dem med dina medarbetare, som bara behöver en webbläsare för att visa och köra dina antecknings böcker. Om de loggar in på Azure Notebooks kan de också göra ändringar.
 
-Den här snabbstarten visar hur du migrerar en bärbar dator från den lokala datorn eller en annan tillgänglig fil-URL. Om du vill migrera bärbara datorer från en GitHub-lagringsplats, se [Snabbstart: klona en anteckningsbok](quickstart-clone-jupyter-notebook.md).
+## <a name="prerequisites"></a>Förutsättningar
+
+- En [Jupyter Notebook](https://jupyter-notebook.readthedocs.io) på din lokala dator eller en annan tillgänglig fil-URL. 
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Skapa ett projekt i Azure-anteckningsböcker
 
-1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns i [Snabbstart – logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
+Den här snabb starten visar migrering av en bärbar dator från den lokala datorn eller en annan tillgänglig fil-URL. Om du vill migrera antecknings böcker från en GitHub-lagringsplats, se [snabb start: klona en bärbar dator](quickstart-clone-jupyter-notebook.md).
 
-1. Din offentliga profil-sida väljer du **Mina projekt** överst på sidan:
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. (Mer information finns i [snabb start – logga in till Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+
+1. Från din offentliga profil sida väljer du **Mina projekt** överst på sidan:
 
     ![Mina projekt länk överst i webbläsarfönstret](media/quickstarts/my-projects-link.png)
 
-1. På den **Mina projekt** väljer **+ nytt projekt** (kortkommandot: n); knappen kan visas endast som **+** om webbläsaren är smal:
+1. På sidan **Mina projekt** väljer du **nytt projekt** (kortkommando: n). Knappen får bara visas som **+** om webbläsarfönstret är smalare:
 
     ![Nytt projekt-kommando på sidan Mina projekt](media/quickstarts/new-project-command.png)
 
-1. I den **Skapa nytt projekt** popup-fönstret som visas, ange lämpliga värden för den bärbara datorn som du migrerar i den **projektnamn** och **projekt-ID** fält, avmarkera de alternativ för **offentliga projekt** och **skapa en README.md**och välj sedan **skapa**.
+1. I popup-fönstret **Skapa nytt projekt** som visas anger du lämpliga värden för den antecknings bok som du migrerar i fälten **projekt namn** och **projekt-ID** , tar bort alternativen för det **offentliga projektet** och **skapar en README.MD**och väljer sedan **skapa**.
 
 ## <a name="upload-the-local-notebook"></a>Ladda upp lokala anteckningsboken
 
-1. På projektsidan väljer **överför** (som kan visas som ett dig pilen endast om ditt webbläsarfönster är liten) därefter 1. I popup-fönstret som visas väljer du **från datorn** om din bärbara dator finns på det lokala filsystemet eller **från URL: en** om din bärbara dator finns online:
+1. På sidan projekt väljer du **överför** (som kan visas som en UPPIL endast om webbläsarfönstret är liten) och väljer sedan 1. I popup-fönstret som visas väljer du **från dator** om antecknings boken finns i det lokala fil systemet eller **från URL** : en om din bärbara dator finns online:
 
     ![Kommandot för att överföra en bärbar dator från en URL eller den lokala datorn](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Igen, om din bärbara dator är i en GitHub-lagringsplats, följer du stegen [Snabbstart: klona en anteckningsbok](quickstart-clone-jupyter-notebook.md) i stället.)
+   Om din bärbara dator finns i en GitHub-lagringsplats följer du stegen i [snabb start: klona en antecknings bok](quickstart-clone-jupyter-notebook.md) i stället.
 
-   - Om du använder **från datorn**, dra och släpp dina *.ipynb* filer i popup-fönstret eller välj **Välj filer**, bläddra till och välj de filer som du vill importera. Välj sedan **överför**. De överförda filerna får samma namn som de lokala filerna. (Du behöver inte ladda upp innehåll i *.ipynb_checkpoints* mappar.)
+   - Om du använder **från dator**drar du och släpper dina *. ipynb* -filer till popup-fönstret, eller väljer **Välj filer**och bläddrar sedan till och väljer de filer som du vill importera. Välj sedan **Ladda upp**. De överförda filerna får samma namn som de lokala filerna. Du behöver inte ladda upp innehållet i några *. ipynb_checkpoints* mappar.
 
      ![Överför från datorn popup-fönstret](media/quickstarts/upload-from-computer-popup.png)
 
-   - Om du använder **från URL: en**, ange källadressen i den **URL: en för filen** fältet och filnamnet för att tilldela till anteckningsboken i ditt projekt i den **filnamn** fältet. Välj sedan **överför**. Om du har flera filer med olika URL: er kan du använda den **+ Lägg till filen** kommando för att kontrollera den första Webbadress du angav, varefter popup-fönstret visar nya fält för en annan fil.
+   - Om du använder **från URL**anger du käll adressen i fältet **fil-URL** och fil namnet som ska tilldelas antecknings boken i ditt projekt i fältet **fil namn** . Välj sedan **Ladda upp**. Om du har flera filer med separata URL: er, använder du kommandot **Lägg till fil** för att kontrol lera den första URL som du angav, efter vilken popup-fönstret innehåller nya fält för en annan fil.
 
      ![Ladda upp från URL: en popup-fönstret](media/quickstarts/upload-from-url-popup.png)
 
-1. Öppna och kör din nyligen uppladdade anteckningsboken för att verifiera dess innehåll och åtgärden. När du är klar väljer du **filen** > **stanna och Stäng** att Stäng anteckningsboken.
+1. Öppna och kör din nyligen uppladdade anteckningsboken för att verifiera dess innehåll och åtgärden. När du är klar väljer du **fil** > **stanna och stänger** för att stänga antecknings boken.
 
-1. Högerklicka på filen i projektet och välj om du vill dela en länk till anteckningsboken överförda **Kopiera länk** (kortkommandot: y), klistra in länken i ett meddelande. Alternativt kan du dela projektet som en hela med den **dela** kontroll på projektsidan för.
+1. Om du vill dela en länk till din uppladdade antecknings bok högerklickar du på filen i projektet och väljer **Kopiera länk** (kortkommando: y) och klistrar sedan in länken i lämpligt meddelande. Alternativt kan du dela projektet som helhet med hjälp av **resurs** kontrollen på projekt sidan.
 
-1. Om du vill redigera filer än anteckningsböcker, högerklicka på filen i projektet och välj **Redigera fil** (kortkommandot: jag). Standardåtgärden **kör** (kortkommandot: r), bara visar filinnehållet och tillåter inte att redigera.
+1. Om du vill redigera andra filer än antecknings böcker högerklickar du på filen i projektet och väljer **Redigera fil** (kortkommando: i). Standard åtgärden **Kör** (tangent bords gen väg: r), visar bara fil innehållet och tillåter inte redigering.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: skapa en kör en Jupyter-anteckningsbok för att göra linjär regression](tutorial-create-run-jupyter-notebook.md)
+> [Självstudie: skapa och kör en Jupyter-anteckningsbok för linjär regression](tutorial-create-run-jupyter-notebook.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Netsuite OneWorld för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Netsuite OneWorld.
+title: 'Självstudie: Konfigurera Netsuite-OneWorld för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och Netsuite-OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,86 +15,86 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928070ae7e5c9077c6f77e8cb7beb36815f47d6a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c9a823e6515c2bfe09e1ab7bcef471eb8169e75
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515815"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063303"
 ---
-# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Netsuite för automatisk användaretablering
+# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Netsuite för automatisk användar etablering
 
-Målet med den här självstudien är att visa dig de steg du måste utföra i Netsuite OneWorld och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Netsuite.
+Syftet med den här självstudien är att visa de steg du behöver utföra i Netsuite-OneWorld och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Netsuite.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active directory-klient.
-*   En Netsuite OneWorld-prenumeration. Observera att automatisk användaretablering är för närvarande stöds endast med NetSuite OneWorld.
-*   Ett användarkonto i Netsuite med administratörsbehörighet.
+*   En Azure Active Directory-klient.
+*   En Netsuite OneWorld-prenumeration. Observera att automatisk användar etablering bara stöds med Netsuite-OneWorld.
+*   Ett användar konto i Netsuite med administratörs behörighet.
 
-## <a name="assigning-users-to-netsuite-oneworld"></a>Tilldela användare till Netsuite OneWorld
+## <a name="assigning-users-to-netsuite-oneworld"></a>Tilldela användare till Netsuite-OneWorld
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din Netsuite-app. När du valt, kan du tilldela dessa användare till Netsuite appen genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din Netsuite-app. När du har bestämt dig kan du tilldela dessa användare till din Netsuite-app genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Viktiga tips för att tilldela användare till Netsuite OneWorld
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Viktiga tips för att tilldela användare Netsuite-OneWorld
 
-*   Vi rekommenderar att en enda Azure AD-användare har tilldelats Netsuite att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare tilldelas till Netsuite för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till Netsuite, måste du välja en giltig användarroll. Rollen ”standard åtkomst” fungerar inte för etablering.
+*   När du tilldelar en användare till Netsuite måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
 
-## <a name="enable-user-provisioning"></a>Aktivera etableringen av användare
+## <a name="enable-user-provisioning"></a>Aktivera användar etablering
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Netsuites användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i Netsuite baserat på användar- och grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta Azure AD till NetSuites etablerings-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Netsuite baserat på användare och grupp tilldelning i Azure AD.
 
 > [!TIP] 
-> Du kan också välja att aktiveras SAML-baserad enkel inloggning för Netsuite, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Netsuite enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-user-account-provisioning"></a>Konfigurera etablering av användarkonto:
+### <a name="to-configure-user-account-provisioning"></a>Konfigurera användar konto etablering:
 
-Målet med det här avsnittet som beskriver hur du aktiverar etableringen av användare i Active Directory-användarkonton till Netsuite.
+Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar användar etablering av Active Directory användar konton till Netsuite.
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-1. Om du redan har konfigurerat Netsuite för enkel inloggning, söka efter din instans av Netsuite med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **Netsuite** i programgalleriet. Välj Netsuite i sökresultatet och lägga till den i din lista över program.
+1. Om du redan har konfigurerat Netsuite för enkel inloggning söker du efter din instans av Netsuite med Sök fältet. Annars väljer du **Lägg till** och söker efter **Netsuite** i program galleriet. Välj Netsuite från Sök resultaten och Lägg till det i listan över program.
 
-1. Välj din instans av Netsuite och välj sedan den **etablering** fliken.
+1. Välj din instans av Netsuite och välj fliken **etablering** .
 
-1. Ange den **Etableringsläge** till **automatisk**. 
+1. Ställ in **etablerings läget** på **automatiskt**. 
 
-    ![Etablering](./media/netsuite-provisioning-tutorial/provisioning.png)
+    ![etablerings](./media/netsuite-provisioning-tutorial/provisioning.png)
 
-1. Under den **administratörsautentiseringsuppgifter** avsnittet tillhandahåller följande konfigurationsinställningar:
+1. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
    
-    a. I den **administratörsanvändarnamn** textrutan typ som en Netsuite kontonamn som har den **systemadministratören** profil i Netsuite.com tilldelad.
+    a. I text rutan **Administratörs användar namn** anger du ett namn på Netsuite-kontot som har **system administratörs** profilen i Netsuite.com tilldelad.
    
-    b. I den **adminlösenord** textrutan skriver du lösenordet för det här kontot.
+    b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
       
-1. I Azure-portalen klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till din Netsuite-app.
+1. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Netsuite-app.
 
-1. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden om etablering fel och markera kryssrutan.
+1. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan.
 
-1. Klicka på **spara.**
+1. Klicka på **Spara.**
 
-1. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till Netsuite.**
+1. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till Netsuite.**
 
-1. I den **attributmappningar** går du igenom användarattribut som synkroniseras från Azure AD till Netsuite. Observera att attribut som är markerade som **matchande** egenskaper som används för att matcha användarkontona i Netsuite för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+1. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till Netsuite. Observera att attributen som har valts som **matchande** egenskaper används för att matcha användar kontona i Netsuite för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-1. Om du vill aktivera den Azure AD-etableringstjänsten för Netsuite, ändra den **Etableringsstatus** till **på** i avsnittet Inställningar
+1. Om du vill aktivera Azure AD Provisioning-tjänsten för Netsuite ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
 
-1. Klicka på **spara.**
+1. Klicka på **Spara.**
 
-Den startar den första synkroniseringen av användare och/eller grupper som tilldelats till Netsuite i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på Netsuite appen.
+Den första synkroniseringen av alla användare och/eller grupper som är kopplade till Netsuite påbörjas i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i Netsuite-appen.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](tutorial-list.md)
+* [Hantera användar konto etablering för företags program](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](netsuite-tutorial.md)

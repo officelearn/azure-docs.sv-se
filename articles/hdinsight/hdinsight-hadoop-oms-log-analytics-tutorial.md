@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/05/2019
-ms.openlocfilehash: a693b14bb61eb52a09ab1f1ecd5d00b339357d5d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 02/06/2020
+ms.openlocfilehash: 980569edf8322c6c22a4357a5b946ded85f0ebe4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240376"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063753"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använd Azure Monitor loggar för att övervaka HDInsight-kluster
 
@@ -26,9 +26,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Log Analytics-arbetsytan**. Du kan tänka på den här arbets ytan som en unik Azure Monitor loggar miljö med ett eget data lager, data källor och lösningar. Anvisningar finns i [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* En Log Analytics-arbetsyta. Du kan tänka på den här arbets ytan som en unik Azure Monitor loggar miljö med ett eget data lager, data källor och lösningar. Anvisningar finns i [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
-* **Ett Azure HDInsight-kluster**. För närvarande kan du använda Azure Monitor loggar med följande HDInsight-kluster typer:
+* Ett Azure HDInsight-kluster. För närvarande kan du använda Azure Monitor loggar med följande HDInsight-kluster typer:
 
   * Hadoop
   * HBase
@@ -37,9 +37,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
   * Spark
   * Storm
 
-  Anvisningar om hur du skapar ett HDInsight-kluster finns i [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
+  Instruktioner för hur du skapar ett HDInsight-kluster finns i [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* **Azure PowerShell AZ-modul**.  Se [Introduktion till new Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+* Azure PowerShell AZ-modul.  Se [Introduktion till new Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 > [!NOTE]  
 > Vi rekommenderar att placera både HDInsight-klustret och Log Analytics-arbetsytan i samma region för bättre prestanda. Azure Monitor-loggar är inte tillgängliga i alla Azure-regioner.
@@ -50,15 +50,15 @@ I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om 
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Se [lista och Visa kluster](./hdinsight-administer-use-portal-linux.md#showClusters) för instruktioner. Klustret öppnas på en ny Portal sida.
 
-1. Från vänster, under **övervakning**, väljer du **Operations Management Suite**.
+1. Gå till vänster och välj **Azure Monitor**under **övervakning**.
 
-1. Välj **Aktivera**i huvudvyn under **OMS-övervakning**.
+1. I huvudvyn väljer du **Aktivera**under **Azure Monitor-integration**.
 
 1. I list rutan **Välj en arbets yta** väljer du en befintlig Log Analytics-arbetsyta.
 
 1. Välj **Spara**.  Det tar en stund att spara inställningen.
 
-    ![Aktivera övervakning för HDInsight-kluster](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "aktiverar övervakning av HDInsight-kluster")
+    ![Aktivera övervakning för HDInsight-kluster](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Aktivera övervakning för HDInsight-kluster")
 
 ## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Aktivera Azure Monitor loggar med Azure PowerShell
 
@@ -100,7 +100,7 @@ Dessa är tillgängliga HDInsight-lösningar:
 * HDInsight Spark – övervakning
 * HDInsight Storm-övervakning
 
-Anvisningar om hur du installerar en lösning finns i [lösningar i Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Du kan experimentera genom att installera en HDInsight Hadoop-övervaknings lösning. När det är klart visas en **HDInsightHadoop** panelen visas under **sammanfattning**. Välj den **HDInsightHadoop** panelen. Det ser ut som HDInsightHadoop lösningen:
+Anvisningar om hur du installerar en hanterings lösning finns [i hanterings lösningar i Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Du kan experimentera genom att installera en HDInsight Hadoop-övervaknings lösning. När den är färdig visas en **HDInsightHadoop** -panel under **Sammanfattning**. Välj panelen **HDInsightHadoop** . Det ser ut som HDInsightHadoop lösningen:
 
 ![HDInsight-lösningen för övervakningsvyn](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -114,10 +114,10 @@ Azure Monitor stöder också insamling och analys av prestanda mått för nodern
 
 HDInsight support kluster granskning med Azure Monitor loggar genom att importera följande typer av loggar:
 
-* `log_gateway_audit_CL`– den här tabellen innehåller gransknings loggar från klusternoder som visar lyckade och misslyckade inloggnings försök.
-* `log_auth_CL`– den här tabellen innehåller SSH-loggar med lyckade och misslyckade inloggnings försök.
-* `log_ambari_audit_CL`– den här tabellen innehåller gransknings loggar från Ambari.
-* `log_ranger_audti_CL`– den här tabellen innehåller gransknings loggar från Apache Ranger på ESP-kluster.
+* `log_gateway_audit_CL` – den här tabellen innehåller gransknings loggar från klusternoder som visar lyckade och misslyckade inloggnings försök.
+* `log_auth_CL` – den här tabellen innehåller SSH-loggar med lyckade och misslyckade inloggnings försök.
+* `log_ambari_audit_CL` – den här tabellen innehåller gransknings loggar från Ambari.
+* `log_ranger_audti_CL` – den här tabellen innehåller gransknings loggar från Apache Ranger på ESP-kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 

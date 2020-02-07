@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022145"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059868"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
@@ -160,7 +160,7 @@ Följande skärm bild visar den färdiga instrument panelen i program mal len. I
 > [!div class="mx-imgBorder"]
 > ![Micro-uppfyllelse Center](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-Mer information finns i själv studie kursen [distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-iot-central-smart-inventory-management-pnp.md) .
+Mer information finns i själv studie kursen [distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-micro-fulfillment-center-pnp.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -170,5 +170,5 @@ För att komma igång med att skapa en detalj handels lösning:
 * [Distribuera och gå igenom en sammankopplad logistik program mall](./tutorial-iot-central-connected-logistics-pnp.md).
 * [Distribuera och gå igenom en app-mall för digital distributions Center](./tutorial-iot-central-digital-distribution-center-pnp.md).
 * [Distribuera och gå igenom en mall för hantering av Smart inventerings program](./tutorial-iot-central-smart-inventory-management-pnp.md).
-* [Distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-iot-central-smart-inventory-management-pnp.md).
+* [Distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-micro-fulfillment-center-pnp.md).
 * Läs mer om IoT Central i [översikten över IoT Central](../preview/overview-iot-central.md).

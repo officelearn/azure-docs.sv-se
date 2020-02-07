@@ -5,20 +5,20 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 73624df3cb7b04c3c442a6654f1388017482b2ba
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cb4fdd56e9cf67c71ac690d423499929167f8977
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935444"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064249"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric versioner
 
-| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">Fel söknings guider</a> 
-| <a href="https://github.com/Azure/service-fabric-issues" target="blank">problem med</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">support alternativ</a> 
-| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner</a> 
-| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">somstöds kod exempel</a>
+| <a href="https://github.com/Azure/Service-Fabric-Troubleshooting-Guides" target="blank">fel söknings guider</a> 
+| <a href="https://github.com/Azure/service-fabric-issues" target="blank">ärende spårning</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-support" target="blank">Support alternativ</a> 
+| <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-versions" target="blank">versioner som stöds</a> 
+| <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">kod exempel</a>
 
 Den här artikeln innehåller mer information om de senaste versionerna och uppdateringarna av Service Fabric Runtime och SDK: er.
 
@@ -53,11 +53,11 @@ Dessutom innehåller den här versionen andra nya funktioner, fel korrigeringar 
 
 ### <a name="service-fabric-70-releases"></a>Service Fabric 7,0-versioner
 
-| Utgivningsdatum | Publicera | Mer information |
+| Utgivningsdatum | Frisläpp | Mer information |
 |---|---|---|
 | 18 november 2019 | [Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
 | 30 januari 2020 | [Uppdaterings version för Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-second-refresh-release/ba-p/1137690)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service-Fabric-70CU2-releasenotes.md)|
-
+| 6 februari 2020 | [Uppdaterings version för Azure Service Fabric 7,0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-0-third-refresh-release/ba-p/1156508)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service-Fabric-70CU3-releasenotes.md)|
 
 ### <a name="service-fabric-65"></a>Service Fabric 6,5
 
@@ -90,7 +90,7 @@ Mer information finns i [versions anmärkningar för Service Fabric 6,5](https:/
 
 ### <a name="service-fabric-65-releases"></a>Service Fabric 6,5-versioner
 
-| Utgivningsdatum | Publicera | Mer information |
+| Utgivningsdatum | Frisläpp | Mer information |
 |---|---|---|
 | 11 juni 2019 | [Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2 juli 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
@@ -103,12 +103,12 @@ Mer information finns i [versions anmärkningar för Service Fabric 6,5](https:/
 
 ### <a name="service-fabric-64-releases"></a>Service Fabric 6,4-versioner
 
-| Utgivningsdatum | Publicera | Mer information |
+| Utgivningsdatum | Frisläpp | Mer information |
 |---|---|---|
-| 30 november 2018 | [Azure Service Fabric 6.4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
+| 30 november 2018 | [Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2018/11/30/azure-service-fabric-6-4-release/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Service-Fabric-6.4-Release.pdf)|
 | 12 december 2018 | [Azure Service Fabric 6,4 uppdaterings version för Windows-kluster](https://blogs.msdn.microsoft.com/azureservicefabric/2018/12/12/azure-service-fabric-6-4-refresh-for-windows-clusters/)  | [Viktig information](https://msdnshared.blob.core.windows.net/media/2018/12/Links.pdf)  |
 | 4 februari 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/02/04/azure-service-fabric-6-4-refresh-release/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/02/Service-Fabric-6.4CU3-Release-Notes.pdf) |
 | 4 mars 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
 | 8 april 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
 | 2 maj 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 28 maj 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| 28 maj, 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)

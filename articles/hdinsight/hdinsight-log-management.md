@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837959"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064690"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -69,7 +69,7 @@ Det är viktigt att förstå de arbets belastnings typer som körs på dina HDIn
 
 * Överväg om en övervaknings lösning eller tjänst är en användbar förmån. Microsoft System Center tillhandahåller ett [hanterings paket för HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Du kan också använda verktyg från tredje part som Apache Chukwa och ganglia för att samla in och centralisera loggar. Många företag erbjuder tjänster för att övervaka Hadoop-baserade Big data-lösningar, till exempel: CenterY, CompuWare APM, Sematext SPM och Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Steg 2: Hantera kluster tjänst versioner och Visa skript åtgärds loggar
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Steg 2: Hantera kluster tjänst versioner och Visa loggar
 
 Ett typiskt HDInsight-kluster använder flera tjänster och program varu paket med öppen källkod (till exempel Apache HBase, Apache Spark och så vidare). För vissa arbets belastningar, till exempel Bioinformatics, kan du behöva behålla tjänst konfigurations logg historiken förutom jobb körnings loggarna.
 
@@ -89,15 +89,27 @@ Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfiguration
 
 HDInsight [skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md) kör skript i ett kluster, antingen manuellt eller när det anges. Skript åtgärder kan till exempel användas för att installera ytterligare program vara i klustret eller ändra konfigurations inställningarna från standardvärdena. Skript åtgärds loggar kan ge insikter om fel som uppstått under installationen av klustret och även konfigurations inställningarnas ändringar som kan påverka kluster prestanda och tillgänglighet.  Om du vill se status för en skript åtgärd väljer du knappen **Ops** i AMBARI-användargränssnittet eller åtkomst till status loggarna på standard lagrings kontot. Lagrings loggarna är tillgängliga på `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
+### <a name="view-ambari-alerts-status-logs"></a>Visa status loggar för Ambari-aviseringar
+
+Apache Ambari skriver aviserings status ändringar till `ambari-alerts.log`. Den fullständiga sökvägen är `/var/log/ambari-server/ambari-alerts.log`. Om du vill aktivera fel sökning för loggen ändrar du en egenskap i `/etc/ambari-server/conf/log4j.properties.` ändrar sedan posten under `# Log alert state changes` från:
+
+```
+log4j.logger.alerts=INFO,alerts
+
+to
+
+log4j.logger.alerts=DEBUG,alerts
+```
+
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Steg 3: hantera loggfilerna för körning av kluster jobb
 
-Nästa steg är att granska loggfilerna för jobb körning för de olika tjänsterna.  Tjänsterna kan omfatta Apache HBase, Apache Spark och många andra. Ett Hadoop-kluster genererar ett stort antal utförliga loggar, så att du kan fastställa vilka loggar som är användbara (och vilka inte) kan vara tids krävande.  Att förstå loggnings systemet är viktigt för riktad hantering av loggfiler.  Följande är en exempel logg fil.
+Nästa steg är att granska loggfilerna för jobb körning för de olika tjänsterna.  Tjänsterna kan omfatta Apache HBase, Apache Spark och många andra. Ett Hadoop-kluster genererar ett stort antal utförliga loggar, så att du kan fastställa vilka loggar som är användbara (och vilka inte) kan vara tids krävande.  Att förstå loggnings systemet är viktigt för riktad hantering av loggfiler.  Följande bild är en exempel logg fil.
 
 ![Exempel på HDInsight-exempel på logg filens utdata](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Komma åt Hadoop-loggfilerna
 
-HDInsight lagrar sina loggfiler både i kluster fil systemet och i Azure Storage. Du kan granska loggfilerna i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) -anslutning till klustret och bläddra i fil systemet, eller genom att använda status portalen för HADOOP-garn på servern för fjärrhead-noden. Du kan granska loggfilerna i Azure Storage med något av de verktyg som kan komma åt och hämta data från Azure Storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)och Visual Studio-Server Explorer. Du kan också använda PowerShell och Azure Storage klient bibliotek eller Azure .NET-SDK: er för att komma åt data i Azure Blob Storage.
+HDInsight lagrar loggfilerna både i kluster fil systemet och i Azure Storage. Du kan granska loggfilerna i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) -anslutning till klustret och bläddra i fil systemet, eller genom att använda status portalen för HADOOP-garn på servern för fjärrhead-noden. Du kan granska loggfilerna i Azure Storage med något av de verktyg som kan komma åt och hämta data från Azure Storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)och Visual Studio-Server Explorer. Du kan också använda PowerShell och Azure Storage klient bibliotek eller Azure .NET-SDK: er för att komma åt data i Azure Blob Storage.
 
 Hadoop kör jobbet för jobben som *aktivitets försök* på olika noder i klustret. HDInsight kan initiera spekulativa uppgifts försök och avsluta alla andra uppgifts försök som inte slutförs först. Detta genererar betydande aktivitet som är loggad till Controller-, stderr-och syslog-loggfilerna i farten. Dessutom körs flera aktivitets försök samtidigt, men en loggfil kan bara visa resultat linjärt.
 
@@ -140,7 +152,7 @@ När du har slutfört föregående steg har du en förståelse för de typer och
 
 Därefter analyserar du volymen av loggdata i nyckel logg lagrings platser under en viss tids period. Du kan till exempel analysera volym och tillväxt över 30-60-90-dagars perioder.  Registrera den här informationen i ett kalkyl blad eller Använd andra verktyg som Visual Studio, Azure Storage Explorer eller Power Query för Excel. Mer information finns i [analysera HDInsight-loggar](hdinsight-debug-jobs.md).  
 
-Nu har du tillräckligt med information för att skapa en logg hanterings strategi för nyckel loggarna.  Använd ditt kalkyl blad (eller valfritt verktyg) om du vill beräkna storleks ökningen och logg lagringen för Azure-tjänster i loggen.  Överväg även eventuella krav för logg kvarhållning för den uppsättning loggar som du undersöker.  Nu kan du omberäkna framtida logg lagrings kostnader efter att du har fastställt vilka loggfiler som kan tas bort (om det finns några) och vilka loggar som ska behållas och arkiveras till billigare Azure-lagring.
+Nu har du tillräckligt med information för att skapa en logg hanterings strategi för nyckel loggarna.  Använd ditt kalkyl blad (eller valfritt verktyg) om du vill beräkna storleks ökningen och logg lagringen för Azure-tjänster i loggen.  Överväg även eventuella krav för logg kvarhållning för den uppsättning loggar som du undersöker.  Nu kan du omberäkna framtida logg lagrings kostnader efter att du har fastställt vilka loggfiler som kan tas bort (om det finns några) och vilka loggar som ska behållas och arkiveras för billigare Azure Storage.
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>Steg 5: Bestäm principer och processer för logg Arkiv
 
@@ -152,7 +164,7 @@ För vissa loggfiler kan du använda en metod för att arkivera logg filen med l
 
 Alternativt kan du arkivera skript loggen med PowerShell.  Ett exempel på PowerShell-skript finns i [arkivera Azure Automation loggar till Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
-### <a name="accessing-azure-storage-metrics"></a>Åtkomst till Azure Storage-mått
+### <a name="accessing-azure-storage-metrics"></a>Åtkomst till Azure Storage mått
 
 Azure Storage kan konfigureras för att logga lagrings åtgärder och åtkomst. Du kan använda dessa mycket detaljerade loggar för kapacitets övervakning och planering och för gransknings begär anden till lagring. Den loggade informationen innehåller svars information, så att du kan övervaka och finjustera lösningens prestanda.
 Du kan använda .NET SDK för Hadoop för att undersöka de loggfiler som genereras för Azure Storage som innehåller data för ett HDInsight-kluster.

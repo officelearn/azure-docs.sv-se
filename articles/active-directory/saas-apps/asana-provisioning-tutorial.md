@@ -16,18 +16,18 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a237e4295f17ce37f622022d318e9f2aff24d7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276593"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058939"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudie: Konfigurera asana för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i asana och Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användar konton från Azure AD till asana.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -89,7 +89,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till asana-API f
 
 1. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till asana**.
 
-1. I avsnittet **mappningar för attribut** granskar du de användarattribut som ska synkroniseras från Azure AD till asana. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i asana för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna. Mer information finns i [Anpassa mappningar av användar etablerings attribut](../manage-apps/customize-application-attributes.md).
+1. I avsnittet **mappningar för attribut** granskar du de användarattribut som ska synkroniseras från Azure AD till asana. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i asana för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna. Mer information finns i [Anpassa mappningar av användar etablerings attribut](../app-provisioning/customize-application-attributes.md).
 
 1. Om du vill aktivera Azure AD Provisioning-tjänsten för asana går du till avsnittet **Inställningar** och ändrar **etablerings statusen** till **på**.
 
@@ -97,10 +97,10 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till asana-API f
 
 Nu startar den första synkroniseringen för alla användare som tilldelats asana i avsnittet **användare** . Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Använd avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar. Gransknings loggarna beskriver alla åtgärder som utförs av etablerings tjänsten i asana-appen.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](asana-tutorial.md)

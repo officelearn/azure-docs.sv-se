@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: e8717d10f61dfd50b9cdfa20a91203a5842d4c7d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: de80094c3fd2df7d2f8b32d1e968e9bebea847a1
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185384"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064350"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Lägga till, ändra eller ta bort ett virtuellt nätverks under nät
 
@@ -49,11 +49,12 @@ Det konto som du loggar in på eller ansluta till Azure med måste tilldelas rol
    - **Nätverks säkerhets grupp**: du kan koppla noll eller en befintlig nätverks säkerhets grupp till ett undernät för att filtrera inkommande och utgående nätverks trafik för under nätet. Nätverks säkerhets gruppen måste finnas i samma prenumeration och på samma plats som det virtuella nätverket. Lär dig mer om [nätverks säkerhets grupper](security-overview.md) och [hur du skapar en nätverks säkerhets grupp](tutorial-filter-network-traffic.md).
    - **Routningstabell: du**kan koppla noll eller en befintlig routningstabell till ett undernät för att styra routning av nätverks trafik till andra nätverk. Routningstabellen måste finnas i samma prenumeration och på samma plats som det virtuella nätverket. Lär dig mer om [Azure-routning](virtual-networks-udr-overview.md) och [hur du skapar en](tutorial-create-route-table-portal.md) routningstabell
    - **Tjänst slut punkter:** Ett undernät kan ha noll eller flera tjänst slut punkter aktiverade för den. Om du vill aktivera en tjänst slut punkt för en tjänst väljer du den tjänst eller de tjänster som du vill aktivera tjänst slut punkter för från listan över **tjänster** . Platsen konfigureras automatiskt för en slut punkt. Som standard konfigureras tjänstens slut punkter för det virtuella nätverkets region. För att Azure Storage för att stödja regionala failover-scenarier konfigureras slut punkter automatiskt till [Azure-kopplade regioner](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-   - **Under näts delegering:** Ett undernät kan ha noll till flera delegeringar aktiverade för det. Under näts delegering ger explicita behörigheter till tjänsten för att skapa tjänstespecifika resurser i under nätet med en unik identifierare när tjänsten distribueras. Om du vill delegera för en tjänst väljer du den tjänst som du vill delegera till från listan **tjänster** .
-
+   
        Om du vill ta bort en tjänst slut punkt avmarkerar du den tjänst som du vill ta bort tjänstens slut punkt för. Om du vill veta mer om tjänst slut punkter och de tjänster som de kan aktive ras för, se [Översikt över tjänst slut punkter i virtuella nätverk](virtual-network-service-endpoints-overview.md). När du har aktiverat en tjänst slut punkt för en tjänst måste du också aktivera nätverks åtkomst för under nätet för en resurs som skapats med tjänsten. Om du till exempel aktiverar tjänstens slut punkt för *Microsoft. Storage*måste du också aktivera nätverks åtkomst till alla Azure Storage konton som du vill bevilja nätverks åtkomst till. Mer information om hur du aktiverar nätverks åtkomst till undernät som en tjänst slut punkt är aktive rad för finns i dokumentationen för den enskilda tjänsten som du har aktiverat tjänstens slut punkt för.
 
      Om du vill kontrol lera att en tjänst slut punkt är aktive rad för ett undernät visar du [effektiva vägar](diagnose-network-routing-problem.md) för alla nätverks gränssnitt i under nätet. När en slut punkt har kon figurer ATS visas en *standard* väg med adressprefix för tjänsten och en NextHopType av **VirtualNetworkServiceEndpoint**. Mer information om routning finns i [routning – översikt](virtual-networks-udr-overview.md).
+   - **Under näts delegering:** Ett undernät kan ha noll till flera delegeringar aktiverade för det. Under näts delegering ger explicita behörigheter till tjänsten för att skapa tjänstespecifika resurser i under nätet med en unik identifierare när tjänsten distribueras. Om du vill delegera för en tjänst väljer du den tjänst som du vill delegera till från listan **tjänster** .
+
 6. Om du vill lägga till under nätet i det virtuella nätverk som du har valt väljer du **OK**.
 
 **Kommandon**

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a7e5dc9c177dbddda8bf229ec7949f53b70e616c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613778"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064316"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -28,7 +28,7 @@ Syftet med den här självstudien är att visa de steg du behöver utföra för 
 
 ## <a name="overview"></a>Översikt
 
-[Azure Active Directory användar etablerings tjänsten](../manage-apps/user-provisioning.md) integreras med [personalavdelningen-API: t för arbets dagar](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användar konton. Azure AD använder den här anslutningen för att aktivera följande användar etablerings arbets flöden:
+[Azure Active Directory användar etablerings tjänsten](../app-provisioning/user-provisioning.md) integreras med [personalavdelningen-API: t för arbets dagar](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) för att etablera användar konton. Azure AD använder den här anslutningen för att aktivera följande användar etablerings arbets flöden:
 
 * **Etablera användare till Active Directory** etablera valda uppsättningar av användare från arbets dagar till en eller flera Active Directory-domäner.
 
@@ -40,13 +40,13 @@ Syftet med den här självstudien är att visa de steg du behöver utföra för 
 
 Arbets flöden för användar etablering av arbets dagar som stöds av Azure AD-tjänsten för användar etablering möjliggör automatisering av följande personal-och identitets cykel hanterings scenarier:
 
-* **Anställning av nya anställda** – när en ny medarbetare läggs till i arbets dagen skapas ett användar konto automatiskt i Active Directory, Azure Active Directory, och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md), med Skriv-tillbaka till Workday-e-postadressen.
+* **Anställning av nya anställda** – när en ny medarbetare läggs till i arbets dagen skapas ett användar konto automatiskt i Active Directory, Azure Active Directory, och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md), med Skriv-tillbaka till Workday-e-postadressen.
 
-* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i Workday (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md).
+* **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i Workday (t. ex. namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Anställdas uppsägningar** – när en medarbetare avslutas på arbets dagen inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md).
+* **Anställdas uppsägningar** – när en medarbetare avslutas på arbets dagen inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Anställdas återställningar** – när en medarbetare återställs på arbets dagen kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../manage-apps/user-provisioning.md).
+* **Anställdas återställningar** – när en medarbetare återställs på arbets dagen kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på din preferens) för att Active Directory, Azure Active Directory och eventuellt Office 365 och [andra SaaS-program som stöds av Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Vem är den här användar etablerings lösningen som passar bäst för?
 
@@ -62,7 +62,7 @@ Den här användar etablerings lösningen i Workday passar utmärkt för:
 
 * Organisationer som använder Office 365 för e-post
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösnings arkitektur
 
 I det här avsnittet beskrivs den grundläggande användar etablerings lösnings arkitekturen för vanliga hybrid miljöer. Det finns två relaterade flöden:
 
@@ -87,13 +87,13 @@ Innan du påbörjar din arbets dags integrering kontrollerar du kraven nedan och
 
 I det här avsnittet beskrivs följande aspekter av planeringen:
 
-* [Krav](#prerequisites)
+* [Förutsättningar](#prerequisites)
 * [Välja etablerings anslutnings program som ska distribueras](#selecting-provisioning-connector-apps-to-deploy)
 * [Planera distribution av Azure AD Connect etablerings agent](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [Integrera med flera Active Directory domäner](#integrating-with-multiple-active-directory-domains)
 * [Planera arbets dag för att Active Directory mappning av användarattribut och transformeringar](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -292,7 +292,7 @@ I det här steget beviljar du princip behörigheter för domän säkerhet för W
 
      ![Domän säkerhets principer](./media/workday-inbound-tutorial/wd_isu_08.png "Domän säkerhets principer") 
 
-     Klicka på **OK**.
+     Klicka på **OK**
 
 3. I rapporten som visas, väljer du ellipsen (...) som visas bredvid **externt konto etablering** och klickar på meny alternativet **domän-> redigera säkerhets princip behörigheter**
 
@@ -442,7 +442,7 @@ För att etablera till Active Directory lokalt måste etablerings agenten instal
    
 1. Verifiera installationen av agenten och se till att den körs genom att öppna snapin-modulen "tjänster" och leta efter tjänsten "Microsoft Azure AD ansluta etablerings agent"
   
-   ![Services](./media/workday-inbound-tutorial/services.png)
+   ![Tjänster](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Del 3: Konfigurera anslutning till arbets dagar och Active Directory i etablerings appen
 I det här steget upprättar vi anslutningen till arbets dagar och Active Directory i Azure Portal. 
@@ -472,7 +472,7 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
-     ![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure-portalen](./media/workday-inbound-tutorial/wd_1.png)
 
    * När autentiseringsuppgifterna har sparats visar avsnittet **mappningar** standard mappningen **Synkronisera arbets uppgifter för arbets dagar till lokalt Active Directory**
 
@@ -502,7 +502,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
    > När du konfigurerar etablerings appen för första gången måste du testa och verifiera dina mappningar och uttryck för att kontrol lera att det ger önskat resultat. Microsoft rekommenderar att du använder omfångs filter under **käll objekt omfånget** för att testa dina mappningar med några test användare från Workday. När du har kontrollerat att mappningarna fungerar kan du antingen ta bort filtret eller gradvis expandera det så att det innehåller fler användare.
 
    > [!CAUTION] 
-   > Standard beteendet för etablerings motorn är att inaktivera/ta bort användare som omfattas av omfånget. Detta kanske inte är önskvärt i din arbets dag till AD-integrering. Om du vill åsidosätta det här standard beteendet läser du artikeln [hoppa över borttagning av användar konton som omfattas av omfånget](../manage-apps/skip-out-of-scope-deletions.md)
+   > Standard beteendet för etablerings motorn är att inaktivera/ta bort användare som omfattas av omfånget. Detta kanske inte är önskvärt i din arbets dag till AD-integrering. Om du vill åsidosätta det här standard beteendet läser du artikeln [hoppa över borttagning av användar konton som omfattas av omfånget](../app-provisioning/skip-out-of-scope-deletions.md)
   
 1. I fältet **mål objekts åtgärder** kan du globalt filtrera vilka åtgärder som utförs på Active Directory. **Skapa** och **Uppdatera** är de vanligaste.
 
@@ -516,7 +516,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
          * **Konstant** – Skriv ett statiskt, konstant sträng värde till attributet AD
 
-         * **Uttryck** – gör att du kan skriva ett anpassat värde till attributet AD, baserat på ett eller flera Workday-attribut. [Mer information finns i den här artikeln om uttryck](../manage-apps/functions-for-customizing-application-data.md).
+         * **Uttryck** – gör att du kan skriva ett anpassat värde till attributet AD, baserat på ett eller flera Workday-attribut. [Mer information finns i den här artikeln om uttryck](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Källattribut** – attributet användare från Workday. Om det attribut som du letar efter inte finns kan du läsa mer i [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
 
@@ -537,27 +537,27 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
 1. Spara dina mappningar genom att klicka på **Spara** överst i avsnittet attribut-mappning.
 
-   ![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure-portalen](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>Nedan visas några exempel på attribut mappningar mellan arbets dagar och Active Directory, med några vanliga uttryck
 
 * Det uttryck som mappar till *parentDistinguishedName* -attributet används för att etablera en användare till olika organisationsenheter baserat på en eller flera Workday-källfiler. I det här exemplet placeras användare i olika organisationsenheter baserat på vilken stad de finns i.
 
-* Attributet *userPrincipalName* i Active Directory genereras med funktionen unduplicering [SelectUniqueValue](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue) som söker efter ett genererat värde i mål-AD-domänen och bara anger det om det är unikt.  
+* Attributet *userPrincipalName* i Active Directory genereras med funktionen unduplicering [SelectUniqueValue](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue) som söker efter ett genererat värde i mål-AD-domänen och bara anger det om det är unikt.  
 
-* [Det finns dokumentation om hur du skriver uttryck här](../manage-apps/functions-for-customizing-application-data.md). Det här avsnittet innehåller exempel på hur du tar bort specialtecken.
+* [Det finns dokumentation om hur du skriver uttryck här](../app-provisioning/functions-for-customizing-application-data.md). Det här avsnittet innehåller exempel på hur du tar bort specialtecken.
 
 | WORKDAY-ATTRIBUT | ACTIVE DIRECTORY-ATTRIBUT |  MATCHNINGS-ID? | SKAPA/UPPDATERA |
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Ja** | Endast skrivet vid skapande |
 | **PreferredNameData**    |  CN    |   |   Endast skrivet vid skapande |
 | **SelectUniqueValue (JOIN ("\@", JOIN (".", \[FirstName\], \[efter namn\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 1), \[efter namn\]), "contoso.com"), JOIN ("\@", JOIN (".", MID (\[FirstName\], 1, 2), \[efter namn\]), "contoso.com")**   | userPrincipalName     |     | Endast skrivet vid skapande 
-| **Ersätt(Mid(Ersätt(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\ \\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Endast skrivet vid skapande |
-| **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Skapa + uppdatera |
-| **Förnamn**   | givenName       |     |    Skapa + uppdatera |
-| **Efternamn**   |   SN   |     |  Skapa + uppdatera |
+| **Ersätt (MID (replace (\[UserID\],, "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\]) ",," ",,), 1, 20)," ([\\\\.)\*\$] (file:///\\.) *$)", , "", , )**      |    Sam            |     |         Endast skrivet vid skapande |
+| **Växel (\[aktiva\],, "0", "true", "1", "false")** |  accountDisabled      |     | Skapa + uppdatera |
+| **FirstName**   | givenName       |     |    Skapa + uppdatera |
+| **LastName**   |   SN   |     |  Skapa + uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa + uppdatera |
-| **Företag**         | company   |     |  Skapa + uppdatera |
+| **Firm**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa + uppdatera |
 | **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
@@ -569,8 +569,8 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Skapa + uppdatera |
 | **Post nummer**  |   Postnummer  |     | Skapa + uppdatera |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Skapa + uppdatera |
-| **Fax**      | facsimileTelephoneNumber     |     |    Skapa + uppdatera |
-| **Mobil**  |    mobila       |     |       Skapa + uppdatera |
+| **Faxfel**      | facsimileTelephoneNumber     |     |    Skapa + uppdatera |
+| **Enheter**  |    mobila       |     |       Skapa + uppdatera |
 | **LocalReference** |  preferredLanguage  |     |  Skapa + uppdatera |                                               
 | **Växel (\[kommun\]"OU = standard användare, OU = användare, OU = standard, OU = platser, DC = contoso, DC = com", "Borås", "OU = standard användare, OU = användare, OU = Borås, OU = platser, DC = contoso, DC = com", "Austin", "OU = standard användare, OU = användare, OU = Austin, OU = locations, DC = contoso, DC = com", "Seattle", "OU = standard användare, OU = användare, OU = Seattle, OU = locations, DC = contoso, DC = com", "London", "OU = standard användare, OU = användare, OU = London, OU = locations, DC = contoso, DC = com")**  | parentDistinguishedName     |     |  Skapa + uppdatera |
 
@@ -653,7 +653,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 
       * **Konstant** – Skriv ett statiskt, konstant sträng värde till attributet AD
 
-      * **Uttryck** – gör att du kan skriva ett anpassat värde till attributet AD, baserat på ett eller flera Workday-attribut. [Mer information finns i den här artikeln om uttryck](../manage-apps/functions-for-customizing-application-data.md).
+      * **Uttryck** – gör att du kan skriva ett anpassat värde till attributet AD, baserat på ett eller flera Workday-attribut. [Mer information finns i den här artikeln om uttryck](../app-provisioning/functions-for-customizing-application-data.md).
 
    * **Källattribut** – attributet användare från Workday. Om det attribut som du letar efter inte finns kan du läsa mer i [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
 
@@ -737,7 +737,7 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 1. På fliken **etablering** ställer du in **etablerings status** på **på**.
 
-2. Klicka på **Spara**.
+2. Klicka på **Save** (Spara).
 
 3. Den här åtgärden startar den inledande synkroniseringen, vilket kan ta ett variabelt antal timmar beroende på hur många användare som finns i arbets belastnings klienten. 
 
@@ -745,9 +745,9 @@ När du har slutfört konfigurationen av appar för arbets dag etablering kan du
 
 5. När den inledande synkroniseringen har slutförts skrivs en gransknings sammanfattnings rapport på fliken **etablering** , som visas nedan.
 
-   ![Azure portal](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure-portalen](./media/workday-inbound-tutorial/wd_3.png)
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 * **Frågor om lösnings kapacitet**
   * [Hur ställer lösningen in lösen ordet för det nya användar kontot i Active Directory när en ny anställd bearbetas från arbets dagen?](#when-processing-a-new-hire-from-workday-how-does-the-solution-set-the-password-for-the-new-user-account-in-active-directory)
@@ -848,7 +848,7 @@ När du föreslår en ny idé bör du kontrol lera om någon annan redan har fö
 * Gå till **kontroll panelen** -> **Avinstallera eller ändra en program** meny
 * Leta efter den version som motsvarar posten **Microsoft Azure AD ansluta etablerings agenten**
 
-  ![Azure portal](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure-portalen](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Push-överför Microsoft automatiskt Provisioning agent-uppdateringar?
 
@@ -984,7 +984,7 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
      | PreferredLastName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:Last_Name/text() |
-     | Företag | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data[wd:Organization_Data/wd:Organization_Type_Reference/wd:ID[@wd:type='Organization_Type_ID']='Company']/wd:Organization_Reference/@wd:Descriptor |
+     | Företag | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID [@wd:type= ' Organization_Type_ID '] = ' Company ']/wd:Organization_Reference/@wd:Descriptor |
      | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID [@wd:type= ' Organization_Type_ID '] = ' övervakande ']/WD: Organization_Name/text () |
   
    Bekräfta med ditt Workday-team att API-uttrycket ovan är giltigt för din arbets grupps klient konfiguration. Om det behövs kan du redigera dem enligt beskrivningen i avsnittet [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
@@ -995,10 +995,10 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
 
      | Workday-attribut | API XPATH-uttryck |
      | ----------------- | -------------------- |
-     | CountryReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-3_Code']/text() |
+     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Alpha-3_Code ']/text () |
      | CountryReferenceFriendly | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/@wd:Descriptor |
-     | CountryReferenceNumeric | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Numeric-3_Code']/text() |
-     | CountryReferenceTwoLetter | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/wd:ID[@wd:type='ISO_3166-1_Alpha-2_Code']/text() |
+     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Numeric-3_Code ']/text () |
+     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= ' ISO_3166-1_Alpha-2_Code ']/text () |
      | CountryRegionReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
 
   Bekräfta med ditt Workday-team att API-uttrycken ovan är giltiga för din konfiguration av din arbets dag. Om det behövs kan du redigera dem enligt beskrivningen i avsnittet [Anpassa listan med användar](#customizing-the-list-of-workday-user-attributes)-och Workday-användarattribut.
@@ -1023,9 +1023,9 @@ Här kan du hantera sådana krav för att skapa *CN* eller *DisplayName* för at
     )
      ```
     Se även:
-  * [Syntax för växel funktion](../manage-apps/functions-for-customizing-application-data.md#switch)
-  * [Syntax för kopplings funktion](../manage-apps/functions-for-customizing-application-data.md#join)
-  * [Lägg till Function-syntax](../manage-apps/functions-for-customizing-application-data.md#append)
+  * [Syntax för växel funktion](../app-provisioning/functions-for-customizing-application-data.md#switch)
+  * [Syntax för kopplings funktion](../app-provisioning/functions-for-customizing-application-data.md#join)
+  * [Lägg till Function-syntax](../app-provisioning/functions-for-customizing-application-data.md#append)
 
 #### <a name="how-can-i-use-selectuniquevalue-to-generate-unique-values-for-samaccountname-attribute"></a>Hur kan jag använda SelectUniqueValue för att generera unika värden för samAccountName-attribut?
 
@@ -1043,17 +1043,17 @@ Så här fungerar uttrycket ovan: om användaren är John Smith försöker den f
 
 Se även:
 
-* [Mid Function-syntax](../manage-apps/functions-for-customizing-application-data.md#mid)
-* [Byt syntax för funktion](../manage-apps/functions-for-customizing-application-data.md#replace)
-* [Syntax för SelectUniqueValue-funktion](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue)
+* [Mid Function-syntax](../app-provisioning/functions-for-customizing-application-data.md#mid)
+* [Byt syntax för funktion](../app-provisioning/functions-for-customizing-application-data.md#replace)
+* [Syntax för SelectUniqueValue-funktion](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue)
 
 #### <a name="how-do-i-remove-characters-with-diacritics-and-convert-them-into-normal-english-alphabets"></a>Hur gör jag för att ta bort tecken med dia kritiska tecken och konvertera dem till vanliga engelska alfabetet?
 
-Använd funktionen [NormalizeDiacritics](../manage-apps/functions-for-customizing-application-data.md#normalizediacritics) för att ta bort specialtecken i förnamn och efter namn på användaren, medan du konstruerar e-postadressen eller CN-värdet för användaren.
+Använd funktionen [NormalizeDiacritics](../app-provisioning/functions-for-customizing-application-data.md#normalizediacritics) för att ta bort specialtecken i förnamn och efter namn på användaren, medan du konstruerar e-postadressen eller CN-värdet för användaren.
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
-Det här avsnittet innehåller information om hur du felsöker etablerings problem med din arbets dags integrering med hjälp av Azure AD audit-loggar och Windows Server Loggboken loggar. Den bygger vidare på allmänna fel söknings steg och koncept som samlas in i [självstudien: rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md)
+Det här avsnittet innehåller information om hur du felsöker etablerings problem med din arbets dags integrering med hjälp av Azure AD audit-loggar och Windows Server Loggboken loggar. Den bygger vidare på allmänna fel söknings steg och koncept som samlas in i [självstudien: rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md)
 
 I det här avsnittet beskrivs följande aspekter av fel sökning:
 
@@ -1209,7 +1209,7 @@ Om etablerings tjänsten inte kan ansluta till Workday eller Active Directory ka
 |#|Fel scenario |Troliga orsaker|Rekommenderad lösning|
 |--|---|---|---|
 |1.| Export åtgärds fel i gransknings loggen med meddelande *felet: OperationsError-SvcErr: ett åtgärds fel uppstod. Ingen överordnad referens har kon figurer ATS för katalog tjänsten. Katalog tjänsten kan därför inte utfärda hänvisningar till objekt utanför den här skogen.* | Det här felet visas vanligt vis om *Active Directory containerns* organisationsenhet inte är korrekt inställd eller om det finns problem med uttrycks mappningen som används för *parentDistinguishedName*. | Kontrol lera *Active Directory containerns* ou-parameter för skrivningar. Om du använder *parentDistinguishedName* i attributmappningen kontrollerar du att det alltid utvärderas till en känd container i AD-domänen. Kontrol lera *export* händelsen i gransknings loggarna för att se det genererade värdet. |
-|2.| Det gick inte att exportera åtgärds fel i gransknings loggen med felkoden: *SystemForCrossDomainIdentityManagementBadResponse* och meddelande *fel: ConstraintViolation-AtrErr: ett värde i begäran är ogiltigt. Ett värde för attributet fanns inte i det acceptabla värde intervallet. \nError information: CONSTRAINT_ATT_TYPE-Company*. | Även om det här felet är särskilt för attributet *Company* kan du se det här felet för andra attribut som även *CN* . Det här felet visas på grund av en Tvingad schema begränsning i AD. Som standard har attribut som *företag* och *CN* i AD en övre gräns på 64 tecken. Om värdet som kommer från Workday är mer än 64 tecken visas det här fel meddelandet. | Kontrol lera *export* händelsen i gransknings loggarna för att se värdet för attributet som rapporteras i fel meddelandet. Överväg att trunkera värdet som kommer från Workday med funktionen [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) eller att ändra mappningarna till ett AD-attribut som inte har liknande längd begränsningar.  |
+|2.| Det gick inte att exportera åtgärds fel i gransknings loggen med felkoden: *SystemForCrossDomainIdentityManagementBadResponse* och meddelande *fel: ConstraintViolation-AtrErr: ett värde i begäran är ogiltigt. Ett värde för attributet fanns inte i det acceptabla värde intervallet. \nError information: CONSTRAINT_ATT_TYPE-Company*. | Även om det här felet är särskilt för attributet *Company* kan du se det här felet för andra attribut som även *CN* . Det här felet visas på grund av en Tvingad schema begränsning i AD. Som standard har attribut som *företag* och *CN* i AD en övre gräns på 64 tecken. Om värdet som kommer från Workday är mer än 64 tecken visas det här fel meddelandet. | Kontrol lera *export* händelsen i gransknings loggarna för att se värdet för attributet som rapporteras i fel meddelandet. Överväg att trunkera värdet som kommer från Workday med funktionen [Mid](../app-provisioning/functions-for-customizing-application-data.md#mid) eller att ändra mappningarna till ett AD-attribut som inte har liknande längd begränsningar.  |
 
 #### <a name="ad-user-account-update-errors"></a>Uppdaterings fel för AD-användarkonto
 
@@ -1348,7 +1348,7 @@ För att göra den här ändringen måste du använda [Workday Studio](https://c
 
 ### <a name="exporting-and-importing-your-configuration"></a>Exportera och importera konfigurationen
 
-Läs artikeln [Exportera och importera etablerings konfiguration](../manage-apps/export-import-provisioning-configuration.md)
+Läs artikeln [Exportera och importera etablerings konfiguration](../app-provisioning/export-import-provisioning-configuration.md)
 
 ## <a name="managing-personal-data"></a>Hantera personliga data
 
@@ -1362,7 +1362,7 @@ I samband med datakvarhållning genererar inte Azure AD Provisioning-tjänsten r
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan arbets dagar och Azure Active Directory](workday-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
 * [Lär dig hur du använder Microsoft Graph API: er för att hantera etablerings konfiguration](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

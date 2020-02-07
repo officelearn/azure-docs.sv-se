@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f36e82c2ff95800a058f56f9cc6b80ddf02dbf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1c46facb2d43137175730bf04fea0efec9c1ecbd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967715"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063857"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegie rad åtkomst för Hybrid-och moln distributioner i Azure AD
 
@@ -44,7 +44,7 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 För de flesta organisationer är säkerheten för företagets till gångar beroende av integriteten hos de privilegierade konton som administrerar och hanterar IT-system. Cyberhot-angripare fokuserar på privilegie rad åtkomst till infrastruktur system (till exempel Active Directory och Azure Active Directory) för att få åtkomst till en organisations känsliga data. 
 
-Traditionella metoder som fokuserar på att skydda ingångs-och utförsel platser i ett nätverk som primär säkerhetsperimeter är mindre effektiva på grund av ökningen av användningen av SaaS-appar och personliga enheter på Internet. Ersättningar för nätverkets säkerhetsperimeter i ett komplext modernt företag är autentiserings- och auktoriseringskontroller i en organisations identitetslager.
+Traditionella metoder som fokuserar på att skydda ingångs-och utförsel platser i ett nätverk som primär säkerhetsperimeter är mindre effektiva på grund av ökningen av användningen av SaaS-appar och personliga enheter på Internet. Naturlig ersättning för nätverks säkerhets perimeternätverket i ett komplext modernt företag är autentiserings-och auktoriserings kontrollerna i en organisations identitets lager.
 
 Privilegierade administrativa konton styrs effektivt för den här nya "säkerhetsperimetern". Det är viktigt att skydda privilegie rad åtkomst, oavsett om miljön är lokal, moln eller hybrid lokala och värdbaserade tjänster i molnet. Att skydda administrativ åtkomst mot bestämda angripare kräver att du tar en komplett och genomtänkt metod för att isolera organisationens system från risker. 
 
@@ -241,7 +241,7 @@ Kräv C-Suite-chefer, högnivå ansvariga, viktiga IT-och säkerhets personal oc
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Använda dedikerade arbets stationer för administration för Azure AD
 
-Angripare kan försöka rikta in sig på privilegierade konton för att få åtkomst till en organisations data och system, så att de kan störa integriteten och äktheten på data genom skadlig kod som ändrar program logiken eller snooping som administratören anger en autentiseringsuppgift. Arbetsstationer för privilegierad åtkomst (PAW, Privileged Access Workstation) ger tillgång till ett dedikerat operativsystem för känsliga uppgifter som är skyddat mot Internetattacker och hotvektorer. Att avgränsa dessa känsliga uppgifter och konton från de dagliga arbets stationerna och enheterna ger mycket starkt skydd mot nätfiske-attacker, program-och OS-sårbarheter, olika personifieringar och stöld attacker, till exempel tangenttryckning loggning, pass-The-hash och pass-The-Ticket. Genom att distribuera arbets stationer med privilegie rad åtkomst kan du minska risken för att administratörer anger autentiseringsuppgifter för administratörer, förutom i en stationär miljö som har härdats. Mer information finns i [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Angripare kan försöka rikta in sig på privilegierade konton för att få åtkomst till en organisations data och system, så att de kan störa integriteten och äktheten på data genom skadlig kod som ändrar program logiken eller snooping som administratören anger en autentiseringsuppgift. Arbets stationer med privilegie rad åtkomst (Paw) tillhandahåller ett dedikerat operativ system för känsliga uppgifter som skyddas från Internet attacker och hot vektorer. Att avgränsa dessa känsliga uppgifter och konton från de dagliga arbets stationerna och enheterna ger mycket starkt skydd mot nätfiske-attacker, program-och OS-sårbarheter, olika personifieringar och stöld attacker, till exempel tangenttryckning loggning, pass-The-hash och pass-The-Ticket. Genom att distribuera arbets stationer med privilegie rad åtkomst kan du minska risken för att administratörer anger autentiseringsuppgifter för administratörer, förutom i en stationär miljö som har härdats. Mer information finns i [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Granska National Institute of Standards och teknik rekommendationer för hantering av incidenter 
 
@@ -298,11 +298,11 @@ Med Azure logg integrering kan du integrera obehandlade loggar från dina Azure-
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>Implementera användar etablering för anslutna appar
 
-Med Azure AD kan du automatisera genereringen, underhållet och borttagningen av användar identiteter i Cloud (SaaS)-program som Dropbox, Salesforce, ServiceNow och så vidare. Mer information finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure AD](../manage-apps/user-provisioning.md).
+Med Azure AD kan du automatisera genereringen, underhållet och borttagningen av användar identiteter i Cloud (SaaS)-program som Dropbox, Salesforce, ServiceNow och så vidare. Mer information finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure AD](../app-provisioning/user-provisioning.md).
 
 #### <a name="integrate-information-protection"></a>Integrera informations skydd
 
-Med MCAS kan du undersöka filer och ange principer baserat på Azure Information Protection klassificerings etiketter, vilket ger bättre synlighet och kontroll över dina data i molnet. Genomsök och klassificera filer i molnet och Använd Azure information Protection-etiketter. Mer information finns i [integrering med Azure Information Protection](https://docs.microsoft.com/cloud-app-security/azip-integration).
+Med MCAS kan du undersöka filer och ange principer baserat på Azure Information Protection klassificerings etiketter, vilket ger bättre synlighet och kontroll över dina data i molnet. Genomsök och klassificera filer i molnet och Använd Azure information Protection-etiketter. Mer information finns i [Azure information Protection-integrering](https://docs.microsoft.com/cloud-app-security/azip-integration).
 
 #### <a name="configure-conditional-access"></a>Konfigurera villkorlig åtkomst
 
@@ -318,7 +318,7 @@ För att säkerställa att användarnas åtkomst skyddas i anslutna program, rek
 * Förhindra data läckage
 * Minimera risker och automatiserat skydd av hot och princip tillämpning
 
-Cloud App Security SIEM-agenten integrerar Cloud App Security med SIEM-servern för att aktivera centraliserad övervakning av Office 365-aviseringar och-aktiviteter. Den körs på servern och hämtar aviseringar och aktiviteter från Cloud App Security och strömmar dem till SIEM-servern. Mer information finns i [SIEM-integrering](https://docs.microsoft.com/cloud-app-security/siem).
+Cloud App Security SIEM-agenten integrerar Cloud App Security med SIEM-servern för att aktivera centraliserad övervakning av Office 365-aviseringar och-aktiviteter. Den körs på servern och hämtar aviseringar och aktiviteter från Cloud App Security och strömmar dem till SIEM-servern. Mer information finns i [Siem-integrering](https://docs.microsoft.com/cloud-app-security/siem).
 
 ## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>Steg 4: Fortsätt att skapa försvar för en mer proaktiv säkerhets position
 

@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aba613911328b1272ebb07eeae633932cb4a442f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5257d9f94f6304c2a8dbea3f1648a71d0ba65e94
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935361"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064758"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Mac
 
 En Azure Machine Learning-arbetsyta är en Azure-resurs. Precis som andra Azure-resurser, och när en ny Azure Machine Learning arbets yta skapas, levereras den med tre standard roller. Du kan lägga till användare i arbets ytan och tilldela dem till någon av dessa inbyggda roller.
 
-| Roll | Åtkomst nivå |
+| Roll | Åtkomstnivå |
 | --- | --- |
 | **Läsare** | Skrivskyddade åtgärder på arbets ytan. Läsarna kan visa och Visa till gångar i en arbets yta, men kan inte skapa eller uppdatera dessa till gångar. |
 | **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) till gångar i en arbets yta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräknings kluster, skicka in en körning och distribuera en webb tjänst. |
@@ -112,9 +112,65 @@ Mer information om anpassade roller finns i [anpassade roller för Azure-resurse
 
 Mer information om de åtgärder (åtgärder) som kan användas med anpassade roller finns i [Resource Provider-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>F. Vilka är de behörigheter som krävs för att utföra olika åtgärder i Azure Machine Learnings tjänsten?
+
+Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och de behörigheter som krävs för att utföra dem med minsta möjliga omfattning. Exempel: om en aktivitet kan utföras med ett område för arbets ytor (kolumn 4), kommer alla högre omfång med den behörigheten också att fungera automatiskt. Alla sökvägar i den här tabellen är **relativa sökvägar** till `Microsoft.MachineLearningServices/`.
+
+| Aktivitet | Omfång på prenumerations nivå | Omfång på resurs grupps nivå | Omfång på arbets ytans nivå |
+|---|---|---|---|
+| Skapa ny arbets yta | Krävs inte | Ägare eller deltagare | Ej tillämpligt (blir ägare eller ärver högre omfattnings roll efter att det har skapats) |
+| Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `workspaces/computes/write` |
+| Skapa ny virtuell dator för Notebook | Krävs inte | Ägare eller deltagare | Inte möjlig |
+| Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `workspaces/computes/write` |
+| Data Plans aktivitet som att skicka körning, komma åt data, distribuera modell eller publicera pipeline | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `workspaces/*/write` <br/> Observera att du också behöver ett data lager som är registrerat på arbets ytan för att tillåta MSI att komma åt data i ditt lagrings konto. |
+
+
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>F. Hur gör jag för att lista alla anpassade roller i min prenumeration?
+
+Kör följande kommando i Azure CLI.
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>F. Hur gör jag för att hittar du roll definitionen för en roll i min prenumeration?
+
+Kör följande kommando i Azure CLI. Observera att `<role-name>` ska ha samma format som returneras av kommandot ovan.
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+### <a name="q-how-do-i-update-a-role-definition"></a>F. Hur gör jag för att uppdatera en roll definition?
+
+Kör följande kommando i Azure CLI.
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+Observera att du måste ha behörighet för hela omfattningen av din nya roll definition. Om den nya rollen till exempel har ett omfång över tre prenumerationer måste du ha behörighet för alla tre prenumerationerna. 
+
+> [!NOTE]
+> Roll uppdateringar kan ta 15 minuter till en timme att tillämpa på alla roll tilldelningar i det omfånget.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>F. Kan jag definiera en roll som förhindrar uppdatering av arbets ytans version? 
+
+Ja, du kan definiera en roll som förhindrar uppdatering av arbets ytans version. Eftersom uppdatering av arbets ytan är ett KORRIGERINGs anrop för objektet arbets yta gör du detta genom att lägga till följande åtgärd i `"NotActions"` matrisen i din JSON-definition: 
+
+`"Microsoft.MachineLearningServices/workspaces/write"`
+
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>F. Vilka behörigheter krävs för att utföra kvot åtgärder på en arbets yta? 
+
+Du måste ha behörighet som prenumerations nivå för att utföra en kvot relaterad åtgärd i arbets ytan. Det innebär att det bara går att ange kvoten på prenumerations nivå eller på arbets ytans kvot för dina hanterade beräknings resurser om du har Skriv behörighet i prenumerations omfånget. 
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över företags säkerhet](concept-enterprise-security.md)
 - [Köra experiment och härledning/Poäng i ett virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md)
-- [Självstudie: Träna modeller](tutorial-train-models-with-aml.md)
+- [Självstudie: träna modeller](tutorial-train-models-with-aml.md)
 - [Åtgärder för resurs leverantör](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

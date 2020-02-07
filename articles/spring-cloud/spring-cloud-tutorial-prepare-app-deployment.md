@@ -4,14 +4,14 @@ description: I den här självstudien förbereder du ett Java våren-program fö
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 10/06/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 9918c7866b21cd2a9e021a355fb43977c91a89cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 7a879fa942046376e8cf0acc40a62039e8f3de25
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277448"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064724"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
 
@@ -25,38 +25,14 @@ Azure våren Cloud stöder både Java 8 och Java 11. Värd miljön innehåller d
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Moln versioner för våren start och våren
 
-Azure våren Cloud stöder bara våren Boot-appar. Det stöder både våren Boot version 2,0 och version 2,1. I följande tabell visas de kombinationer som stöds av våren-start och våren:
+Azure våren Cloud stöder bara våren Boot-appar. Det stöder både våren Boot version 2,1 och version 2,2. I följande tabell visas de kombinationer som stöds av våren-start och våren:
 
 Start version för våren | Våren Cloud-version
 ---|---
-2.0 | Finchley. RELEASE
 2.1 | Greenwich. RELEASE
+2.2 | Hoxton. RELEASE
 
 Kontrol lera att Pom. XML-filen har rätt våren-start-och våren-moln beroenden baserat på din våren Boot-version.
-
-### <a name="dependencies-for-spring-boot-version-20"></a>Beroenden för vår start version 2,0
-
-```xml
-    <!-- Spring Boot dependencies -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.9.RELEASE</version>
-    </parent>
-
-    <!-- Spring Cloud dependencies -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-```
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Beroenden för vår start version 2,1
 
@@ -65,7 +41,7 @@ Kontrol lera att Pom. XML-filen har rätt våren-start-och våren-moln beroenden
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <version>2.1.12.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -74,7 +50,31 @@ Kontrol lera att Pom. XML-filen har rätt våren-start-och våren-moln beroenden
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR3</version>
+                <version>Greenwich.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
+### <a name="dependencies-for-spring-boot-version-22"></a>Beroenden för vår start version 2,2
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -90,20 +90,10 @@ I följande tabell visas rätt Azure våren Cloud-versioner för din app som anv
 
 Start version för våren | Våren Cloud-version | Azure våren Cloud-version
 ---|---|---
-2.0 | Finchley. RELEASE | 2.0
 2.1 | Greenwich. RELEASE | 2.1
+2.2 | Hoxton. RELEASE | 2.2
 
 Inkludera något av följande beroenden i din Pom. XML-fil. Välj det beroende vars Azure våren Cloud-version matchar din egen.
-
-### <a name="dependency-for-azure-spring-cloud-version-20"></a>Beroende av Azure våren Cloud version 2,0
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.0.0</version>
-</dependency>
-```
 
 ### <a name="dependency-for-azure-spring-cloud-version-21"></a>Beroende av Azure våren Cloud version 2,1
 
@@ -111,7 +101,17 @@ Inkludera något av följande beroenden i din Pom. XML-fil. Välj det beroende v
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0</version>
+        <version>2.1.1</version>
+</dependency>
+```
+
+### <a name="dependency-for-azure-spring-cloud-version-22"></a>Beroende av Azure våren Cloud version 2,2
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.2.0</version>
 </dependency>
 ```
 

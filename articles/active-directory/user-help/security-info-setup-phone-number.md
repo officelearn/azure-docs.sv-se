@@ -2,7 +2,7 @@
 title: Konfigurera ditt telefonnummer som din verifierings metod – Azure AD
 description: Hur du konfigurerar din säkerhets information (förhands gransknings sida) för att verifiera din identitet med hjälp av ditt telefonnummer och din mobila enhet som verifierings metod.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.openlocfilehash: 93302388813f09a37628d16b4ede3f7d6cc08752
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: e85be9140aabe5b66e63d3ccdd4a3ea907a1d6fc
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704943"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062412"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Konfigurera ett telefonnummer som din verifierings metod
 

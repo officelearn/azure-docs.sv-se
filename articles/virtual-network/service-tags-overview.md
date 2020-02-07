@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 1fec2778ce8c839c5bac0c1d74085db0f8b283ce
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 26906f2a7343dbaf09f3107d2598e81a42c65091
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903002"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064656"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk 
 <a name="network-service-tags"></a>
@@ -40,56 +40,56 @@ Kolumnerna visar om taggen:
 
 Som standard återspeglar service märken intervallen för hela molnet. Vissa service märken ger också mer detaljerad kontroll genom att begränsa motsvarande IP-intervall till en angiven region. Till exempel representerar service tag- **lagringen** Azure Storage för hela molnet, men **Storage. väst** begränsar intervallet till endast lagrings-IP-adressintervall från regionen Väst. Följande tabell visar om varje service tag stöder det regionala omfånget.  
 
-| Tagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
+| Tagga | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | Hanterings trafik för Azure API Management dedikerade distributioner. | Båda | Inga | Ja |
-| **ApplicationInsightsAvailability** | Application Insights tillgänglighet. | Inkommande | Inga | Inga |
+| **ApiManagement** | Hanterings trafik för Azure API Management dedikerade distributioner. | Båda | Nej | Ja |
+| **ApplicationInsightsAvailability** | Application Insights tillgänglighet. | Inkommande | Nej | Nej |
 | **AppService**    | Azure App Service. Den här taggen rekommenderas för utgående säkerhets regler till webbappens frontend-sidor. | Utgående | Ja | Ja |
-| **AppServiceManagement** | Hanterings trafik för distributioner avsedda för App Service-miljön. | Båda | Inga | Ja |
-| **AzureActiveDirectory** | Azure Active Directory. | Utgående | Inga | Ja |
-| **AzureActiveDirectoryDomainServices** | Hanterings trafik för distributioner avsedda för Azure Active Directory Domain Services. | Båda | Inga | Ja |
-| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Utgående | Inga | Inga |
-| **AzureBackup** |Azure Backup.<br/><br/>*Obs:* Den här taggen har ett beroende på **lagrings** -och **AzureActiveDirectory** -taggarna. | Utgående | Inga | Ja |
-| **AzureBotService** | Azure Bot Service. | Utgående | Inga | Inga |
+| **AppServiceManagement** | Hanterings trafik för distributioner avsedda för App Service-miljön. | Båda | Nej | Ja |
+| **AzureActiveDirectory** | Azure Active Directory. | Utgående | Nej | Ja |
+| **AzureActiveDirectoryDomainServices** | Hanterings trafik för distributioner avsedda för Azure Active Directory Domain Services. | Båda | Nej | Ja |
+| **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Utgående | Nej | Nej |
+| **AzureBackup** |Azure Backup.<br/><br/>*Obs:* Den här taggen har ett beroende på **lagrings** -och **AzureActiveDirectory** -taggarna. | Utgående | Nej | Ja |
+| **AzureBotService** | Azure Bot Service. | Utgående | Nej | Nej |
 | **AzureCloud** | Alla [offentliga IP-adresser för data Center](https://www.microsoft.com/download/details.aspx?id=56519). | Utgående | Ja | Ja |
-| **AzureCognitiveSearch** | Azure Kognitiv sökning (om du använder indexerare med en färdigheter). | Båda | Inga | Inga |
+| **AzureCognitiveSearch** | Azure Kognitiv sökning (om du använder indexerare med en färdigheter). | Båda | Nej | Nej |
 | **AzureConnectors** | Azure Logic Apps anslutningar för avsökning/backend-anslutningar. | Inkommande | Ja | Ja |
 | **AzureContainerRegistry** | Azure Container Registry. | Utgående | Ja | Ja |
 | **AzureCosmosDB** | Azure Cosmos DB. | Utgående | Ja | Ja |
-| **AzureDatabricks** | Azure Databricks. | Båda | Inga | Inga |
-| **AzureDataExplorerManagement** | Hantering av Azure-Datautforskaren. | Inkommande | Inga | Inga |
-| **AzureDataLake** | Azure Data Lake. | Utgående | Inga | Ja |
-| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Obs:* Den här taggen täcker Azure Event Grid slut punkter i södra centrala USA, östra USA, östra USA 2, västra USA 2 och endast USA, Central. | Båda | Inga | Inga |
-| **AzureFrontDoor** | Azure-front dörr. | Båda | Inga | Inga |
-| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Obs:* Den här taggen har ett beroende för **AzureActiveDirectory** -och **AzureFrontDoor. frontend** -taggarna. Du kan också vitlista följande IP-adresser (detta beroende kommer snart): 13.107.6.181 & 13.107.9.181. | Utgående | Inga | Inga |
-| **AzureIoTHub** | Azure-IoT Hub. | Utgående | Inga | Inga |
+| **AzureDatabricks** | Azure Databricks. | Båda | Nej | Nej |
+| **AzureDataExplorerManagement** | Hantering av Azure-Datautforskaren. | Inkommande | Nej | Nej |
+| **AzureDataLake** | Azure Data Lake. | Utgående | Nej | Ja |
+| **AzureEventGrid** | Azure Event Grid. <br/><br/>*Obs:* Den här taggen täcker Azure Event Grid slut punkter i södra centrala USA, östra USA, östra USA 2, västra USA 2 och endast USA, Central. | Båda | Nej | Nej |
+| **AzureFrontDoor** | Azure-front dörr. | Båda | Nej | Nej |
+| **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Obs:* Den här taggen har ett beroende för **AzureActiveDirectory** -och **AzureFrontDoor. frontend** -taggarna. Du kan också vitlista följande IP-adresser (detta beroende kommer snart): 13.107.6.181 & 13.107.9.181. | Utgående | Nej | Nej |
+| **AzureIoTHub** | Azure-IoT Hub. | Utgående | Nej | Nej |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Obs:* Den här taggen har ett beroende av **AzureActiveDirectory** -taggen. | Utgående | Ja | Ja |
-| **AzureLoadBalancer** | Azure Infrastructure belastningsutjämnare. Taggen översätts till den [virtuella IP-adressen för värden](security-overview.md#azure-platform-considerations) (168.63.129.16) där Azures hälso avsökningen kommer. Detta omfattar inte trafik till din Azure Load Balancer-resurs. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. | Båda | Inga | Inga |
-| **AzureMachineLearning** | Azure Machine Learning. | Båda | Inga | Ja |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon och anpassade mått (GB-slutpunkter).<br/><br/>*Obs:* För Log Analytics har den här taggen ett beroende på **lagrings** tag gen. | Utgående | Inga | Ja |
-| **AzurePlatformDNS** | Standard-DNS-tjänsten (Basic Infrastructure).<br/><br>Du kan använda den här taggen för att inaktivera standard-DNS. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Inga | Inga |
-| **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), som är en grundläggande infrastruktur tjänst.<br/><br/>Du kan använda den här taggen för att inaktivera standard IMDS. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Inga | Inga |
-| **AzurePlatformLKM** | Windows-licensiering eller nyckel hanterings tjänst.<br/><br/>Du kan använda den här taggen för att inaktivera standardvärdena för licensiering. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Inga | Inga |
-| **AzureResourceManager** | Azure Resource Manager. | Utgående | Inga | Inga |
-| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Obs:* Den här taggen har ett beroende på taggarna **Storage**, **AzureActiveDirectory**och **EventHub** . | Utgående | Inga | Inga |
-| **AzureTrafficManager** | IP-adresser för Azure Traffic Manager-avsökning.<br/><br/>Mer information om Traffic Manager avsöknings-IP-adresser finns i [vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inkommande | Inga | Ja |  
-| **BatchNodeManagement** | Hanterings trafik för distributioner avsedda för Azure Batch. | Båda | Inga | Ja |
-| **CognitiveServicesManagement** | Adress intervall för trafik för Azure-Cognitive Services. | Utgående | Inga | Inga |
-| **Dynamics365ForMarketingEmail** | Adress intervallen för Marketing e-posttjänsten för Dynamics 365. | Utgående | Ja | Inga |
-| **ElasticAFD** | Elastisk Azure-front dörr. | Båda | Inga | Inga |
+| **AzureLoadBalancer** | Azure Infrastructure belastningsutjämnare. Taggen översätts till den [virtuella IP-adressen för värden](security-overview.md#azure-platform-considerations) (168.63.129.16) där Azures hälso avsökningen kommer. Detta omfattar inte trafik till din Azure Load Balancer-resurs. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. | Båda | Nej | Nej |
+| **AzureMachineLearning** | Azure Machine Learning. | Båda | Nej | Ja |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon och anpassade mått (GB-slutpunkter).<br/><br/>*Obs:* För Log Analytics har den här taggen ett beroende på **lagrings** tag gen. | Utgående | Nej | Ja |
+| **AzurePlatformDNS** | Standard-DNS-tjänsten (Basic Infrastructure).<br/><br>Du kan använda den här taggen för att inaktivera standard-DNS. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Nej | Nej |
+| **AzurePlatformIMDS** | Azure Instance Metadata Service (IMDS), som är en grundläggande infrastruktur tjänst.<br/><br/>Du kan använda den här taggen för att inaktivera standard IMDS. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Nej | Nej |
+| **AzurePlatformLKM** | Windows-licensiering eller nyckel hanterings tjänst.<br/><br/>Du kan använda den här taggen för att inaktivera standardvärdena för licensiering. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations).  Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Nej | Nej |
+| **AzureResourceManager** | Azure Resource Manager. | Utgående | Nej | Nej |
+| **AzureSiteRecovery** | Azure Site Recovery.<br/><br/>*Obs:* Den här taggen har ett beroende på taggarna **Storage**, **AzureActiveDirectory**och **EventHub** . | Utgående | Nej | Nej |
+| **AzureTrafficManager** | IP-adresser för Azure Traffic Manager-avsökning.<br/><br/>Mer information om Traffic Manager avsöknings-IP-adresser finns i [vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Inkommande | Nej | Ja |  
+| **BatchNodeManagement** | Hanterings trafik för distributioner avsedda för Azure Batch. | Båda | Nej | Ja |
+| **CognitiveServicesManagement** | Adress intervall för trafik för Azure-Cognitive Services. | Utgående | Nej | Nej |
+| **Dynamics365ForMarketingEmail** | Adress intervallen för Marketing e-posttjänsten för Dynamics 365. | Utgående | Ja | Nej |
+| **ElasticAFD** | Elastisk Azure-front dörr. | Båda | Nej | Nej |
 | **EventHub** | Azure-Event Hubs. | Utgående | Ja | Ja |
-| **GatewayManager** | Hanterings trafik för distributioner avsedda för Azure VPN Gateway och Application Gateway. | Inkommande | Inga | Inga |
-| **GuestAndHybridManagement** | Azure Automation-och gäst konfiguration. | Utgående | Inga | Ja |
-| **HDInsight** | Azure HDInsight. | Inkommande | Ja | Inga |
-| **E** | IP-adressutrymmet som ligger utanför det virtuella nätverket och som kan användas av det offentliga Internet.<br/><br/>Adress intervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Båda | Inga | Inga |
-| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Utgående | Inga | Inga |
+| **GatewayManager** | Hanterings trafik för distributioner avsedda för Azure VPN Gateway och Application Gateway. | Inkommande | Nej | Nej |
+| **GuestAndHybridManagement** | Azure Automation-och gäst konfiguration. | Utgående | Nej | Ja |
+| **HDInsight** | Azure HDInsight. | Inkommande | Ja | Nej |
+| **E** | IP-adressutrymmet som ligger utanför det virtuella nätverket och som kan användas av det offentliga Internet.<br/><br/>Adress intervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Båda | Nej | Nej |
+| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Utgående | Nej | Nej |
 | **MicrosoftContainerRegistry** | Container Registry för Microsoft container-avbildningar. <br/><br/>*Obs:* Vitlista följande IP-adress (det här beroendet kommer snart att tas bort): 204.79.197.219. | Utgående | Ja | Ja |
-| **ServiceBus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Utgående | Ja | Ja |
-| **ServiceFabric** | Azure-Service Fabric. | Utgående | Inga | Inga |
+| **Service Bus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Utgående | Ja | Ja |
+| **ServiceFabric** | Azure-Service Fabric.<br/><br/>*Obs:* Den här taggen representerar Service Fabric tjänstens slut punkt för kontroll planet per region. Detta gör det möjligt för kunderna att utföra hanterings åtgärder för sina Service Fabric-kluster från sitt VNET (t. ex. slut punkt. https://westus.servicefabric.azure.com) | Båda | Nej | Nej |
 | **SQL** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL och Azure SQL Data Warehouse.<br/><br/>*Obs:* Den här taggen representerar tjänsten, men inte vissa instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. | Utgående | Ja | Ja |
-| **SqlManagement** | Hanterings trafik för SQL-dedikerade distributioner. | Båda | Inga | Ja |
+| **SqlManagement** | Hanterings trafik för SQL-dedikerade distributioner. | Båda | Nej | Ja |
 | **Storage** | Azure Storage. <br/><br/>*Obs:* Den här taggen representerar tjänsten, men inte vissa instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure Storage, men inte ett specifikt Azure Storage-konto. | Utgående | Ja | Ja |
-| **VirtualNetwork** | Det virtuella nätverkets adress utrymme (alla IP-adressintervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk, virtuella nätverk som är anslutna till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), den [virtuella IP-adressen för värden](security-overview.md#azure-platform-considerations)och de adressprefix som används för [användardefinierade vägar](virtual-networks-udr-overview.md). Den här taggen kan också innehålla standard vägar. | Båda | Inga | Inga |
+| **VirtualNetwork** | Det virtuella nätverkets adress utrymme (alla IP-adressintervall som definierats för det virtuella nätverket), alla anslutna lokala adress utrymmen, [peer](virtual-network-peering-overview.md) -kopplade virtuella nätverk, virtuella nätverk som är anslutna till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), den [virtuella IP-adressen för värden](security-overview.md#azure-platform-considerations)och de adressprefix som används för [användardefinierade vägar](virtual-networks-udr-overview.md). Den här taggen kan också innehålla standard vägar. | Båda | Nej | Nej |
 
 >[!NOTE]
 >I den klassiska distributions modellen (före Azure Resource Manager) stöds en delmängd av de taggar som anges i föregående tabell. Dessa taggar har stavats på olika sätt:

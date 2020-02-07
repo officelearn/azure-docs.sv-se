@@ -3,12 +3,12 @@ title: Installations Azure Monitor för behållare real tids data (förhands gra
 description: Den här artikeln beskriver hur du ställer in real tids visningen av behållar loggar (STDOUT/STDERR) och händelser utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030700"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063772"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Så här ställer du in funktionen Live data (för hands version)
 
@@ -114,7 +114,7 @@ Mer information om avancerade säkerhets inställningar i Kubernetes finns i Kub
     >[!NOTE]
     >Om du använder den här funktionen i Azure Kina ska det första bas-URL-värdet vara `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` och det andra bas-URL-värdet ska vara `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. När du har registrerat URL: erna för omdirigering väljer du alternativen **åtkomsttoken** och **ID-token** under **Avancerade inställningar**och sparar sedan ändringarna.
+4. När du har registrerat URL: erna för omdirigering väljer du alternativet **åtkomsttoken** och **ID-token** under **implicit tilldelning**och sparar sedan ändringarna.
 
 >[!NOTE]
 >Att konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under den första distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning på för ett AKS-kluster som redan har distribuerats.

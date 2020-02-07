@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 309af904f0dbfc0664c4341803cb6a4dc8a2c8a4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 23c292a950deea262ee063b4141b07a4f64f9f84
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839288"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061336"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Använd Data Lake Storage Gen1 som ytterligare lagrings utrymme
 
-Du kan också använda Data Lake Storage Gen1 som ytterligare lagring för klustret. I sådana fall kan klustrets standard lagring antingen vara ett Azure Storage Blob eller ett Data Lake Storage konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagrings utrymme måste du använda den fullständigt kvalificerade sökvägen till filerna. Till exempel:
+Du kan också använda Data Lake Storage Gen1 som ytterligare lagring för klustret. I sådana fall kan klustrets standard lagring antingen vara ett Azure Storage Blob eller ett Data Lake Storage konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagrings utrymme måste du använda den fullständigt kvalificerade sökvägen till filerna. Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observera att det inte finns någon **cluster_root_path** i URL-adressen nu. Det beror på att Data Lake Storage inte är ett standard lagrings utrymme i det här fallet, så allt du behöver göra är att ange sökvägen till filerna.
 
-För att kunna använda en Data Lake Storage Gen1 som ytterligare lagrings utrymme behöver du bara ge tjänstens huvud namn åtkomst till Sök vägarna där filerna lagras.  Till exempel:
+För att kunna använda en Data Lake Storage Gen1 som ytterligare lagrings utrymme behöver du bara ge tjänstens huvud namn åtkomst till Sök vägarna där filerna lagras.  Exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -210,7 +210,7 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identifiera lagrings Sök väg från ABMari
+## <a name="identify-storage-path-from-ambari"></a>Identifiera lagrings Sök väg från Ambari
 
 Om du vill identifiera den fullständiga sökvägen till det konfigurerade standard arkivet navigerar du till **HDFS** > **configs** och anger `fs.defaultFS` i rutan Filter indatamängd.
 

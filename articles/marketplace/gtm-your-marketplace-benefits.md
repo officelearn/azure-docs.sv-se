@@ -6,14 +6,14 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/08/2020
 ms.author: evansma
-ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121819"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064959"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -88,7 +88,7 @@ Förutom förmåns förmånerna har företags program partner med Dynamics-erbju
 
 Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtalet för Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) och omfattas av tillägget för kommersiella förmåner.
 
-### <a name="cancellation-policy"></a>Annulleringspolicy
+### <a name="cancellation-policy"></a>Avslutnings princip
 
 [Lista och utvärderings versioner](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) kan välja ut eller avanmäla sig till aktiviteter per erbjudande publicering. Partner kan när som helst säga upp eventuella engagemang. 
 
@@ -99,7 +99,7 @@ Microsoft förbehåller sig rätten att återkalla och säga upp förmåner till
 * Använd sitt erbjudande för att Visa marknadsföring eller annat innehåll som strider mot upphovs rätts eller varumärkes lagar.
 * strider mot principerna för [Azure Sponsring-programmet](https://azure.microsoft.com/offers/ms-azr-0036p/), inklusive, men inte begränsat till, med hjälp av Azure sponsring-finansiering för sina egna interna åtgärder eller Bitcoin-utvinning. 
 
-### <a name="offer-availability"></a>Erbjudandets tillgänglighet
+### <a name="offer-availability"></a>Erbjudande tillgänglighet
 
 Det här erbjudandet utförs på engelska för alla partner med ett Live-erbjudande i Azure Marketplace eller Microsoft AppSource.
 

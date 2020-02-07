@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048479"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056350"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
@@ -21,7 +21,7 @@ Azure Virtual WAN är en nätverks tjänst som tillhandahåller optimerad och au
 
 Azure Virtual WAN ger tillsammans många Azure Cloud Connectivity-tjänster, till exempel plats-till-plats-VPN, användar-VPN (punkt-till-plats) och ExpressRoute till ett enda drifts gränssnitt. Anslutning till Azure-virtuella nätverk upprättas med hjälp av virtuella nätverks anslutningar. Den möjliggör [Global transit nätverks arkitektur](virtual-wan-global-transit-network-architecture.md) baserat på en klassisk nav-och-eker-nätverksanslutning där det molnbaserade nätverkets hubb möjliggör transitiv anslutning mellan slut punkter som kan fördelas mellan olika typer av ekrar.
 
-![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
+![Virtuellt WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 
 Den här artikeln ger en snabb överblick över nätverks anslutningen i Azure Virtual WAN. Virtual WAN har följande fördelar:
 
@@ -36,6 +36,13 @@ Det finns två typer av virtuella WAN-enheter: Basic och standard. I följande t
 [!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
 Anvisningar för hur du uppgraderar ett virtuellt WAN finns i [uppgradera ett virtuellt WAN-nätverk från Basic till standard](upgrade-virtual-wan.md).
+
+## <a name="architecture"></a>Designen
+
+Information om virtuella WAN-arkitektur och hur du migrerar till virtuellt WAN finns i följande artiklar:
+
+* [Virtuell WAN-arkitektur](migrate-from-hub-spoke-topology.md)
+* [Nätverks arkitektur för global överföring](virtual-wan-global-transit-network-architecture.md)
 
 ## <a name="resources"></a>Virtual WAN-resurser
 
@@ -57,13 +64,13 @@ Om du vill konfigurera ett virtuellt WAN från slutpunkt till slutpunkt skapar d
 
   * **Plats:** Den här resursen används endast för plats-till-plats-anslutningar. Plats resursen är **vpnsite**. Den representerar din lokala VPN-enhet och dess inställningar. Om du arbetar med en Virtual WAN-partner har du en inbyggd lösning som hjälper dig att automatiskt exportera den här informationen till Azure.
 
-## <a name="connectivity"></a>Koppling
+## <a name="connectivity"></a>Typer av anslutningar
 
 Virtuella WAN-nätverk möjliggör följande typer av anslutningar: plats-till-plats-VPN, användar-VPN (punkt-till-plats) och ExpressRoute.
 
 ### <a name="s2s"></a>Plats-till-plats-VPN-anslutningar
 
-![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan.png)
+![Virtuellt WAN-diagram](./media/virtual-wan-about/virtualwan.png)
 
 När du skapar en virtuell WAN-plats-till-plats-anslutning kan du arbeta med en tillgänglig partner. Om du inte vill använda en partner kan du konfigurera anslutningen manuellt. Mer information finns i [skapa en plats-till-plats-anslutning med hjälp av virtuellt WAN](virtual-wan-site-to-site-portal.md).
 

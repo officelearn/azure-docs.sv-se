@@ -2,7 +2,7 @@
 title: Vad är Microsoft Authenticator-appen? - Azure Active Directory | Microsoft Docs
 description: Läs mer om Microsoft Authenticator-appen, till exempel vad det är, hur det fungerar och vilken information som ingår i det här avsnittet av innehållet.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: 010302d3a4c7498f7fa5344dc73e7b182c4b94bc
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: c95ae2e48a7d5a3b9e9e28b1d4e14b670205c043
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704671"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062293"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
 

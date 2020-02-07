@@ -3,8 +3,8 @@ title: Migrera virtuella datorer till Resource Manager med Azure CLI
 description: Den här artikeln går igenom den plattforms oberoende migreringen av resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d6f5a877-05b6-4127-a545-3f5bede4e479
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
-ms.openlocfilehash: 1ebb1ee5056d3b1e6e85bea43473de5918ddba5c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 4273ca00110a2966ca794eaa3d6b5fcc5ec9f00e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645182"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057404"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 De här stegen visar hur du använder kommando rads kommandon i Azure (CLI) för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell. Artikeln kräver den [klassiska Azure CLI](../../cli-install-nodejs.md). Eftersom Azure CLI bara är tillämpligt för Azure Resource Manager-resurser kan det inte användas för migreringen.

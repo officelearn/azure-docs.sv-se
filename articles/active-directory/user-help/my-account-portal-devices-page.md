@@ -2,7 +2,7 @@
 title: Hantera dina anslutna enheter från min konto Portal – Azure AD
 description: Visa och inaktivera enheter som är anslutna till ditt arbets-eller skol konto från sidan enheter i min konto Portal.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: jpettere
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.author: lizross
-ms.openlocfilehash: 60eb0fb0f7129b148b4a30f9ed96b402d6b018fb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: e273a44c1cbc5a6a6161f059038c7e87973a33d5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705164"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062497"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Hantera dina anslutna enheter från sidan enheter
 

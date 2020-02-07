@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera belönings-Gateway för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera belönings-Gateway för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till belöna Gateway.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 4d07fa66374908781fd1d637fd722fd60d1352b3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 928d48907e43de5e65ca5604ff878bfb83d5e95b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737880"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061019"
 ---
-# <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Självstudier: Konfigurera belönings-Gateway för automatisk användar etablering
+# <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Självstudie: Konfigurera belönings-Gateway för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i belönings-gateway och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper för att ta med Gateway.
 
@@ -41,7 +41,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assigning-users-to-reward-gateway"></a>Tilldela användare till belönad Gateway 
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till belöna Gateway. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till belöna Gateway genom att följa anvisningarna i [tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -55,7 +55,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 ## <a name="setup-reward-gateway--for-provisioning"></a>Konfigurera belönings-Gateway för etablering
 Innan du konfigurerar belönings-Gateway för automatisk användar etablering med Azure AD måste du aktivera SCIM etablering på Belönad Gateway.
 
-1. Logga in på administrations konsolen för din [belönings Gateway](https://rewardgateway.photoshelter.com/login/). Klickapå integrationer.
+1. Logga in på [administrations konsolen för din belönings Gateway](https://rewardgateway.photoshelter.com/login/). Klicka på **integrationer**.
 
     ![Administratörs konsol för belönings Gateway](media/reward-gateway-provisioning-tutorial/image00.png)
 
@@ -63,7 +63,7 @@ Innan du konfigurerar belönings-Gateway för automatisk användar etablering me
 
     ![Administratörs konsol för belönings Gateway](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.  Kopiera värdena för **scim-URL (v2)** och **OAuth Bearer**-token. Dessa värden anges i fältet klient-URL och hemligt token på fliken etablering i ditt belöna Gateway-program i Azure Portal.
+3.  Kopiera värdena för **scim-URL (v2)** och **OAuth Bearer-token**. Dessa värden anges i fältet klient-URL och hemligt token på fliken etablering i ditt belöna Gateway-program i Azure Portal.
 
     ![Administratörs konsol för belönings Gateway](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -79,13 +79,13 @@ Om du vill konfigurera belönings-Gateway för automatisk användar etablering m
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger du belönings- **Gateway**, väljer **belöna Gateway** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **belönings-Gateway**, väljer **belöna Gateway** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Belönings-gateway i resultat listan](common/search-new-app.png)
 
@@ -102,7 +102,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du belönings- **Gateway**.
+2. I listan program väljer du **belönings-Gateway**.
 
     ![Länken belöna gateway i program listan](common/all-applications.png)
 
@@ -114,15 +114,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in **scim-URL: en (v2)** och **OAuth Bearer** -token som HÄMTAdes tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till belöna Gateway. Om anslutningen Miss lyckas kontrollerar du att ditt konto för belönings-Gateway har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in **scim-URL: en (v2)** och **OAuth Bearer-token** som HÄMTAdes tidigare i **klient-URL** respektive **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till belöna Gateway. Om anslutningen Miss lyckas kontrollerar du att ditt konto för belönings-Gateway har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till belöna Gateway**.
 
@@ -132,7 +132,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Administratörs konsol för belönings Gateway](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
-10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för belöna Gateway ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -148,7 +148,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på belönings-Gateway.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
@@ -156,9 +156,9 @@ Belönings-gatewayen stöder för närvarande inte grupp etablering.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+[Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02bae60622ca8f0e660c8fafbd21189d8e368ba9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82f7252f2d9cdd2c54fae593d8463bfe84bd6ce2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276611"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057659"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GitHub för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i GitHub och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till GitHub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klient
 * En GitHub-organisation som har skapats i [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) och kräver [GitHub Enterprise-faktureringsplanen](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * Ett användar konto i GitHub med administratörs behörighet till organisationen
+* Se till att OAuth-åtkomst har angetts för din organisation enligt beskrivningen [här](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 
 > [!NOTE]
 > Integreringen med Azure AD provisioning är beroende av [GITHUB scim-API: et](https://developer.github.com/v3/scim/), som är tillgängligt för [GitHub företags moln](https://help.github.com/articles/github-s-products/#github-enterprise) kunder på [företagets fakturerings plan för GitHub](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
@@ -70,7 +71,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till GitHub-API 
 
     ![GitHub-etablering](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. Under avsnittet **admin credentials** klickar du på **auktorisera**. Den här åtgärden öppnar en dialog ruta för GitHub-auktorisering i ett nytt webbläsarfönster. 
+5. Under avsnittet **admin credentials** klickar du på **auktorisera**. Den här åtgärden öppnar en dialog ruta för GitHub-auktorisering i ett nytt webbläsarfönster. Observera att du måste kontrol lera att du har godkänts för att godkänna åtkomst. Följ anvisningarna som beskrivs [här](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization).
 
 6. Logga in på GitHub med ditt administratörs konto i det nya fönstret. I dialog rutan resulterande auktorisering väljer du det GitHub-team som du vill aktivera etablering för och väljer sedan **auktorisera**. När du är klar återgår du till Azure Portal för att slutföra etablerings konfigurationen.
 
@@ -94,13 +95,13 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till GitHub-API 
 
 Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som har tilldelats GitHub i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

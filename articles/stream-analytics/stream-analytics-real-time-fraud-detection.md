@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 168f11e82305a0e08923289e71ae6ea0d36c1734
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0273a0a729d39de27b9e417c23624992d1d55b42
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458792"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064416"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: identifiering av bedrägerier i real tid
 
@@ -31,7 +31,7 @@ I den här självstudien används exemplet på identifiering av bedrägerier i r
 
 Ett tele bolag har en stor mängd data för inkommande samtal. Företaget vill kunna identifiera bedrägliga samtal i real tid så att de kan meddela kunder eller stänga av tjänsten för ett särskilt nummer. En typ av SIM-bedrägeri omfattar flera anrop från samma identitet ungefär samma tid, men i geografiskt olika platser. För att identifiera den här typen av bedrägerier måste företaget undersöka inkommande telefon poster och leta efter vissa mönster, i det här fallet för samtal som görs runt samma tid i olika länder/regioner. Alla telefon poster som tillhör den här kategorin skrivs till lagring för efterföljande analys.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien ska du simulera telefon samtals data med hjälp av en klient app som genererar metadata för telefonsamtal. Några av de poster som appen skapar ser ut som bedrägliga samtal. 
 
@@ -55,26 +55,33 @@ Du kan analysera en data ström genom *att mata in den i* Azure. Ett vanligt sä
 ### <a name="create-a-namespace-and-event-hub"></a>Skapa ett namnområde och en händelsehubb
 I den här proceduren skapar du först ett namn område för Event Hub och lägger sedan till en händelsehubben till det namn området. Namn områden för Event Hub används för att logiskt gruppera relaterade händelse buss instanser. 
 
-1. Logga in på Azure Portal och klicka på **skapa en resurs** > **Sakernas Internet** > **Event Hub**. 
+1. Logga in på Azure Portal och klicka på **skapa en resurs** längst upp till vänster på skärmen.
 
-2. I fönstret **skapa namn område** anger du ett namn områdes namn som `<yourname>-eh-ns-demo`. Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
+2. Välj **Alla tjänster** på den vänstra menyn och välj **stjärnan (`*`)** bredvid **Event Hubs** i kategorin **Analytics**. Bekräfta att **Event Hubs** läggs till i **FAVORITER** på den vänstra navigeringsmenyn. 
+
+   ![Söka efter Event Hubs](./media/stream-analytics-real-time-fraud-detection/select-event-hubs-menu.png)
+
+3. Välj **Event Hubs** under **FAVORITER** på den vänstra navigeringsmenyn och välj **Lägg till** i verktygsfältet.
+
+   ![Knappen Lägg till](./media/stream-analytics-real-time-fraud-detection/event-hubs-add-toolbar.png)
+
+4. I fönstret **skapa namn område** anger du ett namn områdes namn som `<yourname>-eh-ns-demo`. Du kan använda namn områdets namn, men namnet måste vara giltigt för en URL och det måste vara unikt i Azure. 
     
-3. Välj en prenumeration och skapa eller Välj en resurs grupp och klicka sedan på **skapa**.
+5. Välj en prenumeration och skapa eller Välj en resurs grupp och klicka sedan på **skapa**.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
-4. När namn rymden har distribuerats hittar du namn området för händelsehubben i listan med Azure-resurser. 
+6. När namn rymden har distribuerats hittar du namn området för händelsehubben i listan med Azure-resurser. 
 
-5. Klicka på det nya namn området och klicka på **händelsehubben**i rutan namn område.
+7. Klicka på det nya namn området och klicka på **händelsehubben**i rutan namn område.
 
    ![Knappen Lägg till Händelsehubben för att skapa en ny händelsehubben](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. Namnge den nya händelsehubben `asa-eh-frauddetection-demo`. Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben just nu.
+8. Namnge den nya händelsehubben `asa-eh-frauddetection-demo`. Du kan använda ett annat namn. Om du gör det, gör du en anteckning om det, eftersom du behöver namnet senare. Du behöver inte ange andra alternativ för händelsehubben just nu.
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
- 
-7. Klicka på **Skapa**.
+9. Klicka på **Skapa**.
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Bevilja åtkomst till händelsehubben och få en anslutningssträng
 
@@ -364,7 +371,7 @@ Om du har ett befintligt Blob Storage-konto kan du använda det. I den här sjä
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Klicka på **Spara**. 
+5. Klicka på **Save** (Spara). 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Starta Stream Analytics-jobbet
@@ -405,7 +412,7 @@ Men om du är klar och inte behöver de resurser som du har skapat kan du ta bor
 
 ## <a name="get-support"></a>Få support
 
-För mer hjälp kan du prova den [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Om du behöver ytterligare hjälp kan du prova [Azure Stream Analytics-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Rutan Konfigurera för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Box.
+title: 'Självstudie: Konfigurera box för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,123 +15,123 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60431764"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058577"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudier: Rutan Konfigurera för automatisk användaretablering
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudie: Konfigurera box för automatisk användar etablering
 
-Målet med den här självstudien är att visa steg du måste utföra i rutan och Azure AD att automatiskt etablera och användares användarkonton från Azure AD till Box.
+Syftet med den här självstudien är att visa de steg som du måste utföra i box och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till box.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande saker för att konfigurera Azure AD-integrering med Box:
 
 - En Azure AD-klient
-- En ruta verksamhetsplan eller bättre
+- En företags plan eller bättre
 
 > [!NOTE]
-> När du testar stegen i den här självstudien rekommenderar vi att du gör *inte* använder en produktionsmiljö.
+> När du testar stegen i den här självstudien rekommenderar vi att du *inte* använder en produktions miljö.
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Tilldela användare till Box 
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din Box-app. När du bestämt dig kan tilldela du dessa användare i din Box-app genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din box-app. När du har bestämt dig kan du tilldela dessa användare till din box-app genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ## <a name="assign-users-and-groups"></a>Tilldela användare och grupper
-Den **Box > användare och grupper** fliken i Azure-portalen kan du ange vilka användare och grupper bör ha åtkomst till Box. Tilldelningen av en användare eller grupp gör de följande händelser:
+På fliken **> användare och grupper** i Azure Portal kan du ange vilka användare och grupper som ska beviljas åtkomst till box. Tilldelning av en användare eller grupp gör att följande saker sker:
 
-* Azure AD tillåter den tilldelade användaren (antingen genom att direkt tilldelning eller gruppmedlemskap) för att autentisera till Box. Om en användare inte har tilldelats Azure AD tillåter inte dem att logga in till Box och returnerar ett fel på sidan för Azure AD.
-* En appanel för Box har lagts till i användarens [startprogrammet](../manage-apps/end-user-experiences.md).
-* Om automatisk etablering är aktiverat sedan läggs/tilldelade användare eller grupper till etablering kön som ska etableras automatiskt.
+* Azure AD tillåter den tilldelade användaren (antingen genom direkt tilldelning eller grupp medlemskap) att autentisera till box. Om en användare inte är tilldelad tillåter inte Azure AD att de loggar in på Box och returnerar ett fel på inloggnings sidan för Azure AD.
+* En app-panel för Box läggs till i användarens [program start](../manage-apps/end-user-experiences.md).
+* Om automatisk etablering har Aktiver ATS läggs de tilldelade användarna och/eller grupperna till i etablerings kön som ska tillhandahållas automatiskt.
   
-  * Om bara användarobjekt har konfigurerats för att etableras, sedan alla direkt tilldelade användare är placerade i etablering kön och alla användare som är medlemmar i några tilldelade grupper är placerade i etablering kön. 
-  * Om gruppobjekt har konfigurerats för att etableras, etableras alla tilldelade gruppobjekt till och alla användare som är medlemmar i dessa grupper. Medlemskap för gruppen och användaren bevaras när de skrivs till Box.
+  * Om endast användar objekt har kon figurer ATS för att tillhandahållas placeras alla direkt tilldelade användare i etablerings kön och alla användare som är medlemmar i alla tilldelade grupper placeras i etablerings kön. 
+  * Om grupp objekt har kon figurer ATS för att tillhandahållas, är alla tilldelade grupp objekt etablerade i rutan och alla användare som är medlemmar i dessa grupper. Gruppen och användarens medlemskap bevaras vid skrivning till box.
 
-Du kan använda den **attribut > enkel inloggning** fliken för att konfigurera vilka användarattribut (eller anspråk) visas rutan under SAML-baserad autentisering och **attribut > etablering** fliken konfigurera hur användar- och Gruppattribut flöda från Azure AD till Box under etableringen åtgärder.
+Du kan använda fliken **attribut > enkel inloggning** för att konfigurera vilka användarattribut (eller anspråk) som visas i rutan Under SAML-baserad autentisering och fliken **attribut > etablering** för att konfigurera hur användare och Gruppattribut flödar från Azure AD till Box under etablerings åtgärderna.
 
 ### <a name="important-tips-for-assigning-users-to-box"></a>Viktiga tips för att tilldela användare till Box 
 
-*   Vi rekommenderar att en enda Azure AD-användare som tilldelats testa etablering konfigurationen till Box. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att du testar etablerings konfigurationen genom att använda en enda Azure AD-användare som tilldelas till rutan. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   Du måste välja en giltig användarroll när du tilldelar en användare till box. Rollen ”standard åtkomst” fungerar inte för etablering.
+*   När du tilldelar en användare till Box måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
 
-## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk Användaretablering
+## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användar etablering
 
-Det här avsnittet hjälper till att ansluta din Azure AD till Box användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i rutan utifrån användar- och grupptilldelningar i Azure AD.
+Det här avsnittet visar hur du ansluter Azure AD till boxs etablerings-API för användar konto och konfigurerar etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Box baserat på användar-och grupp tilldelning i Azure AD.
 
-Om automatisk etablering är aktiverat sedan läggs/tilldelade användare eller grupper till etablering kön som ska etableras automatiskt.
+Om automatisk etablering har Aktiver ATS läggs de tilldelade användarna och/eller grupperna till i etablerings kön som ska tillhandahållas automatiskt.
     
- * Om det bara användarobjekt är konfigurerade för att etableras, och sedan direkt tilldelade användare är placerade i etablering kön och alla användare som är medlemmar i några tilldelade grupper placeras i kön för etablering. 
+ * Om endast användar objekt är konfigurerade för att tillhandahållas placeras direkt tilldelade användare i etablerings kön och alla användare som är medlemmar i alla tilldelade grupper placeras i etablerings kön. 
     
- * Om gruppobjekt har konfigurerats för att etableras, etableras alla tilldelade gruppobjekt till och alla användare som är medlemmar i dessa grupper. Medlemskap för gruppen och användaren bevaras när de skrivs till Box.
+ * Om grupp objekt har kon figurer ATS för att tillhandahållas, är alla tilldelade grupp objekt etablerade i rutan och alla användare som är medlemmar i dessa grupper. Gruppen och användarens medlemskap bevaras vid skrivning till box.
 
 > [!TIP] 
-> Du kan också välja att aktiverat SAML-baserad enkel inloggning för Box, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för ruta genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Konfigurera automatisk användarkontoetablering:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto:
 
-Målet med det här avsnittet som beskriver hur du aktivera etablering av Active Directory-användarkonton till Box.
+Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar etablering av Active Directory användar konton till box.
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-2. Om du redan har konfigurerat rutan för enkel inloggning, söka efter din instans av Box med hjälp av sökfältet. Annars väljer **Lägg till** och Sök efter **Box** i programgalleriet. Markera kryssrutan i sökresultatet och lägga till den i din lista över program.
+2. Om du redan har konfigurerat rutan för enkel inloggning söker du efter din instans av box med Sök fältet. Annars väljer du **Lägg till** och Sök **efter i** program galleriet. Markera rutan från Sök resultaten och Lägg till den i listan över program.
 
-3. Välj din instans av rutan och välj sedan den **etablering** fliken.
+3. Välj din instans av rutan och välj sedan fliken **etablering** .
 
-4. Ange den **Etableringsläge** till **automatisk**. 
+4. Ställ in **etablerings läget** på **automatiskt**. 
 
-    ![Etablering](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![etablerings](./media/box-userprovisioning-tutorial/provisioning.png)
 
-5. Under den **administratörsautentiseringsuppgifter** klickar du på **auktorisera** att öppna en dialogruta för inloggning i ett nytt webbläsarfönster.
+5. Under avsnittet **admin credentials** klickar du på **auktorisera** för att öppna dialog rutan inloggning i ett nytt webbläsarfönster.
 
-6. På den **inloggning att bevilja åtkomst till Box** anger autentiseringsuppgifterna som krävs, och klicka sedan på **auktorisera**. 
+6. Ange de autentiseringsuppgifter som krävs på sidan **Logga in för att ge åtkomst till Box** och klicka sedan på **auktorisera**. 
    
-    ![Aktivera automatisk användaretablering](./media/box-userprovisioning-tutorial/IC769546.png "aktivera automatisk användaretablering")
+    ![Aktivera automatisk användar etablering](./media/box-userprovisioning-tutorial/IC769546.png "Aktivera automatisk användar etablering")
 
-7. Klicka på **bevilja åtkomst till Box** att auktorisera den här åtgärden och återgå till Azure-portalen. 
+7. Klicka på **Tillåt åtkomst till rutan** om du vill auktorisera åtgärden och återgå till Azure Portal. 
    
-    ![Aktivera automatisk användaretablering](./media/box-userprovisioning-tutorial/IC769549.png "aktivera automatisk användaretablering")
+    ![Aktivera automatisk användar etablering](./media/box-userprovisioning-tutorial/IC769549.png "Aktivera automatisk användar etablering")
 
-8. I Azure-portalen klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till din Box-app. Om anslutningen misslyckas se till att ditt Box-konto har administratörsbehörighet för Team och försök på **”auktorisera”** steg igen.
+8. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din box-app. Om anslutningen Miss lyckas, se till att ditt Box-konto har team administratörs behörighet och försök att använda steget **"auktorisera"** igen.
 
-9. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fältet och markera kryssrutan.
+9. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan.
 
-10. Klicka på **spara.**
+10. Klicka på **Spara.**
 
-11. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till Box.**
+11. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till box.**
 
-12. I den **attributmappningar** går du igenom användarattribut som synkroniseras från Azure AD till Box. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i rutan för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+12. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till box. Attributen som väljs som **matchande** egenskaper används för att matcha användar konton i rutan för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-13. Om du vill aktivera den Azure AD-etableringstjänsten för Box, ändra den **Etableringsstatus** till **på** i avsnittet Inställningar
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för Box ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
 
-14. Klicka på **spara.**
+14. Klicka på **Spara.**
 
-Som startar den första synkroniseringen av användare och/eller grupper som tilldelats till rutan i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på din Box-app.
+Som startar den inledande synkroniseringen av en användare och/eller grupper som har tilldelats till rutan i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din box-app.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-Synkroniserade användare i din Box-klient visas under **hanterade användare** i den **administratörskonsolen**.
+I din box-klient visas synkroniserade användare under **hanterade användare** i **Administratörs konsolen**.
 
-![Status för integrering](./media/box-userprovisioning-tutorial/IC769556.png "integrering status")
+![Integrations status](./media/box-userprovisioning-tutorial/IC769556.png "Integrations status")
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](tutorial-list.md)
+* [Hantera användar konto etablering för företags program](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](box-tutorial.md)

@@ -3,14 +3,14 @@ title: Konfigurera en Windows-utvecklings miljö
 description: Installera runtime, SDK och verktyg och skapa ett lokalt utvecklingskluster. När du har slutfört den här installationen är du redo att börja bygga program i Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 02/05/2020
 ms.custom: sfrev
-ms.openlocfilehash: 70a819636b786cedce5bbd0abd0d2594738cbfb9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904107"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062123"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "76904107"
 
 Om du vill skapa och köra [Azure Service Fabric-program][1] på Windows Development-datorn installerar du Service Fabric runtime, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 
@@ -68,8 +68,8 @@ Om du bara behöver SDK kan du installera det här paketet:
 
 De aktuella versionerna är:
 
-* Service Fabric SDK och verktyg 4.0.464
-* Service Fabric runtime-7.0.464
+* Service Fabric SDK och verktyg 4.0.466
+* Service Fabric runtime-7.0.466
 
 En lista över versioner som stöds finns i [Service Fabric versioner](service-fabric-versions.md)
 

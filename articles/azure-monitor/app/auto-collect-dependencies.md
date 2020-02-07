@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6fe43eb5963f2918f41ad15f1904f883b5e9c298
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e774690fae2314b8db6e14f19a67c7ae1ce3a203
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678305"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064282"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
@@ -24,7 +24,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | App-ramverk| Versioner |
 | ------------------------|----------|
 | ASP.NET-webbformulär | 4,5 + |
-| ASP.NET MVC | 4 + |
+| ASP.NET MVC | 4+ |
 | ASP.NET WebAPI | 4,5 + |
 | ASP.NET Core | 1.1 + |
 | <b>Kommunikations bibliotek</b> |
@@ -43,7 +43,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
 | <b>App-ramverk</b> |  |
 | [Spring](https://spring.io/) | 3.0 |
-| [Våren Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup> *</sup> |
+| [Våren Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
 | Java-servlet | 3.1 + |
 | <b>Kommunikations bibliotek</b> |  |
 | [Apache HTTP-klient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3 +<sup>†</sup> |
@@ -53,7 +53,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1 +<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1 +<sup>†</sup> |
 | <b>Loggnings bibliotek</b> | |
-| [Logback](https://logback.qos.ch/) | 1 + |
+| [Logback](https://logback.qos.ch/) | 1+ |
 | [Log4j](https://logging.apache.org/log4j/) | 1.2 + |
 | <b>Mått bibliotek</b> |  |
 | JMX | 1.0 + |
@@ -88,6 +88,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 
 - Konfigurera anpassad beroende spårning för [.net](../../azure-monitor/app/asp-net-dependencies.md).
 - Konfigurera anpassad beroende spårning för [Java](../../azure-monitor/app/java-agent.md).
+- Konfigurera anpassad beroende spårning för python- [räkningar](../../azure-monitor/app/opencensus-python-dependency.md).
 - [Skriv anpassad beroende telemetri](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Se [data modell](../../azure-monitor/app/data-model.md) för Application Insights typer och data modell.
 - Kolla ut [plattformar](../../azure-monitor/app/platforms.md) som stöds av Application Insights.

@@ -3,20 +3,18 @@ title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934927"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064537"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
 Tjänsten [Azure Site Recovery](site-recovery-overview.md) uppdateras och förbättras regelbundet. I den här artikeln får du information om de senaste versionerna, nya funktioner och nytt innehåll som hjälper dig att hålla dig uppdaterad. Den här sidan uppdateras regelbundet.
 
 Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) -kanalen.
-
-
 
 ## <a name="supported-updates"></a>Uppdateringar som stöds
 
@@ -30,18 +28,18 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 [Samlad uppdatering 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Samlad uppdatering 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-
-
 [Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
 
 ## <a name="updates-january-2020"></a>Uppdateringar (januari 2020)
 
 ### <a name="update-rollup-44"></a>Samlad uppdatering 44
+
 Samlad [uppdatering 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) innehåller följande uppdateringar.
 
 **Uppdatering** | **Detaljer**
 --- | ---
-**Problem korrigeringar/förbättringar** | Ett antal uppdateringar av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
+**Leverantörer och agenter** | Det fanns inga uppdateringar för Site Recovery leverantörer och agenter.
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar som beskrivs i den samlade uppdateringen.
 
 ### <a name="azure-vmware-disaster-recovery"></a>Katastrof återställning i Azure VMware
 

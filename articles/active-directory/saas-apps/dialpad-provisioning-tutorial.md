@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Dialpad för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Dialpad.
+title: 'Självstudie: Konfigurera dialpad för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till dialpad.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,163 +15,163 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 32e634bc089417aaa8080b30a5f77f663a3d8b33
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9f39277644547a625d87a39681f0c5520996cbd6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611769"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058416"
 ---
-# <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Dialpad för automatisk användaretablering
+# <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Självstudie: Konfigurera dialpad för automatisk användar etablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Dialpad och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Dialpad.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i dialpad och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till dialpad.
 
 > [!NOTE]
->  Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+>  I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-> Den här anslutningsappen är för närvarande i förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här kopplingen är för närvarande en för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klientorganisation.
-* [En klient Dialpad](https://www.dialpad.com/pricing/).
-* Ett användarkonto i Dialpad med administratörsbehörighet.
+* [En dialpad-klient](https://www.dialpad.com/pricing/).
+* Ett användar konto i dialpad med administratörs behörighet.
 
-## <a name="assign-users-to-dialpad"></a>Tilldela användare till Dialpad
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+## <a name="assign-users-to-dialpad"></a>Tilldela användare till dialpad
+Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Dialpad. När du valt, kan du tilldela dessa användare och/eller grupper till Dialpad genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till dialpad. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till dialpad genom att följa anvisningarna här:
  
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md) 
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md) 
 
- ## <a name="important-tips-for-assigning-users-to-dialpad"></a>Viktiga tips för att tilldela användare till Dialpad
+ ## <a name="important-tips-for-assigning-users-to-dialpad"></a>Viktiga tips för att tilldela användare till dialpad
 
- * Vi rekommenderar att en enda Azure AD-användare har tilldelats Dialpad att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+ * Vi rekommenderar att en enda Azure AD-användare tilldelas dialpad för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Dialpad, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med rollen som standard åtkomst undantas från etablering.
+* När du tilldelar en användare till dialpad måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med standard åtkomst rollen undantas från etablering.
 
-## <a name="setup-dialpad-for-provisioning"></a>Konfigurera Dialpad för etablering
+## <a name="setup-dialpad-for-provisioning"></a>Konfigurera dialpad för etablering
 
-Innan du konfigurerar Dialpad för automatisk användarförsörjning med Azure AD behöver att hämta vissa etableringsinformationen från Dialpad.
+Innan du konfigurerar dialpad för automatisk användar etablering med Azure AD måste du hämta viss etablerings information från dialpad.
 
-1. Logga in på din [Dialpad administratörskonsolen](https://dialpadbeta.com/login) och välj **administratörsinställningar**. Se till att **mitt företag** väljs i listrutan. Gå till **autentisering > API-nycklar**.
+1. Logga in på [dialpad-administratörskonsolen](https://dialpadbeta.com/login) och välj **Administratörs inställningar**. Se till att **mitt företag** är markerat i list rutan. Navigera till **autentisering > API-nycklar**.
 
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
 
-2. Skapa en ny nyckel genom att klicka på **lägga till en nyckel** och konfigurera egenskaperna för din hemliga token.
+2. Generera en ny nyckel genom att klicka på **Lägg till en nyckel** och konfigurera egenskaperna för din hemliga token.
 
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
 
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
 
-3. Klicka på den **Klicka om du vill visa värdet** för din nyligen skapade API-nyckel och kopiera värdet som visas. Det här värdet ska anges i den **hemlighet Token** i fliken etablering Dialpad program i Azure-portalen. 
+3. Klicka på knappen **Klicka för att Visa värde** för din nyligen skapade API-nyckel och kopiera värdet som visas. Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt dialpad-program i Azure Portal. 
 
-    ![Dialpad skapa Token](media/dialpad-provisioning-tutorial/dialpad04.png)
+    ![Skapa token för dialpad](media/dialpad-provisioning-tutorial/dialpad04.png)
 
-## <a name="add-dialpad-from-the-gallery"></a>Lägg till Dialpad från galleriet
+## <a name="add-dialpad-from-the-gallery"></a>Lägg till dialpad från galleriet
 
-Du måste lägga till Dialpad från Azure AD-programgalleriet i listan över hanterade SaaS-program för att konfigurera Dialpad för automatisk användarförsörjning med Azure AD.
+Om du vill konfigurera dialpad för automatisk användar etablering med Azure AD måste du lägga till dialpad från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till Dialpad från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till dialpad från Azure AD-programgalleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan **alla program**.
-
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
-
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. I sökrutan anger **Dialpad**väljer **Dialpad** i resultatrutan.
-    ![Dialpad i resultatlistan](common/search-new-app.png)
-
-5. Navigera till den **URL** markerade nedan i en separat webbläsare. 
-
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
-
-6. I det övre högra hörnet väljer **logga In > Använd Dialpad online**.
-
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
-
-7. Eftersom Dialpad är en OpenIDConnect app, väljer du att logga in med ditt Microsoft-arbetskonto Dialpad.
-
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
-
-8. Acceptera medgivande för medgivande sidan efter en lyckad autentisering. Programmet sedan läggs automatiskt till din klient och du kommer att omdirigeras till ditt Dialpad-konto.
-
-    ![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/redirect.png)
-
- ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Konfigurera automatisk användaretablering till Dialpad
-
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och/eller grupper i Dialpad baserat på användare och/eller grupp tilldelningar i Azure AD.
-
-### <a name="to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad"></a>Konfigurera automatisk användaretablering för Dialpad i Azure AD:
-
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Dialpad**.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
-    ![Länken Dialpad i listan med program](common/all-applications.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-3. Välj den **etablering** fliken.
+4. I sökrutan anger du **dialpad**och väljer **dialpad** i panelen resultat.
+    ![dialpad i resultat listan](common/search-new-app.png)
 
-    ![Etablering](common/provisioning.png)
+5. Navigera till **URL:** en som marker ATS nedan i en separat webbläsare. 
 
-4. Ange den **Etableringsläge** till **automatisk**.
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
 
-    ![Etablering](common/provisioning-automatic.png)
+6. I det övre högra hörnet väljer du logga in **> använder dialpad online**.
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet Ange `https://dialpad.com/scim` i **klient-URL**. Indata det värde som du hämtade och sparat tidigare från Dialpad i **hemlighet Token**. Klicka på **Testanslutningen** att se till att Azure AD kan ansluta till Dialpad. Om anslutningen misslyckas, kontrollera Dialpad-kontot har administratörsbehörighet och försök igen.
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
 
-    ![Klient-URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+7. Som dialpad är en OpenIDConnect-app väljer du att logga in på dialpad med ditt Microsoft Work-konto.
 
-6. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+
+8. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt dialpad-konto.
+
+    ![Dialpad Lägg till SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+
+ ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Konfigurera automatisk användar etablering till dialpad
+
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i dialpad baserat på användar-och/eller grupp tilldelningar i Azure AD.
+
+### <a name="to-configure-automatic-user-provisioning-for-dialpad-in-azure-ad"></a>Konfigurera automatisk användar etablering för dialpad i Azure AD:
+
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan program väljer du **dialpad**.
+
+    ![Dialpad-länken i program listan](common/all-applications.png)
+
+3. Välj fliken **etablering** .
+
+    ![Fliken etablering](common/provisioning.png)
+
+4. Ställ in **etablerings läget** på **automatiskt**.
+
+    ![Fliken etablering](common/provisioning-automatic.png)
+
+5. Under avsnittet **admin credentials** , in`https://dialpad.com/scim` i **klient-URL**. Mata in det värde som du hämtade och sparade tidigare från dialpad i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till dialpad. Om anslutningen Miss lyckas kontrollerar du att dialpad-kontot har administratörs behörighet och försöker igen.
+
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
+
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
-8. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Dialpad**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till dialpad**.
 
-    ![Dialpad Användarmappningar](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
+    ![Dialpad användar mappningar](media/dialpad-provisioning-tutorial/dialpad-user-mappings-new.png)
 
-9. Granska användarattribut som synkroniseras från Azure AD till Dialpad i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Dialpad för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+9. Granska de användarattribut som synkroniseras från Azure AD till dialpad i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i dialpad för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Dialpad användarattribut](media/dialpad-provisioning-tutorial/dialpad07.png)
+    ![Dialpad-användarattribut](media/dialpad-provisioning-tutorial/dialpad07.png)
 
-10. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Om du vill aktivera den Azure AD-etableringstjänsten för Dialpad, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+11. Om du vill aktivera Azure AD Provisioning-tjänsten för dialpad ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus aktivt](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-12. Ange användare och/eller grupper som du vill kan etableras på Dialpad genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+12. Definiera de användare och/eller grupper som du vill etablera till dialpad genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablering omfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
-13. När du är redo att etablera, klickar du på **spara**.
+13. När du är redo att etablera klickar du på **Spara**.
 
-    ![Sparar Etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Dialpad.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på dialpad.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarens kontoetablering](../manage-apps/check-status-user-account-provisioning.md)
-##  <a name="connector-limitations"></a>Begränsningar för anslutningen
-* Dialpad stöder inte byter namn på gruppen i dag. Detta innebär att ändringar av den **displayName** för en grupp i Azure AD inte uppdateras och visas i Dialpad.
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md)
+##  <a name="connector-limitations"></a>Kopplings begränsningar
+* Dialpad stöder inte gruppens namn redan idag. Det innebär att alla ändringar av **DisplayName** för en grupp i Azure AD inte kommer att uppdateras och avspeglas i dialpad.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)

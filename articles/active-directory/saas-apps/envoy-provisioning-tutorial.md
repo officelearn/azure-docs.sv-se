@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera Envoy för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Envoy.
+title: 'Självstudie: konfigurera mottagare för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till mottagare.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,76 +15,76 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: df4c5895e15e7e9e63ad1f3d273af1c3fdab2e90
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 30faae80f1af4ff63924a76b26a03b8fe354a7df
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672729"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058033"
 ---
-# <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Envoy för automatisk användaretablering
+# <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Självstudie: konfigurera mottagare för automatisk användar etablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Envoy och Azure Active Directory (AD Azure) att konfigurera Azure AD för att automatiskt etablera och användares användare och/eller grupper till Envoy.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i mottagare och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till mottagare.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
-* [En Envoy-klient](https://envoy.com/pricing/)
-* Ett användarkonto i Envoy med administratörsbehörighet.
+* [En mottagare-klient](https://envoy.com/pricing/)
+* Ett användar konto i mottagare med administratörs behörighet.
 
-## <a name="add-envoy-from-the-gallery"></a>Lägg till Envoy från galleriet
+## <a name="add-envoy-from-the-gallery"></a>Lägg till mottagare från galleriet
 
-Du måste lägga till Envoy från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Envoy för automatisk användaretablering med Azure AD.
+Innan du konfigurerar mottagare för automatisk användar etablering med Azure AD måste du lägga till mottagare från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till Envoy från Azure AD-programgalleriet:**
+**Utför följande steg för att lägga till mottagare från Azure AD-programgalleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan **alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **Envoy**väljer **Envoy** i resultatrutan och klicka sedan på den **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **mottagare**, väljer **mottagare** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Envoy i resultatlistan](common/search-new-app.png)
 
-## <a name="assigning-users-to-envoy"></a>Tilldela användare till Envoy
+## <a name="assigning-users-to-envoy"></a>Tilldela användare till mottagare
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till Envoy. När du valt, kan du tilldela dessa användare och/eller grupper till Envoy genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till mottagare. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till mottagare genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-envoy"></a>Viktiga tips för att tilldela användare till Envoy
+### <a name="important-tips-for-assigning-users-to-envoy"></a>Viktiga tips för att tilldela användare till mottagare
 
-* Vi rekommenderar att en enda Azure AD-användare har tilldelats Envoy att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas mottagare för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till Envoy, måste du välja någon giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till mottagare måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-envoy"></a>Konfigurera automatisk användaretablering för Envoy 
+## <a name="configuring-automatic-user-provisioning-to-envoy"></a>Konfigurera automatisk användar etablering till mottagare 
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och/eller grupper i Envoy baserat på användare och/eller grupp tilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i mottagare baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Envoy, följa anvisningarna enligt den [Envoy enkel inloggning för självstudien](envoy-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för mottagare genom att följa anvisningarna i [självstudien om enkel inloggning med mottagare](envoy-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-envoy-in-azure-ad"></a>Konfigurera automatisk användaretablering för Envoy i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-envoy-in-azure-ad"></a>Konfigurera automatisk användar etablering för mottagare i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -92,82 +92,82 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Länken för Envoy i programlistan](common/all-applications.png)
 
-3. Välj den **etablering** fliken.
+3. Välj fliken **etablering** .
 
-    ![Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet Ange `https://app.envoy.com/scim/v2` i **klient-URL**. Att hämta den **hemlighet Token** kontots Envoy följer den här genomgången enligt beskrivningen i steg 6.
+5. Under avsnittet **admin credentials** , in`https://app.envoy.com/scim/v2` i **klient-URL**. Om du vill hämta den **hemliga token** för ditt mottagare-konto följer du genom gången enligt beskrivningen i steg 6.
 
-6. Logga in på din [Envoy administratörskonsolen](https://dashboard.envoy.com/login). Klicka på **integreringar**.
+6. Logga in på din [mottagare-administratörs konsol](https://dashboard.envoy.com/login). Klicka på **integreringar**.
 
-    ![Envoy integreringar](media/envoy-provisioning-tutorial/envoy01.png)
+    ![Mottagare-integreringar](media/envoy-provisioning-tutorial/envoy01.png)
 
-    Klicka på **installera** för den **integrering av Microsoft Azure SCIM**.
+    Klicka på **Installera** för **Microsoft Azure scim-integrering**.
 
-    ![Envoy installation](media/envoy-provisioning-tutorial/envoy02.png)
+    ![Mottagare-installation](media/envoy-provisioning-tutorial/envoy02.png)
 
-    Klicka på **spara** för **synkroniseras alla användare**. 
+    Klicka på **Spara** för att **synkronisera alla användare**. 
 
-    ![Envoy spara](media/envoy-provisioning-tutorial/envoy03.png)
+    ![Spara mottagare](media/envoy-provisioning-tutorial/envoy03.png)
 
-    Hämta hemlighet-Token ska fylls i.
+    Hämta den hemliga token som är ifylld.
     
-    ![Envoy OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
+    ![Mottagare OAUTH](media/envoy-provisioning-tutorial/envoy04.png)
 
-7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till Envoy. Om anslutningen misslyckas, kontrollera Envoy-kontot har administratörsbehörighet och försök igen.
+7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till mottagare. Om anslutningen Miss lyckas kontrollerar du att mottagare-kontot har administratörs behörighet och försöker igen.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
+8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
-10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Envoy**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till mottagare**.
     
-    ![Envoy användarattribut](media/envoy-provisioning-tutorial/envoy-user-mappings.png)
+    ![Mottagare-användarattribut](media/envoy-provisioning-tutorial/envoy-user-mappings.png)
     
-11. Granska användarattribut som synkroniseras från Azure AD till Envoy i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkontona i Envoy för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till mottagare i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i mottagare för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Envoy användarattribut](media/envoy-provisioning-tutorial/envoy-user-attribute.png)
+    ![Mottagare-användarattribut](media/envoy-provisioning-tutorial/envoy-user-attribute.png)
 
-12. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper till Envoy**.
+12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till mottagare**.
 
-    ![Envoy Användarmappningar](media/envoy-provisioning-tutorial/envoy-group-mapping.png)
+    ![Mottagare användar mappningar](media/envoy-provisioning-tutorial/envoy-group-mapping.png)
 
-13. Granska Gruppattribut som synkroniseras från Azure AD till Envoy i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha grupper i Envoy för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+13. Granska gruppattributen som synkroniseras från Azure AD till mottagare i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i mottagare för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Envoy Användarmappningar](media/envoy-provisioning-tutorial/envoy-group-attributes.png)
+    ![Mottagare användar mappningar](media/envoy-provisioning-tutorial/envoy-group-attributes.png)
     
-14. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Om du vill aktivera den Azure AD-etableringstjänsten för Envoy, ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+15. Om du vill aktivera Azure AD Provisioning-tjänsten för mottagare ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus aktivt](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-16. Ange användare och/eller grupper som du vill kan etableras på Envoy genom att välja de önskade värdena i **omfång** i den **inställningar** avsnittet.
+16. Definiera de användare och/eller grupper som du vill etablera till mottagare genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
-    ![Etablering omfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
-17. När du är redo att etablera, klickar du på **spara**.
+17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Sparar Etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på Envoy.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på mottagare.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

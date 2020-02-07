@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Konfigurera sköter Lösenordshanteraren & digitala valv för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till sköter Lösenordshanteraren & digitala valvet.
+title: 'Självstudie: Konfigurera lösen ords hanteraren & digitala valvet för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton för att behålla lösen ords hanteraren & digitalt valv.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -15,76 +15,76 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 74bfe37323a17bde19e4a9bf4ec28c9c3910b37f
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 236527a9889879f872ef8c3867a7ec3c1b1ba0a3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666239"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057549"
 ---
-# <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Självstudier: Konfigurera sköter Lösenordshanteraren & digitala valv för automatisk användaretablering
+# <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Självstudie: Konfigurera lösen ords hanteraren för & Digital Vault för automatisk användar etablering
 
-Målet med den här självstudien är att ange vilka åtgärder som ska utföras i sköter Lösenordshanteraren & digitala valv och Azure Active Directory (AD Azure) att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till sköter lösenord Manager & digitala valvet.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i lösen ords hanteraren i & Digital Vault och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper för att hålla lösen ords hanteraren & digitalt valv.
 
 > [!NOTE]
-> Den här självstudien beskrivs en koppling som bygger på Azure AD-användare Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor och svar finns i [automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här anslutningsappen är för närvarande i offentlig förhandsversion. Läs mer på allmänna Microsoft Azure-villkor för användning av förhandsversionsfunktioner [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * En Azure AD-klient
-* [En klient som sköter Lösenordshanteraren & digitala valv](https://keepersecurity.com/pricing.html?t=e)
-* Ett användarkonto i sköter Lösenordshanteraren & digitala valvet med administratörsbehörighet.
+* [En lösen ords hanterare & Digital Vault-klient](https://keepersecurity.com/pricing.html?t=e)
+* Ett användar konto i lösen ords hanteraren för lösen ord & digitala valvet med administratörs behörighet.
 
-## <a name="add-keeper-password-manager--digital-vault-from-the-gallery"></a>Lägg till sköter Lösenordshanteraren & digitala valvet från galleriet
+## <a name="add-keeper-password-manager--digital-vault-from-the-gallery"></a>Lägg till lösen ords hanteraren för lösen ord & digitala valvet från galleriet
 
-Innan du konfigurerar sköter Lösenordshanteraren & digitala valv för automatisk användaretablering med Azure AD, som du behöver lägga till sköter Lösenordshanteraren & digitala valvet från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Innan du konfigurerar Keepr Password Manager & Digital Vault för automatisk användar etablering med Azure AD måste du lägga till lösen ords hanteraren för lösen ord & digitalt valv från Azure AD-programgalleriet till listan över hanterade SaaS-program.
 
-**Utför följande steg för att lägga till sköter Lösenordshanteraren & digitala valvet från Azure AD-programgalleriet:**
+**Gör så här om du vill lägga till lösen ords hanteraren & digitala valvet i Azure AD-programgalleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen väljer **Azure Active Directory**.
+1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**, och välj sedan **alla program**.
+2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program, Välj den **nytt program** längst upp i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan anger **sköter Lösenordshanteraren & digitala Vault**väljer **sköter Lösenordshanteraren & digitala Vault** i resultatrutan och klicka sedan på den **Lägg till**för att lägga till programmet.
+4. I sökrutan anger du **Behåll lösen ords hanteraren & digitala valvet**, väljer **lösen ords hanterare för lösen ord & digitalt valv** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Keeper Password Manager & Digital Vault i resultatlistan](common/search-new-app.png)
 
-## <a name="assigning-users-to-keeper-password-manager--digital-vault"></a>Tilldela användare till sköter Lösenordshanteraren & digitala valv
+## <a name="assigning-users-to-keeper-password-manager--digital-vault"></a>Tilldela användare till behållar lösen ords hanteraren & Digital Vault
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användaretablering, synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användaretablering, bör du bestämma vilka användare och/eller grupper i Azure AD behöver åtkomst till sköter Lösenordshanteraren & digitala valvet. När du valt, kan du tilldela dessa användare och/eller grupper till sköter Lösenordshanteraren & digitala valvet genom att följa instruktionerna här:
+Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver ha till gång till lösen ords hanteraren & digitala valvet. När du har bestämt dig kan du tilldela dessa användare och/eller grupper för att behålla lösen ords hanteraren & digitala valvet genom att följa anvisningarna här:
 
-* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
+* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-keeper-password-manager--digital-vault"></a>Viktiga tips för att tilldela användare till sköter Lösenordshanteraren & digitala valv
+### <a name="important-tips-for-assigning-users-to-keeper-password-manager--digital-vault"></a>Viktiga tips för att tilldela användare till behållar lösen ords hanteraren & digitala valvet
 
-* Vi rekommenderar att en enda Azure AD-användare är tilldelad till sköter Lösenordshanteraren & digitala Vault att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas till lösen ords hanteraren & Digital Vault för att testa konfigurationen för automatisk etablering av användare. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till sköter Lösenordshanteraren & digitala valv, måste du välja en giltig programspecifika-roll (om tillgängligt) i dialogrutan för tilldelning. Användare med den **standard åtkomst** rollen är undantagna från etablering.
+* När du tilldelar en användare till behållar lösen ords hanteraren & digitala valvet måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
 
-## <a name="configuring-automatic-user-provisioning-to-keeper-password-manager--digital-vault"></a>Konfigurera automatisk användaretablering till sköter Lösenordshanteraren & digitala valv 
+## <a name="configuring-automatic-user-provisioning-to-keeper-password-manager--digital-vault"></a>Konfigurera automatisk användar etablering för att behålla lösen ords hanteraren & digitala valvet 
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD provisioning-tjänst för att skapa, uppdatera och inaktivera användare och/eller grupper i sköter Lösenordshanteraren & digitala Vault baserat på användare och/eller grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i behållar lösen ords hanteraren & digitala valv baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för sköter Lösenordshanteraren & digitala valv, följa anvisningarna enligt den [sköter Lösenordshanteraren & digitala Vault enkel inloggning för självstudien](keeperpasswordmanager-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Keepr Password Manager & digitala valvet, enligt instruktionerna i [hand boken för lösen ords hanteraren för lösen ord & Digital Vault med enkel inloggning](keeperpasswordmanager-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Konfigurera automatisk användaretablering för sköter Lösenordshanteraren & digitala valv i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Konfigurera automatisk användar etablering för Keepr Password Manager & Digital Vault i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företagsprogram**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -92,87 +92,87 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD prov
 
     ![Keeper Password Manager & Digital Vault-länken i programlistan](common/all-applications.png)
 
-3. Välj den **etablering** fliken.
+3. Välj fliken **etablering** .
 
-    ![Etablering](common/provisioning.png)
+    ![Fliken etablering](common/provisioning.png)
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Etablering](common/provisioning-automatic.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **klient-URL** och **hemlighet Token** av din sköter Lösenordshanteraren & digitala Vault-kontot enligt beskrivningen i steg 6.
+5. Under avsnittet **admin credentials** måste du skriva in **klient-URL: en** och den **hemliga token** för lösen ords hanteraren i lösen ordet & Digital Vault konto enligt beskrivningen i steg 6.
 
-6. Logga in på din [sköter administratörskonsolen](https://keepersecurity.com/console/#login). Klicka på **Admin** och välj en befintlig nod eller skapa en ny. Navigera till den **etablering** fliken och markera **Lägg till metod**.
+6. Logga in på [Administratörs konsolen](https://keepersecurity.com/console/#login)för din administratör. Klicka på **admin** och välj en befintlig nod eller skapa en ny. Navigera till fliken **etablering** och välj **Lägg till metod**.
 
-    ![Sköter-administratörskonsolen](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Administratörs konsol för förbehållen](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
-    Välj **SCIM (System för Identitetshantering i domänerna**.
+    Välj **scim (system för identitets hantering över domäner**.
 
-    ![Sköter Lägg till SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Behållar Lägg till SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
-    Klicka på **skapa etablering Token**.
+    Klicka på **skapa etablerings-token**.
 
-    ![Sköter skapa slutpunkt](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Behållar skapa slut punkt](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
-    Kopiera värdena för **URL** och **Token** och klistrar in dem i **klient-URL** och **hemlighet Token** i Azure AD. Klicka på **spara** att slutföra etablering installationen på sköter.
+    Kopiera värdena för **URL** och **token** och klistra in dem i **klient-URL** och **hemlig token** i Azure AD. Klicka på **Spara** för att slutföra etablerings inställningen på hållaren.
 
-    ![Sköter skapa Token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Behållar skapa token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
-7. För att fylla i fälten som visas i steg 5, klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till sköter Lösenordshanteraren & digitala valvet. Om anslutningen misslyckas, kontrollera din sköter Lösenordshanteraren & digitala Vault-kontot har administratörsbehörighet och försök igen.
+7. När du fyller i fälten som visas i steg 5, klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till behållar lösen ords hanteraren & digitalt valv. Om anslutningen Miss lyckas bör du se till att lösen ords hanteraren & det digitala Valve kontot har administratörs behörighet och försöka igen.
 
-    ![Klient-URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden etablering fel och markera kryssrutan - **skicka ett e-postmeddelande när ett fel inträffar**.
+8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-9. Klicka på **Spara**.
+9. Klicka på **Save** (Spara).
 
-10. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till sköter Lösenordshanteraren & digitala Vault**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare för att behålla lösen ords hanteraren & digitalt valv**.
 
-    ![Sköter Användarmappningar](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Användar mappningar för användare](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
-11. Granska användarattribut som synkroniseras från Azure AD sköter Lösenordshanteraren & digitala valv i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha användarkonton i sköter Lösenordshanteraren & digitala valv för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+11. Granska de användarattribut som synkroniseras från Azure AD till behållar lösen ords hanteraren & digitala valvet i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i lösen ords hanteraren för lösen ord & digitala valvet för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Sköter användarattribut](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Användarens användar egenskaper](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
-12. Under den **mappningar** väljer **synkronisera Azure Active Directory-grupper som sköter Lösenordshanteraren & digitala Vault**.
+12. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper för att behålla lösen ords hanteraren & digitalt valv**.
 
-    ![Sköter grupp mappningar](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Behållar grupp mappningar](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
-13. Granska Gruppattribut som synkroniseras från Azure AD sköter Lösenordshanteraren & digitala valv i den **attributmappning** avsnittet. Attribut som har markerats som **matchande** egenskaper som används för att matcha grupper i sköter Lösenordshanteraren & digitala valv för uppdateringsåtgärder. Välj den **spara** knappen för att genomföra ändringarna.
+13. Granska gruppattributen som synkroniseras från Azure AD till behållar lösen ords hanteraren & digitala valvet i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i lösen ords hanteraren för förhands & digitalt valv för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-    ![Attributen för sköter](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Attribut för behållar grupp](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
-14. Om du vill konfigurera Omfångsfilter avser följande instruktionerna i den [Scoping filter självstudien](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Aktivera Azure AD etablering sköter Lösenordshanteraren och Digital valvet för att ändra den **Etableringsstatus** till **på** i den **inställningar** avsnittet.
+15. Om du vill aktivera Azure AD Provisioning-tjänsten för Keepr Password Manager & Digital Vault ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
-    ![Etableringsstatus aktivt](common/provisioning-toggle-on.png)
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-16. Ange användare och/eller grupper som du vill att etablera till sköter Lösenordshanteraren & digitala valvet genom att välja önskade värden i **omfång** i den **inställningar** avsnittet.
+16. Definiera de användare och/eller grupper som du vill etablera för att behålla lösen ords hanteraren & digitala valvet genom att välja önskade värden i **området** **Inställningar** .
 
-    ![Etablering omfång](common/provisioning-scope.png)
+    ![Etablerings omfång](common/provisioning-scope.png)
 
-17. När du är redo att etablera, klickar du på **spara**.
+17. När du är redo att etablera klickar du på **Spara**.
 
-    ![Sparar Etableringskonfiguration](common/provisioning-configuration-save.png)
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som angetts i **omfång** i den **inställningar** avsnittet. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som den Azure AD-etableringtjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsrapporten som beskriver alla åtgärder som utförs av den Azure AD-etableringtjänsten på sköter Lösenordshanteraren & Digitala valvet.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på lösen ords hanteraren för lösen ord & digitalt valv.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="connector-limitations"></a>Begränsningar för anslutningen
+## <a name="connector-limitations"></a>Kopplings begränsningar
 
-* Sköter Lösenordshanteraren & digitala Vault kräver **e-postmeddelanden** och **användarnamn** att ha samma värde för källa, eventuella uppdateringar till antingen attribut ändrar andra värdet.
-* Sköter Lösenordshanteraren & digitala valv inte stöd för användaren tar bort, bara inaktivera. Inaktiverade användare visas som låst i sköter Admin Console-Gränssnittet.
+* Keepr Password Manager & digitala valvet kräver att **e-post** och **användar namn** har samma käll värde, eftersom alla uppdateringar av attributen kommer att ändra det andra värdet.
+* Behållar lösen ords hanteraren & digitala valvet stöder inte användar borttagningar, bara inaktivera. Inaktiverade användare visas som låsta i användar gränssnittet för administratörs konsolen.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggarna och få rapporter om etablering aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

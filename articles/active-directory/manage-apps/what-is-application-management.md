@@ -12,16 +12,16 @@ ms.date: 06/05/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d1ebb4b094ab5c03343486e7af6624273288453
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 7ca73fac06649f801461e53130a67aa9ec0ad0d0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421200"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063330"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Programhantering med Azure Active Directory
 
-Azure Active Directory (Azure AD) fören klar hanteringen av dina program genom att tillhandahålla ett enda identitets system för dina molnbaserade och lokala appar. Du kan lägga till SaaS-program (program vara som en tjänst), lokala program och LOB-appar (Line of Business) till Azure AD. Användarna loggar sedan in en gång för att på ett säkert och smidigt sätt komma åt dessa program, tillsammans med Office 365 och andra företags program från Microsoft. Du kan minska administrativa kostnader genom att [Automatisera användar etableringen](user-provisioning.md). Du kan också använda Multi-Factor Authentication och principer för villkorlig åtkomst för att ge säker åtkomst till programmet.
+Azure Active Directory (Azure AD) fören klar hanteringen av dina program genom att tillhandahålla ett enda identitets system för dina molnbaserade och lokala appar. Du kan lägga till SaaS-program (program vara som en tjänst), lokala program och LOB-appar (Line of Business) till Azure AD. Användarna loggar sedan in en gång för att på ett säkert och smidigt sätt komma åt dessa program, tillsammans med Office 365 och andra företags program från Microsoft. Du kan minska administrativa kostnader genom att [Automatisera användar etableringen](../app-provisioning/user-provisioning.md). Du kan också använda Multi-Factor Authentication och principer för villkorlig åtkomst för att ge säker åtkomst till programmet.
 
 ![Diagram som visar federerade appar via Azure AD](media/what-is-application-management/app-management-overview.png)
 
@@ -33,7 +33,7 @@ Organisationer har ofta hundratals program som användarna behöver för att utf
 
 Det finns fyra huvud typer av program som du kan lägga till i dina **företags program** och hantera med Azure AD:
 
-- **Azure AD Gallery-program** – Azure AD har ett galleri som innehåller tusentals program som har integrerats för enkel inloggning med Azure AD. Vissa av de program som din organisation använder finns förmodligen i galleriet. [Lär dig mer om att planera din program integrering](plan-an-application-integration.md)eller få detaljerade integrerings steg för enskilda appar i självstudierna för [SaaS-program](https://docs.microsoft.com/azure/active-directory/saas-apps/).
+- **Azure AD Gallery-program** – Azure AD har ett galleri som innehåller tusentals program som har integrerats för enkel inloggning med Azure AD. Vissa av de program som din organisation använder finns förmodligen i galleriet. [Lär dig mer om att planera din program integrering](plan-an-application-integration.md)eller få detaljerade integrerings steg för enskilda appar i [självstudierna för SaaS-program](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
 - **Lokala program med programproxy** – med Azure AD-programproxy kan du integrera dina lokala webbappar med Azure AD för att stödja enkel inloggning. Sedan kan slutanvändarna komma åt dina lokala webbappar på samma sätt som de kommer åt Office 365 och andra SaaS-appar. [Lär dig varför du ska använda Application Proxy och hur det fungerar](what-is-application-proxy.md).
 
@@ -62,4 +62,4 @@ Genom att migrera till Azure AD kan du minska kostnaderna och slippa besväret m
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Application Proxy?](what-is-application-proxy.md)
-- [Snabbstart: Lägga till ett galleri program i Azure AD-klienten](add-application-portal.md)
+- [Snabb start: lägga till ett galleri program i Azure AD-klienten](add-application-portal.md)

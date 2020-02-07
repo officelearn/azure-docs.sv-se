@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 969a2fb5444ae8ece2aa302c04a5bbb85dcca917
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841258"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057744"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som utförs i G Suite och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper i G Suite.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 > [!NOTE]
 > G Suite Connector uppdaterades nyligen den 2019 oktober. Ändringar som görs i G Suite Connector inkluderar:
@@ -34,7 +34,7 @@ Syftet med den här självstudien är att demonstrera de steg som utförs i G Su
 > - Uppdaterade G Suite-målattribut för att matcha vad som definieras [här](https://developers.google.com/admin-sdk/directory).
 > - Uppdaterade mappningar av standardattribut.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med G Suite, behöver du följande objekt:
 
@@ -163,7 +163,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 1. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till G Suite**.
 
@@ -181,7 +181,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Attribut för G Suite-grupp](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-1. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Om du vill aktivera Azure AD Provisioning-tjänsten för G Suite ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -200,11 +200,11 @@ Den här åtgärden startar den första synkroniseringen av alla användare och/
 > [!NOTE]
 > Om användarna redan har ett befintligt personligt/konsument konto med hjälp av e-postadressen för Azure AD-användaren kan det orsaka problem som kan lösas med hjälp av Google Transfer-verktyget innan katalogens synkronisering utförs.
 
-Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="common-issues"></a>Vanliga problem
@@ -213,7 +213,7 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 

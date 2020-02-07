@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 1e115c59cab4c340f927da516b5f937abf42e985
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839662"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061266"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
 För att analysera data i HDInsight-klustret kan du lagra data antingen i [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage gen 2](../storage/blobs/data-lake-storage-introduction.md)eller en kombination. Med dessa lagrings alternativ kan du på ett säkert sätt ta bort HDInsight-kluster som används för beräkning utan att förlora användar data.
 
-Apache Hadoop stöder en begreppet standard fil system. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. Under skapande processen av HDInsight-kluster kan du ange en BLOB-behållare i Azure Storage som standard fil system, eller med HDInsight 3,6 kan du välja antingen Azure Storage eller Azure Data Lake Storage gen 1/Azure Data Lake Storage gen 2 som standardfiler system med några få undantag. För att kunna använda Data Lake Storage gen 1 som både standard-och länkad lagring, se [tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+Apache Hadoop stöder en begreppet standard fil system. Standardfilsystemet kräver att ett standardschema och en utfärdare används. Det kan också användas för att matcha relativa sökvägar. När du skapar HDInsight-kluster kan du ange en BLOB-behållare i Azure Storage som standard fil system, eller med HDInsight 3,6 kan du välja antingen Azure Storage eller Azure Data Lake Storage gen 1/Azure Data Lake Storage gen 2 som standard fil system med några få undantag. För att kunna använda Data Lake Storage gen 1 som både standard-och länkad lagring, se [tillgänglighet för HDInsight-kluster](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
 I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-kluster. Information om hur Data Lake Storage gen 1 fungerar med HDInsight-kluster finns i [använda Azure Data Lake Storage med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-store.md). Mer information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur Azure Storage fungerar med HDInsight-k
 | Typ av lagrings konto | Tjänster som stöds | Prestanda nivåer som stöds | Åtkomst nivåer som stöds |
 |----------------------|--------------------|-----------------------------|------------------------|
 | StorageV2 (generell användning v2)  | Blob     | Standard                    | Frekvent, låg frekvent, Arkiv\*   |
-| Lagring (generell användning v1)   | Blob     | Standard                    | Saknas                    |
+| Lagring (generell användning v1)   | Blob     | Standard                    | Ej tillämpligt                    |
 | BlobStorage                    | Blob     | Standard                    | Frekvent, låg frekvent, Arkiv\*   |
 
 Vi rekommenderar inte att du använder standard-BLOB-behållaren för lagring av affärs data. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Standard behållaren innehåller program-och system loggar. Se till att hämta loggarna innan du tar bort containern.
@@ -122,7 +122,7 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identifiera lagrings Sök väg från ABMari
+## <a name="identify-storage-path-from-ambari"></a>Identifiera lagrings Sök väg från Ambari
 
 * Om du vill identifiera den fullständiga sökvägen till det konfigurerade standard arkivet går du till:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera druva för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera druva för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till druva.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 27c8ca3a4b68d5f3a42777ff2cf9afa4b923c00b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 3d1bb0bcbc0df98d7a884004cf96fe9810589185
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641830"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058118"
 ---
-# <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Självstudier: Konfigurera druva för automatisk användar etablering
+# <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Självstudie: Konfigurera druva för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i druva och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till druva.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
@@ -41,7 +41,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assigning-users-to-druva"></a>Tilldela användare till druva
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till druva. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till druva genom att följa anvisningarna här:
 * [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
@@ -60,7 +60,7 @@ Innan du konfigurerar druva för automatisk användar etablering med Azure AD m�
 
     ![Druva-administratörskonsolen](media/druva-provisioning-tutorial/menubar.png)
 
-2. Navigera till **Hantera** > **distributioner** > -**användare**.
+2. Navigera till **hantera** > **distributioner** > **användare**.
 
     ![Druva Lägg till SCIM](media/druva-provisioning-tutorial/manage.png)
 
@@ -68,7 +68,7 @@ Innan du konfigurerar druva för automatisk användar etablering med Azure AD m�
 
     ![Druva Lägg till SCIM](media/druva-provisioning-tutorial/settings.png)
 
-4.  Kopiera värdet för **auth** -token. Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt druva-program i Azure Portal.
+4.  Kopiera värdet för **auth-token** . Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt druva-program i Azure Portal.
     
     ![Druva Lägg till SCIM](media/druva-provisioning-tutorial/auth.png)
 
@@ -84,7 +84,7 @@ Om du vill konfigurera druva för automatisk användar etablering med Azure AD m
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -99,7 +99,7 @@ Om du vill konfigurera druva för automatisk användar etablering med Azure AD m
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i druva baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för druva genom att följa anvisningarna i självstudien om [enkel inloggning med druva](druva-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för druva genom att följa anvisningarna i [självstudien om enkel inloggning med druva](druva-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 ### <a name="to-configure-automatic-user-provisioning-for-druva-in-azure-ad"></a>Konfigurera automatisk användar etablering för druva i Azure AD:
 
@@ -119,15 +119,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5.  Under avsnittet admin credentials, inmatat `https://apis.druva.com/insync/scim` i klient- **URL**. Mata in **token för autentisering** i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till druva. Om anslutningen Miss lyckas kontrollerar du att druva-kontot har administratörs behörighet och försöker igen.
+5.  Under avsnittet admin credentials, in`https://apis.druva.com/insync/scim` i **klient-URL**. Mata in **token för autentisering** i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till druva. Om anslutningen Miss lyckas kontrollerar du att druva-kontot har administratörs behörighet och försöker igen.
 
     ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
 
 6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och väljer **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till druva**.
 
@@ -138,7 +138,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
     ![Druva-användarattribut](media/druva-provisioning-tutorial/userattribute.png)
 
 
-10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för druva ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -154,7 +154,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på druva.
 
-    Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
+    Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
     
 ## <a name="connector-limitations"></a>Kopplings begränsningar
 
@@ -162,9 +162,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md).
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md).

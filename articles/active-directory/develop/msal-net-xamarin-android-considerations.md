@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c916ac98774600c16eb26ed43b8ae4b273137865
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
-ms.translationtype: MT
+ms.openlocfilehash: 54df91d38541fbe17a28c9ae083ae0e7d0c9d88d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695015"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063670"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Xamarin Android-/regionsspecifika överväganden med MSAL.NET
 I den här artikeln beskrivs olika aspekter när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
@@ -71,16 +71,19 @@ Den raden ser till att kontrollen går tillbaka till MSAL när den interaktiva d
 
 ## <a name="update-the-android-manifest"></a>Uppdatera Android-manifestet
 `AndroidManifest.xml` ska innehålla följande värden:
-```csharp
+```xml
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="msal{client_id}" android:host="auth" />
+        <data android:scheme="msauth"
+              android:host="Enter_the_Package_Name"
+              android:path="/Enter_the_Signature_Hash"/>
          </intent-filter>
 </activity>
 ```
+Ersätt det paket namn som du registrerade i Azure Portal för `android:host=` svärdet. Ersätt den nyckel-hash som du registrerade i Azure Portal för `android:path=` svärdet. Signaturens hash ska **inte** vara URL-kodad. Se till att det finns en inledande `/` i början av signaturens hash.
 
 Du kan också [skapa aktiviteten i kod](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) och inte redigera `AndroidManifest.xml`manuellt. För det måste du skapa en klass som har attributet `Activity` och `IntentFilter`. En klass som representerar samma värden i ovanstående XML skulle vara:
 
@@ -112,7 +115,7 @@ var authResult = AcquireTokenInteractive(scopes)
  .ExecuteAsync();
 ```
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 Om du skapar ett nytt Xamarin. Forms-program och lägger till en referens till MSAL.Net NuGet-paketet fungerar det bara.
 Men om du vill uppgradera ett befintligt Xamarin. Forms-program till MSAL.NET Preview 1.1.2 eller senare kan det uppstå build-problem.
 

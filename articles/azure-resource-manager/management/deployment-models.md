@@ -2,13 +2,13 @@
 title: Resource Manager och klassisk distribution
 description: Beskriver skillnaderna mellan Resource Manager-distributionsmodellen och den klassiska distributionsmodellen (eller Service Management).
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: 4d7f17dace81198724a62dcc665c8c31acbcf6de
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.date: 02/06/2020
+ms.openlocfilehash: 85691d562f2b58cdced3264de11f3dd29a7ca168
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168836"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064520"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager jämfört med klassisk distribution: Förstå distributionsmodeller och dina resursers tillstånd
 
@@ -76,7 +76,7 @@ Det är bara resurser som har skapats via Resource Manager som har stöd för ta
 
 Följande diagram visar resurser för beräkning, nätverk och lagring som har distribuerats via Resource Manager.
 
-![Resurshanterarens arkitektur](./media/deployment-models/arm_arch3.png)
+![Resource Manager-arkitektur](./media/deployment-models/arm_arch3.png)
 
 Observera följande relationer mellan resurserna:
 
@@ -99,7 +99,7 @@ Den klassiska lösningen för att vara värd för en virtuell dator innehåller:
 
 I följande tabell beskrivs ändringar i hur Compute-, Network- och Storage-resursproviders samverkar:
 
-| Objekt | Klassisk | Resurshanterare |
+| Objekt | Klassisk | Resource Manager |
 | --- | --- | --- |
 | Molntjänst för Virtual Machines |Molntjänst var en container för virtuella datorer som krävde tillgänglighet från plattformen och belastningsutjämning. |Molntjänst är inte längre ett objekt som krävs för att skapa en virtuell dator med den nya modellen. |
 | Virtuella nätverk |Ett virtuellt nätverk är valfritt för den virtuella datorn. Det virtuella nätverket kan inte distribueras med Resource Manager om det tas med. |En virtuell dator kräver ett virtuellt nätverk som har distribuerats med Resource Manager. |
@@ -125,7 +125,7 @@ Om du är redo att migrera dina resurser från den klassiska distributionen till
 3. [Migrera IaaS-resurser från klassisk distribution till Azure Resource Manager med hjälp av Azure PowerShell](../../virtual-machines/windows/migration-classic-resource-manager-ps.md)
 4. [Migrera IaaS-resurser från klassisk distribution till Azure Resource Manager med hjälp av Azure CLI](../../virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Kan jag skapa en virtuell dator med hjälp av Resource Manager för distribution i ett virtuellt nätverk som skapats med klassisk distribution?**
 

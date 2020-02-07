@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442105"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064503"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Certifikatbaserad autentisering för en Azure AD-identitet för åtkomst till nycklar från ett Azure Cosmos DB konto
 
-Certifikatbaserad autentisering gör att klient programmet kan autentiseras med hjälp av Azure Active Directory (Azure AD) med ett klient certifikat. Du kan utföra certifikatbaserad autentisering på en dator där du behöver en identitet, till exempel en lokal dator eller en virtuell dator i Azure. Ditt program kan sedan läsa Azure Cosmos DB nycklar utan att ha nycklarna direkt i programmet. Den här artikeln beskriver hur du skapar ett exempel på Azure AD-program, konfigurerar det för certifikatbaserad autentisering, loggar in på Azure med den nya program identiteten och hämtar sedan nycklarna från ditt Azure Cosmos-konto. Den här artikeln använder Azure PowerShell för att ställa in identiteter och tillhandahåller C# en exempel-app som autentiserar och kommer åt nycklar från ditt Azure Cosmos-konto.  
+Med certifikatbaserad autentisering kan klientprogrammet autentiseras med hjälp av Azure Active Directory (Azure AD) med ett klientcertifikat. Du kan utföra certifikatbaserad autentisering på en dator där du behöver en identitet, till exempel en lokal dator eller en virtuell dator i Azure. Ditt program kan sedan läsa Azure Cosmos DB nycklar utan att ha nycklarna direkt i programmet. Den här artikeln beskriver hur du skapar ett exempel på Azure AD-program, konfigurerar det för certifikatbaserad autentisering, loggar in på Azure med den nya program identiteten och hämtar sedan nycklarna från ditt Azure Cosmos-konto. Den här artikeln använder Azure PowerShell för att ställa in identiteter och tillhandahåller C# en exempel-app som autentiserar och kommer åt nycklar från ditt Azure Cosmos-konto.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera den [senaste versionen](/powershell/azure/install-az-ps) av Azure PowerShell.
 
@@ -55,7 +55,6 @@ I det här steget ska du installera Azure AD PowerShell-modulen. Den här module
 1. Öppna Windows PowerShell ISE med administratörs behörighet. Om du inte redan har gjort det installerar du AZ PowerShell-modulen och ansluter till din prenumeration. Om du har flera prenumerationer kan du ställa in kontexten för den aktuella prenumerationen så som visas i följande kommandon:
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 

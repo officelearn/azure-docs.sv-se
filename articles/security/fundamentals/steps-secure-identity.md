@@ -1,5 +1,6 @@
 ---
-title: Fem steg för att skydda din identitets infrastruktur i Azure Active Directory
+title: Skydda din Azure AD Identity-infrastruktur
+titleSuffix: Azure Active Directory
 description: Det här dokumentet beskriver en lista över viktiga åtgärder som administratörer ska implementera för att skydda sin organisation med Azure AD-funktioner
 author: martincoetzer
 manager: manmeetb
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d3afc784688a14e4d5d2fc6ae9dc5c1a9e45c4a0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903583"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057217"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311656"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063806"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av webbgränssnittet Apache Ambari
 
@@ -27,12 +27,12 @@ I det här dokumentet får du lära dig hur du använder Ambari-webbgränssnitte
 
 [Apache Ambari](https://ambari.apache.org) fören klar Hadoop-hanteringen genom att tillhandahålla ett LÄTTANVÄNT webb gränssnitt. Du kan använda Ambari för att hantera och övervaka Hadoop-kluster. Utvecklare kan integrera dessa funktioner i sina program med hjälp av [AMBARI REST API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
 Ambari-webbgränssnittet är tillgängligt i ditt HDInsight-kluster på `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
 
 > [!IMPORTANT]  
-> För att ansluta till Ambari i HDInsight krävs HTTPS. När du tillfrågas om autentisering använder du det administratörs konto namn och lösen ord som du angav när klustret skapades.
+> För att ansluta till Ambari i HDInsight krävs HTTPS. När du tillfrågas om autentisering använder du det administratörs konto namn och lösen ord som du angav när klustret skapades. Om du inte uppmanas att ange autentiseringsuppgifter kontrollerar du nätverks inställningarna för att bekräfta att det inte finns några anslutnings problem mellan klienten och Azure HDInsight-kluster.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH-tunnel (proxy)
 
@@ -55,10 +55,10 @@ När sidan öppnas noterar du fältet överst. Det här fältet innehåller föl
 |Kluster namn # OPS|Visar antalet pågående Ambari-åtgärder. Om du väljer kluster namnet eller **# Ops** visas en lista över bakgrunds åtgärder.|
 |antal aviseringar|Visar eventuella varningar eller kritiska aviseringar för klustret.|
 |Instrumentpanel|Visar instrument panelen.|
-|Services|Information och konfigurations inställningar för tjänsterna i klustret.|
+|Tjänster|Information och konfigurations inställningar för tjänsterna i klustret.|
 |Värdar|Information och konfigurations inställningar för noderna i klustret.|
 |Aviseringar|En logg med information, varningar och viktiga aviseringar.|
-|Innehavaradministration|Program varu stack/tjänster som är installerade i klustret, tjänst konto information och Kerberos-säkerhet.|
+|Admin|Program varu stack/tjänster som är installerade i klustret, tjänst konto information och Kerberos-säkerhet.|
 |Knappen administratör|Hantering av Ambari, användar inställningar och utloggning.|
 
 ## <a name="monitoring"></a>Övervakning
@@ -102,7 +102,7 @@ Om du vill ha mer information om noderna i klustret väljer du **värdar**. Väl
 
 ![Apache Ambari-värd, sammanfattnings information](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>Tjänster
 
 Sid panelen **tjänster** på instrument panelen ger snabb insyn i statusen för de tjänster som körs i klustret. Olika ikoner används för att indikera status eller åtgärder som ska vidtas. Till exempel visas en gul åter användnings symbol om en tjänst behöver återvinnas.
 
@@ -115,7 +115,7 @@ Om du väljer en tjänst visas mer detaljerad information om tjänsten.
 
 ![Sammanfattnings information om Apache Ambari-tjänsten](./media/hdinsight-hadoop-manage-ambari/ambari-service-details.png)
 
-#### <a name="quick-links"></a>Snabblänkar
+#### <a name="quick-links"></a>Snabb länkar
 
 Vissa tjänster visar länken **länkar** överst på sidan. Detta kan användas för att få åtkomst till tjänstspecifika webb-UIs, till exempel:
 
@@ -129,7 +129,7 @@ Om du väljer någon av dessa länkar öppnas en ny flik i webbläsaren som visa
 > [!NOTE]  
 > Om du väljer posten **snabb länkar** för en tjänst kan du returnera felet "servern hittades inte". Om det här felet uppstår måste du använda en SSH-tunnel när du använder posten **snabb länkar** för den här tjänsten. Mer information finns i [använda SSH-tunnlar med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
 
-## <a name="management"></a>Förvaltning
+## <a name="management"></a>Hantering
 
 ### <a name="ambari-users-groups-and-permissions"></a>Ambari användare, grupper och behörigheter
 
@@ -158,7 +158,7 @@ Sidan **värdar** visar alla värdar i klustret. Följ dessa steg om du vill han
     |Starta om alla komponenter|Stoppa och starta alla komponenter på värden.|
     |Aktivera underhålls läge|Ignorerar aviseringar för värden. Det här läget bör vara aktiverat om du utför åtgärder som genererar aviseringar. Till exempel stoppa och starta en tjänst.|
     |Inaktivera underhålls läge|Returnerar värden till normal avisering.|
-    |Stopp|Stoppar DataNode eller) Nodemanagers på värden.|
+    |Stoppa|Stoppar DataNode eller) Nodemanagers på värden.|
     |Start|Startar DataNode eller) Nodemanagers på värden.|
     |Starta om|Stoppar och startar DataNode eller) Nodemanagers på värden.|
     |Inaktivera|Tar bort en värd från klustret. **Använd inte den här åtgärden på HDInsight-kluster.**|

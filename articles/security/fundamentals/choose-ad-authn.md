@@ -1,5 +1,6 @@
 ---
-title: Välj rätt autentiseringsmetod för din Azure AD hybrid identitets lösning | Microsoft Docs
+title: Autentisering för Azure AD hybrid identitets lösningar
+titleSuffix: Active Directory
 description: 'Den här guiden hjälper CEOs, CIO: er, ciso, Chief Identity Architects, Enterprise Architects och IT-besluts fattare som ansvarar för att välja en autentiseringsmetod för sin Azure AD hybrid identitets lösning i medel stora och stora organisationer.'
 keywords: ''
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 2865ce640389c0250f14a53088a94aff15ddf1c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f32980b736232449d24de8721f354d9ca5dd03ab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460682"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064435"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
@@ -173,10 +174,10 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 
 |Att tänka på|Password-hash-synkronisering + sömlös SSO|Direktautentisering + sömlös SSO|Federation med AD FS|
 |:-----|:-----|:-----|:-----|
-|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokalt|
-|Vilka är de lokala server kraven utöver etablerings systemet: Azure AD Connect?|Inget|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
-|Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Inget|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
-|Finns det ett krav för SSL-certifikat?|Inga|Inga|Ja|
+|Var sker autentiseringen?|I molnet|I molnet efter ett säkert utbyte av lösen ords verifiering med den lokala Autentiseringstjänsten|Lokal|
+|Vilka är de lokala server kraven utöver etablerings systemet: Azure AD Connect?|Ingen|En server för varje ytterligare Authentication agent|Två eller flera AD FS-servrar<br><br>Två eller flera WAP-servrar i perimeternätverket/DMZ-nätverket|
+|Vilka är kraven för lokal Internet och nätverk utöver etablerings systemet?|Ingen|[Utgående Internet åtkomst](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) från servrar som kör autentiseringsprinciper|[Inkommande Internet åtkomst](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) till WAP-servrar i perimeternätverket<br><br>Inkommande nätverks åtkomst till AD FS servrar från WAP-servrar i perimeternätverket<br><br>Utjämning av nätverksbelastning|
+|Finns det ett krav för SSL-certifikat?|Nej|Nej|Ja|
 |Finns det en lösning för hälso övervakning?|Krävs inte|Agent status som tillhandahålls av [Azure Active Directory administrations Center](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
 |Får användarna enkel inloggning till moln resurser från domänanslutna enheter i företags nätverket?|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)|Ja|
 |Vilka inloggnings typer stöds?|UserPrincipalName + lösen ord<br><br>Windows-integrerad autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + lösen ord<br><br>Windows-integrerad autentisering med [sömlös SSO](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[Alternativt inloggnings-ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + lösen ord<br><br>sAMAccountName + lösen ord<br><br>Windows-integrerad autentisering<br><br>[Autentisering med certifikat och smartkort](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternativt inloggnings-ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
@@ -208,7 +209,7 @@ Använd eller aktivera hash-synkronisering av lösen ord för vilken autentiseri
 
 3. **Identitets skydd**. Ett av de bästa sätten att skydda användare i molnet är Azure AD Identity Protection med Azure AD Premium P2. Microsoft genomsöker kontinuerligt Internet efter användar-och lösen ords listor som dåliga aktörer säljer och gör tillgängliga på den mörka webben. Azure AD kan använda den här informationen för att kontrol lera om något av användar namn och lösen ord i din organisation har komprometterats. Därför är det viktigt att aktivera synkronisering av lösen ords-hash oavsett vilken autentiseringsmetod du använder, oavsett om den är federerad eller direktautentisering. Läckta autentiseringsuppgifter visas som en rapport. Använd den här informationen för att blockera eller tvinga användare att ändra sina lösen ord när de försöker logga in med läckta lösen ord.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Den här artikeln beskriver olika autentiseringsalternativ som organisationer kan konfigurera och distribuera för att ge stöd åt molnappar. För att möta olika affärs-, säkerhets-och teknik krav kan organisationer välja mellan Lösenordssynkronisering, direktautentisering och Federation.
 

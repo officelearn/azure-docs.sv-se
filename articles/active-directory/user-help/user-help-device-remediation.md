@@ -2,7 +2,7 @@
 title: Korrigeringar för fel meddelandet "du kan inte ta dig dit härifrån", fel – Azure AD
 description: Hitta möjliga korrigeringar för varför du får fel meddelandet "du kan inte ta dig dit härifrån".
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d29168f154c80eb2c66d0316f773375325ded67f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704637"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062191"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Eventuella korrigeringar för fel meddelandet "du kan inte ta dig dit härifrån"
 
@@ -38,7 +38,7 @@ Kontrol lera att du kör en version av operativ systemet som stöds, inklusive:
 
 - **Windows Server.** Windows Server 2008 R2 eller senare.
 
-- **macOS.** macOS X eller senare
+- **MacOS.** macOS X eller senare
 
 - **Android och iOS.** Senaste versionen av Android och iOS mobila operativ system
 

@@ -15,19 +15,41 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c9d8582eb41d4a13799c42383ff22010c60577
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985191"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064153"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
 I den här självstudien beskrivs de steg du behöver utföra i båda arbets platserna av Facebook och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [arbets ytan efter Facebook](https://work.workplace.com/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
-> [!NOTE]
-> Programmet Azure AD tredje part i arbets ytan efter Facebook har godkänts. Kunder kommer inte att ha något avbrott i tjänsten den 16 december. Du ser en anteckning i arbets ytan av Facebook-administratörskonsolen som anger en tids gräns på 28-februari-2020 när du behöver övergå till det nya programmet. Vi arbetar för att hålla över gången så enkel som möjligt och kommer att tillhandahålla en uppdatering här på över gången i slutet av månaden.
+## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migrera till den nya arbets ytan efter Facebook-program
+Om du har en befintlig integrering med arbets ytan av Facebook kan du läsa avsnittet nedan om vilka ändringar som kommer. Om du konfigurerar arbets ytan efter Facebook för första gången kan du hoppa över det här avsnittet och flytta till de funktioner som stöds. 
+
+#### <a name="whats-changing"></a>Vad förändras?
+* Ändringar på Azure AD-sidan: autentiseringsmetoden för att etablera användare i arbets platsen har tidigare varit en hemlig hemlig token. Snart kommer du att se den auktoriseringsregler som ändrades till beviljande av OAuth-auktorisering. 
+* Ändringar på arbets plats sidan: tidigare var Azure AD-appen en anpassad integrering på arbets platsen av Facebook. Nu kommer du att se Azure AD i katalogen för arbets plats integrering som ett program från tredje part. 
+
+ 
+
+#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Vad behöver jag för att migrera min befintliga anpassade integrering till det nya programmet?
+Om du har en befintlig arbets plats integration med en giltig token **krävs ingen åtgärd**. Vi migrerar automatiskt kunder varje vecka till det nya programmet. Detta görs helt bakom bakgrunden. Om du inte kan vänta och vill flytta till det nya programmet manuellt kan du lägga till en ny instans av arbets ytan från galleriet och konfigurera etableringen igen. Alla nya instanser av arbets platsen kommer automatiskt att använda den nya program versionen. 
+
+ 
+Om din arbets plats integrering är i karantän måste du ange en giltig token igen för att vi ska kunna migrera dig. Avsnittet admin credentials blir nedtonat, men du kan lägga till följande ( **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = True**) till din URL för att spara autentiseringsuppgifterna igen. 
+
+https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
+
+ 
+#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Avsnittet admin credentials är nedtonat i mitt program och jag kan inte spara. Varför?
+Vi har låst avsnittet admin credentials för befintliga arbets plats kunder. När klienten har migrerats till det nya arbets plats programmet kommer du att kunna uppdatera avsnittet admin-autentiseringsuppgifter igen. Om du inte kan vänta kan du använda URL: en ovan för att redigera ditt program. 
+
+ 
+#### <a name="when-will-these-changes-happen"></a>När sker dessa ändringar?
+Alla nya instanser av arbets platsen använder redan den nya integrerings-/autentiseringsmetoden. Befintliga integreringar migreras gradvis i februari. Migreringen kommer att utföras för alla klienter i slutet av månaden. 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
@@ -36,7 +58,7 @@ I den här självstudien beskrivs de steg du behöver utföra i båda arbets pla
 > * Behåll användarattribut synkroniserade mellan Azure AD och arbets platsen på Facebook
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) till arbets plats efter Facebook (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -77,7 +99,7 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
 
 * Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -111,7 +133,7 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
 
    |Attribut|Typ|
    |---|---|
-   |Användarnamn|String|
+   |userName|String|
    |displayName|String|
    |aktiv|Boolean|
    |title|Boolean|

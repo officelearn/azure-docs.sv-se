@@ -2,7 +2,7 @@
 title: Anslut din arbets enhet till din organisations nätverk – AD
 description: Lär dig hur du ansluter din arbets enhet till din organisations nätverk.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 149c0298ee7883aa130756bfc4d0cbbb9e002065
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704654"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062276"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din arbets enhet till din organisations nätverk
 Anslut din arbetsägda Windows 10-enhet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -57,7 +57,7 @@ Om enheten är helt ny och inte har kon figurer ATS ännu kan du gå igenom OOBE
 ## <a name="to-make-sure-youre-joined"></a>För att se till att du är ansluten
 Du kan se till att du är ansluten genom att titta på dina inställningar.
 
-1. Öppna **Inställningar** och välj sedan **Konton**.
+1. Öppna **Inställningar**och välj sedan **konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
@@ -69,7 +69,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Så här ansluter du en redan konfigurerad Windows 10-enhet
 Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa dessa steg för att ansluta enheten till nätverket.
 
-1. Öppna **Inställningar** och välj sedan **Konton**.
+1. Öppna **Inställningar**och välj sedan **konton**.
 
 2. Välj **åtkomst till arbete eller skola**och välj sedan **Anslut**.
 
@@ -85,7 +85,7 @@ Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa
 
 5. På skärmen **Ange lösen ord** skriver du ditt lösen ord och väljer sedan **Logga**in.
 
-    ![Ange lösenord](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Ange lösen ord](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. Godkänn enheten på din mobila enhet så att den kan komma åt ditt konto. 
 
@@ -102,7 +102,7 @@ Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa
 ## <a name="to-make-sure-youre-joined"></a>För att se till att du är ansluten
 Du kan se till att du är ansluten genom att titta på dina inställningar.
 
-1. Öppna **Inställningar** och välj sedan **Konton**.
+1. Öppna **Inställningar**och välj sedan **konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 

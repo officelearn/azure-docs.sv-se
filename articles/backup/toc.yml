@@ -252,9 +252,13 @@
           href: backup-azure-backup-cloud-as-tape.md
     - name: Offlinesäkerhetskopiering
       items:
-        - name: Konfigurera säkerhetskopiering offline
+        - name: Översikt
+          href: offline-backup-overview.md
+        - name: Säkerhets kopiering offline med Azure Data Box
+          href: offline-backup-azure-data-box.md
+        - name: Säkerhets kopiering offline med Import/Export (MARS)
           href: backup-azure-backup-import-export.md
-        - name: Offlinesäkerhetskopiering för DPM och Azure Backup Server
+        - name: Säkerhets kopiering offline med Import/Export (DPM/MABS)
           href: backup-azure-backup-server-import-export-.md
     - name: Övervakning och aviseringar
       items:

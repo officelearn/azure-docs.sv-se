@@ -161,6 +161,8 @@
         - name: Distribuera – REST API
           displayName: deployment
           href: deploy-rest.md
+        - name: Distribuera från GitHub
+          href: deploy-to-azure-button.md
         - name: Konsekvensdistribution
           href: template-deploy-what-if.md
         - name: Omdistribuera vid fel

@@ -4,6 +4,8 @@
   items:
     - name: Introduktion
       href: iot-introduction.md
+    - name: Välj den rätta IoT-lösningen
+      href: iot-solution-options.md
     - name: Azure IoT-tjänster och tekniker
       href: iot-services-and-technologies.md
     - name: Alternativ för support och hjälp

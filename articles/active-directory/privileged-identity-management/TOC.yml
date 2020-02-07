@@ -67,7 +67,7 @@
               href: azure-ad-custom-roles-configure.md
         - name: Visa granskningshistorik
           href: pim-how-to-use-audit-log.md
-    - name: Hantera Azure-resursroller
+    - name: Hantera Azure-roller
       items:
         - name: Tilldela roller
           href: pim-resource-roles-assign-roles.md
@@ -97,7 +97,7 @@
               href: pim-how-to-perform-security-review.md
             - name: Slutför en åtkomstgranskning
               href: pim-how-to-complete-review.md
-        - name: Azure-resursroller
+        - name: Azure-roller
           items:
             - name: Skapa en åtkomstgranskning
               href: pim-resource-roles-start-access-review.md

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 64c5d80b5a2660164b21e71f06e847d5b11e40da
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964437"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083058"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Självstudie: dela data med Azure Data Share  
 
@@ -25,10 +25,11 @@ I den här kursen får du lära du dig att:
 > * Aktivera ett ögonblicks bild schema för data resursen. 
 > * Lägg till mottagare i dataresursen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Mottagarens e-postadress för Azure-inloggning (med deras e-postalias fungerar inte).
+* Om käll Azure-datalagret finns i en annan Azure-prenumeration än den som du ska använda för att skapa en data resurs resurs registrerar du [Microsoft. DataShare Resource Provider](concepts-roles-permissions.md#resource-provider-registration) i prenumerationen där Azure Data Store finns. 
 
 ### <a name="share-from-a-storage-account"></a>Dela från ett lagrings konto:
 
@@ -57,7 +58,7 @@ I den här kursen får du lära du dig att:
 * Åtkomst till klient-IP SQL Server-brandvägg. Detta kan göras genom följande steg: 
     1. I SQL Server i Azure Portal navigerar du till *brand väggar och virtuella nätverk*
     1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
-    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Du kan också lägga till ett IP-intervall. 
+    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall. 
 
 ### <a name="share-from-azure-data-explorer"></a>Dela från Azure Datautforskaren
 * Ett Azure Datautforskaren-kluster med databaser som du vill dela.
@@ -85,7 +86,7 @@ Skapa en Azure Data Share-resurs i en Azure-resurs grupp.
     | Namn | *datashareacount* | Ange ett namn för ditt data resurs konto. |
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som du vill använda för ditt data resurs konto.|
     | Resursgrupp | *test-resource-group* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
-    | Location | *USA, östra 2* | Välj en region för ditt data resurs konto.
+    | plats. | *USA, östra 2* | Välj en region för ditt data resurs konto.
     | | |
 
 1. Välj **skapa** för att etablera ditt data resurs konto. Det tar vanligt vis ungefär 2 minuter att tillhandahålla ett nytt data resurs konto. 

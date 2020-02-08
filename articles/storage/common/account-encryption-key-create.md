@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8cf1f8ecb68e31f93c19d93d6ebc4f8ef37724e7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028447"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083567"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
@@ -35,41 +35,93 @@ Du kan skapa ett lagrings konto som förlitar sig på konto krypterings nyckeln 
 
 ### <a name="register-to-use-the-account-encryption-key"></a>Registrera dig för att använda konto krypterings nyckeln
 
+Om du vill registrera dig för att använda kontots krypterings nyckel med kö-eller tabell lagring, använder du PowerShell eller Azure CLI.
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Om du vill registrera dig med PowerShell anropar du kommandot [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+
+```powershell
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Om du vill registrera dig med Azure CLI anropar du kommandot [AZ funktions register](/cli/azure/feature#az-feature-register) .
 
-Registrera dig för att använda konto krypterings nyckeln med Queue Storage:
-
 ```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
-Registrera dig för att använda konto krypterings nyckeln med Table Storage:
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
-```
+SAKNAS
+
+---
 
 ### <a name="check-the-status-of-your-registration"></a>Kontrol lera status för registreringen
 
-Kontrol lera status för registreringen för Queue Storage:
+Använd PowerShell eller Azure CLI för att kontrol lera status för registreringen för kö-eller tabell lagring.
 
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Om du vill kontrol lera status för registreringen med PowerShell anropar du kommandot [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-Så här kontrollerar du status för registreringen av Table Storage:
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Om du vill kontrol lera statusen för registreringen med Azure CLI anropar du kommandot [AZ Feature](/cli/azure/feature#az-feature-show) .
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
+
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+SAKNAS
+
+---
 
 ### <a name="re-register-the-azure-storage-resource-provider"></a>Registrera Azure Storage Resource providern igen
 
-När registreringen har godkänts måste du registrera Azure Storage resurs leverantören igen. Anropa [AZ-providerns register](/cli/azure/provider#az-provider-register) kommando:
+När registreringen har godkänts måste du registrera Azure Storage resurs leverantören igen. Använd PowerShell eller Azure CLI för att omregistrera resurs leverantören.
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Anropa kommandot [register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) för att omregistrera resurs leverantören med PowerShell.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Om du vill registrera om resurs leverantören med Azure CLI anropar du kommandot [AZ Provider register](/cli/azure/provider#az-provider-register) .
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
 ```
+
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+SAKNAS
+
+---
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Skapa ett konto som använder krypterings nyckeln för kontot
 
@@ -80,31 +132,52 @@ Lagrings kontot måste vara av typen General-Purpose v2. Du kan skapa lagrings k
 > [!NOTE]
 > Det går bara att konfigurera kö-och tabell lagring för att kryptera data med konto krypterings nyckeln när lagrings kontot skapas. Blob Storage och Azure Files alltid använda kontots krypterings nyckel för att kryptera data.
 
-### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill använda Azure CLI för att skapa ett lagrings konto som förlitar sig på konto krypterings nyckeln kontrollerar du att du har installerat Azure CLI-version 2.0.80 eller senare. Mer information finns i [installera Azure CLI](/cli/azure/install-azure-cli).
+Om du vill använda PowerShell för att skapa ett lagrings konto som förlitar sig på konto krypterings nyckeln kontrollerar du att du har installerat Azure PowerShell-modulen, version 3.4.0 eller senare. Mer information finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+
+Skapa sedan ett allmänt-syfte v2-lagrings konto genom att anropa kommandot [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) med lämpliga parametrar:
+
+- Ta med alternativet `-EncryptionKeyTypeForQueue` och ange värdet till `Account` att använda kontots krypterings nyckel för att kryptera data i Queue Storage.
+- Ta med alternativet `-EncryptionKeyTypeForTable` och ange värdet till `Account` att använda kontots krypterings nyckel för att kryptera data i Table Storage.
+
+I följande exempel visas hur du skapar ett allmänt-syfte v2-lagrings konto som är konfigurerat för Geo-redundant lagring med Läs behörighet (RA-GRS) och som använder konto krypterings nyckeln för att kryptera data för både kö-och tabell lagring. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+
+```powershell
+New-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account> `
+    -Location <location> `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -EncryptionKeyTypeForTable Account `
+    -EncryptionKeyTypeForQueue Account
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Om du vill använda Azure CLI för att skapa ett lagrings konto som förlitar sig på konto krypterings nyckeln kontrollerar du att du har installerat Azure CLI-version 2.0.80 eller senare. Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 Skapa sedan ett allmänt-syfte v2-lagrings konto genom att anropa kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) med lämpliga parametrar:
 
 - Ta med alternativet `--encryption-key-type-for-queue` och ange värdet till `Account` att använda kontots krypterings nyckel för att kryptera data i Queue Storage.
 - Ta med alternativet `--encryption-key-type-for-table` och ange värdet till `Account` att använda kontots krypterings nyckel för att kryptera data i Table Storage.
 
-I följande exempel visas hur du skapar ett allmänt-syfte v2-lagrings konto som har kon figurer ATS för LRS och som använder konto krypterings nyckeln för att kryptera data för både Queue-och table-lagring. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+I följande exempel visas hur du skapar ett allmänt-syfte v2-lagrings konto som är konfigurerat för Geo-redundant lagring med Läs behörighet (RA-GRS) och som använder konto krypterings nyckeln för att kryptera data för både kö-och tabell lagring. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
 ```azurecli
 az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2 \
     --encryption-key-type-for-table Account \
     --encryption-key-type-for-queue Account
 ```
 
-### <a name="templatetabtemplate"></a>[Mall](#tab/template)
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
-Följande JSON-exempel skapar ett allmänt-syfte v2-lagrings konto som har kon figurer ATS för LRS och som använder konto krypterings nyckeln för att kryptera data för både Queue-och table-lagring. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Följande JSON-exempel skapar ett allmänt-syfte v2-lagrings konto som är konfigurerat för Geo-redundant lagring med Läs behörighet (RA-GRS) och som använder konto krypterings nyckeln för att kryptera data för både kö-och tabell lagring. Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
 
 ```json
 "resources": [
@@ -116,7 +189,7 @@ Följande JSON-exempel skapar ett allmänt-syfte v2-lagrings konto som har kon f
         "dependsOn": [],
         "tags": {},
         "sku": {
-            "name": "[parameters('Standard_LRS')]"
+            "name": "[parameters('Standard_RAGRS')]"
         },
         "kind": "[parameters('StorageV2')]",
         "properties": {
@@ -151,11 +224,32 @@ När du har skapat ett konto som förlitar sig på konto krypterings nyckeln kan
 
 För att verifiera att en tjänst i ett lagrings konto använder konto krypterings nyckeln anropar du kommandot för Azure CLI- [AZ lagrings konto](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter fältet `keyType` för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account`.
 
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter fältet `KeyType` för varje tjänst i `Encryption`-egenskapen och kontrol lera att den är inställd på `Account`.
+
+```powershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$account.Encryption.Services.Queue
+$account.Encryption.Services.Table
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Du kan kontrol lera att en tjänst i ett lagrings konto använder konto krypterings nyckeln genom att anropa kommandot [AZ Storage Account](/cli/azure/storage/account#az-storage-account-show) . Det här kommandot returnerar en uppsättning egenskaper för lagrings konto och deras värden. Leta efter fältet `keyType` för varje tjänst i egenskapen kryptering och kontrol lera att den är inställd på `Account`.
+
 ```azurecli
 az storage account show /
     --name <storage-account> /
     --resource-group <resource-group>
 ```
+
+# <a name="templatetabtemplate"></a>[Mall](#tab/template)
+
+SAKNAS
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

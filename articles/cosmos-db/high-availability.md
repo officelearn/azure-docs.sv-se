@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: daa98d703a115e663032639d78f51b26ed1c7ba3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441860"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083010"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -34,8 +34,8 @@ Som en globalt distribuerad databas tillhandahåller Cosmos DB omfattande servic
 
 |Åtgärds typ  | Enskild region |Flera regioner (enstaka regions skrivningar)|Flera regioner (skrivningar i flera regioner) |
 |---------|---------|---------|-------|
-|Skrivningar    | 99,99    |99,99   |99,999|
-|Läsningar     | 99,99    |99,999  |99,999|
+|Skriver    | 99,99    |99,99   |99,999|
+|Databasläsningar     | 99,99    |99,999  |99,999|
 
 > [!NOTE]
 > I praktiken är den faktiska Skriv tillgängligheten för begränsat inaktuellitet, session, konsekvent prefix och eventuella konsekvens modeller betydligt högre än den publicerade service avtal. Den faktiska Läs tillgängligheten för alla konsekvens nivåer är betydligt högre än den publicerade service avtal.
@@ -59,9 +59,9 @@ Regionala avbrott är inte ovanliga, men med Azure Cosmos DB har din databas all
 - **Konton för flera regioner med en enkel-eller regions åtgärd (Läs regions avbrott):**
   - Under ett avbrott i läsnings området är dessa konton hög tillgängliga för läsning och skrivning.
   - Den berörda regionen kopplas från automatiskt och kommer att markeras som offline. [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) : er omdirigerar Läs anrop till nästa tillgängliga region i listan över önskade regioner.
-  - Om ingen av regionerna i listan över föredragna regioner är tillgänglig kan återgår anrop automatiskt till den aktuella skrivregionen.
+  - Om ingen av regionerna i listan över önskade regioner är tillgänglig, återgår anrop automatiskt till den aktuella Skriv regionen.
   - Inga ändringar krävs i din program kod för att hantera avbrott i läsnings området. När den påverkade regionen är online, synkroniseras den tidigare berörda läsnings regionen automatiskt med den aktuella Skriv regionen och kommer att vara tillgänglig igen för att hantera Läs begär Anden.
-  - Efterföljande läsningar omdirigeras till den återställda regionen utan att det krävs några ändringar i din programkod. Vid både redundans och åter anslutning av en tidigare misslyckad region, kan Läs konsekvens garantier fortsätta att följas av Cosmos DB.
+  - Efterföljande läsningar omdirigeras till den återställda regionen utan att det krävs några ändringar i program koden. Vid både redundans och åter anslutning av en tidigare misslyckad region, kan Läs konsekvens garantier fortsätta att följas av Cosmos DB.
 
 - Även i en sällsynt och olycklig-händelse när Azure-regionen är permanent oåterkalleligt, sker ingen data förlust om ditt Cosmos-konto i flera regioner har kon figurer ATS med *stark* konsekvens. I händelse av en permanent oåterkalleligt Skriv region, ett Cosmos-konto med flera regioner som kon figurer ATS med begränsad föråldrad konsekvens, är den potentiella data förlust perioden begränsad till inaktuella fönster (*k* eller *T*) där K = 100000 uppdateringar och T = 5 minuter. För session, konsekvent prefix och eventuell konsekvens, är den potentiella data förlust perioden begränsad till högst 15 minuter. Mer information om RTO och mål för Azure Cosmos DB finns i [konsekvens nivåer och data hållbarhet](consistency-levels-tradeoffs.md#rto)
 
@@ -71,9 +71,9 @@ Förutom återhämtning i flera regioner kan du nu aktivera **zon redundans** n�
 
 Med support för tillgänglighets zon kan Azure Cosmos DB se till att repliker placeras i flera zoner inom en bestämd region för att ge hög tillgänglighet och återhämtning under zonindelade-haverier. Det finns inga ändringar i svars tid och andra service avtal i den här konfigurationen. I händelse av ett enskilt zon haveri ger zon redundans fullständig data hållbarhet med återställnings punkt = 0 och tillgänglighet med RTO = 0.
 
-Zon redundans är en *kompletterande funktion* för funktionen för [multi-master-replikering](how-to-multi-master.md) . Du kan inte uppnå regional återhämtning enbart med zonredundans. I händelse av regionala avbrott eller åtkomst med låg fördröjning i regionerna, rekommenderar vi till exempel att du har flera Skriv regioner förutom zon redundans.
+Zon redundans är en *kompletterande funktion* för funktionen för [multi-master-replikering](how-to-multi-master.md) . Zon redundans kan inte förlita sig på att uppnå regional återhämtning. I händelse av regionala avbrott eller åtkomst med låg fördröjning i regionerna, rekommenderar vi till exempel att du har flera Skriv regioner förutom zon redundans.
 
-När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zonredundans för en befintlig region i ditt Azure Cosmos-konto genom att ta bort regionen och lägga tillbaka den med zonredundans aktiverat.
+När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad.
 
 Den här funktionen är tillgänglig i följande Azure-regioner:
 
@@ -105,7 +105,7 @@ I följande tabell sammanfattas funktionen för hög tillgänglighet för olika 
 |Zon haverier – tillgänglighet | Tillgänglighets förlust | Ingen förlust av tillgänglighet | Ingen förlust av tillgänglighet |
 |Läs fördröjning | Mellan region | Mellan region | Låg |
 |Skriv fördröjning | Mellan region | Mellan region | Låg |
-|Regionalt avbrott – data förlust | Data förlust |  Data förlust | Data förlust <br/><br/> När du använder begränsad föråldrad konsekvens med flera huvud servrar och mer än en region begränsas data förlusten till den begränsade inaktuellheten som kon figurer ATS på ditt konto. <br/><br/> Data förlust under regionalt avbrott kan undvikas genom att konfigurera stark konsekvens med flera regioner. Det här alternativet innehåller kompromisser som påverkar tillgänglighet och prestanda.      |
+|Regionalt avbrott – data förlust | Data förlust |  Data förlust | Data förlust <br/><br/> När du använder begränsad föråldrad konsekvens med flera huvud servrar och mer än en region begränsas data förlusten till den begränsade inaktuellheten som kon figurer ATS på ditt konto <br /><br />Du kan undvika data förlust under ett regionalt avbrott genom att konfigurera stark konsekvens med flera regioner. Det här alternativet innehåller en kompromiss som påverkar tillgänglighet och prestanda. Den kan bara konfigureras på konton som kon figurer ATS för skrivningar i en region. |
 |Regionalt avbrott – tillgänglighet | Tillgänglighets förlust | Tillgänglighets förlust | Ingen förlust av tillgänglighet |
 |Dataflöde | X RU/s-allokerat data flöde | X RU/s-allokerat data flöde | 2X RU/s-allokerat data flöde <br/><br/> Det här konfigurations läget kräver två gånger mängden data flöde jämfört med en region med Tillgänglighetszoner eftersom det finns två regioner. |
 
@@ -151,7 +151,7 @@ Du kan aktivera Tillgänglighetszoner genom att använda Azure Portal när du sk
 
 Härnäst kan du läsa följande artiklar:
 
-- [Tillgänglighet och prestanda kompromisser för olika konsekvensnivåer](consistency-levels-tradeoffs.md)
+- [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md)
 - [Globalt skalning av allokerat data flöde](scaling-throughput.md)
 - [Global distribution – under huven](global-dist-under-the-hood.md)
 - [Konsekvens nivåer i Azure Cosmos DB](consistency-levels.md)

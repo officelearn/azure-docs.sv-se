@@ -9,12 +9,12 @@ ms.date: 12/13/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 2f52d72a1f2e3c3d1f3495c4b7f6f633db30778e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3360b92a1b71adcbf0364a16c197aecdab5700db
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437291"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086600"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Självstudie: reagera på Blob Storage händelser på IoT Edge (förhands granskning)
 Den här artikeln visar hur du distribuerar Azure Blob Storage i IoT-modulen, som fungerar som en Event Grid utgivare för att skicka händelser vid skapande av BLOB och blob-borttagning till Event Grid.  
@@ -47,7 +47,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Den har tre steg: **Lägg till moduler**, **ange vägar**, och **granska distribution**.
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
@@ -62,9 +62,8 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
     ```json
         {
           "Env": [
-           "inbound:serverAuth:tlsPolicy=enabled",
-           "inbound:clientAuth:clientCert:enabled=false",
-           "outbound:webhook:httpsOnly=false"
+           "inbound__serverAuth__tlsPolicy=enabled",
+           "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,18 +78,15 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
     ```    
 
  1. Klicka på **Spara**
- 1. Fortsätt till nästa avsnitt för att lägga till modulen Azure Functions
+ 1. Fortsätt till nästa avsnitt för att lägga till modulen Azure Event Grid-prenumerant innan du distribuerar dem tillsammans.
 
     >[!IMPORTANT]
-    > I den här självstudien får du lära dig att distribuera Event Grid-modulen för att tillåta både HTTP/HTTPs-begäranden, klientautentisering inaktive rad och tillåta HTTP-prenumeranter. För produktions arbets belastningar rekommenderar vi att du bara aktiverar HTTPs-förfrågningar och-prenumeranter med klientautentisering aktive rad. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](security-authentication.md).
+    > I den här självstudien får du lära dig att distribuera Event Grid-modulen för att tillåta både HTTP/HTTPs-begäranden, klientautentisering inaktive rad. För produktions arbets belastningar rekommenderar vi att du bara aktiverar HTTPs-förfrågningar och-prenumeranter med klientautentisering aktive rad. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](security-authentication.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Distribuera Azure Function IoT Edge-modulen
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Distribuera Event Grid Subscriber IoT Edge-modulen
 
-I det här avsnittet visas hur du distribuerar Azure Functions IoT-modulen, som fungerar som en Event Grid prenumerant som du kan leverera händelser till.
-
->[!IMPORTANT]
->I det här avsnittet ska du distribuera ett exempel på en Azure Function-baserad modell som beskriver modulen. Det kan naturligtvis vara en anpassad IoT-modul som kan lyssna efter HTTP POST-begäranden.
+I det här avsnittet visas hur du distribuerar en annan IoT-modul som fungerar som en händelse hanterare som du kan leverera händelser till.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
@@ -99,23 +95,8 @@ I det här avsnittet visas hur du distribuerar Azure Functions IoT-modulen, som 
 1. Ange namn, avbildning och behållar skapande alternativ för behållaren:
 
    * **Namn**: prenumerant
-   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Alternativ för att skapa behållare**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Alternativ för att skapa behållare**: ingen
 1. Klicka på **Spara**
 1. Fortsätt till nästa avsnitt för att lägga till Azure Blob Storage-modulen
 
@@ -133,7 +114,7 @@ I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som f
    * **Bild-URI**: MCR.Microsoft.com/Azure-Blob-Storage:Latest
    * **Alternativ för att skapa behållare**:
 
-```json
+   ```json
        {
          "Env":[
            "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
@@ -149,13 +130,12 @@ I det här avsnittet visas hur du distribuerar Azure Blob Storage-modulen, som f
            }
          }
        }
-```
-> [!IMPORTANT]
-> - Blob Storage-modulen kan publicera händelser med både HTTPS och HTTP. 
-> - Om du har aktiverat den klientbaserade autentiseringen för EventGrid, se till att du uppdaterar värdet för EVENTGRID_ENDPOINT så att https ser ut så här: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 
-> - Och Lägg till en annan miljö variabel `AllowUnknownCertificateAuthority=true` till ovanstående JSON. När du pratar med EventGrid över HTTPS tillåter **AllowUnknownCertificateAuthority** lagrings modulen att lita på självsignerade EventGrid-servercertifikat.
+   ```
 
-
+   > [!IMPORTANT]
+   > - Blob Storage-modulen kan publicera händelser med både HTTPS och HTTP. 
+   > - Om du har aktiverat den klientbaserade autentiseringen för EventGrid, se till att uppdatera värdet för EVENTGRID_ENDPOINT att tillåta https, så här: `EVENTGRID_ENDPOINT=https://<event grid module name>:4438`.
+   > - Lägg också till en annan miljö variabel `AllowUnknownCertificateAuthority=true` till ovanstående JSON. När du pratar med EventGrid över HTTPS tillåter **AllowUnknownCertificateAuthority** lagrings modulen att lita på självsignerade EventGrid-servercertifikat.
 
 4. Uppdatera JSON som du kopierade med följande information:
 
@@ -181,7 +161,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
 ### <a name="review-deployment"></a>Granska distribution
 
 1. I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i föregående avsnitt. Bekräfta att du ser följande fyra moduler: **$edgeAgent**, **$edgeHub**, **eventgridmodule**, **prenumeranter** och **azureblobstorageoniotedge** som alla distribueras.
-2. Granska information om din distribution, och välj sedan **skicka**.
+2. Granska distributions informationen och välj sedan **Skicka**.
 
 ## <a name="verify-your-deployment"></a>Verifiera distributionen
 
@@ -221,42 +201,41 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
 2. Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om du vill ta emot en händelse måste du skapa en Event Grid prenumeration för **MicrosoftStorage** -avsnittet.
     1. Skapa blobsubscription. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
 
-    ```json
+       ```json
         {
           "properties": {
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
         }
-    ```
+       ```
 
-    >[!NOTE]
-    > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure Function-exemplet som du distribuerade tidigare.
+       >[!NOTE]
+       > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure Function-exemplet som du distribuerade tidigare.
 
     2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK`.
 
-    ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
-    ```
+       ```sh
+       curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
+       ```
 
-    > [!IMPORTANT]
-    > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
-    > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-
+       > [!IMPORTANT]
+       > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+       > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att:`curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
     3. Kör följande kommando för att kontrol lera att prenumerationen har skapats. HTTP-statuskod på 200 OK ska returneras.
 
-    ```sh
-    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
-    ```
+       ```sh
+       curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
+       ```
 
-    Exempel på utdata:
+       Exempel på utdata:
 
-    ```json
+       ```json
         {
           "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5",
           "type": "Microsoft.EventGrid/eventSubscriptions",
@@ -266,18 +245,18 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
         }
-    ```
+       ```
 
-    > [!IMPORTANT]
-    > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
-    > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > [!IMPORTANT]
+       > - För HTTPS-flödet, om klientautentisering är aktive rad via SAS-nyckel, ska den SAS-nyckel som anges ovan läggas till som en rubrik. Därför kommer spiral förfrågan att: `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+       > - Om klientautentisering är aktive rad via certifikat för HTTPS-flödet blir förfrågan om att: `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
 
-2. Ladda ned [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och [Anslut den till din lokala lagrings plats](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
+3. Ladda ned [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) och [Anslut den till din lokala lagrings plats](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## <a name="verify-event-delivery"></a>Verifiera händelse leverans
 
@@ -289,7 +268,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
     Exempel på utdata:
 
     ```json
-            Received event data [
+            Received Event:
             {
               "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
               "topic": "MicrosoftStorage",
@@ -309,7 +288,6 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
                 "blobType": "BlockBlob"
               }
             }
-          ]
     ```
 
 ### <a name="verify-blobdeleted-event-delivery"></a>Verifiera leverans av BlobDeleted-händelser
@@ -320,7 +298,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
     Exempel på utdata:
     
     ```json
-            Received event data [
+            Received Event:
             {
               "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
               "topic": "MicrosoftStorage",
@@ -340,10 +318,9 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
                 "blobType": "BlockBlob"
               }
             }
-          ]
     ```
 
-Grattis! Du har slutfört självstudien. I följande avsnitt finns information om händelse egenskaperna.
+Gratulerar! Du har slutfört självstudien. I följande avsnitt finns information om händelse egenskaperna.
 
 ### <a name="event-properties"></a>Händelse egenskaper
 
@@ -352,13 +329,13 @@ Här är en lista över de händelse egenskaper som stöds och deras typer och b
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| subject | sträng | Utgivardefinierad sökväg till händelseobjektet. |
-| eventType | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
 | data | objekt | Händelse data för Blob Storage. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
 
 Data-objektet har följande egenskaper:
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9824f5cfd7b42860079536232b8a5ad40ea608c9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3243aa4c68e1cd6030986dc44cca47a555dc5356
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638365"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087151"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -46,7 +46,7 @@ Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visua
 
 ## <a name="sdk-installation-issues"></a>SDK-installationsproblem
 
-**Felmeddelande: Det går inte att avinstallera 'PyYAML'**
+**Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
 Azure Machine Learning-SDK för Python: PyYAML är ett projekt för distutils installerad. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
 
@@ -76,7 +76,7 @@ Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 ## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -172,7 +172,7 @@ Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks k
 * Lägg till `azureml-dataprep` version 1.1.8 eller senare.
 * Lägg till `pyarrow` version 0,11 eller senare.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure-portalen
 
 Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Machine Learning Studio](https://ml.azure.com) och söka efter namnet på arbets ytan.
 
@@ -191,7 +191,7 @@ Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
+Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 
@@ -306,3 +306,9 @@ Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den 
 ### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Tryck på ESC-tangenten när etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.
 
 Ta bort etiketten genom att klicka på kryss rutan bredvid det.
+
+## <a name="run-or-experiment-deletion"></a>Körning eller experiment borttagning
+
+Experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) eller från fliken experiment i Azure Machine Learning Studio-klienten. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
+
+Permanent borttagning av enskilda experiment eller körningar stöds inte för närvarande. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).

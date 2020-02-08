@@ -1,20 +1,21 @@
 ---
-title: Använda Tillgänglighetszoner i Azure Kubernetes service (AKS)
+title: Använda tillgänglighets zoner i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar ett kluster som distribuerar noder över tillgänglighets zoner i Azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
+ms.custom: fasttrack-edit
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b73cb09f95fa2b23fb23fb719fe57143e1731ceb
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605092"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086517"
 ---
-# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder Tillgänglighetszoner
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
 Ett Azure Kubernetes service-kluster (AKS) distribuerar resurser, till exempel noder och lagring över logiska delar av den underliggande Azure-beräknings infrastrukturen. Den här distributions modellen ser till att noderna körs i separata uppdaterings-och fel domäner i ett enda Azure-datacenter. AKS-kluster som distribueras med detta standard beteende ger en hög tillgänglighets nivå för att skydda mot ett maskin varu fel eller ett planerat underhålls evenemang.
 
@@ -58,11 +59,11 @@ Volymer som använder Azure Managed disks är för närvarande inte zonindelade 
 
 Om du måste köra tillstånds känsliga arbets belastningar använder du bismakar och tolererar i pod-specifikationerna för att instruera Kubernetes Scheduler att skapa poddar i samma zon som dina diskar. Du kan också använda nätverksbaserad lagring som Azure Files som kan kopplas till poddar när de är schemalagda mellan zoner.
 
-## <a name="overview-of-availability-zones-for-aks-clusters"></a>Översikt över Tillgänglighetszoner för AKS-kluster
+## <a name="overview-of-availability-zones-for-aks-clusters"></a>Översikt över tillgänglighets zoner för AKS-kluster
 
-Tillgänglighetszoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser.
+Tillgänglighets zoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över tillgänglighets zoner för att skydda från enskilda platser.
 
-Mer information finns i [Vad är Tillgänglighetszoner i Azure?][az-overview].
+Mer information finns i [Vad är tillgänglighets zoner i Azure?][az-overview].
 
 AKS-kluster som distribueras med hjälp av tillgänglighets zoner kan distribuera noder över flera zoner inom en enda region. Till exempel kan ett kluster i regionen *USA, östra 2* skapa noder i alla tre tillgänglighets zoner i *USA, östra 2*. Den här distributionen av AKS kluster resurser ger bättre kluster tillgänglighet eftersom de är elastiska till fel i en speciell zon.
 
@@ -122,6 +123,53 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 När du lägger till ytterligare noder i en agent distribuerar Azure-plattformen automatiskt de underliggande virtuella datorerna i de angivna tillgänglighets zonerna.
 
+Observera att i senare Kubernetes-versioner (1.17.0 och senare) använder AKS den nyare etiketten `topology.kubernetes.io/zone` förutom den föråldrade `failure-domain.beta.kubernetes.io/zone`.
+
+## <a name="verify-pod-distribution-across-zones"></a>Verifiera Pod-distribution mellan zoner
+
+Som dokumenterade på [välkända etiketter, anteckningar och smaker][kubectl-well_known_labels], använder Kubernetes etiketten `failure-domain.beta.kubernetes.io/zone` för att automatiskt distribuera poddar i en replikeringsprovider eller tjänst över olika zoner som är tillgängliga. För att testa detta kan du skala upp klustret från 3 till 5 noder för att verifiera korrekt Pod-spridning:
+
+```azurecli-interactive
+az aks scale \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 5
+```
+
+När skalnings åtgärden slutförs efter några minuter bör kommandot `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` ge utdata som liknar det här exemplet:
+
+```console
+Name:       aks-nodepool1-28993262-vmss000000
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000001
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+Name:       aks-nodepool1-28993262-vmss000002
+            failure-domain.beta.kubernetes.io/zone=eastus2-3
+Name:       aks-nodepool1-28993262-vmss000003
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000004
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+```
+
+Som du kan se har vi nu två ytterligare noder i zon 1 och 2. Du kan distribuera ett program som består av tre repliker. Vi kommer att använda NGINX som exempel:
+
+```console
+kubectl run nginx --image=nginx --replicas=3
+```
+
+Om du verifierar att noderna där dina poddar körs, ser du att poddar körs på poddar som motsvarar tre olika tillgänglighets zoner. Till exempel med kommandot `kubectl describe pod | grep -e "^Name:" -e "^Node:"` skulle du få utdata som liknar detta:
+
+```console
+Name:         nginx-6db489d4b7-ktdwg
+Node:         aks-nodepool1-28993262-vmss000000/10.240.0.4
+Name:         nginx-6db489d4b7-v7zvj
+Node:         aks-nodepool1-28993262-vmss000002/10.240.0.6
+Name:         nginx-6db489d4b7-xz6wj
+Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
+```
+
+Som du kan se från föregående utdata körs den första Pod på nod 0, som finns i tillgänglighets zonens `eastus2-1`. Den andra Pod körs på nod 2, som motsvarar `eastus2-3`och den tredje i nod 4, i `eastus2-2`. Utan ytterligare konfiguration, Kubernetes spridningen av poddar korrekt i alla tre tillgänglighets zoner.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Den här artikeln innehåller information om hur du skapar ett AKS-kluster som använder tillgänglighets zoner. Mer information om kluster med hög tillgänglighet finns i [metod tips för verksamhets kontinuitet och haveri beredskap i AKS][best-practices-bc-dr].
@@ -144,3 +192,4 @@ Den här artikeln innehåller information om hur du skapar ett AKS-kluster som a
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fbd2b227c9292593a7652044ef4c013bf0cfaf8e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017011"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087140"
 ---
 # <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>Konfigurera en VPN-anslutning till ditt moln privata moln
 
@@ -67,7 +67,7 @@ Exemplet nedan visar hur du importerar en anslutning med hjälp av **viskositet-
 
 Anslutningen visas nu på menyn viskositet.
 
-#### <a name="connect-to-the-vpn"></a>Anslut till det privata virtuella nätverket.
+#### <a name="connect-to-the-vpn"></a>Ansluta till VPN
 
 Om du vill ansluta till VPN med hjälp av OpenVPN-klienten för viskositet väljer du anslutningen på menyn. Meny ikonen uppdateras för att indikera att anslutningen har upprättats.
 
@@ -97,7 +97,7 @@ En punkt-till-plats-VPN-anslutning matchar DNS-namnen för det första AVS-priva
 
     ![Redigera VPN-anslutning](media/viscosity-edit-connection.png)
 
-7. Klicka på fliken **nätverk** och ange IP-adresserna för DNS-serverns IP-adresser, åtskilda med kommatecken eller blank steg och domänen som ```AVS.io```. Välj **Ignorera DNS-inställningar som skickats av VPN-servern**.
+7. Klicka på fliken **nätverk** och ange IP-adresserna för DNS-serverns IP-adresser, åtskilda med kommatecken eller blank steg och domänen som ```az.cloudsimple.io```. Välj **Ignorera DNS-inställningar som skickats av VPN-servern**.
 
     ![VPN-nätverk](media/viscosity-edit-connection-networking.png)
 
@@ -117,4 +117,4 @@ Information om hur du konfigurerar din lokala VPN-gateway i läget för hög til
 
 > [!IMPORTANT]
 >    1. Ange TCP MSS-ihopfogning vid 1200 på VPN-enheten. Eller om VPN-enheterna inte stöder MSS-ihopfogning kan du i stället ange MTU för tunnel gränssnittet till 1240 byte.
-> 2. När plats-till-plats-VPN har kon figurer ATS vidarebefordrar du DNS-begärandena för *. AVS.io till DNS-servrarna i AVS-molnet. Följ anvisningarna i [den lokala DNS-installationen](on-premises-dns-setup.md).
+> 2. När plats-till-plats-VPN har kon figurer ATS vidarebefordrar DNS-begäranden för *. cloudsimple.io till DNS-servrarna i AVS-molnet. Följ anvisningarna i [den lokala DNS-installationen](on-premises-dns-setup.md).

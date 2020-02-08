@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 58b372e1f80386c4e02339f67f4c5aeaa686a662
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c2103952503a0a184fb970cd8d2326cc2764a223
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549231"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086485"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -97,8 +97,6 @@ AKS stöder följande [styrenheter för åtkomst][admission-controllers]kontroll
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
-- *DenyEscalatingExec*
-- *AlwaysPullImages*
 
 För närvarande kan du inte ändra listan över åtkomst kontrol listor i AKS.
 
@@ -122,7 +120,7 @@ Det är viktigt att känna till skillnaden mellan AKS-tjänstens tillgänglighet
 
 I AKS kan du ange `maxPods` värde när du skapar klustret med hjälp av Azure CLI och Azure Resource Manager mallar. Både Kubernetes och Azure CNI kräver dock ett *minsta värde* (verifieras vid skapande):
 
-| Nätverk | Minimum | Maximal |
+| Nätverk | Minimum | Max. |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubernetes | 30 | 110 |

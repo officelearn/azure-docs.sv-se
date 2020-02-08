@@ -6,48 +6,130 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800166"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086893"
 ---
 ## <a name="personal-information-entity-types"></a>Enhets typer för personlig information:
 
-### <a name="phone-number"></a>Telefonnummer
+### <a name="person"></a>Person
+Identifiera person namn i text.
 
-Telefonnummer. 
+Användning
+* Offentlig för hands version: `English`
 
-Språk:
+| Under typs namn | Beskrivning                                               | Tillgängligt från och med modell version |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| SAKNAS          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+
+### <a name="organization"></a>Organisation  
+
+Identifiera organisationer, organisationer, organ, företag, klubbar och andra grupper av människor.
+
+Användning 
 
 * Offentlig för hands version: `English`
 
-| Under typs namn           | Beskrivning                                           |
-|------------------------|-------------------------------------------------------|
-| Saknas                    | Telefonnummer, till exempel `+1 123-123-123`.          |
-| EU-telefonnummer        | Telefonnummer som är speciellt för Europeiska unionen.         |
-| Mobiltelefon nummer för EU | Mobiltelefon nummer som är speciella för Europeiska unionen. |
+| Under typs namn | Beskrivning                                                                                       | Tillgängligt från och med modell version|
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| SAKNAS          | organisationer, till exempel `Microsoft``NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+
+### <a name="phone-number"></a>Telefonnummer
+
+Telefonnummer (endast telefonnummer till USA). 
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                    | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------|----------------------------------------|
+| SAKNAS          | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176` | `2020-02-01`                           |
+
+### <a name="email"></a>E-post
+
+E-postadress. 
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                      | Tillgängligt från och med modell version |
+|--------------|--------------------------------------------------|----------------------------------------|
+| SAKNAS          | E-postadress, till exempel `support@contoso.com` | `2020-02-01`                           |
+
+### <a name="url"></a>URL
+
+Internet-URL: er.
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                          | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------------|----------------------------------------|
+| SAKNAS          | URL: er till webbplatser, till exempel `https://www.bing.com` | `2020-02-01`                           |
+
+### <a name="ip-address"></a>IP-adress
+
+Internet Protocol adress
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                              | Tillgängligt från och med modell version |
+|--------------|------------------------------------------|----------------------------------------|
+| SAKNAS          | Nätverks adress till exempel `10.0.0.101` | `2020-02-01`                           |
+
+### <a name="quantity"></a>Kvantitet 
+
+Numeriska kvantiteter
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                   | Tillgängligt från och med modell version |
+|--------------|-------------------------------|----------------------------------------|
+| Ålder          | `90 days old`, `30 years old` | `2020-02-01`                           |
+
+### <a name="datetime"></a>DateTime
+
+Datum-och tid enheter
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                   | Tillgängligt från och med modell version |
+|--------------|-------------------------------|----------------------------------------|
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>EU GPS-koordinater
 
  GPS-koordinater för platser inom Europeiska unionen. 
 
-Språk:
+Användning
 
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning                               |
-|--------------|-------------------------------------------|
-| Saknas          | GPS-koordinater inom Europeiska unionen |
+| Under typs namn | Beskrivning                               | Tillgängligt från och med modell version |
+|--------------|-------------------------------------------|----------------------------------------|
+| SAKNAS          | GPS-koordinater inom Europeiska unionen | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Azure-information
 
 Identifierbar Azure-information inklusive autentiseringsinformation och anslutnings strängar. 
 
-Språk:
+* Tillgängligt från och med modell version `2019-10-01`.
+
+Användning
 
 * Offentlig för hands version: `English`
 
@@ -67,7 +149,9 @@ Språk:
 
 ### <a name="identification"></a>Fastställa
 
-Språk:
+* Tillgängligt från och med modell version `2019-10-01`.
+
+Användning
 
 * Offentlig för hands version: `English`
 

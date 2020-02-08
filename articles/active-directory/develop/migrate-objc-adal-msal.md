@@ -3,22 +3,22 @@ title: ADAL till MSAL migration guide (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig skillnaderna mellan MSAL för iOS/macOS och Azure AD Authentication Library för ObjectiveC (ADAL. ObjC) och hur du migrerar till MSAL för iOS/macOS.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 311d6ed988777e94f5dd3fde8ac6e9aff1fb39fe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696681"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085174"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrera program till MSAL för iOS och macOS
 
@@ -65,7 +65,7 @@ I MSAL, i stället för en enda resurs-ID, tillhandahåller appar en uppsättnin
 
 Det finns två sätt att tillhandahålla omfång i MSAL:
 
-* Ange en lista över alla behörigheter som dina appar behöver. Ett exempel: 
+* Ange en lista över alla behörigheter som dina appar behöver. Exempel: 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -146,7 +146,7 @@ Så här aktiverar du koordinator för ditt program:
 
 1. Registrera ett Service Broker-kompatibelt omdirigerings-URI-format för programmet. Service Broker-kompatibelt omdirigerings-URI-format är `msauth.<app.bundle.id>://auth`. Ersätt `<app.bundle.id>` med programmets paket-ID. Om du migrerar från ADAL och ditt program redan har stöd för Service Broker behöver du inte göra något. Din tidigare omdirigerings-URI är helt kompatibel med MSAL, så du kan gå vidare till steg 3.
 
-2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>`. Ett exempel:
+2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>`. Exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>

@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Lär dig mer om skillnaderna mellan Microsoft Authentication Library för ObjectiveC (MSAL för iOS och macOS) och Azure AD Authentication Library för ObjectiveC (ADAL. ObjC) och hur du migrerar mellan dem.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: jak
 ms.custom: aaddev
-ms.openlocfilehash: b7fe65938b6f96a649a5a2a9ec1d1b921a95dd49
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c36c6b1b1b08de6d2db9a7f7f9ebd3b162c02383
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703090"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085635"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Använda omdirigerings-URI: er med Microsoft Authentication Library för iOS och macOS
 
@@ -40,7 +40,7 @@ Du kan dock behöva ändra omdirigerings-URI: n för avancerade scenarier, enlig
 
 För att Microsoft Identity Platform ska kunna dela tokens mellan appar måste varje app ha samma klient-ID eller program-ID. Detta är den unika identifieraren som angavs när du registrerade din app i portalen (inte programpaket-ID: t som du registrerar per app med Apple).
 
-Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
+Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Exempel:
 
 Följande program registrering i Azure Portal:
 
@@ -82,7 +82,7 @@ MSAL kontrollerar om din omdirigerings-URI registrerar sig korrekt och returnera
 
 ## <a name="use-a-custom-redirect-uri"></a>Använd en anpassad omdirigerings-URI
 
-Om du vill använda en anpassad omdirigerings-URI skickar du `redirectUri`-parametern till `MSALPublicClientApplicationConfig` och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI: n är ogiltig returnerar initieraren `nil` och anger `redirectURIError`med ytterligare information.  Ett exempel:
+Om du vill använda en anpassad omdirigerings-URI skickar du `redirectUri`-parametern till `MSALPublicClientApplicationConfig` och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI: n är ogiltig returnerar initieraren `nil` och anger `redirectURIError`med ytterligare information.  Exempel:
 
 Mål-C:
 

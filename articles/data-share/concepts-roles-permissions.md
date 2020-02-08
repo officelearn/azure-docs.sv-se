@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964472"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087173"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -35,7 +35,7 @@ Nedan visas en sammanfattning av de roller som tilldelats till data resursen res
 |Azure Blob Storage| Storage BLOB data Reader | Storage BLOB data-deltagare
 |Azure Data Lake gen1 | Ägare | Stöds inte
 |Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
-|Azure SQL Server | SQL DB-deltagare | SQL DB-deltagare
+|Azure-SQL Server | SQL DB-deltagare | SQL DB-deltagare
 |Azure Datautforskaren-kluster | Deltagare | Deltagare
 |
 
@@ -59,11 +59,11 @@ Alternativt kan användaren ha ägaren till Azure Data Store och lägga till dat
 Följ stegen nedan om du vill skapa en roll tilldelning för data resurs resursens hanterade identitet:
 
 1. Gå till Azure Data Store.
-1. Välj **åtkomstkontroll (IAM)** .
+1. Välj **Access Control (IAM)** .
 1. Välj **Lägg till en roll tilldelning**.
 1. Under *roll*väljer du rollen i roll tilldelnings tabellen ovan (till exempel för lagrings konto väljer du *Storage BLOB data Reader*).
 1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
-1. Klicka på *Spara*.
+1. Klicka på *Save* (Spara).
 
 Förutom stegen ovan i SQL-baserade källor måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som data resurs resursen i Azure. Den här användaren måste beviljas *db_datareader* -behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Dela dina data](share-your-data.md) . 
 
@@ -77,11 +77,11 @@ Alternativt kan användaren ha ägaren till Azure Data Store och lägga till dat
 Om du vill skapa en roll tilldelning för data resurs resursens hanterade identitet manuellt följer du stegen nedan:
 
 1. Gå till Azure Data Store.
-1. Välj **åtkomstkontroll (IAM)** .
+1. Välj **Access Control (IAM)** .
 1. Välj **Lägg till en roll tilldelning**.
 1. Under *roll*väljer du rollen i roll tilldelnings tabellen ovan (till exempel för lagrings konto väljer du *Storage BLOB data Reader*).
 1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
-1. Klicka på *Spara*.
+1. Klicka på *Save* (Spara).
 
 För SQL-baserat mål måste en SQL-användare skapas från en extern provider i SQL-databasen med samma namn som Azure Data Resource-resursen, förutom stegen ovan. Den här användaren måste beviljas *db_datareader db_datawriter db_ddladmin* behörighet. Ett exempel skript tillsammans med andra krav för SQL-baserad delning finns i själv studie kursen [Godkänn och ta emot data](subscribe-to-data-share.md) . 
 
@@ -91,7 +91,7 @@ Mer information om hur du lägger till en roll tilldelning finns i [den här dok
 
 ## <a name="resource-provider-registration"></a>Registrering av resurs leverantör 
 
-Om du vill visa Azure Data Share-inbjudan för första gången i din Azure-klient kan du behöva registrera Microsoft. DataShare-resurs leverantören manuellt i din Azure-prenumeration. Följ de här stegen för att registrera Microsoft. DataShare-resurs leverantören i din Azure-prenumeration. 
+Om du vill visa Azure Data Share-inbjudan för första gången i din Azure-klient kan du behöva registrera Microsoft. DataShare-resurs leverantören manuellt i din Azure-prenumeration. Följ de här stegen för att registrera Microsoft. DataShare-resurs leverantören i din Azure-prenumeration. Du behöver *deltagar* åtkomst till Azure-prenumerationen för att registrera resurs leverantören.
 
 1. I Azure Portal navigerar du till **prenumerationer**.
 1. Välj den prenumeration som du använder för Azure Data-resursen.

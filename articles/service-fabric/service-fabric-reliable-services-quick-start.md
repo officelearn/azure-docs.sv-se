@@ -1,27 +1,26 @@
 ---
 title: Skapa ditt första Service Fabric-program iC#
 description: Introduktion till att skapa ett Microsoft Azure Service Fabric-program med tillstånds lösa och tillstånds känsliga tjänster.
-author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: vturecek
-ms.openlocfilehash: e7c5c30dc7cbfa0a3f5a8dc76899c5c8bad6e6ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462810"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083761"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
+
 > [!div class="op_single_selector"]
 > * [C# i Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
-> 
-> 
 
 Ett Azure Service Fabric-program innehåller en eller flera tjänster som kör din kod. Den här guiden visar hur du skapar både tillstånds lösa och tillstånds känsliga Service Fabric program med [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
+
 För att komma igång med Reliable Services behöver du bara förstå några grundläggande begrepp:
 
 * **Tjänst typ**: det här är tjänst implementeringen. Den definieras av klassen som du skriver som utökar `StatelessService` och annan kod eller beroenden som används däri, tillsammans med ett namn och ett versions nummer.
@@ -30,6 +29,7 @@ För att komma igång med Reliable Services behöver du bara förstå några gru
 * **Tjänst registrering**: registreringen samlar ihop allt. Tjänst typen måste vara registrerad med Service Fabric runtime i en tjänst värd för att Service Fabric ska kunna skapa instanser av den som ska köras.  
 
 ## <a name="create-a-stateless-service"></a>Skapa en tillstånds lös tjänst
+
 En tillstånds lös tjänst är en typ av tjänst som för närvarande är normen i moln program. Den betraktas som tillstånds lös eftersom själva tjänsten inte innehåller data som behöver lagras på ett tillförlitligt sätt eller göras med hög tillgänglighet. Om en instans av en tillstånds lös tjänst stängs av försvinner allt internt tillstånd. I den här typen av tjänst måste tillstånd vara beständigt till en extern lagrings plats, t. ex. Azure-tabeller eller en SQL-databas, för att den ska bli hög tillgänglig och tillförlitlig.
 
 Starta Visual Studio 2017 eller Visual Studio 2019 som administratör och skapa ett nytt Service Fabric program projekt med namnet *HelloWorld*:
@@ -46,6 +46,7 @@ Din lösning innehåller nu två projekt:
 * *HelloWorldStateless*. Det här är tjänst projektet. Den innehåller den tillstånds lösa tjänst implementeringen.
 
 ## <a name="implement-the-service"></a>Implementera tjänsten
+
 Öppna **HelloWorldStateless.cs** -filen i tjänste projektet. I Service Fabric kan en tjänst köra vilken affärs logik som helst. Tjänst-API: et tillhandahåller två start punkter för din kod:
 
 * En öppen start punkt metod som kallas *RunAsync*, där du kan börja köra alla arbets belastningar, inklusive tids krävande beräknings arbets belastningar.
@@ -70,11 +71,10 @@ I den här självstudien kommer vi att fokusera på metoden för `RunAsync()` st
 Projekt mal len innehåller en exempel implementering av `RunAsync()` som ökar antalet rullandeor.
 
 > [!NOTE]
-> Mer information om hur du arbetar med en kommunikations stack finns i [Service Fabric Web API-tjänster med OWIN Self-hosting](service-fabric-reliable-services-communication-webapi.md)
-> 
-> 
+> Information om hur du arbetar med en kommunikations stack finns i [tjänst kommunikation med ASP.net Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### <a name="runasync"></a>RunAsync
+
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
@@ -110,6 +110,7 @@ Annullering av din arbets belastning är en samarbets insats som dirigeras av de
 I det här tillstånds lösa tjänst exemplet lagras antalet i en lokal variabel. Men eftersom det här är en tillstånds lös tjänst finns bara det värde som lagras för den aktuella livs cykeln för tjänst instansen. När tjänsten flyttas eller startas om går värdet förlorat.
 
 ## <a name="create-a-stateful-service"></a>Skapa en tillstånds känslig tjänst
+
 Service Fabric introducerar en ny typ av tjänst som är tillstånds känslig. En tillstånds känslig tjänst kan upprätthålla tillstånd på ett tillförlitligt sätt i själva tjänsten, tillsammans med den kod som används. Tillstånd har gjorts med hög tillgänglighet genom Service Fabric utan att behöva beständigt tillstånd till en extern lagrings plats.
 
 Om du vill konvertera ett räknar värde från tillstånds lös till hög tillgänglighet och beständigt, även när tjänsten flyttas eller startas om, behöver du en tillstånds känslig tjänst.
@@ -118,7 +119,7 @@ I samma *HelloWorld* -program kan du lägga till en ny tjänst genom att högerk
 
 ![Lägga till en tjänst i Service Fabric programmet](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Välj **.net Core 2,0-> tillstånds känslig tjänst** och ge den namnet *HelloWorldStateful*. Klicka på **OK**.
+Välj **.net Core 2,0-> tillstånds känslig tjänst** och ge den namnet *HelloWorldStateful*. Klicka på **OK**
 
 ![Använd dialog rutan nytt projekt för att skapa en ny Service Fabric tillstånds känslig tjänst](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
@@ -159,9 +160,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
+
 `RunAsync()` fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()`. Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och tillförlitliga tillstånds hanterare
+
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
@@ -178,6 +181,7 @@ Tillförlitliga samlingar kan lagra alla .NET-typer, inklusive anpassade typer, 
 Den pålitliga tillstånds hanteraren hanterar pålitliga samlingar åt dig. Du kan helt enkelt fråga den pålitliga tillstånds hanteraren för en tillförlitlig samling efter namn och var som helst i din tjänst. Den tillförlitliga tillstånds hanteraren garanterar att du får tillbaka en referens. Vi rekommenderar inte att du sparar referenser till tillförlitliga samlings instanser i klass medlems variabler eller egenskaper. Särskild försiktighet måste vidtas för att säkerställa att referensen anges till en instans hela tiden i tjänste livs cykeln. Den Reliable State Manager hanterar det här arbetet åt dig, och den är optimerad för upprepade besök.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transaktionella och asynkrona åtgärder
+
 ```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
@@ -189,7 +193,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Tillförlitliga samlingar har många av de åtgärder som `System.Collections.Generic` och `System.Collections.Concurrent` motsvarigheter, förutom LINQ. Åtgärder på Reliable Collections är asynkrona. Detta beror på att Skriv åtgärder med tillförlitliga samlingar utför I/O-åtgärder för att replikera och bevara data till disk.
+Tillförlitliga samlingar har många av de åtgärder som `System.Collections.Generic` och `System.Collections.Concurrent` motsvarigheter, förutom för språkintegrerad fråga (LINQ). Åtgärder på Reliable Collections är asynkrona. Detta beror på att Skriv åtgärder med tillförlitliga samlingar utför I/O-åtgärder för att replikera och bevara data till disk.
 
 Tillförlitliga samlings åtgärder är *transaktionella*, så att du kan hålla tillstånd konsekvent över flera pålitliga samlingar och åtgärder. Du kan till exempel ta bort en arbets uppgift från en tillförlitlig kö, utföra en åtgärd och spara resultatet i en tillförlitlig ord lista i en enda transaktion. Detta behandlas som en atomisk åtgärd och garanterar att hela åtgärden kommer att lyckas eller att hela åtgärden kommer att återställas. Om ett fel inträffar när du har avplacerat objektet, men innan du sparar resultatet, återställs hela transaktionen och objektet behålls i kön för bearbetning.
 

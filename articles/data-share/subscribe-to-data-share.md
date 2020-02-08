@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f2acb89597ef877543a2c4cc46f395aede41034b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964506"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083104"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Självstudie: Godkänn och ta emot data med Azure Data Share  
 
@@ -23,14 +23,14 @@ I den här självstudien får du lära dig hur du godkänner en data delnings-in
 > * Ange ett mål för dina data
 > * Skapa en prenumeration på din data resurs för schemalagd uppdatering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du kan acceptera en inbjudan till en data resurs måste du etablera ett antal Azure-resurser som visas nedan. 
 
 Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data delning. 
 
 * Azure-prenumeration: om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * Inbjudan till en data resurs: en inbjudan från Microsoft Azure med ett ämne med rubriken "Azure Data Share-inbjudan från **<yourdataprovider@domain.com>** ".
-* Registrera Microsoft. DataShare-resurs leverantören. Följ anvisningarna som beskrivs i [Felsöka Azure-Dataresursen](data-share-troubleshoot.md) för att registrera resurs leverantören för data resursen.
+* Registrera [resurs leverantören Microsoft. DataShare](concepts-roles-permissions.md#resource-provider-registration) i Azure-prenumerationen där du ska skapa en data resurs resurs och Azure-prenumerationen där dina Azure-datalager finns.
 
 ### <a name="receive-data-into-a-storage-account"></a>Ta emot data till ett lagrings konto: 
 
@@ -57,7 +57,7 @@ Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data deln
 * Åtkomst till klient-IP SQL Server-brandvägg. Detta kan göras genom följande steg: 
     1. I SQL Server i Azure Portal navigerar du till *brand väggar och virtuella nätverk*
     1. Klicka på **Växla för** att tillåta åtkomst till Azure-tjänster.
-    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du delar SQL-data från Azure Portal. Du kan också lägga till ett IP-intervall. 
+    1. Klicka på **+ Lägg till klient-IP** och klicka på **Spara**. Klientens IP-adress kan komma att ändras. Den här processen kan behöva upprepas nästa gång du tar emot data i ett SQL-mål från Azure Portal. Du kan också lägga till ett IP-intervall. 
 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Ta emot data till ett Azure Datautforskaren-kluster: 

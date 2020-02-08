@@ -3,7 +3,7 @@ title: Delat enhets läge för Android-enheter | Azure
 description: Lär dig mer om läget för delad enhet, vilket gör att firstline-arbetare kan dela en Android-enhet
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 53fa82cf6eaaba09353ba21a12ae9677b9264b1a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9928b64d286cc5072f28f7cc17e4af3e95662cd0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701475"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085611"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Läge för delad enhet för Android-enheter
 
@@ -85,9 +85,9 @@ Följande skillnader gäller beroende på om din app körs på en delad eller pe
 
 |  | Enhet för delat läge  | Personlig enhet |
 |---------|---------|---------|
-| **Konton**     | Enskilt konto | Flera konton |
-| **Inloggning** | Globalt | Globalt |
-| **Logga ut** | Globalt | Varje program kan styra om utloggningen är lokal i appen eller för program familjen. |
+| **Leverantör**     | Enskilt konto | Flera konton |
+| **Inloggning** | Global | Global |
+| **Logga ut** | Global | Varje program kan styra om utloggningen är lokal i appen eller för program familjen. |
 | **Konto typer som stöds** | Endast arbets konton | Personliga konton och arbets konton stöds  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Därför kanske du bara vill ha stöd för enanvändarläge

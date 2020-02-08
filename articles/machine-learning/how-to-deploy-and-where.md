@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932382"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083233"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Arbets flödet är ungefär oavsett [var du distribuerar](#target) din modell:
 
 Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
@@ -172,24 +172,24 @@ Slut punkter för flera modeller använder en delad behållare som värd för fl
 
 Ett E2E-exempel som visar hur du använder flera modeller bakom en enda behållares slut punkt finns i [det här exemplet](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model)
 
-## <a name="prepare-to-deploy"></a>Förbered distributionen
+## <a name="prepare-deployment-artifacts"></a>Förbered distributions artefakter
 
-För att distribuera modellen behöver du följande objekt:
+Om du vill distribuera modellen behöver du följande:
 
-* **Ett Entry-skript**. Det här skriptet accepterar begär Anden, visar förfrågningarna med hjälp av modellen och returnerar resultatet.
+* **Start skript & käll kods beroenden**. Det här skriptet accepterar begär Anden, visar förfrågningarna med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
     > * Start skriptet är bara för din modell. Den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
     >
     >   Om begär ande data har ett format som inte kan användas av din modell kan skriptet omvandla det till ett acceptabelt format. Det kan också transformera svaret innan det returneras till klienten.
     >
-    > * Azure Machine Learning SDK är inte ett sätt för webb tjänster eller IoT Edge distributioner för åtkomst till data lagret eller data uppsättningar. Om den distribuerade modellen behöver åtkomst till data som lagras utanför distributionen, t. ex. data i ett Azure Storage-konto, måste du utveckla en anpassad kod lösning med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
+    > * Webb tjänster och IoT Edge distributioner kan inte komma åt data lager för arbets ytor eller data uppsättningar. Om den distribuerade tjänsten behöver åtkomst till data som lagras utanför distributionen, t. ex. data i ett Azure Storage-konto, måste du utveckla en anpassad kod lösning med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
     >
     >   Ett alternativ som kan fungera för ditt scenario är [batch-förutsägelse](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager under poängsättningen.
 
-* **Beroenden**, t. ex. hjälp skript eller python/Conda-paket som krävs för att köra start skriptet eller modellen.
+* **Miljö för störningar**. Bas avbildningen med installerade paket beroenden som krävs för att köra modellen.
 
-* **Distributions konfigurationen** för det beräknings mål som är värd för den distribuerade modellen. Den här konfigurationen beskriver saker som minnes-och processor krav som krävs för att köra modellen.
+* **Distributions konfiguration** för det beräknings mål som är värd för den distribuerade modellen. Den här konfigurationen beskriver saker som minnes-och processor krav som krävs för att köra modellen.
 
 Dessa objekt kapslas in i en *konfiguration* för konfiguration och *distribution*. Konfigurations konfigurationen refererar till Start skriptet och andra beroenden. Du definierar dessa konfigurationer program mässigt när du använder SDK: n för att utföra distributionen. Du definierar dem i JSON-filer när du använder CLI.
 
@@ -201,7 +201,7 @@ Skriptet innehåller två funktioner som läser in och kör modellen:
 
 * `init()`: den här funktionen laddar normalt modellen till ett globalt objekt. Den här funktionen körs bara en gång, när Docker-behållaren för webb tjänsten startas.
 
-* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
+* `run(input_data)`: den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Hitta modell filer i ditt post skript
 
@@ -485,7 +485,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inferenceconfig"></a>2. definiera din InferenceConfig
+### <a name="2-define-your-inference-environment"></a>2. definiera din härlednings miljö
 
 Konfigurations konfigurationen beskriver hur du konfigurerar modellen för att göra förutsägelser. Den här konfigurationen ingår inte i ditt Entry-skript. Den refererar till ditt Entry-skript och används för att hitta alla resurser som krävs för distributionen. Den används senare när du distribuerar modellen.
 
@@ -538,7 +538,7 @@ Följande tabell innehåller ett exempel på hur du skapar en distributions konf
 
 | Beräkningsmål | Exempel på distributions konfiguration |
 | ----- | ----- |
-| Lokal | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Lokala | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -547,41 +547,6 @@ Klasserna för lokala, Azure Container Instances-och AKS-webbtjänster kan impor
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-#### <a name="profiling"></a>Profilering
-
-Innan du distribuerar din modell som en tjänst kanske du vill profilera den för att fastställa optimala processor-och minnes krav. Du kan använda antingen SDK eller CLI för att profilera din modell. I följande exempel visas hur du profilerar en modell med hjälp av SDK.
-
-> [!IMPORTANT]
-> När du använder profilering kan den konfiguration av den härledning som du anger inte referera till en Azure Machine Learning-miljö. Definiera i stället program beroenden med hjälp av parametern `conda_file` i `InferenceConfig`-objektet.
-
-```python
-import json
-test_data = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-Den här koden visar ett resultat som liknar följande utdata:
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-Modell profilerings resultatet genereras som ett `Run`-objekt.
-
-Information om hur du använder profilering från CLI finns i [AZ ml modell Profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
-
-Mer information finns i följande dokument:
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [Fil schema för konfigurations härledning](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
@@ -977,7 +942,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Ett exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1085,8 +1050,8 @@ docker kill mycontainer
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.
-Ta bort registrerade modellen genom att använda `model.delete()`.
+Om du vill ta bort en distribuerad webb tjänst använder du `service.delete()`.
+Använd `model.delete()`om du vill ta bort en registrerad modell.
 
 Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
@@ -1094,7 +1059,7 @@ Mer information finns i dokumentationen för [WebService. Delete ()](https://doc
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
 * [Använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

@@ -3,33 +3,33 @@ title: Flöden för MSAL-autentisering | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om de autentiserings flöden och-anslag som används av Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/30/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962107"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085122"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
 
 I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls av Microsoft Authentication Library (MSAL).  Dessa flöden kan användas i olika program scenarier.
 
-| Flow | Beskrivning | Används i|  
+| Flöde | Beskrivning | Används i|  
 | ---- | ----------- | ------- | 
 | [Interaktiv](#interactive) | Hämtar token via en interaktiv process som efterfrågar användaren om autentiseringsuppgifter via en webbläsare eller popup-fönster. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md) |
 | [Implicit beviljande](#implicit-grant) | Tillåter appen att hämta tokens utan att säkerhetskopiera autentiseringsuppgifter för backend-servern. Detta gör att appen kan logga in användaren, underhålla sessionen och hämta token till andra webb-API: er i klientens JavaScript-kod.| [Enkels Ides program (SPA)](scenario-spa-overview.md) |
 | [Auktoriseringskod](#authorization-code) | Används i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md), [Web Apps](scenario-web-app-call-api-overview.md) | 
-| [On-behalf-of](#on-behalf-of) | Ett program anropar en tjänst eller ett webb-API, som i sin tur måste anropa en annan tjänst eller ett webb-API. Tanken är att sprida den delegerade användar identiteten och behörigheterna via begär ande kedjan. | [Webb-API:er](scenario-web-api-call-api-overview.md) |
+| [På uppdrag av](#on-behalf-of) | Ett program anropar en tjänst eller ett webb-API, som i sin tur måste anropa en annan tjänst eller ett webb-API. Tanken är att sprida den delegerade användar identiteten och behörigheterna via begär ande kedjan. | [Webb-API:er](scenario-web-api-call-api-overview.md) |
 | [Klientautentiseringsuppgifter](#client-credentials) | Gör att du kan komma åt webb värd resurser genom att använda identiteten för ett program. Används ofta för server-till-Server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. | [Daemon-appar](scenario-daemon-overview.md) |
 | [Enhets kod](#device-code) | Tillåter att användare loggar in på inmatade enheter, till exempel en smart TV, IoT-enhet eller skrivare. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Integrerad Windows-autentisering](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Gör det möjligt för program på domän-eller Azure Active Directory (Azure AD) anslutna datorer att hämta en token tyst (utan någon användar GRÄNSSNITTs interaktion från användaren).| [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
@@ -39,7 +39,7 @@ I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls
  
 Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika tokens (id_tokens, uppdatera tokens, åtkomsttoken) och auktoriseringsregler, och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
  
-|Flow | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flöde | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -74,7 +74,7 @@ Många moderna webb program skapas som program på klient sidan, med en sida, sk
 
 Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk, till exempel Electron och reagerar-Native, eftersom de kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
 
-## <a name="authorization-code"></a>auktoriseringskod
+## <a name="authorization-code"></a>Auktoriseringskod
 
 MSAL stöder [utfärdande av OAuth 2-auktoriseringskod](v2-oauth2-auth-code-flow.md). Det här bidraget kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. 
 

@@ -15,24 +15,20 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844351"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069633"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Medieanalys på Media Servicess plattformen 
 
 ## <a name="retirement-plans"></a>Pensions planer
 
 > [!IMPORTANT]
-> Följande tidigare medie processor kommer att dras tillbaka om 2020, se information i följande tabell. 
+> Vissa medie processorer dras tillbaka. Information om indragnings datum och mer information finns i avsnittet om [äldre komponenter](legacy-components.md) . 
 
-|Namn på mediebearbetare|Datum för indragning|Ytterligare information|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|1 oktober 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer till Azure Media Services video Indexer](migrate-indexer-v1-v2.md)
- 
 ## <a name="overview"></a>Översikt
 
 Fler organisationer använder video som det önskade mediet för att träna sina anställda, engagera sina kunder och dokumentera affärs funktioner. Molnbaserad data behandling är ett sätt att lagra, strömma och komma åt dessa stora mediafiler. Men i takt med att ett företags bibliotek med video innehåll växer, behöver det ett lika effektivt sätt att extrahera insikter från innehållet. 
@@ -49,7 +45,7 @@ Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en me
 
 ## <a name="media-analytics-services"></a>Medieanalys tjänster
 
-### <a name="indexer"></a>Indexerare
+### <a name="indexer"></a>Indexer
 Med Azure Media Indexer kan du göra innehåll sökbart och generera spår med dold textning. Detaljerad information och exempel finns i [Indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
 
 ### <a name="motion-detector"></a>Rörelsedetektor
@@ -60,12 +56,12 @@ Genom att använda ansikts detektor kan du identifiera folkets ansikten och dera
 
 ### <a name="video-summarization"></a>Video Sammanfattning
 Video sammanfattningen kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta kodfragment från käll videon. Den här funktionen är användbar när du vill ge en snabb översikt över vad som förväntas i en lång video. Detaljerad information och exempel finns i [använda Azure Media Video thumbnails för att skapa video Sammanfattning](media-services-video-summarization.md).
-### <a name="optical-character-recognition"></a>Optisk teckenläsning
+### <a name="optical-character-recognition"></a>Optisk teckenigenkänning
 Med Azure Media OCR (optisk tecken läsning) kan du konvertera text innehåll i videofiler till redigerbar, sökbar digital text. Du kan sedan automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
 ### <a name="scalable-face-redaction"></a>Skalbara ansikts bortredigering
 Azure Media Redactor är en Medieanalys medie processor som erbjuder skalbara ansikts bortredigering i molnet. Genom att använda ansikts bortredigering kan du ändra videon så att den oskarpa ytan av valda individer blir oskarp. Du kanske vill använda ansikts bortredigering-tjänsten i nyhets medier eller när offentlig säkerhet är involverad. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten tar ansikts bortredigering bara några enkla steg. Mer information finns i avsnittet [bortredigering-ansikten med Azure-medieanalys](media-services-face-redaction.md) artikeln.
 
-### <a name="content-moderation"></a>Innehållsmoderering
+### <a name="content-moderation"></a>Innehålls moderator
 Med Azure Content Moderator kan du använda dator redigering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet. Att manuellt konfigurera videor för oönskat innehåll är en tids krävande och kostsam uppgift. Med den här tjänsten och tillhör ande gransknings verktyg kombinerar du datorbaserade moderatorer med funktioner för mänsklig ineffektivhet för bästa resultat och kostnads effektivt. Mer information finns i artikeln [bearbeta videor med Azure Content moderator](media-services-content-moderation.md) .
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
@@ -136,7 +132,7 @@ Svar:
        ]
     }
 
-## <a name="demos"></a>Demos
+## <a name="demos"></a>Demonstrationer
 Se [Azure-medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## <a name="provide-feedback"></a>Ge feedback

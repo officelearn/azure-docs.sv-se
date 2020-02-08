@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 09b25dbdc8fc13c40ccd89b2cfd78611cedaac9d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a9760b5c7a70c58a1afe1b14b781a35f2b9b18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024474"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082965"
 ---
 # <a name="accessing-your-avs-private-cloud-environment-and-applications-from-on-premises"></a>Åtkomst till din moln miljö och dina program från molnet lokalt
 
@@ -26,7 +26,7 @@ Portarna som definieras i tabellen nedan måste öppnas i den lokala brand vägg
 
 | Port       | Källa                           | Mål                      | Syfte                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Lokala DNS-servrar          | DNS-servrar för molnets privata moln        | Krävs för att vidarebefordra DNS-sökning av *AZ. AVS.io* till AVS-DNS-servrar för privata moln från det lokala nätverket.     |
+| 53 (UDP)   | Lokala DNS-servrar          | DNS-servrar för molnets privata moln        | Krävs för att vidarebefordra DNS-sökning av *AZ.cloudsimple.io* till AVS-DNS-servrar från lokalt nätverk.     |
 | 53 (UDP)   | DNS-servrar för molnets privata moln        | Lokala DNS-servrar          | Krävs för att vidarebefordra DNS-sökning efter lokala domän namn från molnets privata moln-vCenter till lokala DNS-servrar. |
 | 80 (TCP)   | Lokalt nätverk              | Nätverk för hantering av privata moln i AVS | Krävs för omdirigering av vCenter-URL från *http* till *https*.                                                         |
 | 443 (TCP)  | Lokalt nätverk              | Nätverk för hantering av privata moln i AVS | Krävs för åtkomst till vCenter och NSX-T Manager från det lokala nätverket.                                           |

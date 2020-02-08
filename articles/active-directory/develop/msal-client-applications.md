@@ -3,22 +3,22 @@ title: Offentliga och konfidentiella klient program (MSAL) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om offentliga klient program och konfidentiella klient program i Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 75ea183a9968c65957bcf2a4d39966d2553db84f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d59819c0ab614b0f6cc102c7ebe8c760fb851599
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696597"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084131"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Offentlig klient och konfidentiella klient program
 Microsoft Authentication Library (MSAL) definierar två typer av klienter: offentliga klienter och konfidentiella klienter. De två klient typerna särskiljs genom att deras förmåga att autentisera sig på ett säkert sätt med auktoriseringsservern och upprätthålla konfidentialiteten för deras klientautentiseringsuppgifter. Azure AD Authentication Library (ADAL) använder däremot vad som kallas *autentiserings kontext* (som är en anslutning till Azure AD).
@@ -46,7 +46,7 @@ Här följer några likheter och skillnader mellan offentliga klient-och konfide
 Om du har använt ADAL kanske klient-ID: t (även kallat *program-ID* eller *app-ID*) skickas en gång när programmet byggs. Den behöver inte skickas igen när appen erhåller en token. Detta gäller både för offentliga och konfidentiella klient program. Konstruktörer för konfidentiella klient program skickas också till klientens autentiseringsuppgifter: den hemlighet de delar med identitets leverantören.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs om:
+Lär dig mer om:
 - [Konfigurations alternativ för klient program](msal-client-application-configuration.md)
 - [Instansiera klient program med hjälp av MSAL.NET](msal-net-initializing-client-applications.md)
 - [Instansiera klient program med MSAL. js](msal-js-initializing-client-applications.md)

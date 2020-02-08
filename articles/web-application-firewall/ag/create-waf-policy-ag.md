@@ -5,21 +5,18 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171229"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086978"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Skapa brand Väggs principer för webb program för Application Gateway
 
 Att associera en WAF-princip med lyssnare tillåter att flera platser bakom en enda WAF skyddas av olika principer. Om det till exempel finns fem platser bakom din WAF, kan du ha fem separata WAF-principer (en för varje lyssnare) för att anpassa undantag, anpassade regler och hanterade rulesets för en plats utan att påverka de andra fyra. Om du vill att en enda princip ska tillämpas på alla platser kan du associera principen med Application Gateway, i stället för de enskilda lyssnarna, så att den tillämpas globalt. Principer kan också tillämpas på en Sök vägs baserad regel för routning. 
-
-   > [!NOTE]
-   > WAF-principen per plats är tillgänglig i södra centrala USA och Europa, norra. Om du vill komma åt dem i portalen använder du [den här länken](https://aka.ms/AppgwwafWithAllFeatureFlags) tills den går live för alla.  
 
 Du kan skapa så många principer du vill. När du har skapat en princip måste den kopplas till en Application Gateway för att börja gälla, men den kan associeras med valfri kombination av programgatewayer och lyssnare. 
 
@@ -42,7 +39,7 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
    |Princip för     |Regional WAF (Application Gateway)|
    |Prenumeration     |Välj ditt prenumerations namn|
    |Resursgrupp     |Välj din resursgrupp|
-   |Princip namn     |Ange ett unikt namn för WAF-principen.|
+   |Principnamn     |Ange ett unikt namn för WAF-principen.|
 3. Ange någon av följande inställningar på fliken **Association** och välj sedan **Lägg till**:
 
    |Inställning  |Värde  |

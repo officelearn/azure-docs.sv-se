@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Azure AD B2C med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834203"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084007"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -78,7 +78,7 @@ med:
 
 - `policy` är en av de tidigare strängarna (till exempel `PolicySignUpSignIn`).
 - `ParentActivityOrWindow` krävs för Android (aktiviteten) och valfritt för andra plattformar som har stöd för det överordnade användar gränssnittet, t. ex. Windows i Windows och UIViewController i iOS. Mer information finns [här i dialog rutan UI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Ett exempel:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -124,7 +124,7 @@ Mer information om ROPC-flödet finns i den här [dokumentationen](v2-oauth-ropc
 Det här flödet **rekommenderas inte** eftersom ditt program som ber användaren om lösen ordet inte är säkert. Mer information om det här problemet finns i [den här artikeln](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
 Genom att använda användar namn/lösen ord ger du ett antal saker:
-- kärn Tenets av modern identitet: lösen ordet blir bevarat och spelas upp. Eftersom vi har det här begreppet en resurs hemlighet som kan fångas upp. Detta är inte kompatibelt med lösen ord.
+- Kärn Tenets av modern identitet: lösen ordet blir bevarat och spelas upp. Eftersom vi har det här begreppet en resurs hemlighet som kan fångas upp. Detta är inte kompatibelt med lösen ord.
 - Användare som behöver göra MFA kan inte logga in (eftersom det inte finns någon interaktion).
 - Användare kan inte utföra enkel inloggning.
 
@@ -184,4 +184,4 @@ Mer information om hur du hämtar token interaktivt med MSAL.NET för Azure AD B
 
 | Exempel | Plattform | Beskrivning|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL.NET för att autentisera användare via Azure AD B2C och åtkomst till ett webb-API med de resulterande tokens.|
+|[Active-Directory-B2C-Xamarin-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL.NET för att autentisera användare via Azure AD B2C och åtkomst till ett webb-API med de resulterande tokens.|

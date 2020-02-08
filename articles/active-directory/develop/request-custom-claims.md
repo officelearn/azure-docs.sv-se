@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Lär dig hur du begär anpassade anspråk.
 services: active-directory
 documentationcenter: ''
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 0aa4648d3d5e76c2d0ebd7524ad8dfa52da3fb30
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702495"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085602"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Gör så här: begär anpassade anspråk med MSAL för iOS och macOS
 
@@ -30,7 +30,7 @@ OpenID Connect gör att du kan begära att returnera enskilda anspråk från Use
 
 Microsoft Authentication Library (MSAL) för iOS och macOS gör det möjligt att begära vissa anspråk i både interaktiva och tysta token för hämtning. Detta görs via `claimsRequest`-parametern.
 
-Det finns flera scenarier där det behövs. Ett exempel:
+Det finns flera scenarier där det behövs. Exempel:
 
 - Begära anspråk utanför standard uppsättningen för ditt program.
 - Begär specifika kombinationer av de standard anspråk som inte kan anges med hjälp av omfattningar för ditt program. Om till exempel en åtkomsttoken avvisas på grund av saknade anspråk, kan programmet begära anspråk som saknas med MSAL.

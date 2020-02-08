@@ -3,18 +3,21 @@ title: Återställa Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: c1c116033dbf44e6e1f332195a18c7dfdbcd6c71
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776344"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086821"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Återställa Azure Files med PowerShell
 
 Den här artikeln förklarar hur du återställer en hel fil resurs eller vissa filer från en återställnings punkt som skapats av [Azure Backup](backup-overview.md) tjänsten med hjälp av Azure PowerShell.
 
 Du kan återställa en hel fil resurs eller vissa filer på resursen. Du kan återställa till den ursprungliga platsen eller till en annan plats.
+
+> [!WARNING]
+> Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Mer information finns i [avsnittet](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) disponera kravet på den här ändringen.
 
 ## <a name="fetch-recovery-points"></a>Hämta återställnings punkter
 

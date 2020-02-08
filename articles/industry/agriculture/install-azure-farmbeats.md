@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0702b302af1c964014a6649f5f3e86ce47b4600a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: HT
+ms.openlocfilehash: 7d3c70695000ae62f374bc558d4b408733968b83
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048373"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069293"
 ---
 # <a name="install-azure-farmbeats"></a>Installera Azure FarmBeats
 
@@ -73,11 +73,11 @@ Hela installationen av Azure FarmBeats, inklusive förberedelser och installatio
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du påbörjar den faktiska installationen av Azure-FarmBeats måste du utföra följande steg:
+Du måste utföra följande steg innan du påbörjar den faktiska installationen av Azure FarmBeats:
 
 ### <a name="verify-permissions"></a>Verifiera behörigheter
 
-Du behöver följande behörigheter i den Azure-klient som du vill installera Azure FarmBeats-
+Du behöver följande behörigheter i Azure-klienten för att installera Azure FarmBeats:
 
 - Klient organisation – AAD-app Creator
 - Prenumeration – ägare
@@ -85,7 +85,7 @@ Du behöver följande behörigheter i den Azure-klient som du vill installera Az
 
 De första två behörigheterna krävs för att [skapa AAD](#create-an-aad-application) -programsteget. Om det behövs kan du få någon med rätt behörighet för att skapa AAD-programmet. Personen som installerar FarmBeats måste vara ägare till resurs gruppen där FarmBeats installeras.
 
-Du kan kontrol lera åtkomst behörigheterna i Azure Portal genom att följa anvisningarna i [rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/check-access)
+Du kan kontrol lera åtkomst behörigheterna i Azure Portal genom att följa anvisningarna i [rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Bestäm prenumeration och region
 
@@ -120,7 +120,7 @@ Kör följande steg i en Cloud Shell-instans med hjälp av PowerShell-miljön. F
         ./create_aad_script.ps1
     ```
 
-4. AAD-skriptet tar cirka 2 minuter att köra och matar ut värden till skärm och till en JSON-fil i samma katalog. Om du har någon annan som kör skriptet ber du dem att dela dessa utdata med dig.
+4. AAD-skriptet tar cirka 2 minuter att köra och matar ut värden på skärmen samt till en JSON-fil i samma katalog. Om du har någon annan som kör skriptet ber du dem att dela dessa utdata med dig.
 
 ### <a name="create-sentinel-account"></a>Skapa Sentinel-konto
 
@@ -132,11 +132,11 @@ Följ stegen för att skapa ett kostnads fritt konto med Sentinel:
 2. Ange nödvändig information (förnamn, efter namn, användar namn, lösen ord och e-post-ID) och fyll i formuläret.
 3. En verifierings länk skickas till det registrerade e-post-ID: t. Välj länken som finns i e-postmeddelandet och slutför verifieringen.
 
-Registreringen slutförs när du har slutfört verifieringen. Anteckna ditt **kontroll användar namn** och **lösen ord**för kontroll.
+Registrerings processen har slutförts. Anteckna ditt **Sentinel-användarnamn** och **kontroll lösen ord**, när verifieringen också har slutförts.
 
 ## <a name="install"></a>Installera
 
-Du är nu redo att installera FarmBeats. Följ stegen nedan för att starta installationen –
+Du är nu redo att installera FarmBeats. Starta installationen genom att följa stegen nedan:
 
 1. Logga in på Azure Portal. Välj ditt konto i det övre högra hörnet och växla till den Azure AD-klient där du vill installera Azure-FarmBeats.
 
@@ -146,13 +146,17 @@ Du är nu redo att installera FarmBeats. Följ stegen nedan för att starta inst
 
 4. Ett nytt fönster visas. Slutför registrerings processen genom att välja rätt prenumeration, resurs grupp och plats där du vill installera Azure-FarmBeats.
 
-5. Ange den e-postadress som ska ta emot eventuella tjänst aviseringar som är relaterade till Azure FarmBeats i avsnittet **FarmBeats service Alerts** . Klicka på nästa längst ned på sidan för att flytta till fliken **beroenden** . fliken ![grundläggande](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
+5. Ange den e-postadress som ska ta emot eventuella tjänst aviseringar som är relaterade till Azure FarmBeats i avsnittet **FarmBeats service Alerts** . Välj **Nästa** längst ned på sidan för att flytta till fliken **beroenden** .
+
+    ![Fliken grunder](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
 6. Kopiera de enskilda posterna från utdata från [AAD-skript](#create-an-aad-application) till indata i avsnittet AAD-program.
 
-7. Ange användar namn och lösen ord för [Sentinel-kontot](#create-sentinel-account) i avsnittet Sentinel-konto. Klicka på Nästa för att gå till fliken **Granska + skapa** ![beroenden](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
+7. Ange användar namn och lösen ord för [Sentinel-kontot](#create-sentinel-account) i avsnittet Sentinel-konto. Välj **Nästa** för att gå till fliken **Granska + skapa** .
 
-8. När den angivna informationen har verifierats väljer du **OK**. Sidan Användningsvillkor visas. Granska villkoren och välj **skapa** för att starta installationen. Du omdirigeras automatiskt till en sida där du kan följa förloppet för installationen.
+    ![Fliken beroenden](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
+
+8. När den angivna informationen har verifierats väljer du **OK**. Sidan Användningsvillkor visas. Granska villkoren och välj **skapa** för att starta installationen. Du kommer att omdirigeras till sidan där du kan följa installations förloppet.
 
 När installationen är klar kan du verifiera installationen och börja använda FarmBeats-portalen genom att gå till namnet på webbplatsen som du angav under installationen: https://\<FarmBeats-Site-Name >. azurewebsites. net. Du bör se FarmBeats-användargränssnittet med ett alternativ för att skapa Server grupper.
 
@@ -161,6 +165,7 @@ När installationen är klar kan du verifiera installationen och börja använda
 ## <a name="upgrade"></a>Uppgradera
 
 Om du vill uppgradera FarmBeats till den senaste versionen kör du följande steg i en Cloud Shell instans med hjälp av PowerShell-miljön. Användaren måste vara ägare till den prenumeration där FarmBeats är installerad.
+
 Första gången användaren uppmanas att välja en prenumeration och skapa ett lagrings konto. Slutför installationen enligt anvisningarna.
 
 1. Hämta [uppgraderings skriptet](https://aka.ms/FarmBeatsUpgradeScript)
@@ -181,7 +186,7 @@ Första gången användaren uppmanas att välja en prenumeration och skapa ett l
         ./upgrade-farmbeats.ps1 -InputFilePath [Path to input.json file]
     ```
 
-Sökvägen till indata. JSON-filen är valfri. Om inget anges ber skriptet dig om alla nödvändiga indata. Uppgraderingen ska slutföras inom 30 minuter.
+Sökvägen till indata. JSON-filen är valfri. Om inget anges frågar skriptet efter alla nödvändiga indata. Uppgraderingen ska slutföras inom 30 minuter.
 
 ## <a name="uninstall"></a>Avinstallera
 

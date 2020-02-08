@@ -5,13 +5,14 @@ author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
-ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047462"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084274"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -106,6 +107,8 @@ Det finns följande skillnader mellan Kubernetes och Azure CNI:
 | Åtkomst till resurser som skyddas av tjänst slut punkter                                             | Stöds | Stöds |
 | Exponera Kubernetes Services med hjälp av en belastningsutjämnare, app-gateway eller ingångs kontroll | Stöds | Stöds |
 | Standard Azure DNS och privata zoner                                                          | Stöds | Stöds |
+
+För DNS erbjuds både Kubernetes-och Azure CNI-plugin-program DNS av CoreDNS, en daemon-uppsättning som körs i AKS. Mer information om CoreDNS i Kubernetes finns i [Anpassa DNS-tjänsten](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS konfigureras per standard för att vidarebefordra okända domäner till nodens DNS-servrar, med andra ord, till DNS-funktionerna i Azure-Virtual Network där AKS-klustret distribueras. Därför kommer Azure DNS och privata zoner att fungera för poddar som körs i AKS.
 
 ### <a name="support-scope-between-network-models"></a>Support omfattning mellan nätverks modeller
 

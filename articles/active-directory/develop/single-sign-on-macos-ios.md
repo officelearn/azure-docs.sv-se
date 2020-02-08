@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Lär dig hur du konfigurerar enkel inloggning (SSO) på macOS och iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022638"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085527"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
 
@@ -69,7 +69,7 @@ Om du vill aktivera enkel inloggning för dina program måste du utföra följan
 
 För att Microsoft Identity Platform ska kunna ta reda på vilka program som kan dela tokens, måste programmen dela samma klient-ID eller program-ID. Detta är den unika identifierare som du fick när du registrerade ditt första program i portalen.
 
-På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
+På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Exempel:
 
 APP1 omdirigerings-URI: `msauth.com.contoso.mytestapp1://auth`  
 APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth`  
@@ -149,7 +149,7 @@ MSAL tillhandahåller stöd för Brokered Authentication med Microsoft Authentic
 
 Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din app:
 
-1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. Service Broker-kompatibelt omdirigerings-URI-format är `msauth.<app.bundle.id>://auth`. Ersätt "< app. bundle. ID >" med programmets paket-ID. Ett exempel:
+1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. Service Broker-kompatibelt omdirigerings-URI-format är `msauth.<app.bundle.id>://auth`. Ersätt "< app. bundle. ID >" med programmets paket-ID. Exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>

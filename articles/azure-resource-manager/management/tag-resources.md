@@ -3,18 +3,18 @@ title: Tagga resurser för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 0b2fff801b01afce0907bf86887fb110478377c1
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 5751f2d1bc123c5918ae0fabc5b908b5f4fec71d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665163"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087324"
 ---
-# <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
+# <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera dina Azure-resurser
 
 Du kan använda taggar till dina Azure-resurser för att logiskt organisera dem i en taxonomi. Varje tagg består av ett namn och ett värde-par. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
-När du har lagt till taggar kan du hämta alla resurserna i din prenumeration med det taggnamnet och taggvärdet. Taggarna gör att du kan hämta relaterade resurser från olika resursgrupper. Den här metoden är användbar när du behöver organisera resurser för fakturering eller hantering.
+När du har lagt till taggar kan du hämta alla resurserna i din prenumeration med det taggnamnet och taggvärdet. Med taggar kan du hämta relaterade resurser från olika resurs grupper. Den här metoden är användbar när du behöver organisera resurser för fakturering eller hantering.
 
 Din taxonomi bör överväga en strategi för att tagga en egen metadata utöver en strategi för automatisk märkning som minskar belastningen på användare och ökar noggrannheten.
 
@@ -39,7 +39,7 @@ Följande begränsningar gäller för taggar:
 
 Om du vill använda taggar för resurser måste användaren ha Skriv behörighet till den resurs typen. Använd [deltagar](../../role-based-access-control/built-in-roles.md#contributor) rollen om du vill använda taggar för alla resurs typer. Använd deltagar rollen för den resursen om du bara vill använda taggar för en resurs typ. Om du till exempel vill använda taggar för virtuella datorer använder du den [virtuella dator deltagaren](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
-## <a name="policies"></a>Policy
+## <a name="policies"></a>Policys
 
 Du kan använda [Azure policy](../../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte följer de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, kan du skapa en princip som automatiskt tillämpar de taggar som krävs under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../../governance/policy/concepts/effects.md#modify) -effekt och en [reparations uppgift](../../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel principer för taggar.
 
@@ -394,7 +394,7 @@ Du kan lagra flera värden i en enskild tagg genom att använda en JSON-sträng 
 
 ### <a name="apply-tags-from-resource-group"></a>Använd taggar från resurs gruppen
 
-Använd funktionen [resourceGroup](../templates/template-functions-resource.md#resourcegroup) för att lägga till taggar från en resurs grupp till en resurs. När du hämtar taggnamnet använder du `tags.[tag-name]` syntax i stället för `tags.tag-name` syntax, eftersom vissa tecken inte tolkas korrekt i punkt notationen.
+Använd funktionen [resourceGroup](../templates/template-functions-resource.md#resourcegroup) för att lägga till taggar från en resurs grupp till en resurs. När du hämtar taggnamnet använder du `tags[tag-name]` syntax i stället för `tags.tag-name` syntax, eftersom vissa tecken inte tolkas korrekt i punkt notationen.
 
 ```json
 {
@@ -426,7 +426,7 @@ Använd funktionen [resourceGroup](../templates/template-functions-resource.md#r
 }
 ```
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>organisationer i en installation
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 
@@ -436,7 +436,7 @@ Azure Portal och PowerShell använder båda [Resource Manager-REST API](/rest/ap
 
 ## <a name="tags-and-billing"></a>Taggar och fakturering
 
-Du kan till exempel använda taggar för att gruppera faktureringsinformation. Om du till exempel har flera virtuella datorer för olika organisationer kan du använda taggar för att gruppera användningen efter kostnadsställe. Du kan också använda taggar för att kategorisera kostnader efter körningsmiljö, till exempel användningen (som faktureras) för virtuella datorer som körs i produktionsmiljö.
+Du kan använda taggar för att gruppera dina fakturerings data. Om du till exempel kör flera virtuella datorer för olika organisationer använder du taggarna för att gruppera användning efter kostnads ställe. Du kan också använda taggar för att kategorisera kostnader efter körnings miljö, till exempel fakturerings användningen för virtuella datorer som körs i produktions miljön.
 
 Du kan hämta information om Taggar via [Azures resursanvändning och ratecard-API: er](../../billing/billing-usage-rate-card-overview.md) eller CSV-fil (fil med kommaavgränsade värden). Du hämtar användnings filen från [Azure-kontocenter](https://account.azure.com/Subscriptions) eller Azure Portal. Mer information finns i [Hämta eller Visa din fakturerings faktura för Azure och användnings data per dag](../../billing/billing-download-azure-invoice-daily-usage-date.md). När du laddar ned användnings filen från Azure-kontocenter väljer du **version 2**. För tjänster som stöder taggar med fakturering visas taggarna i kolumnen **taggar** .
 

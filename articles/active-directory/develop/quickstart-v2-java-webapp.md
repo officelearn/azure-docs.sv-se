@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3f5e8c76fcf5f6088698e785e3203ab65bf04de1
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549949"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084479"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -28,7 +28,7 @@ När du har slutfört den här snabb starten kommer ditt program att godkänna i
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
@@ -45,9 +45,9 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
@@ -61,7 +61,7 @@ Om du vill köra det här exemplet behöver du:
 >    - Lämna **omdirigerings-URI** tomt för tillfället och välj **Registrera**.
 > 1. På sidan **Översikt** hittar du program- **ID: t** och **katalogens ID-** värden för programmet. Kopiera dessa värden för senare.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
->    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsample/secure/aad` och `http://localhost:8080/msal4jsample/graph/me`.
+>    - I **omdirigerings-URI: er**lägger du till `https://localhost:8080/msal4jsample/secure/aad` och `https://localhost:8080/msal4jsample/graph/me`.
 >    - Välj **Spara**.
 > 1. Välj **certifikaten & hemligheter** på menyn och klicka på **ny klient hemlighet**i avsnittet **klient hemligheter** :
 >
@@ -75,13 +75,13 @@ Om du vill köra det här exemplet behöver du:
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
-> 1. Lägg till svars-URL: er som `http://localhost:8080/msal4jsamples/secure/aad` och `http://localhost:8080/msal4jsamples/graph/me`.
+> 1. Lägg till svars-URL: er som `https://localhost:8080/msal4jsamples/secure/aad` och `https://localhost:8080/msal4jsamples/graph/me`.
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
 
@@ -91,23 +91,36 @@ Om du vill köra det här exemplet behöver du:
 
  1. Extrahera zip-filen till en lokal mapp.
  1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
-
  1. Öppna filen Application. properties, som finns i src/main/Resources/Folder och Ersätt värdet för fälten *AAD. clientId*, *AAD. Authority* och *AAD. SecretKey* med respektive värde för **program-ID**, **klient-ID** och **klient hemlighet** som följande:
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
     aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
     ```
 
-> [!div renderon="docs"]
-> Var:
->
-> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
-> - `Enter_the_Tenant_Info_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
+    > [!div renderon="docs"]
+    > Där:
+    >
+    > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
+    > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+    > - `Enter_the_Tenant_Info_Here`-är **katalog-ID** -värdet för det program som du har registrerat.
+
+ 1. Om du vill använda https med localhost, fyller du i egenskaperna Server. SSL. nyckel. Om du vill skapa ett självsignerat certifikat använder du verktyget för verktyg (ingår i JRE).
+
+   ```
+   Example: 
+   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+
+   server.ssl.key-store-type=PKCS12  
+   server.ssl.key-store=classpath:keystore.p12  
+   server.ssl.key-store-password=password  
+   server.ssl.key-alias=testCert 
+   ```
+
+   Placera den genererade nyckel lagrings filen i mappen "resurser".
 
 #### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
@@ -117,11 +130,11 @@ Kör den direkt från din IDE genom att använda den inbäddade våren-startserv
 
 ##### <a name="running-from-ide"></a>Köra från IDE
 
-Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan till projektets start sida. För det här exemplet är URL: en för standard hem sidan http://localhost:8080
+Om du kör webb programmet från en IDE klickar du på Kör och navigerar sedan till projektets start sida. För det här exemplet är URL: en för standard hem sidan https://localhost:8080.
 
 1. På den första sidan väljer du knappen **Logga in** för att omdirigera till Azure Active Directory och uppmana användaren att ange sina autentiseringsuppgifter.
 
-1. När användaren har autentiserats omdirigeras de till *http://localhost:8080/msal4jsample/secure/aad* . De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
+1. När användaren har autentiserats omdirigeras de till *https://localhost:8080/msal4jsample/secure/aad* . De är nu inloggade och sidan visar information om det inloggade kontot. Exempel gränssnittet har följande knappar:
     - *Logga ut*: loggar den aktuella användaren från programmet och dirigerar om dem till start sidan.
     - *Visa användar information*: hämtar en token för Microsoft Graph och anropar Microsoft Graph med en begäran som innehåller token, som returnerar grundläggande information om den inloggade användaren.
 
@@ -156,7 +169,7 @@ Lägg till en referens till MSAL för Java genom att lägga till följande kod �
 import com.microsoft.aad.msal4j.*;
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om behörigheter och medgivande:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR service Server lös snabb start – Java Script
+title: Använd Java Script för att skapa ett chattrum med Azure Functions-och SignalR-tjänsten
 description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
 author: sffamily
 ms.service: signalr
@@ -7,28 +7,29 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2726d5da2613be4ae2065246543d206cf814f353
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450269"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083188"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snabbstart: Skapa en chattrum med Azure Functions och SignalR Service med hjälp av JavaScript
+# <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java Script för att skapa ett chattrum med Azure Functions-och signaler-tjänsten
 
-Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
+Med Azure SignalR service kan du enkelt lägga till real tids funktioner i ditt program och Azure Functions är en plattform utan server som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabb starten använder du Java Script för att bygga ett Server lös chatt-program i real tid med hjälp av SignalR service och functions.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabbstarten kan köras på macOS, Windows eller Linux.
+- En kod redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core tools](https://github.com/Azure/azure-functions-core-tools#installing), version 2 eller senare. Används för att köra Azure Function Apps lokalt.
+- [Node. js](https://nodejs.org/en/download/), version 10. x
 
-Se till att du har en kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/) installerad.
+   > [!NOTE]
+   > Exemplen bör fungera tillsammans med andra versioner av Node. js. mer information finns i [dokumentationen för Azure Functions runtime-versioner](../azure-functions/functions-versions.md#languages) .
 
-Installera [Azure Functions Core tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2 eller senare) för att köra Azure Function Apps lokalt.
-
-Den här snabb starten använder [Node. js](https://nodejs.org/en/download/) 10. x men ska fungera med andra versioner. Läs [dokumentationen Azure Functions runtime-versioner](../azure-functions/functions-versions.md#languages) om du vill ha mer information om Node. js-versioner som stöds.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!NOTE]
+> Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 

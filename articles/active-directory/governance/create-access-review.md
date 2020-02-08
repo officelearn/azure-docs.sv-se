@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932630"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084445"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -28,7 +28,7 @@ ms.locfileid: "75932630"
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
@@ -93,7 +93,7 @@ Mer information finns i [licens krav](access-reviews-overview.md#license-require
 
     ![Skapa en åtkomst granskning-när inställningarna slutförs](./media/create-access-review/upon-completion-settings.png)
 
-1. Om du vill ta bort åtkomst automatiskt för användare som har nekats, ställer du in **automatiskt tillämpa resultat på resursen** för att **Aktivera**. Om du vill tillämpa resultaten manuellt när granskningen är klar ställer du in växeln på **inaktivera**.
+1. Om du vill ta bort automatiskt, kan du ange **automatiskt tillämpa resultat till resurs** för att **Aktivera**om du vill ta bort användare som nekats. Om du vill tillämpa resultaten manuellt när granskningen är klar ställer du in växeln på **inaktivera**.
 
 1. Använd listan **ska inte svara** på listan om du vill ange vad som händer för användare som inte granskas av granskaren under gransknings perioden. Den här inställningen påverkar inte användare som har granskats manuellt av granskarna. Om den sista granskaren av beslutet är neka tas användarens åtkomst bort.
 
@@ -127,6 +127,20 @@ När du har angett inställningarna för åtkomst granskning klickar du på **St
 Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter att granskningen startar. Om du väljer att inte låta Azure AD skicka e-postmeddelandet måste du meddela granskarna att en åtkomst granskning väntar på att de ska slutföras. Du kan visa dem i anvisningarna för hur du [granskar åtkomst till grupper eller program](perform-access-review.md). Om granskningen är till för gäster för att granska sin egen åtkomst, visar du dem i anvisningarna för att [Granska åtkomsten för dig själv till grupper eller program](review-your-access.md).
 
 Om du har tilldelat gäster som granskare och de inte har accepterat inbjudan får han eller hon ingen e-post från åtkomst granskningar eftersom de först måste godkänna inbjudan innan de kan granskas.
+
+## <a name="access-review-status-table"></a>Status tabell för åtkomst granskning
+
+| Status | Definition |
+|--------|------------|
+|Ej startad | Granskningen skapades, användar identifieringen väntar på att starta. |
+|Initierar   | Användar identifiering pågår för att identifiera alla användare som ingår i granskningen. |
+|Startar | Granskningen startas. Om e-postaviseringar har Aktiver ATS skickas e-postmeddelanden till granskare. |
+|Pågår | Granskning har startat. Om e-postaviseringar har Aktiver ATS har e-postmeddelanden skickats till granskarna. Granskare kan skicka beslut fram till förfallo datumet. |
+|Slutföra | Granskningen slutförs och e-postmeddelanden skickas till gransknings ägaren. |
+|Autogranskning | Granskning är i ett system gransknings steg. Systemet registrerar beslut för användare som inte har granskats utifrån rekommendationer eller förkonfigurerade beslut. |
+|Autogranskning | Beslut har registrerats av systemet för alla användare som inte har granskats. Granskning är redo att fortsätta att **tillämpa** om Auto-Apply har Aktiver ATS. |
+|Lägger | Det kommer inte att gå att komma åt användare som har godkänts. |
+|Ansökan | Nekade användare, om sådana finns, har tagits bort från resursen eller katalogen. |
 
 ## <a name="create-reviews-via-apis"></a>Skapa recensioner via API: er
 

@@ -4,14 +4,14 @@ description: Innehåller en lista över vanliga gränser, kvoter och begränsnin
 tags: billing
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901415"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087423"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
 
@@ -22,7 +22,7 @@ Begränsningar för resurs namn finns i [namngivnings regler och begränsningar 
 > [!NOTE]
 > Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](../templates/error-resource-quota.md). Gränserna kan inte höjas över det maximala gräns värde som visas i följande tabeller. Om det inte finns någon övre gräns kolumn har inte resursen några justerbara gränser.
 >
-> De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnadsfri utvärderingsprenumeration](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](../../billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
+> De [kostnads fria utvärderings prenumerationerna](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till begränsning eller kvot ökningar. Om du har en [kostnads fri utvärderings prenumeration](https://azure.microsoft.com/offers/ms-azr-0044p)kan du uppgradera till en prenumeration [där du betalar per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning. Mer information finns i [uppgradera din kostnads fria utvärderings prenumeration på Azure till en prenumeration där du betalar per](../../billing/billing-upgrade-azure-subscription.md) användning och [vanliga frågor och svar om utvärderings prenumerationen](https://azure.microsoft.com/free/free-account-faq).
 >
 
 ## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
@@ -71,6 +71,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [Data resurs](#data-share-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [Event Grid](#event-grid-limits)
 * [Event Hubs](#event-hubs-limits)
@@ -105,11 +106,11 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [Storage](#storage-limits)
+* [Lagring](#storage-limits)
 * [StorSimple-system](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
-* [Virtuella datorer](#virtual-machines-limits)
+* [Virtual Machines](#virtual-machines-limits)
 * [Skaluppsättningar för virtuella datorer](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser
@@ -193,7 +194,7 @@ Följande tabell gäller v1, v2, standard och WAF SKU: er om inget annat anges.
 
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
-#### <a name="private-link-limits"></a>Begränsningar för privata länkar
+#### <a name="private-link-limits"></a>Private Link-gränser
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
@@ -307,11 +308,11 @@ För Azure Cosmos DB gränser, se [gränser i Azure Cosmos DB](../../cosmos-db/c
 
 [!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
-### <a name="azure-database-for-mysql"></a>Azure-databas för MySQL
+### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 
 För Azure Database for MySQL gränser, se [begränsningar i Azure Database for MySQL](../../mysql/concepts-limits.md).
 
-### <a name="azure-database-for-postgresql"></a>Azure-databas för PostgreSQL
+### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 
 För Azure Database for PostgreSQL gränser, se [begränsningar i Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
 
@@ -405,6 +406,10 @@ Om du vill veta mer om begränsningar på en mer detaljerad nivå, till exempel 
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
+### <a name="data-share-limits"></a>Data delnings gränser
+
+[!INCLUDE [azure-data-share-limits](../../../includes/azure-data-share-limits.md)]
+
 ### <a name="database-migration-service-limits"></a>Database Migration Service gränser
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
@@ -481,7 +486,7 @@ För SQL Database gränser, se [SQL Database resurs gränser för enskilda datab
 
 SQL Data Warehouse gränser finns i [SQL Data Warehouse resurs gränser](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Förstå Azure-gränser och ökningar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Virtuella datorer och moln tjänst storlekar för Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

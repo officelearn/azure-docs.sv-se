@@ -4,17 +4,17 @@ description: Azure Storage skyddar dina data genom att automatiskt kryptera dem 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: abb9325510b52672027338314e02466f2d28e701
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942192"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082834"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage kryptering för vilande data
 
@@ -45,8 +45,8 @@ I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kry
 
 |                                        |    Microsoft-hanterade nycklar                             |    Kundhanterade nycklar                                                                                                                        |    Kund-tillhandahållna nycklar                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-|    Kryptering/dekryptering    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Azure Storage tjänster som stöds    |    Alla                                                |    Blob Storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blobb-lagring                                                                  |
+|    Kryptering/dekryptering    |    Azure-                                              |    Azure-                                                                                                                                        |    Azure-                                                                         |
+|    Azure Storage tjänster som stöds    |    Alla                                                |    Blob Storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blob Storage                                                                  |
 |    Nyckel lagring                         |    Microsoft nyckel lager    |    Azure Key Vault                                                                                                                              |    Azure Key Vault eller något annat nyckel Arkiv                                                                 |
 |    Största ansvar för nyckel rotation         |    Microsoft                                          |    Kund                                                                                                                                     |    Kund                                                                      |
 |    Nyckelanvändning                           |    Microsoft                                          |    Azure Portal, Provider för lagrings resurs REST API, Azure Storage hanterings bibliotek, PowerShell, CLI        |    Azure Storage REST API (Blob Storage), Azure Storage klient bibliotek    |
@@ -154,7 +154,7 @@ Det är valfritt att ange krypterings nycklar för begäran. Men om du anger ett
 
 Följande Blob Storage-åtgärder stöder sändning av kundtillhandahållna krypterings nycklar på en begäran:
 
-- [Placera blob](/rest/api/storageservices/put-blob)
+- [Lägg till BLOB](/rest/api/storageservices/put-blob)
 - [Lista över blockerade](/rest/api/storageservices/put-block-list)
 - [Spärra block](/rest/api/storageservices/put-block)
 - [Skicka block från URL](/rest/api/storageservices/put-block-from-url)
@@ -164,9 +164,9 @@ Följande Blob Storage-åtgärder stöder sändning av kundtillhandahållna kryp
 - [Ange BLOB-egenskaper](/rest/api/storageservices/set-blob-properties)
 - [Ange BLOB-metadata](/rest/api/storageservices/set-blob-metadata)
 - [Hämta BLOB](/rest/api/storageservices/get-blob)
-- [Hämta blobegenskaper](/rest/api/storageservices/get-blob-properties)
+- [Hämta BLOB-egenskaper](/rest/api/storageservices/get-blob-properties)
 - [Hämta BLOB-metadata](/rest/api/storageservices/get-blob-metadata)
-- [Ta ögonblicksbild av blob](/rest/api/storageservices/snapshot-blob)
+- [Ögonblicks bilds-BLOB](/rest/api/storageservices/snapshot-blob)
 
 ### <a name="rotate-customer-provided-keys"></a>Rotera kundtillhandahållna nycklar
 

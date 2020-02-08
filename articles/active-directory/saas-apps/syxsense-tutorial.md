@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43787bfffcb04e816f58cdcc0d9e61a61f1f16fd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 684b8c31524c55ad3335c02ec1268f1afea78a93
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050251"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Syxsense
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar Syxsense med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till Syxsense med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -85,7 +85,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.cloudmanagementsuite.com/samlautologin`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2/Acs`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -144,11 +144,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **ikonen Inställningar**.
 
-    ![Syssense-konfiguration](./media/syxsense-tutorial/configure1.png)
+    ![Syxsense-konfiguration](./media/syxsense-tutorial/configure1.png)
 
 1. Klicka på den **externa autentiseringen** och ange URL-värdet för **app Federation-Metadata** i text rutan för **SAML 2.0-metadata** och klicka på **Spara**.
 
-    ![Syssense-konfiguration](./media/syxsense-tutorial/configure2.png)
+    ![Syxsense-konfiguration](./media/syxsense-tutorial/configure2.png)
 
 ### <a name="create-syxsense-test-user"></a>Skapa Syxsense test användare
 
@@ -156,18 +156,17 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **användar konton** i den vänstra navigerings panelen.
 
-    ![Syssense-konfiguration](./media/syxsense-tutorial/user1.png)
+    ![Syxsense-konfiguration](./media/syxsense-tutorial/user1.png)
 
 1. Klicka på **Lägg till**.
 
-    ![Syssense-konfiguration](./media/syxsense-tutorial/user2.png)
+    ![Syxsense-konfiguration](./media/syxsense-tutorial/user2.png)
 
 1. Ange användar informationen enligt organisationens krav och klicka på **Spara**.
 
-    ![Syssense-konfiguration](./media/syxsense-tutorial/user3.png)
+    ![Syxsense-konfiguration](./media/syxsense-tutorial/user3.png)
 
-
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -175,9 +174,9 @@ När du klickar på panelen Syxsense på åtkomst panelen, bör du loggas in aut
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 841ff610509c0d580ff8dca3a9fc14b816d56f1c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983230"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085375"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
 ## <a name="what-is-authentication"></a>Vad är autentisering
 
-Den här artikeln beskriver många av de autentiseringsmetoder du behöver känna till för att skapa skyddade webbappar, webb-API: er eller appar som anropar skyddade webb-API: er. Om du ser en term som du inte är bekant med kan du prova vår (ord lista) [Developer-glossary.md].
+Den här artikeln beskriver många av de autentiseringsmetoder du behöver känna till för att skapa skyddade webbappar, webb-API: er eller appar som anropar skyddade webb-API: er. Om du ser en term som du inte är bekant med kan du prova vår [ord lista](developer-glossary.md).
 
 **Autentisering** är en process för att bevisa att du är den som du säger. Autentisering förkortas ibland AuthN.
 
@@ -38,7 +38,7 @@ En centraliserad identitets leverantör är ännu viktigare för appar som har a
 
 Microsofts identitets plattform fören klar autentiseringen för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som [OAuth 2,0](https://oauth.net/2/) och [OpenID Connect](https://openid.net/connect/), samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt börja koda. Det gör det möjligt för utvecklare att skapa program som loggar in alla Microsoft-identiteter, Hämta token för att anropa [Microsoft Graph](https://developer.microsoft.com/graph/), andra Microsoft API: er eller API: er som utvecklare har skapat. Mer information finns i [utvecklingen av Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
-### <a name="tenants"></a>klienter
+### <a name="tenants"></a>Klientorganisationer
 
 En moln identitets leverantör hanterar många organisationer. För att användarna ska vara åtskilda från olika organisationer är Azure AD partitionerad i klienter, med en klient organisation per organisation.
 
@@ -83,9 +83,9 @@ Program kan logga in användare själva eller delegera inloggning till en identi
 
 För en identitets leverantör att veta att en användare har åtkomst till en viss app måste både användaren och programmet vara registrerat hos identitets leverantören. När du registrerar ditt program med Azure AD ger du en identitets konfiguration för ditt program som gör det möjligt att integrera det med Azure AD. Genom att registrera appen kan du också:
 
-* anpassa anpassningen av programmet i dialog rutan för inloggning. Detta är viktigt eftersom det är den första upplevelsen som en användare kommer att ha med din app.
+* Anpassa anpassningen av programmet i dialog rutan för inloggning. Detta är viktigt eftersom det är den första upplevelsen som en användare kommer att ha med din app.
 * Bestäm om du bara vill låta användarna logga in om de tillhör din organisation. Detta är ett enda klient program. Eller Tillåt användare att logga in med ett arbets-eller skol konto. Detta är ett program med flera innehavare. Du kan också tillåta personliga Microsoft-konton eller ett socialt konto från LinkedIn, Google och så vidare.
-* begär omfångs behörigheter. Du kan till exempel begära kommandot "User. Read", som ger behörighet att läsa profilen för den inloggade användaren.
+* Begär omfångs behörigheter. Du kan till exempel begära kommandot "User. Read", som ger behörighet att läsa profilen för den inloggade användaren.
 * Definiera omfattningar som definierar åtkomst till ditt webb-API. När en app vill komma åt ditt API måste du vanligt vis begära behörigheter till de omfattningar som du definierar.
 * Dela en hemlighet med Azure AD som visar appens identitet till Azure AD.  Detta är relevant i de fall där appen är ett konfidentiellt klient program. Ett konfidentiellt klient program är ett program som kan lagra autentiseringsuppgifter på ett säkert sätt. De kräver en betrodd backend-server för att lagra autentiseringsuppgifterna.
 

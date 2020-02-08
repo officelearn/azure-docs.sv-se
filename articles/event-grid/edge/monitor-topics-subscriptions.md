@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 79b223de7a0a0cfdaf799b1f80e585a2a55f7e82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849739"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086671"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Övervaka ämnen och händelse prenumerationer
 
@@ -40,7 +40,7 @@ Konfigurera modulen för att generera mått genom att ange `metrics__reporterTyp
         }
  ```    
 
-Mått är tillgängliga i `5888/metrics` av modulen för http och `4438/metrics` för https. Till exempel `http://<modulename>:4438/metrics?api-version=2019-01-01-preview` för http. I det här läget kan en Metrics-modul avsöka slut punkten för att samla in mått som i den här [exempel arkitekturen](https://github.com/veyalla/ehm).
+Mått är tillgängliga i `5888/metrics` av modulen för http och `4438/metrics` för https. Till exempel `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` för http. I det här läget kan en Metrics-modul avsöka slut punkten för att samla in mått som i den här [exempel arkitekturen](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Tillgängliga mått
 
@@ -63,9 +63,9 @@ Både ämnen och händelse prenumerationer genererar mått för att ge dig insik
 | Mått | Beskrivning |
 | ------ | ----------- |
 | deliverySuccessCounts | Antal händelser som har levererats till den konfigurerade slut punkten
-| deliveryFailureCounts | Antalet misslyckade händelse leverans försök till den konfigurerade slut punkten
+| deliveryFailureCounts | Antal händelser som inte kunde levereras till den konfigurerade slut punkten
 | deliverySuccessLatencyMs | Svars tid för händelser som har levererats i millisekunder
 | deliveryFailureLatencyMs | Svars tid för händelse leverans problem i millisekunder
 | systemDelayForFirstAttemptMs | System fördröjning av händelser före första leverans försöket i millisekunder
 | deliveryAttemptsCount | Antal händelse leverans försök – lyckades och misslyckades
-| expiredCounts | Antal händelser som inte kan levereras 
+| expiredCounts | Antal händelser som har upphört att gälla och inte levererats till den konfigurerade slut punkten

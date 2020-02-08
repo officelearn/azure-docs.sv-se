@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844623"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086623"
 ---
 # <a name="persist-state-in-windows"></a>Sparat tillstånd i Windows
 
@@ -212,13 +212,13 @@ I stället för att montera en volym kan du skapa en katalog på värd systemet 
     ```
 ## <a name="persist-events"></a>Kvarhåll händelser
 
-Om du vill aktivera händelse persistence måste du först aktivera beständiga metadata antingen via volym montering eller värd katalog montering med hjälp av ovanstående avsnitt.
+Om du vill aktivera händelse persistence måste du först aktivera händelser som beständiges via volym montering eller värd katalog montering med hjälp av ovanstående avsnitt.
 
 Viktiga saker att tänka på när du behåller händelser:
 
 * Beständiga händelser aktive ras för en prenumeration per händelse och är valbar när en volym eller katalog har monterats.
 * Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
-* Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system men blir bara en noticible i stor skala.
+* Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system men blir bara en märkbart synlig i stor skala.
 
 Om du vill aktivera händelse beständighet för en händelse prenumeration anger `persistencePolicy` `true`:
 

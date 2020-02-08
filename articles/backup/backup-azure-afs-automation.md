@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du säkerhetskopierar Azure Files med hjälp av tjänsten Azure Backup och PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 5147ab893d4ebad395d7dbd8cc25872177ec10a2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a80589fb45937949b3612e12139ab1615bc1620d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773107"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086942"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Säkerhetskopiera Azure Files med PowerShell
 
@@ -44,6 +44,13 @@ Granska referens referensen för [cmdleten](/powershell/module/az.recoveryservic
 Konfigurera PowerShell på följande sätt:
 
 1. [Ladda ned den senaste versionen av AZ PowerShell](/powershell/azure/install-az-ps). Den lägsta version som krävs är 1.0.0.
+
+> [!WARNING]
+> Den lägsta version av PS som krävs för för hands versionen var ' AZ 1.0.0 '. På grund av kommande ändringar för GA, är den lägsta PS-versionen som krävs ' AZ. RecoveryServices 2.6.0 '. Det är mycket viktigt att uppgradera alla befintliga PS-versioner till den här versionen. Annars avbryts de befintliga skripten efter GA. Installera den lägsta versionen med följande PS-kommandon
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
 
 2. Hitta Azure Backup PowerShell-cmdlet: ar med det här kommandot:
 
@@ -81,7 +88,7 @@ Konfigurera PowerShell på följande sätt:
 
 9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen.
 
@@ -241,19 +248,32 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Viktigt meddelande – identifiering av säkerhets kopierings objekt för AFS-säkerhetskopieringar
+
+I det här avsnittet beskrivs ändringarna i hämtningen av säkerhets kopierings objekt för AFS-säkerhetskopieringar från för hands versionen till GA.
+
+När du aktiverar säkerhets kopiering för AFS tillhandahåller användaren kundens egna fil resurs namn som entitetsnamnet och ett säkerhets kopierings objekt skapas. Säkerhets kopie objektets ' name ' är en unik identifierare som skapats av Azure Backup-tjänsten. Vanligt vis omfattar identifieraren användarvänligt namn. Men det har gjorts en ändring av hur Azure-tjänster internt identifierar en Azure-filresurs unikt. Det innebär att det unika namnet på säkerhets kopierings objekt för AFS-säkerhetskopiering är ett GUID och att det inte finns någon relation till kundens egna namn. Om du vill veta det unika namnet för varje objekt kör du bara kommandot ```Get-AzRecoveryServicesBackupItem``` med relevanta filter för backupManagementType och WorkloadType för att hämta alla relevanta objekt och sedan Observera namn fältet i det returnerade PS-objektet/svaret. Vi rekommenderar alltid att du listar objekt och sedan hämtar deras unika namn från fältet "namn" som svar. Använd det här värdet för att filtrera objekten med parametern "namn". Använd annars FriendlyName-parametern för att hämta objektet med det kundens egna namn/identifierare.
+
+> [!WARNING]
+> Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Med den här versionen är friendlyName-filtret tillgängligt för ```Get-AzRecoveryServicesBackupItem``` kommandot. Överför Azure-filresursens namn till friendlyName-parametern. Om du skickar namnet på Azure-filresursen till parametern "namn", genererar den här versionen en varning för att skicka det egna namnet till en egen namn parameter. Om du inte installerar den här lägsta versionen kan det leda till att befintliga skript Miss lyckas. Installera den lägsta versionen av PS med följande kommando.
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 ## <a name="trigger-an-on-demand-backup"></a>Utlös en säkerhets kopiering på begäran
 
 Använd [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) för att köra en säkerhets kopiering på begäran för en skyddad Azure-filresurs.
 
-1. Hämta lagrings kontot och fil resursen från behållaren i valvet som innehåller dina säkerhets kopierings data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Om du vill starta ett säkerhets kopierings jobb får du information om den virtuella datorn med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Hämta lagrings kontot från behållaren i valvet som innehåller dina säkerhets kopierings data med [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Om du vill starta ett säkerhets kopierings jobb får du information om Azure-filresursen med [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Kör en säkerhets kopiering på begäran med[Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Kör säkerhets kopiering på begäran på följande sätt:
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
+$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
@@ -272,6 +292,9 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 Säkerhets kopiering på begäran kan användas för att spara dina ögonblicks bilder i 10 år. Scheduler kan användas för att köra PowerShell-skript på begäran med vald kvarhållning och därmed ta ögonblicks bilder med jämna mellanrum varje vecka, månad eller år. När du utför vanliga ögonblicks bilder kan du se [begränsningarna för säkerhets kopiering på begäran](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) med Azure Backup.
 
 Om du letar efter exempel skript kan du referera till exempel skriptet på GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) med hjälp av Azure Automation Runbook som gör att du kan schemalägga säkerhets kopieringar regelbundet och behålla dem till och med 10 år.
+
+> [!WARNING]
+> Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar i dina Automation-runbooks. Du kommer att behöva ersätta den gamla modulen "AzureRM" med "AZ"-modulen. Med den här versionen är friendlyName-filtret tillgängligt för ```Get-AzRecoveryServicesBackupItem``` kommandot. Överför Azure-filresursens namn till friendlyName-parametern. Om du skickar namnet på Azure-filresursen till parametern "namn", genererar den här versionen en varning för att skicka det egna namnet till en egen namn parameter.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f2f2e02cdb5698d7569e5be177d54ca4dcb0ae02
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986010"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086531"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -134,7 +134,7 @@ Ja. Du kan konfigurera anslutnings tömning för att ändra medlemmar i en backe
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan jag ändra instans storleken från medel till stor utan avbrott?
 
-Ja. Azure distribuerar instanser över uppdaterings-och fel domäner för att se till att instanserna inte växlar alla samtidigt. Application Gateway stöder skalning genom att lägga till flera instanser av samma Gateway för att dela belastningen.
+Ja.
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -322,7 +322,7 @@ Mer information finns i [OWASP topp 10 sårbarheter](https://www.owasp.org/index
 
 ### <a name="does-waf-support-ddos-protection"></a>Stöder WAF DDoS-skydd?
 
-Ja. Du kan aktivera DDoS-skydd på det virtuella nätverket där programgatewayen distribueras. Denna inställning garanterar att tjänsten Azure DDoS Protection även skyddar applikationsgatewayens virtuella IP-adress (VIP).
+Ja. Du kan aktivera DDoS-skydd på det virtuella nätverk där programgatewayen distribueras. Den här inställningen säkerställer att tjänsten Azure DDoS Protection också skyddar den virtuella IP-adressen (VIP) för Programgateway.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Finns det några rikt linjer som du kan använda för att migrera från v1 SKU till v2-SKU: n?
 

@@ -2,24 +2,24 @@
 title: Videor om Microsoft Identity Platform | Azure
 description: En lista med videor om Microsoft Identity Platform
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
-ms.author: twhitney
+ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 5f3d1ee4156cff0e3e3c1d48f90400d387beef6f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 22149ccfa258852b36da61ffbabde5e1856df9de
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023029"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085191"
 ---
-# <a name="microsoft-identity-platform-videos"></a>Videor om Microsoft Identity Platform
+# <a name="microsoft-identity-platform-videos"></a>Videor från Microsofts identitetsplattform
 
 Lär dig mer om Microsoft Identity Platform och Microsoft Authentication libraries (MSAL). De är vanligt vis 1-2 minuter långa.
 

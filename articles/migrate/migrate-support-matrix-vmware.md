@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för VMware-utvärdering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048771"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086772"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -99,7 +99,7 @@ Detta alternativ förhandsvisas just nu. [Läs mer](how-to-create-group-machine-
 **Windows-konto** |  Visualiseringen behöver ett lokalt administratörs konto eller ett domän administratörs konto.
 **Linux-konto** | Visualiseringen behöver ett användar konto med rot behörighet.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
 **VM-agenter** | Ingen agent krävs på de virtuella datorerna.
-**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill analysera.
+**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill analysera. <br/> Om din version av VMware Tools är mellan 9,10-10.2.0, se till att du uppgraderar den till bortom 10.2.0.
 **autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
 

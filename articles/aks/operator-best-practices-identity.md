@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549146"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069514"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metod tips för autentisering och auktorisering i Azure Kubernetes service (AKS)
 
@@ -122,7 +122,7 @@ Den här tips artikeln fokuserar på autentisering och auktorisering för ditt k
 
 Mer information om kluster åtgärder i AKS finns i följande metod tips:
 
-* [Flera innehavare och kluster isolering][aks-best-practices-scheduler]
+* [Flera innehavare och kluster isolering][aks-best-practices-cluster-isolation]
 * [Basic Kubernetes Scheduler-funktioner][aks-best-practices-scheduler]
 * [Avancerade funktioner i Kubernetes Scheduler][aks-best-practices-advanced-scheduler]
 

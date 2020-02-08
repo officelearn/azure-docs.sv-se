@@ -7,33 +7,34 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812065"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069446"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Översikt över den kommersiella Marketplace-portalen i Partner Center
 
 Välkommen till den kommersiella Marketplace-portalen i Microsoft Partner Center. Den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/) är utformad för att hjälpa dig att köpa dina produkter och tjänster, komma åt kunder och utveckla din verksamhet.
 
-I den här dokumentationen kommer vi att gå igenom grunderna för att skapa och använda ditt partner Center-konto, skapa nya SaaS-erbjudanden (Software as a Service) som kan visas på [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [AppSource](https://appsource.microsoft.com/), hantera dina befintliga SaaS-erbjudanden och tillhandahålla resurser för att hjälpa dig med frågor och samla in feedback. 
+I den här dokumentationen tar vi upp grunderna för att skapa och använda ditt partner Center-konto, skapa nya SaaS-erbjudanden (Software as a Service) som kan visas på [Azure Marketplace](https://azuremarketplace.microsoft.com/) eller [AppSource](https://appsource.microsoft.com/), hantera dina befintliga SaaS-erbjudanden och tillhandahålla resurser för att hjälpa dig med frågor och samla in din feedback. 
 
 ## <a name="about-microsofts-commercial-marketplace"></a>Om Microsofts kommersiella marknads plats
 
-Företag, myndigheter och organisationer i alla storlekar hittar affärs lösningar, innovativ teknik och aktiverings tjänster via [Azure Marketplace](https://azuremarketplace.microsoft.com/) och [AppSource](https://appsource.microsoft.com/) Web butiker, [Azure Portal produkt upplevelsen](https://portal.azure.com) [Leverantörer av moln lösningar](https://partner.microsoft.com/cloud-solution-provider)och Microsoft-säljteam. 
+Företag, myndigheter och organisationer i alla storlekar hittar affärs lösningar, innovativ teknik och aktiverings tjänster via [Azure Marketplace](https://azuremarketplace.microsoft.com/) och [AppSource](https://appsource.microsoft.com/) Web butiker, [Azure Portal produkt upplevelse](https://portal.azure.com), [moln lösnings leverantörer](https://partner.microsoft.com/cloud-solution-provider)och Microsoft-säljteam. 
 
 Partner Center är navet i en Microsoft-partners upplevelse. För organisationer som besöker marknaden med Microsoft och utnyttjar Marketplace, är partner Center den Portal genom vilken utgivare skapar och hanterar erbjudanden, tillhandahåller test enhets demonstrationer och visar analyser om erbjudande prestanda. 
 
 ## <a name="migration-from-cloud-partner-portal"></a>Migrering från Cloud Partner Portal
 
-Partner Center utvecklas för att bättre integrera alla aspekter av Microsofts relation med program varu utgivare. Som en del av den här utvecklingen migrerar vi funktionerna i [Cloud Partner Portal](https://cloudpartner.azure.com/) till Partner Center. 
+Partner Center utvecklas för att bättre integrera alla aspekter av Microsofts relation med program varu utgivare. Som en del av den här utvecklingen migrerar vi funktionerna i [Cloud Partner Portal](https://cloudpartner.azure.com/) till Partner Center.
 
-**Partner Center stöder för närvarande endast skapande och hantering av SaaS-erbjudanden (Software-as-a-Service).**
+>[!NOTE]
+>Partner Center har för närvarande stöd för skapande och hantering av SaaS-erbjudanden, Azure-programerbjudande, Dynamics 365 för kund erbjudanden, Engagement & PowerApps-erbjudanden, Dynamics 365 for Operations-erbjudanden och Dynamics 365 för Business Central-erbjudanden. Fler erbjudanden kommer snart att stödjas.
 
-Befintliga Marketplace-utgivare kommer att hitta en välbekant men bättre användar upplevelse med ett intuitivt gränssnitt. Meddelanden i portalen och via e-post kommer att informera utgivare av migreringen. Användarna dirigeras sömlöst till rätt plats. Kunderna påverkas inte av den här uppgraderingen av partner miljön. 
+Befintliga Marketplace-utgivare kommer att hitta en välbekant men bättre användar upplevelse med ett intuitivt gränssnitt. Meddelanden i portalen och via e-post kommer att informera utgivare av migreringen. Användarna dirigeras sömlöst till rätt plats. Kunderna påverkas inte av den här uppgraderingen av partner miljön.
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Förbättringar av användar upplevelse och fakturering
 

@@ -7,19 +7,22 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/25/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 29850cb9cb40eae0829b5d8c2b58b5f9518f18d5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021193"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089025"
 ---
-Med version 3 av API för textanalys kan du välja den Textanalys modell som används för dina data. Använd den valfria `model-version` parametern för att välja en version av modellen i dina begär Anden. Om den här parametern inte anges kommer API: et att vara standard `latest`, den senaste stabila modell versionen.
+Med version 3 av API för textanalys kan du välja den modell version som är mest aktuell för dina data. Använd den valfria `model-version` parametern för att välja den version av modellen som önskas för dina begär Anden. Om den här parametern inte anges kommer API: et att `latest`som standard den senaste stabila versionen. Även om du kan använda den senaste modell versionen i en begäran, uppdateras bara vissa funktioner i varje version. I tabellen nedan beskrivs vilka funktioner som har uppdaterats i varje modell version:
 
-Tillgängliga modell versioner:
-* `2019-10-01` (`latest`)
+| Modell version           | Uppdaterade funktioner         | Senaste version för:           |
+|-------------------------|--------------------------|--------------------------|
+| `2020-02-01`            | Enhetsidentifiering                      | Enhetsidentifiering                      |
+| `2019-10-01`            | Enhets igenkänning, sentiment analys  | Språk identifiering, extrahering av nyckel fraser, sentiment analys|
+
 
 Varje svar från v3-slutpunkterna innehåller ett `model-version`-fält som anger modell versionen som användes.
 
@@ -30,3 +33,4 @@ Varje svar från v3-slutpunkterna innehåller ett `model-version`-fält som ange
     "model-version": "2019-10-01"
 }
 ```
+Se [vad som är nytt](../whats-new.md) för information om uppdateringarna för dessa modell versioner.

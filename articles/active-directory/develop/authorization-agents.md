@@ -2,22 +2,22 @@
 title: Auktoriserings agenter och hur du aktiverar dem | Azure
 description: Lär dig mer om de olika auktoriserings agenter som Microsoft Authentication Library (MSAL) tillåter att din Android-app använder och hur du aktiverar dem.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4f1b3fc5b60069cfa47d437e4341ded141204418
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698007"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085333"
 ---
 # <a name="authorization-agents-android"></a>Auktoriseringsagenter (Android)
 
@@ -79,14 +79,14 @@ Följande webbläsare har testats för att se om de har omdirigerats korrekt til
 | | Inbyggd webbläsare | Chrome | Opera  | Microsoft Edge | UC-webbläsare | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | Pass | Pass |ej tillämpligt |ej tillämpligt |ej tillämpligt |ej tillämpligt |
-| Samsung S7 (API 25) | pass | Pass | Pass | Pass | misslyckas |Pass |
-| Huawei (API 26) |pass * * | Pass | misslyckas | Pass | Pass |Pass |
-| Vivo (API 26) |Pass|Pass|Pass|Pass|Pass|misslyckas|
-| Pixel 2 (API 26) |Pass | Pass | Pass | Pass | misslyckas |Pass |
+| Samsung S7 (API 25) | pass | Pass | Pass | Pass | kanske |Pass |
+| Huawei (API 26) |pass * * | Pass | kanske | Pass | Pass |Pass |
+| Vivo (API 26) |Pass|Pass|Pass|Pass|Pass|kanske|
+| Pixel 2 (API 26) |Pass | Pass | Pass | Pass | kanske |Pass |
 | OPPO | Pass | inte tillämpligt * * * |ej tillämpligt  |ej tillämpligt |ej tillämpligt | ej tillämpligt|
-| OnePlus (API 25) |Pass | Pass | Pass | Pass | misslyckas |Pass |
-| Nexus (API 28) |Pass | Pass | Pass | Pass | misslyckas |Pass |
-|MI | Pass | Pass | Pass | Pass | misslyckas |Pass |
+| OnePlus (API 25) |Pass | Pass | Pass | Pass | kanske |Pass |
+| Nexus (API 28) |Pass | Pass | Pass | Pass | kanske |Pass |
+|ENG | Pass | Pass | Pass | Pass | kanske |Pass |
 
 \* Samsung: s inbyggda webbläsare är Samsung Internet.  
 \* * Huawei-inbyggda webbläsare är Huawei webbläsare.  

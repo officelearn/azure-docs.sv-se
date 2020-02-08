@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019833"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083223"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
 
@@ -48,7 +48,7 @@ Kontrol lera att följande är på plats innan du distribuerar och konfigurerar 
 * Versionen av den fristående NSX-T Edge-installationen är kompatibel med NSX-T Manager-versionen (NSX-T 2.3.0) som används i din AVS-miljö för privata moln.
 * En segment grupp för trunkering har skapats i den lokala vCenteren med förfalskade överföringar aktiverade.
 * En offentlig IP-adress har reserver ATS för att användas för NSX-T fristående klientens IP-adress för överordnad länk och 1:1 NAT finns för översättning mellan de två adresserna.
-* DNS-vidarebefordran är inställd på lokala DNS-servrar för AZ. AVS.io-domän för att peka på DNS-servrarna för molnets privata moln.
+* DNS-vidarebefordran har angetts på lokala DNS-servrar för att az.cloudsimple.io-domänen ska peka på DNS-servrarna för molnets privata moln.
 * Svars tids fördröjningen är mindre än eller lika med 150 ms, vilket krävs för att vMotion ska fungera på de två platserna.
 
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
@@ -75,7 +75,7 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 
 | **Objekt** | **Värde** |
 |------------|-----------------|
-| Nätverks namn | MGMT_NET_VLAN469 |
+| Nätverksnamn | MGMT_NET_VLAN469 |
 | VLAN | 469 |
 | CIDR| 10.250.0.0/24 |
 | IP-adress för fristående Edge-utrustning | 10.250.0.111 |
@@ -163,7 +163,7 @@ För att upprätta en IPsec Route-baserad VPN mellan NSX-T Tier0-routern och den
 
     ![Skapa lista över IP-prefix](media/l2vpn-routing-security02.png)
 
-4. Logga in på NSX-T-hanteraren och välj **nätverk** > **routning** > **routrar** > **Provider – LR** > **routning** > **BGP** > - **grannar**. Välj den första grannen. Klicka på **redigera** > **adress familjer**. För IPv4-serien redigerar du kolumnen **ut filter** och väljer listan IP-prefix som du har skapat. Klicka på **Spara**. Upprepa det här steget för den andra grannen.
+4. Logga in på NSX-T-hanteraren och välj **nätverk** > **routning** > **routrar** > **Provider – LR** > **routning** > **BGP** > - **grannar**. Välj den första grannen. Klicka på **redigera** > **adress familjer**. För IPv4-serien redigerar du kolumnen **ut filter** och väljer listan IP-prefix som du har skapat. Klicka på **Save** (Spara). Upprepa det här steget för den andra grannen.
 
     ![bifoga IP-prefix, lista 1](media/l2vpn-routing-security03.png) ![bifoga IP-prefixlängd lista 2](media/l2vpn-routing-security04.png)
 
@@ -428,7 +428,7 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
     ![Hämta fristående NSX Edge-klient](media/l2vpn-deploy-client01.png)
 
-2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Next**.
+2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Nästa**.
 
     ![Välj mall](media/l2vpn-deploy-client02.png) ![Välj mall](media/l2vpn-deploy-client03.png)
 
@@ -440,7 +440,7 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
     ![Välj data lager](media/l2vpn-deploy-client06.png)
 
-5. Välj rätt port grupper för trunkering (trunk PG), offentlig (PG PG) och HA-gränssnitt (överordnad) för NSX-T fristående klienten. Klicka på **Next**.
+5. Välj rätt port grupper för trunkering (trunk PG), offentlig (PG PG) och HA-gränssnitt (överordnad) för NSX-T fristående klienten. Klicka på **Nästa**.
 
     ![Välj Port grupper](media/l2vpn-deploy-client07.png)
 

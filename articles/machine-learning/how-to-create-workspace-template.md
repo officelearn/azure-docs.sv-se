@@ -10,14 +10,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b8584a77eaf9f8db13c948051c34b18236e2cc1a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b3e4ff60ab290d25afb003f0753cf852cefffe1a
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986384"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069565"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+<br>
 
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -25,7 +26,7 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -39,7 +40,7 @@ Följande Resource Manager-mall kan användas för att skapa en Azure Machine Le
 
 Den här mallen skapar följande Azure-tjänster:
 
-* Azure-resursgrupp
+* Azure-resurs grupp
 * Azure Storage-konto
 * Azure Key Vault
 * Azure Application Insights
@@ -72,7 +73,210 @@ Mer information om mallar finns i följande artiklar:
 * [Distribuera ett program med Azure Resource Manager mallar](../azure-resource-manager/templates/deploy-powershell.md)
 * [Resurs typer för Microsoft. MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-## <a name="use-the-azure-portal"></a>Använd Azure Portal
+### <a name="advanced-template"></a>Avancerad mall
+
+Följande exempel-mall visar hur du skapar en arbets yta med tre inställningar:
+
+* Aktivera inställningar för hög konfidentialitet för arbets ytan
+* Aktivera kryptering för arbets ytan
+* Använder en befintlig Azure Key Vault
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the name of the Azure Machine Learning workspace."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "southcentralus",
+      "allowedValues": [
+        "eastus",
+        "eastus2",
+        "southcentralus",
+        "southeastasia",
+        "westcentralus",
+        "westeurope",
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location for all resources."
+      }
+    },
+    "sku":{
+      "type": "string",
+      "defaultValue": "basic",
+      "allowedValues": [
+        "basic",
+        "enterprise"
+      ],
+      "metadata": {
+        "description": "Specifies the sku, also referred to as 'edition' of the Azure Machine Learning workspace."
+      }
+    },
+    "hbi_workspace":{
+      "type": "string",
+      "defaultValue": "false",
+      "allowedValues": [
+        "false",
+        "true"
+      ],
+      "metadata": {
+        "description": "Specifies that the Azure Machine Learning workspace holds highly confidential data."
+      }
+    },
+    "encryption_status":{
+      "type": "string",
+      "defaultValue": "Disabled",
+      "allowedValues": [
+        "Enabled",
+        "Disabled"
+      ],
+      "metadata": {
+        "description": "Specifies if the Azure Machine Learning workspace should be encrypted with the customer managed key."
+      }
+    },
+    "cmk_keyvault":{
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the customer managed keyvault Resource Manager ID."
+      }
+    },
+    "resource_cmk_uri":{
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the customer managed keyvault key uri."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('sa',uniqueString(resourceGroup().id))]",
+    "storageAccountType": "Standard_LRS",
+    "keyVaultName": "[concat('kv',uniqueString(resourceGroup().id))]",
+    "tenantId": "[subscription().tenantId]",
+    "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
+    "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2018-07-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "encryption": {
+          "services": {
+            "blob": {
+              "enabled": true
+            },
+            "file": {
+              "enabled": true
+            }
+          },
+          "keySource": "Microsoft.Storage"
+        },
+        "supportsHttpsTrafficOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2018-02-14",
+      "name": "[variables('keyVaultName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "tenantId": "[variables('tenantId')]",
+        "sku": {
+          "name": "standard",
+          "family": "A"
+        },
+        "accessPolicies": []
+      }
+    },
+    {
+      "type": "Microsoft.Insights/components",
+      "apiVersion": "2015-05-01",
+      "name": "[variables('applicationInsightsName')]",
+      "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
+      "kind": "web",
+      "properties": {
+        "Application_Type": "web"
+      }
+    },
+    {
+      "type": "Microsoft.ContainerRegistry/registries",
+      "apiVersion": "2017-10-01",
+      "name": "[variables('containerRegistryName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "adminUserEnabled": true
+      }
+    },
+    {
+      "type": "Microsoft.MachineLearningServices/workspaces",
+      "apiVersion": "2020-01-01",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",
+        "[resourceId('Microsoft.Insights/components', variables('applicationInsightsName'))]",
+        "[resourceId('Microsoft.ContainerRegistry/registries', variables('containerRegistryName'))]"
+      ],
+      "identity": {
+        "type": "systemAssigned"
+      },
+      "sku": {
+            "tier": "[parameters('sku')]",
+            "name": "[parameters('sku')]"
+      },
+      "properties": {
+        "friendlyName": "[parameters('workspaceName')]",
+        "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVaultName'))]",
+        "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
+        "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
+        "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccountName'))]",
+         "encryption": {
+                "status": "[parameters('encryption_status')]",
+                "keyVaultProperties": {
+                    "keyVaultArmId": "[parameters('cmk_keyvault')]",
+                    "keyIdentifier": "[parameters('resource_cmk_uri')]"
+                  }
+            },
+        "hbi_workspace": "[parameters('hbi_workspace')]"
+      }
+    }
+  ]
+}
+```
+
+Om du vill hämta ID för Key Vault och nyckel-URI: n som behövs för den här mallen kan du använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta Key Vault resurs-ID och URI:
+
+```azurecli-interactive
+az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
+```
+
+Det här kommandot returnerar ett värde som liknar följande text. Det första värdet är ID: t och det andra är URI: n:
+
+```text
+[
+  "/subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault",
+  "https://mykeyvault.vault.azure.net/"
+]
+```
+
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 1. Följ stegen i [distribuera resurser från den anpassade mallen](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). När du kommer till skärmen __Redigera mall__ klistrar du in mallen från det här dokumentet.
 1. Välj __Spara__ för att använda mallen. Ange följande information och godkänn de allmänna villkor som anges:
@@ -84,7 +288,7 @@ Mer information om mallar finns i följande artiklar:
 
 Mer information finns i [distribuera resurser från en anpassad mall](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell
+## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
 I det här exemplet förutsätter vi att du har sparat mallen till en fil med namnet `azuredeploy.json` i den aktuella katalogen:
 
@@ -97,7 +301,7 @@ new-azresourcegroupdeployment -name exampledeployment `
 
 Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="use-azure-cli"></a>Använda Azure CLI
+## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
 I det här exemplet förutsätter vi att du har sparat mallen till en fil med namnet `azuredeploy.json` i den aktuella katalogen:
 
@@ -112,7 +316,7 @@ az group deployment create \
 
 Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="resource-provider-errors"></a>Resurs leverantörs fel
 
@@ -197,7 +401,7 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
         }
         ```
 
-    Efter dessa ändringar kan du ange ID: t för den befintliga Key Vault-resursen när du kör mallen. Mallen använder sedan Key Vault igen genom att ange arbets ytans `keyVault`-egenskap till dess ID.
+    Efter dessa ändringar kan du ange ID: t för den befintliga Key Vault-resursen när du kör mallen. Mallen återanvänds sedan Key Vault genom att ange egenskapen `keyVault` för arbets ytan till dess ID.
 
     Om du vill hämta ID: t för Key Vault kan du referera till utdata från den ursprungliga mallen, köra eller använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta Key Vault resurs-ID:
 

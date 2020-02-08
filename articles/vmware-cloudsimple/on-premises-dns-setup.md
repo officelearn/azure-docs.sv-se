@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019612"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083080"
 ---
 # <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurera DNS för namn matchning för molnet privat vCenter vCenter åtkomst från lokala arbets stationer
 
@@ -32,10 +32,10 @@ För att få åtkomst till vCenter-servern i ett moln privat moln från lokala a
 
 Använd något av dessa alternativ för DNS-konfigurationen.
 
-* [Skapa en zon på DNS-servern för *. AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Skapa en villkorlig vidarebefordrare på din lokala DNS-server för att lösa *. AVS.io](#create-a-conditional-forwarder)
+* [Skapa en zon på DNS-servern för *. cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Skapa en villkorlig vidarebefordrare på din lokala DNS-server för att lösa *. cloudsimple.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>Skapa en zon på DNS-servern för *. AVS.io
+## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Skapa en zon på DNS-servern för *. cloudsimple.io
 
 Du kan konfigurera en zon som en stub-zon och peka på DNS-servrarna i det privata molnet för namn matchning. Det här avsnittet innehåller information om hur du använder en DNS-server (BIND) eller en Microsoft Windows DNS-server.
 
@@ -78,7 +78,7 @@ zone "az.cloudsimple.io"
 
 ## <a name="create-a-conditional-forwarder"></a>Skapa en villkorlig vidarebefordrare
 
-En villkorlig vidarebefordrare vidarebefordrar alla förfrågningar om DNS-namnmatchning till den angivna servern. Med den här installationen, alla förfrågningar till *. AVS.io vidarebefordras till DNS-servrarna som finns i det privata moln molnet. I följande exempel visas hur du konfigurerar vidarebefordrare på olika typer av DNS-servrar.
+En villkorlig vidarebefordrare vidarebefordrar alla förfrågningar om DNS-namnmatchning till den angivna servern. Med den här installationen vidarebefordras alla förfrågningar till *. cloudsimple.io till DNS-servrarna som finns i det privata moln molnet. I följande exempel visas hur du konfigurerar vidarebefordrare på olika typer av DNS-servrar.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Skapa en villkorlig vidarebefordrare på en BIND DNS-Server
 

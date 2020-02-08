@@ -3,7 +3,7 @@ title: SSO mellan ADAL & MSAL-appar (iOS/macOS) – Microsoft Identity Platform 
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: be608019aa6a393891d9586005e5ef9c970a8bd1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2fbb6e837ae898daf4bc78d5cccc75660463e8a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712372"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085413"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Så här: SSO mellan ADAL-och MSAL-appar på macOS och iOS
 
@@ -52,8 +52,8 @@ I följande tabell sammanfattas skillnader i konto identifierare mellan ADAL och
 | Konto identifierare                | MSAL                                                         | ADAL 2.7. x      | Äldre ADAL (före ADAL 2.7. x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | visnings bara identifierare            | `username`                                                   | `userId`        | `userId`                       |
-| unikt ID som inte går att lyssna | `identifier`                                                 | `homeAccountId` | E.t.                            |
-| Inget konto-ID är känt               | Fråga alla konton via `allAccounts:`-API i `MSALPublicClientApplication` | E.t.             | E.t.                            |
+| unikt ID som inte går att lyssna | `identifier`                                                 | `homeAccountId` | SAKNAS                            |
+| Inget konto-ID är känt               | Fråga alla konton via `allAccounts:`-API i `MSALPublicClientApplication` | SAKNAS             | SAKNAS                            |
 
 Detta är `MSALAccount` gränssnittet som tillhandahåller dessa identifierare:
 

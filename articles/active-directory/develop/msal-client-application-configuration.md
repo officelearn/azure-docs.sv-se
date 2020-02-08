@@ -3,22 +3,22 @@ title: Konfiguration av klient program (MSAL) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om konfigurations alternativ för offentliga klient program och konfidentiella klient program med hjälp av Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5388dc101dbc4e06ce26f12bfd40645455e8dae8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696490"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084999"
 ---
 # <a name="application-configuration-options"></a>Program konfigurations alternativ
 
@@ -95,7 +95,7 @@ För närvarande är det enda sättet att få en app att bara logga in användar
 - Ange att appens registrerings mål ska `Work and school accounts and personal accounts`.
 - Ange att mål gruppen i koden/konfigurationen ska `AadAuthorityAudience.PersonalMicrosoftAccount` (eller `TenantID` = "konsumenter").
 
-## <a name="client-id"></a>Klientorganisations-ID
+## <a name="client-id"></a>Klient-ID
 
 Klient-ID är det unika program-ID (klient) som är tilldelat din app av Azure AD när appen registrerades.
 
@@ -122,7 +122,7 @@ Om du är en offentlig klient programs utvecklare som använder MSAL:
 
 Du kan åsidosätta omdirigerings-URI: n med hjälp av egenskapen `RedirectUri` (till exempel om du använder-hanterare). Här följer några exempel på omdirigerings-URI: er för det scenariot:
 
-- `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
+- `RedirectUriOnAndroid` = "msauth-5a434691-CCB2-4fd1-b97b-b64bcfbc03fc://com.Microsoft.Identity.client.Sample";
 - `RedirectUriOnIos` = $ "msauth. {Bundle. ID}://auth ";
 
 Mer information om iOS finns i [migrera iOS-program som använder Microsoft Authenticator från ADAL.net till MSAL.net](msal-net-migration-ios-broker.md) och [utnyttjar Service Broker på iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).

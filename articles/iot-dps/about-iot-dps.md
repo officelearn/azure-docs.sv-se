@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 15eaba5b1102ddb282d72497093b8554a6b4cf56
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061632"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082861"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Enhetsetablering med Azure IoT Hub Device Provisioning Service
 Microsoft Azure har en stor uppsättning integrerade offentliga molntjänster för alla dina IoT-lösningsbehov. IoT Hub Device Provisioning Service (DPS) är en hjälp tjänst för IoT Hub som möjliggör Zero-Touch och just-in-Time-etablering till rätt IoT Hub utan mänsklig inblandning. DPS möjliggör etablering av miljon tals enheter på ett säkert och skalbart sätt.
@@ -80,9 +80,9 @@ DPS har många funktioner, vilket gör det idealiskt för att konfigurera enhete
 * **Registreringslista** som innehåller fullständiga uppgifter för enheter eller grupper av enheter som kan komma att registreras. Registreringslistan innehåller information om önskad konfiguration för enheten när den registreras, och den kan uppdateras när som helst.
 * **Flera allokeringsregler** för att kontrol lera hur DPS tilldelar enheter till IoT-hubbar som stöder dina scenarier: lägsta latens, jämnt viktad distribution (standard) och statisk konfiguration via registrerings listan. Svars tiden fastställs med samma metod som [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Övervaknings- och diagnostikloggning** för att kontrollera att allt fungerar korrekt.
-* **Stöd för flera hubbar** gör att Device Provisioning Service kan tilldela enheter till mer än en IoT-hubb. Device Provisioning Service kan kommunicera med hubbar över flera Azure-prenumerationer.
-* **Stöd mellan regioner** gör att Device Provisioning Service kan tilldela enheter till IoT-hubbar i andra regioner.
-* **Kryptering av data i vila** gör att data i enhets etablerings tjänsten kan krypteras och dekrypteras transparent med 256-bitars AES-kryptering, en av de starkaste block krypteringarna som är tillgängliga och är FIPS 140-2-kompatibla.
+* **Stöd för flera hubbar** gör att DPS kan tilldela enheter till fler än en IoT Hub. DPS kan prata med hubbar i flera Azure-prenumerationer.
+* **Stöd för flera regioner** gör att DPS kan tilldela enheter till IoT-hubbar i andra regioner.
+* **Kryptering av data i vila** gör att data i DPS krypteras och dekrypteras transparent med hjälp av 256-bitars AES-kryptering, en av de starkaste block krypteringarna som är tillgängliga och är FIPS 140-2-kompatibla.
 
 
 Du kan lära dig mer om de begrepp och funktioner som ingår i enhetsetablering i [enhetsbegrepp](concepts-device.md), [tjänstebegrepp](concepts-service.md) och [säkerhetsbegrepp](concepts-security.md).

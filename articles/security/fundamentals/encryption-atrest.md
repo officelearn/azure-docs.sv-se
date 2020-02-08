@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2019
+ms.date: 02/07/2020
 ms.author: barclayn
-ms.openlocfilehash: d814058866991b3d94363125870c27ae170b3ae8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 682f0b66f7632bce16ae134e71ea27c4df976f43
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064367"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087093"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -320,9 +320,9 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Site Recovery              | Ja                | -                  | -                  |
 | **Mellanhand**                        |                    |                    |                    |
 | Media Services                   | Ja                | -                  | Ja                |
-| **Storage**                      |                    |                    |                    |
+| **Lagring**                      |                    |                    |                    |
 | Blob Storage                     | Ja                | Ja, RSA 2048-bitars  | Ja                |
-| Disklagring                     | Ja                | Ja                | -                  |
+| Hårddisklagring                     | Ja                | Ja                | -                  |
 | Hanterade Disklagring             | Ja                | Ja                | -                  |
 | File Storage                     | Ja                | Ja, RSA 2048-bitars  | -                  |
 | Queue Storage                    | Ja                | Ja                | Ja                |

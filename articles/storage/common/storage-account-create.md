@@ -1,20 +1,20 @@
 ---
-title: Skapa ett lagringskonto
+title: skapar ett lagringskonto
 titleSuffix: Azure Storage
 description: Lär dig hur du skapar ett lagrings konto med hjälp av Azure Portal, Azure PowerShell eller Azure CLI. Ett Azure Storage-konto tillhandahåller ett unikt namn område i Microsoft Azure för att lagra och komma åt dina data.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/17/2020
+ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759865"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086961"
 ---
 # <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
@@ -24,17 +24,25 @@ I den här instruktions artikeln lär du dig att skapa ett lagrings konto med hj
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
-Inget.
+Ingen.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Den här instruktions artikeln kräver Azure PowerShell-modulen AZ version 0,7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta din nuvarande version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Om du vill skapa ett Azure Storage-konto med PowerShell kontrollerar du att du har installerat Azure PowerShell modul AZ version 0,7 eller senare. Mer information finns i [Introduktion till modulen för Azure PowerShell AZ](/powershell/azure/new-azureps-module-az).
+
+Kör följande kommando för att hitta din aktuella version:
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+Information om hur du installerar eller uppgraderar Azure PowerShell finns i [installera Azure PowerShell-modulen](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -45,7 +53,7 @@ Du kan logga in på Azure och köra Azure CLI-kommandon på ett av två sätt:
 
 ### <a name="use-azure-cloud-shell"></a>Använda Azure Cloud Shell
 
-Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure Portal. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn i det övre högra avsnittet av Azure Portal:
+Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Azure CLI är förinstallerat och konfigurerat för användning med ditt konto. Klicka på knappen **Cloud Shell** på menyn i det övre högra avsnittet av Azure Portal:
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -59,7 +67,7 @@ Du kan även installera och använda Azure CLI lokalt. Den här instruktions art
 
 # <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
-Inget.
+Ingen.
 
 ---
 
@@ -67,11 +75,11 @@ Inget.
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Logga in på Azure-prenumerationen med den `Connect-AzAccount` och följer den på skärmen att autentisera.
+Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen för att autentisera.
 
 ```powershell
 Connect-AzAccount
@@ -83,17 +91,17 @@ Logga in på [Azure Portal](https://portal.azure.com)för att starta Azure Cloud
 
 Logga in på den lokala installationen av CLI genom att köra kommandot [AZ login](/cli/azure/reference-index#az-login) :
 
-```cli
+```azurecli-interactive
 az login
 ```
 
 # <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
-Gäller inte
+SAKNAS
 
 ---
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Nu är du redo att skapa ett lagrings konto.
 
@@ -113,6 +121,7 @@ Skapa först en ny resursgrupp med PowerShell med kommandot [New-AzResourceGroup
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -120,7 +129,6 @@ Om du inte vet vilken region du ska ange för parametern `-Location` så kan du 
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 Därefter skapar du ett allmänt-syfte v2-lagrings konto med Geo-redundant lagring med Läs behörighet (RA-GRS) med hjälp av kommandot [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) . Kom ihåg att namnet på ditt lagrings konto måste vara unikt i Azure, så Ersätt plats hållarens värde inom hakparenteser med ditt eget unika värde:
@@ -134,7 +142,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du ta med `-EnableHierarchicalNamespace $True` i den här listan med parametrar. 
+> Om du planerar att använda [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ska du ta med `-EnableHierarchicalNamespace $True` i den här listan med parametrar.
 
 Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikeringsalternativ, ersätter du det önskade värdet i tabellen nedan för parametern **SkuName** .
 

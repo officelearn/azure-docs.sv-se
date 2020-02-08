@@ -3,22 +3,22 @@ title: UWP-överväganden (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Universell Windows-plattform med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 549e36099e06d665ecab879ceb3c38987d000852
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4803b2bda63ef0e14137aaafe95a422089e7f671
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695100"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083657"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Universell Windows-plattform-/regionsspecifika överväganden med MSAL.NET
 På UWP finns det flera saker som du måste tänka på när du använder MSAL.NET.
@@ -29,7 +29,7 @@ I WinRT-plattformen har `PublicClientApplication` följande booleska egenskap ``
 > [!IMPORTANT]
 > Om den här egenskapen ställs in på Sant antas att programutvecklaren har aktiverat integrerad Windows-autentisering (IWA) i programmet. För detta:
 > - I ``Package.appxmanifest`` för ditt UWP-program, på fliken **funktioner** , aktiverar du följande funktioner:
->   - Företagsautentisering
+>   - Enterprise-autentisering
 >   - Privata nätverk (klient & Server)
 >   - Delat användar certifikat
 
@@ -42,7 +42,7 @@ Den underliggande implementeringen av UWP Platform (WAB) fungerar inte korrekt i
 
 En lösning är att använda en alternativ metod (username/Password + Phone Authentication), men upplevelsen är inte felfri.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Vissa kunder har rapporterat att i vissa företags miljöer har följande inloggnings fel uppstått:
 
@@ -65,5 +65,5 @@ Mer information finns i följande exempel:
 
 Exempel | Plattform | Beskrivning 
 |------ | -------- | -----------|
-|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Ett Universell Windows-plattform klient program som använder msal.net för att komma åt Microsoft Graph för en användare som autentiseras med Azure AD v 2.0-slutpunkten. <br>![Topologi](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active Directory – dotNet-Native-UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Ett Universell Windows-plattform klient program som använder msal.net för att komma åt Microsoft Graph för en användare som autentiseras med Azure AD v 2.0-slutpunkten. <br>![Topologi](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL för att autentisera MSA och Azure AD via AAD v 2.0-slutpunkten och komma åt Microsoft Graph med den resulterande token. <br>![Topologi](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

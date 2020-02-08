@@ -2,21 +2,21 @@
 title: Microsoft Identity Platform Android-snabb start | Azure
 description: Lär dig hur Android-program kan anropa ett API som kräver åtkomsttoken av Microsoft Identity Platform-slutpunkten.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/15/2019
-ms.author: twhitney
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: e0616ae2c3b58c694e300abca28a9e34f8442fcb
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bbaaf4b26beec56cd8608abc8a2f9cdd3a4cda3f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703719"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084539"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -30,7 +30,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 ![Skärm bild av exempel appen](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
-> **Krav**
+> **Förutsättningar**
 > * Android Studio 
 > * Android 16 +
 
@@ -154,7 +154,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 
 Koden är indelad i fragment som visar hur du skriver en enda och flera konton MSAL-appen. Filerna är organiserade enligt följande:
 
-| Fil  | Demonstrationer  |
+| Arkiv  | Visar  |
 |---------|---------|
 | MainActivity | Hanterar användar gränssnittet |
 | MSGraphRequestWrapper  | Anropar Microsoft Graph-API med hjälp av token som tillhandahålls av MSAL |
@@ -536,7 +536,7 @@ Till skillnad från konfigurations filen [auth_config_single_account. JSON](#aut
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar appen som används i den här snabbstarten
 
 Testa [inloggnings användarna och anropa Microsoft Graph från en](tutorial-v2-android.md) själv studie kurs om Android-appar för en steg-för-steg-guide om hur du skapar en Android-app som hämtar en åtkomsttoken och använder den för att anropa Microsoft Graph API.
 

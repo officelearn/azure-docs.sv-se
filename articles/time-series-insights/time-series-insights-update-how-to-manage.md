@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: b70604c62ae21f9c433b3cd7d9e59f4ccebb61bd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1ec0d9c7ecf16c60c32abdf08b358268f460edb0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861735"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087212"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Etablera och hantera Azure Time Series Insights för hands version
 
@@ -35,7 +35,7 @@ När du etablerar en Azure Time Series Insights för hands versions miljö skapa
 > * Lär dig [hur du planerar din miljö](./time-series-insights-update-plan.md).
 > * Läs om hur du [lägger till en Event Hub-källa](./time-series-insights-how-to-add-an-event-source-eventhub.md) eller hur du [lägger till en källa för IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
-Du lär dig att göra följande:
+Du lär dig hur du:
 
 1. **(Valfritt)** Associera varje Azure Time Series Insights för hands versions miljö med en händelse källa. Du kommer också att ange en egenskap för timestamp-ID och en unik konsument grupp för att säkerställa att miljön har åtkomst till lämpliga händelser.
 

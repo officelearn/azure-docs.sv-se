@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844568"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086633"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Självstudie: publicera, prenumerera på händelser lokalt
 
@@ -23,7 +23,7 @@ Den här artikeln vägleder dig igenom alla steg som behövs för att publicera 
 > [!NOTE]
 > Mer information om Azure Event Grid ämnen och prenumerationer finns i [Event Grid begrepp](concepts.md).
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 För att kunna slutföra den här självstudien behöver du:
 
 * **Azure-prenumeration** – skapa ett [kostnads fritt konto](https://azure.microsoft.com/free) om du inte redan har ett. 
@@ -47,7 +47,7 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Den har tre steg: **Lägg till moduler**, **ange vägar**, och **granska distribution**.
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
@@ -64,8 +64,7 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,21 +78,17 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
         }
     ```    
  1. Klicka på **Spara**
- 1. Fortsätt till nästa avsnitt för att lägga till modulen Azure Functions innan du distribuerar dem tillsammans.
+ 1. Fortsätt till nästa avsnitt för att lägga till modulen Azure Event Grid-prenumerant innan du distribuerar dem tillsammans.
 
     >[!IMPORTANT]
-    > I den här självstudien ska du distribuera Event Grid-modulen med klientautentisering inaktive rad och tillåta HTTP-prenumeranter. För produktions arbets belastningar rekommenderar vi att du aktiverar klientautentisering och bara tillåter HTTPs-prenumeranter. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](security-authentication.md).
+    > I den här självstudien ska du distribuera Event Grid-modulen med klientautentisering inaktive rad. För produktions arbets belastningar rekommenderar vi att du aktiverar klientautentisering. Mer information om hur du konfigurerar Event Grid modul på ett säkert sätt finns i [säkerhet och autentisering](security-authentication.md).
     > 
     > Om du använder en virtuell Azure-dator som gräns enhet lägger du till en regel för inkommande port för att tillåta inkommande trafik på port 4438. Anvisningar om hur du lägger till regeln finns i [så här öppnar du portar till en virtuell dator](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Distribuera Azure Function IoT Edge-modulen
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Distribuera Event Grid Subscriber IoT Edge-modulen
 
-I det här avsnittet visas hur du distribuerar Azure Functions IoT-modulen, som fungerar som en Event Grid prenumerant som du kan leverera händelser till.
-
->[!IMPORTANT]
->I det här avsnittet ska du distribuera ett exempel på en Azure Function-baserad modell som beskriver modulen. Det kan naturligtvis vara en anpassad IoT-modul som kan lyssna efter HTTP POST-begäranden.
-
+I det här avsnittet visas hur du distribuerar en annan IoT-modul som fungerar som en händelse hanterare som du kan leverera händelser till.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
@@ -102,23 +97,8 @@ I det här avsnittet visas hur du distribuerar Azure Functions IoT-modulen, som 
 1. Ange namn, avbildning och behållar skapande alternativ för behållaren:
 
    * **Namn**: prenumerant
-   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Alternativ för att skapa behållare**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Alternativ för att skapa behållare**: ingen
 1. Klicka på **Spara**
 1. Klicka på **Nästa** för att fortsätta till avsnittet vägar
 
@@ -129,7 +109,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
 ### <a name="submit-the-deployment-request"></a>Skicka distributions förfrågan
 
 1. I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i föregående avsnitt. Bekräfta att du ser båda modulerna: **eventgridmodule** och **prenumeranter** som anges i JSON. 
-1. Granska information om din distribution, och välj sedan **skicka**. När du har skickat distributionen kommer du tillbaka till sidan **enhet** .
+1. Granska distributions informationen och välj sedan **Skicka**. När du har skickat distributionen kommer du tillbaka till sidan **enhet** .
 1. I **avsnittet moduler**kontrollerar du att både **eventgrid** -och **Subscriber** -moduler visas. Och kontrol lera att den **angivna i distributionen** och **rapporteras av enhets** kolumner är inställd på **Ja**.
 
     Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
@@ -191,7 +171,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -199,7 +179,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
     ```
 
     >[!NOTE]
-    > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure Function-exemplet som du distribuerade tidigare.
+    > Egenskapen **endpointType** anger att prenumeranten är en **webhook**.  **EndpointUrl** anger URL: en där prenumeranten lyssnar efter händelser. URL: en motsvarar Azure-prenumerantens exempel som du distribuerade tidigare.
 2. Kör följande kommando för att skapa en prenumeration för ämnet. Bekräfta att du ser HTTP-statuskoden är `200 OK`.
 
     ```sh
@@ -223,7 +203,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -275,7 +255,7 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
     Exempel på utdata:
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -289,7 +269,6 @@ Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om 
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## <a name="cleanup-resources"></a>Rensa resurser

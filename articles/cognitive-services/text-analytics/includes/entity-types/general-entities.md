@@ -6,102 +6,184 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f95d7613926cf332a498cca84563dbc0ebcbbe9b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284168"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086885"
 ---
 ## <a name="general-entity-types"></a>Allmänna enhets typer:
 
 ### <a name="person"></a>Person
-Identifierade namn och andra personer i text.
-Språk:
+
+Identifiera person namn i text.
+
+Användning
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning             |
-|--------------|-------------------------|
-| Gäller inte          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` |
+| Under typs namn | Beskrivning                                                      | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------------------------|---------------------------------------|
+| SAKNAS          | Identifierade person namn, till exempel `Bill Gates``Marie Curie` | `2019-10-01`                          | 
 
-### <a name="location"></a>Plats
+### <a name="persontype"></a>PersonType
+Jobb typ eller roll som innehas av en person.
 
-Naturliga och mänskliga landmärkes-, struktur-och geografiska funktioner.
+Användning
+* Offentlig för hands version: `English`
 
-Språk:
+| Under typs namn | Beskrivning                                                                                | Tillgängligt från och med modell version |
+|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
+| SAKNAS          | Jobb typer till exempel `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
 
+### <a name="location"></a>plats.
+
+Naturliga och mänskliga landmärkeer, strukturer, geografiska egenskaper och geografiskt politiska enheter.
+
+Användning
 
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| Gäller inte          | platser, till exempel `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
+| Under typs namn              | Beskrivning                                                                              | Tillgängligt från och med modell version |
+|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
+| SAKNAS                       | platser, till exempel `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
+| GPE (politisk entitet) | Städer, länder, stater till exempel `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
-Erkända organisationer, organisationer, organ och andra grupper av personer. Exempel: företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer. Nationella objekt och religions ingår inte i den här entitetstypen. Språk: 
+Erkända organisationer, organisationer, organ och andra grupper av personer. Exempel: företag, politiska grupper, musik band, sport klubbar, myndighets organ och offentliga organisationer. Nationella objekt och religions ingår inte i den här entitetstypen. 
+
+Användning 
 
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| Gäller inte          | organisationer, till exempel `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+| Under typs namn | Beskrivning                                                                                             | Tillgängligt från och med modell version |
+|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
+| SAKNAS          | organisationer, till exempel `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`,`VOA` | `2019-10-01`                           |
+
+### <a name="event"></a>Händelse  
+
+Historiska, sociala och naturliga händelser.  
+
+Användning 
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                                            | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------------------------------|----------------------------------------|
+| SAKNAS          | Händelser som `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
+
+### <a name="product"></a>Produkt  
+
+Fysiska objekt av olika kategorier.  
+
+Användning 
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                                                        | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------------------------------------------|----------------------------------------|
+| SAKNAS          | Till exempel `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
+| Databehandling    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
+
+### <a name="skill"></a>Kvalifikation  
+
+En entitet som beskriver en funktion eller expertis.  
+
+Användning 
+
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                                                                 | Tillgängligt från och med modell version |
+|--------------|-----------------------------------------------------------------------------|----------------------------------------|
+| SAKNAS          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
 ### <a name="phone-number"></a>Telefonnummer
 
 Telefonnummer (endast telefonnummer till USA). 
 
-Språk:
-
+Användning
 
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning                                  |
-|----------|----------------------------------------------|
-| Gäller inte         | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176`. |
+| Under typs namn | Beskrivning                                    | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------|----------------------------------------|
+| SAKNAS          | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176` | `2019-10-01`                           |
 
 ### <a name="email"></a>E-post
 
 E-postadress. 
 
-Språk:
-
+Användning
 
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning                                  |
-|----------|----------------------------------------------|
-| Gäller inte         | E-postadress, till exempel `support@contoso.com` |
+| Under typs namn | Beskrivning                                      | Tillgängligt från och med modell version |
+|--------------|--------------------------------------------------|----------------------------------------|
+| SAKNAS          | E-postadress, till exempel `support@contoso.com` | `2019-10-01`                           |
 
 ### <a name="url"></a>URL
 
 Internet-URL: er.
 
-Språk:
-
+Användning
 
 * Offentlig för hands version: `English`
 
-| Under typs namn | Beskrivning                                           |
-|----------|-------------------------------------------------------|
-| Gäller inte         | URL: er till webbplatser, till exempel `https://www.bing.com`. |
+| Under typs namn | Beskrivning                                          | Tillgängligt från och med modell version |
+|--------------|------------------------------------------------------|----------------------------------------|
+| SAKNAS          | URL: er till webbplatser, till exempel `https://www.bing.com` | `2019-10-01`                           |
 
-###  <a name="number"></a>Antal
+### <a name="ip-address"></a>IP-adress
 
-Siffror och numeriska kvantiteter. 
+Internet Protocol adress
 
-Språk:
+Användning
 
+* Offentlig för hands version: `English`
+
+| Under typs namn | Beskrivning                              | Tillgängligt från och med modell version |
+|--------------|------------------------------------------|----------------------------------------|
+| SAKNAS          | Nätverks adress till exempel `10.0.0.101` | `2019-10-01`                           |
+
+###  <a name="datetime"></a>DateTime
+
+Datum-och tidsentiteter. 
+
+* Tillgängligt från och med modell version `2019-10-01`
+
+Användning
 
 * Offentlig för hands version: `English`
 
 | Under typs namn    | Exempel                     |
 |-------------|------------------------------|
-| Gäller inte         | `6`, `six`                   |
+| SAKNAS         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
+| Date  | `May 2nd, 2017`, `05/02/2017`       |
+| Tid     | `8:15`, `6AM`              |
+| DateRange    | `August 2nd to August 5th`         |
+| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
+| Varaktighet | `2.5 minutes`, `one and a half hours`         |
+| Ange | `every Saturday`         |
+
+###  <a name="quantity"></a>Kvantitet
+
+Siffror och numeriska kvantiteter. 
+
+* Tillgängligt från och med modell version `2019-10-01`
+
+Användning
+
+* Offentlig för hands version: `English`
+
+| Under typs namn    | Exempel                     |
+|-------------|------------------------------|
+| Tal         | `6`, `six`                   |
 | Procent  | `50%`, `fifty percent`       |
-| Ordningstal     | `2nd`, `second`              |
-| Currency    | `$10.99`, `€30.00`           |
+| Numret     | `2nd`, `second`              |
+| Ålder         | `90 day old`, `30 years old` |
+| Valuta    | `$10.99`, `€30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Temperatur | `32 degrees`, `10°C`         |

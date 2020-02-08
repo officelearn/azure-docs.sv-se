@@ -8,24 +8,24 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263183"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086560"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Snabb start: skapa en Azure Databricks arbets yta i din egen Virtual Network
 
 Standard distributionen av Azure Databricks skapar ett nytt virtuellt nätverk som hanteras av Databricks. Den här snabb starten visar hur du skapar en Azure Databricks arbets yta i ditt eget virtuella nätverk i stället. Du skapar också ett Apache Spark-kluster på arbets ytan. 
 
-Mer information om varför du kan välja att skapa en Azure Databricks arbets yta i ditt eget virtuella nätverk finns i [Distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)] (/databricks/Administration-Guide/Cloud-Configurations/Azure/VNet-Inject).
+Mer information om varför du kan välja att skapa en Azure Databricks arbets yta i ditt eget virtuella nätverk finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-injektering)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/databricks/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -33,7 +33,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. I menyn i Azure-portalen väljer du **Skapa en resurs**. Välj sedan **nätverk > virtuellt nätverk**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**. Välj sedan **nätverk > virtuellt nätverk**.
 
     ![Skapa ett virtuellt nätverk på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
@@ -54,7 +54,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
     |-------|---------------|-----------|
     |IPv4-adress utrymme|10.2.0.0/16|Det virtuella nätverkets adress intervall i CIDR-notation. CIDR-intervallet måste vara mellan/16 och/eller 24|
     |Namn på undernät|standard|Välj ett namn för standard under nätet i det virtuella nätverket.|
-    |Undernätsadressintervall|10.2.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
+    |Adressintervall för undernät|10.2.0.0/24|Undernätets adressintervall i CIDR-notation. Det måste finnas i det virtuella nätverkets adress utrymme. Det går inte att redigera adress intervallet för ett undernät som används.|
 
     ![Ange IP-konfigurationer för ett virtuellt nätverk på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
@@ -64,7 +64,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
-1. I menyn i Azure-portalen väljer du **Skapa en resurs**. Välj sedan **analys > Databricks**.
+1. Från Azure Portal-menyn väljer du **skapa en resurs**. Välj sedan **analys > Databricks**.
 
     ![Skapa en Azure Databricks arbets yta på Azure Portal](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
@@ -72,10 +72,10 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |Namn på arbetsyta|databricks-quickstart|Välj ett namn för din Azure Databricks-arbetsyta.|
+    |Namn på arbets yta|databricks-quickstart|Välj ett namn för din Azure Databricks-arbetsyta.|
     |Prenumeration|\<Din prenumeration\>|Ange den prenumeration som du vill använda.|
     |Resursgrupp|databricks-quickstart|Välj samma resurs grupp som du använde för det virtuella nätverket.|
-    |Location|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
+    |plats.|\<Välj den region som är närmast dina användare\>|Välj samma plats som det virtuella nätverket.|
     |Prisnivå|Välj mellan standard eller Premium.|Mer information om pris nivåer finns på [prissättnings sidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).|
 
     ![Skapa ett grundläggande Azure Databricks arbets yta](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
@@ -122,7 +122,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**. Detta stoppar klustret.
+När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**. Detta stoppar klustret.
 
 Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I sådant fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 

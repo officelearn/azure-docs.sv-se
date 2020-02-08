@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 62be78df28d65c2ed16a9f45295edec8c5c360c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e494a5141a96409fc6691df3a5f1194600ad0c32
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901520"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086471"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -565,7 +565,7 @@ Det kan ta några minuter att uppdatera ditt AKS-kluster beroende på de instäl
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Tilldela en offentlig IP-adress per nod i en Node-pool
 
 > [!WARNING]
-> Under förhands granskningen av att tilldela en offentlig IP-adress per nod kan den inte användas med *standard load BALANCER SKU i AKS* på grund av eventuella regler för belastnings utjämning i konflikt med VM-etablering. I för hands versionen måste du använda *Basic load BALANCER SKU* om du behöver tilldela en offentlig IP-adress per nod.
+> Under förhands granskningen av att tilldela en offentlig IP-adress per nod kan den inte användas med *standard load BALANCER SKU i AKS* på grund av eventuella regler för belastnings utjämning i konflikt med VM-etablering. Till följd av den här begränsningen stöds inte Windows agent-pooler med den här förhands gransknings funktionen. I för hands versionen måste du använda *Basic load BALANCER SKU* om du behöver tilldela en offentlig IP-adress per nod.
 
 AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Vissa scenarier kan dock kräva att noder i en Node-pool har sina egna offentliga IP-adresser. Ett exempel är spel, där en konsol behöver upprätta en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Detta kan uppnås genom att registrera dig för en separat förhands gransknings funktion, offentlig IP-adress (för hands version).
 

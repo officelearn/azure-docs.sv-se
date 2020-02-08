@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/07/2020
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053354"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087084"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera etablerade data flödes kostnader i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Genom att erbjuda en etablerad data flödes modell erbjuder Azure Cosmos DB för
 
 Du kan börja med ett minsta data flöde på 400 RU/s och skala upp till flera miljoner begär Anden per sekund eller till och med. Varje begäran som du skickar till din Azure Cosmos-behållare eller-databas, till exempel en Read-begäran, skrivbegäran, fråge förfrågning, lagrade procedurer har en motsvarande kostnad som dras av från ditt etablerade data flöde. Om du etablerar 400 RU/s och utfärdar en fråga som kostar 40 ru: er kommer du att kunna skicka 10 frågor per sekund. Alla begär Anden utöver detta får en hastighets begränsning och du bör försöka utföra begäran igen. Om du använder klient driv rutiner stöder de automatiskt logiken för omförsök.
 
-Du kan etablera data flöde på databaser eller behållare och varje strategi kan hjälpa dig att spara pengar beroende på scenariot.
+Du kan etablera dataflöden för databaser och containrar, och de olika strategierna kan ge besparingar beroende på scenariot.
 
 ## <a name="optimize-by-provisioning-throughput-at-different-levels"></a>Optimera genom att tillhandahålla data flöde på olika nivåer
 
@@ -57,7 +57,7 @@ Som du ser i följande tabell, beroende på valet av API, kan du etablera data f
 |----|----|----|
 |API för SQL|Databas|Container|
 |API för Azure Cosmos DB för MongoDB|Databas|Samling|
-|API för Cassandra|keyspace|Tabell|
+|Cassandra-API|Nyckelutrymme|Tabell|
 |Gremlin-API|Databas konto|Graph|
 |Tabell-API|Databas konto|Tabell|
 
@@ -123,7 +123,7 @@ Du kan också ställa in aviseringar för att kontrol lera om antalet avgiftsbel
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Skala ditt genomflöde elastiskt och på begäran 
 
-Eftersom du debiteras för det data flöde som har allokerats kan du med hjälp av det etablerade data flödet för dina behov hjälpa dig att undvika avgifter för det oanvända genomflödet. Du kan skala ditt etablerade data flöde upp eller ned när som helst, efter behov.  
+Eftersom du debiteras för det data flöde som har allokerats kan du med hjälp av det etablerade data flödet för dina behov hjälpa dig att undvika avgifter för det oanvända genomflödet. Du kan skala ditt etablerade data flöde upp eller ned när som helst, efter behov. Om dina data flödes behov är förutsägbara kan du använda Azure Functions och använda en timer-utlösare för att [öka eller minska data flödet enligt ett schema](scale-on-schedule.md). 
 
 * Övervakning av förbrukningen av dina ru: er och förhållandet mellan avgiftsbelagda begär Anden kan avslöja att du inte behöver fortsätta att vara etablerad under hela dagen eller veckan. Du kan få mindre trafik på natten eller under helgen. Genom att använda antingen Azure Portal eller Azure Cosmos DB inbyggda SDK: er eller REST API kan du skala ditt etablerade data flöde när som helst. Azure Cosmos DB REST API tillhandahåller slut punkter för att program mässigt uppdatera prestanda nivån för dina behållare, vilket gör det enkelt att justera data flödet från din kod beroende på tidpunkten för dagen eller vecko dagen. Åtgärden utförs utan drift avbrott och börjar normalt gälla i mindre än en minut. 
 

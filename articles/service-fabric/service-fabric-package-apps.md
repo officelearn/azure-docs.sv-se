@@ -3,12 +3,12 @@ title: Paketera en Azure Service Fabric-app
 description: Lär dig mer om att paketera ett Azure Service Fabric-program och hur du förbereder distributionen till ett kluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639691"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083633"
 ---
 # <a name="package-an-application"></a>Paketera ett program
 
@@ -43,7 +43,7 @@ Mapparna heter för att matcha **namnattribut** för varje motsvarande element. 
 
 ## <a name="use-setupentrypoint"></a>Använd SetupEntryPoint
 
-Vanliga scenarier för att använda **SetupEntryPoint** är när du behöver köra en körbar fil innan tjänsten startar eller så måste du utföra en åtgärd med utökade privilegier. Ett exempel:
+Vanliga scenarier för att använda **SetupEntryPoint** är när du behöver köra en körbar fil innan tjänsten startar eller så måste du utföra en åtgärd med utökade privilegier. Exempel:
 
 * Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Den är inte begränsad till enbart körbara filer som skrivits via Service Fabric programmerings modeller. NPM. exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett Node. js-program.
 * Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
@@ -56,9 +56,9 @@ Mer information om hur du konfigurerar **SetupEntryPoint**finns i [Konfigurera p
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Bygga ett paket med Visual Studio
 
-Om du använder Visual Studio 2015 för att skapa ditt program, kan du använda kommandot Package för att automatiskt skapa ett paket som matchar den layout som beskrivs ovan.
+Om du använde Visual Studio för att skapa ditt program, kan du använda kommandot *Package* för att automatiskt skapa ett paket som matchar den layout som beskrivs ovan.
 
-Om du vill skapa ett paket högerklickar du på programprojektet i Solution Explorer och väljer paket kommandot, som du ser nedan:
+Om du vill skapa ett paket högerklickar du på programprojektet i *Solution Explorer* och väljer **paket** kommandot:
 
 ![Paketera ett program med Visual Studio][vs-package-command]
 

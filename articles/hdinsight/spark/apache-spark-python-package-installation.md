@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529651"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087123"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -22,7 +22,7 @@ ms.locfileid: "75529651"
 
 HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. I vissa fall behöver kunderna anpassa python-miljön, t. ex. installera externa python-paket eller en annan python-version. I den här artikeln visar vi bästa praxis för säker hantering av python-miljöer för ett [Apache Spark](https://spark.apache.org/) kluster i HDInsight.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -49,11 +49,11 @@ Det finns två typer av komponenter med öppen källkod som är tillgängliga i 
 
 HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-installationer i klustret, Anaconda python 2,7 och python 3,5. I tabellen nedan visas standard inställningarna för python för Spark, livy och Jupyter.
 
-| |Python 2.7|Python 3.5|
+| |Python 2,7|Python 3.5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|Gäller inte|
-|Livy|Standard är inställt på 2,7|Gäller inte|
+|Spark|Standard är inställt på 2,7|SAKNAS|
+|Livy|Standard är inställt på 2,7|SAKNAS|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt
@@ -122,7 +122,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
 ## <a name="known-issue"></a>Kända problem
 
-Det finns ett känt fel för Anaconda-versionen 4.7.11 och 4.7.12. Om du ser att skript åtgärderna låser sig vid `"Collecting package metadata (repodata.json): ...working..."` och att det inte går att `"Python script has been killed due to timeout after waiting 3600 secs"`. Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
+Det finns ett känt fel för Anaconda-version 4.7.11, 4.7.12 och 4.8.0. Om du ser att skript åtgärderna låser sig vid `"Collecting package metadata (repodata.json): ...working..."` och att det inte går att `"Python script has been killed due to timeout after waiting 3600 secs"`. Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
 
 Du kan kontrol lera din Anaconda-version genom att använda SSH till noden kluster huvud och köra `/usr/bin/anaconda/bin/conda --v`.
 

@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a22a36d5e6c36008c3a574cbcf9be8ec4f52b82b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231958"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086438"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Boomi
 
@@ -31,9 +30,9 @@ I den här självstudien får du lära dig hur du integrerar Boomi med Azure Act
 * Gör det möjligt för användarna att logga in automatiskt till Boomi med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -45,6 +44,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Boomi stöder **IDP**-initierad enkel inloggning
+* När du har konfigurerat Boomi kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-boomi-from-the-gallery"></a>Lägga till Boomi från galleriet
 
@@ -81,14 +81,22 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du har en **metadata-fil för Service Provider** och vill konfigurera i **IDP** initierat läge, utför du följande steg:
 
-    a. I textrutan **Identifierare** skriver du in en URL: `https://platform.boomi.com/`
+    a. Klicka på **Ladda upp metadatafil**.
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    ![Ladda upp metadatafil](common/upload-metadata.png)
 
-    > [!NOTE]
-    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Hämta det här värdet genom att kontakta [supportteamet för Boomi-klienten](https://boomi.com/company/contact/). Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
+
+    ![välj metadatafil](common/browse-upload-metadata.png)
+
+    c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration.
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > Du hämtar **metadata-filen för tjänst leverantören** från avsnittet **Konfigurera Boomi SSO** , som beskrivs senare i självstudien. Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
 1. Boomi-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -154,9 +162,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     c. I textrutan **Inloggnings-URL för identitetsprovider** anger du värdet för **inloggnings-URL** från konfigurationsfönstret för Azure AD-programmet.
 
-    d. För **Federation Id Location** (Plats för federations-ID) markerar du alternativknappen **Federation Id is in FEDERATION_ID Attribute element** (Federations-ID finns i attributelementet FEDERATION_ID).
+    d. För **Federations-ID-plats**väljer du **Federations-ID: t i FEDERATION_ID** alternativ knapp för attribut.
 
-    e. Klicka på knappen **Spara**.
+    e. Kopiera URL: en för **AtomSphere metadata**, gå till **URL:** en för metadata via valfri webbläsare och spara utdata till en fil. Ladda upp **URL: en för metadata** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+
+    f. Klicka på knappen **Spara**.
 
 ### <a name="create-boomi-test-user"></a>Skapa Boomi-testanvändare
 
@@ -186,23 +196,25 @@ För att Azure AD-användare ska kunna logga in på Boomi måste de tillhandahå
 
     e. Tilldela rollen **Standardanvändare** till användaren. Tilldela inte administratörs rollen eftersom detta ger dem normal åtkomst till atmosfär samt enkel inloggning.
 
-    f. Klicka på **OK**.
+    f. Klicka på **OK**
 
     > [!NOTE]
-    > Användaren får inget e-postmeddelande med ett välkomst meddelande som innehåller ett lösen ord som kan användas för att logga in på AtomSphere-kontot eftersom lösen ordet hanteras via identitets leverantören. Du kan använda andra Boomi-verktyg eller API: er för användar konton som tillhandahålls av Boomi för att etablera Azure AD-användarkonton.
+    > Användaren får inget e-postmeddelande med ett välkomst meddelande som innehåller ett lösen ord som kan användas för att logga in på AtomSphere-kontot eftersom lösen ordet hanteras via identitets leverantören. Du kan använda andra verktyg eller API:er för Boomi-kontoskapande som tillhandahålls av Boomi för att etablera AAD-användarkonton.
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Boomi-panelen i åtkomstpanelen bör du automatiskt loggas in på Boomi som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Boomi-panelen i åtkomstpanelen bör du automatiskt loggas in på Boomi som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Prova Boomi med Azure AD](https://aad.portal.azure.com/)

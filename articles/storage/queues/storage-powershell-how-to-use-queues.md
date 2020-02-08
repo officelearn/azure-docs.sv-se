@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 94e28c59c3281dc6c1d65ce782568233d0e23f03
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313860"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087064"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 
@@ -21,9 +21,9 @@ Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden so
 
 > [!div class="checklist"]
 >
-> * Skapa en kö
+> * Skapar en kö
 > * Hämta en kö
-> * Lägg till ett meddelande
+> * Lägga till ett meddelande
 > * Läsa ett meddelande
 > * Ta bort ett meddelande
 > * Ta bort en kö
@@ -76,9 +76,9 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Skapa en kö
+## <a name="create-a-queue"></a>Skapar en kö
 
-I följande exempel upprättas först en anslutning till Azure Storage med hjälp av lagrings kontots kontext, som innehåller lagrings kontots namn och dess åtkomst nyckel. Sedan anropas [New-AzStorageQueue-](/powershell/module/az.storage/New-AzStorageQueue) cmdleten för att skapa en kö med namnet "queueName".
+I följande exempel upprättas först en anslutning till Azure Storage med hjälp av lagrings kontots kontext, som innehåller lagrings kontots namn och dess åtkomst nyckel. Sedan anropas [New-AzStorageQueue-](/powershell/module/az.storage/New-AzStorageQueue) cmdleten för att skapa en kö med namnet "howtoqueue".
 
 ```powershell
 $queueName = "howtoqueue"
@@ -184,9 +184,9 @@ I den här instruktions artikeln har du lärt dig om grundläggande lagrings han
 
 > [!div class="checklist"]
 >
-> * Skapa en kö
+> * Skapar en kö
 > * Hämta en kö
-> * Lägg till ett meddelande
+> * Lägga till ett meddelande
 > * Läs nästa meddelande
 > * Ta bort ett meddelande
 > * Ta bort en kö

@@ -3,7 +3,7 @@ title: MSAL för iOS & macOS – Microsoft Identity Platform | Azure
 description: Lär dig hur iOS-och macOS-appar (SWIFT) kan anropa ett API som kräver åtkomsttoken med hjälp av Microsoft Identity Platform
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a3a1b424cdf3c1897efce36b4499de967f85bb1e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7704779ff605e28358f6f82c22ccda84d371dba9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701220"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084385"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 
@@ -44,7 +44,7 @@ I det här exemplet används Microsoft Authentication Library (MSAL) för att im
 
 Den här självstudien gäller för både iOS-och macOS-appar. Observera att vissa steg skiljer sig mellan de två plattformarna. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - XCode version 10. x krävs för att bygga appen i den här hand boken. Du kan hämta XCode från [iTunes-webbplatsen](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Nedladdnings-URL för XCode").
 - Microsoft Authentication Library ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda en beroende hanterare eller lägga till biblioteket manuellt. Anvisningarna nedan visar hur du gör.
@@ -110,7 +110,7 @@ iOS:
 carthage update --platform iOS
 ```
 
-macOS:
+MacOS
 
 ```bash
 carthage update --platform macOS
@@ -499,7 +499,7 @@ När du har en token kan appen använda den i HTTP-huvudet för att skapa en auk
 
 | rubrik nyckel    | värde                 |
 | ------------- | --------------------- |
-| Autentisering | \<åtkomst-token för innehavare > |
+| Auktorisering | \<åtkomst-token för innehavare > |
 
 Lägg till följande kod i `ViewController`-klassen:
 

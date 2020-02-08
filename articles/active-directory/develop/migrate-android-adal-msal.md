@@ -2,7 +2,7 @@
 title: ADAL till MSAL migration-guide för Android | Azure
 description: Lär dig hur du migrerar din Android-app för Azure Active Directory Authentication Library (ADAL) till Microsoft Authentication Library (MSAL).
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
 ms.date: 09/6/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 0c7b059fd8d9b34ad6d1e565431d39ffc706cb45
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696715"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084050"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
 
@@ -56,7 +56,7 @@ MSAL offentliga API inför viktiga ändringar, inklusive:
 - MSAL stöder deklarativ konfiguration för:
   - Klient-ID, omdirigerings-URI.
   - Inbäddad vs standard-webbläsare
-  - skattemyndigheter
+  - Skattemyndigheter
   - HTTP-inställningar som Läs-och tids gräns för anslutning
 
 ## <a name="your-app-registration-and-migration-to-msal"></a>Din app-registrering och migrering till MSAL
@@ -65,7 +65,7 @@ Du behöver inte ändra din befintliga App-registrering för att använda MSAL. 
 
 I din app-registrering i portalen visas fliken **API-behörigheter** . Detta ger en lista med de API: er och behörigheter (omfattningar) som din app är konfigurerad för att begära åtkomst till. Den visar också en lista över de omfångs namn som är associerade med varje API-behörighet.
 
-### <a name="user-consent"></a>Användargodkännande
+### <a name="user-consent"></a>Användar medgivande
 
 Med ADAL och AAD v1-slutpunkten beviljades användaren de resurser de äger vid första användningen. Med MSAL och Microsoft Identity Platform kan medgivande begäras stegvis. Ett stegvist godkännande är användbart för behörigheter som en användare kan överväga med hög behörighet eller som annars kan frågas om det inte finns en tydlig förklaring av varför behörigheten krävs. I ADAL kan de behörigheterna ha resulterat i att användaren överger inloggningen i din app.
 

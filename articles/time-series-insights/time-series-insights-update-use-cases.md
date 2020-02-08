@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85b724a62f778620264ae308aa316e046a0e9f59
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 50ac2a728750c6b01dfc57fa7e20df25c856395a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896082"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087386"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights för hands versions användning
 
@@ -30,13 +30,13 @@ Mer specifikt besvarar den här artikeln följande frågor:
 
 En översikt över dessa användnings scenarier beskrivs i följande avsnitt.
 
-## <a name="introduction"></a>Introduktion
+## <a name="introduction"></a>Inledning
 
 Azure Time Series Insights är ett erbjudande från slut punkt till slut punkt, plattform-som-tjänst. Den används för att samla in, bearbeta, lagra, analysera och fråga mycket sammanhangsbaserade, tidsbaserad, tidsbaserad och optimerad IoT-Scale-data. Time Series Insights passar perfekt för ad hoc-datagranskning och operativ analys. Time Series Insights är ett unikt utöknings Bart, anpassat tjänst erbjudande som uppfyller de breda behoven i industriella IoT-distributioner.
 
-## <a name="data-exploration-and-visual-anomaly-detection"></a>Datautforskning och visuell avvikelseidentifiering
+## <a name="data-exploration-and-visual-anomaly-detection"></a>Data utforskning och visuell avvikelse identifiering
 
-Utforska och analysera direkt flera miljarder händelser för att upptäcka avvikelser och dolda trender i dina data. Time Series Insights ger nära realtid-prestanda till IoT- och DevOps-analysarbetsbelastningar.
+Utforska och analysera miljard tals händelser för att upptäcka avvikelser och identifiera dolda trender i dina data. Time Series Insights ger prestanda i nära real tid för dina IoT-och DevOps analys arbets belastningar.
 
 [![data Utforskaren](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
 
@@ -62,11 +62,11 @@ Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Serie
 
 * Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from`, `to`, `first`och `last`. Det innehåller agg regeringar och transformeringar som `average`, `min`, `max`, `split by`, `order by`och `DateHistogram`. Den har också filter operatörer som `has`, `in`, `and`, `or`, `greater than`och `REGEX`. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i Homegrown-visualiseringar för att upptäcka avvikelser.
 
-## <a name="operational-analysis-and-driving-process-efficiency"></a>Operativ analys och processeffektivitet
+## <a name="operational-analysis-and-driving-process-efficiency"></a>Drift analys och process effektivitet
 
-Använd Time Series Insights för att övervaka hälsa, användning och prestanda för utrustning i stor skala. Time Series Insights är ett enkelt sätt att mäta drifts effektiviteten. Time Series Insights hjälper till att hantera mångskiftande och oberäkneliga IoT-arbetsbelastningar utan att offra datainmatnings- eller frågeprestanda.
+Använd Time Series Insights för att övervaka hälsa, användning och prestanda för utrustning i stor skala. Time Series Insights är ett enkelt sätt att mäta drifts effektiviteten. Time Series Insights hjälper till att hantera olika och oförutsägbara IoT-arbetsbelastningar utan att offra inmatnings-eller frågans prestanda.
 
-[![Översikt över](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[Översikt över ![](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Strömning och kontinuerlig bearbetning av data som kommer från operativa processer kan omvandlas till alla företag om den kombineras med rätt teknik eller lösning. Dessa lösningar är ofta en kombination av flera system. De möjliggör utforskning och analys av data som ändras konstant, särskilt i IoT-sfären, och som delar ett gemensamt mönster.
 
@@ -82,7 +82,7 @@ Lösnings arkitektur kan uppnås på följande sätt:
 
 Time Series Insights erbjuder data utforskning i nära real tid och till gångs rika insikter över historiska data. Beroende på dina affärs behov kan MapReduce och Hive-jobb köras på data som lagras i Time Series Insights genom att ansluta Time Series Insights till Azure HDInsight. Data som lagras i Time Series Insights är tillgängliga för Power BI och andra kund program via Time Series Insights API för offentlig Surface-fråga. Dessa data kan användas för djup affärs-och användnings informations scenarier.
 
-## <a name="advanced-analytics"></a>Avancerade analyser
+## <a name="advanced-analytics"></a>Avancerad analys
 
 Integrera med avancerade analys tjänster som Machine Learning och Azure Databricks. Time Series Insights ingress av rå data från miljon tals enheter. Den lägger till sammanhangsbaserade data som kan förbrukas sömlöst av en serie Azure Analytics-tjänster.
 

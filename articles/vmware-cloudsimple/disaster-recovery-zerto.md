@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f34c4fb89d28a001a4af4d21879403a9ac5e860
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e5ee43af97e79f1e835787d61bd79cfb256ef445
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024712"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083144"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Konfigurera ett privat AVS-moln som en katastrof återställnings plats för lokala VMware-arbetsbelastningar
 
@@ -41,17 +41,17 @@ Följande bild visar arkitekturen för Zerto-lösningen.
 
 I följande avsnitt beskrivs hur du distribuerar en DR-lösning med Zerto Virtual Replication i ditt AVS-moln.
 
-1. [Krav](#prerequisites)
+1. [Förutsättningar](#prerequisites)
 2. [Valfri konfiguration i ditt moln privata moln](#optional-configuration-on-your-avs-private-cloud)
 3. [Konfigurera ZVM och VRA i ditt moln privata moln](#set-up-zvm-and-vra-on-your-avs-private-cloud)
 4. [Konfigurera Zerto virtuella skydds grupp](#set-up-zerto-virtual-protection-group)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera Zerto virtuell replikering från din lokala miljö till ditt moln privata moln måste du uppfylla följande krav.
 
 1. [Konfigurera en plats-till-plats-VPN-anslutning mellan ditt lokala nätverk och ditt moln privata moln](set-up-vpn.md).
-2. [Konfigurera DNS-sökning så att dina hanterings komponenter för molnets privata moln vidarebefordras till DNS-servrar i AVS-molnet](on-premises-dns-setup.md). Om du vill aktivera vidarebefordran av DNS-sökning skapar du en post för vidarebefordran i din lokala DNS-server för `*.AVS.io` till AVS-DNS-servrar.
+2. [Konfigurera DNS-sökning så att dina hanterings komponenter för molnets privata moln vidarebefordras till DNS-servrar i AVS-molnet](on-premises-dns-setup.md). Om du vill aktivera vidarebefordran av DNS-sökning skapar du en post för vidarebefordran i din lokala DNS-server för `*.cloudsimple.io` till AVS-DNS-servrar.
 3. Konfigurera DNS-sökning så att lokala vCenter-komponenter vidarebefordras till lokala DNS-servrar. DNS-servrarna måste kunna kontaktas från ditt moln privata moln via plats-till-plats-VPN. Om du behöver hjälp kan du skicka en [supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)och ange följande information. 
 
     * Lokalt DNS-domännamn

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024729"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083149"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Konfigurera ett privat moln i molnet som en katastrof återställnings mål med VMware Site Recovery Manager
 
@@ -101,7 +101,7 @@ Du kan lägga till en extern identitetsprovider enligt beskrivningen i [använda
 
 Konfigurera en DHCP-och DNS-server enligt beskrivningen i [Konfigurera DNS-och DHCP-program och arbets belastningar i ditt moln privata moln](dns-dhcp-setup.md)för att tillhandahålla IP-adresss ökning, IP-adress hantering och namn matchnings tjänster för dina arbets belastningar i molnets privata moln.
 
-Domänen *. avs.io används av virtuella hanterings datorer och värdar i ditt moln privata moln. För att lösa begär anden till den här domänen konfigurerar du DNS-vidarebefordran på DNS-servern enligt beskrivningen i [skapa en villkorlig vidarebefordrare](on-premises-dns-setup.md#create-a-conditional-forwarder).
+Domänen *. cloudsimple.io används av virtuella hanterings datorer och värdar i ditt moln privata moln. För att lösa begär anden till den här domänen konfigurerar du DNS-vidarebefordran på DNS-servern enligt beskrivningen i [skapa en villkorlig vidarebefordrare](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
 ### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Installera vSphere-replikering i din lokala miljö
 
@@ -133,7 +133,7 @@ Innan du installerar vRA och SRM måste du eskalera vCenter-behörigheterna för
 Installationen består av följande steg på hög nivå:
 
 1. [Eskalera privilegier](escalate-private-cloud-privileges.md).
-2. Skapa en användare i ditt moln privata moln för vSphere-replikering och SRM-installation. Förklaras nedan i [VCENTER UI: skapa en användare i det privata moln molnet för vRA & SRM-installation](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation).
+2. Skapa en användare i ditt moln privata moln för vSphere-replikering och SRM-installation. Förklaras nedan i [VCENTER UI: skapa en användare i det privata moln molnet för vRA &AMP; SRM-installation](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation).
 3. Förbered din AVS-miljö för privat moln för vRA-installation.
 4. Distribuera vRA i ditt moln privata moln med hjälp av OVF i VR ISO från vmware.com. I vRA 6,5 har [den här VMware-bloggen](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) relevant information.
 5. Konfigurera brand Väggs regler för vRA. Förklaras nedan i [AVS-portalen: Konfigurera brand Väggs regler för vRA](#avs-portal-configure-firewall-rules-for-vra).

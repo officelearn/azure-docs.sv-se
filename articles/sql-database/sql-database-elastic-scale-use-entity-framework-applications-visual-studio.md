@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823489"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087184"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Elastic Database klient bibliotek med Entity Framework
 
@@ -27,7 +27,7 @@ Det här dokumentet visar ändringarna i ett Entity Framework program som behöv
 Så här hämtar du koden för den här artikeln:
 
 * Visual Studio 2012 eller senare krävs. 
-* Ladda ned de [elastiska DB-verktygen för Azure SQL-Entity Framework integrations exempel](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) från MSDN. Packa upp exemplet på en plats som du väljer.
+* Ladda ned de [elastiska DB-verktygen för Azure SQL-Entity Framework integrations exempel](https://github.com/Azure/elastic-db-tools/). Packa upp exemplet på en plats som du väljer.
 * Starta Visual Studio. 
 * I Visual Studio väljer du fil-> öppna projekt/lösning. 
 * I dialog rutan **öppna projekt** navigerar du till det exempel som du laddade ned och väljer **EntityFrameworkCodeFirst. SLN** för att öppna exemplet. 
@@ -192,13 +192,13 @@ Kod exemplen ovan illustrerar standardvärdet för konstruktörer som krävs fö
 
 | Aktuell konstruktor | Omskriven konstruktor för data | Base-konstruktor | Anteckningar |
 | --- | --- | --- | --- |
-| Kontext () |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen måste vara en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Du måste efter-pass skapa automatisk anslutning av EF, och i stället använda Shard-kartan för att hantera anslutningen. |
+| MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen måste vara en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Du måste efter-pass skapa automatisk anslutning av EF, och i stället använda Shard-kartan för att hantera anslutningen. |
 | Kontext (sträng) |ElasticScaleContext(ShardMap, TKey) |DbContext (DbConnection, bool) |Anslutningen är en funktion i Shard-mappningen och den data beroende Dirigerings nyckeln. Ett fast databas namn eller en anslutnings sträng fungerar inte när de skickas genom Shard-mappningen. |
-| DbCompiledModel (kontext) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |Anslutningen skapas för den angivna Shard-kartan och horisontell partitionering-nyckeln med den angivna modellen. Den kompilerade modellen överförs till bas-c'tor. |
+| MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |Anslutningen skapas för den angivna Shard-kartan och horisontell partitionering-nyckeln med den angivna modellen. Den kompilerade modellen överförs till bas-c'tor. |
 | Kontext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, bool) |DbContext (DbConnection, bool) |Anslutningen måste härledas från Shard-mappningen och nyckeln. Den kan inte tillhandahållas som indata (om inte indata redan användes med Shard-mappningen och nyckeln). Det booleska värdet skickas. |
-| Kontext (sträng, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |Anslutningen måste härledas från Shard-mappningen och nyckeln. Den kan inte tillhandahållas som indata (om inte indata användes av Shard-mappningen och nyckeln). Den kompilerade modellen överförs. |
+| MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, bool) |Anslutningen måste härledas från Shard-mappningen och nyckeln. Den kan inte tillhandahållas som indata (om inte indata användes av Shard-mappningen och nyckeln). Den kompilerade modellen överförs. |
 | Kontext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Den nya konstruktorn måste vara säker på att alla anslutningar i ObjectContext som skickas till en inkommande trafik dirigeras om till en anslutning som hanteras av elastisk skalning. En detaljerad diskussion om ObjectContexts ligger utanför det här dokumentets omfattning. |
-| Kontext (DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |Anslutningen måste härledas från Shard-mappningen och nyckeln. Det går inte att ange anslutningen som indata (om inte indata redan användes med Shard-mappningen och nyckeln). Modell och boolesk skickas till konstruktorn för Bask Lassen. |
+| MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |Anslutningen måste härledas från Shard-mappningen och nyckeln. Det går inte att ange anslutningen som indata (om inte indata redan användes med Shard-mappningen och nyckeln). Modell och boolesk skickas till konstruktorn för Bask Lassen. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Shard schema distribution genom EF-migreringar
 
@@ -273,7 +273,7 @@ De metoder som beskrivs i det här dokumentet medför några begränsningar:
 * Ändringar i programmet som kräver databas schema ändringar måste gå igenom EF-migreringar på alla Shards. Exempel koden för det här dokumentet visar inte hur du gör detta. Överväg att använda Update-Database med en ConnectionString-parameter för att iterera över alla Shards; eller extrahera T-SQL-skriptet för den väntande migreringen med hjälp av Update-Database med alternativet-skript och tillämpa T-SQL-skriptet på din Shards.  
 * Med en begäran antas det att all bearbetning av databasen finns i en enda Shard som identifieras av horisontell partitionering-nyckeln som anges i begäran. Detta antagande är dock inte alltid sant. Till exempel när det inte går att göra en horisontell partitionering-nyckel tillgänglig. För att åtgärda detta tillhandahåller klient biblioteket **MultiShardQuery** -klassen som implementerar en anslutnings abstraktion för frågor över flera Shards. Inlärning för att använda **MultiShardQuery** i kombination med EF är utanför det här dokumentets omfång
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Genom de steg som beskrivs i det här dokumentet kan EF-program använda klient biblioteks funktionen för elastiska databaser för data beroende routning genom att omväga konstruktörer för de **DbContext** -underklasser som används i programmet EF. Detta begränsar de ändringar som krävs för de platser där **DbContext** -klasser redan finns. Dessutom kan EF-program fortsätta att dra nytta av automatisk schema distribution genom att kombinera stegen som anropar de nödvändiga EF-migreringarna med registreringen av nya Shards och mappningar i Shard-kartan. 
 

@@ -1,14 +1,14 @@
 ---
-title: Exempel-FedRAMP hög skiss-kontroll mappning
+title: FedRAMP-kontroller för hög skiss
 description: Kontroll mappning av FedRAMP-exemplet för hög skiss. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 4b4d644497eb98ed88f57803e99cf27a419523fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 93e2de3f19e0577645337df029789336a35b024d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76941383"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087339"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Kontroll mappning av FedRAMP-exemplet för hög skiss
 
@@ -28,7 +28,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
-- Externa konton med skrivbehörigheter bör tas bort från prenumerationen
+- Externa konton med Skriv behörighet bör tas bort från din prenumeration
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Rollbaserade scheman
 
@@ -89,11 +89,11 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -102,7 +102,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - Granska diagnostikinställning
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 
 ## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) gransknings granskning, analys och rapportering | Central granskning och analys
 
@@ -110,11 +110,11 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) gransknings granskning, analys och rapportering | Funktioner för integration/genomsökning och övervakning
 
@@ -123,12 +123,12 @@ Dessa princip definitioner granskar också konfigurationen av diagnostikloggar f
 För detaljerad sårbarhets genomsökning och övervakning rekommenderar vi också att du använder Azure Sentinel och Azure Security Center.
 
 - \[för hands version\]: sårbarhets bedömning måste vara aktiverat på Virtual Machines
-- \[Förhandsversion av\]: aktivera Azure Monitor för virtuella datorer
+- \[för hands version\]: Aktivera Azure Monitor for VMs
 - \[för hands version\]: Aktivera Azure Monitor för VM Scale Sets (VMSS)
-- Utvärdering av säkerhetsrisker bör aktiveras på dina SQL-servrar
+- Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Granska diagnostikinställning
 - Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- Utvärdering av säkerhetsrisker bör aktiveras på dina SQL-servrar
+- Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
 - Säkerhets risker i SQL-databaser bör åtgärdas
 - Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
@@ -141,15 +141,15 @@ Dessa princip definitioner granskar också konfigurationen av diagnostikloggar f
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Distribuera granskning på SQL-servrar
 - Distribuera diagnostikinställningar för nätverks säkerhets grupper
@@ -241,7 +241,7 @@ Den här skissen hjälper dig att använda starka lösen ord genom att tilldela 
 Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar sårbarheter för operativ system, sårbarheter i SQL och säkerhets risker för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också princip definitioner som granskar och tillämpar avancerad data säkerhet på SQL-servrar. Avancerad data säkerhet inkluderar sårbarhets bedömning och avancerade hot skydds funktioner som hjälper dig att förstå sårbarheter i dina distribuerade resurser.
 
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets problem i säkerhets konfiguration på dina virtuella datorer bör åtgärdas
@@ -293,7 +293,7 @@ Den här skissen hjälper dig att skydda konfidentiell och integritet på överf
 Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller för att skydda informationen i vila genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver princip definitionerna som tilldelas av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; och granska saknad kryptering på SQL-databaser, virtuella dator diskar och variabler för Automation-konto.
 
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Distribuera transparent data kryptering för SQL DB
 - Disk kryptering bör tillämpas på virtuella datorer
@@ -333,13 +333,13 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 
 - \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
 - \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[Förhandsversion av\]: granska Log Analytics-arbetsyta för virtuell dator – rapportera matchningsfel
+- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
 - \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Linux-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[Förhandsversion av\]: distribuerar Log Analytics-agenten för Windows-datorer
+- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Distribuera Avancerat skydd på lagrings konton
 - Distribuera granskning på SQL-servrar

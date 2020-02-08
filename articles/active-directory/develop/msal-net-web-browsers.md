@@ -3,22 +3,22 @@ title: Använda webbläsare (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Lär dig mer om att tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b0b0ac05e54619af0b1dd4a68918a89681f845bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695083"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084593"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
 
@@ -43,17 +43,17 @@ MSAL.NET är ett bibliotek med flera ramverk och har en Framework-specifik kod s
 
 I allmänhet rekommenderar vi att du använder plattforms standarden och det är vanligt vis system läsaren. System läsaren är bättre för att komma ihåg vilka användare som har loggat in tidigare. Om du behöver ändra det här beteendet använder du `WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>En snabbtitt
+### <a name="at-a-glance"></a>Snabbt
 
-| Ramverk        | Inbäddning | System | Default |
+| Samband        | Inbäddning | System | Standard |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddning |
-| .NET Core     | Inga | Ja ^ | System |
-| .NET Standard | Inga | Ja ^ | System |
-| UWP | Ja | Inga | Inbäddning |
+| .NET Core     | Nej | Ja ^ | System |
+| .NET Standard | Nej | Ja ^ | System |
+| UWP | Ja | Nej | Inbäddning |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |
-| Xamarin. Mac| Ja | Inga | Inbäddning |
+| Xamarin. Mac| Ja | Nej | Inbäddning |
 
 ^ Kräver "http://localhost" omdirigerings-URI
 
@@ -149,7 +149,7 @@ Det finns vissa visuella skillnader mellan inbäddad webbvy och systemets webbl�
 
 **Interaktiv inloggning med MSAL.NET med hjälp av den inbäddade webbvy:**
 
-![inbäddad](media/msal-net-web-browsers/embedded-webview.png)
+![Inbäddning](media/msal-net-web-browsers/embedded-webview.png)
 
 **Interaktiv inloggning med MSAL.NET med hjälp av system webbläsare:**
 

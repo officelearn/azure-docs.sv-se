@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "74815371"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086990"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -26,7 +26,7 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 > [!IMPORTANT]
 > Alla tal behållare erbjuds för närvarande som en del av en [offentlig "gated"-förhands granskning](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Ett meddelande kommer att göras när tal behållare förloppet till allmän tillgänglighet (GA).
 
-| Funktion | Funktioner | Senaste |
+| Funktion | Funktioner | Nya |
 |--|--|--|
 | Tal till text | Beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar i text med mellanliggande resultat. | 2.0.0 |
 | Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.0.0 |
@@ -35,13 +35,13 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav gäller innan du använder tal behållare:
 
-| Krävs | Syfte |
+| Obligatoriskt | Syfte |
 |--|--|
-| Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
+| Docker-motor | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon. |
 | Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt** |
 
@@ -75,25 +75,25 @@ I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resu
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-| Container | Minimum | Rekommenderad |
+| Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Tal till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
-| Container | Minimum | Rekommenderad |
+| Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Custom Speech till text | 2 kärnor, 2 GB minne | 4 kärnor, 4 GB minne |
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-| Container | Minimum | Rekommenderad |
+| Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
 
 # <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
 
-| Container | Minimum | Rekommenderad |
+| Container | Minimum | Rekommenderas |
 |-----------|---------|-------------|
 | Anpassad text till tal | 1 kärna, 2 GB minne | 2 kärnor, 3 GB minne |
 
@@ -112,25 +112,25 @@ Behållar avbildningar för tal finns i följande Container Registry.
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Custom Speech till text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Anpassad text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
@@ -231,7 +231,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
@@ -367,11 +367,11 @@ Det här kommandot:
 ***
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
-| Containers | SDK-värd-URL | Protokoll |
+| Containrar | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
 | Text till tal och anpassad text till tal | `http://localhost:5000` | HTTP |
@@ -392,11 +392,11 @@ Du kan ha den här behållaren och en annan Azure Cognitive Services-behållare 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Stoppa containern
+## <a name="stop-the-container"></a>Stoppa behållaren
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 När du startar eller kör behållaren kan det uppstå problem. Använd en utmatnings [montering](speech-container-configuration.md#mount-settings) och aktivera loggning. På så sätt kan behållaren generera loggfiler som kan vara till hjälp vid fel sökning av problem.
 
@@ -408,7 +408,7 @@ Tal behållarna skickar fakturerings information till Azure med hjälp av en *ta
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om alternativen finns i [konfigurera behållare](speech-container-configuration.md).
+Mer information om dessa alternativ finns i [Configure containers](speech-container-configuration.md).
 
 <!--blogs/samples/video courses -->
 
@@ -416,7 +416,7 @@ Mer information om alternativen finns i [konfigurera behållare](speech-containe
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra tal behållare. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra tal behållare. Sammanfattning:
 
 * Tal innehåller fyra Linux-behållare för Docker, vilket kapslar olika funktioner:
   * *Tal till text*
@@ -425,7 +425,7 @@ I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ne
   * *Anpassad text till tal*
 * Behållar avbildningar hämtas från behållar registret i Azure.
 * Behållaravbildningar som körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i tal behållare genom att ange behållarens värd-URI.
+* Om du använder REST API (endast text till tal) eller SDK (tal-till-text eller text till tal) anger du värd-URI för behållaren. 
 * Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]

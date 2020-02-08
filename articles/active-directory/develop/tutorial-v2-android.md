@@ -3,7 +3,7 @@ title: Logga in och ut & samtal Microsoft Graph (Android) – Microsoft Identity
 description: 'Hämta en åtkomsttoken och anropa Microsoft Graph eller API: er som kräver åtkomsttoken från Microsoft Identity Platform (Android)'
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -15,12 +15,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d851e23e8f6915c7d52565f18eff4a73bd96c9c0
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4366f95a9c6d5c0e6b851583ac6001b3b413c08a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758843"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085405"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph från ett Android-program 
 
@@ -58,7 +58,7 @@ I det här exemplet används Microsoft Authentication Library för Android (MSAL
 
  MSAL förnyar automatiskt token, leverera enkel inloggning (SSO) mellan andra appar på enheten och hanterar kontona.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien kräver Android Studio version 3.5 +
 
@@ -575,7 +575,7 @@ Bygg och distribuera appen till en test enhet eller emulator. Du bör kunna logg
 
 När du har loggat in visar appen de data som returneras från Microsoft Graph `/me`-slutpunkten.
 
-### <a name="consent"></a>givit
+### <a name="consent"></a>Givit
 
 Första gången användaren loggar in i din app uppmanas de av Microsoft-identiteten att godkänna de behörigheter som begärs. Vissa Azure AD-klienter har inaktiverat användar medgivande som kräver att administratörer samtycker till alla användares räkning. För att stödja det här scenariot måste du antingen skapa en egen klient eller få administratörs tillåtelse. 
 

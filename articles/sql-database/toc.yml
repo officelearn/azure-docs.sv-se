@@ -463,6 +463,8 @@
                       href: saas-multitenantdb-schema-management.md
                     - name: ETL för analys
                       href: saas-multitenantdb-tenant-analytics.md
+        - name: Begär kvotökningar
+          href: quota-increase-request.md
 - name: SQL-databaser
   items:
     - name: Dokumentation om SQL-databaser

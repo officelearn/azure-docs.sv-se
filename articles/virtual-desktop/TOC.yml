@@ -64,7 +64,7 @@
           href: set-up-customize-master-image.md
         - name: Installera Office på en VHD-huvudavbildning
           href: install-office-on-wvd-master-image.md
-    - name: Skala sessionsvärdar dynamiskt
+    - name: Skala sessionsvärdar automatiskt
       href: set-up-scaling-script.md
     - name: Anpassa flöde
       href: customize-feed-for-virtual-desktop-users.md

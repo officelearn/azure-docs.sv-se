@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: banders
-ms.openlocfilehash: 2fadd0b6eb0951031a9d577b2fd3a3d497076dd8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: dfee9218f1e65189117c3d37808a303cf7568cd7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75990117"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76846223"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Kontoadministratörsuppgifter i Azure-portalen
 
@@ -29,13 +29,18 @@ Du måste vara kontoadministratör för att utföra dessa uppgifter.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Navigera till prenumerationens betalningsmetoder
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör. 
+
 1. Sök efter **Kostnadshantering + fakturering**.
     
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du den prenumeration som du vill lägga till kreditkortet till.
-    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+1. I listan **Mina prenumerationer** väljer du den prenumeration som du vill lägga till kreditkortet till. 
+   
+   ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   > [!NOTE]
+   > Om du inte ser några av dina prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2. 
 
 1. Välj **Betalningsmetoder**.
 
@@ -100,7 +105,7 @@ Om du är berättigad till att betala med faktura (check/banköverföring) kan d
     ![Skärmbild som visar bladet betalningsmetoder markerat.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Ange adressen för fakturabetalningsmetoden.
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.
 
 Om du vill godkänd att betala med faktura kan du [läsa om hur du betalar med faktura](pay-by-invoice.md).
 
@@ -119,10 +124,13 @@ Utgiftsgränsen är inte tillgänglig för prenumerationer med åtagandeplaner e
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du din Visual Studio Enterprise-prenumeration.
-    
-    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+1. I listan **Mina prenumerationer** väljer du din Visual Studio Enterprise-prenumeration. 
 
+   ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Om du inte ser några av dina Visual Studio-prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
+    
 1. I prenumerationsöversikten klickar du på den orangefärgade banderollen för att ta bort utgiftsgränsen.
     
     ![Skärmbild som visar banderollen Ta bort utgiftsgräns](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
@@ -144,10 +152,13 @@ Om du har en prenumeration på Azure i Open-licensiering kan du lägga till kred
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du din prenumeration på Azure i Open-licensiering.
-   
+1. I listan **Mina prenumerationer** väljer du din prenumeration på Azure i Open-licensiering. 
+
     ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
+   > [!NOTE]
+   > Om du inte ser din prenumeration här kan det bero på att du har ändrat katalog vid något tillfälle. Du måste ändra prenumerationskatalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
+    
 1. Välj **Kredithistorik**.
     
     ![Skärmbild som visar kredithistorik](./media/account-admin-tasks/aio-credit-history-blade.png)
@@ -170,7 +181,7 @@ Om du har en prenumeration på Azure i Open-licensiering kan du lägga till kred
 
 1. Klicka på **Verkställ**
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 Du kan inte använda virtuella eller förbetalda kort. Om du får felmeddelanden när du lägger till eller uppdaterar ett giltigt kreditkort kan du prova att öppna webbläsaren i privat läge.
 
 ## <a name="next-steps"></a>Nästa steg

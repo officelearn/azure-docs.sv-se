@@ -47,6 +47,8 @@
             - name: Inaktivera Azure Monitor för containrar
               href: ../azure-monitor/insights/container-insights-optout-openshift.md
               maintainContext: true
+    - name: Köra privilegierade containers i ett Azure Red Hat OpenShift-kluster
+      href: howto-run-privileged-containers.md
 - name: Referens
   items:
     - name: CLI för Azure Red Hat OpenShift

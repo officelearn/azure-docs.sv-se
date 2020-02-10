@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om Azure Dev Spaces
-summary: Med Azure Dev Spaces kan du testa och iterativt utveckla dina mikrotjänster i Azure Kubernetes Service (AKS) utan att replikera eller modellera beroenden. Med Azure Dev Spaces blir det enklare för dig och ditt team att arbeta tillsammans i ett delat AKS-kluster. Du kan också köra och felsöka containrar direkt i AKS.
+summary: Azure Dev Spaces är ett tillägg till AKS som gör det möjligt att enkelt köra och felsöka din kod i ett större programs kontext. Du kan testa din kod från slutpunkt till slutpunkt, använda brytpunkter i koden som körs i klustret och dela utvecklingskluster mellan teammedlemmar utan störningar.
 metadata:
   title: Dokumentation om Azure Dev Spaces
-  description: Med Azure Dev Spaces kan du testa och iterativt utveckla dina mikrotjänster i Azure Kubernetes Service (AKS) utan att replikera eller modellera beroenden. Med Azure Dev Spaces blir det enklare för dig och ditt team att arbeta tillsammans i ett delat AKS-kluster. Du kan också köra och felsöka containrar direkt i AKS.
+  description: Azure Dev Spaces är ett tillägg till AKS som gör det möjligt att enkelt köra och felsöka din kod i ett större programs kontext. Du kan testa din kod från slutpunkt till slutpunkt, använda brytpunkter i koden som körs i klustret och dela utvecklingskluster mellan teammedlemmar utan störningar.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 96fe99c5eb2ef8600ee9cca1e63f9fc3451919c2
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 8871b713806b7c80520d4b52112f84056d20bc26
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75438350"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77057370"
 landingContent:
 - title: Om Azure Dev Spaces
   linkLists:

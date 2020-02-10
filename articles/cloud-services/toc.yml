@@ -141,6 +141,8 @@
           href: applications-dont-support-TLS-1-2.md
         - name: Vanliga orsaker till rollåteranvändning i molntjänst
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+        - name: Programmet stöder inte TLS 1.2
+          href: applications-dont-support-tls-1-2.md
         - name: TEMP-standardmappen är för liten för en roll
           href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
         - name: Vanliga distributionsproblem

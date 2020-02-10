@@ -1,14 +1,14 @@
 ---
-title: Exempel – FedRAMP High-skiss – översikt
+title: FedRAMP High-skissexempel – översikt
 description: Översikt över skissexempel för FedRAMP High. Det här skissexemplet hjälper kunderna att utvärdera specifika FedRAMP High-kontroller.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 9a9d16967495f4785ebffabc968856edab382e75
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: dede255b73a2a052acf1e8b95ad5171a1ace6ae5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76941305"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087286"
 ---
 # <a name="overview-of-the-fedramp-high-blueprint-sample"></a>Översikt över skissexempel för FedRAMP High
 

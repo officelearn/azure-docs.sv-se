@@ -25,6 +25,9 @@
         - name: Skapa ett automatiskt ML-experiment
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+        - name: Prognostisera efterfrågan med automatiserad ML (cykeldelningsdata)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-automated-ml-forecast.md
     - name: Python SDK
       items:
         - name: Skapa ett första ML-experiment

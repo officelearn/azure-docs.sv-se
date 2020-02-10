@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2020
+ms.date: 01/24/2020
 ms.author: banders
-ms.openlocfilehash: ea545919436201524a1c77b27e9b187f3b1c3b64
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314053"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773883"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Byten och återbetalning för Azure-reservationer via självbetjäning
 
-Azure-reservationer ger flexibilitet för att tillgodose dina föränderliga behov. Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den. Max gränsen för exporten gäller för alla reservationer inom avtals området med Microsoft.
+Azure-reservationer ger flexibilitet för att tillgodose dina föränderliga behov. Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den. Maxgränsen för återbetalning gäller alla reservationer inom omfånget för ditt avtal med Microsoft.
 
 Byte eller annullering av kapacitet via självbetjäning är inte tillgängligt för US Government-kunder med Enterprise-avtal. Andra typer av US Government-prenumerationer, inklusive betala per användning och CSP stöds.
 
@@ -36,7 +36,7 @@ Du kan byta din reservation med tre snabba steg i [Azure-portalen](https://porta
 3. Granska och slutför transaktionen.  
     ![Exempelbild som visar den VM-produkt som ska köpas med ett byte, slutförande av returen](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
-Om du vill få en reservation återbetald går du till **Reservationsinformation** och klickar på **Återbetalning**.
+Om du vill få en reservation återbetald går du till **Reservationsinformation** och väljer **Återbetalning**.
 
 ## <a name="how-transactions-are-processed"></a>Så bearbetas transaktioner
 
@@ -66,7 +66,7 @@ Azure har följande principer för att avbryta, byta och återbetala.
 - Endast reservationsägare kan bearbeta ett byte. [Lär dig hur du lägger till eller ändrar användare som kan hantera en reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Ett byte bearbetas som en återbetalning och ett omköp – olika transaktioner skapas för annulleringen och det nya köpet. Det proportionella reservationsbeloppet återbetalas för de reservationer som du byter ut. Du debiteras helt för det nya köpet. Det proportionella reservationsbeloppet är det dagliga proportionella restvärdet för den reservation som returneras.
 - Du kan byta eller återbetala reservationer även om det Enterprise-avtal som användes för att köpa reservationen har upphört att gälla och förnyats som ett nytt avtal.
-- Du kan ändra alla reservationsegenskaper såsom storlek, region, kvantitet och period med ett byte.
+- Du kan ändra alla reservationsegenskaper såsom familj, serie, version, SKU, region, kvantitet och period med ett byte.
 - Den nya inköpssumman måste vara lika med eller större än det returnerade beloppet.
 - Den nya reservationen som köpts som en del av bytet har en ny period som börjar vid tiden för bytet.
 - Det finns ingen tilläggsavgift eller årliga gränser för byten.
@@ -81,7 +81,7 @@ Azure har följande principer för att avbryta, byta och återbetala.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Byta icke-Premium-lagring mot Premium-lagring
 
-Du kan byta en reservation som köpts för en VM-storlek som inte stöder Premium-lagring till en motsvarande VM-storlek som gör det. Det kan till exempel gälla byte av _F1_ mot en _F1s_. Om du vill göra bytet går du till Information om reservation och klickar på **Byt**. Bytet återställer inte perioden för den reserverade instansens och skapar inte någon ny transaktion.
+Du kan byta en reservation som köpts för en VM-storlek som inte stöder Premium-lagring till en motsvarande VM-storlek som gör det. Det kan till exempel gälla byte av _F1_ mot en _F1s_. Om du vill göra bytet går du till Reservationsinformation och väljer **Byt**. Bytet återställer inte perioden för den reserverade instansens och skapar inte någon ny transaktion.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
@@ -90,7 +90,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](manage-reserved-vm-instance.md).
-- Du kan läsa mer om Azure-reservationer i följande artiklar:
+- Mer information om Azure-reservationer finns i följande artiklar:
     - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)
     - [Hantera reservationer i Azure](manage-reserved-vm-instance.md)
     - [Förstå hur reservationsrabatten tillämpas](../manage/understand-vm-reservation-charges.md)

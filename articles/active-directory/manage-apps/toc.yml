@@ -72,6 +72,8 @@
               href: howto-saml-token-encryption.md
             - name: Slutanvändarportaler
               href: end-user-experiences.md
+    - name: Synlighet och kontroll för molnapp
+      href: cloud-app-security.md
     - name: Programproxy för lokala appar
       items:
         - name: Programproxy

@@ -1,0 +1,107 @@
+- name: Dokumentation om program och HR-etablering
+  href: index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Vad är programetablering?
+      href: user-provisioning.md
+- name: Självstudier
+  items:
+    - name: G Suite
+      href: /azure/active-directory/saas-apps/google-apps-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: ServiceNow
+      href: /azure/active-directory/saas-apps/servicenow-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Amazon Web Services (AWS) – rolltilldelning
+      href: '/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-ont?context=azure/active-directory/app-provisioning/context/app-provisioning-context'
+    - name: Workday
+      href: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: SAP SuccessFactors
+      href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Alla integrerade galleriappar
+      href: /azure/active-directory/saas-apps
+- name: Begrepp
+  expanded: true
+  items:
+    - name: Så fungerar programetablering
+      href: how-provisioning-works.md
+    - name: Planera en distribution av programetablering
+      href: plan-auto-user-provisioning.md
+    - name: Planera en molndistribution av HR-etablering
+      href: plan-cloud-hr-provision.md
+- name: Anvisningar
+  expanded: true
+  items:
+    - name: Konfigurera etablering för en galleriapp
+      href: configure-automatic-user-provisioning-portal.md
+    - name: Redigera attributmappningarna
+      items:
+        - name: Anpassa attributmappningar
+          href: customize-application-attributes.md
+        - name: Skriva uttryck för attributmappningar
+          href: functions-for-customizing-application-data.md
+    - name: Inkludera eller exkludera användare och grupper från omfattningen
+      items:
+        - name: Hitta användare och grupper som ska etableras
+          href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Hoppa över borttagning av användare utanför omfattningen
+          href: skip-out-of-scope-deletions.md
+    - name: Övervaka och rapportera etablering
+      items:
+        - name: Övervaka etableringsstatus och prestanda
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Rapportera vid appetablering
+          href: check-status-user-account-provisioning.md
+        - name: Exportera och importera din konfiguration
+          href: export-import-provisioning-configuration.md
+    - name: Felsöka programetablering
+      items:
+        - name: Felsöka appetablering
+          href: application-provisioning-config-problem.md
+        - name: Karantänstatus
+          href: application-provisioning-quarantine-status.md
+        - name: Auktoriseringsproblem (kunde inte spara autentiseringsuppgifter för administratör)
+          href: application-provisioning-config-problem-storage-limit.md
+        - name: Användare har inte etablerats
+          href: application-provisioning-config-problem-no-users-provisioned.md
+        - name: Fel användare har etablerats
+          href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Källattribut saknas
+          href: user-provisioning-sync-attributes-for-mapping.md
+        - name: Etableringsjobbet är långsamt
+          href: application-provisioning-when-will-provisioning-finish.md
+        - name: Etableringsloggar
+          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - name: Skapa en SCIM-slutpunkt och konfigurera etablering
+      href: use-scim-to-provision-users-and-groups.md
+    - name: Automatisera konfiguration med MS Graph
+      href: application-provisioning-configure-api.md
+- name: Referens
+  items:
+    - name: Välja en etableringsmetod
+      href: isv-automatic-provisioning-multi-tenant-apps.md
+    - name: Etablering av HR Cloud
+      items:
+        - name: SuccessFactors-attributreferens
+          href: sap-successfactors-attribute-reference.md
+        - name: Workday-attributreferens
+          href: workday-attribute-reference.md
+    - name: Azure AD Connect-etableringsagent
+      items:
+        - name: Versionshistorik för etableringsagent
+          href: provisioning-agent-release-version-history.md
+- name: Resurser
+  items:
+    - name: Support- och hjälpalternativ för utvecklare
+      href: /azure/active-directory/develop/developer-support-help-options
+    - name: Azures feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

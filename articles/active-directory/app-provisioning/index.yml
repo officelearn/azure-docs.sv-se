@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Dokumentation om program och HR-etablering
+summary: Med etablering av appar i Azure Active Directory kan du automatiskt skapa och hantera användaridentiteter i dina molnappar (SaaS). Azure Active Directory erbjuder även etablering med molnbaserade HR-program. Lär dig att hantera och distribuera molnappar och HR-etablering med våra snabbstarter, våra självstudier och vår vägledning.
+metadata:
+  title: Dokumentation om programetablering
+  description: Med etablering av appar i Azure Active Directory kan du automatiskt skapa och hantera användaridentiteter i dina molnappar (SaaS). Azure Active Directory erbjuder även etablering med molnbaserade HR-program. Lär dig att hantera och distribuera molnappar och HR-etablering med våra snabbstarter, våra självstudier och vår vägledning.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 02/06/2020
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77065509"
+landingContent:
+- title: Etablera användare och grupper till en molnapp
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är programetablering?
+      url: user-provisioning.md
+    - text: Så här fungerar etablering
+      url: how-provisioning-works.md
+  - linkListType: tutorial
+    links:
+    - text: SAP Cloud Platform Identity Authentication-etablering
+      url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Oracle Fusion ERP-etablering
+      url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Atlassian Cloud-etablering
+      url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+  - linkListType: how-to-guide
+    links:
+    - text: Lägger du till en galleriapp? Konfigurera etablering till appen
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Anpassa attributmappningar
+      url: customize-application-attributes.md
+    - text: Använda omfångsfilter
+      url: define-conditional-rules-for-provisioning-user-accounts.md
+- title: Utveckla en app med SCIM för etablering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Etablera med SCIM (Identity Standards Blog)
+      url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+  - linkListType: how-to-guide
+    links:
+    - text: Utvecklar du en app? Använda SCIM för automatisk etablering
+      url: use-scim-to-provision-users-and-groups.md
+- title: Hantera inkommande HR-etablering i molnet
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planera en distribution med HR-användaretablering i molnet
+      url: plan-cloud-hr-provision.md
+  - linkListType: tutorial
+    links:
+    - text: Workday-etablering
+      url: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: SAP SuccessFactors-etablering
+      url: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context

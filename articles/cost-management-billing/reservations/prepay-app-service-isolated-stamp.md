@@ -1,5 +1,5 @@
 ---
-title: Spara för Azure App Service med reserverad kapacitet
+title: Spara i Azure App Service med reserverad kapacitet
 description: Lär dig hur du kan spara pengar på isolerade stämpelavgifter i Azure App Service med reserverad kapacitet.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: 8161b169e8801fae4a9aa81290cf29ec28abf858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995889"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Spara pengar på isolerade stämpelavgifter i Azure App Service med reserverad kapacitet
@@ -30,7 +30,7 @@ När du köper en reservation binder du dig till en viss användning av reserver
 Se även till att du förstår hur den isolerade stämpeln sänder ut Linux- och Windows-mätare.
 
 - Som standard sänder en tom isolerad stämpel ut Windows-stämpelmätaren. Det här gäller till exempel om inga webbarbeten är distribuerade. Den fortsätter att sända ut den här mätaren om Windows-webbarbeten distribueras till stämpeln.
-- Mätaren ändras till Linux-stämpelmätaren om du distribuerar ett Linux-arbete.
+- Mätaren ändras till en Linux-stämpelmätare om du distribuerar ett Linux-webbarbete.
 - När både Linux- och Windows-webbarbeten distribueras så sänder stämpeln ut Windows-mätaren.
 
 Stämpelmätaren kan alltså ändras mellan Windows och Linux under stämpelns livslängd.
@@ -47,17 +47,17 @@ Du kan köpa reserverad kapacitet för isolerade stämplar i [Azure-portalen](ht
 **Så här köper du:**
 
 1. Gå till [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D).
-1. Välj en prenumeration. Välj den prenumeration som ska betala för den reserverade kapaciteten i listan **Prenumeration**. Den reserverade kapaciteten debiteras via betalningsmetoden för prenumerationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P) eller en CSP-prenumeration.
+1. Välj en prenumeration. Välj den prenumeration som ska betala för den reserverade kapaciteten i listan **Prenumeration**. Den reserverade kapaciteten debiteras via betalningsmetoden för prenumerationen. Prenumerationstypen måste vara EA (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P), betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P) eller en CSP-prenumeration.
     - För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning.
     - Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.
 1. Välj en **Omfattning** för prenumerationen.
-    - **Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.
+    - **Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.
     - **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
-    - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är registreringen faktureringskontext. För enskilda prenumerationer med Betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.
+    - **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är registreringen faktureringskontext. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
 1. Välj en **Region** som den reserverade kapaciteten ska täcka och lägg till reservationen i kundvagnen.
 1. Välj en typ av isolerad plan och klicka på **Välj**.  
     ![Exempel ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. Ange antalet isolerade stämplar för App Service som ska reserveras. Om du väljer tre får du till exempel tre reserverade stämplar i en region. Klicka på **Nästa: granska + köp**.
+1. Ange antalet isolerade stämplar för App Service som ska reserveras. Om du väljer tre får du till exempel tre reserverade stämplar i en region. Klicka på **Nästa: Granska och köp**.
 1. Granska och klicka på **Köp nu**.
 
 Efter köpet går du till [Reservationer](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) där du när som helst kan se status för köpet.

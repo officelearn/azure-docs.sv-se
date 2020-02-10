@@ -8,12 +8,12 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f016902f6cf7e0238dadb97d816f4590caec112e
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264279"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109341"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Indexerings principen ska omfatta egenskaper som ingår i `WHERE`-satser, `ORDER
 
 Om vi kör en enkel fråga på [näringsvärdes](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen, ser vi en mycket lägre ru-avgift när egenskapen i `WHERE`-satsen indexeras.
 
-### <a name="original"></a>originalspråket
+### <a name="original"></a>Originalspråket
 
 Fråga:
 
@@ -193,7 +193,7 @@ Andra delar av frågan kan fortfarande använda indexet trots att systemet inte 
 
 Frågor med ett filter och en `ORDER BY`-sats använder normalt ett intervall index, men de är mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i `ORDER BY`-satsen. Den här frågan kommer att se till att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
 
-### <a name="original"></a>originalspråket
+### <a name="original"></a>Originalspråket
 
 Fråga:
 
@@ -224,8 +224,8 @@ Indexerings princip:
 Uppdaterad fråga (inkluderar båda egenskaperna i `ORDER BY`-satsen):
 
 ```sql
-SELECT * FROM c 
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies”
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
@@ -262,7 +262,7 @@ Indexerings princip har uppdaterats:
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimera KOPPLINGs uttryck med hjälp av en under fråga
 Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i `WHERE`-satsen.
 
-Överväg följande fråga:
+Tänk på följande fråga:
 
 ```sql
 SELECT Count(1) AS Count
@@ -315,7 +315,7 @@ Dessa frågor kan också optimeras genom att inkludera partitionsnyckel i fråga
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
 Frågor som har intervall filter i partitionsnyckel eller som inte har några filter i partitionsnyckel måste vara "fläkt-out" och kontrol lera varje fysisk partitions index för resultat.

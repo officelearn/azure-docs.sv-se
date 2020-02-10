@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 2c6226fea5235d45b7a3e99d56da6b007f171f98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8be337bf2e244971b6b49c5e86f3635daa30bb71
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890517"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110219"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Snabb start: skicka telemetri till en Azure IoT-hubb och läsa det med ett Java-program
 
@@ -23,13 +23,13 @@ ms.locfileid: "73890517"
 
 Snabb starten visar hur du skickar telemetri till en Azure IoT-hubb och läser det med ett Java-program. IoT Hub är en Azure-tjänst som gör att du kan mata in stora mängder telemetri från IoT-enheter i molnet för lagring eller bearbetning. I den här snabbstarten skickar du telemetri från ett simulerat enhetsprogram via IoT Hub till ett serverdelsprogram för bearbetning.
 
-Snabbstarten använder två färdiga Java-program – ett för att skicka telemetrin och ett för att läsa telemetrin från hubben. Innan du kör dessa två program skapar du en IoT-hubb och registrerar en enhet med navet.
+Snabbstarten använder två färdiga Java-program – ett för att skicka telemetrin och ett för att läsa telemetrin från hubben. Innan du kör dessa två program skapar du en IoT-hubb och registrerar en enhet med hubben.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Java. Du behöver Java SE 8 på din utvecklings dator.
 
@@ -57,7 +57,9 @@ az extension add --name azure-cli-iot-ext
 
 Ladda ned exempelprojektet för Java från https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip och extrahera ZIP-arkivet.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -119,7 +121,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
     mvn clean package
     ```
 
-4. I det lokala terminalfönstret kör du följande kommandon för att köra programmet för simulerad enhet:
+4. Kör det simulerade enhetsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 
     ```cmd/sh
     java -jar target/simulated-device-1.0.0-with-deps.jar

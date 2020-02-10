@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 8747111921df494b8d5618dc8d6ece99fa821e47
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: db3da5ff2d7e8b6fa493f5338fac93df0d1a7fe2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147634"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110907"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>Ladda upp filer från enheten till molnet med IoT Hub (Node. js)
 
@@ -26,10 +26,10 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 * Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-[Genom att skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start demonstreras de grundläggande meddelande funktionerna från enhet till moln i IoT Hub. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Exempel:
+[Genom att skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start demonstreras de grundläggande meddelande funktionerna från enhet till moln i IoT Hub. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Några exempel:
 
 * Stora filer som innehåller bilder
-* Videor
+* Videoklipp
 * Exempel på vibrations data med hög frekvens
 * Någon form av förbehandlade data.
 
@@ -50,6 +50,8 @@ I slutet av den här självstudien kör du två Node. js-konsol program:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
@@ -62,7 +64,7 @@ I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT H
     npm init
     ```
 
-2. Installera **azure-iot-device** Device SDK-paketet och **azure-iot-device-mqtt**-paketet genom att köra följande kommando i kommandotolken i mappen ```simulateddevice```:
+2. Installera ```simulateddevice```azure-iot-device**Device SDK-paketet och**azure-iot-device-mqtt **-paketet genom att köra följande kommando i kommandotolken i mappen** :
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -80,7 +82,7 @@ I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT H
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-5. Lägg till en `deviceconnectionstring`-variabel och använd den för att skapa en **Client**-instans.  Ersätt `{deviceconnectionstring}` med namnet på den enhet som du skapade i avsnittet *skapa en IoT Hub* :
+5. Lägg till en `deviceconnectionstring`-variabel och använd den för att skapa en **Client**-instans.  Ersätt `{deviceconnectionstring}` med namnet på enheten som du skapade i avsnittet *skapa en IoT Hub* :
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -115,7 +117,7 @@ I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT H
 
 8. Spara och stäng filen **SimulatedDevice.js**.
 
-9. Kopiera en avbildnings fil till `simulateddevice` mappen och Byt namn `myimage.png`på den.
+9. Kopiera en avbildnings fil till mappen `simulateddevice` och Byt namn på den `myimage.png`.
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
 
@@ -135,15 +137,15 @@ Du kan använda **iothubowner** -anslutningssträngen från din IoT Hub för att
     npm init
     ```
 
-2. I kommando tolken i ```fileuploadnotification``` mappen kör du följande kommando för att installera **Azure-iothub SDK-** paketet:
+2. I kommando tolken i ```fileuploadnotification```-mappen kör du följande kommando för att installera **Azure-iothub SDK-** paketet:
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-3. Skapa en **FileUploadNotification. js** -fil i `fileuploadnotification` mappen med hjälp av en text redigerare.
+3. Med hjälp av en text redigerare skapar du en **FileUploadNotification. js** -fil i mappen `fileuploadnotification`.
 
-4. Lägg till följande `require` -instruktioner i början av filen **FileUploadNotification. js** :
+4. Lägg till följande `require`-instruktioner i början av filen **FileUploadNotification. js** :
 
     ```javascript
     'use strict';
@@ -151,7 +153,7 @@ Du kan använda **iothubowner** -anslutningssträngen från din IoT Hub för att
     var Client = require('azure-iothub').Client;
     ```
 
-5. Lägg till en `iothubconnectionstring`-variabel och använd den för att skapa en **Client**-instans.  Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen: `{iothubconnectionstring}`
+5. Lägg till en `iothubconnectionstring`-variabel och använd den för att skapa en **Client**-instans.  Ersätt `{iothubconnectionstring}` placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -190,17 +192,17 @@ Du kan använda **iothubowner** -anslutningssträngen från din IoT Hub för att
 
 8. Spara och Stäng filen **FileUploadNotification. js** .
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Du är nu redo att köra programmen.
 
-Kör följande kommando i kommando tolken i `fileuploadnotification` mappen:
+Kör följande kommando i kommando tolken i mappen `fileuploadnotification`:
 
 ```cmd/sh
 node FileUploadNotification.js
 ```
 
-Kör följande kommando i kommando tolken i `simulateddevice` mappen:
+Kör följande kommando i kommando tolken i mappen `simulateddevice`:
 
 ```cmd/sh
 node SimulatedDevice.js

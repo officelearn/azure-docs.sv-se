@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 9483db2187c05fe8e0f4fa2d41c17b8748ba3db7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474041"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109004"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Snabb start: testa kunskaps bas med batch-frågor och förväntade svar
 
 Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA Maker-resurs för förväntade svar, förtroende poäng och frågor om flera inaktivitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Skapa antingen en QNA Maker tjänst](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) eller Använd en befintlig tjänst som använder det engelska språket för det exempel dokument som används i den här snabb starten.
+* [Skapa antingen en QNA Maker tjänst](create-publish-knowledge-base.md) eller Använd en befintlig tjänst som använder det engelska språket.
 * Ladda ned [`.docx`-filen med flera turn-exempel](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Hämta [batch-testverktyget](https://aka.ms/qnamakerbatchtestingtool), extrahera den körbara filen från `.zip`-filen.
 
@@ -41,9 +41,16 @@ Använd batch-testverktyget QnA Maker för att testa kunskaps baserna i din QnA 
     * Namn på Azure QnA-tjänsten
     * Språk – det engelska språket
 1. Ange namnet `Multi-turn batch test quickstart` som namn på din kunskaps bas.
-1. I **steg 4**markerar du **Aktivera extrahering av flera turn från URL: er,. PDF eller. docx-filer**.
-1. Ange **standard svars texten** för `Quickstart - can't find answer`. I en produktions kunskaps bas bör den här informationen vara mer information till användaren, men för den här snabb starten fungerar ett enkelt svar.
-1. I **steg 4**väljer du **+ Lägg till fil** och väljer sedan den nedladdade `.docx` fil listan i kraven.
+
+1. I **steg 4**konfigurerar du inställningarna med följande tabell:
+
+    |Inställning|Värde|
+    |--|--|
+    |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
+    |**Standard svars text**| `Batch test - default answer not found.`|
+    |**+ Lägg till fil**|Välj den nedladdade `.docx` fil listan i kraven.|
+    |**CHI2TEST – Chat**|Välj **Professional**|
+
 1. I **steg 5**väljer **du skapa din KB**.
 
     När processen har slutförts visas den redigerbara kunskaps basen i portalen.
@@ -67,9 +74,9 @@ För att kunna använda batch-testverktyget, skapar du en fil med namnet `batch-
 |--|--|--|
 |Kunskaps bas-ID|Ditt kunskaps bas-ID finns på publicerings sidan. Testa flera kunskaps banker i samma tjänst samtidigt i en enda fil med hjälp av olika kunskaps bas-ID: n i en enda fil.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (36 tecken sträng visas som en del av `POST`) |
 |Fråga|Den frågetext som en användare skulle ange. 1 000-Character max.|`How do I sign out?`|
-|Metadatataggar|valfri|`topic:power` använder _nyckel: värde_ formatet|
-|Övre parameter|valfri|`25`|
-|Förväntat svars-ID|valfri|`13`|
+|Metadatataggar|valfritt|`topic:power` använder _nyckel: värde_ formatet|
+|Övre parameter|valfritt|`25`|
+|Förväntat svars-ID|valfritt|`13`|
 
 I den här kunskaps basen lägger du till 3 rader av bara de 2 obligatoriska kolumnerna i filen. Den första kolumnen är ditt kunskaps bas-ID och den andra kolumnen bör vara följande lista över frågor:
 
@@ -130,14 +137,14 @@ Använd följande diagram för att förstå hur du hittar fältvärdena för val
 |Kolumn nummer|Valfri kolumn|Dataplats|
 |--|--|--|
 |3|metadata|Exportera befintlig kunskaps bas för befintlig _nyckel:_ värdepar.|
-|4|överst|Standardvärdet för `25` rekommenderas.|
+|4|översta|Standardvärdet för `25` rekommenderas.|
 |5|ID för fråga och svars uppsättning|Exportera befintlig kunskaps bas för ID-värden. Observera också att ID: n returnerades i utdatafilen.|
 
 ## <a name="add-metadata-to-the-knowledge-base"></a>Lägg till metadata i kunskaps basen
 
 1. På sidan **redigera** i QNA-portalen lägger du till metadata för `topic:power` på följande frågor:
 
-    |Frågor|
+    |Några|
     |--|
     |Debitera din yta Pro 4|
     |Kontrol lera batteri nivån|
@@ -160,7 +167,7 @@ Det finns två huvud scenarier för batch-testning:
 * **Bearbeta chatt-loggfiler** – Bestäm det främsta svaret för en tidigare osett-fråga – den vanligaste situationen är när du behöver bearbeta logg filen för frågor, till exempel en chatts användar frågor. Skapa ett test av en batch-fil med endast de kolumner som krävs. Testet returnerar det främsta svaret för varje fråga. Det innebär inte att det är det högsta svaret är rätt svar. När du har slutfört testet går du vidare till verifierings testet.
 * **Verifierings test** – verifiera förväntat svar. Det här testet kräver att alla frågor och matchar förväntade svar i batch-testet har verifierats. Detta kan kräva viss manuell process.
 
-Följande procedur förutsätter att scenariot är att bearbeta chatt loggar med 
+Följande procedur förutsätter att scenariot är att bearbeta chatt loggar med
 
 1. Skapa en ny batch-testfil för att inkludera valfria data, `batch-test-data-2.tsv`. Lägg till de 6 raderna från den ursprungliga batch-testets indatafil och Lägg sedan till ID för metadata, topp och QnA för varje rad.
 

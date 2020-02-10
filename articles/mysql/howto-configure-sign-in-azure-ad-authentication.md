@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 10dae81bf0ca8958f7c10aebef501fc604c4839c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706055"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110604"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -40,42 +40,7 @@ Det går bara att skapa en Azure AD-administratör per MySQL-server och valet av
 
 I en framtida version kommer vi att ha stöd för att ange en Azure AD-grupp i stället för en enskild användare som har flera administratörer, men detta stöds inte ännu.
 
-## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Skapa Azure AD-användare i Azure Database for MySQL
-
-Om du vill lägga till en Azure AD-användare till din Azure Database for MySQL databas utför du följande steg efter att du har anslutit (se senare avsnitt om hur du ansluter):
-
-1. Se först till att Azure AD-användaren `<user>@yourtenant.onmicrosoft.com` är en giltig användare i Azure AD-klienten.
-2. Logga in på Azure Database for MySQL-instansen som administratörs användare för Azure AD.
-3. Skapa användar `<user>@yourtenant.onmicrosoft.com` i Azure Database for MySQL.
-
-**Exempel:**
-
-```sql
-CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
-```
-
-För användar namn som överstiger 32 tecken rekommenderar vi att du använder ett alias i stället för att användas vid anslutning: 
-
-Exempel:
-
-```sql
-CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
-```
-
-> [!NOTE]
-> Att autentisera en användare via Azure AD ger inte användaren behörighet att komma åt objekt i den Azure Database for MySQL databasen. Du måste bevilja användaren de behörigheter som krävs manuellt.
-
-## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Skapa Azure AD-grupper i Azure Database for MySQL
-
-Om du vill aktivera en Azure AD-grupp för åtkomst till databasen använder du samma mekanism som för användarna, men anger i stället grupp namnet:
-
-**Exempel:**
-
-```sql
-CREATE AADUSER 'Prod_DB_Readonly';
-```
-
-När du loggar in kommer medlemmarna i gruppen att använda sina personliga åtkomsttoken, men signera med det grupp namn som anges som användar namn.
+När du har konfigurerat administratören kan du nu logga in:
 
 ## <a name="connecting-to-azure-database-for-mysql-using-azure-ad"></a>Ansluta till Azure Database for MySQL med hjälp av Azure AD
 
@@ -156,12 +121,53 @@ När du ansluter måste du använda åtkomsttoken som MySQL-användarens lösen 
 När du använder CLI kan du använda den här kort handen för att ansluta: 
 
 **Exempel (Linux/macOS):**
-
-MySQL-h mydb.mysql.database.azure.com \--User user@tenant.onmicrosoft.com@mydb \---Enable-klartext-plugin \--Password =`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`  
+```
+mysql -h mydb.mysql.database.azure.com \ 
+  --user user@tenant.onmicrosoft.com@mydb \ 
+  --enable-cleartext-plugin \ 
+  --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
+```
 
 Observera inställningen Aktivera-klartext-plugin-program – du måste använda en liknande konfiguration med andra klienter för att se till att token skickas till servern utan att hashas.
 
 Du autentiseras nu till MySQL-servern med Azure AD-autentisering.
+
+## <a name="creating-azure-ad-users-in-azure-database-for-mysql"></a>Skapa Azure AD-användare i Azure Database for MySQL
+
+Om du vill lägga till en Azure AD-användare till din Azure Database for MySQL databas utför du följande steg efter att du har anslutit (se senare avsnitt om hur du ansluter):
+
+1. Se först till att Azure AD-användaren `<user>@yourtenant.onmicrosoft.com` är en giltig användare i Azure AD-klienten.
+2. Logga in på Azure Database for MySQL-instansen som administratörs användare för Azure AD.
+3. Skapa användar `<user>@yourtenant.onmicrosoft.com` i Azure Database for MySQL.
+
+**Exempel:**
+
+```sql
+CREATE AADUSER 'user1@yourtenant.onmicrosoft.com';
+```
+
+För användar namn som överstiger 32 tecken rekommenderar vi att du använder ett alias i stället för att användas vid anslutning: 
+
+Exempel:
+
+```sql
+CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
+```
+
+> [!NOTE]
+> Att autentisera en användare via Azure AD ger inte användaren behörighet att komma åt objekt i den Azure Database for MySQL databasen. Du måste bevilja användaren de behörigheter som krävs manuellt.
+
+## <a name="creating-azure-ad-groups-in-azure-database-for-mysql"></a>Skapa Azure AD-grupper i Azure Database for MySQL
+
+Om du vill aktivera en Azure AD-grupp för åtkomst till databasen använder du samma mekanism som för användarna, men anger i stället grupp namnet:
+
+**Exempel:**
+
+```sql
+CREATE AADUSER 'Prod_DB_Readonly';
+```
+
+När du loggar in kommer medlemmarna i gruppen att använda sina personliga åtkomsttoken, men signera med det grupp namn som anges som användar namn.
 
 ## <a name="token-validation"></a>Verifiering av token
 
@@ -176,7 +182,7 @@ Azure AD-autentisering i Azure Database for MySQL säkerställer att användaren
 
 De flesta driv rutiner stöds, men se till att använda inställningarna för att skicka lösen ordet i klartext, så att token skickas utan ändringar.
 
-* C/C++
+* CC++
   * libmysqlclient: stöds
   * MySQL-Connector-c + +: stöds
 * Java

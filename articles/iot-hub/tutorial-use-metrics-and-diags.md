@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e0094add11755ecb0c303adf874abe5a4a8f5811
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 7ce56237631b858347a99c310751d4f2c1506e10
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746198"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108228"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och diagnostikloggar med IoT Hub
 
@@ -34,13 +34,16 @@ I den här självstudien utför du följande åtgärder:
 > * Kör appen tills aviseringarna börjar utlösas. 
 > * Visa måttresultaten och kontrollera diagnostikloggarna. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Installera [Visual Studio](https://www.visualstudio.com/). 
+- [Installera Visual Studio](https://www.visualstudio.com/). 
 
 - Ett e-postkonto som kan ta emot e-post.
+
+- Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

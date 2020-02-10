@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: c07b110f0d4c31713ab432b5b5e337f3b69dfc55
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 426430c075cfcb084cfe3238ebd83a19e909369b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147718"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110766"
 ---
 # <a name="get-started-with-device-twins-net"></a>Kom igång med enhets dubbla (.NET)
 
@@ -38,7 +38,9 @@ I den här självstudien skapar du följande .NET-konsol program:
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -64,7 +66,7 @@ I det här avsnittet skapar du en .NET-konsol-app C#med, som lägger till platse
 
 1. I Solution Explorer högerklickar du på projektet **AddTagsAndQuery** och väljer sedan **Hantera NuGet-paket**.
 
-1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure.** Devices. Välj **Installera**.
+1. Välj **Bläddra** och Sök efter och välj **Microsoft. Azure. Devices**. Välj **Installera**.
 
     ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-twin-getstarted/nuget-package-addtagsandquery-app.png)
 
@@ -76,14 +78,14 @@ I det här avsnittet skapar du en .NET-konsol-app C#med, som lägger till platse
     using Microsoft.Azure.Devices;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub connection string}` med IoT Hub anslutnings strängen som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+1. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub connection string}` med den IoT Hub anslutnings sträng som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
     ```csharp  
     static RegistryManager registryManager;
     static string connectionString = "{iot hub connection string}";
     ```
 
-1. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod till **Program**-klassen:
 
     ```csharp  
     public static async Task AddTagsAndQuery()
@@ -117,7 +119,7 @@ I det här avsnittet skapar du en .NET-konsol-app C#med, som lägger till platse
 
     Efter uppdateringen körs två frågor: det första alternativet väljer att endast enhetarna är dubbla enheter som finns i **Redmond43** -anläggningen och den andra refinar frågan så att endast de enheter som också är anslutna via mobil nät verket återställs.
 
-    Föregående kod när objektet skapas, anger ett maximalt antal returnerade dokument. **Frågespråket** innehåller en **HasMoreResults** Boolean-egenskap som du kan använda för att anropa **GetNextAsTwinAsync** -metoderna flera gånger för att hämta alla resultat. En metod som heter **GetNextAsJson** är tillgänglig för resultat som inte är enhets dubbla, till exempel resultat av agg regerings frågor.
+    Föregående kod **när objektet skapas** , anger ett maximalt antal returnerade dokument. **Frågespråket** innehåller en **HasMoreResults** Boolean-egenskap som du kan använda för att anropa **GetNextAsTwinAsync** -metoderna flera gånger för att hämta alla resultat. En metod som heter **GetNextAsJson** är tillgänglig för resultat som inte är enhets dubbla, till exempel resultat av agg regerings frågor.
 
 1. Slutligen lägger du till följande rader till **Main**-metoden:
 
@@ -156,14 +158,14 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
     using Newtonsoft.Json;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt `{device connection string}` med den enhets anslutnings sträng som du antecknade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
+1. Lägg till följande fält i klassen **Program**. Ersätt `{device connection string}` med enhets anslutnings strängen som du antecknade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp  
     static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
     static DeviceClient Client = null;
     ```
 
-1. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod till **Program**-klassen:
 
     ```csharp
     public static async void InitClient()
@@ -186,7 +188,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
 
     **Klient** objekt visar alla metoder som du behöver för att interagera med enheten tillsammans från enheten. Den kod som visas ovan initierar **klient** objekt och hämtar sedan enheten för **myDeviceId**.
 
-1. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod till **Program**-klassen:
 
     ```csharp  
     public static async void ReportConnectivity()
@@ -231,7 +233,7 @@ I det här avsnittet skapar du en .NET-konsol app som ansluter till hubben som *
 
 1. I Solution Explorer högerklickar du på din lösning och väljer **Ange start projekt**.
 
-1. I**Start projekt**för **vanliga egenskaper** > väljer du **flera start projekt**. För **ReportConnectivity**väljer du **Starta** som **åtgärd**. Spara ändringarna genom att välja **OK**.  
+1. I **vanliga egenskaper** > **Start projekt**väljer du **flera start projekt**. För **ReportConnectivity**väljer du **Starta** som **åtgärd**. Spara ändringarna genom att välja **OK**.  
 
 1. Kör den här appen genom att högerklicka på projektet **ReportConnectivity** och välja **Felsök**och sedan **Starta ny instans**. Du bör se appen som hämtar den dubbla informationen och sedan skicka anslutningen som en ***rapporterad egenskap***.
 

@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3b37d7e049e7daabbbb4fe1a7b49feb654e8accc
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939315"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110252"
 ---
 # <a name="get-started-with-device-management-net"></a>Kom igång med enhets hantering (.NET)
 
@@ -34,13 +34,15 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 * **TriggerReboot**. Den här appen anropar en direkt metod i den simulerade Device-appen, visar svaret och visar uppdaterade egenskaper som rapporteras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Visual Studio.
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

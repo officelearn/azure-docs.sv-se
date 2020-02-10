@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: styra en enhet från Azure IoT (Node. js)'
-description: I den här snabbstarten kör du två Node.js-exempelprogram. Ett program är en serverdelsprogram som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb och som kan fjärrstyras.
+description: I den här snabbstarten kör du två Node.js-exempelprogram. Ett program är en serverdel som kan fjärrstyra enheter som är anslutna till hubben. Det andra programmet simulerar en enhet ansluten till din hubb som kan fjärrstyras.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: ed3946c40d8e3eff665e4454b81f408c2033c09a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: cc0ff372b4680f02410f1f58304d0be95228c965
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529626"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108907"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>Snabb start: Använd Node. js för att styra en enhet som är ansluten till en Azure IoT Hub
 
@@ -33,7 +33,7 @@ Snabbstarten använder två färdiga Node.js-program:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
@@ -53,7 +53,9 @@ az extension add --name azure-cli-iot-ext
 
 Ladda ned Node.js-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip, om du inte redan har gjort det, och extrahera ZIP-arkivet.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) kan du hoppa över det här steget.
 
@@ -138,7 +140,7 @@ Serverdelsprogrammet ansluter till en slutpunkt på tjänstsidan på din IoT-hub
 
 2. Öppna filen **BackEndApplication.js** i en valfri textredigerare.
 
-    Ersätt värdet för variabeln `connectionString` med tjänst anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **BackEndApplication. js**.
+    Ersätt värdet för `connectionString`-variabeln med tjänst anslutnings strängen som du antecknade tidigare. Spara sedan ändringarna i **BackEndApplication. js**.
 
 3. Installera de bibliotek som krävs för serverdelsprogrammet genom att köra följande kommandon i det lokala terminalfönstret:
 

@@ -2,40 +2,39 @@
 title: Lås resurser för att förhindra ändringar
 description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
-ms.date: 05/14/2019
-ms.openlocfilehash: b7c6c7980f12e7f9015f4504f461733100b14ea8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/07/2020
+ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644366"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109534"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Lås resurser för att förhindra oväntade ändringar
 
-Som administratör kan du behöva låsa en prenumeration, resursgrupp eller resurs så att inga andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag. Du kan ange låsnivån till **CanNotDelete** eller **ReadOnly**. I portalen kallas låsen **Delete** och **Read Only** .
+Som administratör kan du behöva låsa en prenumeration, resursgrupp eller resurs så att inga andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag. Du kan ange låssnivån till **CanNotDelete** eller **ReadOnly**. I portalen kallas låsen **Delete** och **Read Only** .
 
 * **CanNotDelete** innebär att behöriga användare fortfarande kan läsa och ändra en resurs, men de kan inte ta bort resursen. 
-* **ReadOnly** innebär att auktoriserade användare kan läsa en resurs, men de kan inte ta bort eller uppdatera resursen. Att använda det här låset liknar att begränsa alla behöriga användare till de behörigheter som har beviljats av rollen **läsare** . 
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* **ReadOnly** innebär att auktoriserade användare kan läsa en resurs, men de kan inte ta bort eller uppdatera resursen. Att använda det här låset liknar att begränsa alla behöriga användare till de behörigheter som har beviljats av rollen **läsare** .
 
 ## <a name="how-locks-are-applied"></a>Hur låsen används
 
 När du använder ett lås vid en överordnad omfattning ärver alla resurser inom den omfattningen samma lås. Även resurser som du lägger till senare ärver låset från det överordnade objektet. Det mest restriktiva låset i arv prioriteras.
 
-Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås för att tillämpa en begränsning för alla användare och roller. Information om hur du ställer in behörigheter för användare och roller finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
+Till skillnad från rollbaserad åtkomst kontroll använder du hanterings lås för att tillämpa en begränsning för alla användare och roller. Information om hur du ställer in behörigheter för användare och roller finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-lås gäller endast för åtgärder som sker i hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Ett skrivskyddat lås på en SQL Database hindrar dig till exempel från att ta bort eller ändra databasen. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen. Data transaktioner är tillåtna eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
+Resource Manager-lås gäller endast för åtgärder som sker i hanterings planet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resurs ändringarna är begränsade, men resurs åtgärderna är inte begränsade. Ett skrivskyddat lås på en SQL Database hindrar dig till exempel från att ta bort eller ändra databasen. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen. Data transaktioner är tillåtna eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
 Att använda **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som inte verkar ändra resursen verkligen kräver åtgärder som blockeras av låset. Det **skrivskyddade** låset kan tillämpas på resursen eller resurs gruppen som innehåller resursen. Några vanliga exempel på åtgärder som blockeras av ett **skrivskyddat** lås är:
 
-* Ett **skrivskyddat** lås på ett lagrings konto förhindrar att alla användare visar nycklarna. Åtgärden för att visa nycklar hanteras via en POST-begäran eftersom nycklarna som returneras är tillgängliga för skrivåtgärder.
+* Ett **skrivskyddat** lås på ett lagrings konto förhindrar att alla användare visar nycklarna. Åtgärden lista nycklar hanteras via en POST-begäran eftersom de returnerade nycklarna är tillgängliga för Skriv åtgärder.
 
 * Ett **skrivskyddat** lås på en app service resurs förhindrar att Visual Studio-Server Explorer visar filer för resursen, eftersom denna interaktion kräver skriv åtkomst.
 
 * Ett **skrivskyddat** lås på en resurs grupp som innehåller en virtuell dator hindrar alla användare från att starta eller starta om den virtuella datorn. De här åtgärderna kräver en POST-begäran.
 
 ## <a name="who-can-create-or-delete-locks"></a>Vem kan skapa eller ta bort lås
+
 Om du vill skapa eller ta bort hanterings lås måste du ha åtkomst till `Microsoft.Authorization/*` eller `Microsoft.Authorization/locks/*` åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
 
 ## <a name="managed-applications-and-locks"></a>Hanterade program och lås
@@ -58,7 +57,12 @@ Om du vill ta bort allt för tjänsten, inklusive resurs gruppen låst infrastru
 
 ![Ta bort tjänst](./media/lock-resources/delete-service.png)
 
-## <a name="portal"></a>Portalen
+## <a name="azure-backups-and-locks"></a>Azure-säkerhetskopieringar och lås
+
+Om du låser resurs gruppen som skapats av Azure Backup tjänsten kommer säkerhets kopieringarna att Miss lyckas. Tjänsten har stöd för högst 18 återställnings punkter. Med ett **CanNotDelete** -lås kan säkerhets kopierings tjänsten inte rensa återställnings punkter. Mer information finns i vanliga frågor och svar om hur du [säkerhetskopierar virtuella Azure-datorer](../../backup/backup-azure-vm-backup-faq.md).
+
+## <a name="portal"></a>Portal
+
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Mall
@@ -215,7 +219,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 Du kan låsa distribuerade resurser med [REST API för hanterings lås](https://docs.microsoft.com/rest/api/resources/managementlocks). Med REST API kan du skapa och ta bort lås och hämta information om befintliga lås.
 
 Skapa ett lås genom att köra:

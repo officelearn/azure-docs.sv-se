@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a4551a94c8a6b5ea54366fcc36b720cda1e6300e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3c77b74eb97f03b1234cb2735b4a680b030d2073
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834186"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108191"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kod exempel för Microsoft Identity Platform (v 2.0-slut punkt)
 
@@ -46,9 +46,9 @@ De här exemplen visar hur du skriver ett program med en enda sida som skyddas m
 
 | Plattform | Beskrivning | Länk |
 | -------- | --------------------- | -------- |
-| ![den här bilden visar JavaScript-logotypen](media/sample-v2-code/logo_js.png) [Java Script (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Anrop Microsoft Graph |[javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
-| ![den här bilden visar JavaScript-logotypen](media/sample-v2-code/logo_js.png) [Java Script (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Anropar B2C |[b2c-javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
-| ![den här bilden visar JavaScript-logotypen](media/sample-v2-code/logo_js.png) [Java Script (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Anropar egen webb-API |[javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
+| ![den här bilden visar JavaScript-logotypen](media/sample-v2-code/logo_js.png) [Java Script (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Anrop Microsoft Graph |[Java Script-graphapi-Web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+| ![den här bilden visar JavaScript-logotypen](media/sample-v2-code/logo_js.png) [Java Script (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Anropar B2C |[B2C – Java Script-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) |
+| ![den här bilden visar JavaScript-logotypen](media/sample-v2-code/logo_js.png) [Java Script (msal. js)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core) | Anropar egen webb-API |[Java Script-singlepageapp-dotNet-WebAPI-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |
 | ![den här bilden visar](media/sample-v2-code/logo_angular.png) [Java Script (MSAL AngularJS)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs) för vinkel JS-logotypen| Anrop Microsoft Graph  | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/MsalAngularjsDemoApp)
 | ![den här bilden visar vinkel logo typ](media/sample-v2-code/logo_angular.png) [JavaScript (MSAL-vinkel)](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular)| Anrop Microsoft Graph  | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/MSALAngularDemoApp) |
 
@@ -59,26 +59,27 @@ Följande exempel illustrerar webb program som loggar in användare. Några exem
 | Plattform | Endast tecken i användare | Loggar in användare och anropar Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
 | ![Den här bilden visar ASP.NET Core logo typ](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [Själv studie kurs om ASP.NET Core WebApp-loggar – användare](https://aka.ms/aspnetcore-webapp-sign-in) | Samma exempel i [ASP.net Core webbappens anrop Microsoft Graph-](https://aka.ms/aspnetcore-webapp-call-msgraph) fasen |
-| ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Snabb start för ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
+| ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Snabb start för ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotNet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotNet-admin-restricted-scope – v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph – utbildning – aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png)  |                   | [MS-Identity-Java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png)  |                   | [MS-Identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![Den här bilden visar Node. js-logotypen](media/sample-v2-code/logo_nodejs.png)  |                   | [Snabb start för Node. js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs) |
-| ![Den här bilden visar ruby-logotypen](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
+| ![Den här bilden visar ruby-logotypen](media/sample-v2-code/logo_ruby.png) |                   | [msgraph – utbildning – rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>Desktop och mobila offentliga klient program
 
 I följande exempel visas offentliga klient program (Station ära eller mobila program) som har åtkomst till Microsoft Graph-API: et eller ditt eget webb-API i namnet på en användare. Alla dessa klient program använder Microsoft Authentication Library (MSAL).
 
-| klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph | Anropar ett webb-API för ASP.NET Core 2,0 |
+| Klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph | Anropar ett webb-API för ASP.NET Core 2,0 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Desktop (WPF)      | ![Den här bilden visar .NET/C# logo typen](media/sample-v2-code/logo_NET.png) | [interaktiv](msal-authentication-flows.md#interactive)| [dotNet-Desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| Skriv bord (konsol)   | ![Den här bilden visar .NET/C# (Desktop)-logo typen](media/sample-v2-code/logo_NET.png) | [Integrerad Windows-autentisering](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Desktop (WPF)      | ![Den här bilden visar .NET/C# logo typen](media/sample-v2-code/logo_NET.png) | [interaktiv](msal-authentication-flows.md#interactive)| [dotNet-Desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotNet-Native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Skriv bord (konsol)   | ![Den här bilden visar .NET/C# (Desktop)-logo typen](media/sample-v2-code/logo_NET.png) | [Integrerad Windows-autentisering](msal-authentication-flows.md#integrated-windows-authentication) | [dotNet-IWA-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Skriv bord (konsol)   | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png) | [Integrerad Windows-autentisering](msal-authentication-flows.md#integrated-windows-authentication) |[MS-Identity-Java-Desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Skriv bord (konsol)   | ![Den här bilden visar .NET/C# (Desktop)-logo typen](media/sample-v2-code/logo_NETcore.png) | [Användarnamn/lösenord](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Skriv bord (konsol) med WAM  | ![Den här bilden visar .NET/C# (Desktop)-logo typen](media/sample-v2-code/logo_NETcore.png) | [interaktivt med WAM](msal-authentication-flows.md#interactive) |[dotNet-Native-UWP-WAM](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
 | Skriv bord (konsol)   | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png) | [Användarnamn/lösenord](msal-authentication-flows.md#usernamepassword) |[MS-Identity-Java-Desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Skriv bord (konsol)   | ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png) | [Användarnamn/lösenord](msal-authentication-flows.md#usernamepassword) |[MS-Identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
-| Mobil (Android, iOS, UWP)   | ![Den här bilden visar .NET/C# (Xamarin)-logo typen](media/sample-v2-code/logo_xamarin.png) | [interaktiv](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
-| Mobil (iOS)       | ![Den här bilden visar iOS/mål-C eller Swift](media/sample-v2-code/logo_iOS.png) | [interaktiv](msal-authentication-flows.md#interactive) |[iOS – Swift-objc-Native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
+| Mobil (Android, iOS, UWP)   | ![Den här bilden visar .NET/C# (Xamarin)-logo typen](media/sample-v2-code/logo_xamarin.png) | [interaktiv](msal-authentication-flows.md#interactive) |[Xamarin – inbyggt-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
+| Mobil (iOS)       | ![Den här bilden visar iOS/mål-C eller Swift](media/sample-v2-code/logo_iOS.png) | [interaktiv](msal-authentication-flows.md#interactive) |[iOS – Swift-objc-Native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [iOS – Native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
 | Desktop (macOS)       | macOS | [interaktiv](msal-authentication-flows.md#interactive) |[macOS-Swift-objc-Native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
 | Mobil (Android-Java)   | ![Den här bilden visar Android-logotypen](media/sample-v2-code/logo_Android.png) | [interaktiv](msal-authentication-flows.md#interactive) |  [Android – Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
 | Mobil (Android-Kotlin)   | ![Den här bilden visar Android-logotypen](media/sample-v2-code/logo_Android.png) | [interaktiv](msal-authentication-flows.md#interactive) |  [Android – Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
@@ -87,18 +88,18 @@ I följande exempel visas offentliga klient program (Station ära eller mobila p
 
 I följande exempel visas ett program som har åtkomst till Microsoft Graph-API med en egen identitet (utan användare).
 
-| klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph |
+| Klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Console | ![Den här bilden visar .NET Core-logotypen](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Webbapp | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
-| Console | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png) | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [MS-Identity-Java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
-| Console | ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png) | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [MS-Identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
+| Konsolen | ![Den här bilden visar .NET Core-logotypen](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Webbapp | ![Den här bilden visar ASP.NET-logotypen](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [Dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| Konsolen | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png) | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [MS-Identity-Java-daemon](https://github.com/Azure-Samples/ms-identity-java-daemon) |
+| Konsolen | ![Den här bilden visar python-logotypen](media/sample-v2-code/logo_python.png) | [Klientautentiseringsuppgifter](msal-authentication-flows.md#client-credentials) | [MS-Identity-python-daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) |
 
 ## <a name="headless-applications"></a>Konsol löst program
 
 I följande exempel visas ett offentligt klient program som körs på en enhet utan en webbläsare. Appen kan vara ett kommando rads verktyg, en app som körs på Linux eller Mac eller ett IoT-program. Exemplet innehåller en app som använder Microsoft Graph API, i namnet på en användare som loggar in interaktivt på en annan enhet (till exempel en mobil telefon). Det här klient programmet använder Microsoft Authentication Library (MSAL).
 
-| klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph |
+| Klient program | Plattform | Flöde/tilldelning | Anrop Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
 | Skriv bord (konsol)   | ![Den här bilden visar .NET/C# (Desktop)-logo typen](media/sample-v2-code/logo_NETcore.png) | [Enhets kod flöde](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 | Skriv bord (konsol)   | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_java.png) | [Enhets kod flöde](msal-authentication-flows.md#device-code) |[MS-Identity-Java-devicecodeflow](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) |
@@ -129,7 +130,7 @@ Följande exempel visar hur du skyddar en Azure-funktion med HttpTrigger och exp
 
 Mer information om [exempel](https://github.com/microsoftgraph/msgraph-community-samples/tree/master/samples#aspnet) och självstudier som demonstrerar olika användnings mönster för Microsoft Graph API, inklusive autentisering med Azure AD finns i [Microsoft Graph Community-exempel & självstudier](https://github.com/microsoftgraph/msgraph-community-samples).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Guide för Azure Active Directory (v 1.0)-utvecklare](v1-overview.md)
 - [Koncept och referens för Azure AD-Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)

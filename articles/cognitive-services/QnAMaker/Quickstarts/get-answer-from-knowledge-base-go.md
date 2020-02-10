@@ -2,15 +2,15 @@
 title: 'Snabbstart: Få svar från kunskapsbas – REST, Go – QnA Maker'
 description: Denna Go REST-baserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas programmässigt.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: 2a91342be0f1bfa440d6c4092d94eb03eed554ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a4b3fe6e037b73a33fe452c7c16471bfb88d6067
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844236"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109906"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Snabb start: få svar på en fråga från en kunskaps bas med go
 
@@ -18,10 +18,10 @@ Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar fr�
 
 [Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/get-answer/get-answer.go)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Go 1.10.1](https://golang.org/dl/)
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på Azure-instrumentpanelen för din QnA Maker-resurs.
 * **Publicera** sidinställningar. Om du inte har en publicerad kunskapsbas skapar du en tom kunskapsbas, importerar en kunskapsbas på sidan **Inställningar** och publicerar sedan. Du kan ladda ned och använda [den här grundläggande kunskapsbasen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv).
 

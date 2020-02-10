@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: ba14a6bb9e234a5eae34232fc617f8b04284cd4f
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 8071ddbc5f6073598daf0a08d359ccd19ccd1e4a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147467"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110799"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node. js)
 
@@ -48,13 +48,15 @@ I slutet av den här självstudien kör du två Node. js-konsol program:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial) på bara några minuter.)
 
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade Device-appen
 
 I det här avsnittet ändrar du den simulerade Device-app som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-node.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
 
 1. Öppna filen **SimulatedDevice. js** med hjälp av en text redigerare. Den här filen finns i mappen **IoT-hub\Quickstarts\simulated-Device** av rotmappen i Node. js-exempel koden som du laddade ned i [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-node.md) -snabb start.
 
-2. Registrera en hanterare med enhets klienten för att ta emot meddelanden som skickas från IoT Hub. Lägg till anropet `client.on` strax efter den rad som skapar enhets klienten som i följande kodfragment:
+2. Registrera en hanterare med enhets klienten för att ta emot meddelanden som skickas från IoT Hub. Lägg till anropet till `client.on` strax efter den rad som skapar enhets klienten som i följande kodfragment:
 
     ```javascript
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
@@ -101,7 +103,7 @@ I det här avsnittet skapar du en Node. js-konsol som skickar meddelanden från 
 
 3. Med hjälp av en text redigerare skapar du en **SendCloudToDeviceMessage. js** -fil i mappen **SendCloudToDeviceMessage** .
 
-4. Lägg till följande `require` -instruktioner i början av filen **SendCloudToDeviceMessage. js** :
+4. Lägg till följande `require`-instruktioner i början av filen **SendCloudToDeviceMessage. js** :
 
     ```javascript
     'use strict';
@@ -161,7 +163,7 @@ I det här avsnittet skapar du en Node. js-konsol som skickar meddelanden från 
 
 9. Spara och Stäng filen **SendCloudToDeviceMessage. js** .
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Nu är det dags att köra programmen.
 

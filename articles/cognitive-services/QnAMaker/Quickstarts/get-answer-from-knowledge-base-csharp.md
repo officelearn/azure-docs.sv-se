@@ -2,15 +2,15 @@
 title: 'Snabbstart: Få svar från kunskapsbas – REST, C# – QnA Maker'
 description: Denna C# REST-baserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas programmässigt.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: 26eb60e0271440d6d7613a6c315c512a2ae3c4dc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9bdb331433fef9874a91de6044ac70eab2cd28f6
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842996"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109912"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Snabb start: få svar på en fråga från en kunskaps bas medC#
 
@@ -18,7 +18,7 @@ Den här snabbstarten vägleder dig genom att programmatiskt hämta ett svar fr�
 
 [Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på Azure-instrumentpanelen för din QnA Maker-resurs.

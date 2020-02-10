@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: ed1abe3565805810a6a3fe383e1ddfa209950469
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bed6736fda0c1815964f9017adb1e6fffa9335d9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935376"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110686"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
@@ -27,13 +27,13 @@ Använd Azure Monitor för att få aviseringar och skriva loggar när enheter ko
 
 Om du vill logga händelser och fel i enhets anslutningen aktiverar du diagnostik för IoT Hub. Vi rekommenderar att du aktiverar dessa loggar så tidigt som möjligt, eftersom om diagnostikloggar inte är aktive rad och det inte går att koppla från enheten, kommer du inte att ha någon information för att felsöka problemet med.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Bläddra till din IoT-hubb.
 
 3. Välj **diagnostikinställningar**.
 
-4. Välj **slå på diagnostik**.
+4. Välj **Aktivera diagnostik**.
 
 5. Aktivera **anslutnings** loggar som ska samlas in.
 
@@ -47,7 +47,7 @@ Mer information finns i [övervaka hälso tillståndet för Azure IoT Hub och di
 
 Konfigurera aviseringar på måttet **anslutna enheter (förhands granskning)** om du vill få aviseringar när enheter kopplas från.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. Bläddra till din IoT-hubb.
 
@@ -69,7 +69,7 @@ Om du vill identifiera koppling *per enhet* , till exempel när du behöver veta
 
 När du aktiverar diagnostikloggar och aviseringar för anslutna enheter får du aviseringar när fel inträffar. I det här avsnittet beskrivs hur du söker efter vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Monitor loggar för dina diagnostikloggar.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Bläddra till din IoT-hubb.
 
@@ -101,6 +101,8 @@ Om föregående steg inte hjälper kan du prova:
 * Om du har åtkomst till de problematiska enheterna, antingen fysiskt eller via fjärr anslutning (som SSH), följer du [fel söknings guiden på enhets sidan](https://github.com/Azure/azure-iot-sdk-node/wiki/Troubleshooting-Guide-Devices) för att fortsätta fel sökningen.
 
 * Kontrol lera att enheterna är **aktiverade** i Azure Portal > din iot Hub > IoT-enheter.
+
+* Om enheten använder MQTT-protokoll kontrollerar du att port 8883 är öppen. Mer information finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 * Få hjälp från [azure IoT Hub forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)eller [Azure-supporten](https://azure.microsoft.com/support/options/).
 

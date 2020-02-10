@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 1875e3437c13a678532c05b4057126f785b9125c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 544b1108a3c79da50969f7fdd33cfb9af373d854
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147534"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110859"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Skicka meddelanden från moln till enhet med IoT Hub (iOS)
 
@@ -50,6 +50,8 @@ I slutet av den här artikeln kör du två Swift iOS-projekt:
 * Den senaste versionen av [XCode](https://developer.apple.com/xcode/) med den senaste versionen av iOS SDK. Denna snabbstart har testats med XCode 9.3 och iOS 11.3.
 
 * Den senaste versionen av [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
+
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="simulate-an-iot-device"></a>Simulera en IoT-enhet
 
@@ -141,7 +143,7 @@ Förutom att installera de poddar som krävs för projektet så skapar även ins
 
 3. Öppna **ViewController.swift** för redigering i XCode. 
 
-4. Sök efter **ConnectionString** -variabeln och uppdatera värdet med tjänst anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+4. Sök efter **ConnectionString** -variabeln och uppdatera värdet med tjänst anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
 5. Spara ändringarna.
 

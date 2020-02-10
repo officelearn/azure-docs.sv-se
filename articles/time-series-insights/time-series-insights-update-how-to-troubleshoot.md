@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a306707f0ed47fba8fd854d820554bc1bd80e8bc
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861582"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110287"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostisera och Felsök en för hands versions miljö
 
@@ -78,7 +78,7 @@ Du kan skicka data utan tids serie-ID.
 Se till att namnet och värdet överensstämmer med följande regler:
 
 * Egenskaps namnet för tidsstämpeln är Skift läges känsligt.
-* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Ett exempel på sådana en sträng är `“2008-04-12T12:53Z”`.
+* Värdet för egenskapen tidsstämpel som kommer från din händelse källa som en JSON-sträng har formatet `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. Ett exempel på en sådan sträng är `“2008-04-12T12:53Z”`.
 
 Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Preview Explorer. I Time Series Insights Preview Explorer använder du diagrammet för att välja en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj alternativet för att **utforska händelser** . Den första kolumn rubriken är namnet på Tidsstämpelns egenskap. Den bör ha `($ts)` bredvid ordet `Timestamp`i stället för:
 

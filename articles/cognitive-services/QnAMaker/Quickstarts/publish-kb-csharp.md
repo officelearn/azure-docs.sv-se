@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: a6ad8156b5ab6370bb089c97d620bae0ccff82eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33cc4caa8b5901177699368e2f31908951910a6f
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381468"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109573"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
@@ -36,7 +36,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
     Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](create-new-kb-csharp.md).
 
 > [!NOTE]
-> De fullständiga lösningsfilerna finns i [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplats](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Kompletta lösningsfiler är tillgängliga från [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-knowledge-base-project"></a>Skapa kunskapsbasprojekt
 
@@ -57,7 +57,7 @@ I **program** -klassen lägger du till de konstanter som krävs för att få åt
 
 ## <a name="add-the-main-method-to-publish-the-knowledge-base"></a>Lägg till main-metoden för att publicera kunskaps basen
 
-Efter konstanterna som krävs lägger du till följande kod, som gör en HTTPS-begäran för API:et för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
+Efter de konstanter som krävs lägger du till följande kod, som gör en HTTPS-begäran för API för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
 
 [!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=36-56 "Add HTTP Post request and response")]
 
@@ -73,7 +73,7 @@ När din kunskapsbas har publicerats kan köra frågor mot den från slutpunkten
 
 ## <a name="next-steps"></a>Nästa steg
 
-När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](../Tutorials/create-publish-answer.md#generating-an-answer).
+När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](./get-answer-from-knowledge-base-csharp.md).
 
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

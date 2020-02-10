@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 44b53cbfdb1982d9f9e6a0cb6408a16b1d660d2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 48da92374a29b5319f0ae5eaa830f2e03511b512
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447429"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109479"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Java
 
@@ -25,14 +25,14 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [JDK SE](https://aka.ms/azure-jdks) (Java Development Kit, Standard Edition)
-* I det här exemplet används Apache [HTTP-klient](https://hc.apache.org/httpcomponents-client-ga/) från HTTP Components. Du behöver lägga till följande Apache HTTP-klientbibliotek i projektet:
+* I det här exemplet används Apache [HTTP-klienten](https://hc.apache.org/httpcomponents-client-ga/) från HTTP Components. Du behöver lägga till följande Apache HTTP-klientbibliotek i projektet:
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
 * QnA Maker kunskaps bas (KB) ID hittades i URL: en i URL: en för frågesträngen `kbid` som visas nedan.
 
@@ -41,7 +41,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
     Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](create-new-kb-csharp.md).
 
 > [!NOTE]
-> Kompletta lösningsfiler finns på [**Azure-Samples/cognitive-services-qnamaker-java** GitHub-lagringsplats](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> Kompletta lösningsfiler finns på [**Azure-Samples/cognitive-services-qnamaker-java** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-java-file"></a>Skapa en Java-fil
 
@@ -74,7 +74,7 @@ I **main-metoden** lägger du sedan till de nödvändiga konstanterna för att f
 
 ## <a name="add-post-request-to-publish-knowledge-base"></a>Lägga till POST-begäran för att publicera kunskapsbas
 
-Efter konstanterna som krävs lägger du till följande kod, som gör en HTTPS-begäran för API:et för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
+Efter de konstanter som krävs lägger du till följande kod, som gör en HTTPS-begäran för API för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
 
 [!code-java[Add a POST request to publish knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=32-44 "Add a POST request to publish knowledge base")]
 
@@ -102,7 +102,7 @@ Skapa och kör programmet från kommandoraden. Det skickar automatiskt begäran 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](../Tutorials/create-publish-answer.md#generating-an-answer).
+När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](./get-answer-from-knowledge-base-java.md).
 
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

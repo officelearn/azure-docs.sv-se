@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 150927ac05cba058d1d152ce568d7a462043d076
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e1559dbab2503ded957b17c0cc6a61a06c53fffc
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937749"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110725"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -34,33 +34,50 @@ En enhet kan använda MQTT-protokollet för att ansluta till en IoT-hubb med nå
 * Bibliotek i [Azure IoT-SDK](https://github.com/Azure/azure-iot-sdks): er.
 * MQTT-protokollet direkt.
 
+MQTT-porten (8883) är blockerad i många företags-och miljö nätverks miljöer. Om du inte kan öppna port 8883 i brand väggen rekommenderar vi att du använder MQTT över Web Sockets. MQTT över Web Sockets kommunicerar via port 443, som nästan alltid öppnas i nätverks miljöer. Information om hur du anger MQTT och MQTT över Web Sockets-protokoll när du använder Azure IoT SDK: er finns i [använda enhets-SDK](#using-the-device-sdks): er.
+
 ## <a name="using-the-device-sdks"></a>Använda enhets-SDK: er
 
-[Enhets-SDK](https://github.com/Azure/azure-iot-sdks) : er som stöder MQTT-protokollet är tillgängligt för Java, Node. C#js, C, och python. Enhets-SDK: erna använder standard IoT Hub anslutnings sträng för att upprätta en anslutning till en IoT-hubb. Om du vill använda MQTT-protokollet måste klient protokoll parametern vara inställd på **MQTT**. Som standard ansluter enhets-SDK: erna till en IoT Hub med flaggan **CleanSession** inställd på **0** och använder **QoS 1** för meddelande utbyte med IoT Hub.
+[Enhets-SDK](https://github.com/Azure/azure-iot-sdks) : er som stöder MQTT-protokollet är tillgängligt för Java, Node. C#js, C, och python. Enhets-SDK: erna använder standard IoT Hub anslutnings sträng för att upprätta en anslutning till en IoT-hubb. Om du vill använda MQTT-protokollet måste klient protokoll parametern vara inställd på **MQTT**. Du kan också ange MQTT över Web Sockets i parametern client Protocol. Som standard ansluter enhets-SDK: erna till en IoT Hub med flaggan **CleanSession** inställd på **0** och använder **QoS 1** för meddelande utbyte med IoT Hub.
 
 När en enhet är ansluten till en IoT-hubb ger enhets-SDK metoder som gör det möjligt för enheten att utbyta meddelanden med en IoT-hubb.
 
-Följande tabell innehåller länkar till kod exempel för varje språk som stöds och anger den parameter som ska användas för att upprätta en anslutning till IoT Hub med MQTT-protokollet.
+Följande tabell innehåller länkar till kod exempel för varje språk som stöds och anger den parameter som ska användas för att upprätta en anslutning till IoT Hub med hjälp av MQTT eller MQTT över Web Sockets-protokollet.
 
-| Språk | Protokoll parameter |
-| --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Stöder alltid MQTT som standard |
+| Språk | MQTT-protokoll parameter | MQTT över Web Sockets Protocol-parameter
+| --- | --- | --- |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | Azure-IoT-Device-MQTT. MQTT | Azure-IoT-Device-MQTT. MqttWs |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable). MQTT | IotHubClientProtocol. MQTT_WS |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). MQTT | TransportType. MQTT återgår till MQTT via Web Sockets om MQTT Miss lyckas. Om du bara vill ange MQTT över Web Sockets använder du TransportType. Mqtt_WebSocket_Only |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Stöder MQTT som standard | Lägg till `websockets=True` i anropet för att skapa klienten |
 
-### <a name="default-keep-alive-timeout"></a>Standard timeout för Keep-Alive 
+Följande fragment visar hur du anger MQTT över Web Sockets-protokollet när du använder Azure IoT Node. js SDK:
+
+```javascript
+var Client = require('azure-iot-device').Client;
+var Protocol = require('azure-iot-device-mqtt').MqttWs;
+var client = Client.fromConnectionString(deviceConnectionString, Protocol);
+```
+
+Följande fragment visar hur du anger MQTT över Web Sockets-protokollet när du använder Azure IoT python SDK:
+
+```python
+from azure.iot.device.aio import IoTHubDeviceClient
+device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectionString, websockets=True)
+```
+
+### <a name="default-keep-alive-timeout"></a>Standard timeout för Keep-Alive
 
 För att säkerställa att en klient-IoT Hub anslutning förblir aktiv skickar både tjänsten och klienten regelbundet en *Keep-Alive-* ping till varandra. Klienten som använder IoT SDK skickar en Keep-Alive enligt intervallet som definieras i den här tabellen nedan:
 
 |Språk  |Standard intervall för Keep-Alive  |Konfigurerbara  |
 |---------|---------|---------|
-|Node.js     |   180 sekunder      |     Inga    |
-|Java     |    230 sekunder     |     Inga    |
-|C     | 240 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|Node.js     |   180 sekunder      |     Nej    |
+|Java     |    230 sekunder     |     Nej    |
+|C     | 240 sekund |  [Ja](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (v2)   | 60 sekunder |  Inga   |
+|Python (v2)   | 60 sekunder |  Nej   |
 
 I följande [MQTT-spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)är IoT Hub Keep-Alive-intervallet 1,5 gånger klienten Keep-Alive-värde. IoT Hub begränsar dock den maximala tids gränsen på Server sidan till 29,45 minuter (1767 sekunder) eftersom alla Azure-tjänster är kopplade till Azure Load Balancer TCP timeout för inaktivitet, som är 29,45 minuter. 
 
@@ -270,7 +287,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Skicka meddelanden från enhet till moln
 
-När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Ett exempel:
+När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Några exempel:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -343,7 +360,7 @@ I följande sekvens beskrivs hur en enhet uppdaterar de rapporter som rapportera
 
 3. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för den rapporterade egenskaps samlingen i avsnittet `$iothub/twin/res/{status}/?$rid={request id}`. Det här svarsmeddelandet använder samma **ID för begäran** som begäran.
 
-Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Ett exempel:
+Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Några exempel:
 
 ```json
 {
@@ -381,7 +398,7 @@ Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-t
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Tar emot önskade egenskaper uppdatera meddelanden
 
-När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Ett exempel:
+När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Några exempel:
 
 ```json
 {

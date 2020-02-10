@@ -9,14 +9,14 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5d84b1b951cd1a48a385083f5ce2e2aaf1cba8d7
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595752"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110644"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen med din IoT-hubb
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen till din IoT-hubb
 
 I den här kursen använder du Azure IoT Hub-portalverktyg och Azure CLI-kommandon för att testa anslutningen för enheten. Den här kursen använder också en enkel enhetssimulator som du kör på din stationära dator.
 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 CLI-skript som du kör i den här självstudiekursen använder [Microsoft Azure IoT-tillägg för Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Kör följande CLI-kommando om du vill installera tillägget:
 
@@ -39,7 +39,7 @@ CLI-skript som du kör i den här självstudiekursen använder [Microsoft Azure 
 az extension add --name azure-cli-iot-ext
 ```
 
-Enhetssimulatorprogrammet som körs i den här självstudiekursen har skrivits med Node.js. Du behöver Node.js v10.x.x eller senare på utvecklingsdatorn.
+Enhetssimulatorprogrammet som körs i den här självstudiekursen har skrivits med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
 Du kan ladda ned Node.js för flera plattformar från [nodejs.org](https://nodejs.org).
 
@@ -51,7 +51,9 @@ node --version
 
 Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip och extrahera ZIP-arkivet.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 Om du har skapat en IoT Hub på kostnadsfri eller standardnivå i en föregående snabbstart eller kurs kan du hoppa över detta steg.
 
@@ -154,7 +156,7 @@ Du har nu autentiserats från en enhet med en test-SAS-token som har genererats 
 
 En enhet kan använda något av följande protokoll för att ansluta till din IoT-hubb:
 
-| Protocol | Utgående port |
+| Protokoll | Utgående port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT över WebSockets |443 |
@@ -176,7 +178,7 @@ Först måste du hämta den aktuella anslutningssträngen för den simulerade en
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-Om du vill köra en simulerad enhet som skickar meddelanden, navigera till den **iot hub\Tutorials\ConnectivityTests** mapp i koden som du laddade ned.
+Om du vill köra en simulerad enhet som skickar meddelanden går du till mappen **IoT-hub\Tutorials\ConnectivityTests** i den kod som du laddade ned.
 
 Installera de bibliotek som krävs för det simulerade enhetsprogrammet genom att köra följande kommandon i terminalfönstret:
 

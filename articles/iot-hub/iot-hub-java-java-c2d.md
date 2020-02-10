@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 4754d7c2182de79d583dce4982b33395bf037479
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 518f8057f222a628f8c3cd077cad4a7362e2cac8
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161895"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110824"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 
@@ -52,6 +52,8 @@ I slutet av den här självstudien kör du två Java-konsol program:
 * [Maven 3](https://maven.apache.org/download.cgi)
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade Device-appen
 
@@ -109,7 +111,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som skickar meddelanden fr�
 
 2. Gå till den nya mappen Send-C2D-Messages i kommando tolken.
 
-3. Använd en text redigerare och öppna filen Pom. xml i mappen Send-C2D-Messages och Lägg till följande beroende till noden beroenden . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
+3. Använd en text redigerare och öppna filen Pom. xml i mappen Send-C2D-Messages och Lägg till följande beroende till noden **beroenden** . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
 
     ```xml
     <dependency>
@@ -184,7 +186,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som skickar meddelanden fr�
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Nu är det dags att köra programmen.
 
@@ -208,6 +210,6 @@ Nu är det dags att köra programmen.
 
 I den här självstudien har du lärt dig hur du skickar och tar emot meddelanden från molnet till enheten.
 
-Om du vill se exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub, se [Azure IoT Solution](https://azure.microsoft.com/documentation/suites/iot-suite/)-acceleratorer.
+Om du vill se exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub, se [Azure IoT Solution-acceleratorer](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).

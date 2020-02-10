@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 98ec53d384186968d69c3f84cdfa12fbdbe92b71
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 5b2e4c03347020b5d5fc67927165403f06854e0b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147455"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110912"
 ---
 # <a name="get-started-with-device-management-nodejs"></a>Kom igång med enhets hantering (Node. js)
 
@@ -39,7 +39,9 @@ I slutet av den här självstudien har du två Node. js-konsol program:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -80,7 +82,7 @@ I det här avsnittet får du:
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Lägg till en **connectionString**-variabel och använd den för att skapa en **klientinstans**.  Ersätt placeholder-värdet med enhets anslutnings strängen som du kopierade tidigare i [Registrera en ny enhet i IoT Hub.](#register-a-new-device-in-the-iot-hub) `{yourdeviceconnectionstring}`  
+5. Lägg till en **connectionString**-variabel och använd den för att skapa en **klientinstans**.  Ersätt `{yourdeviceconnectionstring}` placeholder-värdet med enhets anslutnings strängen som du kopierade tidigare i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).  
 
     ```javascript
     var connectionString = '{yourdeviceconnectionstring}';
@@ -180,7 +182,7 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärromstart
     var Client = require('azure-iothub').Client;
     ```
 
-5. Lägg till följande variabel deklarationer och Ersätt `{iothubconnectionstring}` plats hållarnas värde med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen:
+5. Lägg till följande variabel deklarationer och ersätt `{iothubconnectionstring}` placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string):
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

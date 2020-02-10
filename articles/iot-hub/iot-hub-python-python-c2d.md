@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 53bff62795e54d88e768b3a22c8b358519b69a91
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3613062cf8765a4aec3327b660bb5818898f2dd1
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767811"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110430"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (python)
 
@@ -41,9 +41,11 @@ I slutet av den här självstudien kör du två python-konsol program:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Ta emot meddelanden i den simulerade Device-appen
 
@@ -210,7 +212,7 @@ I det här avsnittet skapar du en python-konsol-app som skickar meddelanden frå
 
 7. Spara och Stäng **SendCloudToDeviceMessage.py** -filen.
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Nu är det dags att köra programmen.
 

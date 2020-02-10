@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6084eca4f7d2d6040eb3f32a9b28cfc50922d200
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896102"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110439"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -45,7 +45,7 @@ Verifieringen av klient certifikatet utförs av VPN-gatewayen och sker när P2S 
 
 ### <a name="authenticate-using-native-azure-active-directory-authentication"></a>Autentisera med intern Azure Active Directory autentisering
 
-Med Azure AD-autentisering kan användare ansluta till Azure med sina Azure Active Directory autentiseringsuppgifter. Intern Azure AD-autentisering stöds bara för OpenVPN-protokoll och Windows 10 och kräver användning av [Azure VPN-klienten (för hands version)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab).
+Med Azure AD-autentisering kan användare ansluta till Azure med sina Azure Active Directory autentiseringsuppgifter. Intern Azure AD-autentisering stöds bara för OpenVPN-protokoll och Windows 10 och kräver användning av [Azure VPN-klienten](https://go.microsoft.com/fwlink/?linkid=2117554).
 
 Med inbyggd Azure AD-autentisering kan du utnyttja Azure ADs villkorliga åtkomst och Multi-Factor Authentication (MFA) funktioner för VPN.
 
@@ -55,7 +55,7 @@ Du måste utföra följande steg för att konfigurera Azure AD-autentisering på
 
 2. [Aktivera Azure AD-autentisering på gatewayen](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
 
-3. [Hämta och konfigurera Azure VPN-klienten (för hands version)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+3. [Ladda ned och konfigurera Azure VPN-klienten](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autentisera med hjälp av Active Directory (AD) domän Server
@@ -68,7 +68,7 @@ RADIUS-servern kan också integreras med AD Certificate Services. På så sätt 
 
 En RADIUS-server kan också integreras med andra externa identitets system. Detta öppnar massor av autentiseringsalternativ för P2S VPN, inklusive Multi-Factor Options.
 
-![punkt-till-plats](./media/point-to-site-about/p2s.png "Point-to-Site")
+![punkt-till-plats](./media/point-to-site-about/p2s.png "Punkt-till-plats")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Vilka är klient konfigurations kraven?
 
@@ -122,7 +122,7 @@ Zip-filen innehåller också värdena för några av de viktiga inställningarna
 |AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
 |AES256     |   SHA256      | SHA256    | GROUP_2 |
 
-**IPsec**
+**Principinställningar**
 
 |**Chiffer** | **Äkthet** | **PFS-grupp** |
 |---        | ---           | ---       |
@@ -183,7 +183,7 @@ En P2S-konfiguration kan tas bort med hjälp av AZ CLI och följande kommando:
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera en P2S-anslutning – RADIUS-autentisering](point-to-site-how-to-radius-ps.md)
 

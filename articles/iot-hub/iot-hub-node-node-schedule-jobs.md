@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.openlocfilehash: 124af71e458e103392c554a9c86d679f691df5b9
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 5053935f52153f0cd6ff2f05c5153732f5bda945
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147650"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110855"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Schema-och sändnings jobb (Node. js)
 
@@ -30,9 +30,9 @@ Ett jobb är konceptuellt, och spårar förloppet för körningen mot en uppsät
 
 Lär dig mer om var och en av dessa funktioner i dessa artiklar:
 
-* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-node-node-twin-getstarted.md) och [Självstudier: Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
+* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-node-node-twin-getstarted.md) och [Självstudier: hur du använder enhetens dubbla egenskaper](tutorial-device-twins.md)
 
-* Direkta metoder: [Guide för IoT Hub utvecklare – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: direkta metoder](quickstart-control-device-node.md)
+* Direkta metoder: [IoT Hub Developer Guide – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: direkta metoder](quickstart-control-device-node.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -54,7 +54,9 @@ I slutet av den här självstudien har du två Node. js-appar:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -89,7 +91,7 @@ I det här avsnittet skapar du en Node. js-konsol som svarar på en direkt metod
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. Lägg till en **connectionString**-variabel och använd den för att skapa en **klientinstans**. `{yourDeviceConnectionString}` Ersätt placeholder-värdet med enhets anslutnings strängen som du kopierade tidigare.
+5. Lägg till en **connectionString**-variabel och använd den för att skapa en **klientinstans**. Ersätt `{yourDeviceConnectionString}` placeholder-värdet med enhets anslutnings strängen som du kopierade tidigare.
 
     ```javascript
     var connectionString = '{yourDeviceConnectionString}';
@@ -166,7 +168,7 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärran slut
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. Lägg till följande variabel deklarationer. Ersätt placeholder-värdet med värdet som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen. `{iothubconnectionstring}` Om du har registrerat en annan enhet än **myDeviceId**, ska du se till att ändra den i villkoret för frågan.
+5. Lägg till följande variabel deklarationer. Ersätt `{iothubconnectionstring}` placeholder-värdet med värdet som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Om du har registrerat en annan enhet än **myDeviceId**, ska du se till att ändra den i villkoret för frågan.
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -265,7 +267,7 @@ I det här avsnittet skapar du en Node. js-konsol som initierar en fjärran slut
 
 9. Spara och Stäng filen **scheduleJobService. js** .
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Nu är det dags att köra programmen.
 
@@ -295,6 +297,6 @@ Nu är det dags att köra programmen.
 
 I den här självstudien använde du ett jobb för att schemalägga en direkt metod till en enhet och uppdateringen av enhetens egenskaper.
 
-Information [om hur du fortsätter att komma igång med IoT Hub-och enhets hanterings mönster, till exempel fjärran sluten av den inbyggda program varan Så här gör du en uppdatering](tutorial-firmware-update.md)av den inbyggda program varan.
+Om du vill fortsätta att komma igång med IoT Hub-och enhets hanterings mönster, t. ex. fjärran sluten av den inbyggda program varan, kan du läsa mer i [självstudie:](tutorial-firmware-update.md)
 
 För att fortsätta komma igång med IoT Hub, se [komma igång med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

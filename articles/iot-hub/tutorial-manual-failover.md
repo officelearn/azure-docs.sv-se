@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 42785e3ee636f24ca185f57a11d4ee1091db3e98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bf37f7b27e3f8923a229cc0617365d912d47aec2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890418"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110658"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Självstudie: utföra manuell redundans för en IoT-hubb
 
@@ -29,11 +29,13 @@ I den här självstudien utför du följande åtgärder:
 > * Utför en återställning efter fel för att återställa IoT-hubbens åtgärder till den primära platsen. 
 > * Bekräfta att hubben körs korrekt på rätt plats.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 

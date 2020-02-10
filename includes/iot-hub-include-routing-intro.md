@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 863989f8e2cb90fe5ec0921ea6e080b61fc1b4ae
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 9a20dca71727e83db98c4c97567949bd127fc7fb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808815"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77111244"
 ---
 Med [meddelanderoutning](../articles/iot-hub/iot-hub-devguide-messages-d2c.md) kan du skicka telemetridata från dina IoT-enheter till inbyggda Event Hub-kompatibla slut punkter eller anpassade slut punkter som Blob storage, Service Bus köer, Service Bus ämnen och Event Hubs. Om du vill konfigurera en anpassad meddelanderoutning skapar du [routningslänkar](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md) för att anpassa den väg som matchar ett visst villkor. Därefter dirigeras inkommande data automatiskt till slutpunkterna av IoT Hub. Om ett meddelande inte matchar någon av de definierade Dirigerings frågorna dirigeras det till standard slut punkten.
 
@@ -36,15 +36,16 @@ För att slutföra del 1 och 2 av den här självstudien utför du följande upp
 > * ...i lagringskontot.
 > * ...i Power BI-visualiseringen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * I del 1 av den här självstudien:
   - Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 * I del 2 av den här självstudien:
   - Du måste ha slutfört del 1 av den här självstudien och ha resurserna fortfarande tillgängliga.
-  - Installera [Visual Studio](https://www.visualstudio.com/).
+  - [Installera Visual Studio](https://www.visualstudio.com/).
   - Få åtkomst till ett Power BI konto för att analysera standard slut punktens Stream Analytics. ([Prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).)
   - Ha ett Office 365-konto för att skicka e-postmeddelanden.
+  - Kontrol lera att port 8883 är öppen i brand väggen. Exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

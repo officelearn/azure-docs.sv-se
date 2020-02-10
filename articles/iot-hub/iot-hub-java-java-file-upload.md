@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 81b80edcd2e880488e203960f8e2a6aa71b69679
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: fcc2013f67c6e91182979a9bcab683894088a1d5
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161823"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110370"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Ladda upp filer från enheten till molnet med IoT Hub (Java)
 
@@ -26,10 +26,10 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 * Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Exempel:
+[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-java.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-java-java-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Några exempel:
 
 * Stora filer som innehåller bilder
-* Videor
+* Videoklipp
 * Exempel på vibrations data med hög frekvens
 * Någon form av förbearbetade data.
 
@@ -52,15 +52,17 @@ I slutet av den här självstudien kör du två Java-konsol program:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
 
 I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelanden från moln till enhet med IoT Hub](iot-hub-java-java-c2d.md) att ladda upp en fil till IoT Hub.
 
-1. Kopiera en avbildnings fil till `simulated-device` mappen och Byt namn `myimage.png`på den.
+1. Kopiera en avbildnings fil till mappen `simulated-device` och Byt namn på den `myimage.png`.
 
-2. Öppna `simulated-device\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
+2. Öppna `simulated-device\src\main\java\com\mycompany\app\App.java`-filen med hjälp av en text redigerare.
 
 3. Lägg till variabel deklarationen i klassen **app** :
 
@@ -136,9 +138,9 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-2. I kommando tolken navigerar du till den `read-file-upload-notification` nya mappen.
+2. I kommando tolken navigerar du till den nya `read-file-upload-notification`-mappen.
 
-3. Använd en text redigerare och öppna `pom.xml` filen `read-file-upload-notification` i mappen och Lägg till följande beroende till noden **beroenden** . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
+3. Använd en text redigerare och öppna `pom.xml`-filen i mappen `read-file-upload-notification` och Lägg till följande beroende till noden **beroenden** . Genom att lägga till beroendet kan du använda **iothub-Java-service-client-** paketet i ditt program för att kommunicera med tjänsten IoT Hub:
 
     ```xml
     <dependency>
@@ -151,9 +153,9 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     > [!NOTE]
     > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Spara och Stäng `pom.xml` filen.
+4. Spara och Stäng `pom.xml`s filen.
 
-5. Öppna `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen med en text redigerare.
+5. Öppna `read-file-upload-notification\src\main\java\com\mycompany\app\App.java`-filen med hjälp av en text redigerare.
 
 6. Lägg till följande **Import**-instruktioner i filen:
 
@@ -165,7 +167,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     import java.util.concurrent.Executors;
     ```
 
-7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen: `{Your IoT Hub connection string}`
+7. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{Your IoT Hub connection string}` placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string):
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -228,7 +230,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     }
     ```
 
-10. Spara och Stäng `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` filen.
+10. Spara och Stäng `read-file-upload-notification\src\main\java\com\mycompany\app\App.java`s filen.
 
 11. Använd följande kommando för att bygga appen **Read-File-Upload-Notification** och söka efter fel:
 
@@ -236,17 +238,17 @@ I det här avsnittet ska du skapa en Java-konsol-app som tar emot meddelanden om
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Du är nu redo att köra programmen.
 
-Kör följande kommando i kommando tolken i `read-file-upload-notification` mappen:
+Kör följande kommando i kommando tolken i mappen `read-file-upload-notification`:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
 
-Kör följande kommando i kommando tolken i `simulated-device` mappen:
+Kör följande kommando i kommando tolken i mappen `simulated-device`:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"

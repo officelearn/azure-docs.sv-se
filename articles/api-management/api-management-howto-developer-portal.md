@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898844"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108250"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -39,7 +39,7 @@ I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterad
 Du kan bygga din utvecklings Portal på två sätt:
 
 - **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och är tillgänglig via URL: en `<your-api-management-instance-name>.developer.azure-api.net`. Läs [den här dokumentations artikeln](api-management-howto-developer-portal-customize.md) för att lära dig hur du får åtkomst till och anpassar den hanterade portalen.
-- **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de angivna kärn funktionerna. Du måste också uppgradera portalen till den senaste versionen själv. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1] och [självstudien om hur du implementerar en widget][4]. [Självstudien för den hanterade versionen](api-management-howto-developer-portal-customize.md) går igenom portalens administrations panel, som också finns i den själv värdbaserade versionen.
+- **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de angivna kärn funktionerna. Du måste också uppgradera portalen till den senaste versionen själv. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1] och [självstudien om hur du implementerar en widget][3]. [Självstudien för den hanterade versionen](api-management-howto-developer-portal-customize.md) går igenom portalens administrations panel, som också finns i den själv värdbaserade versionen.
 
 ## <a name="portal-architectural-concepts"></a>Arkitektur koncept för portalen
 
@@ -98,13 +98,13 @@ Autentisering med OAuth i den interaktiva Developer-konsolen stöds inte ännu. 
 
 ### <a name="has-the-old-portal-been-deprecated"></a>Har den gamla portalen föråldrats?
 
-De gamla portarna för utvecklare och utgivare är nu *äldre* funktioner – de kommer endast att ta emot säkerhets uppdateringar. Nya funktioner implementeras endast i den nya utvecklarportalen.
+De gamla portarna för utvecklare och utgivare är nu *äldre* funktioner – de kommer endast att ta emot säkerhets uppdateringar. Nya funktioner kommer endast att implementeras i den nya Developer-portalen.
 
 Utfasningen av äldre portaler kommer att meddelas separat. Om du har frågor, rör eller kommentarer kan du höja dem [i ett dedikerat GitHub-problem](https://github.com/Azure/api-management-developer-portal/issues/121).
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Funktioner jag behöver stöds inte i portalen
 
-Använd den själv värdbaserade versionen och [implementera din egen widget][4].
+Använd den själv värdbaserade versionen och [implementera din egen widget][3].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Hur kan jag automatisera Portal distributioner?
 
@@ -140,7 +140,7 @@ De flesta konfigurations ändringar (till exempel VNet, inloggning och produkt v
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>Jag får ett CORS-fel när jag använder den interaktiva konsolen
 
-Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](api-management-cross-domain-policies.md#CORS) på dina API: er. Du kan ange alla parametrar manuellt eller använda jokertecken `*` värden. Ett exempel:
+Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](api-management-cross-domain-policies.md#CORS) på dina API: er. Du kan ange alla parametrar manuellt eller använda jokertecken `*` värden. Några exempel:
 
 ```XML
 <cors>
@@ -221,7 +221,7 @@ Anrops felen kan också orsakas av ett SSL-certifikat, som är tilldelat en anpa
 | Apple Safari                | Ja<sup>1</sup> |
 | Google Chrome               | Ja<sup>1</sup> |
 | Microsoft Edge              | Ja<sup>1</sup> |
-| Microsoft Internet Explorer | Inga              |
+| Microsoft Internet Explorer | Nej              |
 | Mozilla Firefox             | Ja<sup>1</sup> |
 
  <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>
@@ -232,14 +232,12 @@ Läs mer om den nya Developer-portalen:
 
 - [Komma åt och anpassa Managed Developer-portalen](api-management-howto-developer-portal-customize.md)
 - [Konfigurera en egen värd version av portalen][2]
-- [Implementera din egen widget][4]
+- [Implementera din egen widget][3]
 
 Bläddra bland andra resurser:
 
 - [GitHub-lagringsplats med käll koden][1]
-- [Offentlig översikt över projektet][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: c66f4f2b126b3b2b86ea55112d1bdc79b4bf4571
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a000ade2fd9887efa411378fc0239e6f5ce2a5cb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447442"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109495"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Go
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Go 1.10.1](https://golang.org/dl/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
@@ -45,7 +45,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
-Längst upp i `publish-kb.go` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
+Högst upp i `publish-kb.go` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
 [!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
 
@@ -72,7 +72,7 @@ Inuti funktionen **main**
 
 ## <a name="add-post-request-to-publish-kb"></a>Lägg till POST-begäran för att publicera kunskapsbas
 
-Efter konstanterna som krävs lägger du till följande kod, som gör en HTTPS-begäran för API:et för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
+Efter de konstanter som krävs lägger du till följande kod, som gör en HTTPS-begäran för API för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
 
 [!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
 
@@ -98,7 +98,7 @@ Ange följande kommando på en kommandorad för att köra programmet. Den skicka
 
 ## <a name="next-steps"></a>Nästa steg
 
-När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](../Tutorials/create-publish-answer.md#generating-an-answer).
+När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](./get-answer-from-knowledge-base-go.md).
 
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

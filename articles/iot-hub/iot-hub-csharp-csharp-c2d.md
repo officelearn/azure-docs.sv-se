@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 99acd43128bedcf3dba470f84c0a406861d77e2d
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147780"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110210"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till din enhet med IoT Hub (.NET)
 
@@ -50,6 +50,8 @@ I slutet av den här självstudien kör du två .NET-konsol program.
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## <a name="receive-messages-in-the-device-app"></a>Ta emot meddelanden i enhets appen
 
 I det här avsnittet ändrar du enhets appen som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
@@ -81,14 +83,14 @@ I det här avsnittet ändrar du enhets appen som du skapade i [Skicka telemetri 
    ReceiveC2dAsync();
    ```
 
-`ReceiveAsync` Metoden returnerar det mottagna meddelandet asynkront vid den tidpunkt då enheten tas emot av enheten. Den returnerar *Null* efter en specificerad timeout-period. I det här exemplet används standardvärdet på en minut. När appen får ett *Null*-värde ska den fortsätta att vänta på nya meddelanden. Det här kravet är orsaken till `if (receivedMessage == null) continue` raden.
+Metoden `ReceiveAsync` returnerar asynkront meddelande när det tas emot av enheten. Den returnerar *Null* efter en specificerad timeout-period. I det här exemplet används standardvärdet på en minut. När appen får ett *Null*-värde ska den fortsätta att vänta på nya meddelanden. Detta krav är orsaken till `if (receivedMessage == null) continue` linjen.
 
 Anropet till `CompleteAsync()` meddelar IoT Hub att meddelandet har bearbetats. Meddelandet kan tas bort på ett säkert sätt från enhets kön. Om något hände som hindrade appen från att slutföra bearbetningen av meddelandet, IoT Hub leverera det igen. Bearbetnings logiken för meddelanden i enhets appen måste vara *idempotenta*, så att samma meddelande tas emot flera gånger, vilket ger samma resultat.
 
 Ett program kan också tillfälligt överge ett meddelande, vilket resulterar i IoT Hub som bevarar meddelandet i kön för framtida konsumtion. Eller också kan programmet avvisa ett meddelande som permanent tar bort meddelandet från kön. Mer information om livs cykeln för moln-till-enhet-meddelanden finns i [D2C-och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
    > [!NOTE]
-   > När du `ReceiveAsync` använder https i stället för MQTT eller AMQP som transport, returnerar metoden omedelbart. Det mönster som stöds för meddelanden från moln till enhet med HTTPS är tillfälligt anslutna enheter som söker efter meddelanden som inte förekommer ofta (mindre än var 25: e minut). Om du skickar mer HTTPS får du resultat i IoT Hub begränsning av begär Anden. Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [D2C och C2D Messaging med IoT Hub](iot-hub-devguide-messaging.md).
+   > När du använder HTTPS i stället för MQTT eller AMQP som transport returneras metoden `ReceiveAsync` omedelbart. Det mönster som stöds för meddelanden från moln till enhet med HTTPS är tillfälligt anslutna enheter som söker efter meddelanden som inte förekommer ofta (mindre än var 25: e minut). Om du skickar mer HTTPS får du resultat i IoT Hub begränsning av begär Anden. Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [D2C och C2D Messaging med IoT Hub](iot-hub-devguide-messaging.md).
    >
 
 ## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
@@ -109,17 +111,17 @@ Nu skriver du en .NET-konsol app som skickar meddelanden från molnet till enhet
 
 1. I Solution Explorer högerklickar du på den nya lösningen och väljer sedan **Hantera NuGet-paket**.
 
-1. I **Hantera NuGet-paket**väljer du **Bläddra**och söker efter och väljer **Microsoft. Azure.** Devices. Välj **Installera**.
+1. I **Hantera NuGet-paket**väljer du **Bläddra**och söker efter och väljer **Microsoft. Azure. Devices**. Välj **Installera**.
 
    I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-1. Lägg till följande `using` -instruktion högst upp i **program.cs** -filen.
+1. Lägg till följande `using`-instruktion överst i **program.cs** -filen.
 
    ``` csharp
    using Microsoft.Azure.Devices;
    ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
    ``` csharp
    static ServiceClient serviceClient;
@@ -137,7 +139,7 @@ Nu skriver du en .NET-konsol app som skickar meddelanden från molnet till enhet
    }
    ```
 
-   Den här metoden skickar ett nytt meddelande från moln till enhet till enheten med ID: t `myFirstDevice`. Ändra bara den här parametern om du har ändrat den från den som används i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
+   Den här metoden skickar ett nytt meddelande från molnet till enheten till enheten med ID: t `myFirstDevice`. Ändra bara den här parametern om du har ändrat den från den som används i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
 
 1. Lägg slutligen till följande rader i **main** -metoden.
 
@@ -153,7 +155,7 @@ Nu skriver du en .NET-konsol app som skickar meddelanden från molnet till enhet
 
 1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**.
 
-1. I**Start projekt**för **vanliga egenskaper** > , Välj **flera start projekt**och välj sedan **Start** åtgärd för **ReadDeviceToCloudMessages**, **SimulatedDevice**och **SendCloudToDevice** . Spara ändringarna genom att välja **OK**.
+1. I **vanliga egenskaper** > **Start projekt**, Välj **flera start projekt**och välj sedan **Start** åtgärden för **ReadDeviceToCloudMessages**, **SimulatedDevice**och **SendCloudToDevice**. Spara ändringarna genom att välja **OK**.
 
 1. Tryck på **F5**. Alla tre programmen bör starta. Välj **SendCloudToDevice** -fönster och tryck på **RETUR**. Du bör se meddelandet som tas emot av Device-appen.
 

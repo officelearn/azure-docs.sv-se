@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 52d7eb035ed06c368214b8b5cb7ef583cd99b51b
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f68e25a618f5c6499ccc9d76c510eab8f1650330
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161988"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110884"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhets hantering (Java)
 
@@ -59,7 +59,9 @@ I slutet av den här självstudien har du två Java-konsol program:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -95,7 +97,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
 
 3. I kommando tolken navigerar du till mappen **trigger-reboot** .
 
-4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **trigger-reboot** och Lägg till följande beroende till noden beroenden. Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
+4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **trigger-reboot** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda IoT-service-client-paketet i din app för att kommunicera med IoT-hubben:
 
     ```xml
     <dependency>
@@ -109,7 +111,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
     > [!NOTE]
     > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Lägg till följande **build** -nod efter noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
+5. Lägg till följande **build** -nod efter noden **beroenden** . Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
 
     ```xml
     <build>
@@ -146,7 +148,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
     import java.util.concurrent.ExecutorService;
     ```
 
-9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med IoT Hub anslutnings sträng som du tidigare kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen:
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med den IoT Hub anslutnings sträng som du tidigare kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -228,7 +230,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
 
 15. Spara och Stäng filen **trigger-reboot\src\main\java\com\mycompany\app\App.java** .
 
-16. Bygg in server för utlösare och **starta om** Server delen och korrigera eventuella fel. I kommando tolken navigerar du till mappen **trigger-reboot** och kör följande kommando:
+16. Bygg in server för **utlösare och starta om** Server delen och korrigera eventuella fel. I kommando tolken navigerar du till mappen **trigger-reboot** och kör följande kommando:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -236,7 +238,7 @@ Den här konsolen ansluter till IoT Hub för att anropa den direkta metoden och 
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen lyssnar efter anropet för att starta om direkt från IoT-hubben och svarar omedelbart på det anropet. Appen försätts sedan i vilo läge för en stund att simulera omstarten innan den använder en rapporterad egenskap för att meddela utlösaren **-Starta** om backend-appen att omstarten har slutförts.
+I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen lyssnar efter anropet för att starta om direkt från IoT-hubben och svarar omedelbart på det anropet. Appen försätts sedan i vilo läge för en stund att simulera omstarten innan den använder en rapporterad egenskap för att meddela **utlösaren-starta** om backend-appen att omstarten har slutförts.
 
 1. I mappen **DM-get-started** skapar du ett Maven-projekt med namnet **simulerad enhet** med hjälp av följande kommando i kommando tolken:
 
@@ -259,7 +261,7 @@ I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen l
     > [!NOTE]
     > Du kan söka efter den senaste versionen av **IoT-Device-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Lägg till följande beroende till noden **beroenden** . Detta beroende konfigurerar en NOP för fasad för Apache [SLF4J](https://www.slf4j.org/) som används av enhets klientens SDK för att implementera loggning. Den här konfigurationen är valfri, men om du utelämnar den kan du se en varning i-konsolen när du kör appen. Mer information om loggning i enhets klientens SDK finns i avsnittet om [loggning](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) i exemplen för Readme-filen *för Azure IoT-enhetens SDK för Java* .
+4. Lägg till följande beroende till noden **beroenden** . Detta beroende konfigurerar en NOP för fasad för Apache [SLF4J](https://www.slf4j.org/) som används av enhets klientens SDK för att implementera loggning. Den här konfigurationen är valfri, men om du utelämnar den kan du se en varning i-konsolen när du kör appen. Mer information om loggning i enhets klientens SDK finns i avsnittet om [loggning](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) i *exemplen för Readme-filen för Azure IoT-enhetens SDK för Java* .
 
     ```xml
     <dependency>
@@ -269,7 +271,7 @@ I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen l
     </dependency>
     ```
 
-5. Lägg till följande **build** -nod efter noden beroenden. Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
+5. Lägg till följande **build** -nod efter noden **beroenden** . Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
 
     ```xml
     <build>
@@ -305,7 +307,7 @@ I det här avsnittet ska du skapa en Java-konsol som simulerar en enhet. Appen l
     import java.util.HashSet;
     ```
 
-9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med den enhets anslutnings sträng som du antecknade i avsnittet [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub) :
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med enhets anslutnings strängen som du antecknade i avsnittet [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub) :
 
     ```java
     private static final int METHOD_SUCCESS = 200;

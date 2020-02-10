@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1337870fc871282f84af17b34ba26b3b0271316b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890436"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110712"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -37,7 +37,7 @@ I den här självstudien utför du följande åtgärder:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node. js v10. x. x eller senare på din utvecklings dator.
 
@@ -51,11 +51,13 @@ node --version
 
 Ladda ned exempelprojektet för Node.js från https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip och extrahera ZIP-arkivet.
 
+Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## <a name="set-up-azure-resources"></a>Ställa in Azure-resurser
 
 För att slutföra den här kursen måste din Azure-prenumeration innehålla en IoT-hubb med en enhet som har lagts till i enhetsidentitetsregistret. Posten i enhetsidentitetsregistret gör att den simulerade enheten som du kör i den här kursen kan ansluta till din hubb.
 
-Om du inte redan har en IoT-hubb konfigurerad i din prenumeration kan du konfigurera en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **centrala USA**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
+Om du inte redan har en IoT-hubb konfigurerad i din prenumeration kan du konfigurera en med följande CLI-skript. Det här skriptet använder namnet **tutorial-iot-hub** för IoT-hubben. Du bör ersätta det här namnet med ditt eget unika namn när du kör det. Skriptet skapar resursgruppen och hubben i regionen **USA, centrala**, vilket du kan ändra till en region som ligger närmare till dig. Skriptet hämtar din anslutningssträng för IoT-hubbtjänsten, som du använder i serverdelexemplet för att ansluta till din IoT-hubb:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -162,7 +164,7 @@ Följande utdrag visar hur serverdelsprogrammet skickar en önskad egenskapsuppd
 
 [!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
-### <a name="run-the-applications"></a>Köra programmen
+### <a name="run-the-applications"></a>Kör programmen
 
 I det här avsnittet kan du köra två exempelprogram för att se när ett serverdelsprogram skickar önskade egenskapsuppdateringar till ett simulerad enhetsprogram.
 
@@ -210,7 +212,7 @@ Ett serverdelsprogram har åtkomst till de aktuella rapporterade egenskapsvärde
 
 [!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 
-### <a name="run-the-applications"></a>Köra programmen
+### <a name="run-the-applications"></a>Kör programmen
 
 I det här avsnittet kan du köra två exempelprogram för att se när ett simulerat enhetsprogram skickar önskade egenskapsuppdateringar till ett simulerad serverdelsprogram.
 

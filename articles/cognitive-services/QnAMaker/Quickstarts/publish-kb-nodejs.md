@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 3ca664afc458f794e07782354d0bad5c46c66537
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3df0a486baa2184a58ac33c24a5d13973885890f
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474027"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109499"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Snabb start: QnA Maker REST API: er för Node. js
 
@@ -34,7 +34,7 @@ Använd QnA Maker REST API: er för Node. js för att:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org).
@@ -68,7 +68,7 @@ Lägg till `reqeuestretry` och `request` NPM-paket:
 npm install requestretry request --save
 ```
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 Dessa kodfragment visar hur du gör följande med QnA Maker REST-API: er för Node. js:
 
@@ -170,6 +170,6 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 >[Självstudie: skapa och svara på en KB](../tutorials/create-publish-query-in-portal.md)
 
 * [Vad är API för QnA Maker?](../Overview/overview.md)
-* [Redigera en kunskapsbas](../how-to/edit-knowledge-base.md)
+* [Redigera en kunskaps bas](../how-to/edit-knowledge-base.md)
 * [Hämta användnings analys](../how-to/get-analytics-knowledge-base.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/rest-api/rest-api.js).

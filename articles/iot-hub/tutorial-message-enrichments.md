@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c2ac5d3de37a1a89ebd63b89666f164444e0a63
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d16954760d1f2bf11ec5575f912ee32810696590
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773782"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108216"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Självstudie: Använd Azure IoT Hub meddelande-anrikning
 
@@ -35,10 +35,13 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 > * Kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben.
 > * Visa resultaten och kontrol lera att meddelandets anrikning fungerar som förväntat.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-* Installera [Visual Studio](https://www.visualstudio.com/).
+* [Installera Visual Studio](https://www.visualstudio.com/).
+
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här självstudien använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

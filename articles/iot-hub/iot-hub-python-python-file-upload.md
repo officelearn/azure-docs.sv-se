@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 6dfbcc7a3e76842546326742d801c913451855f3
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f1c0c046c40ff8edbc33c5e93e4207d9fe2fc67a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001126"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110743"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Ladda upp filer från enheten till molnet med IoT Hub (python)
 
@@ -43,6 +43,8 @@ I slutet av den här självstudien kör du python-konsol programmet:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
@@ -62,7 +64,7 @@ I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT H
 
 3. Med hjälp av en text redigerare skapar du en **FileUpload.py** -fil i arbetsmappen.
 
-4. Lägg till följande `import` -instruktioner och variabler i början av **FileUpload.py** -filen. 
+4. Lägg till följande `import`-instruktioner och variabler i början av **FileUpload.py** -filen. 
 
     ```python
     import time
@@ -78,9 +80,9 @@ I det här avsnittet skapar du Device-appen för att ladda upp en fil till IoT H
     FILENAME = "[File name for storage]"
     ```
 
-5. Ersätt `[Device Connection String]` med anslutnings strängen för din IoT Hub-enhet i filen. Ersätt `[Full path to file]` med sökvägen till test filen som du skapade, eller en fil på enheten som du vill ladda upp. Ersätt `[File name for storage]` med det namn som du vill ge filen när den har laddats upp till Blob Storage. 
+5. Ersätt `[Device Connection String]` med anslutnings strängen för din IoT Hub-enhet i filen. Ersätt `[Full path to file]` med sökvägen till test filen som du skapade, eller någon annan fil på enheten som du vill ladda upp. Ersätt `[File name for storage]` med det namn som du vill ge filen när den har laddats upp till Blob Storage. 
 
-6. Skapa en motringning för **upload_blob** -funktionen:
+6. Skapa ett återanrop för **upload_blob** funktionen:
 
     ```python
     def blob_upload_conf_callback(result, user_context):

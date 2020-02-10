@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
-ms.openlocfilehash: 02ff65b27e03db9e9a48910e23d8ebf46de905a5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 55dc7f73a3e5bbff2e6e331ba0bd7d4088a86536
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060724"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110830"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Kom igång med enhets dubbla (Node. js)
 
@@ -37,7 +37,9 @@ För att slutföra den här kursen behöver du:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -55,7 +57,7 @@ För att slutföra den här kursen behöver du:
 
 I det här avsnittet skapar du en Node. js-konsol som lägger till platsens metadata till den enhet som är den dubbla som är kopplad till **myDeviceId**. Den frågar sedan enheten efter varandra i IoT Hub som väljer de enheter som finns i USA och sedan de som rapporterar en mobil anslutning.
 
-1. Skapa en ny tom mapp med namnet **addtagsandqueryapp**. I mappen **addtagsandqueryapp** skapar du en ny Package. JSON-fil med hjälp av följande kommando i kommando tolken. `--yes` Parametern accepterar alla standardvärden.
+1. Skapa en ny tom mapp med namnet **addtagsandqueryapp**. I mappen **addtagsandqueryapp** skapar du en ny Package. JSON-fil med hjälp av följande kommando i kommando tolken. Parametern `--yes` accepterar alla standardvärden.
 
     ```cmd/sh
     npm init --yes
@@ -69,7 +71,7 @@ I det här avsnittet skapar du en Node. js-konsol som lägger till platsens meta
 
 3. Skapa en ny **AddTagsAndQuery. js** -fil i mappen **addtagsandqueryapp** med hjälp av en text redigerare.
 
-4. Lägg till följande kod i filen **AddTagsAndQuery. js** . Ersätt `{iot hub connection string}` med IoT Hub anslutnings strängen som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen.
+4. Lägg till följande kod i filen **AddTagsAndQuery. js** . Ersätt `{iot hub connection string}` med den IoT Hub anslutnings sträng som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
    ``` javascript
         'use strict';
@@ -150,7 +152,7 @@ I nästa avsnitt skapar du en enhets app som rapporterar anslutnings information
 
 I det här avsnittet skapar du en Node. js-konsol som ansluts till hubben som **myDeviceId**och uppdaterar sedan dess enhets inbyggda egenskaper så att de innehåller den information som den är ansluten till med ett mobilt nätverk.
 
-1. Skapa en ny tom mapp med namnet **reportconnectivity**. I mappen **reportconnectivity** skapar du en ny Package. JSON-fil med hjälp av följande kommando i kommando tolken. `--yes` Parametern accepterar alla standardvärden.
+1. Skapa en ny tom mapp med namnet **reportconnectivity**. I mappen **reportconnectivity** skapar du en ny Package. JSON-fil med hjälp av följande kommando i kommando tolken. Parametern `--yes` accepterar alla standardvärden.
 
     ```cmd/sh
     npm init --yes

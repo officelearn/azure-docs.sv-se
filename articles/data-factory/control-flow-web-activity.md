@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 5929d4edac53b2be87e168b527034c5a473f154f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678177"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110012"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Webb aktivitet i Azure Data Factory
 Webbaktiviteten kan används till att anropa en anpassad REST-slutpunkt från en Data Factory-pipeline. Du kan överföra datauppsättningar och länkade tjänster så att de förbrukas och används av aktiviteten.
@@ -67,13 +67,13 @@ Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 namn | Namn på webb aktiviteten | Sträng | Ja
 typ | Måste vara inställt på **webactivity**. | Sträng | Ja
-metod | REST API-metod för mål slut punkten. | nollängd. <br/><br/>Typer som stöds: "GET", "POST", "placera" | Ja
+metod | REST API-metod för mål slut punkten. | Sträng. <br/><br/>Typer som stöds: "GET", "POST", "placera" | Ja
 url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten. | Ja
 sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. `"headers":{ "Content-Type":"application/json"}`
 brödtext | Representerar den nytto last som skickas till slut punkten.  | Sträng (eller uttryck med resultType för sträng). <br/><br/>Se schemat för nytto lasten för begäran i [nytto Last schema](#request-payload-schema) avsnittet. | Krävs för metoderna POST/infört.
 autentisering | Autentiseringsmetod som används för att anropa slut punkten. Typer som stöds är Basic eller ClientCertificate. Mer information finns i avsnittet [Authentication](#authentication) . Om autentisering inte krävs utelämnar du den här egenskapen. | Sträng (eller uttryck med resultType för sträng) | Nej
-Data uppsättningar | Lista över data uppsättningar som skickats till slut punkten. | Matris med data uppsättnings referenser. Kan vara en tom matris. | Ja
-LinkedServices | Lista över länkade tjänster som skickats till slut punkten. | Matris med länkade tjänst referenser. Kan vara en tom matris. | Ja
+datasets | Lista över data uppsättningar som skickats till slut punkten. | Matris med data uppsättnings referenser. Kan vara en tom matris. | Ja
+linkedServices | Lista över länkade tjänster som skickats till slut punkten. | Matris med länkade tjänst referenser. Kan vara en tom matris. | Ja
 
 > [!NOTE]
 > REST-slutpunkter som webb aktiviteten anropar måste returnera ett svar av typen JSON. Aktiviteten avbryts vid 1 minut med ett fel om den inte får något svar från slut punkten.
@@ -90,10 +90,14 @@ I följande tabell visas kraven för JSON-innehåll:
 
 ## <a name="authentication"></a>Autentisering
 
+Nedan visas autentiseringstyper som stöds i webb aktiviteten.
+
 ### <a name="none"></a>Ingen
+
 Om autentisering inte krävs inkluderar du inte egenskapen "Authentication".
 
 ### <a name="basic"></a>Basic
+
 Ange användar namn och lösen ord som ska användas med grundläggande autentisering.
 
 ```json
@@ -105,6 +109,7 @@ Ange användar namn och lösen ord som ska användas med grundläggande autentis
 ```
 
 ### <a name="client-certificate"></a>Klient certifikat
+
 Ange Base64-kodat innehåll för en PFX-fil och lösen ordet.
 
 ```json
@@ -125,6 +130,9 @@ Ange resurs-URI för vilken åtkomsttoken ska begäras med hjälp av den hantera
     "resource": "https://management.azure.com/"
 }
 ```
+
+> [!NOTE]
+> Om din data fabrik har kon figurer ATS med en git-lagringsplats måste du lagra dina autentiseringsuppgifter i Azure Key Vault för att kunna använda Basic eller autentisering med klient certifikat. Azure Data Factory lagrar inte lösen ord i git.
 
 ## <a name="request-payload-schema"></a>Schema för begäran om nytto Last
 När du använder metoden POST/placering representerar egenskapen Body den nytto last som skickas till slut punkten. Du kan skicka länkade tjänster och data uppsättningar som en del av nytto lasten. Här är schemat för nytto lasten:

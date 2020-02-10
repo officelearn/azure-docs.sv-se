@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: db020092c076680eddd575f8e7e85a2060603dd8
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b379f158672a9df3056acb09c63c392869a53283
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147776"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108707"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Ladda upp filer från enheten till molnet med IoT Hub (.NET)
 
@@ -26,11 +26,11 @@ Den här självstudien bygger på koden i [skicka meddelanden från moln till en
 
 * Använd IoT Hub fil överförings meddelanden för att utlösa bearbetning av filen i Server delen av din app.
 
-[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Microsoft Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Exempel:
+[Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md) snabb start och [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) själv studie kursen Visa de grundläggande meddelande funktionerna från enhet till moln och meddelanden från moln till enhet i IoT Hub. I självstudien [Konfigurera meddelanderoutning med IoT Hub](tutorial-routing.md) beskrivs ett tillförlitligt sätt att lagra meddelanden från enheten till molnet i Microsoft Azure Blob Storage. I vissa fall kan du dock inte enkelt mappa de data som enheterna skickar till de relativt små enhets-till-moln-meddelanden som IoT Hub accepterar. Några exempel:
 
 * Stora filer som innehåller bilder
 
-* Videor
+* Videoklipp
 
 * Exempel på vibrations data med hög frekvens
 
@@ -53,13 +53,15 @@ I slutet av den här självstudien kör du två .NET-konsol program:
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
+* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
 ## <a name="upload-a-file-from-a-device-app"></a>Ladda upp en fil från en enhets app
 
 I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelanden från molnet till enheten med IoT Hub](iot-hub-csharp-csharp-c2d.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
 
-1. I Visual Studio Solution Explorer högerklickar du på projektet **SimulatedDevice** och väljer **Lägg till** > **befintligt objekt**. Hitta en bildfil och inkludera den i ditt projekt. I den här självstudien förutsätter vi att avbildningen heter `image.jpg`.
+1. I Visual Studio Solution Explorer högerklickar du på projektet **SimulatedDevice** och väljer **Lägg till** > **befintligt objekt**. Hitta en bildfil och inkludera den i ditt projekt. Den här självstudien förutsätter att avbildningen heter `image.jpg`.
 
 1. Högerklicka på bilden och välj sedan **Egenskaper**. Kontrol lera att kopiera **till utdata-katalogen** är inställt på **Kopiera alltid**.
 
@@ -71,7 +73,7 @@ I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelan
     using System.IO;
     ```
 
-1. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod till **Program**-klassen:
 
     ```csharp
     private static async void SendToBlobAsync()
@@ -90,7 +92,7 @@ I det här avsnittet ändrar du den enhets app som du skapade i [skicka meddelan
     }
     ```
 
-    `UploadToBlobAsync` Metoden tar i fil namnet och Stream-källan för filen som ska överföras och hanterar överföringen till lagringen. I konsol programmet visas hur lång tid det tar att ladda upp filen.
+    Metoden `UploadToBlobAsync` tar i fil namnet och Stream-källan för filen som ska överföras och hanterar överföringen till lagringen. I konsol programmet visas hur lång tid det tar att ladda upp filen.
 
 1. Lägg till följande rad i **huvud** metoden, precis före `Console.ReadLine()`:
 
@@ -119,7 +121,7 @@ I det här avsnittet skriver du en .NET-konsol app som tar emot meddelanden om f
 
 1. I Solution Explorer högerklickar du på projektet **ReadFileUploadNotification** och väljer **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra**. Sök efter och välj **Microsoft. Azure.** Devices och välj sedan **Installera**.
+1. I **NuGet Package Manager**väljer du **Bläddra**. Sök efter och välj **Microsoft. Azure. Devices**och välj sedan **Installera**.
 
     I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Devices/) i **ReadFileUploadNotification** -projektet.
 
@@ -129,14 +131,14 @@ I det här avsnittet skriver du en .NET-konsol app som tar emot meddelanden om f
     using Microsoft.Azure.Devices;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen: `{iot hub connection string}`
+1. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub connection string}` placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string):
 
     ```csharp
     static ServiceClient serviceClient;
     static string connectionString = "{iot hub connection string}";
     ```
 
-1. Lägg till följande metod i klassen **Program**:
+1. Lägg till följande metod till **Program**-klassen:
 
     ```csharp
     private async static void ReceiveFileUploadNotificationAsync()
@@ -171,7 +173,7 @@ I det här avsnittet skriver du en .NET-konsol app som tar emot meddelanden om f
     Console.ReadLine();
     ```
 
-## <a name="run-the-applications"></a>Köra programmen
+## <a name="run-the-applications"></a>Kör programmen
 
 Du är nu redo att köra programmen.
 

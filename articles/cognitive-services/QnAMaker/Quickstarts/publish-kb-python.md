@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: b93ba53996168d55e45e995a3fc11fdc3b889f7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a9751f5771fe9dd5c33a3a01f2819664d893d53
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447411"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109454"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Python
 
@@ -25,7 +25,7 @@ Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar
 Den här snabb starten anropar QnA Maker REST API: er:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.7](https://www.python.org/downloads/)
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
@@ -44,7 +44,7 @@ Skapa en fil som heter `publish-kb-3x.py`.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
-Längst upp i `publish-kb-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
+Högst upp i `publish-kb-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=1-1 "Add the required dependencies")]
 
@@ -56,7 +56,7 @@ När du har lagt till nödvändiga beroenden lägger du till de konstanter som k
 
 ## <a name="add-post-request-to-publish-knowledge-base"></a>Lägga till POST-begäran för att publicera kunskapsbas
 
-Efter konstanterna som krävs lägger du till följande kod, som gör en HTTPS-begäran för API:et för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
+Efter de konstanter som krävs lägger du till följande kod, som gör en HTTPS-begäran för API för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
 
 [!code-python[Add a POST request to publish knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=17-26 "Add a POST request to publish knowledge base")]
 
@@ -76,7 +76,7 @@ python publish-kb-3x.py
 
 ## <a name="next-steps"></a>Nästa steg
 
-När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](../Tutorials/create-publish-answer.md#generating-an-answer).
+När kunskapsbasen publiceras behöver du [slutpunktens webbadress för att generera ett svar](./get-answer-from-knowledge-base-python.md).
 
 > [!div class="nextstepaction"]
 > [Referens för QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)

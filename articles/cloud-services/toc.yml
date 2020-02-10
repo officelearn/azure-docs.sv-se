@@ -137,8 +137,6 @@
               href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
         - name: Tilldelningsfel i molntjänst
           href: cloud-services-allocation-failures.md
-        - name: Program som inte har stöd för TLS 1.2
-          href: applications-dont-support-TLS-1-2.md
         - name: Vanliga orsaker till rollåteranvändning i molntjänst
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
         - name: Programmet stöder inte TLS 1.2

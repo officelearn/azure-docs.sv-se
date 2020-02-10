@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: b2f5a9bacf96eb098e307a6a8df3e13cb9d04bd0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513424"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111764"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Använd en Azure-hanterad identitet i ACR-aktiviteter 
 
@@ -84,19 +84,19 @@ Du kan hämta resurs-ID för identiteten genom att köra kommandot [AZ Identity 
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. ge identitets behörigheterna åtkomst till andra Azure-resurser
 
-Beroende på kraven för din uppgift ger du identitets behörighet att få åtkomst till andra Azure-resurser. Till exempel:
+Beroende på kraven för din uppgift ger du identitets behörighet att få åtkomst till andra Azure-resurser. Exempel:
 
 * Tilldela den hanterade identiteten en roll med pull, push och pull eller andra behörigheter till ett mål behållar register i Azure. En fullständig lista över register roller finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md). 
 * Tilldela den hanterade identiteten en roll för att läsa hemligheter i ett Azure Key Vault.
 
 Använd [Azure CLI](../role-based-access-control/role-assignments-cli.md) eller andra Azure-verktyg för att hantera rollbaserad åtkomst till resurser. Du kan till exempel köra kommandot [AZ roll tilldelning Create][az-role-assignment-create] för att tilldela identiteten en roll till resursen. 
 
-I följande exempel tilldelas en hanterad identitet behörighet att hämta från ett behållar register. Kommandot anger *tjänstens huvud namn-ID* för identiteten och *resurs-ID: t* för mål registret.
+I följande exempel tilldelas en hanterad identitet behörighet att hämta från ett behållar register. Kommandot anger *huvud-ID: t* för aktivitets identiteten och *resurs-ID: t* för mål registret.
 
 
 ```azurecli
 az role assignment create \
-  --assignee <servicePrincipalID> \
+  --assignee <principalID> \
   --scope <registryID> \
   --role acrpull
 ```
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Om du vill lägga till autentiseringsuppgifter för en användardefinierad identitet för att autentisera med registret *targetregistry*, pass `use-identity` med ett värde för identitetens *klient-ID* . Ett exempel:
+Om du vill lägga till autentiseringsuppgifter för en användardefinierad identitet för att autentisera med registret *targetregistry*, pass `use-identity` med ett värde för identitetens *klient-ID* . Några exempel:
 
 ```azurecli
 az acr task credential add \

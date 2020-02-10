@@ -7,21 +7,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 96d0124941f9f2daa1e1b2d1d254b0b767ffb395
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044904"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111562"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
-![Logotyp för Office 365](media/solution-office-365/icon.png)
+![Office 365-logotyp](media/solution-office-365/icon.png)
 
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Lösnings uppdatering
-> Den här lösningen har ersatts av lösningen för allmänt tillgänglighet för [Office 365](../../sentinel/connect-office-365.md) i [Azure SENTINEL](../../sentinel/overview.md) och [Azure AD repor ting and Monitoring-lösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurations upplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 30 mars 2020.
+> Den här lösningen har ersatts av lösningen för allmänt tillgänglighet för [Office 365](../../sentinel/connect-office-365.md) i [Azure SENTINEL](../../sentinel/overview.md) och [Azure AD repor ting and Monitoring-lösningen](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Tillsammans tillhandahåller de en uppdaterad version av den tidigare Azure Monitor Office 365-lösningen med en förbättrad konfigurations upplevelse. Du kan fortsätta att använda den befintliga lösningen fram till den 30 april 2020.
 > 
 > Azure Sentinel är en säkerhets informations-och händelse hanterings lösning i molnet som matar in loggar och ger ytterligare SIEM-funktioner, inklusive identifieringar, undersökningar, jakt och Machine Learning-drivna insikter. Med Azure Sentinel får du nu en inmatning av Office 365 SharePoint-aktivitet och Exchange Management-loggar.
 > 
@@ -35,10 +35,10 @@ ms.locfileid: "76044904"
 > 3. [Aktivera Azure Sentinel-lösningen](../../sentinel/quickstart-onboard.md) på din arbets yta.
 > 4. Gå till sidan **data anslutningar** i Azure Sentinel och aktivera **Office 365** -anslutaren.
 >
-> ## <a name="frequently-asked-questions"></a>Vanliga frågor
+> ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-march-30th"></a>F: är det möjligt för Office 365 Azure Monitor-lösningen mellan nu och den 30 mars?
-> Nej, Azure Monitor Office 365-lösningen onboarding-skript är inte längre tillgängliga. Lösningen tas bort den 30 mars.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-april-30th"></a>F: är det möjligt för Office 365 Azure Monitor-lösningen mellan nu och den 30 april?
+> Nej, Azure Monitor Office 365-lösningen onboarding-skript är inte längre tillgängliga. Lösningen tas bort den 30 april.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>F: kommer tabeller och scheman att ändras?
 > **OfficeActivity** -tabellens namn och schemat är fortfarande samma som i den aktuella lösningen. Du kan fortsätta att använda samma frågor i den nya lösningen, med undantag för frågor som refererar till Azure AD-data.
@@ -95,7 +95,7 @@ ms.locfileid: "76044904"
 > Azure Sentinel tillhandahåller färdiga säkerhetsorienterade instrument paneler, anpassade aviserings frågor, jakt frågor, undersökningar och automatiserade svars funktioner baserat på Office 365-och Azure AD-loggar. Utforska Azure Sentinel-GitHub och självstudierna för att lära dig mer:
 >
 > - [Identifiera hot som är färdiga](../../sentinel/tutorial-detect-threats-built-in.md)
-> - [Skapa anpassade analys regler för att identifiera misstänkta hot](../../sentinel/tutorial-detect-threats-custom.md)
+> - [Skapa anpassade analysregler för att identifiera misstänkta hot](../../sentinel/tutorial-detect-threats-custom.md)
 > - [Övervaka dina data](../../sentinel/tutorial-monitor-your-data.md)
 > - [Undersök incidenter med Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 > - [Konfigurera automatiska hot svar i Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
@@ -104,11 +104,11 @@ ms.locfileid: "76044904"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>F: tillhandahåller Azure Sentinel ytterligare anslutningar som en del av lösningen?
 > Ja, se [data källor i Azure Sentinel Connect](../../sentinel/connect-data-sources.md).
 > 
-> ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 30 mars? Måste jag avpublicera i förväg?
+> ###   <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 30 april? Måste jag avpublicera i förväg?
 > 
 > - Du kommer inte att kunna ta emot data från **Office365** -lösningen. Lösningen är inte längre tillgänglig i Marketplace
 > - För Azure Sentinel-kunder kommer den Log Analytics arbets ytans lösning **Office365** ingå i Azure Sentinel **SecurityInsights** -lösningen.
-> - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 30 mars.
+> - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 30 april.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>F: överförs data till den nya lösningen?
 > Ja. När du tar bort **Office 365** -lösningen från arbets ytan blir dess data tillfälligt otillgängliga eftersom schemat tas bort. När du aktiverar den nya **Office 365** -anslutningen i Sentinel återställs schemat till arbets ytan och alla data som redan har samlats in blir tillgängliga. 
@@ -247,8 +247,8 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn listar
 
 | Kolumn | Beskrivning |
 |:--|:--|
-| Operations | Innehåller information om aktiva användare från alla övervakade Office 365-prenumerationer. Du kommer också att kunna se antalet aktiviteter som sker över tid.
-| Utbyt | Visar en uppdelning av Exchange Server-aktiviteter som Add-Mailbox-behörighet eller ange-Mailbox. |
+| Åtgärder | Innehåller information om aktiva användare från alla övervakade Office 365-prenumerationer. Du kommer också att kunna se antalet aktiviteter som sker över tid.
+| Exchange | Visar en uppdelning av Exchange Server-aktiviteter som Add-Mailbox-behörighet eller ange-Mailbox. |
 | SharePoint | Visar de viktigaste aktiviteterna som användare utför i SharePoint-dokument. När du ökar detalj nivån från den här panelen visar Sök sidan information om dessa aktiviteter, till exempel mål dokumentet och platsen för aktiviteten. För en fil som används, kan du till exempel se det dokument som har åtkomst till, dess associerade konto namn och IP-adress. |
 | Azure Active Directory | Omfattar de vanligaste användar aktiviteterna, till exempel återställning av användar lösen ord och inloggnings försök. När du ökar detalj nivån kommer du att kunna se information om dessa aktiviteter, till exempel resultat status. Detta är mest användbart om du vill övervaka misstänkta aktiviteter på din Azure Active Directory. |
 
@@ -266,15 +266,15 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | Egenskap | Beskrivning |
 |:--- |:--- |
 | Typ | *OfficeActivity* |
-| ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i IPv4- eller IPv6-adressformat. |
-| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Utbyt<br>SharePoint|
-| Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
-| Organisations-ID | GUID för organisationens Office 365-klient. Det här värdet är alltid detsamma för din organisation, oavsett Office 365-tjänsten där det sker. |
+| ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
+| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| Åtgärd | Namnet på användaren eller administratörs aktiviteten.  |
+| OrganizationId | GUID för organisationens Office 365-klient. Det här värdet är alltid detsamma för din organisation, oavsett Office 365-tjänsten där det sker. |
 | RecordType | Typ av åtgärd som utförs. |
-| ResultStatus | Anger om åtgärden (som anges i egenskapen Operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
-| UserID | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
-| UserKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
-| UserType | Den typ av användaren som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
+| ResultStatus | Anger om åtgärden (anges i egenskapen operation) lyckades eller inte. Möjliga värden är lyckades, PartiallySucceeded eller misslyckades. För Exchange admin-aktivitet är värdet antingen sant eller falskt. |
+| userId | UPN (User Principal Name) för den användare som utförde åtgärden som resulterade i att posten loggades. till exempel my_name@my_domain_name. Observera att poster för aktivitet som utförs av system konton (t. ex. SHAREPOINT\system eller NTAUTHORITY\SYSTEM) också ingår. | 
+| userKey | Ett alternativt ID för den användare som identifierats i UserId-egenskapen.  Till exempel fylls den här egenskapen i med Passport-unikt ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan också ange samma värde som UserID-egenskapen för händelser som inträffar i andra tjänster och händelser som utförs av system konton|
+| UserType | Typ av användare som utförde åtgärden.<br><br>Admin<br>Program<br>DcAdmin<br>Reguljära<br>Reserverad<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory bas
@@ -286,7 +286,7 @@ Följande egenskaper är gemensamma för alla Azure Active Directory poster.
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AzureActiveDirectory_EventType | Typ av Azure AD-händelse. |
-| extendedProperties | Utökade egenskaper för Azure AD-händelsen. |
+| ExtendedProperties | Utökade egenskaper för Azure AD-händelsen. |
 
 
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory konto inloggning
@@ -343,7 +343,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfigurationen.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyt |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Anger om cmdleten kördes av en användare i din organisation, av Microsoft Data Center-personal eller ett Data Center tjänst konto eller av en delegerad administratör. Värdet FALSE anger att cmdleten kördes av någon i din organisation. Värdet true anger att cmdleten kördes av data Center personal, ett Data Center tjänst konto eller en delegerad administratör. |
 | ModifiedObjectResolvedName |  Detta är användarvänligt namn på objektet som ändrades av cmdleten. Detta loggas endast om cmdleten ändrar objektet. |
@@ -358,10 +358,10 @@ Dessa poster skapas när ändringar eller tillägg görs i Exchange-postlådor.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyt |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Information om e-postklienten som användes för att utföra åtgärden, till exempel en webb läsar version, Outlook-version och information om mobila enheter. |
-| Client_IPAddress | IP-adressen för den enhet som användes när åtgärden loggades. IP-adressen visas i IPv4- eller IPv6-adressformat. |
+| Client_IPAddress | IP-adressen för den enhet som användes när åtgärden loggades. IP-adressen visas antingen i ett IPv4-eller IPv6-adress format. |
 | ClientMachineName | Namnet på datorn som är värd för Outlook-klienten. |
 | ClientProcessName | E-postklienten som användes för att få åtkomst till post lådan. |
 | ClientVersion | Versionen av e-postklienten. |
@@ -381,7 +381,7 @@ Dessa poster skapas när en post lådas gransknings post skapas.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyt |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | Objekt | Representerar objektet som åtgärden utfördes på | 
 | SendAsUserMailboxGuid | Exchange-GUID för den post låda som användes för att skicka e-post som. |
@@ -396,7 +396,7 @@ Dessa poster skapas när ändringar eller tillägg görs i Exchange-grupper.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Utbyt |
+| OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Information om varje objekt i gruppen. |
 | CrossMailboxOperations | Anger om åtgärden involverar fler än en post låda. |
@@ -464,7 +464,7 @@ Dessa poster skapas som svar på fil åtgärder i SharePoint.
 
 Följande tabell innehåller exempel på logg frågor för uppdaterings poster som samlas in av den här lösningen.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 | --- | --- |
 |Antal åtgärder på din Office 365-prenumeration |OfficeActivity &#124; Sammanfattning av antal () efter åtgärd |
 |Användning av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ "SharePoint" &#124; sammanfatta antal () efter SiteUrl \| sortera efter antal ASC|

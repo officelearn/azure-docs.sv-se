@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: c9c47506e61c665da459558735a3afc93e8b9806
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 11607ffe03d5d2519df1b1199a741dfb55aff2f4
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659788"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111616"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS)
 
@@ -22,7 +22,7 @@ Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod e
 
 Den här artikeln visar hur du använder *Azure cni* Networking för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16`eller `192.0.2.0/24` för adress intervallet för Kubernetes-tjänsten.
@@ -52,9 +52,9 @@ IP-adressboken för ett AKS-kluster består av ett virtuellt nätverk, minst ett
 | --------- | ------------- |
 | Virtuellt nätverk | Det virtuella Azure-nätverket kan vara så stort som/8, men det är begränsat till 65 536 konfigurerade IP-adresser. |
 | Undernät | Måste vara tillräckligt stor för att rymma noderna, poddar och alla Kubernetes och Azure-resurser som kan vara etablerade i klustret. Om du till exempel distribuerar en intern Azure Load Balancer allokeras klientens IP-adresser från klustrets undernät, inte offentliga IP-adresser. Under näts storleken bör också ta hänsyn till uppgraderings åtgärder eller framtida skalnings behov.<p />För att beräkna den *minsta* under näts storleken inklusive ytterligare en nod för uppgraderings åtgärder: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exempel för ett 50-nods kluster: `(51) + (51  * 30 (default)) = 1,581` (/21 eller större)<p/>Exempel för ett 50-nods kluster som även omfattar etablering för att skala upp ytterligare 10 noder: `(61) + (61 * 30 (default)) = 1,891` (/21 eller större)<p>Om du inte anger ett maximalt antal poddar per nod när du skapar klustret, anges det maximala antalet poddar per nod till *30*. Det minsta antalet IP-adresser som krävs baseras på det värdet. Om du beräknar krav för minsta IP-adress på ett annat Max värde, se [så här konfigurerar du det maximala antalet poddar per nod](#configure-maximum---new-clusters) för att ange det här värdet när du distribuerar klustret. |
-| Adress intervall för Kubernetes-tjänst | Intervallet ska inte användas av något nätverks element på eller är anslutet till det här virtuella nätverket. Tjänst adressens CIDR måste vara mindre än/12. |
+| Adress intervall för Kubernetes-tjänst | Intervallet ska inte användas av något nätverks element på eller är anslutet till det här virtuella nätverket. Tjänst adressens CIDR måste vara mindre än/12. Du kan återanvända det här intervallet över olika AKS-kluster. |
 | IP-adress för Kubernetes DNS-tjänst | IP-adress inom Kubernetes-tjänstens adress intervall som ska användas av kluster tjänst identifiering (Kube-DNS). Använd inte den första IP-adressen i adress intervallet, till exempel. 1. Den första adressen i under nätets intervall används för *Kubernetes. default. svc. Cluster. local* . |
-| Docker Bridge-adress | Nätverks adressen Docker Bridge representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som *Docker-build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR. Standard för 172.17.0.1/16. |
+| Docker Bridge-adress | Nätverks adressen Docker Bridge representerar den standard nätverks adress för *docker0* -brygga som finns i alla Docker-installationer. Även om *docker0* -bryggan inte används av AKS-kluster eller själva poddar, måste du ange den här adressen så att den fortfarande stöder scenarier som *Docker-build* i AKS-klustret. Det krävs att du väljer en CIDR för Docker-bryggans nätverks adress eftersom en annan Docker kommer att välja ett undernät automatiskt som kan hamna i konflikt med andra CIDR-enheter. Du måste välja ett adress utrymme som inte kolliderar med resten av CIDR-inställningarna i dina nätverk, inklusive klustrets tjänst-CIDR och Pod CIDR. Standard för 172.17.0.1/16. Du kan återanvända det här intervallet över olika AKS-kluster. |
 
 ## <a name="maximum-pods-per-node"></a>Maximalt antal poddar per nod
 
@@ -64,7 +64,7 @@ Det maximala antalet poddar per nod i ett AKS-kluster är 250. *Standardvärdet*
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Ja (upp till 250) |
 | Resource Manager-mall | 110 | 30 | Ja (upp till 250) |
-| Portalen | 110 | 30 | Inga |
+| Portal | 110 | 30 | Nej |
 
 ### <a name="configure-maximum---new-clusters"></a>Konfigurera högsta – nya kluster
 
@@ -144,7 +144,7 @@ Följande skärm bild från Azure Portal visar ett exempel på hur du konfigurer
 
 ![Avancerad nätverks konfiguration i Azure Portal][portal-01-networking-advanced]
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 Följande frågor och svar gäller nätverks konfigurationen för **Azure cni** .
 

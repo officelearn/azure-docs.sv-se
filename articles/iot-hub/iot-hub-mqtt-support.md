@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: e1559dbab2503ded957b17c0cc6a61a06c53fffc
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110725"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111752"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -175,7 +175,7 @@ Den här lagrings platsen innehåller:
 
 • LinuxConsoleVS2019: innehåller samma kod men i ett VS2019 Project targeting WSL (Windows Linux-undersystem). Med det här projektet kan du felsöka koden som körs i Linux steg för steg från Visual Studio.
 
-**För mosquito_pub:**
+**För mosquitto_pub:**
 
 • Den här mappen innehåller två exempel kommandon som används med mosquitto_pub verktygs verktyget från Mosquitto.org.
 

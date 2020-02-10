@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979875"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111591"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -66,6 +66,8 @@ Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer 
 > * En dator som är en System Center Operations Manager-hanteringsserver
 > * En dator som kör Exchange Server
 > * En dator som är en nod i ett kluster
+>
+> Det finns inte stöd för att installera Azure Backup Server på Windows Server Core eller Microsoft Hyper-V server.
 
 Anslut alltid Azure Backup Server till en domän. Om du planerar att flytta servern till en annan domän installerar du Azure Backup Server först och ansluter sedan servern till den nya domänen. Det finns *inte stöd*för att flytta en befintlig Azure Backup Server-dator till en ny domän efter distribution.
 
@@ -275,7 +277,7 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
 
     Om du har lagt till nya diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du DPMSYNC-reallocateReplica
 
-## <a name="network-connectivity"></a>Nätverksanslutning
+## <a name="network-connectivity"></a>Nätverks anslutning
 
 Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda cmdleten ```Get-DPMCloudConnection``` i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
 
@@ -285,11 +287,11 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Tillåten |Tillåten |Tillåten |Tillåten |
-| Ansluten |Upphörd |Stoppad |Stoppad |Tillåten |Tillåten |
+| Ansluten |Aktiv |Gett |Gett |Gett |Gett |
+| Ansluten |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Tillåten |Tillåten |
-| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Tillåten |Tillåten |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Gett |Gett |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning
@@ -341,7 +343,7 @@ Använd följande steg för att uppgradera MABS:
 4. Säkerhets kopieringarna bör fortsätta utan att du behöver starta om produktions servrarna.
 5. Du kan börja skydda dina data nu. Om du uppgraderar till Modern Backup Storage, samtidigt som du skyddar, kan du även välja de volymer som du vill lagra säkerhets kopiorna i och kontrol lera under allokerat utrymme. [Läs mer](backup-mabs-add-storage.md).
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om Microsoft Azure Backup-servern Miss lyckas med fel under installations fasen (eller säkerhets kopiering eller återställning) läser du det här [fel kods dokumentet](https://support.microsoft.com/kb/3041338) för mer information.
 Du kan också läsa [Azure Backup relaterade vanliga frågor och svar](backup-azure-backup-faq.md)

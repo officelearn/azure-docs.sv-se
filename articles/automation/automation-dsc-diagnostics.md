@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850354"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111527"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar
 
@@ -31,7 +31,7 @@ Med Azure Monitor loggar kan du:
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna börja skicka konfigurations rapporter för automatiserings tillstånd till Azure Monitor loggar behöver du:
 
@@ -74,9 +74,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="view-the-state-configuration-logs"></a>Visa tillstånds konfigurations loggarna
 
-När du har konfigurerat integration med Azure Monitor loggar för konfigurations data för automatiserings tillstånd visas en **logg Sök** knapp på bladet **DSC-noder** i ditt Automation-konto. Klicka på knappen **loggs ökning** för att visa loggarna för DSC-Node-data.
+När du har ställt in integrering med Azure Monitor loggar för konfigurations data för Automation-tillstånd kan de visas genom att välja **loggar** i avsnittet **övervakning** i den vänstra rutan på sidan för tillstånds konfiguration (DSC).  
 
-![Loggs öknings knapp](media/automation-dsc-diagnostics/log-search-button.png)
+![Loggar](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
 Bladet för **loggs ökning** öppnas och du ser en **DscNodeStatusData** -åtgärd för varje nod för tillstånds konfiguration och en **DscResourceStatusData** -åtgärd för varje [DSC-resurs](/powershell/scripting/dsc/resources/resources) som kallas för nodens konfiguration.
 
@@ -84,11 +84,14 @@ Bladet för **loggs ökning** öppnas och du ser en **DscNodeStatusData** -åtg�
 
 Klicka på varje åtgärd i listan om du vill se data för åtgärden.
 
-Du kan också visa loggarna genom att söka i Azure Monitor loggar.
-Se [hitta data med loggs ökningar](../log-analytics/log-analytics-log-searches.md).
-Ange följande fråga för att hitta dina tillstånds konfigurations loggar: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+Du kan också visa loggarna genom att söka i Azure Monitor loggar. Se [hitta data med loggs ökningar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Ange följande fråga för att hitta dina tillstånds konfigurations loggar.
 
-Du kan också begränsa frågan med åtgärds namnet. Exempel: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Skicka ett e-postmeddelande när kompatibilitetskontroll för tillstånds konfiguration Miss lyckas
 
@@ -136,7 +139,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | DscReportStatus |Om kompatibilitetskontrollen har körts. |
 | ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden är __"ApplyOnly"__ , __"ApplyandMonitior"__ och __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: DSC tillämpar konfigurationen och gör ingenting ytterligare om inte en ny konfiguration skickas till målnoden eller när en ny konfiguration hämtas från en server. Efter första tillämpning av en ny konfiguration söker DSC inte efter avvikelse från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den har slutförts innan __ApplyOnly__ börjar gälla. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. LCM använder alla nya konfigurationer. Efter den första körningen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna. DSC försöker tillämpa konfigurationen tills den har slutförts innan __ApplyAndMonitor__ börjar gälla.</li><li>__ApplyAndAutoCorrect__: DSC använder alla nya konfigurationer. Efter den första applikationen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna och tillämpar sedan den aktuella konfigurationen igen.</li></ul> |
 | HostName_s | Namnet på den hanterade noden. |
-| IPAdress | Den hanterade nodens IPv4-adress. |
+| IP-adress | Den hanterade nodens IPv4-adress. |
 | Kategori | DscNodeStatus |
 | Resurs | Namnet på Azure Automation kontot. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |

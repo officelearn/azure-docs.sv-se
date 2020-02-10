@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275516"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111586"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Få fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
@@ -73,7 +73,7 @@ Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator
 4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
 5. Välj **Lägg till**och välj sedan **användare eller datorer**.
 6. Ange det tjänst konto som du använder för repor ting Services. Detta är det konto som du har lagt till SPN-namnet i repor ting Services-konfigurationen.
-7. Klicka på **OK**. Klicka på **OK** igen för att spara ändringarna.
+7. Klicka på **OK** Klicka på **OK** igen för att spara ändringarna.
 
 Mer information finns i [Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -138,9 +138,6 @@ Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du 
 3. Ange giltiga autentiseringsuppgifter för användaren och välj **Logga**in. Du ser elementen från din repor ting Services-server.
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Steg 5: Konfigurera Intune-princip för hanterade enheter (valfritt)
-
-> [!NOTE]
-> Den här funktionen är för närvarande bara tillgänglig i iOS.
 
 Du kan använda Microsoft Intune för att hantera de klient program som företagets personal använder. Med Intune kan du använda funktioner som data kryptering och ytterligare åtkomst krav. Mer information om hantering av appar via Intune finns i hantering av Intune-appar. Använd följande steg för att aktivera Power BI mobil program som fungerar med Intune-principen.
 

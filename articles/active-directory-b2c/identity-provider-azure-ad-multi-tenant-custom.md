@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f7bf9fea1b1e15d1ca24686a84e272dd60ceaf5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061598"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111541"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory för flera innehavare med anpassade principer i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program inom organisationens Azure AD-klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -50,6 +50,19 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
 1. Ange en **Beskrivning** av hemligheten, Välj förfallo datum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten som ska användas i ett senare steg.
 
+## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
+
+Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Välj det program som du vill konfigurera valfria anspråk för i listan.
+1. I avsnittet **Hantera** väljer du **konfiguration av token (för hands version)** .
+1. Välj **Lägg till valfritt anspråk**.
+1. Välj den tokentyp som du vill konfigurera.
+1. Välj de valfria anspråk som ska läggas till.
+1. Klicka på **Lägg till**.
+
 ## <a name="create-a-policy-key"></a>Skapa en princip nyckel
 
 Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisationen.
@@ -63,19 +76,6 @@ Du måste lagra den program nyckel som du skapade i Azure AD B2C klient organisa
 1. I **hemlighet**anger du din klient hemlighet som du registrerade tidigare.
 1. För **nyckel användning**väljer du `Signature`.
 1. Välj **Skapa**.
-
-## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
-
-Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../active-directory/develop/active-directory-optional-claims.md).
-
-1. Logga in på [Azure Portal](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
-1. I avsnittet **Hantera** väljer du **Appregistreringar**.
-1. Välj det program som du vill konfigurera valfria anspråk för i listan.
-1. I avsnittet **Hantera** väljer du **konfiguration av token (för hands version)** .
-1. Välj **Lägg till valfritt anspråk**.
-1. Välj den tokentyp som du vill konfigurera.
-1. Välj de valfria anspråk som ska läggas till.
-1. Klicka på **Lägg till**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
 
@@ -147,7 +147,7 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 
 Du måste uppdatera listan över giltiga token-utfärdare och begränsa åtkomsten till en särskild lista över Azure AD-Innehavaradministratörer som kan logga in.
 
-Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Exempel:
+Hämta värdena genom att titta på OpenID Connect Discovery-metadata för var och en av de Azure AD-klienter som du vill att användarna ska logga in från. Formatet på URL: en för metadata liknar `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, där `your-tenant` är namnet på din Azure AD-klient. Några exempel:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

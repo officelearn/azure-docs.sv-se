@@ -1,31 +1,30 @@
 ---
 title: Självstudie – Hantera kostnader med Cloudyn i Azure | Microsoft Docs
 description: I den här självstudien lär du dig att hantera kostnader med hjälp av kostnadsallokering, showback- och chargeback-rapporter.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.reviewer: benshy
+ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75987413"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769914"
 ---
-# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudie: Hantera kostnader med hjälp av Cloudyn
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudier: Hantera kostnader med hjälp av Cloudyn
 
 Du hanterar kostnader och skapar showback-rapporter i Cloudyn genom att allokera kostnader baserat på taggar. Vid kostnadsallokeringen tilldelas kostnader till dina förbrukade molnresurser. Kostnaderna är helt allokerade när alla resurser är kategoriserade med taggar. När kostnaderna har allokerats kan du visa showback- eller chargeback-information för användarna på instrumentpaneler och i rapporter. Många resurser kanske däremot inte är taggade eller inte kan taggas när du börjar använda Cloudyn.
 
 Till exempel kanske du vill få ersättning för ingenjörskostnader. Du måste kunna visa ingenjörsteamet att du behöver ett specifikt belopp baserat på resurskostnader. Du kan visa en rapport med alla förbrukade resurser som är taggade med *engineering*.
 
-I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Taggar är namn/värde-par som låter dig kategorisera resurser och Visa och hantera konsoliderad fakturerings information genom att tillämpa samma tagg på flera resurser och resurs grupper. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
+I den här artikeln används taggar och kategorier ibland synonymt. Kategorier är en bred samling och kan vara många saker. De kan bestå av affärsenheter, kostnadsställen, webbtjänster eller något annat som är taggat. Taggar är namn/värde-par som gör det möjligt att kategorisera resurser och visa och hantera sammanställd faktureringsinformation genom att tillämpa samma tagg på flera resurser och resursgrupper. I tidigare versioner av Azure-portalen kallades ett *taggnamn* för en *nyckel*. Taggar skapas för och lagras av en enda Azure-prenumeration. Taggar i AWS består av nyckel/värde-par. Eftersom både Azure och AWS har använt termen *nyckel*, används den termen i Cloudyn. Category Manager använder nycklar (taggnamn) för att sammanfoga taggar.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använder anpassade taggar för allokering av kostnader.
@@ -36,7 +35,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - [Inaktiverade konton måste aktiveras](activate-subs-accounts.md) på Cloudyn-portalen.
 - [Övervakning på gästnivå](azure-vm-extended-metrics.md) måste vara aktiverat på dina virtuella datorer.
 
@@ -51,7 +50,7 @@ Tänk på att tagginformation inte visas för dessa resurser i *kostnadsanalysra
 
 När du börjar allokera kostnader ska du först definiera omfattningen med hjälp av en kostnadsmodell. Kostnadsmodellen ändrar inte kostnaderna utan fördelar dem. När du skapar en kostnadsmodell delar du upp data efter kostnadsenhet, konto eller prenumeration, samt med flera olika taggar. Vanliga exempel på taggar kan vara en faktureringskod, ett kostnadsställe eller ett gruppnamn. Taggarna hjälper dig även med showback eller chargeback till andra delar av organisationen.
 
-Om du vill skapa en anpassad kostnads fördelnings modell väljer du **kostnader** &gt; **Cost Management** &gt; **kostnadsallokering 360** på rapportens meny.
+Om du vill skapa en anpassad kostnadsallokeringsmodell väljer du **Kostnader** &gt; **Kostnadshantering** &gt; **Cost Allocation 360°** (Kostnadsallokering 360°) på rapportens meny.
 
 ![Exempel som visar en instrumentpanel där du väljer Kostnadsallokering 360°](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -81,7 +80,7 @@ Om du har några lediga reserverade AWS-instanser (Amazon Web Services) kan du t
 
 Om du vill visa information om de val du gjort i allokeringen av kostnader väljer du **Summary** (Sammanfattning). Om du vill spara informationen och fortsätta arbeta med reglerna senare väljer du **Save As Draft** (Spara som utkast). Om du vill spara informationen och låta Cloudyn börja bearbeta modellen för kostnadsallokering väljer du **Save and Activate** (Spara och aktivera).
 
-Du ser den nya kostnadsmodellen i listan med modeller, med statusen **Processing** (Bearbetas). Det kan ta lite tid innan Cloudyn-databasen uppdateras med din kostnadsmodell. När bearbetningen är klar uppdateras statusen till **Completed** (Slutförd). Du kan sedan Visa data från din kostnads modell i rapporten kostnads analys under **utökade filter** &gt; **kostnads modell**.
+Du ser den nya kostnadsmodellen i listan med modeller, med statusen **Processing** (Bearbetas). Det kan ta lite tid innan Cloudyn-databasen uppdateras med din kostnadsmodell. När bearbetningen är klar uppdateras statusen till **Completed** (Slutförd). Du kan sedan visa data från kostnadsmodellen i rapporten Cost Analysis under **Utökade filter** &gt; **Kostnadsmodell**.
 
 ### <a name="category-manager"></a>Category Manager
 

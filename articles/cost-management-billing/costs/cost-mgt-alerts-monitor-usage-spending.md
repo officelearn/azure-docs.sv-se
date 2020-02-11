@@ -1,6 +1,6 @@
 ---
-title: Övervaka användning och utgifter med kostnads aviseringar | Microsoft Docs
-description: I den här artikeln beskrivs hur kostnads aviseringar hjälper dig att övervaka användning och utgifter i Azure Cost Management.
+title: Övervaka användning och utgifter med kostnadsaviseringar | Microsoft Docs
+description: I den här artikeln beskrivs hur kostnadsaviseringar hjälper dig att övervaka användning och utgifter i Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -11,35 +11,35 @@ ms.service: cost-management-billing
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: 4be484cdff2014f11c872da9a246ef8406447712
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988505"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Använda kostnadsaviseringar för att övervaka användning och utgifter
 
-Den här artikeln hjälper dig att förstå och använda Cost Management aviseringar för att övervaka din Azure-användning och dina utgifter. Kostnads varningar genereras automatiskt baserat på när Azure-resurser förbrukas. Aviseringar visar alla aktiva kostnads hanterings-och fakturerings aviseringar tillsammans på en plats. När förbrukningen når ett angivet tröskelvärde genereras aviseringar av Cost Management. Det finns tre typer av kostnadsaviseringar: budgetaviseringar, kreditaviseringar och aviseringar för avdelningens utgiftskvot.
+Den här artikeln hjälper dig att förstå och använda Cost Management-aviseringar för att övervaka din användning och dina utgifter i Azure. Kostnadsaviseringar genereras automatiskt baserat på de tider då Azure-resurser förbrukas. Aviseringar visar alla aktiva kostnadshanterings- och faktureringsaviseringar på en och samma plats. När din förbrukning når ett angivet tröskelvärde genereras aviseringar av Cost Management. Det finns tre typer av kostnadsaviseringar: budgetaviseringar, kreditaviseringar och utgiftskvotaviseringar.
 
 ## <a name="budget-alerts"></a>Budgetaviseringar
 
-Budget varningar meddelar dig när utgifter, baserat på användning eller kostnad, når eller överskrider det belopp som definieras i [varnings villkoret för budgeten](tutorial-acm-create-budgets.md). Cost Management budgetar skapas med hjälp av Azure Portal eller [Azures förbruknings](https://docs.microsoft.com/rest/api/consumption) -API.
+Budgetaviseringar meddelar dig när utgifter, baserat på användning eller kostnad, når eller överskrider det belopp som definieras i [budgetens aviseringsvillkor](tutorial-acm-create-budgets.md). Cost Management-budgetar skapas med hjälp av Azure-portalen eller [Azure Consumption](https://docs.microsoft.com/rest/api/consumption)-API:et.
 
-I Azure-portalen definieras budgetarna per kostnad. Om du använder API för Azure Consumption definieras budgetarna per kostnad eller förbrukning. Budgetaviseringarna stöder både kostnadsbaserade och förbrukningsbaserade budgetar. Budgetaviseringarna genereras automatiskt när aviseringsvillkoren uppfylls. Du kan visa alla kostnadsaviseringar i Azure-portalen. När en avisering genereras visas den i kostnadsaviseringarna. En e-postavisering skickas också till personerna i listan över aviseringsmottagare för budgeten.
+I Azure-portalen definieras budgetar efter kostnad. Med hjälp av Azure Consumption-API:et definieras budgetarna efter kostnad eller förbrukningsanvändning. Budgetaviseringar stöder både kostnadsbaserade och användningsbaserade budgetar. Budgetaviseringar genereras automatiskt när villkor för budgetavisering uppfylls. Du kan visa alla kostnadsaviseringar i Azure-portalen. När en avisering genereras visas den i kostnadsaviseringar. En e-postavisering skickas dessutom till personerna i budgetens lista över mottagare som ska meddelas.
 
 ## <a name="credit-alerts"></a>Kreditaviseringar
 
-Kreditaviseringar meddelar dig när dina ekonomiska åtaganden i Azure-krediten har förbrukats. Ekonomiska åtaganden finns för organisationer som har Enterprise-avtal. Kreditaviseringar genereras automatiskt vid 90 % och 100 % av ditt Azure-kreditsaldo. När en avisering genereras återspeglas den i kostnadsaviseringar och i e-postmeddelandet som skickas till kontoinnehavarna.
+Kreditaviseringar meddelar dig när dina ekonomiska åtaganden för Azure-kredit förbrukas. Ekonomiska åtaganden är till för organisationer med Enterprise-avtal. Kreditaviseringar genereras automatiskt vid 90 % och vid 100 % av ditt Azure-kreditsaldo. När en avisering genereras avspeglas den i kostnadsaviseringar och i det e-postmeddelande som skickas till kontoinnehavarna.
 
-## <a name="department-spending-quota-alerts"></a>Aviseringar för avdelningens utgiftskvot
+## <a name="department-spending-quota-alerts"></a>Aviseringar om avdelningens utgiftskvot
 
-Aviseringar för avdelningens utgiftskvot meddelar dig när avdelningens utgifter når ett fast tröskelvärde för kvoten. Utgiftskvoter konfigureras i EA-portalen. När ett tröskelvärde nås genereras ett e-postmeddelande till avdelningsägarna och visas i kostnadsaviseringarna. Till exempel 50 % eller 75 % av kvoten.
+Aviseringar om avdelningens utgiftskvot meddelar dig när avdelningsutgifter når ett fast tröskelvärde för kvoten. Utgiftskvoter konfigureras i EA-portalen. När ett tröskelvärde uppfylls genererar det ett e-postmeddelande till avdelningens ägare och visas i kostnadsaviseringar. Det kan till exempel gälla 50 % eller 75 % av kvoten.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Aviseringsfunktioner som stöds av erbjudandekategorier
+## <a name="supported-alert-features-by-offer-categories"></a>Aviseringsfunktioner som stöds för erbjudandekategorier
 
-Stöd för aviseringstyper beror på vilken typ av Azure-konto du har (Microsoft-erbjudandet). I följande tabell visas de aviseringsfunktioner som stöds av de olika Microsoft-erbjudandena. Du kan visa en fullständig lista över Microsoft-erbjudanden för att [förstå Cost Management data](understand-cost-mgt-data.md).
+Stöd för aviseringstyper beror på vilken typ av Azure-konto du har (Microsoft-erbjudande). I följande tabell visas de aviseringsfunktioner som stöds av olika Microsoft-erbjudanden. Du kan visa den fullständiga listan över Microsoft-erbjudanden på [Förstå Cost Management-data](understand-cost-mgt-data.md).
 
-| Aviseringstyp | Enterprise Agreement | Microsofts kundavtal | Webb direkt/betala per användning |
+| Aviseringstyp | Enterprise-avtal | Microsoft-kundavtal | Web Direct/Betala per användning |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | Kredit | ✔ |✘ | ✘ |
@@ -49,24 +49,24 @@ Stöd för aviseringstyper beror på vilken typ av Azure-konto du har (Microsoft
 
 ## <a name="view-cost-alerts"></a>Visa kostnadsaviseringar
 
-Om du vill visa kostnadsaviseringar öppnar du önskat omfång i Azure-portalen och väljer **Budgetar** på menyn. Använd reglaget **Omfång** om du vill växla till ett annat omfång. Välj **Kostnadsaviseringar** på menyn. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Om du vill visa kostnadsaviseringar öppnar du önskat omfång i Azure-portalen och väljer **Budgetar** i menyn. Använd reglaget **Omfång** om du vill växla till ett annat omfång. Välj **Kostnadsaviseringar** i menyn. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
-![Exempel på aviseringar som visas i Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
+![Exempelbild med aviseringar som visas i Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
-Det totala antalet aktiva och avstängda aviseringar visas på sidan med kostnadsaviseringar.
+Det totala antalet aktiva och stängda aviseringar visas på sidan för kostnadsaviseringar.
 
-Alla aviseringar visar aviseringstypen. En budgetavisering visar orsaken till varför den genererades och namnet på den budget som den gäller för. Varje avisering visar det datum då den genererades, dess status och omfånget (prenumeration eller hanterings grupp) som aviseringen gäller för.
+Alla aviseringar visar aviseringstypen. En budgetavisering visar orsaken till att den genererades samt namnet på den budget som den gäller för. Varje avisering visar det datum då den genererades, sin status samt det omfång (prenumeration eller hanteringsgrupp) som aviseringen gäller för.
 
-Möjlig status inkluderar **aktiv** och **avvisad**. Statusen aktiv anger att aviseringen fortfarande är relevant. Statusen avvisad visar att någon har markerat aviseringen och angett att den inte längre är relevant.
+Möjlig status inkluderar **aktiv** och **stängd**. Statusen aktiv anger att aviseringen fortfarande är relevant. Statusen stängd visar att någon har markerat aviseringen och angett att den inte längre är relevant.
 
-Välj en avisering i listan om du vill visa information om den. Aviseringsinformationen visar mer information om aviseringen. Budgetaviseringar innehåller en länk till budgeten. Om det finns en rekommendation för en budgetavisering visas även en länk till rekommendationen. I aviseringarna för budget, kredit och avdelningens utgiftskvot finns en länk för att analysera i kostnadsanalys. Där kan du utforska kostnaderna för aviseringens omfång. I följande exempel visas utgifterna för en avdelning med aviserings information.
+Välj en avisering i listan om du vill visa information om den. Aviseringsinformation visar mer information om aviseringen. Budgetaviseringar innehåller en länk till budgeten. Om det finns en rekommendation för en budgetavisering visas även en länk till rekommendationen. Aviseringar för budget, kredit och avdelningens utgiftskvot har en länk för analys i kostnadsanalys, där du kan utforska kostnader för aviseringens omfång. I följande exempel visas utgifterna för en avdelning med aviseringsinformation.
 
-![Exempel bild som visar utgifter för en avdelning med aviserings information](./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png)
+![Exempelbild som visar utgifter för en avdelning med aviseringsinformation](./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png)
 
-När du visar information om en avvisad avisering kan du återaktivera den om du behöver göra en manuell åtgärd. I följande bild visas ett exempel.
+När du visar information om en stängd avisering kan du återaktivera den om manuell åtgärd behövs. I följande bild visas ett exempel.
 
-![Exempel bild som visar alternativ för att stänga och återaktivera](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
+![Exempelbild som visar alternativ för att stänga och återaktivera](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- Om du inte redan har skapat en budget eller angett aviserings villkor för en budget slutför du själv studie kursen [skapa och hantera budgetar](tutorial-acm-create-budgets.md) .
+- Om du inte redan har skapat en budget eller angett aviseringsvillkor för en budget bör du slutföra självstudien [Skapa och hantera budgetar](tutorial-acm-create-budgets.md).

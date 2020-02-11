@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75996045"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) och Strong Customer Authentication (SCA) för Azure-kunder
@@ -48,7 +48,7 @@ Om din bank avvisar debiteringarna ändras statusen för ditt Azure-konto till *
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som kontoadministratör.
 2. Sök efter **Kostnadshantering och fakturering.**
-3. På sidan **Cost Management + fakturerings** **Översikt** granskar du kolumnen Status i rutnätet **Mina prenumerationer** .
+3. På sidan **Kostnadshantering och fakturering** **Översikt** granskar du statuskolumnen i rutnätet **Mina prenumerationer**.
 4. Om din prenumeration har statusen **Förfallodatum har passerat** klickar du på **Reglera saldo**. Du uppmanas att använda multifaktorautentisering under processen.
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Betala utestående avgifter för Marketplace och reservationsinköp

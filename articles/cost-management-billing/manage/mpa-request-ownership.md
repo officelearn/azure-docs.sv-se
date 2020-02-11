@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
 ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988206"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Få faktureringsägarskap för Azure-prenumerationer till ditt MPA-konto
@@ -102,11 +102,11 @@ Den här artikeln gäller faktureringskonton för Microsoft-partneravtal. Dessa 
    |Avbrutna|Någon med åtkomst till överföringsbegäran avbröt begäran|
    |Nekad|Användaren nekade överföringsbegäran|
 
-6. Välj en överföringsbegäran för att visa information. Sidan överförings information visar följande information: ![skärm bild som visar en lista över överförda prenumerationer](./media/mpa-request-ownership/mpa-transfer-completed.png)
+6. Välj en överföringsbegäran för att visa information. På sidan för överföringsbegäran visas följande information: ![Skärmbild som visar en lista med överförda prenumerationer](./media/mpa-request-ownership/mpa-transfer-completed.png)
 
    |Kolumn  |Definition|
    |---------|---------|
-   |ID för överföringsbegäran|Unikt ID för din överföringsbegäran. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda ärendet|
+   |ID för överföringsbegäran|Unikt ID för din överföringsbegäran. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda supportbegäran|
    |Överföringen begärdes den|Det datum då överföringsbegäran skickades|
    |Överföringen begärdes av|E-postadressen för den användare som skickade överföringsbegäran|
    |Överföringsbegäran upphör den| Det datum då överföringsbegäran upphör|
@@ -148,7 +148,7 @@ Azure-reservationer flyttas inte automatiskt med prenumerationer. [Kontakta Azur
 
 ### <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
 
-Åtkomst för befintliga användare, grupper eller tjänst huvud namn som har tilldelats med [Azure RBAC (rollbaserad åtkomst kontroll)](../../role-based-access-control/overview.md) påverkas inte under över gången. Partnern får ingen ny RBAC-åtkomst till prenumerationerna.  
+Åtkomst för befintliga användare, grupper eller tjänsthuvudnamn som tilldelades med hjälp av [Azure RBAC (rollbaserad åtkomstkontroll)](../../role-based-access-control/overview.md) påverkas inte under övergången. Partnern får ingen ny RBAC-åtkomst till prenumerationerna.  
 
 Partnern bör samarbeta med kunden om att få åtkomst till prenumerationer.  Partnern måste få antingen [AOBO-åtkomst (administratör på uppdrag av)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) eller [Azure Lighthouse-åtkomst](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) till öppna supportärenden.
 

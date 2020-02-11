@@ -255,8 +255,6 @@
         - name: Konfigurera lokala kodare för användning med molnkodare
           href: media-services-live-encoders-overview.md
           items:
-            - name: FMLE-kodare
-              href: media-services-configure-fmle-live-encoder.md
             - name: Haivision KB-kodare
               href: media-services-configure-kb-live-encoder.md
             - name: NewTek TriCaster-kodare

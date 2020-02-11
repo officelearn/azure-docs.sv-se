@@ -10,68 +10,68 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: c170a6a1a731a648c16e0081e760947256df8a0e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75991066"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76843896"
 ---
-# <a name="organize-costs-by-customizing-your-billing-account"></a>Organisera kostnader genom att anpassa ditt fakturerings konto
+# <a name="organize-costs-by-customizing-your-billing-account"></a>Organisera kostnader genom att anpassa ditt faktureringskonto
 
-Ditt fakturerings konto för Microsofts kund avtal ger dig flexibilitet att organisera dina kostnader baserat på dina behov, oavsett om det är av avdelning, projekt eller utvecklings miljö. 
+Ditt faktureringskonto för Microsoft-kundavtal ger dig flexibiliteten att organisera kostnader baserat på dina behov, oavsett om det är efter avdelning, projekt eller utvecklingsmiljö. 
 
-I den här artikeln beskrivs hur du kan använda Azure Portal för att organisera dina kostnader. Den gäller för ett fakturerings konto för ett Microsofts kund avtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
+I den här artikeln beskrivs hur du kan använda Azure-portalen för att organisera kostnader. Detta gäller för ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>Strukturera ditt konto med fakturerings profiler och faktura avsnitt
+## <a name="structure-your-account-with-billing-profiles-and-invoice-sections"></a>Strukturera ditt konto med faktureringsprofiler och fakturaavsnitt
 
-I fakturerings kontot för ett Microsofts kund avtal använder du fakturerings profiler och faktura avsnitt för att organisera dina kostnader.
+I faktureringskontot för ett Microsoft-kundavtal använder du faktureringsprofiler och fakturaavsnitt för att organisera dina kostnader.
 
-![Skärm bild som visar Microsoft kund avtals fakturerings hierarki](./media/mca-section-invoice/mca-hierarchy.png)
+![Skärmbild som visar faktureringshierarki för Microsoft-kundavtal](./media/mca-section-invoice/mca-hierarchy.png)
 
 ### <a name="billing-profile"></a>Faktureringsprofil
 
-En fakturerings profil representerar en faktura och relaterad fakturerings information som betalnings metoder och fakturerings adress. I början av månaden skapas en månadsfaktura för varje faktureringsprofil på ditt konto. Fakturan innehåller avgifter för Azure-användning och andra inköp från föregående månad.
+En faktureringsprofil representerar en faktura och relaterad faktureringsinformation, till exempel betalningsmetoder och faktureringsadress. I början av månaden skapas en månadsfaktura för varje faktureringsprofil på ditt konto. Fakturan innehåller avgifter för Azure-användning och andra inköp från föregående månad.
 
-En fakturerings profil skapas automatiskt tillsammans med ditt fakturerings konto när du registrerar dig för Azure. Du kan skapa ytterligare fakturerings profiler för att organisera dina kostnader på flera månads fakturor. 
+En faktureringsprofil skapas automatiskt tillsammans med ditt faktureringskonto när du registrerar dig för Azure. Du kan skapa ytterligare faktureringsprofiler för att organisera kostnader på flera månadsfakturor. 
 
 > [!IMPORTANT]
 >
-> Att skapa ytterligare fakturerings profiler kan påverka den totala kostnaden. Mer information finns i [saker att tänka på när du lägger till nya fakturerings profiler](#things-to-consider-when-adding-new-billing-profiles).
+> Om du skapar ytterligare faktureringsprofiler kan det påverka totala kostnaden. Mer information finns i [Saker att tänka på när du lägger till nya faktureringsprofiler](#things-to-consider-when-adding-new-billing-profiles).
 
 ### <a name="invoice-section"></a>Fakturaavsnitt
 
-Avsnittet faktura visar en gruppering av kostnader i din faktura. Avsnittet faktura skapas automatiskt för varje fakturerings profil i ditt konto. Du kan skapa ytterligare avsnitt för att organisera dina kostnader utifrån dina behov. Varje faktura avsnitt visas på fakturan med de kostnader som tillkommer den månaden. 
+Ett fakturaavsnitt representerar en gruppering av kostnader i din faktura. Ett fakturaavsnitt skapas automatiskt för varje faktureringsprofil i ditt konto. Du kan skapa ytterligare avsnitt för att organisera kostnader utifrån dina behov. Varje fakturaavsnitt visas på fakturan med de avgifter som tillkom den månaden. 
 
-Bilden nedan visar en faktura med två faktura avsnitt – teknik och marknadsföring. Sammanfattnings-och detalj avgifterna för varje avsnitt visas på fakturan. Priserna som visas i bilden är endast till exempel syfte och representerar inte de faktiska priserna för Azure-tjänster. 
+Bilden nedan visar en faktura med två fakturaavsnitt – teknik och marknadsföring. Sammanfattnings- och detaljavgifterna för varje avsnitt visas på fakturan. De priser som visas i bilden är endast exempel och representerar inte de faktiska priserna för Azure-tjänster. 
 
 ![Bild som visar en faktura med avsnitt](./media/mca-section-invoice/mca-invoice-with-sections.png)
 
-## <a name="billing-account-structure-for-common-scenarios"></a>Fakturerings konto struktur för vanliga scenarier
+## <a name="billing-account-structure-for-common-scenarios"></a>Faktureringskontostruktur för vanliga scenarier
 
-I det här avsnittet beskrivs vanliga scenarier för att ordna kostnader och motsvarande fakturerings konto strukturer:
-
-|Scenario  |Struktur  |
-|---------|---------|
-|Jack-loggar för Azure och behöver en enda månads faktura. | En fakturerings profil och ett faktura avsnitt. Den här strukturen konfigureras automatiskt för uttag när han registrerar sig för Azure och inga ytterligare steg krävs. |
-
-![Informations grafik för ett enkelt fakturerings scenario](./media/mca-section-invoice/organize-billing-scenario1.png)
+I det här avsnittet beskrivs vanliga scenarier för att organisera kostnader och motsvarande faktureringskontostrukturer:
 
 |Scenario  |Struktur  |
 |---------|---------|
-|Contoso är en liten organisation som behöver en enda månads faktura men grupp kostnader genom sina avdelningar – marknadsföring och ekonomi.  | En fakturerings profil för Contoso och ett faktura avsnitt var för marknadsförings-och ekonomi avdelningen. |
+|Jack registrerar sig för Azure och behöver en enskild månadsfaktura. | En faktureringsprofil och ett fakturaavsnitt. Den här strukturen konfigureras automatiskt för Jack när han registrerar sig för Azure, och det krävs inte några ytterligare steg. |
 
-![Informations grafik för ett enkelt fakturerings scenario](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Informationsgrafik för ett enkelt faktureringsscenario](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Scenario  |Struktur  |
 |---------|---------|
-|Fabrikam är en organisation i medel stora företag som behöver separata fakturor för sina tekniker och marknadsförings avdelningar. För teknik avdelningen vill de gruppera kostnaderna efter miljöer – produktion och utveckling.  | En fakturerings profil för alla marknadsförings-och finans avdelningar. För marknadsförings avdelningen, ett faktura avsnitt var för produktions-och utvecklings miljön. |
+|Contoso är en liten organisation som behöver en enskild månadsfaktura men grupperar kostnader efter sina avdelningar – marknadsföring och teknik.  | En faktureringsprofil för Contoso och ett fakturaavsnitt var för avdelningarna marknadsföring och teknik. |
 
-![Informations grafik för ett enkelt fakturerings scenario](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Informationsgrafik för ett enkelt faktureringsscenario](./media/mca-section-invoice/organize-billing-scenario2.png)
 
-## <a name="create-a-new-invoice-section"></a>Avsnittet Skapa en ny faktura
+|Scenario  |Struktur  |
+|---------|---------|
+|Fabrikam är en medelstor organisation som behöver separata fakturor för sina avdelningar för marknadsföring och teknik. För teknikavdelningen vill de gruppera kostnaderna efter miljöer – produktion och utveckling.  | En faktureringsprofil var för avdelningarna marknadsföring och teknik. För teknikavdelningen blir det ett fakturaavsnitt var för miljöerna produktion och utveckling. |
 
-För att kunna skapa ett fakturaavsnitt behöver du vara **faktureringsprofilsägare** eller **faktureringsprofilsdeltagare**. Mer information finns i avsnittet [Hantera faktura avsnitt för fakturerings profil](understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
+![Informationsgrafik för ett enkelt faktureringsscenario](./media/mca-section-invoice/organize-billing-scenario3.png)
+
+## <a name="create-a-new-invoice-section"></a>Skapa ett nytt fakturaavsnitt
+
+För att kunna skapa ett fakturaavsnitt behöver du vara **faktureringsprofilsägare** eller **faktureringsprofilsdeltagare**. Mer information finns i [Hantera fakturaavsnitt för faktureringsprofil](understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -79,27 +79,27 @@ För att kunna skapa ett fakturaavsnitt behöver du vara **faktureringsprofilsä
 
    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-section-invoice/search-cmb.png)
 
-3. Välj **fakturerings profiler** i rutan till vänster. Välj en fakturerings profil i listan. Det nya avsnittet kommer att visas på fakturan för den valda fakturerings profilen. 
+3. Välj **Faktureringsprofiler** i det vänstra fönstret. I listan väljer du en faktureringsprofil. Det nya avsnittet kommer att visas på fakturan för den valda faktureringsprofilen. 
 
-   [![skärm bild som visar listan över fakturerings profiler](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-4. Välj **faktura avsnitt** i den vänstra rutan och välj sedan **Lägg till** överst på sidan.
+4. Välj **Fakturaavsnitt** i det vänstra fönstret och välj sedan **Lägg till** överst på sidan.
 
-   [![skärm bild som visar lägga till faktura avsnitt](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
+   [![Skärmbild som visar tillägg av fakturaavsnitt](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
-5. Ange ett namn för faktura avsnittet. 
+5. Ange ett namn för fakturaavsnittet. 
 
-   [![skärm bild som visar sidan för att skapa faktura avsnitt](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
+   [![Skärmbild som visar sidan för skapande av fakturaavsnitt](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
 6. Välj **Skapa**.
 
-## <a name="create-a-new-billing-profile"></a>Skapa en ny fakturerings profil
+## <a name="create-a-new-billing-profile"></a>Skapa en ny faktureringsprofil
 
-Om du vill skapa en fakturerings profil måste du vara ägare till ett **fakturerings konto** eller en **fakturerings konto deltagare**. Mer information finns i [hantera fakturerings profiler för fakturerings konto](understand-mca-roles.md#manage-billing-profiles-for-billing-account).
+För att kunna skapa en faktureringsprofil behöver du vara **faktureringskontoägare** eller **faktureringskontodeltagare**. Mer information finns i [Hantera faktureringsprofiler för faktureringskonto](understand-mca-roles.md#manage-billing-profiles-for-billing-account).
 
 > [!IMPORTANT]
 >
-> Att skapa ytterligare fakturerings profiler kan påverka den totala kostnaden. Mer information finns i [saker att tänka på när du lägger till nya fakturerings profiler](#things-to-consider-when-adding-new-billing-profiles).
+> Om du skapar ytterligare faktureringsprofiler kan det påverka totala kostnaden. Mer information finns i [Saker att tänka på när du lägger till nya faktureringsprofiler](#things-to-consider-when-adding-new-billing-profiles).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -107,30 +107,30 @@ Om du vill skapa en fakturerings profil måste du vara ägare till ett **fakture
 
    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-section-invoice/search-cmb.png)
 
-3. Välj **fakturerings profiler** i rutan till vänster och välj sedan **Lägg till** överst på sidan.
+3. Välj **Faktureringsprofiler** i det vänstra fönstret och välj sedan **Lägg till** överst på sidan.
 
-   [![skärm bild som visar listan över fakturerings profiler](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
-    > Om du inte ser knappen Lägg till på sidan debiterings profil är funktionen inte tillgänglig för ditt konto. För närvarande är det bara tillgängligt för konton som har kon figurer ATS när du arbetar med en Microsoft-representant.
+    > Om du inte ser knappen Lägg till på sidan Faktureringsprofil är funktionen inte tillgänglig för ditt konto. För närvarande är den endast tillgänglig för konton som har konfigurerats vid samarbete med en Microsoft-representant.
 
 4. Fyll i formuläret och klicka på **Skapa**.
 
-   [![skärm bild som visar sidan för att skapa fakturerings profil](./media/mca-section-invoice/mca-add-profile.png)](./media/mca-section-invoice/mca-add-profile-zoomed-in.png#lightbox)
+   [![Skärmbild som visar sidan för skapande av faktureringsprofil](./media/mca-section-invoice/mca-add-profile.png)](./media/mca-section-invoice/mca-add-profile-zoomed-in.png#lightbox)
 
     |Field  |Definition  |
     |---------|---------|
-    |Namn     | Ett visnings namn som hjälper dig att enkelt identifiera fakturerings profilen i Azure Portal.  |
-    |INKÖPs nummer    | Ett valfritt inköps order nummer. Inköps order numret kommer att visas på fakturorna som genereras för fakturerings profilen. |
-    |Faktureringsadress   | Fakturerings adressen kommer att visas på fakturorna som genereras för fakturerings profilen. |
-    |E-postfaktura   | Markera rutan e-postfaktura om du vill ta emot fakturor för fakturerings profilen per e-post. Om du inte väljer kan du Visa och ladda ned fakturorna i Azure Portal.|
+    |Namn     | Ett visningsnamn som gör att du enkelt kan identifiera faktureringsprofilen i Azure-portalen.  |
+    |IO-nummer    | Ett valfritt inköpsordernummer. Inköpsordernumret kommer att visas på de fakturor som genereras för faktureringsprofilen. |
+    |Faktureringsadress   | Faktureringsadressen kommer att visas på de fakturor som genereras för faktureringsprofilen. |
+    |E-postfaktura   | Markera rutan för e-postfaktura om du vill få fakturor för den här faktureringsprofilen via e-post. Om du inte väljer detta kan du visa och ladda ned fakturorna i Azure-portalen.|
 
 5. Välj **Skapa**.
 
-## <a name="link-charges-to-invoice-sections-and-billing-profiles"></a>Länka avgifter till faktura avsnitt och fakturerings profiler
+## <a name="link-charges-to-invoice-sections-and-billing-profiles"></a>Länka avgifter till fakturaavsnitt och faktureringsprofiler
 
-När du har anpassat ditt fakturerings konto baserat på dina behov kan du länka prenumerationer och andra produkter till önskat faktura avsnitt och fakturerings profil.
+När du har anpassat ditt faktureringskonto utefter dina behov kan du länka prenumerationer och andra produkter till det fakturaavsnitt och den faktureringsprofil som du vill använda.
 
 ### <a name="link-a-new-subscription"></a>Länka en ny prenumeration
 
@@ -138,31 +138,31 @@ När du har anpassat ditt fakturerings konto baserat på dina behov kan du länk
 
 2. Sök efter **Prenumerationer**.
 
-   [![skärm bild som visar sökning i portalen för prenumeration](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Välj **Lägg till** längst upp på sidan.
 
    ![Skärm bild som visar knappen Lägg till i prenumerationsvyn](./media/mca-section-invoice/subscription-add.png)
 
-4. Om du har åtkomst till flera fakturerings konton väljer du ditt fakturerings konto för ditt Microsoft-kund avtal.
+4. Om du har åtkomst till flera faktureringskonton väljer du faktureringskontot för ditt Microsoft-kundavtal.
 
    ![Skärm bild som visar knappen Lägg till i prenumerationsvyn](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
-5. Välj den fakturerings profil som ska faktureras för prenumerationens användning. Avgifterna för användning av Azure och andra inköp för den här prenumerationen kommer att faktureras till den valda fakturerings profilens faktura.
+5. Välj den faktureringsprofil som ska faktureras för prenumerationens användning. Avgifterna för Azure-användning och andra inköp för den här prenumerationen kommer att faktureras till den valda faktureringsprofilens faktura.
 
-6. Välj faktura avsnittet om du vill länka prenumerationens kostnader. Avgifterna visas under det här avsnittet på fakturerings profilens faktura.
+6. Välj fakturaavsnittet för att länka prenumerationens kostnader. Avgifterna kommer att visas under det här avsnittet på faktureringsprofilens faktura.
 
-7. Välj en Azure-plan och ange ett eget namn för din prenumeration. 
+7. Välj en Azure-plan och ange ett användarvänligt namn för din prenumeration. 
 
 9. Klicka på **Skapa**.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>Länka befintliga prenumerationer och produkter
 
-Om du har befintliga Azure-prenumerationer eller andra produkter, till exempel Azure Marketplace och käll resurser för appar, kan du flytta dem från deras befintliga faktura avsnitt till ett annat faktura avsnitt för att ordna om dina kostnader. 
+Om du har befintliga Azure-prenumerationer eller andra produkter, till exempel Azure Marketplace och källresurser för appar, kan du flytta dem från deras befintliga fakturaavsnitt till ett annat fakturaavsnitt för att omorganisera dina kostnader. 
 
 > [!IMPORTANT]
 >
-> Prenumerationer och andra produkter kan bara flyttas mellan faktura avsnitt som tillhör samma fakturerings profil. Det går inte att flytta prenumerationer och produkter över faktura avsnitt i olika fakturerings profiler.
+> Prenumerationer och andra produkter kan endast flyttas mellan fakturaavsnitt som tillhör samma faktureringsprofil. Det går inte att flytta prenumerationer och produkter mellan fakturaavsnitt i olika faktureringsprofiler.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -170,67 +170,67 @@ Om du har befintliga Azure-prenumerationer eller andra produkter, till exempel A
 
    ![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/mca-section-invoice/search-cmb.png)
 
-3. Om du vill länka en prenumeration till en ny faktura-sektion väljer du **Azure-prenumerationer** på vänster sida av skärmen. För andra produkter, till exempel Azure Marketplace och käll resurser för appar, väljer du **återkommande avgifter**.
+3. Om du vill länka en prenumeration till ett nytt fakturaavsnitt väljer du **Azure-prenumerationer** på skärmens vänstra sida. För andra produkter såsom Azure Marketplace och källresurser för appar väljer du **Återkommande avgifter**.
 
-   [![skärm bild som visar alternativet att ändra faktura avsnitt](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
+   [![Skärmbild som visar alternativet för att ändra fakturaavsnitt](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
 
-4. På sidan klickar du på ellips (tre punkter) för den prenumeration eller produkt som du vill länka till ett nytt faktura avsnitt. Välj **avsnittet Ändra faktura**.
+4. På sidan klickar du på ellipsen (tre punkter) för den prenumeration eller produkt som du vill länka till ett nytt fakturaavsnitt. Välj **Ändra fakturaavsnitt**.
 
-5. Välj den nya fakturan-avsnittet i list rutan. List rutan visar bara faktura avsnitt som är associerade med samma fakturerings profil som avsnittet befintlig faktura.
+5. Välj det nya fakturaavsnittet i listrutan. Listrutan visar endast fakturaavsnitt som är associerade med samma faktureringsprofil som det befintliga fakturaavsnittet.
 
-    [![skärm bild som visar Välj ett nytt faktura avsnitt](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
+    [![Skärmbild som visar val av ett nytt fakturaavsnitt](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
 
 6. Välj **Spara**.
 
-## <a name="things-to-consider-when-adding-new-billing-profiles"></a>Saker att tänka på när du lägger till nya fakturerings profiler
+## <a name="things-to-consider-when-adding-new-billing-profiles"></a>Saker att tänka på när du lägger till nya faktureringsprofiler
 
-### <a name="azure-usage-charges-may-be-impacted"></a>Avgifter för Azure-användning kan påverkas
+### <a name="azure-usage-charges-may-be-impacted"></a>Azure-användningsavgifter kan påverkas
 
-I ditt fakturerings konto för ett Microsofts kund avtal sammanställs Azure-användningen varje månad för varje fakturerings profil. Priserna för Azure-resurser med skiktat pris bestäms utifrån användningen för varje fakturerings profil separat. Användningen sammanställs inte i fakturerings profilerna när priset beräknas. Detta kan påverka den totala kostnaden för Azure-användning för konton med flera fakturerings profiler.
+I ditt faktureringskonto för ett Microsoft-kundavtal aggregeras Azure-användning varje månad för varje faktureringsprofil. Priserna för Azure-resurser med nivåindelade priser bestäms utifrån användningen för varje faktureringsprofil separat. Användningen aggregeras inte mellan faktureringsprofiler vid beräkning av priset. Detta kan påverka den totala kostnaden för Azure-användning för konton med flera faktureringsprofiler.
 
-Nu ska vi titta på ett exempel på hur kostnaderna varierar i två scenarier. Priserna som används i scenarierna är endast till exempel syfte och representerar inte de faktiska priserna för Azure-tjänster.
+Nu ska vi titta på ett exempel på hur kostnader varierar i två scenarier. De priser som används i scenarierna är endast exempel och representerar inte de faktiska priserna för Azure-tjänster.
 
-#### <a name="you-only-have-one-billing-profile"></a>Du har bara en fakturerings profil.
+#### <a name="you-only-have-one-billing-profile"></a>Du har bara en faktureringsprofil.
 
-Vi antar att du använder Azure Block Blob Storage, som kostar USD. 00184 per GB för de första 50 terabyte (TB) och sedan. 00177 per GB för nästföljande 450 terabyte (TB). Du har använt 100 TB i de prenumerationer som debiteras din fakturerings profil, så hur mycket du skulle debiteras.
+Vi antar att du använder Azure Block Blob Storage, som kostar 0,00184 USD per GB för de första 50 terabyte (TB) och sedan 0,00177 per GB för nästföljande 450 terabyte (TB). Du har använt 100 TB i de prenumerationer som debiteras till din faktureringsprofil. Du debiteras då följande belopp.
 
-|  Pris nivå (USD) |Kvantitet | Belopp (USD)|
+|  Nivåpriser (USD) |Kvantitet | Belopp (USD)|
 |---------|---------|---------|
-|1,84 per TB för den första 50 TB/månad    | 50 TB        | 92,0   |
-|1,77 per TB för nästa 450 TB/månad    |  50 TB         | 88,5   |
+|1,84 per TB för de första 50 TB/månad    | 50 TB        | 92,0   |
+|1,77 per TB för nästföljande 450 TB/månad    |  50 TB         | 88,5   |
 |Totalt     |     100 TB  | 180,5
 
-Det totala antalet avgifter för att använda 100 TB data i det här scenariot är **180,5**
+De totala avgifterna för användning av 100 TB data i det här scenariot är **180,5**
 
-#### <a name="you-have-multiple-billing-profiles"></a>Du har flera fakturerings profiler.
+#### <a name="you-have-multiple-billing-profiles"></a>Du har flera faktureringsprofiler.
 
-Anta nu att du har skapat en annan fakturerings profil och använt 50 GB genom prenumerationer som faktureras till den första fakturerings profilen och 50 GB via prenumerationer som debiteras för den andra fakturerings profilen. här är hur mycket du skulle debiteras.
+Anta nu att du har skapat en till faktureringsprofil och använt 50 GB genom prenumerationer som debiteras till den första faktureringsprofilen och 50 GB via prenumerationer som debiteras till den andra faktureringsprofilen. Du debiteras då följande belopp.
 
 `Charges for the first billing profile`
 
-|  Pris nivå (USD) |Kvantitet | Belopp (USD)|
+|  Nivåpriser (USD) |Kvantitet | Belopp (USD)|
 |---------|---------|---------|
-|1,84 per TB för den första 50 TB/månad    | 50 TB        | 92,0  |
-|1,77 per TB för nästa 450 TB/månad    |  0 TB         | 0.0  |
-|Totalt     |     50 TB  | 92,0 
+|1,84 per TB för de första 50 TB/månad    | 50 TB        | 92,0  |
+|1,77 per TB för nästföljande 450 TB/månad    |  0 TB         | 0.0  |
+|Totalt     |     50 TB  | 92,0 
 
 `Charges for the second billing profile`
 
-|  Pris nivå (USD) |Kvantitet | Belopp (USD)|
+|  Nivåpriser (USD) |Kvantitet | Belopp (USD)|
 |---------|---------|---------|
-|1,84 per TB för den första 50 TB/månad    | 50 TB        | 92,0  |
-|1,77 per TB för nästa 450 TB/månad    |  0 TB         | 0.0  |
-|Totalt     |     50 TB  | 92,0 
+|1,84 per TB för de första 50 TB/månad    | 50 TB        | 92,0  |
+|1,77 per TB för nästföljande 450 TB/månad    |  0 TB         | 0.0  |
+|Totalt     |     50 TB  | 92,0 
 
-Den totala kostnaden för att använda 100 TB data i det här scenariot är **184,0** (92,0 * 2).
+De totala avgifterna för användning av 100 TB data i det här scenariot är **184,0** (92,0 * 2).
 
-### <a name="azure-reservation-benefits-might-not-apply-to-all-subscriptions"></a>Fördelarna med Azure reservation kanske inte gäller för alla prenumerationer
+### <a name="azure-reservation-benefits-might-not-apply-to-all-subscriptions"></a>Förmånerna för Azure-reservationer gäller inte nödvändigtvis för alla prenumerationer
 
-Azure-reservationer med delad omfattning tillämpas på prenumerationer i en enda fakturerings profil och delas inte mellan fakturerings profiler. 
+Azure-reservationer med delat omfång tillämpas på prenumerationer i en enskild faktureringsprofil och delas inte mellan faktureringsprofiler. 
 
-![Informations grafik för reservations program för olika fakturerings konto strukturer](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
+![Informationsgrafik för reservationsprogram för olika faktureringskontostrukturer](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-I bilden ovan har contoso två prenumerationer. Azure reservation-förmånen tillämpas på olika sätt beroende på hur fakturerings kontot är strukturerat. I scenariot till vänster tillämpas reservations förmånen för båda prenumerationerna som debiteras för den tekniska fakturerings profilen. I scenariot till höger kommer reservations förmånen endast att tillämpas på prenumeration 1 eftersom det är den enda prenumerationen som debiteras den tekniska fakturerings profilen. 
+I bilden ovan har Contoso två prenumerationer. Azure-reservationsförmånen tillämpas på olika sätt beroende på hur faktureringskontot är strukturerat. I scenariot till vänster tillämpas reservationsförmånen på båda prenumerationerna som debiteras till teknikavdelningens faktureringsprofil. I scenariot till höger tillämpas reservationsförmånen endast på prenumeration 1 eftersom det är den enda prenumeration som debiteras till teknikavdelningens faktureringsprofil. 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

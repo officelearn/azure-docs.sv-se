@@ -15,10 +15,10 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: e183a622910c7690b566537311661789253efbfb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992730"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
@@ -43,7 +43,7 @@ Genom att utföra åtgärderna som beskrivs i den här självstudien kan du:
 
 ### <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med dina Azure-kontoautentiseringsuppgifter.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med autentiseringsuppgifterna för ditt Azure-konto.
 2. Klicka på knappen **Skapa en resurs** längst upp till vänster i Azure.
 3. Välj **Hanteringsverktyg** > **Automation**.
    > [!NOTE]
@@ -55,7 +55,7 @@ Genom att utföra åtgärderna som beskrivs i den här självstudien kan du:
 
 Du använder en [Azure Automation-runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types) för att importera den grafiska runbooken [Stop Azure v2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) från galleriet.
 
-1.  Logga in på [Azure Portal](https://portal.azure.com/) med dina Azure-kontoautentiseringsuppgifter.
+1.  Logga in på [Azure Portal](https://portal.azure.com/) med autentiseringsuppgifterna för ditt Azure-konto.
 2.  Öppna ditt Automation-konto genom att välja **Alla tjänster** > **Automation-konton**. Välj sedan ditt Automation-konto.
 3.  Klicka på **Runbook-galleri** i avsnittet **Processautomatisering**.
 4.  Välj **Skriptcenter** för **Gallerikälla** och välj sedan **OK**.
@@ -135,7 +135,7 @@ Varje logikapp måste börja med en utlösare som utlöses när en specifik hän
 3.  Välj **Nytt steg** > **Lägg till en åtgärd**.
 
     ![Azure – Nytt steg – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-4.  Sök efter "parsa JSON" i sökrutan i **Logic Apps designer** för att hitta och välja **data åtgärder – parsa JSON-** [åtgärd](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
+4.  Sök efter ”Parsa JSON” i sökrutan i **Logic Apps Designer** och leta upp och välj **åtgärden** [Dataåtgärder – Parsa JSON](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).
 
     ![Azure – Logikapp – Lägg till åtgärden Parsa JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 5.  Ange ”Payload” (nyttolast) som **innehållsnamn** för nyttolasten Parsa JSON eller använd taggen ”Body” (innehåll) från dynamiskt innehåll.

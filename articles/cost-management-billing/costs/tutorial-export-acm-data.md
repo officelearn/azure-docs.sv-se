@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Skapa och hantera exporterade data från Azure Cost Management
-description: Den här artikeln visar hur du kan skapa och hantera exporterade Azure Cost Management data så att du kan använda dem i externa system.
+description: Den här artikeln visar hur du kan skapa en hantera exporterade Azure Cost Management-data så att du kan använda dem i externa system.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -11,28 +11,28 @@ ms.service: cost-management-billing
 manager: jasonh
 ms.custom: seodec18
 ms.openlocfilehash: 76ee5aba0f1d0769e15a5969409dfef2a018e477
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987287"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Självstudie: Skapa och hantera exporterade data
+# <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
 Om du har läst självstudien om kostnadsanalys är du bekant med att manuellt ladda ned Cost Management-data. Du kan dock skapa en återkommande uppgift som automatiskt exporterar Cost Management-data till Azure Storage varje dag, vecka eller månad. Exporterade data är i CSV-format och innehåller all information som samlas in av Cost Management. Du kan sedan använda exporterade data i Azure Storage med externa system och kombinera dem med dina egna anpassade data. Och du kan använda din exporterade data i ett externt system, till exempel en instrumentpanel eller något annat ekonomisystem.
 
-Se [hur du schemalägger export till lagring med Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video om hur du skapar en schemalagd export av dina Azure Cost-data till Azure Storage.
+Titta på videon [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) (Så här schemalägger du exporter till Storage med Azure Cost Management) om hur du skapar en schemalagd export av dina Azure-kostnadsdata till Azure Storage.
 
 Exemplen i den här självstudien vägleder dig genom export av Cost Management-data och kontrollerar sedan att data har exporterats.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en daglig export
 > * Kontrollera att data samlas in
 
 ## <a name="prerequisites"></a>Krav
-Data export är tillgängligt för olika typer av Azure-konton, inklusive [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) och [kund avtals](get-started-partners.md) kunder från Microsoft. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Följande Azure-behörigheter, eller omfattningar, stöds per prenumeration för data export av användare och grupp. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Dataexport är tillgänglig för en mängd olika typer av Azure-konton, exempelvis för kunder med [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) och [Microsoft-kundavtal](get-started-partners.md). Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Följande Azure-behörigheter, eller omfång, stöds per prenumeration för dataexport efter användare och grupp. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
 - Ägare – kan skapa, ändra eller ta bort schemalagda exporter för en prenumeration.
 - Deltagare – kan skapa, ändra eller ta bort sina egna schemalagda exporter. Kan ändra namnet på schemalagda exporter som skapats av andra.
@@ -47,15 +47,15 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
 
-Om du vill skapa eller Visa en data export eller om du vill schemalägga en export öppnar du önskad omfattning i Azure Portal och väljer **kostnads analys** i menyn. Du kan till exempel navigera till **prenumerationer**, välja en prenumeration i listan och sedan välja **kostnads analys** i menyn. Högst upp på sidan Kostnadsanalys väljer du **Exportera** och väljer sedan ett exportalternativ. Välj till exempel **Schemalägg export**.  
+Om du vill skapa eller visa en dataexport, eller om du vill schemalägga en export, öppnar du önskat omfång i Azure-portalen och väljer **Kostnadsanalys** i menyn. Du kan till exempel gå till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Kostnadsanalys** i menyn. Överst på sidan Kostnadsanalys väljer du **Exportera** och väljer sedan ett exportalternativ. Välj till exempel **Schemalägg export**.  
 
 > [!NOTE]
-> - Förutom prenumerationer kan du skapa exporter för resursgrupper, konton, avdelningar och registreringar. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
->- När du är inloggad som en partner i fakturerings kontots omfattning eller på en kunds klient kan du exportera data till ett Azure Storage-konto som är länkat till ditt partner lagrings konto. Du måste dock ha en aktiv prenumeration i din CSP-klient.
+> - Utöver prenumerationer kan du skapa exporter för resursgrupper, konton, avdelningar och registreringar. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
+>- När du är inloggad som partner i faktureringskontots omfång eller i en kunds klientorganisation kan du exportera data till ett Azure Storage-konto som är länkat till ditt partnerlagringskonto. Du måste dock ha en aktiv prenumeration i din CSP-klientorganisation.
 >
 
 
-Välj **Lägg till**, Skriv ett namn för exporten och välj sedan alternativet **daglig export av månad till datum** . Välj **Nästa**.
+Välj **Lägg till**, skriv ett namn för exporten och välj sedan alternativet **Daily export of month-to-date costs** (Daglig export av kostnader hittills under månaden). Välj **Nästa**.
 
 ![Nytt exempel som visar exporttyp](./media/tutorial-export-acm-data/basics_exports.png)
 
@@ -65,22 +65,22 @@ Ange prenumerationen för ditt Azure Storage-konto och välj sedan ditt lagrings
 
 Granska exportinformationen och välj **Skapa**.
 
-Den nya exporten visas i listan över exporter. Som standard är nya exporter aktiverade. Om du vill inaktivera eller ta bort en schemalagd export väljer du ett objekt i listan och väljer antingen **inaktivera** eller **ta bort**.
+Den nya exporten visas i listan över exporter. Som standard är nya exporter aktiverade. Om du vill inaktivera eller ta bort en schemalagd export väljer du valfritt objekt i listan och väljer sedan antingen **Inaktivera** eller **Ta bort**.
 
 Först kan det ta en till två timmar innan exporten körs. Dock kan det ta upp till fyra timmar innan data visas i de exporterade filerna.
 
 ### <a name="export-schedule"></a>Exportera schema
 
-Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten med samma frekvens för varje efterföljande export förekomst. För en månads-till-datum-export uppsättning till exempel en daglig frekvens, körs exporten dagligen. På samma sätt för en veckovis export körs exporten varje vecka samma dag som den är schemalagd. Den exakta leverans tiden för exporten är inte garanterad och exporterade data är tillgängliga inom fyra timmar från körnings tiden. "
+Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten med samma frekvens för varje efterföljande export. För till exempel en månad till datum-export som anges till daglig frekvens körs exporten varje dag. På liknande sätt körs exporten varje vecka för en veckovis export, samma dag som den schemaläggs. Den exakta leveranstiden för exporten är inte garanterad, och exporterade data är tillgängliga inom fyra timmar från körningstiden.
 Varje export skapar en ny fil, vilket betyder att äldre exporter inte skrivs över.
 
-Det finns två typer av export alternativ:
+Det finns två typer av exportalternativ:
 
 **Daglig export av kostnader hittills under månaden** – Den första exporten körs direkt. Efterföljande exporter körs nästa dag vid samma tid som den första exporten. Den senaste informationen sammanställs från tidigare dagliga exporter.
 
 **Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten körs direkt.*
 
-Om du har en PAYG-, MSDN- eller Visual Studio-prenumeration kanske inte din faktureringsperiod är anpassad efter kalendermånaden. För de här prenumerationstyperna och resursgrupperna kan du skapa en export som följer din faktureringsperiod eller kalendermånaderna. Om du vill skapa en export justerad till din faktura månad navigerar du till **anpassad**och väljer sedan **fakturerings period-till-datum**.  Om du vill skapa en export justerad till kalender månaden väljer du **månad-hittills**.
+Om du har en prenumeration av typen Betala per användning, MDSN eller Visual Studio är det inte säkert att faktureringsperioden justeras till kalendermånaden. För dessa typer av prenumerationer och resursgrupper kan du skapa en export som är justerad till din fakturaperiod eller till kalendermånader. Om du vill skapa en export som är justerad till din fakturamånad går du till **Anpassad** och väljer **Billing-period-to-date** (Faktureringsperiod hittills).  Om du vill skapa en export som är justerad till kalendermånaden väljer du **Month-to-date** (Hittills under månaden).
 >
 >
 
@@ -90,7 +90,7 @@ Om du har en PAYG-, MSDN- eller Visual Studio-prenumeration kanske inte din fakt
 
 Du kan enkelt kontrollera att dina Cost Management-data samlas in och visa den exporterade CSV-filen med hjälp av Azure Storage Explorer.
 
-I exportlistan väljer du lagringskontots namn. På sidan lagrings konto väljer du öppna i Utforskaren. Om du ser en bekräftelse ruta väljer du **Ja** för att öppna filen i Azure Storage Explorer.
+I exportlistan väljer du lagringskontots namn. På sidan för lagringskontot väljer du Öppna i Explorer. Om du ser en bekräftelseruta väljer du **Ja** för att öppna filen i Azure Storage Explorer.
 
 ![Lagringskontosidan som visar exempelinformation och länkar till Öppna i Explorer](./media/tutorial-export-acm-data/storage-account-page.png)
 

@@ -7,16 +7,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: 2e8c477aea7a11eefa606ab9cd084ca3ed9f400f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75995655"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76841888"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Med Azure-reservationer kan du spara pengar genom abonnemang på ett år eller tre år med virtuella datorer, Azure Blob Storage eller Azure Data Lake Storage Gen2, SQL-databasberäkningskapacitet, Azure Cosmos DB-dataflöde eller andra Azure-resurser. Åtagande gör att du kan få rabatt på de resurser du använder. Reservationer kan betydlig minska dina resurskostnader med upp till 72 % på Betala per användning-priser. Reservation ger en rabatt och påverkar inte resursernas körningsstatus.
+Med Azure-reservationer kan du spara pengar genom abonnemang på ett år eller tre år med virtuella datorer, Azure Blob Storage eller Azure Data Lake Storage Gen2, SQL-databasberäkningskapacitet, Azure-disklagring, Azure Cosmos DB-dataflöde eller andra Azure-resurser. Åtagande gör att du kan få rabatt på de resurser du använder. Reservationer kan betydlig minska dina resurskostnader med upp till 72 % på Betala per användning-priser. Reservation ger en rabatt och påverkar inte resursernas körningsstatus.
 
 Du kan betala för en reservation i förväg eller månadsvis. Totalbeloppet för reservationer är detsamma oavsett om du betalar i förväg eller per månad. Det tillkommer inte några extra avgifter när du väljer månadsbetalning. Månatlig betalning är tillgänglig för Azure-reservationer, inte produkter från tredje part.
 
@@ -32,15 +32,15 @@ Tjänstplaner:
 
 - **Reserverad VM-instans** – en reservation omfattar bara den virtuella datorns beräkningskostnader. Den omfattar inte avgifter för ytterligare programvara, nätverk eller lagring.
 - **Reserverad kapacitet i Azure Storage** – En reservation omfattar lagringskapacitet för standardlagringskonton för blob-lagring eller Azure Data Lake Gen2-lagring. Reservationen omfattar inte bandbredds- eller transaktionsavgifter.
+- **Azure-disklagringsreservationer** – en reservation täcker endast Premium-SSD med storleken P30 eller större. Den omfattar inte andra disktyper eller storlekar som är mindre än P30.
 - **Reserverad Azure Cosmos DB-kapacitet** – en reservation omfattar det dataflöde som allokeras för dina resurser. Den omfattar inte avgifter för lagring och nätverk.
 - **SQL Database-reserverad v-kärna** – endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
 - **SQL Data Warehouse** – en reservation omfattar cDWU-användning. En reservation omfattar inte lagrings- eller nätverksavgifter som är kopplade till SQL Data Warehouse-användningen.
 - **App Service-stämpelavgift** – en reservation omfattar stämpelanvändning. Den gäller inte för arbeten, och därför debiteras andra resurser som är kopplade till stämpeln separat.
-- Azure-databas för MySQL
-- Azure-databas för PostgreSQL
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
 - Azure-databas för MariaDB
-- Datautforskaren i Azure
-- Premium SSD Managed Disks
+- Azure-datautforskaren
 
 
 För virtuella Windows-datorer och SQL Database kan du täcka licenskostnaderna med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -63,7 +63,7 @@ Med omfångsanpassning av en reservation för resursgrupp har du tre alternativ 
 
 - **Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.
 - **Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.
-- **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är registreringen faktureringskontext. För kunder med Microsoft-kundavtal är faktureringsomfånget samma som faktureringsprofilen. För enskilda prenumerationer med Betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.
+- **Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För Enterprise-avtalskunder är det registreringen som är faktureringskontext. För kunder med Microsoft-kundavtal är faktureringsomfånget samma som faktureringsprofilen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.
 
 När Azure tillämpar reservationsrabatter för din användning bearbetas reservationen i följande ordning:
 
@@ -105,9 +105,9 @@ Ett reservationsomfång uppdateras inte automatiskt om du flyttar resursgruppen 
 
 Reservationsrabatter gäller för följande berättigade prenumerationer och erbjudandetyper.
 
-- Enterprise Agreement (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P)
+- Enterprise-avtal (erbjudandenummer: MS-AZR-0017P eller MS-AZR-0148P)
 - MCA-prenumerationer (Microsoft-kundavtal).
-- Enskilda planer med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P)
+- Enskilda prenumerationsavtal med priser enligt principen betala per användning (erbjudandenummer: MS-AZR-0003P eller MS-AZR-0023P)
 - CSP-prenumerationer
 
 Resurser som körs i en prenumeration med andra erbjudandetyper får inte reservationsrabatten.
@@ -122,7 +122,7 @@ Reservationsrabatten gäller för resursanvändning som matchar de attribut som 
 
 Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget *försvinner* de reserverade timmarna.
+När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
 Du kan till exempel skapa en resurs senare och ha en matchande reservation som underutnyttjas. Reservationsrabatten gäller automatiskt för den nya matchande resursen.
 
@@ -140,10 +140,10 @@ När du köper en reservation kan rabatten tillämpas på andra instanser med at
 
 Tjänstplaner:
 
-- Reserverade VM-instanser: när du köper reservationen och väljer **optimerad för flexibilitet för instans storlek**beror rabatt täckningen på storleken på den virtuella dator som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i seriegrupp med samma storlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- Azure Storage reserverad kapacitet: du kan köpa reserverad kapacitet för standard Azure Storage-konton i enheter om 100 TiB eller 1 PiB per månad. Reserverad kapacitet i Azure Storage är tillgänglig i alla regioner för alla åtkomstnivåer (frekvent, lågfrekvent eller arkiv) och för alla replikeringsalternativ (LRS, GRS eller ZRS).
-- SQL Database reserverad kapacitet: rabatt täckningen beror på vilken prestanda nivå du väljer. Mer information finns i artikeln om [hur en Azure-reservationsrabatt tillämpas](understand-reservation-charges.md).
-- Azure Cosmos DB reserverad kapacitet: rabatt täckningen beror på det etablerade data flödet. Mer information finns i artikeln om [hur en Azure Cosmos DB-reservationsrabatt tillämpas](understand-cosmosdb-reservation-charges.md).
+- Reserverade VM-instanser: När du köper reservationen och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i seriegrupp med samma storlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserverad kapacitet i Azure Storage: Du kan köpa reserverad kapacitet för Azure Storage-standardkonton på 100 TiB eller 1 PiB per månad. Reserverad kapacitet i Azure Storage är tillgänglig i alla regioner för alla åtkomstnivåer (frekvent, lågfrekvent eller arkiv) och för alla replikeringsalternativ (LRS, GRS eller ZRS).
+- Reserverad SQL Database-kapacitet: Rabattens täckning beror på vilken prestandanivå du väljer. Mer information finns i artikeln om [hur en Azure-reservationsrabatt tillämpas](understand-reservation-charges.md).
+- Reserverad Azure Cosmos DB-kapacitet: Rabattens täckning beror på det etablerade dataflödet. Mer information finns i artikeln om [hur en Azure Cosmos DB-reservationsrabatt tillämpas](understand-cosmosdb-reservation-charges.md).
 
 ## <a name="reservation-notifications"></a>Reservationsmeddelanden
 

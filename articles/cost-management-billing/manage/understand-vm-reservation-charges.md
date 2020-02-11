@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76290248"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Så tillämpas rabatten för Azure-reservation på virtuella datorer
@@ -39,7 +39,7 @@ I följande tabell visas kostnaderna för din virtuella dator efter att du har k
 
 Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
-När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget *försvinner* de reserverade timmarna.
+När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 
 ## <a name="reservation-discount-for-non-windows-vms"></a>Reservationsrabatt för virtuella datorer som inte baseras på Windows
 
@@ -47,7 +47,7 @@ När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en an
 
 ![Skärmbild av en tillämpad reservation och två matchande VM-instanser](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. All användning som är ovanför reservationslinjen debiteras enligt de vanliga Betala per användning-priserna. Du debiteras inte för någon användning under reservations raden eftersom den redan har betalats som en del av reservations köpet.
+1. All användning som är ovanför reservationslinjen debiteras enligt de vanliga Betala per användning-priserna. Du debiteras inte för användning under reservationslinjen eftersom den redan har betalats som en del av reservationsköpet.
 2. Under timme 1 körs instans 1 i 0,75 timmar och instans 2 körs i 0,5 timmar. Total användning för timme 1 är 1,25 timmar. Du debiteras Betala per användning-priser för de återstående 0,25 timmarna.
 3. För timme 2 och timme 3 kördes båda instanserna 1 timme vardera. Den ena instansen omfattas av reservationen och den andra debiteras enligt Betala per användning-priserna.
 4. För timme 4 körs instans 1 i 0,5 timmar och instans 2 körs i 1 timme. Instans 1 omfattas helt av reservationen och 0,5 timmar av instans 2 omfattas. Du debiteras Betala per användning-priser för de återstående 0,5 timmarna.
@@ -76,8 +76,8 @@ Inställningen för flexibel instansstorlek avgör vilka tjänster som får raba
 
 Oavsett om inställningen är på eller av tillämpas reservationsrabatter automatiskt på matchande VM-användning när *ConsumedService* är `Microsoft.Compute`. Kontrollera därför dina användningsdata med avseende på värdet för *ConsumedService*. Några exempel är:
 
-- Virtuella maskiner
-- VM-skalningsuppsättningar
+- Virtuella datorer
+- Skalningsuppsättningar för virtuella datorer
 - Containertjänst
 - Azure Batch-distributioner (i användarprenumerationsläge)
 - Azure Kubernetes Service (AKS)

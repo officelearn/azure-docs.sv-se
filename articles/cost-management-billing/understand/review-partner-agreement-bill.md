@@ -1,6 +1,6 @@
 ---
-title: Granska ditt Microsoft partner avtals faktura – Azure
-description: Lär dig hur du granskar din fakturerings-och resursanvändning och hur du kontrollerar debiteringar för din prenumeration på Microsoft partner avtal.
+title: Granska fakturan för ditt Microsoft-partneravtal – Azure
+description: Lär dig hur du granskar fakturan och resursanvändningen och kontrollerar avgifterna för fakturan för ditt Microsoft-partneravtal.
 author: jureid
 manager: jureid
 tags: billing
@@ -12,32 +12,32 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: banders
 ms.openlocfilehash: e3823a9eb2e0713f7f42e4e02808ef957efc5944
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990845"
 ---
-# <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Självstudie: granska din Microsoft partner Agreement-faktura
+# <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Självstudier: Granska fakturan för ditt Microsoft-partneravtal
 
- I faktureringskontot för ett Microsoft-partneravtal genereras en faktura varje månad för varje faktureringsprofil. Fakturan innehåller alla kundavgifter från föregående månad. Du kan få bättre förståelse för avgifterna på din faktura genom att analysera de enskilda transaktionerna i Azure-portalen. Du kan också visa dina fakturor i Azure Portal och jämföra avgifterna med användnings detalj filen.
+ I faktureringskontot för ett Microsoft-partneravtal genereras en faktura varje månad för varje faktureringsprofil. Fakturan innehåller alla kundavgifter från föregående månad. Du kan få bättre förståelse för avgifterna på din faktura genom att analysera de enskilda transaktionerna i Azure-portalen. Du kan också visa dina fakturor i Azure-portalen och jämföra avgifterna med filen med användningsinformation.
 
 Du kan läsa mer i [Ladda ned fakturor från Azure-portalen](download-azure-invoice.md).
 
-Den här självstudien gäller endast för Azure-partner med ett Microsoft partner avtal.
+Den här självstudien gäller endast för Azure-partner som har ett Microsoft-partneravtal.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Granska fakturerade transaktioner i Azure Portal
+> * Granska fakturerade transaktioner i Azure-portalen
 > * Granska väntande avgifter så att du kan göra en uppskattning av nästa faktura
 > * Analysera avgifterna för din Azure-användning
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha åtkomst till ett fakturerings konto för ett Microsoft-partner avtal.
+Du måste ha åtkomst till ett faktureringskonto för ett Microsoft-partneravtal.
 
-Det måste vara mer än 30 dagar från den dag som du prenumererar på Azure. Azure debiterar dig i slutet av din fakturaperiod.
+Det måste ha gått mer än 30 dagar sedan du började prenumerera på Azure. Azure debiterar dig i slutet av din fakturaperiod.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -47,21 +47,21 @@ Det måste vara mer än 30 dagar från den dag som du prenumererar på Azure. Az
 
 Kontrollera avtalstypen för att avgöra om du har åtkomst till ett faktureringskonto för ett Microsoft-partneravtal.
 
-I Azure Portal skriver du *Cost Management + debitering* i rutan Sök och väljer sedan **Cost Management + fakturering**.
+I Azure-portalen skriver du *kostnadshantering + fakturering* i sökrutan och väljer sedan **Kostnadshantering + fakturering**.
 
 ![Skärmbild som visar en sökning i Azure-portalen](./media/review-partner-agreement-bill/billing-search-cost-management-billing.png)
 
 Om du bara har åtkomst till ett faktureringsomfång väljer du **Egenskaper** till vänster. Du har åtkomst till ett faktureringskonto för ett Microsoft-partneravtal om faktureringskontotypen är **Microsoft-partneravtal**.
 
-![Skärm bild som visar Microsoft partner Agreement på sidan Egenskaper](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
+![Skärmbild som visar Microsoft-partneravtal på egenskapssidan](./media/review-partner-agreement-bill/billing-account-properties-partner-agreement.png)
 
 Om du har åtkomst till flera faktureringsomfång kontrollerar du typen i kolumnen Faktureringskonto. Du har åtkomst till ett faktureringskonto för ett Microsoft-partneravtal om faktureringskontotypen för något av omfången är **Microsoft-partneravtal**.
 
-![Skärm bild som visar Microsoft partner Agreement på sidan för debiterings konto lista](./media/review-partner-agreement-bill/mpa-in-the-list.png)
+![Skärmbild som visar Microsoft-partneravtal i listan med faktureringskonton](./media/review-partner-agreement-bill/mpa-in-the-list.png)
 
-## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Granska fakturerade transaktioner i Azure Portal
+## <a name="review-invoiced-transactions-in-the-azure-portal"></a>Granska fakturerade transaktioner i Azure-portalen
 
-I Cost Management + fakturering väljer du **alla transaktioner** på sidans vänstra sida. Beroende på din åtkomst kan du behöva välja ett faktureringskonto, en faktureringsprofil eller en kund och sedan välja **Alla transaktioner**.
+I Kostnadshantering + fakturering väljer du **Alla transaktioner** till vänster på sidan. Beroende på din åtkomst kan du behöva välja ett faktureringskonto, en faktureringsprofil eller en kund och sedan välja **Alla transaktioner**.
 
 På sidan Alla transaktioner visas följande information:
 
@@ -73,11 +73,11 @@ På sidan Alla transaktioner visas följande information:
 |Faktura-ID     | ID:t för fakturan som transaktionen debiterats till. Om du skickar en supportbegäran kan du uppge ID:t för Azure-supporten för att påskynda ärendet |
 |Transaktionstyp     |  Transaktionstypen, till exempel inköp, uppsägning eller användning  |
 |Produktfamilj     | Produktkategorin, till exempel beräkning för virtuella datorer eller databas för Azure SQL-databaser|
-|Produkt SDKU     | En unik kod som identifierar instansen av produkten |
-|Mängd     |  Transaktionsbeloppet      |
+|Produkt-SKU     | En unik kod som identifierar instansen av produkten |
+|Belopp     |  Transaktionsbeloppet      |
 |Faktureringsprofil     | Transaktionen visas på den här faktureringsprofilens faktura |
 
-Sök efter ett faktura-ID för att filtrera transaktionerna för fakturan.
+Sök efter faktura-ID:t om du vill filtrera ut fakturans transaktioner.
 
 ## <a name="review-pending-charges-to-estimate-your-next-invoice"></a>Granska väntande avgifter så att du kan göra en uppskattning av nästa faktura
 
@@ -87,7 +87,7 @@ Avgifterna är uppskattningar och betraktas som väntande tills de faktureras. D
 
 När du identifierar väntande avgifter kan du få bättre förståelse för kostnaderna genom att analysera de enskilda transaktioner som har bidragit till avgifterna. För närvarande visas inte väntande användningsavgifter på sidan Alla transaktioner. Du kan visa väntande användningsavgifter på sidan för Azure-prenumerationen.
 
-I Cost Management + fakturering väljer du en fakturerings profil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Från faktureringskontot väljer du **Faktureringsprofiler** och sedan en faktureringsprofil.
+I Kostnadshantering + fakturering väljer du en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Från faktureringskontot väljer du **Faktureringsprofiler** och sedan en faktureringsprofil.
 
 Välj **Alla transaktioner** till vänster på sidan.
 
@@ -97,7 +97,7 @@ Sök efter *väntande*. Använd filtret **Tidsintervall** till att visa väntand
 
 ### <a name="view-pending-charges-by-customer"></a>Visa väntande avgifter per kund
 
-I Cost Management + fakturering väljer du en fakturerings profil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Från faktureringskontot väljer du **Faktureringsprofiler** och sedan en faktureringsprofil.
+I Kostnadshantering + fakturering väljer du en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Från faktureringskontot väljer du **Faktureringsprofiler** och sedan en faktureringsprofil.
 
 Välj **Kunder** till vänster på sidan.
 
@@ -107,7 +107,7 @@ På sidan Kunder ser du den aktuella månadens och föregående månads avgifter
 
 ### <a name="view-pending-usage-charges"></a>Visa väntande användningsavgifter
 
-I Cost Management + fakturering väljer du en fakturerings profil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Från faktureringskontot väljer du **Faktureringsprofiler** och sedan en faktureringsprofil.
+I Kostnadshantering + fakturering väljer du en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto. Från faktureringskontot väljer du **Faktureringsprofiler** och sedan en faktureringsprofil.
 
 Välj **Azure-prenumerationer** till vänster på sidan. På sidan för Azure-prenumerationen ser du den aktuella månadens och föregående månads avgifter för respektive prenumeration i faktureringsprofilen. Avgifterna hittills under månaden är de väntande avgifterna för den aktuella månaden som debiteras när månadens faktura skapas. Om fakturan för föregående månad fortfarande inte har skapats så är föregående månads avgifter också väntande.
 
@@ -130,11 +130,11 @@ Om du redan har betalat din faktura kan du kontrollera betalningens status på f
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Granska fakturerade transaktioner i Azure Portal
+> * Granska fakturerade transaktioner i Azure-portalen
 > * Granska väntande avgifter så att du kan göra en uppskattning av nästa faktura
 > * Analysera avgifterna för din Azure-användning
 
-Lär dig mer om att använda Azure Cost Management för partner.
+Lär dig mer om hur du använder Azure Cost Management för partner.
 
 > [!div class="nextstepaction"]
 > [Kom igång med Azure Cost Management för partner](../costs/get-started-partners.md)

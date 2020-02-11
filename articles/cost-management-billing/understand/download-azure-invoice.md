@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987829"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
@@ -54,13 +54,13 @@ Det kan finnas flera orsaker till att den inte visas:
 1. Sök efter *Kostnadshantering + fakturering*.
 1. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil.
 1. Välj **Fakturor** under **Fakturering** i den vänstra menyn.
-1. Leta rätt på raden med fakturan du vill ladda ned i rutnätet.
+1. I fakturarutnätet letar du upp raden för den faktura som du vill ladda ned.
 1. Klicka på nedladdningsikonen eller ellipsen (`...`) i slutet av raden.
 1. Välj **Faktura** från nedladdningsmenyn.
 
 Mer information om din faktura finns i [Förstå fakturan för Microsoft Azure](review-individual-bill.md). Om du behöver hjälp med att hantera dina kostnader kan du läsa [Förhindra oväntade kostnader med Azure-fakturering och kostnadshantering](../manage/getting-started.md).
 
-## <a name="get-your-subscriptions-invoices-in-email"></a>Få prenumerationens fakturor via e-post
+## <a name="get-your-subscriptions-invoices-in-email"></a>Få fakturor för din prenumeration via e-post
 
 Du kan välja och konfigurera ytterligare mottagare som ska få din Azure-faktura via e-post. Den här funktionen är kanske inte tillgänglig för vissa prenumerationer såsom supporterbjudanden, Enterprise-avtal eller Azure i Open.
 
@@ -87,7 +87,7 @@ Om du vill avanmäla dig från att få fakturor via e-post följer du föregåen
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Få fakturor för Microsoft-kundavtal via e-post
 
-Om du har ett fakturerings konto för Microsofts kund avtal kan du välja att få din faktura i ett e-postmeddelande. Alla användare med rollen ägare, deltagare, läsare eller faktura hanterare på en fakturerings profil får sin faktura i e-post. 
+Om du har ett faktureringskonto för Microsoft-kundavtal kan du anmäla dig för att få dina fakturor via e-post. Alla användare med rollen ägare, deltagare, läsare eller fakturaansvarig i en faktureringsprofil får rollens faktura via e-post. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -95,25 +95,25 @@ Om du har ett fakturerings konto för Microsofts kund avtal kan du välja att f�
 
    ![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/download-azure-invoice/search-cmb.png)
 
-1. Välj **fakturerings profiler** från vänster sida. I listan fakturerings profiler väljer du en fakturerings profil för att få fakturorna i e-postmeddelandet.
+1. Välj **Faktureringsprofiler** till vänster. I listan med faktureringsprofiler väljer du en faktureringsprofil för att få dess fakturor via e-post.
 
-   [![skärm bild som visar listan över fakturerings profiler](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-1. Välj **Egenskaper** från vänster sida och välj sedan **Inställningar för uppdatera e-postfaktura**.
+1. Välj **Egenskaper** på vänster sida och välj sedan **Uppdatera inställningar för e-faktura**.
 
-   [![skärm bild som visar listan över fakturerings profiler](./media/download-azure-invoice/mca-select-update-email-preferences.png)](./media/download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/mca-select-update-email-preferences.png)](./media/download-azure-invoice/mca-select-update-email-preferences.png#lightbox)
 
-1. Välj **opt in** och klicka sedan på **Uppdatera**.
+1. Välj **Anmäl dig** och klicka sedan på **Uppdatera**.
 
-   [![skärm bild som visar listan över fakturerings profiler](./media/download-azure-invoice/mca-select-email-opt-in.png)](./media/download-azure-invoice/mca-select-email-opt-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/mca-select-email-opt-in.png)](./media/download-azure-invoice/mca-select-email-opt-in.png#lightbox)
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Avanmäla sig från att få fakturor för Microsoft-kundavtal via e-post
 
-Om du vill välja att inte få fakturan via e-post följer du stegen ovan och klickar på ta **bort**. Alla användare med rollen ägare, deltagare, läsare eller faktura hanterare avregistreras från e-post. 
+Om du vill avanmäla dig från att få fakturor via e-post följer du föregående steg och klickar på **Avanmäl**. Alla användare med rollen ägare, deltagare, läsare eller fakturaansvarig avanmäls från att få fakturan via e-post. 
 
-## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Ge andra till gång till dina kund avtals fakturor från Microsoft
+## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Ge andra åtkomst till dina Microsoft-kundavtalsfakturor
 
-Du kan ge andra åtkomst till att visa, ladda ned och betala fakturor genom att tilldela dem rollen som faktura hanterare för en fakturerings profil. Om du har valt att hämta din faktura via e-post får dessa användare även fakturorna i e-post. 
+Du kan ge andra åtkomst att visa, ladda ned och betala fakturor genom att tilldela dem rollen som fakturaansvarig för en faktureringsprofil. Om du har anmält dig för att få din faktura via e-post får dessa användare också fakturorna via e-post. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -121,17 +121,17 @@ Du kan ge andra åtkomst till att visa, ladda ned och betala fakturor genom att 
 
    ![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/download-azure-invoice/search-cmb.png)
 
-1. Välj **fakturerings profiler** från vänster sida. I listan fakturerings profiler väljer du en fakturerings profil för vilken du vill tilldela en rollen som faktura hanterare.
+1. Välj **Faktureringsprofiler** till vänster. I listan med faktureringsprofiler väljer du en faktureringsprofil som du vill tilldela en roll som fakturaansvarig för.
 
-   [![skärm bild som visar listan över fakturerings profiler](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Skärmbild som visar en lista över faktureringsprofiler](./media/download-azure-invoice/mca-select-profile.png)](./media/download-azure-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
-1. Välj **Access Control (IAM)** från vänster sida och välj sedan **Lägg till** överst på sidan.
+1. Välj **Åtkomstkontroll (IAM)** på vänster sida och välj sedan **Lägg till** överst på sidan.
 
-   [![skärm bild som visar sidan åtkomst kontroll](./media/download-azure-invoice/mca-select-access-control.png)](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
+   [![Skärmbild som visar sidan för åtkomstkontroll](./media/download-azure-invoice/mca-select-access-control.png)](./media/download-azure-invoice/mca-select-access-control-zoomed-in.png#lightbox)
 
-1. Välj **faktura hanteraren**i list rutan roll. Ange e-postadressen för den användare som du vill ge åtkomst till. Välj **Spara** för att tilldela rollen.
+1. I listrutan Roll väljer du **Fakturaansvarig**. Ange e-postadressen för den användare som du vill ge åtkomst till. Välj **Spara** för att tilldela rollen.
 
-   [![skärm bild som visar hur du lägger till en användare som en faktura hanterare](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
+   [![Skärmbild som visar tillägg av en användare som fakturaansvarig](./media/download-azure-invoice/mca-added-invoice-manager.png)](./media/download-azure-invoice/mca-added-invoice-manager.png#lightbox)
 
 ## <a name="check-your-billing-account-type"></a>Kontrollera typen av faktureringskonto
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

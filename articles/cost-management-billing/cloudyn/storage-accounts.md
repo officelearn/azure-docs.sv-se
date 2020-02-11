@@ -1,71 +1,70 @@
 ---
 title: Konfigurera lagringskonton för Cloudyn i Azure | Microsoft Docs
-description: Den här artikeln beskrivs hur du konfigurerar Azure storage-konton och AWS storage buckets för Cloudyn.
-services: cost-management
+description: I den här artikeln beskrivs hur du konfigurerar Azure Storage-konton och AWS-lagringsbucketar för Cloudyn.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 2a8f3645dcf2987d0c0a204e7e8a86cd6d718e47
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994875"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769962"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Konfigurera lagringskonton för Cloudyn
 
 <!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
-Du kan spara Cloudyn-rapporter i Cloudyn-portalen, Azure storage eller AWS storage buckets. Det är kostnadsfritt att spara dina rapporter på Cloudyn-portalen. Men spara dina rapporter till din molntjänstleverantör lagring är valfritt och tillkommer ytterligare kostnader. Den här artikeln hjälper dig att konfigurera Azure storage-konton och Amazon Web Services (AWS) lagring buckets för att lagra dina rapporter.
+Du kan spara Cloudyn-rapporter i Cloudyn-portalen, Azure Storage eller AWS-lagringsbucketar. Det kostar inget att spara rapporterna i Cloudyn-portalen. Men att spara rapporter till molntjänstleverantörens lagring är valfritt och medför ytterligare kostnader. Den här artikeln hjälper dig att konfigurera Azure Storage-konton och AWS-lagringsbucketar (Amazon Web Services) för att lagra dina rapporter.
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha ett Azure storage-konto eller en Amazon storage bucket.
+Du måste ha antingen ett Azure Storage-konto eller en AWS-lagringsbucket.
 
-Om du inte har ett Azure storage-konto kan behöva du skapa en. Mer information om hur du skapar ett Azure storage-konto finns i [skapa ett lagringskonto](../../storage/common/storage-account-create.md).
+Om du inte har ett Azure Storage-konto måste du skapa ett. Mer information om hur du skapar ett Azure Storage-konto finns i [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
 
-Om du inte har en AWS bucket för enkel service (S3), måste du skapa en. Läs mer om hur du skapar en S3-bucket [skapa en Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
+Om du inte har en S3-bucket (AWS Simple Storage Service) måste du skapa en. Mer information om hur du skapar en S3-bucket finns i [Skapa en bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 
-## <a name="configure-your-azure-storage-account"></a>Konfigurera ditt Azure storage-konto
+## <a name="configure-your-azure-storage-account"></a>Konfigurera ditt Azure Storage-konto
 
-Konfigurerar du är Azure storage för användning av Cloudyn enkelt. Samla in information om storage-konto och kopiera dem i Cloudyn-portalen.
+Det är enkelt att konfigurera Azure Storage för användning i Cloudyn. Samla information om lagringskontot och kopiera den i Cloudyn-portalen.
 
 1. Logga in på Azure Portal på https://portal.azure.com.
-2. Klicka på **alla tjänster**väljer **lagringskonton**, bläddra till det lagringskonto som du vill använda och välj sedan kontot.
-3. På sidan med storage-konto under **inställningar**, klickar du på **åtkomstnycklar**.
-4. Kopiera din **lagringskontonamn** och **anslutningssträngen** under key1.  
-   ![Kopiera storage-konto namn och anslutningssträng](./media/storage-accounts/azure-storage-access-keys.png)  
+2. Klicka på **Alla tjänster**, välj **Lagringskonton**, rulla till lagringskontot du vill använda och välj kontot.
+3. På sidan för lagringskontot går du till **Inställningar** och klickar på **Åtkomstnycklar**.
+4. Kopiera ditt **lagringskontonamn** och din **anslutningssträng** under key1.  
+   ![Kopiera lagringskontonamnet och anslutningssträngen](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
-6. Klicka på kugghjulet för symbolen och välj sedan **rapporter lagringshantering**.
-7. Klicka på **Lägg till ny +** och se till att Microsoft Azure har valts. Klistra in namnet på ditt Azure storage-konto i den **namn** området. Klistra in din **anslutningssträngen** i området för motsvarande. Ange ett namn på behållare och klicka sedan på **spara**.  
-   ![Klistra in Azure storage-konto som namn och anslutningssträng i Lägg till en ny rapport storage ruta](./media/storage-accounts/azure-cloudyn-storage.png)
+6. Klicka på kugghjulssymbolen och välj sedan **Hantering av lagringsrapporter**.
+7. Klicka på **Lägg till ny +** och se till att Microsoft Azure är markerat. Klistra in namnet på ditt Azure Storage-konto i området **Namn**. Klistra in **anslutningssträngen** i motsvarande område. Ange ett containernamn och klicka sedan på **Spara**.  
+   ![Klistra in Azure Storage-kontonamnet och anslutningssträngen i rutan Lägg till en ny rapportlagring](./media/storage-accounts/azure-cloudyn-storage.png)
 
-   Inmatningen för lagring av nya Azure-rapport visas i listan över storage-konto.  
-    ![Ny rapport Azure storage-post i listan](./media/storage-accounts/azure-storage-entry.png)
+   Din nya Azure-rapportlagringspost visas i listan med lagringskonton.  
+    ![Ny Azure-rapportlagringspost i listan](./media/storage-accounts/azure-storage-entry.png)
 
 
-Du kan nu spara rapporter till Azure storage. I en rapport klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Namnge rapporten och lägga till din egen URL eller använder automatiskt skapade URL: en. Välj **spara i storage** och välj sedan lagringskontot. Ange ett prefix som kommer att läggas till filnamnet för rapporten. Välj CSV eller JSON-filformat och sedan spara rapporten.
+Nu kan du spara rapporter i Azure Storage. Klicka på **Actions** (Åtgärder) och välj sedan **Schedule report** (Schemalägg rapport). Ge rapporten ett namn och lägg sedan till din egen URL eller använd den URL som skapats automatiskt. Välj **Save to storage** (Spara till lagring) och välj sedan lagringskontot. Ange ett prefix som läggs till i rapportfilnamnet. Välj antingen CSV- eller JSON-filformat och spara sedan rapporten.
 
-## <a name="configure-an-aws-storage-bucket"></a>Konfigurera en bucket för AWS-lagring
+## <a name="configure-an-aws-storage-bucket"></a>Konfigurera en AWS-lagringsbucket
 
-Innehåller Cloudyn använder befintliga AWS-autentiseringsuppgifter: användaren eller rollen, för att spara rapporterna till din bucket. Om du vill testa åtkomsten Cloudyn försöker spara en liten textfil i bucketen med filnamnet _Kontrollera-bucket-permission.txt_.
+Cloudyn använder befintliga AWS-autentiseringsuppgifter: Användare eller roll, för att spara rapporterna i din bucket. För att testa åtkomsten försöker Cloudyn spara en liten textfil med filnamnet _check-bucket-permission.txt_ i bucketen.
 
-Du anger den Cloudyn roll eller en användare med behörigheten PutObject till din bucket. Sedan kan använda en befintlig bucket eller skapa en ny om du vill spara rapporter. Slutligen kan bestämma hur du hanterar lagring-klassen, ange livscykel regler eller ta bort onödiga filer.
+Du anger Cloudyn-rollen eller Cloudyn-användaren med PutObject-behörighet till din bucket. Sedan använder du en befintlig bucket eller skapar en ny för att spara rapporter. Bestäm slutligen hur du vill hantera lagringsklassen, ange livscykelregler eller ta bort onödiga filer.
 
-###  <a name="assign-permissions-to-your-aws-user-or-role"></a>Tilldela behörigheter till din AWS-användare eller roll
+###  <a name="assign-permissions-to-your-aws-user-or-role"></a>Tilldela behörigheter till din AWS-användare eller AWS-roll
 
-När du skapar en ny princip kan ange du de exakta behörigheter som behövs för att spara en rapport till en S3-bucket.
+När du skapar en ny princip anger du de exakta behörigheter som krävs för att spara en rapport i en S3-bucket.
 
-1. Logga in på AWS-konsolen och välj **Services**.
-2. Välj **IAM** från listan över tjänster.
-3. Välj **principer** på vänster sida av konsolen och klicka sedan på **skapa princip**.
-4. Klicka på den **JSON** fliken.
-5. Följande princip kan du spara en rapport till en S3-bucket. Kopiera och klistra in följande princip exempel till **JSON** -fliken. Ersätt &lt;bucketname&gt; med ditt Bucket-namn.
+1. Logga in på AWS-konsolen och välj **Services** (Tjänster).
+2. Välj **IAM** i listan över tjänster.
+3. Välj **Policies** (Principer) till vänster i konsolen och klicka sedan på **Create Policy** (Skapa princip).
+4. Klicka på fliken **JSON**.
+5. Med följande princip kan du spara en rapport i en S3-bucket. Kopiera och klistra in följande principexempel på fliken **JSON**. Ersätt &lt;bucketname&gt; med ditt bucketnamn.
 
    ```json
    {
@@ -85,42 +84,42 @@ När du skapar en ny princip kan ange du de exakta behörigheter som behövs fö
    }
    ```
 
-6. Klicka på **granska princip**.  
+6. Klicka på **Review policy** (Granska princip).  
     ![AWS JSON-princip som visar exempelinformation](./media/storage-accounts/aws-policy.png)  
-7. Ange ett namn för principen på sidan Granska princip. Till exempel _CloudynSaveReport2S3_.
-8. Klicka på **skapa princip**.
+7. På sidan Review policy (Granska princip) anger du ett namn för principen. Till exempel _CloudynSaveReport2S3_.
+8. Klicka på **Create policy** (Skapa princip).
 
-### <a name="attach-the-policy-to-a-cloudyn-role-or-user-in-your-account"></a>Koppla principen till en Cloudyn roll eller användare i ditt konto
+### <a name="attach-the-policy-to-a-cloudyn-role-or-user-in-your-account"></a>Koppla principen till en Cloudyn-roll eller Cloudyn-användare i ditt konto
 
-Lägg till den nya principen genom att öppna AWS-konsolen och redigera på Cloudyn-rollen eller användare.
+Om du vill koppla den nya principen öppnar du AWS-konsolen och redigerar Cloudyn-rollen eller Cloudyn-användaren.
 
-1. Logga in på AWS-konsolen och välj **Services**och välj sedan **IAM** från listan över tjänster.
-2. Välj antingen **roller** eller **användare** från vänster sida av konsolen.
+1. Logga in på AWS-konsolen och välj **Services** (Tjänster). Välj sedan **IAM** i listan med tjänster.
+2. Välj antingen **Roles** (Roller) eller **Users** (Användare) till vänster i konsolen.
 
 **För roller:**
 
-  1. Klicka på ditt Cloudyn-rollnamn.
-  2. På den **behörigheter** fliken **bifoga princip**.
-  3. Sök efter den princip som du skapade och markera den och sedan klicka på **bifoga princip**.
-    ![Exempel på princip kopplad till din Cloudyn-roll](./media/storage-accounts/aws-attach-policy-role.png)
+  1. Klicka på namnet på Cloudyn-rollen.
+  2. På fliken **Permissions** (Behörigheter) klickar du på **Attach Policy** (Koppla princip).
+  3. Sök efter principen som du skapade, markera den och klicka sedan på **Attach Policy** (Koppla princip).
+    ![Exempelprincip som är kopplad till din Cloudyn-roll](./media/storage-accounts/aws-attach-policy-role.png)
 
 **För användare:**
 
-1. Välj den Cloudyn-användare.
-2. På den **behörigheter** fliken **Lägg till behörigheter**.
-3. I den **ge behörighet** väljer **koppla befintliga principer direkt**.
-4. Sök efter den princip som du skapade och markera den och sedan klicka på **nästa: granska**.
-5. Klicka på Lägg till behörigheter till rollsidan namn, **Lägg till behörigheter**.  
-    ![Exempel på princip kopplad till Cloudyn-användare](./media/storage-accounts/aws-attach-policy-user.png)
+1. Välj Cloudyn-användaren.
+2. Klicka på **Permissions** (Behörigheter) på fliken **Add permissions** (Lägg till behörigheter).
+3. I avsnittet **Grant Permission** (Bevilja behörighet) väljer du **Attach existing policies directly** (Koppla befintliga principer direkt).
+4. Sök efter principen som du skapade, markera den och klicka sedan på **Nästa: Granskning**.
+5. På sidan Add permissions to role name (Lägg till behörigheter för rollnamn) klickar du på **Add permissions** (Lägg till behörigheter).  
+    ![Exempelprincip som är kopplad till din Cloudyn-användare](./media/storage-accounts/aws-attach-policy-user.png)
 
 
-### <a name="optional-set-permission-with-bucket-policy"></a>Valfritt: Ange behörighet med bucket-princip
+### <a name="optional-set-permission-with-bucket-policy"></a>Valfritt: Ange behörighet med bucketprincip
 
-Du kan också ange behörighet att skapa rapporter på din S3-bucket med hjälp av en bucket-princip. I den klassiska S3-vyn:
+Du kan också ange behörighet för att skapa rapporter i din S3-bucket med hjälp av en bucketprincip. I den klassiska S3-vyn:
 
 1. Skapa eller välj en befintlig bucket.
-2. Välj den **behörigheter** fliken och klicka sedan på **Bucket princip**.
-3. Kopiera och klistra in följande princip-exemplet. Ersätt &lt;bucket\_namn&gt; och &lt;Cloudyn\_princip&gt; med ARN av din bucket. Ersätt ARN på rollen eller användaren som används av Cloudyn.
+2. Välj fliken **Permissions** (Behörigheter) och klicka sedan på **Bucket policy** (Bucketprincip).
+3. Kopiera och klistra in följande principexempel. Ersätt &lt;bucket\_name&gt; och &lt;Cloudyn\_principle&gt; med ARN för din bucket. Ersätt ARN för antingen rollen eller användaren som används av Cloudyn.
 
    ```
    {
@@ -144,23 +143,23 @@ Du kan också ange behörighet att skapa rapporter på din S3-bucket med hjälp 
    }
    ```
 
-4. I principredigeraren Bucket klickar du på **spara**.
+4. I bucketprincipredigeraren klickar du på **Save** (Spara).
 
-### <a name="add-aws-report-storage-to-cloudyn"></a>Lägga till lagringsenheter för AWS-rapport i Cloudyn
+### <a name="add-aws-report-storage-to-cloudyn"></a>Lägga till AWS-rapportlagring i Cloudyn
 
 1. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
-2. Klicka på kugghjulet för symbolen och välj sedan **rapporter lagringshantering**.
-3. Klicka på **Lägg till ny +** och se till att AWS har valts.
-4. Välj ett konto och storage-bucket. Namnet på AWS storage bucket har fyllts i automatiskt.  
-    ![Exempelinformation i Lägg till en ny rapport storage ruta](./media/storage-accounts/aws-cloudyn-storage.png)  
-5. Klicka på **spara** och klicka sedan på **Ok**.
+2. Klicka på kugghjulssymbolen och välj sedan **Hantering av lagringsrapporter**.
+3. Klicka på **Lägg till ny +** och se till att AWS är markerat.
+4. Välj ett konto och en lagringsbucket. Namnet på AWS-lagringsbucketen fylls i automatiskt.  
+    ![Exempelinformation i rutan Lägg till en ny rapportlagring](./media/storage-accounts/aws-cloudyn-storage.png)  
+5. Klicka på **Spara** och sedan på **Ok**.
 
-    Din nya AWS rapporten storage posten visas i lagringskontolistan.  
-    ![Ny AWS rapporten storage posten visas i lagringskontolistan](./media/storage-accounts/aws-storage-entry.png)
+    Din nya AWS-rapportlagringspost visas i listan med lagringskonton.  
+    ![En ny AWS-rapportlagringspost visas i listan med lagringskonton](./media/storage-accounts/aws-storage-entry.png)
 
 
-Du kan nu spara rapporter till Azure storage. I en rapport klickar du på **åtgärder** och välj sedan **Schemalägg rapport**. Namnge rapporten och lägga till din egen URL eller använder automatiskt skapade URL: en. Välj **spara i storage** och välj sedan lagringskontot. Ange ett prefix som kommer att läggas till filnamnet för rapporten. Välj CSV eller JSON-filformat och sedan spara rapporten.
+Nu kan du spara rapporter i Azure Storage. Klicka på **Actions** (Åtgärder) uppe till och välj **Schedule report** (Shemalägg rapport). Ge rapporten ett namn och lägg sedan till din egen URL eller använd den URL som skapats automatiskt. Välj **Save to storage** (Spara till lagring) och välj sedan lagringskontot. Ange ett prefix som läggs till i rapportfilnamnet. Välj antingen CSV- eller JSON-filformat och spara sedan rapporten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [förstå Cloudyn rapporterar](understanding-cost-reports.md) vill veta mer om grundläggande struktur och funktioner i Cloudyn-rapporter.
+- Läs [förstå Cloudyn-rapporter](understanding-cost-reports.md) om du vill veta mer om den grundläggande strukturen och funktionerna i Cloudyn-rapporter.

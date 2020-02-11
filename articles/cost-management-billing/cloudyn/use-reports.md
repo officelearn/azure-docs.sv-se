@@ -1,25 +1,25 @@
 ---
 title: Använda Cloudyn-rapporter i Azure | Microsoft Docs
-description: Den här artikeln beskriver syftet med Cloudyn-rapporter som ingår i Cloudyn-portalen när du använder dem effektivt.
+description: I den här artikeln beskrivs syftet med de Cloudyn-rapporter som ingår i Cloudyn-portalen för att hjälpa dig att effektivt använda dem.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 139ad67035a96fb67bd96c4abb14ce9e1f26bf4f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 6f974ae35dbf23a134b775fe0d4f8cf5195a75af
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989064"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773917"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Rapporter som är tillgängliga i Cloudyn-portalen
 
-Den här artikeln beskriver syftet med Cloudyn-rapporter som ingår i Cloudyn-portalen. Här beskrivs också hur du effektivt kan använda rapporterna. De flesta rapporter är intuitivt och har ett enhetligt utseende. De flesta av de åtgärder som du kan göra i en rapport, kan du också göra i andra rapporter. En översikt om hur du använder Cloudyn-rapporter, inklusive hur du anpassar och spara eller för att schemalägga rapporter finns i [förstå kostnadsrapporterna](understanding-cost-reports.md).
+I den här artikeln beskrivs syftet med de Cloudyn-rapporter som ingår i Cloudyn-portalen. Där beskrivs även hur du använder rapporterna på ett effektivt sätt. De flesta rapporter är intuitiva och har ett enhetligt utseende. De flesta av de åtgärder som du kan utföra i en rapport kan du även utföra i andra rapporter. En översikt av hur du använder Cloudyn-rapporter, inklusive hur du anpassar och sparar eller schemalägger rapporter, finns i [Förstå kostnadsrapporter](understanding-cost-reports.md).
 
 Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Management är en lösning för intern kostnadshantering i Azure. Du får hjälp att analysera kostnader, skapa och hantera budgetar, exportera data samt granska och arbeta med optimeringsrekommendationer för att spara pengar. Mer information finns i [Azure Cost Management](../cost-management-billing-overview.md).
 
@@ -27,494 +27,494 @@ Azure Cost Management innehåller liknande funktioner som Cloudyn. Azure Cost Ma
 
 Det finns tre typer av Cloudyn-rapporter:
 
-- Tidrapporter över. Till exempel rapporten Cost Over Time. Tidrapporter över visar en tidsserie med data under en vald period med en fördefinierad upplösning och visa en veckovis upplösning för de senaste två månaderna. Du kan använda gruppering och filtrering för att zooma in på olika datapunkter.
-  - Tidrapporter över kan du visa trender och identifiera toppar och avvikelser.
-- Analysrapporter. Till exempel rapporten kostnads analys. De här rapporterna visar aggregerade data under en period som du definierar och Tillåt gruppering och filtrering av data.
-  - Med hjälp av rapporter kan du visa toppar och fastställa rotorsaker för avvikelseidentifiering Analysis och att visa dig en detaljerad kraschar av dina data.
-- Tabular rapporter. Du kan visa en rapport som en tabell, men vissa rapporter visas endast som en tabell. De här rapporterna ger dig detaljerad listor med objekt.
-  - Rekommendationer är tabular rapporter – det finns inga visualiseringar rekommendationer. Dock kan du visualisera rekommendation resultat. Till exempel besparingar över tid.
-  - Tabular rapporter är användbara som listor över åtgärder eller för export av data för vidare bearbetning. Till exempel en chargeback-rapporten.
+- Över tid-rapporter. Ett exempel är rapporter för kostnad över tid. Över tid-rapporter visar en tidsserie med data över ett valt intervall med en fördefinierad upplösning och visar en veckovis upplösning för de senaste två månaderna. Du kan använda gruppering och filtrering för att zooma in på olika datapunkter.
+  - Över tid-rapporter kan hjälpa dig att se trender och upptäcka toppar eller avvikelser.
+- Analysrapporter. Ett exempel är kostnadsanalysrapporter. Dessa rapporter visar aggregerade data under en period som du definierar och möjliggör gruppering och filtrering av data.
+  - Analysrapporter kan hjälpa dig att se toppar och fastställa rotorsaker till avvikelser samt visa en detaljerad uppdelning av dina data.
+- Tabellrapporter. Du kan visa valfri rapport som en tabell, men vissa rapporter visas endast som en tabell. De här rapporterna innehåller detaljerade listor över objekt.
+  - Rekommendationer är tabellrapporter – det finns inga visualiseringar för rekommendationer. Du kan dock visualisera rekommendationsresultat. Det kan till exempel gälla besparingar över tid.
+  - Tabellrapporter är användbara som listor över åtgärder eller för dataexport för vidare bearbetning. Ett exempel är återbetalningsrapporter.
 
-Kostnad rapporter visar antingen _faktiska_ eller _amorterad_ kostnader.
+Kostnadsrapporter visar antingen _faktiska_ eller _upplupna_ kostnader.
 
-Verklig kostnad-rapporter visar betalningar under den valda tidsperioden. Till exempel visas alla engångsavgifter som köp av reserverade instanser (RI) i verklig kostnad-rapporter som toppar i kostnad.
+Rapporter över faktiska kostnader visar de betalningar som gjorts under den valda tidsramen. Till exempel visas alla engångsavgifter såsom RI-köp (reserverade instanser) i rapporter över faktiska kostnader som toppar i kostnad.
 
-Amorterad kostnadsrapporter sprider engångsavgifter under en period som de gäller. Engångsavgifter för RI-köp är fördelade över reservationsperioden och visas inte som en topp. Den amorterade vyn är det enda sättet att visa SANT trender och göra kostnadsprognoser.
+Rapporter över upplupna kostnader sprider engångsavgifter över en period som de gäller för. Till exempel sprids engångsavgifter för RI-inköp över reservationsperioden och visas inte som en topp. Den upplupna vyn är det enda sättet att se riktiga trender och göra kostnadsprognoser.
 
-I vissa fall kan visas amorteringen som en separat rapport. Exempel är kostnadsanalys och Amorterad kostnadsanalys rapporter. I andra fall är amorteringen en princip för rapporten, till exempel kostnadsallokering och Cost Analysis-rapporter.
+I vissa fall visas upplupna kostnader som en separat rapport. Exempel på detta är rapporterna för kostnadsanalys och analys av upplupna kostnader. I andra fall är upplupna kostnader en rapportprincip såsom rapporterna för kostnadsallokering och kostnadsanalys.
 
-Du kan schemalägga en rapport för periodiska leverans. Kostnad rapporter kan ange ett tröskelvärde, så att de kan användas för aviseringar.
+Du kan schemalägga valfri rapport för periodisk leverans. Kostnadsrapporter gör det möjligt att ange ett tröskelvärde och är därför användbara för aviseringar.
 
 ## <a name="cost-analysis-vs-cost-allocation"></a>Kostnadsanalys jämfört med kostnadsallokering
 
-_Analys av kostnader_ rapporter visar faktureringsdata från cloud-providers. Med rapporterna kan du gruppera och öka detaljnivån i olika datasegment uppdelat från filen fakturering. Rapporterna möjliggör detaljerad kostnaden navigering i molnet leverantörens fakturering rådata.
+Rapporter för _kostnadsanalys_ visar faktureringsinformation från dina molnleverantörer. Med dessa rapporter kan du gruppera och detaljgranska i olika datasegment som redovisas från faktureringsfilen. Rapporterna möjliggör detaljerad kostnadsnavigering i din molnleverantörs råa faktureringsdata.
 
-Vissa _analys av kostnader_ rapporter inte gruppen kostnader efter resurstaggar. Och det kodspråk faktureringsinformation visas bara i rapporter när du har allokerat kostnaderna genom att skapa en kostnad modellen med hjälp av [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
+Vissa rapporter för _kostnadsanalys_ grupperar inte kostnader efter resurstaggar. Och taggbaserad faktureringsinformation visas endast i rapporter när du har allokerat kostnader genom att skapa en kostnadsmodell med hjälp av [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Kostnadsallokering_ rapporter är tillgängliga när du har skapat en kostnad modellen med hjälp av [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn bearbetar kostnads- och fakturering och _matchar_ data till data för dina molnkonton användning och tagg. Om du vill matcha data kräver åtkomst till användningsdata i Cloudyn. Om du har konton som saknar autentiseringsuppgifter, de är märkta som _okategoriserade resurser_.
+Rapporter för _kostnadsallokering_ är tillgängliga när du har skapat en kostnadsmodell med hjälp av [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn bearbetar kostnader och faktureringsdata och _matchar_ data till användnings- och taggdata för dina molnkonton. För att matcha data behöver Cloudyn åtkomst till dina användningsdata. Om du har konton som saknar autentiseringsuppgifter är de märkta som _okategoriserade resurser_.
 
 ## <a name="dashboards"></a>Instrumentpaneler
 
-Instrumentpaneler i Cloudy ger en översikt över rapporter. Instrumentpaneler består av widgetar och varje widget är i stort sett miniatyrbilden för en rapport. När du [Anpassa rapporter](understanding-cost-reports.md#save-and-schedule-reports), du sparar dem till Mina rapporter och de läggs till på instrumentpanelen. Läs mer om instrumentpaneler, [visa viktiga kostnadsmått med instrumentpaneler](dashboards.md).
+Instrumentpaneler i Cloudyn ger en överblick av rapporter på hög nivå. Instrumentpaneler består av widgetar. Varje widget är i princip en rapportminiatyr. När du [anpassar rapporter](understanding-cost-reports.md#save-and-schedule-reports) sparar du dem till Mina rapporter, och de läggs till på instrumentpanelen. Mer information om instrumentpaneler finns i [Visa viktiga kostnadsmått med instrumentpaneler](dashboards.md).
 
 ## <a name="budget-information-in-reports"></a>Budgetinformation i rapporter
 
-Många Cloudyn-rapporter visar budgetinformation när du har skapat en manuellt. Så att rapporter inte visar budgetinformation förrän du har skapat en budget. Mer information finns i [Budget hanteringsinställningar](#budget-management-settings).
+Många Cloudyn-rapporter visar budgetinformation efter att du har skapat en manuellt. Rapporter visar alltså inte budgetinformation förrän du har skapat en budget. Mer information finns i [inställningar för budgethantering](#budget-management-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapporter och rapporteringsfunktioner
 
-Cloudyn innehåller följande rapporter och rapporterings funktioner.
+Cloudyn innehåller följande rapporter och rapporteringsfunktioner.
 
-### <a name="cost-navigator-report"></a>Kostnad Navigator-rapport
+### <a name="cost-navigator-report"></a>Rapport för Kostnadsnavigatorn
 
-Kostnaden Navigator rapporten är ett snabbt sätt att visa dina fakturering användningen med hjälp av en instrumentpanelsvy. Den har en delmängd av filter och grundläggande vyer som ska visas omedelbart en sammanfattande vy över organisationens kostnader. Kostnader visas efter datum. Eftersom rapporten är avsett som en inledande vy över dina kostnader, det är inte lika flexibla eller så omfattande som många andra rapporter eller anpassade instrumentpaneler som du skapar själv.
+Rapporten för Kostnadsnavigatorn är ett snabbt sätt att visa din faktureringsförbrukning med hjälp av en instrumentpanelsvy. Den har en delmängd med filter och grundläggande vyer där du omedelbart kan visa en sammanfattad vy av organisationens kostnader. Kostnader visas efter datum. Eftersom rapporten är avsedd som en inledande vy av dina kostnader är den inte lika flexibel eller omfattande som många andra rapporter eller anpassade instrumentpaneler som du skapar själv.
 
-Som standard visar större vyer i rapporten:
+Som standard visar större vyer i rapporten följande:
 
-- Kostnad över tid som visar en arbetsvecka liggande diagramvy. Du kan ändra den **datumintervall** att ändra datum intervallet liggande stapeldiagram.
-- Utgifter av tjänsten, använda ett cirkeldiagram.
-- Resursen kategorisering efter taggar, använda ett cirkeldiagram.
-- Utgifter av kostnadsenheter, använda ett cirkeldiagram.
-- Kostnad Totalt per datum i en listvy.
+- Kostnad över tid som visar en vy med stapeldiagram för arbetsveckan. Du kan ändra **datumintervallet** för att ändra stapeldiagrammet för datumintervall.
+- Utgifter per tjänst med hjälp av ett cirkeldiagram.
+- Resurskategorisering efter taggar med hjälp av ett cirkeldiagram.
+- Utgifter per kostnadsentitet med hjälp av ett cirkeldiagram.
+- Total kostnad per datum i en listvy.
 
 ### <a name="cost-analysis-report"></a>Cost Analysis-rapport
 
-Cost Analysis-rapporten är en beräkning av showback och chargeback, baserat på din princip. Sammanställer den dina molnförbrukning under en vald tidsperiod efter att ha gjort alla allokeringsregler till dina kostnader. Exempelvis den beräknas kostnader efter taggar, omtilldelas kostnaderna för ej taggade resurser och allokerar du kan också användningen av reserverade instanser.
+Rapporten för kostnadsanalys är en beräkning av showback och återbetalning baserat på din princip. Den aggregerar din molnförbrukning under en vald tidsram efter tillämpning av alla allokeringsregler på din kostnad. Den beräknar till exempel kostnaderna efter taggar, tilldelar om kostnaderna för otaggade resurser och kan eventuellt allokera utnyttjandet av reserverade instanser.
 
-Principerna som angetts i [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i Cost Analysis-rapport och resultaten sedan kombineras med information från rådata i molnet leverantörens.
+De principer som anges i [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i rapporten för kostnadsanalys, och resultatet kombineras sedan med information från din molnleverantörs rådata.
 
-Hur beräknas den här rapporten? Cloudyn-tjänsten garanterar allokering behåller integriteten hos varje länkat konto genom att använda _konto tillhörighet_. Det innebär ett konto som inte använder en specifik tjänst inte har några kostnader för den här tjänsten som allokeras till den. Kostnader som ackumuleras i att kontot finns kvar i det kontot och beräknas inte av allokeringsprinciper för. Du kan till exempel ha fem länkade konton. Om det bara tre av dem använder storage-tjänster kan tilldelas endast kostnaden för lagringstjänster över taggar i de tre kontona.
+Hur beräknas den här rapporten? Cloudyn-tjänsten säkerställer att allokeringen behåller integriteten för varje länkat konto genom att tillämpa _kontotillhörighet_. Tillhörighet säkerställer att ett konto som inte använder en specifik tjänst inte allokeras några kostnader för den tjänsten. De kostnader som påförs i det kontot finns kvar i det kontot och beräknas inte av allokeringsreglerna. Till exempel har du kanske fem länkade konton. Om endast tre av dessa använder lagringstjänster allokeras kostnaden för lagringstjänster endast bland taggar i de tre kontona.
 
-Använda Cost Analysis-rapporten för att:
+Använd kostnadsanalysrapporten för att:
 
-- Beräkna din organisation återbetalning/showback
-- Kategorisera dina kostnader
-- Visa en sammansatt vy av hela distributionen för en viss tidsram.
-- Visa kostnaderna genom att tagga kategorier baserat på principer som skapas i kostnadsmodellen.
+- Beräkna din organisations återbetalning/showback
+- Kategorisera alla dina kostnader
+- Visa en aggregerad vy av hela distributionen för en angiven tidsram.
+- Visa kostnader efter taggkategorier baserat på principer som skapats i kostnadsmodellen.
 
-Använda Cost Analysis-rapport:
+Så här använder du kostnadsanalysrapporten:
 
 1. Välj ett datumintervall.
-2. Lägg till taggar, efter behov.
+2. Lägg till taggar efter behov.
 3. Lägg till grupper.
-4. Välj en kostnadsmodell du skapade tidigare.
+4. Välj en kostnadsmodell som du skapade tidigare.
 
 ### <a name="cost-over-time-report"></a>Rapport för kostnad över tid
 
-Kostnad över tid rapporten visas resultatet av en kostnadsallokering som tidsserier. Det kan du se trender och identifiera fel i din distribution. Den visar i stort sett kostnader fördelas på en definierad period. Rapporten innehåller dina viktigaste kostnadsfaktorer inklusive löpande kostnader och avgifter för en reserverad instans som används under en vald tidsperiod. Principer som angetts i [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i den här rapporten.
+Rapport för kostnad över tid visar resultatet av kostnadsallokering som tidsserie. Den gör att du kan följa trender och upptäcka oregelbundenheter i distributionen. Den visar i huvudsak kostnader som är fördelade över en definierad period. Rapporten innehåller dina huvudsakliga kostnadsfaktorer, inklusive pågående kostnader och engångsavgifter för reserverad instans som spenderas under en vald tidsram. Principer som anges i [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i den här rapporten.
 
-Du kan använda rapporten Cost Over Time till:
+Använd rapporter för kostnad över tid för att:
 
-- Se ändringar över tid och vilken påverkan ändras från en dag (eller ett intervall) till nästa.
-- Analysera kostnaderna med tiden för en specifik instans.
-- Förstå varför ökade kostnader för en specifik instans.
+- Se ändringar över tid som påverkar ändring från en dag (eller ett datumintervall) till nästa.
+- Analysera kostnader över tid för en specifik instans.
+- Ta reda på varför det skedde en kostnadsökning för en specifik instans.
 
-Använda Cost Over Time-rapport:
+Så här använder du rapporten för kostnad över tid:
 
 1. Välj ett datumintervall.
-2. Lägg till taggar, efter behov.
+2. Lägg till taggar efter behov.
 3. Lägg till grupper.
-4. Välj en kostnadsmodell du skapade tidigare.
-5. Välj faktiska kostnader eller amorterade kostnader.
-6. Välj om du vill tillämpa allokeringsregler på Visa rådata fakturering datavyn eller att omberäknas kostnaden vy.
+4. Välj en kostnadsmodell som du skapade tidigare.
+5. Välj faktiska kostnader eller upplupna kostnader.
+6. Välj om du vill tillämpa allokeringsregler för att visa råa faktureringsdata eller för att beräkna om kostnadsvyn.
 
-### <a name="actual-cost-analysis-report"></a>Faktiska Cost Analysis-rapporten
+### <a name="actual-cost-analysis-report"></a>Rapport för analys av faktiska kostnader
 
-Rapporten analys av faktiska kostnader visar providern kostnaderna utan några ändringar. Den visar dina huvudsakliga kostnadsfaktorer, inklusive löpande kostnader och engångsavgifter.
+Rapporten för analys av faktiska kostnader visar leverantörskostnader utan ändringar. Den visar dina huvudsakliga kostnadsfaktorer, inklusive löpande kostnader och engångsavgifter.
 
-Du kan använda rapporten för att visa information om kostnaden för dina prenumerationer. I rapporten visas Azure-prenumerationer som **kontonamn** och **kontonummer**. **Länkade konton** visa AWS-prenumerationer. Visa per prenumerationskostnader, en analys på detaljnivå för varje konto under **grupper**, Välj typ av prenumeration som du har.
+Du kan använda rapporten för att visa kostnadsinformation för dina prenumerationer. I rapporten visas Azure-prenumerationer som **kontonamn** och **kontonummer**. **Länkade konton** visar AWS-prenumerationer. Om du vill visa kostnader per prenumeration, en uppdelning för varje konto, väljer du under **Grupper** den typ av prenumeration du har.
 
-Använd rapporten analys av faktiska kostnader för att:
+Använd rapporten för analys av faktiska kostnader för att:
 
-- Analysera och övervaka raw provider-kostnader som har använt under en angiven tidsperiod.
-- Schemalägga en avisering om tröskelvärdet.
-- Analysera oförändrad kostnader dina konton och entiteter.
+- Analysera och övervaka råa leverantörskostnader som spenderats under en angiven tidsram.
+- Schemalägga en tröskelvarning.
+- Analysera ej ändrade kostnader som tillkommer i dina konton och entiteter.
 
-### <a name="actual-cost-over-time-report"></a>Faktisk kostnad över tid-rapport
+### <a name="actual-cost-over-time-report"></a>Rapport för faktiska kostnader över tid
 
-Rapporten Actual Cost Over Time är en standard kostnaden analysrapporten distribuerar kostnad över en angiven tidpunkt-lösning. Rapporten visar utgifter över tid att se trender och identifiera utgiftsgränsen oegentligheter. Den här rapporten visar dina huvudsakliga kostnadsfaktorer inklusive löpande kostnader och avgifter för en reserverad instans som används under en vald tidsperiod.
+Rapporten för faktiska kostnader över tid är en kostnadsanalysrapport som fördelar kostnader över en definierad tidsupplösning. Rapporten visar utgifter över tid så att du kan följa trender och upptäcka eventuella oregelbundenheter i utgifter. Den här rapporten visar dina huvudsakliga kostnadsfaktorer, inklusive pågående kostnader och engångsavgifter för reserverad instans som spenderas under en vald tidsram.
 
-Du kan använda rapporten Actual Cost Over Time till:
+Använd rapporten för faktiska kostnader över tid för att:
 
 - Se kostnadstrender över tid.
-- Hitta oegentligheter i kostnad.
-- Hitta alla cost-relaterade frågor som rör molnleverantörer.
+- Hitta oregelbundenheter i kostnader.
+- Hitta alla kostnadsrelaterade frågor som rör molnleverantörer.
 
-### <a name="amortized-cost-reports"></a>Amorterad kostnad-rapporter
+### <a name="amortized-cost-reports"></a>Rapporter för upplupna kostnader
 
-Den här uppsättningen amorterad kostnad rapporter visar linjär icke-användningen baserat serviceavgifter eller betalas engångskostnad och sprida kostnad över tid jämnt under deras livslängd. Till exempel kan engångsavgifter innehålla:
+Den här uppsättningen med rapporter för upplupna kostnader visar linjäriserade icke-användningsbaserade tjänstavgifter eller engångsavgifter och sprider kostnaderna jämnt över tiden under livslängden. Engångsavgifter kan till exempel vara:
 
-- Årlig supportavgifter
-- Årlig security komponenten avgifter
+- Årliga supportavgifter
+- Årliga avgifter för säkerhetskomponenter
 - Avgifter för köp av reserverade instanser
-- Vissa Azure Marketplace-objekt
+- Vissa Azure Marketplace-produkter
 
-I filen fakturering engångsavgifter kännetecknas när tjänsteförbrukning börja och sluta datum (tidsstämpel) har samma värden. Cloudyn-tjänsten identifierar dem sedan som engångsavgifter som är amorterad. Andra förbrukningsbaserad tjänster med kostnader för på begäran är inte amorterad.
+I faktureringsfilen karakteriseras engångsavgifter när startdatum och slutdatum (tidsstämplar) för tjänstförbrukning har lika värden. Cloudyn-tjänsten känner sedan igen dem som engångsavgifter som är upplupna. Andra förbrukningsbaserade tjänster med kostnader för användning på begäran är inte upplupna.
 
-Amorterad kostnadsrapporter är:
+Rapporter för upplupna kostnader inkluderar:
 
-- Amorterad kostnadsanalys
-- Amorterad kostnad över tid
+- Analys av upplupna kostnader
+- Upplupna kostnader över tid
 
 ### <a name="cost-analysis-report"></a>Cost Analysis-rapport
 
-Rapporten Cost Analysis ger inblick i dina molnförbrukning och utgifter under en vald tidsperiod. Principerna som angetts i den [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i rapporten Cost Analysis.
+Rapporten för kostnadsanalys ger inblick i din molnförbrukning och dina utgifter under en vald tidsram. De principer som angetts i [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i rapporten för kostnadsanalys.
 
-Hur beräknar den här rapporten i Cloudyn?
+Hur beräknar Cloudyn den här rapporten?
 
-Cloudyn ser till att allokering behåller integriteten hos varje länkat konto genom att använda _konto tillhörighet_. Det innebär också inte har några kostnader för den här tjänsten som allokeras till den i ett konto som inte använder en specifik tjänst. Kostnader som ackumuleras i att kontot finns kvar i det kontot och inte beräknas genom att allokeringsprinciper. Du kan till exempel ha fem länkade konton. Om det bara tre av dem använder storage-tjänster kan tilldelas endast kostnaden för lagringstjänster över taggar i de tre kontona.
+Cloudyn säkerställer att allokeringen behåller integriteten för varje länkat konto genom att tillämpa _kontotillhörighet_. Tillhörighet säkerställer att ett konto som inte använder en specifik tjänst heller inte allokeras några kostnader för den tjänsten. De kostnader som påförs i det kontot finns kvar i det kontot och beräknas inte av allokeringsreglerna. Till exempel har du kanske fem länkade konton. Om endast tre av dessa använder lagringstjänster allokeras kostnaden för lagringstjänster endast bland taggar i de tre kontona.
 
-Använda Cost Analysis-rapporten för att:
+Använd kostnadsanalysrapporten för att:
 
-- Visa en sammansatt vy av hela distributionen för en viss tidsram.
-- Visa kostnaderna genom att tagga kategorier baserat på principer som skapas i kostnadsmodellen.
+- Visa en aggregerad vy av hela distributionen för en angiven tidsram.
+- Visa kostnader efter taggkategorier baserat på principer som skapats i kostnadsmodellen.
 
 ### <a name="cost-over-time-report"></a>Rapport för kostnad över tid
 
-Rapport för kostnad över tid visar utgifter över tid så att du kan upptäcka trender och Observera fel i distributionen. Den visar i stort sett kostnader fördelas på en definierad period. Rapporten innehåller dina viktigaste kostnadsfaktorer inklusive löpande kostnader och avgifter för en reserverad instans som används under en vald tidsperiod. Principer som angetts i [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i den här rapporten.
+Rapporten för kostnad över tid visar utgifter över tid så att du kan upptäcka trender och uppmärksamma oregelbundenheter i distributionen. Den visar i huvudsak kostnader som är fördelade över en definierad period. Rapporten innehåller dina huvudsakliga kostnadsfaktorer, inklusive pågående kostnader och engångsavgifter för reserverad instans som spenderas under en vald tidsram. Principer som anges i [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) används i den här rapporten.
 
-Du kan använda rapporten Cost Over Time till:
+Använd rapporter för kostnad över tid för att:
 
-- Se ändringar över tid och vilken påverkan ändras från en dag (eller ett intervall) till nästa.
-- Analysera kostnaderna med tiden för en specifik instans.
-- Förstå varför ökade kostnader för en specifik instans.
+- Se ändringar över tid som påverkar ändring från en dag (eller ett datumintervall) till nästa.
+- Analysera kostnader över tid för en specifik instans.
+- Ta reda på varför det skedde en kostnadsökning för en specifik instans.
 
-### <a name="custom-charges-report"></a>Anpassad avgifter rapport
+### <a name="custom-charges-report"></a>Rapporten för anpassade avgifter
 
-Företags- och CSP användarna ständigt ofta tillhandahåller har lagts till tjänster till sina externa eller interna kunder, förutom sina egna molnet resursförbrukning. Du kan definiera anpassade avgifter för tjänster som har lagts till eller rabatter som läggs till kundens fakturerings- eller chargeback-rapporter som anpassade radobjekt.
+Företags- och CSP-användare brukar ofta tillhandahålla extra tjänster till sina externa eller interna kunder, utöver den egna förbrukningen av molnresurser. Du definierar anpassade avgifter för tillagda tjänster eller rabatter som läggs till i kundens fakturerings- eller återbetalningsrapporter som egna radobjekt.
 
-Anpassade tjänstavgifter återspeglar tjänster som normalt inte visas i en faktura. De anpassa tillägg som du har skapat visas sedan i kostnadsrapporter.
+Anpassade tjänstavgifter speglar tjänster som vanligtvis inte visas på en faktura. De anpassade avgifter som du skapar visas sedan i kostnadsrapporter.
 
-*Anpassade avgifter inte anpassad prissättning*. Listan över anpassade avgifter visar inte olika hastigheter att du kan debitering. Till exempel visas AWS fakturering avgifter precis som de debiteras.
+*Anpassade avgifter är inte anpassad prissättning*. Listan med anpassade avgifter visar inte de olika priser som du kan debitera. Till exempel visas AWS-faktureringsavgifter precis såsom de debiteras.
 
-Skapa en anpassad kostnad:
+Så här skapar du en anpassad avgift:
 
-1. I **anpassade avgifter**, klickar du på **Lägg till ny**. Den _lägga till nya anpassade kostnad_ dialogrutan visas.
-2. I **providernamn**, anger du namnet på providern.
-3. I **tjänstnamn**, ange typ av tjänst.
-4. I **beskrivning**, Lägg till en beskrivning för anpassade tillägget.
-5. I **typ**, ange Välj **procent** i tjänster listrutan väljer du tjänsterna som ska ingå som anpassade avgifter i kostnadsrapporter.
-6. I **betalning**väljer om tillägget är ett engångslösenord avgift eller återkommande avgift. Om tillägget är en återkommande avgift Välj Amortized om du vill att kostnaden för att vara amorterad och Välj antalet månader.
-7. I **datum**, om en engångsavgift väljs i **ikraftträdandedatum**, ange ett datum som avgiften betalas. Om återkommande avgift väljs, kan du ange datumintervallet inklusive startdatum och slutdatum för tillägget.
-8. I den **entiteter trädet**, Välj de enheter som du vill tillämpa tillägget till och välj sedan **på**.
+1. I **Anpassade avgifter** klickar du på **Lägg till ny**. Dialogrutan _Lägg till ny anpassad avgift_ visas.
+2. I **Leverantörens namn** anger du namnet på leverantören.
+3. I **Tjänstnamn** anger du typen av tjänst.
+4. I **Beskrivning** lägger du till en beskrivning för den anpassade avgiften.
+5. I **Typ** anger du vald **Procent**. I listrutan Tjänster väljer du sedan de tjänster som ska inkluderas som anpassade avgifter i kostnadsrapporterna.
+6. I **Betalning** väljer du om avgiften är en engångsavgift eller en återkommande avgift. Om avgiften är en återkommande avgift väljer du Upplupen om du vill att avgiften ska vara upplupen och väljer antalet månader.
+7. Om en engångsavgift har valts anger du under **Dates** det datum då avgiften betalas i **Giltighetsdatum**. Om Återkommande avgift har valts anger du datumintervallet inklusive startdatum och slutdatum för avgiften.
+8. I **trädet Entiteter** väljer du de entiteter som du vill tillämpa avgiften på och väljer sedan **På**.
 
 _När avgifter tilldelas till en entitet kan användarna inte ändra dem. Avgifter som läggs till av en administratör i en överordnad entitet är skrivskyddade._
 
-Visa anpassade avgifter:
+Så här visar du anpassade avgifter:
 
-Anpassade avgifter visas i kostnadsrapporter. Till exempel öppna sedan rapporten analys av faktiska kostnader **utökade filter**väljer **fristående**. Och sedan filter för att visa **anpassade avgifter**.
+Anpassade avgifter visas i kostnadsrapporter. Öppna till exempel rapporten för analys av verkliga kostnader. Under **Utökade filter** väljer du sedan **Fristående**. Filtrera sedan för att visa **Anpassade avgifter**.
 
 ### <a name="cost-allocation-360"></a>Kostnadsallokering 360
 
-Du kan använda Cost Allocation 360 för att skapa anpassade allokering modeller för att tilldela kostnader till förbrukade molnresurser. Många rapporter visar information från anpassade modeller som du har skapat med anpassade modeller. Och vissa rapporter visar bara information när du har skapat en anpassad kostnadsmodell med kostnadsallokering.
+Du använder Kostnadsallokering 360 för att skapa anpassade modeller för kostnadsallokering för att tilldela kostnader till förbrukade molnresurser. Många rapporter visar information från anpassade kostnadsmodeller som du har skapat med anpassade kostnadsmodeller. Och vissa rapporter visar bara information efter att du har skapat en anpassad kostnadsmodell med kostnadsallokering.
 
-Mer information om hur du skapar anpassade modeller finns i [självstudie: hantera kostnader med Cloudyn](tutorial-manage-costs.md).
+Mer information om hur du skapar anpassade kostnadsmodeller finns i [Självstudie: Hantera kostnader med hjälp av Cloudyn](tutorial-manage-costs.md).
 
-### <a name="cost-vs-budget-over-time-report"></a>Rapporten kostnad kontra budget över tid
+### <a name="cost-vs-budget-over-time-report"></a>Rapport för kostnad jämfört med budget över tid
 
-Med rapporten kostnad kontra budget över tid kan du jämföra de främsta kostnads bidragen mot din budget. Tilldelade budgeten visas i rapporten så att du kan visa förbrukning (över/under/par) budget över tid. Med Visa/dölj fält överst i rapporten kan välja du att visa kostnader, budget, ackumulerade kostnaden och total budget.
+I rapporten för kostnad jämfört med budget över tid kan du jämföra de största kostnadsfaktorerna med din budget. Den tilldelade budgeten syns i rapporten så att du kan visa din budgetförbrukning (över/under/vid) över tid. Med hjälp av Visa/dölj fält längst upp i rapporten kan du välja att se kostnad, budget, ackumulerad kostnad och total budget.
 
-### <a name="current-month-projected-cost-report"></a>Den aktuella Month Projected Cost rapporten
+### <a name="current-month-projected-cost-report"></a>Rapport för beräknad kostnad aktuell månad
 
-Rapporten Current Month Projected Cost ger inblick i den aktuella månad hittills kostnaden sammanfattning. Den här rapporten visar kostnaderna från början av månaden, från den föregående månaden, och det totala antalet beräknad kostnad för den aktuella månaden. Den aktuella månad projected kostnaden beräknas som summan av den uppdatera månadskostnaden och en projektion baserat på vägens kostnad som övervakas i de senaste 30 dagarna.
+Rapporten för beräknad kostnad aktuell månad ger inblick i din aktuella kostnadssammanfattning för månaden fram till aktuellt datum. I den här rapporten visas kostnaderna från början av månaden, från föregående månad och den totala beräknade kostnaden för aktuell månad. Den aktuella månadens beräknade kostnad beräknas som summan av månadskostnaden fram till aktuellt datum samt en beräkning baserat på den kostnad som övervakas under de senaste 30 dagarna.
 
-Du kan använda rapporten Current Month Projected Cost till:
+Använd rapporten för beräknad kostnad aktuell månad för att:
 
-- Projektet månatliga kostnader efter tjänst
-- Projektet månatliga kostnader per konto
+- Beräkna månadskostnader per tjänst
+- Beräkna månadskostnader per konto
 
-### <a name="annual-projected-cost-report"></a>I rapporten Annual Projected Cost
+### <a name="annual-projected-cost-report"></a>Rapporten för årlig beräknad kostnad
 
-Rapporten årliga beräknade kostnader kan du visa årliga beräknade kostnader baserat på föregående utgiftstrender. Den visar de närmsta 12 månaderna av övergripande beräknade kostnader. Projektionerna görs med hjälp av en trend funktion extrapolerade kommande 12 månader, utifrån kostnaderna knutna till de senaste 30 dagarna användning.
+Med rapporten för årlig beräknad kostnad kan du visa årliga beräknade kostnader baserat på tidigare utgiftstrender. Den visar de kommande 12 månadernas totala beräknade kostnader. Beräkningarna görs med hjälp av en trendfunktion som extrapolerats för de närmaste 12 månaderna baserat på de kostnader som är kopplade till de senaste 30 dagarnas användning.
 
-### <a name="budget-management-settings"></a>Inställningar för budget
+### <a name="budget-management-settings"></a>Inställningar för budgethantering
 
-Budgetstyrning kan du ange en budget för räkenskapsåret.
+Med budgethantering kan du ange en budget för ditt räkenskapsår.
 
-Lägga till en budget i en entitet:
+Så här lägger du till en budget i en entitet:
 
-1. På sidan Budgetstyrning under **entiteter**, väljer du den entitet som där du vill skapa budgeten.
-2. I året, väljer du det året där du vill skapa budgeten.
-3. I varje månad, ställer du in din budget och sedan på **spara**.
+1. På sidan Budgethantering väljer du under **Entiteter** den entitet där du vill skapa budgeten.
+2. Som budgetår väljer du det år som du vill skapa budgeten för.
+3. I varje månad anger du budgeten och klickar på **Spara**.
 
-Importera en fil för årlig budget:
+Så här importerar du en fil för årsbudgeten:
 
-1. Under **åtgärder**väljer **exportera** att ladda ned en tom CSV-mall som ska användas som din bas för budgeten.
-2. Fyll i CSV-filen med din budgetposter och spara den lokalt.
-3. Under **åtgärder**väljer **Import**.
-4. Välj din sparade fil och klicka sedan på **OK**.
+1. Under **Åtgärder** väljer du **Exportera** för att ladda ned en tom CSV-mall som ska användas som grund för budgeten.
+2. Fyll i CSV-filen med dina budgetposter och spara den lokalt.
+3. Under **Åtgärder** väljer du **Importera**.
+4. Välj den sparade filen och klicka sedan på **OK**.
 
-Exportera din färdiga budget som en CSV-fil under **åtgärder**väljer **exportera** att hämta filen.
+Om du vill exportera din slutförda budget som en CSV-fil går du till **Åtgärder** och väljer **Exportera** för att ladda ned filen.
 
-När du är klar visas din budget i Cost Analysis-rapporter och i rapporten kostnad kontra budget över tid. Du kan även schemalägga rapporter baserat på budget tröskelvärden.
+När det är klart visas budgeten i rapporterna för kostnadsanalys samt i rapporten för kostnad jämfört med Budget över tid. Du kan även schemalägga rapporter baserat på budgettrösklar.
 
-### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer-rapport
+### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer-rapporten
 
-Azure Resource Explorer rapporten visar en massinläsning lista över alla Azure-resurser tillgängliga i Cloudyn. För att effektivt använda rapporten, måste dina Azure-konton har utökat mått som är aktiverad. Utökade mått ge Cloudyn-åtkomst till virtuella datorer i Azure. Mer information finns i [Lägg till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
+Azure Resource Explorer-rapporten visar en samlingslista med alla tillgängliga Azure-resurser i Cloudyn. För att effektivt kunna använda rapporten ska dina Azure-konton ha utökade mått aktiverat. Utökade mått ger Cloudyn åtkomst till dina virtuella Azure-datorer. Mer information finns i [Lägga till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
 
-### <a name="azure-resources-over-time-report"></a>Rapport för Azure-resurser över tid
+### <a name="azure-resources-over-time-report"></a>Rapporten för Azure-resurser över tid
 
-Azure-resurser över tid rapporten visar en sammanfattning av alla resurser som körs under en viss period. För att effektivt använda rapporten, måste dina Azure-konton har utökat mått som är aktiverad. Utökade mått ge Cloudyn-åtkomst till virtuella datorer i Azure. Mer information finns i [Lägg till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
+Rapporten för Azure-resurser över tid visar en analys av alla resurser som körs under en viss period. För att effektivt kunna använda rapporten ska dina Azure-konton ha utökade mått aktiverat. Utökade mått ger Cloudyn åtkomst till dina virtuella Azure-datorer. Mer information finns i [Lägga till utökade mått för virtuella Azure-datorer](azure-vm-extended-metrics.md).
 
-### <a name="instance-explorer-report"></a>Instans Explorer rapport
+### <a name="instance-explorer-report"></a>Instance Explorer-rapporten
 
-Instans Explorer rapporten används för att visa olika mått för tillgångar för dina virtuella datorer. Du kan gå till specifika instanser om du vill visa information som:
-- -Instans som körs intervall
+Instance Explorer-rapporten används för att visa olika mått för dina virtuella datorers tillgångar. Du kan öka detaljnivån till specifika instanser för att visa information såsom:
+- Intervaller som kör instanser
 - Livscykel i den valda perioden
 - CPU-användning
-- Indata för nätverk
+- Nätverksindata
 - Utgående trafik
 - Aktiva diskar
 
-Instans Explorer rapporten samlar in alla pågående intervall definierade intervallet och sammanställer data i enlighet med detta. Om du vill visa var och en av de pågående intervallen datumintervallet, expandera instansen. Kostnaden för varje instans beräknas för intervallet valda baserat på AWS och priser för Azure lista datumet. Inga rabatter. Du kan lägga till ytterligare fält i rapporten med hjälp av Visa/dölj fält.
+Instance Explorer-rapporten samlar in alla intervall som körs inom det definierade datumintervallet och aggregerar data därefter. Om du vill visa var och en av de intervall som körs under datumintervallet expanderar du instansen. Kostnaden för varje instans beräknas för det datumintervall som väljs utifrån AWS- och Azure-listpriser. Inga rabatter tillämpas. Du kan lägga till ytterligare fält i rapporten med hjälp av Visa/dölj fält.
 
-Använd instans Explorer rapporten för att:
+Använd Instance Explorer-rapporten för att:
 
 - Beräkna den uppskattade kostnaden per dator.
-- Skapa en fullständig lista, inklusive aggregeras timmar, körning av alla datorer som var aktiva under ett tidsintervall.
-- Skapa en lista med molntjänstleverantören eller -konto.
-- Visa datorer som skapas eller upp under ett tidsintervall.
-- Visa alla datorer som för närvarande stoppats.
-- Visa taggar för varje dator.
+- Skapa en fullständig lista, inklusive aggregerade körningstimmar, för alla datorer som var aktiva under ett tidsintervall.
+- Skapa en lista efter molntjänstleverantör eller konto.
+- Visa datorer som skapats eller avslutats under ett tidsintervall.
+- Visa alla datorer som för närvarande har stoppats.
+- Visa taggarna för varje dator.
 
-### <a name="instances-over-time-report"></a>Instanser över tid rapport
+### <a name="instances-over-time-report"></a>Rapport för instanser över tid
 
-Med rapporten instanser över tid kan visa du det maximala antalet datorer som var aktiva var under det valda tidsintervallet. Om den definierade upplösningen är per vecka eller månad, är resultatet det maximala antalet datorer som är aktiva på en viss dag under den månaden. Välj ett datumintervall att välja de filter som du vill visa i rapporten.
+Med rapporten för instanser över tid kan du se det maximala antalet datorer som var och en var aktiva under det valda tidsintervallet. Om den definierade upplösningen är per vecka eller månad är resultatet det maximala antalet datorer som var aktiva en viss dag under den månaden. Välj ett datumintervall för att välja de filter som du vill ska visas i rapporten.
 
-### <a name="instance-utilization-over-time-report"></a>Rapport för instans-användning över tid
+### <a name="instance-utilization-over-time-report"></a>Rapport för instansutnyttjande över tid
 
-Den här rapporten visar en sammanfattning av CPU eller minne används med tiden för alla instanser.
+Den här rapporten visar en analys av CPU- eller minnesanvändning över tid för alla dina instanser.
 
-### <a name="compute-power-cost-over-time-report"></a>Compute Power Cost Over Time-rapport
+### <a name="compute-power-cost-over-time-report"></a>Rapport för kostnad för beräkningsenergiåtgång över tid
 
-Compute Power över tid-rapporten innehåller en detaljerad analys av beräkningskraft över ett visst datumintervall. Andra rapporter visas antalet körda datorer eller runtime-timmar, visar den här rapporten kärntimmar, under eller GB RAM-timmar.
-
-Använd rapporten för att:
-
-- Kontrollera beräkningskraft inom ett visst datumintervall.
-- Visa beräkna tider baserat på tilldelning modeller.
-
-Den är kopplad till din [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) principer så visas resultatet baserat på definierade taggning och principer för din valda kostnaden princip. När du inte har en princip som skapas kan visas inte resultat.
-
-### <a name="compute-power-average-cost-over-time-report"></a>Compute Power genomsnittlig kostnad över tid rapport
-
-Du kan använda rapporten Compute Power genomsnittlig kostnad över tid för att visa mer än bara kostnaden för varje dator som körs. Rapporten visar dina genomsnittlig kostnad instans timme, kärntimme, enhetstimme för beräkning och GB RAM-timme. Rapporten ger inblick i effektiviteten för din distribution.
-
-Den är kopplad till din [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) principer så visas resultaten baserat på definierade taggning och principer för din valda kostnaden princip. När du inte har en princip som skapas kan visas inte resultat.
-
-### <a name="s3-cost-over-time-report"></a>S3 Cost Over Time-rapport
-
-S3 Cost Over Time-rapporten innehåller en detaljerad analys av kostnader för Amazon Simple Storage Service (S3) per bucket med tiden för en angiven tid. Rapporten hjälper dig att hitta de behållare som är ditt huvudsakliga kostnaden drivrutiner och den visar trender i dina S3 användning och utgifter.
-
-### <a name="s3-distribution-of-cost-report"></a>S3 Distribution av kostnadsrapporten
-
-Du kan använda rapporten för att analysera S3-kostnaden för den senaste månaden av bucket och storage-klassen. Du kan använda vyn cirkeldiagram för att ange tröskelvärde för insyn. Eller så kan du använda tabellvyn för att visa delsummor.
-
-### <a name="s3-bucket-properties-report"></a>Rapport över egenskaper för S3-Bucket
-
-Du kan använda rapporten för att visa egenskaperna för S3-bucket. Du kan använda vyn cirkeldiagram för att ange tröskelvärde för insyn. Eller så kan du använda tabellvyn för att visa delsummor.
-
-### <a name="rds-instances-over-time-report"></a>Rapporten RDS instanser över tid
-
-Du kan använda rapporten för att visa en sammanställning av alla Amazon Relational Database Service (RDS)-instanser som körs under den angivna perioden.
-
-### <a name="rds-active-instances-report"></a>RDS aktiva instanser rapport
-
-Använd rapporten för att analysera RDS aktiva instanser. Expandera radobjekt för att visa ytterligare information i rapporten.
-
-### <a name="azure-reserved-instances-report"></a>Rapport för Azure reserverade instanser
-
-Reserverade instanser för Azure-rapporten ger en enda vy över alla dina Azure reserverade instanser. Den här rapporten visar varje köp som har sin egen radobjekt. Rapporten visar även information om det köpet, till exempel det konto som har köpt den typ av köp och instanstyp, dagar kvar och så vidare. Du kan visa eller Dölj rapportdata med hjälp av Visa/dölj fält.
-
-Använd reserverade instanser för Azure-rapporten för att visa:
-
-- En lista över alla reservationer efter köp datum.
-- Tid kvar tills RI upphör att gälla.
-- Engångsavgifter.
-- Det konto som har köpt reserverade instanser, och när.
-
-### <a name="aws-reserved-instances-report"></a>Reserverade AWS-instanser rapport
-
-Reserverade AWS-instanser rapporten ger dig med en enda vy över alla AWS reserverade instanser. Den här rapporten visar varje köp som är en egen radobjekt och information om det köpet, till exempel det konto som har köpt den typ av köp och instanstyp, dagar kvar och så vidare. Du kan visa eller Dölj rapportdata med hjälp av Visa/dölj fält.
-
-Du kan använda rapporten reserverade AWS-instanser för att visa:
-
-- En lista över alla reservationer efter köp datum.
-- Tid kvar tills RI upphör att gälla.
-- Engångsavgifter.
-- Ursprungliga inköps-ID (reservations-ID).
-- Det konto som har köpt reserverade instanser och när.
-
-### <a name="ec2-ri-buying-recommendations-report"></a>EC2 RI Buying Recommendations rapport
-
-Grunden för molnet resursförbrukning är den på begäran-modellen, där resurser resultera i kostnader när de används. Det finns inga direkta åtaganden – du betalar bara för det du använder, när du använder den.
-
-AWS som ett alternativ prismodellen för dess elastiska Compute (EC2) molntjänster – reserverade instanser (RI). Den här prismodellen garanterar användare kapaciteten när de behöver den för hela den reserverade VM-instansen. Den reserverade VM-Instansen erbjuder betydande prisrabatter över priser på begäran. I utbyte kan göra användare ett krav på åtagande för användning av en virtuell instans. Åtagandet är bunden till en specifik familj, storlek, tillgänglighetszon (AZ) och operativsystem, under åtagande (ett eller tre år). Den reserverade VM-Instansen kan AWS att effektivt planera framtida kapaciteten, samt att få kunden åtagande till dess tjänster.
-
-Tre betalningsalternativ för Fjärrinstallationstjänster som är alla krav:
-
-- Massinläsning summan i dag 0, erbjuder de högsta rabatterna
-- Inte förskott - erbjuder de lägsta rabatterna i som kostnaden för RI ställs i månaden under den reserverade VM-instansen.
-- Partiellt startavgift, vilka ¼ - ½ av priset betalas direkt, och övriga månatliga avbetalningar med en diskonteringsränta som är lägre, Stäng men genom att betala för alla frekvensen
-
-Cloudyn utvärderar drifttid för varje dator under de senaste 30 dagarna. Cloudyn rekommenderar att köpa reserverade instanser när det är mer kostnadseffektivt att köra datorn med en RI på den aktuella nivån drifttid.
-
-Rapporten visar anledningen för dess rekommendationer för att spara de flesta pengar under året. Rekommendationerna föreslår ersätta på begäran-instanser med reserverade VM-instanser. Du kan köpa reserverade instanser direkt från rapporten.
-
-Varje flik öppnas som en fullständig rapport. Viktiga avsnitt på flikarna finns:
-
-- **EC2 RI Purchase Impact** – det här avsnittet innehåller en simulering av skillnaden mellan på begäran vs reserverade instanser. Klicka på **Zooma in**, för att se den fullständiga EC2 RI Purchase Impact-rapporten med de filter som redan har definierats för din rekommendation. Den här rapporten visar köp effekten av alla potentiella RI-köp. Du kan justera den förväntade tillgänglighet för att se potentialen sparas när du köper reserverade EC2-instanser.
-
-- **Sparar Analysis** – det här avsnittet innehåller den potentiella besparingar uppnåddes och månaden besparingarna är actualized när du följer rekommendationer för Cloudyn. Faktiska besparingar och procent sparas i rött.
-
-- **EC2 RI-jämförelse** – det här avsnittet visar ROI höjdpunkter i Cloudyns rekommenderad distribution, inklusive alla relevanta alternativ. Resultaten i den här rapporten förutsätter att datorn körs på 100% drifttid. Klicka på **Zooma In** att öppna den detaljerade rapporten.
-
-- **Instanser över tid** – det här avsnittet visas en sammanställning av alla instanser som är associerade med rekommendation, OnDemand, reserverade instanser och plats. Klicka på **Zooma In** att öppna den detaljerade rapporten.
-- **Breakeven punkter** – det här avsnittet innehåller en tabell med alla möjliga rekommenderade distributioner och avkastningen på investeringen och månaden när avkastningen på investeringen inträffar. Klicka på **Zooma In** att öppna den detaljerade rapporten.
-
-### <a name="ec2-reservations-over-time-report"></a>Rapporten EC2 reservationer över tid
-
-Rapporten EC2 reservationer över tid spårar statusen för din användning av dina köpta reserverade EC2-instanser. Du kan ange av lösningen på rapporten till timme, dag eller vecka.
+Med rapporten för kostnad för beräkningsenergiåtgång över tid får du en analys av beräkningsenergiåtgång under ett angivet datumintervall. Även om andra rapporter visar det antal datorer som körs eller körningstimmarna visar den här rapporten kärntimmar, beräkningsenhetstimmar eller GB RAM-timmar.
 
 Använd rapporten för att:
 
-- Visa reservationer som har köpt som används och inte används.
-- Öka detaljnivån till lösningen per timme att visa RI-användning per timme.
+- Kontrollera beräkningsenergiåtgången inom ett angivet datumintervall.
+- Visa beräkningstider baserat på kostnadsallokeringsmodeller.
 
-### <a name="savings-over-time-report"></a>Besparingar över tid rapport
+Den här rapporten är länkad till dina [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs)-principer. Därför visas resultat baserat på definierad taggning och definierade principer för din valda kostnadsprincip. När du inte har skapat någon princip visas inte resultat.
 
-Rapporten besparingar över tid används för att visa besparing som uppnås med hjälp av reserverade instanser samt upptäcka instanser. Rapporten visar ROI uppnås med tiden som härrör från RI-köp.
+### <a name="compute-power-average-cost-over-time-report"></a>Rapport för genomsnittlig kostnad för beräkningsenergiåtgång över tid
 
-Om du vill visa besparingarna från reserverade instanser, gruppera resultatet av **Prismodell** och välj **Reservation**. Om du vill visa RI-besparingar uppnåddes av ett visst konto eller instanstyp, lägger du till relevanta gruppering och filter för typ av konto eller instansen.
+Du kan använda rapporten för genomsnittlig kostnad för beräkningsenergiåtgång över tid till att visa mer än bara kostnaden för varje dator som körs. Rapporten visar den genomsnittliga kostnaden per instanstimme, kärntimme, beräkningsenhetstimme och GB RAM-timme. Rapporten ger en inblick i effektiviteten i din distribution.
 
-Om du vill se besparingarna från platsen instans användning, filtrera den **Prismodell** till **plats**. Standardfiltret för den här rapporten är RI och Spot-instanser.
+Den här rapporten är länkad till dina [Kostnadsallokering 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs)-principer. Därför visas resultat baserat på definierad taggning och definierade principer för din valda kostnadsprincip. När du inte har skapat någon princip visas inte resultat.
 
-### <a name="rds-ri-buying-recommendations-report"></a>RDS RI Buying Recommendations rapport
+### <a name="s3-cost-over-time-report"></a>Rapport för S3-kostnad över tid
 
-RDS RI Buying Recommendations rapporten rekommenderar när du ska använda RDS reserverade instanser i stället för på begäran-instanser.
+Rapporten för S3-kostnad över tid ger en analys av kostnaderna för Amazon Simple Storage Service (S3) per bucket över tid för en angiven tidsram. Rapporten hjälper dig att hitta de buckets som är dina huvudsakliga kostnadsfaktorer och visar trender i din S3-användning och dina utgifter.
 
-Varje flik öppnas som en fullständig rapport. Viktiga avsnitt på flikarna finns:
+### <a name="s3-distribution-of-cost-report"></a>Rapport för S3-distribution av kostnad
 
-- **RDS RI Purchase Impact** – det här avsnittet innehåller en simulering av skillnaden mellan på begäran jämfört med reserverade instanser. Klicka på **Zooma in** att se den fullständiga RDS RI Purchase Impact-rapporten med de filter som redan har definierats för din rekommendation. Den här rapporten kan du se köp effekten av alla potentiella RI-köp.  Du kan justera förväntade genomsnittliga drifttid och se potentialen sparar genom att köpa reserverade instanser.
-- **Sparar Analysis** – det här avsnittet innehåller den potentiella besparingar uppnåddes och månaden besparingarna är actualized när du följer rekommendationer för Cloudyn. Faktiska besparingar och procent sparas i rött.
+Använd rapporten för att analysera din S3-kostnad för den senaste månaden efter bucket och lagringsklass. Du kan använda cirkeldiagramsvyn för att ange tröskelvärdet för synlighet. Eller så kan du använda tabellvyn för att visa delsummor.
 
-- **RDS RI-jämförelse** – det här avsnittet visar ROI höjdpunkter i rekommenderad distribution, inklusive alla relevanta alternativ. Resultaten i den här rapporten förutsätter att datorn körs på 100% drifttid. Klicka på **Zooma In** att öppna den detaljerade rapporten för den valda datorn.
-- **Instanser över tid** – det här avsnittet visas en sammanställning av alla instanser som är associerade med rekommendation, OnDemand, reserverade instanser och plats. Klicka på **Zooma In** att öppna den detaljerade rapporten.
+### <a name="s3-bucket-properties-report"></a>Rapport för S3-bucketegenskaper
 
-- **Breakeven punkter** – det här avsnittet innehåller en tabell med alla möjliga rekommenderade distributioner och avkastningen på investeringen och månaden när avkastningen på investeringen inträffar. Klicka på **Zooma In** att öppna den detaljerade rapporten.
+Använd rapporten för att visa S3-bucketegenskaper. Du kan använda cirkeldiagramsvyn för att ange tröskelvärdet för synlighet. Eller så kan du använda tabellvyn för att visa delsummor.
 
-### <a name="rds-reservations-over-time-report"></a>Rapporten RDS reservationer över tid
+### <a name="rds-instances-over-time-report"></a>Rapport för RDS-instanser över tid
 
-Rapporten RDS Reservation över tid används för att visa en detaljerad analys av båda dina används och oanvända reservationer under den angivna perioden.
+Använd rapporten för att visa en analys av alla Amazon Relational Database Service-instanser (RDS) som körs under den angivna perioden.
 
-### <a name="reserved-instance-purchase-impact-report"></a>Reserverad instans effektrapporten
+### <a name="rds-active-instances-report"></a>Rapport över aktiva RDS-instanser
 
-Rapporten EC2 RI Purchase Impact kan du simulera kostnad för reserverad instans och på begäran kostnad över tid. Det kan hjälpa dig fatta bättre inköp. Justera filter som genomsnittliga körningstiden, termen, plattform och andra för att fatta välgrundade beslut när du ska välja RI-köp.
+Använd rapporten för att analysera aktiva RDS-instanser. I rapporten expanderar du objektet om du vill visa mer information.
 
-### <a name="cost-effective-sizing-recommendations-report"></a>Kostnadseffektiv Storleksrekommendationer rapport
+### <a name="azure-reserved-instances-report"></a>Rapport för reserverade Azure-instanser
 
-Kostnadseffektiv Storleksrekommendationer-rapporten innehåller resultat för AWS och Azure. Dina RI-köp beaktas för AWS-användare, och resultaten omfattar inte datorer som körs som reserverade VM-Instanser. Den här rapporten innehåller en lista över underutnyttjade instanser som lämpar sig lågsäsong. Rekommendationerna baseras på användning och prestanda data från de senaste 30 dagarna. I varje rekommendation är en lista med kandidater lågsäsong anledningen lågsäsong och en länk för att visa fullständig information och prestandamått för instansen. Och när du ändrar till nyare generation instanstyper rekommenderar att relevanta rekommendationer.
+I rapporten för reserverade Azure-instanser får du en enskild vy över alla dina reserverade Azure-instanser. I den här rapporten visas varje inköp som ett eget radobjekt. Rapporten innehåller även information om det inköpet, till exempel det konto som köpte det, typen av inköp och instanstyp, återstående dagar och så vidare. Du kan visa eller dölja rapportdata med hjälp av Visa/dölj fält.
 
-Du kan inte hämta listan över instans-ID som rekommenderas lågsäsong i den här rapporten. Använda rapporten alla Storleksrekommendationer för att hämta instans-ID: N.
+Använd rapporten för reserverade Azure-instanser för att visa:
 
-Överväg följande downsizing exempel:
+- En lista över alla reservationer efter inköpsdatum.
+- Återstående tid tills RI upphör att gälla.
+- Engångsavgifter.
+- Det konto som köpte RI och när.
 
-Du har sex m3.xlarge instanser som körs. Cloudyn analys visar att fem av dem har låg CPU-användning. Överväg att downsizing dem.
+### <a name="aws-reserved-instances-report"></a>Rapport för reserverade AWS-instanser
 
-I inverkan på kostnaden beräknas kostnaden effekten. I det här exemplet kan genom att expandera radartikeln, du se aktuella priset för en m3.xlarge instans (Linux/Unix) kostar $0.266 per timme och en m3.large instanskostnader (Linux/Unix) $0.133 per timme. Därför är årlig kostnad $11,651 för fem m3.xlarge instanser som körs på 100% användning. Årlig kostnad är $5,825 för fem m3.large instanser som körs på 100% användning. Potentiella besparingar är $5,825.
+I rapporten för reserverade AWS-instanser får du en enskild vy över alla reserverade AWS-instanser. Rapporten visar även varje köp som ett eget radobjekt samt information om det inköpet, till exempel det konto som köpte det, typen av inköp och instanstyp, återstående dagar och så vidare. Du kan visa eller dölja rapportdata med hjälp av Visa/dölj fält.
 
-Klicka på om du vill visa kostnadseffektiv storleksändring berättiganden + för att expandera raden. I **information**:
+Använd rapporten för reserverade AWS-instanser för att visa:
 
-- Den **rekommendation motivering** avsnittet visar den aktuella distributionen och antalet instanser som rekommenderas lågsäsong.
-- Den **kostnad** avsnittet visas den beräkning som används för att fastställa potentiella besparingar.
-- Den **potentiella årliga besparingar** avsnittet visas den potentiella årliga besparingar när downsizing per Cloudyns rekommendation.
+- En lista över alla reservationer efter inköpsdatum.
+- Återstående tid tills RI upphör att gälla.
+- Engångsavgifter.
+- Ursprungligt inköps-ID (reservations-ID).
+- Det konto som köpte RI och när.
 
-### <a name="all-sizing-recommendations-report"></a>Alla Storleksrekommendationer rapport
+### <a name="ec2-ri-buying-recommendations-report"></a>Rapport för köprekommendationer för EC2 RI
 
-Den här rapporten innehåller en lista över underutnyttjade instanser som lämpar sig lågsäsong. Rekommendationerna baseras på användning och prestanda data från de senaste 30 dagarna. Du kan visa fullständig information och prestandamått för instansen i varje rekommendation.
+Grunden för förbrukning av molnresurser är på begäran-modellen, där resurser endast medför kostnader när de används. Det finns inga åtaganden i förskott – du betalar bara för det du använder, när du använder det.
 
-Om du har köpt reserverade AWS-instanser i den här rapporten innehåller resultat för alla instanser som körs, inklusive instanser som körs som reserverade instanser.
+AWS erbjuder en alternativ prismodell för sina Elastic Compute Cloud-tjänster (EC2) – den reserverade instansen (RI). Den här prismodellen garanterar användare kapacitet när de behöver den under hela varaktigheten för RI. RI erbjuder betydande rabatter för på begäran-priser. I gengäld gör användarna ett åtagande i förskott för användningen av en virtuell instans. Åtagandet är kopplat till en viss familj, storlek, tillgänglighetszon (AZ) och operativsystem under åtagandeperioden (ett eller tre år). RI gör att AWS effektivt kan planera framtida kapacitet samt få kunders åtagande att använda dess tjänster.
 
-Använd alla Storleksrekommendationer rapporten för att:
+Tre betalningsalternativ för RI som är gäller i förskott:
 
-- Se en lista över alla instanser som lämpar sig lågsäsong.
-- Exportera en rapportlista som innehåller namn och ID: N.
+- Hela beloppet dag 0, vilket ger den högsta rabatten
+- Ingen förskottsbetalning, där kostnaden för RI betalas månatligen under varaktigheten för RI, vilket ger den lägsta rabatten
+- Delvis förskottsbetalning, en fjärdedel till hälften av priset betalas i förskott och resten månatligen med en rabatt som är lägre än men nära priset för betalning av hela beloppet i förväg
 
-Om du vill visa information om rekommendationen för en specifik instans, klickar du på **+** att utöka information. Information om rekommendationen-avsnittet innehåller en översikt över rekommendationen.
+Cloudyn utvärderar drifttiden för varje dator under de senaste 30 dagarna. Cloudyn rekommenderar köp av RI när det är mer kostnadseffektivt att köra datorn med en RI vid den aktuella drifttidsnivån.
 
-Den **taggar** avsnittet innehåller en lista över taggen nycklar och värden för den valda instansen. Använd taggar i det vänstra fönstret för att filtrera avsnittet.
+Rapporten visar motiveringen för dess rekommendationer för att spara mest pengar under året. Rekommendationerna rekommenderar att på begäran-instanser ersätts med RI. Du kan köpa RI direkt från rapporten.
 
-Den **processoranvändning** avsnittet innehåller CPU-belastningen för instansen under den senaste månaden per dag.
+Varje flik öppnas som en fullständig rapport. Viktiga avsnitt på flikarna är:
 
-Klicka på diagrammet för att öka detaljnivån och öppna instans CPU över tid rapporten för att se en specifikation av instanserna.
+- **EC2 Köpeffekt för RI** – det här avsnittet innehåller en simulering av skillnaden mellan på begäran jämfört med reserverade instanser. Klicka på **Zooma in** för att se hela rapporten för EC2 RI-köpeffekt med filtren fördefinierade enligt din rekommendation. Den här rapporten visar köpeffekten för alla potentiella RI-inköp. Du kan justera den förväntade genomsnittliga drifttiden för att se potentiella besparingar när du köper reserverade EC2-instanser.
 
-- Använd **Visa/dölj fält** att lägga till eller ta bort fält: Timestamp, Genomsnittlig CPU, Min CPU, Max CPU.
-- Använd **datumintervall** att ange ett datum eller datumintervall och öka detaljnivån i en specifik InstanceID.
-- Använd **utökade filter** att visa alla eller en specifik instans-ID
-- Klicka på **Zooma in** att öppna rapporten för CPU-användning
+- **Besparingsanalys** – det här avsnittet innehåller de potentiella besparingarna och den månad då besparingarna förverkligas när Cloudyn-rekommendationer följs. De faktiska besparingarna och den sparade procentandelen är rödmarkerade.
 
-Om instansen inte har övervakats i 30 dagar, visas ofullständiga data.
+- **EC2 RI-typjämförelse** – det här avsnittet framhäver ROI-fördelarna med Cloudyns rekommenderade distribution, inklusive alla relevanta alternativ. Resultatet i den här rapporten förutsätter att datorn körs med 100 % drifttid. Klicka på **Zooma in** för att öppnade den detaljerade rapporten.
 
-Den **minne användning (GB)** avsnittet innehåller information om det minne som används. För AWS-användare minne mått är inte automatiskt tillgängliga och måste läggas per instans via AWS. AWS debiterar du kan aktivera mätvärden för minne för EC2-instanser.
+- **Instanser över tid** – det här avsnittet visar en analys av alla instanser som är associerade med rekommendationen, OnDemand, reserverade instanser och punkt. Klicka på **Zooma in** för att öppnade den detaljerade rapporten.
+- **Lönsamhetspunkter** – det här avsnittet innehåller en tabell med alla möjliga rekommenderade distributioner samt ROI och den månad då ROI sker. Klicka på **Zooma in** för att öppnade den detaljerade rapporten.
 
-Den **minnesanvändning (%)** avsnittet visas procentandelen minne som används.
+### <a name="ec2-reservations-over-time-report"></a>Rapport för EC2-reservationer över tid
 
-Den **indata nätverkstrafik** avsnitt visar en ögonblicksbild över tid över nätverkstrafik, genomsnitt och maximum, för den valda instansen. Hovra över raderna som ska se vilket datum och högsta trafik för den tiden. Klicka på **Zooma In** att öppna rapporten nätverk inkommande trafik.
+Rapporten för EC2-reservationer över tid spårar statusen för din användning av din köpta EC2-RI. Du kan ange en upplösning för rapporten till timme, dag eller vecka.
 
-Den **utgående nätverkstrafik** avsnitt visar en ögonblicksbild av nätverkstrafik för utdata för den valda instansen. Hovra över raderna som ska se vilket datum och högsta trafik för den tiden. Klicka på **Zooma In** att öppna rapporten utgående nätverkstrafik.
+Använd rapporten för att:
 
-### <a name="instance-metrics-explorer-report"></a>Instans Metrics Explorer-rapport
+- Visa köpta reservationer som används och sådana som inte används.
+- Öka detaljnivån till upplösningen per timme för att se RI-användning per timme.
 
-Instans Metrics Explorer-rapporten innehåller molnöverskridande prestandamått per instans. Använd rapporten för att visa instanser som är över- eller outnyttjade baserat på processor, minne och nätverk tröskelmått.
+### <a name="savings-over-time-report"></a>Rapport för besparingar över tid
 
-Visa molnöverskridande prestanda per instans:
+Använd rapporten för besparingar över tid för att visa de besparingar som uppnås med reserverade instanser samt punktinstanser. Rapporten visar den ROI som uppnås över tid från RI-inköp.
 
-1. I **datumintervall**, välja ett datumintervall som du vill visa prestanda.
-2. I **taggar**, Välj alla taggar som du vill visa.
-3. I **filter**, välj sedan filtren som du vill visa i rapporten.
-4. I **utökade filter**, justera tröskelvärdena för rapporten:
+Om du vill visa besparingar från RI grupperar du resultatet efter **Prismodell** och väljer **Reservationer**. Om du vill visa RI-besparingar som uppnås av ett specifikt konto eller en instanstyp lägger du till relevant gruppering och filter till konto- eller instanstypen.
+
+Om du vill se besparingar från användning av punktinstanser filtrerar du **Prismodell** till **Punkt**. Standardfiltret för den här rapporten är RI och punktinstanser.
+
+### <a name="rds-ri-buying-recommendations-report"></a>Rapport för köprekommendationer för RDS RI
+
+Rapporten för köprekommendationer för RDS RI rekommenderar när du bör använda RDS-RI i stället för på begäran-instanser.
+
+Varje flik öppnas som en fullständig rapport. Viktiga avsnitt på flikarna är:
+
+- **RDS Köpeffekt för RI** – det här avsnittet innehåller en simulering av skillnaden mellan på begäran jämfört med reserverade instanser. Klicka på **Zooma in** för att se hela rapporten för RDS RI-köpeffekt med filtren fördefinierade enligt din rekommendation. Med den här rapporten kan du se köpeffekten för alla potentiella RI-inköp.  Du kan justera den förväntade genomsnittliga drifttiden och se potentiella besparingar från köp av RI.
+- **Besparingsanalys** – det här avsnittet innehåller de potentiella besparingarna och den månad då besparingarna förverkligas när Cloudyn-rekommendationer följs. De faktiska besparingarna och den sparade procentandelen är rödmarkerade.
+
+- **RDS RI-typjämförelse** – det här avsnittet framhäver ROI-fördelarna med den rekommenderade distributionen, inklusive alla relevanta alternativ. Resultatet i den här rapporten förutsätter att datorn körs med 100 % drifttid. Klicka på **Zooma in** för att öppnade den detaljerade rapporten för den valda datorn.
+- **Instanser över tid** – det här avsnittet visar en analys av alla instanser som är associerade med rekommendationen, OnDemand, reserverade instanser och punkt. Klicka på **Zooma in** för att öppnade den detaljerade rapporten.
+
+- **Lönsamhetspunkter** – det här avsnittet innehåller en tabell med alla möjliga rekommenderade distributioner samt ROI och den månad då ROI sker. Klicka på **Zooma in** för att öppnade den detaljerade rapporten.
+
+### <a name="rds-reservations-over-time-report"></a>Rapport för RDS-reservationer över tid
+
+Använd rapporten för RDS-reservationer över tid för att visa en analys av både dina använda och oanvända reservationer under den angivna perioden.
+
+### <a name="reserved-instance-purchase-impact-report"></a>Rapport för köpeffekt för reserverad instans
+
+Med rapporten för köpeffekt för EC2-RI kan du simulera kostnaden för reserverad instans jämfört med på begäran-kostnad över tid. Den kan hjälpa dig att fatta bättre inköpsbeslut. Justera filter såsom genomsnittlig körningstid, period, plattform och andra för att fatta välgrundade beslut när du överväger RI-inköp.
+
+### <a name="cost-effective-sizing-recommendations-report"></a>Rapport för rekommendationer om kostnadseffektiv storlek
+
+Rapporten för rekommendationer om kostnadseffektiv storlek ger resultat för AWS och Azure. För AWS-användare beaktas dina RI-inköp, och resultatet omfattar inte datorer som körs som RI. Den här rapporten innehåller en lista över underutnyttjade instanser som är kandidater för nedskalning. Rekommendationerna baseras på dina användnings- och prestandadata från de senaste 30 dagarna. I varje rekommendation finns en lista över kandidater för nedskalning, motiveringen till nedskalningen samt en länk för att visa fullständig information och prestandamått för instansen. Det visas även när relevanta rekommendationer ger rådet att byta till instanstyper från en nyare generation.
+
+Du kan inte ladda ned listan med instans-ID:n som rekommenderas för nedskalning från den här rapporten. Om du vill ladda ned instans-ID:n använder du rapporten för alla storleksrekommendationer.
+
+Ta följande exempel på nedskalning:
+
+Du har sex m3.xlarge-instanser som körs. Cloudyn-analys visar att fem av dem har låg CPU-användning. Överväg att skala ned dem.
+
+I Kostnadspåverkan beräknas kostnadspåverkan. I det här exemplet kan du genom att expandera radobjektet se att det aktuella priset för en m3.xlarge-instans (Linux/Unix) är 0,266 USD per timme och att priset för en m3.large-instans (Linux/Unix) är 0,133 USD per timme. Därför är den årliga kostnaden 11 651 USD för fem m3.xlarge-instanser som körs med 100 % utnyttjande. Den årliga kostnaden är 5 825 USD för fem m3.large-instanser som körs med 100 % utnyttjande. Den potentiella besparingen är 5 825 USD.
+
+Om du vill visa motiveringar till kostnadseffektiv storlek klickar du på + för att expandera radobjektet. I **Information**:
+
+- I avsnittet **Rekommendationsjustering** visas den aktuella distributionen och det antal instanser som rekommenderas för nedskalning.
+- I avsnittet **Kostnadspåverkan** visas den beräkning som används för att fastställa potentiella besparingar.
+- I avsnittet **Potentiella årliga besparingar** visas de potentiella årliga besparingarna vid nedskalning enligt Cloudyns rekommendationer.
+
+### <a name="all-sizing-recommendations-report"></a>Rapport för alla storleksrekommendationer
+
+Den här rapporten innehåller en lista över underutnyttjade instanser som är kandidater för nedskalning. Rekommendationerna baseras på dina användnings- och prestandadata från de senaste 30 dagarna. I varje rekommendation kan du visa fullständig information och prestandamått för instansen.
+
+Om du har köpt reserverade AWS-instanser innehåller den här rapporten resultat för alla instanser som körs, inklusive instanser som körs som RI.
+
+Använd rapporten för alla storleksrekommendationer för att:
+
+- Se en lista över alla dina instanser som är kandidater för nedskalning.
+- Exportera en rapportlista som innehåller instansnamn och ID.
+
+Om du vill visa rekommendationsinformation för en specifik instans klickar du på **+** för att expandera informationen. Avsnittet Rekommendationsinformation innehåller en översikt av rekommendationen.
+
+Avsnittet **Taggar** innehåller listan över taggnycklarna och värdena för den valda instansen. Använd Taggar i det vänstra fönstret för att filtrera avsnittet.
+
+Avsnittet **CPU-användning** visar CPU-användningen för instanser under den senaste månaden efter dag.
+
+Klicka på grafen för att öka detaljnivån och öppna rapporten för instans-CPU över tid för att se en analys av instanserna.
+
+- Använd **Visa/dölj fält** för att lägga till eller ta bort fält: Tidsstämpel, genomsnittlig CPU, min CPU, maximal CPU.
+- Använd **Datumintervall** för att ange ett datum eller datumintervall och öka detaljnivån för ett visst InstanceID.
+- Använd **Utökade filter** för att visa alla eller ett specifikt instans-ID
+- Klicka på **Zooma in** för att öppna rapporten för CPU-användning
+
+Om instansen inte har övervakats i 30 dagar visas ofullständiga data.
+
+Avsnittet **Minnesanvändning (GB)** innehåller information om använt minne. För AWS-användare är minnesmått inte automatiskt tillgängliga och måste läggas till per instans via AWS. AWS debiterar dog för aktivering av minnesmått för EC2-instanser.
+
+I avsnittet **Minnesanvändning (%)** visas den procentandel minne som används.
+
+I avsnittet **Inkommande nätverkstrafik** visas en ögonblicksbild över tiden för nätverkstrafiken, genomsnittet och maxvärdet för den valda instansen. Hovra över linjerna för att se datum och maximal trafik för den tiden. Klicka på **Zooma in** för att öppna rapporten för inkommande nätverkstrafik.
+
+I avsnittet **Utgående nätverkstrafik** visas en ögonblicksbild för utgående nätverkstrafik för den valda instansen. Hovra över linjerna för att se datum och maximal trafik för den tiden. Klicka på **Zooma in** för att öppna rapporten för utgående nätverkstrafik.
+
+### <a name="instance-metrics-explorer-report"></a>Rapport för Metrics Explorer för instanser
+
+Rapporten för Metrics Explorer för instanser visar prestandamått mellan moln per instans. Använd rapporten om du vill visa instanser som är över- eller underutnyttjade baserat på tröskelvärden för CPU, minne och nätverk.
+
+Så här visar du prestanda mellan moln per instans:
+
+1. I **Datumintervall** väljer du ett datumintervall som du vill visa prestanda för.
+2. I **Taggar** väljer du eventuella taggar som du vill visa.
+3. I **Filter** väljer du de filter som du vill visa i rapporten.
+4. I **Utökade filter** justerar du rapporttröskelvärdena för:
     - Genomsnittlig CPU
-    - Max CPU
-    - Genomsnittlig minne
+    - Maximal CPU
+    - Genomsnittligt minne
     - Maximalt minne
-5. I **utökade filter**, klickar du på **visa** och välj sedan typ av instanser för att visa.
+5. I **Utökade filter** klickar du på **Visa** och väljer sedan vilken typ av instanser som ska visas.
 
-Visa mått för en specifik instans över tid:
+Så här visar du en specifik instans mått över tid:
 
-- Gå till instans Metrics Explorer rapportera och klickar på **+** information.
+- Gå till rapporten för Metrics Explorer för instanser och klicka på **+** för att visa information.
 
-### <a name="rds-sizing-recommendations-report"></a>Storleksrekommendationer för RDS-rapport
+### <a name="rds-sizing-recommendations-report"></a>Rapport för RDS-storleksrekommendationer
 
-Storleksrekommendationer för RDS-rapporten innehåller Fjärrskrivbordstjänster som ändrar storlek på rekommendationer för att optimera din molnanvändning. Den innehåller en lista över underutnyttjade instanser som lämpar sig lågsäsong. Cloudyn rekommendationer baserat på data för användning och prestanda för de senaste 30 dagarna. Du kan filtrera rekommendationer efter kontonamn, Region, instanstyp och Status.
+Rapporten för RDS-storleksrekommendationer ger RDS-storleksrekommendationer för optimering av din molnanvändning. Den innehåller en lista över underutnyttjade instanser som är kandidater för nedskalning. Cloudyn-rekommendationer baseras på användnings- och prestandadata från de senaste 30 dagarna. Du kan filtrera rekommendationer efter kontonamn, region, instanstyp och status.
 
-### <a name="sizing-threshold-manager-report"></a>Sizing tröskelvärdet Manager-rapport
+### <a name="sizing-threshold-manager-report"></a>Rapport för tröskelhanterare för storlek
 
-Cloudyns inbyggda storleksrekommendationer beräknas med en avancerad algoritm för att tillhandahålla korrekta storlek förslag. Du kan justera tröskelvärdena för downsizing rekommendationer.
+Cloudyns inbyggda storleksrekommendationer beräknas med hjälp av en komplex algoritm för noggranna storleksförslag. Du kan justera tröskelvärdena för rekommendationer om nedskalning.
 
-Justera tröskelvärdet storleksrekommendationer manuellt:
+Så här justerar du rekommendationer om tröskelstorlek manuellt:
 
-1. I storlek tröskelvärdet Manager justera följande tröskelvärden som du vill:
+1. I tröskelhanteraren för storlek justerar du följande tröskelvärden enligt önskemål:
     - Genomsnittlig CPU %
-    - Maximal processoranvändning i procent
+    - Maximal CPU %
     - Genomsnittligt minne %
-    - Högsta mängd minne %
-3. Klicka på **tillämpa** att spara ändringarna.
-4. Ändringarna direkt för alla rekommendationer.
+    - Maximalt minne %
+3. Klicka på **Tillämpa** för att spara ändringarna.
+4. Ändringarna tillämpas omedelbart på alla dina rekommendationer.
 
-Så här återställer standardtröskelvärden:
+Så här återställer du standardtröskelvärdena:
 
-- I storlek tröskelvärdet Manager klickar du på **Återställ standardvärden**.
+- I tröskelhanteraren för storlek klickar du på **Återställ standardvärden**.
 
-### <a name="compute-instance-types-report"></a>Compute Instanstyper rapport
+### <a name="compute-instance-types-report"></a>Rapport för beräkningsinstanstyper
 
-Använd Instanstyper rapporten för att:
+Använd rapporten för instanstyper för att:
 
-- Vytyper instans av tjänsten, familj, API-namn och namn.
-- Visa information om till exempel processor, ECU, RAM och nätverk.
+- Visa instanstyper per tjänst, familj, API-namn och namn.
+- Visa information såsom CPU, ECU, RAM och nätverk.
 
-Du kan använda **Search** att hitta specifika poster.
+Du kan använda **Sök** för att hitta specifika radobjekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om hur du använder rapporter, till exempel hur du anpassar eller spara och schemalägga rapporter finns i [förstå kostnadsrapporterna](understanding-cost-reports.md).
-- Lär dig mer om de instrumentpaneler som ingår i Cloudyn och hur du skapar dina egna anpassade instrumentpaneler finns i [visa viktiga kostnadsmått med instrumentpaneler](dashboards.md).
+- Lär dig hur du använder rapporter, däribland hur du anpassar eller sparar och schemalägger rapporter. Se [Förstå kostnadsrapporter](understanding-cost-reports.md).
+- Lär dig mer om de instrumentpaneler som ingår i Cloudyn och hur du skapar dina egna anpassade instrumentpaneler. Se [Visa viktiga kostnadsmått med instrumentpaneler](dashboards.md).

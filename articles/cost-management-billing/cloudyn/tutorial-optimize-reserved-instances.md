@@ -1,7 +1,6 @@
 ---
-title: Självstudie – optimera reserv instans kostnaden med Cloudyn – Azure
+title: Självstudie – Optimera reserverad instanskostnad med Cloudyn – Azure
 description: I den här självstudien får du lära dig hur du optimerar dina reserverade instanskostnader för Azure och Amazon Web Services (AWS).
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -9,18 +8,18 @@ ms.date: 05/20/2019
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: c1afad7cb36916777b2f6cefa40b9bd1ddc465a2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.reviewer: benshy
+ms.openlocfilehash: 9b0dbc31f3789cb0033a531ad6c5395d3cfb8bcc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75987091"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769947"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Självstudie: Optimera reserverade instanser
+# <a name="tutorial-optimize-reserved-instances"></a>Självstudier: Optimera reserverade instanser
 
 I den här självstudien får du lära dig hur Cloudyn kan hjälpa dig att optimera dina reserverade instanskostnader och din användning för Azure och Amazon Web Services (AWS). En reserverad instans hos en molntjänstleverantör är ett åtagande om ett långsiktigt avtal där du binder dig i förväg att använda den virtuella datorn. Avtalet kan ibland ge betydande besparingar jämfört med VM-prismodeller av standardtyp där du betalar per användning. Potentiella besparingar realiseras bara när du utnyttjar dina reserverade instansers kapacitet fullt ut.
 
@@ -41,7 +40,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha ett Azure-konto.
-- Du måste ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
+- Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.
 - Du måste ha köpt dina RI i Azure eller AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Lära dig mer om Azure RI-kostnader
@@ -71,7 +70,7 @@ De röda staplarna visar den ackumulerade kostnaden för köpet av den reservera
 
 ## <a name="benefits-of-ris"></a>Fördelar med reserverade instanser
 
-Varje köp av en reserverad instans avser en virtuell dator av en specifik storlek och för en viss plats. Följande bild visar ett exempel med D2s \_v3 som körs på platsen Västra USA:
+Varje köp av en reserverad instans avser en virtuell dator av en specifik storlek och för en viss plats. Följande bild visar ett exempel med D2s \_v3 som körs på platsen USA, västra:
 
 ![Information om reserverad instans i Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
 
@@ -106,7 +105,7 @@ På Cloudyn-portalen navigerar du till **Optimerare** > **RI-jämförelse** och 
 
 Välj VM-storlek (instanstyp), plats (Region), reservationsperiod, antal och förväntad körning i rapporten Reserved Instance Purchase Impact (Köpeffekt för reserverad instans). Därefter kan du bedöma om köpet innebär en besparing för dig.
 
-Om du till exempel köper en reservation för en VM av typ DS1\_v2 i östra USA och den körs 24x7 under ett helt år, kan du spara 369,48 USD per år. Brytpunkten inträffar vid fem månader. Se följande bild:
+Om du till exempel köper en reservation för en VM av typ DS1\_v2 i USA, östra och den körs 24x7 under ett helt år, kan du spara 369,48 USD per år. Brytpunkten inträffar vid fem månader. Se följande bild:
 
 ![Brytpunkt för reserverad Azure-instans](./media/tutorial-optimize-reserved-instances/azure03.png)
 

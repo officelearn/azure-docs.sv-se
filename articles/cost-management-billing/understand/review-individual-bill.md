@@ -1,6 +1,6 @@
 ---
 title: Granska din enskilda Azure-faktura
-description: Lär dig hur du kan förstå din fakturerings-och resursanvändning och kontrol lera avgifterna för din enskilda Azure-prenumeration.
+description: Lär dig hur du förstår din fakturerings- och resursanvändning och kontrollera avgifterna för din enskilda Azure-prenumeration.
 author: bandersmsft
 manager: dougeby
 tags: billing
@@ -12,75 +12,75 @@ ms.workload: na
 ms.date: 11/20/2019
 ms.author: banders
 ms.openlocfilehash: 1249758e5dd5b7e823c11890e57549195da22529
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987350"
 ---
-# <a name="tutorial-review-your-individual-azure-bill"></a>Självstudie: granska din enskilda Azure-faktura
+# <a name="tutorial-review-your-individual-azure-bill"></a>Självstudier: Granska din enskilda Azure-faktura
 
-Den här artikeln hjälper dig att förstå och granska din Azure-faktura. För varje fakturerings period får du normalt en faktura i e-postmeddelandet. Fakturan är en representation av din Azure-faktura. Samma kostnads information på fakturan är tillgänglig i Azure Portal. I den här självstudien kommer du att jämföra din faktura med den detaljerade dagliga användnings filen och med kostnads analys i Azure Portal.
+Den här artikeln hjälper dig att förstå och granska din Azure-faktura. För varje faktureringsperiod får du normalt en faktura via e-post. Fakturan är en representation av din Azure-räkning. Samma kostnadsinformation på fakturan är tillgänglig i Azure-portalen. I den här självstudien jämför du fakturan med filen med detaljerad daglig användning samt med kostnadsanalys i Azure-portalen.
 
-Den här självstudien gäller endast för Azure-kunder med en enskild prenumeration. Vanliga enskilda prenumerationer är de med priser enligt principen betala per användning som köpts direkt från Azure-webbplatsen.
+Den här självstudien gäller endast för Azure-kunder som har en enskild prenumeration. Vanliga enskilda prenumerationer är sådana som har Betala per användning-priser och har köpts direkt från Azure-webbplatsen.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Jämför fakturerade kostnader med användnings filen
-> * Jämför avgifter och användning i kostnads analys
+> * Jämföra fakturerade kostnader med användningsfilen
+> * Jämföra avgifter och användning i kostnadsanalys
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste ha ett betalt *Microsoft Online Services-program* fakturerings konto. Kontot skapas när du registrerar dig för Azure via Azure-webbplatsen. Om du till exempel har ett [konto med priser enligt principen betala per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning eller om du är en [Visual Studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+Du måste ha ett betalt faktureringskonto för *Microsoft Online Services-programmet*. Kontot skapas när du registrerar dig för Azure via Azure-webbplatsen. Det gäller till exempel om du har ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller om du är [Visual Studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-Fakturor för [kostnads fria Azure-konton](https://azure.microsoft.com/offers/ms-azr-0044p/) skapas bara när månads kredit beloppet har överskridits.
+Fakturor för [kostnadsfria Azure-konton](https://azure.microsoft.com/offers/ms-azr-0044p/) skapas endast när det månatliga kreditbeloppet överskrids.
 
-Det måste vara mer än 30 dagar från den dag som du prenumererar på Azure. Azure debiterar dig i slutet av din fakturaperiod.
+Det måste ha gått mer än 30 dagar sedan du började prenumerera på Azure. Azure debiterar dig i slutet av din fakturaperiod.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 - Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="compare-invoiced-charges-with-usage-file"></a>Jämför fakturerade kostnader med användnings filen
+## <a name="compare-invoiced-charges-with-usage-file"></a>Jämföra fakturerade kostnader med användningsfilen
 
 <a name="charges"></a>
 
-Det första steget för att jämföra användning och kostnader är att ladda ned din faktura och dina användnings filer. I CSV-filen med detaljerad användning visas dina avgifter per faktureringsperiod och daglig användning. Den innehåller ingen skatte information. För att kunna hämta filerna måste du vara konto administratör eller ha ägar rollen.
+Det första steget för att jämföra användning och kostnader är att ladda ned din faktura och dina användningsfiler. I CSV-filen med detaljerad användning visas dina avgifter per faktureringsperiod och daglig användning. Den innehåller ingen skatteinformation. För att kunna ladda ned filerna måste du vara kontoadministratör eller ha rollen som ägare.
 
-Skriv *prenumerationer* i rutan sök i Azure Portal och klicka sedan på [prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+I Azure-portalen skriver du *prenumerationer* i sökrutan och klickar sedan på [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Navigera till prenumerationer](./media/review-individual-bill/navigate-subscriptions.png)
+![Gå till prenumerationer](./media/review-individual-bill/navigate-subscriptions.png)
 
 Klicka på prenumerationen i listan över prenumerationer.
 
-Klicka på **fakturor**under **fakturering**.
+Under **Fakturering** klickar du på **Fakturor**.
 
-Leta efter den som du vill ladda ned i listan över fakturor och klicka sedan på nedladdnings symbolen. Du kan behöva ändra TimeSpan för att Visa äldre fakturor. Det kan ta några minuter att generera filen med användnings information och faktura.
+I listan över fakturor letar du upp den som du vill ladda ned och klickar sedan på nedladdningssymbolen. Du kan behöva ändra tidsintervallet för att visa äldre fakturor. Det kan ta några minuter att generera filen med användningsinformation och fakturan.
 
 ![Skärmbild som visar faktureringsperioder, nedladdningsalternativet och de totala avgifterna för varje faktureringsperiod](./media/review-individual-bill/download-invoice.png)
 
-I fönstret Hämta användning och kostnader klickar du på **Hämta CSV** och **laddar ned faktura**.
+I fönstret Ladda ned användning + kostnader klickar du på **Ladda ned CSV** och **Ladda ned faktura**.
 
 ![Skärmbild som visar Ladda ned faktura och förbrukningssidan](./media/review-individual-bill/usageandinvoice.png)
 
-Om det **inte står tillgängligt** finns det flera orsaker till att du inte ser användnings information eller en faktura:
+Om det står **Inte tillgängligt** finns det flera orsaker till att du inte ser användningsinformation eller en faktura:
 
 - Det är mindre än 30 dagar sedan du började prenumerera på Azure.
-- Det finns ingen användning för fakturerings perioden.
-- Ingen faktura har genererats ännu. Vänta till slutet av faktureringsperioden.
-- Du har inte behörighet att visa fakturor. Du kanske inte ser gamla fakturor om du inte är konto administratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](../manage/manage-billing-access.md).
+- Det finns ingen användning för faktureringsperioden.
+- Det har inte genererats någon faktura ännu. Vänta till slutet av faktureringsperioden.
+- Du har inte behörighet att visa fakturor. Du ser kanske inte gamla fakturor om du inte är kontoadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](../manage/manage-billing-access.md).
 - Om du har en kostnadsfri utvärderingsversion eller ett månatligt kreditbelopp för din prenumeration som du inte har överskridit får du ingen faktura såvida du inte har ett Microsoft-kundavtal.
 
-Därefter granskar du avgifterna. Din faktura visar värden för skatter och dina användnings kostnader.
+Därefter granskar du avgifterna. Fakturan visar värden för skatter och dina användningsavgifter.
 
 ![Exempel på Azure-faktura](./media/review-individual-bill/invoice-usage-charge.png)
 
-Öppna den CSV-konfigurationsfil som du laddade ned. Summera värdet för alla objekt i kolumnen *kostnad* i slutet av filen.
+Öppna den CSV-användningsfil som du laddade ned. I slutet av filen summerar du värdet för alla objekt i kolumnen *Kostnad*.
 
-![Exempel på användnings fil med summerad kostnad](./media/review-individual-bill/usage-file-usage-charges.png)
+![Exempel på användningsfil med summerad kostnad](./media/review-individual-bill/usage-file-usage-charges.png)
 
- Det summerade *kostnad* svärdet bör matcha priset för *användnings kostnader* på din faktura.
+ Värdet för summerad *Kostnad* ska exakt matcha kostnaden för *användningsavgifter* på fakturan.
 
 Dina användningsavgifter visas på mätarnivå. Följande termer innebär samma sak både i fakturan och i filen med detaljerad användning. Till exempel är faktureringsperioden på fakturan samma som den faktureringsperiod som visas i filen med detaljerad användning.
 
@@ -92,34 +92,34 @@ Dina användningsavgifter visas på mätarnivå. Följande termer innebär samma
 |Resurs |MeterName |
 |Region |MeterRegion |
 |Förbrukad | Kvantitet |
-|Ingår |Kvantitet som ingår |
+|Ingår |Inkluderad mängd |
 |Faktureringsbar |Överbliven kvantitet |
-|Kurs | EffectivePrice|
+|Pris | EffectivePrice|
 | Värde | Kostnad |
 
-Avsnittet **användnings debiteringar** i fakturan visar det totala värdet (kostnad) för varje mätare som förbrukades under fakturerings perioden. Följande bild visar till exempel en användnings avgift för Azure Storage tjänsten för resursen *P10 disks* .
+I avsnittet **Användningsavgifter** på fakturan visas det totala värdet (kostnaden) för varje mätare som förbrukades under faktureringsperioden. Till exempel visar följande bild en användningsavgift för Azure Storage-tjänsten för resursen *P10-diskar*.
 
 ![Användningsavgifter på faktura](./media/review-individual-bill/invoice-usage-charges.png)
 
-I CSV-konfigurationsfilen filtrerar du efter *MeterName* för motsvarande resurs som visas på din faktura. Summera sedan värdet *kostnad* för objekt i kolumnen. Här är ett exempel.
+I CSV-användningsfilen filtrerar du efter *MeterName* för motsvarande resurs som visas på fakturan. Summera sedan värdet för *Kostnad* för objekt i kolumnen. Här är ett exempel.
 
-![Summerings värde för användnings filen för MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
+![Summerat värde för användningsfilen för MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 
-Det summerade *kostnad* svärdet bör exakt matcha *förbruknings* kostnaden för den enskilda resursen som debiteras på din faktura.
+Värdet för summerad *Kostnad* ska exakt matcha kostnaden för *användningsavgifter* för den enskilda resurs som debiteras på fakturan.
 
-Mer information finns i [förstå din Azure-faktura](understand-invoice.md) och [förstå din Azure-detaljerade användning](understand-usage.md).
+Mer information finns i [Förstå din Azure-faktura](understand-invoice.md) och [Förstå din detaljerad Azure-användning](understand-usage.md).
 
-## <a name="compare-charges-and-usage-in-cost-analysis"></a>Jämför avgifter och användning i kostnads analys
+## <a name="compare-charges-and-usage-in-cost-analysis"></a>Jämföra avgifter och användning i kostnadsanalys
 
-Kostnads analys i Azure Portal kan också hjälpa dig att verifiera dina avgifter. För att få en snabb överblick över din fakturerade användning och kostnader väljer du din prenumeration på [sidan prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure Portal. Klicka sedan på **kostnads analys** och sedan på **faktura Detaljer**i listan vyer.
+Kostnadsanalys i Azure-portalen kan även hjälpa dig att verifiera dina avgifter. För att få en snabb överblick av din fakturerade användning och dina kostnader väljer du din prenumeration på sidan [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen. Klicka sedan på **Kostnadsanalys**. I listan över vyer klickar du på **Fakturainformation**.
 
-![Exempel som visar val av faktura Detaljer](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
+![Exempel som visar val av Fakturainformation](./media/review-individual-bill/cost-analysis-select-invoice-details.png)
 
-Sedan väljer du en tids period för fakturan i listan datum intervall. Lägg till ett filter för faktura nummer och välj sedan den InvoiceNumber som matchar den på din faktura. Kostnads analys visar kostnads information för dina fakturerade artiklar.
+I listan med datumintervall väljer du sedan en tidsperiod för fakturan. Lägg till ett filter för fakturanummer och välj sedan det InvoiceNumber som överensstämmer med din faktura. Kostnadsanalys visar kostnadsinformation för dina fakturerade objekt.
 
-![Exempel som visar information om fakturerad kostnad i kostnads analys](./media/review-individual-bill/cost-analysis-service-usage-charges.png)
+![Exempel som visar fakturerad kostnadsinformation i kostnadsanalys](./media/review-individual-bill/cost-analysis-service-usage-charges.png)
 
-Kostnader som visas i kostnads analys bör överensstämma exakt med kostnaden för *användnings kostnader* för den enskilda resursen som debiteras på din faktura.
+Kostnader som visas i kostnadsanalys ska exakt matcha kostnaden för *användningsavgifter* för den enskilda resurs som debiteras på fakturan.
 
 ![Användningsavgifter på faktura](./media/review-individual-bill/invoice-usage-charges.png)
 
@@ -133,14 +133,14 @@ Avgifter för externa tjänster debiteras separat. Avgifterna står inte på din
 
 Azure debiterar inte direkt baserat på resurskostnaden. Avgifter för en resurs beräknas med hjälp av en eller flera mätare. Mätare används för att spåra användningen av en resurs under hela dess livslängd. Dessa mätare används sedan för att beräkna fakturan.
 
-När du skapar en enda Azure-resurs, till exempel en virtuell dator, har en eller flera mätnings instanser skapats. Mätare används för att spåra användningen av resursen över tid. Varje mätare skickar användningsposter som används av Azure för att beräkna fakturan.
+När du skapar en enskild Azure-resurs, till exempel en virtuell dator, skapas en eller flera mätarinstanser för den. Mätare används för att spåra användningen av resursen över tid. Varje mätare skickar användningsposter som används av Azure för att beräkna fakturan.
 
 Till exempel kan en enskild virtuell dator (VM) som skapats i Azure ha följande mätare som skapas för att spåra dess användning:
 
-- Instanstimmar
+- Beräkningstimmar
 - IP-adresstimmar
-- Dataöverföring in
-- Dataöverföring ut
+- Inkommande dataöverföring
+- Utgående dataöverföring
 - Standard – hanterad disk
 - Standard – åtgärder för hanterad disk
 - Standard – I/O-disk
@@ -154,7 +154,7 @@ Du kan se de mätare som användes för att beräkna din faktura i CSV-filen fö
 
 ## <a name="payment"></a>Betala din faktura
 
-Om du ställer in ett kredit kort som betalnings metod debiteras betalningen automatiskt inom 10 dagar efter att fakturerings perioden är slut. På ditt kreditkortsutdrag skulle det stå **MSFT Azure** på radobjektet.
+Om du konfigurerar ett kreditkort som betalningsmetod debiteras betalningen automatiskt inom 10 dagar efter faktureringsperiodens slut. På ditt kreditkortsutdrag skulle det stå **MSFT Azure** på radobjektet.
 
 Information om hur du ändrar det kreditkort som debiteras finns i [Lägga till, uppdatera eller ta bort ett kreditkort för Azure](../manage/change-credit-card.md).
 
@@ -167,10 +167,10 @@ Om du vill kontrollera statusen för din betalning [skapar du en supportbegäran
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Jämför fakturerade kostnader med användnings filen
-> * Jämför avgifter och användning i kostnads analys
+> * Jämföra fakturerade kostnader med användningsfilen
+> * Jämföra avgifter och användning i kostnadsanalys
 
-Börja använda kostnads analys genom att slutföra snabb starten.
+Börja använda kostnadsanalys genom att slutföra snabbstarten.
 
 > [!div class="nextstepaction"]
 > [Börja analysera kostnader](../costs/quick-acm-cost-analysis.md)

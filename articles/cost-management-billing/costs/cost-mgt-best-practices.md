@@ -1,6 +1,6 @@
 ---
 title: Optimera din molninvestering med Azure Cost Management | Microsoft Docs
-description: Den här artikeln hjälper dig att få ut maximalt av dina investeringar i molnet, minska kostnaderna och utvärdera där pengarna spenderas.
+description: Den här artikeln hjälper dig att få ut det mesta möjliga av dina molninvesteringar, minska kostnaderna och utvärdera var pengarna spenderas.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -11,185 +11,185 @@ ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
 ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988388"
 ---
-# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Optimera din molninvestering med Azure Cost Management
+# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
-Azure Cost Management ger dig verktyg för att planera för, analysera och minska dina utgifter för att maximera din investering i molnet. Det här dokumentet ger dig en metodisk metod för kostnadshantering och går igenom verktyg som är tillgängliga för dig när du har gått organisationens kostnaden utmaningar. Azure gör det enkelt att skapa och distribuera molnlösningar. Det är dock viktigt att dessa lösningar är optimerade för att minimera kostnaderna för din organisation. Följa principerna som beskrivs i det här dokumentet och med hjälp av våra verktyg hjälper till att kontrollera att din organisation är förberedd för att lyckas.
+Med Azure Cost Management får du verktyg för att planera, analysera och minska dina utgifter så att du kan maximera molninvesteringarna. Det här dokumentet innehåller ett metodiskt tillvägagångssätt för kostnadshantering och beskriver de verktyg som du kan använda när du hanterar organisationens kostnadsutmaningar. Azure gör det enkelt att bygga och distribuera molnlösningar. Det är dock viktigt att dessa lösningar optimeras så att kostnaderna för din organisation minimeras. När du följer de principer som beskrivs i det här dokumentet och använder våra verktyg kan du se till att din organisation är förberedd att nå framgång.
 
 ## <a name="methodology"></a>Metodik
 
-Kostnadshantering är det problem med organisationens och bör vara en pågående praxis som börjar innan du lägga pengar på molnresurser. För att kunna implementera kostnadshantering och optimera kostnaderna, måste din organisation:
+Kostnadshantering är ett organisationsproblem som bör ske löpande före investeringar i molnresurser. För att kunna implementera kostnadshantering och optimera kostnaderna måste din organisation:
 
-- Vara beredd med rätt verktyg för att lyckas
-- Vara ansvariga för kostnader
-- Vidta lämpliga åtgärder för att optimera utgifter
+- Vara förberedd med rätt verktyg
+- Redogöra för kostnader
+- Vidta lämpliga åtgärder för att optimera utgifterna
 
-Tre viktiga grupper, som beskrivs nedan, måste vara lika justerade i din organisation att se till att du har hanterar kostnader.
+Tre nyckelgrupper som beskrivs nedan måste vara samstämmiga i organisationen så att ni kan hantera kostnader på rätt sätt.
 
-- **Finans** -personer som ansvarar för att godkänna budget begäranden i organisationen baserat på molnet utgifter prognoser. De betala motsvarande fakturan och tilldela olika team att driva på ansvarstagande kostnader.
-- **Chefer** – Business-beslutsfattare i en organisation som behöver förstå molnet utgifter för att hitta det bästa utgifter resultat.
-- **Appteamen** - tekniker hantera molnresurser på basis dagliga utveckla tjänster som uppfyller organisationens behov. Dessa grupper behöver flexibilitet att leverera ut mest värde i sina definierade budgetar.
+- **Ekonomiavdelningen** – de som ansvarar för godkännande av budgetbegäranden i organisationen baserat på prognoser av molnutgifter. De betalar motsvarande faktura och tilldelar kostnader till olika team i syfte att öka ansvarsfullheten.
+- **Chefer** – affärsbeslutsfattare i en organisation som behöver förstå molnutgifter för att hitta bästa utgiftsresultatet.
+- **Appteam** – utvecklare som hanterar molnresurser dagligen och utvecklar tjänster för att uppfylla organisationens behov. Dessa team behöver flexibiliteten att leverera det högsta värdet inom sina definierade budgetar.
 
-### <a name="key-principles"></a>Viktiga principer
+### <a name="key-principles"></a>Nyckelprinciper
 
-Använd de principer som beskrivs nedan för att placera din organisation för att lyckas i molnet kostnadshantering.
+Använd de principer som beskrivs nedan för att ge organisationen en framgångsposition inom molnkostnadshantering.
 
 #### <a name="planning"></a>Planering
 
-Omfattande, direkta planering kan du skräddarsy molnanvändning för dina specifika affärsbehov. Fråga dig själv:
+Med heltäckande planering kan du skräddarsy molnanvändningen till dina specifika affärsbehov. Ställ följande frågor:
 
-- Vilka affärsproblem som lösa?
-- Vilka användningsmönster förväntar jag från Mina resurser?
+- Vilka affärsproblem löser jag?
+- Vilka användningsmönster förväntar jag mig från mina resurser?
 
-Dina svar hjälper dig att välja de erbjudanden som är rätt för dig. De bestämmer infrastrukturen som ska användas och hur de används för att maximera din Azure effektiviteten.
+Svaren hjälper dig att välja de erbjudanden som passar dig bäst. De avgör vilken infrastruktur som bör användas och hur den ska användas för att maximera effektiviteten i Azure.
 
 #### <a name="visibility"></a>Synlighet
 
-När väl strukturerade, hjälper dig att informera personer om Azure-kostnader de är ansvarig för eller pengar de utgifter i Cost Management. Azure har tjänster som utformats för att ge dig insyn i *där* går åt till att dina pengar. Dra nytta av dessa verktyg. De kan hjälpa dig hitta resurser som inte är tillräckligt utnyttjade, ta bort spilltiden och maximera kostnadsbesparande möjligheter.
+Med rätt struktur kan Cost Management hjälpa dig att informera andra om de Azure-kostnader som de ansvarar för eller om de pengar som de spenderar. I Azure finns tjänster som är utformade för att ge dig insikter om *var* dina pengar spenderas. Dra nytta av dessa verktyg. De kan hjälpa dig att hitta resurser som underutnyttjas, eliminera slöseri och maximera kostnadsbesparingar.
 
-#### <a name="accountability"></a>Ansvarstagande
+#### <a name="accountability"></a>Ansvar
 
-Attributet kostnader i din organisation för att se till att personer som ansvarar är ansvariga för sin grupps utgifter. För att helt förstå din organisations Azure utgifter, bör du organisera dina resurser för att maximera insikt i kostnad attribution. Det hjälper dig att hantera och minska kostnaderna och håller ned personer för effektiv utgifter i din organisation att hantera bra organisation.
+Tillskriv kostnader i organisationen så att ansvariga personer faktiskt tar ansvar för vad deras team spenderar. För att helt förstå organisationens Azure-utgifter bör du organisera resurser så att insikterna om kostnadstillskrivning maximeras. God organisering hjälper till att hantera och minska kostnaderna samt hålla personer ansvariga vad gäller effektiva utgifter i din organisation.
 
 #### <a name="optimization"></a>Optimering
 
-Fungera för att minska dina utgifter. Få ut det mesta av den baserat på resultaten som samlats in via planerings- och ökar kostnaden synlighet. Du kan överväga att köpa och licensiering optimeringar tillsammans med distributionsändringar i infrastrukturen som beskrivs i detalj senare i det här dokumentet.
+Vidta åtgärder för att minska utgifterna. Få ut det mesta möjliga baserat på resultat av planering ökad kostnadssynlighet. Det kan vara fördelaktigt att köpa och licensiera optimeringar samt ändringar av infrastrukturdistributionen som beskrivs närmare senare i det här dokumentet.
 
 #### <a name="iteration"></a>Iteration
 
-Alla i din organisation måste delta i livscykeln för hantering av kostnaden. De behöver för att hålla som ingår med jämna mellanrum att optimera kostnaderna. Att rigorösa om den här iterativ process och göra det en grundlärosats i ansvarig molnet styrning i din organisation.
+Alla i din organisation måste delta i livscykeln för kostnadshantering. De behöver vara engagerade kontinuerligt för att optimera kostnaderna. Var rigorös när det gäller den här iterativa processen och gör den till en viktig princip för ansvarsfull molnstyrning i organisationen.
 
-![Principer för viktiga diagram som visar synlighet, ansvarighet och optimering](./media/cost-mgt-best-practices/principles.png)
+![Diagram över nyckelprinciper som visar synlighet, ansvar och optimering](./media/cost-mgt-best-practices/principles.png)
 
-## <a name="plan-with-cost-in-mind"></a>Planera kostnad i åtanke
+## <a name="plan-with-cost-in-mind"></a>Planera utifrån kostnader
 
-Innan du distribuerar molnresurser, utvärdera följande objekt:
+Innan du distribuerar molnresurser bör du utvärdera följande saker:
 
-- Azure-erbjudande som bäst uppfyller dina behov
+- Det Azure-erbjudande som bäst uppfyller dina behov
 - De resurser som du planerar att använda
-- Hur mycket de kan kosta
+- Hur mycket de kan komma att kosta
 
-Azure tillhandahåller verktyg som hjälper dig i utvärderingsprocessen för. Verktygen kan ge dig en god överblick av investeringen som krävs för att aktivera dina arbetsbelastningar. Du kan välja den bästa konfigurationen för din situation.
+Azure innehåller verktyg som hjälper dig i utvärderingsprocessen. Verktygen kan ge en bra uppfattning om den investering som krävs för att möjliggöra dina arbetsbelastningar. Sedan kan du välja den bästa konfigurationen för din situation.
 
-### <a name="azure-onboarding-options"></a>Azure-integreringsalternativ
+### <a name="azure-onboarding-options"></a>Alternativ för Azure-införande
 
-Det första steget i att maximera din upplevelse i Cost Management är att undersöka och avgöra vilka Azure-erbjudande är bäst för dig. Tänk på hur du planerar att använda Azure i framtiden. Överväg också att du hur faktureringsmodellen konfigurerats. Tänk på följande frågor när du fattar ditt beslut:
+Det första steget för att maximera upplevelsen i Cost Management är att undersöka och bestämma vilket Azure-erbjudande som passar dig bäst. Tänk igenom hur du planerar att använda Azure i framtiden. Överväg även hur du vill att din faktureringsmodell ska konfigureras. Beakta följande när du fattar beslutet:
 
-- Hur länge planerar att använda Azure? Jag testar eller jag planerar att bygga långsiktiga infrastruktur?
-- Hur vill jag betala för Azure? Bör jag Förskottsbetala för ett reducerat pris eller hämta faktureras i slutet av månaden?
+- Hur länge planerar jag att använda Azure? Håller jag på att testa eller planerar jag att skapa en mer långsiktig infrastruktur?
+- Hur vill jag betala för Azure? Bör jag förskottsbetala till ett lägre pris eller få en faktura i slutet av månaden?
 
-Läs mer om de olika alternativen [hur du köper Azure](https://azure.microsoft.com/pricing/purchase-options/). Flera av de vanligaste faktureringsmodellerna identifieras nedan.
+Mer information om de olika alternativen finns i [Så köper du Azure Stack](https://azure.microsoft.com/pricing/purchase-options/). Flera av de vanligaste faktureringsmodellerna beskrivs nedan.
 
 #### <a name="freehttpsazuremicrosoftcomfree"></a>[Kostnadsfri](https://azure.microsoft.com/free/)
 
-- Populära tjänster utan kostnad i 12 månader
-- 200 USD i kredit och utforska tjänster under 30 dagar
-- Mer än 25 tjänster är alltid kostnadsfria
+- 12 månader med populära kostnadsfria tjänster
+- 200 USD i kredit för att utforska tjänster i 30 dagar
+- 25+ tjänster är alltid kostnadsfria
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Betala](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)
 
-- Inga lägsta nivåer eller åtaganden
+- Inga minimibelopp eller åtaganden
 - Konkurrenskraftiga priser
 - Betala bara för det du använder
-- Avsluta när du vill
+- Du kan avbryta när som helst
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Alternativ för direkta monetära åtaganden
-- Åtkomst till reducerade priser för Azure
+- Alternativ för ekonomiska åtaganden i förskott
+- Åtkomst till reducerad Azure-prissättning
 
-## <a name="estimate-the-cost-of-your-solution"></a>Beräkna kostnaden för din lösning
+## <a name="estimate-the-cost-of-your-solution"></a>Uppskatta kostnaden för din lösning
 
-Innan du distribuerar all infrastruktur måste du utvärdera hur mycket din lösning kostar. Utvärderingen kan du skapa en budget för din organisation för arbetsbelastningen startkostnader. Du kan sedan använda en budget över tid för att mäta giltigheten för din första uppskattning. Och du kan jämföra den med den faktiska kostnaden för den distribuerade lösningen.
+Innan du distribuerar en infrastruktur bör du utvärdera hur mycket din lösning kommer att kosta. Utvärderingen hjälper dig att skapa en budget för organisationens arbetsbelastning i förväg. Sedan kan du använda en budget över tid för att beräkna giltigheten för din första uppskattning. Och du kan jämföra den med den faktiska kostnaden för din distribuerade lösning.
 
 ### <a name="azure-pricing-calculator"></a>Priskalkylator för Azure
 
-Priskalkylator för Azure kan du blanda och matcha olika kombinationer av Azure-tjänster att se en uppskattning av kostnaderna. Du kan implementera din lösning med hjälp av olika sätt i Azure – kan påverka dina totala utgifter. Tänka tidigt alla molndistributionen infrastrukturbehov kan du använda verktyget effektivt. Det kan hjälpa dig få en solid uppskattning av dina uppskattade utgifter i Azure.
+Med priskalkylatorn för Azure kan du skapa olika kombinationer av Azure-tjänster för att se en uppskattning av kostnaderna. Du kan implementera din lösning på olika sätt i Azure – var och en kan påverka dina övergripande utgifter. Genom att fundera över alla infrastrukturbehov för din molndistribution använder du verktyget på bästa sätt. Detta kan hjälpa dig att få en gedigen uppskattning av dina beräknade utgifter i Azure.
 
-Mer information finns i den [Azures priskalkylator](https://azure.microsoft.com/pricing/calculator).
+Mer information finns på sidan med [priskalkylatorn för Azure](https://azure.microsoft.com/pricing/calculator).
 
 ### <a name="azure-migrate"></a>Azure Migrate
 
-Azure Migrate är en tjänst som utvärderar din organisations aktuella arbetsbelastningar i lokala datacenter. Det ger dig inblick i vad du behöver från en ersättning av Azure-lösning. Först analyserar migrera dina lokala datorer för att avgöra om migrering är möjligt. Den rekommenderar sedan VM-storlek i Azure för att maximera prestanda. Slutligen skapar det också en kostnadsberäkning för en Azure-baserad lösning.
+Azure Migrate är en tjänst som bedömer din organisations aktuella arbetsbelastningar i lokala datacenter. Du får en inblick i vad du kan behöva från en Azure-ersättningslösning. Först analyserar Migrate dina lokala datorer för att avgöra om migreringen är möjlig. Sedan rekommenderar den VM-storlekar i Azure för att maximera prestanda. Slutligen skapar den en kostnadsuppskattning för en Azure-baserad lösning.
 
-Mer information finns i [Azure Migrate](../../site-recovery/migrate-overview.md).
+Mer information finns på sidan om [Azure Migrate](../../site-recovery/migrate-overview.md).
 
-## <a name="analyze-and-manage-your-costs"></a>Analysera och hantera dina kostnader
+## <a name="analyze-and-manage-your-costs"></a>Analysera och hantera kostnader
 
-Håll dig informerad om hur organisationens kostnader utvecklas över tid. Använd följande tekniker för att förstå och hantera dina utgifter korrekt.
+Håll dig informerad om hur din organisations kostnader utvecklas över tid. Använd följande tekniker för att korrekt förstå och hantera utgifter.
 
-### <a name="organize-and-tag-your-resources"></a>Organisera och tagga dina resurser
+### <a name="organize-and-tag-your-resources"></a>Organisera och tagga resurser
 
-Organisera dina resurser med kostnaden i åtanke. När du skapar prenumerationer och resursgrupper kan tänka på de team som ansvarar för kostnaderna. Kontrollera att dina rapporter ser till att din organisation i åtanke. Prenumerationer och resursgrupper ger bra buckets för att ordna och attributet utgifter i hela organisationen. Taggar är ett bra sätt att attributet kostnaden. Taggar kan användas som ett filter. Och du kan använda dem för att gruppera efter när du analysera data och undersöka kostnader. Enterprise Agreement-kunder kan också skapa avdelningar och placera prenumerationer därunder. Kostnadsbaserad organisation i Azure gör att relevanta personer i organisationen som är ansvariga för att minska sina team utgifter.
+Organisera resurser utifrån kostnad. När du skapar prenumerationer och resursgrupper bör du tänka på de team som ansvarar för tillhörande kostnader. Kontrollera att din rapportering tar hänsyn till organisationen. Prenumerationer och resursgrupper tillhandahåller lämpliga kategorier för att organisera och tillskriva utgifter i organisationen. Taggar är ett bra sätt att tillskriva kostnader. Du kan använda taggar som ett filter. Och du kan använda dem för att gruppera när du analyserar data och undersöker kostnader. Kunder med Enterprise-avtal kan även skapa avdelningar och placera prenumerationer under dem. Kostnadsbaserad organisering i Azure hjälper till att hålla relevanta personer i din organisation ansvariga för att minska respektive teams utgifter.
 
 ### <a name="use-cost-analysis"></a>Använda kostnadsanalys
 
-Kostnadsanalys kan du analysera dina organisationens kostnader för djupgående med Finfördela dina kostnader med hjälp av standard resursegenskaper. Beakta följande vanliga frågor som en vägledning för din analys. Genom att besvara frågorna körs regelbundet hjälper dig att hålla mer välgrundade och aktivera mer kostnadsmedvetna beslut.
+Med kostnadsanalys kan du analysera organisationens kostnader på djupet genom att segmentera och koncentrera dina kostnader med hjälp av standardmässiga resursegenskaper. Tänk på följande vanliga frågor som vägledning för din analys. Genom att besvara dessa frågor regelbundet håller du dig mer informerad och kan fatta mer kostnadsmedvetna beslut.
 
-- **Beräknade kostnader för den aktuella månaden** – hur mycket har jag tillkommer hittills den här månaden? Ska jag vara kvar under Mina budget?
-- **Undersöka avvikelser** – göra vanliga kontroller som säkerställer att kostnaderna stannar inom en rimlig mängd normal användning. Hur ser trenderna ut? Finns det några avvikare?
-- **Fakturera avstämningen** -är min senaste fakturerad kostar mer än den föregående månaden? Hur ändrar dina köpvanor månad för månad?
-- **Intern återbetalning** – nu när jag vet hur mycket jag debiteras, hur ska dessa tillägg kan delas upp för min organisation?
+- **Uppskattade kostnader för den aktuella månaden** – hur stora är mina kostnader hittills den här månaden? Kommer jag att hålla mig under budgeten?
+- **Undersök avvikelser** – utför rutinkontroller för att se till att kostnaderna är rimliga för normal användning. Hur ser trenderna ut? Finns det några avvikande värden?
+- **Fakturaavstämning** – är min senaste fakturerade kostnad mer än föregående månad? Hur förändrades utgiftsvanorna månad till månad?
+- **Intern återbetalning** – hur bör avgifterna analyseras för min organisation nu när jag vet hur mycket jag debiteras?
 
-Mer information finns i [analys av kostnader](quick-acm-cost-analysis.md).
+Mer information finns i [kostnadsanalys](quick-acm-cost-analysis.md).
 
 ### <a name="export-billing-data-on-a-schedule"></a>Exportera faktureringsdata enligt ett schema
 
-Behöver du importera din faktureringsinformation till ett externt system, t.ex. en instrumentpanel eller finansiella system? Ställ in automatiserad export till Azure Storage och undvika att manuellt överföra filer varje månad. Du kan enkelt ställa in automatisk integration med andra system att synkronisera din faktureringsinformation.
+Behöver du importera dina faktureringsdata till ett externt system, till exempel en instrumentpanel eller ett finanssystem? Konfigurera automatiserade exporter till Azure Storage och undvik manuell nedladdning av filer varje månad. Du kan sedan enkelt konfigurera automatiska integreringar med andra system för att hålla dina faktureringsdata synkroniserade.
 
-Läs mer om hur du exporterar faktureringsdata [skapa och hantera exporterade data](tutorial-export-acm-data.md).
+Mer information om export av faktureringsdata finns i [Skapa och hantera exporterade data](tutorial-export-acm-data.md).
 
 ### <a name="create-budgets"></a>Skapa budgetar
 
-När du har identifierat och analyseras din utgiftsgräns mönster, är det viktigt att börja ange begränsningar för dig själv och dina team. Azure budgetar ger dig möjlighet att ange en kostnad eller användningsbaserad budget med många tröskelvärden och aviseringar. Se till att granska budgetar som du skapar regelbundet för att se förloppet för bränna ned din budget och göra ändringar efter behov. Azure budgetar kan du konfigurera en automation-utlösare när en viss budget-tröskelvärdet har uppnåtts. Du kan exempelvis konfigurera din tjänst att stänga av virtuella datorer. Eller du kan flytta din infrastruktur till en annan prisnivå som svar på en utlösare för budget.
+När du har identifierat och analyserat dina utgiftsmönster är det viktigt att du börjar sätta gränser för dig själv och dina team. Azure-budgetar ger dig möjlighet att ange en kostnads- eller användningsbaserad budget med många tröskelvärden och larm. Se till att granska de budgetar som du skapar regelbundet för att se budgetförbrukningen och göra nödvändiga ändringar. Med Azure-budgetar kan du även ange en automatiseringsutlösare när en viss budgettröskel uppnås. Du kan till exempel konfigurera tjänsten så att den stänger av virtuella datorer. Eller så kan du flytta infrastrukturen till en annan prisnivå som svar på en budgetutlösare.
 
-Mer information finns i [Azure budgetar](tutorial-acm-create-budgets.md).
+Mer information finns i [Azure-budgetar](tutorial-acm-create-budgets.md).
 
-Läs mer om budget-baserade automation [Budget baserat Automation](../manage/cost-management-budget-scenario.md).
+Mer information om budgetbaserad automatisering finns i [Budgetbaserad automatisering](../manage/cost-management-budget-scenario.md).
 
 ## <a name="act-to-optimize"></a>Agera för att optimera
-Använd de följande sätten att optimera utgifter.
+Använd följande metoder för att optimera utgifter.
 
-### <a name="cut-out-waste"></a>Klipp ut avfall
+### <a name="cut-out-waste"></a>Eliminera slöseri
 
-När du har distribuerat din infrastruktur i Azure är det viktigt att se till att den används. Det enklaste sättet att börja spara omedelbart är att granska resurserna och ta bort alla som inte används. Därifrån kan bestämma du om dina resurser används så effektivt som möjligt.
+När du har distribuerat din infrastruktur i Azure är det viktigt att se till att den används. Det enklaste sättet att börja spara omedelbart är att granska resurserna och ta bort alla som inte används. Därefter bör du fastställa om dina resurser används så effektivt som möjligt.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
-Azure Advisor är en tjänst som bland annat identifierar virtuella datorer med låg användning baserat på en processor eller användning av. Därifrån kan välja du att antingen stänga av eller ändra storlek på den dator som är baserat på uppskattade kostnaden för att fortsätta att köra datorerna. Advisor innehåller även rekommendationer för köp av reserverad instans. Rekommendationerna baseras på de senaste 30 dagarna användning av virtuella datorer. När kördes på rekommendationer kan hjälpa dig att minska dina utgifter.
+Azure Advisor är en tjänst som bland annat identifierar virtuella datorer med lågt utnyttjande vad gäller CPU- eller nätverksanvändning. Därefter kan du välja att antingen stänga av eller ändra storlek på datorn baserat på den uppskattade kostnaden för att fortsätta köra datorerna. Advisor ger även rekommendationer för köp av reserverade instanser. Rekommendationerna baseras på dina senaste 30 dagars användning av virtuella datorer. När du agerar utifrån rekommendationer kan det hjälpa dig att minska dina utgifter.
 
-Mer information finns i [Azure Advisor](../../advisor/advisor-overview.md).
+Mer information finns på sidan om [Azure Advisor](../../advisor/advisor-overview.md).
 
-### <a name="size-your-vms-properly"></a>Ändra storlek på dina virtuella datorer korrekt
+### <a name="size-your-vms-properly"></a>Ändra storlek på virtuella datorer på rätt sätt
 
-VM-storlek har en betydande inverkan på den övergripande Azure kostnaden. Hur många virtuella datorer som behövs i Azure kan därmed inte till vad du för närvarande har distribuerats i ett lokalt datacenter. Kontrollera att din väljer rätt storlek för de arbetsbelastningar som du planerar att köra.
+Storleken på virtuella datorer har en betydande inverkan på din totala Azure-kostnad. Det antal virtuella datorer som behövs i Azure motsvarar kanske inte det som du för närvarande har distribuerat i ett lokalt datacenter. Se till att välja rätt storlek för de arbetsbelastningar som du planerar att köra.
 
 Mer information finns i [Azure IaaS: rätt storlek och kostnad](https://azure.microsoft.com/resources/videos/azurecon-2015-azure-iaas-proper-sizing-and-cost/).
 
-### <a name="use-purchase-discounts"></a>Använd köp rabatter
+### <a name="use-purchase-discounts"></a>Använda inköpsrabatter
 
-Azure har många rabatter som din organisation ska kunna utnyttja för att spara pengar.
+Azure har många rabatter som din organisation kan dra nytta av för att spara pengar.
 
 #### <a name="azure-reservations"></a>Azure-reservationer
 
-Azure reservationer kan du betala i förskott för ett år eller beräkningskapacitet för tre års av virtuell dator eller SQL-databas. Betala förväg kan du få rabatt på de resurser du använder. Azure reservationer kan avsevärt minska din virtuella datorn eller beräkningskostnaderna för SQL-databas – upp till 72% jämfört med användningsbaserad betalning med ett eller tre år i förskott. Reservation ger en rabatt och påverkar inte de virtuella datorerna eller SQL-databasernas körningsstatus.
+Med Azure-reservationer kan du förskottsbetala för ett till tre års virtuella datorer eller beräkningskapacitet för SQL Database. Förskottsbetalning gör att du kan få rabatt på de resurser du använder. Med Azure-reservationer kan du minska dina kostnader för virtuella datorer eller beräkning för SQL Database avsevärt – upp till 72 procent på Betala per användning-priser med ett eller tre års förskottsbetalning. Reservation ger en rabatt och påverkar inte de virtuella datorerna eller SQL-databasernas körningsstatus.
 
-Mer information finns i [vad är Azure reservationer?](../reservations/save-compute-costs-reservations.md).
+Mer information finns i [Vad är Azure-reservationer?](../reservations/save-compute-costs-reservations.md).
 
 #### <a name="use-azure-hybrid-benefit"></a>Använd Azure Hybrid Benefit
 
-Om du redan har Windows Server eller SQL Server-licenser i din lokala distributioner kan du använda Azure Hybrid-förmånen-programmet för att spara i Azure. Med den Windows Server-förmånen täcker vi kostnaden för operativsystemet (på upp till två virtuella datorer). Du betalar bara för basberäkningskostnaderna. Du kan använda befintliga SQL Server licenser för att spara upp till 55 procent på vCore-baserade SQL Database-alternativ. Alternativen omfattar SQL Server för virtuella Azure-datorer och SQL Server Integration Services.
+Om du redan har Windows Server- eller SQL Server-licenser i dina lokala distributioner kan du använda Azure Hybrid Benefit-programmet för att spara i Azure. Med den Windows Server-förmånen täcker vi kostnaden för operativsystemet (på upp till två virtuella datorer). Du betalar bara för basberäkningskostnaderna. Du kan använda befintliga SQL Server licenser för att spara upp till 55 procent på vCore-baserade SQL Database-alternativ. Alternativen omfattar SQL Server för virtuella Azure-datorer och SQL Server Integration Services.
 
-Mer information finns i [kalkylator för besparingar med Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Mer information finns i [kalkylatorn för besparingar med Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-### <a name="other-resources"></a>Övriga resurser
+### <a name="other-resources"></a>Andra resurser
 
-Azure har också en tjänst som gör det möjligt att skapa tjänster som utnyttjar överkapacitet i Azure för reducerade priser. Mer information finns i [använda lågprioriterade virtuella datorer med Batch](../../batch/batch-low-pri-vms.md).
+I Azure finns även en tjänst som gör att du kan skapa tjänster som drar nytta av överskottskapacitet i Azure till reducerade priser. Mer information finns i [Använda lågprioriterade virtuella datorer med Batch](../../batch/batch-low-pri-vms.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du inte har använt Cost Management kan du läsa [vad är Azure Cost Management?](../cost-management-billing-overview.md) att lära dig hur det hjälper att övervaka och kontrollera Azure utgifter och optimera Resursanvändning.
+- Om Cost Management är nytt för dig kan du läsa [Vad är Azure Cost Management](../cost-management-billing-overview.md) för att lära dig hur det hjälper till att övervaka och kontrollera Azure-utgifter och optimera resursanvändning.

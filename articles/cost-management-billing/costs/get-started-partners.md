@@ -1,304 +1,304 @@
 ---
 title: Kom igång med Azure Cost Management för partner
-description: I den här artikeln förklaras hur partners använder Azure Cost Management funktioner och hur de ger Cost Management åtkomst till sina kunder.
+description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/16/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: aparnag
+ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: MT
+ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293920"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76842426"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
-Azure Cost Management är internt tillgängligt för partner som har publicerat sina kunder på ett Microsoft-kundavtal och har [köpt en Azure-prenumeration](/partner-center/purchase-azure-plan). Den här artikeln förklarar hur partners använder [Azure Cost Management](../index.yml) -funktioner för att Visa kostnader för prenumerationer i Azure-planen. Det beskriver också hur partners ger Cost Management åtkomst till sina kunder. Kunder kan använda Cost Management funktioner när de aktive ras av sin CSP-partner.
+Azure Cost Management är internt tillgängligt för partner som har upprättat ett Microsoft-kundavtal med sina kunder och har [köpt en Azure-plan](/partner-center/purchase-azure-plan). I den här artikeln förklaras hur partner använder [Azure Cost Management](../index.yml)-funktioner för att visa kostnader för prenumerationer i Azure-planen. Den beskriver också hur partner ger Cost Management-åtkomst för sina kunder. Kunder kan använda Cost Management-funktioner när de har aktiverats av sin CSP-partner.
 
 CSP-partner använder Cost Management för att:
 
-- Förstå fakturerade kostnader och koppla kostnaderna till kunden, prenumerationerna, resurs grupperna och tjänsterna.
-- Få en intuitiv vy över Azure-kostnader i [kostnads analys](quick-acm-cost-analysis.md) med funktioner för att analysera kostnader efter kund, prenumeration, resurs grupp, resurs, mätare, tjänst och många andra dimensioner.
-- Visa resurs kostnader som har partner intjänad kredit (PEC) som tillämpas på kostnads analys.
-- Konfigurera meddelanden och automatisering med hjälp av programmatiska [budgetar](tutorial-acm-create-budgets.md) och aviseringar när kostnaderna överstiger budgetarna.
-- Aktivera den Azure Resource Manager principen som ger kunden åtkomst till Cost Management data. Kunderna kan sedan Visa förbruknings kostnads data för sina prenumerationer med [betala per användning-pris](https://azure.microsoft.com/pricing/calculator/).
-- Exportera sina kostnader och användnings data till en lagrings-BLOB med en prenumeration där du betalar per användning.
+- Förstå fakturerade kostnader och koppla kostnaderna till kunden, prenumerationer, resursgrupperna och tjänster.
+- Få en intuitiv vy över Azure-kostnader i [kostnadsanalysen](quick-acm-cost-analysis.md) med funktioner för att analysera kostnader efter kund, prenumeration, resursgrupp, resurs, mätare, tjänst och många andra dimensioner.
+- Visa resurskostnader där partners intjänade krediter (PEC) har tillämpats i kostnadsanalysen.
+- Konfigurera meddelanden och automatisering med hjälp av programmässiga [budgetar](tutorial-acm-create-budgets.md) och aviseringar när kostnaderna överstiger budgetarna.
+- Aktivera den Azure Resource Manager-princip som ger kunder åtkomst till Cost Management-data. Kunderna kan sedan visa kostnadsdata för förbrukning för sina prenumerationer med hjälp av [betala per användning-taxa](https://azure.microsoft.com/pricing/calculator/).
+- Exportera sina kostnader och användningsdata till en lagringsblob med en prenumeration med betalning per användning.
 
 Här är ett exempel som visar kostnader för alla kunder.
-![exempel som visar kostnader för alla kunder](./media/get-started-partners/customer-costs1.png)
+![Exempel som visar kostnader för alla kunder](./media/get-started-partners/customer-costs1.png)
 
-Här är ett exempel som visar kostnader för en enskild kund.
-![exempel som visar kostnader för en enskild kund](./media/get-started-partners/customer-costs2.png)
+Här är ett exempel som visar kostnader för en enda kund.
+![Exempel som visar kostnader för en enda kund](./media/get-started-partners/customer-costs2.png)
 
-Alla funktioner som är tillgängliga i Azure Cost Management finns också i REST-API: er. Använd API: erna för att automatisera kostnads hanterings uppgifter.
+Alla funktioner som är tillgängliga i Azure Cost Management är också tillgängliga i REST-API:er. Använd API:erna för att automatisera kostnadshanteringsuppgifter.
 
 ## <a name="prerequisites"></a>Krav
 
-Som partner är Azure Cost Management internt endast tillgängligt för prenumerationer som finns i Azure-planen.
+Som partner är Azure Cost Management internt tillgängligt endast för prenumerationer som finns i Azure-planen.
 
-Om du vill aktivera Azure Cost Management i Azure Portal måste du ha bekräftat kund godkännande av Microsofts kund avtal (för kundens räkning) och förflyttat kunden till Azure-prenumerationen. Endast kostnaderna för prenumerationer som övergår till Azure-planen är tillgängliga i Azure Cost Management.
+Om du vill aktivera Azure Cost Management i Azure Portal måste du ha bekräftat kundgodkännande av Microsofts kundavtal (för kundens räkning) och förflyttat kunden till Azure-planen. Endast kostnaderna för prenumerationer som övergår till Azure-planen är tillgängliga i Azure Cost Management.
 
-Azure Cost Management kräver Läs behörighet till ditt fakturerings konto eller prenumeration.
+Azure Cost Management kräver läsbehörighet till ditt faktureringskonto eller prenumerationen.
 
-Mer information om hur du aktiverar och tilldelar åtkomst till Azure Cost Management för ett fakturerings konto finns i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview). Rollen **Global administratör** och **admin-agenten** kan hantera kostnader för ett fakturerings konto.
+Mer information om hur du aktiverar och tilldelar åtkomst till Azure Cost Management för ett faktureringskonto finns i [Tilldela användarroller och behörigheter](/partner-center/permissions-overview). Rollerna **Global administratör** och **Administratörsrepresentant** kan hantera kostnader för ett faktureringskonto.
 
-För att få åtkomst till Azure Cost Management i prenumerations omfånget kan alla användare med RBAC-åtkomst till en prenumeration Visa kostnader i detalj handels pris (betala per användning). Principen för kostnads synlighet för kund klienten måste dock vara aktive rad. Om du vill visa en fullständig lista över vilka konto typer som stöds, se [förstå Cost Management data](understand-cost-mgt-data.md).
+För att få åtkomst till Azure Cost Management i prenumerationsomfånget kan alla användare med RBAC-åtkomst till en prenumeration visa kostnader som återförsäljarpris (betala per användning). Principen för kostnadssynlighet för kundens klientorganisation måste dock vara aktiverad. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md).
 
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
-Med omfattningar kan du hantera fakturerings data, ha roller som är begränsade till betalningar, Visa fakturor och utföra allmän konto hantering. Fakturerings-och konto roller hanteras separat från omfattningar som används för resurs hantering, som använder RBAC. För att tydligt särskilja syftet med de separata omfattningarna, inklusive åtkomst kontroll skillnaderna, kallas de för fakturerings omfång respektive RBAC-omfång.
+Omfång är den plats där du hanterar faktureringsdata, har specifika roller för betalningar, ser fakturor samt utför allmän kontohantering. Rollerna för fakturering och konton hanteras separat från omfång som används för resurshantering, vilka använder RBAC. För att tydligt särskilja avsikten med de separata omfången, inklusive skillnaderna i åtkomstkontroll, kallas dessa för faktureringsomfång och RBAC-omfång.
 
-Om du vill förstå fakturerings omfattningar och RBAC-scope och hur kostnads hantering fungerar med omfattningar, se [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Information om faktureringsomfång och RBAC-omfång och hur kostnadshantering fungerar med omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
-## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Hantera kostnader med partner klient fakturerings omfång
+## <a name="manage-costs-with-partner-tenant-billing-scopes"></a>Hantera kostnader med faktureringsomfång för partners klientorganisation
 
-När du har publicerat dina kunder till ett Microsoft-kundavtal är följande _fakturerings omfattningar_ tillgängliga i din klient organisation. Använd omfattningarna för att hantera kostnader i Cost Management.
+När du har registrerat dina kunder med ett Microsoft-kundavtal är följande _faktureringsomfång_ tillgängliga i din klientorganisation. Använd omfång för att hantera kostnader i Cost Management.
 
-### <a name="billing-account-scope"></a>Fakturerings konto omfång
+### <a name="billing-account-scope"></a>Faktureringskontoomfång
 
-Använd fakturerings konto omfånget för att Visa kostnader för moms i alla dina kunder och fakturerings profiler. Faktura kostnader visas bara för kundens konsumtions produkter i Microsofts kund avtal. Faktura kostnader visas dock för inköpta produkter för kunder i både Microsofts kund avtal och CSP-erbjudandet. För närvarande är standard valutan för att Visa kostnader i omfånget US dollar. Budgetarna som angetts för omfånget är också i USD.
+Använd faktureringskontoomfånget för att visa kostnader före moms i alla dina kund- och faktureringsprofiler. Fakturakostnader visas bara för kundens förbrukningsbaserade produkter i Microsoft-kundavtalet. Fakturakostnader visas dock för inköpsbaserade produkter för kunder i både Microsoft-kundavtalet och CSP-erbjudandet. För närvarande är standardvalutan för att visa kostnader i omfånget USD. Budgetar som angetts för omfånget är också i USD.
 
-Oberoende av olika kund fakturerings bara valutor använder partners fakturerings konto omfånget för att ställa in budgetar och hantera kostnader i USD över sina kunder, prenumerationer, resurser och resurs grupper.
+Oberoende av olika valutor för kundfaktureringar använder partner faktureringskontoomfånget för att ange budgetar och hantera kostnader i USD för alla kunder, prenumerationer, resurser och resursgrupper.
 
-Partner filtrerar också kostnader i en bestämd fakturerings valuta för kunderna i vyn kostnads analys. Välj listan **faktisk kostnad** om du vill visa kostnader i kund fakturerings valutor som stöds.
+Partner filtrerar också kostnader i en bestämd faktureringsvaluta för kunderna i vyn för kostnadsanalys. Välj listan **Faktisk kostnad** för att visa kostnader i de valutor för kundfakturering som stöds.
 
-![Exempel som visar val av faktiska kostnader för valutor](./media/get-started-partners/actual-cost-selector.png)
+![Exempel som visar val av Faktisk kostnad för valutor](./media/get-started-partners/actual-cost-selector.png)
 
-Använd vyn förbrukad [kostnad](quick-acm-cost-analysis.md#customize-cost-views) i fakturerings omfånget om du vill visa reserverade kostnader för reserverade instanser över en reservations period.
+Använd vyn [Amorterad kostnad](quick-acm-cost-analysis.md#customize-cost-views) i faktureringsomfången för att visa amorterade kostnader för reserverade instanser för en reservationsperiod.
 
-### <a name="billing-profile-scope"></a>Fakturerings profil omfång
+### <a name="billing-profile-scope"></a>Faktureringsprofilsomfång
 
-Använd fakturerings profil omfattningen för att Visa förskotts kostnader i fakturerings valutan för alla dina kunder för alla produkter och prenumerationer som ingår i en faktura. Du kan filtrera kostnader i en fakturerings profil för en speciell faktura med **InvoiceID** -filtret. Filtret visar förbruknings-och produkt inköps kostnader för en speciell faktura. Du kan också filtrera kostnaderna för en specifik kund på fakturan för att se moms kostnader.
+Använd faktureringsprofilsomfången för att visa kostnader före skatt i faktureringsvalutan för alla kunder för alla produkter och prenumerationer som ingår i en faktura. Du kan filtrera kostnader i en faktureringsprofil för en specifik faktura med hjälp av filtret **InvoiceID**. Filtret visar förbruknings- och produktinköpskostnader för en specifik faktura. Du kan också filtrera kostnaderna för en specifik kund på fakturan för att visa kostnader före skatt.
 
-När du har publicerat kunderna till ett Microsoft-kundavtal får du en faktura som innehåller alla avgifter för alla produkter (förbrukning, inköp och rättigheter) för de här kunderna i Microsofts kund avtal. Vid fakturering i samma valuta inkluderar dessa fakturor även avgifter för rättighets-och inköpta produkter som SaaS, Azure Marketplace och reservationer för kunder som fortfarande ingår i CSP-erbjudandet.
+När du har registrerat kunderna med ett Microsoft-kundavtal får du en faktura som innehåller alla avgifter för alla produkter (förbrukning, inköp och berättiganden) för dessa kunder i Microsoft-kundavtalet. Vid fakturering i samma valuta inkluderar dessa fakturor även avgifter för berättigande och inköpta produkter som SaaS, Azure Marketplace och reservationer för kunder som fortfarande ingår i CSP-erbjudandet.
 
-För att hjälpa till med kund fakturan kan du se alla kostnader som påförs för en faktura för kunderna. Precis som fakturan visar omfattningen kostnader för varje kund i det nya Microsofts kund avtal. Omfattningen visar också alla kostnader för kund rättighets produkter som fortfarande finns i det aktuella CSP-erbjudandet.
+För att hjälpa till att stämma av avgifterna mot kundfakturan kan du med faktureringsprofilsomfånget se alla kostnader som påförs en faktura för kunderna. Precis som fakturan visar omfånget kostnader för varje kund i det nya Microsoft-kundavtalet. Omfånget visar också alla kostnader för kundberättigande till produkter som fortfarande finns i det aktuella CSP-erbjudandet.
 
-Fakturerings profilen och fakturerings konto omfånget är de enda tillämpliga omfattningarna som visar avgifter för rättighets-och inköps produkter som Azure Marketplace och köp av reservationer.
+Faktureringsprofilen och faktureringskontoomfånget är de enda tillämpliga omfången som visar avgifter för berättiganden och inköpsbaserade produkter som Azure Marketplace och reservationsköp.
 
-I fakturerings profiler definieras de prenumerationer som ingår i en faktura. Fakturerings profiler är den funktionella motsvarigheten till en företags avtals registrering. En fakturerings profil är det omfång där fakturor genereras.
+Faktureringsprofiler definierar de prenumerationer som ingår i en faktura. Faktureringsprofiler är den funktionella motsvarigheten till en företagsavtalsregistrering. En faktureringsprofil är det omfång där fakturor genereras.
 
-För närvarande är kundens fakturerings valuta standard valuta när du visar kostnader i fakturerings profil omfånget. Budgetarna som anges i fakturerings profil omfånget är i fakturerings valutan.
+För närvarande är kundens faktureringsvaluta standardvaluta när du visar kostnader i faktureringsprofilsomfånget. Budgetarna som anges i faktureringsprofilsomfånget visas i faktureringsvalutan.
 
-Partner kan använda omfånget för att stämma av fakturor. Och använder de omfånget för att ställa in budgetar i fakturerings valutan för följande objekt:
+Partner kan använda omfånget för att stämma av fakturor. Och de använder omfånget för att ange budgetar i faktureringsvalutan för följande objekt:
 
-- Speciell filtrerad faktura
+- Specifik filtrerad faktura
 - Kund
 - Prenumeration
 - Resursgrupp
 - Resurs
 - Azure-tjänst
-- Meter
+- Mätare
 - ResellerMPNID
 
-### <a name="customer-scope"></a>Kund omfång
+### <a name="customer-scope"></a>Kundomfång
 
-Partner använder omfånget för att hantera kostnader som är kopplade till kunder som har publicerats till Microsofts kund avtal. Med hjälp av omfånget kan partners Visa moms kostnader för en specifik kund. Du kan också filtrera förskotts kostnader för en speciell prenumeration, resurs grupp eller resurs.
+Partner använder omfånget för att hantera kostnader som är kopplade till kunder som har registrerats med ett Microsoft-kundavtal. Med hjälp av omfånget kan partner visa kostnader före skatt för en specifik kund i en faktureringsvaluta. Du kan också filtrera kostnader före skatt för en specifik prenumeration, resursgrupp eller resurs.
 
-Kund omfånget omfattar inte kunder som använder det aktuella CSP-erbjudandet. Omfånget omfattar bara kunder som har ett kund avtal för Microsoft. Rättighets kostnader, inte Azure-användning för aktuella CSP-erbjudanden, är tillgängliga för kunder med fakturerings konto och fakturerings profil när du tillämpar kund filtret.
+I kundomfånget ingår inte kunder som omfattas av det aktuella CSP-erbjudandet. Omfånget omfattar bara kunder som har ett Microsoft-kundavtal. Berättigandekostnader, inte Azure-användning, för kunder med det aktuella CSP-erbjudandet är tillgängliga för faktureringskonto- och faktureringsprofilsomfången när du tillämpar kundfiltret. Budgetarna som anges i omfånget visas i faktureringsvalutan.
 
-## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Partner åtkomst till fakturerings omfattningar i Cost Management
+## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Partneråtkomst till faktureringsomfång i Cost Management
 
-Endast användare med rollen **Global administratör** och **administratör** kan hantera och Visa kostnader för fakturerings konton, fakturerings profiler och kunder direkt i partnerns Azure-klient. Mer information om Partner Center-roller finns i [Tilldela användar roller och behörigheter](/partner-center/permissions-overview).
+Det är bara användare med rollen **Global administratör** och **Administratörsrepresentant** som kan hantera och se kostnader för faktureringskonton, faktureringsprofiler och kunder direkt i partnerns Azure-klient. Mer information om Partner Center-roller finns i [Tilldela användarroller och behörigheter](/partner-center/permissions-overview).
 
-## <a name="enable-cost-management-in-the-customer-tenant"></a>Aktivera kostnads hantering i kund klienten
+## <a name="enable-cost-management-in-the-customer-tenant"></a>Aktivera kostnadshantering i kundens klientorganisation
 
-Partner kan ge till gång till Cost Management när kunder har publicerats till ett Microsoft-kundavtal. Sedan kan partner sedan aktivera en princip som gör det möjligt för kunderna att visa sina kostnader som beräknas enligt åter betalnings takten enligt principen betala per användning. Kostnaderna visas i kundens fakturerings valuta för förbrukad användning i RBAC-prenumeration och resurs grupps omfång.
+Partner kan ge åtkomst till Cost Management när kunderna har registrerats med ett Microsoft-kundavtal. Sedan kan partner aktivera en princip som gör det möjligt för kunderna att visa sina kostnader beräknade på återförsäljarpriset för betala per användning. Kostnaderna visas i kundens faktureringsvaluta för den förbrukade användningen i RBAC-prenumerations- och resursgruppsomfången.
 
-När principen för kostnads synlighet har Aktiver ATS av partnern kan alla användare med Azure Resource Manager åtkomst till prenumerationen hantera och analysera kostnader enligt priser enligt principen betala per användning. Åter försäljare och kunder som har lämplig RBAC-åtkomst till Azure-prenumerationer kan se kostnad.
+När principen för kostnadssynlighet har aktiverats av partner, kan alla användare med Azure Resource Manager-åtkomst till prenumerationen hantera och analysera kostnader enligt priserna för betala per användning. Alltså kan återförsäljare och kunder som har rätt RBAC-åtkomst till Azure-prenumerationer se kostnaden.
 
-Oavsett principen kan partner också se kostnaderna om de har åtkomst till prenumerationen och resurs gruppen.
+Oavsett princip kan partner också se kostnader om de har åtkomst till prenumerationen och resursgruppen.
 
-### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Aktivera principen för att Visa användnings kostnader för Azure
+### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Aktivera principen för att visa användningsavgifter för Azure
 
-Partner använder följande information för att aktivera principen för att Visa Azures användnings kostnader för sina kunder.
+Partner använder följande information för att aktivera principen för att visa användningsavgifter för Azure för sina kunder.
 
-Logga in på partner klienten i Azure Portal och välj **Cost Management + fakturering**. Välj önskat fakturerings konto för Microsoft partner avtal och välj sedan **kunder**. Listan över kunder är kopplad till fakturerings kontot.
+Logga in på partnerklienten i Azure Portal och välj **Cost Management + Fakturering**. Välj önskat faktureringskonto för Microsoft-partneravtal och välj sedan **Kunder**. Listan över kunder är kopplad till faktureringskontot.
 
-I listan över kunder väljer du den kund som du vill tillåta för att Visa kostnader.
+I listan över kunder väljer du den kund som du vill tillåta visning av kostnader.
 
 ![Välj kunder i Cost Management](./media/get-started-partners/customer-list.png)
 
-Under **Inställningar**väljer du **principer**.
+Under **Inställningar** väljer du **Principer**.
 
-Den aktuella kostnads Synlighets principen visas för **Azure Usage** -avgifter som är kopplade till prenumerationerna för den valda kunden.
-![principen så att kunderna kan se avgifterna betala per användning](./media/get-started-partners/cost-management-billing-policies.png)
+Den aktuella principen för kostnadssynlighet visas för avgifter för **Azure-användning** som är kopplade till prenumerationer för den valda kunden.
+![Princip som tillåter kunder att visa avgifter enligt betala per användning](./media/get-started-partners/cost-management-billing-policies.png)
 
-När principen är inställd på **Nej**är Azure Cost Management inte tillgänglig för prenumerations användare som är kopplade till kunden. Om den inte aktive ras av en partner är principen för kostnads synlighet inaktive rad som standard för alla prenumerations användare.
+När principen har angetts som **Nej** är Azure Cost Management inte tillgängligt för prenumerationsanvändare som är kopplade till kunden. Om den inte aktiveras av en partner är principen för kostnadssynlighet inaktiverad som standard för alla prenumerationsanvändare.
 
-När kostnads principen är inställd på **Ja**kan prenumerations användare som är kopplade till kund innehavaren se användnings avgifter enligt priserna för betala per användning.
+När kostnadsprincipen är inställd på **Ja** kan prenumerationsanvändare som är kopplade till kundklientorganisationen se användningsavgifter enligt priset för betala per användning.
 
-När principen för kostnads synlighet är aktive rad visar alla tjänster som har prenumerations användningen kostnader enligt priserna för betala per användning. Reservations användningen visas med noll kostnader för faktiska och periodiserade kostnader. Köp och rättigheter är inte kopplade till en speciell prenumeration. Därför visas inte inköpen i prenumerations omfånget.
+När principen för kostnadssynlighet är aktiverad visar alla tjänster som har prenumerationsanvändning kostnader enligt priserna för betala per användning. Reservationsanvändningen visas med noll avgifter för faktiska och periodiserade kostnader. Köp och berättiganden är inte kopplade till en specifik prenumeration. Därför visas inte inköpen i prenumerationsomfånget.
 
-Om du vill visa kostnader för kund klienten öppnar du **Cost Management + fakturering** och väljer önskat fakturerings konto för Microsoft partner avtal.
+Om du vill visa kostnader för kundens klientorganisation öppnar du **Cost Management + Fakturering** och väljer relevant faktureringskonto för Microsoft-partneravtal.
 
-![Välj ett fakturerings konto](./media/get-started-partners/select-billing-account.png)
+![Välj ett faktureringskonto](./media/get-started-partners/select-billing-account.png)
 
-Under **fakturering**väljer du **Azure-prenumerationer**och väljer sedan en kund.
+Under **Fakturering** väljer du **Azure-prenumerationer** och väljer sedan en kund.
 
-![Välj en Azure-prenumerations kund](./media/get-started-partners/subscriptions-select-customer.png)
+![Välj en Azure-prenumerationskund](./media/get-started-partners/subscriptions-select-customer.png)
 
-Välj **kostnads analys** och påbörja granskning av kostnader.
-Kostnads analys, budgetar och aviseringar är tillgängliga för en prenumeration och resurs grupp för RBAC-omkostnader enligt principen betala per användning.
+Välj **Kostnadsanalys** och börja granska kostnaderna.
+Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens RBAC-omfång för priser baserade på betala per användning.
 
-![Visa kostnads analys som en kund ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+![Visa kostnadsanalys som en kund ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
-Amortera vyer och faktiska kostnader för reserverade instanser i RBAC-omfången visar noll avgifter. Reserverade instans kostnader visas bara i fakturerings omfånget där inköpen gjordes.
+Vyer för amorterad och faktisk kostnad för reserverade instanser i RBAC-omfången visar noll avgifter. Kostnader för reserverad instans visas bara i faktureringsomfång där inköpen gjordes.
 
-## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnads analys
+## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnadsanalys
 
-Partner med till gång till fakturerings områden i partner innehavaren kan utforska och analysera kostnader i kostnads analys över kunder för en specifik kund eller för en faktura. I vyn [kostnads analys](quick-acm-cost-analysis.md) kan du också [Spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till CSV- [och PNG-filer](quick-acm-cost-analysis.md#automation-and-offline-analysis).
+Partner med åtkomst till faktureringsomfång i partnerns klientorganisation kan visa och analysera fakturerade kostnader i kostnadsanalys för alla kunder för en specifik kund eller för en faktura. I vyn [Kostnadsanalys](quick-acm-cost-analysis.md) kan du också [spara vyer](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) och exportera data till [CSV- och PNG-filer](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
-RBAC-användare med åtkomst till prenumerationen i kund innehavaren kan också analysera detaljist kostnader för prenumerationer i kund innehavaren, spara vyer och exportera data till CSV-och PNG-filer.
+RBAC-användare med åtkomst till prenumerationen i kundens klientorganisation kan också analysera återförsäljarkostnader för prenumerationer i kundens klientorganisation, spara vyer och exportera data till CSV- och PNG-filer.
 
-Du kan använda filtrera och gruppera efter funktioner i kostnads analys för att analysera kostnader med flera fält. Partner-/regionsspecifika fält visas i nästa avsnitt.
+Du kan använda filter och gruppera efter funktioner i kostnadsanalysen för att analysera kostnader efter flera fält. Partnerspecifika fält visas i nästa avsnitt.
 
-## <a name="data-fields"></a>Data fält
+## <a name="data-fields"></a>Datafält
 
-Följande data fält finns i användnings detalj filen och Cost Management API: er. Om det är tillgängligt visas information om Partner Center motsvarande. I följande fetstilta fält kan partner använda filter och gruppering efter funktioner i kostnads analys för att analysera kostnader med flera fält. Fetstilta fält gäller endast för Microsofts kund avtal som stöds av partner.
+Följande datafält finns i filer för detaljerad användningsinformation och API:er för Cost Management. Om tillgängligt visas motsvarande Partner Center-information. För följande fetstilta fält kan partner använda filter och gruppera efter funktioner i kostnadsanalysen för att analysera kostnader efter flera fält. Fetstilta fält gäller endast för Microsoft-kundavtal som stöds av partner.
 
-| **Fält namn** | **Beskrivning** | **Partner Center-motsvarighet** |
+| **Fältnamn** | **Beskrivning** | **Partnercenter-händelser** |
 | --- | --- | --- |
-| invoiceId | Faktura-ID visas på fakturan för den aktuella transaktionen. | Faktura nummer där transaktionen visas. |
-| previousInvoiceID | Referens till en ursprunglig faktura det finns en åter betalning (negativ kostnad). Fylls bara i när det finns en åter betalning. | Gäller inte |
-| billingAccountName | Namnet på det fakturerings konto som representerar partnern. Det påförs alla kostnader i de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rätt inköp som SaaS, Azure Marketplace och reservationer. | Gäller inte |
-| billingAccountID | Identifierare för det fakturerings konto som representerar partnern. | Rot-ID för MCAPI-partner Commerce. Används i en begäran, men ingår inte i något svar.|
-| billingProfileID | Identifierare för den fakturerings profil som grupperar kostnader över fakturor i en enda fakturerings valuta för de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rättighets köp som SaaS, Azure Marketplace och reservera. | MCAPI partner fakturerings grupp-ID. Används i en begäran, men ingår inte i något svar. |
-| billingProfileName | Namnet på den fakturerings profil som grupperar kostnader över fakturor i en enda fakturerings valuta för de kunder som har registrerat sig för ett Microsoft-kundavtal och de CSP-kunder som har gjort rätt inköp som SaaS, Azure Marketplace och reservera. | Gäller inte |
-| invoiceSectionName | Namnet på projektet som debiteras på fakturan. Ej tillämpligt för Microsofts kund avtal som har registrerats av partner. | Gäller inte |
-| invoiceSectionID | Identifierare för projektet som debiteras på fakturan. Ej tillämpligt för Microsofts kund avtal som har registrerats av partner. | Gäller inte |
-| **CustomerTenantID** | Identifierare för den Azure Active Directory klienten för kundens prenumeration. | Kundens organisations-ID – kundens organisations Azure Active Directory TenantID. |
-| **CustomerName** | Namnet på Azure Active Directory klienten för kundens prenumeration. | Kundens organisations namn, som visas i Partner Center. Viktigt för att stämma av fakturan med din system information. |
-| **CustomerTenantDomainName** | Domän namn för den Azure Active Directory klienten för kundens prenumeration. | Kund Azure Active Directory klient domän. |
-| **PartnerTenantID** | Identifierare för partnerns Azure Active Directory klient. | Partner Azure Active Directory klient-ID som kallas partner-ID i GUID-format. |
-| **PartnerName** | Namnet på partner Azure Active Directory klient organisationen. | Partner namn. |
-| **ResellerMPNID** | MPNID för den åter försäljare som är associerad med prenumerationen. | MPN-ID för åter försäljarens post för prenumerationen. Inte tillgängligt för den aktuella aktiviteten. |
-| costCenter | Kostnads ställe som är associerat med prenumerationen. | Gäller inte |
-| billingPeriodStartDate | Fakturerings periodens start datum, som du ser på fakturan. | Gäller inte |
-| billingPeriodEndDate | Fakturerings periodens slutdatum, som det visas på fakturan. | Gäller inte |
-| servicePeriodStartDate | Start datum för klassificerings perioden när tjänste användningen har bedömts för avgifter. Priserna för Azure-tjänster bestäms för klassificerings perioden. | ChargeStartDate i Partner Center. Start datum för fakturerings cykel, förutom när du presenterar datum för tidigare avlastade latens användnings data från en tidigare fakturerings period. Tiden är alltid början på dagen, 0:00. |
-| servicePeriodEndDate | Slutdatum för den period då tjänste användningen har bedömts för avgifter. Priserna för Azure-tjänster bestäms utifrån klassificerings perioden. | Gäller inte |
-| date | För Azures förbruknings data visas användnings datum som klassificerat. För reserverad instans visas inköps datum. För återkommande kostnader och engångs kostnader, till exempel Marketplace och support, visas inköps datumet. | Gäller inte |
-| productID | Identifierare för den produkt som har upplupna kostnader per förbrukning eller inköp. Det är den sammansatta nyckeln productID och SKuID, som visas i Partner Center. | Produktens ID. |
-| produkt | Namnet på den produkt som har upplupna kostnader per förbrukning eller inköp, som du ser på fakturan. | Produkt namnet i katalogen. |
-| serviceFamily | Visar tjänst familjen för köpta eller debiterade produkter. Till exempel lagring eller beräkning. | Gäller inte |
-| productOrderID | Identifieraren för det till gångs-eller Azure-Plans namn som prenumerationen tillhör. Till exempel Azure-plan. | Gäller inte |
-| productOrderName | Namnet på den Azure-plan som prenumerationen tillhör. Till exempel Azure-plan. | Gäller inte|
-| consumedService | Förbrukad tjänst (äldre taxonomi) som används i tidigare EA-användnings information. | Tjänsten visas i Partner Center. Till exempel Microsoft. Storage, Microsoft. Compute och Microsoft. operationalinsights. |
-| meterID | Mätnings identifierare för uppmätt förbrukning. | ID för den använda mätaren. |
-| meterName | Identifierar namnet på mätaren för uppmätt förbrukning. | Namnet på den förbrukade mätaren. |
-| meterCategory | Identifierar den översta tjänsten för användning. | Tjänsten på den översta nivån för användning. |
-| meterSubCategory | Definierar vilken typ eller under kategori av Azure-tjänst som kan påverka priset. | Den typ av Azure-tjänst som kan påverka priset.|
-| meterRegion | Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger. | Den regionala platsen för ett Data Center för tjänster, där det är tillämpligt och ifyllt. |
-| subscription ID | Unikt Microsoft-genererad identifierare för Azure-prenumerationen. | Gäller inte |
-| subscriptionName | Namnet på Azure-prenumerationen. | Gäller inte |
-| Period | Visar giltighetstiden för erbjudandet. Reserverade instanser visar till exempel 12 månader av en årlig period på den reserverade instansen. Vid Engångs köp eller återkommande inköp visar termen en månad för SaaS, Azure Marketplace och support. Gäller inte för Azure-förbrukning. | Gäller inte |
-| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Typ av utgivare som identifierar utgivaren som första part, åter försäljare av tredje part eller från tredje parts myndighet. | Gäller inte |
-| partNumber | Del nummer för den oanvända reserverade instansen och Azure Marketplace-tjänster. | Gäller inte |
-| publisherName | Namnet på utgivaren av tjänsten, inklusive Microsoft eller tredje parts utgivare. | Namnet på produktens utgivare.|
-| reservationId | Identifierare för köpet av den reserverade instansen. | Gäller inte |
-| reservationName | Namnet på den reserverade instansen. | Gäller inte |
-| reservationOrderId | Ordernr för den reserverade instansen. | Gäller inte |
-| frequency | Betalnings frekvens för en reserverad instans. | Gäller inte |
-| resourceGroup | Namnet på den Azure-resurs grupp som används för livs cykel resurs hantering. | Namnet på resurs gruppen. |
-| instanceID (eller) ResourceID | Identifierare för resurs instansen. | Visas som en ResourceURI som innehåller fullständiga resurs egenskaper. |
-| resourceLocation | Namnet på resurs platsen. | Resursens plats. |
-| Location | Normaliserad plats för resursen. | Gäller inte |
-| effectivePrice | Det effektiva enhets priset för tjänsten i pris valutan. Unikt för en produkt, tjänst familj, mätare och erbjudande. Används med priser i pris dokumentet för fakturerings kontot. När det finns ett pris på nivå eller en inkluderad kvantitet visas det blandade priset för förbrukning. | Enhets priset efter det att justeringarna har gjorts. |
-| Kvantitet | Uppmätt kvantitet köpt eller förbrukad. Den Mät mängd som används under fakturerings perioden. | Antal enheter. Se till att den matchar informationen i fakturerings systemet under avstämningen. |
-| unitOfMeasure | Identifierar enheten som tjänsten debiteras i. Till exempel GB och timmar. | Identifierar enheten som tjänsten debiteras i. Till exempel GB, timmar och 10 000 s. |
-| pricingCurrency | Den valuta som definierar enhets priset. | Valutan i pris listan.|
+| invoiceId | Faktura-ID som visas på fakturan för den specifika transaktionen. | Fakturanummer där transaktionen visas. |
+| previousInvoiceID | Referens till en ursprunglig faktura om det är en återbetalning (negativ kostnad). Fylls bara i när det finns en återbetalning. | Ej tillämpligt |
+| billingAccountName | Namnet på det faktureringskonto som representerar partnern. Det påförs alla kostnader för de kunder som har registrerats med ett Microsoft-kundavtal och de CSP-kunder som har gjort berättigandeköp som SaaS, Azure Marketplace och reservationer. | Ej tillämpligt |
+| billingAccountID | Identifierare för det faktureringskonto som representerar partnern. | Rot-ID för MCAPI Partner Commerce. Används i en begäran, men ingår inte i något svar.|
+| billingProfileID | Identifierare för den faktureringsprofil som grupperar kostnader för fakturor i en enda faktureringsvaluta för kunder som har registrerats med ett Microsoft-kundavtal och de CSP-kunder som har gjort berättigandeköp som SaaS, Azure Marketplace och reservationer. | Grupp-ID för MCAPI Partner Billing. Används i en begäran, men ingår inte i något svar. |
+| billingProfileName | Namn på den faktureringsprofil som grupperar kostnader för fakturor i en enda faktureringsvaluta för kunder som har registrerats med ett Microsoft-kundavtal och de CSP-kunder som har gjort berättigandeköp som SaaS, Azure Marketplace och reservationer. | Ej tillämpligt |
+| invoiceSectionName | Namnet på projektet som debiteras på fakturan. Ej tillämpligt för Microsoft-kundavtal som registrerats av partner. | Ej tillämpligt |
+| invoiceSectionID | Identifierare för projektet som debiteras på fakturan. Ej tillämpligt för Microsoft-kundavtal som registrerats av partner. | Ej tillämpligt |
+| **CustomerTenantID** | Identifierare för Azure Active Directory-klientorganisationen för kundens prenumeration. | Kundens organisations-ID – kundens TenantID Azure Active Directory. |
+| **CustomerName** | Namnet på Azure Active Directory-klientorganisationen för kundens prenumeration. | Kundens organisationsnamn, som visas i Partner Center. Viktigt för att stämma av fakturan med systeminformationen. |
+| **CustomerTenantDomainName** | Domännamn för Azure Active Directory-klientorganisationen för kundens prenumeration. | Domän för kundens klientorganisation i Azure Active Directory. |
+| **PartnerTenantID** | Identifierare för partnerns Azure Active Directory-klientorganisation. | ID för partnerns Azure Active Directory-klientorganisation som kallas partner-ID, i GUID-format. |
+| **PartnerName** | Namnet på partnerns Azure Active Directory-klientorganisation. | Partnerns namn. |
+| **ResellerMPNID** | MPNID för återförsäljaren som är associerad med prenumerationen. | MPN-ID för återförsäljaren som är registrerad för prenumerationen. Inte tillgängligt för den aktuella aktiviteten. |
+| costCenter | Kostnadsställe som är associerat med prenumerationen. | Ej tillämpligt |
+| billingPeriodStartDate | Faktureringsperiodens startdatum, som visas på fakturan. | Ej tillämpligt |
+| billingPeriodEndDate | Faktureringsperiodens slutdatum, som visas på fakturan. | Ej tillämpligt |
+| servicePeriodStartDate | Startdatum för klassificeringsperioden när tjänsteanvändningen bedömdes för avgifter. Priserna för Azure-tjänster bestäms för klassificeringsperioden. | ChargeStartDate i Partner Center. Startdatum för faktureringscykeln, förutom när du presenterar datum för tidigare odebiterade fördröjda användningsdata från en tidigare faktureringsperiod. Tiden är alltid början på dagen, 0:00. |
+| servicePeriodEndDate | Slutdatum för perioden när tjänsteanvändningen bedömdes för avgifter. Priserna för Azure-tjänster bestäms baserat på klassificeringsperioden. | Ej tillämpligt |
+| date | För Azure-förbrukningsdata, som visar användningsdatum enligt klassificering. För reserverad instans visas inköpsdatum. För återkommande avgifter och engångsavgifter, till exempel Marketplace och support, visas inköpsdatumet. | Ej tillämpligt |
+| productID | Identifierare för den produkt som har upplupna kostnader per förbrukning eller inköp. Det är den sammanfogade nyckeln productID och SKuID, som visas i Partner Center. | ID för produkten. |
+| produkt | Namnet på den produkt som har upplupna kostnader per förbrukning eller inköp, som visas på fakturan. | Produktnamnet i katalogen. |
+| serviceFamily | Visar tjänstfamiljen för den köpta eller debiterade produkten. Till exempel, Storage eller Compute. | Ej tillämpligt |
+| productOrderID | Identifieraren för tillgångs- eller Azure-plansnamnet som prenumerationen tillhör. Till exempel Azure-planen. | CommerceSubscriptionID |
+| productOrderName | Namnet på Azure-planen som prenumerationen tillhör. Till exempel Azure-planen. | Ej tillämpligt|
+| consumedService | Förbrukad tjänst (äldre taxonomi) som använts i tidigare EA-användningsinformation. | Tjänsten som visas i Partner Center. Till exempel Microsoft.Storage, Microsoft.Compute och microsoft.operationalinsights. |
+| meterID | Mätningsidentifierare för uppmätt förbrukning. | ID för förbrukningsmätaren. |
+| meterName | Anger namnet på mätaren för uppmätt förbrukning. | Namnet på förbrukningsmätaren. |
+| meterCategory | Anger den huvudtjänst som användningen gäller. | Huvudtjänst som användningen gäller. |
+| meterSubCategory | Anger typen eller underkategorin för Azure-tjänsten, vilket kan påverka priset. | Typen av Azure-tjänst, vilket kan påverka priset.|
+| meterRegion | Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger. | Den regionala platsen för ett datacenter för tjänster, där det är tillämpligt och ifyllt. |
+| subscription ID | Unik Microsoft-genererad identifierare för Azure-prenumerationen. | EntitlementID |
+| subscriptionName | Namnet på Azure-prenumerationen. | Ej tillämpligt |
+| Period | Visar giltighetstiden för erbjudandet. Reserverade instanser visar till exempel 12 månader av en årlig period för den reserverade instansen. Vid engångsköp eller återkommande köp visar termen en månad för SaaS, Azure Marketplace och support. Gäller inte för Azure-förbrukning. | Ej tillämpligt |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Typ av utgivare som identifierar utgivaren som första part, tredjepartsåterförsäljare eller tredjepartsagent. | Ej tillämpligt |
+| partNumber | Artikelnummer för den oanvända reserverade instansen och Azure Marketplace-tjänster. | Ej tillämpligt |
+| publisherName | Namnet på utgivaren av tjänsten, inklusive Microsoft eller tredjepartsutgivare. | Namnet på produktens utgivare.|
+| reservationId | Identifierare för köpet av den reserverade instansen. | Ej tillämpligt |
+| reservationName | Namnet på den reserverade instansen. | Ej tillämpligt |
+| reservationOrderId | OrderID för den reserverade instansen. | Ej tillämpligt |
+| frequency | Betalningsfrekvens för en reserverad instans. | Ej tillämpligt |
+| resourceGroup | Namnet på den Azure-resursgrupp som används för hantering livscykelresurs. | Resursgruppens namn. |
+| instanceID (eller) ResourceID | Identifierare för resursinstansen. | Visas som ResourceURI som innehåller fullständiga resursegenskaper. |
+| resourceLocation | Resursplatsens namn. | Platsen för resursen. |
+| Location | Normaliserad plats för resursen. | Ej tillämpligt |
+| effectivePrice | Det effektiva enhetspriset för tjänsten, i prisvalutan. Unikt för en produkt, en tjänstfamilj, en mätare och ett erbjudande. Används med prissättning i prisdokumentet för faktureringskontot. När det finns en nivåindelad prissättning eller en inkluderad kvantitet visas det blandade priset för förbrukning. | Enhetspriset efter det att justeringarna har gjorts. |
+| Kvantitet | Uppmätt kvantitet som köpts eller förbrukats. Mängden av mätaren som använts under faktureringsperioden. | Antal enheter. Se till att det matchar informationen i faktureringssystemet under avstämningen. |
+| unitOfMeasure | Identifierar i vilken enhet tjänsten debiteras. Till exempel GB och timmar. | Identifierar i vilken enhet tjänsten debiteras. Till exempel GB, timmar, 10 000-tal. |
+| pricingCurrency | Den valuta som definierar enhetspriset. | Valutan i prislistan.|
 | billingCurrency | Den valuta som definierar den fakturerade kostnaden. | Valutan för kundens geografiska region. |
-| chargeType | Definierar den typ av kostnad som kostnaden representerar i Azure Cost Management som inköp och åter betalning. | Typ av kostnad eller justering. Inte tillgängligt för den aktuella aktiviteten. |
-| costinBillingCurrency | ExtendedCost eller blandade kostnader före skatt i den fakturerade valutan. | Gäller inte |
-| costinPricingCurrency | ExtendedCost eller blandade kostnader före skatt i prissättnings valutan som motsvarar priserna. | Gäller inte |
-| **costinUSD** | Beräknad ExtendedCost eller blandade kostnader före skatt i USD. | Gäller inte |
-| **paygCostInBillingCurrency** | Visar kostnader om priserna är i detaljhandelspriser. Visar priser enligt principen betala per användning i fakturerings valutan. Endast tillgängligt i RBAC-scope. | Gäller inte |
-| **paygCostInUSD** | Visar kostnader om priserna är i detaljhandelspriser. Visar priserna för betala per användning i USD. Endast tillgängligt i RBAC-scope. | Gäller inte |
-| exchangeRate | Växelkurs som används för att konvertera från pris valutan till fakturerings valutan. | Kallas PCToBCExchangeRate i Partner Center. Pris valutan till fakturerings valutakursen.|
-| exchangeRateDate | Datum för den växelkurs som används för att konvertera från pris valutan till fakturerings valutan. | Kallas PCToBCExchangeRateDat i Partner Center. Pris valutan till fakturerings valutans växelkurs datum.|
-| isAzureCreditEligible | Anger om kostnaden är berättigad till betalning av Azure-krediter. | Gäller inte |
-| serviceInfo1 | Äldre fält som fångar valfria tjänstspecifika metadata. | Interna Azure-tjänstemetadata. |
-| serviceInfo2 | Äldre fält som fångar valfria tjänstspecifika metadata. | Tjänst information. Till exempel en avbildnings typ för en virtuell dator och ett ISP-namn för ExpressRoute.|
+| chargeType | Definierar den typ av avgift som kostnaden representerar i Azure Cost Management, som inköp och återbetalning. | Typ av avgift eller justering. Inte tillgängligt för den aktuella aktiviteten. |
+| costinBillingCurrency | ExtendedCost eller blandad kostnad före skatt i den fakturerade valutan. | Ej tillämpligt |
+| costinPricingCurrency | ExtendedCost eller blandad kostnad före skatt i prissättningsvalutan som motsvarar priserna. | Ej tillämpligt |
+| **costinUSD** | Beräknad ExtendedCost eller blandad kostnad före skatt i USD. | Ej tillämpligt |
+| **paygCostInBillingCurrency** | Visar kostnader om priserna visas i återförsäljarpriser. Visar priser enligt principen betala per användning i faktureringsvalutan. Endast tillgängligt för RBAC-omfång. | Ej tillämpligt |
+| **paygCostInUSD** | Visar kostnader om priserna visas i återförsäljarpriser. Visar priser för betala per användning i USD. Endast tillgängligt för RBAC-omfång. | Ej tillämpligt |
+| exchangeRate | Växelkurs som används för att konvertera från prissättningsvalutan till faktureringsvalutan. | Kallas PCToBCExchangeRate i Partner Center. Växelkursen för prissättningsvaluta till faktureringsvaluta.|
+| exchangeRateDate | Datum för den växelkurs som används för att konvertera från prissättningsvalutan till faktureringsvalutan. | Kallas PCToBCExchangeRateDat i Partner Center. Datum för växelkursen för prissättningsvaluta till faktureringsvaluta.|
+| isAzureCreditEligible | Anger om kostnaden är berättigad till betalning av Azure-krediter. | Ej tillämpligt |
+| serviceInfo1 | Ett äldre fält som registrerar valfria tjänstspecifika metadata. | Interna Azure-tjänstemetadata. |
+| serviceInfo2 | Ett äldre fält som registrerar valfria tjänstspecifika metadata. | Tjänstinformation. Det kan till exempel vara en avbildningstyp för en virtuell dator och ISP-namn för ExpressRoute.|
 | additionalInfo | Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator. | Eventuell ytterligare information som inte omfattas i andra kolumner. Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator.|
-| tags | Tagg som du tilldelar mätaren. Använd taggar för att gruppera fakturerings poster. Du kan till exempel använda taggar för att distribuera kostnader på den avdelning som använder mätaren. | Taggar som lagts till av kunden.|
-| **partnerEarnedCreditRate** | Rabatt som används om det finns en partner som har fått partner administratörs åtkomst. | Kostnaden för intjänad kredit för partner (PEC). Till exempel 0% eller 15%. |
-| **partnerEarnedCreditApplied** | Anger om den partner som har intjänad kredit har tillämpats. | Gäller inte |
+| tags | Tagg som du tilldelar mätaren. Använd taggar för att gruppera faktureringsposter. Du kan till exempel använda taggar för att fördela kostnader per avdelning som använder mätaren. | Taggar som lagts till av kunden.|
+| **partnerEarnedCreditRate** | Rabatt som tillämpas om det finns en partnerintjänad kredit (PEC) baserat på länkåtkomst för partneradministratör. | Belopp för partners intjänade kredit (PEC). Till exempel 0 % eller 15 %. |
+| **partnerEarnedCreditApplied** | Anger om partners intjänade kredit har tillämpats. | Ej tillämpligt |
 
-## <a name="view-partner-earned-credit-pec-resource-costs"></a>Visa resurs kostnader för partner intjänade kredit (PEC)
+## <a name="view-partner-earned-credit-pec-resource-costs"></a>Visa resurskostnader för partners intjänade kredit (PEC)
 
-I Azure Cost Management kan partner använda kostnads analys för att Visa kostnader som har fått PEC-förmånerna.
+I Azure Cost Management kan partner använda kostnadsanalys för att visa kostnader som fått del av PEC-förmånerna.
 
-Logga in på partner klienten i Azure Portal och välj **Cost Management + fakturering**. Under **Cost Management**väljer du **kostnads analys**.
+Logga in på partnerklienten i Azure Portal och välj **Cost Management + Fakturering**. Under **Cost Management** väljer du **Kostnadsanalys**.
 
-I vyn kostnads analys visas kostnader för partnerns fakturerings konto. Välj **omfånget** efter behov för partnern, en specifik kund eller en fakturerings profil för att stämma av fakturor.
+I vyn Kostnadsanalys visas kostnader för partnerns faktureringskonto. Välj **omfång** efter behov för partnern, en specifik kund eller en faktureringsprofil för att stämma av fakturor.
 
-I ett ring diagram väljer du List rutan och väljer **PartnerEarnedCreditApplied** för att gå in på PEC-kostnader.
+I ett ringdiagram väljer du listrutan och väljer **PartnerEarnedCreditApplied** för att gå in på PEC-kostnader.
 
-![Exempel som visar hur du visar partner intjänad kredit](./media/get-started-partners/cost-analysis-pec1.png)
+![Exempel som visar hur du visar partners intjänade kredit](./media/get-started-partners/cost-analysis-pec1.png)
 
-När **PartnerEarnedCreditApplied** -egenskapen är _True_, har den tillhör ande kostnaden nytta av partnerns intjänade administratörs åtkomst.
+När egenskapen **PartnerEarnedCreditApplied** har värdet _Sant_, har den tillhörande kostnaden fördelarna med partners intjänade kredit med administratörsåtkomst.
 
-När **PartnerEarnedCreditApplied** -egenskapen har _värdet false_har den tillhör ande kostnaden inte uppnått nödvändig behörighet för krediten. Eller så är den köpta tjänsten inte berättigad till partner intjänad kredit.
+När egenskapen **PartnerEarnedCreditApplied** är _Falskt_, har den tillhörande kostnaden inte uppnått nödvändigt berättigande för krediten. Eller så är den köpta tjänsten inte berättigad till partnerintjänad kredit.
 
-Tjänst användnings data tar normalt 8-24 timmar innan de visas i Cost Management. Mer information finns i [uppdaterings frekvensen för användnings data varierar](understand-cost-mgt-data.md#usage-data-update-frequency-varies). PEC-krediter visas inom 48 timmar från tiden för åtkomst i Azure Cost Management.
+Det tar normalt 8–24 timmar innan tjänstanvändningsdata visas i Cost Management. Mer information finns i [Uppdateringsfrekvensen för användningsdata varierar](understand-cost-mgt-data.md#usage-data-update-frequency-varies). PEC-krediter visas inom 48 timmar från tiden för åtkomst i Azure Cost Management.
 
 
-Du kan också gruppera och filtrera efter egenskapen **PartnerEarnedCreditApplied** med alternativen **Gruppera efter** . Använd alternativen för att undersöka kostnader som är och inte har PEC.
+Du kan också gruppera och filtrera efter egenskapen **PartnerEarnedCreditApplied** med hjälp av alternativet **Gruppera efter**. Använd alternativen för att undersöka kostnader som har respektive inte har PEC.
 
-![Gruppera eller filtrera efter partner-intjänad kredit](./media/get-started-partners/cost-analysis-pec2.png)
+![Gruppera eller filtrera efter partnerintjänad kredit](./media/get-started-partners/cost-analysis-pec2.png)
 
-## <a name="export-cost-data-to-azure-storage"></a>Exportera kostnads data till Azure Storage
+## <a name="export-cost-data-to-azure-storage"></a>Exportera kostnadsdata till Azure Storage
 
-Partner med åtkomst till fakturerings områden i en partner klient organisation kan exportera sina kostnader och användnings data till en Azure Storage-blob. Blobben måste finnas i en prenumeration i partner innehavaren som inte är en prenumeration på en delad tjänst eller en kunds prenumeration. Om du vill aktivera kostnads data export rekommenderar vi att du ställer in en oberoende prenumeration enligt principen betala per användning i partner klienten som värd för de exporterade kostnads data. Export Storage-kontot skapas på Azure Storage blob som finns i prenumerationen betala per användning. Utifrån den omfattning där partnern skapar exporten exporteras tillhör ande data automatiskt till lagrings kontot med återkommande.
+Partner med åtkomst till faktureringsomfång i en partnerklientorganisation kan exportera sina kostnader och användningsdata till en Azure Storage-blob. Bloben måste finnas i en prenumeration i partnerklientorganisationen som inte är en delad tjänstprenumeration eller en kunds prenumeration. Om du vill aktivera kostnadsdataexport rekommenderar vi att du ställer in en oberoende prenumeration baserad på betala per användning i partnerklientorganisationen som värd för exporterade kostnadsdata. Exportlagringskontot skapas i Azure Storage-blob som finns i prenumerationen baserad på betala per användning. Utifrån det omfång där partnern skapar exporten, exporteras tillhörande data automatiskt till lagringskontot med återkommande frekvens.
 
-Användare med RBAC-åtkomst till prenumerationen kan också exportera kostnads data till en Azure Storage-blob som finns i valfri prenumeration i kund klienten.
+Användare med RBAC-åtkomst till prenumerationen kan också exportera kostnadsdata till en Azure Storage-blob som finns i valfri prenumeration i kundens klientorganisation.
 
-### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Skapa en export i en partner klient organisation eller kund klient organisation
+### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Skapa en export i en partnerklientorganisation eller kundklientorganisation
 
-Logga in på partner klient organisationen eller kund klienten i Azure Portal och välj **Cost Management + fakturering**. Välj ett lämpligt omfång, till exempel ett Microsoft partner avtal fakturerings konto och välj sedan **kostnads analys**. När sidan läses in väljer du **Exportera**. Välj **Visa alla exporter** under Schemalägg export.
+Logga in på partnerklienten eller kundklienten i Azure Portal och välj **Cost Management + Fakturering**. Välj ett lämpligt omfång, till exempel ett faktureringskonto med Microsoft-partneravtal, och välj sedan **Kostnadsanalys**. När sidan läses in väljer du **Exportera**. Välj **Visa alla exporter** under Schemalägg export.
 
 ![Välj Exportera och Visa alla exporter](./media/get-started-partners/export01.png)
 
-Välj sedan **Lägg till** och skriv namnet och välj en export typ. Välj fliken **lagring** och ange nödvändig information.
+Välj sedan **Lägg till** och skriv namnet och välj en exporttyp. Välj fliken **Lagring** och ange nödvändig information.
 
-![Lägg till ny export och välj fliken lagring](./media/get-started-partners/export02.png)
+![Lägg till ny export och välj fliken Lagring](./media/get-started-partners/export02.png)
 
-När du skapar en export i partner klient organisationen väljer du prenumerationen betala per användning i partner klient organisationen. Skapa ett Azure Storage-konto med den prenumerationen.
+När du skapar en export i partnerklientorganisationen väljer du prenumerationen baserad på betala per användning i partnerklientorganisationen. Skapa ett Azure Storage-konto med hjälp av den prenumerationen.
 
-För RBAC-användare i kund klienten väljer du en prenumeration i kund klienten. Skapa ett Azure Storage-konto med prenumerationen.
+För RBAC-användare i kundklientorganisationen väljer du en prenumeration i kundklientorganisationen. Skapa ett Azure Storage-konto med hjälp av prenumerationen.
 
-Granska innehållet och välj sedan **skapa** för att schemalägga en export.
+Granska innehållet och välj sedan **Skapa** för att schemalägga en export.
 
-Om du vill verifiera data i export listan väljer du namnet på lagrings kontot. På sidan lagrings konto väljer du **behållare** och väljer sedan behållaren. Navigera till motsvarande mapp och välj CSV-filen. Välj **Hämta** för att hämta CSV-filen och öppna den. Exporterade data liknar kostnads data som liknar användnings information från Azure Portal.
+För att verifiera data i exportlistan väljer du lagringskontots namn. På lagringskontosidan väljer du **Containers** och väljer sedan containern. Navigera till motsvarande mapp och välj CSV-filen. Välj **Ladda ned** för att ladda ned CSV-filen och öppna den. Exporterade data liknar kostnadsdata och påminner om användningsinformation från Azure Portal.
 
 ![Exempel på exporterade data](./media/get-started-partners/example-export-data.png)
 
-## <a name="cost-management-rest-apis"></a>Cost Management REST-API: er
+## <a name="cost-management-rest-apis"></a>Cost Management REST API:er
 
-Partner och kunder kan använda Cost Management API: er som beskrivs i följande avsnitt för vanliga uppgifter.
+Partner och kunder kan använda Cost Management API:er som beskrivs i följande avsnitt för vanliga uppgifter.
 
-### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>Azure Cost Management-API: er – direkta och indirekta leverantörer
+### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>Azure Cost Management-API:er – direkta och indirekta providers
 
-Partner med åtkomst till fakturerings omfång i en partner klient organisation kan använda följande API: er för att Visa fakturerade kostnader.
+Partner med åtkomst till faktureringsomfång i en partnerklientorganisation kan använda följande API:er för att visa fakturerade kostnader.
 
-API: er i prenumerations omfånget kan anropas av en partner oavsett kostnads princip om de har åtkomst till prenumerationen. Andra användare med åtkomst till prenumerationen, t. ex. kunden eller åter försäljaren, kan anropa API: erna endast efter att partnern har aktiverat kostnads principen för kund innehavaren.
+API:er i prenumerationsomfånget kan anropas av en partner oavsett kostnadsprincip om de har åtkomst till prenumerationen. Andra användare med åtkomst till prenumerationen, t.ex. kunden eller återförsäljaren, kan anropa API:erna endast efter att partnern har aktiverat kostnadsprincipen för kundklientorganisationen.
 
 
-#### <a name="to-get-a-list-of-billing-accounts"></a>Så här hämtar du en lista över fakturerings konton
+#### <a name="to-get-a-list-of-billing-accounts"></a>Hämta en lista över faktureringskonton
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-get-a-list-of-customers"></a>Så här hämtar du en lista över kunder
+#### <a name="to-get-a-list-of-customers"></a>Hämta en lista över kunder
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
@@ -310,7 +310,7 @@ GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Hämta en lista över fakturor under en tids period
+#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Hämta en lista över fakturor för en tidsperiod
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
@@ -331,45 +331,45 @@ API-anropet returnerar en matris med fakturor som innehåller element som liknar
     }
 ```
 
-Använd föregående returnerade ID-fält-värde och Ersätt det i följande exempel som omfattning för att fråga efter användnings information.
+Använd föregående returnerat ID-fältvärde och ersätt det i följande exempel som omfång för att fråga efter användningsinformation.
 
 ```
 GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
 ```
 
-Exemplet returnerar de användnings poster som är associerade med den aktuella fakturan.
+Exemplet returnerar de användningsposter som är associerade med den specifika fakturan.
 
 
-#### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Så här hämtar du principen för kunder att Visa kostnader
+#### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Hämta principen för hur kunder kan visa kostnader
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Så här ställer du in principen för kunder för att Visa kostnader
+#### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Ange principen för hur kunder kan visa kostnader
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Så här hämtar du Azure Service-användning för ett fakturerings konto
+#### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Hämta Azure-tjänstanvändning för ett faktureringskonto
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
 ```
 
-#### <a name="to-download-a-customers-azure-service-usage"></a>Så här hämtar du en kunds Azure-tjänst användning
+#### <a name="to-download-a-customers-azure-service-usage"></a>Hämta en kunds Azure-tjänstanvändning
 
-Följande GET-anrop är en asynkron åtgärd.
+Följande get-anrop är en asynkron åtgärd.
 
 ```
 GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
 ```
 
-Anropa den `Location` URI som returnerades i svaret för att kontrol lera åtgärdens status. När statusen har *slutförts*innehåller egenskapen `downloadUrl` en länk som du kan använda för att hämta den genererade rapporten.
+Anropa den `Location` URI som returnerades i svaret för att kontrollera åtgärdens status. När statusen är *Slutförd* innehåller egenskapen `downloadUrl` en länk som du kan använda för att ladda ned den genererade rapporten.
 
 
-#### <a name="to-get-or-download-the-price-sheet-for-consumed-azure-services"></a>Hämta och hämta pris dokumentet för förbrukade Azure-tjänster
+#### <a name="to-get-or-download-the-price-sheet-for-consumed-azure-services"></a>Hämta eller ladda ned prisdokumentet för förbrukade Azure-tjänster
 
 Använd först följande post.
 
@@ -377,15 +377,15 @@ Använd först följande post.
 POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-Anropa sedan egenskap svärdet för den asynkrona åtgärden. Ett exempel:
+Anropa sedan egenskapsvärdet för den asynkrona åtgärden. Ett exempel:
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
 ```
-Föregående GET-anrop returnerar nedladdnings länken som innehåller pris dokumentet.
+Föregående get-anrop returnerar nedladdningslänken som innehåller prisdokumentet.
 
 
-#### <a name="to-get-aggregated-costs"></a>För att få aggregerade kostnader
+#### <a name="to-get-aggregated-costs"></a>Hämta aggregerade kostnader
 
 ```
 POST https://management.azure.com/providers/microsoft.billing/billingAccounts/{billingAccountName}/providers/microsoft.costmanagement/query?api-version=2019-10-01

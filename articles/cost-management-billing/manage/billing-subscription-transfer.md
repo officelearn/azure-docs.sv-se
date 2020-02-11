@@ -14,10 +14,10 @@ ms.date: 01/17/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76270857"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
@@ -86,7 +86,7 @@ Prenumerationer på Visual Studio och Microsoft Partner Network är associerade 
 
 ## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Överföra faktureringsägarskap för EA-prenumerationer (Enterprise-avtal)
 
-Företagsadministratören kan överföra ägarskapet för prenumerationer mellan konton i en registrering. Mer information finns i [Ändra konto ägare](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) i EA-portalen.
+Företagsadministratören kan överföra ägarskapet för prenumerationer mellan konton i en registrering. Mer information finns i [Ändra kontoinnehavare](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner) i EA-portalen.
 
 ## <a name="next-steps-after-accepting-billing-ownership"></a>Nästa steg när faktureringsägarskapet har godkänts
 
@@ -96,7 +96,7 @@ Om du har godkänt faktureringsägarskapet för en Azure-prenumeration rekommend
 1. Uppdatera autentiseringsuppgifter som är associerade med den här prenumerationens tjänster, däribland:
    1. Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md)
-   1. Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
+   1. Autentiseringsuppgifter för fjärråtkomst för tjänster såsom Azure Virtual Machines.
 1. Om du arbetar med en partner kan du överväga att uppdatera partner-ID i den här prenumerationen. Du kan uppdatera partner-ID i [Azure-portalen](https://portal.azure.com). Mer information finns i [Länka ett partner-ID till dina Azure-konton](link-partner-id.md)
 
 <a id="supported"></a>
@@ -185,12 +185,12 @@ Ja. Men om ditt konto finns i en Azure AD-klientorganisation som är annorlunda 
 Även om tilldelningar för [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md) tas bort under överföringen kan användare i det ursprungliga ägarkontot fortfarande ha åtkomst till prenumerationen via vissa säkerhetsmekanismer, däribland:
 
 * Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
-* Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
+* Åtkomstnycklar för tjänster som Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
 * Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
 
 Om mottagaren behöver begränsa åtkomsten till sina resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
 
-  1. Logga in på [Azure Portal](https://portal.azure.com).
+  1. Logga in på [Azure-portalen](https://portal.azure.com).
   2. Välj **Alla resurser** i hubbmenyn.
   3. Välj resursen.
   4. På resurssidan klickar du på **Inställningar**. Här kan du visa och uppdatera befintliga hemligheter.
@@ -207,7 +207,7 @@ Ja. När du godkänner överföringsbegäran kan du välja en befintlig betalnin
 
 Företagsadministratörer kan uppdatera kontoägarskapet för alla konton, även efter att den ursprungliga kontoinnehavaren inte längre är en del av organisationen. Det kan de göra genom att följa instruktionerna för [överföring av kontoägarskap för alla prenumerationer](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) i EA-portalen.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 ### <a id="no-button"></a> Varför visas inte knappen ”Överför prenumeration”?
 

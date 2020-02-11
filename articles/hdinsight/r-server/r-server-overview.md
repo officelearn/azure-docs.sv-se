@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/12/2019
-ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 02/10/2020
+ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321663"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122369"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
@@ -35,7 +35,7 @@ ML-tjänster i HDInsight ger följande fördelar:
 
 ### <a name="ai-innovation-from-microsoft-and-open-source"></a>AI-innovation från Microsoft och öppen källkod
 
-  ML-tjänster innehåller hög skalbar, distribuerad uppsättning algoritmer som [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)och [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package) som kan arbeta med data storlekar som är större än storleken på det fysiska minnet och körs på en mängd olika plattformar i en fördelat sätt. Läs mer om samlingen av Microsofts anpassade R- [paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) och [python-paket](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) som ingår i produkten.
+  ML-tjänster innehåller hög skalbar, distribuerad uppsättning algoritmer som [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)och [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package) som kan arbeta med data storlekar som är större än storleken på det fysiska minnet och körs på en mängd olika plattformar på ett distribuerat sätt. Läs mer om samlingen av Microsofts anpassade R- [paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) och [python-paket](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) som ingår i produkten.
   
   ML-tjänster förenar dessa Microsoft-innovationer och bidrag från communityn för öppen källkod (R, python och AI-verktyg) allt ovanpå en enda plattform i företags klass. Ett Machine Learning-paket med R eller python kan fungera sida vid sida med en egen innovation från Microsoft.
 
@@ -50,6 +50,9 @@ ML-tjänster i HDInsight ger följande fördelar:
 
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
+
+> [!NOTE]  
+> Kluster typen ML-tjänster i HDInsight stöds endast på HDInsight 3,6. HDInsight 3,6 har schemalagts för att dra tillbaka den 31 december 2020.
 
 ## <a name="key-features-of-ml-services-on-hdinsight"></a>Viktiga funktioner i ML-tjänster i HDInsight
 
@@ -116,7 +119,7 @@ Det är också möjligt att ändra mängden minne som är tillgängligt för ML-
 
     hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
 
-### <a name="scale-your-cluster"></a>Skala ditt kluster
+### <a name="scale-your-cluster"></a>Skala klustret
 
 Ett befintligt ML-kluster i HDInsight kan skalas upp eller ned via portalen. Genom att skala upp kan du få den ytterligare kapacitet som du kan behöva för större bearbetnings uppgifter eller så kan du skala upp ett kluster när det är inaktivt. Instruktioner för hur du skalar ett kluster finns i [Hantera HDInsight-kluster](../hdinsight-administer-use-portal-linux.md).
 

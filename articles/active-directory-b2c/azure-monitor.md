@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/05/2020
-ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045964"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121377"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
@@ -24,9 +24,9 @@ Använd Azure Monitor för att dirigera Azure Active Directory B2C (Azure AD B2C
 
 Du kan dirigera logg händelser till:
 
-* Ett Azure-lagringskonto.
-* En Azure Event Hub (och integrera med dina Splunk-och Sumo Logic-instanser).
-* En Azure Log Analytics-arbetsyta (för att analysera data, skapa instrument paneler och avisering om vissa händelser).
+* Ett Azure [Storage-konto](../storage/blobs/storage-blobs-introduction.md).
+* En Azure [Event Hub](../event-hubs/event-hubs-about.md) (och integrera med dina Splunk-och Sumo Logic-instanser).
+* En [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md) (för att analysera data, skapa instrument paneler och avisering om vissa händelser).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -42,15 +42,15 @@ Du kan också använda [Azure Cloud Shell](https://shell.azure.com), som innehå
 
 Azure AD B2C utnyttjar [Azure Active Directory övervakning](../active-directory/reports-monitoring/overview-monitoring.md). Om du vill aktivera *diagnostikinställningar* i Azure Active Directory i Azure AD B2C klienten använder du [delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Du godkänner en användare i Azure AD B2Cs katalogen ( **tjänst leverantören**) för att konfigurera Azure Monitor-instansen i klienten som innehåller din Azure-prenumeration ( **kunden**). För att skapa auktoriseringen distribuerar du en [Azure Resource Manager](../azure-resource-manager/index.yml) -mall till Azure AD-klienten som innehåller prenumerationen. I följande avsnitt får du stegvisa anvisningar genom processen.
+Du auktoriserar en användare eller grupp i Azure AD B2Cs katalogen ( **tjänst leverantören**) för att konfigurera Azure Monitor-instansen i klienten som innehåller din Azure-prenumeration ( **kunden**). För att skapa auktoriseringen distribuerar du en [Azure Resource Manager](../azure-resource-manager/index.yml) -mall till Azure AD-klienten som innehåller prenumerationen. I följande avsnitt får du stegvisa anvisningar genom processen.
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+## <a name="create-or-choose-resource-group"></a>Skapa eller Välj en resurs grupp
 
-I den Azure Active Directory (Azure AD) som innehåller din Azure-prenumeration (*inte* den katalog som innehåller din Azure AD B2C klient) [skapar du en resurs grupp](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Ange följande värden:
+Det här är resurs gruppen som innehåller mål Azure Storage-kontot, händelsehubben eller Log Analytics arbets yta för att ta emot data från Azure Monitor. Du anger resurs gruppens namn när du distribuerar Azure Resource Manager-mallen.
 
-* **Prenumeration**: Välj din Azure-prenumeration.
-* **Resurs grupp**: Ange namn för resurs gruppen. Till exempel *Azure-AD-B2C-Monitor*.
-* **Region**: Välj en Azure-plats. Välj till exempel *USA, centrala*.
+[Skapa en resurs grupp](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) eller Välj en befintlig i den Azure Active Directory (Azure AD) som innehåller din Azure-prenumeration, *inte* den katalog som innehåller din Azure AD B2C-klient.
+
+I det här exemplet används en resurs grupp med namnet *Azure-AD-B2C-Monitor* i den *centrala regionen USA* .
 
 ## <a name="delegate-resource-management"></a>Delegera resurs hantering
 
@@ -74,7 +74,7 @@ För att förenkla hanteringen rekommenderar vi att du använder Azure AD-använ
 
 Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resource Manager mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. Värdena för `mspOfferName` och `mspOfferDescription` visas när du visar erbjudande information på [sidan tjänst leverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure Portal.
 
-| Field   | Definition |
+| Fält   | Definition |
 |---------|------------|
 | `mspOfferName`                     | Ett namn som beskriver den här definitionen. Till exempel *Azure AD B2C hanterade tjänster*. Det här värdet visas för kunden som titeln på erbjudandet. |
 | `mspOfferDescription`              | En kort beskrivning av ditt erbjudande. Till exempel kan *Azure Monitor i Azure AD B2C*.|
@@ -209,20 +209,42 @@ När du har distribuerat mallen och väntat några minuter tills resurs projekti
 
 ## <a name="configure-diagnostic-settings"></a>Konfigurera diagnostikinställningar
 
-När du har delegerat resurs hantering och valt din prenumeration är du redo att [skapa diagnostikinställningar](../active-directory/reports-monitoring/overview-monitoring.md) i Azure Portal.
+Diagnostiska inställningar definierar var loggar och mått för en resurs ska skickas. Möjliga destinationer är:
+
+- [Azure Storage-konto](../azure-monitor/platform/resource-logs-collect-storage.md)
+- Lösningar för [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+- [Log Analytics-arbetsyta](../azure-monitor/platform/resource-logs-collect-workspace.md)
+
+Om du inte redan har gjort det skapar du en instans av din valda måltyp i resurs gruppen som du angav i [mallen Azure Resource Manager](#create-an-azure-resource-manager-template).
+
+### <a name="create-diagnostic-settings"></a>Skapa diagnostikinställningar
+
+Du är redo att [skapa diagnostikinställningar](../active-directory/reports-monitoring/overview-monitoring.md) i Azure Portal.
 
 Konfigurera övervaknings inställningar för Azure AD B2C aktivitets loggar:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. Välj **Azure Active Directory**
 1. Under **övervakning**väljer du **diagnostikinställningar**.
-1. Välj **+ Lägg till diagnostisk inställning**.
+1. Om det finns befintliga inställningar på resursen visas en lista över inställningar som redan har kon figurer ATS. Välj antingen **Lägg till diagnostisk inställning** för att lägga till en ny inställning eller **Redigera** inställning för att redigera en befintlig. Varje inställning får inte ha fler än en av varje mål typ..
 
     ![Fönstret diagnostikinställningar i Azure Portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
+1. Ange ett namn för inställningen om det inte redan har en.
+1. Markera kryss rutan för varje mål för att skicka loggarna. Välj **Konfigurera** för att ange inställningarna enligt beskrivningen i följande tabell.
+
+    | Inställning | Beskrivning |
+    |:---|:---|
+    | Arkivera till ett lagrings konto | Namn på lagrings konto. |
+    | Strömma till en Event Hub | Namn området där Event Hub skapas (om det här är din första gången strömnings loggar) eller strömmas till (om det redan finns resurser som är strömmande till den här namn rymden).
+    | Skicka till Log Analytics | Namn på arbets yta. |
+
+1. Välj **AuditLogs** och **SignInLogs**.
+1. Välj **Spara**.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du lägger till och konfigurerar diagnostikinställningar i Azure Monitor finns i den här självstudien i Azure Monitor-dokumentationen:
+Mer information om hur du lägger till och konfigurerar diagnostikinställningar i Azure Monitor finns i [Självstudier: samla in och analysera resurs loggar från en Azure-resurs](../azure-monitor/insights/monitor-azure-resource.md).
 
-[Självstudie: samla in och analysera resurs loggar från en Azure-resurs](/azure-monitor/learn/tutorial-resource-logs.md)
+Information om hur du strömmar Azure AD-loggar till en Event Hub finns i [självstudie: strömma Azure Active Directory loggar till en Azure Event Hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

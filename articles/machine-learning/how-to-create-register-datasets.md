@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 99f4d8d854334b047caf36406f21890cde7eda16
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 02/10/2020
+ms.openlocfilehash: 0bfaef72be23f148c01e02e910b11128cec1659e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77082951"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116703"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning data uppsättningar
 
@@ -111,7 +111,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 | |PassengerId|Överlevt|Pclass|Namn|Sex|Ålder|SibSp|Parch|Biljett|Resa|Bagage|Har avlastat
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|Falskt|3|Braund, Mr. Owen Harris|man|22,0|1|0|A/5 21171|7,2500||S
+0|1|False|3|Braund, Mr. Owen Harris|man|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, fru. John Bradley (Florence Briggs to...|kvinna|38,0|1|0|PC 17599|71,2833|C85|C
 2|3|True|3|Heikkinen, saknar. Laina|kvinna|26,0|0|0|STON/O2. 3101282|7,9250||S
 
@@ -172,7 +172,9 @@ Så här skapar du en data uppsättning i Studio:
 1. Välj **data uppsättningar** i avsnittet **till gångar** i det vänstra fönstret. 
 1. Välj **skapa data uppsättning** för att välja källa för din data uppsättning. Källan kan vara lokala filer, ett data lager eller offentliga URL: er.
 1. Välj **tabell** eller **fil** för data uppsättnings typ.
-1. Välj **Nästa** för att granska formulären **Inställningar och för hands version**, **schema** och **bekräfta information** . de fylls i intelligent utifrån filtypen. Använd dessa formulär för att kontrol lera dina val och för att konfigurera data uppsättningen ytterligare innan du skapar den.  
+1. Välj **Nästa** för att öppna formuläret **data lager och fil markering** . I det här formuläret väljer du var du vill behålla din data uppsättning när du har skapat den, samt hur du väljer vilka datafiler som ska användas för data uppsättningen. 
+1. Välj **Nästa** för att fylla i **inställningarna och för hands versionen** och **schema** formulären. de fylls i intelligent utifrån filtypen och du kan konfigurera data uppsättningen ytterligare innan du skapar den här typen av formulär. 
+1. Klicka på **Nästa** för att granska formuläret **Bekräfta Detaljer** . Kontrol lera dina val och skapa en valfri data profil för din data uppsättning. Läs mer om [data profilering](how-to-create-portal-experiments.md#profile). 
 1. Välj **skapa** för att slutföra skapandet av data uppsättningen.
 
 ## <a name="register-datasets"></a>Registrera data uppsättningar

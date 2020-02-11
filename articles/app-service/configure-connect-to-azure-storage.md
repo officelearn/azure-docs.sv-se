@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866983"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120682"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Konfigurera Azure Files i en Windows-behållare på App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "75866983"
 
 Den här guiden visar hur du kommer åt Azure Storage i Windows-behållare. Endast [Azure Files resurser](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) och [Premium fil resurser](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) stöds. Du använder Azure Files resurser i den här instruktionen. Fördelarna är skyddat innehåll, innehålls portabilitet, åtkomst till flera appar och flera överförings metoder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 eller senare).
 - [En befintlig Windows-container i Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)
@@ -38,6 +38,7 @@ Den här guiden visar hur du kommer åt Azure Storage i Windows-behållare. Enda
 - Azure Storage i Windows-behållare stöds för närvarande **inte** för att ta med egna kod scenarier i Windows App Service-planer.
 - Azure Storage i Windows-behållare **stöder inte** användning av **lagrings brand Väggs** konfigurationen på grund av infrastruktur begränsningar.
 - Med Azure Storage i Windows-behållare kan du ange **upp till fem** monterings punkter per app.
+- Azure Storage som är monterade till en app kan inte nås via App Service FTP/FTPs-slutpunkter. Använd [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 - Azure Storage faktureras separat och **ingår inte** i din webbapp. Läs mer om [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage).
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Länka lagring till din webbapp (förhands granskning)

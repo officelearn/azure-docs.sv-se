@@ -1,0 +1,95 @@
+---
+title: Utlös körning av en ML-pipeline från en Logic app
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du utlöser körningen av en ML-pipeline med hjälp av Azure Logic Apps.
+services: machine-learning
+author: sanpil
+ms.author: sanpil
+ms.service: machine-learning
+ms.subservice: core
+ms.workload: data-services
+ms.topic: conceptual
+ms.date: 02/07/2020
+ms.openlocfilehash: 6bb976b8b310fb3eb4d0247a8d745599f688d7b5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122862"
+---
+# <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Utlösa en körning av en Machine Learning pipeline från en Logic app
+
+Utlös körning av Azure Machine Learning pipelinen när nya data visas. Du kanske exempelvis vill utlösa pipelinen för att träna en ny modell när nya data visas i Blob Storage-kontot. Konfigurera utlösaren med [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+
+* REST-slutpunkten för en publicerad Machine Learning pipeline. [Skapa och publicera din pipeline](how-to-create-your-first-pipeline.md). Hitta sedan REST-slutpunkten för din PublishedPipeline med hjälp av pipeline-ID:
+    
+     ```
+    # You can find the pipeline ID in Azure Machine Learning studio
+    
+    published_pipeline = PublishedPipeline.get(ws, id="<pipeline-id-here>")
+    published_pipeline.endpoint 
+    ```
+* [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) för att lagra dina data.
+* [Ett data lager](how-to-access-data.md) på din arbets yta som innehåller information om ditt Blob Storage-konto.
+
+## <a name="create-a-logic-app"></a>Skapa en logikapp
+
+Skapa nu en [Azure Logic app](../logic-apps/logic-apps-overview.md) -instans. Om du vill kan du [använda en integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) och [Konfigurera en kundhanterad nyckel](../logic-apps/customer-managed-keys-integration-service-environment.md) för användning av din Logic app.
+
+När du har etablerat din Logi Kap par kan du använda de här stegen för att konfigurera en utlösare för din pipeline:
+
+1. [Skapa en systemtilldelad hanterad identitet](../logic-apps/create-managed-service-identity.md) för att ge appen åtkomst till din Azure Machine Learning-arbetsyta.
+
+1. Navigera till vyn Logic App Designer och välj den tomma Logic app-mallen. 
+    > [!div class="mx-imgBorder"]
+    > ![tom mall](media/how-to-trigger-published-pipeline/blank-template.png)
+
+1. I designern söker du efter **BLOB**. Markera kryss rutan **när en BLOB läggs till eller ändras (endast egenskaper)** utlösas och Lägg till den här utlösaren i din Logic app.
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till utlösare](media/how-to-trigger-published-pipeline/add-trigger.png)
+
+1. Fyll i anslutnings informationen för det Blob Storage-konto som du vill övervaka för BLOB-tillägg eller-ändringar. Välj den behållare som ska övervakas. 
+ 
+    Välj **intervall** och **frekvens** för att söka efter uppdateringar som fungerar för dig.  
+
+    > [!NOTE]
+    > Den här utlösaren övervakar den valda behållaren men övervakar inte undermappar.
+
+1. Lägg till en HTTP-åtgärd som ska köras när en ny eller ändrad BLOB identifieras. Välj **+ nytt steg**och Sök sedan efter och välj http-åtgärd.
+
+  > [!div class="mx-imgBorder"]
+  > ![Sök efter HTTP-åtgärd](media/how-to-trigger-published-pipeline/search-http.png)
+
+  Använd följande inställningar för att konfigurera din åtgärd:
+
+  | Inställning | Värde | 
+  |---|---|
+  | HTTP-åtgärd | POST |
+  | URI |slut punkten till den publicerade pipelinen som du hittade som en [förutsättning](#prerequisites) |
+  | Autentiseringsläge | Hanterad identitet |
+
+1. Konfigurera ditt schema för att ange värdet för alla [Datapath-PipelineParameters](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) som du kan ha:
+
+    ```json
+    "DataPathAssignments": { 
+         "input_datapath": { 
+                            "DataStoreName": "<datastore-name>", 
+                            "RelativePath": "@triggerBody()?['Name']" 
+    } 
+    }, 
+    "ExperimentName": "MyRestPipeline", 
+    "ParameterAssignments": { 
+    "input_string": "sample_string3" 
+    },
+    ```
+
+    Använd `DataStoreName` som du har lagt till i din arbets yta som en [förutsättning](#prerequisites).
+     
+    > [!div class="mx-imgBorder"]
+    > ![HTTP-inställningar](media/how-to-trigger-published-pipeline/http-settings.png)
+
+1. Välj **Spara** så är ditt schema nu klart.

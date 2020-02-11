@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152178"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122418"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exempel: skapa en anpassad kunskap med hjälp av python
 
@@ -21,14 +21,14 @@ I det här Azure Kognitiv sökning färdigheter-exemplet får du lära dig hur d
 
 Den anpassade kunskapen är enkel genom design (den sammanfogar två strängar) så att du kan fokusera på de verktyg och tekniker som används för anpassad kunskaps utveckling i python. När du har lyckats med en enkel kunskap kan du förgrena ut med mer komplexa scenarier.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Granska det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md) för en introduktion till gränssnittet för indata/utdata som en anpassad färdighet ska implementera.
 
 + Konfigurera din miljö. Vi följde [den här självstudien från slut punkt till slut punkt](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) för att konfigurera en server lös Azure-funktion med Visual Studio Code och python-tillägg. Självstudien vägleder dig genom installationen av följande verktyg och komponenter: 
 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
-  + [Visual Studio-kod](https://code.visualstudio.com/)
+  + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
   + [Azure Functions-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -57,7 +57,7 @@ Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som ka
 
 I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](../azure-functions/functions-host-json.md) och [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. 
 
-En ny HTTP-utlöst funktion skapas också i mappen **sammanlänkningar** i Function app-projektet. Inuti den visas en fil med namnet "\__init__. py", med det här innehållet:
+En ny HTTP-utlöst funktion skapas också i mappen **sammanlänkningar** i Function app-projektet. Inuti den visas en fil med namnet "\_\_init__. py" med det här innehållet:
 
 ```py
 import logging
@@ -264,7 +264,7 @@ Nu när du har en ny anpassad färdighet kan du lägga till den i din färdighet
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Grattis! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
+Gratulerar! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
 
 + [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)

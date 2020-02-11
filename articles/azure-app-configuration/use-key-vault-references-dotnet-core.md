@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714441"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116613"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Självstudie: använda Key Vault referenser i en ASP.NET Core app
 
@@ -82,7 +82,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Lägg till en Key Vault referens till app-konfigurationen
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj sedan den instans av app konfigurations arkiv som du skapade i snabb starten.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj sedan den instans av app konfigurations arkiv som du skapade i snabb starten.
 
 1. Välj **konfigurations Utforskaren**.
 
@@ -172,7 +172,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     using Azure.Identity;
     ```
 
-1. Uppdatera `CreateWebHostBuilder`-metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration`-metoden. Inkludera `UseAzureKeyVault` alternativet för att skicka en ny `KeyVaultClient` referens till din Key Vault.
+1. Uppdatera `CreateWebHostBuilder`-metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration`-metoden. Ta med `ConfigureKeyVault` alternativet och skicka rätt autentiseringsuppgifter till din Key Vault.
 
     #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -217,7 +217,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
             .UseStartup<Startup>());
     ```
 
-1. När du har initierat anslutningen till app-konfigurationen, skickade du `KeyVaultClient` referens till `UseAzureKeyVault`-metoden. Efter initieringen kan du komma åt värdena för Key Vault referenser på samma sätt som du kommer åt värdena för vanliga konfigurations nycklar för appar.
+1. När du har initierat anslutningen till app-konfigurationen ställer du in anslutningen till Key Vault genom att anropa `ConfigureKeyVault`-metoden. Efter initieringen kan du komma åt värdena för Key Vault referenser på samma sätt som du kommer åt värdena för vanliga konfigurations nycklar för appar.
 
     Om du vill se hur den här processen fungerar öppnar du *index. cshtml* i **vyerna** > arbetsmappen. Ersätt innehållet med följande kod:
 

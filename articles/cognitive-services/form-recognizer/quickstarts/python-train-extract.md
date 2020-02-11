@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d5dd1c1271c2b7100b40f6cd0f6410b3c151adc0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900213"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118077"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
 
@@ -22,10 +22,9 @@ I den här snabb starten använder du Azures formulär tolken REST API med pytho
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
-- Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
 - En uppsättning minst fem formulär av samma typ. Du kommer att använda dessa data för att träna modellen. Dina formulär kan vara av olika filtyper men måste vara av samma typ av dokument. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
@@ -89,7 +88,7 @@ För att träna en formulär igenkännings modell med dokumenten i din Azure Blo
     ```
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Train.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-train.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognizer-train.py`.
 
 ## <a name="get-training-results"></a>Hämta utbildnings resultat
 

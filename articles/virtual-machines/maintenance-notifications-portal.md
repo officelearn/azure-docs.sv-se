@@ -1,20 +1,18 @@
 ---
-title: Använd portalen för underhålls aviseringar för virtuella Azure-datorer
+title: Använd portalen för underhålls meddelanden
 description: Visa underhålls meddelanden för virtuella datorer som körs i Azure och starta självbetjänings underhållet med hjälp av portalen.
-services: virtual-machines
 author: shants123
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 759fbc5ba3c5eaa78fec1045bcf41969108d39b1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535826"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115737"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Hantera meddelanden för planerat underhåll med hjälp av portalen
 
@@ -36,7 +34,7 @@ Du kan använda Azure Portal och leta efter virtuella datorer som är schemalagd
       
       | Värde | Beskrivning |
       |-------|-------------|
-      | Börja nu | Den virtuella datorn är i fönstret för självbetjänings underhåll där du kan starta underhållet själv. Se nedan om hur du startar underhåll på den virtuella datorn. | 
+      | Starta nu | Den virtuella datorn är i fönstret för självbetjänings underhåll där du kan starta underhållet själv. Se nedan om hur du startar underhåll på den virtuella datorn. | 
       | Schemalagd | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig underhålls fönstret genom att välja den underhålls schemalagda perioden i den här vyn eller genom att klicka på den virtuella datorn. | 
       | Redan uppdaterat | Den virtuella datorn har redan uppdaterats och ingen ytterligare åtgärd krävs för tillfället. | 
       | Försök igen senare | Du har initierat underhåll utan att lyckas. Du kommer att kunna använda alternativet för självbetjänings underhåll vid ett senare tillfälle. | 

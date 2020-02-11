@@ -2,13 +2,13 @@
 title: Montera emptyDir-volym till behållar grupp
 description: Lär dig hur du monterar en emptyDir-volym för att dela data mellan behållarna i en behållar grupp i Azure Container Instances
 ms.topic: article
-ms.date: 02/08/2018
-ms.openlocfilehash: 955423b685ebb3979271c7c2dc7e835a16100c2b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/31/2020
+ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552465"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117750"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Montera en emptyDir volym i Azure Container Instances
 
@@ -29,23 +29,25 @@ Några exempel använder för en *emptyDir* -volym:
 
 Data i en *emptyDir* -volym behålls genom behållar krascher. Behållare som startas om är dock inte garanterade att bevara data i en *emptyDir* volym. Om du stoppar en behållar grupp är *emptyDir* -volymen inte beständig.
 
+Den maximala storleken för en Linux *emptyDir* -volym är 50 GB.
+
 ## <a name="mount-an-emptydir-volume"></a>Montera en emptyDir volym
 
-Om du vill montera en emptyDir-volym i en behållar instans måste du distribuera med hjälp av en [Azure Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups).
+Om du vill montera en emptyDir-volym i en behållar instans kan du distribuera med hjälp av en [Azure Resource Manager mall](/azure/templates/microsoft.containerinstance/containergroups), en [yaml-fil](container-instances-reference-yaml.md)eller andra programmerings metoder för att distribuera en behållar grupp.
 
-Börja med att fylla i `volumes` matrisen i behållar grupps `properties` avsnittet i mallen. Sedan, för varje behållare i den behållar grupp där du vill montera *emptyDir* -volymen, fyller du i `volumeMounts` matrisen i `properties`-avsnittet i behållar definitionen.
+Fyll först i `volumes` matrisen i behållar grupps `properties` avsnittet i filen. Sedan, för varje behållare i den behållar grupp där du vill montera *emptyDir* -volymen, fyller du i `volumeMounts` matrisen i `properties`-avsnittet i behållar definitionen.
 
 Följande Resource Manager-mall skapar till exempel en behållar grupp bestående av två behållare, som var och en monterar *emptyDir* -volymen:
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
-Om du vill se ett exempel på distribution av container instanser med en Azure Resource Manager-mall, se [distribuera grupper med flera behållare i Azure Container instances](container-instances-multi-container-group.md).
+Exempel på distribution av container grupper finns i [distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](container-instances-multi-container-group.md) och [distribuera en grupp med flera behållare med hjälp av en yaml-fil](container-instances-multi-container-yaml.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du monterar andra volym typer i Azure Container Instances:
 
 * [Montera en Azure-filresurs i Azure Container Instances](container-instances-volume-azure-files.md)
-* [Montera en gitRepo volym i Azure Container instanser](container-instances-volume-gitrepo.md)
+* [Montera en gitRepo volym i Azure Container Instances](container-instances-volume-gitrepo.md)
 * [Montera en hemlig volym i Azure Container Instances](container-instances-volume-secret.md)

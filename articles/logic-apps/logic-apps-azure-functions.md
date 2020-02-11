@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453459"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116915"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Anropa Azure Functions från Azure Logic Apps
 
@@ -26,7 +26,7 @@ Om du vill köra kodfragment utan att skapa Azure Functions, lär du dig hur du 
 > [!NOTE]
 > Integreringen mellan Logic Apps och Azure Functions fungerar för närvarande inte med aktiverade platser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -125,7 +125,7 @@ Innan du kan skapa en Azure-funktion som börjar inifrån din Logic app med hjä
 
    1. I rutan **kod** lägger du till din kod i funktions mal len, inklusive det svar och den nytto last som du vill ska returneras till din Logic-app när funktionen har körts. När du är klar väljer du **Skapa**.
 
-   Ett exempel:
+   Några exempel:
 
    ![Definiera din funktion](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
@@ -200,11 +200,11 @@ När du vill utlösa en Logi Kap par från en Azure-funktion måste Logic-appen 
 
 För att autentisera åtkomst till resurser i andra Azure Active Directory (Azure AD)-klienter utan att behöva logga in och ange autentiseringsuppgifter eller hemligheter, kan din Logic app använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat HANTERAD TJÄNSTIDENTITET eller MSI). Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Läs mer om [Azure-tjänster som har stöd för hanterade identiteter för Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Om du konfigurerar din Logic app så att den använder den systemtilldelade hanterade identiteten kan Azure Functions i din Logic app också använda samma identitet för autentisering. Mer information om stöd för autentisering för Azure Functions i Logic Apps finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Om du konfigurerar din Logi Kap par att använda den systemtilldelade identiteten eller en manuellt skapad användardefinierad identitet, kan Azure Functions i din Logic-app också använda samma identitet för autentisering. Mer information om stöd för autentisering för Azure Functions i Logic Apps finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-Följ dessa steg om du vill konfigurera och använda den systemtilldelade identiteten med din funktion:
+Följ dessa steg om du vill konfigurera och använda den hanterade identiteten med din funktion:
 
-1. Aktivera den systemtilldelade identiteten på din Logic app och Ställ in identitetens åtkomst till mål resursen. Se [autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Aktivera den hanterade identiteten på din Logic app och konfigurera identitetens åtkomst till mål resursen. Se [autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Aktivera autentisering i din Azure Function-och Function-app genom att följa dessa steg:
 
@@ -215,7 +215,7 @@ Följ dessa steg om du vill konfigurera och använda den systemtilldelade identi
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>Konfigurera anonym autentisering i din funktion
 
-Om du vill använda din Logic Apps systemtilldelade identitet i din Azure-funktion har du ställt in funktionens autentiseringsnivå på anonym. Annars genererar din Logic-app ett "BadRequest"-fel.
+Om du vill använda din Logic Apps-hanterade identitet i din Azure-funktion har du ställt in funktionens autentiseringsnivå på anonym. Annars genererar din Logic-app ett "BadRequest"-fel.
 
 1. Leta upp och välj din Function-app i [Azure Portal](https://portal.azure.com). I de här stegen används "FabrikamFunctionApp" som exempel på Function-appen.
 

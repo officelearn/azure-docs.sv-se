@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 12/02/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 2ec8d389c99ad96e59bf49d4345855fa44d6c7aa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901999"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118811"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk-och region stöd för Translator Text API
 
@@ -42,81 +42,81 @@ Translator Text API har stöd för följande språk för text till text översä
 
 |Språk|  Språkkod|  V3-API|
 |:-----|:-----:|:-----|
-|Afrikaans| `af`|   Neural|
-|Arabiska|    `ar`    |   Neural|
-|Bangla|    `bn`    |   Neural|
-|Bosniska (latinsk)|   `bs`    |   Neural|
-|Bulgariska| `bg`    |   Neural|
+|Afrikaans| `af`|   Neurala|
+|Arabiska|    `ar`    |   Neurala|
+|Bangla|    `bn`    |   Neurala|
+|Bosniska (latinsk)|   `bs`    |   Neurala|
+|Bulgariska| `bg`    |   Neurala|
 |Kantonesiska (traditionell)|   `yue`|  Statistikuppgifter|
 |Katalanska|   `ca`    |   Statistikuppgifter|
-|Kinesiska, förenklad|    `zh-Hans`|Neural|
-|Kinesiska, traditionell|   `zh-Hant`       |Neural|
-|Kroatiska|  `hr`    |Neural|
-|Tjeckiska| `cs`    |   Neural|
-|Danska|    `da`        |Neural|
-|Nederländska| `nl`|   Neural|
-|Svenska|   `en`    |   Neural|
-|Estniska|  `et`    |   Neural|
+|Kinesiska, förenklad|    `zh-Hans`|Neurala|
+|Traditionell kinesisk|   `zh-Hant`       |Neurala|
+|Kroatiska|  `hr`    |Neurala|
+|Tjeckiska| `cs`    |   Neurala|
+|Danska|    `da`        |Neurala|
+|Nederländska| `nl`|   Neurala|
+|Svenska|   `en`    |   Neurala|
+|Estniska|  `et`    |   Neurala|
 |Fijianska|    `fj`    |   Statistikuppgifter|
 |Filippinska|  `fil`   |   Statistikuppgifter|
-|Finska|   `fi`    |   Neural|
-|Franska|    `fr`    |   Neural|
-|Tyska|    `de`    |   Neural|
-|Grekiska| `el`    |   Neural|
+|Finska|   `fi`    |   Neurala|
+|Franska|    `fr`    |   Neurala|
+|Tyska|    `de`    |   Neurala|
+|Grekiska| `el`    |   Neurala|
 |Haitiska|    `ht`        |Statistikuppgifter|
-|Hebreiska |`he`   |Neural
-|Hindi| `hi`    |   Neural|
+|Hebreiska |`he`   |Neurala
+|Hindi| `hi`    |   Neurala|
 |Hmong Daw| `mww`   |   Statistikuppgifter|
-|Ungerska| `hu`    |   Neural|
-|Isländska| `is`    |   Neural|
+|Ungerska| `hu`    |   Neurala|
+|Isländska| `is`    |   Neurala|
 |Indonesiska|    `id`    |   Statistikuppgifter|
-|Iriska | `ga`| Neural
-|Italienska|   `it`    |   Neural|
-|Japanska|  `ja`    |   Neural|
-|Kannada|`kn`| Neural
+|Iriska | `ga`| Neurala
+|Italienska|   `it`    |   Neurala|
+|Japanska|  `ja`    |   Neurala|
+|Kannada|`kn`| Neurala
 |Kiswahili| `sw`    |   Statistikuppgifter|
 |Klingon|   `tlh`   |   Statistikuppgifter|
 |Klingon (plqaD)|   `tlh-Qaak`  |   Statistikuppgifter|
-|Koreanska |`ko`   |   Neural|
-|Lettiska|   `lv`    |   Neural|
-|Litauiska|    `lt`    |   Neural|
+|Koreanska |`ko`   |   Neurala|
+|Lettiska|   `lv`    |   Neurala|
+|Litauiska|    `lt`    |   Neurala|
 |Madagaskisk|  `mg`    |   Statistikuppgifter|
 |Malajiska| `ms`        |Statistikuppgifter|
-|Malayalam| `ml` | Neural
+|Malayalam| `ml` | Neurala
 |Maltesiska|   `mt`    |   Statistikuppgifter|
-|Maori| `mi`  | Neural|
-|Norska| `nb`    |   Neural|
-|Persiska|   `fa`    |   Neural|
-|Polska|    `pl`    |   Neural|
-|Portugisiska (Brasilien)|   `pt-br` |   Neural|
-|Portugisiska (Portugal)| `pt-pt` | Neural
-|Punjabi|`pa`|Neural
+|Maori| `mi`  | Neurala|
+|Norska| `nb`    |   Neurala|
+|Persiska|   `fa`    |   Neurala|
+|Polska|    `pl`    |   Neurala|
+|Portugisiska (Brasilien)|   `pt-br` |   Neurala|
+|Portugisiska (Portugal)| `pt-pt` | Neurala
+|Punjabi|`pa`|Neurala
 |Queretaro Otomi|   `otq`   |   Statistikuppgifter|
-|Rumänska|  `ro`    |   Neural|
-|Ryska|   `ru`    |   Neural|
+|Rumänska|  `ro`    |   Neurala|
+|Ryska|   `ru`    |   Neurala|
 |Samoa|    `sm`    |   Statistikuppgifter|
 |Serbiska (kyrillisk)|    `sr-Cyrl`|  Statistikuppgifter|
 |Serbiska (latinsk)|   `sr-Latn`       |Statistikuppgifter|
-|Slovakiska|    `sk`    |   Neural|
-|Slovenska| `sl`    |   Neural|
-|Spanska|   `es`    |   Neural|
-|Svenska|   `sv`    |Neural|
+|Slovakiska|    `sk`    |   Neurala|
+|Slovenska| `sl`    |   Neurala|
+|Spanska|   `es`    |   Neurala|
+|Svenska|   `sv`    |Neurala|
 |Tahitian|  `ty`    |Statistikuppgifter|
-|Tamilska| `ta`    |   Neural|
-|Telugu|    `te`    |   Neural|
-|Thai|  `th`    |   Neural|
+|Tamilska| `ta`    |   Neurala|
+|Telugu|    `te`    |   Neurala|
+|Thailändska|  `th`    |   Neurala|
 |Tongan|    `to`    |   Statistikuppgifter|
-|Turkiska|   `tr`        |Neural|
-|Ukrainska| `uk`    |   Neural|
+|Turkiska|   `tr`        |Neurala|
+|Ukrainska| `uk`    |   Neurala|
 |Urdu|  `ur`    |   Statistikuppgifter|
-|Vietnamesiska|    `vi`    |   Neural|
-|Walesiska| `cy`    |   Neural|
+|Vietnamesiska|    `vi`    |   Neurala|
+|Walesiska| `cy`    |   Neurala|
 |Yucatec Maya|  `yua`   |   Statistikuppgifter|
 
 > [!NOTE]
 > Språk koden `pt` används som standard `pt-br`, portugisiska (Brasilien).
 
-## <a name="transliteration"></a>Translitteration
+## <a name="transliteration"></a>Transkriberingsspråk
 
 Metoden translittererad stöder följande språk. I "till/från", "<-->" anger att språket kan överföras från eller till något av de angivna skripten. "-->" Anger att språket bara kan vara translittererad från ett skript till ett annat.
 
@@ -126,13 +126,13 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 |Bangla  | `bn` | Bengali-`Beng` | <--> | Latinska `Latn` |
 | Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
 | Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
-| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
-| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
+| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
+| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
 | Gujarati | `gu`  | Gujarati-`Gujr` | --> | Latinska `Latn` |
 | Hebreiska | `he` | Hebreisk `Hebr` | <--> | Latinska `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latinska `Latn` |
 | Japanska | `ja` | Japansk `Jpan` | <--> | Latinska `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latinska `Latn` |
+| Kannada | `kn` | Kannada-`Knda` | --> | Latinska `Latn` |
 | Malayalam | `ml` | Malayalam-`Mlym` | --> | Latinska `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latinska `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latinska `Latn` |
@@ -141,7 +141,7 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 | Serbiska (latinsk) | `sr-Latn` | Latinska `Latn` | --> | Kyrilliska `Cyrl`|
 | Tamilska | `ta` | Tamil `Taml` | --> | Latinska `Latn` |
 | Telugu | `te` | Telugu-`Telu` | --> | Latinska `Latn` |
-| Thai | `th` | Thai-`Thai` | <--> | Latinska `Latn` |
+| Thailändska | `th` | Thai-`Thai` | <--> | Latinska `Latn` |
 
 ## <a name="dictionary"></a>Ordlista
 
@@ -193,7 +193,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Spanska      | `es`          |
 | Svenska      | `sv`          |
 | Tamilska      | `ta`          |
-| Thai      | `th`          |
+| Thailändska      | `th`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Urdu      | `ur`          |
@@ -222,7 +222,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Bosniska (latinsk)      | `bs`          |
 | Bulgariska      | `bg`          |
 | Kinesiska, förenklad      | `zh-Hans`          |
-|Kinesiska, traditionell|   `zh-Hant`   |
+|Traditionell kinesisk|   `zh-Hant`   |
 | Kroatiska      | `hr`          |
 | Tjeckiska      | `cs`          |
 | Danska      | `da`          |
@@ -259,7 +259,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Slovenska      | `sl`          |
 | Spanska      | `es`          |
 | Svenska      | `sv`          |
-| Thai      | `th`          |
+| Thailändska      | `th`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Vietnamesiska      | `vi`          |

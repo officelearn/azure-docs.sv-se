@@ -3,19 +3,19 @@ title: 'Snabb start: anpassad röst assistent för Java (Windows, Linux) – tal
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten får du lära dig hur du använder Cognitive Services Speech SDK i ett Java-konsolprogram. Du får lära dig hur du kan ansluta klient programmet till en tidigare skapad bot Framework-robot som kon figurer ATS för att använda den direkta linje igenkännings kanalen och aktivera en röst assistent upplevelse.
 services: cognitive-services
-author: bidishac
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: bidishac
-ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815850"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119701"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Snabb start: skapa en röst assistent med talet SDK, Java (för hands version)
 
@@ -23,7 +23,7 @@ Snabb Starter är också tillgängliga för [tal-till-text](~/articles/cognitive
 
 I den här artikeln skapar du ett Java-konsol program med hjälp av [Azure Cognitive Services Speech SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad robot som kon figurer ATS för att använda den direkta linjens tal kanal, skickar en röst förfrågan och returnerar en röst svars aktivitet (om den har kon figurer ATS). Programmet har skapats med maven-paketet för tal-SDK och Sol förmörkelse Java IDE på Windows, Ubuntu Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -65,7 +65,7 @@ Du kan också aktivera loggning genom att uppdatera filen _Pom. XML_ så att den
  </dependency>
 ```
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 
@@ -469,12 +469,12 @@ I det här skedet pratar vi om en engelsk fras eller mening som din robot kan f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
+Ytterligare exempel, till exempel att läsa tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
 > [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Om röst assistenter](voice-assistants.md)
 - [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)

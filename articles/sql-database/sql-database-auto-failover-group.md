@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 1/05/2020
-ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 2/10/2020
+ms.openlocfilehash: 6d87d3373711d12df3f2cced26ef35ae951ad41e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768665"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116188"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -31,7 +31,7 @@ Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och sk
 
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser i SQL Database-servern eller hanterade instanser i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 
-- [Azure-portalen](sql-database-implement-geo-distributed-database.md)
+- [Azure Portal](sql-database-implement-geo-distributed-database.md)
 - [Azure CLI: redundans grupp](scripts/sql-database-add-single-db-to-failover-group-cli.md)
 - [PowerShell: redundans grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
 - [REST API: grupp växling vid fel](/rest/api/sql/failovergroups).
@@ -242,7 +242,7 @@ Eftersom varje instans är isolerad i sitt eget VNet måste dubbelriktad trafik 
 Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att ange parametern `PartnerSubscriptionId` för den sekundära instansen. När du använder REST API kan varje instans-ID som ingår i `properties.managedInstancePairs`-parametern ha sitt eget subscriptionID.
   
 > [!IMPORTANT]
-> Azure Portal har inte stöd för redundansväxla grupper över olika prenumerationer.
+> Azure Portal har inte stöd för att skapa redundans grupper över olika prenumerationer. För de befintliga grupperna för växling vid fel i olika prenumerationer och/eller resurs grupper kan redundansväxlingen också inte initieras manuellt via portalen från den primära instansen. Starta den från den geo-sekundära instansen i stället.
 
 ### <a name="managing-failover-to-secondary-instance"></a>Hantera redundans till sekundär instans
 

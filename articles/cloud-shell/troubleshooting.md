@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1d244d7b62fcfefeec6f628f473274ae982bf4d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024287"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120228"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Felsöka & begränsningar i Azure Cloud Shell
 
@@ -28,6 +28,11 @@ Kända lösningar för fel söknings problem i Azure Cloud Shell är:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>Allmän fel sökning
+
+### <a name="error-running-azuread-cmdlets-in-powershell"></a>Fel vid körning av AzureAD-cmdletar i PowerShell
+
+- **Information**: när du kör AzureAD-cmdletar som `Get-AzureADUser` i Cloud Shell kan ett fel meddelande visas: `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **Lösning**: kör `Connect-AzureAD`-cmdleten. Tidigare körde Cloud Shell cmdleten automatiskt under PowerShell-starten. För att påskynda start tiden körs cmdleten inte längre automatiskt. Du kan välja att återställa föregående beteende genom att lägga till `Connect-AzureAD` i $PROFILE-filen i PowerShell.
 
 ### <a name="early-timeouts-in-firefox"></a>Tidiga tids gränser i FireFox
 
@@ -117,7 +122,7 @@ Cloud Shell stöder de senaste versionerna av följande webbläsare:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="usage-limits"></a>Användningsgränser
+### <a name="usage-limits"></a>Användnings gränser
 
 Cloud Shell är avsedd för interaktiva användnings fall. Det innebär att alla tids krävande sessioner som inte är interaktiva avslutas utan varning.
 

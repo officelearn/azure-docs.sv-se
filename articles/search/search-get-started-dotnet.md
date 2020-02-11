@@ -3,18 +3,18 @@ title: 'Snabb start: skapa ett Sök index C# i med .net'
 titleSuffix: Azure Cognitive Search
 description: I den C# här snabb starten får du lära dig hur du skapar ett index, läser in data och kör frågor med hjälp av Azure KOGNITIV sökning .NET SDK.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 1d8eaea4a6eded769542921851fb0c74a3c9d58b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: e9f43f729fc9e08054cd160b82945ee4bcd5821c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406760"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121659"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Snabb start: skapa ett Azure Kognitiv sökning- C# index i med .NET SDK
 > [!div class="op_single_selector"]

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 990adf73211e96370fd06f5e322301128321e81f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937297"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121715"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS vanliga frågor och svar
 
@@ -32,25 +32,25 @@ Azure DNS fakturerings modell baseras på antalet DNS-zoner som finns i Azure DN
 
 Mer information finns på sidan med [Azure DNS priser](https://azure.microsoft.com/pricing/details/dns/).
 
-### <a name="what-is-the-sla-for-azure-dns"></a>Vad finns det för serviceavtal för Azure DNS?
+### <a name="what-is-the-sla-for-azure-dns"></a>Vad är service avtalet för Azure DNS?
 
 Azure garanterar att giltiga DNS-begäranden får ett svar från minst en Azure DNS namn server 100% av tiden.
 
 Mer information finns på sidan om [Azure DNS service avtal](https://azure.microsoft.com/support/legal/sla/dns).
 
-### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Vad är en DNS-zon? Är det detsamma som en DNS-domän? 
+### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>Vad är en DNS-zon? Är det samma som en DNS-domän? 
 
 En domän är ett unikt namn i domän namn systemet. Ett exempel kan vara contoso.com.
 
-En DNS-zon används som värd för DNS-poster för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och www\.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
+En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och www\.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
 
 Ett domän namn är *bara ett namn*. En DNS-zon är en data resurs som innehåller DNS-poster för ett domän namn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Den innehåller också DNS-namnservrar för att besvara DNS-frågor från Internet.
 
 ### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Måste jag köpa ett DNS-domännamn för att använda Azure DNS? 
 
-Inte nödvändigtvis.
+Inte nödvändigt vis.
 
-Du behöver inte köpa en domän som värd för en DNS-zon i Azure DNS. Du kan skapa en DNS-zon när som helst utan att äga domännamnet. DNS-frågor för den här zonen löser endast om de dirigeras till de Azure DNS namnservrar som har tilldelats zonen.
+Du behöver inte köpa en domän som värd för en DNS-zon i Azure DNS. Du kan skapa en DNS-zon när som helst utan att du äger domän namnet. DNS-frågor för den här zonen löser endast om de dirigeras till de Azure DNS namnservrar som har tilldelats zonen.
 
 Om du vill länka DNS-zonen till den globala DNS-hierarkin måste du köpa domän namnet. Sedan kan DNS-frågor var som helst i världen hitta din DNS-zon och svara med dina DNS-poster.
 
@@ -149,7 +149,7 @@ Ja. Azure DNS stöder samvärdande domäner med andra DNS-tjänster.
 
 Om du vill konfigurera Co-hosting ändrar du NS-posterna för domänen så att de pekar på namnservrarna för båda providern. Namnserver posterna styr vilka providrar som tar emot DNS-frågor för domänen. Du kan ändra dessa NS-poster i Azure DNS, i den andra providern och i den överordnade zonen. Den överordnade zonen konfigureras vanligt vis via domän namns registratorn. Mer information om DNS-delegering finns i [delegering av DNS-domän](dns-domain-delegation.md).
 
-Kontrol lera också att DNS-posterna för domänen är synkroniserade mellan båda DNS-leverantörerna. Azure DNS stöder för närvarande inte överföring av DNS-zoner. DNS-poster måste synkroniseras med hjälp av antingen [Azure DNS hanterings Portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md)eller [CLI-verktyget](dns-operations-recordsets-cli.md).
+Kontrol lera också att DNS-posterna för domänen är synkroniserade mellan båda DNS-leverantörerna. Azure DNS stöder för närvarande inte överföring av DNS-zoner. DNS-poster måste synkroniseras med hjälp av antingen [Azure DNS hanterings Portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/rest/api/dns/), [SDK](dns-sdk.md), [PowerShell-cmdletar](dns-operations-recordsets.md)eller [CLI-verktyget](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>Måste jag delegera min domän till alla fyra Azure DNS namnservrar?
 

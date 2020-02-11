@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053740"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122110"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -38,7 +38,7 @@ Alla kluster som distribueras i ett VNET har också en privat slut punkt som mat
 
 Med den här inställningen kan företags anställda logga in på klusternoderna genom att använda sina domänautentiseringsuppgifter. De kan också använda sina domänautentiseringsuppgifter för att autentisera med andra godkända slut punkter som Apache Ambari views, ODBC, JDBC, PowerShell och REST-API: er för att samverka med klustret. 
 
-### <a name="authorization"></a>Autentisering
+### <a name="authorization"></a>Auktorisering
 
 En bästa praxis som de flesta företag följer är att se till att inte alla anställda har till gång till alla företags resurser. På samma sätt kan administratören definiera rollbaserade principer för åtkomst kontroll för kluster resurserna. Detta är endast tillgängligt i ESP-klustren.
 
@@ -87,9 +87,9 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 |  | Se till att [OS-uppdatering](../hdinsight-os-patching.md) sker med jämna mellanrum | Kund |
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
 |  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Kund |
-|  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg (för hands version) | Kund |
-| Virtualiserad infrastruktur | Gäller inte | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | Gäller inte | HDInsight (Cloud Provider) |
+|  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
+| Virtualiserad infrastruktur | Saknas | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | Saknas | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

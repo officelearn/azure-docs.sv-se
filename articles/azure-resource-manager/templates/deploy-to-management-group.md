@@ -2,13 +2,13 @@
 title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/10/2020
+ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121921"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117051"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
@@ -63,8 +63,20 @@ För distributioner av hanterings grupper finns det några viktiga saker att tä
 
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionen [Subscription ()](template-functions-resource.md#subscription) stöds **inte** .
-* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används vid distributioner på hanterings grupps nivå. Du kan till exempel hämta resurs-ID för en princip definition med `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. Den returnerar resurs-ID i formatet `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
+* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används vid distributioner på hanterings grupps nivå. Ange inget värde för resurs grupps parametern.
+
+  Om du till exempel vill hämta resurs-ID för en princip definition använder du:
+  
+  ```json
+  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  ```
+  
+  Det returnerade resurs-ID: t har följande format:
+  
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
 
 ## <a name="create-policies"></a>Skapa principer
 
@@ -136,9 +148,13 @@ I följande exempel tilldelas en befintlig princip definition till hanterings gr
 }
 ```
 
+## <a name="template-sample"></a>Mal Lav exempel
+
+* Skapa en resurs grupp, en princip och en princip tilldelning.  Se [här](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
 * Ett exempel på distribution av arbets ytans inställningar för Azure Security Center finns i [deployASCwithWorkspaceSettings. JSON](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md). 
+* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
 * En lista över tillgängliga funktioner i en mall finns i [Template Functions](template-functions.md).

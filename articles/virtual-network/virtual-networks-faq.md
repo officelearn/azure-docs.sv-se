@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646888"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121813"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -49,7 +49,7 @@ Ja. Du kan distribuera en [virtuell nätverks installation i WAN Optimization](h
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Vilka verktyg använder jag för att skapa ett virtuellt nätverk?
 Du kan använda följande verktyg för att skapa eller konfigurera ett VNet:
 
-* Azure portal
+* Azure-portalen
 * PowerShell
 * Azure CLI
 * En nätverks konfigurations fil (netcfg – endast för klassisk virtuella nätverk). Se artikeln [Konfigurera ett VNet med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md) .
@@ -100,7 +100,7 @@ Nej.
 Ja. Undernät kan läggas till i virtuella nätverk när som helst så länge som under nätets adress intervall inte ingår i ett annat undernät och det finns tillgängligt utrymme kvar i det virtuella nätverkets adress intervall.
 
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>Kan jag ändra storleken på mitt undernät när jag har skapat det?
-Ja. Du kan lägga till, ta bort, expandera eller krympa ett undernät om inga virtuella datorer eller tjänster är distribuerade i det.
+Ja. Du kan lägga till, ta bort, expandera eller krympa ett undernät om det inte finns några virtuella datorer eller tjänster som har distribuerats i det.
 
 ### <a name="can-i-modify-subnets-after-i-created-them"></a>Kan jag ändra undernät när jag har skapat dem?
 Ja. Du kan lägga till, ta bort och ändra CIDR-block som används av ett VNet.
@@ -167,7 +167,7 @@ Det beror på. Om den virtuella datorn har distribuerats via Resource Manager, o
 Ja, men det rekommenderas inte om det behövs, till exempel när du tilldelar flera IP-adresser till en virtuell dator. Mer information finns i [lägga till flera IP-adresser till en virtuell dator](virtual-network-multiple-ip-addresses-portal.md#os-config). Om IP-adressen som tilldelats till ett Azure-nätverkskort som är kopplad till en virtuell dator ändras och IP-adressen i den virtuella datorns operativ system är annorlunda förlorar du anslutningen till den virtuella datorn.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Vad händer med mina IP-adresser om jag stoppar en distributions plats för moln tjänster eller stänger av en virtuell dator i operativ systemet?
-Ingenting. IP-adresserna (offentliga VIP, offentliga och privata) förblir tilldelade till moln tjänst distributions facket eller den virtuella datorn.
+Alls. IP-adresserna (offentliga VIP, offentliga och privata) förblir tilldelade till moln tjänst distributions facket eller den virtuella datorn.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Kan jag flytta virtuella datorer från ett undernät till ett annat undernät i ett VNet utan att distribuera om?
 Ja. Du hittar mer information i så [här flyttar du en virtuell dator eller roll instans till en annan under näts](virtual-networks-move-vm-role-to-subnet.md) artikel.
@@ -230,9 +230,9 @@ Ja. Du kan använda REST-API: er för virtuella nätverk i [Azure Resource Manag
 Ja. Lär dig mer om att använda:
 - Azure Portal att distribuera virtuella nätverk via [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) och [klassiska](virtual-networks-create-vnet-classic-pportal.md) distributions modeller.
 - PowerShell för att hantera virtuella nätverk som distribueras via [Resource Manager](/powershell/module/az.network) och [klassiska](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) distributions modeller.
-- Kommando rads gränssnittet för Azure (CLI) för att distribuera och hantera virtuella nätverk som distribueras via [Resource Manager](/cli/azure/network/vnet) och [klassiska](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) distributions modeller.  
+- Kommando rads gränssnittet för Azure (CLI) för att distribuera och hantera virtuella nätverk som distribueras via [Resource Manager](/cli/azure/network/vnet) och [klassiska](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) distributions modeller.  
 
-## <a name="vnet-peering"></a>VNet-peering
+## <a name="vnet-peering"></a>VNET-peering
 
 ### <a name="what-is-vnet-peering"></a>Vad är VNet-peering?
 Med VNet-peering (eller virtuell nätverks-peering) kan du ansluta virtuella nätverk. Med en VNet-peering-anslutning mellan virtuella nätverk kan du dirigera trafik mellan dem privat via IPv4-adresser. Virtuella datorer i peer-virtuella nätverk kan kommunicera med varandra som om de befinner sig i samma nätverk. De här virtuella nätverken kan finnas i samma region eller i olika regioner (även kallade global VNet-peering). VNet-peering-anslutningar kan också skapas mellan Azure-prenumerationer.
@@ -251,10 +251,10 @@ Följande resurser kan använda grundläggande belastningsutjämnare, vilket inn
 - SQL MI
 - API Management
 - Active Directory-domän tjänst (lägger till)
-- Logikappar
+- Logic Apps
 - HDInsight
 -   Azure Batch
-- Miljö för App Service
+- App Service Environment
 
 Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
@@ -407,7 +407,7 @@ Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt 
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
-|Azure Event Hub|   128|
+|Azure händelsehubb|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  

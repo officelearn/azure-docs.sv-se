@@ -15,12 +15,12 @@ ms.date: 01/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2a49528ca3c2b55c02f3bda89b3722ee8fef535
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 04a3af7c85a361878e37cf3ee210e8a5c9f3cd30
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264262"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121971"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -152,9 +152,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [Storage BLOB data-ägare](#storage-blob-data-owner) | Ger fullständig åtkomst till Azure Storage BLOB-behållare och data, inklusive att tilldela POSIX-åtkomstkontroll. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | [Storage BLOB data Reader](#storage-blob-data-reader) | Läs och Visa Azure Storage behållare och blobbar. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | [Storage BLOB-delegerare](#storage-blob-delegator) | Hämta en användar Delegerings nyckel som sedan kan användas för att skapa en signatur för delad åtkomst för en behållare eller BLOB som är signerad med Azure AD-autentiseringsuppgifter. Mer information finns i [skapa en användar Delegerings-SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
-> | [Lagrings fil data SMB-resurs deltagare](#storage-file-data-smb-share-contributor) | Tillåter Läs-, skriv-och borttagnings åtkomst i Azure Storage fil resurser över SMB | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
-> | [Lagrings fil data SMB-resurs upphöjt bidrags givare](#storage-file-data-smb-share-elevated-contributor) | Tillåter behörighet att läsa, skriva, ta bort och ändra NTFS-behörighet i Azure Storage fil resurser över SMB | a7264617-510b-434b-a828-9731dc254ea7 |
-> | [Storage File data SMB Share Reader](#storage-file-data-smb-share-reader) | Tillåter Läs åtkomst till Azure-filresurs via SMB | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | [Lagrings fil data SMB-resurs deltagare](#storage-file-data-smb-share-contributor) | Tillåter Läs-, skriv-och borttagnings åtkomst på filer/kataloger i Azure-filresurser. Den här rollen har ingen inbyggd motsvarighet på Windows-filservrar. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | [Lagrings fil data SMB-resurs upphöjt bidrags givare](#storage-file-data-smb-share-elevated-contributor) | Tillåter Läs-, Skriv-, borttagnings-och ändrings-ACL: er på filer/kataloger i Azure-filresurser. Den här rollen motsvarar en fil resurs-ACL för ändring på Windows-filservrar. | a7264617-510b-434b-a828-9731dc254ea7 |
+> | [Storage File data SMB Share Reader](#storage-file-data-smb-share-reader) | Tillåter Läs åtkomst till filer/kataloger i Azure-filresurser. Den här rollen motsvarar en fil resurs-ACL för läsning på Windows-filservrar. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | [Data deltagare i Storage Queue](#storage-queue-data-contributor) | Läsa, skriva och ta bort Azure Storage köer och köa meddelanden. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | [Processor för data meddelande i lagrings kön](#storage-queue-data-message-processor) | Granska, hämta och ta bort ett meddelande från en Azure Storage kö. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | [Avsändare av data meddelande i lagrings köer](#storage-queue-data-message-sender) | Lägg till meddelanden i en Azure Storage-kö. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
@@ -195,7 +195,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | Microsoft. Authorization/*/Delete | Ta bort roller, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
 > | Microsoft. Authorization/*/Write | Skapa roller, roll tilldelningar, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
-> | Microsoft.Authorization/elevateAccess/Action | Beviljar anroparen Användaråtkomst Administratörsåtkomst för klientomfånget |
+> | Microsoft.Authorization/elevateAccess/Action | Beviljar åtkomst administratörs åtkomst till anroparens användare i klient omfånget |
 > | Microsoft. skiss/blueprintAssignments/Write | Skapa eller uppdatera alla skiss uppgifter |
 > | Microsoft. skiss/blueprintAssignments/Delete | Ta bort alla skiss uppgifter |
 > | **DataActions** |  |
@@ -310,7 +310,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="api-management-service-contributor"></a>API Management-tjänstdeltagare
+## <a name="api-management-service-contributor"></a>API Management Service Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -331,7 +331,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="api-management-service-operator-role"></a>API Management-tjänstoperatorroll
+## <a name="api-management-service-operator-role"></a>Rollen API Management tjänst operatör
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -933,7 +933,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="backup-operator"></a>Säkerhetskopieringsoperator
+## <a name="backup-operator"></a>Ansvarig för säkerhets kopiering
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2381,7 +2381,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="security-reader"></a>Säkerhetsläsare
+## <a name="security-reader"></a>Säkerhets läsare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2482,7 +2482,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Växla skydds behållare |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Testa redundans |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Rensning av redundanstest |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | växling vid fel |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Redundans |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Uppdatera mobilitets tjänsten |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Läs alla skydds behållar mappningar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Läs eventuella Recovery Services-leverantörer |
@@ -2915,7 +2915,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter Läs-, skriv-och borttagnings åtkomst i Azure Storage fil resurser över SMB |
+> | **Beskrivning** | Tillåter Läs-, skriv-och borttagnings åtkomst på filer/kataloger i Azure-filresurser. Den här rollen har ingen inbyggd motsvarighet på Windows-filservrar. |
 > | **Id** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | **Åtgärder** |  |
 > | *alternativet* |  |
@@ -2932,7 +2932,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter behörighet att läsa, skriva, ta bort och ändra NTFS-behörighet i Azure Storage fil resurser över SMB |
+> | **Beskrivning** | Tillåter Läs-, Skriv-, borttagnings-och ändrings-ACL: er på filer/kataloger i Azure-filresurser. Den här rollen motsvarar en fil resurs-ACL för ändring på Windows-filservrar. |
 > | **Id** | a7264617-510b-434b-a828-9731dc254ea7 |
 > | **Åtgärder** |  |
 > | *alternativet* |  |
@@ -2950,7 +2950,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter Läs åtkomst till Azure-filresurs via SMB |
+> | **Beskrivning** | Tillåter Läs åtkomst till filer/kataloger i Azure-filresurser. Den här rollen motsvarar en fil resurs-ACL för läsning på Windows-filservrar. |
 > | **Id** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | **Åtgärder** |  |
 > | *alternativet* |  |
@@ -3101,7 +3101,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="virtual-machine-contributor"></a>Virtuell datordeltagare
+## <a name="virtual-machine-contributor"></a>Virtuell dator deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -3112,7 +3112,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Compute/availabilitySets/* | Skapa och hantera beräknings tillgänglighets uppsättningar |
 > | Microsoft. Compute/locations/* | Skapa och hantera beräknings platser |
 > | Microsoft.Compute/virtualMachines/* | Skapa och hantera virtuella datorer |
-> | Microsoft.Compute/virtualMachineScaleSets/* | Skapa och hantera VM-skalningsuppsättningar |
+> | Microsoft.Compute/virtualMachineScaleSets/* | Skapa och hantera skalnings uppsättningar för virtuella datorer |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ansluter till en programgateways backend-adresspool. Det går inte att avisera. |

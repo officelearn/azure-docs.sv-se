@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 01/06/2020
+ms.date: 02/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 661ada4e5d620d4977290986f5649b91363202fe
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: f5d68be1226a026f8fdfd7595cb2812ce51dfdb6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75706996"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122042"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -55,8 +55,9 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 [Azure Backup](../../backup/index.yml):
 
 - Säkerhetskopiera och återställa kund information i kund klienter
+- Använd [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) för att Visa användnings information om säkerhets kopierings objekt (inklusive Azure-resurser som ännu inte har kon figurer ATS för säkerhets kopiering) och övervaknings information (jobb och aviseringar) för delegerade prenumerationer. Backup Explorer är för närvarande endast tillgängligt för Azure VM-data.
 
-[Azure Kubernetes Service (AKS)](../../aks/index.yml):
+[Azure Kubernetes service (AKS)](../../aks/index.yml):
 
 - Hantera värdbaserade Kubernetes-miljöer och distribuera och hantera program i behållare inom kund klienter
 
@@ -75,7 +76,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
 - Kan [åtgärda deployIfNotExists eller ändra tilldelningar inom kund innehavaren](../how-to/deploy-policy-remediation.md)
 
-[Azure Resource Graph](../../governance/resource-graph/index.yml):
+[Azure-resurs diagram](../../governance/resource-graph/index.yml):
 
 - Innehåller nu klient-ID: t i returnerade frågeresultat, så att du kan identifiera om en prenumeration tillhör kunden eller tjänst leverantörens klient organisation
 
@@ -117,7 +118,7 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Få åtkomst till virtuella datorer med serie konsolen i kund klienter
 - Observera att du inte kan använda Azure Active Directory för fjärrinloggning till en virtuell dator och du kan inte integrera en virtuell dator med en Key Vault för lösen ord, hemligheter eller kryptografiska nycklar för disk kryptering
 
-[Azure Virtual Network](../../virtual-network/index.yml):
+[Azure-Virtual Network](../../virtual-network/index.yml):
 
 - Distribuera och hantera virtuella nätverk och virtuella nätverks gränssnitts kort (virtuella nätverkskort) i kund klienter
 

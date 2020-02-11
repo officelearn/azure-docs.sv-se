@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: alzam
-ms.openlocfilehash: cad502dc759a4d481f3071a8a27ddeca79fbc18c
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: b3508c4c8da5b4987fb5f38cf3bf701f2dda1097
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108296"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122026"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-by-using-azure-virtual-wan"></a>Självstudie: skapa en VPN-anslutning för användare med hjälp av Azure Virtual WAN
 
@@ -123,7 +123,7 @@ Använd VPN-profilen för att konfigurera dina klienter.
 
 ## <a name="configure-user-vpn-clients"></a>Konfigurera användares VPN-klienter
 
-För att ansluta måste du ladda ned Azure VPN-klienten (för hands version) och importera VPN-klienttjänsten som hämtades i föregående steg på varje dator som vill ansluta till det virtuella nätverket.
+För att ansluta måste du ladda ned Azure VPN-klienten och importera VPN-klienttjänsten som hämtades i föregående steg på varje dator som vill ansluta till det virtuella nätverket.
 
 > [!NOTE]
 > Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
@@ -131,7 +131,7 @@ För att ansluta måste du ladda ned Azure VPN-klienten (för hands version) och
 
 #### <a name="to-download-the-azure-vpn-client"></a>Ladda ned Azure VPN-klienten
 
-Använd den här [länken](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) för att ladda ned Azure VPN-klienten (för hands version).
+Använd den här [länken](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) för att ladda ned Azure VPN-klienten.
 
 #### <a name="import"></a>Så här importerar du en klient profil
 

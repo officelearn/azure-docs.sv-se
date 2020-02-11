@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 42960acebcc8923c8228c35087d2a5156e2ff32b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 012165b1039b04b3b4d6b72e2385dfbf57e40cd0
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975694"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118693"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text"></a>Snabb start: Använd Translator Text API till translittererad till text
 
@@ -54,7 +54,7 @@ För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://d
 
 ::: zone-end
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Översätta text](quickstart-translate.md)
 * [Identifiera språket efter indata](quickstart-detect.md)

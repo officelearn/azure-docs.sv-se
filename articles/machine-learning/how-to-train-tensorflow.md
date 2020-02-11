@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: c68206eda008b93220fdde8f2666c0495499bdef
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a1c3e1948d53a168ce9a3e99cd932fa04e2fafc4
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311384"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114385"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Bygg en TensorFlow djup inlärnings modell i skala med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Oavsett om du utvecklar en TensorFlow-modell från grunden eller om du har en [b
 
 Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kör den här koden i någon av följande miljöer:
 
@@ -247,7 +247,7 @@ estimator= TensorFlow(source_directory=project_folder,
 
 ### <a name="parameter-server"></a>Parameterserver
 
-Du kan också köra [intern distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed), som använder parametern server-modell. I den här metoden kan träna du i ett kluster med parametern-servrar och arbetare. ”Arbetarna” beräkna toningar vid träning, även om parametern servrar aggregera på toningar.
+Du kan också köra [inbyggda distribuerade TensorFlow](https://www.tensorflow.org/deploy/distributed)som använder parameter Server modellen. I den här metoden kan träna du i ett kluster med parametern-servrar och arbetare. ”Arbetarna” beräkna toningar vid träning, även om parametern servrar aggregera på toningar.
 
 Om du vill använda parameter Server metoden anger du ett [`TensorflowConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py) objekt för parametern `distributed_training` i TensorFlow-konstruktorn.
 
@@ -258,7 +258,7 @@ distributed_training = TensorflowConfiguration()
 distributed_training.worker_count = 2
 
 # Tensorflow constructor
-estimator= TensorFlow(source_directory=project_folder,
+tf_est= TensorFlow(source_directory=project_folder,
                       compute_target=compute_target,
                       script_params=script_params,
                       entry_script='script.py',
@@ -276,7 +276,7 @@ run = exp.submit(tf_est)
 
 Du behöver också nätverks adresser och portar i klustret för [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), så Azure Machine Learning anger miljövariabeln `TF_CONFIG`.
 
-Den `TF_CONFIG` miljövariabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameterserver:
+`TF_CONFIG`-miljövariabeln är en JSON-sträng. Här är ett exempel på variabeln för en parameterserver:
 
 ```JSON
 TF_CONFIG='{
@@ -323,6 +323,6 @@ Den fullständiga [instruktionen att](how-to-deploy-and-where.md) distribuera i 
 
 I den här artikeln har du tränat och registrerat en TensorFlow-modell och lärt dig om distributions alternativen. Mer information om Azure Machine Learning finns i de här artiklarna.
 
-* [Spåra kör mått vid träning](how-to-track-experiments.md)
-* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
+* [Spåra körnings mått under träning](how-to-track-experiments.md)
+* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md)
 * [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -3,18 +3,18 @@ title: Tjänst kvoter och region tillgänglighet
 description: Kvoter, begränsningar och regional tillgänglighet för tjänsten Azure Container Instances.
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 91681130e32cf8a76829b8bfc3e2a1e97a59ff6b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: b3e7f2f67d806bd2fca74f58d446b0de9a4b8f44
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533516"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117897"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Kvoter och begränsningar för Azure Container Instances
 
 Alla Azure-tjänster har vissa standardgränser och kvoter för resurser och funktioner. I den här artikeln beskrivs standard kvoter och gränser för Azure Container Instances.
 
-För att få till gång till Azure Container Instances funktioner och resurser i Azure-regioner, se [resurs tillgänglighet för Azure Container instances](container-instances-region-availability.md).
+Tillgänglighet för beräknings-, minnes-och lagrings resurser för Azure Container Instances varierar beroende på region och operativ system. Mer information finns i [resurs tillgänglighet för Azure Container instances](container-instances-region-availability.md).
 
 ## <a name="service-quotas-and-limits"></a>Kvoter och begränsningar för tjänsten
 

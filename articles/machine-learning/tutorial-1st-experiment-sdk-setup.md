@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
-ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/10/2020
+ms.openlocfilehash: 1dacc59ee0bf79128efd8920a91f3c3d54e5584a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982542"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116606"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
     > [!IMPORTANT]
     > Du kan visa antecknings böcker i mappen **exempel** , men du kan inte köra en antecknings bok därifrån.  För att kunna köra en antecknings bok, se till att du öppnar den klonade versionen av antecknings boken i avsnittet **användarfiler** .
     
-1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i mappen med **självstudier** .
+1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i **självstudierna/skapa-First-ml-experimentet** .
 
 1. I det översta fältet väljer du en beräknings instans som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents). Du kan välja en virtuell dator som skapats av valfri användare av din arbets yta. 
 

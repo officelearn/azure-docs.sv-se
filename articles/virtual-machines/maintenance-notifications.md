@@ -1,22 +1,18 @@
 ---
-title: Underhålls meddelanden för virtuella Azure-datorer | Microsoft Docs
+title: Meddelanden om underhåll
 description: Översikt över underhålls meddelanden för virtuella datorer som körs i Azure.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 83a1f3921272f5ec15ae4d1f4220652f56679c96
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903197"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115693"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Hantera meddelanden om planerat underhåll
 
@@ -29,7 +25,7 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 
 Planerat underhåll som kräver en omstart är schemalagt i vågor. Varje våg har olika omfång (regioner).
 
-- En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till tjänsten administratör och medadministratörer. Du kan lägga till fler mottagare och meddelande alternativ, t. ex. e-post, SMS och Webhooks, med [aktivitets logg aviseringar](../service-health/alerts-activity-log-service-notifications.md).  
+- En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till tjänst administratören och medadministratörerna. Du kan lägga till fler mottagare och meddelande alternativ, t. ex. e-post, SMS och Webhooks, med [aktivitets logg aviseringar](../service-health/alerts-activity-log-service-notifications.md).  
 - När ett meddelande skickas görs ett *självbetjänings fönster* tillgängligt. Under det här fönstret kan du fråga vilka av dina virtuella datorer som påverkas och starta underhållet utifrån dina egna schemaläggnings behov. Självbetjänings fönstret är normalt cirka 35 dagar.
 - Efter självbetjänings fönstret startar en *schemalagd underhålls period* . Vid något tillfälle under det här fönstret schemalägger Azure och tillämpar det nödvändiga underhållet på den virtuella datorn. 
 
@@ -69,7 +65,7 @@ Det är bäst att använda självbetjänings underhåll i följande fall:
 - Det krävs mer än 30 minuters återställnings tid för virtuella datorer mellan två uppdaterings domäner (UDs). Om du vill kontrol lera tiden mellan uppdaterings domäner måste du aktivera underhåll av virtuella datorer en uppdaterings domän (UD) i taget.
 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 
 **F: Varför måste du starta om mina virtuella datorer nu?**

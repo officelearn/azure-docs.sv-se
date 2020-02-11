@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 54e2516211495f7f044f716c518291ca8008f92d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446791"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118908"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
@@ -37,13 +37,13 @@ I den här kursen får du lära du dig att:
 
 Innan du kan distribuera din klient modell måste du vara registrerad i klient modell tjänsten. Registreringen har slutförts i Microsoft 365 administrations Center och kan bara utföras av din Microsoft 365-administratör.
 
-1. Logga in på [Administrationscenter för Microsoft 365](https://admin.microsoft.com).
+1. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com).
 
-1. Välj **Inställningar**i den vänstra rutan, Välj **appar**och välj sedan **Azure Speech Services**.
+1. Välj **Inställningar**i den vänstra rutan och välj sedan **Inställningar** på den kapslade menyn och välj sedan **Azure Speech Services** från huvud fönstret.
 
    ![Fönstret "tjänster & tillägg"](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. Markera kryss rutan **Tillåt att språk modellen för hela organisationen** är markerad och välj sedan **Spara ändringar**. 
+1. Markera kryss rutan **Tillåt att språk modellen för hela organisationen** är markerad och välj sedan **Spara ändringar**.
 
    ![Fönstret Azure Speech Services](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -59,7 +59,7 @@ Om du vill använda din klient modell med tal-SDK behöver du en tal resurs och 
 1. Välj **Skapa en resurs**.
 1. Skriv **tal**i rutan **Sök** .
 1. Välj **tal**i listan resultat och välj sedan **skapa**.
-1. Följ anvisningarna på skärmen för att skapa din resurs. Kontrollera att:
+1. Följ anvisningarna på skärmen för att skapa din resurs. Kontrol lera att:
    * **Platsen** anges till antingen **öster** eller **väst**.
    * **Pris nivån** är inställd på **S0**.
 1. Välj **Skapa**.
@@ -83,7 +83,7 @@ När din administratör har aktiverat klient organisations modell för din organ
    > * [Kund nyckel](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
    > * [Office 365-myndigheter](https://www.microsoft.com/microsoft-365/government)
 
-1. Välj **Anmäl dig**. 
+1. Välj **Anmäl dig**.
 
    När din klient modell är klar får du ett e-postmeddelande med en bekräftelse med ytterligare instruktioner.
 

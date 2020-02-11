@@ -2,13 +2,13 @@
 title: Mall funktioner – resurser
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
-ms.date: 01/20/2020
-ms.openlocfilehash: cfcc9ff3af33fe9de813d8a31b7d102f00725ce4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/10/2020
+ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048792"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120540"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -279,7 +279,7 @@ Det returnerade objektet varierar beroende på vilken List funktion du använder
 
 Andra listfunktioner har olika returnerade format. Om du vill se formatet för en funktion, inkludera den i outputs-avsnittet som visas i exemplet mallen.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Ange resursen genom att antingen använda resurs namnet eller ResourceID- [funktionen](#resourceid). Använd resurs namnet när du använder en List funktion i samma mall som distribuerar den refererade resursen.
 
@@ -451,7 +451,7 @@ Returnerar ett objekt som representerar en resurs runtime-tillståndet.
 
 Alla resurstyper returnerar olika egenskaper för funktionen referens. Funktionen returnerar inte ett enda, fördefinierade format. Dessutom varierar det returnerade värdet beroende på om du har angett det fullständiga objektet. Om du vill visa egenskaperna för en resurstyp, returnerar du objektet i outputs-avsnittet som visas i exemplet.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Funktionen referens hämtar körtiden för en tidigare distribuerad resurs eller en resurs som distribuerats i den aktuella mallen. Den här artikeln visar exempel på båda scenarierna.
 
@@ -530,7 +530,7 @@ När du skapar en fullständigt kvalificerad referens till en resurs, är ordnin
 
 **{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Exempel:
+Några exempel:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` är rätt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` fel
 
@@ -695,7 +695,7 @@ Det returnerade objektet är i följande format:
 
 Egenskapen **managedBy** returneras bara för resurs grupper som innehåller resurser som hanteras av en annan tjänst. För hanterade program, Databricks och AKS är egenskapens värde resurs-ID för hanterings resursen.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Det går inte att använda funktionen `resourceGroup()` i en mall som har [distribuerats på prenumerations nivån](deploy-to-subscription.md). Den kan bara användas i mallar som har distribuerats till en resurs grupp. Du kan använda funktionen `resourceGroup()` i en [länkad eller kapslad mall (med inre omfång)](linked-templates.md) som är riktad mot en resurs grupp, även när den överordnade mallen distribueras till prenumerationen. I det scenariot distribueras den länkade eller kapslade mallen på resurs grupps nivå. Mer information om hur du riktar in en resurs grupp på en prenumerations nivå distribution finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
 
@@ -752,14 +752,14 @@ Föregående exempel returnerar ett objekt i följande format:
 resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returnerar den unika identifieraren för en resurs. Du använder den här funktionen när resursnamnet är tvetydigt eller ej etablerad inom samma mall.
+Returnerar den unika identifieraren för en resurs. Du använder den här funktionen när resursnamnet är tvetydigt eller ej etablerad inom samma mall. Formatet för den returnerade identifieraren varierar beroende på om distributionen sker i omfånget för en resurs grupp, prenumeration, hanterings grupp eller klient.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
-| resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. |
+| resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
 | resourceName1 |Ja |sträng |Namnet på resursen. |
 | resourceName2 |Nej |sträng |Nästa resurs namns segment, om det behövs. |
@@ -768,7 +768,7 @@ Fortsätt att lägga till resurs namn som parametrar när resurs typen innehåll
 
 ### <a name="return-value"></a>Returvärde
 
-Resurs-ID: t returneras i följande format:
+När mallen distribueras i omfånget för en resurs grupp, returneras resurs-ID i följande format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -780,13 +780,19 @@ När det används i en [distribution på prenumerations nivå](deploy-to-subscri
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
+När det används i en distribution på [hanterings grupps nivå](deploy-to-management-group.md) eller på klient nivå, returneras resurs-ID i följande format:
+
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
 Information om hur du hämtar ID i andra format finns i:
 
 * [extensionResourceId](#extensionresourceid)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Antalet parametrar som du anger varierar beroende på om resursen är en överordnad eller underordnad resurs och om resursen finns i samma prenumeration eller resurs grupp.
 
@@ -892,10 +898,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| sameRGOutput | String | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String | /subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
+| sameRGOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Sträng | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Sträng | /subscriptions/{Current-Sub-ID}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
 
 ## <a name="subscription"></a>prenumeration
 
@@ -918,7 +924,7 @@ Funktionen returnerar följande format:
 }
 ```
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 När du använder kapslade mallar för att distribuera till flera prenumerationer kan du ange omfattningen för utvärdering av prenumerations funktionen. Mer information finns i [Distribuera Azure-resurser till mer än en prenumeration eller resurs grupp](cross-resource-group-deployment.md).
 
@@ -967,7 +973,7 @@ Identifieraren returneras i följande format:
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Du använder den här funktionen för att hämta resurs-ID för resurser som [distribueras till prenumerationen](deploy-to-subscription.md) i stället för en resurs grupp. Det returnerade ID: t skiljer sig från värdet som returnerades av [resourceId](#resourceid) -funktionen genom att inte inkludera ett resurs grupps värde.
 
@@ -1050,7 +1056,7 @@ Identifieraren returneras i följande format:
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Du använder den här funktionen för att hämta resurs-ID för en resurs som distribueras till klienten. Det returnerade ID: t skiljer sig från värdena som returneras av andra resurs-ID-funktioner, inklusive resurs grupps-eller prenumerations värden.
 

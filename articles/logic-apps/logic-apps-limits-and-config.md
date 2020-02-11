@@ -1,17 +1,17 @@
 ---
-title: Begränsningar och konfiguration
+title: Gränser och konfiguration
 description: Tjänst begränsningar, till exempel varaktighet, data flöde och kapacitet, plus konfigurations värden, till exempel IP-adresser som ska tillåtas, för Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 01/18/2020
-ms.openlocfilehash: 95960a0af628526eb11335ea5c2fcec51f3c66b5
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/10/2020
+ms.openlocfilehash: 348c393a623f0059eec011faf823f9b5131508f3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548551"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122123"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -19,13 +19,13 @@ I den här artikeln beskrivs begränsningar och konfigurations information för 
 
 <a name="definition-limits"></a>
 
-## <a name="definition-limits"></a>Definitionsgränser
+## <a name="definition-limits"></a>Definitions gränser
 
 Här är gränserna för en enda Logic app-definition:
 
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
-| Åtgärder per arbetsflöde | 500 | Om du vill utöka den här gränsen kan du lägga till kapslade arbets flöden efter behov. |
+| Åtgärder per arbets flöde | 500 | Om du vill utöka den här gränsen kan du lägga till kapslade arbets flöden efter behov. |
 | Tillåtet kapslings djup för åtgärder | 8 | Om du vill utöka den här gränsen kan du lägga till kapslade arbets flöden efter behov. |
 | Arbets flöden per region per prenumeration | 1,000 | |
 | Utlösare per arbets flöde | 10 | När du arbetar i kodvyn, inte i designern |
@@ -47,8 +47,8 @@ Här följer gränserna för en enda Logic app-körning:
 
 | Namn | Gräns för flera innehavare | Miljö gräns för integrerings tjänst | Anteckningar |
 |------|--------------------|---------------------------------------|-------|
-| Körningens varaktighet | 90 dagar | 366 dagar | Körningens varaktighet beräknas med start tiden för körning och den gräns som anges *i Start tiden* av arbets flödes inställningen, körning av [**Historik i dagar**](#change-duration). <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra körnings tid](#change-duration). |
-| Kör kvarhållning i lagring | 90 dagar | 366 dagar | Kör kvarhållning beräknas med hjälp av start tiden för körning och den gräns som har angetts *vid aktuell tidpunkt* av arbets flödes inställningen. [**Kör historik kvarhållning i dagar**](#change-retention). Oavsett om en körning slutförs eller om tids gränsen uppnås, använder bevarande beräkningen alltid körningens start tid. När en körnings tid överskrider den *aktuella* gränsen för kvarhållning tas körningen bort från körnings historiken. <p><p>Om du ändrar den här inställningen används alltid den aktuella gränsen för att beräkna kvarhållning, oavsett föregående gräns. Om du till exempel minskar kvarhållningsintervallet från 90 dagar till 30 dagar tas en körning som är 60 dagar gammal bort från körnings historiken. Om du ökar kvarhållningsperioden från 30 dagar till 60 dagar stannar en körning som är 20 dagar gammal kvar i körnings historiken för ytterligare 40 dagar. <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra körnings kvarhållning i lagring](#change-retention). |
+| Körnings tid | 90 dagar | 366 dagar | Körningens varaktighet beräknas med start tiden för körning och den gräns som anges *i Start tiden* av arbets flödes inställningen, körning av [**Historik i dagar**](#change-duration). <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra körnings tid](#change-duration). |
+| Kör kvarhållning i lagring | 90 dagar | 366 dagar | Kör kvarhållning beräknas med hjälp av start tiden för körning och den gräns som har angetts *vid aktuell tidpunkt* av arbets flödes inställningen. [**Kör historik kvarhållning i dagar**](#change-retention). Oavsett om en körning slutförs eller om tids gränsen uppnås, använder bevarande beräkningen alltid körningens start tid. När en körnings tid överskrider den *aktuella* gränsen för kvarhållning tas körningen bort från körnings historiken. <p><p>Om du ändrar den här inställningen används alltid den aktuella gränsen för att beräkna kvarhållning, oavsett föregående gräns. Om du till exempel minskar kvarhållningsintervallet från 90 dagar till 30 dagar tas en körning som är 60 dagar gammal bort från körnings historiken. Om du ökar kvarhållningsperioden från 30 dagar till 60 dagar stannar en körning som är 20 dagar gammal kvar i körnings historiken för ytterligare 40 dagar. <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra körnings kvarhållning i lagring](#change-retention). |
 | Lägsta upprepnings intervall | 1 sekund | 1 sekund ||
 | Högsta upprepnings intervall | 500 dagar | 500 dagar ||
 |||||
@@ -86,15 +86,15 @@ Här följer gränserna för en enda Logic app-körning:
 | ---- | ----- | ----- |
 | Utlös samtidighet | – Obegränsat när samtidighets kontrollen är avstängd <p><p>-25 är standard gränsen när samtidighets kontrollen är aktive rad, som inte kan återställas när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan köras samtidigt eller parallellt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt för [debatchering av matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra utlösarens samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [Utlös instansen i tur och ordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximalt antal väntande körningar | – Utan samtidighet är det minsta antalet väntande körningar 1, medan det maximala antalet är 50. <p><p>– Med samtidighet är det minsta antalet väntande körningar 10 plus antalet samtidiga körningar (Utlös samtidighet). Du kan ändra det maximala antalet upp till 100. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p><p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Förgrunds mat ris objekt | 100 000 | Den här gränsen beskriver det högsta antalet mat ris objekt som en "for each"-loop kan bearbeta. <p><p>Du kan använda [åtgärden fråga](logic-apps-perform-data-operations.md#filter-array-action)för att filtrera större matriser. |
+| Förgrunds mat ris objekt | 100 000 | Den här gränsen beskriver det högsta antalet mat ris objekt som en "for each"-loop kan bearbeta. <p><p>Du kan använda [åtgärden fråga](logic-apps-perform-data-operations.md#filter-array-action)för att filtrera större matriser. |
 | Samtidighets samtidighet | 20 är standard gränsen när samtidighets kontrollen är inaktive rad. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen är det högsta antalet upprepningar av slingor som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra "för varje" samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [Kör "för varje" slingor i följd](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn-objekt | – 100 000 utan utlösarens samtidighet <p><p>– 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt. |
-| Until-iterationer | 5 000 | |
+| SplitOn objekt | – 100 000 utan utlösarens samtidighet <p><p>– 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt. |
+| Tills iterationer | 5 000 | |
 ||||
 
 <a name="throughput-limits"></a>
 
-## <a name="throughput-limits"></a>Dataflödesbegränsningar
+## <a name="throughput-limits"></a>Data flödes gränser
 
 Här är gränserna för en enda Logic app-definition:
 
@@ -153,7 +153,7 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 
 | Namn | Gräns för flera innehavare | Miljö gräns för integrerings tjänst | Anteckningar |
 |------|--------------------|---------------------------------------|-------|
-| Meddelandestorlek | 100 MB | 200 MB | För att undvika den här gränsen, se [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). Vissa anslutningar och API: er kanske inte stöder segment koppling eller till och med standard gränsen. |
+| Meddelandestorlek | 100 MB | 200 MB | För att undvika den här gränsen, se [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). Vissa anslutningar och API: er kanske inte stöder segment koppling eller till och med standard gränsen. |
 | Meddelande storlek med segment | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för segmentering eller som låter dig aktivera segment i körnings konfigurationen. <p>För integrerings tjänst miljön stöder Logic Apps motor den här gränsen, men kopplingarna har sina egna segment gränser upp till motor gränsen, till exempel, se [Azure-Blob Storage Connectors API-referens](https://docs.microsoft.com/connectors/azureblob/). Mer information om segment finns i [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). |
 |||||   
 
@@ -161,7 +161,7 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 
 | Namn | Anteckningar |
 |------|-------|
-| Gräns för uttrycksutvärdering | 131 072 tecken | `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
+| Utvärderings gräns för uttryck | 131 072 tecken | `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
 | Tecken gräns för begär ande URL | 16 384 tecken |
 |||
 
@@ -170,8 +170,8 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
 | Antal återförsök | 90 | Standardvärdet är 4. Om du vill ändra standardvärdet använder du [princip parametern för att försöka igen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Maximal tid innan nytt försök | 1 dag | Om du vill ändra standardvärdet använder du [princip parametern för att försöka igen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Minimal tid innan nytt försök | 5 sekunder | Om du vill ändra standardvärdet använder du [princip parametern för att försöka igen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Högsta fördröjning för återförsök | 1 dag | Om du vill ändra standardvärdet använder du [princip parametern för att försöka igen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Försök igen, min fördröjning | 5 sekunder | Om du vill ändra standardvärdet använder du [princip parametern för att försöka igen](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
 <a name="custom-connector-limits"></a>
@@ -191,8 +191,9 @@ Här är gränserna för anpassade anslutningar som du kan skapa från webb-API:
 ## <a name="managed-identities"></a>Hanterade identiteter
 
 | Namn | Gräns |
-| ---- | ----- |
-| Antal Logic Apps som har den systemtilldelade identiteten i en Azure-prenumeration per region | 100 |
+|------|-------|
+| Hanterade identiteter per Logic app | Antingen en tilldelad identitet eller en användardefinierad identitet |
+| Antal Logic Apps som har en hanterad identitet i en Azure-prenumeration per region | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -229,7 +230,7 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 |----------|------|-------|----------|
 | EDI handels avtal | 10 | 1 | 1,000 |
 | EDI-handels partner | 25 | 2 | 1,000 |
-| Kartor | 25 | 500 | 1,000 |
+| Maps | 25 | 500 | 1,000 |
 | Scheman | 25 | 500 | 1,000 |
 | Sammansättningar | 10 | 25 | 1,000 |
 | Certifikat | 25 | 2 | 1,000 |

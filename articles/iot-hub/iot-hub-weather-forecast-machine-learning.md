@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 02/10/2020
 ms.author: robinsh
-ms.openlocfilehash: d26ccd47ada4f1f1fd87f315e05f822bb2463114
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b71b86c14c55c312ef420a4d8517140fdded4072
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976187"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122297"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning
 
@@ -49,24 +49,77 @@ Du får lära dig hur du använder Azure Machine Learning för att göra väder 
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Distribuera väder förutsägelse modellen som en webb tjänst
 
+I det här avsnittet får du en väder förutsägelse modell från Azure AI-biblioteket. Sedan lägger du till en R-script-modul i modellen för att rensa temperatur-och fuktighets data. Slutligen distribuerar du modellen som en förutsägbar webb tjänst.
+
+### <a name="get-the-weather-prediction-model"></a>Hämta väder förutsägelse modellen
+
+I det här avsnittet får du en väder förutsägelse modell från Azure AI Gallery och öppnar den i Azure Machine Learning Studio (klassisk).
+
 1. Gå till [sidan för väder förutsägelse modellen](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
-1. Klicka på **Öppna i Studio** i Microsoft Azure Machine Learning Studio (klassisk).
-   ![öppna sidan för väder förutsägelse modell i Cortana Intelligence Gallery](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
-1. Verifiera stegen i modellen genom att klicka på **Kör** . Det här steget kan ta 2 minuter att slutföra.
-   ![öppna väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. Klicka på **Konfigurera webb tjänsten** > **förutsägbar webb tjänst**.
-   ![distribuera väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
-1. I diagrammet drar du modulen för **webb tjänst Indataporten** någonstans nära **Poäng modell** .
-1. Anslut **webb tjänstens indataport** till **score modell** -modulen.
-   ![ansluta två moduler i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+
+   ![Öppna sidan för väder förutsägelse modellen i Azure AI Gallery](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
+
+1. Klicka på **Öppna i Studio (klassisk)** för att öppna modellen i Microsoft Azure Machine Learning Studio (klassisk).
+
+   ![Öppna väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
+
+### <a name="add-an-r-script-module-to-clean-temperature-and-humidity-data"></a>Lägg till en R-script-modul för ren temperatur och fuktighets data
+
+För att modellen ska fungera korrekt måste temperatur-och fuktighets data konverteras till numeriska data. I det här avsnittet lägger du till en R-script-modul till den väder förutsägelse modell som tar bort alla rader som har data värden för temperatur eller fuktighet som inte kan konverteras till numeriska värden.
+
+1. Klicka på pilen till vänster i fönstret Azure Machine Learning Studio för att expandera panelen verktyg. Ange "kör" i sökrutan. Välj modulen **Kör R-skript** .
+
+   ![Välj Kör R-skript modul](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
+
+1. Dra modulen **Kör r-skript** nära modulen **Rensa data som saknas** och den befintliga **execute r-skript** -modulen i diagrammet. Ta bort anslutningen mellan de **rensade data som saknas** och **Kör R-skriptets** moduler och Anslut sedan indata och utdata för den nya modulen som visas.
+
+   ![Lägg till kör R-skriptkommando](media/iot-hub-weather-forecast-machine-learning/add-r-script-module.png)
+
+1. Välj den nya **Kör R-skript** -modulen för att öppna dess egenskaps fönster. Kopiera och klistra in följande kod i rutan **R-skript** .
+
+   ```r
+   # Map 1-based optional input ports to variables
+   data <- maml.mapInputPort(1) # class: data.frame
+
+   data$temperature <- as.numeric(as.character(data$temperature))
+   data$humidity <- as.numeric(as.character(data$humidity))
+
+   completedata <- data[complete.cases(data), ]
+
+   maml.mapOutputPort('completedata')
+
+   ```
+
+   När du är klar bör fönstret Egenskaper se ut ungefär så här:
+
+   ![Lägg till kod för att köra R-skript-modulen](media/iot-hub-weather-forecast-machine-learning/add-code-to-module.png)
+
+### <a name="deploy-predictive-web-service"></a>Distribuera förutsägbar webb tjänst
+
+I det här avsnittet verifierar du modellen, konfigurerar en förutsägbar webb tjänst baserat på modellen och distribuerar sedan webb tjänsten.
+
+1. Verifiera stegen i modellen genom att klicka på **Kör** . Det här steget kan ta några minuter att slutföra.
+
+   ![Kör experimentet för att verifiera stegen](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
+
+1. Klicka på **Konfigurera webb tjänsten** > **förutsägbar webb tjänst**. Det förutsägande experiment diagrammet öppnas.
+
+   ![Distribuera väder förutsägelse modellen i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
+
+1. I det förutsägande experiment diagrammet tar du bort anslutningen mellan **webb tjänstens indata-** modul och **väder data uppsättningen** överst. Dra sedan modulen för **Indataporten för webb tjänsten** någonstans i modulen **Poäng modell** och Anslut den så att den visas:
+
+   ![Anslut två moduler i Azure Machine Learning Studio (klassisk)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+
 1. Verifiera stegen i modellen genom att klicka på **Kör** .
+
 1. Klicka på **distribuera webb tjänst** för att distribuera modellen som en webb tjänst.
+
 1. På instrument panelen för modellen laddar du ned **Excel 2010 eller tidigare arbets bok** för **begäran/svar**.
 
    > [!Note]
    > Se till att du hämtar **excel 2010 eller tidigare arbets bok** även om du kör en senare version av Excel på datorn.
 
-   ![Ladda ned Excel för slut punkten för begär ande svar](media/iot-hub-weather-forecast-machine-learning/5_download-endpoint-app-excel-for-request-response.png)
+   ![Ladda ned Excel för slut punkten för begär ande svar](media/iot-hub-weather-forecast-machine-learning/download-workbook.png)
 
 1. Öppna Excel-arbetsboken och anteckna **webb tjänstens URL** och **åtkomst nyckeln**.
 
@@ -180,9 +233,9 @@ Kör klient programmet för att börja samla in och skicka temperatur-och fuktig
 1. Logga in på ditt Azure-konto.
 1. Välj din prenumeration.
 1. Klicka på prenumerationen > **lagrings konton** > ditt lagrings konto > **Blob-behållare** > din behållare.
-1. Öppna en CSV-fil för att se resultatet. Den sista kolumnen registrerar risken för regn.
+1. Hämta en CSV-fil för att se resultatet. Den sista kolumnen registrerar risken för regn.
 
-   ![Få resultat för väder prognoser med Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/12_get-weather-forecast-result-azure-machine-learning.png)
+   ![Få resultat för väder prognoser med Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)
 
 ## <a name="summary"></a>Sammanfattning
 

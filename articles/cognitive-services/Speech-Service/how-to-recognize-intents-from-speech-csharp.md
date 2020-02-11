@@ -3,19 +3,19 @@ title: Identifiera avsikter från tal med hjälp av tal-SDKC#
 titleSuffix: Azure Cognitive Services
 description: I den här guiden får du lära dig att identifiera avsikter från tal med hjälp av tal- C#SDK för.
 services: cognitive-services
-author: wolfma61
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: wolfma
-ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805900"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120041"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK förC#
 
@@ -35,7 +35,7 @@ I den här guiden använder du tal-SDK: n för C# att utveckla ett konsol progra
 > - Identifiera tal från en fil
 > - Använd asynkron, händelsedriven kontinuerlig igenkänning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande saker innan du börjar den här guiden:
 
@@ -91,12 +91,15 @@ Sedan lägger du till kod i projektet.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. I den tillhandahållna `Main()`-metoden lägger du till följande kod:
+1. Ersätt den tillhandahållna `Main()`-metoden med följande asynkrona motsvarighet:
 
    ```csharp
-   RecognizeIntentAsync().Wait();
-   Console.WriteLine("Please press Enter to continue.");
-   Console.ReadLine();
+   public static async Task Main()
+   {
+       await RecognizeIntentAsync();
+       Console.WriteLine("Please press Enter to continue.");
+       Console.ReadLine();
+   }
    ```
 
 1. Skapa en tom asynkron metod `RecognizeIntentAsync()`, som du ser här:
@@ -173,7 +176,7 @@ Programmet kan inte parsa JSON-resultatet. Den visar bara JSON-texten i konsol f
 
 ## <a name="specify-recognition-language"></a>Ange igenkänningsspråk
 
-Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Du kan till exempel lägga till `config.SpeechRecognitionLanguage = "de-de";` i vårt program innan du skapar tolken för att identifiera avsikter på tyska. Mer information finns i [språk som stöds](language-support.md#speech-to-text).
+Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Du kan till exempel lägga till `config.SpeechRecognitionLanguage = "de-de";` i vårt program innan du skapar tolken för att identifiera avsikter på tyska. Mer information finns i [språk stöd för Luis](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Kontinuerlig igenkänning från en fil
 

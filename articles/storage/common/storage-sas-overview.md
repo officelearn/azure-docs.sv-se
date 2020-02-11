@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7a5967f52a187fe289c6fb1ca72af2d5fd17f010
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371827"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121919"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -76,13 +76,13 @@ Här är ett exempel på en SAS-URI för tjänsten som visar resurs-URI och SAS-
 
 Använd en SAS när du vill ge säker åtkomst till resurser i ditt lagrings konto till alla klienter som inte på annat sätt har behörighet till dessa resurser.
 
-Ett vanligt scenario där en SAS är användbar är en tjänst där användare kan läsa och skriva egna data till ditt lagrings konto. I ett scenario där ett lagringskonto lagrar användardata finns det två typiska designmönster:
+Ett vanligt scenario där en SAS är användbar är en tjänst där användare kan läsa och skriva egna data till ditt lagrings konto. I ett scenario där ett lagrings konto lagrar användar data finns det två typiska design mönster:
 
-1. Klienter laddar upp och laddar ned en via en klientproxytjänst, som utför autentisering. Den här frontend-proxyservern har fördelen att tillåta validering av affärs regler, men för stora mängder data eller hög volym transaktioner kan du skapa en tjänst som kan skalas för att matcha efter frågan kan vara kostsam eller svår.
+1. Klienterna överför och laddar ned data via en frontend-proxyserver som utför autentisering. Den här frontend-proxyservern har fördelen att tillåta validering av affärs regler, men för stora mängder data eller hög volym transaktioner kan du skapa en tjänst som kan skalas för att matcha efter frågan kan vara kostsam eller svår.
 
    ![Scenario diagram: klient delens proxy-tjänst](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
-1. En förenklad tjänst autentiserar klienten efter behov och genererar sedan en SAS. När klient programmet tar emot SAS, kan de komma åt lagrings konto resurser direkt med behörigheterna som definieras av SAS och för det intervall som tillåts av SAS. SAS minskar behovet att dirigera alla data genom klientproxytjänsten.
+1. En Lightweight-tjänst autentiserar klienten vid behov och genererar sedan en SAS. När klient programmet tar emot SAS, kan de komma åt lagrings konto resurser direkt med behörigheterna som definieras av SAS och för det intervall som tillåts av SAS. SAS minimerar behovet av att dirigera alla data via frontend-proxyservern.
 
    ![Scenario diagram: SAS-tjänstleverantör](./media/storage-sas-overview/sas-storage-provider-service.png)
 
@@ -110,6 +110,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 - **Använd tider med nära giltighets tider för en ad hoc SAS-tjänst SAS eller konto säkerhets associationer.** På det här sättet, även om en SAS har komprometterats, är den bara giltig under en kort tid. Den här metoden är särskilt viktig om du inte kan referera till en lagrad åtkomst princip. Snart kan förfallo tiden begränsa den mängd data som kan skrivas till en BLOB genom att begränsa den tillgängliga tiden att laddas upp till den.
 - **Låt klienterna automatiskt förnya SAS vid behov.** Klienterna bör förnya SAS-vältiden innan det går ut, för att tillåta tid för nya försök om tjänsten som tillhandahåller SAS inte är tillgänglig. Om din SAS är avsedd att användas för ett litet antal omedelbara, kortsiktiga åtgärder som förväntas bli slutförda inom förfallo perioden, kan detta vara onödigt eftersom sa-värdet inte förväntas förnyas. Men om du har en klient som rutinmässigt begär förfrågningar via SAS, kommer möjligheten att förfalla att bli i spel. Viktiga överväganden är att balansera behovet av att SAS ska vara kort livs längd (som tidigare anges) med behovet av att säkerställa att klienten begär förnyelse tillräckligt tidigt (för att undvika avbrott på grund av att SAS förfaller före en lyckad förnyelse).
 - **Var försiktig med start tiden för SAS.** Om du anger start tiden för en SAS **nu**, sedan på grund av klock skevning (skillnader i aktuell tid beroende på olika datorer), kan det hända att felen observeras period vis under de första minuterna. I allmänhet anger du Start tiden till minst 15 minuter tidigare. Eller, ange inte det alls, vilket gör det giltigt omedelbart i samtliga fall. Samma gäller vanligt vis för förfallo tid, och kom ihåg att du kan se upp till 15 minuters klock skevning i båda riktningarna. För klienter som använder en REST-version före 2012-02-12 är den maximala tiden för en SAS som inte refererar till en lagrad åtkomst princip 1 timme och alla principer som anger längre villkors period än vad som kommer att Miss förväntas.
+- **Var försiktig med SAS-formatet för SAS.** Om du ställer in start tid och/eller förfallo datum för en SAS måste du ha datetime-formatet "+% Y-% m-% dT% H:%M:% SZ", särskilt inklusive sekunder för att det ska fungera med SAS-token för vissa verktyg (till exempel för kommando rads verktyget AzCopy).  
 - **Var unik för den resurs som ska nås.** En säkerhets metod är att tillhandahålla en användare med den lägsta behörighet som krävs. Om en användare bara behöver Läs behörighet till en enskild entitet kan du ge dem Läs behörighet till den enskilda entiteten och inte läsa/skriva/ta bort åtkomst till alla entiteter. Detta hjälper också till att minska skadan om en SAS komprometteras eftersom SAS har mindre kraft i händerna på en angripare.
 - **Förstå att ditt konto debiteras för all användning, inklusive via en SAS.** Om du ger skriv åtkomst till en BLOB kan en användare välja att ladda upp en 200 GB-blob. Om du har gett dem Läs behörighet kan de välja att ladda ned det 10 gånger, vilket ger 2 TB i utgående kostnader för dig. På nytt ger du begränsade behörigheter för att minska risken för att skadliga användare kan utföra åtgärder. Använd SAS med kort livs längd för att minska det här hotet (men var mindful klock skevning vid slut tiden).
 - **Verifiera data som skrivits med en SAS.** När ett klient program skriver data till ditt lagrings konto bör du tänka på att det kan finnas problem med dessa data. Om ditt program kräver att data verifieras eller auktoriseras innan de kan användas, bör du utföra den här verifieringen när data har skrivits och innan de används av ditt program. Den här övningen skyddar också mot skadade eller skadliga data som skrivs till ditt konto, antingen av en användare som har förvärvat SAS eller av en användare som utnyttjar en läcka SAS.

@@ -4,12 +4,12 @@ description: Lär dig hur du använder automatiska skalnings åtgärder för att
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364211"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120698"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använd åtgärder för autoskalning för att skicka aviseringar via e-post och webhook i Azure Monitor
 Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa vissa webb adresser eller skicka e-postmeddelanden baserat på automatiska skalnings åtgärder i Azure.  
@@ -20,8 +20,8 @@ Med Webhooks kan du dirigera Azures aviserings meddelanden till andra system fö
 ## <a name="email"></a>E-post
 E-post kan skickas till alla giltiga e-postadresser. Administratörer och medadministratörer för den prenumeration där regeln körs kommer också att meddelas.
 
-## <a name="cloud-services-and-web-apps"></a>Cloud Services och Web Apps
-Du kan välja mellan Azure Portal för Cloud Services och Server grupper (Web Apps).
+## <a name="cloud-services-and-app-services"></a>Cloud Services och App Services
+Du kan välja mellan Azure Portal för Cloud Services och Server grupper (App Services).
 
 * Välj **skala efter** mått.
 
@@ -56,7 +56,7 @@ När du använder REST API-eller Resource Manager-mallen inkluderar du meddeland
     ]
 ```
 
-| Field | Erforderlig? | Beskrivning |
+| Fält | Erforderlig? | Beskrivning |
 | --- | --- | --- |
 | operation |ja |värdet måste vara "Scale" |
 | sendToSubscriptionAdministrator |ja |värdet måste vara "sant" eller "falskt" |
@@ -64,7 +64,7 @@ När du använder REST API-eller Resource Manager-mallen inkluderar du meddeland
 | customEmails |ja |värdet kan vara null [] eller sträng mat ris med e-post |
 | Webhooks |ja |värdet kan vara null eller en giltig URI |
 | serviceUri |ja |en giltig https-URI |
-| properties |ja |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
+| egenskaper |ja |värdet måste vara tomt {} eller innehålla nyckel/värde-par |
 
 ## <a name="authentication-in-webhooks"></a>Autentisering i Webhooks
 Webhooken kan autentiseras med hjälp av tokenbaserad autentisering, där du sparar webhook-URI: n med ett token-ID som frågeparameter. Till exempel https:\//mysamplealert/webcallback? tokenID = sometokenid & someparameter = someValue
@@ -99,12 +99,12 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 ```
 
 
-| Field | Erforderlig? | Beskrivning |
+| Fält | Erforderlig? | Beskrivning |
 | --- | --- | --- |
 | status |ja |Status som anger att en åtgärd för autoskalning har genererats |
 | operation |ja |För en ökning av instanser blir det "skala ut" och en minskning av instanserna blir "skala in" |
 | context |ja |Åtgärds kontext för autoskalning |
-| timestamp |ja |Tidstämpel när åtgärden för autoskalning utlöstes |
+| tidsstämpel |ja |Tidstämpel när åtgärden för autoskalning utlöstes |
 | id |Ja |Resource Manager-ID för den automatiska skalnings inställningen |
 | namn |Ja |Namnet på den automatiska skalnings inställningen |
 | details |Ja |Förklaring av åtgärden att AutoScale-tjänsten tog och ändringen i instans antalet |
@@ -116,5 +116,5 @@ När meddelandet för autoskalning skapas, ingår följande metadata i webhook-n
 | portalLink |Ja |Azure Portal länk till sidan Sammanfattning för mål resursen |
 | oldCapacity |Ja |Det aktuella (gamla) instans antalet när autoskalning vidtog en skalnings åtgärd |
 | newCapacity |Ja |Den nya instansen räknas som autoskalning som skalar resursen till |
-| properties |Inga |Valfri. Uppsättning < nyckel, värde > par (till exempel ord lista < sträng, sträng >). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
+| egenskaper |Nej |Valfri. Uppsättning < nyckel, värde > par (till exempel ord lista < sträng, sträng >). Egenskaps fältet är valfritt. I ett anpassat användar gränssnitt eller ett logiskt app-baserat arbets flöde kan du ange nycklar och värden som kan skickas med nytto lasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till utgående webhook-anrop är att använda webhook-URI: n (som frågeparametrar) |
 

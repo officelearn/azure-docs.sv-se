@@ -5,15 +5,15 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/21/2019
+ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047753"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123218"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för certifikat signerings förfrågan
 
@@ -26,10 +26,9 @@ Generera CSR-filen (certifikat signerings förfrågan) som Apple använder för 
 1. Välj **nyckel rings åtkomst**, expandera **certifikat assistenten**och välj sedan **begär ett certifikat från en certifikat utfärdare**.
 
     ![Använd nyckelhanterare för att begära ett nytt certifikat](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-    
-> [!NOTE]
-> OS X som standard markeras det första objektet i den kategori som du har valt i åtkomst verktyget för nyckel ringar. Detta kan vara problematiskt om du befinner dig i avsnittet **certifikat** och **certifikat utfärdare för Apple Worldwide Developer-relationer** *inte* är det första objektet i listan. Innan du begär ett certifikat bör du se till att du befinner dig i avsnittet **certifikat** och väljer sedan **Apple Worldwide Developer-relationer certifikat utfärdare**.
 
+   > [!NOTE]
+   > Som standard väljer åtkomst till nyckel ringar det första objektet i listan. Detta kan vara ett problem om du befinner dig i kategorin **certifikat** och **certifikat utfärdaren Apple Worldwide Developer relation** är inte det första objektet i listan. Kontrol lera att du har ett objekt som inte är ett nyckel objekt, eller att nyckeln för **certifikat utfärdare för Apple Worldwide Developer-relation** är vald, innan du genererar CSR (certifikat signerings förfrågan).
 
 1. Välj din **användar-e-postadress**, ange ditt **eget namn** -värde, kontrol lera att du har angett **Spara på disk**och välj sedan **Fortsätt**. Lämna **ca-e-postadress** tomt eftersom det inte behövs.
 

@@ -3,8 +3,8 @@ title: Klassisk teknik för Azure Resource Manager migrering av tekniska djup
 description: Teknisk djupgående om plattforms oberoende migrering av resurser från den klassiska distributions modellen till Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 1ee40d32-a5e8-42a2-97d0-3232fd3cbb98
@@ -12,16 +12,16 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
-ms.openlocfilehash: b94d835926ced33b8872ecf68f073f4dade9de27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 03da35eb0f0a03bd9a9e28b0bd92a94979c6fcf5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374275"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115768"
 ---
-# <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>En teknisk djupdykning i plattformsunderstödd migrering från klassiskt läge till Azure Resource Manager
+# <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Teknisk djupgående om migrering av plattformar som stöds från klassisk till Azure Resource Manager
 Låt oss ta en titt på migreringen från den klassiska distributions modellen i Azure till Azure Resource Manager distributions modell. Vi tittar på resurser på en resurs-och funktions nivå för att hjälpa dig att förstå hur Azure-plattformen migrerar resurser mellan de två distributions modellerna. Mer information finns i artikeln om service meddelande: [migrering av plattformar som stöds av IaaS-resurser från klassisk till Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-migration-deep-dive](../../../includes/virtual-machines-common-classic-resource-manager-migration-deep-dive.md)]

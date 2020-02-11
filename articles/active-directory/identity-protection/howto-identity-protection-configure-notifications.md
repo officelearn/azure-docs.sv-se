@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c83aa6e476bbd898999fb6efe490c7847a809ff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0d770336099611d69fa9e44d04fff4dd37696707
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382156"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120125"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
@@ -26,6 +26,9 @@ Azure AD Identity Protection skickar två typer av automatiserade e-postmeddelan
 - E-postmeddelande om veckovis sammandrag
 
 Den här artikeln ger en översikt över både e-postaviseringar.
+
+>[!NOTE]
+>E-postaviseringar är bara tillgängliga i det offentliga molnet och är för närvarande inte tillgängliga i det amerikanska myndighets molnet.
 
 ## <a name="users-at-risk-detected-email"></a>Användare med skadligt upptäckt e-post
 
@@ -65,6 +68,6 @@ Som administratör kan du växla att skicka ett e-postmeddelande med veckovis sa
 
 Konfigurera e-postmeddelandet om veckovis sammandrag i **Azure Portal** under **Azure Active Directory** > **säkerhet** > **identitets skydd** > **vecko sammandrag**.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)

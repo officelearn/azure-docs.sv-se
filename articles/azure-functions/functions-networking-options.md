@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846446"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114293"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions nätverks alternativ
 
@@ -111,7 +111,7 @@ För att ge en högre säkerhets nivå kan du begränsa ett antal Azure-tjänste
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Begränsa ditt lagrings konto till ett virtuellt nätverk
 
-När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app, kommer din app att brytas.
+När du skapar en Function-app måste du skapa eller länka till ett allmänt Azure Storage konto som har stöd för BLOB-, Queue-och table-lagring. Du kan för närvarande inte använda några begränsningar för virtuella nätverk för det här kontot. Om du konfigurerar en tjänst slut punkt för virtuellt nätverk på det lagrings konto som du använder för din Function-app, kommer din app att brytas. Den här funktionen är för närvarande tillgänglig med Premium-prenumerationen och en integrering med virtuella nätverk.
 
 [Läs mer om krav för lagrings konton.](./functions-create-function-app-portal.md#storage-account-requirements)
 
@@ -141,7 +141,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Virtuella nätverks utlösare stöds i version 2. x och senare av Functions-körningen. Följande typer av icke-HTTP-utlösare stöds.
 
-| Tillägg | Lägsta version |
+| Anknytning | Lägsta version |
 |-----------|---------| 
 |[Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 eller senare |
 |[Microsoft. Azure. WebJobs. Extensions. EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 eller senare|

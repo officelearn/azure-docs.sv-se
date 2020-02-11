@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064153"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121443"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
 
@@ -43,7 +43,9 @@ Om din arbets plats integrering är i karantän måste du ange en giltig token i
 
 https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
 
- 
+#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Hur ser jag om mitt program har migrerats? 
+När ditt program migreras tas banderollen i avsnittet Authorization om att överföra ändringar bort och fältet hemligt token ersätts med en blå auktorisera-knapp. 
+
 #### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Avsnittet admin credentials är nedtonat i mitt program och jag kan inte spara. Varför?
 Vi har låst avsnittet admin credentials för befintliga arbets plats kunder. När klienten har migrerats till det nya arbets plats programmet kommer du att kunna uppdatera avsnittet admin-autentiseringsuppgifter igen. Om du inte kan vänta kan du använda URL: en ovan för att redigera ditt program. 
 
@@ -99,7 +101,7 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
 
 * Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -133,28 +135,28 @@ Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandah�
 
    |Attribut|Typ|
    |---|---|
-   |userName|String|
-   |displayName|String|
-   |aktiv|Boolean|
-   |title|Boolean|
-   |e-postmeddelanden [typ eq ”arbete pågår”] .value|String|
-   |name.givenName|String|
-   |name.familyName|String|
-   |namn. formaterad|String|
-   |adresser [Type EQ "Work"]. formaterad|String|
-   |adresser typ eq ”arbete pågår” .streetAddress|String|
-   |adresser [Type EQ "Work"]. plats|String|
-   |adresser [Type EQ "Work"]. region|String|
-   |adresser [Type EQ "Work"]. land|String|
-   |adresser typ eq ”arbete pågår” .postalCode|String|
-   |adresser [Type EQ "other"]. formaterad|String|
-   |phoneNumbers [typ eq ”arbete pågår”] .value|String|
-   |phoneNumbers [typ eq ”mobil”] .value|String|
-   |phoneNumbers [typ eq ”fax”] .value|String|
-   |externalId|String|
-   |preferredLanguage|String|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|String|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|String|
+   |userName|Sträng|
+   |displayName|Sträng|
+   |aktiv|Boolesk|
+   |title|Boolesk|
+   |e-postmeddelanden [typ eq ”arbete pågår”] .value|Sträng|
+   |name.givenName|Sträng|
+   |name.familyName|Sträng|
+   |namn. formaterad|Sträng|
+   |adresser [Type EQ "Work"]. formaterad|Sträng|
+   |adresser typ eq ”arbete pågår” .streetAddress|Sträng|
+   |adresser [Type EQ "Work"]. plats|Sträng|
+   |adresser [Type EQ "Work"]. region|Sträng|
+   |adresser [Type EQ "Work"]. land|Sträng|
+   |adresser typ eq ”arbete pågår” .postalCode|Sträng|
+   |adresser [Type EQ "other"]. formaterad|Sträng|
+   |phoneNumbers [typ eq ”arbete pågår”] .value|Sträng|
+   |phoneNumbers [typ eq ”mobil”] .value|Sträng|
+   |phoneNumbers [typ eq ”fax”] .value|Sträng|
+   |externalId|Sträng|
+   |preferredLanguage|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

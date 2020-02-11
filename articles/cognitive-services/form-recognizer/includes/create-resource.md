@@ -5,14 +5,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 14740e780f6143f19f843891c16b25df761d0b4f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0a4faad8bfe92a5389e0ee440aa3ccc404535955
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931255"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118091"
 ---
-När du har beviljats åtkomst till att använda formulär igenkänning får du ett välkomst meddelande med flera länkar och resurser. Använd länken "Azure Portal" i meddelandet för att öppna Azure Portal och skapa en formulär igenkännings resurs. I fönstret **skapa** anger du följande information:
+Gå till Azure Portal och [skapa en ny formulär igenkännings resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer). I fönstret **skapa** anger du följande information:
 
 |    |    |
 |--|--|

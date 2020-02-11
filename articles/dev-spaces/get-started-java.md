@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Java-program på Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: f4f265b522c62e36d338157b6ddc56f72f623dc4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 47948b0ce4ac0cb9a78552891e42d7634335839e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867141"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121764"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och Java med Azure dev Spaces
 
@@ -93,7 +93,7 @@ För att kunna felsöka Java-program med Azure Dev Spaces laddar du ned och inst
 I det här avsnittet skapar du en Java-webbapp och kör den i en container i Kubernetes.
 
 ### <a name="create-a-java-web-app"></a>Skapa en Java-webbapp
-Ladda ned koden från GitHub genom att gå till https://github.com/Azure/dev-spaces och välja **Klona eller Ladda ned** för att ladda ned GitHub-databasen till den lokala miljön. Koden för den här guiden finns i `samples/java/getting-started/webfrontend`.
+Ladda ned kod från GitHub genom att gå till [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) och välja **klona eller ladda ned** för att ladda ned GitHub-lagringsplatsen till din lokala miljö. Koden för den här guiden finns i `samples/java/getting-started/webfrontend`.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker- och Kubernetes-utveckling
 Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu använda den i en container genom att skapa tillgångar som definierar appens container och hur den kommer att distribueras till Kubernetes. Den här uppgiften är enkel att utföra med Azure Dev Spaces: 
@@ -174,7 +174,7 @@ I det här avsnittet ska du använda VS Code för att direkt felsöka våra cont
 ![](media/common/edit-refresh-see.png)
 
 > [!Note]
-> **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
 Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 
@@ -222,7 +222,7 @@ Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgär
 
 ![](media/common/debug-action-refresh.png)
 
-I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 

@@ -2,19 +2,19 @@
 title: 'Snabb start: skapa ett Sök index i Postman med hjälp av REST API: er'
 titleSuffix: Azure Cognitive Search
 description: 'I den här REST API snabb starten lär du dig att anropa Azure Kognitiv sökning REST-API: er med Postman och exempel data och definitioner.'
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406946"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121644"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -119,7 +119,7 @@ Vilka åtgärder som tillåts fastställs av fältattributen. Med REST API:er ka
 }
 ```
 
-När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet har skapats. Du kan kontrollera detta i portalen, men observera att portalsidan uppdateras med bestämda intervall, så det kan dröja någon minut eller två innan informationen dyker upp.
+När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet har skapats. Du kan kontrollera detta i portalen, men observera att portalsidan uppdateras med bestämda intervall, så det kan dröja någon minut eller två innan informationen uppdateras.
 
 > [!TIP]
 > Om HTTP 504 returneras kontrollerar du att HTTPS används i URL:en. Om HTTP 400 eller 404 returneras kontrollerar du att alla fält har kopierats och klistrats in korrekt i begärandetexten. HTTP 403 tyder vanligen på problem med API-nyckeln (antingen en ogiltig nyckel eller ett syntaxproblem när API-nyckeln angavs).

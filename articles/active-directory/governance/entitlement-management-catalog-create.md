@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5895ed256fa5f0337b74d9dbe14c4074dad4b522
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422648"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120237"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter
 
@@ -51,6 +51,10 @@ En katalog är en behållare för resurser och åtkomst paket. Du skapar en kata
 
 1. Skapa katalogen genom att klicka på **skapa** .
 
+### <a name="creating-a-catalog-programmatically"></a>Skapa en katalog program mässigt
+
+Du kan också skapa en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [skapa en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+
 ## <a name="add-resources-to-a-catalog"></a>Lägga till resurser i en katalog
 
 Om du vill inkludera resurser i ett Access-paket måste resurserna finnas i en katalog. De typer av resurser som du kan lägga till är grupper, program och SharePoint Online-webbplatser. Grupperna kan vara molnbaserade Office 365-grupper eller molnbaserade Azure AD-säkerhetsgrupper. Programmen kan vara Azure AD Enterprise-program, inklusive både SaaS-program och dina egna program federerade till Azure AD. Platserna kan vara SharePoint Online-webbplatser eller SharePoint Online-webbplats samlingar.
@@ -76,6 +80,10 @@ Om du vill inkludera resurser i ett Access-paket måste resurserna finnas i en k
 1. Klicka på **Lägg till**när du är färdig.
 
     Dessa resurser kan nu inkluderas i åtkomst paket i katalogen.
+
+### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Lägga till en resurs i en katalog program mässigt
+
+Du kan också lägga till en resurs i en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll, eller en katalog-och resurs ägare, med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [skapa en accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Ta bort resurser från en katalog
 
@@ -129,7 +137,7 @@ Du kan redigera namn och beskrivning för en katalog. Användarna ser den här i
 
     ![Redigera katalog inställningar](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ## <a name="delete-a-catalog"></a>Ta bort en katalog
 
@@ -144,6 +152,10 @@ Du kan ta bort en katalog, men bara om den inte har några åtkomst paket.
 1. Klicka på **ta bort**i katalogens **Översikt**.
 
 1. Klicka på **Ja**i meddelande rutan som visas.
+
+### <a name="deleting-a-catalog-programmatically"></a>Ta bort en katalog program mässigt
+
+Du kan också ta bort en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [ta bort en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Nästa steg
 

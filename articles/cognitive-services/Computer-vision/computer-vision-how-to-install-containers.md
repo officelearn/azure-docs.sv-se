@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: dapine
+ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 51c60c8cd13c8ad7cef123f2001fcd0ec61f38ba
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 383abc674674fc024052b2c04d3c538838b83856
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770806"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120201"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
 
@@ -26,13 +26,13 @@ En enda Docker-behållare, *Läs*, är tillgänglig för visuellt innehåll. Med
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder behållarna:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon.| 
 |Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt**|
 
@@ -46,6 +46,16 @@ Du måste uppfylla följande krav innan du använder behållarna:
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
+### <a name="advanced-vector-extension-support"></a>Stöd för avancerad Vector-tillägg
+
+**Värddatorn** är den dator som kör Docker-behållaren. Värden *måste ha stöd* för [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Du kan söka efter AVX2-stöd på Linux-värdar med följande kommando:
+
+```console
+grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
+```
+> [!WARNING]
+> Värddatorn *krävs* för att stödja AVX2. Containern fungerar *inte* korrekt utan AVX2-stöd.
+
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
@@ -56,7 +66,7 @@ Behållar avbildningar för läsning är tillgängliga.
 
 | Container | Container Registry/namn på lagrings plats/avbildning |
 |-----------|------------|
-| Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Läs | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
 Använd kommandot [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållar avbildning.
 
@@ -70,7 +80,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](computer-vision-resource-container-config.md) på `docker run` kommandot är tillgängliga. 
 1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 
@@ -99,7 +109,7 @@ Det här kommandot:
 Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 
 > [!IMPORTANT]
-> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -278,11 +288,11 @@ export interface Word {
 
 Ett exempel på användnings fall finns i <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sand Box typescript- <span class="docon docon-navigate-external x-hidden-focus"></span> sandbox här</a> och välj **Kör** för att visualisera den lättanvända användningen.
 
-## <a name="stop-the-container"></a>Stoppa containern
+## <a name="stop-the-container"></a>Stoppa behållaren
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du kör behållaren med en utgående [montering](./computer-vision-resource-container-config.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
@@ -294,7 +304,7 @@ Cognitive Services behållare skickar fakturerings information till Azure med mo
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om alternativen finns i [konfigurera behållare](./computer-vision-resource-container-config.md).
+Mer information om dessa alternativ finns i [Configure containers](./computer-vision-resource-container-config.md).
 
 <!--blogs/samples/video course -->
 
@@ -302,7 +312,7 @@ Mer information om alternativen finns i [konfigurera behållare](./computer-visi
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och visuellt behållare som körs. Sammanfattningsvis:
+I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och visuellt behållare som körs. Sammanfattning:
 
 * Visuellt innehåll tillhandahåller en Linux-behållare för Docker, inkapsling av läsa.
 * Behållar avbildningar laddas ned från behållar förhands gransknings registret i Azure.
@@ -315,8 +325,8 @@ I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, instal
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [konfigurera behållare](computer-vision-resource-container-config.md) för konfigurationsinställningar
-* Granska [visuellt översikt](Home.md) vill veta mer om att känna igen utskrivna och handskriven text
-* Referera till den [API för visuellt innehåll](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) mer information om de metoder som stöds av behållaren.
-* Referera till [vanliga frågor (och svar FAQ)](FAQ.md) att lösa problem som rör visuellt funktioner.
+* Granska [Konfigurera behållare](computer-vision-resource-container-config.md) för konfigurations inställningar
+* Läs [visuellt innehåll översikt](Home.md) och lär dig mer om att känna igen utskrift och handskriven text
+* Mer information om de metoder som stöds av behållaren finns i [API för visuellt innehåll](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
+* Läs vanliga [frågor och svar (FAQ)](FAQ.md) för att lösa problem som rör visuellt innehåll-funktioner.
 * Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)

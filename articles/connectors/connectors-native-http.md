@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888149"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118013"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Skicka utgående anrop till HTTP-eller HTTPS-slutpunkter med hjälp av Azure Logic Apps
 
@@ -26,7 +26,7 @@ Du kan använda HTTP-åtgärden som andra steg i arbets flödet för att anropa 
 
 Baserat på mål slut punktens kapacitet stöder HTTP-anslutaren Transport Layer Security (TLS 1,0), 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds. Om slut punkten till exempel stöder 1,2 använder anslutaren 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -50,9 +50,12 @@ Den här inbyggda utlösaren gör ett HTTP-anrop till den angivna URL: en för e
 
 1. Ange värdena för de [http trigger-parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) som du vill inkludera i anropet till mål slut punkten. Konfigurera upprepningen för hur ofta du vill att utlösaren ska kontrol lera mål slut punkten.
 
-   Om du väljer en annan autentiseringstyp än **ingen**är autentiseringsinställningarna annorlunda beroende på ditt val. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Ange parametrar för HTTP-utlösare](./media/connectors-native-http/http-trigger-parameters.png)
+
+   Om du väljer en annan autentiseringstyp än **ingen**är autentiseringsinställningarna annorlunda beroende på ditt val. Mer information om autentiseringstyper som är tillgängliga för HTTP finns i följande avsnitt:
+
+   * [Lägg till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Autentisera åtkomst till resurser med hanterade identiteter](../logic-apps/create-managed-service-identity.md)
 
 1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
 
@@ -80,9 +83,12 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
 1. Ange värdena för de [http-åtgärds parametrar](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) som du vill ta med i anropet till mål slut punkten.
 
-   Om du väljer en annan autentiseringstyp än **ingen**är autentiseringsinställningarna annorlunda beroende på ditt val. Mer information finns i [lägga till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Ange HTTP-åtgärds parametrar](./media/connectors-native-http/http-action-parameters.png)
+
+   Om du väljer en annan autentiseringstyp än **ingen**är autentiseringsinställningarna annorlunda beroende på ditt val. Mer information om autentiseringstyper som är tillgängliga för HTTP finns i följande avsnitt:
+
+   * [Lägg till autentisering i utgående samtal](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Autentisera åtkomst till resurser med hanterade identiteter](../logic-apps/create-managed-service-identity.md)
 
 1. Om du vill lägga till andra tillgängliga parametrar öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill använda.
 
@@ -148,16 +154,16 @@ Här är mer information om utdata från en HTTP-utlösare eller åtgärd som re
 | Egenskapsnamn | Typ | Beskrivning |
 |---------------|------|-------------|
 | sidhuvud | objekt | Huvudena från begäran |
-| innehåll | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
-| statuskod | int | Status koden från begäran |
+| brödtext | objekt | JSON-objekt | Objektet med bröd text innehållet från begäran |
+| status kod | int | Status koden från begäran |
 |||
 
 | Statuskod | Beskrivning |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Godkänd |
+| 202 | Accepted |
 | 400 | Felaktig förfrågan |
-| 401 | Behörighet saknas |
+| 401 | Ej auktoriserad |
 | 403 | Förbjudet |
 | 404 | Hittades inte |
 | 500 | Internt serverfel. Ett okänt fel uppstod. |

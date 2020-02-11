@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du säkerhetskopierar Azure Files med hjälp av tjänsten Azure Backup och PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: a80589fb45937949b3612e12139ab1615bc1620d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086942"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120514"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Säkerhetskopiera Azure Files med PowerShell
 
@@ -250,9 +250,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Viktigt meddelande – identifiering av säkerhets kopierings objekt för AFS-säkerhetskopieringar
 
-I det här avsnittet beskrivs ändringarna i hämtningen av säkerhets kopierings objekt för AFS-säkerhetskopieringar från för hands versionen till GA.
+I det här avsnittet beskrivs en viktig ändring i AFS-säkerhetskopiering som förberedelse för GA.
 
-När du aktiverar säkerhets kopiering för AFS tillhandahåller användaren kundens egna fil resurs namn som entitetsnamnet och ett säkerhets kopierings objekt skapas. Säkerhets kopie objektets ' name ' är en unik identifierare som skapats av Azure Backup-tjänsten. Vanligt vis omfattar identifieraren användarvänligt namn. Men det har gjorts en ändring av hur Azure-tjänster internt identifierar en Azure-filresurs unikt. Det innebär att det unika namnet på säkerhets kopierings objekt för AFS-säkerhetskopiering är ett GUID och att det inte finns någon relation till kundens egna namn. Om du vill veta det unika namnet för varje objekt kör du bara kommandot ```Get-AzRecoveryServicesBackupItem``` med relevanta filter för backupManagementType och WorkloadType för att hämta alla relevanta objekt och sedan Observera namn fältet i det returnerade PS-objektet/svaret. Vi rekommenderar alltid att du listar objekt och sedan hämtar deras unika namn från fältet "namn" som svar. Använd det här värdet för att filtrera objekten med parametern "namn". Använd annars FriendlyName-parametern för att hämta objektet med det kundens egna namn/identifierare.
+När du aktiverar säkerhets kopiering för AFS tillhandahåller användaren kundens egna fil resurs namn som entitetsnamnet och ett säkerhets kopierings objekt skapas. Säkerhets kopie objektets ' name ' är en unik identifierare som skapats av Azure Backup-tjänsten. Vanligt vis omfattar identifieraren användarvänligt namn. Men för att hantera det viktiga scenariot för mjuk borttagning, där en fil resurs kan tas bort och en annan fil resurs kan skapas med samma namn, är den unika identiteten för Azure-filresurs nu ett ID i stället för kundens egna namn. Om du vill veta den unika identiteten/namnet på varje objekt kör du bara kommandot ```Get-AzRecoveryServicesBackupItem``` med relevanta filter för backupManagementType och WorkloadType för att hämta alla relevanta objekt och observera sedan fältet namn i det returnerade PS-objektet/svaret. Vi rekommenderar alltid att du listar objekt och sedan hämtar deras unika namn från fältet "namn" som svar. Använd det här värdet för att filtrera objekten med parametern "namn". Använd annars FriendlyName-parametern för att hämta objektet med det kundens egna namn/identifierare.
 
 > [!WARNING]
 > Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Med den här versionen är friendlyName-filtret tillgängligt för ```Get-AzRecoveryServicesBackupItem``` kommandot. Överför Azure-filresursens namn till friendlyName-parametern. Om du skickar namnet på Azure-filresursen till parametern "namn", genererar den här versionen en varning för att skicka det egna namnet till en egen namn parameter. Om du inte installerar den här lägsta versionen kan det leda till att befintliga skript Miss lyckas. Installera den lägsta versionen av PS med följande kommando.

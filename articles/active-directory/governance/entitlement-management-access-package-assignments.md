@@ -16,16 +16,16 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: d5a2107974cd63c0d02aaeb555430453c39990bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74553999"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120426"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa, lägga till och ta bort tilldelningar för ett Access-paket i hantering av Azure AD-rättigheter
 
-I hantering av Azure AD-rättigheter kan du se vem som har tilldelats åtkomst till paket, deras principer och status. Om ett Access-paket har en lämplig princip kan du också direkt tilldela användare till ett Access-paket. Den här artikeln beskriver hur du visar, lägger till och tar bort tilldelningar för ett åtkomst paket.
+I hantering av Azure AD-rättigheter kan du se vem som har tilldelats åtkomst till paket, deras principer och status. Om ett Access-paket har en lämplig princip kan du också direkt tilldela användare till ett Access-paket. Den här artikeln beskriver hur du visar, lägger till och tar bort tilldelningar för åtkomst paket.
 
 ## <a name="view-who-has-an-assignment"></a>Visa vem som har en tilldelning
 
@@ -48,6 +48,10 @@ I hantering av Azure AD-rättigheter kan du se vem som har tilldelats åtkomst t
 1. Om du vill se förfallna tilldelningar klickar du på filter status och väljer **upphör att gälla**.
 
 1. Klicka på **Hämta**om du vill ladda ned en CSV-fil för den filtrerade listan.
+
+### <a name="viewing-assignments-programmatically"></a>Visa tilldelningar program mässigt
+
+Du kan också hämta tilldelningar i ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [Visa accessPackageAssignments](https://docs.microsoft.com/graph/api/accesspackageassignment-list?view=graph-rest-beta).
 
 ## <a name="directly-assign-a-user"></a>Tilldela en användare direkt
 
@@ -76,6 +80,10 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 1. Klicka på **Lägg till** för att tilldela de valda användarna direkt till åtkomst paketet.
 
     Efter en liten stund klickar du på **Uppdatera** för att se användarna i listan tilldelningar.
+
+### <a name="directly-assigning-users-programmatically"></a>Direkt tilldela användare program mässigt
+
+Du kan också tilldela en användare direkt till ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [skapa en accessPackageAssignmentRequest](https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta).
 
 ## <a name="remove-an-assignment"></a>Ta bort en tilldelning
 

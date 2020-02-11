@@ -3,19 +3,19 @@ title: 'Snabb start: anpassad röst assistent, Java (Android) – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du skapar ett röst assistents program i Java på Android med hjälp av talet SDK
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: travisw
-ms.openlocfilehash: 70031513d6f120e539e80d6befad4bf9320fb9c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: d4f84bad6139210dcff3d3f3726d8b7a17d92a5b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975966"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119749"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Snabb start: skapa en röst assistent i Java på Android med hjälp av talet SDK
 
@@ -28,7 +28,7 @@ Det här programmet har skapats med tal SDK maven-paketet och Android Studio 3,3
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com).
 - En tidigare skapad robot som kon figurer ATS med den [direkta linjens tal kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
@@ -104,7 +104,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 ![](media/sdk/qs-java-android-assistant-designer-ui.png)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna `MainActivity.java`och ersätt innehållet med följande kod:
 
@@ -283,7 +283,7 @@ När programmet och dess aktivitet har startats klickar du på knappen för att 
 > [!div class="nextstepaction"]
 > [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 - [Om röst assistenter](voice-assistants.md)
 - [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
 - [Anpassade nyckelord](speech-devices-sdk-create-kws.md)

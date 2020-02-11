@@ -4,12 +4,12 @@ description: Skapa och distribuera en server lös python-kod till molnet med hj�
 ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 529a992178fae5566c8e315956388c4cd4b80257
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898576"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116214"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Snabb start: skapa en HTTP-utlöst python-funktion i Azure
 
@@ -17,7 +17,7 @@ I den här artikeln använder du kommando rads verktyg för att skapa en python-
 
 Det finns också en [Visual Studio Code-baserad version](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) av den här artikeln.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core tools](./functions-run-local.md#v2) version 2.7.1846 eller senare.
@@ -107,7 +107,7 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
 
 Om du vill kan du hoppa över att [köra funktionen lokalt](#run-the-function-locally) och undersöka fil innehållet senare.
 
-### <a name="__init__py"></a>\_\_init\_\_. py
+#### <a name="__init__py"></a>\_\_init\_\_. py
 
 *\_\_init\_\_. py* innehåller en `main()` python-funktion som utlöses enligt konfigurationen i *Function. JSON*.
 
@@ -140,7 +140,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 För HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` som definieras i *Function. JSON*. `req` är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *Function. JSON*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](functions-bindings-http-webhook.md).
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *Function. JSON* är en konfigurations fil som definierar indata-och utdata `bindings` för funktionen, inklusive utlösnings typen. Du kan ändra `scriptFile` att anropa en annan python-fil om du vill.
 
@@ -199,7 +199,7 @@ När du är klar kan du **Ctrl**+**C** för att stoppa funktions värden.
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Skapa stöd för Azure-resurser för din funktion
 
-Om du vill distribuera funktions koden till Azure måste du skapa tre resurser:
+Innan du kan distribuera funktions koden till Azure måste du skapa tre resurser:
 
 - En resurs grupp, som är en logisk behållare för relaterade resurser.
 - Ett Azure Storage konto som upprätthåller tillstånd och annan information om dina projekt.

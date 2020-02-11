@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Node. js-program på Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 902489524206ac1d4f403f254ecda820c29545c2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: de60a45126539cdd39b951eeb503fc349004797a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867323"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121342"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och Node. js med Azure dev Spaces
 
@@ -88,7 +88,7 @@ Avancerade funktioner som Kubernetes-felsökning är tillgängliga för .NET Cor
 I det här avsnittet ska du skapa en Node.js-webbapp och köra den i en container i Kubernetes.
 
 ### <a name="create-a-nodejs-web-app"></a>Skapa en Node.js-webbapp
-Ladda ned koden från GitHub genom att gå till https://github.com/Azure/dev-spaces och välja **Klona eller Ladda ned** för att ladda ned GitHub-databasen till den lokala miljön. Koden för den här guiden finns i `samples/nodejs/getting-started/webfrontend`.
+Ladda ned kod från GitHub genom att gå till [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) och välja **klona eller ladda ned** för att ladda ned GitHub-lagringsplatsen till din lokala miljö. Koden för den här guiden finns i `samples/nodejs/getting-started/webfrontend`.
 
 ## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker- och Kubernetes-utveckling
 Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu använda den i en container genom att skapa tillgångar som definierar appens container och hur den kommer att distribueras till Kubernetes. Den här uppgiften är enkel att utföra med Azure Dev Spaces: 
@@ -202,7 +202,7 @@ I det här avsnittet ska du använda VS Code för att direkt felsöka våra cont
 ![](media/common/edit-refresh-see.png)
 
 > [!Note]
-> **Om du fastnar** läser du [felsökningsavsnittet](troubleshooting.md) eller skriver en kommentar på den här sidan.
+> **Om du fastnar** du kan när som helst referera till avsnittet [Felsökning](troubleshooting.md) eller lägga upp en kommentar på den här sidan.
 
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Initiera felsökningstillgångar med VS Code-tillägget
 Du måste först konfigurera kodprojektet så att VS Code kommunicerar med vår utvecklarmiljö i Azure. VS Code-tillägget för Azure Dev Spaces har ett hjälpkommando för att konfigurera felsökningskonfigurationen. 

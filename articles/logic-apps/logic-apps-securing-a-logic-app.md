@@ -1,17 +1,17 @@
 ---
 title: Skydda åtkomst och data
-description: Lägg till säkerhet för att skydda indata, utdata, begär ande-baserade utlösare, körnings historik, hanterings uppgifter och åtkomst till andra resurser i Azure Logic Apps
+description: Säker åtkomst till indata, utdata, begär ande-baserade utlösare, körnings historik, hanterings uppgifter och åtkomst till andra resurser i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 73b8a559eddec51dbc01f1d55f70414360ff2956
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/04/2020
+ms.openlocfilehash: 47b9c0f89cb3db1610b8e3d98f408283c6ff9980
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898429"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116925"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -604,17 +604,17 @@ Här följer några exempel på hur du kan skydda slut punkter som tar emot samt
 
 HTTP-och HTTPS-slutpunkter stöder olika typer av autentisering. Baserat på utlösaren eller åtgärden som du använder för att göra utgående anrop eller begär Anden som har åtkomst till dessa slut punkter, kan du välja mellan olika typer av autentiseringstyper. För att säkerställa att du skyddar känslig information som din Logic app hanterar, Använd skyddade parametrar och koda data vid behov. Mer information om hur du använder och skyddar parametrar finns i [åtkomst till parameter indata](#secure-action-parameters).
 
+> [!NOTE]
+> I Logic App Designer kan egenskapen **Authentication** vara dold på vissa utlösare och åtgärder där du kan ange autentiseringstyp. Om du vill att egenskapen ska visas i dessa fall går du till utlösaren eller åtgärden och öppnar listan **Lägg till ny parameter** och väljer **autentisering**. Mer information finns i [autentisera åtkomst med hanterad identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
+
 | Autentiseringstyp | Stöds av |
 |---------------------|--------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP webhook |
 | [Klient certifikat](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP-webhook |
 | [Outspädd](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP-webhook |
-| [Hanterad identitet](#managed-identity-authentication) (endast system-Assigned) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP-webhook |
+| [Hanterad identitet](#managed-identity-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP-webhook |
 |||
-
-> [!NOTE]
-> I Logic App Designer kan egenskapen **Authentication** vara dold på vissa utlösare och åtgärder där du kan ange autentiseringstyp. Om du vill att egenskapen ska visas i dessa fall går du till utlösaren eller åtgärden och öppnar listan **Lägg till ny parameter** och väljer **autentisering**. Mer information finns i [autentisera åtkomst med hanterad identitet](../logic-apps/create-managed-service-identity.md#authenticate-access-with-identity).
 
 <a name="basic-authentication"></a>
 
@@ -657,7 +657,7 @@ Om alternativet [klient certifikat](../active-directory/authentication/active-di
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Klient certifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas för Secure Sockets Layer (SSL)-klient certifikat. Även om självsignerade certifikat stöds, stöds inte självsignerade certifikat för SSL. |
 | **-** | `pfx` | Ja | <- *kodad-PFX-File-content*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) <p><p>Om du vill konvertera PFX-filen till Base64-kodat format kan du använda PowerShell genom att följa dessa steg: <p>1. Spara certifikat innehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. konvertera certifikat innehållet med hjälp av funktionen `ToBase64String()` och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **Lösenord** | `password`| Se beskrivning | <*password-for-PFX-file*> | Lösen ordet för att komma åt PFX-filen. <p><p>**Obs!** det här egenskap svärdet krävs när du arbetar i Logic App Designer och krävs *inte* när du arbetar i kodvyn. |
+| **Lösenord** | `password`| Nej | <*password-for-PFX-file*> | Lösen ordet för att komma åt PFX-filen |
 |||||
 
 När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `ClientCertificate` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
@@ -695,14 +695,14 @@ Om alternativet [Active Directory OAuth](../active-directory/develop/about-micro
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Active Directory OAuth** <br>eller <br>`ActiveDirectoryOAuth` | Autentiseringstypen som ska användas. Logic Apps följer för närvarande [OAuth 2,0-protokollet](../active-directory/develop/v2-overview.md). |
+| **Tullmyndighet** | `authority` | Nej | <*URL-för-Authority-token-utfärdare*> | URL för den myndighet som tillhandahåller autentiseringstoken. Som standard är det här värdet `https://login.windows.net`. |
 | **Innehav** | `tenant` | Ja | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
 | **Filmen** | `audience` | Ja | <*resurs-till-auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel `https://management.core.windows.net/` |
-| **Klient-ID** | `clientId` | Ja | <*client-ID*> | Klient-ID för appen som begär auktorisering |
+| **Klient-ID** | `clientId` | Ja | <*klient-ID*> | Klient-ID för appen som begär auktorisering |
 | **Autentiseringstyp** | `credentialType` | Ja | Certifikat <br>eller <br>Hemlighet | Autentiseringstypen som klienten använder för att begära auktorisering. Den här egenskapen och värdet visas inte i din Logic Apps underliggande definition, men avgör vilka egenskaper som visas för den valda autentiseringstypen. |
 | **Hemlighet** | `secret` | Ja, men endast för autentiseringstypen "hemlig" | <*klient hemlighet*> | Klient hemligheten för att begära auktorisering |
 | **-** | `pfx` | Ja, men endast för Credential-typen "certifikat" | <- *kodad-PFX-File-content*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) |
 | **Lösenord** | `password` | Ja, men endast för Credential-typen "certifikat" | <*password-for-PFX-file*> | Lösen ordet för att komma åt PFX-filen |
-| **Tullmyndighet** | `authority` | Inga | <*URL-for-authority-token-issuer*> | URL för den myndighet som tillhandahåller autentiseringstoken. Som standard är det här värdet `https://login.windows.net`. <p>**Obs!** om du vill att den här egenskapen ska vara synlig i designern går du till utlösaren eller åtgärden och öppnar listan **Lägg till ny parameter** och väljer **auktoritet**. |
 |||||
 
 När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Det här exemplet på en HTTP-åtgärd anger autentiseringen `type` som `ActiveDirectoryOAuth`, autentiseringstypen typ `Secret`och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
@@ -773,18 +773,19 @@ När du använder [skyddade parametrar](#secure-action-parameters) för att hant
 
 ### <a name="managed-identity-authentication"></a>Autentisering av hanterad identitet
 
-Om alternativet för [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) är tillgängligt kan din Logic app använda den systemtilldelade identiteten för att autentisera åtkomsten till resurser i andra Azure Active Directory (Azure AD)-klienter utan att logga in. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Läs mer om [Azure-tjänster som har stöd för hanterade identiteter för Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Om alternativet för [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) är tillgängligt kan din Logic app använda den systemtilldelade identiteten eller *en manuellt skapad* användardefinierad identitet för att autentisera åtkomsten till resurser i andra Azure Active Directory (Azure AD)-klient organisationer utan att logga in. Azure hanterar den här identiteten för dig och skyddar dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Läs mer om [Azure-tjänster som har stöd för hanterade identiteter för Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-1. Innan din Logic-app kan använda den systemtilldelade identiteten följer du stegen i [autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](../logic-apps/create-managed-service-identity.md). De här stegen aktiverar den hanterade identiteten på din Logic app och konfigurerar identitetens åtkomst till Azure-resursen.
+1. Innan din Logic-app kan använda en hanterad identitet följer du stegen i [autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps](../logic-apps/create-managed-service-identity.md). De här stegen aktiverar den hanterade identiteten på din Logic app och konfigurerar identitetens åtkomst till Azure-resursen.
 
-2. Innan en Azure-funktion kan använda den systemtilldelade identiteten [aktiverar du först autentisering för Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+1. Innan en Azure-funktion kan använda en hanterad identitet måste du först [aktivera autentisering för Azure Functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-3. I utlösaren eller åtgärden där du vill använda den hanterade identiteten anger du följande egenskaps värden:
+1. I utlösaren eller åtgärden där du vill använda den hanterade identiteten anger du följande egenskaps värden:
 
    | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
    |---------------------|-----------------|----------|-------|-------------|
    | **Autentisering** | `type` | Ja | **Hanterad identitet** <br>eller <br>`ManagedServiceIdentity` | Autentiseringstypen som ska användas |
-   | **Filmen** | `audience` | Ja | <*target-resurs-ID*> | Resurs-ID för den mål resurs som du vill komma åt. <p>`https://storage.azure.com/` till exempel blir åtkomsttoken för autentisering giltig för alla lagrings konton. Du kan dock också ange en rot tjänst-URL, till exempel `https://fabrikamstorageaccount.blob.core.windows.net` för ett angivet lagrings konto. <p>**Obs**: den här egenskapen kan vara dold i vissa utlösare eller åtgärder. Om du vill att den här egenskapen ska vara synlig i utlösaren eller åtgärden öppnar du listan **Lägg till ny parameter** och väljer **mål grupp**. <p><p>**Viktigt**: se till att det här mål resurs-ID: t exakt matchar det värde som Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. Det betyder att `https://storage.azure.com/` resurs-ID för alla Azure Blob Storage-konton kräver ett avslutande snedstreck. Resurs-ID för ett angivet lagrings konto kräver dock inte något avslutande snedstreck. Du hittar dessa resurs-ID: n i [Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Hanterad identitet** | `identity` | Ja | * **systemtilldelad hanterad identitet** <br>eller <br>`SystemAssigned` <p><p>* <*User-Assigned-Identity-name*> | Den hanterade identitet som ska användas |
+   | **Filmen** | `audience` | Ja | <*target-resurs-ID*> | Resurs-ID för den mål resurs som du vill komma åt. <p>`https://storage.azure.com/` till exempel blir åtkomsttoken för autentisering giltig för alla lagrings konton. Du kan dock också ange en rot tjänst-URL, till exempel `https://fabrikamstorageaccount.blob.core.windows.net` för ett angivet lagrings konto. <p>**Obs!** egenskapen **Audience** kan vara dold i vissa utlösare eller åtgärder. Om du vill att den här egenskapen ska vara synlig i utlösaren eller åtgärden öppnar du listan **Lägg till ny parameter** och väljer **mål grupp**. <p><p>**Viktigt**: se till att det här mål resurs-ID: t *exakt matchar* det värde som Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. Det betyder att `https://storage.azure.com/` resurs-ID för alla Azure Blob Storage-konton kräver ett avslutande snedstreck. Resurs-ID för ett angivet lagrings konto kräver dock inte något avslutande snedstreck. Du hittar dessa resurs-ID: n i [Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `ManagedServiceIdentity` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
@@ -797,6 +798,7 @@ Om alternativet för [hanterad identitet](../active-directory/managed-identities
          "uri": "@parameters('endpointUrlParam')",
          "authentication": {
             "type": "ManagedServiceIdentity",
+            "identity": "SystemAssigned",
             "audience": "https://management.azure.com/"
          },
       },

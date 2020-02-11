@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982797"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114047"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -73,12 +73,12 @@ Följande inställningar kan användas för att konfigurera kodgenerering och un
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Inga | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60`; Max: `1200`; Standard: `600`. |
-| CodeLength | Inga | Längden på koden. Standardvärdet är `6`. |
-| CharacterSet | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
-| NumRetryAttempts | Inga | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
+| CodeExpirationInSeconds | Nej | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60`; Max: `1200`; Standard: `600`. |
+| CodeLength | Nej | Längden på koden. Standardvärdet är `6`. |
+| CharacterSet | Nej | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Till exempel `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
+| NumRetryAttempts | Nej | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `GenerateCode`eller `VerifyCode`. |
-| ReuseSameCode | Inga | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
+| ReuseSameCode | Nej | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
 
 ### <a name="returning-error-message"></a>Returnerar fel meddelande
 
@@ -136,9 +136,9 @@ Följande inställningar kan användas för att konfigurera fel meddelandet som 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| UserMessageIfSessionDoesNotExist | Inga | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
-| UserMessageIfMaxRetryAttempted | Inga | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
-| UserMessageIfInvalidCode | Inga | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
+| UserMessageIfSessionDoesNotExist | Nej | Meddelandet som ska visas för användaren om kod verifierings sessionen har upphört att gälla. Antingen har koden upphört att gälla eller också har koden aldrig skapats för en specifik identifierare. |
+| UserMessageIfMaxRetryAttempted | Nej | Meddelandet som ska visas för användaren om de har överskridit det högsta antalet tillåtna verifierings försök. |
+| UserMessageIfInvalidCode | Nej | Meddelandet som ska visas för användaren om de har angett en ogiltig kod. |
 
 ### <a name="returning-error-message"></a>Returnerar fel meddelande
 
@@ -168,3 +168,10 @@ Följande exempel `TechnicalProfile` används för att verifiera en kod:
     </InputClaims>
 </TechnicalProfile>
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+I följande artikel visas exempel på en technial profil med eng ång slö sen ord med anpassad e-postverifiering:
+
+- [Anpassad e-postverifiering i Azure Active Directory B2C](custom-email.md)
+

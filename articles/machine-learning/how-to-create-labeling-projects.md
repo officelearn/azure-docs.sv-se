@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8c6b7b4d64b3a4f504cc9aef275b3d48cd62a3d8
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765077"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116841"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -37,7 +37,7 @@ I den här artikeln får du lära dig att:
 > * Exportera etiketterna
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * De data som du vill märka, antingen i lokala filer eller i Azure Storage.
 * Den uppsättning etiketter som du vill använda.
@@ -125,7 +125,7 @@ För avgränsnings rutor är viktiga frågor:
 
 ## <a name="initialize-the-labeling-project"></a>Initiera ett etikettande projekt
 
-När du har initierat projektet är vissa delar av projektet oföränderliga. Du kan inte ändra aktivitets typen eller data uppsättningen. Du *kan* ändra etiketter och URL: en för uppgifts beskrivningen. Granska inställningarna noggrant innan du skapar projektet. När du har skickat projektet kommer du tillbaka till start sidan för **etiketten** som visar projektet som **initieras**. Den här sidan uppdateras inte automatiskt. Efter en paus uppdaterar du sidan manuellt för att se projektets status som **skapats**.
+När du har initierat projektet är vissa delar av projektet oföränderliga. Du kan inte ändra aktivitets typen eller data uppsättningen. Du *kan* ändra etiketter och URL: en för uppgifts beskrivningen. Granska inställningarna noggrant innan du skapar projektet. När du har skickat projektet kommer du tillbaka till start sidan för **data etiketter** som visar projektet som **initieras**. Den här sidan uppdateras inte automatiskt. Efter en paus uppdaterar du sidan manuellt för att se projektets status som **skapats**.
 
 ## <a name="manage-teams-and-people"></a>Hantera team och personer
 
@@ -139,7 +139,7 @@ Om du vill skicka ett e-postmeddelande till teamet väljer du teamet för att vi
 
 ## <a name="run-and-monitor-the-project"></a>Köra och övervaka projektet
 
-När du har initierat projektet börjar Azure att köra det. Välj projektet på huvud sidan för **Etiketter** för att gå till **projekt information**. Fliken **instrument panel** visar förloppet för etikett uppgiften.
+När du har initierat projektet börjar Azure att köra det. Välj projektet på huvud sidan för **data etiketter** för att gå till **projekt information**. Fliken **instrument panel** visar förloppet för etikett uppgiften.
 
 På fliken **data** kan du se din data uppsättning och granska etiketterade data. Om du ser felaktigt märkta data markerar du den och väljer **avvisa**, vilket tar bort etiketterna och sätter tillbaka dem i den omärkta kön.
 
@@ -148,6 +148,24 @@ Använd fliken **team** för att tilldela eller ta bort tilldelningen av team ti
 Om du vill pausa eller starta om projektet väljer du knappen **paus**/**Start** . Du kan bara märka data när projektet körs.
 
 Du kan märka data direkt från sidan **projekt information** genom att välja **etikett data**.
+
+## <a name="add-labels-to-a-project"></a>Lägga till etiketter i ett projekt
+
+Under märkningen kanske du upptäcker att ytterligare etiketter behövs för att klassificera dina avbildningar.  Du kanske exempelvis vill lägga till etiketten "okänd" eller "annan" för att ange förvirrande bilder.
+
+Följ dessa steg om du vill lägga till en eller flera etiketter i ett projekt:
+
+1. Välj projektet på huvud sidan för **data etiketter** .
+1. Längst upp på sidan väljer du **pausa** för att stoppa etiketter från deras aktivitet.
+1. Välj fliken **information** .
+1. I listan till vänster väljer du **etikett klasser**.
+1. Överst i listan väljer du **+ Lägg till etiketter** ![lägger till en etikett](media/how-to-create-labeling-projects/add-label.png)
+1. I formuläret lägger du till din nya etikett och väljer hur du vill fortsätta.  Eftersom du har ändrat de tillgängliga etiketterna för en bild väljer du hur du vill behandla redan märkta data:
+    * Börja om och ta bort alla befintliga etiketter.  Välj det här alternativet om du vill rensa alla befintliga etiketter så att den fullständiga uppsättningen kan användas för att tagga alla avbildningar.
+    * Börja om och Behåll alla befintliga etiketter.  Välj det här alternativet för att markera alla data som omärkta, men Behåll de befintliga etiketterna som en standardtagg för bilder som har märkts.
+    * Fortsätt och Behåll alla befintliga etiketter. Välj det här alternativet om du vill behålla alla data som redan är märkta som de är och börja använda den nya etiketten för data som ännu inte har klassificerats.
+1. Ändra sidan instruktioner efter behov för de nya etiketterna.
+1. När du har lagt till alla nya etiketter överst på sidan väljer du **Starta** för att starta om projektet.  
 
 ## <a name="export-the-labels"></a>Exportera etiketterna
 

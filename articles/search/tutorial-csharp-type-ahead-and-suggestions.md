@@ -3,30 +3,30 @@ title: C#Självstudie om autokomplettering och förslag
 titleSuffix: Azure Cognitive Search
 description: I den här självstudien visas automatisk komplettering och förslag som ett sätt att samla in Sök villkors information från användare som använder list rutan. Det bygger på ett befintligt hotell projekt.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114557"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121531"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Självstudie: Lägg till komplettering och förslag – Azure Kognitiv sökning
 
 Lär dig hur du implementerar automatisk komplettering (Skriv-Ahead och förslag) när en användare börjar skriva i sökrutan. I den här självstudien visar vi resultaten för resultat och förslag separat, och visar sedan en metod för att kombinera dem för att skapa en rikare användar upplevelse. En användare behöver bara ange två eller tre nycklar för att hitta alla resultat som är tillgängliga. Den här självstudien bygger på det växlings projekt som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Lägg till förslag
 > * Lägg till markering i förslagen
 > * Lägg till autokomplettering
 > * Kombinera autokomplettering och förslag
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

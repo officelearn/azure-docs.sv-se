@@ -3,17 +3,17 @@ title: C#Självstudie om att beställa resultat
 titleSuffix: Azure Cognitive Search
 description: Den här självstudien visar hur du beställer Sök resultat. Det bygger på ett tidigare hotell projekt, sortering efter primär egenskap, sekundär egenskap och innehåller en bedömnings profil för att lägga till förstärknings kriterier.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112679"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121558"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C#Självstudie: ordna resultaten – Azure Kognitiv sökning
 
@@ -21,14 +21,14 @@ Fram till den här punkten i våra självstudier, returneras och visas resultate
 
 För att kunna jämföra returnerade resultat enkelt, bygger det här projektet på det oändliga rullnings bara projektet som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Ordna resultat baserat på en egenskap
 > * Ordna resultat baserat på flera egenskaper
 > * Filtrera resultat baserat på ett avstånd från en geografisk punkt
 > * Beställ resultat baserat på en bedömnings profil
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -114,7 +114,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
     ```
 
     >[!Tip]
-    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Exempel:
+    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Några exempel:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />

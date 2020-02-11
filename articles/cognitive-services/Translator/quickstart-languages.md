@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 169f1b78cf8e67fb1d5934532077dfa99bd210a1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 475f0deb3b9da863a8e7b84abb7ebef54c9cb201
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975745"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118825"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Snabb start: Använd Translator Text API för att hämta en lista över språk som stöds
 
@@ -52,7 +52,7 @@ I den här snabbstarten hämtar du en lista över språk som stöds för övers�
 
 ::: zone-end
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Översätta text](quickstart-translate.md)
 * [Translitterera text](quickstart-transliterate.md)

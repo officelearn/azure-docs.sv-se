@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 6d1dd8f749f6c3e991413628bd1e08baf76a02f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 378b802602576c4cf50862149f5d31d16d721be0
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458671"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115833"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en virtuell Linux-dator från en anpassad disk med Azure CLI
 
@@ -79,7 +79,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-Mål lagrings kontot måste vara samma som när du laddade upp den virtuella disken till. Du måste också ange eller besvara svar på alla ytterligare parametrar som krävs av kommandot **AZ VM Create** , till exempel virtuellt nätverk, offentlig IP-adress, användar namn och SSH-nycklar. Du kan läsa mer om de [tillgängliga parametrarna för cli Resource Manager](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
+Mål lagrings kontot måste vara samma som när du laddade upp den virtuella disken till. Du måste också ange eller besvara svar på alla ytterligare parametrar som krävs av kommandot **AZ VM Create** , till exempel virtuellt nätverk, offentlig IP-adress, användar namn och SSH-nycklar. Du kan läsa mer om de [tillgängliga klassiska CLI Resource Manager-parametrarna](../azure-cli-arm-commands.md#virtual-machines).
 
 ## <a name="requirements"></a>Krav
 För att utföra följande steg behöver du:
@@ -130,7 +130,7 @@ I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på plats
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Skapa ett lagrings konto för din anpassade disk och virtuella datorer med [AZ lagrings konto](/cli/azure/storage/account). Alla virtuella datorer med ohanterade diskar som du skapar från den anpassade disken måste finnas i samma lagrings konto som den disken. 
 
@@ -185,7 +185,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-## <a name="create-the-vm"></a>Skapa den virtuella datorn
+## <a name="create-the-vm"></a>Skapa VM
 Om du vill skapa en virtuell dator med ohanterade diskar anger du URI till disken (`--image`) med [AZ VM Create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet `myVM` att använda den virtuella disk som tidigare laddats upp:
 
 Du anger parametern `--image` med [AZ VM Create](/cli/azure/vm) för att peka på den anpassade disken. Se till att `--storage-account` matchar lagrings kontot där din anpassade disk lagras. Du behöver inte använda samma behållare som den anpassade disken för att lagra de virtuella datorerna. Se till att skapa ytterligare behållare på samma sätt som de tidigare stegen innan du laddar upp den anpassade disken.

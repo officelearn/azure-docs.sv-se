@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029579"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120844"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -87,7 +87,7 @@ Så här skapar du en regel med hjälp av PowerShell:
 
 **Tillåt åtkomst med hjälp av Azure Firewall-Taggar**. Om du använder Azure-brandväggen kan du skapa en program regel med hjälp av AzureBackup [FQDN-taggen](https://docs.microsoft.com/azure/firewall/fqdn-tags). Detta tillåter utgående åtkomst till Azure Backup.
 
-**Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
+**Distribuera en HTTP-proxyserver för att dirigera trafik**. När du säkerhetskopierar en SQL Server-databas på en virtuell Azure-dator använder säkerhets kopierings tillägget på den virtuella datorn HTTPS-API: er för att skicka hanterings kommandon till Azure Backup och data till Azure Storage. Säkerhets kopierings tillägget använder också Azure AD för autentisering. Dirigera trafiken för säkerhetskopieringstillägget för dessa tre tjänster via HTTP-proxyn. Det finns inga domäner med jokertecken som används med Azure Backup för att läggas till i listan över tillåtna för dina proxy-regler. Du måste använda de offentliga IP-intervallen för dessa tjänster som tillhandahålls av Azure. Tilläggen är den enda komponenten som är konfigurerad för åtkomst till det offentliga Internet.
 
 Anslutnings alternativen omfattar följande fördelar och nack delar:
 
@@ -96,7 +96,7 @@ Anslutnings alternativen omfattar följande fördelar och nack delar:
 Tillåta IP-intervall | Inga ytterligare kostnader | Komplext att hantera eftersom IP-adressintervall ändras med tiden <br/><br/> Ger åtkomst till hela Azure, inte bara Azure Storage
 Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slås samman automatiskt <br/><br/> Inga ytterligare kostnader <br/><br/> | Kan endast användas med NSG: er <br/><br/> Ger åtkomst till hela tjänsten
 Använd Azure Firewall FQDN-Taggar | Enklare att hantera eftersom nödvändiga FQDN-namn hanteras automatiskt | Kan endast användas med Azure brand vägg
-Använda en HTTP-proxy | Detaljerad kontroll i proxyn över lagrings-URL: er tillåts <br/><br/> En enda punkt i Internet åtkomst till virtuella datorer <br/><br/> Ändringar i Azure IP-adress ingår inte | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran
+Använda en HTTP-proxy | En enda punkt i Internet åtkomst till virtuella datorer <br/> | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran <br/> Inga publicerade FQDN-adresser, Tillåt regler gäller för ändringar i Azure IP-adress
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Rikt linjer för namngivning av databaser för Azure Backup
 

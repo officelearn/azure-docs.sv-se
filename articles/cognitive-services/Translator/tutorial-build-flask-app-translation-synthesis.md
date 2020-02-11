@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b41b68725b6747cbada13a9acc321724b3f89d67
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984175"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118576"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
 
@@ -44,7 +44,7 @@ För dem som vill ha djupet efter den här kursen är några användbara länkar
 * [Dokumentation om flaska](http://flask.pocoo.org/)
 * [Kolv för Dummies – en nybörjar guide till kolv](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi går igenom de program-och prenumerations nycklar som du behöver i den här kursen.
 
@@ -59,9 +59,9 @@ Vi går igenom de program-och prenumerations nycklar som du behöver i den här 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Skapa ett konto och prenumerera på resurser
 
 Som tidigare nämnts kommer du att behöva tre prenumerations nycklar för den här självstudien. Det innebär att du måste skapa en resurs i ditt Azure-konto för:
-* Translator för textöversättning
+* Translator Text
 * Textanalys
-* Taltjänster
+* Speech Services
 
 Använd [skapa ett Cognitive Services konto i Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för stegvisa instruktioner för att skapa resurser.
 
@@ -103,11 +103,11 @@ Nu ska vi skapa en virtuell miljö för vår mätkolv-app med hjälp av `virtual
 
 2. De kommandon som används för att aktivera den virtuella miljön varierar beroende på din plattform/gränssnitt:   
 
-   | Plattform | Shell | Kommando |
+   | Plattform | Kal | Kommando |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
    | Windows | bash | `source venv/Scripts/activate` |
-   | | Kommandoraden | `venv\Scripts\activate.bat` |
+   | | Kommandorad | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
    När du har kört det här kommandot bör du använda en kommando rad eller Terminal-session med `venv`.
@@ -146,7 +146,7 @@ Nu måste vi installera kolv. Kolv hanterar routningen för vår webbapp och gö
 
 2. Om du vill köra kolv-appen kan du antingen använda flaska-kommandot eller python: s-m-switch med kolv. Innan du kan göra det måste du tala om för terminalen vilken app du ska arbeta med genom att exportera `FLASK_APP`-miljövariabeln:
 
-   **macOS/Linux**:
+   **MacOS/Linux**:
    ```
    export FLASK_APP=app.py
    ```
@@ -182,7 +182,7 @@ Den här koden säkerställer att när en användare navigerar till `http://your
 
 De här exemplen illustrerar hur du återger HTML-sidor för en användare. vägar kan också användas för att anropa API: er när en knapp trycks ned, eller så kan du vidta ett antal åtgärder utan att behöva gå från start sidan. Du ser detta i åtgärd när du skapar vägar för översättning, sentiment och tal syntes.
 
-### <a name="get-started"></a>Kom i gång
+### <a name="get-started"></a>Kom igång
 
 1. Öppna projektet i IDE och skapa sedan en fil med namnet `app.py` i roten i din arbets katalog. Kopiera sedan koden till `app.py` och spara:
 
@@ -474,7 +474,7 @@ Tryck på **CTRL + c** för att avsluta appen och gå sedan till nästa avsnitt.
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-[API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) kan användas för att utföra analys av sentiment, extrahera nyckel fraser från text eller identifiera käll språket. I den här appen ska vi använda sentiment analys för att avgöra om den tillhandahållna texten är positiv, neutral eller negativ. API:t returnerar en poäng mellan 0 och 1. Poäng nära 1 anger positiv känsla och poäng nära 0 anger negativ känsla.
+[API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) kan användas för att utföra analys av sentiment, extrahera nyckel fraser från text eller identifiera käll språket. I den här appen ska vi använda sentiment analys för att avgöra om den tillhandahållna texten är positiv, neutral eller negativ. API: t returnerar ett numeriskt resultat mellan 0 och 1. Poängen nära 1 visar positiv sentiment och poängen nära 0 visar negativa sentiment.
 
 I det här avsnittet ska du göra några saker:
 

@@ -3,23 +3,23 @@ title: C#självstudie för att skapa din första app
 titleSuffix: Azure Cognitive Search
 description: Lär dig hur du skapar din C# första söknings app stegvisa steg för steg. I självstudien finns både en länk till en fungerande app på GitHub och den fullständiga processen för att bygga appen från grunden. Lär dig mer om de viktigaste komponenterna i Azure Kognitiv sökning.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112228"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121582"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C#Självstudie: skapa din första app – Azure-Kognitiv sökning
 
 Lär dig hur du skapar ett webb gränssnitt för att fråga och presentera Sök Resultat från ett index med Azure Kognitiv sökning. Den här självstudien börjar med en befintlig, värdbaserad index så att du kan fokusera på att skapa en Sök sida. Indexet innehåller fiktiva hotell data. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera sid indelning, ansikte och en typ i förväg-upplevelse.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera en utvecklings miljö
 > * Modell data strukturer
@@ -44,7 +44,7 @@ Det här anropet initierar en sökning i Azure-data och returnerar resultatet.
 ![Söker efter "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

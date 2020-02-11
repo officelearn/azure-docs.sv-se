@@ -4,22 +4,22 @@ description: Lär dig hur du återställer en disk och återskapar en virtuell d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680603"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114197"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Återställa en disk och skapa en återställd virtuell dator i Azure
 
-Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln förklarar hur du återställer hela den virtuella datorn med CLI. I den här guiden får du lära du dig hur man:
+Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln förklarar hur du återställer hela den virtuella datorn med CLI. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
 > * lista och välja återställningspunkter
 > * återställa en disk från en återställningspunkt
-> * Skapa en virtuell dator från den återställda disken
+> * skapa en virtuell dator från den återställda disken.
 
 Information om hur du återställer en disk och skapar en återställd virtuell dator med PowerShell finns i [Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
@@ -27,11 +27,11 @@ Information om hur du återställer en disk och skapar en återställd virtuell 
 
 Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.18 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här självstudiekursen måste du ha en virtuell Linux-dator som har skyddats med Azure Backup. Du simulerar en oavsiktlig borttagning och återställning av den virtuella datorn genom att skapa en virtuell dator från en disk i en återställningspunkt. Om du behöver en virtuell Linux-dator som har skyddats med Azure Backup kan du läsa mer i [Säkerhetskopiera en virtuell dator i Azure med CLI](quick-backup-vm-cli.md).
 
-## <a name="backup-overview"></a>Översikt över Backup
+## <a name="backup-overview"></a>Översikt av säkerhetskopiering
 
 När Azure initierar en säkerhetskopiering tar tillägget på den virtuella datorn en ögonblicksbild. Säkerhetskopieringstillägget installeras på den virtuella datorn när den första säkerhetskopieringen begärs. Azure Backup kan också ta en ögonblicksbild av det underliggande lagringsutrymmet om den virtuella datorn inte körs när säkerhetskopieringen sker.
 
@@ -49,6 +49,7 @@ Visa en lista över tillgängliga återställningspunkter kommandot [az backup r
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
+    --backup-management-type AzureIaasVM
     --container-name myVM \
     --item-name myVM \
     --query [0].name \
@@ -152,7 +153,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 När *status* för återställnings jobbet har *slutförts*har nödvändig information (VM-konfiguration och distributions mal len) återställts till lagrings kontot.
 
-## <a name="create-a-vm-from-the-restored-disk"></a>Skapa en virtuell dator från den återställda disken
+## <a name="create-a-vm-from-the-restored-disk"></a>skapa en virtuell dator från den återställda disken.
 
 Det sista steget är att skapa en virtuell dator från de återställda diskarna. Du kan använda distributions mal len som hämtats till det aktuella lagrings kontot för att skapa den virtuella datorn.
 
@@ -258,7 +259,7 @@ I den här självstudiekursen har du återställt en disk från en återställni
 >
 > * lista och välja återställningspunkter
 > * återställa en disk från en återställningspunkt
-> * Skapa en virtuell dator från den återställda disken
+> * skapa en virtuell dator från den återställda disken.
 
 Gå vidare till nästa självstudiekurs där du lär dig att återställa enskilda filer från en återställningspunkt.
 

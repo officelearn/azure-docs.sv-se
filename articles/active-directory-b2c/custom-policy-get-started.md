@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cd1b5f120952752e956c957df9daa124a06d7b63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847633"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114045"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "76847633"
 
 [Anpassade principer](custom-policy-overview.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
@@ -31,7 +31,7 @@ ms.locfileid: "76847633"
 
 ## <a name="add-signing-and-encryption-keys"></a>Lägg till signerings-och krypterings nycklar
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. På sidan Översikt, under **principer**, väljer du **Identity Experience Framework**.
@@ -73,11 +73,11 @@ Du behöver bara registrera dessa två program i Azure AD B2C klient organisatio
 
 ### <a name="register-the-identityexperienceframework-application"></a>Registrera IdentityExperienceFramework-programmet
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (förhands granskning)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda den **Appregistreringar (äldre)** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
 1. I menyn **Azure Active Directory** översikt under **hantera**väljer du **Appregistreringar (bakåtkompatibelt)** .
 1. Välj **Ny programregistrering**.

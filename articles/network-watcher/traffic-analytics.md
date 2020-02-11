@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840595"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114417"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -83,7 +83,7 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 * Indien, södra
 * Japan, östra 
 * Japan, västra
-* USA Gov Virginia
+* US Gov, Virginia
 * Kina, östra 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics arbets ytor
@@ -112,10 +112,10 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 * Sydkorea, centrala
 * Indien, centrala
 * Japan, östra
-* USA Gov Virginia
+* US Gov, Virginia
 * Kina, östra 2
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="user-access-requirements"></a>Krav för användar åtkomst
 
@@ -123,7 +123,7 @@ Ditt konto måste vara medlem i någon av följande [inbyggda Azure-roller](../r
 
 |Distributionsmodell   | Roll                   |
 |---------          |---------               |
-|Resurshanterare   | Ägare                  |
+|Resource Manager   | Ägare                  |
 |                   | Deltagare            |
 |                   | Läsare                 |
 |                   | Nätverks deltagare    |
@@ -151,7 +151,7 @@ För att analysera trafiken måste du ha en befintlig nätverks övervakare elle
 
 Innan du aktiverar NSG Flow-loggning måste du ha en nätverks säkerhets grupp för att logga flöden för. Om du inte har någon nätverks säkerhets grupp, se [skapa en nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md#create-a-network-security-group) för att skapa en.
 
-På vänster sida av Azure Portal väljer du **övervaka**, sedan **Network Watcher**och väljer sedan **NSG Flow-loggar**. Välj den nätverks säkerhets grupp som du vill aktivera en NSG flödes logg för, som du ser i följande bild:
+I Azure Portal går du till **Network Watcher**och väljer sedan **NSG Flow-loggar**. Välj den nätverks säkerhets grupp som du vill aktivera en NSG flödes logg för, som du ser i följande bild:
 
 ![Val av NSG: er som kräver aktivering av NSG Flow-loggen](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
@@ -210,7 +210,7 @@ Välj **alla tjänster**på vänster sida av portalen och ange sedan *Monitor* i
 
 Det kan ta upp till 30 minuter innan instrument panelen visas första gången eftersom Trafikanalys måste samla in tillräckligt med data för att få meningsfulla insikter innan de kan generera rapporter.
 
-## <a name="usage-scenarios"></a>Användningsscenarier
+## <a name="usage-scenarios"></a>Användnings scenarier
 
 Några av de insikter du kanske vill få när Trafikanalys har kon figurer ATS fullständigt är följande:
 
@@ -380,7 +380,7 @@ Har du skadlig trafik i din miljö? Var kommer den från? Var är den avsedd fö
 
     ![Statistik information om främsta NSG i loggs ökning](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 För att få svar på vanliga frågor, se [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md).
 

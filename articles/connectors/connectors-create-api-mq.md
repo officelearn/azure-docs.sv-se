@@ -3,18 +3,18 @@ title: Ansluta till IBM MQ Server
 description: Skicka och hämta meddelanden med en Azure-eller lokal IBM MQ-Server och Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: valrobb
-ms.author: valthom
-ms.reviewer: chrishou, logicappspm
+author: ChristopherHouser
+ms.author: chrishou
+ms.reviewer: valthom, logicappspm
 ms.topic: article
 ms.date: 06/19/2019
 tags: connectors
-ms.openlocfilehash: ef9e91b526055ece58ce283572deb98cff951653
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 489f53a4f4c1c0d5bd782f42a9daf73217234793
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789587"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118049"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ansluta till en IBM MQ-Server från Azure Logic Apps
 
@@ -28,7 +28,7 @@ IBM MQ Connector innehåller följande åtgärder men ger inga utlösare:
 - Ta emot en batch med meddelanden och ta bort meddelandena från IBM MQ Server
 - Skicka ett enskilt meddelande till IBM MQ Server
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du använder en lokal MQ-Server [installerar du den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) på en server i nätverket. Servern där den lokala datagatewayen är installerad måste också ha .NET Framework 4,6 installerat för att MQ-kopplingen ska fungera. Du måste också skapa en resurs i Azure för den lokala datagatewayen. Mer information finns i [Konfigurera data Gateway-anslutningen](../logic-apps/logic-apps-gateway-connection.md).
 

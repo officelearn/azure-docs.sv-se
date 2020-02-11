@@ -2,19 +2,21 @@
 title: Mallens syntax och uttryck
 description: Beskriver deklarativ JSON-syntax för Azure Resource Manager mallar.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: b7682ba10c30290e5935bc2dd17e2a83852d92f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484199"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120597"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntax och uttryck i Azure Resource Manager mallar
 
-Den grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck för att utöka de JSON-värden som är tillgängliga i mallen.  Uttryck börjar och slutar med hakparenteser: `[` respektive `]`. Uttryckets värde utvärderas när mallen distribueras. Ett uttryck kan returnera en sträng, ett heltal, ett booleskt värde, en matris eller ett objekt.
+Den grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck för att utöka de JSON-värden som är tillgängliga i mallen.  Uttryck börjar och slutar med hakparenteser: `[` respektive `]`. Värdet för uttrycket utvärderas när mallen distribueras. Ett uttryck kan returnera en sträng, ett heltal, ett booleskt värde, en matris eller ett objekt.
 
 Ett mall uttryck får inte överstiga 24 576 tecken.
+
+Uttryck stöder JSON (null) och egenskaper har stöd för ett litteralt värde på null. I båda fallen behandlar Resource Manager-mallar den som om egenskapen inte finns.
 
 ## <a name="use-functions"></a>Använda funktioner
 

@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: a8698bf74d8be4a57d5928b8be74bcf35cee008f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cea504393ba1735298bf04b3e9a2d55a9fa42c66
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60892189"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117928"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med Node.js SDK och Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Cassandra-app med Node. js SDK och Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [NET](create-cassandra-dotnet.md)
@@ -28,7 +28,7 @@ Den här snabbstarten visar hur du använder [Cassandra-API](cassandra-introduct
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
@@ -46,7 +46,7 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett Cassandra-konto
 
 Nu ska vi klona en Cassandra API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Öppna en kommandotolk. Skapa en ny mapp med namnet `git-samples`. Stäng kommandotolken.
+1. Öppna en kommandotolk. Skapa en ny mapp med namnet `git-samples`. Stäng sedan kommandotolken.
 
     ```bash
     md "C:\git-samples"
@@ -66,7 +66,7 @@ Nu ska vi klona en Cassandra API-app från GitHub, ange anslutningssträngen och
 
 ## <a name="review-the-code"></a>Granska koden
 
-Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt kommer från filen `uprofile.js` i mappen `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started`. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
+Det här är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Alla kodavsnitt kommer från filen `uprofile.js` i mappen `C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started`. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
 * Användarnamnet och lösenordet angavs med hjälp av anslutningssträngsidan i Azure-portalen. `path\to\cert` tillhandahåller en sökväg till X509-certifikatet. 
 
@@ -117,7 +117,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
     ...
        {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
+          params: [5, 'IvanaV', 'Belgaum']
         }
     ];
     client.batch(queries, { prepare: true}, next);
@@ -156,7 +156,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. Anslutningssträngen gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
+1. I [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
 
     Använd ![Knappen Kopiera](./media/create-cassandra-nodejs/copy.png) knappen på höger sida av skärmen för att kopiera det övre värdet, KONTAKTPUNKT.
 
@@ -184,7 +184,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 6. Spara filen `config.js`.
     
-## <a name="use-the-x509-certificate"></a>Använda X509-certifikatet
+## <a name="use-the-x509-certificate"></a>Använd X509-certifikatet
 
 1. Ladda ned Baltimore CyberTrust-rotcertifikatet lokalt från [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Byt namn på filen med filnamnstillägget `.cer`.
 
@@ -200,17 +200,17 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 2. Kör `node uprofile.js` för att starta nodprogrammet.
 
-3. Kontrollera att resultatet blir det man kan förvänta sig från kommandoraden.
+3. Kontrollera att resultatet är som förväntat från kommandoraden.
 
-    ![Visa och verifiera utdata](./media/create-cassandra-nodejs/output.png)
+    ![Granska och verifiera utdata.](./media/create-cassandra-nodejs/output.png)
 
-    Tryck på CTRL + C om du vill stoppa körningen av programmet och stänga konsolfönstret. 
+    Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret. 
 
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 
     ![Visa data i Datautforskaren](./media/create-cassandra-nodejs/data-explorer.png) 
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

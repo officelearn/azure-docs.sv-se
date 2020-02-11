@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446483"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118362"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabb start: formulär tolkens klient bibliotek för .NET
 
@@ -30,10 +30,9 @@ Använd formulär tolkens klient bibliotek för .NET för att:
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
-* Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 * En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 
@@ -99,7 +98,7 @@ Följande klasser hanterar huvud funktionerna i formulär igenkännings-SDK: n.
 |[AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview)| Den här klassen ger resultatet av en analys åtgärd för anpassad modell. Den innehåller en lista över **ExtractedPage** -instanser. |
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Den här klassen representerar alla data som extraheras från ett enda formulär dokument.|
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 <!--
     Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.

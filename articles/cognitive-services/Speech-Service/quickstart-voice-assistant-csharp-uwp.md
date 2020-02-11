@@ -3,19 +3,19 @@ title: 'Snabb start: anpassad röst assistent C# , (UWP) – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln skapar du ett C# universell Windows-plattform-program (UWP) med hjälp av Cognitive Services Speech Software Development Kit (SDK). Du ansluter ditt klient program till en tidigare skapad bot Framework-robot som kon figurer ATS för att använda den direkta rad igenkännings kanalen. Programmet har skapats med tal SDK NuGet-paketet och Microsoft Visual Studio 2019.
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: af9395b8f75a9097d4449571fd54be6259a7b9f3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816223"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119765"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Snabb start: skapa en röst assistent med talet SDK, UWP
 
@@ -26,7 +26,7 @@ I den här artikeln ska du utveckla ett C# universell Windows-plattform-program 
 > [!NOTE]
 > Med Universell Windows Platform kan du utveckla appar som körs på valfri enhet som stöder Windows 10, inklusive datorer, Xbox, Surface Hub och andra enheter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -45,7 +45,7 @@ I den här snabb starten beskrivs steg för steg hur du gör ett klient program 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 Lägg nu till XAML-koden som definierar användar gränssnittet för programmet och Lägg till C# koden för bakomliggande implementering.
 
@@ -419,7 +419,7 @@ Nu är du redo att bygga och testa ditt program.
 > [!div class="nextstepaction"]
 > [Skapa och distribuera en grundläggande robot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Om röst assistenter](voice-assistants.md)
 - [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)

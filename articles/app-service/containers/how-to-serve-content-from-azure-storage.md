@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930019"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121412"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Hantera innehåll från Azure Storage i App Service på Linux
 
@@ -20,7 +20,7 @@ ms.locfileid: "75930019"
 
 Den här guiden visar hur du kopplar Azure Storage till App Service i Linux. Fördelarna är skyddat innehåll, innehålls portabilitet, beständig lagring, åtkomst till flera appar och flera överförings metoder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 eller senare).
 - En befintlig [App Service i Linux-appen](https://docs.microsoft.com/azure/app-service/containers/).
@@ -34,6 +34,7 @@ Den här guiden visar hur du kopplar Azure Storage till App Service i Linux. Fö
 - Azure Storage med App Service stöder montering **Azure Files behållare** (Läs/skriv) och **Azure Blob-behållare** (skrivskyddat)
 - Azure Storage med App Service **stöder inte** användning av konfigurationen av **lagrings brand väggen** på grund av infrastruktur begränsningar.
 - Azure Storage med App Service kan du ange **upp till fem** monterings punkter per app.
+- Azure Storage som är monterade till en app kan inte nås via App Service FTP/FTPs-slutpunkter. Använd [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 - Azure Storage **ingår inte** i din webbapp och faktureras separat. Läs mer om [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage).
 
 > [!WARNING]
@@ -69,7 +70,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Azure Storage kan monteras med appar för flera behållare med hjälp av anpassade-ID. Om du vill visa namnet på ID för anpassad identitet kör [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-I filen *filen Docker. yml* mappar du `volumes` alternativet för att `custom-id`. Ett exempel:
+I filen *filen Docker. yml* mappar du `volumes` alternativet för att `custom-id`. Några exempel:
 
 ```yaml
 wordpress:

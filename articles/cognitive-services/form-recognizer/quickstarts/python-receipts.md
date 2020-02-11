@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 2b800cbc2f836d415afbb53a8415e9e400f40d0e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901963"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118764"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
@@ -22,10 +22,9 @@ I den här snabb starten använder du Azures formulär igenkännings REST API me
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
-- Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
 - En URL för en avbildning av ett kvitto. Du kan använda en [exempel bild](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) för den här snabb starten.
 
@@ -81,7 +80,7 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Receipts.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID.
 

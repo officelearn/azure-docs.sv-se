@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: cad528c2f2b3b7ff18a888c3e471f48a41e40531
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 46947579ea72e2199af116442472eec330b38009
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109655"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77112286"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
@@ -79,7 +79,7 @@ I en tidigare snabb start lades metadata till i två QnA-uppsättningar för att
                     "What is the max size of a knowledge base?",
                     "How many GB of data can a knowledge base hold?"
                 ],
-                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.",
+                "answer": "The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.",
                 "score": 68.76,
                 "id": 3,
                 "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting",

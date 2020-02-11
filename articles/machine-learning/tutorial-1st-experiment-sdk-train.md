@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: c38347a03ddc0ef5f6c1bd3118696062db9a8254
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533428"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116531"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudie: träna din första ML-modell
 
@@ -31,11 +31,11 @@ I den här självstudien kommer du att lära dig följande:
 > * Visa utbildnings resultat i portalen
 > * Hämta den bästa modellen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den enda förutsättningen är att köra en del av den här självstudien, [installations miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md).
 
-I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` öppnas i slutet av del ett. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
+I den här delen av självstudien kör du koden i exemplet Jupyter Notebooks *-självstudier/Create-First-ml-experiment/tutorial-1st-experiment-SDK-Train. ipynb* öppnas i slutet av del ett. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
 
 ## <a name="open-the-notebook"></a>Öppna antecknings boken
 
@@ -45,7 +45,7 @@ I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tuto
 
 
 > [!Warning]
-> Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Notebook-`tutorials/tutorial-1st-experiment-sdk-train.ipynb` inkluderar **all kod och alla data som behövs** för den här självstudien.
+> Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Självstudierna för bärbara datorer */create-First-ml-experiment/tutorial-1st-experiment-SDK-Train. ipynb* inkluderar **all kod och alla data som behövs** för den här självstudien.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
 
@@ -133,7 +133,7 @@ När utbildningen har slutförts anropar du `experiment`-variabeln för att häm
 experiment
 ```
 
-<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Dokumentsida</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länk till Azure Portal</td><td>Länk till dokumentationen</td></tr></table>
+<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länk till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Visa utbildnings resultat i portalen
 

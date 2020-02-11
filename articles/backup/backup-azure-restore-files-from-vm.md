@@ -3,12 +3,12 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 86a46e606e9425cf4951817ca3afa23fe57dae52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294090"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114334"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -56,6 +56,8 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
 7. Från nedladdnings platsen (vanligt vis mappen Hämtade filer) högerklickar du på den körbara filen eller skriptet och kör det med administratörs behörighet. När du uppmanas till det anger du lösen ordet eller klistrar in lösen ordet från minnet och trycker på **RETUR**. När du har angett ett giltigt lösen ord ansluter skriptet till återställnings punkten.
 
     ![Fil återställnings meny](./media/backup-azure-restore-files-from-vm/executable-output.png)
+
+8. För Linux-datorer genereras ett Python-skript. En måste ladda ned skriptet och kopiera det till den relevanta/kompatibla Linux-servern. Du kan behöva ändra behörigheterna för att köra den med ```chmod +x <python file name>```. Kör sedan python-filen med ```./<python file name>```.
 
 Se avsnittet [åtkomst krav](#access-requirements) för att kontrol lera att skriptet körs.
 
@@ -194,7 +196,7 @@ Skriptet kräver också python-och bash-komponenter för att kunna köra och ans
 | python | 2.6.6 och senare  |
 | TLS | 1,2 bör stödjas  |
 
-## <a name="access-requirements"></a>Åtkomstkrav
+## <a name="access-requirements"></a>Åtkomst krav
 
 Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det finns åtkomst till:
 
@@ -247,7 +249,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
 - Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Med stora diskar tar det lång tid att utföra den här processen. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du laddar ned ett skript från portalen/PowerShell/CLI, väntar i 20-30 minuter (en tumregel) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
 - Efter fil återställning kontrollerar du att du går tillbaka till portalen och klickar på **demontera diskar** för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem när du återställer filer från de virtuella datorerna kan du läsa följande tabell för ytterligare information.
 

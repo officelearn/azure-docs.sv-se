@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964846"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121010"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview enhets programC#till IoT Hub ()
 
@@ -23,9 +23,9 @@ Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Dev
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här snabb starten måste du installera .NET Core 2,2 på din utvecklings dator. Du kan hämta den här versionen av .NET Core SDK för flera plattformar från [Hämta .net Core 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+För att slutföra den här snabb starten måste du installera .NET Core 3,0 på din utvecklings dator. Du kan hämta den här versionen av .NET Core SDK för flera plattformar från [Hämta .net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 Du kan kontrol lera vilken version av .NET som finns på utvecklings datorn genom att köra följande kommando i ett lokalt terminalfönster: 
 
@@ -72,7 +72,7 @@ Du använder den klonade exempel koden för att bygga ett program som simulerar 
 1. Kör ett exempel program för att simulera en IoT Plug and Play-enhet som skickar telemetri till IoT Hub. I samma terminalfönster, för att skapa de nödvändiga paketen och köra exempel programmet, använder du följande kommando:
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 Du ser meddelanden som säger att enheten har registrerats och väntar på uppdateringar från molnet. Detta anger att enheten nu är redo att ta emot kommandon och egenskaps uppdateringar och har börjat skicka telemetridata till hubben. Se till att exemplet körs när du slutför nästa steg.

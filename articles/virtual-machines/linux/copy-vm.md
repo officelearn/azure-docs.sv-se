@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
-ms.openlocfilehash: a6a8b766efdc781df1fea29da81dc48090875ad7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4612d15dd5d3ab6e814f09210d5ff3991fef0328
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036578"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121871"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Skapa en kopia av en virtuell Linux-dator med hjälp av Azure CLI och Managed Disks
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du skapar en kopia av din virtuella Azure-dator (VM)
 
 Du kan också [Ladda upp och skapa en virtuell dator från en virtuell hård disk](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Installera [Azure CLI](/cli/azure/install-az-cli2).
 
@@ -133,4 +133,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du använder Azure CLI för att hantera din nya virtuella dator finns i [Azure CLI-kommandon för Azure Resource Manager](../azure-cli-arm-commands.md).
+Lär dig hur du använder ett [delat avbildnings Galleri](shared-images.md) för att hantera VM-avbildningar.

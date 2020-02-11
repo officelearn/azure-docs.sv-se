@@ -16,16 +16,18 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f71007b886d3cc25a7cf9dc23d784144ed4e1fbd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 51e37ad006da5042291614c773f242b5a1f3be97
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174375"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120190"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Delegera åtkomst styrning till katalog skapare i hantering av Azure AD-berättigande
 
-Om du vill delegera till användare som inte är administratörer, så att de kan skapa sina egna kataloger, kan du lägga till dessa användare i rollen Azure AD-rättighets hantering-definierad katalog skapare. Du kan lägga till enskilda användare eller lägga till en grupp, vars medlemmar sedan kan skapa kataloger.
+En katalog är en behållare för resurser och åtkomst paket. Du skapar en katalog när du vill gruppera relaterade resurser och åtkomst paket. Som standard kan en global administratör eller en användar administratör [skapa en katalog](entitlement-management-catalog-create.md), och kan lägga till fler användare som katalog ägare.
+
+Om du vill delegera till användare som inte är administratörer, så att de kan skapa sina egna kataloger, kan du lägga till dessa användare i rollen Azure AD-rättighets hantering-definierad katalog skapare. Du kan lägga till enskilda användare eller lägga till en grupp, vars medlemmar sedan kan skapa kataloger.  När du har skapat en katalog kan de därefter lägga till resurser som de äger i sin katalog.
 
 ## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>Delegera till en katalog skapare som IT-administratör
 

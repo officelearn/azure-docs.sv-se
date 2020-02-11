@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för VMware-utvärdering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1b3e81653ba934b209755391f08e60ef603e645a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086772"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121337"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -42,7 +42,7 @@ Förutom att identifiera datorer kan Azure Migrate: Server utvärdering kan iden
 **Datorns operativ system** | Alla Windows-och Linux-versioner.
 **autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
 **Autentiseringsuppgifter för virtuell dator** | För närvarande har stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
-**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera.
+**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/> Om din version av VMware Tools är mellan 9,10-10.2.0, se till att du uppgraderar den till bortom 10.2.0.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
 **Begränsningar** | För app-Discovery kan du identifiera upp till 10000 per apparat. 
 

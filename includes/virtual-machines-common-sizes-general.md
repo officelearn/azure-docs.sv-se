@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: e66314e06aa87a01dcd2a3ff0a51ae86082173e3
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: cfb35f6eeae6d74eea8dab96fa336fb6700eb7a7
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904466"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123230"
 ---
-Generella storlekar för virtuella datorer ger balanserade förhållandet mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde för storlekar i den här grupperingen.
+Generella storlekar för virtuella datorer ger balanserade förhållandet mellan processor och minne. Perfekt för testning och utveckling, små till medel stora databaser och webb servrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde för storlekar i den här grupperingen.
 
-- [DC-serien](#dc-series) är en familj av virtuella datorer i Azure som kan hjälpa till att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i det offentliga molnet. De här datorernas backas av den senaste generationens Intel XEON E-2176G-processor på 3,7 GHz med SGX-teknik. Med Intel Turbo Boost Technology kan de här datorerna nå 4,7 GHz. DC-serien gör att kunder kan skapa säkra, enklavbaserade program som skyddar kod och data medan de används.
+- [DC-serien](#dc-series) är en familj av virtuella datorer i Azure som kan hjälpa till att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i det offentliga molnet. De här datorerna backas upp av den senaste generationen av 3,7 GHz Intel XEON E-2176G processor med SGX-teknik. Med Intel Turbo Boost-tekniken kan de här datorerna gå upp till 4,7 GHz. Instanserna i DC-serien gör det möjligt för kunder att skapa säkra enklaven-baserade program för att skydda kod och data medan de används.
 
-- De virtuella datorerna i AV2-serien kan distribueras på olika typer av maskin vara och processorer. Virtuella datorer i A-serien har CPU-prestanda och minneskonfigurationer som är bäst lämpade för arbetsbelastningar på ingångsnivån som utveckling och testning. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
+- De virtuella datorerna i AV2-serien kan distribueras på olika typer av maskin vara och processorer. Virtuella datorer i A-serien har CPU-prestanda och minneskonfigurationer som är bäst lämpade för arbets belastningar på ingångs nivå som utveckling och testning. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn.
 
   Exempel på användnings områden är utvecklings-och test servrar, webb servrar med låg trafik, små till medel stora databaser, proof-of-Concept och Code-databaser.
 
@@ -29,7 +29,7 @@ Generella storlekar för virtuella datorer ger balanserade förhållandet mellan
 
   Exempel på användnings områden i D-serien är program i företags klass, Relations databaser, minnes intern cachelagring och analys.
 
-- Dav4-serien och Dasv4-serien är nya storlekar som använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache DEDIKERA 8 GB av den L3-cachen till varje 8 kärnor som ökar kund alternativen för att köra sina generella arbets belastningar. Dav4-serien och Dasv4-serien har samma minnes-och diskkonfigurationer som D & Dsv3-serien.
+- Dav4-serien och Dasv4-serien är nya storlekar som använder AMD: s 2.35 GHz-EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache DEDIKERA 8 MB av den L3-cachen till var 8 kärnor, vilket ökar kund alternativen för att köra sina generella arbets belastningar. Dav4-serien och Dasv4-serien har samma minnes-och diskkonfigurationer som D & Dsv3-serien.
   
 ## <a name="b-series"></a>B-serien
 
@@ -42,18 +42,18 @@ De virtuella datorerna i B-serien är idealiska för arbets belastningar som int
 Exempel på användnings områden är utvecklings-och test servrar, webb servrar med låg trafik, små databaser, mikrotjänster, servrar för proof-of-Concepts, build-servrar.
 
 
-| Storlek             | vCPU  | Minne: GiB | Temporär lagring (SSD) GiB | Bas processor prestanda för virtuell dator | Högsta CPU-prestanda för virtuell dator | Inledande krediter | Krediter i bank/timme | Högsta antal krediter | Max antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
+| Storlek             | Virtuell processor  | Minne: GiB | Temporär lagring (SSD) GiB | Bas processor prestanda för virtuell dator | Högsta CPU-prestanda för virtuell dator | Inledande krediter | Krediter i bank/timme | Högsta antal krediter | Maximalt antal datadiskar | Maximalt cacheminne för cachelagrad och temporär lagring: IOPS/Mbit/s | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
-| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5 %                   | 100 %                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160/10                                  | 2  |
-| Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100 %                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
-| Standard_B1ms | 1           | 2              | 4                          | 20 %                   | 100 %                   | 30                   | 12                 | 288           | 2                         | 800 / 10                                  | 640 / 10                                  | 2  |
-| Standard_B2s  | 2           | 4              | 8                          | 40 %                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
-| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
-| Standard_B4ms | 4           | 16             | 32                         | 90 %                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
-| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4 320/50                                 | 4 320/50                                 | 4  |
-| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1 200 %                   | 360                   | 121                 | 2 909           | 16                                     | 6480/75                                 | 4 320/50                                 | 6  |
-| Standard_B16ms | 16           | 64             | 128                         | 270 %                  | 1 600 %                   | 480                   | 162                 | 3 888           | 32                                     | 8640 / 100                                 | 4 320/50                                 | 8  |
-| Standard_B20ms | 20           | 80             | 160                         | 337 %                  | 2 000 %                   | 600                   | 203                 | 4 860           | 32                                     | 10800 / 125                                 | 4 320/50                                 | 8  |
+| Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160/10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1ms | 1           | 2              | 4                          | tjugo                   | 100%                   | 30                   | 12                 | 288           | 2                         | 800 / 10                                  | 640 / 10                                  | 2  |
+| Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
+| Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Standard_B12ms | 12           | 48             | 96                         | 202%                  | 1200%                   | 360                   | 121                 | 2909           | 16                                     | 6480/75                                 | 4320 / 50                                 | 6  |
+| Standard_B16ms | 16           | 64             | 128                         | 270%                  | 1600%                   | 480                   | 162                 | 3888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
+| Standard_B20ms | 20           | 80             | 160                         | 337%                  | 2000%                   | 600                   | 203                 | 4860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
 <sup>1</sup> B1ls stöds bara på Linux
 
@@ -65,10 +65,10 @@ Premium Storage: stöds
 
 Premium Storage caching: stöds
 
-Dsv3-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Dsv3-seriens storlekar kombinerar vCPU, minne och tillfällig lagring för de flesta produktionsarbetsbelastningar.
+Dsv3-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Storlekarna i Dsv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
 
-| Storlek             | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek             | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_D2s_v3  | 2      | 8           | 16             | 4              | 4000/32 (50)                                                       | 3200 / 48                                | 2/1 000                                   |
 | Standard_D4s_v3  | 4      | 16          | 32             | 8              | 8000 / 64 (100)                                                      | 6400 / 96                                | 2/2 000                                   |
@@ -90,7 +90,7 @@ Premium Storage caching: stöds
 
 Dasv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Storlekarna i Dasv4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar.
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2as_v4|2|8|16|4|4000/32 (50)|3200 / 48|2/1 000 |
 | Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2/2 000 |
@@ -116,7 +116,7 @@ Dv3-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® 
 Datadisklagring faktureras separat från virtuella datorer. Om du vill använda premiumlagringsdiskar använder du Dsv3-storlekarna. Pris- och debiteringsmätarna för Dsv3-storlekar är samma som för Dv3-serien. 
 
 
-| Storlek            | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Högsta antal nätverkskort/nätverks bandbredd (Mbit/s) |
+| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Högsta antal nätverkskort/nätverks bandbredd (Mbit/s) |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_D2_v3  | 2         | 8           | 50             | 4              | 3 000/46/23                                               | 2/1 000                    |
 | Standard_D4_v3  | 4         | 16          | 100            | 8              | 6 000/93/46                                               | 2/2 000                    |
@@ -138,7 +138,7 @@ Premium Storage caching: stöds inte
 
 Dav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz. Storlekarna i Dav4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium SSD använder du Dasv4-storlekarna. Pris-och debiterings mätare för Dasv4-storlekar är samma som för Dav4-serien.
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3 000 / 46 / 23   | 2/1 000 |
 | Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6 000 / 93 / 46   | 2/2 000 |
@@ -161,7 +161,7 @@ Premium Storage caching: stöds
 
 DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage.
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 |1 |3.5 |7 |4 |4000/32 (43) |3200 / 48 |2/750 |
 | Standard_DS2_v2 |2 |7 |14 |8 |8000 / 64 (86) |6400 / 96 |2/1 500 |
@@ -179,7 +179,7 @@ Premium Storage caching: stöds inte
 
 DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0.
 
-| Storlek           | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Max antal datadiskar | Data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek           | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar | Data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3 000 / 46 / 23                                             | 4              | 4 × 500            | 2/750                                      |
 | Standard_D2_v2 | 2    | 7           | 100                    | 6 000 / 93 / 46                                             | 8              | 8 × 500            | 2/1 500                                     |
@@ -195,7 +195,7 @@ Premium Storage: stöds inte
 
 Premium Storage caching: stöds inte
 
-| Storlek            | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | 
+| Storlek            | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1 000 / 20 / 10                                           | 2 / 2 x 500               | 2/250                 |
 | Standard_A2_v2  | 2         | 4           | 20             | 2 000 / 40 / 20                                           | 4 / 4 x 500               | 2/500                 |
@@ -213,7 +213,7 @@ Premium Storage caching: stöds
 
 
 
-| Storlek          | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek          | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC2s | 2    | 8           | 100                    | 2              | 4000/32 (43)                                                          | 3200 /48                                  | 2/1 500                                     |
 | Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |

@@ -2,16 +2,16 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 942636a6ff6dcfe74a04a66d67a4490224b4538e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2f9e02af0652108fe10e4b73e7bb43c48451ca77
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391795"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123155"
 ---
-Om du vill skapa ett Visual Studio C++ -projekt för Skriv bords utveckling måste du konfigurera alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitekturen och installera talet SDK. 
+Om du vill skapa ett Visual Studio C++ -projekt för Skriv bords utveckling måste du konfigurera alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitekturen och installera talet SDK.
 
 ### <a name="set-up-visual-studio-development-options"></a>Konfigurera alternativ för Visual Studio-utveckling
 
@@ -19,7 +19,7 @@ Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio f�
 
 1. Öppna Visual Studio 2019 för att visa **Start** fönstret.
 
-   ![Start fönster – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png) 
+   ![Start fönster – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Välj **Fortsätt utan kod** för att gå till Visual Studio IDE.
 
@@ -77,4 +77,4 @@ Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nu
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 
-1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Paket installationen startar och när installationen är klar visas ett meddelande som liknar följande text i fönstret **utdata** : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`. 
+1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Paket installationen startar och när installationen är klar visas ett meddelande som liknar följande text i fönstret **utdata** : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.

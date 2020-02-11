@@ -6,73 +6,56 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c12cd53b55cac48aae3d69506204c9d107e34aa6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464376"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121479"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Snabb start: Distribuera en Java våren Boot-app på Azure Service Fabric
 
-Den här snabb starten visar hur du distribuerar ett Java våren Boot-program till Azure Service Fabric. Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar. 
+I den här snabb starten distribuerar du ett Java våren Boot-program till Azure Service Fabric med hjälp av välbekanta kommando rads verktyg på Linux eller MacOS. Azure Service Fabric är en plattform för distribuerade system för distribution och hantering av mikrotjänster och containrar. 
 
-I den här snabbstarten används exemplet [Komma igång](https://spring.io/guides/gs/spring-boot/) från Spring-webbplatsen. Med bekanta kommandoradsverktyg guidar den här snabbstarten igenom distribuering av Spring Boot-exemplet som ett Service Fabric-program. När du är klar fungerar exemplet Spring Boot Getting Started på Service Fabric.
+## <a name="prerequisites"></a>Förutsättningar
 
-![Exempel på vår Start Service Fabric](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-I den här snabbstarten lär du dig att:
+- [Java-miljö](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) och [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Service Fabric SDK & Service Fabric kommando rads gränssnitt (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
-* Distribuera ett Spring Boot-program till Service Fabric
-* Distribuera programmet till ditt lokala kluster
-* Skala ut programmet över flera noder
-* Utför redundans av tjänsten utan att påverka tillgängligheten
+#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
-## <a name="prerequisites"></a>Krav
+- [Java-miljö och Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+- [Service Fabric SDK & Service Fabric kommando rads gränssnitt (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
+- [Git](https://git-scm.com/downloads)
 
-För att slutföra den här snabbstarten behöver du:
-
-1. Installera Service Fabric SDK och Service Fabric Command Line Interface (CLI)
-
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
-    
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
-
-1. [Installera Git](https://git-scm.com/)
-1. Installera Yeoman
-
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-1. Konfigurera Java-miljö
-
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-    
-    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+--- 
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Kör följande kommando i ett terminalfönster för att klona exempelappen Spring Boot Getting Started till den lokala datorn.
+Kör följande kommando i ett terminalfönster för att klona våren Boot [komma igång](https://github.com/spring-guides/gs-spring-boot) Sample-appen till din lokala dator.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="build-the-spring-boot-application"></a>Skapa Spring Boot-programmet 
-1. I katalogen `gs-spring-boot/complete` kör du kommandot nedan för att skapa programmet 
+I katalogen *GS-våren-Boot/Complete* kör du kommandot nedan för att skapa programmet 
 
-    ```bash
-    ./gradlew build
-    ``` 
+```bash
+./gradlew build
+``` 
 
 ## <a name="package-the-spring-boot-application"></a>Paketera Spring Boot-programmet 
-1. I katalogen `gs-spring-boot` som klonades kör du kommandot `yo azuresfguest`. 
+1. I katalogen *GS-våren-Boot* i din kloning kör du kommandot `yo azuresfguest`. 
 
 1. Ange följande information för varje fråga.
 
     ![Yeoman-poster för våren Boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. I mappen `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` skapar du en fil med namnet `entryPoint.sh`. Lägg till följande i filen `entryPoint.sh`. 
+1. I mappen *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/Code* skapar du en fil med namnet *entryPoint.sh*. Lägg till följande kod i *entryPoint.sh* -filen. 
 
     ```bash
     #!/bin/bash
@@ -91,7 +74,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
        </Resources>
     ```
 
-    **ServiceManifest.xml** ser nu ut så här: 
+    *ServiceManifest.xml* ser nu ut så här: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -136,17 +119,17 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    Det kan ta lite tid att starta det lokala klustret. Om du vill kontrollera att klustret är fullständigt aktiverat går du till Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
+    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är fullständigt konfigurerat, kan du komma åt Service Fabric Explorer på `http://localhost:19080`. När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
     
     ![Service Fabric Explorer visar felfria noder](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
-1. Öppna mappen `gs-spring-boot/SpringServiceFabric`.
+1. Öppna mappen *GS-våren-Boot/SpringServiceFabric* .
 1. Kör följande kommando för att ansluta till det lokala klustret.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-1. Kör skriptet `install.sh`.
+1. Kör *install.sh* -skriptet.
 
     ```bash
     ./install.sh
@@ -157,6 +140,8 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     ![Exempel på vår Start Service Fabric](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Nu kan du komma åt Spring Boot-programmet som har distribuerats till ett Service Fabric-kluster.
+
+Mer information finns i exemplet på vår Start [komma igång](https://spring.io/guides/gs/spring-boot/) på vår webbplats.
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Skala program och tjänster i ett kluster
 
@@ -211,7 +196,7 @@ I den här snabbstarten har du lärt dig att:
 
 * Distribuera ett Spring Boot-program till Service Fabric
 * Distribuera programmet till ditt lokala kluster
-* Skala ut programmet över flera noder
+* Skala programmet över flera noder
 * Utför redundans av tjänsten utan att påverka tillgängligheten
 
 I självstudien för Java-appar finns mer information om hur du arbetar med Java-appar i Service Fabric.

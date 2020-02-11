@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d34046a16787ca1c6790880592fb30667ff2dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c858a17d4574e6e45283df7c1276cd303f25297
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422700"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120480"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -83,7 +83,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
     Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.
 
 ## <a name="resource-roles"></a>Resursroller
 
@@ -105,9 +105,9 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     ![Åtkomst paket – resurs roll val](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.
 
-## <a name="requests"></a>Begäranden
+## <a name="requests"></a>Begäran
 
 På fliken **förfrågningar** skapar du den första principen för att ange vem som kan begära åtkomst paketet och även godkännande inställningarna. Senare kan du skapa fler principer för begäran så att fler grupper av användare kan begära åtkomst paketet med sina egna godkännande inställningar.
 
@@ -119,7 +119,7 @@ Utför stegen i något av följande avsnitt, beroende på vem du vill kunna beg�
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Granska och skapa
+## <a name="review--create"></a>Granska + skapa
 
 På fliken **Granska + skapa** kan du granska dina inställningar och kontrol lera eventuella verifierings fel.
 
@@ -131,7 +131,18 @@ På fliken **Granska + skapa** kan du granska dina inställningar och kontrol le
 
     Det nya Access-paketet visas i listan över åtkomst paket.
 
+## <a name="creating-an-access-package-programmatically"></a>Skapa ett Access-paket program mässigt
+
+Du kan också skapa ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att
+
+1. [Visa en lista över accessPackageResources i katalogen](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) och [skapa en accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) för alla resurser som ännu inte finns i katalogen.
+1. [Ange accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) för varje accessPackageResource i en accessPackageCatalog. Den här listan över roller används sedan för att välja en roll när du sedan skapar en accessPackageResourceRoleScope.
+1. [Skapa en accessPackage](https://docs.microsoft.com/graph/api/accesspackage-post?view=graph-rest-beta).
+1. [Skapa en accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
+1. [Skapa en accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) för varje resurs roll som behövs i åtkomst paketet.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Dela länk för att begära ett Access-paket](entitlement-management-access-package-settings.md)
 - [Ändra resurs roller för ett Access-paket](entitlement-management-access-package-resources.md)
+- [Tilldela en användare direkt till åtkomst paketet](entitlement-management-access-package-assignments.md)

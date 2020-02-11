@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: b11668466fe3954dc5bc90435d5dfd016ca9791c
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 02/10/2020
+ms.openlocfilehash: c53d274303a203a427a36f8f729f6b43cee44e40
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086729"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120612"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -86,8 +86,22 @@ För varje distributions namn är platsen oföränderlig. Du kan inte skapa en d
 För distributioner på prenumerations nivå finns det några viktiga överväganden när du använder mallarna:
 
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
-* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används på prenumerations nivå distributioner. Du kan till exempel hämta resurs-ID för en princip definition med `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Du kan också använda funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) för att hämta resurs-ID för en resurs på en prenumerations nivå.
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
+* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används på prenumerations nivå distributioner. Ange inget värde för resurs grupps parametern.
+
+  Om du till exempel vill hämta resurs-ID för en princip definition använder du:
+  
+  ```json
+  resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  ```
+  
+  Det returnerade resurs-ID: t har följande format:
+
+  ```json
+  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+  Du kan också använda funktionen [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) för att hämta resurs-ID för en resurs på en prenumerations nivå.
 
 ## <a name="create-resource-groups"></a>Skapa resurs grupper
 
@@ -98,7 +112,7 @@ Följande mall skapar en tom resurs grupp.
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
       "type": "string"
@@ -126,7 +140,7 @@ Använd [Kopiera-elementet](create-multiple-instances.md) med resurs grupper fö
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgNamePrefix": {
       "type": "string"
@@ -167,7 +181,7 @@ I följande exempel skapas en resurs grupp och ett lagrings konto distribueras t
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.1",
+  "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
       "type": "string"

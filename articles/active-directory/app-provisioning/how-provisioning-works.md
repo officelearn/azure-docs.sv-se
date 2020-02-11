@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24ad492f622fa9a3e494c7ead724fb3980f6668
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066855"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121364"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -86,6 +86,8 @@ Du kan använda definitions områdes filter för att definiera attributbaserade 
 ### <a name="b2b-guest-users"></a>B2B-användare (gäst)
 
 Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../b2b/configure-saas-apps.md).
+
+Observera att userPrincipalName för en gäst användare ofta lagras som "alias # EXT #@domain.com". När userPrincipalName inkluderas i dina attributmappning som ett källattribut, tas #EXT # bort från userPrincipalName. Om du kräver att #EXT # ska vara kvar ersätter du userPrincipalName med originalUserPrincipalName som källattribut. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Etablerings cykler: initial och stegvis
 

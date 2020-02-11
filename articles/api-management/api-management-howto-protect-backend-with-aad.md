@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120817"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121407"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management
 
@@ -27,7 +27,7 @@ Den här guiden visar hur du konfigurerar Azure API Management-instansen för at
 > [!NOTE]
 > Den här funktionen är tillgänglig i API Managements **utvecklings**-, **standard** -och **Premium** -nivå.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att följa stegen i den här artikeln måste du ha:
 * En API Management-instans
 * Ett API som publiceras som använder API Management-instansen
@@ -47,7 +47,7 @@ Här är en snabb översikt över stegen:
 
 Det första steget är att registrera ett program i Azure AD som representerar API för att skydda ett API med Azure AD. 
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **API-registreringar**.
+1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **app-registreringar**.
 
 1. Välj **ny registrering**. 
 

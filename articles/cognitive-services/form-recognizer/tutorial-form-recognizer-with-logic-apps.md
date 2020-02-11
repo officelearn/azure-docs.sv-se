@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773084"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118263"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Självstudie: använda formulär igenkänning med Azure Logic Apps för att analysera fakturor
 
@@ -31,13 +31,9 @@ Den här själv studie kursen beskriver följande:
 > * Konfigurera Logic-appen så att den använder en formulär igenkännings resurs
 > * Testa arbets flödet genom att köra Logic app
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
-
-## <a name="request-access-for-form-recognizer"></a>Begär åtkomst för formulär tolken
-
-Formulär tolken är tillgänglig i en för hands version med begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) . När din begäran har godkänts av Azure Cognitive Services-teamet får du ett e-postmeddelande med instruktioner för att komma åt tjänsten.
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Förstå fakturan som ska analyseras
 
@@ -79,13 +75,13 @@ Följ dessa steg för att konfigurera arbets flödet.
 
 1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integration** > **Logic app**.
 
-1. Under **Skapa en logikapp** anger du information om din logikapp som visas här. När du är klar väljer du **skapa**.
+1. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **skapa**.
 
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
-   | **Namn** | <*logic-app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
+   | **Namn** | <*Logic – app-name*> | Ditt Logic app-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`), parenteser (`(`, `)`) och punkter (`.`). I det här exemplet används "min-First-Logic-app". |
    | **Prenumeration** | <*Azure-prenumerationsnamn*> | Ditt Azure-prenumerations namn |
-   | **Resursgrupp** | <*Azure-resource-group-name*> | Namnet på den [Azure-resurs grupp](./../../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
+   | **Resursgrupp** | <*Azure-resurs-grupp-namn*> | Namnet på den [Azure-resurs grupp](./../../azure-resource-manager/management/overview.md) som används för att organisera relaterade resurser. I det här exemplet används "My-First-LA-RG". |
    | **Plats** | <*Azure-region*> | Den region där du vill lagra information om din Logic Apps. I det här exemplet används "västra USA". |
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
@@ -175,7 +171,7 @@ I det här avsnittet konfigurerar du Logic-appen så att informationen från tab
     > [!div class="mx-imgBorder"]
     > ![extrahera tabell information från fakturan](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ## <a name="test-your-logic-app"></a>Testa din Logic app
 

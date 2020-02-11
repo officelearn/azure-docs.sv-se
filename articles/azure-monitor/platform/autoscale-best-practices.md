@@ -4,12 +4,12 @@ description: Autoskalning av mönster i Azure för Web Apps, skalnings uppsättn
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396988"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117109"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -113,7 +113,7 @@ När autoskalning växlar tillbaka till standard profilen kontrollerar den förs
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Överväganden för skalning när flera regler har kon figurer ATS i en profil
 
-Det finns fall där du kan behöva ange flera regler i en profil. Följande regler för autoskalning används av tjänster när flera regler anges.
+Det finns fall där du kan behöva ange flera regler i en profil. Följande regler för autoskalning används av autoskalning-motorn när flera regler är inställda.
 
 Vid *utskalning*körs autoskalning om en regel uppfylls.
 Vid *skalbarhet*kräver autoskalning att alla regler är uppfyllda.
@@ -133,13 +133,13 @@ Sedan inträffar följande:
 Å andra sidan, om CPU är 25% och minnet är 51%, skalas **inte** . För att kunna skala in måste CPU: n vara 29% och minne 49%.
 
 ### <a name="always-select-a-safe-default-instance-count"></a>Välj alltid ett antal säkra standard instanser
-Standard instans antalet är viktigt för att skala din tjänst automatiskt till det antalet när mått inte är tillgängliga. Välj därför ett standard instans antal som är säkert för dina arbets belastningar.
+Antalet standard instanser är viktigt eftersom autoskalning skalar din tjänst till det antalet när mått inte är tillgängliga. Välj därför ett standard instans antal som är säkert för dina arbets belastningar.
 
 ### <a name="configure-autoscale-notifications"></a>Konfigurera meddelanden för autoskalning
 Autoskalning skickas till aktivitets loggen om något av följande villkor inträffar:
 
-* Automatiska skalnings problem en skalnings åtgärd
-* Autoskalning service har slutfört en skalnings åtgärd
+* Autoskalning utfärdar en skalnings åtgärd.
+* Tjänsten för autoskalning slutförde en skalnings åtgärd.
 * Det går inte att utföra en skalnings åtgärd för AutoScale-tjänsten.
 * Mått är inte tillgängliga för AutoScale-tjänsten för att fatta ett skalnings beslut.
 * Mått är tillgängliga (återställning) igen för att fatta ett skalnings beslut.
@@ -148,7 +148,7 @@ Du kan också använda en aktivitets logg avisering för att övervaka den autom
 
 Förutom att använda aktivitets logg aviseringar kan du också konfigurera e-post eller webhook-meddelanden för att få meddelanden om lyckade skalnings åtgärder via fliken meddelanden i inställningen för autoskalning.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 - [Skapa en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Skapa en aktivitets logg avisering för att övervaka alla misslyckade skalnings åtgärder för autoskalning i/skala ut i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

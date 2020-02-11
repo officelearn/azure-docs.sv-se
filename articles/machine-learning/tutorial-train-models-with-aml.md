@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261372"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116491"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Självstudie: träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,14 +39,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 >[!NOTE]
 > Koden i den här artikeln har testats med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -version 1.0.65.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [självstudien: kom igång med att skapa ditt första Azure ml-experiment](tutorial-1st-experiment-sdk-setup.md) för att:
     * Skapa en arbetsyta
     * Klona självstudiernas antecknings böcker till din mapp i arbets ytan.
     * Skapa en molnbaserad beräknings instans.
 
-* Öppna mappen **img-klassifikation-part1-Training. ipynb** i mappen klonade **självstudier** . 
+* Öppna mappen *img-klassifikation-part1-Training. ipynb* i dina klonade *självstudier/mnist* . 
 
 
 Självstudien och den medföljande **utils.py** -filen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local). Kör `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` för att installera beroenden för den här självstudien.
@@ -181,7 +181,7 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
                                                  create_new_version=True)
 ```
 
-### <a name="display-some-sample-images"></a>Visa några exempelbilder
+### <a name="display-some-sample-images"></a>Se några exempelbilder
 
 Läs in de komprimerade filerna i `numpy`-matriser. Använd sedan `matplotlib` för att rita 30 slumpmässiga bilder från datauppsättningen med tillhörande etiketter ovanför dem. Det här steget kräver en `load_data`-funktion som ingår i en `util.py`-fil. Den här filen finns med i exempelmappen. Kontrollera att den finns i samma mapp som den här anteckningsboken. Funktionen `load_data` parsar enkelt de komprimerade filerna till numpy-matriser.
 

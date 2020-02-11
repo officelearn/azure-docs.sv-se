@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: pafarley
-ms.openlocfilehash: ea716caf575fce1197c12f3cb3cea8348c7a04c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 476763e1cb354edb8cdc4cbbae0d3aa7017faa16
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473950"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118741"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
@@ -22,10 +22,9 @@ I den här snabb starten använder du Azures formulär tolken REST API med pytho
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
-- Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
 - Ett formulär dokument. Du kan ladda ned en bild från [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten.
 
@@ -76,7 +75,7 @@ Du börjar analysera layouten genom att anropa API: et för **[analys av layout]
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-layout.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-layout.py`.
+1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognizer-layout.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID.
 

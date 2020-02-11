@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862840"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116270"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagrings konto i Azure Portal
 
@@ -25,6 +25,8 @@ Vi rekommenderar att du läser [Azure Monitor för lagring](../../azure-monitor/
 > Det finns kostnader för att undersöka övervaknings data i Azure Portal. Mer information finns i [Lagringsanalys](storage-analytics.md).
 >
 > Azure Files stöder för närvarande Lagringsanalyss mått, men har ännu inte stöd för loggning.
+>
+> Förstklassiga prestanda Block Blob Storage-konton stöder inte lagring av analys mått, men de stöder loggning. Du kan aktivera loggning via programmering via REST API eller klient biblioteket. Överväg att använda [Azure Storage mått i Azure Monitor](storage-metrics-in-azure-monitor.md)om du vill visa mått med förstklassiga prestanda för Blob Storage-konton.
 >
 > En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -53,7 +55,7 @@ En standard uppsättning mått visas i diagram på bladet lagrings konto, samt e
 Du kan inaktivera insamling av mått och loggning genom att ange **status** till **av**.
 
 > [!NOTE]
-> Azure Storage använder [Table Storage](storage-introduction.md#table-storage) för att lagra måtten för ditt lagrings konto och lagrar måtten i tabeller i ditt konto. Mer information finns i . [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
+> Azure Storage använder [Table Storage](storage-introduction.md#table-storage) för att lagra måtten för ditt lagrings konto och lagrar måtten i tabeller i ditt konto. Mer information finns i [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Anpassa mått diagram
@@ -136,7 +138,7 @@ Du kan instruera Azure Storage att spara diagnostikloggar för läsnings-, skriv
 1. Se till att **status** är inställt **på på**och välj de **tjänster** som du vill aktivera loggning för.
 
     ![Konfigurera loggning i Azure Portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 Diagnostikloggar sparas i en BLOB-behållare med namnet *$logs* i ditt lagrings konto. Du kan visa loggdata med hjälp av en lagrings Utforskare som [Microsoft Storage Explorer](https://storageexplorer.com)eller program mässigt med hjälp av lagrings klient biblioteket eller PowerShell.
 

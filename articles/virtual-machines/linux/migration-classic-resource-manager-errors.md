@@ -3,8 +3,8 @@ title: Vanliga fel vid migrering från klassiskt läge till Azure Resource Manag
 description: Den här artikeln innehåller de vanligaste felen och begränsningarna under migreringen av IaaS-resurser från Azure Service Management till Azure Resource Manager stacken.
 services: virtual-machines-linux
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 5bc03a1b-eb1c-438c-83d9-f0e9d61f1b6a
@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
-ms.openlocfilehash: f85a5c5ed7147bda8a032e220de0945968e2d9ed
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 83be5713c02aece4df877887b2906dc4c853cf2e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035752"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116685"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Vanliga fel vid migrering från klassiskt läge till Azure Resource Manager-läge
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]

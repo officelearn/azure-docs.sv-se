@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7e5dc9c177dbddda8bf229ec7949f53b70e616c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: acc458c59858196ea110d0ff2030ccd7f7b6fc58
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064316"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121738"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -165,7 +165,7 @@ I det här scenariot ingår etablering av användare från arbets dagar till fle
 |   |   |
 | - | - |
 | Nej. för etablerings agenter som ska distribueras lokalt | 3 (för hög tillgänglighet och redundans) |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | En app per underordnad domän |
+| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | en app per underordnad domän |
 
   ![Scenario 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -176,7 +176,7 @@ I det här scenariot ingår etablering av användare från Workday till domäner
 |   |   |
 | - | - |
 | Nej. för etablerings agenter som ska distribueras lokalt | 3 per åtskild AD-skog |
-| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | En app per underordnad domän |
+| Nej. av workday till etablering av appar för AD-användare att konfigurera i Azure Portal | en app per underordnad domän |
 
   ![Scenario 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -557,7 +557,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **FirstName**   | givenName       |     |    Skapa + uppdatera |
 | **LastName**   |   SN   |     |  Skapa + uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa + uppdatera |
-| **Firm**         | company   |     |  Skapa + uppdatera |
+| **Firm**         | företag   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa + uppdatera |
 | **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 

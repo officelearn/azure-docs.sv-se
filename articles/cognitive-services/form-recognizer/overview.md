@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 91ea2b68828ac54d4128a90550e9c60e065b719d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379457"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118541"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -51,17 +51,9 @@ Formulär tolken innehåller också en modell för läsning av engelska försäl
 
 Formulär tolken kan också Extrahera text-och tabell strukturer (rad-och kolumn nummer som är associerade med texten) med hjälp av optisk tecken läsning (OCR) med hög definition. 
 
-## <a name="where-do-i-start"></a>Vad ska jag börja med?
+## <a name="get-started"></a>Kom igång
 
-**Steg 1:** Begär åtkomst:
-
-Formulär tolken är tillgänglig i en för hands version med begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) . Formuläret efterfrågar information om dig, ditt företag och scenariot där du ska använda formulär igenkänning.
-
-**Steg 2:** Skapa en formulär igenkännings resurs i Azure Portal:
-
-När du har beviljats åtkomst till att använda formulär igenkänning får du ett välkomst meddelande med flera länkar och resurser. Använd länken "Azure Portal" i meddelandet för att öppna Azure Portal och skapa en formulär igenkännings resurs.
-
-**Steg 3:** Extrahera data från dina formulär:
+Kom igång genom att följa en snabb start för att extrahera data från dina formulär. Vi rekommenderar att du använder den kostnads fria tjänsten när du lär dig tekniken. Kom ihåg att antalet fria sidor är begränsat till 500 per månad.
 
 * Anpassa – träna en modell till dina formulär
   * Träna utan etiketter
@@ -76,9 +68,7 @@ När du har beviljats åtkomst till att använda formulär igenkänning får du 
 * Layout – Extrahera text-och tabell struktur från formulär
   * [Snabb start: extrahera layout data med python](quickstarts/python-layout.md)
 
-Vi rekommenderar att du använder den kostnads fria tjänsten när du lär dig tekniken. Kom ihåg att antalet fria sidor är begränsat till 500 per månad.
-
-**Steg 4:** Granska REST-API: erna:
+### <a name="review-the-rest-apis"></a>Granska REST-API: erna
 
 Du använder följande API: er för att träna modeller och extrahera strukturerade data från formulär.
 
@@ -108,7 +98,7 @@ Ingångs kraven för kvitto modellen skiljer sig något åt.
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 
-Den här tjänsten erbjuds som en för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) av en Azure-tjänst under [tjänst villkoren online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Precis som med alla kognitiva tjänster bör utvecklare som använder formulär tolknings tjänsten vara medvetna om Microsofts principer för kund information. Läs mer på [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center.
+Den här tjänsten erbjuds som en för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) av en Azure-tjänst under [tjänst villkoren online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Precis som med alla kognitiva tjänster bör utvecklare som använder formulär tolknings tjänsten vara medvetna om Microsofts principer för kund information. Se [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center om du vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 

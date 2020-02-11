@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: 83c4ad92cc367deb52e4e9e5cd8b76ddab409933
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533281"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116443"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Självstudie: Använd automatisk maskin inlärning för att förutse taxi priser
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,10 +33,10 @@ I den här självstudien får du lära dig följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen](https://aka.ms/AMLFree) av Azure Machine Learning idag.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [installations självstudien](tutorial-1st-experiment-sdk-setup.md) om du inte redan har en Azure Machine Learning arbets yta eller en virtuell dator.
-* När du har slutfört installations guiden öppnar du **självstudierna/regression-Automated-ml. ipynb** Notebook med samma Notebook-Server.
+* När du har slutfört installations guiden öppnar du *självstudierna/regression-automl-NYC-taxi-data/regression-Automated-ml. ipynb* Notebook med samma Notebook-Server.
 
 Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill köra den i din egen [lokala miljö](how-to-configure-environment.md#local). Kör `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` för att hämta de nödvändiga paketen.
 
@@ -115,8 +115,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4,84</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,84</td>
       <td>– 73,94</td>
@@ -139,8 +139,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0,69</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,81</td>
       <td>– 73,96</td>
@@ -163,21 +163,21 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0,45</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,91</td>
       <td>...</td>
       <td>2</td>
-      <td>4.00</td>
+      <td>4,00</td>
       <td>0,00</td>
       <td>0,50</td>
       <td>0,3</td>
       <td>0,00</td>
       <td>0,00</td>
       <td>ndet</td>
-      <td>4.80</td>
+      <td>4,80</td>
       <td>1,00</td>
     </tr>
     <tr>
@@ -187,8 +187,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,81</td>
       <td>40,70</td>
       <td>– 73,82</td>
@@ -211,14 +211,14 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,92</td>
       <td>...</td>
       <td>2</td>
-      <td>4.00</td>
+      <td>4,00</td>
       <td>0,50</td>
       <td>0,50</td>
       <td>0</td>
@@ -234,9 +234,9 @@ green_taxi_df.head(10)
       <td>2015-01-04 19:57:51</td>
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
-      <td>1.10</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>1,10</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,95</td>
@@ -259,8 +259,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0,90</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,76</td>
       <td>– 73,87</td>
@@ -283,8 +283,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3,30</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,91</td>
@@ -307,8 +307,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1,19</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,95</td>
@@ -331,8 +331,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0,65</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,94</td>
@@ -416,8 +416,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 05:45:03</td>
       <td>3</td>
       <td>4,84</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,84</td>
       <td>– 73,94</td>
@@ -440,8 +440,8 @@ green_taxi_df.head(10)
       <td>2015-01-20 16:30:26</td>
       <td>1</td>
       <td>0,69</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,81</td>
       <td>– 73,96</td>
@@ -464,8 +464,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 06:00:55</td>
       <td>1</td>
       <td>0,45</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,91</td>
@@ -474,7 +474,7 @@ green_taxi_df.head(10)
       <td>0,00</td>
       <td>0,00</td>
       <td>ndet</td>
-      <td>4.80</td>
+      <td>4,80</td>
       <td>1,00</td>
       <td>1</td>
       <td>1</td>
@@ -488,8 +488,8 @@ green_taxi_df.head(10)
       <td>2015-01-17 02:41:38</td>
       <td>1</td>
       <td>0,00</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,81</td>
       <td>40,70</td>
       <td>– 73,82</td>
@@ -512,8 +512,8 @@ green_taxi_df.head(10)
       <td>2015-01-01 05:06:23</td>
       <td>1</td>
       <td>0,50</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,92</td>
       <td>40,76</td>
       <td>– 73,92</td>
@@ -535,9 +535,9 @@ green_taxi_df.head(10)
       <td>2015-01-04 19:57:51</td>
       <td>2015-01-04 20:05:45</td>
       <td>2</td>
-      <td>1.10</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>1,10</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,95</td>
@@ -560,8 +560,8 @@ green_taxi_df.head(10)
       <td>2015-01-03 12:33:52</td>
       <td>1</td>
       <td>0,90</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,88</td>
       <td>40,76</td>
       <td>– 73,87</td>
@@ -584,8 +584,8 @@ green_taxi_df.head(10)
       <td>2015-01-09 23:39:52</td>
       <td>1</td>
       <td>3,30</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,96</td>
       <td>40,72</td>
       <td>– 73,91</td>
@@ -608,8 +608,8 @@ green_taxi_df.head(10)
       <td>2015-01-11 17:22:57</td>
       <td>1</td>
       <td>1,19</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,95</td>
@@ -632,8 +632,8 @@ green_taxi_df.head(10)
       <td>2015-01-22 23:20:13</td>
       <td>1</td>
       <td>0,65</td>
-      <td>Inget</td>
-      <td>Inget</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,94</td>
       <td>40,71</td>
       <td>– 73,94</td>
@@ -738,8 +738,8 @@ green_taxi_df.describe()
     <tr>
       <th>standard</th>
       <td>0.41</td>
-      <td>1.04</td>
-      <td>2.93</td>
+      <td>1,04</td>
+      <td>2,93</td>
       <td>2,76</td>
       <td>1,52</td>
       <td>2.61</td>
@@ -751,7 +751,7 @@ green_taxi_df.describe()
       <td>6,83</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>min</th>
       <td>1,00</td>
       <td>0,00</td>
       <td>0,00</td>
@@ -766,10 +766,10 @@ green_taxi_df.describe()
       <td>0,00</td>
     </tr>
     <tr>
-      <th>25 %</th>
+      <th>25%</th>
       <td>2,00</td>
       <td>1,00</td>
-      <td>1.06</td>
+      <td>1,06</td>
       <td>– 73,96</td>
       <td>40,70</td>
       <td>– 73,97</td>
@@ -781,7 +781,7 @@ green_taxi_df.describe()
       <td>9,00</td>
     </tr>
     <tr>
-      <th>50 %</th>
+      <th>50%</th>
       <td>2,00</td>
       <td>1,00</td>
       <td>1,90</td>
@@ -796,10 +796,10 @@ green_taxi_df.describe()
       <td>15,00</td>
     </tr>
     <tr>
-      <th>75 %</th>
+      <th>75%</th>
       <td>2,00</td>
       <td>1,00</td>
-      <td>3.60</td>
+      <td>3,60</td>
       <td>– 73,92</td>
       <td>40,80</td>
       <td>– 73,91</td>
@@ -898,9 +898,9 @@ Definiera experiment parametern och modell inställningarna för träning. Visa 
 |----|----|---|
 |**iteration_timeout_minutes**|2|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
 |**experiment_timeout_minutes**|20|Den maximala tid i minuter som alla iterationer kombineras kan ta innan experimentet avslutas.|
-|**enable_early_stopping**|Sant|Flagga för att aktivera tidig uppsägning om poängen inte förbättras på kort sikt.|
+|**enable_early_stopping**|True|Flagga för att aktivera tidig uppsägning om poängen inte förbättras på kort sikt.|
 |**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
-|**funktionalisering**| auto | Genom att använda **Auto**kan experimentet Förbearbeta indata (hantering av saknade data, konvertera text till numeriskt osv.)|
+|**funktionalisering**| Disk | Genom att använda **Auto**kan experimentet Förbearbeta indata (hantering av saknade data, konvertera text till numeriskt osv.)|
 |**verbosity**| logging.INFO | Styr loggningsnivån.|
 |**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 

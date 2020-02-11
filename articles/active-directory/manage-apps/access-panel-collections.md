@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ed80ad87d81c2ec1bdfe50e9cd4556f141507b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907479"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120097"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Skapa samlingar på mina apps-portalen
 
@@ -30,7 +30,7 @@ Användarna kan använda portalen Mina appar för att visa och starta de molnbas
 > [!NOTE]
 > Den här artikeln beskriver hur en administratör kan aktivera och skapa samlingar. Information för slutanvändaren om hur du använder portalen för Mina appar och samlingar finns i [åtkomst-och användnings samlingar](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
-## <a name="enable-my-apps-preview-features"></a>Aktivera för hands versions funktioner för Mina appar
+## <a name="enable-the-latest-my-apps-features"></a>Aktivera de senaste Mina Apps-funktionerna
 
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som användar administratör eller global administratör.
 
@@ -39,8 +39,8 @@ Användarna kan använda portalen Mina appar för att visa och starta de molnbas
 3. Under förhands **granskningar av användar funktioner**väljer du **Hantera för hands versions inställningar för användar funktionen**.
 
 4. Under **användare kan använda för hands versions funktioner för Mina appar**väljer du något av följande alternativ:
-   * **Vald** – aktiverar för hands versions funktioner för en viss grupp. Använd alternativet **Välj en grupp** för att välja den grupp som du vill aktivera för hands versions funktioner för.  
-   * **Alla** – aktiverar för hands versions funktioner för alla användare.
+   * **Markerat** – aktiverar funktioner för en viss grupp. Använd alternativet **Välj en grupp** för att välja den grupp som du vill aktivera funktionerna för.  
+   * **Alla** – aktiverar funktionerna för alla användare.
 
 > [!NOTE]
 > För att öppna portalen Mina appar kan användare använda länken `https://myapps.microsoft.com` eller den anpassade länken för din organisation, till exempel `https://myapps.microsoft.com/contoso.com`. När du har aktiverat den nya appen för Mina appar visas **en uppdaterad** banderoll längst upp på sidan Mina appar och användarna kan välja **testa** den för att visa den nya upplevelsen. För att sluta använda den nya upplevelsen kan användarna välja **Ja** i den **nya upplevelsens** banderoll längst upp på sidan.

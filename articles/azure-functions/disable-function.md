@@ -3,18 +3,21 @@ title: Så här inaktiverar du funktioner i Azure Functions
 description: Lär dig hur du inaktiverar och aktiverar funktioner i Azure Functions.
 ms.topic: conceptual
 ms.date: 12/05/2019
-ms.openlocfilehash: bffb3136c77074ecd50e839fd7c73144ad910967
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970983"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116138"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Så här inaktiverar du funktioner i Azure Functions
 
 Den här artikeln förklarar hur du inaktiverar en funktion i Azure Functions. För att *inaktivera* en funktion innebär körningen att ignorera den automatiska utlösaren som definierats för funktionen. På så sätt kan du förhindra att en speciell funktion körs utan att stoppa hela Function-appen.
 
 Det rekommenderade sättet att inaktivera en funktion är genom att använda en app-inställning i formatet `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Du kan skapa och ändra den här program inställningen på flera olika sätt, inklusive genom att använda [Azure CLI](/cli/azure/) och från funktionens **Hantera** -flik i [Azure Portal](https://portal.azure.com). 
+
+> [!NOTE]  
+> När du inaktiverar en HTTP-utlöst funktion med hjälp av metoderna som beskrivs i den här artikeln, kan slut punkten fortfarande vara tillgänglig när den körs på den lokala datorn.  
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 

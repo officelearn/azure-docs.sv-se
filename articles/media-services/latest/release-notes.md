@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 12/13/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b3d5e1f814a8eb083ab01623051f1b5b3723a9f1
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: e5bf99e2ea84f41054ff57d08882bfa8ab4d6be5
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049632"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114219"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -35,14 +35,33 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-sdk), CLI eller någon av de SDK: er som stöds.
 
 Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
-
+ 
 ## <a name="january-2020"></a>Januari 2020
 
 ### <a name="improvements-in-media-processors"></a>Förbättringar i medie processorer
 
 - Förbättrat stöd för sammanflätade källor i video analys – det här innehållet är nu sammanflätat på rätt sätt innan de skickas till en härlednings motor.
 - När du skapar miniatyrer med "bästa" läge söker kodaren nu över 30 sekunder för att välja en ram som inte är monokrom.
- 
+
+### <a name="azure-government-cloud-updates"></a>Azure Government moln uppdateringar
+
+Media Services GA'ed i följande Azure Government regioner: *USGov Arizona* och *USGov Texas*.
+
+## <a name="december-2019"></a>December 2019
+
+Stöd för CDN-stöd har lagts till för *ursprungligt stöd för hämtnings* rubriker för både Live och video på begäran. tillgängligt för kunder som har direkt kontrakt med Akamai CDN. Ursprung – hjälp CDN-för hämtnings funktion omfattar följande HTTP-huvud utbyten mellan Akamai CDN och Azure Media Services ursprung:
+
+|HTTP-huvud|Värden|Avsändare|Mottagare|Syfte|
+| ---- | ---- | ---- | ---- | ----- |
+|CDN-Origin-Assist-prefetch-Enabled | 1 (standard) eller 0 |CDN|Ursprung|För att indikera att CDN är för hämtning aktiverat|
+|CDN-Origin-Assist-för-hämtning-sökväg| Exempel: <br/>Fragment (video = 1400000000, format = mpd-Time-cmaf)|Ursprung|CDN|Ange sökväg för hämtning till CDN|
+|CDN-Origin-Assist-för hämtning-begäran|1 (för hämtnings förfrågan) eller 0 (vanlig begäran)|CDN|Ursprung|För att ange att begäran från CDN är en för hämtning|
+
+Du kan prova följande steg för att se en del av det att huvud utbytet i fungerar:
+
+1. Använd Postman eller sväng för att skicka en begäran till Media Services ursprung för ett ljud-eller video segment eller fragment. Se till att lägga till huvudet CDN-Origin-Assist-för-Fetch-Enabled: 1 i begäran.
+2. I svaret bör du se rubriken CDN-Origin-support-prefetch-Path med en relativ sökväg som sitt värde.
+
 ## <a name="november-2019"></a>November 2019
 
 ### <a name="live-transcription-preview"></a>Förhands granskning av direktsänd skrift
@@ -302,7 +321,7 @@ Du kan se följande Event Grid support förbättringar:
 
 Krypterings stöd för CMAF och CBCS för Apple HLS (iOS 11 +) och MPEG-STRECKs pelare som stöder CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Videoindexering
 
 Video Indexer GA-versionen presenterades i augusti. För ny information om funktioner som stöds för närvarande, se [Vad är video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 

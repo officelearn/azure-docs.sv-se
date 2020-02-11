@@ -3,28 +3,28 @@ title: C#Självstudie om sid brytning för Sök Resultat
 titleSuffix: Azure Cognitive Search
 description: Den här självstudien visar hur du växlar Sök resultat. Det bygger på ett befintligt hotell projekt med sid indelning efter första, nästa, föregående, senaste och numrerade knappar. Ett andra växlings system använder oändlig rullning som utlöses genom att flytta en lodrät rullnings list till dess nedre gräns.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113766"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121519"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C#Självstudie: sid brytning för Sök Resultat – Azure Kognitiv sökning
 
 Lär dig hur du implementerar två olika växlings system, det första baserat på sid nummer och det andra vid oändlig rullning. Båda växlings systemen används ofta och valet av rätt är beroende av den användar upplevelse som du vill ha med resultatet. I den här självstudien skapas växlings systemen i projektet som skapats i [ C# självstudien: skapa din första app – Azure kognitiv sökning-](tutorial-csharp-create-first-app.md) självstudie.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Utöka din app med numrerad sid indelning
 > * Utöka din app med oändlig rullning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

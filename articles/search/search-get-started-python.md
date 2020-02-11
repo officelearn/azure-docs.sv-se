@@ -2,19 +2,19 @@
 title: 'Snabb start: skapa ett Sök index i python med REST API: er'
 titleSuffix: Azure Cognitive Search
 description: Förklarar hur du skapar ett index, läser in data och kör frågor med python, Jupyter Notebooks och Azure Kognitiv sökning REST API.
-author: heidisteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/10/2020
+ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792268"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121614"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i python med Jupyter-anteckningsböcker
 
@@ -30,7 +30,7 @@ Skapa en Jupyter-anteckningsbok som skapar, läser in och skickar frågor till e
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här snabb starten. 
 
@@ -44,7 +44,7 @@ För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkoms
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
 ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 

@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar Recovery Services-valvet över Azur
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 7d0a6c47fa08774161d3a2b7507cdfecaf8c7197
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: fed42c578da2e4f27f42e11d5ac67d698bbcd939
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172892"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120727"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -18,6 +18,10 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services valv som kon f
 ## <a name="supported-regions"></a>Regioner som stöds
 
 Flytt av resurser för Recovery Services Vault stöds i östra Australien, östra Australien, centrala Kanada, Östra Kanada, Asien, sydöstra, Asien, östra, centrala USA, norra centrala USA, östra USA, östra 2; USA, södra centrala USA, västra centrala USA, västra centrala 2; USA, västra USA, västra Centrala Indien, södra Indien, Östra Japan, västra Japan, centrala Korea, södra Nord Europa, Västeuropa, södra Afrika, sydöstra Sydafrika, västra Afrika, Storbritannien, södra och Storbritannien, västra.
+
+## <a name="unsupported-regions"></a>Regioner som inte stöds
+
+Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, US Gov, Iowa, Kina, norra, Kina North2, Kina, östra, Kina östra
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Krav för att flytta Recovery Services valv
 
@@ -128,7 +132,7 @@ Om du vill flytta ett Recovery Services valv till en annan resurs grupp använde
 az resource move --destination-group <destinationResourceGroupName> --ids <VaultResourceID>
 ```
 
-Om du vill flytta till en ny prenumeration, ange den `--destination-subscription-id` parametern.
+Om du vill flytta till en ny prenumeration anger du parametern `--destination-subscription-id`.
 
 ## <a name="post-migration"></a>Post-migrering
 

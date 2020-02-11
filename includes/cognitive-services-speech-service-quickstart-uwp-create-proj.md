@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 64c93e5c8e139dbdcfd3faad3a9ac4328fb01972
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d3e2fa082184ce8de7685d03803360045b89c911
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391794"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119763"
 ---
 Om du vill skapa ett Visual Studio-projekt för Universell Windows-plattform (UWP)-utveckling måste du ställa in alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitektur, konfigurera ljud fångst och installera tal-SDK.
 
@@ -43,7 +43,7 @@ Skapa sedan ditt projekt:
 
 1. Hitta och välj **Tom app (Universal Windows)** . Se till att du väljer den C# här projekt typens version (till skillnad från Visual Basic).
 
-1. Välj **Nästa** för att visa skärmen **Konfigurera ditt nya projekt** . 
+1. Välj **Nästa** för att visa skärmen **Konfigurera ditt nya projekt** .
 
    ![Konfigurera det nya projektet – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
@@ -104,4 +104,4 @@ Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nu
 
 1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
 
-1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Paket installationen startar och när installationen är klar visas ett meddelande som liknar följande text i fönstret **utdata** : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`.
+1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Paket installationen startar och när installationen är klar visas ett meddelande som liknar följande text i fönstret **utdata** : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.

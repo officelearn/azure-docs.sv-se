@@ -1,31 +1,29 @@
 ---
-title: 'Snabb start: Visa text till tal-röster, python-tal-tjänst'
+title: Lista text till tal-röster, python-tal-tjänst
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du får en fullständig lista över standard-och neurala-röster för en region/slut punkt med python. Listan returneras som JSON och röst tillgängligheten varierar beroende på region.
+description: I den här artikeln får du lära dig hur du får en fullständig lista över standard-och neurala-röster för en region/slut punkt med python. Listan returneras som JSON och röst tillgängligheten varierar beroende på region.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: c645d01dd37fd370911019446c99c76c9da6221c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.topic: how-to
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 51fe6cea80e097f34432ab8dc7293c758bd8d720
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975983"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119808"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Snabb start: hämta listan med text till tal-röster med python
+# <a name="get-the-list-of-text-to-speech-voices-using-python"></a>Hämta listan med text till tal-röster med python
 
-I den här snabb starten får du lära dig hur du får en fullständig lista över standard-och neurala-röster för en region/slut punkt med python. Listan returneras som JSON och röst tillgängligheten varierar beroende på region. En lista över regioner som stöds finns i [regioner](regions.md).
+I den här artikeln får du lära dig hur du får en fullständig lista över standard-och neurala-röster för en region/slut punkt med python. Listan returneras som JSON och röst tillgängligheten varierar beroende på region. En lista över regioner som stöds finns i [regioner](regions.md).
 
-Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech service-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
+Den här artikeln kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech service-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Krav
-
-För den här snabbstarten krävs:
+## <a name="prerequisites"></a>Förutsättningar
 
 * Python 2.7.x eller 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
@@ -55,15 +53,15 @@ class GetVoices(object):
         self.access_token = None
 ```
 
-Den `subscription_key` är den unika nyckeln från Azure-portalen.
+`subscription_key` är din unika nyckel från Azure Portal.
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
 Den här slut punkten kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Det här exemplet utbyter din prenumerations nyckel för röst tjänsten för en åtkomsttoken med hjälp av `issueToken` slut punkten.
 
-Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region uppdaterar du värdet för `fetch_token_url`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
-Kopiera den här koden i den `GetVoices` klass:
+Kopiera den här koden till `GetVoices`-klassen:
 
 ```python
 def get_token(self):
@@ -80,11 +78,11 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här skapar du begäran och sparar listan med returnerade röster. Först behöver du ange den `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `base_url`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här skapar du begäran och sparar listan med returnerade röster. Först måste du ange `base_url` och `path`. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs är registrerad i en annan region, se till att du uppdaterar `base_url`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Lägg sedan till de rubriker som krävs för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs svaret till filen.
 
-Kopiera den här koden i den `GetVoices` klass:
+Kopiera den här koden till `GetVoices`-klassen:
 
 ```python
 def get_voices(self):
@@ -134,8 +132,8 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 > [!div class="nextstepaction"]
 > [Utforska Python-exempel på GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
-* [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)
+* [Skapa anpassade röst teckensnitt](how-to-customize-voice-font.md)
+* [Spela in röst exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

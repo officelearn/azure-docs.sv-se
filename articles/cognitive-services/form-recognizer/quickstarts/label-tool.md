@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025919"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118369"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -22,18 +22,18 @@ I den här snabb starten använder du formulär tolken REST API med verktyget f�
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
-- Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess). Du får ett e-postmeddelande med en länk för att skapa en formulär igenkännings resurs.
+
 - En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
 
-Du använder Docker-motorn för att köra verktyget för etikettering. Följ de här stegen för att konfigurera Docker-behållaren. Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
+Du använder Docker-motorn för att köra verktyget för etikettering. Följ de här stegen för att konfigurera Docker-behållaren. För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).
 1. Börja med att installera Docker på en värddator. Värddatorn kan vara din lokala dator ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/)eller [Linux](https://docs.docker.com/install/)). Du kan också använda en Docker-värd tjänst i Azure, till exempel [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/index), [Azure Container instances](https://docs.microsoft.com/azure/container-instances/index)eller ett Kubernetes-kluster [som distribuerats till en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). Värddatorn måste uppfylla följande maskin varu krav:
 
-    | Container | Minimum | Rekommenderad|
+    | Container | Minimum | Rekommenderas|
     |:--|:--|:--|
     |Exempel på etikett verktyg|2 kärnor, 4 GB minne|4 kärnor, 8 GB minne|
     

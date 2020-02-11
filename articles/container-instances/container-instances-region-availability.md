@@ -2,18 +2,18 @@
 title: Resurs tillgänglighet per region
 description: Tillgänglighet för beräknings-och minnes resurser för tjänsten Azure Container Instances i olika Azure-regioner.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/31/2020
 ms.author: danlep
-ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888013"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117814"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurs tillgänglighet för Azure Container Instances i Azure-regioner
 
-Den här artikeln innehåller information om tillgängligheten för Azure Container Instances beräknings-och minnes resurser i Azure-regioner. 
+Den här artikeln innehåller information om tillgängligheten för Azure Container Instances beräknings-, minnes-och lagrings resurser i Azure-regioner och efter mål operativ system. 
 
 Värden som anges är de maximala tillgängliga resurserna per distribution av en [behållar grupp](container-instances-container-groups.md). Värden är aktuella vid tidpunkten för publiceringen. 
 
@@ -26,23 +26,23 @@ Information om kvoter och andra begränsningar i dina distributioner finns i [kv
 
 Följande regioner och resurser är tillgängliga för behållar grupper med Linux och [stödda](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-baserade behållare.
 
-| Regioner | OS | Max CPU | Högsta mängd minne (GB) |
-| -------- | -- | :---: | :-----------: |
-| Södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa, västra USA, västra USA 2 | Linux | 4 | 16 |
-| Östra Australien, Östra Japan | Linux | 2 | 8 |
-| USA, norra centrala | Linux | 2 | 3.5 |
-| Södra Brasilien, Östra Japan, västra Europa | Windows | 4 | 16 |
-| USA, östra, USA, västra | Windows | 4 | 14 |
-| Östra Australien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA 2, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, västra USA 2 | Windows | 2 | 3.5 |
+| Regioner | Operativsystem | Max CPU | Högsta mängd minne (GB) | Lagring (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa, västra USA, västra USA 2 | Linux | 4 | 16 | 50 |
+| Östra Australien, Östra Japan | Linux | 2 | 8 | 50 |
+| USA, norra centrala | Linux | 2 | 3.5 | 50 |
+| Södra Brasilien, Östra Japan, västra Europa | Windows | 4 | 16 | 20 |
+| Östra USA, västra USA | Windows | 4 | 14 | 20 |
+| Östra Australien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA 2, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, västra USA 2 | Windows | 2 | 3.5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Tillgänglighet – Windows Server 2019 LTSC, 1809 distributioner (för hands version)
 
 Följande regioner och resurser är tillgängliga för behållar grupper med Windows Server 2019-baserade behållare (för hands version).
 
-| Regioner | OS | Max CPU | Högsta mängd minne (GB) |
-| -------- | -- | :---: | :-----------: |
-| Östra Australien, södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa | Windows | 4 | 16 |
-| USA, östra 2, västra USA 2 | Windows | 2 | 3.5 |
+| Regioner | Operativsystem | Max CPU | Högsta mängd minne (GB) | Lagring (GB) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Östra Australien, södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa | Windows | 4 | 16 | 20 |
+| USA, östra 2, västra USA 2 | Windows | 2 | 3.5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Tillgänglighet – virtuell nätverks distribution

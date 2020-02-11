@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 4df1070fed456cc8f1d53d1b83b6d9b42ad0df03
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 8ecd0ebbd242135f0d3b0c6e365d6e97586031cb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110548"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121232"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med ett Server dels program (.NET)
 
@@ -47,7 +47,7 @@ Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för
 az extension add --name azure-cli-iot-ext
 ```
 
-Hämta Azure IoT C# -exempel från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera zip-arkivet.
+Hämta Azure IoT C# -exempel från [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) och extrahera zip-arkivet.
 
 Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här snabb starten använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 

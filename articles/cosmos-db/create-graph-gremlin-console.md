@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665183"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117908"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabb start: skapa, fråga och bläddra i en Azure Cosmos DB graf-databas med hjälp av Gremlin-konsolen
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [.NET](create-graph-dotnet.md)
+> * [NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
@@ -33,7 +33,7 @@ Den här snabb starten visar hur du skapar ett Azure Cosmos DB [GREMLIN API](gra
 
 Gremlin-konsolen är Groovy-/Java-baserad och körs på Linux, Mac och Windows. Du kan ladda ned den på [Apache TinkerPop-webbplatsen](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en Azure-prenumeration för att skapa ett Azure Cosmos DB-konto för den här snabbstarten.
 
@@ -49,7 +49,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>Ansluta till din apptjänst
+## <a id="ConnectAppService"></a>Anslut till din app service/Graf
 1. Innan du startar Gremlin-konsolen ska du skapa eller ändra konfigurationsfilen remote-secure.yaml i katalogen `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Fyll i konfigurationen för *värd*, *port*, *användarnamn*, *lösenord*, *anslutningspool* och *serialiserare* enligt definitionerna i följande tabell:
 
@@ -58,7 +58,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/down
     värdar|[*konto namn*. **Gremlin**. Cosmos.Azure.com]|Se följande skärmbild. Detta är **GREMLIN URI** -värdet på översikts sidan för Azure Portal, inom hakparenteser, med efterföljande: 443/borttaget. Obs! se till att använda Gremlin-värdet och **inte** URI: n som slutar med [*Account-name*. Documents.Azure.com] vilket troligen skulle resultera i att "värden inte svarade i tid"-undantag vid försök att köra Gremlin-frågor senare. 
     port|443|Ställ in på 443.
     användarnamn|*Ditt användarnamn*|Resursen i formuläret `/dbs/<db>/colls/<coll>` där `<db>` är databasnamnet och `<coll>` är samlingens namn.
-    password|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
+    lösenord|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
     ConnectionPool|{enableSsl: true}|Din anslutningspoolinställning för SSL.
     Serialiserare|{ className: org.apache.tinkerpop.gremlin.<br>driv rutin. ser. GraphSONMessageSerializerV2d0,<br> config: { serializeResultToString: true }}|Ange detta värde och ta bort alla `\n`-radbrytningar när du klistrar in värdet.
 
@@ -302,9 +302,9 @@ g.E().drop()
 g.V().drop()
 ```
 
-Grattis! Du har slutfört den här självstudien om Azure Cosmos DB: Gremlin API!
+Gratulerar! Du har slutfört den här självstudien om Azure Cosmos DB: Gremlin API!
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

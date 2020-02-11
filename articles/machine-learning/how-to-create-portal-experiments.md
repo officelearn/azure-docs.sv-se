@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 620aab2d2104c9e08de6e7ea47511ff45a482ec4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046117"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116895"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -60,11 +60,11 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Ge din data uppsättning ett unikt namn och ange en valfri beskrivning. 
 
-    1. Välj **Nästa**för att överföra den till standard lagrings behållaren som skapas automatiskt med din arbets yta, eller Välj en lagrings behållare som du vill använda för experimentet. 
+    1. Välj **Nästa** för att öppna **formuläret data lager och fil markering**. I det här formuläret väljer du var du vill ladda upp din data uppsättning. standard lagrings behållare som skapas automatiskt med din arbets yta eller Välj en lagrings behållare som du vill använda för experimentet. 
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
-        Field| Beskrivning
+        Fält| Beskrivning
         ----|----
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
@@ -78,7 +78,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
             
         Välj **Nästa.**
 
-    1. Formuläret **bekräfta information** är en sammanfattning av den information som tidigare har fyllts i i **grundläggande information** och **Inställningar och för hands** formulär. Du kan också välja att profilera din data uppsättning med en profilerings aktive rad beräkning. Läs mer om [data profilering](#profile).
+    1. Formuläret **bekräfta information** är en sammanfattning av den information som tidigare har fyllts i i **grundläggande information** och **Inställningar och för hands** formulär. Du kan också välja att skapa en data profil för din data uppsättning med en profilerings aktive rad beräkning. Läs mer om [data profilering](#profile).
 
         Välj **Nästa**.
 1. Välj den nyligen skapade data uppsättningen när den visas. Du kan också visa en förhands granskning av data uppsättningen och exempel statistiken. 
@@ -91,7 +91,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
 
-    Field|Beskrivning
+    Fält|Beskrivning
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
@@ -190,13 +190,13 @@ Data konsekvens för Time-serien|**Parametrarna** <br><br><br><br> **Fastsatt** 
 
 ## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultaten
 
-Klicka på **Slutför** för att köra experimentet. Processen för att förbereda experiment kan ta upp till 10 minuter. Utbildnings jobb kan ta ytterligare ytterligare 2-3 minuter för varje pipeline för att slutföra körningen.
+Klicka på **Slutför** för att köra experimentet. Experimentförberedelserna kan ta upp till 10 minuter. För träningsjobb kan det ta ytterligare 2–3 minuter för varje pipeline att slutföra körningen.
 
 ### <a name="view-experiment-details"></a>Visa experiment information
 
 Skärmen **körnings information** öppnas på fliken **information** . Den här skärmen visar en sammanfattning av experiment körningen inklusive ett statusfält överst bredvid körnings numret. 
 
-Fliken **modeller** innehåller en lista med modeller som skapats sorterade efter måttets poäng. Som standard är modellen som visar högsta baserat på det valda måttet överst i listan. När utbildnings jobbet försöker utföra fler modeller läggs de till i listan. Använd detta för att få en snabb jämförelse av måtten för de modeller som har producerats hittills.
+Fliken **Modeller** innehåller en lista över de modeller som skapats ordnade efter måttpoängen. Som standard visas modellen med högst poäng utifrån det valda måttet överst i listan. När träningsjobbet testar fler modeller läggs de till i listan. Använd det här för att få en snabb jämförelse av måtten för de modeller som har producerats hittills.
 
 [instrument panel för ![körnings information](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
@@ -220,7 +220,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Field| Värde
+    Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.

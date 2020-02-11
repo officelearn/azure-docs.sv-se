@@ -2,18 +2,18 @@
 title: Skapa ett Sök index i Azure Portal
 titleSuffix: Azure Cognitive Search
 description: I den här snabb starten av portalen lär du dig hur du använder guiden Importera data för att skapa, läsa in och fråga ditt första Sök index i Azure Kognitiv sökning.
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 02/10/2020
+ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901006"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121667"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ Om verktygen är för begränsade kan du överväga en [kod baserad introduktion
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
@@ -98,7 +98,7 @@ Som standard söker guiden igenom datakällan för att hitta unika identifierare
 
 ### <a name="step-4---configure-indexer"></a>Steg 4 – Konfigurera indexeraren
 
-Klicka på **Indexnamn** > **Namn** i guiden **Importera data** och skriv in ett namn på indexeraren.
+Klicka på **Indexnamn**Namn >  i guiden **Importera data** och skriv in ett namn på indexeraren.
 
 Det här objektet definierar en körbar process. Du kan lägga till det i ett återkommande schema, men för tillfället använder du standardalternativet för att köra indexeraren en gång direkt.
 
@@ -108,7 +108,7 @@ Klicka på **Skicka** för att skapa och köra indexeraren samtidigt.
 
 ## <a name="monitor-progress"></a>Övervaka förloppet
 
-Guiden ska ta dig till listan med indexerare där du kan övervaka förloppet. För självnavigering går du till översikten över sidan och klickar på **indexerare**.
+Guiden ska ta dig till listan med indexerare där du kan övervaka förloppet. För självnavigering går du till översiktssidan och klickar på **Indexerare**.
 
 Det kan ta några minuter för portalen att uppdatera sidan men du borde se den nyligen skapade indexeraren i listan med status Pågående eller Lyckades, tillsammans med antalet dokument som indexerats.
 
@@ -260,7 +260,7 @@ Du har också läst hur du hittar index, indexerare och datakällor i portalen. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort samtliga resurser.
+När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

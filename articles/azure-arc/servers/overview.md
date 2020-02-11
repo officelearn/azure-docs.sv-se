@@ -7,15 +7,15 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 01/29/2020
+ms.date: 02/03/2020
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b0f1d235391c4c4e3804a6dccc8174e946035b6a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c38bc2d5d9a7e23c0bb3041a5cb3b5cd1da9adb1
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899194"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114242"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure-båge för servrar (förhands granskning)
 
@@ -42,7 +42,7 @@ Med Azure Arc for Servers (för hands version) stöds endast vissa regioner:
 - Västeuropa
 - WestAsia
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -54,6 +54,12 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 >[!NOTE]
 >Den här för hands versionen av den anslutna dator agenten för Windows stöder endast Windows Server som kon figurer ATS för att använda det engelska språket.
 >
+
+### <a name="required-permissions"></a>Nödvändiga behörigheter
+
+- För att publicera datorer är du medlem i rollen **Azure Connected Machine onboarding** .
+
+- Om du vill läsa, ändra, återställa och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
@@ -89,7 +95,7 @@ URL: erna i föregående tabell krävs utöver informationen om tjänst Tagns IP
 
 Azure båg for-servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
 
-- **Microsoft.HybridCompute**
+- **Microsoft. HybridCompute**
 - **Microsoft. GuestConfiguration**
 
 Om de inte är registrerade kan du registrera dem med hjälp av följande kommandon:

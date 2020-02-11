@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Optimera dina kostnader för Azure Cosmos DB
       items:
+        - name: Planera och hantera kostnader
+          href: plan-manage-costs.md
         - name: Prismodell
           href: how-pricing-works.md
         - name: Total ägandekostnad (TCO)

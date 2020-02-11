@@ -346,6 +346,8 @@
               href: ./spark/apache-azure-spark-history-server.md
             - name: Aktivera cachelagring med I/O-cache
               href: ./spark/apache-spark-improve-performance-iocache.md
+            - name: Hantera Jar-beroenden
+              href: ./spark/manage-jar-dependency.md
             - name: Använda anteckningsböcker med Apache Spark
               items:
                 - name: Använda en lokal Jupyter Notebook

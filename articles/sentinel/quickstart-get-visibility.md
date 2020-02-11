@@ -7,15 +7,15 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: fasttrack-edit
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 35ecb5c4e3987676d235fc6fd09f58c046301cda
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d91567f10b33717b157bd0b839d2706996c5b591
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548041"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087194"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabb start: kom igång med Azure Sentinel
 
@@ -53,7 +53,7 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
 ## Använda inbyggda arbets böcker<a name="dashboards"></a>
 
-Inbyggda arbets böcker ger integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. De inbyggda arbets böckerna inkluderar Azure ID, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla utomstående, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows planering. Arbets böckerna baseras på Azure Monitor arbets böcker för att ge dig bättre anpassningsbarhet och flexibilitet i utformningen av din egen arbets bok. Mer information finns i [arbets böcker](../azure-monitor/app/usage-workbooks.md).
+Inbyggda arbets böcker ger integrerade data från dina anslutna data källor så att du kan få en djup inblick i de händelser som genereras i dessa tjänster. De inbyggda arbets böckerna omfattar Azure AD, Azure Activity events och on-premises, som kan vara data från Windows-händelser från servrar, från första part-aviseringar från alla utomstående, inklusive brand Väggs trafik loggar, Office 365 och oskyddade protokoll baserade på Windows planering. Arbets böckerna baseras på Azure Monitor arbets böcker för att ge dig bättre anpassningsbarhet och flexibilitet i utformningen av din egen arbets bok. Mer information finns i [arbets böcker](../azure-monitor/app/usage-workbooks.md).
 
 1. Under **Inställningar**väljer du **arbets böcker**. Under **installerad**kan du se all din installerade arbets bok. Under **alla**kan du se hela galleriet med inbyggda arbets böcker som är tillgängliga för installation. 
 2. Sök efter en speciell arbets bok för att se hela listan och en beskrivning av vad varje erbjudande har. 

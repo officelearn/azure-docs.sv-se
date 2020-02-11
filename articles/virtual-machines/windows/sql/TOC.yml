@@ -54,7 +54,7 @@
               href: virtual-machines-windows-sql-automated-patching.md
             - name: Konfigurera Azure Key Vault-integrering
               href: virtual-machines-windows-ps-sql-keyvault.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skapa SQL VM
       items:
@@ -97,9 +97,11 @@
               href: virtual-machines-windows-sql-availability-group-quickstart-template.md
             - name: Flera regioner
               href: virtual-machines-windows-portal-sql-availability-group-dr.md
+            - name: Domänoberoende (arbetsgrupp)
+              href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Konfigurera manuellt
               items:
-                - name: Nödvändiga komponenter
+                - name: Krav
                   href: virtual-machines-windows-portal-sql-availability-group-prereq.md
                 - name: Självstudier
                   href: virtual-machines-windows-portal-sql-availability-group-tutorial.md

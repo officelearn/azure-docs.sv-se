@@ -109,6 +109,10 @@
           href: long-audio-api.md
         - name: Använda talsyntes med Docker-containrar
           href: speech-container-howto.md?tabs=tts
+        - name: Hämta en lista över röster med REST (Python)
+          href: quickstart-python-get-text-to-speech-voices.md
+        - name: Konvertera text-till-tal med REST (Python)
+          href: quickstart-python-text-to-speech.md
     - name: Referens
       items:
         - name: Speech SDK

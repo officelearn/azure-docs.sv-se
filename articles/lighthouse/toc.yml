@@ -33,7 +33,7 @@
     - name: Azure Lighthouse i företagsscenarier
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Registrera en kund för Azure-delegerad resurshantering
       displayName: resource management
@@ -44,6 +44,9 @@
     - name: Visa och hantera kunder
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Använda Azure Monitor-loggar i stor skala
+      displayName: 'log, analytics, analyze, activity'
+      href: ./how-to/monitor-at-scale.md
     - name: Azure Policy-integration
       items:
         - name: Distribuera en skalanpassad princip

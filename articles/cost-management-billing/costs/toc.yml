@@ -44,6 +44,8 @@
           href: get-started-partners.md
         - name: Ansluta med Power BI Desktop
           href: /power-bi/desktop-connect-azure-cost-management
+        - name: Analysera Azure-kostnader med Power BI-mallappen
+          href: analyze-cost-data-azure-cost-management-power-bi-template-app.md
     - name: Referens
       items:
         - name: REST API för Azure Cost Management

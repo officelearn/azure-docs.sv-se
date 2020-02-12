@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715572"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138355"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -40,27 +40,32 @@ När du har startat strömningen av sensor data kan du påbörja processen med a
 Du kan generera ovanstående information genom att följa dessa steg: (Observera att de här stegen måste göras på Azure så att du behöver åtkomst till Azure-prenumerationen där FarmBeats har distribuerats)
 
 1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
-2. Logga in på https://portal.azure.com/ och gå till Azure Active Directory-> App-registreringar
 
-3. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som FarmBeats-datahubben.
+2. Logga in på https://portal.azure.com/.
 
-4. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
+3. **Om du använder FarmBeats version 1.2.7 eller senare kan du hoppa över steg 3a, 3b och 3c och gå till steg 4.** Du kan kontrol lera FarmBeats-versionen genom att klicka på inställnings ikonen längst upp till höger i FarmBeats-ANVÄNDARGRÄNSSNITTET.
 
-5. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
+3a. Gå till Azure Active Directory-> App-registreringar
+
+3b. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som FarmBeats-datahubben.
+
+3c. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
+
+4. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
 
     ![Azure Portal verktygsfält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
+5. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
 
     ![Inställning för PowerShell-verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Ladda upp filen från steg 1 i Cloud Shell-instansen.
+6. Ladda upp filen från steg 1 i Cloud Shell-instansen.
 
     ![Knappen Ladda upp verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-8. Gå till den katalog där filen laddades upp. Som standard laddas filerna upp till hem katalogen under användar namnet.
+7. Gå till den katalog där filen laddades upp. Som standard laddas filerna upp till hem katalogen under användar namnet.
 
-9. Kör följande skript. Skriptet frågar efter klient-ID som kan hämtas från översikts sidan för Azure Active Directory->.
+8. Kör följande skript. Skriptet frågar efter klient-ID som kan hämtas från översikts sidan för Azure Active Directory->.
 
     ```azurepowershell-interactive 
 
@@ -68,7 +73,7 @@ Du kan generera ovanstående information genom att följa dessa steg: (Observera
 
     ```
 
-10. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
+9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhets data med hjälp av de genererade autentiseringsuppgifterna
 
@@ -149,7 +154,7 @@ Följ de här stegen.
 1. På Start sidan väljer du **sensorer** på menyn för att visa sidan **sensorer** .
 2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
 
-    ![Ta bort knapp](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Knappen Ta bort](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 Ett bekräftelse meddelande visas om att sensorn har tagits bort.
 
@@ -160,7 +165,7 @@ Följ de här stegen.
 1. På sidan start väljer du **enheter** på menyn för att visa sidan **enheter** .
 2. Välj den enhet som du vill ta bort och välj **ta bort** i bekräftelse fönstret.
 
-    ![Ta bort knapp](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
+    ![Knappen Ta bort](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

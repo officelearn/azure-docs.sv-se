@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8526eb50faf300892c66ac186eac25adecf62231
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: cf0414531d363ab5401e8c9574943a40ecf2d449
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019034"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137822"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Hantera IoT Central från Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "77019034"
 
 I stället för att skapa och hantera IoT Central-program på webbplatsen för [azure IoT Central Application Manager](https://aka.ms/iotcentral) kan du använda [Azure CLI](/cli/azure/) för att hantera dina program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -31,7 +31,7 @@ Om du föredrar att köra Azure CLI på den lokala datorn kan du läsa [Installe
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Använd kommandot [AZ iotcentral app Create](/cli/azure/iotcentral/app#az-iotcentral-app-create) för att skapa ett IoT Central-program i din Azure-prenumeration. Ett exempel:
+Använd kommandot [AZ iotcentral app Create](/cli/azure/iotcentral/app#az-iotcentral-app-create) för att skapa ett IoT Central-program i din Azure-prenumeration. Några exempel:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -44,7 +44,7 @@ az group create --location "East US" \
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku ST1 --template "iotc-demo@1.0.0" \
+  --sku ST1 --template "iotc-pnp-preview@1.0.0" \
   --display-name "My Custom Display Name"
 ```
 
@@ -53,30 +53,14 @@ Dessa kommandon skapar först en resurs grupp i regionen USA, östra för progra
 | Parameter         | Beskrivning |
 | ----------------- | ----------- |
 | resource-group    | Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-| location          | Som standard använder detta kommando platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** i regionerna **Australien** eller **Asien och Stillahavsområdet** . |
+| location          | Som standard använder detta kommando platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i **Australien**, **Asien och Stillahavsområdet**, **Europa**eller **USA** geografiska områden. |
 | namn              | Namnet på programmet i Azure Portal. |
 | under domän         | Under domänen i programmets URL. I exemplet är programmets URL https://mysubdomain.azureiotcentral.com. |
 | sku               | För närvarande kan du använda antingen **ST1** eller **ST2**. Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-| mall          | Den program mal len som ska användas. Mer information finns i följande tabell: |
+| mall          | Den program mal len som ska användas. Mer information finns i följande tabell. |
 | visnings namn      | Namnet på programmet som det visas i användar gränssnittet. |
 
-**Programmallar**
-
-| Mallens namn            | Beskrivning |
-| ------------------------ | ----------- |
-| iotc-default@1.0.0       | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter.
-| iotc-pnp-preview@1.0.0   | Skapar ett tomt Plug and Play-program (för hands version) som du kan fylla i med dina egna enhets mallar och enheter. |
-| iotc-condition@1.0.0     | Skapar ett program med en mall för övervakning av villkor i butiken. Använd den här mallen för att ansluta och övervaka lagrings miljön. |
-| iotc-consumption@1.0.0   | Skapar ett program med en övervaknings mall för vattenkonsumtion. Använd den här mallen för att övervaka och kontrol lera vatten flödet. |
-| iotc-distribution@1.0.0  | Skapar ett program med en mall för digital distribution. Använd den här mallen för att förbättra lagrets uteffekts effektivitet genom att digitala nyckel till gångar och åtgärder. |
-| iotc-inventory@1.0.0     | Skapar ett program med en mall för smart inventerings hantering. Använd den här mallen för att automatisera mottagning, produkt förflyttning, cyklisk inventering och spårning av sensorer. |
-| iotc-logistics@1.0.0     | Skapar ett program med en ansluten logistik mall. Använd den här mallen för att spåra din försändelse i real tid över luft, vatten och mark med plats-och villkors övervakning. |
-| iotc-meter@1.0.0         | Skapar ett program med en mall för övervakning av smarta mätare. Använd den här mallen för att övervaka energi förbrukning, nätverks status och identifiera trender för att förbättra kund support och hantering av Smart avläsning.  |
-| iotc-patient@1.0.0       | Skapar ett program med en mall för kontinuerliga patient övervakning. Använd den här mallen för att utöka patient vård, åter användning och hantering av sjukdomar. |
-| iotc-power@1.0.0         | Skapar ett program med en övervaknings mall för sol panelen. Använd den här mallen för att övervaka status för sol panelen, utveckling av energi produktion. |
-| iotc-quality@1.0.0       | Skapar ett program med en mall för övervakning av vatten kvalitet. Använd den här mallen om du vill övervaka vatten kvaliteten digitalt.|
-| iotc-store@1.0.0         | Skapar ett program med en mall för analys i butiken – check. Använd den här mallen för att övervaka och hantera kassa flödet inuti ditt lager. |
-| iotc-waste@1.0.0         | Skapar ett program med en mall för anslutet avfalls hantering. Använd den här mallen för att övervaka avfalls platser och operatörer för sändnings fält. |
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## <a name="view-your-applications"></a>Visa dina program
 
@@ -94,7 +78,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>Ta bort ett program
 
-Använd kommandot [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) för att ta bort ett IoT Central-program. Ett exempel:
+Använd kommandot [AZ iotcentral app Delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) för att ta bort ett IoT Central-program. Några exempel:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

@@ -4,20 +4,20 @@ description: Lär dig hur du använder blå-grön-distribution med Azure våren 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 4adeb5593f86bdf3f8a4ea5f844c31a8314e0f15
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 5612a514ed89f73453f3751b34263b0beeea1c59
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276925"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138144"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurera en utvecklings miljö i Azure våren Cloud
 
-Den här artikeln beskriver hur du konfigurerar en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Det visar också hur du kan använda mellanlagrings distributionen i produktion utan att ändra produktions distributionen direkt.
+Den här artikeln beskriver hur du konfigurerar en mellanlagrings distribution med hjälp av ett blått-grönt distributions mönster i Azure våren Cloud. Blå/grön distribution är ett mönster för kontinuerlig leverans för Azure DevOps förlitar sig på att hålla en befintlig (blå) version live, medan en ny (grön) distribueras. Den här artikeln visar hur du kan använda mellanlagrings distributionen i produktion utan att ändra produktions distributionen direkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har distribuerat PiggyMetrics-programmet från vår [själv studie kurs om hur du startar ett Azure våren Cloud-program](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics består av tre program: "Gateway", "Account-service" och "auth-service".  
 

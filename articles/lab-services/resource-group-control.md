@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: b6f51dee948d9e4d9e3f8594f9f7e60fb11b7057
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29816d158cf1428727b7ff17bcc2c347f402dedf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647347"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134534"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Ange en resurs grupp för virtuella labb datorer i Azure DevTest Labs
 
@@ -31,12 +31,12 @@ Som labb ägare kan du konfigurera dina virtuella labb datorer så att de skapas
 Med den här funktionen kan du använda ett skript för att ange en ny eller befintlig resurs grupp i din Azure-prenumeration för alla dina virtuella labb datorer. För närvarande har Azure DevTest Labs stöd för den här funktionen via ett API.
 
 > [!NOTE]
-> Alla prenumerations begränsningar gäller när du skapar labb i DevTest Labs. Tänk på ett labb som andra resurser i din prenumeration. I händelse av resurs grupper är gränsen [980 resurs grupper per prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
+> Alla prenumerations begränsningar gäller när du skapar labb i DevTest Labs. Tänk på ett labb som andra resurser i din prenumeration. I händelse av resurs grupper är gränsen [980 resurs grupper per prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). 
 
-## <a name="use-azure-portal"></a>Använd Azure Portal
+## <a name="use-azure-portal"></a>Använda Azure-portalen
 Följ dessa steg om du vill ange en resurs grupp för alla virtuella datorer som skapats i labbet. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **alla tjänster** i den vänstra navigerings menyn. 
 3. Välj **DevTest Labs** från listan.
 4. I listan med labb väljer du ditt **labb**.  

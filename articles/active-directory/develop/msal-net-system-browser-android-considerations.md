@@ -13,22 +13,23 @@ ms.date: 10/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c144c6dd090669ca16c03050cbb8b59ff0cc224f
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ad26a4d619a7984f08a8decc87f9339adae47cdd
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084588"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132617"
 ---
-#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Xamarin Android system Browser-överväganden med MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Xamarin för Android-systemet för att använda MSAL.NET
 
-I den här artikeln beskrivs olika saker som du bör tänka på när du använder system läsaren på Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
+I den här artikeln beskrivs vad du bör tänka på när du använder system webbläsaren på Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
 
-Från och med MSAL.NET 2.4.0-Preview har MSAL.NET stöd för andra webbläsare än Chrome och kräver inte längre att Chrome installeras på Android-enheten för autentisering.
+Från och med MSAL.NET 2.4.0 Preview har MSAL.NET stöd för andra webbläsare än Chrome. Det krävs inte längre att Chrome installeras på Android-enheten för autentisering.
 
-Vi rekommenderar att du använder webbläsare som stöder anpassade flikar, till exempel följande:
+Vi rekommenderar att du använder webbläsare som stöder anpassade flikar. Här följer några exempel på dessa webbläsare:
 
-| Webbläsare med stöd för anpassade flikar | Paket namn |
+| Webbläsare som har stöd för anpassade flikar | Paket namn |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|
@@ -37,39 +38,39 @@ Vi rekommenderar att du använder webbläsare som stöder anpassade flikar, till
 |Kiwi | com.kiwibrowser.browser|
 |Brave | com. Brave. browser|
 
-Förutom webbläsare med stöd för anpassade flikar, baserat på våra tester, fungerar även några webbläsare som inte stöder anpassade flikar för autentisering: Opera, Opera Mini, inwebbläsare och Maxthon. Mer information hittar du [i tabell för test resultat](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
+Förutom att identifiera webbläsare som erbjuder stöd för anpassade flikar, visar vår testning att några webbläsare som inte stöder anpassade flikar fungerar för autentisering. De här webbläsarna är Opera, Opera Mini, inwebbläsare och Maxthon. 
 
-## <a name="known-issues"></a>Kända problem
+## <a name="tested-devices-and-browsers"></a>Testade enheter och webbläsare
+I följande tabell visas de enheter och webbläsare som har testats för autentisering.
 
-- Om användaren inte har någon webbläsare aktive rad på enheten, kommer MSAL.NET att utlösa ett `AndroidActivityNotFound` undantag. 
-  - **Minskning**: informera användaren om att de ska aktivera en webbläsare (helst en med anpassade flikar) på sina enheter.
-
-- Om autentiseringen Miss lyckas (t. ex. autentisering startar med DuckDuckGo) kommer MSAL.NET att returnera en `AuthenticationCanceled MsalClientException`. 
-  - **Rot problem**: en webbläsare med stöd för anpassade flikar har inte Aktiver ATS på enheten. Autentiseringen startades med en alternativ webbläsare, vilket inte kunde slutföra autentiseringen. 
-  - **Minskning**: informera användaren om att de bör installera en webbläsare (helst en med stöd för anpassade flikar) på sina enheter.
-
-## <a name="devices-and-browsers-tested"></a>Enheter och webbläsare som testats
-I följande tabell visas de enheter och webbläsare som har testats.
-
-| | Webbläsare&ast;     |  Resultat  | 
+| Enhet | Webbläsare     |  Resultat  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/ett + | Chrome-&ast; | Pass|
-| Huawei/ett + | Kant&ast; | Pass|
-| Huawei/ett + | Firefox-&ast; | Pass|
-| Huawei/ett + | Brave&ast; | Pass|
-| En och | Ecosia&ast; | Pass|
-| En och | Kiwiodlare&ast; | Pass|
+| Huawei/ett + | Chrome-\* | Pass|
+| Huawei/ett + | Kant\* | Pass|
+| Huawei/ett + | Firefox-\* | Pass|
+| Huawei/ett + | Brave\* | Pass|
+| En och | Ecosia\* | Pass|
+| En och | Kiwiodlare\* | Pass|
 | Huawei/ett + | Opera | Pass|
 | Huawei | OperaMini | Pass|
 | Huawei/ett + | Inwebbläsare | Pass|
 | En och | Maxthon | Pass|
-| Huawei/ett + | DuckDuckGo | Användare avbruten autentisering|
-| Huawei/ett + | UC-webbläsare | Användare avbruten autentisering|
-| En och | Hos | Användare avbruten autentisering|
-| En och | CM-webbläsare | Användare avbruten autentisering|
-| Huawei/ett + | ingen installerad | AndroidActivityNotFound ex|
+| Huawei/ett + | DuckDuckGo | Användaren avbröt autentiseringen|
+| Huawei/ett + | UC-webbläsare | Användaren avbröt autentiseringen|
+| En och | Hos | Användaren avbröt autentiseringen|
+| En och | CM-webbläsare | Användaren avbröt autentiseringen|
+| Huawei/ett + | ingen installerad | AndroidActivityNotFound-undantag|
 
-&ast; stöder anpassade flikar
+\* stöder anpassade flikar
+
+## <a name="known-issues"></a>Kända problem
+
+Om användaren inte har någon webbläsare aktive rad på enheten, kommer MSAL.NET att utlösa ett `AndroidActivityNotFound` undantag.  
+  - **Minskning**: be användaren att aktivera en webbläsare på sina enheter. Rekommendera en webbläsare som stöder anpassade flikar.
+
+Om autentiseringen Miss lyckas (till exempel om autentisering startar med DuckDuckGo) kommer MSAL.NET att returnera `AuthenticationCanceled MsalClientException`. 
+  - **Rot problem**: en webbläsare som stöder anpassade flikar har inte Aktiver ATS på enheten. Autentiseringen startades med en webbläsare som inte kunde slutföra autentiseringen. 
+  - **Minskning**: be användaren att aktivera en webbläsare på sina enheter. Rekommendera en webbläsare som stöder anpassade flikar.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs den här [guiden](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid)för kodfragment och ytterligare information om hur du använder system webbläsare med Xamarin Android.  
+Mer information och kod exempel finns i [välja mellan en inbäddad webbläsare och en system webbläsare på Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) och [Embedded kontra system Web UI](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

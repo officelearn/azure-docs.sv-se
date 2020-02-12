@@ -1,5 +1,5 @@
 ---
-title: Självstudie – bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell
+title: 'Självstudie: bevilja grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell'
 description: Lär dig hur du beviljar en grupp åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure PowerShell i den här självstudien.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: fb26e603ebb867bda47a93162ffef9bf716d3db6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 2f001e781640704cfcee161b3de75b3f4cae1423
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418585"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138244"
 ---
 # <a name="tutorial-grant-a-group-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudie: bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. I den här självstudien kommer du at ge en grupp åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Beviljar åtkomst för en grupp med olika omfång
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 
@@ -247,7 +247,7 @@ Om du vill bevilja åtkomst för gruppen använder du kommandot [New-AzRoleAssig
 
 ## <a name="remove-access"></a>Tar bort åtkomst
 
-Ta bort åtkomst för användare, grupper och program med [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
+Om du vill ta bort åtkomst för användare, grupper och program använder du [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment) för att ta bort en rolltilldelning.
 
 1. Använd följande kommando för att ta bort rolltilldelningen Deltagare från gruppens resursgruppomfång.
 
@@ -269,7 +269,7 @@ Ta bort åtkomst för användare, grupper och program med [Remove-AzRoleAssignme
 
 Om du vill rensa resurserna som har skapats med den här självstudien kan du ta bort resursgruppen och gruppen.
 
-1. Om du vill ta bort resursgruppen använder du kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
+1. Ta bort resursgruppen med hjälp av kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
     ```azurepowershell
     Remove-AzResourceGroup -Name "rbac-tutorial-resource-group"

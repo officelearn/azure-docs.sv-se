@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159875"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138022"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -36,7 +36,7 @@ Att [utveckla säkra program på Azure](abstract-develop-secure-apps.md) är en 
 ## <a name="cloud-security-advantages"></a>Fördelar med moln säkerhet
 Det är viktigt att förstå [delningen av ansvaret](shared-responsibility.md) mellan dig och Microsoft. Lokalt, du äger hela stacken, men när du flyttar till molnet kan du överföra vissa ansvars områden till Microsoft.
 
-Det finns [säkerhets för delar i molnet](shared-responsibility.md#cloud security advantages). I en lokal miljö har organisationer troligen ouppfyllda ansvar och begränsade resurser som är tillgängliga för att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
+Det finns [säkerhets för delar i molnet](shared-responsibility.md#cloud-security-advantages). I en lokal miljö har organisationer troligen ouppfyllda ansvar och begränsade resurser som är tillgängliga för att investera i säkerhet, vilket skapar en miljö där angripare kan utnyttja sårbarheter på alla nivåer.
 
 Organisationer kan förbättra sina hot identifierings-och svars tider genom att använda en providers molnbaserade säkerhetsfunktioner och Cloud Intelligence.  Genom att ändra ansvars områden till moln leverantören kan organisationer få mer säkerhets täckning, vilket gör att de kan allokera om säkerhets resurser och budget till andra affärs prioriteringar.
 
@@ -98,14 +98,14 @@ Använd standard protokoll för autentisering, till exempel OAuth2 och Kerberos.
 
 I följande tabell visas kliv-hoten och innehåller några exempel på åtgärder som använder Azure-funktioner. Dessa åtgärder fungerar inte i varje situation.
 
-| Säkerhetshot | Säkerhets egenskap | Potentiella Azure-plattforms begränsningar |
+| Hot | Säkerhets egenskap | Potentiella Azure-plattforms begränsningar |
 | --- | --- | --- |
 | Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
 | Manipulation | Integritet | Verifiera SSL-certifikat. |
 | Avvislighet | Oavvislig het | Aktivera [övervakning och diagnostik](/azure/architecture/best-practices/monitoring)i Azure. |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänst certifikat](/rest/api/appservice/certificates). |
 | Denial of service | Tillgänglighet | Övervaka prestanda mått för potentiella denial-of-service-villkor. Implementera anslutnings filter. |
-| Behörighets höjning | Autentisering | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
+| Behörighets höjning | Auktorisering | Använd [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 
 ## <a name="develop-on-azure-app-service"></a>Utveckla på Azure App Service
 [Azure App Service](/azure/app-service/overview) är ett PaaS-erbjudande som gör att du kan skapa webb-och mobilappar för alla plattformar och enheter och ansluta till data var som helst, i molnet eller lokalt. App Service innehåller de webb-och mobil funktioner som tidigare levererades separat som Azure Websites och Azure Mobile Services. Det finns nya funktioner för att automatisera affärsprocesser och hantera moln-API:er. Som en enda integrerad tjänst ger App Service en omfattande uppsättning funktioner för webb-, mobil-och integrations scenarier.
@@ -119,7 +119,7 @@ Nedan följer metod tips för hur du använder App Service.
 **Information**: att begränsa åtkomsten är absolut nödvändig för organisationer som vill tillämpa säkerhets principer för data åtkomst. Du kan använda RBAC för att tilldela behörigheter till användare, grupper och program i ett visst omfång. Mer information om hur du beviljar användare åtkomst till program finns i [Kom igång med åtkomst hantering](/azure/role-based-access-control/overview).
 
 **Bästa praxis**: skydda dina nycklar.   
-**Information**: Azure Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och tjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För extra säkerhet kan du importera eller skapa nycklar i maskinvarusäkerhetsmoduler. Mer information finns i [Azure Key Vault](/azure/key-vault/key-vault-overview) . Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse.
+**Information**: Azure Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och tjänster. Med Key Vault kan du kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). För ytterligare säkerhet kan du importera eller generera nycklar i HSM-moduler. Mer information finns i [Azure Key Vault](/azure/key-vault/key-vault-overview) . Du kan också använda Key Vault för att hantera dina TLS-certifikat med automatisk förnyelse.
 
 **Bästa praxis**: begränsa inkommande käll-IP-adresser.   
 **Information**: [App Service-miljön](/azure/app-service/environment/intro) har en funktion för integrering av virtuella nätverk som hjälper dig att begränsa inkommande käll-IP-adresser via nätverks säkerhets grupper. Med virtuella nätverk kan du placera Azure-resurser i ett nätverk som inte är Internet och som du styr åtkomsten till. Mer information finns i [integrera din app med ett virtuellt Azure-nätverk](/azure/app-service/web-sites-integrate-with-vnet).

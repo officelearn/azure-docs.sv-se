@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481304"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132209"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Hur objekt och autentiseringsuppgifter synkroniseras i en Azure AD Domain Services hanterad domän
 
@@ -38,7 +38,7 @@ Synkroniseringsprocessen är enkelriktad/enkelriktad genom design. Det finns ing
 
 I följande tabell visas några vanliga attribut och hur de synkroniseras till Azure AD DS.
 
-| Attribut i Azure AD DS | Source | Anteckningar |
+| Attribut i Azure AD DS | Källa | Anteckningar |
 |:--- |:--- |:--- |
 | UPN | Användarens *UPN* -attribut i Azure AD-klienten | UPN-attributet från Azure AD-klienten synkroniseras med Azure AD DS. Det mest pålitliga sättet att logga in på en hanterad Azure AD DS-domän använder UPN. |
 | SAMAccountName | Användarens *smek namn* -attribut i Azure AD-klient eller automatiskt genererad | Attributet *sAMAccountName* hämtas från attributet *smek namn* i Azure AD-klienten. Om flera användar konton har samma *startalias* -attribut skapas *sAMAccountName* automatiskt. Om användarens *smek namn* eller *UPN* -prefix är längre än 20 tecken genereras *sAMAccountName* automatiskt för att uppfylla gränsen på 20 tecken i *sAMAccountName* -attribut. |
@@ -60,11 +60,11 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 | accountEnabled |userAccountControl (anger eller tar bort ACCOUNT_DISABLED bitar) |
 | city |L |
 | ursprungslandet |CO |
-| Avdelning |Avdelning |
+| avdelning |avdelning |
 | displayName |displayName |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
-| jobTitle |Rubrik |
+| jobTitle |title |
 | e-post |e-post |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (kan ibland skapas automatiskt) |
@@ -77,7 +77,7 @@ I följande tabell visas hur särskilda attribut för användar objekt i Azure A
 | preferredLanguage |preferredLanguage |
 | state |St |
 | streetAddress |streetAddress |
-| Efternamn |SN |
+| surname |SN |
 | telephoneNumber |telephoneNumber |
 | userPrincipalName |userPrincipalName |
 
@@ -97,7 +97,7 @@ I följande tabell visas hur särskilda attribut för grupp objekt i Azure AD sy
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Synkronisering från lokala AD DS till Azure AD och Azure AD DS
 
-Azure AD Connect används för att synkronisera användar konton, grupp medlemskap och hash-autentiseringsuppgifter från en lokal AD DS-miljö till Azure AD. Attribut för användar konton som UPN och lokal säkerhets identifierare (SID) är synkroniserade. För att logga in med Azure AD Domain Services, synkroniseras äldre lösen ords-hashar för NTLM och Kerberos-autentisering även till Azure AD.
+Azure AD Connect används för att synkronisera användar konton, grupp medlemskap och hash-autentiseringsuppgifter från en lokal AD DS-miljö till Azure AD. Attribut för användar konton som UPN och lokal säkerhets identifierare (SID) är synkroniserade. För att logga in med Azure AD DS, synkroniseras äldre lösen ords-hashar för NTLM och Kerberos-autentisering även till Azure AD.
 
 > [!IMPORTANT]
 > Azure AD Connect bör endast installeras och konfigureras för synkronisering med lokala AD DS-miljöer. Det finns inte stöd för att installera Azure AD Connect i en Azure AD DS-hanterad domän för att synkronisera objekt tillbaka till Azure AD.
@@ -113,7 +113,7 @@ Många organisationer har en ganska komplex lokal AD DS-miljö som innehåller f
 
 Azure AD har ett mycket enklare och ett platt namn område. Om du vill ge användare tillförlitlig åtkomst till program som skyddas av Azure AD löser du UPN-konflikter mellan användar konton i olika skogar. Azure AD DS-hanterade domäner använder en ORGANISATIONSENHETs struktur som liknar Azure AD. Alla användar konton och grupper lagras i behållaren *AADDC Users* , trots att de synkroniseras från olika lokala domäner eller skogar, även om du har konfigurerat en hierarkisk ou-struktur lokalt. Den hanterade Azure AD DS-domänen fören klar alla hierarkiska OU-strukturer.
 
-Som tidigare beskrivs finns det ingen synkronisering från Azure AD DS tillbaka till Azure AD. Du kan [skapa en anpassad organisationsenhet (OU)](create-ou.md) i Azure AD DS och sedan användare, grupper eller tjänst konton inom dessa anpassade organisationsenheter. Inget av de objekt som har skapats i anpassade organisationsenheter synkroniseras tillbaka till Azure AD. Dessa objekt är bara tillgängliga i den hanterade domänen i Azure AD DS och visas inte med Azure AD PowerShell-cmdlet: ar, Azure AD Graph API eller med Azure AD management UI.
+Som tidigare beskrivs finns det ingen synkronisering från Azure AD DS tillbaka till Azure AD. Du kan [skapa en anpassad organisationsenhet (OU)](create-ou.md) i Azure AD DS och sedan användare, grupper eller tjänst konton inom dessa anpassade organisationsenheter. Inget av de objekt som har skapats i anpassade organisationsenheter synkroniseras tillbaka till Azure AD. Dessa objekt är bara tillgängliga i den hanterade domänen i Azure AD DS och är inte synliga med Azure AD PowerShell-cmdlet: ar, Microsoft Graph API eller med Azure AD management UI.
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Vad är inte synkroniserat med Azure AD DS
 
@@ -128,7 +128,11 @@ Följande objekt eller attribut synkroniseras inte från en lokal AD DS-miljö t
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Lösenordssynkronisering och säkerhets aspekter
 
-När du aktiverar Azure AD DS krävs äldre hashvärden för NTLM + Kerberos-autentisering. Azure AD lagrar inte lösen ord i klartext, så dessa hash-värden kan inte genereras automatiskt för befintliga användar konton. När NTLM och Kerberos-kompatibla hash-värden för lösen ord har genererats och lagrats lagras de alltid på ett krypterat sätt i Azure AD. Krypterings nycklarna är unika för varje Azure AD-klient. Dessa hash-värden krypteras så att endast Azure AD DS har åtkomst till krypterings nycklarna. Ingen annan tjänst eller komponent i Azure AD har åtkomst till krypterings nycklarna. Äldre hashvärden för lösen ord synkroniseras sedan från Azure AD till domän kontrol Lanterna för en hanterad Azure AD DS-domän. Diskarna för de här hanterade domän kontrol Lanterna i Azure AD DS är krypterade i vila. Dessa lösen ords-hashar lagras och skyddas på dessa domänkontrollanter på liknande sätt som lösen ord lagras och skyddas i en lokal AD DS-miljö.
+När du aktiverar Azure AD DS krävs äldre hashvärden för NTLM + Kerberos-autentisering. Azure AD lagrar inte lösen ord i klartext, så dessa hash-värden kan inte genereras automatiskt för befintliga användar konton. När NTLM och Kerberos-kompatibla hash-värden för lösen ord har genererats och lagrats lagras de alltid på ett krypterat sätt i Azure AD.
+
+Krypterings nycklarna är unika för varje Azure AD-klient. Dessa hash-värden krypteras så att endast Azure AD DS har åtkomst till krypterings nycklarna. Ingen annan tjänst eller komponent i Azure AD har åtkomst till krypterings nycklarna.
+
+Äldre hashvärden för lösen ord synkroniseras sedan från Azure AD till domän kontrol Lanterna för en hanterad Azure AD DS-domän. Diskarna för de här hanterade domän kontrol Lanterna i Azure AD DS är krypterade i vila. Dessa lösen ords-hashar lagras och skyddas på dessa domänkontrollanter på liknande sätt som lösen ord lagras och skyddas i en lokal AD DS-miljö.
 
 För endast molnbaserade Azure AD-miljöer [måste användarna återställa/ändra sitt lösen ord](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) för att nödvändiga lösen ords-hashar ska genereras och lagras i Azure AD. För alla moln användar konton som skapats i Azure AD när du har aktiverat Azure AD Domain Services genereras lösen ords hasharna och lagras i de NTLM-och Kerberos-kompatibla formaten. De nya kontona behöver inte återställas eller ändra sina lösen ord genererar äldre lösen ords-hashar.
 

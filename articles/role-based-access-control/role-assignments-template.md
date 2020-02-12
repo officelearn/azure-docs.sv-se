@@ -1,5 +1,5 @@
 ---
-title: Lägg till roll tilldelningar med Azure RBAC och Azure Resource Manager mallar
+title: Lägg till roll tilldelningar med RBAC och Azure Resource Manager mallar
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Resource Manager mallar.
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aeb4bfbc40196575e2cb812738a9ab5de991d2aa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981023"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138290"
 ---
 # <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Lägg till roll tilldelningar med Azure RBAC och Azure Resource Manager mallar
 
@@ -64,7 +64,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
 
 I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 

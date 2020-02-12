@@ -3,15 +3,15 @@ title: Hanterade behållar register
 description: Introduktion till Azure Container Registry-tjänsten, som tillhandahåller molnbaserade, hanterade, privata Docker-register.
 author: stevelas
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445720"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132033"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -41,7 +41,7 @@ Azure tillhandahåller verktyg som inkluderar Azures kommando rads gränssnitt, 
 * **Säkerhet och åtkomst** – du loggar in i ett register med hjälp av Azure CLI eller standard kommandot `docker login`. Azure Container Registry överför behållar avbildningar över HTTPS och stöder TLS för att skydda klient anslutningar. 
 
   > [!IMPORTANT]
-  > Från och med 13 januari 2020 kräver Azure Container Registry alla säkra anslutningar från servrar och program för att använda TLS 1,2. Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka.
+  > Från och med 13 januari 2020 kräver Azure Container Registry alla säkra anslutningar från servrar och program för att använda TLS 1,2. Aktivera TLS 1,2 med hjälp av en senaste docker-klient (version 18.03.0 eller senare). Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka. 
 
   Du [styr åtkomsten](container-registry-authentication.md) till en container med hjälp av en Azure-identitet, ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md) eller ett angivet administratörskonto. Använd rollbaserad åtkomst kontroll (RBAC) för att tilldela användare eller system detaljerade behörigheter till ett register.
 

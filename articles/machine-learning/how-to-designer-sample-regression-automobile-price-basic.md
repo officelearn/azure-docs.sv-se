@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: 58adbc7607b0b32e79123b701c37f55ce7cc1d2e
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963305"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138118"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Använd regression för att förutsäga bil priser med Azure Machine Learning designer
 
@@ -38,7 +38,7 @@ Här är det slutliga, färdiga diagrammet i pipelinen. Den här artikeln inneh�
 
 ![Diagram över pipelinen](./media/how-to-designer-sample-regression-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -61,7 +61,7 @@ Använd modulen **Välj kolumner i data uppsättning** för att undanta normalis
 
 Problem med maskin inlärning varierar. Vanliga Machine Learning-uppgifter är klassificerings-, kluster-, Regressions-och rekommenderade system, vilket kan kräva en annan algoritm. Valet av algoritm beror ofta på kraven i användnings fallet. När du har valt en algoritm måste du justera dess parametrar för att träna en mer exakt modell. Du måste sedan utvärdera alla modeller utifrån mått som precision, intelligibility och effektivitet.
 
-Eftersom syftet med det här exemplet är att förutsäga bil priser och att kolumnen etikett (pris) innehåller reella tal är en Regressions modell ett bra val. Med tanke på att antalet funktioner är relativt litet (mindre än 100) och dessa funktioner inte är glesa, är besluts gränser troligt vis inte linjärt. Vi använder därför **besluts skogs regression** för denna pipeline.
+Eftersom syftet med det här exemplet är att förutsäga bil priser, och eftersom etikett kolumnen (pris) är kontinuerliga data, kan en Regressions modell vara ett bra val. Vi använder **linjär regression** för denna pipeline.
 
 Använd modulen **dela data** för att slumpmässigt dela in indata så att inlärnings data uppsättningen innehåller 70% av original data och test data uppsättningen innehåller 30% av de ursprungliga data.
 

@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 23e34d65a06f5fbf3ad8ce53311862c680ddebd0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d70db384101d838b2b65707090577156daa59b9a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77021992"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138062"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -167,6 +167,9 @@ Användar upplevelsen för sekundär regions återställning liknar den primära
 
 - Information om hur du återställer och skapar en virtuell dator finns i [skapa en virtuell dator](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
 - Se [återställa diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks)för att återställa som en disk.
+
+>[!NOTE]
+>Återställnings jobbet kan inte avbrytas när återställningen har utlösts och i data överförings fasen.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Övervaka återställnings jobb för sekundär region
 

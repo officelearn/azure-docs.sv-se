@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474448"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132287"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 
@@ -65,7 +65,7 @@ Följande distributions överväganden gäller för det här exemplet:
 
 Precis som i föregående exempel scenario antar vi att contoso har ett lokalt LOB-program (Line-of-Business) som utvecklades nästan för varje år sedan. Det här programmet är katalog medvetet och utformat för att använda LDAP för att läsa information/attribut om användare från AD DS. Programmet ändrar inte attribut eller skriver på annat sätt till katalogen.
 
-Contoso vill migrera det här programmet till Azure och dra tillbaka den lokala maskin vara som är värd för det här programmet. Programmet kan inte skrivas om för att använda moderna katalog-API: er, till exempel den REST-baserade Azure AD-Graph API. Ett alternativ för att lyfta och byta är att önska var programmet kan migreras för att köras i molnet, utan att ändra kod eller skriva om programmet.
+Contoso vill migrera det här programmet till Azure och dra tillbaka den lokala maskin vara som är värd för det här programmet. Programmet kan inte skrivas om för att använda moderna katalog-API: er, till exempel REST-baserade Microsoft Graph-API. Ett alternativ för att lyfta och byta är att önska var programmet kan migreras för att köras i molnet, utan att ändra kod eller skriva om programmet.
 
 För att hjälpa dig med det här scenariot låter Azure AD DS program utföra LDAP-läsningar mot den hanterade domänen för att hämta den attributinformation som krävs. Programmet behöver inte skrivas om, så en hiss-och-Shift i Azure låter användarna fortsätta att använda appen utan att göra en ändring i där den körs.
 

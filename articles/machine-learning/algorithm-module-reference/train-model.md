@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548415"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137923"
 ---
 # <a name="train-model-module"></a>Train-modell
 
@@ -39,7 +39,7 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
 
 3. När utbildningen har slutförts använder du den tränade modellen med en av [poängsättnings-modulerna](./score-model.md)för att göra förutsägelser på nya data.
 
-## <a name="how-to-use-train-model"></a>Använda **träna modell**  
+## <a name="how-to-use-train-model"></a>Använda träna modell 
   
 1.  I Azure Machine Learning konfigurerar du en klassificerings modell eller Regressions modell.
     
@@ -49,7 +49,7 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
 
     Data uppsättningen för träning måste innehålla en etikett kolumn. Alla rader utan etiketter ignoreras.
   
-4.  För **kolumnen etikett**klickar du på **Starta kolumn väljaren**och väljer en enda kolumn som innehåller resultat som modellen kan använda för utbildning.
+4.  För **kolumnen etikett**klickar du på **Redigera kolumn** i den högra panelen i modulen och väljer en enda kolumn som innehåller resultat som modellen kan använda för utbildning.
   
     - För klassificerings problem måste etikett kolumnen innehålla antingen **kategoriska** -värden eller **diskreta** värden. Några exempel kan vara ja/nej-klassificering, en klassificerings kod, ett namn på en sjukdom eller en inkomst grupp.  Om du väljer en noncategorical-kolumn kommer modulen att returnera ett fel under träningen.
   

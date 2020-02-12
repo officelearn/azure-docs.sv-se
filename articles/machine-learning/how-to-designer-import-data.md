@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314036"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138159"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importera dina data till Azure Machine Learning designer
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importera dina data till Azure Machine Learning designer (förhands granskning)
 
 I den här artikeln får du lära dig hur du importerar dina egna data i designern för att skapa anpassade lösningar. Det finns två sätt att importera data till designern: 
 
@@ -45,7 +45,7 @@ Du hittar dina registrerade data uppsättningar i modulen modul under **data upp
 
 ![Skärm bild som visar platsen för sparade data uppsättningar i design verktyget](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Alla [fil data uppsättningar](how-to-create-register-datasets.md#dataset-types) som är registrerade på din Machine Learning-arbetsyta visas i modulen modul. Du är inte begränsad till att använda data uppsättningar som skapats i designern.
+
 
 > [!NOTE]
 > Designern stöder för närvarande endast bearbetning av [tabell data uppsättningar](how-to-create-register-datasets.md#dataset-types). Om du vill använda [fil data uppsättningar](how-to-create-register-datasets.md#dataset-types)använder du Azure Machine Learning SDK som finns för python och R.
@@ -76,11 +76,11 @@ Designern stöder tabell data uppsättningar som skapats från följande källor
 
 Designern identifierar internt följande data typer:
 
-* String
+* Sträng
 * Integer
-* Decimal
-* Boolean
-* Datum
+* decimaltal
+* Boolesk
+* Date
 
 Designern använder en intern datatyp för att skicka data mellan moduler. Du kan uttryckligen konvertera dina data till data tabell format med hjälp av modulen [konvertera till data uppsättning](algorithm-module-reference/convert-to-dataset.md) . Alla moduler som accepterar andra format än det interna formatet kommer att konvertera data tyst innan de skickas till nästa modul.
 

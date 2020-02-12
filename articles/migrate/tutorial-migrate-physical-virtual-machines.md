@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 3fbc94464c139add6e275890e1a1e415b2826f0d
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069531"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134941"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -61,9 +61,6 @@ Innan du börjar de här självstudierna bör du:
 Konfigurera Azure-behörigheter innan du kan migrera med Azure Migrate Server-migrering.
 
 - **Skapa ett projekt**: ditt Azure-konto måste ha behörighet att skapa ett Azure Migrate-projekt. 
-- **Registrera Azure Migrate Replication**-enhet: replikeringstjänsten skapar och registrerar en Azure Active Directory-app på ditt Azure-konto. Delegera behörigheter för detta.
-- **Skapa Key Vault**: om du vill migrera datorer skapar Azure Migrate en Key Vault i resurs gruppen för att hantera åtkomst nycklar till replikeringens lagrings konto i din prenumeration. Om du vill skapa valvet behöver du Roll tilldelnings behörigheter för resurs gruppen där Azure Migrate-projektet finns. 
-
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
 
@@ -73,43 +70,6 @@ Konfigurera Azure-behörigheter innan du kan migrera med Azure Migrate Server-mi
     - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
     - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>Tilldela behörigheter för att registrera replikerings enheten
-
-För agent-baserad migrering delegerar du behörigheter för Azure Migrate Server-migrering för att skapa och registrera en Azure AD-App i ditt konto. Du kan tilldela behörigheter med någon av följande metoder:
-
-- En klient/global-administratör kan bevilja behörigheter till användare i klienten, för att skapa och registrera Azure AD-appar.
-- En klient/global administratör kan tilldela rollen programutvecklare (som har behörighet) till kontot.
-
-Det är värt att notera att:
-
-- Apparna har inte någon annan åtkomst behörighet för prenumerationen förutom de som beskrivs ovan.
-- Du behöver bara dessa behörigheter när du registrerar en ny replikeringsprincip. Du kan ta bort behörigheterna när replikeringsprincipen har kon figurer ATS. 
-
-
-#### <a name="grant-account-permissions"></a>Bevilja konto behörigheter
-
-Klient organisationen/den globala administratören kan bevilja behörigheter enligt följande
-
-1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användare** > **användar inställningar**.
-2. Administratören bör ange **Appregistreringar** till **Ja**.
-
-    ![Azure AD-behörigheter](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-
-#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare 
-
-Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
-
-## <a name="assign-permissions-to-create-key-vault"></a>Tilldela behörigheter för att skapa Key Vault
-
-Tilldela roll tilldelnings behörigheter för resurs gruppen där Azure Migrate-projektet finns, enligt följande:
-
-1. I resurs gruppen i Azure Portal väljer du **åtkomst kontroll (IAM)** .
-2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter. Du behöver behörighet som **ägare** (eller **deltagare** och **användar åtkomst administratör**).
-3. Om du inte har de behörigheter som krävs kan du begära dem från resurs gruppens ägare. 
-
 ## <a name="prepare-for-migration"></a>Förbereda för migrering
 
 ### <a name="check-machine-requirements-for-migration"></a>Kontrol lera dator kraven för migrering
@@ -117,7 +77,7 @@ Tilldela roll tilldelnings behörigheter för resurs gruppen där Azure Migrate-
 Kontrol lera att datorerna uppfyller kraven för migrering till Azure. 
 
 > [!NOTE]
-> Agent-baserad migrering med Azure Migrate Server-migrering baseras på funktionerna i tjänsten Azure Site Recovery. Vissa krav kan vara länkade till Site Recovery-dokumentationen.
+> En agent-baserad migrering med Azure Migrate Server-migrering har samma arkitektur som agentbaserade haveri beredskap i Azure Site Recoverys tjänsten och vissa av de komponenter som används delar samma kodbas. Vissa krav kan vara länkade till Site Recovery-dokumentationen.
 
 1. [Kontrol lera](migrate-support-matrix-physical-migration.md#physical-server-requirements) krav för fysisk server.
 2. Verifiera inställningarna för virtuella datorer. Lokala datorer som du replikerar till Azure måste uppfylla [kraven för virtuella Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements)-datorer.

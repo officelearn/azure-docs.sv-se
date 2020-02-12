@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
-ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: f15f50e372d0bfe58018b16ebfa5d5d85644ae1a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963249"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137791"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Bygg en klassificerare för att förutse företags kategori med Azure Machine Learning designer.
 
@@ -63,7 +63,7 @@ Det gick inte att hitta artiklar för vissa företag, så antalet poster är min
 
 ## <a name="pre-process-the-text-data"></a>I förväg bearbeta text data
 
-Vi använder modulen för **Förbearbetad text** för att Förbearbeta text data, inklusive identifiera meningar, Tokenize och så vidare. Du har hittat alla alternativ som stöds i artikeln [**Förbearbeta text**](algorithm-module-reference/preprocess-text.md) . Efter bearbetning av tex-data använder vi modulen **dela data** för att slumpmässigt dela in indata så att träning-datauppsättningen innehåller 50% av de ursprungliga data och test data uppsättningen innehåller 50% av den ursprungliga informationen.
+Vi använder modulen för **Förbearbetad text** för att Förbearbeta text data, inklusive identifiera meningar, Tokenize och så vidare. Du har hittat alla alternativ som stöds i artikeln [**Förbearbeta text**](algorithm-module-reference/preprocess-text.md) . Efter förbearbetning av text data använder vi modulen **dela data** för att slumpmässigt dela in indata så att träning-datauppsättningen innehåller 50% av original data och test data uppsättningen innehåller 50% av den ursprungliga informationen.
 
 ## <a name="feature-engineering"></a>Funktions teknik
 I det här exemplet ska vi använda två metoder för att utföra funktions teknik.
@@ -79,7 +79,7 @@ I exempel pipeline ställer vi in antalet hash-bitar till 14 och anger antalet n
 
 En n-gram är en sammanhängande sekvens av n-termer från en specifik följd av text. En n-gram av storlek 1 kallas unigram. en n-gram av storlek 2 är en dubbel gram. en n-gram av storlek 3 är en trigram. N-gram av större storlekar kallas ibland för värdet n, t. ex. "fyra-gram", "fem-gram" och så vidare.
 
-Vi har använt [**funktionen extrahera N-g från text**](algorithm-module-reference/extract-n-gram-features-from-text.md)-modulen som en annan lösning för funktions teknik. I den här modulen extraheras först uppsättningen av n-gram, förutom n-gram, antalet dokument där varje n-gram visas i texten räknas (DF). I det här exemplet används TF-IDF-mått för att beräkna funktions värden. Sedan konverteras ostrukturerade text data till alfanumeriska funktions vektorer där varje funktion representerar TF-IDF av en n-gram i en text instans.
+Vi har använt [**funktionen extrahera N-g från text**](algorithm-module-reference/extract-n-gram-features-from-text.md) -modulen som en annan lösning för funktions teknik. I den här modulen extraheras först uppsättningen av n-gram, förutom n-gram, antalet dokument där varje n-gram visas i texten räknas (DF). I det här exemplet används TF-IDF-mått för att beräkna funktions värden. Sedan konverteras ostrukturerade text data till alfanumeriska funktions vektorer där varje funktion representerar TF-IDF av en n-gram i en text instans.
 
 När du har konverterat text data till numeriska funktions vektorer används en **Välj kolumn** -modul för att ta bort text data från data uppsättningen. 
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806036"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137773"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för Custom Speech
 
-Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell eller en anpassad modell som du planerar att skapa. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen att identifiera ord, fraser, akronymer, namn och andra produktspecifika villkor. Fler data uppsättningar i domänen som du anger (data som är relaterade till vad användarna säger och vad du förväntar dig att identifiera), desto mer exakta är din modell, vilket leder till förbättrad igenkänning. Kom ihåg att genom att mata in orelaterade data i din utbildning kan du minska eller försämra precisionen i din modell.
+Träna en tal-till-text-modell kan förbättra igenkännings precisionen för Microsofts bas linje modell. En modell tränas med hjälp av välmärkta avskrifter och relaterad text. Dessa data uppsättningar tillsammans med tidigare överförda ljud data används för att förfina och träna tal-till-text-modellen att identifiera ord, fraser, akronymer, namn och andra produktspecifika villkor. Fler data uppsättningar i domänen som du anger (data som är relaterade till vad användarna säger och vad du förväntar dig att identifiera), desto mer exakta är din modell, vilket leder till förbättrad igenkänning. Kom ihåg att genom att mata in orelaterade data i din utbildning kan du minska eller försämra precisionen i din modell.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Använd utbildning för att lösa problem med problemlösning
 

@@ -1,5 +1,5 @@
 ---
-title: Hantera åtkomst till Azure-hantering med villkorlig åtkomst i Azure Active Directory
+title: Hantera åtkomst till Azure-hantering med villkorlig åtkomst i Azure AD
 description: Lär dig mer om att använda villkorlig åtkomst i Azure AD för att hantera åtkomst till Azure-hantering.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: e4b7ce0701349cae3ef501213d0f822ee8d150d0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142835"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137416"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
 
@@ -37,7 +37,7 @@ Om du vill skapa en princip för Azure-hantering väljer du **Microsoft Azure ha
 
 Principen som du skapar gäller för alla slut punkter för Azure-hantering, inklusive följande:
 
-- Azure Portal
+- Azure-portalen
 - Azure Resource Manager Provider
 - Klassiska tjänst hanterings-API: er
 - Azure PowerShell

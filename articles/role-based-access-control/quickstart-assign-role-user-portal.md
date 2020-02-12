@@ -1,5 +1,5 @@
 ---
-title: Självstudie – ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal
+title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC och Azure Portal '
 description: I den här självstudien får du lära dig att ge en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419659"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138096"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal
 
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. I den här självstudien ger du en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Bevilja åtkomst för en användare i ett resursgruppomfång

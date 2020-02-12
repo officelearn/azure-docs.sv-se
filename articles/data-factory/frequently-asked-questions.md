@@ -8,13 +8,13 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644706"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131475"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
@@ -139,7 +139,7 @@ En data uppsättning är en starkt skriven parameter och en entitet som du kan �
 
 En länkad tjänst är också en starkt skriven parameter som innehåller anslutnings information till antingen ett data lager eller en beräknings miljö. Det är också en entitet som du kan återanvända eller referera till.
 
-### <a name="control-flows"></a>Styr flöden
+### <a name="control-flows"></a>Kontroll flöden
 Kontroll flöden dirigerar pipeline-aktiviteter som innefattar länkning av aktiviteter i en sekvens, förgrening, parametrar som du definierar på pipelinen och argument som du skickar när du anropar pipelinen på begäran eller från en utlösare. Kontroll flöden omfattar också anpassade tillstånds pass och upprepnings behållare (det vill säga, förfallna iteratorer).
 
 
@@ -195,6 +195,9 @@ Använd kopierings aktiviteten till att mellanlagra data från någon av de andr
 
 IR med egen värd är en ADF-baserad pipeline-konstruktion som du kan använda med kopierings aktiviteten för att hämta eller flytta data till och från lokal eller VM-baserade data källor och mottagare. Mellanlagra data först med en kopia, sedan data flöde för omvandling och sedan en senare kopia om du behöver flytta transformerade data tillbaka till lokal Store.
 
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Betjänar data flödets beräknings motor flera klienter?
+Kluster delas aldrig. Vi garanterar isolering för varje jobb körning i produktions körningar. I händelse av ett fel söknings scenario får en person ett kluster och alla fel kommer att gå till det klustret som initieras av användaren.
+
 ## <a name="wrangling-data-flows"></a>Datatransformering data flöden
 
 ### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Vilka regioner stöds för datatransformering Data Flow?
@@ -247,7 +250,7 @@ Datatransformering Data Flow stöder följande data typer i SQL. Du får ett ver
 * short
 * double
 * real
-* float
+* flyt
 * char
 * nchar
 * varchar
@@ -255,17 +258,17 @@ Datatransformering Data Flow stöder följande data typer i SQL. Du får ett ver
 * heltal
 * int
 * bit
-* boolean
+* boolesk
 * smallint
 * tinyint
 * bigint
 * long
 * text
-* date
+* datum
 * datetime
 * datetime2
 * smalldatetime
-* timestamp
+* tidsstämpel
 * uniqueidentifier
 * xml
 

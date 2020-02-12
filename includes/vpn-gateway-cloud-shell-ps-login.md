@@ -5,27 +5,25 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/01/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: deabef0c2c3540e515fe72a161710c95a20fa86f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 50ce8530aca40eed07741f35be1a57bbd7cc1868
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187206"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133612"
 ---
-Öppna PowerShell-konsolen med förhöjd behörighet.
+Öppna PowerShell-konsolen med utökade privilegier.
 
-
-
-Om du kör Azure PowerShell lokalt måste du ansluta till ditt Azure-konto. Den *Connect AzAccount* cmdlet uppmanar dig att autentiseringsuppgifter. När autentisering, hämtas dina kontoinställningar så att de är tillgängliga för Azure PowerShell. Hoppa över detta steg om du inte kör PowerShell lokalt och i stället använder Azure Cloud Shell ”prova” i webbläsaren. Du ansluter till ditt Azure-konto automatiskt.
+Om du kör Azure PowerShell lokalt ansluter du till ditt Azure-konto. Med cmdleten *Connect-AzAccount* uppmanas du att ange autentiseringsuppgifter. Efter autentiseringen hämtas dina konto inställningar så att de är tillgängliga för Azure PowerShell. Om du använder Azure Cloud Shell i stället behöver du inte köra *Connect-AzAccount*. Azure Cloud Shell ansluter automatiskt till ditt Azure-konto.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Om du har mer än en prenumeration kan du hämta en lista över dina Azure-prenumerationer.
+Om du har mer än en prenumeration hämtar du en lista över dina Azure-prenumerationer.
 
 ```azurepowershell-interactive
 Get-AzSubscription

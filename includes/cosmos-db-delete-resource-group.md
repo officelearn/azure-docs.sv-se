@@ -2,25 +2,25 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 01/22/2020
 ms.author: sngun
 ms.custom: seo-java-september2019
-ms.openlocfilehash: d5a0e8412b928aea83670ad9f7c99a892a058c70
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: caefb11e3d691cea940bae5103bf918d3d31cc96
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210346"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134449"
 ---
-När du är klar med din webbapp och Azure Cosmos DB konto kan du ta bort de Azure-resurser som du har skapat så att du inte debiteras fler kostnader. Ta bort resurser:
+När du är klar med din app och Azure Cosmos DB konto kan du ta bort de Azure-resurser som du har skapat så att du inte debiteras fler kostnader. Ta bort resurser:
 
-1. I Azure-portalen väljer du **Resursgrupper** längst till vänster. Om den vänstra menyn är komprimerad väljer ![du knappen](./media/cosmos-db-delete-resource-group/expand.png) expandera för att expandera den.
+1. I Azure Portal Sök fältet söker du efter och väljer **resurs grupper**.
 
-2. Välj den resurs grupp som du skapade för den här snabb starten.  
+2. I listan väljer du den resurs grupp som du skapade för den här snabb starten.  
 
    ![Välj den resurs grupp som ska tas bort](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
-2. I det nya fönstret väljer du **ta bort resurs grupp**.
+2. På sidan **Översikt över** resurs grupp väljer du **ta bort resurs grupp**.
 
    ![Ta bort resurs gruppen](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 

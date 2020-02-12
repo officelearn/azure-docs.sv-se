@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546715"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137534"
 ---
 # <a name="cross-validate-model"></a>Korsvalidera modell
 
@@ -62,21 +62,19 @@ I det här scenariot tränar du och testar modellen med hjälp av kors validerin
 
 2. Anslut utdata från en klassificerings-eller Regressions modell. 
 
-    Om du till exempel använder **två Bayes punkt-datorer** för klassificering, konfigurerar du modellen med de parametrar som du vill använda. Dra sedan en koppling från klassificerarens **modell** port till den matchande porten för kors validerings modellen. 
+    Om du till exempel använder **två klass förstärknings besluts träd** för klassificering konfigurerar du modellen med de parametrar som du vill använda. Dra sedan en koppling från klassificerarens **modell** port till den matchande porten för kors validerings modellen. 
 
     > [!TIP] 
     > Du behöver inte träna modellen eftersom en kors validerings modell automatiskt tränar modellen som en del av utvärderingen.  
 3.  På **data uppsättnings** porten för kors validerings modellen ansluter du till en etikettad utbildnings data uppsättning.  
 
-4.  I fönstret **Egenskaper** för kors validerings modell väljer du **Starta kolumn väljare**. Välj den enda kolumn som innehåller klass etiketten eller det förutsägbara värdet. 
+4.  Klicka på **Redigera kolumn**i den högra panelen av kors validerings modellen. Välj den enstaka kolumn som innehåller klass etiketten eller det förutsägbara värdet. 
 
 5. Ange ett värde för den **slumpmässiga start** parametern om du vill upprepa resultatet av kors valideringen mellan efterföljande körningar på samma data.  
 
 6. Köra en pipeline.
 
 7. Se avsnittet [Results](#results) för en beskrivning av rapporterna.
-
-    Om du vill få en kopia av modellen för åter användning senare växlar du till fliken **utdata** i den högra panelen i modulen som innehåller algoritmen (till exempel den **två Bayes Point-datorn**). Välj sedan ikonen **registrera data uppsättning** för att spara en kopia av den tränade modellen i modul trädet.
 
 ## <a name="results"></a>Resultat
 
@@ -88,9 +86,9 @@ Den första utdata i modulen tillhandahåller källdata för varje rad, tillsamm
 
 Om du vill visa resultaten går du till pipelinen och högerklickar på modulen för att validera modell. Välj **visualisera Poäng resultat**.
 
-| Nytt kolumnnamn      | Beskrivning                              |
+| Nytt kolumn namn      | Beskrivning                              |
 | -------------------- | ---------------------------------------- |
-| Poängsatta etiketter        | Den här kolumnen läggs till i slutet av data uppsättningen. Det innehåller det förväntade värdet för varje rad. |
+| Poäng etiketter        | Den här kolumnen läggs till i slutet av data uppsättningen. Det innehåller det förväntade värdet för varje rad. |
 | Resultat sannolikhet | Den här kolumnen läggs till i slutet av data uppsättningen. Det anger den uppskattade sannolikheten för värdet i **Poäng etiketter**. |
 | Vikt nummer          | Anger det nollbaserade indexet för den vikning som varje datarad har tilldelats vid kors validering. |
 
@@ -103,7 +101,7 @@ I den här rapporten visas vikningarna efter index värde i stigande ordning.  O
 Om du vill visa resultaten går du till pipelinen och högerklickar på modulen för att validera modell. Välj **visualisera utvärderings resultat per vikning**.
 
 
-|Kolumnnamn| Beskrivning|
+|kolumn namn| Beskrivning|
 |----|----|
 |Vikt nummer| En identifierare för varje vikning. Om du har skapat fem vikningar skulle det finnas fem del mängder av data, numrerade 0 till 4.
 |Antal exempel i vikning|Antalet rader tilldelade till varje vikning. De bör vara ungefär lika. |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/14/2020
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: afda502bcd89423ecdd008c0297c85dd8a5b61fb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989849"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133840"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
@@ -177,7 +177,7 @@ Red Hat Enterprise Linux Gold-avbildningar med egen prenumeration kan säkras ge
 
 Azure Disk Encryption stöds inte för [anpassade Red Hat-bilder](/linux/redhat-create-upload-vhd). Ytterligare ADE-krav och nödvändiga komponenter finns dokumenterade i [Azure Disk Encryption för virtuella Linux-datorer](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
-Steg för att använda Azure Disk Encryption finns i [Azure Disk Encryption scenarier för virtuella Linux-datorer](../../linux/disk-encryption-linux.md) och relaterade artiklar.  
+Steg för att använda Azure Disk Encryption finns i [Azure Disk Encryption scenarier för virtuella Linux-datorer](../../linux/disk-encryption-linux.md) och relaterade artiklar.
 
 ## <a name="additional-information"></a>Ytterligare information
 
@@ -186,7 +186,7 @@ Steg för att använda Azure Disk Encryption finns i [Azure Disk Encryption scen
     ```
     "Offer with PublisherId: redhat, OfferId: rhel-byos, PlanId: rhel-lvm75 is private and can not be purchased by subscriptionId: GUID"
     ```
-    
+
     I det här fallet kontaktar du Microsoft eller Red Hat för att aktivera din prenumeration.
 
 - Om du ändrar en ögonblicks bild från en RHEL BYOS-avbildning och försöker publicera den anpassade avbildningen i det [delade bild galleriet](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries)måste du ange plan information som matchar den ursprungliga källan till ögonblicks bilden. Kommandot kan till exempel se ut så här:

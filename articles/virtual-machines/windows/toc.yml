@@ -581,8 +581,6 @@
               href: disks-benchmarks.md
         - name: Hitta icke anslutna diskar
           href: find-unattached-disks.md
-        - name: Använda fillagring
-          href: ../../storage/files/storage-files-quick-create-use-windows.md
         - name: Vanliga frågor och svar om diskar
           href: faq-for-disks.md
     - name: Hantera nätverk

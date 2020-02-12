@@ -1,5 +1,5 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och REST API
+title: Lägga till eller ta bort roll tilldelningar med RBAC och REST API
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och REST API.
 services: active-directory
 documentationcenter: na
@@ -15,24 +15,24 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ae6fce5ab962637fe477ade75cf81b6ac237bdd2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981042"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138317"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och REST API
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] den här artikeln beskriver hur du tilldelar roller med hjälp av REST API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 - `Microsoft.Authorization/roleAssignments/write`-och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 
-## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
 
 I RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om du vill lägga till en roll tilldelning använder du [roll tilldelningarna-skapa](/rest/api/authorization/roleassignments/create) REST API och anger säkerhets objekt, roll definition och omfattning. För att anropa detta API måste du ha åtkomst till `Microsoft.Authorization/roleAssignments/write`-åtgärden. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
 

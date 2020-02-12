@@ -4,16 +4,16 @@ description: Lista över mått som är tillgängliga för varje resurs typ med A
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 02/10/2020
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: fb11bf402ec671a46c191be0d8958c6a8a2c963d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963486"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134948"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Azure Monitor plattforms mått som kan exporteras via diagnostikinställningar
 
@@ -24,6 +24,19 @@ Du kan exportera plattforms måtten från Azure Monitor-pipeline till andra plat
 2. Använd [måtten REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
 På grund av erna i Azure Monitor-Dataservern kan inte alla mått exporteras med diagnostiska inställningar. Tabellen nedan visar vilka som kan och inte kan exporteras med diagnostiska inställningar.
+
+## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Ändra till beteende för NULL-värden och nollvärden 
+ 
+För de plattforms mått som kan exporteras via diagnostikinställningar finns det några mått för vilka Azure Monitor tolkar "0s" som "null-värden". Detta har orsakat viss förvirring mellan Real "0s" (som har spridits av resursen) och tolkat 0s (null-värden). Från **och med den 1 April 2020** kommer de plattforms mått som exporteras via diagnostikinställningar inte längre att exportera ' 0s ', om de inte har spridits av den underliggande resursen. Observera följande:
+
+1.  Om du tar bort en resurs grupp eller en resurs, skickas mått data från de berörda resurserna inte längre till de export destinationer som används. Det innebär att den inte längre visas i Event Hubs, lagrings konton och Log Analytics arbets ytor.
+2.  Den här förbättringen är tillgänglig i alla offentliga och privata moln.
+3.  Den här ändringen påverkar inte beteendet hos någon av följande upplevelser: 
+-   Plattforms resurs loggar som exporter ATS via diagnostikinställningar
+-   Mått diagram i Metrics Explorer
+-   Avisering om plattforms mått
+ 
+## <a name="metrics-exportable-table"></a>Tabell över mått som kan exporteras 
 
 Tabellen innehåller följande kolumner. 
 - Kan exporteras via diagnostikinställningar? 
@@ -73,7 +86,7 @@ Ja | Microsoft.AnalysisServices/servers | qpu_metric | QPU | Antal | Medel
 Ja | Microsoft.AnalysisServices/servers | QueryPoolBusyThreads | Upptagna trådar för frågeprocessorn | Antal | Medel
 Ja | Microsoft.AnalysisServices/servers | QueryPoolIdleThreads | Trådar: inaktiva trådar i lagringspoolen | Antal | Medel
 Ja | Microsoft.AnalysisServices/servers | QueryPoolJobQueueLength | Trådar: Kölängd för jobbkö | Antal | Medel
-Ja | Microsoft.AnalysisServices/servers | Kvot | Minne: kvot | Byte | Medel
+Ja | Microsoft.AnalysisServices/servers | Resurser | Minne: kvot | Byte | Medel
 Ja | Microsoft.AnalysisServices/servers | QuotaBlocked | Minne: kvot blockerad | Antal | Medel
 Ja | Microsoft.AnalysisServices/servers | RowsConvertedPerSec | Bearbetar: rader konverterade per sekund | CountPerSecond | Medel
 Ja | Microsoft.AnalysisServices/servers | RowsReadPerSec | Bearbetar: rader lästa per sekund | CountPerSecond | Medel
@@ -89,7 +102,7 @@ Ja | Microsoft.AnalysisServices/servers | VertiPaqPaged | Minne: VertiPaq växla
 Ja | Microsoft.AnalysisServices/servers | virtual_bytes_metric | Virtuella byte | Byte | Medel
 Ja | Microsoft.ApiManagement/service | BackendDuration | Varaktighet för backend-begäranden | Millisekunder | Medel
 Ja | Microsoft.ApiManagement/service | Kapacitet | Kapacitet | Procent | Medel
-Ja | Microsoft.ApiManagement/service | Längd | Total varaktighet för gateway-begäranden | Millisekunder | Medel
+Ja | Microsoft.ApiManagement/service | Varaktighet | Total varaktighet för gateway-begäranden | Millisekunder | Medel
 Ja | Microsoft.ApiManagement/service | EventHubDroppedEvents | Ignorerade EventHub-händelser | Antal | Totalt
 Ja | Microsoft.ApiManagement/service | EventHubRejectedEvents | Avvisade EventHub-händelser | Antal | Totalt
 Ja | Microsoft.ApiManagement/service | EventHubSuccessfulEvents | Lyckade EventHub-händelser | Antal | Totalt
@@ -131,9 +144,9 @@ Ja | Microsoft. AppPlatform/våren | YoungGenPromotedBytes | Höj data storlek f
 Ja | Microsoft. Automation/automationAccounts | TotalJob | Totalt antal jobb | Antal | Totalt
 Ja | Microsoft. Automation/automationAccounts | TotalUpdateDeploymentMachineRuns | Den totala uppdaterings distributions datorn körs | Antal | Totalt
 Ja | Microsoft. Automation/automationAccounts | TotalUpdateDeploymentRuns | Total uppdaterings distribution körs | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | CoreCount | Dedikerat antal kärnor | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | CreatingNodeCount | Antal noder skapas | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | IdleNodeCount | Antal inaktiva noder | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | CoreCount | Dedikerat antal kärnor | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | CreatingNodeCount | Antal noder skapas | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | IdleNodeCount | Antal inaktiva noder | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | JobDeleteCompleteEvent | Slutför händelser för borttagning av jobb | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | JobDeleteStartEvent | Start händelser för jobb borttagning | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | JobDisableCompleteEvent | Jobb för att inaktivera slutförda händelser | Antal | Totalt
@@ -141,27 +154,27 @@ Ja | Microsoft.Batch/batchAccounts | JobDisableStartEvent | Jobb inaktivera star
 Ja | Microsoft.Batch/batchAccounts | JobStartEvent | Jobb start händelser | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | JobTerminateCompleteEvent | Slutför händelser för avsluta jobb | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | JobTerminateStartEvent | Jobb som avslutar start händelser | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | LeavingPoolNodeCount | Antal noder för att lämna pooler | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | LowPriorityCoreCount | Antal LowPriority kärnor | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | OfflineNodeCount | Antal offline-noder | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | LeavingPoolNodeCount | Antal noder för att lämna pooler | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | LowPriorityCoreCount | Antal LowPriority kärnor | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | OfflineNodeCount | Antal offline-noder | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | PoolCreateEvent | Skapa händelser för pool | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | PoolDeleteCompleteEvent | Slutför händelse för borttagning av pool | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | PoolDeleteStartEvent | Start händelser för borttagning av pool | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | PoolResizeCompleteEvent | Slutför händelser för storleks ändring av pool | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | PoolResizeStartEvent | Starta händelser för att ändra storlek på poolen | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | PreemptedNodeCount | Antal misslyckade noder | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | RebootingNodeCount | Antalet noder startas om | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | ReimagingNodeCount | Antal noder för avbildning | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | RunningNodeCount | Antal noder som körs | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | StartingNodeCount | Antalet noder startas | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | StartTaskFailedNodeCount | Starta aktivitet antal misslyckade noder | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | PreemptedNodeCount | Antal misslyckade noder | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | RebootingNodeCount | Antalet noder startas om | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | ReimagingNodeCount | Antal noder för avbildning | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | RunningNodeCount | Antal noder som körs | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | StartingNodeCount | Antalet noder startas | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | StartTaskFailedNodeCount | Starta aktivitet antal misslyckade noder | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | TaskCompleteEvent | Uppgift slutförda händelser | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | TaskFailEvent | Aktivitet, misslyckade händelser | Antal | Totalt
 Ja | Microsoft.Batch/batchAccounts | TaskStartEvent | Aktivitetens start händelser | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | TotalLowPriorityNodeCount | Antal noder med låg prioritet | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | TotalNodeCount | Antal dedikerade noder | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | UnusableNodeCount | Antal noder som inte kan användas | Antal | Totalt
-Inga | Microsoft.Batch/batchAccounts | WaitingForStartTaskNodeCount | Väntar på att starta aktiviteter antal noder | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | TotalLowPriorityNodeCount | Antal noder med låg prioritet | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | TotalNodeCount | Antal dedikerade noder | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | UnusableNodeCount | Antal noder som inte kan användas | Antal | Totalt
+Nej | Microsoft.Batch/batchAccounts | WaitingForStartTaskNodeCount | Väntar på att starta aktiviteter antal noder | Antal | Totalt
 Ja | Microsoft. BatchAI/arbets ytor | Aktiva kärnor | Aktiva kärnor | Antal | Medel
 Ja | Microsoft. BatchAI/arbets ytor | Aktiva noder | Aktiva noder | Antal | Medel
 Ja | Microsoft. BatchAI/arbets ytor | Inaktiva kärnor | Inaktiva kärnor | Antal | Medel
@@ -371,52 +384,52 @@ Ja | Microsoft.Cache/redis | usedmemoryRss6 | Använt minne RSS (Shard 6) | Byte
 Ja | Microsoft.Cache/redis | usedmemoryRss7 | Använt minne RSS (Shard 7) | Byte | Maximal
 Ja | Microsoft.Cache/redis | usedmemoryRss8 | Använt minne RSS (Shard 8) | Byte | Maximal
 Ja | Microsoft.Cache/redis | usedmemoryRss9 | Använt minne RSS (Shard 9) | Byte | Maximal
-Inga | Microsoft. ClassicCompute/domän namn/platser/roller | Disk-lästa byte/s | Disk läsning | BytesPerSecond | Medel
+Nej | Microsoft. ClassicCompute/domän namn/platser/roller | Disk-lästa byte/s | Disk läsning | BytesPerSecond | Medel
 Ja | Microsoft. ClassicCompute/domän namn/platser/roller | Disk Läs åtgärder/SEK | Disk Läs åtgärder/SEK | CountPerSecond | Medel
-Inga | Microsoft. ClassicCompute/domän namn/platser/roller | Disk-skrivna byte/s | Disk skrivning | BytesPerSecond | Medel
+Nej | Microsoft. ClassicCompute/domän namn/platser/roller | Disk-skrivna byte/s | Disk skrivning | BytesPerSecond | Medel
 Ja | Microsoft. ClassicCompute/domän namn/platser/roller | Disk skrivnings åtgärder/SEK | Disk skrivnings åtgärder/SEK | CountPerSecond | Medel
 Ja | Microsoft. ClassicCompute/domän namn/platser/roller | Nätverk – inkommande | Nätverk – inkommande | Byte | Totalt
 Ja | Microsoft. ClassicCompute/domän namn/platser/roller | Nätverk – utgående | Nätverk – utgående | Byte | Totalt
 Ja | Microsoft. ClassicCompute/domän namn/platser/roller | Procent CPU | Procent CPU | Procent | Medel
-Inga | Microsoft.ClassicCompute/virtualMachines | Disk-lästa byte/s | Disk läsning | BytesPerSecond | Medel
+Nej | Microsoft.ClassicCompute/virtualMachines | Disk-lästa byte/s | Disk läsning | BytesPerSecond | Medel
 Ja | Microsoft.ClassicCompute/virtualMachines | Disk Läs åtgärder/SEK | Disk Läs åtgärder/SEK | CountPerSecond | Medel
-Inga | Microsoft.ClassicCompute/virtualMachines | Disk-skrivna byte/s | Disk skrivning | BytesPerSecond | Medel
+Nej | Microsoft.ClassicCompute/virtualMachines | Disk-skrivna byte/s | Disk skrivning | BytesPerSecond | Medel
 Ja | Microsoft.ClassicCompute/virtualMachines | Disk skrivnings åtgärder/SEK | Disk skrivnings åtgärder/SEK | CountPerSecond | Medel
 Ja | Microsoft.ClassicCompute/virtualMachines | Nätverk – inkommande | Nätverk – inkommande | Byte | Totalt
 Ja | Microsoft.ClassicCompute/virtualMachines | Nätverk – utgående | Nätverk – utgående | Byte | Totalt
 Ja | Microsoft.ClassicCompute/virtualMachines | Procent CPU | Procent CPU | Procent | Medel
 Ja | Microsoft.ClassicStorage/storageAccounts | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft.ClassicStorage/storageAccounts | Utgående | Utgående | Byte | Totalt
-Ja | Microsoft.ClassicStorage/storageAccounts | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Ja | Microsoft.ClassicStorage/storageAccounts | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft.ClassicStorage/storageAccounts | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft.ClassicStorage/storageAccounts | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft.ClassicStorage/storageAccounts | Transaktioner | Transaktioner | Antal | Totalt
-Inga | Microsoft.ClassicStorage/storageAccounts | UsedCapacity | Använd kapacitet | Byte | Medel
+Nej | Microsoft.ClassicStorage/storageAccounts | UsedCapacity | Använd kapacitet | Byte | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | Tillgänglighet | Tillgänglighet | Procent | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/blobServices | BlobCapacity | Blobkapacitet | Byte | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/blobServices | BlobCount | Antalet blobar | Antal | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/blobServices | BlobCapacity | Blobkapacitet | Byte | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/blobServices | BlobCount | Antalet blobar | Antal | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | ContainerCount | Antal blobcontainrar | Antal | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | Utgående | Utgående | Byte | Totalt
-Inga | Microsoft. ClassicStorage/storageAccounts/blobServices | IndexCapacity | Index kapacitet | Byte | Medel
-Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Nej | Microsoft. ClassicStorage/storageAccounts/blobServices | IndexCapacity | Index kapacitet | Byte | Medel
+Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/blobServices | Transaktioner | Transaktioner | Antal | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | Utgående | Utgående | Byte | Totalt
-Inga | Microsoft. ClassicStorage/storageAccounts/fileServices | FileCapacity | Fil kapacitet | Byte | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/fileServices | FileCount | Antal filer | Antal | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareCount | Antal fil resurser | Antal | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareQuota | Fil resursens kvot storlek | Byte | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareSnapshotCount | Antal ögonblicks bilder av fil resurs | Antal | Medel
-Inga | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareSnapshotSize | Storlek på fil resursens ögonblicks bild | Byte | Medel
-Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Nej | Microsoft. ClassicStorage/storageAccounts/fileServices | FileCapacity | Fil kapacitet | Byte | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/fileServices | FileCount | Antal filer | Antal | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareCount | Antal fil resurser | Antal | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareQuota | Fil resursens kvot storlek | Byte | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareSnapshotCount | Antal ögonblicks bilder av fil resurs | Antal | Medel
+Nej | Microsoft. ClassicStorage/storageAccounts/fileServices | FileShareSnapshotSize | Storlek på fil resursens ögonblicks bild | Byte | Medel
+Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/fileServices | Transaktioner | Transaktioner | Antal | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | Utgående | Utgående | Byte | Totalt
-Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | QueueCapacity | Kökapacitet | Byte | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | QueueCount | Antal köer | Antal | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | QueueMessageCount | Antal kömeddelanden | Antal | Medel
@@ -425,7 +438,7 @@ Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | SuccessServerLate
 Ja | Microsoft. ClassicStorage/storageAccounts/queueServices | Transaktioner | Transaktioner | Antal | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | Utgående | Utgående | Byte | Totalt
-Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft. ClassicStorage/storageAccounts/tableServices | TableCapacity | Tabellkapacitet | Byte | Medel
@@ -572,11 +585,11 @@ Ja | Microsoft. ContainerRegistry/register | SuccessfulPullCount | Antal lyckade
 Ja | Microsoft. ContainerRegistry/register | SuccessfulPushCount | Antal lyckade push-meddelanden | Antal | Medel
 Ja | Microsoft. ContainerRegistry/register | TotalPullCount | Totalt antal hämtningar | Antal | Medel
 Ja | Microsoft. ContainerRegistry/register | TotalPushCount | Totalt antal push-meddelanden | Antal | Medel
-Inga | Microsoft. container service/managedClusters | kube_node_status_allocatable_cpu_cores | Totalt antal tillgängliga processor kärnor i ett hanterat kluster | Antal | Medel
-Inga | Microsoft. container service/managedClusters | kube_node_status_allocatable_memory_bytes | Total mängd tillgängligt minne i ett hanterat kluster | Byte | Medel
-Inga | Microsoft. container service/managedClusters | kube_node_status_condition | Status för olika nod villkor | Antal | Medel
-Inga | Microsoft. container service/managedClusters | kube_pod_status_phase | Antal poddar per fas | Antal | Medel
-Inga | Microsoft. container service/managedClusters | kube_pod_status_ready | Antal poddar i klart läge | Antal | Medel
+Nej | Microsoft. container service/managedClusters | kube_node_status_allocatable_cpu_cores | Totalt antal tillgängliga processor kärnor i ett hanterat kluster | Antal | Medel
+Nej | Microsoft. container service/managedClusters | kube_node_status_allocatable_memory_bytes | Total mängd tillgängligt minne i ett hanterat kluster | Byte | Medel
+Nej | Microsoft. container service/managedClusters | kube_node_status_condition | Status för olika nod villkor | Antal | Medel
+Nej | Microsoft. container service/managedClusters | kube_pod_status_phase | Antal poddar per fas | Antal | Medel
+Nej | Microsoft. container service/managedClusters | kube_pod_status_ready | Antal poddar i klart läge | Antal | Medel
 Ja | Microsoft. DataBoxEdge/dataBoxEdgeDevices | Availablecapacity;) | Tillgänglig kapacitet | Byte | Medel
 Ja | Microsoft. DataBoxEdge/dataBoxEdgeDevices | BytesUploadedToCloud | Överförda moln byte (enhet) | Byte | Medel
 Ja | Microsoft. DataBoxEdge/dataBoxEdgeDevices | BytesUploadedToCloudPerShare | Överförda moln byte (resurs) | Byte | Medel
@@ -617,7 +630,7 @@ Ja | Microsoft.DataLakeAnalytics/accounts | JobEndedSuccess | Slutförda jobb | 
 Ja | Microsoft.DataLakeStore/accounts | DataRead | Lästa data | Byte | Totalt
 Ja | Microsoft.DataLakeStore/accounts | DataWritten | Skrivna data | Byte | Totalt
 Ja | Microsoft.DataLakeStore/accounts | ReadRequests | Läs begär Anden | Antal | Totalt
-Ja | Microsoft.DataLakeStore/accounts | TotalStorage | Totalt lagringsutrymme | Byte | Maximal
+Ja | Microsoft.DataLakeStore/accounts | TotalStorage | Totalt lagrings utrymme | Byte | Maximal
 Ja | Microsoft.DataLakeStore/accounts | WriteRequests | Skriv förfrågningar | Antal | Totalt
 Ja | Microsoft.DBforMariaDB/servers | active_connections | Aktiva anslutningar | Antal | Medel
 Ja | Microsoft.DBforMariaDB/servers | backup_storage_used | Lagring av säkerhets kopior som används | Byte | Medel
@@ -633,7 +646,7 @@ Ja | Microsoft.DBforMariaDB/servers | serverlog_storage_percent | Server logg la
 Ja | Microsoft.DBforMariaDB/servers | serverlog_storage_usage | Server logg lagring används | Byte | Medel
 Ja | Microsoft.DBforMariaDB/servers | storage_limit | Lagrings gräns | Byte | Maximal
 Ja | Microsoft.DBforMariaDB/servers | storage_percent | Lagrings procent | Procent | Medel
-Ja | Microsoft.DBforMariaDB/servers | storage_used | Använt lagringsutrymme | Byte | Medel
+Ja | Microsoft.DBforMariaDB/servers | storage_used | Använt lagrings utrymme | Byte | Medel
 Ja | Microsoft. DBforMySQL/servers | active_connections | Aktiva anslutningar | Antal | Medel
 Ja | Microsoft. DBforMySQL/servers | backup_storage_used | Lagring av säkerhets kopior som används | Byte | Medel
 Ja | Microsoft. DBforMySQL/servers | connections_failed | Misslyckade anslutningar | Antal | Totalt
@@ -648,7 +661,7 @@ Ja | Microsoft. DBforMySQL/servers | serverlog_storage_percent | Server logg lag
 Ja | Microsoft. DBforMySQL/servers | serverlog_storage_usage | Server logg lagring används | Byte | Medel
 Ja | Microsoft. DBforMySQL/servers | storage_limit | Lagrings gräns | Byte | Maximal
 Ja | Microsoft. DBforMySQL/servers | storage_percent | Lagrings procent | Procent | Medel
-Ja | Microsoft. DBforMySQL/servers | storage_used | Använt lagringsutrymme | Byte | Medel
+Ja | Microsoft. DBforMySQL/servers | storage_used | Använt lagrings utrymme | Byte | Medel
 Ja | Microsoft.DBforPostgreSQL/servers | active_connections | Aktiva anslutningar | Antal | Medel
 Ja | Microsoft.DBforPostgreSQL/servers | backup_storage_used | Lagring av säkerhets kopior som används | Byte | Medel
 Ja | Microsoft.DBforPostgreSQL/servers | connections_failed | Misslyckade anslutningar | Antal | Totalt
@@ -664,7 +677,7 @@ Ja | Microsoft.DBforPostgreSQL/servers | serverlog_storage_percent | Server logg
 Ja | Microsoft.DBforPostgreSQL/servers | serverlog_storage_usage | Server logg lagring används | Byte | Medel
 Ja | Microsoft.DBforPostgreSQL/servers | storage_limit | Lagrings gräns | Byte | Maximal
 Ja | Microsoft.DBforPostgreSQL/servers | storage_percent | Lagrings procent | Procent | Medel
-Ja | Microsoft.DBforPostgreSQL/servers | storage_used | Använt lagringsutrymme | Byte | Medel
+Ja | Microsoft.DBforPostgreSQL/servers | storage_used | Använt lagrings utrymme | Byte | Medel
 Ja | Microsoft.DBforPostgreSQL/serversv2 | active_connections | Aktiva anslutningar | Antal | Medel
 Ja | Microsoft.DBforPostgreSQL/serversv2 | cpu_percent | CPU-procent | Procent | Medel
 Ja | Microsoft.DBforPostgreSQL/serversv2 | IOPS | IOPS | Antal | Medel
@@ -672,7 +685,7 @@ Ja | Microsoft.DBforPostgreSQL/serversv2 | memory_percent | Minnes procent | Pro
 Ja | Microsoft.DBforPostgreSQL/serversv2 | network_bytes_egress | Nätverk – utgående | Byte | Totalt
 Ja | Microsoft.DBforPostgreSQL/serversv2 | network_bytes_ingress | Nätverk – inkommande | Byte | Totalt
 Ja | Microsoft.DBforPostgreSQL/serversv2 | storage_percent | Lagrings procent | Procent | Medel
-Ja | Microsoft.DBforPostgreSQL/serversv2 | storage_used | Använt lagringsutrymme | Byte | Medel
+Ja | Microsoft.DBforPostgreSQL/serversv2 | storage_used | Använt lagrings utrymme | Byte | Medel
 Ja | Microsoft. Devices/Account | digitaltwins. telemetri. noder | Plats hållare för telemetri för digitala dubbla noder | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | c2d.commands.egress.abandon.success | Övergivna C2D-meddelanden | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | C2D. commands. utgående. Complete. lyckades | C2D meddelande leveranser har slutförts | Antal | Totalt
@@ -689,7 +702,7 @@ Ja | Microsoft.Devices/IotHubs | c2d.twin.update.size | Storlek på dubbla uppda
 Ja | Microsoft.Devices/IotHubs | c2d.twin.update.success | Lyckades dubbla uppdateringar från Server delen | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | C2DMessagesExpired | C2D meddelanden har förfallit (förhands granskning) | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | konfigurationer | Konfigurations mått | Antal | Totalt
-Inga | Microsoft.Devices/IotHubs | connectedDeviceCount | Anslutna enheter (förhands granskning) | Antal | Medel
+Nej | Microsoft.Devices/IotHubs | connectedDeviceCount | Anslutna enheter (förhands granskning) | Antal | Medel
 Ja | Microsoft.Devices/IotHubs | d2c.endpoints.egress.builtIn.events | Routning: meddelanden som levereras till meddelanden/händelser | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.endpoints.egress.eventHubs | Routning: meddelanden levererade till Händelsehubben | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.endpoints.egress.serviceBusQueues | Routning: meddelanden levererade till Service Bus kö | Antal | Totalt
@@ -735,52 +748,52 @@ Ja | Microsoft.Devices/IotHubs | Jobs. listJobs. Failure | Misslyckade anrop til
 Ja | Microsoft.Devices/IotHubs | jobs.listJobs.success | Lyckade anrop till List jobb | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | Jobs. queryJobs. Failure | Misslyckade jobb frågor | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | Jobs. queryJobs. lyckades | Slutförda jobb frågor | Antal | Totalt
-Inga | Microsoft.Devices/IotHubs | totalDeviceCount | Totalt antal enheter (förhands granskning) | Antal | Medel
+Nej | Microsoft.Devices/IotHubs | totalDeviceCount | Totalt antal enheter (förhands granskning) | Antal | Medel
 Ja | Microsoft.Devices/IotHubs | twinQueries. Failure | Misslyckade dubbla frågor | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | twinQueries.resultSize | Resultat storlek för dubbla frågor | Byte | Medel
 Ja | Microsoft.Devices/IotHubs | twinQueries. lyckades | Lyckades dubbla frågor | Antal | Totalt
 Ja | Microsoft.Devices/provisioningServices | AttestationAttempts | Attesterings försök | Antal | Totalt
 Ja | Microsoft.Devices/provisioningServices | DeviceAssignments | Tilldelade enheter | Antal | Totalt
 Ja | Microsoft.Devices/provisioningServices | RegistrationAttempts | Registrerings försök | Antal | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | AvailableStorage | Tillgängligt lagrings utrymme | Byte | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | CassandraConnectionClosures | Cassandra-anslutningens stängningar | Antal | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | CassandraRequestCharges | Avgifter för Cassandra-begäran | Antal | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | CassandraRequests | Cassandra-begäranden | Antal | Antal
-Inga | Microsoft. DocumentDB/databaseAccounts | DataUsage | Dataanvändning | Byte | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | AvailableStorage | Tillgängligt lagringsutrymme | Byte | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | CassandraConnectionClosures | Cassandra-anslutningens stängningar | Antal | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | CassandraRequestCharges | Avgifter för Cassandra-begäran | Antal | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | CassandraRequests | Cassandra-begäranden | Antal | Antal
+Nej | Microsoft. DocumentDB/databaseAccounts | DataUsage | Dataanvändning | Byte | Totalt
 Ja | Microsoft. DocumentDB/databaseAccounts | DeleteVirtualNetwork | DeleteVirtualNetwork | Antal | Antal
-Inga | Microsoft. DocumentDB/databaseAccounts | DocumentCount | Antal dokument | Antal | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | DocumentQuota | Dokument kvot | Byte | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | IndexUsage | Index användning | Byte | Totalt
-Inga | Microsoft. DocumentDB/databaseAccounts | MetadataRequests | Begär Anden om metadata | Antal | Antal
+Nej | Microsoft. DocumentDB/databaseAccounts | DocumentCount | Antal dokument | Antal | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | DocumentQuota | Dokument kvot | Byte | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | IndexUsage | Index användning | Byte | Totalt
+Nej | Microsoft. DocumentDB/databaseAccounts | MetadataRequests | Begär Anden om metadata | Antal | Antal
 Ja | Microsoft. DocumentDB/databaseAccounts | MongoRequestCharge | Mongo begär ande avgift | Antal | Totalt
 Ja | Microsoft. DocumentDB/databaseAccounts | MongoRequests | Mongo-begäranden | Antal | Antal
-Inga | Microsoft. DocumentDB/databaseAccounts | MongoRequestsCount | Mongo begär ande frekvens | CountPerSecond | Medel
-Inga | Microsoft. DocumentDB/databaseAccounts | MongoRequestsDelete | Mongo ta bort begär ande frekvens | CountPerSecond | Medel
-Inga | Microsoft. DocumentDB/databaseAccounts | MongoRequestsInsert | Mongo infoga begär ande frekvens | CountPerSecond | Medel
-Inga | Microsoft. DocumentDB/databaseAccounts | MongoRequestsQuery | Mongo för förfrågningar | CountPerSecond | Medel
-Inga | Microsoft. DocumentDB/databaseAccounts | MongoRequestsUpdate | Frekvens för mongo uppdaterings begär Anden | CountPerSecond | Medel
-Inga | Microsoft. DocumentDB/databaseAccounts | ProvisionedThroughput | Etablerat dataflöde | Antal | Maximal
+Nej | Microsoft. DocumentDB/databaseAccounts | MongoRequestsCount | Mongo begär ande frekvens | CountPerSecond | Medel
+Nej | Microsoft. DocumentDB/databaseAccounts | MongoRequestsDelete | Mongo ta bort begär ande frekvens | CountPerSecond | Medel
+Nej | Microsoft. DocumentDB/databaseAccounts | MongoRequestsInsert | Mongo infoga begär ande frekvens | CountPerSecond | Medel
+Nej | Microsoft. DocumentDB/databaseAccounts | MongoRequestsQuery | Mongo för förfrågningar | CountPerSecond | Medel
+Nej | Microsoft. DocumentDB/databaseAccounts | MongoRequestsUpdate | Frekvens för mongo uppdaterings begär Anden | CountPerSecond | Medel
+Nej | Microsoft. DocumentDB/databaseAccounts | ProvisionedThroughput | Etablerat dataflöde | Antal | Maximal
 Ja | Microsoft. DocumentDB/databaseAccounts | ReplicationLatency | Fördröjning för P99-replikering | Millisekunder | Medel
-Inga | Microsoft. DocumentDB/databaseAccounts | ServiceAvailability | Tjänst tillgänglighet | Procent | Medel
+Nej | Microsoft. DocumentDB/databaseAccounts | ServiceAvailability | Tjänst tillgänglighet | Procent | Medel
 Ja | Microsoft. DocumentDB/databaseAccounts | TotalRequests | Totalt antal förfrågningar | Antal | Antal
 Ja | Microsoft. DocumentDB/databaseAccounts | TotalRequestUnits | Totalt antal enheter för programbegäran | Antal | Totalt
-Inga | Microsoft. EnterpriseKnowledgeGraph/Services | FailureCount | Antal haverier | Antal | Antal
-Inga | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessCount | Antal lyckade | Antal | Antal
-Inga | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessLatency | Svars tid | Millisekunder | Medel
-Inga | Microsoft. EnterpriseKnowledgeGraph/Services | TransactionCount | Antal transaktioner | Antal | Antal
+Nej | Microsoft. EnterpriseKnowledgeGraph/Services | FailureCount | Antal haverier | Antal | Antal
+Nej | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessCount | Antal lyckade | Antal | Antal
+Nej | Microsoft. EnterpriseKnowledgeGraph/Services | SuccessLatency | Svars tid | Millisekunder | Medel
+Nej | Microsoft. EnterpriseKnowledgeGraph/Services | TransactionCount | Antal transaktioner | Antal | Antal
 Ja | Microsoft. EventGrid/Domains | DeadLetteredCount | Obeställbara, Brevade händelser | Antal | Totalt
-Inga | Microsoft. EventGrid/Domains | DeliveryAttemptFailCount | Misslyckade leverans händelser | Antal | Totalt
+Nej | Microsoft. EventGrid/Domains | DeliveryAttemptFailCount | Misslyckade leverans händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/Domains | DeliverySuccessCount | Levererade händelser | Antal | Totalt
-Inga | Microsoft. EventGrid/Domains | DestinationProcessingDurationInMs | Varaktighet för mål bearbetning | Millisekunder | Medel
+Nej | Microsoft. EventGrid/Domains | DestinationProcessingDurationInMs | Varaktighet för mål bearbetning | Millisekunder | Medel
 Ja | Microsoft. EventGrid/Domains | DroppedEventCount | Ignorerade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/Domains | MatchedEventCount | Matchade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/Domains | PublishFailCount | Publicera misslyckade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/Domains | PublishSuccessCount | Publicerade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/Domains | PublishSuccessLatencyInMs | Slutför svars tid för publicering | Antal | Totalt
 Ja | Microsoft. EventGrid/eventSubscriptions | DeadLetteredCount | Obeställbara, Brevade händelser | Antal | Totalt
-Inga | Microsoft. EventGrid/eventSubscriptions | DeliveryAttemptFailCount | Misslyckade leverans händelser | Antal | Totalt
+Nej | Microsoft. EventGrid/eventSubscriptions | DeliveryAttemptFailCount | Misslyckade leverans händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/eventSubscriptions | DeliverySuccessCount | Levererade händelser | Antal | Totalt
-Inga | Microsoft. EventGrid/eventSubscriptions | DestinationProcessingDurationInMs | Varaktighet för mål bearbetning | Millisekunder | Medel
+Nej | Microsoft. EventGrid/eventSubscriptions | DestinationProcessingDurationInMs | Varaktighet för mål bearbetning | Millisekunder | Medel
 Ja | Microsoft. EventGrid/eventSubscriptions | DroppedEventCount | Ignorerade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/eventSubscriptions | MatchedEventCount | Matchade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/extensionTopics | PublishFailCount | Publicera misslyckade händelser | Antal | Totalt
@@ -791,30 +804,30 @@ Ja | Microsoft. EventGrid/ämnen | PublishFailCount | Publicera misslyckade hän
 Ja | Microsoft. EventGrid/ämnen | PublishSuccessCount | Publicerade händelser | Antal | Totalt
 Ja | Microsoft. EventGrid/ämnen | PublishSuccessLatencyInMs | Slutför svars tid för publicering | Antal | Totalt
 Ja | Microsoft. EventGrid/ämnen | UnmatchedEventCount | Omatchade händelser | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | ActiveConnections | ActiveConnections | Antal | Medel
-Inga | Microsoft.EventHub/clusters | AvailableMemory | Tillgängligt minne | Procent | Maximal
-Inga | Microsoft.EventHub/clusters | CaptureBacklog | Samla in efter släpning. | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | CapturedBytes | Hämtade byte. | Byte | Totalt
-Inga | Microsoft.EventHub/clusters | CapturedMessages | Fångade meddelanden. | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | ConnectionsClosed | Stängda anslutningar. | Antal | Medel
-Inga | Microsoft.EventHub/clusters | ConnectionsOpened | Öppna anslutningar. | Antal | Medel
-Inga | Microsoft.EventHub/clusters | Processor | Processor | Procent | Maximal
+Nej | Microsoft.EventHub/clusters | ActiveConnections | ActiveConnections | Antal | Medel
+Nej | Microsoft.EventHub/clusters | AvailableMemory | Tillgängligt minne | Procent | Maximal
+Nej | Microsoft.EventHub/clusters | CaptureBacklog | Samla in efter släpning. | Antal | Totalt
+Nej | Microsoft.EventHub/clusters | CapturedBytes | Hämtade byte. | Byte | Totalt
+Nej | Microsoft.EventHub/clusters | CapturedMessages | Fångade meddelanden. | Antal | Totalt
+Nej | Microsoft.EventHub/clusters | ConnectionsClosed | Stängda anslutningar. | Antal | Medel
+Nej | Microsoft.EventHub/clusters | ConnectionsOpened | Öppna anslutningar. | Antal | Medel
+Nej | Microsoft.EventHub/clusters | Processor | Processor | Procent | Maximal
 Ja | Microsoft.EventHub/clusters | IncomingBytes | Inkommande byte. | Byte | Totalt
 Ja | Microsoft.EventHub/clusters | IncomingMessages | Inkommande meddelanden | Antal | Totalt
 Ja | Microsoft.EventHub/clusters | IncomingRequests | Inkommande begär Anden | Antal | Totalt
 Ja | Microsoft.EventHub/clusters | OutgoingBytes | Utgående byte. | Byte | Totalt
 Ja | Microsoft.EventHub/clusters | OutgoingMessages | Utgående meddelanden | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | QuotaExceededErrors | Kvoten överskreds. | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | ServerErrors | Server fel. | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | SuccessfulRequests | Lyckade förfrågningar | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | ThrottledRequests | Begränsade begär Anden. | Antal | Totalt
-Inga | Microsoft.EventHub/clusters | UserErrors | Användar fel. | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | ActiveConnections | ActiveConnections | Antal | Medel
-Inga | Microsoft.EventHub/namespaces | CaptureBacklog | Samla in efter släpning. | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | CapturedBytes | Hämtade byte. | Byte | Totalt
-Inga | Microsoft.EventHub/namespaces | CapturedMessages | Fångade meddelanden. | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | ConnectionsClosed | Stängda anslutningar. | Antal | Medel
-Inga | Microsoft.EventHub/namespaces | ConnectionsOpened | Öppna anslutningar. | Antal | Medel
+Nej | Microsoft.EventHub/clusters | QuotaExceededErrors | Kvoten överskreds. | Antal | Totalt
+Nej | Microsoft.EventHub/clusters | ServerErrors | Server fel. | Antal | Totalt
+Nej | Microsoft.EventHub/clusters | SuccessfulRequests | Lyckade förfrågningar | Antal | Totalt
+Nej | Microsoft.EventHub/clusters | ThrottledRequests | Begränsade begär Anden. | Antal | Totalt
+Nej | Microsoft.EventHub/clusters | UserErrors | Användar fel. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | ActiveConnections | ActiveConnections | Antal | Medel
+Nej | Microsoft.EventHub/namespaces | CaptureBacklog | Samla in efter släpning. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | CapturedBytes | Hämtade byte. | Byte | Totalt
+Nej | Microsoft.EventHub/namespaces | CapturedMessages | Fångade meddelanden. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | ConnectionsClosed | Stängda anslutningar. | Antal | Medel
+Nej | Microsoft.EventHub/namespaces | ConnectionsOpened | Öppna anslutningar. | Antal | Medel
 Ja | Microsoft.EventHub/namespaces | EHABL | Arkivera efter släpning meddelanden (inaktuellt) | Antal | Totalt
 Ja | Microsoft.EventHub/namespaces | EHAMBS | Arkiv meddelande genom strömning (inaktuellt) | Byte | Totalt
 Ja | Microsoft.EventHub/namespaces | EHAMSGS | Arkivera meddelanden (inaktuellt) | Antal | Totalt
@@ -835,14 +848,14 @@ Ja | Microsoft.EventHub/namespaces | MISCERR | Andra fel (inaktuellt) | Antal | 
 Ja | Microsoft.EventHub/namespaces | OutgoingBytes | Utgående byte. | Byte | Totalt
 Ja | Microsoft.EventHub/namespaces | OutgoingMessages | Utgående meddelanden | Antal | Totalt
 Ja | Microsoft.EventHub/namespaces | OUTMSGS | Utgående meddelanden (inaktuella) | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | QuotaExceededErrors | Kvoten överskreds. | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | ServerErrors | Server fel. | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | Storlek | Storlek | Byte | Medel
-Inga | Microsoft.EventHub/namespaces | SuccessfulRequests | Lyckade förfrågningar | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | QuotaExceededErrors | Kvoten överskreds. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | ServerErrors | Server fel. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | Storlek | Storlek | Byte | Medel
+Nej | Microsoft.EventHub/namespaces | SuccessfulRequests | Lyckade förfrågningar | Antal | Totalt
 Ja | Microsoft.EventHub/namespaces | SUCCREQ | Lyckade förfrågningar (inaktuellt) | Antal | Totalt
 Ja | Microsoft.EventHub/namespaces | SVRBSY | Serverns upptaget fel (inaktuellt) | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | ThrottledRequests | Begränsade begär Anden. | Antal | Totalt
-Inga | Microsoft.EventHub/namespaces | UserErrors | Användar fel. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | ThrottledRequests | Begränsade begär Anden. | Antal | Totalt
+Nej | Microsoft.EventHub/namespaces | UserErrors | Användar fel. | Antal | Totalt
 Ja | Microsoft. HDInsight/kluster | CategorizedGatewayRequests | Kategoriserade Gateway-begäranden | Antal | Totalt
 Ja | Microsoft. HDInsight/kluster | GatewayRequests | Gateway-begäranden | Antal | Totalt
 Ja | Microsoft. HDInsight/kluster | NumActiveWorkers | Antal aktiva arbetare | Antal | Maximal
@@ -852,19 +865,19 @@ Ja | Microsoft.Insights/AutoscaleSettings | ObservedCapacity | Observerad kapaci
 Ja | Microsoft.Insights/AutoscaleSettings | ObservedMetricValue | Observerat mått värde | Antal | Medel
 Ja | Microsoft.Insights/AutoscaleSettings | ScaleActionsInitiated | Initierade skalnings åtgärder | Antal | Totalt
 Ja | Microsoft. Insights/komponenter | availabilityResults/availabilityPercentage | Tillgänglighet | Procent | Medel
-Inga | Microsoft. Insights/komponenter | availabilityResults/antal | Tillgänglighetstester | Antal | Antal
+Nej | Microsoft. Insights/komponenter | availabilityResults/antal | Tillgänglighetstester | Antal | Antal
 Ja | Microsoft. Insights/komponenter | availabilityResults/varaktighet | Tillgänglighets testets varaktighet | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | browserTimings/networkDuration | Nätverks anslutnings tid för sid inläsning | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | browserTimings/processingDuration | Klient bearbetnings tid | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | browserTimings/receiveDuration | Tar emot svars tid | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | browserTimings/sendDuration | Tid för att skicka begäran | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | browserTimings/totalDuration | Sid inläsnings tid för webbläsare | Millisekunder | Medel
-Inga | Microsoft. Insights/komponenter | beroenden/antal | Beroende anrop | Antal | Antal
+Nej | Microsoft. Insights/komponenter | beroenden/antal | Beroende anrop | Antal | Antal
 Ja | Microsoft. Insights/komponenter | beroenden/varaktighet | Beroende varaktighet | Millisekunder | Medel
-Inga | Microsoft. Insights/komponenter | beroenden/misslyckades | Beroende anrops problem | Antal | Antal
-Inga | Microsoft. Insights/komponenter | undantag/webbläsare | Webbläsarundantag | Antal | Antal
+Nej | Microsoft. Insights/komponenter | beroenden/misslyckades | Beroende anrops problem | Antal | Antal
+Nej | Microsoft. Insights/komponenter | undantag/webbläsare | Webbläsarundantag | Antal | Antal
 Ja | Microsoft. Insights/komponenter | undantag/antal | Undantag | Antal | Antal
-Inga | Microsoft. Insights/komponenter | undantag/Server | Server undantag | Antal | Antal
+Nej | Microsoft. Insights/komponenter | undantag/Server | Server undantag | Antal | Antal
 Ja | Microsoft. Insights/komponenter | pageViews/antal | Sid visningar | Antal | Antal
 Ja | Microsoft. Insights/komponenter | pageViews/varaktighet | Inläsnings tid för sid visning | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | performanceCounters/exceptionsPerSecond | Undantags frekvens | CountPerSecond | Medel
@@ -876,10 +889,10 @@ Ja | Microsoft. Insights/komponenter | performanceCounters/processPrivateBytes |
 Ja | Microsoft. Insights/komponenter | performanceCounters/requestExecutionTime | Körnings tid för HTTP-begäran | Millisekunder | Medel
 Ja | Microsoft. Insights/komponenter | performanceCounters/requestsInQueue | HTTP-begäranden i program kön | Antal | Medel
 Ja | Microsoft. Insights/komponenter | performanceCounters/requestsPerSecond | Hastighet för HTTP-begäran | CountPerSecond | Medel
-Inga | Microsoft. Insights/komponenter | begär Anden/antal | Server begär Anden | Antal | Antal
-Ja | Microsoft. Insights/komponenter | begär Anden/varaktighet | Server svars tid | Millisekunder | Medel
-Inga | Microsoft. Insights/komponenter | begär Anden/misslyckade | Misslyckade förfrågningar | Antal | Antal
-Inga | Microsoft. Insights/komponenter | begär Anden/pris | Server begär ande frekvens | CountPerSecond | Medel
+Nej | Microsoft. Insights/komponenter | begär Anden/antal | Server begär Anden | Antal | Antal
+Ja | Microsoft. Insights/komponenter | begär Anden/varaktighet | Serversvarstid | Millisekunder | Medel
+Nej | Microsoft. Insights/komponenter | begär Anden/misslyckade | Misslyckade förfrågningar | Antal | Antal
+Nej | Microsoft. Insights/komponenter | begär Anden/pris | Server begär ande frekvens | CountPerSecond | Medel
 Ja | Microsoft. Insights/komponenter | spårning/antal | Anden | Antal | Antal
 Ja | Microsoft.KeyVault/vaults | ServiceApiHit | Totalt antal tjänst-API-träffar | Antal | Antal
 Ja | Microsoft.KeyVault/vaults | ServiceApiLatency | Övergripande service API-latens | Millisekunder | Medel
@@ -993,7 +1006,7 @@ Ja | Microsoft.MachineLearningServices/workspaces | Totalt antal noder | Totalt 
 Ja | Microsoft.MachineLearningServices/workspaces | Oanvändbara kärnor | Oanvändbara kärnor | Antal | Medel
 Ja | Microsoft.MachineLearningServices/workspaces | Oanvändbara noder | Oanvändbara noder | Antal | Medel
 Ja | Microsoft. Maps/konton | Tillgänglighet | Tillgänglighet | Procent | Medel
-Inga | Microsoft. Maps/konton | Användning | Användning | Antal | Antal
+Nej | Microsoft. Maps/konton | Användning | Användning | Antal | Antal
 Ja | Microsoft. Media/Media Services | AssetCount | Antal till gångar | Antal | Medel
 Ja | Microsoft. Media/Media Services | AssetQuota | Till gångs kvot | Antal | Medel
 Ja | Microsoft. Media/Media Services | AssetQuotaUsedPercentage | Använd procent andel till till gångs kvot | Procent | Medel
@@ -1038,25 +1051,25 @@ Ja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes | ReadIops | Läs IO
 Ja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes | VolumeLogicalSize | Logisk volym storlek | Byte | Medel
 Ja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes | VolumeSnapshotSize | Storlek på volym ögonblicks bild | Byte | Medel
 Ja | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes | WriteIops | Skriv IOPS | CountPerSecond | Medel
-Inga | Microsoft.Network/applicationGateways | ApplicationGatewayTotalTime | Application Gateway total tid | Millisekunder | Medel
-Inga | Microsoft.Network/applicationGateways | AvgRequestCountPerHealthyHost | Begär Anden per minut per felfri värd | Antal | Medel
-Inga | Microsoft.Network/applicationGateways | BackendConnectTime | Server dels anslutnings tid | Millisekunder | Medel
-Inga | Microsoft.Network/applicationGateways | BackendFirstByteResponseTime | Svars tid för första byte för Server del | Millisekunder | Medel
-Inga | Microsoft.Network/applicationGateways | BackendLastByteResponseTime | Svars tid för senaste byte för Server delen | Millisekunder | Medel
+Nej | Microsoft.Network/applicationGateways | ApplicationGatewayTotalTime | Application Gateway total tid | Millisekunder | Medel
+Nej | Microsoft.Network/applicationGateways | AvgRequestCountPerHealthyHost | Begär Anden per minut per felfri värd | Antal | Medel
+Nej | Microsoft.Network/applicationGateways | BackendConnectTime | Server dels anslutnings tid | Millisekunder | Medel
+Nej | Microsoft.Network/applicationGateways | BackendFirstByteResponseTime | Svars tid för första byte för Server del | Millisekunder | Medel
+Nej | Microsoft.Network/applicationGateways | BackendLastByteResponseTime | Svars tid för senaste byte för Server delen | Millisekunder | Medel
 Ja | Microsoft.Network/applicationGateways | BackendResponseStatus | Svars status för Server del | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | BlockedCount | Webb program brand vägg blockerade begär Anden regel distribution | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | BlockedReqCount | Antal blockerade förfrågningar för webb program brand vägg | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | BytesReceived | Mottagna byte | Byte | Totalt
 Ja | Microsoft.Network/applicationGateways | Bytes sent | Skickade byte | Byte | Totalt
-Inga | Microsoft.Network/applicationGateways | CapacityUnits | Aktuella kapacitets enheter | Antal | Medel
-Inga | Microsoft.Network/applicationGateways | ClientRtt | Klient-/klient | Millisekunder | Medel
-Inga | Microsoft.Network/applicationGateways | ComputeUnits | Aktuella beräknings enheter | Antal | Medel
+Nej | Microsoft.Network/applicationGateways | CapacityUnits | Aktuella kapacitets enheter | Antal | Medel
+Nej | Microsoft.Network/applicationGateways | ClientRtt | Klient-/klient | Millisekunder | Medel
+Nej | Microsoft.Network/applicationGateways | ComputeUnits | Aktuella beräknings enheter | Antal | Medel
 Ja | Microsoft.Network/applicationGateways | CurrentConnections | Aktuella anslutningar | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | FailedRequests | Misslyckade begäranden | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | HealthyHostCount | Antal felfria värdar | Antal | Medel
 Ja | Microsoft.Network/applicationGateways | MatchedCount | Brand vägg för total regel distribution i webb program | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | ResponseStatus | Svars status | Antal | Totalt
-Inga | Microsoft.Network/applicationGateways | Dataflöde | Dataflöde | BytesPerSecond | Medel
+Nej | Microsoft.Network/applicationGateways | Dataflöde | Dataflöde | BytesPerSecond | Medel
 Ja | Microsoft.Network/applicationGateways | TlsProtocol | Klientens TLS-protokoll | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | TotalRequests | Totalt antal förfrågningar | Antal | Totalt
 Ja | Microsoft.Network/applicationGateways | UnhealthyHostCount | Antal felaktiga värdar | Antal | Medel
@@ -1068,20 +1081,20 @@ Ja | Microsoft.Network/azurefirewalls | SNATPortUtilization | SNAT-port användn
 Ja | Microsoft. Network/Connections | BitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
 Ja | Microsoft. Network/Connections | BitsOutPerSecond | BitsOutPerSecond | CountPerSecond | Medel
 Ja | Microsoft.Network/dnszones | QueryVolume | Fråga volym | Antal | Totalt
-Inga | Microsoft.Network/dnszones | RecordSetCapacityUtilization | Kapacitets användning för post uppsättning | Procent | Maximal
+Nej | Microsoft.Network/dnszones | RecordSetCapacityUtilization | Kapacitets användning för post uppsättning | Procent | Maximal
 Ja | Microsoft.Network/dnszones | RecordSetCount | Antal post uppsättningar | Antal | Maximal
 Ja | Microsoft.Network/expressRouteCircuits | ArpAvailability | ARP-tillgänglighet | Procent | Medel
 Ja | Microsoft.Network/expressRouteCircuits | BgpAvailability | BGP-tillgänglighet | Procent | Medel
-Inga | Microsoft.Network/expressRouteCircuits | BitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
-Inga | Microsoft.Network/expressRouteCircuits | BitsOutPerSecond | BitsOutPerSecond | CountPerSecond | Medel
-Inga | Microsoft.Network/expressRouteCircuits | GlobalReachBitsInPerSecond | GlobalReachBitsInPerSecond | CountPerSecond | Medel
-Inga | Microsoft.Network/expressRouteCircuits | GlobalReachBitsOutPerSecond | GlobalReachBitsOutPerSecond | CountPerSecond | Medel
-Inga | Microsoft.Network/expressRouteCircuits | QosDropBitsInPerSecond | DroppedInBitsPerSecond | CountPerSecond | Medel
-Inga | Microsoft.Network/expressRouteCircuits | QosDropBitsOutPerSecond | DroppedOutBitsPerSecond | CountPerSecond | Medel
+Nej | Microsoft.Network/expressRouteCircuits | BitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
+Nej | Microsoft.Network/expressRouteCircuits | BitsOutPerSecond | BitsOutPerSecond | CountPerSecond | Medel
+Nej | Microsoft.Network/expressRouteCircuits | GlobalReachBitsInPerSecond | GlobalReachBitsInPerSecond | CountPerSecond | Medel
+Nej | Microsoft.Network/expressRouteCircuits | GlobalReachBitsOutPerSecond | GlobalReachBitsOutPerSecond | CountPerSecond | Medel
+Nej | Microsoft.Network/expressRouteCircuits | QosDropBitsInPerSecond | DroppedInBitsPerSecond | CountPerSecond | Medel
+Nej | Microsoft.Network/expressRouteCircuits | QosDropBitsOutPerSecond | DroppedOutBitsPerSecond | CountPerSecond | Medel
 Ja | Microsoft. Network/expressRouteCircuits/peering | BitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
 Ja | Microsoft. Network/expressRouteCircuits/peering | BitsOutPerSecond | BitsOutPerSecond | CountPerSecond | Medel
-Inga | Microsoft. Network/expressRouteGateways | ErGatewayConnectionBitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
-Inga | Microsoft. Network/expressRouteGateways | ErGatewayConnectionBitsOutPerSecond | BitsOutPerSecond | CountPerSecond | Medel
+Nej | Microsoft. Network/expressRouteGateways | ErGatewayConnectionBitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
+Nej | Microsoft. Network/expressRouteGateways | ErGatewayConnectionBitsOutPerSecond | BitsOutPerSecond | CountPerSecond | Medel
 Ja | Microsoft. Network/expressRoutePorts | AdminState | AdminState | Antal | Medel
 Ja | Microsoft. Network/expressRoutePorts | LineProtocol | LineProtocol | Antal | Medel
 Ja | Microsoft. Network/expressRoutePorts | PortBitsInPerSecond | BitsInPerSecond | CountPerSecond | Medel
@@ -1097,13 +1110,13 @@ Ja | Microsoft. Network/frontdoors | RequestSize | Begär ande storlek | Byte | 
 Ja | Microsoft. Network/frontdoors | ResponseSize | Svars storlek | Byte | Totalt
 Ja | Microsoft. Network/frontdoors | TotalLatency | Total svars tid | Millisekunder | Medel
 Ja | Microsoft. Network/frontdoors | WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Antal | Totalt
-Inga | Microsoft.Network/loadBalancers | AllocatedSnatPorts | Allokerade SNAT-portar (förhands granskning) | Antal | Totalt
+Nej | Microsoft.Network/loadBalancers | AllocatedSnatPorts | Allokerade SNAT-portar (förhands granskning) | Antal | Totalt
 Ja | Microsoft.Network/loadBalancers | ByteCount | Antal byte | Antal | Totalt
 Ja | Microsoft.Network/loadBalancers | DipAvailability | Status för hälso avsökning | Antal | Medel
 Ja | Microsoft.Network/loadBalancers | PacketCount | Antal paket | Antal | Totalt
 Ja | Microsoft.Network/loadBalancers | SnatConnectionCount | Antal SNAT-anslutningar | Antal | Totalt
 Ja | Microsoft.Network/loadBalancers | SYNCount | Antal SYN | Antal | Totalt
-Inga | Microsoft.Network/loadBalancers | UsedSnatPorts | Använda SNAT-portar (förhands granskning) | Antal | Totalt
+Nej | Microsoft.Network/loadBalancers | UsedSnatPorts | Använda SNAT-portar (förhands granskning) | Antal | Totalt
 Ja | Microsoft.Network/loadBalancers | VipAvailability | Tillgänglighet för data Sök väg | Antal | Medel
 Ja | Microsoft.Network/networkInterfaces | BytesReceivedRate | Mottagna byte | Byte | Totalt
 Ja | Microsoft.Network/networkInterfaces | BytesSentRate | Skickade byte | Byte | Totalt
@@ -1113,32 +1126,32 @@ Ja | Microsoft.Network/networkWatchers/connectionMonitors | AverageRoundtripMs |
 Ja | Microsoft.Network/networkWatchers/connectionMonitors | ChecksFailedPercent | Misslyckade kontroller i procent (för hands version) | Procent | Medel
 Ja | Microsoft.Network/networkWatchers/connectionMonitors | ProbesFailedPercent | % Avsökningar misslyckades | Procent | Medel
 Ja | Microsoft.Network/networkWatchers/connectionMonitors | RoundTripTimeMs | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel
-Ja | Microsoft.Network/publicIPAddresses | ByteCount | Antal byte | Antal | Totalt
-Ja | Microsoft.Network/publicIPAddresses | BytesDroppedDDoS | Ignorerade inkommande byte DDoS | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | BytesForwardedDDoS | Inkommande byte, vidarebefordrade DDoS | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | BytesInDDoS | DDoS för inkommande byte | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | DDoSTriggerSYNPackets | Inkommande SYN paket för att utlösa DDoS-minskning | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | DDoSTriggerTCPPackets | Inkommande TCP-paket för att utlösa DDoS-minskning | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | DDoSTriggerUDPPackets | Ingående UDP-paket för att utlösa DDoS-minskning | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | IfUnderDDoSAttack | Under DDoS-attack eller inte | Antal | Maximal
-Ja | Microsoft.Network/publicIPAddresses | PacketCount | Antal paket | Antal | Totalt
-Ja | Microsoft.Network/publicIPAddresses | PacketsDroppedDDoS | Inkommande paket som släppts DDoS | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | PacketsForwardedDDoS | Vidarebefordrade inkommande paket DDoS | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | PacketsInDDoS | DDoS för inkommande paket | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | SynCount | Antal SYN | Antal | Totalt
-Ja | Microsoft.Network/publicIPAddresses | TCPBytesDroppedDDoS | Inkommande TCP-byte utelämnade DDoS | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | TCPBytesForwardedDDoS | Inkommande TCP byte-vidarebefordrade DDoS | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | TCPBytesInDDoS | DDoS för inkommande TCP-byte | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | TCPPacketsDroppedDDoS | Inkommande TCP-paket ignorerade DDoS | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | TCPPacketsForwardedDDoS | Inkommande TCP-paket, vidarebefordrade DDoS | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | TCPPacketsInDDoS | DDoS inkommande TCP-paket | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | UDPBytesDroppedDDoS | Inkommande UDP-byte utelämnade DDoS | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | UDPBytesForwardedDDoS | Inkommande UDP byte vidarebefordrade DDoS | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | UDPBytesInDDoS | DDoS för inkommande UDP-byte | BytesPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | UDPPacketsDroppedDDoS | Ignorerade inkommande UDP-paket DDoS | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | UDPPacketsForwardedDDoS | Vidarebefordrade inkommande UDP-paket DDoS | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | UDPPacketsInDDoS | DDoS för inkommande UDP-paket | CountPerSecond | Maximal
-Ja | Microsoft.Network/publicIPAddresses | VipAvailability | Tillgänglighet för data Sök väg | Antal | Medel
+Ja | Microsoft. Network/publicIPAddresses | ByteCount | Antal byte | Antal | Totalt
+Ja | Microsoft. Network/publicIPAddresses | BytesDroppedDDoS | Ignorerade inkommande byte DDoS | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | BytesForwardedDDoS | Inkommande byte, vidarebefordrade DDoS | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | BytesInDDoS | DDoS för inkommande byte | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | DDoSTriggerSYNPackets | Inkommande SYN paket för att utlösa DDoS-minskning | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | DDoSTriggerTCPPackets | Inkommande TCP-paket för att utlösa DDoS-minskning | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | DDoSTriggerUDPPackets | Ingående UDP-paket för att utlösa DDoS-minskning | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | IfUnderDDoSAttack | Under DDoS-attack eller inte | Antal | Maximal
+Ja | Microsoft. Network/publicIPAddresses | PacketCount | Antal paket | Antal | Totalt
+Ja | Microsoft. Network/publicIPAddresses | PacketsDroppedDDoS | Inkommande paket som släppts DDoS | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | PacketsForwardedDDoS | Vidarebefordrade inkommande paket DDoS | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | PacketsInDDoS | DDoS för inkommande paket | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | SynCount | Antal SYN | Antal | Totalt
+Ja | Microsoft. Network/publicIPAddresses | TCPBytesDroppedDDoS | Inkommande TCP-byte utelämnade DDoS | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | TCPBytesForwardedDDoS | Inkommande TCP byte-vidarebefordrade DDoS | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | TCPBytesInDDoS | DDoS för inkommande TCP-byte | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | TCPPacketsDroppedDDoS | Inkommande TCP-paket ignorerade DDoS | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | TCPPacketsForwardedDDoS | Inkommande TCP-paket, vidarebefordrade DDoS | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | TCPPacketsInDDoS | DDoS inkommande TCP-paket | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | UDPBytesDroppedDDoS | Inkommande UDP-byte utelämnade DDoS | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | UDPBytesForwardedDDoS | Inkommande UDP byte vidarebefordrade DDoS | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | UDPBytesInDDoS | DDoS för inkommande UDP-byte | BytesPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | UDPPacketsDroppedDDoS | Ignorerade inkommande UDP-paket DDoS | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | UDPPacketsForwardedDDoS | Vidarebefordrade inkommande UDP-paket DDoS | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | UDPPacketsInDDoS | DDoS för inkommande UDP-paket | CountPerSecond | Maximal
+Ja | Microsoft. Network/publicIPAddresses | VipAvailability | Tillgänglighet för data Sök väg | Antal | Medel
 Ja | Microsoft.Network/trafficManagerProfiles | ProbeAgentCurrentEndpointStateByProfileResourceId | Slut punkts status efter slut punkt | Antal | Maximal
 Ja | Microsoft.Network/trafficManagerProfiles | QpsByEndpoint | Returnerade frågor efter slut punkt | Antal | Totalt
 Ja | Microsoft.Network/virtualNetworkGateways | AverageBandwidth | Gatewayens S2S-bandbredd | BytesPerSecond | Medel
@@ -1220,15 +1233,15 @@ Ja | Microsoft. OperationalInsights/arbets ytor | Average_% tillgängligt växli
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_% allokerade byte som används | % Allokerade byte som används | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_% DPC-tid | DPC-tid i procent | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_ kostnads fri noder i procent | Kostnads fri noder i procent | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_ ledigt utrymme i procent | Ledigt utrymme i procent | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_ ledigt utrymme i procent | Ledigt utrymme i procent | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_ ledigt utrymme i procent | % ledigt utrymme | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_ ledigt utrymme i procent | % ledigt utrymme | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_ ledig tid i procent | Ledig tid i procent | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Avbrotts tid i procent för Average_% | % Avbrotts tid | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_% i/o-vänte tid | % I/o-vänte tid | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_% bra tid | % Trevligt tid | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_ privilegie rad tid i procent | Privilegie rad tid i procent | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_% processor tid | Tid i procent för processor | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_% processor tid | Tid i procent för processor | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_% processor tid | % processortid | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_% processor tid | % processortid | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_% Använd noder i procent | % Använda noder i procent | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_% använt minne | Använt minne i procent | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_ använt utrymme i procent | Använt utrymme i procent | Antal | Medel
@@ -1237,11 +1250,11 @@ Ja | Microsoft. OperationalInsights/arbets ytor | Average_% användar tid | Anv�
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Available megabyte | Tillgängliga megabyte | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Available MB minne | Tillgängligt minne i megabyte | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Växling vid Average_Available megabyte | Tillgängliga megabyte växlings utrymme | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. S/diskläsning | Medel s/disk läsning | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. S/diskläsning | Medel s/disk läsning | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. S/disköverföring | Medel s/disk överföring | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. S/diskskrivning | Medel s/disk skrivning | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. S/diskskrivning | Medel s/disk skrivning | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. Disk s/läsning | Medel s/disk läsning | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. Disk s/läsning | Medel s/disk läsning | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. disk s/överföring | Medel s/disk överföring | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. Disk s/skrivning | Medel s/disk skrivning | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Avg. Disk s/skrivning | Medel s/disk skrivning | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Bytes mottagna/SEK | Mottagna byte/sek | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Skickade Average_Bytes per sekund | Skickade byte/sek | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Bytes totalt/SEK | Totalt antal byte/s | Antal | Medel
@@ -1260,8 +1273,8 @@ Ja | Microsoft. OperationalInsights/arbets ytor | Average_Free fysiskt minne | L
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Free utrymme i växlingsfiler | Ledigt utrymme i växlingsfiler | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Free virtuellt minne | Ledigt virtuellt minne | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Logical Disk-byte/s | Logisk Disk byte/sek | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Page läsningar/s | Sid läsningar/s | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Average_Page skrivningar/SEK | Sid skrivningar/SEK | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Page läsningar/s | Sidläsningar/sek | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Average_Page skrivningar/SEK | Sidskrivningar/sek | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Pages per sekund | Sidor/s | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Pct privilegie rad tid | PCT privilegie rad tid | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Pct användar tid | PCT-användar tid | Antal | Medel
@@ -1284,59 +1297,59 @@ Ja | Microsoft. OperationalInsights/arbets ytor | Average_Used minne i MB | Anv�
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Users | Användare | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Average_Virtual delat minne | Virtuellt delat minne | Antal | Medel
 Ja | Microsoft. OperationalInsights/arbets ytor | Händelse | Händelse | Antal | Medel
-Ja | Microsoft. OperationalInsights/arbets ytor | Tveka | Tveka | Antal | Totalt
-Ja | Microsoft. OperationalInsights/arbets ytor | Uppdatering | Uppdatering | Antal | Medel
+Ja | Microsoft. OperationalInsights/arbets ytor | Pulsslag | Pulsslag | Antal | Totalt
+Ja | Microsoft. OperationalInsights/arbets ytor | Uppdatera | Uppdatera | Antal | Medel
 Ja | Microsoft. PowerBIDedicated/kapacitet | memory_metric | Minne | Byte | Medel
 Ja | Microsoft. PowerBIDedicated/kapacitet | memory_thrashing_metric | Nedskräpning för minne (data uppsättningar) | Procent | Medel
 Ja | Microsoft. PowerBIDedicated/kapacitet | qpu_high_utilization_metric | QPU hög användning | Antal | Totalt
 Ja | Microsoft. PowerBIDedicated/kapacitet | QueryDuration | Frågans varaktighet (data uppsättningar) | Millisekunder | Medel
 Ja | Microsoft. PowerBIDedicated/kapacitet | QueryPoolJobQueueLength | Kölängd för jobbkö (data uppsättningar) | Antal | Medel
-Inga | Microsoft.Relay/namespaces | ActiveConnections | ActiveConnections | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | ActiveListeners | ActiveListeners | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ActiveConnections | ActiveConnections | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ActiveListeners | ActiveListeners | Antal | Totalt
 Ja | Microsoft.Relay/namespaces | BytesTransferred | BytesTransferred | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | ListenerConnections – ClientError | ListenerConnections – ClientError | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | ListenerConnections – ServerError | ListenerConnections – ServerError | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | ListenerConnections – lyckad | ListenerConnections – lyckad | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | ListenerConnections-TotalRequests | ListenerConnections-TotalRequests | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | ListenerDisconnects | ListenerDisconnects | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | SenderConnections – ClientError | SenderConnections – ClientError | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | SenderConnections – ServerError | SenderConnections – ServerError | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | SenderConnections-Success | SenderConnections-Success | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | SenderConnections-TotalRequests | SenderConnections-TotalRequests | Antal | Totalt
-Inga | Microsoft.Relay/namespaces | SenderDisconnects | SenderDisconnects | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ListenerConnections – ClientError | ListenerConnections – ClientError | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ListenerConnections – ServerError | ListenerConnections – ServerError | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ListenerConnections – lyckad | ListenerConnections – lyckad | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ListenerConnections-TotalRequests | ListenerConnections-TotalRequests | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | ListenerDisconnects | ListenerDisconnects | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | SenderConnections – ClientError | SenderConnections – ClientError | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | SenderConnections – ServerError | SenderConnections – ServerError | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | SenderConnections-Success | SenderConnections-Success | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | SenderConnections-TotalRequests | SenderConnections-TotalRequests | Antal | Totalt
+Nej | Microsoft.Relay/namespaces | SenderDisconnects | SenderDisconnects | Antal | Totalt
 Ja | Microsoft.Search/searchServices | SearchLatency | Sök svars tid | Sekunder | Medel
 Ja | Microsoft.Search/searchServices | SearchQueriesPerSecond | Sök frågor per sekund | CountPerSecond | Medel
 Ja | Microsoft.Search/searchServices | ThrottledSearchQueriesPercentage | Begränsade Sök frågor i procent | Procent | Medel
-Inga | Microsoft.ServiceBus/namespaces | ActiveConnections | ActiveConnections | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | ActiveMessages | Antal aktiva meddelanden i en kö/ett ämne. | Antal | Medel
-Inga | Microsoft.ServiceBus/namespaces | ConnectionsClosed | Stängda anslutningar. | Antal | Medel
-Inga | Microsoft.ServiceBus/namespaces | ConnectionsOpened | Öppna anslutningar. | Antal | Medel
-Inga | Microsoft.ServiceBus/namespaces | CPUXNS | PROCESSOR (inaktuell) | Procent | Maximal
-Inga | Microsoft.ServiceBus/namespaces | DeadletteredMessages | Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | ActiveConnections | ActiveConnections | Antal | Totalt
+Nej | Microsoft.ServiceBus/namespaces | ActiveMessages | Antal aktiva meddelanden i en kö/ett ämne. | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | ConnectionsClosed | Stängda anslutningar. | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | ConnectionsOpened | Öppna anslutningar. | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | CPUXNS | PROCESSOR (inaktuell) | Procent | Maximal
+Nej | Microsoft.ServiceBus/namespaces | DeadletteredMessages | Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. | Antal | Medel
 Ja | Microsoft.ServiceBus/namespaces | IncomingMessages | Inkommande meddelanden | Antal | Totalt
 Ja | Microsoft.ServiceBus/namespaces | IncomingRequests | Inkommande begär Anden | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | Meddelanden | Antal meddelanden i en kö/ett ämne. | Antal | Medel
-Inga | Microsoft.ServiceBus/namespaces | NamespaceCpuUsage | Processor | Procent | Maximal
-Inga | Microsoft.ServiceBus/namespaces | NamespaceMemoryUsage | Minnesanvändning | Procent | Maximal
+Nej | Microsoft.ServiceBus/namespaces | Meddelanden | Antal meddelanden i en kö/ett ämne. | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | NamespaceCpuUsage | Processor | Procent | Maximal
+Nej | Microsoft.ServiceBus/namespaces | NamespaceMemoryUsage | Minnesanvändning | Procent | Maximal
 Ja | Microsoft.ServiceBus/namespaces | OutgoingMessages | Utgående meddelanden | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | ScheduledMessages | Antal schemalagda meddelanden i en kö/ett ämne. | Antal | Medel
-Inga | Microsoft.ServiceBus/namespaces | ServerErrors | Server fel. | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | Storlek | Storlek | Byte | Medel
-Inga | Microsoft.ServiceBus/namespaces | SuccessfulRequests | Lyckade förfrågningar | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | ThrottledRequests | Begränsade begär Anden. | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | UserErrors | Användar fel. | Antal | Totalt
-Inga | Microsoft.ServiceBus/namespaces | WSXNS | Minnes användning (inaktuell) | Procent | Maximal
-Inga | Microsoft.ServiceFabricMesh/applications | ActualCpu | ActualCpu | Antal | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | ActualMemory | ActualMemory | Byte | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | AllocatedCpu | AllocatedCpu | Antal | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | AllocatedMemory | AllocatedMemory | Byte | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | ApplicationStatus | ApplicationStatus | Antal | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | Container status | Container status | Antal | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | CpuUtilization | CpuUtilization | Procent | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | MemoryUtilization | MemoryUtilization | Procent | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | RestartCount | RestartCount | Antal | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | ServiceReplicaStatus | ServiceReplicaStatus | Antal | Medel
-Inga | Microsoft.ServiceFabricMesh/applications | ServiceStatus | ServiceStatus | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | ScheduledMessages | Antal schemalagda meddelanden i en kö/ett ämne. | Antal | Medel
+Nej | Microsoft.ServiceBus/namespaces | ServerErrors | Server fel. | Antal | Totalt
+Nej | Microsoft.ServiceBus/namespaces | Storlek | Storlek | Byte | Medel
+Nej | Microsoft.ServiceBus/namespaces | SuccessfulRequests | Lyckade förfrågningar | Antal | Totalt
+Nej | Microsoft.ServiceBus/namespaces | ThrottledRequests | Begränsade begär Anden. | Antal | Totalt
+Nej | Microsoft.ServiceBus/namespaces | UserErrors | Användar fel. | Antal | Totalt
+Nej | Microsoft.ServiceBus/namespaces | WSXNS | Minnes användning (inaktuell) | Procent | Maximal
+Nej | Microsoft.ServiceFabricMesh/applications | ActualCpu | ActualCpu | Antal | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | ActualMemory | ActualMemory | Byte | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | AllocatedCpu | AllocatedCpu | Antal | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | AllocatedMemory | AllocatedMemory | Byte | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | ApplicationStatus | ApplicationStatus | Antal | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | Container status | Container status | Antal | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | CpuUtilization | CpuUtilization | Procent | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | MemoryUtilization | MemoryUtilization | Procent | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | RestartCount | RestartCount | Antal | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | ServiceReplicaStatus | ServiceReplicaStatus | Antal | Medel
+Nej | Microsoft.ServiceFabricMesh/applications | ServiceStatus | ServiceStatus | Antal | Medel
 Ja | Microsoft.SignalRService/SignalR | ConnectionCount | Antal anslutningar | Antal | Maximal
 Ja | Microsoft.SignalRService/SignalR | InboundTraffic | Inkommande trafik | Byte | Totalt
 Ja | Microsoft.SignalRService/SignalR | MessageCount | Antal meddelanden | Antal | Totalt
@@ -1350,8 +1363,8 @@ Ja | Microsoft.Sql/managedInstances | io_requests | Antal IO-begäranden | Antal
 Ja | Microsoft.Sql/managedInstances | reserved_storage_mb | Reserverat lagrings utrymme | Antal | Medel
 Ja | Microsoft.Sql/managedInstances | storage_space_used_mb | Använt lagrings utrymme | Antal | Medel
 Ja | Microsoft.Sql/managedInstances | virtual_core_count | Antal virtuella kärnor | Antal | Medel
-Inga | Microsoft.Sql/servers | database_dtu_consumption_percent | DTU-procent | Procent | Medel
-Inga | Microsoft.Sql/servers | database_storage_used | Använt data utrymme | Byte | Medel
+Nej | Microsoft.Sql/servers | database_dtu_consumption_percent | DTU-procent | Procent | Medel
+Nej | Microsoft.Sql/servers | database_storage_used | Använt data utrymme | Byte | Medel
 Ja | Microsoft.Sql/servers | dtu_consumption_percent | DTU-procent | Procent | Medel
 Ja | Microsoft.Sql/servers | dtu_used | Använt DTU | Antal | Medel
 Ja | Microsoft.Sql/servers | storage_used | Använt data utrymme | Byte | Medel
@@ -1379,7 +1392,7 @@ Ja | Microsoft.Sql/servers/databases | log_write_percent | Logg IO-procent | Pro
 Ja | Microsoft.Sql/servers/databases | memory_usage_percent | Minnes procent | Procent | Maximal
 Ja | Microsoft.Sql/servers/databases | physical_data_read_percent | Data IO-procent | Procent | Medel
 Ja | Microsoft.Sql/servers/databases | sessions_percent | Sessioner i procent | Procent | Medel
-Ja | Microsoft.Sql/servers/databases | lagring | Använt data utrymme | Byte | Maximal
+Ja | Microsoft.Sql/servers/databases | lagrings | Använt data utrymme | Byte | Maximal
 Ja | Microsoft.Sql/servers/databases | storage_percent | Använt data utrymme i procent | Procent | Maximal
 Ja | Microsoft.Sql/servers/databases | tempdb_data_size | Data fil storlek i tempdb i KB | Antal | Maximal
 Ja | Microsoft.Sql/servers/databases | tempdb_log_size | TempDB-logg fils storlek kilobyte | Antal | Maximal
@@ -1391,17 +1404,17 @@ Ja | Microsoft.Sql/servers/elasticPools | allocated_data_storage_percent | Allok
 Ja | Microsoft.Sql/servers/elasticPools | cpu_limit | PROCESSOR gräns | Antal | Medel
 Ja | Microsoft.Sql/servers/elasticPools | cpu_percent | CPU-procent | Procent | Medel
 Ja | Microsoft.Sql/servers/elasticPools | cpu_used | Använd CPU | Antal | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_allocated_data_storage | Allokerat data utrymme | Byte | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_cpu_limit | PROCESSOR gräns | Antal | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_cpu_percent | CPU-procent | Procent | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_cpu_used | Använd CPU | Antal | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_dtu_consumption_percent | DTU-procent | Procent | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_eDTU_used | eDTU använt | Antal | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_log_write_percent | Logg IO-procent | Procent | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_physical_data_read_percent | Data IO-procent | Procent | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_sessions_percent | Sessioner i procent | Procent | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_storage_used | Använt data utrymme | Byte | Medel
-Inga | Microsoft.Sql/servers/elasticPools | database_workers_percent | Arbetare i procent | Procent | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_allocated_data_storage | Allokerat data utrymme | Byte | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_cpu_limit | PROCESSOR gräns | Antal | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_cpu_percent | CPU-procent | Procent | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_cpu_used | Använd CPU | Antal | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_dtu_consumption_percent | DTU-procent | Procent | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_eDTU_used | eDTU använt | Antal | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_log_write_percent | Logg IO-procent | Procent | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_physical_data_read_percent | Data IO-procent | Procent | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_sessions_percent | Sessioner i procent | Procent | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_storage_used | Använt data utrymme | Byte | Medel
+Nej | Microsoft.Sql/servers/elasticPools | database_workers_percent | Arbetare i procent | Procent | Medel
 Ja | Microsoft.Sql/servers/elasticPools | dtu_consumption_percent | DTU-procent | Procent | Medel
 Ja | Microsoft.Sql/servers/elasticPools | eDTU_limit | eDTU-gräns | Antal | Medel
 Ja | Microsoft.Sql/servers/elasticPools | eDTU_used | eDTU använt | Antal | Medel
@@ -1418,36 +1431,36 @@ Ja | Microsoft.Sql/servers/elasticPools | workers_percent | Arbetare i procent |
 Ja | Microsoft.Sql/servers/elasticPools | xtp_storage_percent | Minnes intern OLTP-lagring i procent | Procent | Medel
 Ja | Microsoft.Storage/storageAccounts | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft.Storage/storageAccounts | Utgående | Utgående | Byte | Totalt
-Ja | Microsoft.Storage/storageAccounts | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Ja | Microsoft.Storage/storageAccounts | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft.Storage/storageAccounts | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts | Transaktioner | Transaktioner | Antal | Totalt
-Inga | Microsoft.Storage/storageAccounts | UsedCapacity | Använd kapacitet | Byte | Medel
+Nej | Microsoft.Storage/storageAccounts | UsedCapacity | Använd kapacitet | Byte | Medel
 Ja | Microsoft.Storage/storageAccounts/blobServices | Tillgänglighet | Tillgänglighet | Procent | Medel
-Inga | Microsoft.Storage/storageAccounts/blobServices | BlobCapacity | Blobkapacitet | Byte | Medel
-Inga | Microsoft.Storage/storageAccounts/blobServices | BlobCount | Antalet blobar | Antal | Medel
+Nej | Microsoft.Storage/storageAccounts/blobServices | BlobCapacity | Blobkapacitet | Byte | Medel
+Nej | Microsoft.Storage/storageAccounts/blobServices | BlobCount | Antalet blobar | Antal | Medel
 Ja | Microsoft.Storage/storageAccounts/blobServices | ContainerCount | Antal blobcontainrar | Antal | Medel
 Ja | Microsoft.Storage/storageAccounts/blobServices | Utgående | Utgående | Byte | Totalt
-Inga | Microsoft.Storage/storageAccounts/blobServices | IndexCapacity | Index kapacitet | Byte | Medel
-Ja | Microsoft.Storage/storageAccounts/blobServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Nej | Microsoft.Storage/storageAccounts/blobServices | IndexCapacity | Index kapacitet | Byte | Medel
+Ja | Microsoft.Storage/storageAccounts/blobServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft.Storage/storageAccounts/blobServices | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts/blobServices | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts/blobServices | Transaktioner | Transaktioner | Antal | Totalt
 Ja | Microsoft.Storage/storageAccounts/fileServices | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft.Storage/storageAccounts/fileServices | Utgående | Utgående | Byte | Totalt
-Inga | Microsoft.Storage/storageAccounts/fileServices | FileCapacity | Fil kapacitet | Byte | Medel
-Inga | Microsoft.Storage/storageAccounts/fileServices | FileCount | Antal filer | Antal | Medel
-Inga | Microsoft.Storage/storageAccounts/fileServices | FileShareCount | Antal fil resurser | Antal | Medel
-Inga | Microsoft.Storage/storageAccounts/fileServices | FileShareQuota | Fil resursens kvot storlek | Byte | Medel
-Inga | Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotCount | Antal ögonblicks bilder av fil resurs | Antal | Medel
-Inga | Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotSize | Storlek på fil resursens ögonblicks bild | Byte | Medel
-Ja | Microsoft.Storage/storageAccounts/fileServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Nej | Microsoft.Storage/storageAccounts/fileServices | FileCapacity | Fil kapacitet | Byte | Medel
+Nej | Microsoft.Storage/storageAccounts/fileServices | FileCount | Antal filer | Antal | Medel
+Nej | Microsoft.Storage/storageAccounts/fileServices | FileShareCount | Antal fil resurser | Antal | Medel
+Nej | Microsoft.Storage/storageAccounts/fileServices | FileShareQuota | Fil resursens kvot storlek | Byte | Medel
+Nej | Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotCount | Antal ögonblicks bilder av fil resurs | Antal | Medel
+Nej | Microsoft.Storage/storageAccounts/fileServices | FileShareSnapshotSize | Storlek på fil resursens ögonblicks bild | Byte | Medel
+Ja | Microsoft.Storage/storageAccounts/fileServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft.Storage/storageAccounts/fileServices | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts/fileServices | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts/fileServices | Transaktioner | Transaktioner | Antal | Totalt
 Ja | Microsoft.Storage/storageAccounts/queueServices | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft.Storage/storageAccounts/queueServices | Utgående | Utgående | Byte | Totalt
-Ja | Microsoft.Storage/storageAccounts/queueServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Ja | Microsoft.Storage/storageAccounts/queueServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft.Storage/storageAccounts/queueServices | QueueCapacity | Kökapacitet | Byte | Medel
 Ja | Microsoft.Storage/storageAccounts/queueServices | QueueCount | Antal köer | Antal | Medel
 Ja | Microsoft.Storage/storageAccounts/queueServices | QueueMessageCount | Antal kömeddelanden | Antal | Medel
@@ -1456,7 +1469,7 @@ Ja | Microsoft.Storage/storageAccounts/queueServices | SuccessServerLatency | Ly
 Ja | Microsoft.Storage/storageAccounts/queueServices | Transaktioner | Transaktioner | Antal | Totalt
 Ja | Microsoft.Storage/storageAccounts/tableServices | Tillgänglighet | Tillgänglighet | Procent | Medel
 Ja | Microsoft.Storage/storageAccounts/tableServices | Utgående | Utgående | Byte | Totalt
-Ja | Microsoft.Storage/storageAccounts/tableServices | Ingångshändelser | Ingångshändelser | Byte | Totalt
+Ja | Microsoft.Storage/storageAccounts/tableServices | Ingress | Ingress | Byte | Totalt
 Ja | Microsoft.Storage/storageAccounts/tableServices | SuccessE2ELatency | Lyckad E2E-svarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts/tableServices | SuccessServerLatency | Lyckad serversvarstid | Millisekunder | Medel
 Ja | Microsoft.Storage/storageAccounts/tableServices | TableCapacity | Tabellkapacitet | Byte | Medel
@@ -1539,7 +1552,7 @@ Ja | Microsoft.VMwareCloudSimple/virtualMachines | NetworkOutBytesPerSecond | N�
 Ja | Microsoft.VMwareCloudSimple/virtualMachines | Procent CPU | Procent CPU | Procent | Medel
 Ja | Microsoft.VMwareCloudSimple/virtualMachines | PercentageCpuReady | Procent andel CPU klar | Millisekunder | Totalt
 Ja | Microsoft.Web/hostingEnvironments/multiRolePools | ActiveRequests | Aktiva begär Anden | Antal | Totalt
-Ja | Microsoft.Web/hostingEnvironments/multiRolePools | AverageResponseTime | Genomsnittlig svars tid | Sekunder | Medel
+Ja | Microsoft.Web/hostingEnvironments/multiRolePools | AverageResponseTime | Medelsvarstid | Sekunder | Medel
 Ja | Microsoft.Web/hostingEnvironments/multiRolePools | BytesReceived | Data i | Byte | Totalt
 Ja | Microsoft.Web/hostingEnvironments/multiRolePools | Bytes sent | Data ut | Byte | Totalt
 Ja | Microsoft.Web/hostingEnvironments/multiRolePools | CpuPercentage | CPU-procent | Procent | Medel
@@ -1582,7 +1595,7 @@ Ja | Microsoft.Web/serverfarms | TcpSynSent | TCP-syn har skickats | Antal | Med
 Ja | Microsoft.Web/serverfarms | TcpTimeWait | Väntan på TCP-tid | Antal | Medel
 Ja | Microsoft.Web/sites | AppConnections | Anslutningar | Antal | Medel
 Ja | Microsoft.Web/sites | AverageMemoryWorkingSet | Genomsnittlig arbets mängd för minne | Byte | Medel
-Ja | Microsoft.Web/sites | AverageResponseTime | Genomsnittlig svars tid | Sekunder | Medel
+Ja | Microsoft.Web/sites | AverageResponseTime | Medelsvarstid | Sekunder | Medel
 Ja | Microsoft.Web/sites | BytesReceived | Data i | Byte | Totalt
 Ja | Microsoft.Web/sites | Bytes sent | Data ut | Byte | Totalt
 Ja | Microsoft.Web/sites | CpuTime | CPU-tid | Sekunder | Totalt
@@ -1614,12 +1627,12 @@ Ja | Microsoft.Web/sites | MemoryWorkingSet | Minnes arbets mängd | Byte | Mede
 Ja | Microsoft.Web/sites | PrivateBytes | Privata byte | Byte | Medel
 Ja | Microsoft.Web/sites | Begäranden | Begäranden | Antal | Totalt
 Ja | Microsoft.Web/sites | RequestsInApplicationQueue | Begär anden i program kön | Antal | Medel
-Ja | Microsoft.Web/sites | Konversation | Antal trådar | Antal | Medel
+Ja | Microsoft.Web/sites | Konversation | Räkning av trådar | Antal | Medel
 Ja | Microsoft.Web/sites | TotalAppDomains | Totalt antal app-domäner | Antal | Medel
 Ja | Microsoft.Web/sites | TotalAppDomainsUnloaded | Totalt antal app-domäner som har inaktiverats | Antal | Medel
 Ja | Microsoft.Web/sites/slots | AppConnections | Anslutningar | Antal | Medel
 Ja | Microsoft.Web/sites/slots | AverageMemoryWorkingSet | Genomsnittlig arbets mängd för minne | Byte | Medel
-Ja | Microsoft.Web/sites/slots | AverageResponseTime | Genomsnittlig svars tid | Sekunder | Medel
+Ja | Microsoft.Web/sites/slots | AverageResponseTime | Medelsvarstid | Sekunder | Medel
 Ja | Microsoft.Web/sites/slots | BytesReceived | Data i | Byte | Totalt
 Ja | Microsoft.Web/sites/slots | Bytes sent | Data ut | Byte | Totalt
 Ja | Microsoft.Web/sites/slots | CpuTime | CPU-tid | Sekunder | Totalt
@@ -1651,6 +1664,6 @@ Ja | Microsoft.Web/sites/slots | MemoryWorkingSet | Minnes arbets mängd | Byte 
 Ja | Microsoft.Web/sites/slots | PrivateBytes | Privata byte | Byte | Medel
 Ja | Microsoft.Web/sites/slots | Begäranden | Begäranden | Antal | Totalt
 Ja | Microsoft.Web/sites/slots | RequestsInApplicationQueue | Begär anden i program kön | Antal | Medel
-Ja | Microsoft.Web/sites/slots | Konversation | Antal trådar | Antal | Medel
+Ja | Microsoft.Web/sites/slots | Konversation | Räkning av trådar | Antal | Medel
 Ja | Microsoft.Web/sites/slots | TotalAppDomains | Totalt antal app-domäner | Antal | Medel
 Ja | Microsoft.Web/sites/slots | TotalAppDomainsUnloaded | Totalt antal app-domäner som har inaktiverats | Antal | Medel

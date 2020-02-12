@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ef84c5f1d1c3f3b9e7cd76d7fab327426ea6e313
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530654"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132833"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
@@ -91,8 +91,8 @@ Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-a
 **Huvud** | **Beskrivning och exempel**
 --- | ---
 Content-Type | Formatet för begäran (innehålls typ: program/<format>). För FarmBeats API: er för data hubb är formatet JSON. Innehålls typ: Application/JSON
-Autentisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare < åtkomst-token >
-Acceptera | Svars formatet. För FarmBeats API: er för data hubb är formatet JSON. Acceptera: Application/JSON
+Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare < åtkomst-token >
+Godkänn | Svars formatet. För FarmBeats API: er för data hubb är formatet JSON. Acceptera: Application/JSON
 
 **API-begäranden**
 
@@ -135,11 +135,11 @@ FarmBeats-datahubben har följande API: er som gör det möjligt för enhets par
   Namn  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
   Beskrivning  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper från tillverkaren. |
-  **Enhet** |  |
+  **Anordningar** |  |
   DeviceModelId  |ID för associerad enhets modell. |
   HardwareId   |Unikt ID för enheten, till exempel en MAC-adress.  |
   ReportingInterval |Rapport intervall i sekunder. |
-  Location    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
+  plats.    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
   ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
   Namn  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
   Beskrivning  | Ange en meningsfull beskrivning.  |
@@ -161,7 +161,7 @@ FarmBeats-datahubben har följande API: er som gör det möjligt för enhets par
   **Mäta**  |  |
   HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
   SensorModelId  | ID för associerad sensor modell.
-  Location  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
+  plats.  | Sensor Latitude (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
   Namn  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
@@ -345,4 +345,4 @@ Enhets tillverkare eller partner kan använda följande check lista för att sä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om REST API finns i [REST API](references-for-azure-farmbeats.md#rest-api).
+Mer information om REST API finns i [REST API](rest-api-in-azure-farmbeats.md).

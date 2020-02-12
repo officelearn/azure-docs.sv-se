@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 77e6ab588f74c8b810f211e069c1c24043155111
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982104"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132841"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referens arkitektur för företag
 Den här artikeln innehåller en referens arkitektur som hjälper dig att distribuera en lösning som baseras på Azure DevTest Labs i ett företag. Den innehåller följande:
@@ -41,7 +41,7 @@ Dessa är viktiga element i referens arkitekturen:
     - Du vill tvinga all nätverks trafik in och ut ur moln miljön via en lokal brand vägg för säkerhet/efterlevnad.
 - **Nätverks säkerhets grupper**: ett vanligt sätt att begränsa trafiken till moln miljön (eller inom moln miljön) baserat på käll-och mål-IP-adresser är att använda en [nätverks säkerhets grupp](../virtual-network/security-overview.md). Till exempel vill du bara tillåta trafik som kommer från företags nätverket till labb nätverk.
 - **Fjärrskrivbordsgateway**: företag blockerar vanligt vis utgående fjärr skrivbords anslutningar i företags brand väggen. Det finns flera alternativ för att aktivera anslutning till den molnbaserade miljön i DevTest Labs, inklusive:
-  - Använd en [Fjärrskrivbordsgateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)och VITLISTA statisk IP-adress för gateway-belastningsutjämnaren.
+  - Använd en [Fjärrskrivbordsgateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)och Tillåt den statiska IP-adressen för gateway-belastningsutjämnaren.
   - [Dirigera all inkommande RDP-trafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) via ExpressRoute/plats-till-plats-VPN-anslutningen. Den här funktionen är ett vanligt övervägande när företag planerar en DevTest Labs-distribution.
 - **Nätverks tjänster (virtuella nätverk, undernät)** : [Azures nätverks](../networking/networking-overview.md) sto pol Ogin är ett annat nyckel element i DevTest Labs-arkitekturen. Den styr om resurser från labbet kan kommunicera och ha åtkomst till lokalt och Internet. Vårt arkitektur diagram innehåller de vanligaste sätt som kunderna använder DevTest Labs: alla labb ansluter via [virtuella nätverks-peering](../virtual-network/virtual-network-peering-overview.md) med hjälp av en [nav-eker-modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) till ExpressRoute/plats-till-plats-VPN-anslutningen till en lokal plats. Men DevTest Labs använder Azure Virtual Network direkt, så det finns inga begränsningar för hur du konfigurerar nätverks infrastrukturen.
 - **DevTest Labs**: DevTest Labs är en viktig del av den övergripande arkitekturen. Mer information om tjänsten finns i [About DevTest Labs](devtest-lab-overview.md).
@@ -50,7 +50,7 @@ Dessa är viktiga element i referens arkitekturen:
 ## <a name="scalability-considerations"></a>Skalbarhetsöverväganden
 Även om DevTest Labs inte har några inbyggda kvoter eller begränsningar, har andra Azure-resurser som används i en typisk funktion i ett labb [prenumerations nivå kvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). I en typisk företags distribution behöver du alltså flera Azure-prenumerationer för att få en stor distribution av DevTest Labs. Kvoterna som företag oftast når är:
 
-- **Resurs grupper**: i standard konfigurationen skapar DevTest Labs en resurs grupp för varje ny virtuell dator, eller så skapar användaren en miljö med hjälp av tjänsten. Prenumerationer kan innehålla [upp till 980 resurs grupper](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Det är därför gränsen för virtuella datorer och miljöer i en prenumeration. Det finns två andra konfigurationer som du bör tänka på:
+- **Resurs grupper**: i standard konfigurationen skapar DevTest Labs en resurs grupp för varje ny virtuell dator, eller så skapar användaren en miljö med hjälp av tjänsten. Prenumerationer kan innehålla [upp till 980 resurs grupper](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). Det är därför gränsen för virtuella datorer och miljöer i en prenumeration. Det finns två andra konfigurationer som du bör tänka på:
     - **[Alla virtuella datorer går till samma resurs grupp](resource-group-control.md)** : även om den här inställningen hjälper dig att uppfylla gränsen för resurs gruppen påverkar gränsen resurs typ per resurs grupp.
     - **Använda delade offentliga IP-adresser**: alla virtuella datorer med samma storlek och region hamnar i samma resurs grupp. Den här konfigurationen är en "mellanliggande" mellan resurs grupps kvoter och resurs typ per resurs grupp kvoter om de virtuella datorerna får ha offentliga IP-adresser.
 - **Resurser per resurs grupp per resurs typ**: standard gränsen för [resurser per resurs grupp per resurs typ är 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  När du använder *alla virtuella datorer går du till samma resurs grupps* konfiguration, så träffar användare den här prenumerations gränsen mycket tidigare, särskilt om de virtuella datorerna har många extra diskar.

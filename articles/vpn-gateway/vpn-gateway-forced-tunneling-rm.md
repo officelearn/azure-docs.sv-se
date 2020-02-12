@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
-ms.translationtype: MT
+ms.openlocfilehash: 7cc74ca19d2194a7319ab1b88ab7847b04b0d895
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779679"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134572"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
@@ -47,9 +47,9 @@ Tvingad tunnel trafik i Azure konfigureras via användardefinierade vägar för 
 
 * Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
   
-  * **Lokala virtuella nätverket vägar:** direkt till målets virtuella datorer i samma virtuella nätverk.
-  * **Lokala vägar:** till Azure VPN-gateway.
-  * **Standardvägen:** direkt till Internet. Paket som är avsedda för privata IP-adresser som inte omfattas av de föregående två vägarna ignoreras.
+  * **Lokala VNet-vägar:** Direkt till de virtuella mål datorerna i samma virtuella nätverk.
+  * **Lokala vägar:** Till Azure VPN-gatewayen.
+  * **Standard väg:** Direkt till Internet. Paket som är avsedda för privata IP-adresser som inte omfattas av de föregående två vägarna ignoreras.
 * Den här proceduren använder användardefinierade vägar (UDR) för att skapa en routningstabell för att lägga till en standard väg och sedan associera routningstabellen till dina VNet-undernät för att aktivera Tvingad tunnel trafik på dessa undernät.
 * Tvingad tunnel trafik måste vara kopplad till ett VNet som har en Route-baserad VPN-gateway. Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket. Dessutom måste den lokala VPN-enheten konfigureras med 0.0.0.0/0 som trafik väljare. 
 * ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner. Mer information finns i ExpressRoute- [dokumentationen](https://azure.microsoft.com/documentation/services/expressroute/).
@@ -71,9 +71,9 @@ Installera den senaste versionen av Azure Resource Managers PowerShell-cmdletar.
 
 ### <a name="to-log-in"></a>Logga in
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
-## <a name="configure-forced-tunneling"></a>Konfigurera forcerade tunnlar
+## <a name="configure-forced-tunneling"></a>Konfigurera tvingad tunneltrafik
 
 > [!NOTE]
 > Du kan se varningar om att den här cmdletens typ av utdata kommer att ändras i framtida versioner. Detta är ett förväntat beteende och du kan ignorera dessa varningar på ett säkert sätt.

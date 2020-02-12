@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1802c3a92ed18dec5cba974c54c92f01324245eb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 64934dd5bc591415c0bad6ac3dc6a4a2d98dd005
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847620"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136309"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Azure Active Directory-konto med hjälp av anpassade principer i Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847620"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Azure Active Directory (Azure AD)-organisation genom att använda [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -32,7 +32,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
 
 Om du vill aktivera inloggning för användare från en specifik Azure AD-organisation måste du registrera ett program inom organisationens Azure AD-klient.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Kontrol lera att du använder den katalog som innehåller din organisations Azure AD-klient (till exempel contoso.com). Välj **filtret katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din Azure AD-klient.
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
@@ -49,6 +49,19 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Välj **Registrera**. Registrera **program-ID: t (Client)** för användning i ett senare steg.
 1. Välj **certifikat & hemligheter**och välj sedan **ny klient hemlighet**.
 1. Ange en **Beskrivning** av hemligheten, Välj förfallo datum och välj sedan **Lägg till**. Registrera **värdet** för hemligheten som ska användas i ett senare steg.
+
+## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
+
+Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Välj det program som du vill konfigurera valfria anspråk för i listan.
+1. I avsnittet **Hantera** väljer du **konfiguration av token (för hands version)** .
+1. Välj **Lägg till valfritt anspråk**.
+1. Välj den tokentyp som du vill konfigurera.
+1. Välj de valfria anspråk som ska läggas till.
+1. Klicka på **Lägg till**.
 
 ## <a name="create-a-policy-key"></a>Skapa en princip nyckel
 
@@ -73,23 +86,20 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 1. Öppna filen *TrustFrameworkExtensions. XML* .
 2. Hitta **ClaimsProviders** -elementet. Om den inte finns lägger du till den under rot elementet.
 3. Lägg till en ny **ClaimsProvider** enligt följande:
-
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>Contoso</Domain>
       <DisplayName>Login using Contoso</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
+        <TechnicalProfile Id="OIDC-Contoso">
           <DisplayName>Contoso Employee</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
-            <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -125,12 +135,11 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till Azu
 
 Om du vill hämta en token från Azure AD-slutpunkten måste du definiera de protokoll som Azure AD B2C ska använda för att kommunicera med Azure AD. Detta görs i **TechnicalProfile** -elementet för **ClaimsProvider**.
 
-1. Uppdatera ID för **TechnicalProfile** -elementet. Detta ID används för att referera till den här tekniska profilen från andra delar av principen.
+1. Uppdatera ID för **TechnicalProfile** -elementet. Detta ID används för att referera till den här tekniska profilen från andra delar av principen, till exempel `OIDC-Contoso`.
 1. Uppdatera värdet för **DisplayName**. Det här värdet kommer att visas på inloggnings knappen på inloggnings skärmen.
 1. Uppdatera värdet för **Beskrivning**.
 1. Azure AD använder OpenID Connect-protokollet så se till att värdet för **protokollet** är `OpenIdConnect`.
-1. Ange värdet för de **metadata** som ska `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, där `your-AD-tenant-name` är namnet på din Azure AD-klient. Till exempel, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Öppna webbläsaren och gå till URL: en för **metadata** som du precis har uppdaterat, leta upp objektet **Issuer** och kopiera och klistra in värdet i värdet för **ProviderName** i XML-filen.
+1. Ange värdet för de **metadata** som ska `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, där `tenant-name` är namnet på din Azure AD-klient. Till exempel, `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Ange **client_id** till program-ID: t från program registreringen.
 1. Under **CryptographicKeys**uppdaterar du värdet för **StorageReferenceId** till namnet på den princip nyckel som du skapade tidigare. Till exempel `B2C_1A_ContosoAppSecret`.
 
@@ -171,10 +180,10 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 1. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för **ID** som du använde för **TargetClaimsExchangeId**:
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Till exempel `ContosoProfile`.
+    Uppdatera värdet för **TechnicalProfileReferenceId** till **ID: t** för den tekniska profil som du skapade tidigare. Till exempel `OIDC-Contoso`.
 
 1. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
 

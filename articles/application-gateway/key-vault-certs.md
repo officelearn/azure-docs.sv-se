@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571986"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137703"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>SSL-avslutning med Key Vault certifikat
 
@@ -33,6 +33,9 @@ Application Gateway integration med Key Vault erbjuder många fördelar, inklusi
 - Stöd för automatisk förnyelse av certifikat som lagras i ditt nyckel valv.
 
 Application Gateway stöder för närvarande endast program varu validerade certifikat. HSM (Hardware Security Module) – verifierade certifikat stöds inte. När Application Gateway har kon figurer ATS för att använda Key Vault certifikat, hämtar dess instanser certifikatet från Key Vault och installerar dem lokalt för SSL-avslutning. Instanserna avsöker också Key Vault med 24 timmar för att hämta en förnyad version av certifikatet, om det finns. Om ett uppdaterat certifikat hittas, roteras det SSL-certifikat som för närvarande är associerat med HTTPS-lyssnaren automatiskt.
+
+> [!NOTE]
+> Azure Portal stöder bara certifikat för nyckel valv, inte hemligheter. Application Gateway stöder fortfarande referenser till hemligheter från nyckel valv, men endast via icke-Portal resurser som PowerShell, CLI, API, ARM-mallar osv. 
 
 ## <a name="how-integration-works"></a>Så här fungerar integrering
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av REST API-Azure | Microsoft Docs
+title: Skapa eller uppdatera anpassade roller för Azure-resurser med REST API
 description: Lär dig att visa, skapa, uppdatera eller ta bort anpassade roller med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser med hjälp av REST API.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452927"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137367"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av REST API
 
@@ -38,7 +38,7 @@ Om du vill visa en lista med alla anpassade roller i en katalog använder du RES
 
 1. Ersätt *{filter}* med roll typen.
 
-    | Filtrera | Beskrivning |
+    | Filter | Beskrivning |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrera baserat på typen av CustomRole |
 
@@ -62,7 +62,7 @@ Om du vill visa en lista med anpassade roller i ett omfång använder du [roll d
 
 1. Ersätt *{filter}* med roll typen.
 
-    | Filtrera | Beskrivning |
+    | Filter | Beskrivning |
     | --- | --- |
     | `$filter=type%20eq%20'CustomRole'` | Filtrera baserat på typen av CustomRole |
 
@@ -86,7 +86,7 @@ Om du vill hämta information om en anpassad roll med dess visnings namn använd
 
 1. Ersätt *{filter}* med rollens visnings namn.
 
-    | Filtrera | Beskrivning |
+    | Filter | Beskrivning |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Använd URL-kodad form med det exakta visnings namnet för rollen. `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` till exempel |
 

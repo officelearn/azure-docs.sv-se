@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 11/19/2019
-ms.openlocfilehash: a906e5f354f332cebb0656c6fc40b17c8a5016a2
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546698"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137553"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -80,10 +80,10 @@ Eftersom det här är en kluster modell är utvärderings resultatet annorlunda 
 
 I det här avsnittet beskrivs de mått som returneras för de olika typerna av modeller som stöds för användning med **utvärdera modell**:
 
-+ [klassificerings modeller](#bkmk_classification)
-+ [Regressions modeller](#bkmk_regression)
++ [klassificerings modeller](#metrics-for-classification-models)
++ [Regressions modeller](#metrics-for-regression-models)
 
-###  <a name="bkmk_classification"></a>Mått för klassificerings modeller
+### <a name="metrics-for-classification-models"></a>Mått för klassificerings modeller
 
 Följande mått rapporteras när klassificerings modeller utvärderas. Om du jämför modeller rangordnas de efter det mått som du väljer för utvärdering.  
   
@@ -101,7 +101,7 @@ Följande mått rapporteras när klassificerings modeller utvärderas. Om du jä
   
 - **Inlärnings logg förlusten** är en enda poäng som representerar fördelen med klassificeraren över en slumpmässig förutsägelse. Logg förlusten mäter osäkerheten för din modell genom att jämföra sannolikheten att den matas till kända värden (mark sanningen) i etiketterna. Du vill minimera logg förlusten för modellen som helhet.
 
-##  <a name="bkmk_regression"></a>Mät värden för Regressions modeller
+### <a name="metrics-for-regression-models"></a>Mät värden för Regressions modeller
  
 Måtten som returneras för Regressions modeller är utformade för att uppskatta mängden fel.  En modell anses vara bra anpassad om skillnaden mellan observerade och förväntade värden är liten. Men om du tittar på resten av resten (skillnaden mellan en förutsägande punkt och dess motsvarande faktiska värde) kan du få mycket information om potentiell förskjutning i modellen.  
   
@@ -115,7 +115,7 @@ Måtten som returneras för Regressions modeller är utformade för att uppskatt
   
 - **Ett relativt kvadratvärde (RSE)** normaliserar på samma sätt det totala antalet fel i det förväntade värdet genom att dividera med det totala antalet fel i det faktiska värdet.  
   
-- **Genomsnitt noll ett fel (MZOE)** anger om förutsägelsen var korrekt eller inte.  Med andra ord: `ZeroOneLoss(x,y) = 1` när `x!=y`; annars `0`.
+
   
 - **Koefficienten för bestämning**, som ofta kallas R<sup>2</sup>, representerar modellens förutsägande effekt som ett värde mellan 0 och 1. Noll betyder att modellen är slumpmässig (förklarar ingenting). 1 betyder en perfekt anpassning. Vi bör dock använda försiktighet i tolkningen av R<sup>2</sup> -värden, eftersom låga värden kan vara helt normala och höga värden kan vara misstänkta.
   

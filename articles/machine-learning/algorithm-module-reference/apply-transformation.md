@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 443b021b266a202775e94e44acac3a91a2b70617
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314529"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137586"
 ---
 # <a name="apply-transformation-module"></a>Tillämpa omvandling modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att ändra en data uppsättning som baseras på en tidigare beräknad omvandling.  
   
@@ -32,9 +32,9 @@ Azure Machine Learning ger stöd för att skapa och använda många olika typer 
 
 ## <a name="how-to-use-apply-transformation"></a>Använda tillämpa omvandling  
   
-1. Lägg till modulen **Använd omvandling** i din pipeline. Du hittar den här modulen under **Machine Learning**i kategorin **Poäng** . 
+1. Lägg till modulen **Använd omvandling** i din pipeline. Du hittar den här modulen i kategorin **modell bedömnings & utvärderings** kategori. 
   
-2. Leta upp en befintlig omvandling som ska användas som inmatad.  Tidigare sparade omvandlingar finns i gruppen **Transforms** i det vänstra navigerings fönstret.  
+2. Leta upp en befintlig omvandling som ska användas som inmatad. Tidigare sparade omvandlingar finns i gruppen **mina data uppsättningar** under kategorin **data uppsättningar** i det vänstra trädet.  
   
    
   

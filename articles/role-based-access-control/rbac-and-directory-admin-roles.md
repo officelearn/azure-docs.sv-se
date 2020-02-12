@@ -1,5 +1,5 @@
 ---
-title: Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD | Microsoft Docs
+title: Klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-roller
 description: Beskriver de olika rollerna i Azure – administratörsroller för klassiska prenumerationer, roller för rollbaserad åtkomstkontroll i Azure (RBAC) och administratörsroller för Azure Active Directory (AD Azure)
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1d0966737964c44fc4a6778cdb811a4ecc732ffc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979311"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138081"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2018
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 646e3e0d68846013d656627a4ef6ef1fb1e11e09
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 002221bc69659a3be6fee950319909c9fc63ea9c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846775"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136316"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Spåra användar beteende i Azure Active Directory B2C att använda Application Insights
 
@@ -29,7 +29,7 @@ När du använder Azure Active Directory B2C (Azure AD B2C) tillsammans med Azur
 * Mät prestanda.
 * Skapa meddelanden från Application Insights.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 I Azure AD B2C för identitets miljö i ingår providern `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Den skickar händelse data direkt till Application Insights med hjälp av Instrumentation-nyckeln som Azure AD B2C.
 
@@ -37,7 +37,7 @@ En teknisk profil använder den här providern för att definiera en händelse f
 
 Application Insights kan förena händelserna genom att använda ett korrelations-ID för att registrera en användarsession. Application Insights gör händelsen och sessionen tillgänglig inom några sekunder och visar många visualiserings-, export-och analys verktyg.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). I den här artikeln förutsätter vi att du använder start paketet för den anpassade principen. Men start paketet är inte obligatoriskt.
 
@@ -45,7 +45,7 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 När du använder Application Insights med Azure AD B2C behöver du bara skapa en resurs och hämta Instrumentation-nyckeln.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure-prenumeration genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din prenumeration. Den här klienten är inte din Azure AD B2C klient.
 3. Välj **skapa en resurs** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Application Insights**.
 4. Klicka på **Skapa**.
@@ -158,7 +158,7 @@ Lägg till profilerna i *TrustFrameworkExtensions. XML-* filen från start paket
       <InputClaims>
         <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
-        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" />
+        <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:JourneyId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
       </InputClaims>
     </TechnicalProfile>

@@ -1,19 +1,19 @@
 ---
 title: Felsök problem med frågor när du använder Azure Cosmos DB
 description: Lär dig att identifiera, diagnostisera och felsöka Azure Cosmos DB problem med SQL-frågor.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 01/14/2020
-ms.author: girobins
+ms.date: 02/10/2020
+ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: f016902f6cf7e0238dadb97d816f4590caec112e
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109341"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132070"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Indexerings principen ska omfatta egenskaper som ingår i `WHERE`-satser, `ORDER
 
 Om vi kör en enkel fråga på [näringsvärdes](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen, ser vi en mycket lägre ru-avgift när egenskapen i `WHERE`-satsen indexeras.
 
-### <a name="original"></a>Originalspråket
+### <a name="original"></a>originalspråket
 
 Fråga:
 
@@ -193,12 +193,12 @@ Andra delar av frågan kan fortfarande använda indexet trots att systemet inte 
 
 Frågor med ett filter och en `ORDER BY`-sats använder normalt ett intervall index, men de är mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i `ORDER BY`-satsen. Den här frågan kommer att se till att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
 
-### <a name="original"></a>Originalspråket
+### <a name="original"></a>originalspråket
 
 Fråga:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c._ts ASC
+SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
 ```
 
 Indexerings princip:
@@ -308,7 +308,7 @@ Om vi till exempel skapar en behållare med foodGroup, behöver följande frågo
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
 Dessa frågor kan också optimeras genom att inkludera partitionsnyckel i frågan:
@@ -327,7 +327,7 @@ WHERE c.description = "Mushroom, oyster, raw"
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
 ## <a name="filters-on-multiple-properties"></a>Filter på flera egenskaper

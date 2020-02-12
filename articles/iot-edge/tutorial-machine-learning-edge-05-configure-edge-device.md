@@ -4,49 +4,47 @@ description: I den här självstudien kommer du att konfigurera en virtuell Azur
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: ab3ed567d34c6284959f7875bb121ced4770d65e
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514654"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133322"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
 > [!NOTE]
 > Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
-I den här artikeln konfigurerar vi en virtuell Azure-dator som kör Linux som en Azure IoT Edge-enhet som fungerar som en transparent Gateway. Med den transparenta Gateway-konfigurationen kan enheter ansluta till Azure IoT Hub via gatewayen utan att veta att gatewayen finns. På samma gång är en användare som interagerar med enheterna i IoT Hub inte medveten om den mellanliggande gateway-enheten. Slutligen använder vi den transparenta gatewayen för att lägga till Edge Analytics i vårt system genom att lägga till IoT Edge moduler till gatewayen.
+I den här artikeln konfigurerar vi en virtuell Azure-dator som kör Linux som en IoT Edge-enhet som fungerar som en transparent Gateway. Med en transparent gateway-konfiguration kan enheter ansluta till Azure IoT Hub via gatewayen utan att veta att gatewayen finns. På samma gång är en användare som interagerar med enheterna i Azure IoT Hub inte medveten om den mellanliggande gateway-enheten. Slutligen kommer vi att lägga till Edge Analytics i vårt system genom att lägga till IoT Edge moduler till den transparenta gatewayen.
 
 Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
 
-## <a name="generate-certificates"></a>Generera certifikat
+## <a name="create-certificates"></a>Skapa certifikat
 
-För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet vi så att en underordnad enhet att ansluta till en IoT Edge-enhet som fungerar som en transparent gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
+För att en enhet ska fungera som en gateway måste den kunna ansluta till underordnade enheter på ett säkert sätt. Azure IoT Edge kan du använda en public key infrastructure (PKI) för att konfigurera säkra anslutningar mellan enheter. I det här fallet är det möjligt att en underordnad IoT-enhet ansluter till en IoT Edge-enhet som fungerar som en transparent Gateway. För att upprätthålla rimlig säkerhet bör den underordnade enheten bekräfta identiteten för den IoT Edge enheten. Mer information om hur IoT Edge enheter använder certifikat finns i avsnittet [information om Azure IoT Edge certifikat användning](iot-edge-certs.md).
 
-I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi valde att använda en Docker-avbildning för att slutföra det här steget, eftersom det betydligt minskade antalet steg som krävs för att skapa certifikaten på Windows Development-datorn. Se [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md) för att förstå vad vi automatiserat med Docker-avbildningen.
+I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en Docker-avbildning som vi sedan skapar och kör. Vi valde att använda en Docker-avbildning för att slutföra det här steget eftersom det avsevärt minskar antalet steg som krävs för att skapa certifikaten på Windows Development-datorn. Se [skapa demonstrations certifikat för att testa IoT Edge enhets funktioner](how-to-create-test-certificates.md) för att förstå vad vi automatiserat med Docker-avbildningen.
 
 1. Logga in på din virtuella utvecklings dator.
 
-2. Öppna en kommando tolk och kör följande kommando för att skapa en katalog på den virtuella datorn.
+2. Skapa en ny mapp med sökvägen och namnet `c:\edgeCertificates`.
 
-    ```cmd
-    mkdir c:\edgeCertificates
-    ```
-
-3. Starta **Docker för Windows** från Start-menyn i Windows.
+3. Om du inte redan kör startar du **Docker för Windows** från Start-menyn i Windows.
 
 4. Öppna Visual Studio Code.
 
 5. Välj **fil** > **Öppna mapp...** och välj **C:\\källa\\IoTEdgeAndMlSample\\CreateCertificates**.
 
-6. Högerklicka på Dockerfile och välj **Bygg avbildning**.
+6. I Explorer-fönstret högerklickar du på **Dockerfile** och väljer **Bygg avbildning**.
 
 7. I dialog rutan godkänner du standardvärdet för avbildningens namn och tagg: **createcertificates: senaste**.
+
+    ![Skapa certifikat i Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
 
 8. Vänta tills skapandet har slutförts.
 
@@ -65,10 +63,10 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
 
 12. När behållaren har körts klart kontrollerar du att följande filer finns i **c:\\edgeCertificates**:
 
-    * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pem
-    * c:\\edgeCertificates\\certs\\new-edge-device.cert.pfx
+    * c:\\edgeCertificates\\certifikat\\Azure-IoT-test-Only. root. ca. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device-full-Chain. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pem
+    * c:\\edgeCertificates\\certifikat\\New-Edge-Device. cert. pfx
     * c:\\edgeCertificates\\privat\\New-Edge-Device. Key. pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Ladda upp certifikat till Azure Key Vault
@@ -95,17 +93,17 @@ För att lagra våra certifikat säkert och för att göra dem tillgängliga fr�
 
 ## <a name="create-iot-edge-device"></a>Skapa IoT Edge-enhet
 
-För att ansluta en Azure IoT Edge-enhet till en IoT-hubb skapar vi först en identitet för enheten i hubben. Vi tar anslutnings strängen från enhetens identitet i molnet och använder den för att konfigurera körningen på vår IoT Edge-enhet. När enheten har kon figurer ATS och anslutits till hubben kan vi distribuera moduler och skicka meddelanden. Vi kan också ändra konfigurationen för den fysiska IoT Edge enheten genom att ändra konfigurationen för motsvarande enhets identitet i IoT Hub.
+För att ansluta en Azure IoT Edge-enhet till en IoT-hubb skapar vi först en identitet för enheten i hubben. Vi tar anslutnings strängen från enhetens identitet i molnet och använder den för att konfigurera körningen på vår IoT Edge-enhet. När en konfigurerad enhet ansluter till hubben kan vi distribuera moduler och skicka meddelanden. Vi kan också ändra konfigurationen för den fysiska IoT Edge enheten genom att ändra motsvarande enhets identitet i IoT Hub.
 
 I den här självstudien skapar vi den nya enhets identiteten med hjälp av Visual Studio Code. Du kan också utföra dessa steg med hjälp av [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)eller [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
 
 1. Öppna Visual Studio Code på utvecklings datorn.
 
-2. Öppna ramen för **Azure IoT Hub-enheter** från Visual Studio Code Explorer-vyn.
+2. Expandera **Azure IoT Hub** -ramen från Visual Studio Code Explorer-vyn.
 
 3. Klicka på ellipsknappen och välj **skapa IoT Edge enhet**.
 
-4. Ge enheten ett namn. För enkelhetens skull använder vi **aaTurbofanEdgeDevice** så att de sorteras före alla klient enheter som vi skapade tidigare genom enhets nätet för att skicka test data.
+4. Ge enheten ett namn. För enkelhetens skull använder vi namnet **aaTurbofanEdgeDevice** så att det sorteras överst på listade enheter.
 
 5. Den nya enheten kommer att visas i listan över enheter.
 
@@ -125,9 +123,9 @@ Om du vill använda avbildningen från Marketplace i en skriptad distribution m�
 
 1. Skriv och välj **Marketplace**i Sök fältet.
 
-1. I Sök fältet skriver du och väljer **Azure IoT Edge på Ubuntu**.
+1. I Sök fältet i Marketplace anger och väljer du **Azure IoT Edge på Ubuntu**.
 
-1. Välj den **vill distribuera program mässigt? Kom igång** -hyperlänk.
+1. Välj länken **Kom igång** för att distribuera program mässigt.
 
 1. Välj knappen **Aktivera** och sedan **Spara**.
 
@@ -192,7 +190,9 @@ De följande flera avsnitten konfigurerar den virtuella Azure-dator vi skapade. 
 
 ## <a name="download-key-vault-certificates"></a>Ladda ned Key Vault certifikat
 
-Tidigare i den här artikeln laddade vi upp certifikat till Key Vault för att göra dem tillgängliga för vår IoT Edge-enhet och vår löv enhet, som är en underordnad enhet som använder den IoT Edge enheten som en gateway för att kommunicera med IoT Hub. Vi kommer att hantera löv enheten senare i självstudien. I det här avsnittet laddar du ned certifikaten till den IoT Edge enheten.
+Tidigare i den här artikeln laddade vi upp certifikat till Key Vault för att göra dem tillgängliga för vår IoT Edge-enhet och vår löv enhet. Löv enheten är en underordnad enhet som använder IoT Edge enhet som en gateway för att kommunicera med IoT Hub.
+
+Vi kommer att hantera löv enheten senare i självstudien. I det här avsnittet laddar du ned certifikaten till den IoT Edge enheten.
 
 1. Från SSH-sessionen på den virtuella Linux-datorn loggar du in på Azure med Azure CLI.
 
@@ -227,7 +227,7 @@ Tidigare i den här artikeln laddade vi upp certifikat till Key Vault för att g
 
 ## <a name="update-the-iot-edge-device-configuration"></a>Uppdatera IoT Edge enhets konfiguration
 
-Den IoT Edge körningen använder filen/etc/iotedge/config.yaml för att spara konfigurationen. Vi måste uppdatera tre delar av informationen i den här filen:
+IoT Edge runtime använder filen `/etc/iotedge/config.yaml` för att spara konfigurationen. Vi måste uppdatera tre delar av informationen i den här filen:
 
 * **Enhets anslutnings sträng**: anslutnings strängen från den här enhetens identitet i IoT Hub
 * **Certifikat:** certifikat som ska användas för anslutningar som görs med underordnade enheter
@@ -296,7 +296,9 @@ Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen confi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi har precis slutfört konfigurationen av en virtuell Azure-dator som Azure IoT Edge transparent Gateway. Vi startade genom att generera test certifikat, som vi laddade upp till Azure Key Vault. Därefter använde vi en skript-och Resource Manager-mall för att distribuera den virtuella datorn med avbildningen "Ubuntu Server 16,04 LTS + Azure IoT Edge runtime" från Azure Marketplace. Skriptet tog det extra steget för att installera Azure CLI ([Installera Azure CLI med apt](https://docs.microsoft.com/cli/azure/install-azure-cli-apt)). Med den virtuella datorn igång via SSH är du inloggad på Azure, hämtat certifikat från Key Vault och gjort flera uppdateringar i konfigurationen av IoT Edge runtime genom att uppdatera filen config. yaml. Mer information om hur du använder IoT Edge som en gateway finns i [hur en IoT Edge enhet kan användas som en gateway](iot-edge-as-gateway.md). Mer information om hur du konfigurerar en IoT Edge enhet som en transparent Gateway finns i [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
+Vi har precis slutfört konfigurationen av en virtuell Azure-dator som Azure IoT Edge transparent Gateway. Vi startade genom att generera test certifikat som vi laddade upp till Azure Key Vault. Därefter använde vi en skript-och Resource Manager-mall för att distribuera den virtuella datorn med avbildningen "Ubuntu Server 16,04 LTS + Azure IoT Edge runtime" från Azure Marketplace. Med den virtuella datorn igång via SSH var vi inloggad på Azure och hämtade certifikat från Key Vault. Vi har gjort flera uppdateringar av konfigurationen av IoT Edge runtime genom att uppdatera filen config. yaml.
+
+Mer information finns i [hur en IoT Edge enhet kan användas som en gateway](iot-edge-as-gateway.md) och [Konfigurera en IoT Edge enhet som fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 
 Fortsätt till nästa artikel för att bygga IoT Edge moduler.
 

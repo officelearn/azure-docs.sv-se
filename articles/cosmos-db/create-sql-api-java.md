@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a4a8990b3da534acb39ff87c9f7665fb3b08ef06
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8c2ae82bae8457a1c715f160994c7a0da94193ff
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708171"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134497"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -27,21 +27,14 @@ ms.locfileid: "74708171"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Den här snabb starten visar hur du använder ett Java-program för att skapa och hantera en dokument databas från ditt Azure Cosmos DB SQL API-konto. Först skapar du ett Azure Cosmos DB SQL-API-konto med hjälp av Azure Portal, skapar en Java-app med hjälp av SQL Java SDK och lägger sedan till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Anvisningarna i den här snabbstartsguiden gäller alla operativsystem som kan köra Java. När du har slutfört den här snabb starten är du bekant med att skapa och ändra Cosmos DB databaser, behållare i antingen användar gränssnittet eller program mässigt, beroende på vad du föredrar.
+I den här snabb starten skapar och hanterar du ett Azure Cosmos DB SQL API-konto från Azure Portal och genom att använda en Java-app som klonas från GitHub. Först skapar du ett Azure Cosmos DB SQL API-konto med hjälp av Azure Portal och skapar sedan en Java-app med hjälp av SQL Java SDK och lägger sedan till resurser till ditt Cosmos DB-konto med hjälp av Java-programmet. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-Dessutom gäller följande: 
-
-* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
-    * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
-* [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett [Maven](https://maven.apache.org/)-binärarkiv
-    * I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
-* [Git](https://www.git-scm.com/)
-    * I Ubuntu kan du köra `sudo apt-get install git` för att installera Git.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI för `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka din `JAVA_HOME` miljö variabel till den mapp där JDK är installerad.
+- Ett [binärt maven-Arkiv](https://maven.apache.org/download.cgi). Kör `apt-get install maven` för att installera maven på Ubuntu.
+- [Git](https://www.git-scm.com/downloads). Kör `sudo apt-get install git` för att installera git på Ubuntu.
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 
@@ -54,7 +47,7 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett SQL-API-konto m
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
 <a id="add-sample-data"></a>
-## <a name="add-sample-data"></a>Lägga till exempeldata
+## <a name="add-sample-data"></a>Lägg till exempeldata
 
 [!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
@@ -66,11 +59,11 @@ Innan du kan börja skapa en dokumentdatabas måste du skapa ett SQL-API-konto m
 
 Nu ska vi övergå till att arbeta med kod. Vi ska klona en SQL API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt. 
 
-1. Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator.
+Klona exempellagringsplatsen med följande kommando. Detta kommando skapar en kopia av exempelappen på din dator.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
-    ```
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
+```
 
 ## <a name="review-the-code"></a>Granska koden
 
@@ -104,7 +97,6 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och starta appen med din slutpunktsinformation. På så vis kan appen kommunicera med den värdbaserade databasen.
 
-
 1. I git-terminalfönstret `cd` till exempelkodsmappen.
 
     ```bash
@@ -133,7 +125,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 7. Appen tar inte bort de skapade resurserna. Växla tillbaka till portalen för att [rensa resurserna](#clean-up-resources).  från ditt konto så att du inte debiteras.
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -143,7 +135,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos-konto, en dokument databas och en behållare med hjälp av Datautforskaren och kör en app för att göra samma sak program mässigt. Nu kan du importera ytterligare data till din Azure Cosmos-behållare. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB SQL API-konto, skapar en dokument databas och behållare med hjälp av Datautforskaren och kör en Java-app för att göra samma sak program mässigt. Nu kan du importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

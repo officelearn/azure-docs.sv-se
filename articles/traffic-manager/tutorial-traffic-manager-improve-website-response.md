@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: rohink
-ms.openlocfilehash: 9027b1574144e2addbc84fceb16deba9014826fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938400"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136390"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Självstudie: förbättra webbplatsens svar med hjälp av Traffic Manager
 
 I den här självstudien beskrivs hur du använder Traffic Manager för att skapa en webbplats med hög tillgänglighet genom att dirigera användar trafik till webbplatsen med den lägsta svars tiden. Normalt är data centret med den lägsta svars tiden det som är närmast det geografiska avståndet.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer som kör en grundläggande webbplats i IIS
@@ -34,7 +34,7 @@ I den här guiden får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 
@@ -43,7 +43,7 @@ Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda föl
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på https://portal.azure.com.
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Skapa webbplatser
 
@@ -81,11 +81,11 @@ I det här avsnittet installerar du IIS-servern på de två VM- *myIISVMEastUS* 
 
 1. Klicka på **Alla resurser** i den vänstra menyn och från resurslistan klickar du sedan på *myIISVMEastUS* som finns i resursgruppen *myResourceGroupTM1*.
 2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+3. Öppna den nedladdade rdp-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. Navigera till **Windows Administrationsverktyg**>**Serverhanteraren** på serverdatorn.
-7. Starta Windows PowerShell på VM1 och använd följande kommandon för att installera IIS-servern och uppdatera standard-HTML-filen.
+7. Starta Windows PowerShell på VM1 och kör följande kommandon för att installera IIS-servern och uppdatera standard-HTML-filen.
 
     ```powershell-interactive
     # Install IIS
@@ -145,7 +145,7 @@ Skapa en Traffic Manager profil som dirigerar användar trafiken genom att skick
     | Routningsmetod          | Välj routningsmetod för **prestanda** .                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj resurs gruppen *myResourceGroupTM1*. |
-    | Location                | Välj **USA, östra**. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
+    | plats.                | Välj **USA, östra**. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
     |
 
     ![Skapa en Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -198,7 +198,7 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
 1. Välj **Alla resurser** på menyn till vänster och klicka i listan över resurser på *myVMEastUS* som vinns i resursgruppen *myResourceGroupTM1*.
 2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+3. Öppna den nedladdade rdp-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 1. I en webbläsare på den virtuella datorn *myVMEastUS* anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Eftersom den virtuella datorn finns i **östra USA**dirigeras du till den närmaste webbplats som finns på den närmaste IIS- *myIISVMEastUS* som finns i **USA, östra**.

@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 7d3c70695000ae62f374bc558d4b408733968b83
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069293"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131885"
 ---
 # <a name="install-azure-farmbeats"></a>Installera Azure FarmBeats
 
@@ -171,7 +171,7 @@ Första gången användaren uppmanas att välja en prenumeration och skapa ett l
 1. Hämta [uppgraderings skriptet](https://aka.ms/FarmBeatsUpgradeScript)
 
     ```azurepowershell-interactive
-        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
+        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./upgrade-farmbeats.ps1
     ```
 
 2. Som standard hämtas filen till din arbets katalog. Navigera till katalogen.

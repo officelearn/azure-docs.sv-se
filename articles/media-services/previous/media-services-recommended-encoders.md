@@ -9,22 +9,31 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 89b01a3fb066f181f5ec54b481b71feaa7a6ae08
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74886579"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131407"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
+
 När Live streaming med Azure Media Services kan du ange hur du vill att din kanal ska ta emot indataströmmen. Om du väljer att använda en lokal kodare med en Live encoding-kanal bör kodaren skicka en högkvalitativ data ström med hög kvalitet som utdata. Om du väljer att använda en lokal kodare med en genom strömnings kanal, bör kodaren skicka en data ström med flera bit hastigheter som utdata med alla önskade utgångs kvaliteter. Mer information finns i [Direktsänd strömning med lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
+## <a name="encoder-requirements"></a>Kodarens krav
+
+Kodare måste ha stöd för TLS 1,2 när du använder HTTPS-eller RTMP-protokoll.
+
+## <a name="live-encoders-that-output-rtmp"></a>Live-kodare som utdata av RTMP 
+
 Azure Media Services rekommenderar att du använder någon av följande Live-kodare som har RTMP som utdata:
+
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Wirecast för multistream (version 13.0.2 eller högre på grund av TLS 1,2-krav)
+
+  Kodare måste ha stöd för TLS 1,2 när du använder RTMP-protokoll.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -33,11 +42,16 @@ Azure Media Services rekommenderar att du använder någon av följande Live-kod
 - xStream
 - Switcher Studio (iOS)
 
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Live-kodare som utdata fragmenterade MP4 
+
 Azure Media Services rekommenderar att du använder någon av följande Live-kodare med fragmenterad-MP4 (Smooth Streaming) med flera bit hastigheter som utdata:
+
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
+- Grundämne Live (version 2.14.15 och högre på grund av kraven för TLS 1,2)
+
+  Kodare måste ha stöd för TLS 1,2 när de använder HTTPS-protokoll.
 - Envivio 4Caster C4 Gen III
 - Föreställ dig Selenio-MCP3
 
@@ -45,6 +59,7 @@ Azure Media Services rekommenderar att du använder någon av följande Live-kod
 > En Live-kodare kan skicka en data ström med en bit hastighet till en direkt kanal, men den här konfigurationen rekommenderas inte eftersom den inte tillåter strömning med anpassad bit hastighet till klienten.
 
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>Så här blir du en lokal kodare-partner
+
 Som en Azure Media Services lokal Encoder-partner Media Services befordrar din produkt genom att rekommendera din kodare till företags kunder. För att bli en lokal kodare-partner måste du kontrol lera kompatibiliteten för din lokala kodare med Media Services. Det gör du genom att utföra följande verifieringar:
 
 Släpp igenom kanal verifiering

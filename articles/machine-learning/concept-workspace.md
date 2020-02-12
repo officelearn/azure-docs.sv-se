@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ba3e677b98406a5f126649aafc2f89fb9d20c895
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984769"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137619"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -28,7 +28,7 @@ Vilka priser och funktioner som är tillgängliga beror på om [Basic eller Ente
 
 En taxonomi i arbets ytan illustreras i följande diagram:
 
-[![Arbetsytan taxonomi](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
+[taxonomi för ![-arbetsyta](./media/concept-workspace/azure-machine-learning-taxonomy.png)](./media/concept-workspace/azure-machine-learning-taxonomy.png#lightbox)
 
 Diagrammet visar följande komponenter för en arbets yta:
 
@@ -81,6 +81,9 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 > [!NOTE]
 > Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA**, **östra USA 2**, **Nord Europa** eller **Storbritannien, södra**, med stöd för andra regioner som kommer snart.
 >Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.
+
+> [!WARNING]
+> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
 ## <a name='create-workspace'></a>Skapa en arbets yta
 

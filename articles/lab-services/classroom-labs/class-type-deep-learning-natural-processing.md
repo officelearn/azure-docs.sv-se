@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0aa30c114153521258842fc5f1e9150053b766f4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332300"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133766"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Konfigurera ett labb som fokuserar på djup inlärning i naturlig språk bearbetning med hjälp av Azure Lab Services
 Den här artikeln visar hur du konfigurerar ett labb som fokuserar på djup inlärning i naturlig språk bearbetning (NLP) med hjälp av Azure Lab Services. NLP (Natural Language Processing) är en form av artificiell intelligens (AI) som gör det möjligt för datorer med översättning, tal igenkänning och andra funktioner för språk förståelse.  
@@ -32,7 +32,7 @@ När du har skapat labb kontot aktiverar du följande inställningar i labb kont
 
 | Inställning för labb konto | Instruktioner |
 | ----------- | ------------ |  
-| Marketplace-avbildningar | Aktivera Data Science Virtual Machine för Linux-avbildningen (Ubuntu) för användning i ditt labb konto.  I följande artiklar finns instruktioner: [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators). | 
+| Marketplace-avbildningar | Aktivera Data Science Virtual Machine för Linux-avbildningen (Ubuntu) för användning i ditt labb konto.  I följande artiklar finns instruktioner: [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
 
 Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och tillämpa följande inställningar:
 

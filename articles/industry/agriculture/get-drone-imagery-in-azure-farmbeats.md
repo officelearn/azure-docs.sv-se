@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a64627028ea4ecc732924d0c9fca196204f7951d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75482561"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132056"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Hämta drönare-bilder från drönare-partners
 
@@ -38,7 +38,7 @@ Ange följande information för din enhets leverantör för att aktivera integre
 Följ de här stegen.
 
 1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det till den lokala enheten. Två filer finns inuti zip-filen.
-2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen.
+2. Logga in på [Azure Portal](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen.
 
     ![Öppna Azure Cloud Shell längst upp till höger i portalen](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
@@ -48,7 +48,7 @@ Följ de här stegen.
 
 4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen.
 
-    ![Ladda upp filer](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
+    ![Överföra filer](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
 5. Gå till den katalog där filerna överfördes. Som standard överförs de till hem katalogen under användar namnet.
 6. Kör följande skript:
@@ -91,4 +91,4 @@ Filer och avbildningar som laddats upp av drönare-providern visas i avsnittet *
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du använder FarmBeats Datahub- [API: er](references-for-azure-farmbeats.md#rest-api) för att hämta din drönare-bilder.
+Lär dig hur du använder FarmBeats Datahub- [API: er](rest-api-in-azure-farmbeats.md) för att hämta din drönare-bilder.

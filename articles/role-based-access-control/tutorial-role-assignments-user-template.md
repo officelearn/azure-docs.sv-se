@@ -1,5 +1,5 @@
 ---
-title: Självstudie – ge en användare åtkomst till Azure-resurser med RBAC-och Resource Manager-mall
+title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC-och Resource Manager-mall'
 description: Lär dig hur du beviljar en användare åtkomst till Azure-resurser med rollbaserad åtkomst kontroll (RBAC) med hjälp av Azure Resource Manager mall i den här självstudien.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418484"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138206"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC-och Resource Manager-mall
 

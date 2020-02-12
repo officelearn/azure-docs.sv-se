@@ -9,18 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979932"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132254"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) säkerhets granskningar låter Azure Stream-säkerhetshändelser till riktade resurser. Dessa resurser omfattar Azure Storage, Azure Log Analytics-arbetsytor eller Azure Event Hub. När du har aktiverat säkerhets gransknings händelser skickar Azure AD DS alla granskade händelser för den valda kategorin till mål resursen. Du kan arkivera händelser i Azure Storage och strömma händelser till SIEM-program (Security information and Event Management) (eller motsvarande) med hjälp av Azure Event Hubs eller utföra din egen analys och använda Azure Log Analytics-arbetsytor från Azure Portal.
+Azure Active Directory Domain Services (Azure AD DS) säkerhets granskningar låter Azure Stream-säkerhetshändelser till riktade resurser. Dessa resurser omfattar Azure Storage, Azure Log Analytics-arbetsytor eller Azure Event Hub. När du har aktiverat säkerhets gransknings händelser skickar Azure AD DS alla granskade händelser för den valda kategorin till mål resursen.
+
+Du kan arkivera händelser i Azure Storage och strömma händelser till SIEM-program (Security information and Event Management) (eller motsvarande) med hjälp av Azure Event Hubs eller utföra din egen analys och använda Azure Log Analytics-arbetsytor från Azure Portal.
 
 > [!IMPORTANT]
 > Azure AD DS-säkerhetsgranskningar är endast tillgängliga för Azure Resource Manager-baserade instanser. Information om hur du migrerar finns i [migrera Azure AD DS från den klassiska virtuella nätverks modellen till Resource Manager][migrate-azure-adds].
@@ -51,35 +53,35 @@ Följande kategorier av gransknings händelser är tillgängliga:
 |:---|:---|
 |Konto inloggnings säkerhet|4767, 4774, 4775, 4776, 4777|
 |Konto hanterings säkerhet|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|Informations spårnings säkerhet|Inget|
+|Informations spårnings säkerhet|Ingen|
 |Åtkomst säkerhet för DS|5136, 5137, 5138, 5139, 5141|
 |Inloggnings utloggnings säkerhet|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|Objekt åtkomst säkerhet|Inget|
+|Objekt åtkomst säkerhet|Ingen|
 |Princip ändrings säkerhet|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |Privilegiet Använd säkerhet|4985|
 |Systemsäkerhet|4612, 4621|
 
 ## <a name="security-audit-destinations"></a>Säkerhets gransknings mål
 
-Du kan använda valfri kombination av Azure Storage, Azure Event Hubs eller Azure-Log Analytics arbets ytor som mål resurs för Azure AD DS-säkerhetsgranskningar. Du kan använda Azure Storage för att arkivera säkerhets gransknings händelser, men en Azure Log Analytics-arbetsyta för att analysera och rapportera informationen på kort sikt.
+Du kan använda Azure Storage, Azure Event Hubs eller Azure-Log Analytics arbets ytor som mål resurs för Azure AD DS-säkerhetsgranskningar. Dessa mål kan kombineras. Du kan till exempel använda Azure Storage för att arkivera säkerhets gransknings händelser, men en Azure Log Analytics-arbetsyta för att analysera och rapportera informationen på kort sikt.
 
 I följande tabell beskrivs scenarier för varje mål resurs typ.
 
 > [!IMPORTANT]
-> Du måste skapa mål resursen innan du aktiverar Azure AD Domain Services säkerhets granskningar. Du kan skapa dessa resurser med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
+> Du måste skapa mål resursen innan du aktiverar Azure AD DS-säkerhetsgranskningar. Du kan skapa dessa resurser med hjälp av Azure Portal, Azure PowerShell eller Azure CLI.
 
 | Mål resurs | Scenario |
 |:---|:---|
-|Azure Storage| Det här målet ska användas när det primära behovet är att lagra säkerhets gransknings händelser för arkivering. Andra mål kan användas i arkiverings syfte, men dessa mål tillhandahåller funktioner utöver det primära behovet av arkivering. Innan du aktiverar säkerhets gransknings händelser i Azure AD DS måste du först [skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).|
-|Azure Event Hubs| Det här målet ska användas när det primära behovet är att dela säkerhets gransknings händelser med ytterligare program vara, till exempel data analys program eller SIEM-programvara (Security information & Event Management). Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Event Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
-|Azure Log Analytics-arbetsyta| Det här målet ska användas när det primära behovet är att analysera och granska säkra granskningar från Azure Portal direkt. Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Log Analytics arbets yta i Azure Portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
+|Azure Storage| Det här målet ska användas när det primära behovet är att lagra säkerhets gransknings händelser för arkivering. Andra mål kan användas i arkiverings syfte, men dessa mål tillhandahåller funktioner utöver det primära behovet av arkivering. <br /><br />Innan du aktiverar säkerhets gransknings händelser i Azure AD DS måste du först [skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).|
+|Azure Event Hubs| Det här målet ska användas när det primära behovet är att dela säkerhets gransknings händelser med ytterligare program vara, till exempel data analys program eller SIEM-programvara (Security information & Event Management).<br /><br />Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Event Hub med hjälp av Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)|
+|Azure Log Analytics-arbetsyta| Det här målet ska användas när det primära behovet är att analysera och granska säkra granskningar från Azure Portal direkt.<br /><br />Innan du aktiverar säkerhets gransknings händelser i Azure AD DS [skapar du en Log Analytics arbets yta i Azure Portal.](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Aktivera säkerhets gransknings händelser med hjälp av Azure Portal
 
 Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings händelser med hjälp av Azure Portal.
 
 > [!IMPORTANT]
-> Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Det går inte att hämta händelser från föregående eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när den har Aktiver ATS.
+> Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Du kan inte hämta eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när säkerhets granskning har Aktiver ATS.
 
 1. Logga in på Azure Portal på https://portal.azure.com.
 1. Sök efter och välj **Azure AD Domain Services**överst i Azure Portal. Välj din hanterade domän, till exempel *aadds.contoso.com*.
@@ -116,7 +118,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings händelser med Azure PowerShell. Om [det behövs installerar du först Azure PowerShell-modulen och ansluter till din Azure-prenumeration](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Det går inte att hämta händelser från föregående eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när den har Aktiver ATS.
+> Granskningar av Azure AD DS-säkerhet är inte retroaktivt. Du kan inte hämta eller spela upp händelser tidigare. Azure AD DS kan bara skicka händelser som inträffar när säkerhets granskning har Aktiver ATS.
 
 1. Autentisera till din Azure-prenumeration med hjälp av cmdleten [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) . När du uppmanas till det anger du dina autentiseringsuppgifter för kontot.
 
@@ -175,7 +177,7 @@ Med logg analys arbets ytor kan du Visa och analysera säkerhets gransknings hä
 * [Dokumentation om Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 * [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 * [Kom igång med logg frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Skapa och dela instrumentpaneler för Log Analytics-data](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Skapa och dela instrument paneler för Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 Följande exempel frågor kan användas för att börja analysera säkerhets gransknings händelser från Azure AD DS.
 
@@ -191,11 +193,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Exempel fråga 2
 
-Visa alla konto utelåsnings händelser (*4740*) mellan den 26 juni 2019 kl. 09:00 den 1 juli 2019 midnatt, sorteras stigande efter datum och tid:
+Visa alla konto utelåsnings händelser (*4740*) mellan 3 februari 2020 kl. 09:00 och 10 februari 2019 midnatt, sorteras stigande efter datum och tid:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

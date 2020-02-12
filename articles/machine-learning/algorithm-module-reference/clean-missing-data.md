@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 46034c8392dc1720fe5e03fc5e419dba6ed20e0b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314478"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137560"
 ---
 # <a name="clean-missing-data-module"></a>Rensa data modul som saknas
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att ta bort, ersätta eller härleda saknade värden. 
 
@@ -37,11 +37,11 @@ I den här modulen visas också en definition av den omvandling som används fö
 
 ## <a name="how-to-use-clean-missing-data"></a>Använda rensade data som saknas
 
-Med den här modulen kan du definiera en rensnings åtgärd. Du kan också spara rensnings åtgärden så att du kan använda den senare på nya data. Se följande länkar för en beskrivning av hur du skapar och sparar en rensnings process: 
+Med den här modulen kan du definiera en rensnings åtgärd. Du kan också spara rensnings åtgärden så att du kan använda den senare på nya data. I följande avsnitt beskrivs hur du skapar och sparar en rensnings process: 
  
-+ Ersätta saknade värden
++ [Ersätta saknade värden](#replace-missing-values)
   
-+ Tillämpa en rensnings omvandling för nya data
++ [Tillämpa en rensnings omvandling för nya data](#apply-a-saved-cleaning-operation-to-new-data)
  
 > [!IMPORTANT]
 > Den rengörings metod som du använder för att hantera saknade värden kan dramatiskt påverka resultatet. Vi rekommenderar att du experimenterar med olika metoder. Överväg både motiveringen för användning av en viss metod och kvaliteten på resultaten.
@@ -56,12 +56,9 @@ Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.
 
     Om du till exempel vill söka efter saknade värden i alla numeriska kolumner:
 
-    1. Öppna kolumn väljaren och välj **med regler**.
-    2. För **börja med**väljer du **inga kolumner**.
+    1. Välj modulen **Rensa data som saknas** och klicka på **Redigera kolumn** i den högra panelen i modulen.
 
-        Du kan också börja med alla kolumner och sedan utesluta kolumner. Inlednings vis visas inte regler om du först klickar på **alla kolumner**, men du kan klicka på **inga kolumner** och sedan klicka på **alla kolumner** igen för att börja med alla kolumner och sedan filtrera bort (exkludera) kolumner baserat på indexet namn, data typ eller kolumn.
-
-    3. I **Inkludera**väljer du **kolumn typ** i list rutan och väljer sedan **numerisk**eller en mer speciell numerisk typ. 
+    3. För **Inkludera**väljer du **kolumn typer** i list rutan och väljer sedan **numerisk**. 
   
     Eventuella rensnings-eller ersättnings metoder som du väljer måste vara tillämpliga på **alla** kolumner i markeringen. Om data i en kolumn inte är kompatibla med den angivna åtgärden returnerar modulen ett fel och stoppar pipelinen.
   
@@ -109,7 +106,7 @@ Varje gången du använder modulen [Rensa data som saknas](./clean-missing-data.
   
 6. Alternativet **ersättnings värde** är tillgängligt om du har valt alternativet, **anpassat ersättnings värde**. Ange ett nytt värde som ska användas som ersättnings värde för alla saknade värden i kolumnen.  
   
-    Observera att du bara kan använda det här alternativet i kolumner som har data typerna Integer, Double, Boolean eller date. För datum kolumner kan ersättnings värdet också anges som antalet 100-nanosekunder-Tick sedan 1/1/0001 12:00 A.M.  
+    Observera att du bara kan använda det här alternativet i kolumner som har heltal, dubbla, booleska eller strängar.
   
 7. **Generera indikator kolumn för saknad värde**: Välj det här alternativet om du vill visa en indikation om värdena i kolumnen uppfyllde villkoren för rengöring av värde som saknas. Det här alternativet är särskilt användbart när du konfigurerar en ny rengörings åtgärd och vill se till att den fungerar som den ska.
   

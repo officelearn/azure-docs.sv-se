@@ -8,178 +8,177 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: 4dd27d3fb4321c2eecf222136376bfd4b49790bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f62adbaea8d6549af0137f49542ee89e7531b9ef
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027778"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136170"
 ---
-# <a name="quickstart-create-a-private-link-service-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
+# <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
 
-Tjänsten Azure Private Link är referensen till din egen tjänst som drivs av en privat Azure-länk. Tjänsten eller resursen som körs bakom Azure Load Balancer kan aktive ras för åtkomst till privat länk. Konsumenter av tjänsten kan komma åt tjänsten privat från sina egna virtuella nätverk. I den här snabb starten får du lära dig hur du skapar en privat länk-tjänst med hjälp av Azure Portal.
+En Azure Private Link-tjänst refererar till din egen tjänst som hanteras av en privat länk. Du kan ge privat länk åtkomst till den tjänst eller resurs som fungerar bakom Azure Load Balancer. Konsumenter av tjänsten kan komma åt den privat från sina egna virtuella nätverk. I den här snabb starten får du lära dig hur du skapar en privat länk-tjänst med hjälp av Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="create-an-internal-load-balancer"></a>Skapa en intern belastningsutjämnare
+## <a name="create-an-internal-load-balancer"></a>Skapa en intern lastbalanserare
 
-Skapa först ett virtuellt nätverk och sedan en intern belastningsutjämnare som ska användas med tjänsten Azure Private Link.
+Skapa först ett virtuellt nätverk. Skapa sedan en intern belastningsutjämnare som ska användas med den privata länk tjänsten.
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-I det här avsnittet ska du skapa en Virtual Network och under nätet som är värd för belastningsutjämnaren som används för att få åtkomst till din privata länk tjänst.
-
+I det här avsnittet skapar du ett virtuellt nätverk. Du skapar också ett undernät som är värd för belastningsutjämnaren som har åtkomst till din privata länk tjänst.
 
 1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-   
-1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
-   
-   - **Namn**: Skriv **MyVNet**.
-   - **ResourceGroup**: Välj **Skapa ny**, ange **MyResourceGroupLB** och välj **OK**. 
-   - **Undernät** > **Namn**: Skriv **MyBackendSubnet**.
-   
+
+1. I fönstret **Skapa virtuellt nätverk** anger eller väljer du följande värden:
+
+   - **Namn**: ange **MyVNet**.
+   - **ResourceGroup**: Välj **Skapa ny**, ange **MyResourceGroupLB**och välj **OK**.
+   - **Under näts** > **namn**: ange **MyBackendSubnet**.
+
 1. Välj **Skapa**.
 
    ![Skapa ett virtuellt nätverk](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 
-Skapa en intern standard belastnings utjämning med hjälp av portalen. Det namn och den IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
+Använd portalen för att skapa en standard intern belastningsutjämnare. Namnet och IP-adressen som du anger konfigureras automatiskt som belastningsutjämnarens klient del.
 
 1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
-   
-2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
+
+1. Ange eller Välj följande information på fliken **grundläggande** på sidan **skapa belastnings utjämning** :
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj *MyResourceGroupLB* i list rutan.|
-    | Namn                   | *myLoadBalancer*                                   |
-    | Region         | Välj **USA, östra 2**.                                        |
-    | Typ          | Välj **intern**.                                        |
-    | SKU           | Välj **standard**.                          |
-    | Virtuellt nätverk           | Välj *MyVNet*.                          |    
-    | Tilldelning av IP-adress              | Välj **Statisk**.   |
-    | Privat IP-adress|Ange en adress i adress utrymmet för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
+    | **Prenumeration**               | Välj din prenumeration.    |
+    | **Resursgrupp**         | Välj **MyResourceGroupLB** från rutan.|
+    | **Namn**                   | Ange **myLoadBalancer**.                                   |
+    | **Region**         | Välj **USA, östra 2**.                                        |
+    | **Typ**          | Välj **Intern**.                                        |
+    | **SKU**           | Välj **standard**.                          |
+    | **Virtuellt nätverk**           | Välj **MyVNet**.                          |
+    | **Tilldelning av IP-adress**              | Välj **Statisk**.   |
+    | **Privat IP-adress**|Ange en adress i adress utrymmet för det virtuella nätverket och under nätet. Ett exempel är 10.3.0.7.  |
 
-3. På fliken **Granska + skapa** klickar du på **Skapa**. 
-   
+1. Acceptera standardinställningarna för återstående inställningar och välj sedan **Granska + skapa**
+
+1. På fliken **Granska och skapa** väljer du **skapa**.
 
 ### <a name="create-standard-load-balancer-resources"></a>Skapa standard resurser för belastnings utjämning
 
-I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning samt anger regler för lastbalanseraren.
+I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning. Du anger också regler för belastnings utjämning.
 
-#### <a name="create-a-backend-pool"></a>Skapa en backend-pool
+#### <a name="create-a-back-end-pool"></a>Skapa en backend-pool
 
-För att distribuera trafik till dina resurser innehåller en backend-adresspool IP-adresserna för de virtuella nätverkskorten som är anslutna till Load Balancer. Skapa *myBackendPool* för backend-adresspoolen för att inkludera resurser för belastnings Utjämnings trafik.
+En backend-adresspool innehåller IP-adresserna för de virtuella nätverkskort som är anslutna till belastningsutjämnaren. Med den här poolen kan du distribuera trafik till dina resurser. Skapa backend-adresspoolen med namnet **myBackendPool** för att inkludera resurser som belastnings Utjämnings trafik.
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
-2. Under **Inställningar**väljer du **backend-pooler**och väljer sedan **Lägg till**.
-3. På sidan **Lägg till en server dels grupp** anger du *myBackendPool*som namn på din backend-pool. Välj sedan **Lägg till**.
-
-
+1. Välj **alla tjänster** på menyn längst till vänster.
+1. Välj **alla resurser**och välj sedan **myLoadBalancer** i listan resurser.
+1. Under **Inställningar** väljer du **Serverdelspooler** och sedan **Lägg till**.
+1. På sidan **Lägg till en server dels grupp** anger du **myBackendPool** som namn på backend-poolen och väljer sedan **Lägg till**.
 
 #### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 
-Om du vill tillåta att belastningsutjämnaren övervakar resurs status använder du en hälso avsökning. Hälso avsökningen lägger till eller tar bort resurser dynamiskt från belastnings Utjämnings rotationen baserat på deras svar på hälso kontroller. 
+Använd en hälso avsökning för att låta belastnings utjämning övervaka resurs status. Baserat på resurs svar på hälso kontroller lägger hälso avsökningarna dynamiskt till eller tar bort resurser från belastnings Utjämnings rotationen.
 
-**Så här skapar du en hälso avsökning för att övervaka hälso tillståndet för resurserna:**
+Så här skapar du en hälso avsökning för att övervaka hälso tillståndet för resurserna:
 
-1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
-   
+1. Välj **alla resurser** på menyn längst till vänster och välj sedan **MyLoadBalancer** i resurs listan.
+
 1. Under **Inställningar** väljer du **Hälsoavsökningar** och sedan **Lägg till**.
-   
-1. På sidan **Lägg till en hälsoavsökning**  skriver eller väljer du följande värden:
-   
-   - **Namn**: Skriv **MyHealthProbe**.
-   - **Protokoll**: list rutan och välj **TCP**. 
-   - **Port**: Skriv **80**. 
-   - **Intervall**: Skriv **15**. Intervallet är antalet sekunder mellan avsökningsförsök.
-   - **Tröskelvärde för Ej felfri**: Skriv **2**. Det här värdet är det antal avsökningsfel i följd som ska inträffa innan en virtuell dator anses vara felaktig.
-   
+
+1. På sidan **Lägg till hälso avsökning** anger eller väljer du följande värden:
+
+   - **Namn**: ange **MyHealthProbe**.
+   - **Protokoll**: Välj **TCP**.
+   - **Port**: ange **80**.
+   - **Intervall**: ange **15**. Det här värdet är antalet sekunder mellan avsöknings försök.
+   - **Tröskelvärde**för ej felfri: ange **2**. Det här värdet är antalet avsöknings fel i följd som inträffar innan en virtuell dator betraktas som ohälsosam.
+
 1. Välj **OK**.
 
 #### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
-En belastnings Utjämnings regel definierar hur trafiken distribueras till resurser. Regeln definierar IP-konfigurationen på klientdelen för inkommande trafik, serverdels-IP-poolen för att ta emot trafik samt nödvändiga käll- och målportar. 
+En belastnings Utjämnings regel definierar hur trafiken distribueras till resurser. Regeln definierar:
 
-Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klientdelen **LoadBalancerFrontEnd**. Regeln skickar nätverkstrafik till serverdelsadresspoolen **MyBackendPool**, även det med port 80. 
+- Klient delens IP-konfiguration för inkommande trafik.
+- Server delens IP-pool för att ta emot trafiken.
+- Käll-och mål portarna som krävs.
 
-**Så här skapar du lastbalanserarregeln:**
+Belastnings Utjämnings regeln med namnet **MyLoadBalancerRule** lyssnar på port 80 i **LoadBalancerFrontEnd** -klient delen. Regeln skickar nätverks trafik till **MyBackendPool** backend-adresspoolen på samma port 80.
 
-1. Välj **Alla resurser** på den vänstra menyn och välj sedan **MyLoadBalancer** i resurslistan.
-   
+Så här skapar du en belastnings Utjämnings regel:
+
+1. Välj **alla resurser** på menyn längst till vänster och välj sedan **MyLoadBalancer** i resurs listan.
+
 1. Under **Inställningar**väljer du **regler för belastnings utjämning**och väljer sedan **Lägg till**.
-   
-1. På sidan **Lägg till belastnings Utjämnings regel** skriver eller väljer du följande värden, om de inte redan finns:
-   
-   - **Namn**: Skriv **MyLoadBalancerRule**.
-   - **Klientdels-IP-adress:** Skriv **LoadBalancerFrontend** om det inte finns.
+
+1. På sidan **Lägg till belastnings Utjämnings regel** anger eller väljer du följande värden om de inte redan finns:
+
+   - **Namn**: ange **MyLoadBalancerRule**.
+   - **IP-adress för klient del:** Ange **LoadBalancerFrontEnd**.
    - **Protokoll**: Välj **TCP**.
-   - **Port**: Skriv **80**.
-   - **Serverdelsport**: Skriv **80**.
+   - **Port**: ange **80**.
+   - **Backend-port**: ange **80**.
    - **Serverdelspool**: Välj **MyBackendPool**.
    - **Hälsoavsökning**: Välj **MyHealthProbe**. 
-   
+
 1. Välj **OK**.
-   
-## <a name="create-a-private-link-service"></a>Skapa en privat länk-tjänst
 
-I det här avsnittet ska du skapa en privat länk-tjänst bakom en standard belastningsutjämnare.
+## <a name="create-a-private-link-service"></a>Skapa en Private Link-tjänst
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **nätverk** > **Private Link Center (för hands version)** . Du kan också söka i privat länk via portal sökning.
+I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastningsutjämnare.
 
-2. I **privat länk Center – översikt**, på alternativet att **"exponera din egen tjänst så att andra kan ansluta" väljer du** start.
+1. I den övre vänstra delen av sidan i Azure Portal väljer du **skapa en resurs** > **nätverk** > **Private Link Center (för hands version)** . Du kan också använda portalens sökruta för att söka efter en privat länk.
 
-3. I **skapa en privat länk tjänst – grunderna**anger eller väljer du den här informationen:
+1. I **privat länk Center – översikt** > **exponera din tjänst så att andra kan ansluta**, väljer du **Start**.
+
+1. Under **skapa en privat länk tjänst – grunderna**anger eller väljer du den här informationen:
 
     | Inställning           | Värde                                                                        |
     |-------------------|------------------------------------------------------------------------------|
-    | **Projekt information:**  |                                                                              |
-    | Prenumeration      | Välj din prenumeration                                                     |
-    | Resursgrupp    | Välj *MyResourceGroupLB*                                                     |
-    | **INSTANS INFORMATION:** |                                                                              |
-    | Namn              | Ange *myPrivateLinkService* |
-    | Region            | Välj *USA, östra 2*                                                         |
+    | Projekt information:  |                                                                              |
+    | **Prenumeration**      | Välj din prenumeration.                                                     |
+    | **Resursgrupp**    | Välj **MyResourceGroupLB**.                                                    |
+    | Instans information: |                                                                              |
+    | **Namn**              | Ange **myPrivateLinkService**. |
+    | **Region**            | Välj **USA, östra 2**.                                                        |
 
-4. Välj **Nästa: utgående inställningar**.
+1. Välj **Nästa: utgående inställningar**.
 
-5. I **skapa en privat länk tjänst-utgående inställningar**anger eller väljer du den här informationen:
-
+1. Under **skapa en privat länk tjänst-utgående inställningar**anger eller väljer du den här informationen:
 
     | Inställning                           | Värde                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | Load Balancer                     | Välj *MyLoadBalancer*                                                           |
-    | IP-adress för Load Balancer-klient | Välj IP-adressen för klient delen MyLoadBalancer                                |
-    | Käll-NAT virtuellt nätverk        | Välj *myVNET*                                                                   |
-    | Käll-NAT-undernät                 | Välj *myBackendSubnet*                                                          |
-    | Aktivera TCP-proxy v2               | Välj Ja/Nej beroende på om ditt program förväntar sig TCP proxy v2-huvud |
-    | Inställningar för privata IP-adresser       | Konfigurera tilldelnings metoden och IP-adressen för varje NAT-IP                  |
+    | **Lastbalanserare**                     | Välj **MyLoadBalancer**.                                                           |
+    | **IP-adress för Load Balancer-klient** | Välj IP-adressen för klient delen av **MyLoadBalancer**.                                |
+    | **Käll-NAT virtuellt nätverk**        | Välj **myVNET**.                                                                   |
+    | **Käll-NAT-undernät**                 | Välj **myBackendSubnet**.                                                          |
+    | **Aktivera TCP-proxy v2**               | Välj **Ja** eller **Nej** beroende på om ditt program förväntar sig ett TCP-proxy v2-huvud. |
+    | **Inställningar för privata IP-adresser**       | Konfigurera tilldelnings metoden och IP-adressen för varje NAT-IP.                  |
 
-6. Välj **Nästa: åtkomst säkerhet**.
+1. Välj **Nästa: åtkomst säkerhet**.
 
-7. I **skapa en privat länk tjänst-åtkomst säkerhet**anger eller väljer du den här informationen:
-
-    | Inställning                                     | Värde                                                             |
-    |---------------------------------------------|-------------------------------------------------------------------|
-    | Synlighet                                  | Välj *rollbaserad åtkomst kontroll*         |
+1. Under **skapa en privat länk tjänst-åtkomst säkerhet**, väljer du **synlighet**och väljer sedan **rollbaserad åtkomst kontroll**.
   
-8. Välj **Nästa: Taggar**och **granska sedan + skapa** eller Välj **fliken Granska + skapa** högst upp på sidan.
+1. Välj antingen **Nästa: taggar** > **Granska + skapa** eller Välj fliken **Granska + skapa** högst upp på sidan.
 
-9. Granska informationen och välj **skapa**.
+1. Granska informationen och välj **skapa**.
 
-## <a name="clean-up-resources"></a>Rensa resurser 
-När du är klar med den privata länk tjänsten tar du bort resurs gruppen för att rensa resurserna som används i den här snabb starten:
+## <a name="clean-up-resources"></a>Rensa resurser
 
-1. Skriv *myResourceGroupLB* i **sökrutan längst** upp i portalen och välj *myResourceGroupLB* från Sök resultaten. 
-2. Välj **Ta bort resursgrupp**. 
-3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
+När du är klar med den privata länk tjänsten tar du bort resurs gruppen för att rensa resurserna som används i den här snabb starten.
+
+1. Skriv **myResourceGroupLB** i sökrutan längst upp i portalen och välj **myResourceGroupLB** från Sök resultaten.
+1. Välj **Ta bort resursgrupp**.
+1. I **Skriv resurs gruppens namn**, anger du **myResourceGroup**.
+1. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en intern Azure Load Balancer och en privat länk tjänst. Mer information om hur du skapar privata slut punkter finns i [skapa privata slut punkter med hjälp av Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+I den här snabb starten skapade du en intern Azure Load Balancer och en privat länk tjänst. Du kan också lära dig hur du [skapar en privat slut punkt med hjälp av Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).

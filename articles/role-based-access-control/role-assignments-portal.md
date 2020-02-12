@@ -1,5 +1,5 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal
+title: Lägga till eller ta bort roll tilldelningar med RBAC och Azure Portal
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Portal.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4003e11120c13624379cf7dad9334e896cd3a7a8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774733"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138351"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal
 
@@ -27,7 +27,7 @@ ms.locfileid: "76774733"
 
 Om du behöver tilldela administratörs roller i Azure Active Directory, se [Visa och tilldela administratörs roller i Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 

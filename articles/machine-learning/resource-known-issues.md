@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3243aa4c68e1cd6030986dc44cca47a555dc5356
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 40749a80d99782a1ea84b27e68376ea2870e8eb7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087151"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138012"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -312,3 +312,8 @@ Ta bort etiketten genom att klicka på kryss rutan bredvid det.
 Experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) eller från fliken experiment i Azure Machine Learning Studio-klienten. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
 
 Permanent borttagning av enskilda experiment eller körningar stöds inte för närvarande. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
+
+## <a name="moving-the-workspace"></a>Flytta arbets ytan
+
+> [!WARNING]
+> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: alzam
-ms.openlocfilehash: 6357fb2d69a9c0ded430c17b77e854f63fc8f5c6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 6b0b6707f6851ef674d0045c7cf1686af13ea856
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747372"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137827"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -27,7 +27,7 @@ När du ansluter till ditt VNet kan du använda certifikatbaserad autentisering 
 Skapa en Azure AD-klient med hjälp av stegen i artikeln [skapa en ny klient organisation](../active-directory/fundamentals/active-directory-access-create-new-tenant.md) :
 
 * Organisations namn
-* Ursprungligt domännamn
+* Ursprungligt domän namn
 
 Exempel:
 
@@ -54,7 +54,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 4. Ge sedan administrativt medgivande. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
-    Offentlig
+    Offentligt
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
@@ -75,7 +75,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
     Azure Kina 21Vianet
 
     ```
-    https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
+    https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
 
 5. Välj det **globala administratörs** kontot om du uppmanas att göra det.
@@ -84,7 +84,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 6. Välj **acceptera** när du uppmanas till detta.
 
-    ![Acceptera](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Godkänn](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. I **företags program**i Azure AD visas **Azure VPN** i listan.
 

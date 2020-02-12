@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: rohink
-ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 49e0bce6eea8fac32f49bb905c225e898e709af0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939463"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136291"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Självstudie: direkt trafik till vissa slut punkter baserade på användar under nätet med hjälp av Traffic Manager
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du konfigurerar trafikroutningsmetoden för unde
 
 I de här självstudierna används undernätsroutning, vilket innebär att trafik dirigeras antingen till en intern webbplats eller en produktionswebbplats beroende på IP-adressen för användarens fråga.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer som kör en grundläggande webbplats i IIS
@@ -36,7 +36,7 @@ I den här guiden får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 
@@ -47,7 +47,7 @@ De virtuella testdatorerna används för att illustrera hur Traffic Manager diri
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på https://portal.azure.com.
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Skapa webbplatser
 
@@ -83,7 +83,7 @@ I det här avsnittet installerar du IIS-servern på de två VM- *myIISVMEastUS* 
 
 1. Klicka på **Alla resurser** i den vänstra menyn och från resurslistan klickar du sedan på *myIISVMEastUS* som finns i resursgruppen *myResourceGroupTM1*.
 2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+3. Öppna den nedladdade rdp-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. Navigera till **Windows Administrationsverktyg**>**Serverhanteraren** på serverdatorn.
@@ -207,7 +207,7 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
 1. Välj **Alla resurser** på menyn till vänster och klicka i listan över resurser på *myVMEastUS* som vinns i resursgruppen *myResourceGroupTM1*.
 2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+3. Öppna den nedladdade rdp-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. I en webbläsare på den virtuella datorn *myVMEastUS* anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Eftersom den virtuella datorns *myVMEastUS* -IP-adress är associerad med slut punkts *MyInternalWebsiteEndpoint*startar webbläsaren test webbplats servern- *myIISVMEastUS*.

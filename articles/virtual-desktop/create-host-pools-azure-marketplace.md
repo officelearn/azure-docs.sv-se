@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40659414848adb9be86b6163cf456809e9cb750f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020037"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134598"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
 
@@ -65,6 +65,10 @@ Det här kan du göra på bladet **grundläggande** :
 För bladet **Konfigurera virtuella datorer** :
 
 1. Acceptera standardvärdena eller anpassa antalet och storleken på de virtuella datorerna.
+    
+    >[!NOTE]
+    >Om den angivna virtuella dator storleken som du söker efter inte visas i storleks väljaren för virtuell dator, beror det på att vi inte har publicerat den på Azure Marketplace-verktyget ännu. Om du vill begära en VM-storlek skapar du en begäran eller avröstar en befintlig begäran i [Windows Virtual Desktop UserVoice-forumet](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    
 2. Ange ett prefix för namnen på de virtuella datorerna. Om du till exempel anger namnet "prefix" kommer de virtuella datorerna att kallas "prefix-0," prefix-1, "och så vidare.
 3. Välj **Nästa: inställningar för virtuella datorer**.
 

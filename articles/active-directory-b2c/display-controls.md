@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5b039221f3a25bddf7953cbe8d517275f76d6f37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479064"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136349"
 ---
 # <a name="display-controls"></a>Visa kontroller
 
@@ -30,9 +30,9 @@ Följande bild illustrerar en självkontrollerad registrerings sida med två vis
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
- I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` inställd på sid kontrakt version 2.0.0 eller högre. Ett exempel:
+ I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` inställd på sid kontrakt version 2.0.0 eller högre. Några exempel:
 
 ```XML
 <ContentDefinition Id="api.selfasserted">
@@ -80,7 +80,7 @@ Varje typ av visnings kontroll kräver en annan uppsättning visnings anspråk, 
 
 På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect`. Om ett visnings anspråks värde krävs av en **åtgärd**anger du det **obligatoriska** attributet till `true` för att tvinga användaren att ange ett värde för det angivna visnings kravet.
 
-Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Ett exempel:
+Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Några exempel:
 
 ```XML
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
@@ -90,7 +90,7 @@ Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exemp
 
 De **utgående anspråken** för en visnings kontroll skickas inte till nästa Orchestration-steg. De sparas tillfälligt för den aktuella sessionen för bildskärms kontroll. Dessa tillfälliga anspråk kan delas mellan olika åtgärder för samma visnings kontroll.
 
-Om du vill bubbla ut från anspråk till nästa Orchestration-steg använder du **OutputClaims** för den faktiska självkontrollerade tekniska profilen som refererar till den här visnings kontrollen.
+Om du vill bubbla ut anspråk till nästa Orchestration-steg använder du **OutputClaims** för den faktiska självkontrollerade tekniska profilen som refererar till den här visnings kontrollen.
 
 ### <a name="display-control-actions"></a>Visa kontroll åtgärder
 
@@ -129,7 +129,7 @@ I följande exempel skickas en kod i e-post eller SMS baserat på användarens v
 
 Visa kontroller refereras till i [Visa anspråk](self-asserted-technical-profile.md#display-claims) för den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md).
 
-Ett exempel:
+Några exempel:
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

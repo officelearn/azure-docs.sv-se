@@ -1,5 +1,5 @@
 ---
-title: Förstå neka-tilldelningar för Azure-resurser | Microsoft Docs
+title: Förstå neka-tilldelningar för Azure-resurser
 description: Lär dig mer om att neka tilldelningar i rollbaserad åtkomst kontroll (RBAC) för Azure-resurser.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 2c663b587d2e9ee278fc774c2841899b060ccbcf
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7ab811635ca50c3a28ecd8bdf6d0f18fad4c384f
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479366"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137381"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka-tilldelningar för Azure-resurser
 

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: 8df78df27ffb7e8bb8fc88567bd0b3d37be20488
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: d8b17472bb531ec799be227706261962d7914d68
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719508"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134455"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Snabb start: Använd Node. js för att ansluta och fråga efter data från Azure Cosmos DB SQL API-konto
 
@@ -25,16 +25,13 @@ ms.locfileid: "76719508"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Den här snabb starten visar hur du använder en Node. js-app för att ansluta till [SQL API](sql-api-introduction.md) -kontot i Azure Cosmos dB. Du kan sedan använda Azure Cosmos DB SQL-frågor för att fråga och hantera data. Node. js-appen som du skapar i den här artikeln använder [SQL JavaScript SDK](sql-api-sdk-node.md). I den här snabbstarten används version 2.0 av [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos).
+I den här snabb starten skapar du och hanterar ett Azure Cosmos DB SQL API-konto från Azure Portal och använder en Node. js-app som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-* Dessutom:
-    * [Node.js](https://nodejs.org/en/) version v6.0.0 eller senare
-    * [Git](https://git-scm.com/)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI för `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Node. js-6.0.0 +](https://nodejs.org/).
+- [Git](https://www.git-scm.com/downloads).
 
 ## <a name="create-a-database"></a>Skapa en databas 
 
@@ -78,9 +75,9 @@ Nu ska vi klona en Node. js-app från GitHub, ange anslutnings strängen och kö
 
 Det här steget är valfritt. Om du är intresse rad av att lära dig hur Azure Cosmos Database-resurserna skapas i koden kan du läsa följande kodfragment. Annars kan du gå vidare till [Uppdatera din anslutningssträng](#update-your-connection-string). 
 
-Observera att om du är bekant med den tidigare versionen av JavaScript SDK så är du kanske van vid att se termerna ”samling” och ”dokument”. Eftersom Azure Cosmos DB stöder [flera API-modeller](https://docs.microsoft.com/azure/cosmos-db/introduction) använder version 2.0+ av JavaScript SDK de allmänna termerna ”container”, vilket kan vara en samling, ett diagram eller en tabell, och ”objekt” för att beskriva innehållet i containern.
+Om du är bekant med den tidigare versionen av SQL JavaScript SDK kan du använda den för att Visa villkors *samlingen* och *dokumentet*. Eftersom Azure Cosmos DB stöder [flera API-modeller](introduction.md), använder [version 2.0 + av JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) en *behållare*för generiska termer, som kan vara en samling, Graf eller tabell och *objekt* för att beskriva behållarens innehåll.
 
-Följande kodfragment är alla hämtade från filen **app.js**.
+Följande kodfragment är alla hämtade från filen *app.js*.
 
 * `CosmosClient`-objektet har initierats.
 
@@ -134,17 +131,17 @@ Följande kodfragment är alla hämtade från filen **app.js**.
 
 Gå tillbaka till Azure Portal för att hämta information om anslutnings strängen för ditt Azure Cosmos-konto. Kopiera anslutnings strängen till appen så att den kan ansluta till databasen.
 
-1. I det [Azure Portal](https://portal.azure.com/)går du till ditt Azure Cosmos-konto, i det vänstra navigerings fönstret, klickar på **nycklar**och klickar sedan på **Läs-och skriv nycklar**. Du använder kopiera-knapparna till höger på skärmen för att kopiera URI:n och primärnyckeln i `config.js`-filen i nästa steg.
+1. I ditt Azure Cosmos DB konto i [Azure Portal](https://portal.azure.com/)väljer du **nycklar** i det vänstra navigerings fältet och väljer sedan **Läs-och skriv nycklar**. Använd kopierings knapparna till höger på skärmen för att kopiera URI: n och primär nyckeln till filen *config. js* i nästa steg.
 
     ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
-2. Öppna filen `config.js`. 
+2. I öppna filen *config. js* . 
 
-3. Kopiera ditt URI-värde från portalen (med kopieringsknappen) och gör det till värdet för slutpunktsnyckeln i `config.js`. 
+3. Kopiera ditt URI-värde från portalen (med kopierings knappen) och gör det till värdet för slut punkts nyckeln i *config. js*. 
 
     `config.endpoint = "<Your Azure Cosmos account URI>"`
 
-4. Kopiera sedan värdet för primärnyckeln från portalen och gör det till värdet för `config.key` i `config.js`. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+4. Kopiera sedan värdet för primär nyckeln från portalen och gör det till värdet för `config.key` i *config. js*. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
 
     `config.key = "<Your Azure Cosmos account key>"`
     
@@ -156,7 +153,7 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
 Du kan nu gå tillbaka till Datautforskaren, ändra och arbeta med dessa nya data.
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -166,7 +163,7 @@ Du kan nu gå tillbaka till Datautforskaren, ändra och arbeta med dessa nya dat
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos-konto, skapar en behållare med data Utforskaren och kör en app. Nu kan du importera ytterligare data till Azure Cosmos-databasen. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en behållare med hjälp av Datautforskaren och kör en Node. js-app. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
 > [Importera data till Azure Cosmos DB](import-data.md)

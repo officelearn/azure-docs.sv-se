@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/01/2019
+ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5b5956094da497cfbb72608587b2e0389ceec8fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427135"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133426"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
@@ -115,7 +115,7 @@ I följande tabell visas kod skillnaderna mellan v2 och v3 för vanliga scenarie
 * För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-sdk), CLI eller någon av de SDK: er som stöds.
 * Du måste etablera medie reserverade enheter (MRUs) i ditt konto för att kunna styra samtidigheten och prestandan för dina jobb, särskilt för video-eller ljud analys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MRUs med [CLI 2,0 för Media Services v3](media-reserved-units-cli-how-to.md), med hjälp av [Azure Portal](../previous/media-services-portal-scale-media-processing.md)eller [v2-API: er](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3-API: er.
 * Media Services entiteter som har skapats med v3-API: t kan inte hanteras av v2-API: et.  
-* Vi rekommenderar inte att du hanterar entiteter som har skapats med v2-API: er via v3-API: erna. Följande är exempel på skillnader som gör att entiteterna i två versioner inte är kompatibla:   
+* Alla entiteter i v2-API: t visas inte automatiskt i v3-API: et.  Följande är exempel på entiteter i de två versioner som är inkompatibla:  
     * Jobb och uppgifter som skapas i v2 visas inte i v3 eftersom de inte är associerade med en transformering. Rekommendationen är att växla till v3-transformeringar och-jobb. Det kommer att finnas en relativt kort tids period för att övervaka synlighetssekvensnummer v2-jobben under växlingen.
     * Kanaler och program som skapats med v2 (som mappas till Live-händelser och Live-utdata i v3) kan inte fortsätta hanteras med v3. Rekommendationen är att byta till v3 Live-händelser och direktsända utdata i ett bekvämt kanal avbrott.<br/>För närvarande kan du inte migrera kanaler som körs kontinuerligt.  
 

@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 57a211c6ffab9a960c013008410f4b52b909d360
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312216"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137511"
 ---
 # <a name="edit-metadata-module"></a>Redigera metadata-modul
 
-I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer (för hands version).
 
 Använd modulen redigera data om du vill ändra metadata som är associerade med kolumner i en data uppsättning. Data uppsättningens värde och datatyp ändras efter användningen av modulen redigera metadata.
 
@@ -40,9 +40,9 @@ Typiska metadata-ändringar kan innehålla:
   
 ## <a name="configure-edit-metadata"></a>Konfigurera redigera metadata
   
-1. I Azure Machine Learning lägger du till modulen redigera metadata i din pipeline och ansluter den data uppsättning som du vill uppdatera. Du kan hitta data uppsättningen under **dataomvandling** i kategorin för **manipulering** .
+1. I Azure Machine Learning designer lägger du till modulen redigera metadata i din pipeline och ansluter den data uppsättning som du vill uppdatera. Du hittar modulen i kategorin **data omvandling** .
   
-1. Välj **Starta kolumn väljaren** och välj den kolumn eller uppsättning kolumner som du vill arbeta med. Du kan välja kolumner individuellt efter namn eller index, eller så kan du välja en grupp med kolumner efter typ.  
+1. Klicka på **Redigera kolumn** i den högra panelen i modulen och välj den kolumn eller uppsättning kolumner som du vill arbeta med. Du kan välja kolumner individuellt efter namn eller index, eller så kan du välja en grupp med kolumner efter typ.  
   
 1. Välj alternativet **datatyp** om du behöver tilldela en annan datatyp till de markerade kolumnerna. Du kan behöva ändra data typen för vissa åtgärder. Om din käll data uppsättning exempelvis har tal som hanteras som text, måste du ändra dem till en numerisk datatyp innan du använder matematiska åtgärder.
 

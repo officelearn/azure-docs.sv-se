@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548381"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137905"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
@@ -43,17 +43,13 @@ I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning
 
 2.  Anslut en modell som inte är tränad till intill vänster. 
 
-3. Ställ in alternativet **skapa ledar läge** till **parameter intervall**. Använd **intervall Builder** för att ange ett intervall med värden som ska användas i parametern svep.  
 
-    Nästan alla moduler för klassificering och regression stöder en integrerad parameter rensning. För att se om det inte finns stöd för att konfigurera ett parameter intervall kan du bara testa de tillgängliga parameter värdena.
-
-    Du kan ange värdet manuellt för en eller flera parametrar och sedan svepa över de återstående parametrarna. Det kan spara en stund.
 
 4.  Lägg till den data uppsättning som du vill använda för utbildning och Anslut den till den mittersta indatan för justerings modellens parametrar.  
 
     Om du har en taggad data uppsättning kan du ansluta den till porten längst till höger (**valfri verifierings data uppsättning**). På så sätt kan du mäta noggrannhet medan du tränar och justerar.
 
-5.  Välj ett värde för **parameter rensnings läge**i fönstret Egenskaper för att justera modellens **Egenskaper** . Det här alternativet styr hur parametrarna väljs.
+5.  Välj ett värde för **parameter rensnings läge**i den högra panelen om du vill justera modellens egenskaper. Det här alternativet styr hur parametrarna väljs.
 
     - **Hela rutnätet**: när du väljer det här alternativet upprepas modulen över ett rutnät som är fördefinierat i systemet, för att testa olika kombinationer och identifiera den bästa bättre eleven. Det här alternativet är användbart när du inte vet vad de bästa parameter inställningarna kan vara och vill testa alla möjliga kombinationer av värden.
 
@@ -64,8 +60,6 @@ I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning
 7.  Välj antal körningar:
 
     1. **Maximalt antal körningar vid slumpmässig svep**: om du väljer en slumpmässig svep kan du ange hur många gånger modellen ska tränas genom att använda en slumpmässig kombination av parameter värden.
-
-    2. **Maximalt antal körningar i slumpmässiga rutnät**: det här alternativet styr också antalet iterationer över en slumpmässig sampling av parameter värden, men värdena genereras inte slumpmässigt från det angivna intervallet. I stället skapar modulen en matris med alla möjliga kombinationer av parameter värden. Det tar sedan en slumpmässig sampling över matrisen. Den här metoden är mer effektiv och mindre känslig för regional översampling eller undertagning.
 
 8.  I **rangordning**väljer du ett mått som ska användas för att rangordna modellerna.
 

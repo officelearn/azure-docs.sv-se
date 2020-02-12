@@ -15,29 +15,31 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016670"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134979"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Wirecast-kodare för att skicka en direktsänd dataström med enkel bithastighet 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
+> * [TriCaster](media-services-configure-tricaster-live-encoder.md)
 >
 >
 
-Den här artikeln visar hur du konfigurerar den [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) livekodare för att skicka en enda bithastighet till AMS kanaler som är aktiverade för live encoding.  Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Den här artikeln visar hur du konfigurerar [NetStream Wirecast](https://www.telestream.net/wirecast/overview.htm) Live Encoder för att skicka en enda bit ström till AMS kanaler som är aktiverade för direktsänd kodning. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac- eller Linux kan du använda Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
+Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac eller Linux använder du Azure Portal för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
+
+> [!NOTE]
+> Kodare måste ha stöd för TLS 1,2 när du använder RTMP-protokoll. Använd Wirecast version 13.0.2 eller högre på grund av kraven för TLS 1,2.
 
 ## <a name="prerequisites"></a>Förutsättningar
-* [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
-* Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [hanterar Strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)
-* Installera den senaste versionen av den [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) verktyget.
+* [Skapa ett Azure Media Services konto](media-services-portal-create-account.md)
+* Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [Hantera strömnings slut punkter i ett Media Services konto](media-services-portal-manage-streaming-endpoints.md)
+* Installera den senaste versionen av [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) -verktyget.
 * Starta verktyget och ansluta till AMS-kontot.
 
 ## <a name="tips"></a>Tips
@@ -46,13 +48,13 @@ Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azur
 * När du använder programvarubaserad kodare kan du stänga alla onödiga program.
 
 ## <a name="create-a-channel"></a>Skapa en kanal
-1. I AMSE-verktyget går du till den **Live** fliken och högerklicka i området för kanalen. Välj **skapa kanal...** på menyn.
+1. I AMSE-verktyget går du till fliken **Live** och högerklickar i kanalområdet. Välj **skapa kanal...** på menyn.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast1.png)
 
-2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Välj under inställningar för kanalen **Standard** för alternativet Live Encoding med indata-protokollet som är inställd på **RTMP**. Du kan lämna alla andra inställningar som är.
+2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Under kanal inställningar väljer du **standard** för alternativet Live encoding med inmatnings protokollet inställt på **RTMP**. Du kan lämna alla andra inställningar som är.
 
-    Kontrollera att den **starta den nya kanalen nu** har valts.
+    Kontrol lera att **starta den nya kanalen nu** är markerat.
 
 3. Klicka på **skapa kanal**.
 
@@ -63,57 +65,57 @@ Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azur
 >
 >
 
-Medan kanalen startar kan du [konfigurera kodaren](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
+När kanalen startas kan du [Konfigurera kodaren](media-services-configure-wirecast-live-encoder.md#configure_wirecast_rtmp).
 
 > [!IMPORTANT]
 > Debiteringen börjar när kanalen hamnar i tillståndet redo. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Konfigurera Telestream Wirecast-kodare
+## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />konfigurera Wirecast-kodaren för Telestream
 I den här självstudien används följande utdatainställningar för. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
 
 **Video**:
 
-* ADPCM H. 264
-* Upphandlarprofil Hög (nivå 4,0)
-* Hastigheten 5000 kbps
-* Nyckel bild: 2 sekunder (60 sekunder)
-* Bild Rute frekvens: 30
+* Codec: H.264
+* Profil: Hög (nivå 4.0)
+* Med flera bithastigheter: 5000 kbit/s
+* Bildrutan: 2 sekunder (60 sekunder)
+* RAM-pris: 30
 
 **Ljud**:
 
-* ADPCM AAC (LC)
-* Hastigheten 192 kbps
-* Samplings frekvens: 44,1 kHz
+* Codec: AAC (LC)
+* Med flera bithastigheter: 192 kbit/s
+* Samplingshastighet: 44.1 kHz
 
 ### <a name="configuration-steps"></a>Konfigurationssteg
 1. Öppna Telestream Wirecast-programmet på datorn som används och konfigureras för RTMP strömning.
-2. Konfigurera utdata genom att navigera till den **utdata** och markera **utdatainställningar...** .
+2. Konfigurera utdata genom att gå till fliken **utdata** och välja inställningar för **utdata...** .
 
-    Kontrollera att den **utdata mål** är inställd på **RTMP-Server**.
-3. Klicka på **OK**.
-4. Ange på inställningssidan i **mål** fältet ska vara **Azure Media Services**.
+    Kontrol lera att **utmatnings destinationen** är **RTMP-Server**.
+3. Klicka på **OK**
+4. På sidan inställningar anger du att **mål** fältet ska **Azure Media Services**.
 
-    Encoding-profil är förvalda till **Azure H.264 720 p 16:9 (1 280 x 720)** . Om du vill anpassa dessa inställningar väljer du kugghjulsikonen till höger om i listrutan och välj sedan **nya förinställda**.
+    Kodnings profilen är förvald till **Azure H. 264 720p 16:9 (1280x720)** . Om du vill anpassa inställningarna väljer du kugg hjuls ikonen till höger om List rutan och väljer sedan ny för **inställning**.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast3.png)
 5. Konfigurera kodare förinställningar.
 
     Namnge förinställningen och Sök efter följande rekommenderade inställningar:
 
-    **Video**
+    **Grafik**
 
-   * Encoder MainConcept H. 264
-   * Bild rutor per sekund: 30
-   * Genomsnittlig bit hastighet: 5000 Kbits/SEK (kan justeras baserat på nätverks begränsningar)
-   * Upphandlarprofil Huvud
-   * Nyckel bild varje: 60 bild rutor
+   * Kodaren: MainConcept H.264
+   * Bildrutor per sekund: 30
+   * Genomsnittlig bithastighet: 5000 kbits/sek (kan justeras utifrån nätverksbegränsningar)
+   * Profil: Main
+   * Viktiga ramens var: 60 bildrutor
 
-     **Ljud**
+     **In**
 
-   * Mål bit hastighet: 192 Kbits per sekund
-   * Samplings frekvens: 44,100 kHz
+   * Target bithastighet: 192 kbits/sek
+   * Samplingshastighet: 44 100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Tryck på **Spara**.
@@ -121,58 +123,58 @@ I den här självstudien används följande utdatainställningar för. Resten av
     Fältet avkodning har nu den nyligen skapade profilen väljas.
 
     Kontrollera att den nya profilen har valts.
-7. Hämta kanalen användarens indata URL: en för att tilldela den till Wirecast **RTMP Endpoint**.
+7. Hämta kanalens inmatnings-URL för att tilldela den till Wirecast **RTMP-slutpunkten**.
 
-    Gå tillbaka till AMSE-verktyget och kontrollera status för slutförande kanal. När tillståndet har ändrats från **startar** till **kör**, du kan hämta den angivna URL-Adressen.
+    Gå tillbaka till AMSE-verktyget och kontrollera status för slutförande kanal. När statusen har ändrats från att **Starta** till **körs**kan du hämta INgångs-URL: en.
 
-    När kanalen körs, högerklicka på kanalnamnet på, navigera till hovra över **kopia indata-URL till Urklipp** och välj sedan **primära indata-URL**.  
+    När kanalen körs högerklickar du på kanal namnet, navigerar ned till hovra över **Kopiera ingångs-URL till Urklipp** och väljer sedan **primär URL för indatakälla**.  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast6.png)
-8. I Wirecast **utdatainställningar** och klistra in den här informationen i den **adress** i outputs-avsnittet och tilldela ett namn för stream.
+8. I fönstret Wirecast- **utdata** klistrar du in den här informationen i fältet **adress** i avsnittet utdata och tilldelar ett ström namn.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast5.png)
 
 1. Välj **OK**.
-2. På huvudsidan **Wirecast** skärmen, bekräfta indatakällor för video och ljud är klar och tryck sedan på **Stream** i det övre vänstra hörnet.
+2. På **Wirecast** -skärmen bekräftar du att indata-källor för video och ljud är klara och trycker sedan på **Stream** i det övre vänstra hörnet.
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast7.png)
 
 > [!IMPORTANT]
-> Innan du klickar på **Stream**, du **måste** se till att kanalen är redo.
+> Innan du klickar på **Stream** **måste** du se till att kanalen är klar.
 > Se dessutom till att du inte lämnar kanalen i tillståndet redo utan ett inkommande bidrag feed > 15 minuter.
 >
 >
 
 ## <a name="test-playback"></a>Testa uppspelning
 
-Gå till AMSE-verktyget och högerklicka på kanalen som ska testas. Från menyn, hovrar du över **uppspelning förhandsversionen** och välj **med Azure Media Player**.  
+Gå till AMSE-verktyget och högerklicka på kanalen som ska testas. Hovra över **uppspelning av för hands versionen på** menyn och välj **med Azure Media Player**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 Om strömmen visas i spelaren, har sedan kodaren konfigurerats korrekt för att ansluta till AMS.
 
-Om ett fel tas emot kanalen måste återställas och anpassa inställningar för kodare. Se den [felsökning](media-services-troubleshooting-live-streaming.md) artikeln vägledning.  
+Om ett fel tas emot kanalen måste återställas och anpassa inställningar för kodare. Se [fel söknings](media-services-troubleshooting-live-streaming.md) artikeln för vägledning.  
 
 ## <a name="create-a-program"></a>Skapa ett program
-1. När kanalen uppspelning har bekräftats kan du skapa ett program. Under den **Live** fliken AMSE-verktyget, högerklicka i området för programmet och välj **Skapa nytt Program**.  
+1. När kanalen uppspelning har bekräftats kan du skapa ett program. Under fliken **Live** i AMSE-verktyget högerklickar du i program arean och väljer **Skapa nytt program**.  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)
-2. Namnge programmet och, om det behövs, justera den **Arkiveringsfönstret** (som standard är fyra timmar). Du kan också ange en lagringsplats eller lämna som standard.  
-3. Kontrollera den **starta programmet nu** box.
-4. Klicka på **skapa Program**.  
+2. Ge programmet ett namn och, om det behövs, ändra **Arkiv fönstrets längd** (som är standardvärdet fyra timmar). Du kan också ange en lagringsplats eller lämna som standard.  
+3. Markera kryss rutan **starta programmet nu** .
+4. Klicka på **skapa program**.  
 
    >[!NOTE]
    >Programmet tar mindre tid än att skapa en kanal.
        
-5. När programmet körs kan bekräfta uppspelning genom att högerklicka på programmet och navigera till **uppspelning på program** och sedan välja **med Azure Media Player**.  
-6. När du bekräftat, högerklicka på programmet igen och välj **kopiera den URL som utdata till Urklipp** (eller hämta den här informationen från den **programmet information och inställningar** alternativ på menyn).
+5. När programmet har körts bekräftar du uppspelningen genom att högerklicka på programmet och navigera för att **spela upp program** och välja **med Azure Media Player**.  
+6. När du har bekräftat, högerklickar du på programmet igen och väljer **Kopiera URL: en till Urklipp** (eller hämta informationen från **program information och inställnings** alternativ på menyn).
 
 Dataströmmen är nu redo att vara inbäddad i en spelare eller distribueras till en målgrupp för visning av live.  
 
 ## <a name="troubleshooting"></a>Felsökning
-Se den [felsökning](media-services-troubleshooting-live-streaming.md) artikeln vägledning.
+Se [fel söknings](media-services-troubleshooting-live-streaming.md) artikeln för vägledning.
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

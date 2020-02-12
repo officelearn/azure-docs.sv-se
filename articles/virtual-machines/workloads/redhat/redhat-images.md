@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 211ac68fd10cd745faf68a5efae7392345008d7b
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 5ed5d9337dd4e7acdbba25c4cb66d2690793f250
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941453"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134396"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Översikt över Red Hat Enterprise Linux avbildningar
 I den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux-avbildningar (RHEL) på Azure Marketplace tillsammans med principer kring namngivning och kvarhållning.
@@ -30,7 +30,7 @@ Information om Red Hat support-principer för alla versioner av RHEL finns på s
 >[!NOTE]
 > För eventuella problem som rör RHEL-avbildningar på Azure Marketplace kan du skicka ett support ärende till Microsoft.
 
-## <a name="images-available-in-azure"></a>Tillgängliga bilder i Azure
+## <a name="viewing-images-available-in-azure"></a>Visa bilder som är tillgängliga i Azure
 När du söker efter "Red Hat" i Marketplace eller när du skapar en resurs i Azure Portal användar gränssnitt, ser du bara en delmängd av alla tillgängliga RHEL-avbildningar. Du kan alltid hämta en fullständig uppsättning tillgängliga VM-avbildningar med hjälp av Azure CLI/PowerShell/API.
 
 Om du vill se en fullständig uppsättning Red Hat-avbildningar i Azure kör du följande kommando
@@ -60,24 +60,25 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-LVM:lat
 
 >[!NOTE]
 > I allmänhet är jämförelsen av versioner att fastställa de senaste reglerna för [CompareTo-metoden](https://msdn.microsoft.com/library/a5ts8tb6.aspx).
+Denna bild versions jämförelse görs genom att jämföra värdena som ett [versions](https://docs.microsoft.com/dotnet/api/system.version.-ctor?view=netframework-4.8) objekt, inte som en sträng.
 
-### <a name="rhel-6-image-types"></a>RHEL 6-avbildnings typer
+## <a name="rhel-6-image-types"></a>RHEL 6-avbildnings typer
 För RHEL 6. x-bilder är bild typerna följande:
 
-|Utgivare | Erbjudande | SKU-värde | Version | Information
+|Utgivare | Erbjudande | SKU-värde | Version | Detaljer
 |----------|-------|-----------|---------|--------
 |Redhat | RHEL | Lägre version (t. ex. 6,9) | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 6.9.2018010506) | Alla standard RHEL 6. x-bilder följer denna konvention
 |Redhat | RHEL – BYOS | RHEL – raw69 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 6.9.20181023) | Den här avbildningen är en RHEL 6,9 BYOS-avbildning.
 |Redhat | RHEL | RHEL-SAP-APPS | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 6.8.2017053118) | Det här är en avbildning av RHEL 6,8 för SAP-program. Det har rätt att få åtkomst till SAP-programdatabaser och bas RHEL-databaser.
 |Redhat | RHEL | RHEL – SAP-HANA | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 6.7.2017053121) | Det här är en RHEL 6,7 för SAP HANA-avbildning. Den har rätt att komma åt SAP HANA-databaser och bas RHEL-lagringsplatser.
 
-### <a name="rhel-7-image-types"></a>Bild typer för RHEL 7
+## <a name="rhel-7-image-types"></a>Bild typer för RHEL 7
 För RHEL 7. x-bilder finns det några olika bild typer. I följande tabell visas de olika uppsättningar med avbildningar vi erbjuder. Du kan visa en fullständig lista med AZ CLI-kommandot `az vm image list --publisher redhat --all`.
 
 >[!NOTE]
 > Om inget annat anges är alla avbildningar LVM och kommer att ansluta till vanliga RHEL-databaser (dvs. inte EUS, inte E4S). Vi går vidare till att bara publicera LVM-partitionerade bilder men är öppna för feedback på det här beslutet. Information om stöd för utökad uppdatering och uppdaterings tjänster för SAP finns på [sidan Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata).
 
-|Utgivare | Erbjudande | SKU-värde | Version | Information
+|Utgivare | Erbjudande | SKU-värde | Version | Detaljer
 |----------|-------|------------|---------|--------
 |Redhat | RHEL | Lägre version (t. ex. 7,6) | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 7.6.2019102813) | Avbildningar som publicerats före april 2019 kommer att kopplas till standard RHEL-databaser. Avbildningar som publicerats efter 2019 april kommer att kopplas till EUS-databaser (Extended Update Support) för Red Hat för att tillåta versions låsning av en viss del version. Kunder som vill ha vanliga databaser bör använda de bilder som innehåller 7-LVM eller 7-RAW i SKU-värdet (information nedan). RHEL 7,7 och senare är LVM-partitionerade. Alla andra bilder i den här kategorin är RAW-partitionerade.
 |Redhat | RHEL | 7-RAW | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 7.6.2019102813) | De här avbildningarna är opartitionerade (dvs. inga logiska volymer har lagts till).
@@ -90,15 +91,17 @@ För RHEL 7. x-bilder finns det några olika bild typer. I följande tabell visa
 |Redhat | RHEL | RHEL-SAP-APPS | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 7.3.2017053118) | De här avbildningarna är inaktuella som SAP-program och SAP HANA-databaser har kombinerats till SAP-databaserna. Dessa är RHEL för SAP-program. De har rätt att få åtkomst till SAP-programdatabaser och bas RHEL-databaser.
 |Redhat | RHEL | RHEL – SAP-HANA | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 7.3.2018051421) | De här avbildningarna är inaktuella som SAP-program och SAP HANA-databaser har kombinerats till SAP-databaserna. Detta är RHEL for SAP HANA bilder. De har rätt att komma åt SAP HANA-databaser och bas RHEL-lagringsplatser.
 
-### <a name="rhel-8-image-types"></a>RHEL 8-bildtyper
+## <a name="rhel-8-image-types"></a>RHEL 8-bildtyper
 Information om typer av RHEL 8-avbildningar finns nedan.
 
-|Utgivare | Erbjudande | SKU-värde | Version | Information
+|Utgivare | Erbjudande | SKU-värde | Version | Detaljer
 |----------|-------|------------|---------|--------
 |Redhat | RHEL | 8 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 8.0.20191023) | De här avbildningarna är RHEL 8,0 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser.
 |Redhat | RHEL | 8-Gen2 | Sammanfogade värden för den lägre RHEL-versionen och publicerings datumet (t. ex. 8.0.20191024) | De här avbildningarna är Hyper-V generation 2 RHEL 8,0 LVM-partitionerade avbildningar anslutna till Red Hat-standarddatabaser. Mer information om generation 2 virtuella datorer i Azure finns [här](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
-## <a name="extended-update-support-eus"></a>Stöd för utökad uppdatering (EUS)
+## <a name="rhel-longer-support-add-ons"></a>RHEL har längre stöd för tillägg
+
+### <a name="extended-update-support-eus"></a>Stöd för utökad uppdatering (EUS)
 Från och med april 2019 är RHEL-avbildningar tillgängliga som är kopplade till EUS-databaserna (Extended Update Support) som standard. Mer information om RHEL-EUS finns i [Red Hat-dokumentationen](https://access.redhat.com/articles/rhel-eus).
 
 Det går att växla till EUS-databaser och stöds. Anvisningar om hur du växlar den virtuella datorn till EUS och mer information om EUS support livs längd finns [här](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
@@ -106,7 +109,7 @@ Det går att växla till EUS-databaser och stöds. Anvisningar om hur du växlar
 >[!NOTE]
 > EUS stöds inte för RHEL-tillägg. Det innebär att om du installerar ett paket som vanligt vis är tillgängligt från RHEL extra-kanalen, kan du inte göra det på EUS. Den Red Hat extra produkt livs cykeln beskrivs [här](https://access.redhat.com/support/policy/updates/extras/).
 
-### <a name="differentiating-between-regular-and-eus-images"></a>Differentiering mellan vanliga och EUS bilder.
+#### <a name="differentiating-between-regular-and-eus-images"></a>Differentiering mellan vanliga och EUS bilder.
 Kunder som vill använda bilder som är kopplade till EUS-databaser bör använda RHEL-avbildningen som innehåller ett lägre versions nummer för RHEL i SKU: n.
 
 Till exempel kan du se följande två tillgängliga RHEL 7,4-avbildningar:
@@ -131,13 +134,18 @@ Lägre version |Exempel på EUS-avbildning              |Status för EUS        
 RHEL 7,4      |RedHat:RHEL:7.4:7.4.2019041718 | Avbildningar som publicerats april 2019 och senare blir EUS som standard|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Avbildningar som publicerats 2019 och senare blir EUS som standard |
 RHEL 7,6      |RedHat:RHEL:7.6:7.6.2019052206 | Publicerade avbildningar maj 2019 och senare blir EUS som standard  |
-RHEL 8,0      |Gäller inte                            | Ingen EUS är tillgänglig från Red Hat                               |
+RHEL 8,0      |Saknas                            | Ingen EUS är tillgänglig från Red Hat                               |
 
+### <a name="update-services-for-sap-e4s"></a>Uppdatera tjänster för SAP (E4S)
+De senaste RHEL för SAP-avbildningarna kommer att anslutas till uppdaterings tjänsterna för SAP Solutions-prenumerationer (E4S). Mer information om E4S finns i Red Hat- [dokumentationen](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions).
 
+#### <a name="rhel-images-with-e4s"></a>RHEL-avbildningar med E4S
+Bilder från följande erbjudanden som skapats efter december 2019 kommer att anslutas till E4S-databaser.
 
+* RHEL – SAP (RHEL for SAP)
+* RHEL-SAP-HA (RHEL för SAP med HA och uppdaterings tjänster)
 
-
-### <a name="other-available-offers-and-skus"></a>Andra tillgängliga erbjudanden och SKU: er
+## <a name="other-available-offers-and-skus"></a>Andra tillgängliga erbjudanden och SKU: er
 Den fullständiga listan över tillgängliga erbjudanden och SKU: er kan innehålla ytterligare bilder utöver vad som anges i tabellen ovan, till exempel `RedHat:rhel-ocp-marketplace:rhel74:7.4.1`. Dessa erbjudanden kan användas för att tillhandahålla support för vissa Marketplace-lösningar, eller så kan de publiceras för för hands versioner och test ändamål. De kan ändras eller tas bort när som helst utan varning. Använd dem inte om inte deras närvaro har dokumenterats offentligt av antingen Microsoft eller Red Hat.
 
 ## <a name="publishing-policy"></a>Publicerings princip

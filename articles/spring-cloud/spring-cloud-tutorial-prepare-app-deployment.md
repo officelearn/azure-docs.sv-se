@@ -1,21 +1,21 @@
 ---
-title: Självstudie – förbereda ett våren-program för distribution i Azure våren Cloud
-description: I den här självstudien förbereder du ett Java våren-program för distribution.
+title: Självstudie – förbereda ett Java våren-program för distribution i Azure våren Cloud
+description: I den här självstudien förbereder du ett Java våren-program för distribution till Azure våren Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 7a879fa942046376e8cf0acc40a62039e8f3de25
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1af4bdcfc0fea319b9e5c9f39a1ade3f4492404f
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064724"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137634"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Förbereda ett Java våren-program för distribution i Azure våren Cloud
 
-Den här snabb starten visar hur du förbereder ett befintligt Java våren Cloud-program för distribution till Azure våren Cloud. Om Azure våren Cloud har kon figurer ATS korrekt tillhandahåller robusta tjänster för att övervaka, skala och uppdatera ditt Java våren Cloud-program.
+Den här snabb starten visar hur du förbereder ett befintligt Java våren-program för distribution till Azure våren Cloud. Om Azure våren Cloud har kon figurer ATS korrekt tillhandahåller robusta tjänster för att övervaka, skala och uppdatera ditt Java våren Cloud-program.
 
 ## <a name="java-runtime-version"></a>Java Runtime-version
 

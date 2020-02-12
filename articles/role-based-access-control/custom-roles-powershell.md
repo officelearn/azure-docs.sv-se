@@ -1,5 +1,5 @@
 ---
-title: Skapa eller uppdatera anpassade roller för Azure-resurser med Azure PowerShell | Microsoft Docs
+title: Skapa eller uppdatera anpassade roller för Azure-resurser med Azure PowerShell
 description: Lär dig att visa, skapa, uppdatera eller ta bort anpassade roller med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser med hjälp av Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fa4ff5f35df0f541d8a7e633df024af81676e58b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 52057477fdba9757be2737c223d569b9e9a3e749
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703103"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137444"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-azure-powershell"></a>Skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av Azure PowerShell
 
@@ -29,7 +29,7 @@ En stegvis själv studie kurs om hur du skapar en anpassad roll finns i [Självs
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa anpassade roller behöver du:
 

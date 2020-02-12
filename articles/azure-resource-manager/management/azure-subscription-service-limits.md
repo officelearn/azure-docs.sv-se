@@ -3,13 +3,13 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
-ms.translationtype: MT
+ms.date: 02/10/2020
+ms.openlocfilehash: 0891a18c782d4d60970ccba8efa7c9bfc98f19df
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087423"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133711"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar
 
@@ -28,8 +28,6 @@ Begränsningar för resurs namn finns i [namngivnings regler och begränsningar 
 ## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
 
 Du kan kombinera flera Azure-resurser till en enda resurs grupp i Azure. När du använder resurs grupper, begränsar det att en gång har global hantering på regional nivå med Azure Resource Manager. Mer information om Azures resurs grupper finns i [Azure Resource Manager översikt](overview.md).
-
-I följande lista över gränser visar en ny tabell eventuella skillnader i gränser när du använder Azure Resource Manager. Det finns till exempel en **prenumerations begränsnings** tabell och en **prenumerations gräns – Azure Resource Manager** tabell. När en gräns gäller för båda scenarierna visas den bara i den första tabellen. Om inget annat anges är gränserna globalt i alla regioner.
 
 > [!NOTE]
 > Kvoter för resurser i Azure-resurs grupper är per region som är tillgängliga för din prenumeration, inte per prenumeration som tjänst hanterings kvoterna. Vi använder vCPU-kvoter som exempel. Om du vill begära en kvot ökning med stöd för virtuella processorer, måste du bestämma hur många virtuella processorer du vill använda i vilka regioner. Sedan gör du en speciell begäran för Azures resurs grupp vCPU kvoter för de mängder och regioner som du vill ha. Om du behöver använda 30 virtuella processorer i Västeuropa för Europa för att köra ditt program där, så kan du begära 30 virtuella processorer i Västeuropa. Din vCPU-kvot ökas inte i någon annan region – endast Västeuropa har 30-vCPU-kvoten.
@@ -115,13 +113,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser
 
-#### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>Prenumerations gränser – Azure Service Management (klassisk distributions modell)
-
-[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
-
-#### <a name="subscription-limits---azure-resource-manager"></a>Prenumerations gränser – Azure Resource Manager
-
-Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resurs grupper. Gränser som inte har ändrats med Azure Resource Manager finns inte med i listan. Se föregående tabell för dessa gränser.
+Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resurs grupper.
 
 Information om Läs-och skriv gränser i Resource Manager API finns i [begränsa Resource Manager-begäranden](request-limits-and-throttling.md).
 
@@ -485,6 +477,12 @@ För SQL Database gränser, se [SQL Database resurs gränser för enskilda datab
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
 
 SQL Data Warehouse gränser finns i [SQL Data Warehouse resurs gränser](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+
+### <a name="classic-deployment-model-limits"></a>Begränsningar för klassisk distributions modell
+
+Om du använder den klassiska distributions modellen i stället för Azure Resource Manager distributions modell gäller följande begränsningar.
+
+[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
 
 ## <a name="see-also"></a>Se även
 

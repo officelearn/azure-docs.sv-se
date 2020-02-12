@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 32a4fde12287e06c12fac9ed13ad7a8889b49fc1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec34ed723e9b0743a9a5fbbe6413659dd63b0e8a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895918"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134913"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Liveuppspelning med Azure Media Services för att skapa dataströmmar med flera bithastigheter
 
@@ -31,7 +31,7 @@ ms.locfileid: "74895918"
 I Azure Media Services (AMS) representerar en **kanal** en pipeline för bearbetning av direktsänd strömmande innehåll. En **kanal** tar emot direktsända indata strömmar på något av två sätt:
 
 * En lokal Live-kodare skickar en data ström med en bit hastighet till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
-* En lokal Live-kodare skickar en **RTMP** med flera bit hastigheter eller **Smooth Streaming** (fragmenterad MP4) till den kanal som inte är aktive rad för att utföra direktsänd kodning med AMS. De inmatade strömmarna passerar genom **kanal**s utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Media Live Encoder (FMLE), Wirecast, Haivision, Teradek och TriCaster Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
+* En lokal Live-kodare skickar en **RTMP** med flera bit hastigheter eller **Smooth Streaming** (fragmenterad MP4) till den kanal som inte är aktive rad för att utföra direktsänd kodning med AMS. De inmatade strömmarna passerar genom **kanal**s utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: multistream Wirecast, Haivision, Teradek och TriCaster Encoder.  En livekodare kan även skicka en ström med en enda bithastighet till en kanal som inte har aktiverats för Live Encoding, men det rekommenderas inte. På begäran levererar Media Services strömmen till kunder.
 
   > [!NOTE]
   > Att använda en direkt metod är det mest ekonomiska sättet att göra Direktsänd strömning.
@@ -58,21 +58,21 @@ Om du vill stoppa kanalen från faktureringen måste du stoppa kanalen via API: 
 Du ansvarar för att stoppa dina kanaler när du är färdig med Live encoding Channel.  Om du inte stoppar en kodnings kanal leder det till fortsatt fakturering.
 
 ### <a id="states"></a>Kanal tillstånd och hur de mappas till fakturerings läget
-Det aktuella tillståndet för en kanal. Möjliga värden omfattar:
+Aktuell status för en kanal. Möjliga värden omfattar:
 
-* **Stoppades**. Det här är den ursprungliga statusen för kanalen när den har skapats (om Autostart har marker ATS i portalen). Ingen fakturering sker i det här läget. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
-* **Startar**. Kanalen startas. Ingen fakturering sker i det här läget. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till tillståndet Stoppad.
-* **Körs**. Kanalen kan bearbeta direktsända strömmar. Nu faktureras användning. Du måste stoppa kanalen för att förhindra ytterligare fakturering. 
-* **Stoppar**. Kanalen stoppas. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömning tillåts i det här tillståndet.
-* **Tar bort**. Kanalen tas bort. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Stoppades**. Det här är den ursprungliga statusen för kanalen när den har skapats (om Autostart har marker ATS i portalen). Ingen fakturering sker i det här läget. I det här läget kan kanal egenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar**. Kanalen startas. Ingen fakturering sker i det här läget. Inga uppdateringar eller strömmande tillåts under det här läget. Om ett fel inträffar återgår kanalen till stoppat tillstånd.
+* **Körs**. Kanalen kan bearbeta Live-strömmar. Nu faktureras användning. Du måste stoppa kanalen för att förhindra ytterligare fakturering. 
+* **Stoppar**. Kanalen stoppas. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
+* **Tar bort**. Kanalen tas bort. Ingen fakturering sker i det här tillfälliga läget. Inga uppdateringar eller strömmande tillåts under det här läget.
 
-Följande tabell visar hur kanaltillstånd mappas till faktureringsläge. 
+Följande tabell visar hur kanal tillstånd mappas till fakturerings läget. 
 
-| Kanaltillstånd | Portalgränssnittsindikatorer | Faktureras det? |
+| Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Faktureras det? |
 | --- | --- | --- |
-| Startar |Startar |Nej (övergångsläge) |
-| Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |JA |
-| Stoppas |Stoppas |Nej (övergångsläge) |
+| Startar |Startar |Nej (tillfälligt tillstånd) |
+| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Ja |
+| Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
 | Stoppad |Stoppad |Nej |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatisk avstängning för oanvända kanaler
@@ -240,7 +240,7 @@ När din kanal har Live Encoding aktive rad har du en komponent i din pipeline s
 
 Här följer de egenskaper som du kan ange vid signalering av annonser. 
 
-### <a name="duration"></a>Längd
+### <a name="duration"></a>Varaktighet
 Tiden, i sekunder, för det kommersiella avbrott. Det måste vara ett positivt värde som inte är noll för att kunna starta den kommersiella rasten. När en kommersiell rast pågår och varaktigheten är inställd på noll med CueId som matchar den pågående kommersiella rasten, avbryts den rasten.
 
 ### <a name="cueid"></a>CueId
@@ -256,7 +256,7 @@ Live-kodaren i kanalen kan signaleras för att växla till en bakgrunds bild. De
 
 Live-kodaren kan konfigureras för att växla till en bakgrunds bild och dölja den inkommande video signalen i vissa situationer, till exempel under en AD Break. Om en sådan inte är konfigurerad, maskeras inte inmatad video under denna AD Break.
 
-### <a name="duration"></a>Längd
+### <a name="duration"></a>Varaktighet
 Sidans varaktighet i sekunder. Det måste vara ett positivt värde som inte är noll för att starta sidan. Om det finns ett pågående Skriv sätt och en varaktighet på noll anges, avslutas den pågående ingångs perioden.
 
 ### <a name="insert-slate-on-ad-marker"></a>Infoga Skriv platta på AD-markör
@@ -282,7 +282,7 @@ En kanal är associerad till program som gör att du kan styra publicering och l
 
 Du kan ange det antal timmar som du vill behålla inspelat innehåll för programmet genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Arkiv fönster längden anger också det maximala antalet tids klienter som kan söka bakåt i tiden från den nuvarande aktiva positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
-Varje program är associerat med en till gång som lagrar det strömmade innehållet. En till gång mappas till en Block Blob-behållare i Azure Storage-kontot och filerna i till gången lagras som blobbar i behållaren. För att publicera programmet så att dina kunder kan visa data strömmen måste du skapa en OnDemand-positionerare för den associerade till gången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
+Varje program är associerat med en till gång som lagrar det strömmade innehållet. En till gång mappas till en Block Blob-behållare i Azure Storage-kontot och filerna i till gången lagras som blobbar i behållaren. För att publicera programmet så att dina kunder kan visa data strömmen måste du skapa en OnDemand-positionerare för den associerade till gången. Med den här positioneraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
 En kanal har stöd för upp till tre program som körs samtidigt, så att du kan skapa flera Arkiv för samma inkommande data ström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av ett program, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet publiceras.
 
@@ -294,27 +294,27 @@ Om du vill ta bort arkiverat innehåll, stoppar du och tar bort programmet och t
 
 Även efter att du har stoppat och tagit bort programmet skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge som du inte tar bort tillgången.
 
-Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningslokaliseraren.
+Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningspositioneraren.
 
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Få en miniatyr för hands version av en live-feed
 När Live Encoding har Aktiver ATS kan du nu få en för hands version av Live-matningen när den når kanalen. Detta kan vara ett värdefullt verktyg för att kontrol lera om din live-feed faktiskt når kanalen. 
 
 ## <a id="states"></a>Kanal tillstånd och hur tillstånd mappas till fakturerings läget
-Det aktuella tillståndet för en kanal. Möjliga värden omfattar:
+Aktuell status för en kanal. Möjliga värden omfattar:
 
-* **Stoppades**. Det här är starttillståndet för kanalen när den har skapats. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
-* **Startar**. Kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till tillståndet Stoppad.
-* **Körs**. Kanalen kan bearbeta direktsända strömmar.
-* **Stoppar**. Kanalen stoppas. Inga uppdateringar eller strömning tillåts i det här tillståndet.
-* **Tar bort**. Kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Stoppades**. Det här är den ursprungliga statusen för kanalen när den har skapats. I det här läget kan kanal egenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar**. Kanalen startas. Inga uppdateringar eller strömmande tillåts under det här läget. Om ett fel inträffar återgår kanalen till stoppat tillstånd.
+* **Körs**. Kanalen kan bearbeta Live-strömmar.
+* **Stoppar**. Kanalen stoppas. Inga uppdateringar eller strömmande tillåts under det här läget.
+* **Tar bort**. Kanalen tas bort. Inga uppdateringar eller strömmande tillåts under det här läget.
 
-Följande tabell visar hur kanaltillstånd mappas till faktureringsläge. 
+Följande tabell visar hur kanal tillstånd mappas till fakturerings läget. 
 
-| Kanaltillstånd | Portalgränssnittsindikatorer | Fakturerad? |
+| Kanal tillstånd | Portal GRÄNSSNITTs indikatorer | Debiteras? |
 | --- | --- | --- |
-| Startar |Startar |Nej (övergångsläge) |
-| Körs |Klart (inga program körs)<br/>eller<br/>Strömmar (minst ett program körs) |Ja |
-| Stoppas |Stoppas |Nej (övergångsläge) |
+| Startar |Startar |Nej (tillfälligt tillstånd) |
+| Körs |Redo (inga program som körs)<br/>eller<br/>Strömning (minst ett program som körs) |Ja |
+| Stoppas |Stoppas |Nej (tillfälligt tillstånd) |
 | Stoppad |Stoppad |Nej |
 
 > [!NOTE]

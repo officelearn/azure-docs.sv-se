@@ -1,5 +1,5 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar för externa gäst användare med hjälp av Azure RBAC och Azure Portal
+title: Lägg till eller ta bort roll tilldelningar för externa användare med RBAC och Azure Portal
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare utanför en organisation med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707888"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138383"
 ---
 # <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Lägga till eller ta bort roll tilldelningar för externa gäst användare med hjälp av Azure RBAC och Azure Portal
 
 Med [Azure rollbaserad åtkomst kontroll (RBAC)](overview.md) får du bättre säkerhets hantering för stora organisationer och små och medel stora företag som arbetar med externa medarbetare, leverantörer eller Freelancer som behöver åtkomst till vissa resurser i din miljö, men inte nödvändigt vis till hela infrastrukturen eller någon fakturerings-relaterade omfattning. Du kan använda funktionerna i [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) för att samar beta med externa gäst användare och du kan använda RBAC för att endast bevilja de behörigheter som gäst användare behöver i din miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
@@ -71,7 +71,7 @@ Mer information om Inbjudnings processen finns i [Azure Active Directory B2B-sam
 
 I RBAC för att bevilja åtkomst tilldelar du en roll. Om du vill lägga till en roll tilldelning för en gäst användare följer du [samma steg](role-assignments-portal.md#add-a-role-assignment) som för en medlems användare, grupp, tjänstens huvud namn eller hanterad identitet. Följ dessa steg för att lägga till en roll tilldelning för en gäst användare i olika omfång.
 
-1. Klicka på **Alla tjänster** i Azure-portalen.
+1. Klicka på **Alla tjänster** på Azure Portal.
 
 1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
@@ -107,7 +107,7 @@ Om du vill lägga till en roll tilldelning för en gäst användare följer du [
 
 Om gäst användaren inte finns i din katalog än kan du bjuda in användaren direkt från fönstret Lägg till roll tilldelning.
 
-1. Klicka på **Alla tjänster** i Azure-portalen.
+1. Klicka på **Alla tjänster** på Azure Portal.
 
 1.  Välj den uppsättning resurser som åtkomsten gäller för, även kallat omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
@@ -171,7 +171,7 @@ Innan du tar bort en gäst användare från en katalog bör du först ta bort al
 
 1. Klicka på **Ja**i det borttagnings meddelande som visas.
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>Gäst användare kan inte bläddra i katalogen
 

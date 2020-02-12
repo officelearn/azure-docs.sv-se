@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 27838aae1d829598bed44a6c16f7a1d38a95b727
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: c06d1268abe8afdeb03668131c3c61cfbafa44cd
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314104"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138183"
 ---
 # <a name="score-model-module"></a>Modulen Poängsätta modell
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att generera förutsägelser med hjälp av en utbildad klassificerings-eller Regressions modell.
 
@@ -44,7 +44,7 @@ Poängen eller det förväntade värdet kan ha många olika format, beroende på
 
 - För klassificerings modeller utvärderar [Poäng modellen](./score-model.md) ett förutsägande värde för klassen, samt sannolikheten för det förväntade värdet.
 - För Regressions modeller genererar [Poäng modellen](./score-model.md) bara det förväntade numeriska värdet.
-- För bild klassificerings modeller kan poängen vara objekt klassen i bilden, eller ett booleskt värde som anger om en viss funktion hittades.
+
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicera resultat som en webb tjänst
 

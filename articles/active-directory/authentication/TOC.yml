@@ -9,8 +9,8 @@
   items:
     - name: Aktivera lösenordsåterställning via självbetjäning
       href: tutorial-enable-sspr.md
-    - name: Aktivera MFA för program
-      href: tutorial-mfa-applications.md
+    - name: Aktivera Azure Multi-Factor Authentication
+      href: tutorial-enable-azure-mfa.md
     - name: Aktivera lokal SSPR-integration
       href: tutorial-enable-writeback.md
     - name: Integrera Azure Identity Protection

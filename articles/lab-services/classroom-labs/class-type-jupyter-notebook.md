@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75530688"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133754"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker
 
@@ -30,7 +30,7 @@ För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-
 
 ### <a name="lab-account-settings"></a>Labb konto inställningar
 
-Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators).
+Aktivera inställningarna som beskrivs i tabellen nedan för labb kontot. Mer information om hur du aktiverar Marketplace-avbildningar finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
 
 | Inställning för labb konto | Instruktioner |
 | ------------------- | ------------ |
@@ -46,7 +46,7 @@ Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums la
 | Labb inställningar | Värde/anvisningar |
 | ------------ | ------------------ |
 |Storlek på virtuell dator| Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
-|Avbildning av virtuell dator| Virtuell dator för datavetenskap – Windows 2016|
+|Avbildning av virtuell dator| Data Science Virtual Machine-Windows 2016|
 
 ## <a name="template-machine"></a>Mall dator
 
@@ -54,7 +54,7 @@ Använd inställningarna i tabellen nedan när du konfigurerar ett klass rums la
 
 Den återstående aktiviteten för att konfigurera klassen är att tillhandahålla lokala antecknings böcker.  Instruktioner för hur du använder Azure Machine Learning exempel finns i [så här konfigurerar du en miljö med Jupyter-anteckningsböcker](../../machine-learning/how-to-configure-environment.md#jupyter).  Du kan också ange egna antecknings böcker på den mall datorn.  Antecknings böckerna kommer att kopieras till alla elev maskiner när mallen publiceras.
 
-## <a name="cost-estimate"></a>Kostnadsuppskattning
+## <a name="cost-estimate"></a>Kostnads uppskattning
 
 Vi ska se en möjlig kostnads uppskattning för den här klassen.  Vi använder en klass av 25 studenter.  Det finns 20 timmar med den schemalagda klass tiden.  Dessutom får varje student en kvot på 10 timmar för läxor eller tilldelningar utanför schemalagda klass tider.  Storleken på den virtuella datorn som vi valde var liten GPU (Compute), vilket är 139 lab-enheter.
 
@@ -64,7 +64,7 @@ Här är ett exempel på en möjlig kostnads uppskattning för den här klassen:
 
 Mer detaljerad information om priser finns [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 I den här artikeln gick vi igenom stegen för att skapa ett labb för en Jupyter Notebooks-klass. Du kan använda en liknande installation för andra maskin inlärnings klasser.
 

@@ -1,5 +1,5 @@
 ---
-title: Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper | Microsoft Docs
+title: Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper
 description: Beskriver hur du höjer åtkomsten för en global administratör för att hantera alla prenumerationer och hanterings grupper i Azure Active Directory att använda Azure Portal eller REST API.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/03/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b27a97d95f224513dd03293b9bd0082c5ed6d1b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1731c630cb98ac542ebcdc7aedf07f7bb63eaec0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772269"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137467"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper
 
@@ -47,7 +47,7 @@ Du bör ta bort den här utökade åtkomsten när du har gjort ändringarna som 
 
 ![Upphöj åtkomst](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure-portalen
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Utöka åtkomsten för en global administratör
 

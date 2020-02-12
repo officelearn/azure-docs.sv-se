@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI
+title: 'Självstudie: skapa en anpassad roll för Azure-resurser med Azure CLI'
 description: Kom igång med att skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI i den här självstudien.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419591"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138253"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI
 
 Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure CLI. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en anpassad roll
@@ -34,7 +34,7 @@ I den här självstudiekursen får du lära du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna genomföra den här kursen behöver du följande:
 

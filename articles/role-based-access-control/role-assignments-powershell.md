@@ -1,5 +1,5 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell
+title: Lägga till eller ta bort roll tilldelningar med RBAC och Azure PowerShell
 description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981051"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138329"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "75981051"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
@@ -65,7 +65,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 (Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
 
-## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
 
 I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 

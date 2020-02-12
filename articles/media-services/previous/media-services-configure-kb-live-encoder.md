@@ -14,29 +14,28 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7bb3db4861842e145689682035adc3c691538adf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: afc0fcb6751a08b41010fa569c67a9827e0abec0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297802"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131932"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Haivision KB Live Encoder för att skicka en enda bit Ströms bit ström  
 > [!div class="op_single_selector"]
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
+> * [TriCaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
 Det här avsnittet visar hur du konfigurerar [HAVISION KB Live Encoder](https://www.haivision.com/products/kb-series/) Encoder för att skicka en enda bit ström till AMS kanaler som är aktiverade för direktsänd kodning. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac- eller Linux kan du använda Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
+Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac eller Linux använder du Azure Portal för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 *   Åtkomst till en Haivision KB-kodare som kör SW v 5.01 eller senare.
-* [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
-* Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [hanterar Strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)
-* Installera den senaste versionen av den [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) verktyget.
+* [Skapa ett Azure Media Services konto](media-services-portal-create-account.md)
+* Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [Hantera strömnings slut punkter i ett Media Services konto](media-services-portal-manage-streaming-endpoints.md)
+* Installera den senaste versionen av [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) -verktyget.
 * Starta verktyget och ansluta till AMS-kontot.
 
 ## <a name="tips"></a>Tips
@@ -45,9 +44,9 @@ Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azur
 * När du använder programvarubaserad kodare kan du stänga alla onödiga program.
 
 ## <a name="create-a-channel"></a>Skapa en kanal
-1. I AMSE-verktyget går du till den **Live** fliken och högerklicka i området för kanalen. Välj **skapa kanal...** på menyn.
+1. I AMSE-verktyget går du till fliken **Live** och högerklickar i kanalområdet. Välj **skapa kanal...** på menyn.
 [Haivision](./media/media-services-configure-kb-live-encoder/channel.png)
-2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Välj under inställningar för kanalen **Standard** för alternativet Live Encoding med indata-protokollet som är inställd på **RTMP**. Du kan lämna alla andra inställningar som är. Kontrollera att den **starta den nya kanalen nu** har valts.
+2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Under kanal inställningar väljer du **standard** för alternativet Live encoding med inmatnings protokollet inställt på **RTMP**. Du kan lämna alla andra inställningar som är. Kontrol lera att **starta den nya kanalen nu** är markerat.
 3. Klicka på **skapa kanal**.
 [Haivision](./media/media-services-configure-kb-live-encoder/livechannel.png)
 
@@ -58,34 +57,34 @@ Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azur
 I den här självstudien används följande utdatainställningar för. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
 
 Video:
--   ADPCM H. 264
--   Upphandlarprofil Hög (nivå 4,0)
--   Hastigheten 5000 kbps
+-   Codec: H.264
+-   Profil: Hög (nivå 4.0)
+-   Med flera bithastigheter: 5000 kbit/s
 -   Nyckel bild: 2 sekunder (60 bild rutor)
--   Bild Rute frekvens: 30
+-   RAM-pris: 30
 
 In
--   ADPCM AAC (LC)
--   Hastigheten 192 kbps
--   Samplings frekvens: 44,1 kHz
+-   Codec: AAC (LC)
+-   Med flera bithastigheter: 192 kbit/s
+-   Samplingshastighet: 44.1 kHz
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 1.  Logga in på Haivision KB-användargränssnittet.
 2.  Klicka på **meny knappen** i kanal kontroll centret och välj **Lägg till kanal**  
-    ![Skärm bild 2017-08-14 vid 9.15.09](./media/media-services-configure-kb-live-encoder/step2.png)
+    ![skärm bild 2017-08-14 på 9.15.09](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Skriv **kanal namnet** i fältet namn och klicka på Nästa.  
-    ![Skärm bild 2017-08-14 vid 9.19.07](./media/media-services-configure-kb-live-encoder/step3.png)
-4.  Välj **kanalens indatakälla** från List **rutan** indatakälla och klicka på Nästa.
-    ![Skärm bild 2017-08-14 vid 9.20.44](./media/media-services-configure-kb-live-encoder/step4.png)
+    ![skärm bild 2017-08-14 på 9.19.07](./media/media-services-configure-kb-live-encoder/step3.png)
+4.  Välj **kanalens indatakälla** **från List rutan indatakälla och** Klicka på Nästa.
+    ![skärm bild 2017-08-14 på 9.20.44](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  Från List rutan **Encoder-mall** väljer du **H264,-720-AAC-192** och klickar på Nästa.
-    ![Skärm bild 2017-08-14 vid 9.23.15](./media/media-services-configure-kb-live-encoder/step5.png)
+    ![skärm bild 2017-08-14 på 9.23.15](./media/media-services-configure-kb-live-encoder/step5.png)
 6.  I list rutan **Välj ny utdata** väljer du **RTMP** och klickar på Nästa.  
-    ![Skärm bild 2017-08-14 vid 9.27.51](./media/media-services-configure-kb-live-encoder/step6.png)
-7.  I fönstret **kanal utdata** fyller du i Azure Stream-informationen. Klistra in **RTMP** -länken från den första kanal konfigurationen i **Server** delen. Skriv namnet  på kanalen i fältet utdatafil. Använd mallen RTMPStreamName_% video_bitrate% för att ge strömmen ett namn i mallen för Stream-namnet.
-    ![Skärm bild 2017-08-14 vid 9.33.17](./media/media-services-configure-kb-live-encoder/step7.png)
+    ![skärm bild 2017-08-14 på 9.27.51](./media/media-services-configure-kb-live-encoder/step6.png)
+7.  I fönstret **kanal utdata** fyller du i Azure Stream-informationen. Klistra in **RTMP** -länken från den första kanal konfigurationen i **Server** delen. Skriv namnet på kanalen i fältet **utdatafil** . I mallen för Stream-namn mal len använder du mallen RTMPStreamName_% video_bitrate% för att ge data strömmen ett namn.
+    ![skärm bild 2017-08-14 på 9.33.17](./media/media-services-configure-kb-live-encoder/step7.png)
 8.  Klicka på Nästa och sedan på Slutför.
 9.  Starta Encoder-kanalen genom att klicka på **uppspelnings knappen** .  
-    ![Haivision KB.png](./media/media-services-configure-kb-live-encoder/step9.png)
+    ![Haivision KB. png](./media/media-services-configure-kb-live-encoder/step9.png)
 
 ## <a name="test-playback"></a>Testa uppspelning
 Gå till AMSE-verktyget och högerklicka på kanalen som ska testas. Hovra över uppspelning av för hands versionen på menyn och välj med Azure Media Player.

@@ -1,23 +1,23 @@
 ---
-title: Snabb start – starta ett Azure våren Cloud-program med hjälp av Azure Portal
-description: I den här snabb starten distribuerar du ett exempel program till Azure våren-molnet med hjälp av Azure Portal.
+title: Snabb start – starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal
+description: I den här snabb starten ska du distribuera ett fjäder moln program till Azure våren-molnet med hjälp av Azure Portal.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: f88319319b366ec8b726d5cf6cce540008497b57
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278912"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137743"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal
 
-Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure.
+Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure. Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure. 
 
-Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure.  Du hittar exempel koden som används i den här självstudien i vår [GitHub-exempel databas](https://github.com/Azure-Samples/PiggyMetrics). När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
+Du hittar exempel koden som används i den här självstudien i vår [GitHub-exempel databas](https://github.com/Azure-Samples/PiggyMetrics). När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
 
 Efter den här snabb starten får du lära dig att:
 
@@ -28,7 +28,7 @@ Efter den här snabb starten får du lära dig att:
 > * Distribuera varje mikrotjänst
 > * Tilldela en offentlig slut punkt för ditt program
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 >[!Note]
 > Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) .
@@ -80,7 +80,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Ange **etiketten** till "config".
 
-1. Tryck på **Apply** (Verkställ) för att spara ändringarna.
+1. Välj **tillämpa** för att spara ändringarna.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 

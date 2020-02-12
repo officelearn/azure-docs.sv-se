@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/27/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774143"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137976"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
 Med API för textanalys kan du ta ostrukturerad text och returnera en lista med disambiguated-entiteter, med länkar till mer information på webben. API: et stöder både NER (Named Entity Recognition) och entitet länkning.
 
-### <a name="entity-linking"></a>Entitetslänkning
+### <a name="entity-linking"></a>Entity Linking
 
 Länkning av entitet är möjligheten att identifiera och disambiguate identiteten för en entitet som finns i text (till exempel att avgöra om en förekomst av ordet `Mars` refererar till planet eller den latinska god). Den här processen kräver att det finns en kunskaps bas på ett lämpligt språk för att länka identifierade entiteter i text. Enhets länkning använder [Wikipedia](https://www.wikipedia.org/) som den här kunskaps basen.
 
@@ -44,46 +44,8 @@ API för textanalys erbjuder två versioner av namngiven enhets igenkänning –
 
 Mer information finns i [språk stöd](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) .
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
 
-### <a name="entity-types"></a>Entitetstyper
-
-> [!NOTE]
-> NER (Named Entity Recognition) version 2 stöder endast följande entiteter. NER v3 finns i en offentlig för hands version och utökar avsevärt antalet och djupet i entiteterna som identifieras i text.   
-
-| Typ  | Undertyp | Exempel |
-|:-----------   |:------------- |:---------|
-| Person        | Ej tillämpligt\*         | "Jeff", "Bill Gates"     |
-| Location      | Ej tillämpligt\*         | ”Redmond, Washington”, ”Paris”  |
-| Organisation  | Ej tillämpligt\*         | ”Microsoft”   |
-| Kvantitet      | Tal        | ”6”, ”sex”     |
-| Kvantitet      | Procent    | ”50 %”, ”femtio procent”|
-| Kvantitet      | Ordningstal       | ”2:a”, ”andra”     |
-| Kvantitet      | Ålder           | "90 dag gammal", "30 år gammal"    |
-| Kvantitet      | Valuta      | ”10,99 USD”     |
-| Kvantitet      | Dimension     | ”10 miles”, ”40 cm”     |
-| Kvantitet      | Temperatur   | ”32 grader”    |
-| DateTime      | Ej tillämpligt\*         | ”18.30 den 4 februari 2012”      |
-| DateTime      | Datum          | ”2 maj 2017”, ”2017-05-02”   |
-| DateTime      | Tid          | "8.00", "8:00"  |
-| DateTime      | DateRange     | ”2 maj till 5 maj”    |
-| DateTime      | TimeRange     | ”18 till 19”     |
-| DateTime      | Längd      | ”1 minut och 45 sekunder”   |
-| DateTime      | Ange           | ”varje tisdag”     |
-| URL           | Ej tillämpligt\*         | "https:\//www.bing.com"    |
-| E-post         | Ej tillämpligt\*         | "support@contoso.com" |
-| Telefonnummer till USA  | Ej tillämpligt\*         | (Endast telefonnummer till USA) "(312) 555-0176" |
-| IP-adress    | Ej tillämpligt\*         | "10.0.0.100" |
-
-\* beroende på inmatade och extraherade entiteter kan vissa entiteter utelämna `SubType`.  Alla entitetstyper som stöds visas endast på engelska, kinesiska (förenklad), franska, tyska och spanska språk.
-
-### <a name="request-endpoints"></a>Begär slut punkter
-
-Namngiven entitets igenkännings version v2 använder en enda slut punkt för NER och begär Anden om att länka entiteter:
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 ### <a name="entity-types"></a>Entitetstyper
 
@@ -110,6 +72,45 @@ Länkning av entitet
 
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
+#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+
+### <a name="entity-types"></a>Entitetstyper
+
+> [!NOTE]
+> NER (Named Entity Recognition) version 2 stöder endast följande entiteter. NER v3 finns i en offentlig för hands version och utökar avsevärt antalet och djupet i entiteterna som identifieras i text.   
+
+| Typ  | Undertyp | Exempel |
+|:-----------   |:------------- |:---------|
+| Person        | Ej tillämpligt\*         | "Jeff", "Bill Gates"     |
+| plats.      | Ej tillämpligt\*         | "Redmond, Washington", "Paris"  |
+| Organisation  | Ej tillämpligt\*         | "Microsoft"   |
+| Kvantitet      | Tal        | "6", "six"     |
+| Kvantitet      | Procent    | "50%", "50 procent"|
+| Kvantitet      | Numret       | "andra", "sekund"     |
+| Kvantitet      | Ålder           | "90 dag gammal", "30 år gammal"    |
+| Kvantitet      | Valuta      | "$10,99"     |
+| Kvantitet      | Dimension     | "10 mil", "40 cm"     |
+| Kvantitet      | Temperatur   | "32 grader"    |
+| DateTime      | Ej tillämpligt\*         | "6:17.30 februari 2012"      |
+| DateTime      | Date          | "Den 2 maj, 2017", "05/02/2017"   |
+| DateTime      | Tid          | "8.00", "8:00"  |
+| DateTime      | DateRange     | "Andra maj till 5 maj"    |
+| DateTime      | TimeRange     | ". 18:00 to 19:00"     |
+| DateTime      | Varaktighet      | "1 minut och 45 sekunder"   |
+| DateTime      | Ange           | "varje tisdag"     |
+| URL           | Ej tillämpligt\*         | "https:\//www.bing.com"    |
+| E-post         | Ej tillämpligt\*         | "support@contoso.com" |
+| Telefonnummer till USA  | Ej tillämpligt\*         | (Endast telefonnummer till USA) "(312) 555-0176" |
+| IP-adress    | Ej tillämpligt\*         | "10.0.0.100" |
+
+\* beroende på inmatade och extraherade entiteter kan vissa entiteter utelämna `SubType`.  Alla entitetstyper som stöds visas endast på engelska, kinesiska (förenklad), franska, tyska och spanska språk.
+
+### <a name="request-endpoints"></a>Begär slut punkter
+
+Namngiven entitets igenkännings version v2 använder en enda slut punkt för NER och begär Anden om att länka entiteter:
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Skicka en REST API-begäran
@@ -124,17 +125,10 @@ Varje dokument måste vara under 5 120 tecken och du kan ha upp till 1 000 objek
 
 Skapa en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-api.md) eller **API test-konsolen** i följande länkar för att snabbt strukturera och skicka en. 
 
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+> [!NOTE]
+> Du kan hitta din nyckel och slut punkt för din Textanalys-resurs på Azure-portalen. De kommer att finnas på resursens **snabb start** sida under **resurs hantering**. 
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
-
-[Referens för namngiven enhets igenkänning (NER) v2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
-
-Version 2 använder följande slut punkt för entitet länkning och NER-begär Anden: 
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
-
-#### <a name="version-3tabversion-3"></a>[Version 3](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version](#tab/version-3)
 
 [Referens för namngiven enhets igenkänning v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)
 
@@ -147,6 +141,14 @@ NER
 
 Länkning av entitet
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+
+[Referens för namngiven enhets igenkänning (NER) v2](https://eastus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+Version 2 använder följande slut punkt för entitet länkning och NER-begär Anden: 
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
 ---
 
@@ -180,44 +182,8 @@ Alla POST-förfrågningar returnerar ett JSON-formaterat svar med ID och identif
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
 
-### <a name="example-ner-v2-response"></a>Exempel på NER v2-svar
-```json
-{
-  "documents": [{
-    "id": "1",
-    "entities": [{
-      "name": "Seattle",
-      "matches": [{
-        "wikipediaScore": 0.15046201222847677,
-        "entityTypeScore": 0.80624294281005859,
-        "text": "Seattle",
-        "offset": 26,
-        "length": 7
-      }],
-      "wikipediaLanguage": "en",
-      "wikipediaId": "Seattle",
-      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
-      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-      "type": "Location"
-    }, {
-      "name": "last week",
-      "matches": [{
-        "entityTypeScore": 0.8,
-        "text": "last week",
-        "offset": 34,
-        "length": 9
-      }],
-      "type": "DateTime",
-      "subType": "DateRange"
-    }]
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3,0 – för hands version)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exempel på v3-svar
 
@@ -274,11 +240,48 @@ Version 3 innehåller separata slut punkter för NER-och enhets länkning. Svare
 }
 ```
 
+#### <a name="version-21tabversion-2"></a>[Version 2,1](#tab/version-2)
+
+### <a name="example-ner-v2-response"></a>Exempel på NER v2-svar
+```json
+{
+  "documents": [{
+    "id": "1",
+    "entities": [{
+      "name": "Seattle",
+      "matches": [{
+        "wikipediaScore": 0.15046201222847677,
+        "entityTypeScore": 0.80624294281005859,
+        "text": "Seattle",
+        "offset": 26,
+        "length": 7
+      }],
+      "wikipediaLanguage": "en",
+      "wikipediaId": "Seattle",
+      "wikipediaUrl": "https://en.wikipedia.org/wiki/Seattle",
+      "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+      "type": "Location"
+    }, {
+      "name": "last week",
+      "matches": [{
+        "entityTypeScore": 0.8,
+        "text": "last week",
+        "offset": 34,
+        "length": 9
+      }],
+      "type": "DateTime",
+      "subType": "DateRange"
+    }]
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för entitets länkning med Textanalys i Cognitive Services. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för entitets länkning med Textanalys i Cognitive Services. Sammanfattning:
 
 * Identifiering av namngivna enheter är tillgängligt för valda språk i två versioner.
 * JSON-dokument i begär ande texten innehåller ID, text och språkkod.

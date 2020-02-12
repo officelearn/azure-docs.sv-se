@@ -6,21 +6,21 @@ keywords: Encoding; encoders; Media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 11/18/2019
+ms.date: 02/04/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: MT
+ms.openlocfilehash: bccdb49c22bce983fe8cb2aba1387c4b1645b62c
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186023"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132713"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade kodare för direkt uppspelning
 
 I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) en pipeline för bearbetning av direktuppspelat innehåll. Live-händelsen tar emot direktsända indata strömmar på ett av två sätt.
 
-* En lokal Live-kodare skickar en RTMP-eller Smooth Streaming-ström (fragmenterad MP4) med flera bit hastigheter till den direktsända händelse som inte är aktive rad för att utföra direktsänd kodning med Media Services. De inmatade strömmarna passerar Live-händelser utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. En Live-kodare kan skicka en data ström med en bit hastighet till en direkt kanal. Vi rekommenderar inte den här konfigurationen eftersom den inte tillåter strömning med anpassad bit hastighet till klienten.
+* En lokal Live-kodare skickar en RTMP-eller Smooth Streaming-ström (fragmenterad MP4) med flera bit hastigheter till den direktsända händelse som inte är aktive rad för att utföra direktsänd kodning med Media Services. De inmatade strömmarna passerar Live-händelser utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. Vi rekommenderar att Live Encoder skickar strömmar med flera bit hastigheter i stället för en data ström med en bit hastighet till en direkt sändnings händelse för att möjliggöra direkt uppspelning av bit hastighet till klienten.
 
   > [!NOTE]
   > Att använda en direkt metod är det mest ekonomiska sättet att göra Direktsänd strömning.
@@ -29,21 +29,28 @@ I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/
 
 Detaljerad information om Live encoding med Media Services finns i [direkt uppspelning med Media Services v3](live-streaming-overview.md).
 
+## <a name="encoder-requirements"></a>Kodarens krav
+
+Kodare måste ha stöd för TLS 1,2 när du använder HTTPS-eller RTMP-protokoll.
+
 ## <a name="live-encoders-that-output-rtmp"></a>Live-kodare som utdata av RTMP
 
 Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://`.
 
+Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.<br/><br/>
+Vid direktuppspelning via RTMPS ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 2935 och 2936 är öppna.
+
 > [!NOTE]
-> Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.
+> Kodare måste ha stöd för TLS 1,2 när du använder RTMP-protokoll.
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
+- Grundämne Live (version 2.14.15 och senare)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Wirecast för multistream (version 13.0.2 eller högre på grund av TLS 1,2-krav)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -57,17 +64,19 @@ Media Services rekommenderar att du använder någon av följande livekodare som
 
 Media Services rekommenderar att du använder någon av följande Live-kodare med multi-bit-Smooth Streaming (fragmenterad MP4) som utdata. URL-scheman som stöds är `http://` eller `https://`.
 
+> [!NOTE]
+> Kodare måste ha stöd för TLS 1,2 när de använder HTTPS-protokoll.
+
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
-- Envivio 4Caster C4 Gen III
+- Grundämne Live (version 2.14.15 och högre på grund av kraven för TLS 1,2)
+- Envivio 4Caster C4 Gen III 
 - Föreställ dig Selenio-MCP3
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
 - [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  Om du strömmar Live-händelser på flera språk (till exempel ett engelskt ljud spår och ett spanskt ljud spår) kan du göra detta med mediet för Live-kodare i media som kon figurer ATS för att skicka Live-flödet till en direkt sändnings händelse.
-
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera lokala inställningar för Live-kodare
 

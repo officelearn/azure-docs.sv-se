@@ -13,21 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: b37253f37043d902d33504b99401781eb1c761c5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: eac7dc3b7188131685ef630c0dc01d248e1d6a6a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075924"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134786"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer med TCP-återställning vid inaktivitet (allmänt tillgänglig förhandsversion)
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer med TCP-återställning vid inaktivitet
 
 Du kan använda [standard Load Balancer](load-balancer-standard-overview.md) för att skapa ett mer förutsägbart program beteende för dina scenarier genom att aktivera TCP-återställning vid inaktivitet för en viss regel. Load Balancerens standard beteende är att tyst släppa flöden när tids gränsen för inaktivitet för ett flöde uppnås.  Om du aktiverar den här funktionen kommer Load Balancer att skicka dubbelriktade TCP-återställningar (TCP-paket) vid inaktivitet.  Detta kommer att informera dina program slut punkter om att anslutningen har nått sin tids gräns och inte längre kan användas.  Slut punkter kan omedelbart upprätta en ny anslutning om det behövs.
 
 ![Load Balancer TCP-återställning](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
-
->[!NOTE] 
->Load Balancer med funktionen TCP-återställning vid inaktivitet är tillgänglig som offentlig för hands version för tillfället. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Du ändrar det här standard beteendet och aktiverar sändning av TCP-återställning vid inaktivitet på inkommande NAT-regler, belastnings Utjämnings regler och [utgående regler](https://aka.ms/lboutboundrules).  När den aktive ras per regel kommer Load Balancer att skicka dubbelriktad TCP-återställning (TCP-paket) till både klient-och Server slut punkter vid tidpunkten för tids gränsen för inaktivitet för alla matchande flöden.
 
@@ -73,10 +70,9 @@ Tillgängligt i alla regioner.
 
 ## <a name="limitations"></a>Begränsningar
 
-- Det går inte att använda portalen för att konfigurera eller Visa TCP-återställning.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
 - TCP-endast skickade under TCP-anslutning i upprättat läge.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [Standardbelastningsutjämnare](load-balancer-standard-overview.md).
+- Läs mer om [standard Load Balancer](load-balancer-standard-overview.md).
 - Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).

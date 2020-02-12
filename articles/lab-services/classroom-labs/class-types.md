@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: e1c5504b30c2784e8657ccc0dc4ec18689fe2a68
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ef5cc0fb561d385a1b1d7b4c14db8c10343508cf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806821"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133656"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
 
@@ -36,7 +36,7 @@ Du kan ställa in ett labb för att lära sig använda Shell-skript i Linux. Skr
 
 Studenter som använder dessa skript klasser får en virtuell Linux-dator för att lära sig grunderna i Linux och även bekanta dig med bash shell-skript. Den virtuella Linux-datorn har åtkomst till fjärr skrivbord och med text redigerarna [gedit](https://help.gnome.org/users/gedit/stable/) och [Visual Studio Code](https://code.visualstudio.com/) installerade.
 
-För detaljerad information om hur du konfigurerar den här typen av labb, se [Shell-skript i Linux](class-type-shell-scripting-linux.md).
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Shell-skriptning i Linux](class-type-shell-scripting-linux.md).
 
 ## <a name="ethical-hacking"></a>Etisk hackning
 
@@ -44,7 +44,23 @@ Du kan ställa in ett labb för en klass som fokuserar på data utredning sida a
 
 I en etisk hackning-klass kan studenter lära sig moderna tekniker för att försvara mot sårbarheter. Varje elev får en virtuell Windows Server-värd dator som har två kapslade virtuella datorer – en virtuell dator med [Metasploitable3](https://github.com/rapid7/metasploitable3) -avbildning och en annan dator med [Kali Linux](https://www.kali.org/) -avbildning. Den virtuella Metasploitable-datorn används för att utnyttja användnings sätt.  Den virtuella datorn Kali Linux ger till gång till de verktyg som behövs för att köra kriminal tekniska-uppgifter.
 
-Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära dig etiska hackning-klass](class-type-ethical-hacking.md).
+Detaljerad information om hur du ställer in den här typen av labb finns i [Konfigurera ett labb för att lära dig etiska hackning-klass](class-type-ethical-hacking.md).
+
+## <a name="database-management"></a>Databashantering
+Databas koncept är en av de introduktions kurser som finns i de flesta av dator vetenskaps avdelningarna på hög skola. Du kan ställa in ett labb för en grundläggande hanterings klass för databaser i Azure Lab Services. Du kan till exempel konfigurera en mall för virtuella datorer i ett labb med en [MySQL](https://www.mysql.com/) -databasserver eller en [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) -Server.
+
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära databas hantering för Relations databaser](class-type-database-management.md).
+
+## <a name="python-and-jupyter-notebooks"></a>Python-och Jupyter-anteckningsböcker
+Du kan konfigurera en mall på Azure Lab Services med de verktyg som behövs för att lära eleverna hur de använder [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io). Jupyter Notebooks är ett projekt med öppen källkod som gör att du enkelt kan kombinera text och körbara [python](https://www.python.org/) -källkod på en enda arbets yta som kallas för en bärbar dator. Att köra en bärbar dator resulterar i en linjär inspelning av indata och utdata.  Dessa utdata kan innehålla text, tabeller med information, punkt diagram med mera.
+
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära data vetenskap med python-och Jupyter-anteckningsböcker](class-type-jupyter-notebook.md).
+
+## <a name="mobile-app-development-with-android-studio"></a>Mobilapputveckling med Android Studio
+Du kan ställa in ett labb i Azure Lab Services för att lära en introduktion till en introduktions utvecklings klass för mobil program. Den här klassen fokuserar på mobila Android-program som kan publiceras till [Google Play Butik](https://play.google.com/store/apps).  Eleverna lär dig hur du använder [Android Studio](https://developer.android.com/studio) för att bygga program.  [Visual Studio-emulator för Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) används för att testa programmet lokalt.
+
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära mobil program utveckling med Android Studio](class-type-mobile-dev-android-studio.md).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

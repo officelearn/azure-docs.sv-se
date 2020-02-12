@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 2ae8b71a7d48949cd82765112752192aba54521f
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680961"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153000"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokal Git-distribution till Azure App Service
 
 Den här instruktions guiden visar hur du distribuerar appen till [Azure App Service](overview.md) från en git-lagringsplats på den lokala datorn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följ stegen i den här instruktions guiden:
 
@@ -50,6 +50,9 @@ För att hämta URL: en för att aktivera lokal Git-distribution för en befintl
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
+> [!NOTE]
+> Om du använder en Linux app-service-plan måste du lägga till den här parametern:--Runtime python | 3.7
+
 
 Eller skapa en ny git-aktiverad app genom att köra [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med `--deployment-local-git`-parametern. Ersätt \<App-Name >, \<grupp-namn > och \<plan-Name > med namnen på din nya git-app, dess Azure-resurs grupp och dess Azure App Service plan.
 
@@ -142,7 +145,7 @@ Så här aktiverar du lokal Git-distribution för din app med Azure-pipeliner (f
 
 Följande vanliga fel meddelanden kan visas när du använder Git för att publicera till en App Service-app i Azure:
 
-|Meddelande|Orsak|Upplösning
+|Meddelande|Orsak|Lösning
 ---|---|---|
 |`Unable to access '[siteURL]': Failed to connect to [scmAddress]`|Appen är inte igång.|Starta appen i Azure Portal. Git-distribution är inte tillgängligt när webbappen har stoppats.|
 |`Couldn't resolve host 'hostname'`|Adress informationen för fjärran slutet av Azure är felaktig.|Använd kommandot `git remote -v` för att visa alla fjärrdatorer, tillsammans med tillhör ande URL. Kontrol lera att URL: en för "Azure"-fjärrplatsen är korrekt. Om det behövs tar du bort och återskapar denna fjärr anslutning med rätt URL.|

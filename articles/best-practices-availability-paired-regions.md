@@ -49,9 +49,9 @@ Bild 1 – regionala Azure-par
 | Sydafrika | Sydafrika, norra | Sydafrika, västra
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten, centrala
-| OSS-försvars departement |US DoD, östra |US DoD, centrala |
+| OSS-försvars departement |USA DoD, östra |USA DoD, centrala |
 | Amerikanska myndigheter |US Gov, Arizona |US Gov, Texas |
-| Amerikanska myndigheter |US Gov, Iowa |US Gov, Virginia |
+| Amerikanska myndigheter |USA Gov, Iowa |US Gov, Virginia |
 | Amerikanska myndigheter |US Gov, Virginia |US Gov, Texas |
 
 Tabell 1 – mappning av regionala Azure-par

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: ea37dc9ee6c9249aa9d18f7ee7ab1fdbe1230930
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f5d1fff7d1343ad569fa015ebdb65d0152f04376
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975847"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153221"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -42,9 +42,9 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 | Parameter | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `language` | Identifierar talat språk som tolkas. Se [språk som stöds](language-support.md#speech-to-text). | Krävs |
-| `format` | Anger resultatformatet. Godkända värden är `simple` och `detailed`. Enkel resultatet inkluderar `RecognitionStatus`, `DisplayText`, `Offset`, och `Duration`. Detaljerad respons omfattar flera resultat med tillförsikt värden och fyra olika representationer. Standardinställningen är `simple`. | Valfritt |
-| `profanity` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `masked`, vilket ersätter svordomar med asterisker, `removed`, vilket tar bort alla svordomar från resultatet, eller `raw`, som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfritt |
+| `language` | Identifierar talat språk som tolkas. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
+| `format` | Anger resultatformatet. Godkända värden är `simple` och `detailed`. Enkla resultat är `RecognitionStatus`, `DisplayText`, `Offset`och `Duration`. Detaljerad respons omfattar flera resultat med tillförsikt värden och fyra olika representationer. Standardvärdet är `simple`. | Valfri |
+| `profanity` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `masked`, vilket ersätter svordomar med asterisker, `removed`, vilket tar bort alla svordomar från resultatet, eller `raw`, som innehåller svordomarna i resultatet. Standardvärdet är `masked`. | Valfri |
 
 ## <a name="request-headers"></a>Begärandehuvud
 
@@ -52,16 +52,16 @@ Den här tabellen innehåller obligatoriska och valfria rubriker för tal till t
 
 |Huvud| Beskrivning | Obligatoriskt / valfritt |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
+| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen är rubriken eller `Authorization` obligatoriskt. |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen är rubriken eller `Ocp-Apim-Subscription-Key` obligatoriskt. |
 | `Content-type` | Beskriver format och codec-enheten för den angivna ljuddata. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
-| `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfritt |
-| `Expect` | Om du använder med chunked skicka `Expect: 100-continue`. Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
-| `Accept` | Om det måste vara `application/json`. Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept`. | Valfritt men rekommenderas. |
+| `Transfer-Encoding` | Anger att segmenterat ljuddata skickas, i stället för en enskild fil. Använd bara den här rubriken om storlekar ljuddata. | Valfri |
+| `Expect` | Om du använder Chunked Transfer skickar du `Expect: 100-continue`. Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljuddata. |
+| `Accept` | Om den anges måste den vara `application/json`. Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept`. | Valfritt men rekommenderas. |
 
 ## <a name="audio-formats"></a>Ljudformat
 
-Ljud skickas i brödtexten i HTTP `POST` begäran. Det måste vara i något av formaten i den här tabellen:
+Ljud skickas i bröd texten i HTTP-`POST`-begäran. Det måste vara i något av formaten i den här tabellen:
 
 | Format | Codec | Bithastighet | Samplingshastighet |
 |--------|-------|---------|-------------|
@@ -69,7 +69,7 @@ Ljud skickas i brödtexten i HTTP `POST` begäran. Det måste vara i något av f
 | OGG | OPUS | 16-bitars | 16 kHz, mono |
 
 >[!NOTE]
->Ovanstående format stöds via REST API och WebSocket i tal-tjänsten. Den [tal SDK](speech-sdk.md) för närvarande endast stöd för WAV formatera med PCM-codec.
+>Ovanstående format stöds via REST API och WebSocket i tal-tjänsten. [Talet SDK](speech-sdk.md) stöder för närvarande WAV-formatet med PCM-kodek och [andra format](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## <a name="sample-request"></a>Exempelbegäran
 
@@ -101,7 +101,7 @@ HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
 
 Segment överföring (`Transfer-Encoding: chunked`) hjälper till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API: et tillhandahåller inte partiell eller mellanliggande resultat.
 
-Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` ett objekt i HTTPWebRequest är ansluten till rätt REST-slutpunkten. `audioFile` är sökvägen till en ljudfil på disken.
+Detta kodexempel visar hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens huvud. `request` är ett HTTPWebRequest-objekt som är anslutet till lämplig REST-slutpunkt. `audioFile` är sökvägen till en ljudfil på disk.
 
 ```csharp
 
@@ -142,31 +142,31 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="response-parameters"></a>Svarsparametrar
 
-Resultaten anges som JSON. Den `simple` format innehåller fälten på översta nivån.
+Resultaten anges som JSON. `simple` formatet innehåller dessa fält på den översta nivån.
 
 | Parameter | Beskrivning  |
 |-----------|--------------|
-|`RecognitionStatus`|Status, till exempel `Success` för lyckad erkännande. Se nästa tabell.|
+|`RecognitionStatus`|Status, till exempel `Success` för lyckad igenkänning. Se nästa tabell.|
 |`DisplayText`|Den tolkade texten efter versaler, interpunktion, inverterad text normalisering (konvertering av talade text till kortare former, till exempel 200 för "200" eller "Dr. Smith" för "läkare Smith") och svordomar. Visa endast om åtgärden lyckades.|
 |`Offset`|Tid (i 100 nanosekunder enheter) som okänt tal som börjar gälla i ljudströmmen.|
 |`Duration`|Tiden (i 100 nanosekunder enheter) för den identifierade tal i ljudströmmen.|
 
-Den `RecognitionStatus` fältet får innehålla dessa värden:
+Fältet `RecognitionStatus` kan innehålla följande värden:
 
 | Status | Beskrivning |
 |--------|-------------|
-| `Success` | Erkännande lyckades och `DisplayText` fältet finns. |
+| `Success` | Igenkänningen lyckades och `DisplayText` fältet finns. |
 | `NoMatch` | Tal påträffades i ljudströmmen, men inga ord från målspråket som kunde matchas. Oftast igenkänning av språket är ett annat språk än den användaren som talar. |
 | `InitialSilenceTimeout` | Början av ljudströmmen innehöll endast tystnad och tjänsten tidsgränsen för tal. |
 | `BabbleTimeout` | Början av ljudströmmen innehöll endast bruset och tjänsten tidsgränsen för tal. |
 | `Error` | Igenkänning av tjänsten påträffade ett internt fel och kunde inte fortsätta. Försök igen om det är möjligt. |
 
 > [!NOTE]
-> Om ljudet består endast av svordomar, och `profanity` Frågeparametern anges till `remove`, tjänsten inte returnerar ett tal resultat.
+> Om ljudet bara består av svordomar och `profanity` frågeparametern är inställd på `remove`, returnerar tjänsten inte ett tal resultat.
 
-`detailed`-formatet innehåller samma data som `simple`-formatet, tillsammans med `NBest`, en lista över alternativa tolkningar av samma resultat. De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder den `detailed` format, `DisplayText` tillhandahålls som `Display` för varje resultat i den `NBest` lista.
+`detailed`-formatet innehåller samma data som `simple`-formatet, tillsammans med `NBest`, en lista över alternativa tolkningar av samma resultat. De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder `detailed`-formatet tillhandahålls `DisplayText` som `Display` för varje resultat i `NBest`s listan.
 
-Varje objekt i den `NBest` listan innehåller:
+Varje objekt i `NBest`s listan innehåller:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
@@ -174,7 +174,7 @@ Varje objekt i den `NBest` listan innehåller:
 | `Lexical` | Lexikal form av den tolkade texten: de ord känns igen. |
 | `ITN` | (”Canonical”) inverterade-text-normaliserat form av den tolkade texten med phone tal, tal, förkortningar (”läkare smith” till ”dr smith”) och andra omformningen. |
 | `MaskedITN` | Formuläret ITN med svordomar maskning tillämpas, om så krävs. |
-| `Display` | Visningsformulär för den tolkade texten med skiljetecken och gemener/versaler har lagts till. Den här parametern är samma som `DisplayText` anges när formatet är inställt på `simple`. |
+| `Display` | Visningsformulär för den tolkade texten med skiljetecken och gemener/versaler har lagts till. Den här parametern är samma som `DisplayText` som anges när format är inställt på `simple`. |
 
 ## <a name="sample-responses"></a>Exempel-svar
 

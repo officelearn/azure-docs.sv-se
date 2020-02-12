@@ -1,5 +1,5 @@
 ---
-title: Tolka modellresultat
+title: Tolka modell resultat
 titleSuffix: ML Studio (classic) - Azure
 description: Hur du väljer den optimala parameter uppsättningen för en algoritm med hjälp av och visualisering av Poäng modellens utdata.
 services: machine-learning
@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 3fc369c59626faae4c97f896650269820626b1ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19ae6e8fd8e8a3118343ed8734abb67bc817c3d5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454707"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153476"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
 I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
@@ -56,7 +56,7 @@ Ett exempel på ett klassificerings problem med två klasser är klassificeringe
 
 ![Skärm bild av Iris-experiment](./media/interpret-model-results/1.png)
 
-Figur 1. Iris i två klassers klassificerings problem
+Bild 1. Iris i två klassers klassificerings problem
 
 Ett experiment har utförts för att lösa det här problemet, som visas i bild 1. En utökat besluts träd modell med två klasser har tränats och betyg ATS. Nu kan du visualisera förutsägelse resultatet från modulen [Poäng modell][score-model] genom att klicka på utdataporten för modulen [Poäng modell][score-model] och sedan klicka på **visualisera**.
 
@@ -78,13 +78,13 @@ När förutsägelse resultaten har förstått och bedömt ljud kan experimentet 
 
 ![Skärm bild av poängsättnings experiment](./media/interpret-model-results/3.png)
 
-Figur 3. Bedömning av Iriss problem med klassificerings problem i två klass
+Bild 3. Bedömning av Iriss problem med klassificerings problem i två klass
 
 Nu måste du ange indata och utdata för webb tjänsten. Indatamängden är den högra Indataporten i [Poäng modellen][score-model], vilket är den inmatade Iris-funktionen. Valet av utdata beror på om du är intresse rad av den förväntade klassen (resultat etikett), den resulterande sannolikheten eller både och. I det här exemplet förutsätts att du är intresse rad av båda. Om du vill välja önskade utdatakolumner använder du en [Välj kolumner i modulen data uppsättning][select-columns] . Klicka på [Välj kolumner i data uppsättning][select-columns], klicka på **Starta kolumn väljaren**och välj **resultat etiketter** och **betyg betygs**ätt. När du har angett utdataporten för [Välj kolumner i data uppsättningen][select-columns] och kör den igen, bör du vara redo att publicera bedömnings experimentet som en webb tjänst genom att klicka på **publicera webb tjänst**. Det slutliga experimentet ser ut som figur 4.
 
 ![Iris i två Klasss experiment](./media/interpret-model-results/4.png)
 
-Figur 4. Slut på att experimentera med en Iriss klassificerings problem i två klasser
+Bild 4. Slut på att experimentera med en Iriss klassificerings problem i två klasser
 
 När du har kört webb tjänsten och angett några funktions värden för en test instans returnerar resultatet två siffror. Det första talet är den nya etiketten och den andra är sannolikheten. Den här blomman förutsägs som klass 1 med 0,9655 sannolikhet.
 
@@ -92,9 +92,9 @@ När du har kört webb tjänsten och angett några funktions värden för en tes
 
 ![Bedömnings test resultat](./media/interpret-model-results/5.png)
 
-Figur 5. Webb tjänst resultat av Iris i två Klasss klassificering
+Bild 5. Webb tjänst resultat av Iris i två Klasss klassificering
 
-### <a name="multi-class-classification"></a>Klassificering med flera klasser
+### <a name="multi-class-classification"></a>Klassificering i flera klasser
 **Exempel experiment**
 
 I det här experimentet utför du en igenkännings uppgift som ett exempel på klassificering av multiklasser. Klassificeraren försöker förutsäga en viss bokstav (klass) baserat på vissa manuellt skrivna attributvärden som extraheras från de manuella bilderna.
@@ -105,13 +105,13 @@ I tränings data finns det 16 funktioner som har extraherats från handskrivna b
 
 ![Skrift igenkänning av klassificerings experiment i multiklass](./media/interpret-model-results/6.png)
 
-Figur 6. Brev igenkänning multiklass klassificerings problem experiment
+Bild 6. Brev igenkänning multiklass klassificerings problem experiment
 
 Visualisera resultaten från modulen [Poäng modell][score-model] genom att klicka på utdataporten för [Poäng modell][score-model] och klicka på **visualisera**. du bör se innehållet som visas på bild 7.
 
 ![Resultat modell resultat](./media/interpret-model-results/7.png)
 
-Figur 7. Visualisera Poäng modell resulterar i en klassificering i flera klasser
+Bild 7. Visualisera Poäng modell resulterar i en klassificering i flera klasser
 
 **Resultat tolkning**
 
@@ -127,7 +127,7 @@ Figur 8. R-kod för att extrahera Poäng etiketter och de associerade sannolikhe
 
 ![Experiment resultat](./media/interpret-model-results/9.png)
 
-Figur 9. Slutliga bedömnings experiment om klassificerings problem med multiklass i brev igenkänning
+Bild 9. Slutliga bedömnings experiment om klassificerings problem med multiklass i brev igenkänning
 
 När du har publicerat och kört webb tjänsten och angett några värden för inmatade funktioner ser det returnerade resultatet ut som figur 10. Detta handskrivna brev, med extraherade 16 funktioner, förväntas vara "T" med 0,9715 sannolikhet.
 
@@ -135,7 +135,7 @@ När du har publicerat och kört webb tjänsten och angett några värden för i
 
 ![Testresultat](./media/interpret-model-results/10.png)
 
-Figur 10. Webb tjänst resultat för klassificering av multiklass
+Bild 10. Webb tjänst resultat för klassificering av multiklass
 
 ## <a name="regression"></a>Regression
 Regressions problem skiljer sig från klassificerings problem. I ett klassificerings problem försöker du förutse diskreta klasser, till exempel vilken klass en Iris blomma tillhör. Men som du kan se i följande exempel på ett Regressions problem försöker du förutsäga en kontinuerlig variabel, till exempel priset på en bil.
@@ -146,7 +146,7 @@ Använd pris förutsägelser för bilar som exempel för regression. Du försök
 
 ![Test av bil pris regression](./media/interpret-model-results/11.png)
 
-Figur 11. Problem experiment med Automobil pris regression
+Bild 11. Problem experiment med Automobil pris regression
 
 Visualisering av modulen [Poäng modell][score-model] , resultatet ser ut som figur 12.
 
@@ -224,7 +224,7 @@ För rekommenderade system kan du använda problemet med restaurang rekommendati
 
 * Restaurang betyg från kunder
 * Kund funktions data
-* Restaurangens funktionsdata
+* Restaurang funktions data
 
 Det finns flera saker som vi kan göra med modulen [träna matchbox-rekommendationer][train-matchbox-recommender] i Azure Machine Learning Studio (klassisk):
 

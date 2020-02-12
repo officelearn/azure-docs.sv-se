@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 30d1ba89f6a18ed3400868e6d9a5d17ceef5de04
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8206a88695c89d04eabe89e79a5aff8469cc6862
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546817"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152439"
 ---
 # <a name="convert-to-csv-module"></a>Konvertera till CSV-modul
 
@@ -26,7 +26,7 @@ Använd den här modulen för att konvertera en data uppsättning till ett CSV-f
 
 CSV-formatet, som står för "kommaavgränsade värden", är ett fil format som används av många externa Machine Learning-verktyg. CSV är ett vanligt utbytes format när du arbetar med språk med öppen källkod, till exempel R eller python.
 
-Även om du utför det mesta av ditt arbete i Azure Machine Learning, finns det tillfällen då du kan hitta det praktiskt att konvertera data uppsättningen till CSV och använda den i externa verktyg. Ett exempel:
+Även om du utför det mesta av ditt arbete i Azure Machine Learning, finns det tillfällen då du kan hitta det praktiskt att konvertera data uppsättningen till CSV och använda den i externa verktyg. Några exempel:
 
 + Hämta CSV-filen för att öppna den med Excel, eller importera den till en Relations databas.  
 + Spara CSV-filen i moln lagringen och Anslut till den från Power BI för att skapa visualiseringar.  

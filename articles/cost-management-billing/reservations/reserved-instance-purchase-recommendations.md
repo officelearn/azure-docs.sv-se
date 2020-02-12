@@ -10,43 +10,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2020
 ms.author: banders
-ms.openlocfilehash: a43e0c4d86bd47c953b50ab9fb1fd8df00e7df3d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2f7b09c14553fdb5d642080d286ce123176b997f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76851359"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991056"
 ---
 # <a name="how-reservation-recommendations-are-created"></a>Så här skapas reservationsrekommendationer
+Inköpsrekommendationer för reserverade Azure-instanser (RI) tillhandahålls av [API:et för reservationsrekommendationer](/rest/api/consumption/reservationrecommendations) för Azure Consumption, [Azure Advisor](../..//advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) och när du köper reservationer i Microsoft Azure-portalen.
 
-Inköpsrekommendationer för reserverade Azure-instanser (RI) skapas av [API:et för reservationsrekommendationer](/rest/api/consumption/reservationrecommendations) för Azure Consumption. Rekommendationer från API:et används även av [Azure Advisor](../..//advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs). Advisor visar rekommendationer i Azure-portalen.
+Följande steg definierar hur rekommendationer beräknas: 
+1. Rekommendationsmotorn utvärderar hur mycket dina resurser används per timme inom det angivna omfånget som kan utgöras av de senaste 7, 30 eller 60 dagarna.
+2. Motorn simulerar dina kostnader med och utan reservationer enligt dessa förbrukningsdata.
+3. Kostnaderna simuleras enligt olika kvantiteter och den kvantitet som maximerar dina besparingar rekommenderas.
+4. Om dina resurser stängs av regelbundet kommer simuleringen inte att hitta några besparingsmöjligheter och inte ge dig någon inköpsrekommendation.
 
-Om du har virtuella datorer som körs i Azure kan du dra nytta av rabatterat pris för RI och förskottsbetalning för dina virtuella datorer. Rekommendations-API:et för Microsoft Consumption utvärderar din användning under 7, 30 och 60 dagar och rekommenderar optimala konfigurationer för RI. Det beräknar den kostnad som du skulle betala om du inte hade haft RI jämfört med den kostnad som du betalar med RI för att optimera besparingar.
-
-Azure Advisor visar rekommendationer baserat på en 30-dagarsperiod.
-
-För enkelhetens skull visar följande exempel beräkningar som sker för en sjudagars rekommendation. Samma metod används vid beräkning av 30- eller 60-dagars rekommendationer.
-
-## <a name="calculation-method-example"></a>Exempel på beräkningsmetod
-
-Anta att din användning av virtuella Windows-datorer per timme för en specifik SKU och region varierar under sju dagar (168 timmar). Den lägsta användningen är 65 enheter och den högsta användningen är 127 enheter under de sju dagarna. Timmen 79 i det här exemplet använde 80 virtuella datorer, och du köpte 75 RI.
-
-Om du köper 75 reserverade instanser betalar du följande kostnader för timme 79:
-
-- 75 reserverade instanser. Kostnaden betalas i förväg när du köper RI.
-- Reserverade instanser omfattar maskinvarukostnaden för att köra virtuella datorer, så du betalar för 75 timmar till priset för enbart programvara.
-- Användningen för timme 79 är 80, så du betalar för fem timmar med mätarpriset för kombinationen med Windows plus maskinvara. Kombinationspriset baseras antingen på ditt Enterprise-avtal (EA) eller på Betala per användning-priset.
-
-Om du köper 75 RI kan du beräkna den totala kostnaden genom att lägga till föregående timkostnader. Du kan även beräkna din nuvarande kostnad med hjälp av ditt pris. Skillnaden mellan de två beloppen är dina besparingar för sju dagar i det här exemplet.
-
-API:et utför beräkningar för varje specifik användningspunkt. Sedan returnerar det den rekommenderade kvantitet där besparingarna maximeras. I följande exempel visar grafen att besparingarna är som högst vid 68. Besparingarna minskar efteråt, och API:et rekommenderar därför 68.
-
-![Diagram över toppbesparingar](./media/reserved-instance-purchase-recommendations/peak-savings.png)
+## <a name="recommendations-in-azure-advisor"></a>Rekommendationer i Azure Advisor
+Azure Advisor tillhandahåller rekommendationer om inköp av reservationer för virtuella datorer. Tänk på följande punkter: 
+- Advisor tillhandahåller endast rekommendationer som omfattas av en prenumeration.
+- Advisor tillhandahåller rekommendationer som bygger på dina data från de senaste 30 dagarna.
+- Om du köper en reservation med delad omfattning kan det ta upp till 30 dagar innan Advisors rekommendationer slutar att visas.
 
 ## <a name="other-expected-api-behavior"></a>Annat förväntat API-beteende
-
-- API:et visar möjliga besparingar med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) för Windows när förmånen används. Om förmånen inte används baseras API-rekommendationerna på kärnkostnaden för Windows. Om Azure Hybrid-förmån är tillgängligt för dig bör du överväga att använda det för att öka besparingarna.
-- När du använder en tillbakablicksperiod på sju dagar får du kanske inte rekommendationer när virtuella datorer stängs av i mer än en dag.
+- Om du försöker få rekommendationer som bygger på data från de senaste sju dagarna kanske detta misslyckas om de virtuella datorerna har stängts ned i mer än en dag.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig [hur rabatten för Azure-reservation tillämpas på virtuella datorer](../manage/understand-vm-reservation-charges.md).

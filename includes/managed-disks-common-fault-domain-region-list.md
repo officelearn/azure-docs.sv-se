@@ -57,5 +57,5 @@ ms.locfileid: "72783608"
 | USA Gov Virginia     | 2                       |
 | US Gov, Texas        | 2                       |
 | US Gov, Arizona      | 2                       |
-| US DoD, centrala      | 2                       |
+| USA DoD, centrala      | 2                       |
 | USA DoD, östra         | 2                       |

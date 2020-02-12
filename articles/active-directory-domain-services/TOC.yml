@@ -77,7 +77,7 @@
           href: notifications.md
         - name: Ta bort en hanterad domän
           href: delete-aadds.md
-        - name: Migrera från en klassisk distribution (förhandsversion)
+        - name: Migrera från en klassisk distribution
           href: migrate-from-classic-vnet.md
         - name: Ändra SKU
           href: change-sku.md

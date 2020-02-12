@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 07/27/2019
-  ms.openlocfilehash: d212a7223eea2ccbaaddeb9c45db85e13c7ff9c8
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 1ce670f2783eb12db307eac42974667dd809de9d
+  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75443463"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77159309"
 highlightedContent:
   items:
   - title: Vad är Azure AD?
@@ -53,6 +53,20 @@ conceptualContent:
       text: Programproxy för lokala appar
     footerLink:
       url: ./manage-apps/index.yml
+      text: Mer information
+  - title: Program- och HR-etablering
+    links:
+    - url: ./app-provisioning/user-provisioning.md
+      itemType: overview
+      text: Vad är programetablering?
+    - url: ./app-provisioning/how-provisioning-works.md
+      itemType: concept
+      text: Så fungerar programetablering
+    - url: ./app-provisioning/plan-cloud-hr-provision.md
+      itemType: how-to-guide
+      text: Planera en molndistribution av HR-etablering
+    footerLink:
+      url: ./app-provisioning/index.yml
       text: Mer information
   - title: Autentisering
     links:

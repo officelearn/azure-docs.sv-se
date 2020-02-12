@@ -47,7 +47,7 @@
           href: container-registry-geo-replication.md
         - name: Registrera metodtips
           href: container-registry-best-practices.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       expanded: false
       items:
         - name: Registeråtgärder
@@ -84,12 +84,14 @@
               items:
                 - name: Översikt över autentisering
                   href: container-registry-authentication.md
-                - name: Autentisering av tjänstens huvudnamn
+                - name: Autentisera med tjänstens huvudnamn
                   href: container-registry-auth-service-principal.md
-                - name: Autentisering av hanterad identitet
+                - name: Autentisera med hanterad identitet
                   href: container-registry-authentication-managed-identity.md
                 - name: Autentisera från Azure Container Instances
                   href: container-registry-auth-aci.md
+                - name: Autentisera från Kubernetes Service genom att hämta en hemlighet
+                  href: container-registry-auth-kubernetes.md
                 - name: Autentisera från Azure Kubernetes Service (AKS)
                   href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
             - name: Rollbaserad åtkomstkontroll
@@ -121,7 +123,7 @@
               href: container-registry-check-health.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: container-registry-faq.md
-- name: Uppgifter
+- name: Aktiviteter
   expanded: true
   items:
     - name: Översikt
@@ -158,7 +160,7 @@
       items:
         - name: Uppgifter i flera steg
           href: container-registry-tasks-multi-step.md
-    - name: Instruktionsguider
+    - name: Anvisningar
       expanded: false
       items:
         - name: Få åtkomst till skyddade resurser med hanterade identiteter

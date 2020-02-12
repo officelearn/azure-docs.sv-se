@@ -26,6 +26,8 @@
       href: convert-to-csv.md
     - name: Konvertera till datamängd
       href: convert-to-dataset.md
+    - name: Konvertera till indikatorvärden
+      href: convert-to-indicator-values.md
     - name: Rensa data som saknas
       href: clean-missing-data.md
     - name: Redigera metadata

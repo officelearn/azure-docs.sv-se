@@ -135,7 +135,7 @@
           href: logic-apps-enterprise-integration-certificates.md
         - name: Artefaktmetadata
           href: logic-apps-enterprise-integration-metadata.md
-        - name: Ta emot B2B-meddelanden
+        - name: Ta emot och skicka B2B-meddelanden
           href: logic-apps-enterprise-integration-b2b.md
         - name: Utbyta AS2-meddelanden
           href: logic-apps-enterprise-integration-as2.md

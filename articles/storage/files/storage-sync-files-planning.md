@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
 ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2020
 ms.locfileid: "76046093"
@@ -326,7 +326,7 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | US Gov, Arizona      | US Gov, Texas       |
-| US Gov, Iowa         | USA Gov Virginia    |
+| USA Gov, Iowa         | USA Gov Virginia    |
 | USA Gov Virginia      | US Gov, Texas       |
 | Europa, västra         | Europa, norra       |
 | USA, västra centrala     | USA, västra 2          |

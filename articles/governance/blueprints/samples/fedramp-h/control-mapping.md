@@ -3,12 +3,12 @@ title: FedRAMP-kontroller för hög skiss
 description: Kontroll mappning av FedRAMP-exemplet för hög skiss. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 93e2de3f19e0577645337df029789336a35b024d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087339"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150620"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Kontroll mappning av FedRAMP-exemplet för hög skiss
 
@@ -261,7 +261,7 @@ Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut pu
 
 - Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
 - Åtkomst via slut punkt mot Internet bör vara begränsad
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
+- Webb portar bör begränsas för nätverks säkerhets grupper som är kopplade till den virtuella datorn
 - Granska obegränsad nätverks åtkomst till lagrings konton
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) gränser skydd | Åtkomst punkter

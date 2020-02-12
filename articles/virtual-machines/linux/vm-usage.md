@@ -99,8 +99,8 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    uksouth               |    Storbritannien, södra                              |
 |    UKSouth2              |    Storbritannien, södra 2                            |
 |    västrastorbritannien                |    Storbritannien, västra                               |
-|    USDoDCentral          |    US DoD, centrala                        |
-|    USDoDEast             |    US DoD, östra                           |
+|    USDoDCentral          |    USA DoD, centrala                        |
+|    USDoDEast             |    USA DoD, östra                           |
 |    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
 |    USGovTexas            |    USGov Texas                           |

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ae9550e797ad13f78f222cb6120f040721914964
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c1557efd87bf75ec59c9b65112b2bb3d0c678db
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454768"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153629"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Använd PowerShell för att skapa Studio-modeller (klassiska) och webb tjänst slut punkter från ett experiment
 
@@ -35,37 +35,37 @@ Lyckligt vis kan du göra detta med hjälp av [API: et för Azure Machine Learni
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Konfigurera träningsexperimentet
-Använd exempel [träningsexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) som finns i den [Cortana Intelligence-galleriet](https://gallery.azure.ai). Öppna det här experimentet i arbets ytan [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) .
+Använd exemplet på [inlärnings experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) som finns i [Cortana Intelligence Gallery](https://gallery.azure.ai). Öppna det här experimentet i arbets ytan [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) .
 
 > [!NOTE]
 > För att kunna följa med i det här exemplet, kan du använda en standardarbetsytan i stället för en kostnadsfri arbetsyta. Du skapar en slutpunkt för varje kund - totalt 10 slutpunkter - och som kräver en standardarbetsytan eftersom en kostnadsfri arbetsyta är begränsat till 3 slutpunkter.
 > 
 > 
 
-Experimentet använder en **importera Data** modul för att importera en datauppsättning för träning *customer001.csv* från ett Azure storage-konto. Vi antar att du har samlat in datauppsättningar för utbildning från alla cykel hyra platser och lagrat dem på samma plats för blob storage med filnamn som sträcker sig från *rentalloc001.csv* till *rentalloc10.csv*.
+Experimentet använder modulen **Importera data** för att importera data uppsättningen *customer001. csv* från ett Azure Storage-konto. Vi antar att du har samlat in inlärnings data uppsättningar från alla cykel uthyrnings platser och lagrat dem på samma Blob Storage-plats med fil namn som sträcker sig från *rentalloc001. csv* till *rentalloc10. csv*.
 
 ![Läsar modulen importerar data från en Azure-Blob](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
-Observera att en **Web Service utdata** modulen har lagts till i **Träningsmodell** modulen.
+Observera att en **webb tjänst utmatnings** modul har lagts till modulen **träna modell** .
 När det här experimentet har distribuerats som en webbtjänst slutpunkten som är associerade med att utdata returnerar den tränade modellen i formatet för en .ilearner-fil.
 
-Observera också att du ställer in en web service-parameter som definierar URL som den **importdata** modul använder. På så sätt kan du använda parametern för att ange enskilda utbildning datauppsättningar för att träna modellen för varje plats.
-Det finns andra sätt du kunnat göra detta. Du kan använda en SQL-fråga med en web service-parameter för att hämta data från en SQL Azure-databas. Du kan också använda en **Webbtjänstindata** modulen att i en datauppsättning till webbtjänsten.
+Observera också att du konfigurerar en webb tjänst parameter som definierar den URL som används av modulen **Importera data** . På så sätt kan du använda parametern för att ange enskilda utbildning datauppsättningar för att träna modellen för varje plats.
+Det finns andra sätt du kunnat göra detta. Du kan använda en SQL-fråga med en web service-parameter för att hämta data från en SQL Azure-databas. Du kan också använda en modul för **indata för webb tjänst** för att skicka in en data uppsättning till webb tjänsten.
 
 ![En utbildad modell modul ger utdata till en webb tjänst utmatnings modul](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Nu ska vi köra den här träningsexperiment med hjälp av standardvärdet *rental001.csv* som datamängd för träning. Om du visar utdata från den **Evaluate** modulen (klicka på utdata och välj **visualisera**), du kan se du få en vettigt prestanda av *AUC* = 0.91. Nu är du redo att distribuera en webbtjänst utanför den här träningsexperiment.
+Nu ska vi köra det här övnings experimentet med hjälp av standardvärdet *rental001. csv* som inlärnings data uppsättning. Om du visar utdata från **evaluate** -modulen (klicka på utdata och väljer **visualisera**) kan du se att du får en vettigt prestanda på *AUC* = 0,91. Nu är du redo att distribuera en webbtjänst utanför den här träningsexperiment.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Distribuera träningen och bedömning webbtjänster
-Om du vill distribuera webbtjänsten utbildning, klickar du på den **konfigurera Web Service** under experimentets arbetsyta och välj **distribuera webbtjänsten**. Anropa den här webbtjänsten ”cykel hyra utbildning”.
+Du distribuerar utbildnings webb tjänsten genom att klicka på knappen **Konfigurera webb tjänst** under experimentets arbets yta och välja **distribuera webb tjänst**. Anropa den här webbtjänsten ”cykel hyra utbildning”.
 
 Nu ska du distribuera bedömning av webbtjänsten.
-Gör detta genom att klicka på **konfigurera Web Service** under arbetsytan och välj **förutsägande webbtjänsten**. Detta skapar en arbetsflödesbaserad experiment.
+Det gör du genom att klicka på **Konfigurera webb tjänsten** under arbets ytan och välja **förutsägbar webb tjänst**. Detta skapar en arbetsflödesbaserad experiment.
 Du måste göra några mindre justeringar gör att den fungerar som en webbtjänst. Ta bort etikettkolumnen ”cnt” från indata och begränsa utdata till endast instans-id och motsvarande förutsägelsevärdet.
 
-Du kan spara arbetet, kan du öppna den [förutsägelseexperiment](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) i galleriet som redan har förberetts.
+För att du ska kunna spara pengar kan du öppna det [förutsägande experimentet](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) i galleriet som redan har förberetts.
 
-Om du vill distribuera webbtjänsten kör förutsägbart experiment, och klicka sedan på den **distribuera webbtjänsten** knappen under arbetsytan. Namnge tjänsten bedömnings web ”cykel hyra bedömning”.
+Om du vill distribuera webb tjänsten kör du förutsägelse experimentet och klickar sedan på knappen **distribuera webb tjänst** under arbets ytan. Namnge tjänsten bedömnings web ”cykel hyra bedömning”.
 
 ## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>Skapa slutpunkter för 10 identiska webbtjänster med PowerShell
 Den här webbtjänsten levereras med en standardslutpunkt. Men du är inte intresserad standardslutpunkten eftersom det inte kan uppdateras. Vad du behöver göra är att skapa 10 ytterligare slutpunkter, en för varje plats. Du kan göra detta med PowerShell.
@@ -87,14 +87,14 @@ Kör följande PowerShell-kommando:
         Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
     }
 
-Nu du skapade 10 slutpunkter och alla innehåller samma tränas modellen tränats på *customer001.csv*. Du kan visa dem i Azure-portalen.
+Nu har du skapat 10 slut punkter och alla innehåller samma utbildade modell som har tränats på *customer001. csv*. Du kan visa dem i Azure-portalen.
 
 ![Visa listan över tränade modeller i portalen](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Uppdatera slutpunkterna för att använda separata tränings datauppsättningar med hjälp av PowerShell
-Nästa steg är att uppdatera slutpunkterna med modeller som unikt tränats på varje kunds enskilda data. Men först måste du skapa dessa modeller från den **cykel hyra utbildning** webbtjänsten. Vi går tillbaka till den **cykel hyra utbildning** webbtjänsten. Du måste anropa dess slutpunkt för BES 10 gånger med 10 olika utbildning datauppsättningar för att skapa 10 olika modeller. Använd den **InovkeAmlWebServiceBESEndpoint** PowerShell-cmdlet för att göra detta.
+Nästa steg är att uppdatera slutpunkterna med modeller som unikt tränats på varje kunds enskilda data. Men först måste du skapa dessa modeller från utbildnings webb tjänsten för **cykel uthyrning** . Nu ska vi gå tillbaka till webb tjänsten för **cykel uthyrnings utbildning** . Du måste anropa dess slutpunkt för BES 10 gånger med 10 olika utbildning datauppsättningar för att skapa 10 olika modeller. Använd **InovkeAmlWebServiceBESEndpoint** PowerShell-cmdleten för att göra detta.
 
-Du måste också att ange autentiseringsuppgifter för blob storage-kontot till `$configContent`. Nämligen på fälten `AccountName`, `AccountKey`, och `RelativeLocation`. Den `AccountName` kan vara något av ditt kontonamn, som visas i den **Azure-portalen** (*Storage* fliken). När du klickar på ett lagringskonto, dess `AccountKey` kan hittas genom att trycka på den **hantera åtkomstnycklar** längst ned och kopiera den *primära åtkomstnyckel*. Den `RelativeLocation` är sökväg i förhållande till din lagring där en ny modell kommer att lagras. Exempelvis sökvägen `hai/retrain/bike_rental/` i nedanstående skript till en behållare med namnet `hai`, och `/retrain/bike_rental/` finns det undermappar. För närvarande kan du inte skapa undermappar via portalens användargränssnitt, men det finns [flera Azure Storage-Utforskare](../../storage/common/storage-explorers.md) som gör det möjligt att göra detta. Vi rekommenderar att du skapar en ny behållare i ditt storage för att lagra nya tränade modeller (.iLearner-filer) på följande sätt: ditt storage-sidan klickar du på den **Lägg till** knappen längst ned på sidan och ge den namnet `retrain`. Sammanfattningsvis nödvändiga ändringar till följande skript som hör till `AccountName`, `AccountKey`, och `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Du måste också ange autentiseringsuppgifter för ditt Blob Storage-konto i `$configContent`. Dvs, i fälten `AccountName`, `AccountKey`och `RelativeLocation`. `AccountName` kan vara ett av dina konto namn, som du ser i **Azure Portal** (fliken*lagring* ). När du klickar på ett lagrings konto kan du hitta dess `AccountKey` genom att trycka på knappen **Hantera åtkomst nycklar** längst ned och kopiera den *primära åtkomst nyckeln*. `RelativeLocation` är sökvägen i förhållande till lagrings utrymmet där en ny modell kommer att lagras. Till exempel pekar sökvägen `hai/retrain/bike_rental/` i följande skript till en behållare med namnet `hai`och `/retrain/bike_rental/` är undermappar. För närvarande kan du inte skapa undermappar via portalens användar gränssnitt, men det finns [flera Azure Storage Explorer](../../storage/common/storage-explorers.md) som gör det möjligt att göra det. Vi rekommenderar att du skapar en ny behållare i lagringen för att lagra nya utbildade modeller (. iLearner-filer) på följande sätt: från din lagrings sida klickar du på knappen **Lägg till** längst ned och namnger den `retrain`. I sammanfattning är de nödvändiga ändringarna i följande skript kopplade till `AccountName`, `AccountKey`och `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service
@@ -114,9 +114,9 @@ Du måste också att ange autentiseringsuppgifter för blob storage-kontot till 
 > 
 > 
 
-Som du ser ovan, i stället för att konstruera 10 olika BES jobbet json konfigurationsfilerna kan skapa du dynamiskt config-strängen i stället. Sedan skicka den till den *jobConfigString* -parametern för den **InvokeAmlWebServceBESEndpoint** cmdlet. Det är lätt behöver du behålla en kopia på disken.
+Som du ser ovan, i stället för att konstruera 10 olika BES jobbet json konfigurationsfilerna kan skapa du dynamiskt config-strängen i stället. Mata sedan in den till parametern *jobConfigString* för **InvokeAmlWebServceBESEndpoint** -cmdleten. Det är lätt behöver du behålla en kopia på disken.
 
-Om allt går bra efter en stund bör du se 10 .iLearner filer från *model001.ilearner* till *model010.ilearner*, i ditt Azure storage-konto. Nu är du redo att uppdatera de 10 bedömning slutpunkter för webbtjänster med dessa modeller med hjälp av den **Patch AmlWebServiceEndpoint** PowerShell-cmdlet. Kom ihåg igen att du bara kan korrigera icke-standard-slutpunkter som du programmässigt skapat tidigare.
+Om allt går bra, efter ett tag kan du se 10. iLearner-filer, från *model001. iLearner* till *model010. iLearner*, i ditt Azure Storage-konto. Nu är du redo att uppdatera webb tjänst slut punkterna för 10 Poäng med dessa modeller med hjälp av PowerShell-cmdleten **patch-AmlWebServiceEndpoint** . Kom ihåg igen att du bara kan korrigera icke-standard-slutpunkter som du programmässigt skapat tidigare.
 
     # Patch the 10 endpoints with respective .ilearner models
     $baseLoc = 'http://bostonmtc.blob.core.windows.net/'
@@ -129,7 +129,7 @@ Om allt går bra efter en stund bör du se 10 .iLearner filer från *model001.il
         Patch-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -ResourceName 'Bike Rental [trained model]' -BaseLocation $baseLoc -RelativeLocation $relativeLoc -SasBlobToken $sasToken
     }
 
-Detta bör köra ganska snabbt. När körningen är klar kommer skapades 10 förutsägelsewebbtjänster Tjänsteslutpunkter. Var och en innehåller en tränad modell unikt har tränats på datauppsättningen som är specifika för en Hyresplats, allt från ett enda träningsexperiment. Om du vill kontrollera detta, kan du anropa dessa slutpunkter med hjälp av den **InvokeAmlWebServiceRRSEndpoint** cmdlet, vilket ger dem med samma indata. Du kan förvänta att se olika förutsägelser eftersom modeller tränas med olika utbildning uppsättningar.
+Detta bör köra ganska snabbt. När körningen är klar kommer skapades 10 förutsägelsewebbtjänster Tjänsteslutpunkter. Var och en innehåller en tränad modell unikt har tränats på datauppsättningen som är specifika för en Hyresplats, allt från ett enda träningsexperiment. Om du vill kontrol lera detta kan du prova att anropa dessa slut punkter med **InvokeAmlWebServiceRRSEndpoint** -cmdleten och ge dem samma indata. Du kan förvänta att se olika förutsägelser eftersom modeller tränas med olika utbildning uppsättningar.
 
 ## <a name="full-powershell-script"></a>Fullständig PowerShell-skript
 Här är listan med den fullständiga källkoden:

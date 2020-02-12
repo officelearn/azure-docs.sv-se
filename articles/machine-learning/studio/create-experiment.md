@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3897047bbe3f105c0b4adf3da38b037ea62dd646
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427726"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153646"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
 
@@ -181,7 +181,7 @@ Vi använder våra data både för träning och testning av modellen genom att d
 
 1. Kör experimentet. När experimentet körs skickar du kolumn definitionerna [Välj kolumner i data uppsättning][select-columns] och [dela data][split] till de moduler som vi ska lägga till härnäst.  
 
-1. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för maskininlärning. För det här experimentet väljer du modulen [linjär regression][linear-regression] under **Regressions** kategorin och drar den till experimentets arbets yta. (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
+1. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för Machine Learning. För det här experimentet väljer du modulen [linjär regression][linear-regression] under **Regressions** kategorin och drar den till experimentets arbets yta. (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
 
 1. Leta upp och dra modulen [träna modell][train-model] till arbets ytan för experimentet. Anslut utdataporten för modulen [linjär regression][linear-regression] till vänster indata för modulen [träna modell][train-model] och Anslut utbildnings data utmatningen (den vänstra porten) för modulen [dela data][split] till rätt indata för modulen [träna modell][train-model] .
 

@@ -38,6 +38,6 @@ Plats-till-plats-baserad VPN-anslutning och virtuell WAN-arkitektur är tillgän
 
 |Geopolitisk region | Azure-regioner|
 |---|---|
-| U.S. Government-moln | US Gov, Arizona; US Gov, Iowa; US Gov, Texas; US Gov, Virginia; US DoD, centrala; US DoD, östra |
+| U.S. Government-moln | US Gov, Arizona; USA Gov, Iowa; USA Gov, Texas; USA Gov, Virginia; USA DoD, centrala; USA DoD, östra |
 | Östra Kina | Kina, östra, Kina, östra 2|
 | Norra Kina | Kina, norra, Kina, norra 2 |

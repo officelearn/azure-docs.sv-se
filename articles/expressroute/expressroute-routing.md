@@ -243,11 +243,11 @@ CRM Online stöder Dynamics v 8.2 och nedan. För högre versioner väljer du de
 | --- | --- |
 | **Amerikanska myndigheter** |  |
 | US Gov, Arizona | 12076:51106 |
-| US Gov, Iowa | 12076:51109 |
+| USA Gov, Iowa | 12076:51109 |
 | US Gov, Virginia | 12076:51105 |
 | US Gov, Texas | 12076:51108 |
-| US DoD, centrala | 12076:51209 |
-| US DoD, östra | 12076:51205 |
+| USA DoD, centrala | 12076:51209 |
+| USA DoD, östra | 12076:51205 |
 
 
 | **Tjänst i nationella moln** | **BGP-community värde** |

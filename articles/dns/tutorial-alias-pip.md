@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: d601d19a786613f674f7b941becc5e97d84e6fce
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d4517314742f3ec8e9968d20745ffb697d96f324
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939263"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149940"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Självstudie: Konfigurera en aliaspost för att referera till en offentlig IP-adress i Azure 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en nätverksinfrastruktur.
@@ -27,7 +27,7 @@ I den här guiden får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
 Anvisningar för att vara värd för din domän i Azure DNS finns i [Självstudie: var värd för din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -36,7 +36,7 @@ Den exempeldomän som används i den här självstudien är contoso.com, men du 
 
 ## <a name="create-the-network-infrastructure"></a>Skapa nätverksinfrastrukturen
 Skapa först ett virtuellt nätverk och ett undernät för att placera dina webbservrar i.
-1. Logga in på Azure Portal på https://portal.azure.com.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Längst upp till vänster i portalen väljer du **Skapa en resurs**. Ange *resursgrupp* i sökrutan och skapa en resursgrupp med namnet **RG-DNS-Alias-pip**.
 3. Välj **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 4. Skapa ett virtuellt nätverk med namnet **VNet-Server**. Placera det i resursgruppen **RG-DNS-Alias-pip** och ge undernätet namnet **SN-Web**.
@@ -67,7 +67,7 @@ Installera IIS på **Web-01**.
 Skapa en aliaspost som pekar på den offentliga IP-adressen.
 
 1. Välj din Azure DNS-zon för att öppna zonen.
-2. Välj **Postuppsättning**.
+2. Välj **Uppsättning av poster**.
 3. I textrutan **Namn** väljer du **web01**.
 4. Lämna **Typ** som en **A**-post.
 5. Välj kryssrutan **Aliaspostuppsättning**.

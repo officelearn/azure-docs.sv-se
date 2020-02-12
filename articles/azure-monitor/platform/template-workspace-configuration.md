@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 936008a074944c79b8b0bab3beaf3a5aaa5ecc12
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834214"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151844"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
 
@@ -40,12 +40,12 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 
 | Resurs | Resurstyp | API-version |
 |:---|:---|:---|
-| Arbetsyta   | arbetsytor    | 2017-03-15 – för hands version |
-| Sök      | savedSearches | 2015-03-20 |
+| Arbetsyta   | arbets ytor    | 2017-03-15 – för hands version |
+| Söka      | savedSearches | 2015-03-20 |
 | Datakälla | data källor   | 2015-11-01 – för hands version |
 | Lösning    | lösningar     | 2015-11-01 – för hands version |
 
-## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
+## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics arbets yta
 
 I följande exempel skapas en arbets yta med en mall från den lokala datorn. JSON-mallen är konfigurerad för att bara kräva namn och plats för den nya arbets ytan. Den använder värden som anges för andra parametrar för arbets ytan, till exempel [åtkomst kontrol läge](design-logs-deployment.md#access-control-mode), pris nivå, kvarhållning och kapacitets reservations nivå.
 
@@ -147,8 +147,8 @@ För kapacitets reservation definierar du en vald kapacitets reservation för in
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
-3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.
+2. Redigera mallen så att den uppfyller dina krav. Granska [mallen Microsoft. OperationalInsights/arbetsytes](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
+3. Spara filen som **deploylaworkspacetemplate. JSON** i en lokal mapp.
 4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller kommando raden för att skapa arbets ytan och ange arbets ytans namn och plats som en del av kommandot. Arbets ytans namn måste vara globalt unikt för alla Azure-prenumerationer.
 
    * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
@@ -301,9 +301,7 @@ I följande mall-exempel visas hur du:
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]",
-          "name": "CapacityReservation",
-          "capacityReservationLevel": 100
+          "name": "[parameters('pricingTier')]"
         }
       },
       "resources": [
@@ -636,7 +634,7 @@ Så här distribuerar du exempel mal len:
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
-#### <a name="command-line"></a>Kommandoraden
+#### <a name="command-line"></a>Kommandorad
 
 ```cmd
 azure config mode arm

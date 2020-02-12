@@ -4,12 +4,12 @@ description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur d
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a8b087eeaa2f087e79a4d05764199e3b72b6ec66
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750247"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77151980"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -87,7 +87,7 @@ RBAC-rollen VM-deltagare kan till exempel tilldelas till en hanteringsgrupp. Rol
 
 Följande diagram visar listan över roller och åtgärder som stöds för hanteringsgrupper.
 
-| RBAC-rollnamn             | Create | Byt namn | Flytta** | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
+| RBAC-rollnamn             | Skapa | Byt namn | Flytta** | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
 |Ägare                       | X      | X      | X      | X      | X             | X             | X     |
 |Deltagare                 | X      | X      | X      | X      |               |               | X     |
@@ -102,7 +102,7 @@ Följande diagram visar listan över roller och åtgärder som stöds för hante
 
 ## <a name="custom-rbac-role-definition-and-assignment"></a>Anpassad roll definition och tilldelning för RBAC
 
-Stöd för anpassade RBAC-roller för hanterings grupper stöds för närvarande med vissa [begränsningar](#limitations).  Du kan definiera hanterings gruppens omfattning i roll definitionens tilldelnings bara omfång.  Den anpassade RBAC-rollen kommer sedan att vara tillgänglig för tilldelning för den hanterings gruppen och alla hanterings grupper, prenumerationer, resurs grupper och resurser under den. Den här anpassade rollen ärver hierarkin som vilken inbyggd roll som helst.    
+Anpassad RBAC-roll-support för hanterings grupper är för närvarande en för hands version med vissa [begränsningar](#limitations).  Du kan definiera hanteringsgruppers omfattning i rolldefinitionens tilldelningsbara omfattning.  Den anpassade RBAC-rollen är sedan tillgänglig för tilldelning för den hanteringsgruppen och alla hanteringsgrupper, prenumerationer, resursgrupper och resurser under den. Den här anpassade rollen ärvs nedåt i hierarkin precis som en inbyggd roll.    
 
 ### <a name="example-definition"></a>Exempel definition
 Att [definiera och skapa en anpassad roll](../../role-based-access-control/custom-roles.md) ändras inte med inkludering av hanterings grupper. Använd den fullständiga sökvägen för att definiera hanterings gruppens **/providers/Microsoft.Management/managementgroups/{GroupID}** . 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833966"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152014"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
@@ -27,7 +27,7 @@ Den här artikeln hjälper dig att ansluta klassiska virtuella nätverk till Res
 
 Att ansluta ett klassiskt VNet till ett virtuellt nätverk i Resource Manager liknar att ansluta ett VNet till en lokal plats. Båda typerna av anslutning använder en VPN-gateway för att få en säker tunnel med IPsec/IKE. Du kan skapa en anslutning mellan virtuella nätverk som finns i olika prenumerationer och i olika regioner. Du kan också ansluta virtuella nätverk som redan har anslutningar till lokala nätverk, så länge den gateway som de har kon figurer ATS med är dynamisk eller Route-baserad. Mer information om anslutningar mellan virtuella nätverk finns i [Vanliga frågor om VNet-till-VNet](#faq) i slutet av den här artikeln. 
 
-Om du inte redan har en virtuell nätverksgateway och inte vill skapa en, kan du i stället överväga att ansluta din virtuella nätverk med VNet-peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNet peering (Vnet-peering)](../virtual-network/virtual-network-peering-overview.md).
+Om du inte redan har en virtuell nätverksgateway och inte vill skapa en, kan du i stället överväga att ansluta din virtuella nätverk med VNet-peering. Ingen VPN-gateway används för VNet-peering. Mer information finns i [VNET-peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Innan du börjar
 
@@ -166,7 +166,7 @@ Du kan kontrol lera status för gatewayen med hjälp av cmdleten **Get-AzureVNet
 
 ## <a name="creatermgw"></a>Avsnitt 2 – Konfigurera RM VNet Gateway
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Kraven förutsätter att du redan har skapat ett RM VNet. I det här steget skapar du en VPN-gateway för RM VNet. Starta inte de här stegen förrän du har hämtat den offentliga IP-adressen för den klassiska VNet-gatewayen. 
 
@@ -298,7 +298,7 @@ Att skapa en anslutning mellan gateways kräver PowerShell. Du kan behöva lägg
 
 [!INCLUDE [vpn-gateway-verify-connection-ps-classic](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 [!INCLUDE [vpn-gateway-verify-connection-azureportal-classic](../../includes/vpn-gateway-verify-connection-azureportal-classic-include.md)]
 
@@ -309,7 +309,7 @@ Att skapa en anslutning mellan gateways kräver PowerShell. Du kan behöva lägg
 
 [!INCLUDE [vpn-gateway-verify-ps-rm](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 [!INCLUDE [vpn-gateway-verify-connection-portal-rm](../../includes/vpn-gateway-verify-connection-portal-rm-include.md)]
 

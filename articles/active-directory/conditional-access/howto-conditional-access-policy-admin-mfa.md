@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fb396429c95dbed090283752c5a0d9ff5cc176af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043364"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148206"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Villkorlig åtkomst: Kräv MFA för administratörer
 
@@ -24,14 +24,14 @@ Konton som tilldelas administrativa rättigheter är riktade mot angripare. Att 
 
 Microsoft rekommenderar att du behöver MFA på följande roller minst:
 
-* Global administratör
-* SharePoint-administratör
-* Exchange-administratör
+* Faktureringsadministratör
 * Administratör för villkorlig åtkomst
-* Säkerhetsadministratör
+* Exchange-administratör
+* Global administratör
 * Administratör för supportavdelningen (lösen ord)
 * Lösenordsadministratör
-* Faktureringsadministratör
+* Säkerhetsadministratör
+* SharePoint-administratör
 * Användar administratör
 
 Organisationer kan välja att inkludera eller exkludera roller som de ser bäst.
@@ -55,14 +55,14 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kr
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 1. Under **tilldelningar**väljer **du användare och grupper**
    1. Under **Inkludera**väljer du **katalog roller (för hands version)** och väljer följande roller som minst:
-      * Global administratör
-      * SharePoint-administratör
-      * Exchange-administratör
+      * Faktureringsadministratör
       * Administratör för villkorlig åtkomst
-      * Säkerhetsadministratör
+      * Exchange-administratör
+      * Global administratör
       * Support administratör
       * Lösenordsadministratör
-      * Faktureringsadministratör
+      * Säkerhetsadministratör
+      * SharePoint-administratör
       * Användar administratör
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
    1. Välj **Done** (Klar).

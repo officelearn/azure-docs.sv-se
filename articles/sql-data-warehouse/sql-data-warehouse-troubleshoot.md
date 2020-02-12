@@ -11,12 +11,12 @@ ms.date: 11/25/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ce57c48e568e840f3a651a5530f3fba6c0be60b7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4eec340a04b9cdbc85a2c8712a11d31132766206
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721055"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153374"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga fel söknings frågor.
@@ -53,7 +53,7 @@ Den här artikeln innehåller vanliga fel söknings frågor.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | MSG 40847: det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna kvoten för databas transaktions enheten på 45000. | Du kan antingen minska [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) för den databas som du försöker skapa eller [begära en kvot ökning](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Undersöka utrymmes användningen                              | Se [tabell storlekar]( ../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) för att förstå systemets utrymmes användning. |
-| Hjälp med att hantera tabeller                                    | Se artikeln [tabell översikt] [översikt] för hjälp med att hantera dina tabeller.  Den här artikeln innehåller också länkar till mer detaljerade ämnen som [tabell data typer](sql-data-warehouse-tables-data-types.md), [distribuera en tabell](sql-data-warehouse-tables-distribute.md), [indexera en tabell](sql-data-warehouse-tables-index.md), [partitionera en tabell](sql-data-warehouse-tables-partition.md), [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) och [temporära tabeller](sql-data-warehouse-tables-temporary.md). |
+| Hjälp med att hantera tabeller                                    | Mer information om hur du hanterar tabeller finns i artikeln [Översikt över](../sql-data-warehouse/sql-data-warehouse-tables-overview.md) tabeller.  Den här artikeln innehåller också länkar till mer detaljerade ämnen som [tabell data typer](sql-data-warehouse-tables-data-types.md), [distribuera en tabell](sql-data-warehouse-tables-distribute.md), [indexera en tabell](sql-data-warehouse-tables-index.md), [partitionera en tabell](sql-data-warehouse-tables-partition.md), [underhålla tabell statistik](sql-data-warehouse-tables-statistics.md) och [temporära tabeller](sql-data-warehouse-tables-temporary.md). |
 | Förlopps indikatorn för transparent data kryptering (TDE) uppdateras inte i Azure Portal | Du kan visa statusen för TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 

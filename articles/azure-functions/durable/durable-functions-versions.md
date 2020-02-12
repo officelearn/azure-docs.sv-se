@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849810"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152898"
 ---
 # <a name="durable-functions-versions-overview"></a>Översikt över Durable Functions-versioner
 
@@ -59,6 +59,10 @@ Durable Functions 2. x använder ett nytt Host. JSON-schema. Huvud ändringarna 
 * `"notifications"` (och `"eventGrid"` underavsnitt) för konfiguration av event Grid-meddelanden.
 
 Mer information finns i [referens dokumentationen för Durable Functions Host. JSON](durable-functions-bindings.md#durable-functions-2-0-host-json) .
+
+#### <a name="default-taskhub-name-changes"></a>Standard namn ändringar för taskhub
+
+I version 1. x, om ett aktivitets nav namn inte har angetts i Host. JSON, var det som standard "DurableFunctionsHub". I version 2. x härleds nu standard namnet för aktivitets navet från namnet på Function-appen. På grund av detta, om du inte har angett ett aktivitets NAVs namn när du uppgraderar till 2. x, kommer din kod att fungera med New Task Hub och all pågående dirigering kommer inte längre att ha något program som bearbetar dem. För att undvika detta kan du antingen uttryckligen ange namnet på ditt aktivitets nav till v1. x-standardvärdet "DurableFunctionsHub", eller så kan du följa vår [distributions vägledning om noll-nedtid](durable-functions-zero-downtime-deployment.md) för att få mer information om hur du hanterar överstigande ändringar för flyg-och Dirigerings åtgärder.
 
 #### <a name="public-interface-changes-net-only"></a>Offentliga gränssnitts ändringar (endast .NET)
 

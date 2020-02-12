@@ -1,6 +1,6 @@
 ---
 title: Skydda en databas
-description: Tips för att skydda en databas i Azure SQL Data Warehouse för att utveckla lösningar.
+description: Tips för att skydda en databas och utveckla lösningar i SQL-poolens resurs i SQL Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5eeb1c25264c36909774ec689b7410765881c8e2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 26cdbb1fc2899d1b03fea6199074467623706c63
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064741"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153289"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Skydda en databas i SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -27,21 +27,21 @@ ms.locfileid: "77064741"
 > 
 > 
 
-Den här artikeln vägleder dig genom grunderna för att skydda Azure SQL Data Warehouse-databasen. I synnerhet hjälper den här artikeln dig att komma igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en databas.
+Den här artikeln beskriver grunderna i hur du skyddar SQL-poolen i SQL Analytics. I synnerhet hjälper den här artikeln dig att komma igång med resurser för att begränsa åtkomst, skydda data och övervaka aktiviteter på en databas som har skapats med SQL-poolen.
 
 ## <a name="connection-security"></a>Anslutningssäkerhet
 Anslutningssäkerhet avser hur du begränsar och säkrar anslutningar till databasen med hjälp av brandväggsregler och krypterad anslutning.
 
 Brand Väggs regler används av både-servern och databasen för att avvisa anslutnings försök från IP-adresser som inte har vit listas uttryckligen. Om du vill tillåta anslutningar från ditt program eller klient datorns offentliga IP-adress måste du först skapa en brand Väggs regel på server nivå med hjälp av Azure Portal, REST API eller PowerShell. 
 
-Ett bra tips är att du begränsar de IP-adressintervall som tillåts via serverbrandväggen så mycket som möjligt.  För att få åtkomst till Azure SQL Data Warehouse från den lokala datorn, se till att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
+Ett bra tips är att du begränsar de IP-adressintervall som tillåts via serverbrandväggen så mycket som möjligt.  Om du vill komma åt SQL-poolen från den lokala datorn kontrollerar du att brand väggen på nätverket och den lokala datorn tillåter utgående kommunikation på TCP-port 1433.  
 
-Azure-Synapse använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i [Azure SQL Database brand Väggs regler](../sql-database/sql-database-firewall-configure.md)
+Azure Synapse Analytics använder IP-brandvägg på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå. Mer information finns i se [Azure SQL Database brand Väggs regler](../sql-database/sql-database-firewall-configure.md)
 
-Anslutningar till SQL Data Warehouse krypteras som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
+Anslutningar till SQL-poolen är krypterade som standard.  Ändring av anslutnings inställningar för att inaktivera kryptering ignoreras.
 
 ## <a name="authentication"></a>Autentisering
-Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL Data Warehouse stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory. 
+Autentisering refererar till hur du styrkt din identitet vid anslutning till databasen. SQL-poolen stöder för närvarande SQL Server autentisering med ett användar namn och lösen ord och med Azure Active Directory. 
 
 När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan du autentisera till valfri databas på servern som databasens ägare, eller "dbo" genom SQL Server autentisering.
 
@@ -55,7 +55,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Anslut sedan till din **SQL Data Warehouse databas** med inloggningen för Server administratören och skapa en databas användare baserat på den server inloggning du skapade.
+Anslut sedan till din **SQL-adresspool** med Server Administratörs inloggning och skapa en databas användare baserat på Server inloggningen som du skapade.
 
 ```sql
 -- Connect to SQL DW database and create a database user
@@ -98,4 +98,4 @@ I SQL Database skyddas databas krypterings nyckeln av ett inbyggt Server certifi
 Du kan kryptera databasen med hjälp av [Azure Portal](sql-data-warehouse-encryption-tde.md) eller [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information och exempel på hur du ansluter till ditt lager med olika protokoll finns i [Anslut till SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
+Mer information och exempel på hur du ansluter till ditt lager med olika protokoll finns i [Anslut till SQL-pool](sql-data-warehouse-connect-overview.md).

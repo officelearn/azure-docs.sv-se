@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: b9d64c347881f78e832a39bca8404fdad98cbf17
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c3c7f59ecb3a06d80012917e2da4425a899859d7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76981114"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152524"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Skicka händelser till en Time Series Insights-miljö med hjälp av en event hub
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 ## <a name="configure-an-event-hub"></a>Skapa en Event Hub
 
 1. Information om hur du skapar en Event Hub finns i [Event Hubs-dokumentationen](https://docs.microsoft.com/azure/event-hubs/).
-1. I sökrutan söker du efter **Händelsehubbar**. Välj i den returnerade listan **Händelsehubbar**.
+1. Sök efter **Event Hubs**i sökrutan. I listan som returneras väljer du **Event Hubs**.
 1. Välj din event hub.
 1. När du skapar en Event Hub skapar du ett namn område för Event Hub. Om du ännu inte har skapat en händelsehubben i namn området går du till menyn och skapar en händelsehubben under **entiteter**.  
 
@@ -41,13 +41,13 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 1. Se till att du skapar en konsument grupp som uteslutande används av din Time Series Insights händelse källa.
 
     > [!IMPORTANT]
-    > Se till att konsument gruppen inte används av någon annan tjänst, till exempel ett Azure Stream Analytics jobb eller någon annan Time Series Insights miljö. Om konsumentgruppen används av den andra påverkas negativt tjänster, Läs-och skrivåtgärder både för den här miljön och för andra tjänster. Om du använder **$Default** som konsumentgrupp, andra läsare potentiellt kan återanvända din konsumentgrupp.
+    > Se till att konsument gruppen inte används av någon annan tjänst, till exempel ett Azure Stream Analytics jobb eller någon annan Time Series Insights miljö. Om konsumentgruppen används av den andra påverkas negativt tjänster, Läs-och skrivåtgärder både för den här miljön och för andra tjänster. Om du använder **$default** som konsument grupp kan andra läsare eventuellt återanvända din konsument grupp.
 
 1. Välj **principer för delad åtkomst**på menyn under **Inställningar**och välj sedan **Lägg till**.
 
     [![välja principer för delad åtkomst och välj sedan knappen Lägg till](media/send-events/add-shared-access-policy.png)](media/send-events/add-shared-access-policy.png#lightbox)
 
-1. I den **Lägg till ny princip för delad åtkomst** fönstret Skapa en delad åtkomst med namnet **MySendPolicy**. Du använder den här delade åtkomst principen för att skicka händelser C# i exemplen senare i den här artikeln.
+1. I fönstret **Lägg till ny princip för delad åtkomst** skapar du en delad åtkomst med namnet **MySendPolicy**. Du använder den här delade åtkomst principen för att skicka händelser C# i exemplen senare i den här artikeln.
 
     [![i rutan princip namn, ange MySendPolicy](media/send-events/configure-shared-access-policy-confirm.png)](media/send-events/configure-shared-access-policy-confirm.png#lightbox)
 
@@ -55,17 +55,17 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 ## <a name="add-a-time-series-insights-instance"></a>Lägg till en Time Series Insights-instans
 
-Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data är ansluten när en fråga körs med hjälp av en **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id`. Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om insikter och **tids serie-ID: n**för Time Series.
+Time Series Insights-uppdateringen använder instanser för att lägga till kontextuella data i inkommande telemetridata. Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id`. Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om insikter och **tids serie-ID: n**för Time Series.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Skapa en händelsekälla för Time Series Insights
 
-1. Om du inte har skapat en händelsekälla kan slutföra stegen till [skapa en händelsekälla](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+1. Om du inte har skapat en händelse källa slutför du stegen för att [skapa en händelse källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
 1. Ange ett värde för `timeSeriesId`. Läs [tids serie modeller](./time-series-insights-update-tsm.md)för att lära dig mer om **Time Series ID**.
 
 ### <a name="push-events-to-windmills-sample"></a>Push-händelser till Windmills-exempel
 
-1. I sökfältet söker du efter **Händelsehubbar**. Välj i den returnerade listan **Händelsehubbar**.
+1. Sök efter **Event Hubs**i Sök fältet. I listan som returneras väljer du **Event Hubs**.
 
 1. Välj Event Hub-instansen.
 
@@ -73,12 +73,18 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
     [![kopiera värdet för primär nyckelns anslutnings sträng](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Gå till https://tsiclientsample.azurewebsites.net/windFarmGen.html. URL: en körs windmill simulerade enheter.
+1. Gå till https://tsiclientsample.azurewebsites.net/windFarmGen.html. URL: en skapar och kör simulerade Windmill-enheter.
 1. I rutan **anslutnings sträng för händelsehubben** på webb sidan klistrar du in anslutnings strängen som du kopierade i fältet [Windmill](#push-events-to-windmills-sample).
   
     [![klistra in anslutnings strängen för primär nyckel i rutan anslutnings sträng för händelse hubb](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Välj **Klicka om du vill starta**. Simulatorn genererar instans JSON som du kan använda direkt.
+1. Välj **Klicka för att starta**. 
+
+    > [!TIP]
+    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Time Series Insights ga-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+
+    > [!NOTE]
+    > Simulatorn fortsätter att skicka data tills fliken webbläsare stängs.
 
 1. Gå tillbaka till din event hub i Azure-portalen. På sidan **Översikt** visas nya händelser som tas emot av händelsehubben.
 
@@ -99,7 +105,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 * **Utdata**: en händelse.
 
-    |id|timestamp|
+    |id|tidsstämpel|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -122,7 +128,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
 
 * **Utdata**: två händelser.
 
-    |id|timestamp|
+    |id|tidsstämpel|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|
@@ -147,7 +153,7 @@ Time Series Insights-uppdateringen använder instanser för att lägga till kont
     }
     ```
 
-* **Utdata**: två händelser. Egenskapen **plats** kopieras till varje händelse.
+* **Utdata**: två händelser. Egenskaps **platsen** kopieras till varje händelse.
 
     |location|events.id|events.timestamp|
     |--------|---------------|----------------------|

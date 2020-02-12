@@ -2,17 +2,17 @@
 title: Vad är en moln tjänst modell och paket | Microsoft Docs
 description: Beskriver moln tjänst modellen (. csdef,. cscfg) och paket (. cspkg) i Azure
 services: cloud-services
-author: tgore03
+author: tanmaygore
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32603f4ab33e020245861e5dc66d2ade545fa627
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360709"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148317"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Vad är moln tjänst modellen och hur kan jag paketera den?
 En moln tjänst skapas från tre komponenter, tjänst definitionen *(. csdef)* , tjänst konfigurationen *(. cscfg)* och ett service paket *(. cspkg)* . Både **service definition. csdef** -och **ServiceConfig. cscfg** -filerna är XML-baserade och beskriver moln tjänst strukturen och hur den är konfigurerad. gemensamt kallat modellen. Filen **servicepack. cspkg** är en zip-fil som genereras från **service definition. csdef** och bland annat, och innehåller alla nödvändiga binära-baserade beroenden. Azure skapar en moln tjänst från både **servicepack. cspkg** och **ServiceConfig. cscfg**.
@@ -106,7 +106,7 @@ Innehåller definitionerna för lokala lagrings resurser. En lokal lagrings resu
 **Kina**  
 Innehåller definitionerna för importerade moduler. I föregående kod exempel visas modulerna för Anslutning till fjärrskrivbord och Azure Connect.
 
-**Nystartade företag**  
+**Startade**  
 Innehåller aktiviteter som körs när rollen startas. Aktiviteterna definieras i en. cmd-eller körbar fil.
 
 <a name="cscfg"></a>
@@ -216,6 +216,9 @@ Du kan uppdatera konfigurationen av moln tjänsten medan den körs i Azure, utan
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
+> [!NOTE]
+> Den maximala paket storleken som kan distribueras är 600MB
+
 Om du vill distribuera ett program som en moln tjänst i Azure måste du först paketera programmet i rätt format. Du kan använda kommando rads verktyget **CSPack** (installerat med [Azure SDK](https://azure.microsoft.com/downloads/)) för att skapa paket filen som ett alternativ till Visual Studio.
 
 **CSPack** använder innehållet i tjänst definitions filen och tjänst konfigurations filen för att definiera paketets innehåll. **CSPack** genererar en programpaket fil (. cspkg) som du kan överföra till Azure med hjälp av [Azure Portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Som standard heter paketet `[ServiceDefinitionFileName].cspkg`, men du kan ange ett annat namn genom att använda alternativet `/out` för **CSPack**.
@@ -262,7 +265,7 @@ Var variablerna definieras enligt följande:
 | Variabel | Värde |
 | --- | --- |
 | \[DirectoryName\] |Under katalogen under rot projekt katalogen som innehåller. csdef-filen för Azure-projektet. |
-| \[ServiceDefinition\] |Namnet på tjänst definitions filen. Som standard heter filen service definition. csdef. |
+| \[service definition\] |Namnet på tjänst definitions filen. Som standard heter filen service definition. csdef. |
 | \[OutputFileName\] |Namnet på den genererade paket filen. Detta är vanligt vis inställt på namnet på programmet. Om inget fil namn anges skapas programpaketet som \[ApplicationName\]. cspkg. |
 | \[RoleName\] |Namnet på rollen som det definieras i tjänst definitions filen. |
 | \[RoleBinariesDirectory] |Platsen för de binära filerna för rollen. |

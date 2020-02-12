@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: ba7afb506a21df7fc2fe4cc4b7194549b6efde83
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050569"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150705"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Självstudie: Konfigurera TeamViewer för automatisk användar etablering
 
@@ -40,7 +40,8 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
-* Ett TeamViewer-konto med administratörs behörighet.
+* En giltig [styrkorts licens](https://www.teamviewer.com/de/teamviewer-tensor/) för TeamViewer.
+* En giltig anpassad identifierare från konfigurationen för [enkel inloggning](https://community.teamviewer.com/t5/Knowledge-Base/Single-Sign-On-with-Azure-Active-Directory/ta-p/60209#toc-hId--473669723) är tillgänglig.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
 1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
@@ -49,7 +50,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-2-configure-teamviewer-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera TeamViewer för att stödja etablering med Azure AD
 
-1. Logga in på administrations konsolen i TeamViewer-appen. Gå till **Redigera profil**.
+1. Logga in på [TeamViewer Management Console](https://login.teamviewer.com). Gå till **Redigera profil**.
 
     ![TeamViewer-administratörskonsolen](./media/teamviewer-provisioning-tutorial/admin.png)
 
@@ -84,7 +85,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-teamviewer-in-azure-ad"></a>Konfigurera automatisk användar etablering för TeamViewer i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -116,9 +117,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    |Attribut|Typ|
    |---|---|
-   |userName|String|
-   |displayName|String|
-   |aktiv|Boolean|
+   |userName|Sträng|
+   |displayName|Sträng|
+   |aktiv|Boolesk|
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

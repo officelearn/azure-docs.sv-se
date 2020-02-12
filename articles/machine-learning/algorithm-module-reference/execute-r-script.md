@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: peterlu
+author: likebupt
+ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312285"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152303"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
-Den här artikeln beskriver hur du använder modulen **Kör r-skript** för att köra r-kod i din Azure Machine Learning designer-pipeline.
+Den här artikeln beskriver hur du använder modulen **Kör r-skript** för att köra r-kod i pipelinen Azure Machine Learning designer (för hands version).
 
 Med R kan du utföra uppgifter som för närvarande inte stöds av befintliga moduler, till exempel: 
 - Skapa anpassade data transformationer
@@ -260,145 +260,145 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| bas         | 3.5.1      | 
-| base64enc    | 0.1-3      | 
+| grund         | 3.5.1      | 
+| base64enc    | 0,1-3      | 
 | BH           | 1.69.0-1   | 
-| bindr        | 0.1.1      | 
+| binder        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
-| bitops       | 1.0-6      | 
+| i överkant       | 1.0 – 6      | 
 | start         | 1.3 – 22     | 
 | broom        | 0.5.2      | 
-| callr        | 3.2.0      | 
-| caret        | 6.0 – 84     | 
+| anropare        | 3.2.0      | 
+| tecken        | 6.0 – 84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
 | klass        | 7.3-15     | 
-| cli          | 1.1.0      | 
+| CLI          | 1.1.0      | 
 | klippare        | 0.6.0      | 
-| cluster      | 2.0.7-1    | 
+| flernodskluster      | 2.0.7-1    | 
 | codetools    | 0,2 – 16     | 
 | colorspace   | 1.4-1      | 
-| compiler     | 3.5.1      | 
-| crayon       | 1.3.4      | 
-| curl         | 3.3        | 
-| data.table   | 1.12.2     | 
+| Kompilatorn     | 3.5.1      | 
+| färg       | 1.3.4      | 
+| Klammerparentes         | 3.3        | 
+| data. table   | 1.12.2     | 
 | datasets     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
 | digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
-| utvärdera     | 0.14       | 
-| fansi        | 0.4.0      | 
+| utvärdera     | 0,14       | 
+| fläktar        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
-| foreign      | 0,8-71     | 
+| förvalta      | 0,8-71     | 
 | fs           | 1.3.1      | 
 | gdata        | 2.18.0     | 
 | generisk typ     | 0.0.2      | 
 | ggplot2      | 3.2.0      | 
 | glmnet       | 2.0 – 18     | 
-| glue         | 1.3.1      | 
+| emot         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
-| grafik     | 3.5.1      | 
+| bild     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| grid         | 3.5.1      | 
+| stödrastret         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
-| haven        | 2.1.0      | 
-| highr        | 0,8        | 
+| Jag        | 2.1.0      | 
+| hög        | 0,8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
 | ipred        | 0,9 – 9      | 
-| iterators    | 1.0.10     | 
+| iteratorer    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
-| knitr        | 1.23       | 
-| labeling     | 0,3        | 
-| lattice      | 0,20-38    | 
+| knitr        | 1,23       | 
+| märkning     | 0,3        | 
+| rutindex      | 0,20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
 | lubridate    | 1.7.4      | 
 | magrittr     | 1.5        | 
 | markdown     | 1          | 
 | MASS         | 7.3-51.4   | 
-| Matris       | 1.2 – 17     | 
+| Matrix       | 1.2 – 17     | 
 | metoder      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| mime         | 0,7        | 
+| MIME         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
-| modelr       | 0.1.4      | 
+| Modellerare       | 0.1.4      | 
 | munsell      | 0.5.0      | 
 | nlme         | 3.1-140    | 
-| nnet         | 7.3-12     | 
+| vasslepulver         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
 | openssl      | 1.4        | 
 | parallel     | 3.5.1      | 
-| pillar       | 1.4.1      | 
+| pelar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
 | plyr         | 1.8.4      | 
 | prettyunits  | 1.0.2      | 
 | processx     | 3.3.1      | 
 | prodlim      | 2018.04.18 | 
-| progress     | 1.2.2      | 
+| pågår     | 1.2.2      | 
 | PS           | 1.3.0      | 
 | purrr        | 0.3.2      | 
-| quadprog     | 1.5-7      | 
+| quadprog     | 1,5 – 7      | 
 | quantmod     | 0.4-15     | 
 | R6           | 2.4.0      | 
 | randomForest | 4.6-14     | 
 | RColorBrewer | 1.1-2      | 
 | Rcpp         | 1.0.1      | 
 | RcppRoll     | 0.3.0      | 
-| readr        | 1.3.1      | 
+| Reader        | 1.3.1      | 
 | readxl       | 1.3.1      | 
 | recept      | 0.1.5      | 
-| rematch      | 1.0.1      | 
+| matcha om      | 1.0.1      | 
 | reprex       | 0.3.0      | 
 | reshape2     | 1.4.3      | 
-| reticulate   | 1.12       | 
+| reticulate   | 1,12       | 
 | rlang        | 0.4.0      | 
-| rmarkdown    | 1.13       | 
-| ROCR         | 1.0-7      | 
+| rmarkdown    | 1,13       | 
+| ROCR         | 1,0-7      | 
 | rpart        | 4.1-15     | 
 | rstudioapi   | 0,1        | 
 | rvest        | 0.3.4      | 
-| scales       | 1.0.0      | 
-| selectr      | 0.4-1      | 
-| spatial      | 7.3-11     | 
-| splines      | 3.5.1      | 
-| SQUAREM      | 2017.10-1  | 
-| stats        | 3.5.1      | 
+| skalas       | 1.0.0      | 
+| väljare      | 0.4-1      | 
+| Geospatial      | 7.3-11     | 
+| spline      | 3.5.1      | 
+| KVADRATISKt      | 2017.10-1  | 
+| spelarna        | 3.5.1      | 
 | stats4       | 3.5.1      | 
-| stringi      | 1.4.3      | 
-| stringr      | 1.3.1      | 
-| survival     | 2.44-1.1   | 
+| strängi      | 1.4.3      | 
+| strängare      | 1.3.1      | 
+| lever     | 2.44-1.1   | 
 | sys          | 3,2        | 
 | tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
-| tidyr        | 0.8.3      | 
+| städat        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
 | tidyverse    | 1.2.1      | 
-| timeDate     | 3043.102   | 
-| tinytex      | 0.13       | 
+| timeDate     | 3043,102   | 
+| tinytex      | 0,13       | 
 | verktyg        | 3.5.1      | 
 | tseries      | 0,10-47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 
-| verktyg        | 3.5.1      | 
+| uppgradering        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
-| whisker      | 0.3-2      | 
-| withr        | 2.1.2      | 
+| hårs värde      | 0,3-2      | 
+| med        | punkt      | 
 | xfun         | 0,8        | 
 | xml2         | 1.2.0      | 
-| xts          | 0,11-2     | 
+| XTS          | 0,11-2     | 
 | yaml         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
-| zoo          | 1.8-6      | 
+| Zoo          | 1.8 – 6      | 
 
 ## <a name="next-steps"></a>Nästa steg
 

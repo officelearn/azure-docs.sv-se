@@ -1,99 +1,104 @@
 ---
 title: Övervaka säkerhets kopieringar med Backup Explorer
-description: En artikel som beskriver hur du använder backup Explorer för att utföra övervakning i real tid för säkerhets kopieringar i valv, prenumerationer, regioner och innehavare
+description: Den här artikeln beskriver hur du använder backup Explorer för att utföra övervakning av säkerhets kopior i valv, prenumerationer, regioner och klienter i real tid.
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 331d8aeeb828dedb6700a94fafa074c179bef7ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65f68e33b53dff341ee72f6b9e9f42e344c49b1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992188"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149584"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Övervaka säkerhets kopieringar med Backup Explorer
 
-När organisationer säkerhetskopierar fler och fler datorer till molnet blir det viktigt att ha en central plats för att Visa funktions information om säkerhets kopieringar på en stor egendom, för att effektivt övervaka säkerhets kopieringar.
+När organisationer säkerhetskopierar fler och fler datorer till molnet blir det allt viktigare att övervaka dessa säkerhets kopieringar effektivt. Det bästa sättet att börja är att använda en central plats för att Visa drifts information på en stor egendom.
 
-Backup Explorer-arbetsboken är en inbyggd Azure Monitor arbets bok som gör det möjligt för säkerhets kopierings kunder att ha en enda fönster ruta för att utföra operativa övervaknings aktiviteter som relaterar till säkerhets kopiering över hela reserv utrymmet på Azure (som spänner över klienter, platser, prenumerationer, resurs grupper och valv), allt från en central plats. Det finns i stort sett följande funktioner:
+Backup Explorer är en inbyggd Azure Monitor arbets bok som ger Azure Backup kunder denna enda, centrala plats. Backup Explorer hjälper dig att övervaka operativa aktiviteter i hela reserv utrymmet på Azure, för att erbjuda klienter, platser, prenumerationer, resurs grupper och valv. I stort sett har backup Explorer följande funktioner:
 
-* **I skalnings perspektiv** – en sammanställd vy av säkerhets kopierings objekt, jobb, aviseringar, principer och resurser som inte har kon figurer ATS för säkerhets kopiering över hela reserv fastigheten. 
-* **Analys av detalj nivå** – du kan välja att få detaljerad information om varje entitet – jobb, aviseringar, principer och säkerhets kopierings objekt, allt från en enda plats.
-* **Åtgärds bara gränssnitt** – när du har identifierat ett problem kan du välja att utföra åtgärder genom att navigera sömlöst till säkerhets kopierings objektet eller Azure-resursen.
+* **Perspektiv i skala**: Hämta en sammanställd vy över de säkerhets kopierings objekt, jobb, aviseringar, principer och resurser som ännu inte har kon figurer ATS för säkerhets kopiering över hela egendomen. 
+* **Analys av detalj nivå**: Visa detaljerad information om var och en av dina jobb, aviseringar, principer och säkerhets kopierings objekt, allt på ett och samma ställe.
+* **Åtgärds bara gränssnitt**: när du har identifierat ett problem kan du lösa det genom att gå sömlöst till relevant säkerhets kopierings objekt eller Azure-resurs.
 
-Ovanstående funktioner tillhandahålls direkt av inbyggd integrering med Azure Resource Graph och Azure Monitor arbets böcker.
+Dessa funktioner tillhandahålls direkt av inbyggd integrering med Azure Resource Graph och Azure Monitor arbets böcker.
 
 > [!NOTE]
-> * Backup Explorer är för närvarande endast tillgängligt för Azure VM-data.
+> * Backup Explorer är för närvarande endast tillgängligt för Azure Virtual Machines (VM)-data.
 > * Backup Explorer är avsett att vara en drifts instrument panel för att visa information om dina säkerhets kopior under de senaste 7 dagarna (max).
-> * För närvarande stöds inte anpassning av backup Explorer-mallen. Dessutom rekommenderar vi för närvarande inte att skriva anpassade automations i Azures resurs diagram data.
+> * För närvarande stöds inte anpassning av backup Explorer-mallen. 
+> * Vi rekommenderar inte att du skriver anpassade automations i Azures resurs diagram data.
 
-## <a name="getting-started"></a>Komma igång
+## <a name="get-started"></a>Kom igång
 
-Du kan komma åt backup Explorer genom att gå till något av dina Recovery Services-valv och klicka på länken **Backup Explorer** på sidan **Översikt** .
+Du kan komma åt backup Explorer genom att gå till något av dina Recovery Services-valv och välja länken **Backup Explorer** i fönstret **Översikt** .
 
 ![Snabb länk för valvet](media/backup-azure-monitor-with-backup-explorer/vault-quick-link.png)
 
-När du klickar på länken öppnas backup Explorer som innehåller en sammanställd vy över alla valv och prenumerationer som du har åtkomst till. Om du använder ett Azure Lighthouse-konto kan du visa data över alla klienter som du har åtkomst till (mer information finns i avsnittet nedan i vyer över flera innehavare).
+Om du väljer länken öppnas backup Explorer, som innehåller en sammanställd vy över alla valv och prenumerationer som du har åtkomst till. Om du använder ett Azure Lighthouse-konto kan du visa data över alla klienter som du har åtkomst till. Mer information finns i avsnittet "Cross-Tenant views" i slutet av den här artikeln.
 
-![Utforskare, landnings sida](media/backup-azure-monitor-with-backup-explorer/explorer-landing-page.png)
+![Start sida för backup Explorer](media/backup-azure-monitor-with-backup-explorer/explorer-landing-page.png)
 
 ## <a name="backup-explorer-use-cases"></a>Användnings fall för backup Explorer
 
-Backup Explorer består av flera flikar, varje flik som tillhandahåller detaljerad information om en viss typ av säkerhets kopierings artefakt, till exempel säkerhets kopierings objekt, jobb, principer osv. Det här avsnittet innehåller en kort översikt över var och en av flikarna. Videor innehåller exempel på användnings fall för var och en av flikarna, tillsammans med en beskrivning av de olika kontrollerna som är tillgängliga för användaren.
+Backup Explorer visar flera flikar där du får detaljerad information om en angiven säkerhets kopierings artefakt (till exempel ett säkerhets kopierings objekt, jobb eller en princip). Det här avsnittet innehåller en kort översikt över var och en av flikarna. Videor innehåller exempel på användnings fall för varje säkerhets kopierings artefakt, tillsammans med beskrivningar av tillgängliga kontroller.
 
-### <a name="summary"></a>Sammanfattning
+### <a name="the-summary-tab"></a>Fliken Sammanfattning
 
-På fliken Sammanfattning får du en snabb överblick över det övergripande villkoret för din reserv egendom. Du kan visa information, till exempel antalet objekt som skyddas, antalet objekt för vilka skyddet inte har Aktiver ATS, hur många jobb som lyckades under de senaste 24 timmarna och så vidare. 
+På fliken **Sammanfattning** får du en snabb överblick över det övergripande villkoret för din reserv egendom. Du kan till exempel Visa antalet objekt som skyddas, antalet objekt för vilka skyddet inte har Aktiver ATS eller hur många jobb som lyckades under de senaste 24 timmarna.
 
-Var och en av de andra flikarna representerar en distinkt entitet – exempelvis säkerhets kopierings objekt, säkerhets kopierings jobb, säkerhets kopierings aviseringar och säkerhets kopierings principer Du kan också visa information om datorer där säkerhets kopiering inte har kon figurer ATS. Om du klickar på någon av dessa flikar visas information som är speciell för entiteten.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYd]
 
-### <a name="backup-items"></a>Säkerhetskopiera objekt
+### <a name="the-backup-items-tab"></a>Fliken säkerhets kopierings objekt
 
-Du kan visa var och en av dina säkerhets kopierings objekt som filtrerats efter prenumeration, valv och andra parametrar. Genom att klicka på namnet på ett säkerhets kopierings objekt kan du öppna Azure-bladet för det säkerhetskopierade objektet. Från tabellen kan du till exempel kontrol lera att den senaste säkerhets kopieringen misslyckades för objektet "X". Om du klickar på "X" öppnas säkerhets kopierings bladet för det här objektet, där du kan utlösa en säkerhets kopierings åtgärd på begäran.
+Du kan filtrera och Visa var och en av dina säkerhets kopierings objekt efter prenumeration, valv och andra egenskaper. Genom att välja namnet på ett säkerhets kopierings objekt kan du öppna fönstret Azure för objektet. Från tabellen kan du till exempel Observera att den senaste säkerhets kopieringen misslyckades för objektet *X*. Genom att välja *X*kan du öppna fönstret objekt **säkerhets kopiering** där du kan utlösa en säkerhets kopiering på begäran.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
 
-### <a name="jobs"></a>Jobb
+### <a name="the-jobs-tab"></a>Fliken jobb
 
-Du kan visa information om alla jobb som har utlösts under de senaste sju dagarna genom att gå till fliken jobb. Här kan du filtrera efter jobb åtgärd, jobb status och felkod (om det finns misslyckade jobb).
+Välj fliken **jobb** om du vill visa information om alla jobb som har utlösts under de senaste 7 dagarna. Här kan du filtrera efter *jobb åtgärd*, *jobb status*och *Felkod* (för misslyckade jobb).
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
-### <a name="alerts"></a>Aviseringar
+### <a name="the-alerts-tab"></a>Fliken aviseringar
 
-Du kan visa information om alla aviseringar som har utlösts på dina valv under de senaste sju dagarna genom att klicka på fliken aviseringar. Här kan du filtrera poster efter typen av avisering (t. ex. säkerhets kopierings fel, återställnings fel), aviseringens aktuella status (till exempel aktiv eller löst) och allvarlighets graden för aviseringen (till exempel kritisk, varning, information). Du kan också navigera till den virtuella Azure-datorn genom att klicka på länken till den virtuella datorn och vidta nödvändiga åtgärder.
+Välj fliken **aviseringar** om du vill visa information om alla aviseringar som har genererats på dina valv under de senaste 7 dagarna. Du kan filtrera aviseringar efter typ *(fel vid säkerhets kopiering* eller *återställning*), aktuell status (*aktiv* eller *löst*) och allvarlighets grad (*kritisk*, *Varning*eller *information*). Du kan också välja en länk för att gå till den virtuella Azure-datorn och vidta nödvändiga åtgärder.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 
-### <a name="policies"></a>Policy
+### <a name="the-policies-tab"></a>Fliken principer
 
-Genom att klicka på fliken principer kan du visa viktig information om alla säkerhets kopierings principer som har skapats i reserv fastigheten. Du kan se hur många objekt som är associerade med varje princip, tillsammans med kvarhållningsintervallet och säkerhets kopierings frekvensen som anges av varje princip.
+Du kan välja fliken **principer** om du vill visa viktig information om alla säkerhets kopierings principer som har skapats i din reserv egendom. Du kan visa antalet objekt som är associerade med varje princip, tillsammans med kvarhållningsintervallet och säkerhets kopierings frekvensen som anges i principen.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
 
-### <a name="backup-not-enabled"></a>Säkerhets kopiering är inte aktiverat
+### <a name="the-backup-not-enabled-tab"></a>Fliken säkerhets kopiering är inte aktive rad
 
-Det är viktigt för säkerhets kopierings administratören för en organisation att snabbt identifiera vilka datorer i organisationen som inte har säkerhets kopiering aktiverat än, så att säkerhets kopiering kan aktive ras för alla datorer som behöver skydd. Om du klickar på fliken **säkerhets kopiering inte aktiverat** får du hjälp i den här uppgiften.
+Säkerhets kopiering måste vara aktiverat för alla datorer som kräver skydd. Med Backup Explorer kan säkerhets kopierings administratörer snabbt identifiera vilka datorer i en organisation som ännu inte skyddas av säkerhets kopiering. Om du vill visa den här informationen väljer du fliken **säkerhets kopiering inte aktive rad** .
 
-På den här fliken visas en tabell som innehåller listan över objekt som inte är skyddade. Om din organisation följer metoden att tilldela olika taggar till produktions datorer och test datorer, eller datorer som betjänar olika funktioner, var och en av dem som kan behöva en separat säkerhets kopierings princip, kan filtrera efter Taggar hjälpa dig att visa information som är särskilt för en en viss klass av datorer. Om du klickar på ett objekt omdirigeras du till bladet **Konfigurera säkerhets kopia** för objektet, där du kan välja att säkerhetskopiera objektet med en lämplig säkerhets kopierings princip.
+Rutan **säkerhets kopiering är inte aktive rad** visar en tabell med en lista över oskyddade datorer. Din organisation kan tilldela olika taggar till produktions datorer och test datorer, eller till datorer som har en mängd olika funktioner. Eftersom varje dator klass behöver en separat säkerhets kopierings princip hjälper filtrering av taggar dig att visa information som är unik för var och en. Om du väljer namnet på en dator omdirigeras du till den datorns **säkerhets kopierings** fönster, där du kan välja att tillämpa en lämplig säkerhets kopierings princip.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 
-## <a name="exporting-to-excel"></a>Exportera till Excel
+## <a name="export-to-excel"></a>Exportera till Excel
 
-Om du klickar på nedåtpilen längst upp till höger i en widget (tabell/diagram) exporteras innehållet i widgeten som ett Excel-blad, precis som när befintliga filter tillämpas. Om du vill exportera fler rader i en tabell till Excel kan du öka antalet rader som visas på sidan med hjälp av list rutan **rader per sida** överst på varje flik.
+Du kan exportera innehållet i en tabell eller ett diagram som ett Excel-kalkylblad. Innehållet exporteras som det är, med befintliga filter tillämpade. Om du vill exportera ytterligare tabell rader kan du öka antalet rader som ska visas på sidan genom att använda List rutan **rader per sida** överst på varje flik.
 
-## <a name="pinning-to-dashboard"></a>Fäst på instrument panelen
+## <a name="pin-to-the-dashboard"></a>Fäst på instrument panelen
 
-Du kan klicka på Fäst-ikonen längst upp i varje widget för att fästa widgeten på din Azure Portal-instrumentpanel. På så sätt kan du skapa anpassade instrument paneler som är skräddarsydda för att visa den viktigaste information som du behöver.
+Du kan välja ikonen "fäst" överst i varje tabell eller diagram för att fästa den på din Azure Portal-instrumentpanel. Genom att fästa den här informationen kan du skapa en anpassad instrument panel som är skräddarsydd för att visa den information som är viktigast för dig.
 
 ## <a name="cross-tenant-views"></a>Vyer mellan klienter
 
-Om du är en Azure Lighthouse-användare med delegerad åtkomst till prenumerationer i flera klient miljöer kan du använda standard prenumerations filtret (genom att klicka på filter ikonen längst upp till höger i Azure Portal) för att välja alla prenumerationer du vill Se data för. Detta gör att backup Explorer kan samla in information om alla valv över dessa prenumerationer. Lär dig mer om Azure Lighthouse [här](https://docs.microsoft.com/azure/lighthouse/overview).
+Om du är en Azure Lighthouse-användare med delegerad åtkomst till prenumerationer i flera klient miljöer kan du använda standard prenumerations filtret. Du visar de prenumerationer som du vill visa data för genom att välja ikonen "filter" längst upp till höger i Azure Portal. När du använder den här funktionen samlar backup Explorer samman information om alla valv i de valda prenumerationerna. Mer information finns i [Vad är Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Lär dig hur du använder Azure Monitor för att få insikter om dina säkerhets kopierings data](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)

@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 58e9b4204e2d563d8e4e1af8353870880f98b065
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: d8c6b68a38d4b60cf7a3194e6a5ded8804cc416f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133601"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150220"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Skapa en zon – redundant virtuell nätverksgateway i Azure-tillgänglighetszoner
 
@@ -21,27 +21,11 @@ Du kan distribuera VPN-och ExpressRoute-gatewayer i Azure-tillgänglighetszoner.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Du kan antingen använda PowerShell installerat lokalt på datorn eller Azure Cloud Shell. Om du väljer att installera och använda PowerShell lokalt kräver den här funktionen den senaste versionen av PowerShell-modulen.
-
-[!INCLUDE [Cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
-
-### <a name="to-use-powershell-locally"></a>Använda PowerShell lokalt
-
-Om du använder PowerShell lokalt på din dator, i stället för att använda Cloud Shell, måste du installera PowerShell-modulen 1.0.0 eller högre. Använd följande kommando för att kontrol lera vilken version av PowerShell som du har installerat:
-
-```azurepowershell
-Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
-```
-
-Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
-
-[!INCLUDE [PowerShell login](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="variables"></a>1. deklarera dina variabler
 
-Värdena som används för exempel stegen visas nedan. Dessutom använder vissa av exemplen deklarerade variabler i stegen. Om du använder de här stegen i din egen miljö måste du ersätta värdena med dina egna. När du anger plats kontrollerar du att den region som du anger stöds. Mer information finns i [vanliga frågor och svar](#faq).
+Deklarera de variabler som du vill använda. Använd följande exempel och ersätt värdena med dina egna om det behövs. Om du stänger PowerShell/Cloud Shell-sessionen när som helst under övningen ska du bara kopiera och klistra in värdena igen för att omdeklarera variablerna. När du anger plats kontrollerar du att den region som du anger stöds. Mer information finns i [vanliga frågor och svar](#faq).
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"

@@ -3,12 +3,12 @@ title: Alternativ för autentisering av registret
 description: Autentiseringsalternativ för ett privat Azure Container Registry, inklusive att logga in med en Azure Active Directory identitet, med hjälp av tjänstens huvud namn och med valfria administratörs behörighet.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 384f401a986c58dc6ce63384ce3e2a43b8db27fa
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029885"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152951"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autentisera med ett Azure Container Registry
 
@@ -23,7 +23,7 @@ I följande tabell visas tillgängliga autentiseringsmetoder och rekommenderade 
 | Metod                               | Så här autentiserar du                                           | Scenarier                                                            | RBAC                             | Begränsningar                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Enskilda AD Identity](#individual-login-with-azure-ad) -                | `az acr login` i Azure CLI                             | Interaktiva push/pull från utvecklare, testare                                    | Ja                              | AD-token måste förnyas var 3: e timme     |
-| [AD-tjänstens huvud namn](#service-principal)                  | `docker login`<br/><br/>`az acr login` i Azure CLI<br/><br/> Inloggnings inställningar för registret i API: er eller verktyg<br/><br/> Kubernetes pull-hemlighet                                           | Obevakad push från CI/CD-pipeline<br/><br/> Obevakad hämtning till Azure eller externa tjänster  | Ja                              | SP lösen ordets standard utgångs datum är 1 år       |                                                           
+| [AD-tjänstens huvud namn](#service-principal)                  | `docker login`<br/><br/>`az acr login` i Azure CLI<br/><br/> Inloggnings inställningar för registret i API: er eller verktyg<br/><br/> [Kubernetes pull-hemlighet](container-registry-auth-kubernetes.md)                                           | Obevakad push från CI/CD-pipeline<br/><br/> Obevakad hämtning till Azure eller externa tjänster  | Ja                              | SP lösen ordets standard utgångs datum är 1 år       |                                                           
 | [Integrera med AKS](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)                    | Koppla registret när AKS-kluster har skapats eller uppdaterats  | Obevakad pull till AKS-kluster                                                  | Nej, endast pull-åtkomst             | Endast tillgängligt med AKS-kluster            |
 | [Hanterad identitet för Azure-resurser](container-registry-authentication-managed-identity.md)  | `docker login`<br/><br/> `az acr login` i Azure CLI                                       | Obevakad push från Azure CI/CD-pipeline<br/><br/> Obevakad hämtning till Azure-tjänster<br/><br/>   | Ja                              | Använd endast från Azure-tjänster som har [stöd för hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources)              |
 | [Administratörs användare](#admin-account)                            | `docker login`                                          | Interaktiv push/pull från enskild utvecklare eller testare                           | Nej, Hämta alltid och push-åtkomst  | Ett enda konto per register, rekommenderas inte för flera användare         |
@@ -71,7 +71,7 @@ Varje behållar register innehåller ett administratörs användar konto, som ä
 > Administratörs kontot har utformats för att en enskild användare ska kunna komma åt registret, främst i testnings syfte. Vi rekommenderar inte att du delar autentiseringsuppgifterna för administratörs kontot mellan flera användare. Alla användare som autentiseras med administratörs kontot visas som en enskild användare med push-och pull-åtkomst till registret. Genom att ändra eller inaktivera det här kontot inaktive ras register åtkomst för alla användare som använder sina autentiseringsuppgifter. Individuell identitet rekommenderas för användare och tjänst huvud namn för konsol lösta scenarier.
 >
 
-Administratörs kontot tillhandahålls med två lösen ord, som båda kan återskapas. Med två lösen ord kan du upprätthålla anslutning till registret genom att använda ett lösen ord när du återskapar det andra. Om administratörs kontot är aktiverat kan du skicka användar namnet och lösen ordet till kommandot `docker login` när du uppmanas att ange grundläggande autentisering för registret. Exempel:
+Administratörs kontot tillhandahålls med två lösen ord, som båda kan återskapas. Med två lösen ord kan du upprätthålla anslutning till registret genom att använda ett lösen ord när du återskapar det andra. Om administratörs kontot är aktiverat kan du skicka användar namnet och lösen ordet till kommandot `docker login` när du uppmanas att ange grundläggande autentisering för registret. Några exempel:
 
 ```
 docker login myregistry.azurecr.io 

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 419fbd987c1deb95a7c903d85105958443d06b01
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427622"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153612"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta
 
@@ -32,12 +32,12 @@ Om du vill använda Azure Machine Learning Studio (klassisk) måste du ha en Mac
 
 2. Klicka på **+ ny**
 
-3. I rutan Sök skriver du **Machine Learning Studio (klassisk) arbets yta** och väljer det matchande objektet. Klicka sedan på Välj **skapa** längst ned på sidan.
+3. I rutan Sök skriver du **Machine Learning Studio (klassisk) arbets yta** och väljer det matchande objektet. Välj sedan klicka på **skapa** längst ned på sidan.
 
 4. Ange informationen om arbetsytan:
 
-   - Den *Arbetsytenamn* kan vara upp till 260 tecken, inte slutar med ett blanksteg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
-   - Den *webbtjänstplan* du väljer (eller skapa), tillsammans med den associerade *prisnivån* du väljer, används om du distribuerar webbtjänster från den här arbetsytan.
+   - *Arbets ytans namn* får innehålla högst 260 tecken, och får inte sluta med blank steg. Namnet får inte innehålla följande tecken: `< > * % & : \ ? + /`
+   - Den *webb tjänst plan* du väljer (eller skapar), tillsammans med den associerade *pris nivån* som du väljer, används om du distribuerar webb tjänster från den här arbets ytan.
 
      ![Skapa en ny Studio-arbetsyta (klassisk)](./media/create-workspace/create-new-workspace.png)
 
@@ -55,7 +55,7 @@ När arbets ytan har distribuerats kan du öppna den i Machine Learning Studio (
 
     ![Välj arbetsyta](./media/create-workspace/open-workspace.png)
 
-3. Klicka på **Mina experiment**.
+3. Klicka på **mina experiment**.
 
     ![Öppna experiment](./media/create-workspace/my-experiments.png)
 
@@ -66,8 +66,8 @@ Om du stöter på problem med att skapa din arbets yta, se [fel söknings guide:
 ## <a name="share-an-azure-machine-learning-studio-classic-workspace"></a>Dela en Azure Machine Learning Studio (klassisk)-arbets yta
 När en Machine Learning Studio (klassisk)-arbets yta har skapats kan du bjuda in användare till din arbets yta att dela åtkomst till din arbets yta och alla experiment, data uppsättningar, antecknings böcker osv. Du kan lägga till användare i en av två roller:
 
-* **Användaren** – en arbetsyta-användare kan skapa, öppna, ändra och ta bort experiment, datauppsättningar, etc. på arbetsytan.
-* **Ägare** – en ägare kan bjuda in och ta bort användare i arbetsytan, utöver vad en användare kan göra.
+* **Användare** – en arbets yta som användare kan skapa, öppna, ändra och ta bort experiment, data uppsättningar osv. i arbets ytan.
+* **Ägare** – en ägare kan bjuda in och ta bort användare på arbets ytan, förutom vad en användare kan göra.
 
 > [!NOTE]
 > Det administratörskonto som skapar arbetsytan läggs automatiskt till arbetsytan som arbetsyta ägare. Men andra administratörer eller användare i den aktuella prenumerationen beviljas automatiskt inte åtkomst till arbetsytan – du behöver att bjuda in dem explicit.
@@ -78,11 +78,11 @@ När en Machine Learning Studio (klassisk)-arbets yta har skapats kan du bjuda i
 
 1. Logga in på Machine Learning Studio (klassisk) på [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-2. I den vänstra rutan klickar du på **inställningar**
+2. Klicka på **Inställningar** i den vänstra panelen
 
-3. Klicka på den **användare** fliken
+3. Klicka på fliken **användare**
 
-4. Klicka på **bjuda in fler användare** längst ned på sidan
+4. Klicka på **Bjud in fler användare** längst ned på sidan
 
     ![Studio-inställningar](./media/create-workspace/settings.png)
 
@@ -90,7 +90,7 @@ När en Machine Learning Studio (klassisk)-arbets yta har skapats kan du bjuda i
 
 6. Välj om du vill lägga till användarna som ägare eller användare.
 
-7. Klicka på den **OK** markeringen knappen.
+7. Klicka på knappen **OK** .
 
 Varje användare som du lägger till får ett e-postmeddelande med anvisningar om hur du logga in på den delade arbetsytan.
 

@@ -4,16 +4,16 @@ description: Skapa test certifikat och lär dig hur du installerar dem på en Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509911"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149906"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Installera produktions certifikat på en IoT Edge enhet
 
@@ -30,7 +30,7 @@ Mer information om de olika typerna av certifikat och deras roller i ett IoT Edg
 >[!NOTE]
 >Termen "rot certifikat utfärdare" som används i den här artikeln refererar till det offentliga utfärdade certifikat kedjan för din IoT-lösning. Du behöver inte använda certifikat roten för en insyndikerad certifikat utfärdare eller roten för organisationens certifikat utfärdare. I många fall är det faktiskt ett offentligt certifikat för certifikat utfärdare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En IoT Edge enhet som körs antingen på [Windows](how-to-install-iot-edge-windows.md) eller [Linux](how-to-install-iot-edge-linux.md).
 * Ha ett certifikat från en rot certifikat utfärdare (CA), antingen självsignerat eller köpt från en betrodd kommersiell certifikat utfärdare som Baltimore, VeriSign, DigiCert eller GlobalSign.
@@ -41,7 +41,7 @@ Om du inte har en rot certifikat utfärdare än, men vill testa IoT Edge funktio
 
 Du bör använda din egen certifikat utfärdare för att skapa följande filer:
 
-* Rotcertifikatutfärdare
+* Rot certifikat utfärdare
 * Enhets-CA-certifikat
 * Privat nyckel för enhets certifikat utfärdare
 
@@ -68,7 +68,7 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Ange **certifikat** egenskaperna i filen config. yaml till fil-URI: n för certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort `#`-tecknen innan certifikat egenskaperna tar bort kommentarer till de fyra raderna. Se till att det inte finns några föregående blank steg i raden **certifikat:** rad och att kapslade objekt är indragna med två blank steg. Ett exempel:
+3. Ange **certifikat** egenskaperna i filen config. yaml till fil-URI: n för certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort `#`-tecknen innan certifikat egenskaperna tar bort kommentarer till de fyra raderna. Se till att det inte finns några föregående blank steg i raden **certifikat:** rad och att kapslade objekt är indragna med två blank steg. Några exempel:
 
    * Windows:
 
@@ -89,6 +89,12 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
       ```
 
 4. På Linux-enheter ser du till att användar **iotedge** har Läs behörighet för den katalog som innehåller certifikaten.
+
+5. Om du har använt andra certifikat för IoT Edge på enheten tidigare tar du bort filerna i följande två kataloger innan du startar eller startar om IoT Edge:
+
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` och `C:\ProgramData\iotedge\hsm\cert_keys`
+
+   * Linux: `/var/lib/iotedge/hsm/certs` och `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="next-steps"></a>Nästa steg
 

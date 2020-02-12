@@ -15,14 +15,14 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dbc7f8068ed84f42ec41ebd969e0aa91ffbb264
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473323"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149821"
 ---
-# <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect – vanliga frågor och svar
+# <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect vanliga frågor och svar
 
 ## <a name="general-installation"></a>Allmän installation
 
@@ -113,7 +113,7 @@ Följande är ett informations dokument som visar några av de bästa metoderna 
 - Mellanlagrings servrar är inte avsedda att vara en lösning med hög tillgänglighet, men du kan ha flera mellanlagrings servrar
 - Om du introducerar en "fördröjning"-mellanlagrings servrar kan det minska eventuella avbrott i händelse av fel
 - Testa och validera alla uppgraderingar på den tillfälliga servern först
-- Validera alltid exporter innan du växlar över till mellanlagringsplatsen serverLeverage för fullständig import och fullständig synkronisering för att minska verksamhets påverkan
+- Validera alltid exporter innan du växlar över till mellanlagrings servern.  Utnyttja en fristående server för fullständig import och fullständiga synkroniseringar för att minska påverkan på verksamheten
 - Behåll versions konsekvensen mellan Azure AD Connect servrar så mycket som möjligt 
 
 **F: kan jag tillåta att Azure AD Connect skapar Azure AD Connector-kontot på arbets grupps datorn?**

@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cf6e07e3bbad6b98fcce9cc0e39cdab97375a2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427675"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148580"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Azure Machine Learning Studio (klassisk)
 
@@ -89,17 +89,17 @@ Följande uttryck definierar till exempel en konstant `x`:
 
 `Const X = 28;`
 
-Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Ett exempel:
+Om du vill definiera två eller flera konstanter samtidigt, omger du Identifierarens namn och värden inom klammerparenteser och avgränsar dem med hjälp av semikolon. Några exempel:
 
 `Const { X = 28; Y = 4; }`
 
-Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Ett exempel:
+Höger sida av varje tilldelnings uttryck kan vara ett heltal, ett reellt tal, ett booleskt värde (sant eller falskt) eller ett matematiskt uttryck. Några exempel:
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Lager deklaration
 
-Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Ett exempel:
+Lager deklarationen krävs. Den definierar lagrets storlek och källa, inklusive dess anslutnings paket och attribut. Deklarations instruktionen börjar med namnet på lagret (indata, dold eller utdata) följt av lagrets mått (en tupel med positiva heltal). Några exempel:
 
 ```Net#
 input Data auto;

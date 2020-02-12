@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 40f779fa5545e0e9c8fd1aa2cc2689b29dffdb82
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 68d39b4f363794d50fd05c2067502fc55d5d0170
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760767"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153255"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
 
@@ -34,7 +34,7 @@ Azure-Synapse har fyra komponenter:
 
 ## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>SQL Analytics och SQL-pool i Azure Synapse
 
-SQL Analytics syftar på de företags data lager funktioner som är allmänt tillgängliga med Azure Synapse. 
+SQL Analytics syftar på de företags data lager funktioner som är allmänt tillgängliga i Azure Synapse. 
 
 SQL-poolen representerar en samling analys resurser som tillhandahålls när du använder SQL Analytics. Storleken på SQL-poolen bestäms av data lager enheter (DWU).
 

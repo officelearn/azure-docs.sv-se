@@ -1,5 +1,5 @@
 ---
-title: Exportera och ta bort data
+title: Exportera och ta bort dina data
 titleSuffix: ML Studio (classic) - Azure
 description: 'Produkt data som lagras av Azure Machine Learning Studio (klassisk) är tillgängliga för export och borttagning via Azure Portal och även via autentiserade REST-API: er. Telemetri-data kan nås via Azures sekretess Portal. Den här artikeln visar hur du gör.'
 services: machine-learning
@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6b815057a6c79eb55303b8d8a349bc5a4a9bfb43
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427594"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153068"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exportera och ta bort användar data i produkten från Azure Machine Learning Studio (klassisk)
 

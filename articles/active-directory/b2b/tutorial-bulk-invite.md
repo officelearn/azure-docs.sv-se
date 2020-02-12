@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9c43f1fe0d5850b53f0f72f05633e498a94d871c
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908844"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149312"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudie: grupp inbjudan till Azure AD B2B Collaboration Users (för hands version)
 
@@ -27,7 +27,7 @@ ms.locfileid: "76908844"
 
 > [!NOTE]
 > Från och med 12/22/2019 har funktionen för grupp användare (förhands granskning) inaktiverats tillfälligt.
-> Det finns för närvarande inget känt datum för när funktionen aktive ras igen. 
+> Det finns för närvarande inget känt datum för när funktionen aktive ras på nytt i Azure Portal. Om du vill bjuda in gäst användare i bulk med hjälp av PowerShell, se [B2B-kod och PowerShell-exempel](code-samples.md).
 
 Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien får du lära dig hur du använder Azure Portal för att skicka mass inbjudningar till externa användare. Närmare bestämt kan du göra följande:
 
@@ -38,7 +38,7 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har Azure Active Directory skapar du ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kontona måste finnas utanför din organisation. Du kan använda vilken typ av konto som helst, t.ex. konton i sociala medier som gmail.com- eller outlook.com-adresser.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f55b8963ad9f940202816704c5818c6853ffcde
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25bc25d9ec12804cc20baa558dce67fb3f8269a1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353703"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149220"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med RADIUS-autentisering: PowerShell
 
@@ -43,8 +43,6 @@ P2S-anslutningar kräver följande:
 * En RADIUS-server för hantering av användarautentisering. RADIUS-servern kan distribueras lokalt eller i Azure VNet.
 * Ett konfigurations paket för VPN-klienten för de Windows-enheter som ska ansluta till det virtuella nätverket. Ett konfigurations paket för VPN-klienten ger de inställningar som krävs för att en VPN-klient ska kunna ansluta via P2S.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="aboutad"></a>Om Active Directory (AD) domänautentisering för P2S-VPN
 
 AD Domain Authentication gör att användare kan logga in på Azure med sina organisations domän uppgifter. Den kräver en RADIUS-server som integreras med AD-servern. Organisationer kan också utnyttja sin befintliga RADIUS-distribution.
@@ -64,6 +62,8 @@ Förutom Active Directory kan en RADIUS-server också integreras med andra exter
 
 Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
 
+### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
+
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Exempelvärden
@@ -81,18 +81,13 @@ Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till
 * **VPN-klientadresspool: 172.16.201.0/24**<br>VPN-klienter som ansluter till det virtuella nätverket med den här punkt-till-plats-anslutningen får en IP-adress från VPN-klientadresspoolen.
 * **Prenumeration:** Kontrollera att du använder rätt prenumeration om du har mer än en.
 * **Resursgrupp: TestRG**
-* **Plats: Östra USA**
+* **Plats: USA, östra**
 * **DNS-Server: IP-adressen** för den DNS-server som du vill använda för namn matchning för ditt VNet. (valfritt)
 * **GW-namn: Vnet1GW**
 * **Offentligt IP-namn: VNet1GWPIP**
 * **VPNType: RouteBased**
 
-
-## <a name="signin"></a>Logga in och ange variabler
-
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
-
-### <a name="declare-variables"></a>Deklarera variabler
+## <a name="signin"></a>1. ange variablerna
 
 Deklarera de variabler som du vill använda. Använd följande exempel och ersätt värdena med dina egna om det behövs. Om du stänger PowerShell/Cloud Shell-sessionen när som helst under övningen ska du bara kopiera och klistra in värdena igen för att omdeklarera variablerna.
 
@@ -114,7 +109,7 @@ Deklarera de variabler som du vill använda. Använd följande exempel och ersä
   $GWIPconfName = "gwipconf"
   ```
 
-## 1. <a name="vnet"> </a>skapa resurs gruppen, VNet och den offentliga IP-adressen
+## 2. <a name="vnet"> </a>skapa resurs gruppen, VNet och den offentliga IP-adressen
 
 Följande steg skapar en resurs grupp och ett virtuellt nätverk i resurs gruppen med tre undernät. När du ersätter värden är det viktigt att du alltid namnger ditt Gateway-undernät särskilt "GatewaySubnet". Om du namnger det något annat Miss lyckas Gateway-skapandet.
 
@@ -148,7 +143,7 @@ Följande steg skapar en resurs grupp och ett virtuellt nätverk i resurs gruppe
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## 2. <a name="radius"> </a>konfigurera din RADIUS-server
+## 3. <a name="radius"> </a>konfigurera din RADIUS-server
 
 Innan du skapar och konfigurerar den virtuella Nätverksgatewayen bör RADIUS-servern konfigureras på rätt sätt för autentisering.
 
@@ -158,7 +153,7 @@ Innan du skapar och konfigurerar den virtuella Nätverksgatewayen bör RADIUS-se
 
 Artikeln [nätverks princip Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) ger vägledning om hur du konfigurerar en Windows RADIUS-server (NPS) för AD-domänautentisering.
 
-## 3. <a name="creategw"> </a>skapa VPN-gatewayen
+## 4. <a name="creategw"> </a>skapa VPN-gatewayen
 
 Konfigurera och skapa VPN-gatewayen för ditt VNet.
 
@@ -171,7 +166,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## 4. <a name="addradius"> </a>Lägg till RADIUS-servern och klient-adresspoolen
+## 5. <a name="addradius"> </a>Lägg till RADIUS-servern och klient-adresspoolen
  
 * -RadiusServer kan anges efter namn eller IP-adress. Om du anger namnet och servern finns lokalt kommer VPN-gatewayen kanske inte att kunna matcha namnet. I så fall är det bättre att ange IP-adressen för servern. 
 * -RadiusSecret ska matcha det som har kon figurer ATS på RADIUS-servern.
@@ -228,11 +223,11 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## 5. <a name="vpnclient"> </a>hämta konfigurations paketet för VPN-klienten och konfigurera VPN-klienten
+## 6. <a name="vpnclient"> </a>hämta konfigurations paketet för VPN-klienten och konfigurera VPN-klienten
 
 Konfigurationen av VPN-klienten gör att enheter kan ansluta till ett VNet via en P2S-anslutning. Om du vill generera ett konfigurations paket för VPN-klienten och konfigurera VPN-klienten, se [skapa en VPN-klientkonfiguration för RADIUS-autentisering](point-to-site-vpn-client-configuration-radius.md).
 
-## <a name="connect"></a>6. Anslut till Azure
+## <a name="connect"></a>7. Anslut till Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Så här ansluter du från en Windows VPN-klient
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: c26c4c47cb17acf88bc545af3a1fc979138d56b1
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951742"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152031"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributions modeller med hjälp av portalen
 
@@ -30,7 +30,7 @@ Om du inte redan har en virtuell nätverksgateway och inte vill skapa en, kan du
 
 ### <a name="before"></a>Innan du börjar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 * De här stegen förutsätter att båda virtuella nätverk redan har skapats. Om du använder den här artikeln som en övning och inte har virtuella nätverk finns det länkar i stegen för att hjälpa dig att skapa dem.
 * Kontrol lera att adress intervallen för virtuella nätverk inte överlappar varandra eller överlappar något av intervallen för andra anslutningar som gatewayerna kan vara anslutna till.
@@ -75,7 +75,7 @@ För den här konfigurationen skapar du en VPN gateway-anslutning via en IPsec/I
 
 I följande tabell visas ett exempel på hur virtuella nätverk och lokala platser definieras:
 
-| Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |
+| Virtual Network | Adress utrymme | Region | Ansluter till den lokala nätverks platsen |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |USA, västra | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |USA, östra |ClassicVNetLocal (10.0.0.0/24) |
@@ -100,7 +100,7 @@ Om du redan har ett VNet med en VPN-gateway kontrollerar du att gatewayen är dy
 
 1. Navigera till **alla resurser** och leta upp **ClassicVNet** i listan.
 2. Klicka på **Gateway** i avsnittet **Inställningar** på menyn och klicka sedan på banderollen för att skapa en gateway.
-  ![Konfigurera en VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurera en VPN-gateway ")
+  ![Konfigurera en VPN gateway](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Konfigurera en VPN gateway")
 3. På sidan **ny VPN-anslutning** väljer du **plats-till-plats**för **Anslutnings typ**.
 4. För **lokal plats**klickar du på **Konfigurera nödvändiga inställningar**. Då öppnas sidan **lokal webbplats** .
 5. På sidan **lokal plats** skapar du ett namn som refererar till Resource Manager VNet. Till exempel "RMVNetLocal".
@@ -170,7 +170,7 @@ I det här steget ska du skapa den virtuella nätverksgatewayen för ditt virtue
 
 **Exempel värden:** Lokal nätverksgateway = ClassicVNetLocal
 
-| Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |Offentlig IP-adress för gateway|
+| Virtual Network | Adress utrymme | Region | Ansluter till den lokala nätverks platsen |Offentlig IP-adress för gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |USA, västra | RMVNetLocal (192.168.0.0/16) |Den offentliga IP-adress som är tilldelad ClassicVNet-gatewayen|
 | RMVNet | (192.168.0.0/16) |USA, östra |ClassicVNetLocal (10.0.0.0/24) |Den offentliga IP-adress som är tilldelad RMVNet-gatewayen.|

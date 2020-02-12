@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37968e968a0f9a1098dd5e90d463879bfa95ce1f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454792"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153595"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuera en Azure Machine Learning Studio (klassisk)-webb tjänst
 
@@ -34,7 +34,7 @@ Du kan distribuera din modell i tre steg från en överblick på hög nivå:
 
 * **[Skapa ett utbildnings experiment]** – i Studio (klassisk) kan du träna och testa en förutsägelse analys modell med hjälp av utbildnings data som du tillhandahåller med hjälp av en stor uppsättning inbyggda Machine Learning-algoritmer.
 * **[Konvertera det till ett förutsägande experiment]** – när din modell har tränats med befintliga data och du är redo att använda den för att skapa nya data, förbereder du och effektiviserar experimentet med förutsägelser.
-* **Distribuera** den som en **[Ny webbtjänst]** eller en **[Klassisk webbtjänst]** – när du distribuerar ditt förutsägelse experiment som en Azure-webbtjänst kan användarna skicka data till din modell och ta emot modellens förutsägelser.
+* **Distribuera** den som en **[ny webb tjänst]** eller en **[klassisk webb tjänst]** – när du distribuerar ditt förutsägelse experiment som en Azure-webbtjänst kan användarna skicka data till din modell och ta emot modellens förutsägelser.
 
 ## <a name="create-a-training-experiment"></a>Skapa ett träningsexperiment
 
@@ -68,7 +68,7 @@ Nu när det förutsägande experimentet har förberetts kan du distribuera det s
 Om du vill distribuera ett förutsägelse experiment klickar du på **Kör** längst ned i experiment arbets ytan. När experimentet har körts klickar du på **distribuera webb tjänst** och väljer **distribuera webb tjänst [Nyårs]** .  Sidan distribution på webb tjänst portalen Machine Learning Studio (klassisk) öppnas.
 
 > [!NOTE] 
-> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
+> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
 
 ### <a name="web-service-portal-deploy-experiment-page"></a>Webb tjänst Portal för att distribuera experiment Sidan
 
@@ -132,28 +132,28 @@ Priser är landsspecifika, så du måste definiera en fakturerings plan för var
 #### <a name="create-a-plan-in-another-region"></a>Skapa en plan i en annan region
 
 1. Logga in på [Microsoft Azure Machine Learning-webbtjänster](https://services.azureml.net/).
-2. Klicka på den **planer** menyalternativ.
-3. På planer över visningssida, klickar du på **New**.
-4. Från den **prenumeration** listrutan väljer du den prenumeration där den nya planen kommer att finnas.
-5. Från den **Region** listrutan väljer du en region för den nya planen. Planera alternativ för den valda regionen visas i den **planera alternativ** på sidan.
-6. Från den **resursgrupp** listrutan, Välj en resursgrupp för planen. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-7. I **Plannamnet** skriver du namnet på planen.
-8. Under **Avtalsalternativ**, klickar du på den faktureringen för den nya planen.
+2. Klicka på meny alternativet **planer** .
+3. På sidan planer över vy klickar du på **ny**.
+4. I list rutan **prenumeration** väljer du den prenumeration som den nya planen kommer att finnas i.
+5. I list rutan **region** väljer du en region för den nya planen. Plan alternativen för den valda regionen visas i avsnittet **plan alternativ** på sidan.
+6. I list rutan **resurs grupp** väljer du en resurs grupp för planen. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
+7. I **planerat namn** skriver du namnet på planen.
+8. Under **plan alternativ**klickar du på fakturerings nivå för den nya planen.
 9. Klicka på **Skapa**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Distribuera webb tjänsten till en annan region
 
 1. På sidan Microsoft Azure Machine Learning webb tjänster klickar du på meny alternativet **webb tjänster** .
 2. Välj den webbtjänst som du distribuerar till en ny region.
-3. Klicka på **kopiera**.
-4. I **Webbtjänstnamn**, Skriv ett nytt namn för webbtjänsten.
-5. I **Web tjänstbeskrivning**, ange en beskrivning för webbtjänsten.
-6. Från den **prenumeration** listrutan väljer du den prenumeration där den nya webbtjänsten kommer att finnas.
-7. Från den **resursgrupp** listrutan, Välj en resursgrupp för webbtjänsten. För mer information om resursgrupper, se [översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-8. Från den **Region** listrutan väljer du den region där du vill distribuera webbtjänsten.
-9. Från den **lagringskonto** listrutan väljer du en storage-konto där du vill lagra webbtjänsten.
-10. Från den **prisplan** listrutan väljer du en plan i den region som du valde i steg 8.
-11. Klicka på **kopiera**.
+3. Klicka på **Kopiera**.
+4. I **webb tjänstens namn**skriver du ett nytt namn för webb tjänsten.
+5. I **Beskrivning av webb tjänst**anger du en beskrivning av webb tjänsten.
+6. I list rutan **prenumeration** väljer du den prenumeration som den nya webb tjänsten kommer att finnas i.
+7. I list rutan **resurs grupp** väljer du en resurs grupp för webb tjänsten. Mer information om resurs grupper finns i [Azure Resource Manager översikt](../../azure-resource-manager/management/overview.md).
+8. I list rutan **region** väljer du den region där du vill distribuera webb tjänsten.
+9. I list rutan **lagrings konto** väljer du ett lagrings konto där webb tjänsten ska lagras.
+10. Välj en plan i den region som du valde i steg 8 i list rutan **pris plan** .
+11. Klicka på **Kopiera**.
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>Distribuera den som en klassisk webb tjänst
 
@@ -222,8 +222,8 @@ Ett alternativ för att uppdatera din webb tjänst är att träna modellen progr
 <!-- internal links -->
 [Skapa ett utbildnings experiment]: #create-a-training-experiment
 [Konvertera det till ett förutsägande experiment]: #convert-the-training-experiment-to-a-predictive-experiment
-[Ny webbtjänst]: #deploy-it-as-a-new-web-service
-[Klassisk webbtjänst]: #deploy-it-as-a-classic-web-service
+[Ny webb tjänst]: #deploy-it-as-a-new-web-service
+[Klassisk webb tjänst]: #deploy-it-as-a-classic-web-service
 [Nyårs]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service

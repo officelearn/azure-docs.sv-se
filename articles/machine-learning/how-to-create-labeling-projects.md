@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8c6b7b4d64b3a4f504cc9aef275b3d48cd62a3d8
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116841"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153119"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -161,9 +161,9 @@ Följ dessa steg om du vill lägga till en eller flera etiketter i ett projekt:
 1. I listan till vänster väljer du **etikett klasser**.
 1. Överst i listan väljer du **+ Lägg till etiketter** ![lägger till en etikett](media/how-to-create-labeling-projects/add-label.png)
 1. I formuläret lägger du till din nya etikett och väljer hur du vill fortsätta.  Eftersom du har ändrat de tillgängliga etiketterna för en bild väljer du hur du vill behandla redan märkta data:
-    * Börja om och ta bort alla befintliga etiketter.  Välj det här alternativet om du vill rensa alla befintliga etiketter så att den fullständiga uppsättningen kan användas för att tagga alla avbildningar.
-    * Börja om och Behåll alla befintliga etiketter.  Välj det här alternativet för att markera alla data som omärkta, men Behåll de befintliga etiketterna som en standardtagg för bilder som har märkts.
-    * Fortsätt och Behåll alla befintliga etiketter. Välj det här alternativet om du vill behålla alla data som redan är märkta som de är och börja använda den nya etiketten för data som ännu inte har klassificerats.
+    * Börja om och ta bort alla befintliga etiketter.  Välj det här alternativet om du vill starta etiketter från början med den nya fullständiga uppsättningen etiketter. 
+    * Börja om och Behåll alla befintliga etiketter.  Välj det här alternativet om du vill markera alla data som omärkta, men Behåll de befintliga etiketterna som en standardtagg för bilder som tidigare har märkts.
+    * Fortsätt och Behåll alla befintliga etiketter. Välj det här alternativet om du vill behålla alla data som redan är märkta som de är och börja använda den nya etiketten för data som ännu inte har märkts.
 1. Ändra sidan instruktioner efter behov för de nya etiketterna.
 1. När du har lagt till alla nya etiketter överst på sidan väljer du **Starta** för att starta om projektet.  
 

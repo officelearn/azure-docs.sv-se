@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 313b9c92b10d3170eb71bb8290a9388bb8dcc67c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1041954f5cd3456fe24e17c8ffc0a586bca2d954
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427528"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152830"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Skapa en sentiment analys modell i Azure Machine Learning Studio (klassisk)
 
@@ -33,16 +33,16 @@ I den här självstudien får du lära dig de här stegen när vi går igenom en
 
 Du kan hitta experiment som beskrivs i den här självstudien i Azure AI-galleriet:
 
-[Förutsäga boken granskningar](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
+[Förutsägelse granskning av bok](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Förutsäga boken granskningar - förutsägbart Experiment](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Förutsägelse granskning av bok – förutsägande experiment](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Steg 1: Rensa och Förbearbeta text datauppsättning
-Vi börjar experimentet genom att dela granska poängen i kategoriska låga och höga behållare för att formulera problemet på två klassificering. Vi använder [redigera Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) och [grupp Kategoriska värden](https://msdn.microsoft.com/library/azure/dn906014.aspx) moduler.
+Vi börjar experimentet genom att dela granska poängen i kategoriska låga och höga behållare för att formulera problemet på två klassificering. Vi använder modulerna [Redigera metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) och [grupp kategoriska-värden](https://msdn.microsoft.com/library/azure/dn906014.aspx) .
 
 ![Skapa etikett](./media/text-analytics-module-tutorial/create-label.png)
 
-Sedan kan vi Rensa text med [Förbearbeta Text](https://msdn.microsoft.com/library/azure/mt762915.aspx) modulen. Rensning minskar bruset i datauppsättningen, kan du hitta de viktigaste funktionerna och förbättra den slutliga modellen. När du tar vi bort stoppord - vanliga ord som ”” eller ”a” - och siffror, specialtecken, duplicerade tecken, e-postadresser och URL: er. Vi också konvertera text till gemener, lemmatize orden och identifiera mening gränser som sedan visas som ”|||” symbolen i förväg bearbetade text.
+Sedan rensar vi texten med hjälp av modulen för [Förbearbetad text](https://msdn.microsoft.com/library/azure/mt762915.aspx) . Rensning minskar bruset i datauppsättningen, kan du hitta de viktigaste funktionerna och förbättra den slutliga modellen. När du tar vi bort stoppord - vanliga ord som ”” eller ”a” - och siffror, specialtecken, duplicerade tecken, e-postadresser och URL: er. Vi också konvertera text till gemener, lemmatize orden och identifiera mening gränser som sedan visas som ”|||” symbolen i förväg bearbetade text.
 
 ![Förbearbeta text](./media/text-analytics-module-tutorial/preprocess-text.png)
 
@@ -51,7 +51,7 @@ Vad händer om du vill använda en anpassad lista över stoppord? Du kan skicka 
 När den Förbearbeta är klar kan vi dela upp data i träna och testa uppsättningar.
 
 ## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Steg 2: Extrahera numeriska funktionen vektorer från förbearbetade text
-Om du vill skapa en modell för textdata behöva du normalt konvertera Fritextfält till numeriska funktionen vektorer. I det här exemplet använder vi [N-Gram extrahera funktioner från Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) modul för att omvandla textdata till sådana format. Den här modulen tar en kolumn med blanksteg kommaavgränsade ord och beräknar en ordlista med ord eller N-gram av ord, som visas i din datauppsättning. Sedan räknar den hur många gånger varje ord eller N-gram, visas i varje post och skapar funktionen vektorer från de som räknas. I den här självstudien anger vi N-gram storlek till 2, så våra funktionen vektorer inkludera enstaka ord och kombinationer av två efterföljande ord.
+Om du vill skapa en modell för textdata behöva du normalt konvertera Fritextfält till numeriska funktionen vektorer. I det här exemplet använder vi [extrahera N-gram-funktioner från text](https://msdn.microsoft.com/library/azure/mt762916.aspx) -modulen för att transformera text data till sådant format. Den här modulen tar en kolumn med blanksteg kommaavgränsade ord och beräknar en ordlista med ord eller N-gram av ord, som visas i din datauppsättning. Sedan räknar den hur många gånger varje ord eller N-gram, visas i varje post och skapar funktionen vektorer från de som räknas. I den här självstudien anger vi N-gram storlek till 2, så våra funktionen vektorer inkludera enstaka ord och kombinationer av två efterföljande ord.
 
 ![Extrahera N-gram](./media/text-analytics-module-tutorial/extract-ngrams.png)
 
@@ -61,12 +61,12 @@ Sådana textfunktioner har ofta högt dimensionalitet. Till exempel om din Krist
 
 Du kan också använda val av funktioner för att välja endast de funktioner som är mest till korrelerade med mål-förutsägelse. Vi använder chi2 Funktionsurval för att välja 1000 funktioner. Du kan visa vokabulär markerade ord eller N-gram genom att klicka på rätt utdata från extrahera N-gram-modul.
 
-Du kan använda funktions-hashning modulen som en annan metod för med hjälp av extrahera N-Gram-funktioner. Observera dock att [funktions-hashning](https://msdn.microsoft.com/library/azure/dn906018.aspx) har inte inbyggda val av funktioner eller TF * IDF vägas mot varandra.
+Du kan använda funktions-hashning modulen som en annan metod för med hjälp av extrahera N-Gram-funktioner. Observera att om [funktionen hash](https://msdn.microsoft.com/library/azure/dn906018.aspx) inte har funktioner för att välja funktioner, eller TF * IDF-vägning.
 
 ## <a name="step-3-train-classification-or-regression-model"></a>Steg 3: Träna klassificerings- eller regressionsmodell modell
 Texten har nu tagits omvandlas till funktionen för numeriska kolumner. Datauppsättningen innehåller fortfarande strängkolumner från föregående steg, så vi använder Välj kolumner i datauppsättning så de utesluts.
 
-Sedan använder vi [Tvåklassförhöjt Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) att förutsäga våra mål: granska för hög eller låg poäng. Nu har text analytics problemet omvandlats till en vanlig klassificeringsproblem. Du kan använda verktygen som finns i Azure Machine Learning Studio (klassisk) för att förbättra modellen. Du kan till exempel experimentera med olika klassificerare att ta reda på hur korrekta resultat som de ger eller använda finjustering justering för att förbättra noggrannheten.
+Vi använder sedan en [logistik regression i två klasser](https://msdn.microsoft.com/library/azure/dn905994.aspx) för att förutsäga vårt mål: hög eller låg gransknings poäng. Nu har text analytics problemet omvandlats till en vanlig klassificeringsproblem. Du kan använda verktygen som finns i Azure Machine Learning Studio (klassisk) för att förbättra modellen. Du kan till exempel experimentera med olika klassificerare att ta reda på hur korrekta resultat som de ger eller använda finjustering justering för att förbättra noggrannheten.
 
 ![Träna upp och poäng](./media/text-analytics-module-tutorial/scoring-text.png)
 
@@ -86,6 +86,6 @@ Vi Infoga Välj kolumner i datauppsättning modulen innan du Förbearbeta Text-m
 
 Nu har vi ett experiment som kan publiceras som en webbtjänst och anropas med begäranden och svar eller batch-körningen API: er.
 
-## <a name="next-steps"></a>Efterföljande moment
-Lär dig mer om modulerna för textanalys från [MSDN-dokumentationen](https://msdn.microsoft.com/library/azure/dn905886.aspx).
+## <a name="next-steps"></a>Nästa steg
+Lär dig mer om text analys moduler från [MSDN-dokumentationen](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 

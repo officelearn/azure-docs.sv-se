@@ -8,46 +8,46 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3f6d4849b02f320c7479469b4ee56be50e4f8dee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 78fc3af10bde5e9dd25d02f7a21d77e958b15190
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840102"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149532"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Java Script och versioner av sidlayouten i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C innehåller en uppsättning paketerat innehåll som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i dina användar flöden och anpassade principer. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](custom-policy-overview.md) eller aktivera det i portalen för användar flöden, välja en sidlayout och använda [b2clogin.com](b2clogin.md) i dina begär Anden.
+Azure AD B2C innehåller en uppsättning paketerat innehåll som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i dina användar flöden och anpassade principer.
 
-Om du vill aktivera kod för [Java Script](javascript-samples.md) på klient sidan vill du vara säker på att de element som du baserar ditt Java Script på inte är oföränderliga. Annars kan alla ändringar orsaka oväntade beteenden på dina användar sidor. För att förhindra dessa problem kan du använda en sidlayout och ange en version för sidlayouten. På så sätt ser du till att alla innehålls definitioner som du har baserat på Java Script är oföränderliga. Även om du inte planerar att aktivera Java Script kan du ange en version för sidlayouten för dina sidor.
+Så här aktiverar du Java Script för dina program:
 
-## <a name="user-flows"></a>Användarflöden
+* Aktivera det i användar flödet med hjälp av Azure Portal
+* Välj en [Sidlayout](page-layout.md)
+* Använd [b2clogin.com](b2clogin.md) i dina begär Anden
 
-I **egenskaperna**för användar flödet kan du aktivera Java Script, vilket även tvingar användningen av en sidlayout. Du kan sedan ange versionen för sid layouten för användar flödet enligt beskrivningen i nästa avsnitt.
+Om du tänker aktivera [Java Script](javascript-samples.md) på klient sidan måste de element som du baserar Java Script på vara oföränderliga. Om de inte är oföränderliga kan eventuella ändringar orsaka oväntade beteenden på dina användar sidor. Du kan förhindra dessa problem genom att använda en sidlayout och ange en version för sidlayouten för att se till att de innehålls definitioner som du har baserat java script är oföränderliga. Även om du inte planerar att aktivera Java Script kan du ange en version för sidlayouten för dina sidor.
+
+## <a name="enable-javascript"></a>Aktivera JavaScript
+
+I **egenskaperna**för användar flödet kan du aktivera Java Script. Genom att aktivera Java Script används även en sidlayout. Du kan sedan ange versionen för sid layouten för användar flödet enligt beskrivningen i nästa avsnitt.
 
 ![Sidan Egenskaper för användar flöde med alternativet Aktivera Java Script markerat](media/user-flow-javascript-overview/javascript-settings.png)
 
-### <a name="select-a-page-layout-version"></a>Välj en version av sidlayouten
+## <a name="select-a-page-layout-version"></a>Välj en version av sidlayouten
 
 Oavsett om du aktiverar java script i ditt användar flödes egenskaper kan du ange en version för sidlayouten för dina användar flödes sidor. Öppna användar flödet och välj **sidlayouter**. Under **Kolumnlayoutnamn**väljer du sidan användar flöde och väljer **versionen för sidlayouten**.
 
-Information om olika versioner av sidlayouten finns i [versions ändrings loggen](page-layout.md#version-change-log).
+Information om olika versioner av sidlayouten finns i [versions ändrings loggen för sidlayouten](page-layout.md).
 
 ![Inställningar för sidlayout i portalen med listruta för sidlayout](media/user-flow-javascript-overview/page-layout-version.png)
 
-## <a name="custom-policies"></a>Anpassade principer
-
-Om du vill aktivera Java Script i anpassade principer lägger du till elementet **ScriptExecution** i **RelyingParty** -elementet i din anpassade princip fil. Mer information finns i [JavaScript-exempel för användning i Azure Active Directory B2C](javascript-samples.md).
-
-Oavsett om du aktiverar java script i dina anpassade principer kan du ange en version för sidlayouten för dina sidor. Mer information om hur du anger en sidlayout finns [i Välj en sidlayout i Azure Active Directory B2C att använda anpassade principer](page-layout.md).
+[!INCLUDE [active-directory-b2c-javascript-guidelines](../../includes/active-directory-b2c-javascript-guidelines.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-
-Information om olika versioner av sidlayouten finns i avsnittet **versions ändrings logg** i [Välj en sidlayout i Azure Active Directory B2C med anpassade principer](page-layout.md#version-change-log).
 
 Du kan hitta exempel på JavaScript-användning i [JavaScript-exempel för användning i Azure Active Directory B2C](javascript-samples.md).

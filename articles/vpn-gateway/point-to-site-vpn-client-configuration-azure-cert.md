@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 18a9578cc454ea5259b9564d64dcd4308ee5ef87
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045773"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148988"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -28,7 +28,7 @@ Klientens konfigurationsfiler är speciella för VPN-konfigurationen för VNet. 
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="generate"></a>Generera konfigurationsfiler för VPN-klienten
+## <a name="generate"></a>Generera VPN-klientens konfigurationsfiler
 
 Innan du börjar ska du kontrol lera att alla anslutna användare har ett giltigt certifikat installerat på användarens enhet. Mer information om hur du installerar ett klient certifikat finns i [Installera ett klient certifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
@@ -46,7 +46,6 @@ Du kan generera konfigurationsfiler för klienter med hjälp av PowerShell, elle
 
 ### <a name="zipps"></a>Generera filer med PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. När du genererar konfigurationsfiler för VPN-klienter är värdet för "-AuthenticationMethod" EapTls ". Generera VPN-klientens konfigurationsfiler med följande kommando:
 
@@ -57,7 +56,7 @@ Du kan generera konfigurationsfiler för klienter med hjälp av PowerShell, elle
    ```
 2. Kopiera URL: en till webbläsaren för att ladda ned ZIP-filen och packa sedan upp filen för att visa mapparna.
 
-## <a name="installwin"></a>Windows
+## <a name="installwin"></a>Aktivitets
 
 Du kan använda samma konfigurations paket för VPN-klienten på varje Windows-klientdator, förutsatt att versionen överensstämmer med arkitekturen för-klienten. En lista över klient operativ system som stöds finns i avsnittet punkt-till-plats i [vanliga frågor och svar om VPN gateway](vpn-gateway-vpn-faq.md#P2S).
 
@@ -95,7 +94,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 
    **Gränssnittets** värde är "VPN" och värdet för **VPN-typ** är IKEv2. Ange ett namn för profilen i fältet **tjänst namn** och klicka sedan på **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
-   ![nätverk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![nätverks](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. I den **allmänna** mappen, i filen **VpnSettings. XML** , kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -112,10 +111,10 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
    ![certifikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Välj en identitet** visar en lista över certifikat som du kan välja bland. Välj rätt certifikat och klicka sedan på **Fortsätt**.
 
-   ![identitet](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. I fältet **lokalt ID** anger du namnet på certifikatet (från steg 6). I det här exemplet är det "ikev2Client.com". Klicka sedan på knappen **tillämpa** för att spara ändringarna.
 
-   ![ansök](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![använt](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. I dialog rutan **nätverk** klickar du på **tillämpa** för att spara alla ändringar. Klicka sedan på **Anslut** för att starta P2s-anslutningen till det virtuella Azure-nätverket.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)

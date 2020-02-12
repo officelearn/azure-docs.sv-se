@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: ce232fc9216166e94520203bb4afbf4c152aaf6f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314937"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152133"
 ---
 # <a name="partition-and-sample-module"></a>Partition och exempel modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att utföra sampling på en data uppsättning eller för att skapa partitioner från din data uppsättning.
 
@@ -44,8 +44,8 @@ Sampling är ett viktigt verktyg i Machine Learning eftersom det gör att du kan
 
 Den här modulen stöder flera metoder för att dela data i partitioner eller för att sampla. Välj först metoden och ange sedan ytterligare alternativ som krävs av metoden.
 
-- Huvud
-- Sampling
+- Head
+- Samling
 - Tilldela till vikning
 - Välj vikning
 

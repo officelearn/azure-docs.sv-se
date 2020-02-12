@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0c145c84f9dea3b6212bb6c608eb1a4eb586ff60
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 802d97e2c9b64fd9d8caeaf479af3f4aec356607
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056826"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153136"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av PowerShell
 De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell.
@@ -58,7 +58,7 @@ Installations anvisningar finns i [så här installerar och konfigurerar du Azur
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Steg 3: kontrol lera att du är administratör för prenumerationen
 För att utföra den här migreringen måste du läggas till som en medadministratör för prenumerationen i [Azure Portal](https://portal.azure.com).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. På menyn **hubb** väljer du **prenumeration**. Om du inte ser det väljer du **alla tjänster**.
 3. Hitta rätt prenumerations post och titta sedan i fältet **min roll** . För en-administratör ska värdet vara _konto administratör_.
 
@@ -125,7 +125,7 @@ Ange din Azure-prenumeration för den aktuella sessionen. I det här exemplet an
 <br>
 
 ## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Steg 5: ha tillräckligt med VM-virtuella processorer för Resource Manager
-Se till att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller det virtuella nätverket. Du kan använda följande PowerShell-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager).
+Se till att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller det virtuella nätverket. Du kan använda följande PowerShell-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
 
 I det här exemplet kontrol leras tillgängligheten i regionen **USA, västra** . Ersätt exempel områdets namn med ditt eget.
 

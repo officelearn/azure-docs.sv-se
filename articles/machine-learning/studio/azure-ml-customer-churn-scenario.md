@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 903e3f3dcbcc72289fc82ec59dec0305b6adbc17
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427693"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150926"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analysera kund omsättning med Azure Machine Learning Studio (klassisk)
 ## <a name="overview"></a>Översikt
@@ -25,7 +25,7 @@ Den här artikeln visar en referens implementering av ett analys projekt för ku
 Det här experimentet utvecklades och testades av Serge Berger, huvudsakliga data expert hos Microsoft och Roger Bargas, tidigare produkt chef för Microsoft Azure Machine Learning Studio (klassisk). Azure-Dokumentationsteamet mycket bekräftar sin expertis och tack dem för att dela det här dokumentet.
 
 > [!NOTE]
-> Data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en maskininlärningsmodell för omsättning analys, se: [detaljhandel omsättningen modellen mallen](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI-galleriet](https://gallery.azure.ai/)
+> Data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en Machine Learning-modell för omsättnings analys finns i: [mallen Retail omsättnings modell](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI Gallery](https://gallery.azure.ai/)
 > 
 > 
 
@@ -37,13 +37,13 @@ Företag i konsumentmarknaden och i alla enterprise sektorer måste hantera oms�
 Vanliga faktor är att företag behöver för att minimera dessa särskilda kunden besökslängd. Därför är en naturlig metod att bedöma alla kunder med sannolikheten för omsättning och åtgärda de översta N ettor. Främsta kunder kan vara de mest lönsamma. En vinst-funktion är exempelvis anställd under valet av kandidater för särskilda dispens i mer avancerade scenarier. Detta är dock endast en del av komplett strategi för att hantera omsättning. Företag måste också beakta konto risk (och associerade risktolerans) och i kostnaden för åtgärder och rimligt kundsegmentering.  
 
 ## <a name="industry-outlook-and-approaches"></a>Branschens outlook och metoder
-Avancerad hantering av omsättning är ett tecken på en mogen bransch. Det klassiska exemplet är telekommunikation branschen där prenumeranter är kända för att växla ofta från en leverantör till en annan. Frivillig dataomsättningen är särskilda viktig. Dessutom providers skett betydande kunskap om *omsättningen drivrutiner*, som är de faktorer som driver kunder att växla.
+Avancerad hantering av omsättning är ett tecken på en mogen bransch. Det klassiska exemplet är telekommunikation branschen där prenumeranter är kända för att växla ofta från en leverantör till en annan. Frivillig dataomsättningen är särskilda viktig. Dessutom har leverantörer samlat in betydande kunskaper om *omsättnings driv rutiner*, vilka är de faktorer som gör att kunderna kan byta.
 
 Exempelvis är luren eller enhet valet en välkänd kärnan i verksamheten mobiltelefon-drivrutin. Därför är en populär princip att subventionera priset för en luren för nya prenumeranter och debiterar en fullt pris för befintliga kunder för en uppgradering. Historiskt sett har har den här principen lett till kunder som hoppar från en leverantör till en annan för att få en ny rabatt. Detta har i sin tur uppmanas att förfina sina strategier.
 
 Hög volatil luren erbjudanden är en faktor som snabbt upphäver modeller av omsättning som baseras på den aktuella luren modeller. Dessutom mobiltelefoner är inte endast telekommunikation enheter, de är också sätt-uttryck (Överväg iPhone). Dessa sociala förutsägelserna ligger utanför omfånget för regelbundna telekommunikation datauppsättningar.
 
-Resultatet för modellering är att du inte kan utforma en bra princip genom att eliminera kända orsaker till omsättning. I själva verket en strategi för kontinuerlig modellering, inklusive klassiska modeller som kvantifiera kategoriska variabler (till exempel beslutsträd) är **obligatoriska**.
+Resultatet för modellering är att du inte kan utforma en bra princip genom att eliminera kända orsaker till omsättning. I själva verket är en strategi för kontinuerlig modellering, inklusive klassiska modeller som kvantifierar kategoriska-variabler (till exempel besluts träd) **obligatoriska**.
 
 Använder stordata-uppsättningar på sina kunder kan utför organisationer analyser av stordata (särskilt omsättning identifiering utifrån stordata) som en effektiv strategi på problemet. Du kan hitta mer information om stordata-metod för att problemet med kärnan i rekommendationer om ETL-avsnittet.  
 
@@ -60,9 +60,9 @@ Den här framåt söker metoden är det bästa sättet att behandla omsättning,
 
 ![Interaktions diagram över omsättnings modell](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
-*Bild 4: Enhetlig flermodells archetype*  
+*Figur 4: enhetlig archetype för flera modeller*  
 
-Interaktion mellan modellerna är nyckeln om vi att leverera holistiska approachen till kunder. Varje modell försämras nödvändigtvis med tiden. arkitekturen är därför en implicit loop (liknar archetype som angetts av SKARPA-DM data-utvinning standard [***3***]).  
+Interaktion mellan modellerna är nyckeln om vi att leverera holistiska approachen till kunder. Varje modell behöver försämras med tiden. arkitekturen är därför en implicit slinga (liknar den archetype som anges av den skarpa DM-standarden, [***3***]).  
 
 Den övergripande cykeln av risk-beslut-marketing segmentering/uppdelning är fortfarande en generaliserad struktur som gäller för många affärsproblem. Analys av omsättning är helt enkelt en stark företrädare för den här gruppen av problem eftersom den ger egenskaperna som ett komplexa verksamhetsproblem som inte tillåter att en förenklad förutsägelselösning. Sociala aspekter av den moderna metoden att omsättning speciellt markeras inte metoden med, men de sociala aspekterna som är inkapslade i modellering-archetype som de skulle göra i alla modeller.  
 
@@ -79,7 +79,7 @@ Följande diagram visar den prototyp som vi har skapat, som använder fyra bedö
 
 ![Skärm bild som illustrerar en komplex Studio (klassisk) arbets yta med många sammankopplade moduler](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
-*Bild 5: Skapa prototyper för en omsättning modellering metod*  
+*Figur 5: prototyp för en metod för omsättnings modellering*  
 
 I följande avsnitt finns mer information om prototyp bedömnings modellen som vi implementerade med hjälp av Machine Learning Studio (klassisk).  
 
@@ -98,17 +98,17 @@ Följande diagram visar de data som har använts.
 
 ![Skärm bild som visar ett exempel på data som används med RAW-värden](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
-*Bild 6: Utdrag ur datakällan (dold)*  
+*Bild 6: utdrag från data källa (fördunklade)*  
 
 ![Skärm bild som visar statistiska funktioner som har extraherats från data källan](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
-*Bild 7: Funktioner som extraherats från datakällan*
+*Bild 7: funktioner som extraherats från data källan*
  
 
 > Observera att dessa data är privat och därför modell och data kan inte delas.
-> Dock finns i det här exemplet experimentera i en liknande modell med offentligt tillgängliga data, den [Azure AI-galleriet](https://gallery.azure.ai/): [Telco kundens omsättning](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Men för en liknande modell som använder offentligt tillgängliga data, se det här exempel experimentet i [Azure AI Gallery](https://gallery.azure.ai/): [Telco kund omsättning](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Om du vill veta mer om hur du kan implementera en modell för analys av omsättning med Cortana Intelligence Suite kan vi rekommenderar också [videon](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) av programchef Wee Hyong Tok. 
+> Om du vill veta mer om hur du kan implementera en omsättnings analys modell med Cortana Intelligence Suite rekommenderar vi även [den här videon](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) av Wee Hyong tok. 
 > 
 > 
 
@@ -137,14 +137,14 @@ I det här avsnittet presentera vi våra resultat om det arbete du utfört model
 ### <a name="accuracy-and-precision-of-scoring"></a>Precision och precisionen för bedömning
 I allmänhet är implementeringen i Azure Machine Learning Studio (klassisk) bakom SAS med noggrannhet med cirka 10-15% (area under kurva eller AUC).  
 
-Omsättning viktigaste måttet är dock felklassificering frekvensen: det vill säga för högsta N-churners som förväntade av klassificeraren vilken av dem gjorde **inte** omsättning och har fått någon särskild behandling? Diagrammet nedan jämförs felklassificering priset för varje modell:  
+Det viktigaste måttet i omsättningen är dock den fel klassificerings takt: det vill säga av de x främsta omsättningarna som förutsägs av klassificeraren, vilket av dem som faktiskt **inte** hade omsättningen, och som ännu fått särskild behandling? Diagrammet nedan jämförs felklassificering priset för varje modell:  
 
 ![Område under kurv diagrammet som jämför prestandan för 4 algoritmer](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
-*Bild 9: Passau prototyp området under kurva*
+*Bild 9: Passau prototyp area under kurva*
 
 ### <a name="using-auc-to-compare-results"></a>Med hjälp av AUC för att jämföra resultaten
-Området Under kurvan (AUC) är ett mått som representerar ett globala mått på *Avskiljbarhet* mellan distributioner av poäng för positiva och negativa. Den liknar traditionella mottagare operatorn egenskap (ROC) diagrammet, men en viktig skillnad är att AUC mått inte måste du välja ett tröskelvärde. I stället det sammanfattar resultaten över **alla** möjliga alternativ. Däremot i traditionella ROC-diagrammet visas positiva identifieringar på den lodräta axeln och andel falska positiva identifieringar på den horisontala axeln och klassificering tröskelvärde varierar.   
+Area under kurva (AUC) är ett mått som representerar ett globalt mått på *separability* mellan fördelningarna av Poäng för positiva och negativa populationer. Den liknar traditionella mottagare operatorn egenskap (ROC) diagrammet, men en viktig skillnad är att AUC mått inte måste du välja ett tröskelvärde. I stället sammanfattas resultaten över **alla** möjliga val. Däremot i traditionella ROC-diagrammet visas positiva identifieringar på den lodräta axeln och andel falska positiva identifieringar på den horisontala axeln och klassificering tröskelvärde varierar.   
 
 AUC används som ett mått på värt för olika algoritmer (eller olika system) eftersom det gör att modeller kan jämföras med hjälp av sina AUC-värden. Det här är en populär metod i olika branscher, till exempel väderförhållanden samt biosciences. Därför representerar AUC ett populärt verktyg för utvärdering av klassificerare prestanda.  
 
@@ -162,14 +162,14 @@ Följande diagram från Wikipedia visar relationen i en livlig, enkelt att förs
 
 ![Två mål. Ett mål visar att markeringen är löst grupperad men nära tjurarna-ögonen markerat med låg exakthet: bra värde, låg precision. Ett annat mål som är nära grupperat, men långt från tjurar – ögon markerat med låg exakthet: låg exakthet, bra precision](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
-*Bild 10: Kompromiss mellan noggrannhet och precision*
+*Bild 10: kompromisser mellan precision och precision*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Noggrannhet och precision resultat för beslutsträd trädet modell
 Följande diagram visar rådata resultaten från bedömning med Machine Learning-prototyp för beslutsträd trädet modellen råkar vara det mest korrekta bland fyra modeller:  
 
 ![Tabell kodfragment som visar precision, precision, återkallande, F-score, AUC, genomsnittlig logg förlust och inlärnings logg förlust för fyra algoritmer](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
-*Bild 11: Beslutsträd trädet modellen egenskaper*
+*Bild 11: modell egenskaper för utökat besluts träd*
 
 ## <a name="performance-comparison"></a>Jämförelse av prestanda
 Vi jämförde den hastighet med vilken data beskrevs med hjälp av Machine Learning Studio (klassiska) modeller och en jämförbar modell som skapats med hjälp av Desktop-versionen av SAS Enterprise Miner 12,1.  
@@ -178,7 +178,7 @@ I följande tabell sammanfattas algoritmerna prestanda:
 
 *Tabell 1. Allmänna prestanda (noggrannhet) för algoritmerna*
 
-| LR | BT | Asien och Stillahavsområdet | SVM |
+| LR | BT | AP | SVM |
 | --- | --- | --- | --- |
 | Genomsnittlig modell |Den bästa modellen |Presterar som förväntat |Genomsnittlig modell |
 
@@ -188,13 +188,13 @@ De modeller som finns i Machine Learning Studio (klassisk) utgjorde SAS med 15-2
 I branschen telekommunikation, flera metoder har vuxit fram för att analysera omsättningen, inklusive:  
 
 * Härled mätvärden för fyra grundläggande kategorier:
-  * **Entiteten (till exempel en prenumeration)** . Etablera grundläggande information om den prenumeration och/eller kund som omfattas av omsättning.
+  * **Entitet (till exempel en prenumeration)** . Etablera grundläggande information om den prenumeration och/eller kund som omfattas av omsättning.
   * **Aktivitet**. Hämta alla möjliga användningsinformation som är relaterade till entiteten, till exempel antalet inloggningar.
-  * **Kundsupport**. Samla information från customer support loggar att indikera om prenumerationen har problem eller interaktioner med kundsupport.
-  * **Data konkurrenskraftiga och företagsdata**. Få all information som möjligt om kunden (till exempel kan vara otillgänglig eller svårt att spåra).
+  * **Kund support**. Samla information från customer support loggar att indikera om prenumerationen har problem eller interaktioner med kundsupport.
+  * **Konkurrens kraft och affärs data**. Få all information som möjligt om kunden (till exempel kan vara otillgänglig eller svårt att spåra).
 * Använd betydelse för val av funktioner för enheten. Detta innebär att modellen beslutsträd trädet är alltid en lovande metod.  
 
-Användningen av dessa fyra kategorier skapar illusionen som en enkel *deterministisk* metod, baserat på index som skapats på rätt sätt på rimlig faktorer per kategori, bör vara tillräckligt för att identifiera kunder risk för omsättning. Tyvärr även om detta begrepp verkar rimligt, är det en falsk förståelse. Det beror på att omsättning är en temporal effekt och faktorer som påverkar återställningstiden omsättningen är vanligtvis i ett tillfälligt tillstånd. Vad leder en kund att lämna idag kan skilja sig morgon och det däremot påverkas sex månader från nu. Därför kan en *avsnittet om sannolikhetsbunden* modellen är nödvändigt.  
+Användningen av dessa fyra kategorier skapar en illusion av att en enkel *deterministisk* Metod, baserat på index som bildas på rimliga faktorer per kategori, räcker för att identifiera kunder som riskerar att ta omsättning. Tyvärr även om detta begrepp verkar rimligt, är det en falsk förståelse. Det beror på att omsättning är en temporal effekt och faktorer som påverkar återställningstiden omsättningen är vanligtvis i ett tillfälligt tillstånd. Vad leder en kund att lämna idag kan skilja sig morgon och det däremot påverkas sex månader från nu. Därför är en *Probabilistic* modell en nödvändighet.  
 
 Den här viktiga observationer förbises ofta i företag, vilket vanligtvis föredrar en business intelligence-orienterade metod till analytics, främst eftersom det är en enklare sälja och ger enkel automation.  
 
@@ -205,7 +205,7 @@ En annan spännande funktion i Azure Machine Learning Studio (klassisk) är möj
 Vi hoppas att fortsätta det här avsnittet i framtiden, särskilt rör analyser av stordata.
   
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga problem med kundomsättning med hjälp av ett allmänt ramverk. Vi ansåg en prototyp för bedömnings modeller och implementerar den med hjälp av Azure Machine Learning Studio (klassisk). Slutligen kan utvärderat vi prestanda av lösningen prototyp avseende jämförbara algoritmer i SAS.  
 
  
@@ -215,14 +215,14 @@ Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga 
 
 [2] Wikipedia-artikel: [precision och precision](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [SKARPA-DM 1.0: stegvisa Data-utvinning Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [skarp-DM 1,0: steg-för-steg-guide för Data utvinning](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Stordata marknadsföring: engagera dina kunder mer effektivt och Driv värde](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [stor data marknadsföring: engagera dina kunder på ett mer effektivt sätt och enhets värde](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco omsättningen modellen mallen](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) i [Azure AI-galleriet](https://gallery.azure.ai/) 
+[5] [Telco omsättnings modell mall](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) i [Azure AI Gallery](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Bilaga
 ![Ögonblicks bild av en presentation på omsättnings prototyp](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
-*Bild 12: Ögonblicksbild av en presentation i omsättning prototyp*
+*Bild 12: ögonblicks bild av en presentation på omsättnings prototyp*

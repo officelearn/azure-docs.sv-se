@@ -7,17 +7,17 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778030"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148340"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Översikt över konfigurationer för VPN-enheter för partner
 Den här artikeln innehåller en översikt över hur du konfigurerar lokala VPN-enheter för anslutning till Azure VPN-gatewayer. Ett Azure-exempel för virtuella Azure-nätverk och VPN-gateway används för att visa hur du ansluter till olika lokala VPN-enheters konfigurationer med samma parametrar.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="device-requirements"></a>Krav på enheten
 Azure VPN-gatewayer använder standard-IPsec/IKE-protokoll för plats-till-plats (S2S) VPN-tunnlar. En lista över IPsec/IKE-parametrar och krypteringsalgoritmer för Azure VPN-gatewayer finns i [om VPN-enheter](vpn-gateway-about-vpn-devices.md). Du kan också ange exakta algoritmer och nyckel längder för en speciell anslutning enligt beskrivningen i [om kryptografiska krav](vpn-gateway-about-compliance-crypto.md).
@@ -29,10 +29,10 @@ Den första konfigurationen i exemplet består av en enda S2S VPN-tunnel mellan 
 
 Steg-för-steg-instruktioner för att konfigurera en enda VPN-tunnel finns i [Konfigurera en plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Följande avsnitt anger anslutnings parametrarna för exempel konfigurationen och ger ett PowerShell-skript som hjälper dig att komma igång.
 
-### <a name="connection-parameters"></a>Anslutningsparametrar
+### <a name="connection-parameters"></a>Anslutnings parametrar
 I det här avsnittet visas parametrarna för de exempel som beskrivs i föregående avsnitt.
 
-| **Parametern**                | **Värde**                    |
+| **ProfileServiceApplicationProxy**                | **Värde**                    |
 | ---                          | ---                          |
 | Prefix för virtuella nätverks adresser        | 10.11.0.0/16<br>10.12.0.0/16 |
 | IP för Azure VPN-gateway         | Azure VPN Gateway-IP         |

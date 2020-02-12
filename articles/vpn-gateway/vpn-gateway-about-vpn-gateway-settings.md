@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ecea0576f7cec4e70d6e223b5412a8d8057b2ab
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894732"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148169"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 
@@ -28,7 +28,7 @@ Värdena i den här artikeln tillämpar VPN-gatewayer (virtuella nätverksgatewa
 
 * För virtuellt WAN-nätverk, se [om virtuellt WAN](../virtual-wan/virtual-wan-about.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="gwtype"></a>Gateway-typer
 
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Konfigurera en gateway-SKU
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 Om du använder Azure Portal för att skapa en virtuell nätverksgateway i Resource Manager kan du välja Gateway-SKU: n med hjälp av list rutan. De alternativ som visas motsvarar den gateway-typ och VPN-typ som du väljer.
 
@@ -172,7 +172,7 @@ För ytterligare tekniska resurser och särskilda syntax krav för att använda 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
+| [REST-API](https://msdn.microsoft.com/library/jj154113) |[REST-API](/rest/api/network/virtualnetworkgateways) |
 | Stöds inte | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Nästa steg

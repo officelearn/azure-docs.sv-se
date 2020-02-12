@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 74ede523c9747de4746fe1854bd1e352eba2f7e3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750993"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148903"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor data plattform
 
@@ -38,7 +38,7 @@ Azure-resurser genererar en betydande mängd övervaknings data. Azure Monitor k
 
 Mått i Azure Monitor lagras i en databas för tids serier som är optimerad för att analysera tidsstämplade data. Detta gör mått som är särskilt lämpade för aviseringar och snabb identifiering av problem. De kan tala om för dig hur systemet presterar, men det måste vanligt vis kombineras med loggar för att identifiera rotor saken till problem.
 
-Mått är tillgängliga för interaktiv analys i Azure Portal med [Metrics Explorer](../app/metrics-explorer.md). De kan läggas till i en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data och används för [aviseringar](alerts-metric.md)i nära real tid.
+Mått är tillgängliga för interaktiv analys i Azure Portal med [Azure Metrics Explorer](../platform/metrics-getting-started.md). De kan läggas till i en [Azure-instrumentpanel](../learn/tutorial-app-dashboards.md) för visualisering i kombination med andra data och används för [aviseringar](alerts-metric.md)i nära real tid.
 
 Läs mer om Azure Monitor mått, inklusive deras data källor i [mått i Azure Monitor](data-platform-metrics.md).
 
@@ -69,7 +69,7 @@ I följande tabell jämförs mått och loggar i Azure Monitor.
 
 | Attribut  | Mått | Loggar |
 |:---|:---|:---|
-| Erbjudande | Lätta och kan användas nära real tids scenarier, till exempel aviseringar. Idealisk för snabb identifiering av problem. | Analyseras med RTF-frågespråket. Perfekt för djup analys och identifiering av rotor saken. |
+| Fördelar | Lätta och kan användas nära real tids scenarier, till exempel aviseringar. Idealisk för snabb identifiering av problem. | Analyseras med RTF-frågespråket. Perfekt för djup analys och identifiering av rotor saken. |
 | Data | Endast numeriska värden | Text eller numeriska data |
 | Struktur | Standard uppsättning egenskaper, inklusive exempel tid, resurs som övervakas, ett numeriskt värde. Vissa mått innehåller flera dimensioner för ytterligare definition. | Unik uppsättning egenskaper beroende på logg typen. |
 | Samling | Samlas in med jämna mellanrum. | Kan samlas in sporadiskt när händelser utlöser en post som ska skapas. |
@@ -83,7 +83,7 @@ Se [mått i Azure Monitor](data-platform-metrics.md) och [loggar i Azure Monitor
 
 
 ## <a name="stream-data-to-external-systems"></a>Stream-data till externa system
-Förutom att använda verktygen i Azure för att analysera övervakningsdata, kan du ha ett krav att vidarebefordra det till ett externt verktyg, till exempel en säkerhetsinformations- och event management (SIEM)-produkt. Den här vidarebefordran normalt görs direkt från övervakade resurser via [Azure Event Hubs](/azure/event-hubs/). Vissa källor kan konfigureras för att skicka data direkt till en Event Hub medan du kan använda en annan process, till exempel en Logic app, för att hämta nödvändiga data. Mer information finns i [data Ströms övervaknings data i Azure till en händelsehubben för användning av ett externt verktyg](stream-monitoring-data-event-hubs.md) .
+Förutom att använda verktygen i Azure för att analysera övervakningsdata, kan du ha ett krav att vidarebefordra det till ett externt verktyg, till exempel en säkerhetsinformations- och event management (SIEM)-produkt. Den här vidarebefordran görs normalt direkt från övervakade resurser via [Azure Event Hubs](/azure/event-hubs/). Vissa källor kan konfigureras för att skicka data direkt till en Event Hub medan du kan använda en annan process, till exempel en Logic app, för att hämta nödvändiga data. Mer information finns i [data Ströms övervaknings data i Azure till en händelsehubben för användning av ett externt verktyg](stream-monitoring-data-event-hubs.md) .
 
 
 
@@ -91,4 +91,4 @@ Förutom att använda verktygen i Azure för att analysera övervakningsdata, ka
 
 - Läs mer om [mått i Azure Monitor](data-platform-metrics.md).
 - Läs mer om [loggar i Azure Monitor](data-platform-logs.md).
-- Lär dig mer om den [övervakningsdata är tillgängliga](data-sources.md) för olika resurser i Azure.
+- Lär dig mer om [övervaknings data som är tillgängliga](data-sources.md) för olika resurser i Azure.

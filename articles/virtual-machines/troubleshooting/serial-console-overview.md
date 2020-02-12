@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134056"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153867"
 ---
 # <a name="azure-serial-console"></a>Azures serie konsol
 
@@ -66,37 +66,6 @@ Serie konsolen är tillgänglig för skalnings uppsättningar för virtuella dat
   1. I avsnittet **support och fel sökning** väljer du **seriell konsol**. Ett nytt fönster med seriell konsol öppnas och börjar anslutningen.
 
      ![Serie konsol för skalnings uppsättning för virtuella Linux-datorer](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-## <a name="serial-console-rbac-role"></a>RBAC-roll för seriell konsol
-Som nämnts ovan kräver serie konsolen VM-deltagare eller större åtkomst till den virtuella datorn eller skalnings uppsättningen för den virtuella datorn. Om du inte vill ge VM-deltagare till en användare, men ändå vill ge en användare åtkomst till en seriell konsol, kan du göra det med följande roll:
-
-```
-{
-  "Name": "Serial Console Role",
-  "IsCustom": true,
-  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
-  "Actions": [
-      "Microsoft.Compute/virtualMachines/*/write",
-      "Microsoft.Compute/virtualMachines/*/read",
-      "Microsoft.Storage/storageAccounts/*"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<subscriptionId>"
-  ]
-}
-```
-
-### <a name="to-create-and-use-the-role"></a>Skapa och använda rollen:
-*   Spara JSON på en känd plats – t. ex. `~/serialconsolerole.json`.
-*   Använd följande AZ CLI-kommando för att skapa roll definitionen: `az role definition create --role-definition serialconsolerole.json -o=json`
-*   Om du behöver uppdatera rollen använder du följande kommando: `az role definition update --role-definition serialconsolerole.json -o=json`
-*   Rollen visas i Access Control (IAM) i portalen (det kan ta några minuter att sprida)
-*   Du kan lägga till användare i den virtuella datorn och lagrings kontot för startdiagnostik med den anpassade roll rollen
-    *   Observera att användaren måste beviljas den anpassade rollen på den virtuella datorn *och* lagrings kontot för startdiagnostik
-
 
 ## <a name="advanced-uses-for-serial-console"></a>Avancerade användnings områden för serie konsolen
 Förutom konsol åtkomst till den virtuella datorn kan du också använda Azures serie konsol för följande:

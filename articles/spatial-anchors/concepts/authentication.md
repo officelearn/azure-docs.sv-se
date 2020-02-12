@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 823ce8d523a231875705d7c4d3f46cfd8fd24994
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270588"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152609"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -96,6 +96,13 @@ Den rekommenderade metoden är att använda en Azure AD-token för program som �
 
 1. Konfiguration i Azure Portal
     1.  Registrera ditt program i Azure AD som ett **internt program**. Som en del av registreringen måste du bestämma om ditt program ska vara flera innehavare eller inte och ange de omdirigerings-URL: er som tillåts för ditt program.
+        1.  Växla till fliken **API-behörigheter**
+        2.  Välj **Lägg till en behörighet**
+            1.  Välj **resurs leverantör för Mixad verklighet** under **API: er min organisation använder** flik
+            2.  Välj **delegerade behörigheter**
+            3.  Markera kryss rutan för **mixedreality. signin** under **mixedreality**
+            4.  Välj **Lägg till behörigheter**
+        3.  Välj **bevilja administratörs medgivande**
     2.  Ge ditt program eller dina användare åtkomst till din resurs:
         1.  Navigera till resurser för spatial ankare i Azure Portal
         2.  Växla till fliken **åtkomst kontroll (IAM)**

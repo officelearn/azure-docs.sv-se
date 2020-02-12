@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: ce1e7d3b3b9908d5c4608f6ab62e9b743f80c0b0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f7f8989cd1a174ecd66f23324a7760fb5cbb665b
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838014"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148084"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio (klassisk) modell går från ett experiment till en webb tjänst
 Azure Machine Learning Studio (klassisk) tillhandahåller en interaktiv arbets yta som gör att du kan utveckla, köra, testa och iterera ett ***experiment*** som representerar en förutsägelse analys modell. Det finns en mängd olika moduler som kan:
@@ -49,7 +49,7 @@ Här följer de steg som en typisk lösning följer när du utvecklar och distri
 ***Övnings experimentet*** är den inledande fasen av att utveckla din webb tjänst i Machine Learning Studio (klassisk). Syftet med övnings experimentet är att ge dig en plats för att utveckla, testa, iterera och slutligen träna en maskin inlärnings modell. Du kan till och med träna flera modeller samtidigt när du söker efter den bästa lösningen, men när du är klar med experimentet väljer du en enda utbildad modell och tar bort resten från experimentet. Ett exempel på att utveckla ett förutsägelse analys experiment finns i [utveckla en förutsägelse analys lösning för kredit riskbedömning i Azure Machine Learning Studio (klassisk)](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>Förutsägande experiment
-När du har en tränad modell i ditt utbildnings experiment klickar du på **Konfigurera webb tjänsten** och väljer **förutsägbar webb tjänst** i Machine Learning Studio (klassisk) för att starta processen med att konvertera ditt utbildnings experiment till en ***förutsägelse experiment***. Syftet med förutsägande experiment är att använda din tränade modell för att ta fram nya data, med målet att bli drifts dugligd som en Azure-webbtjänst.
+När du har en tränad modell i ditt utbildnings experiment klickar du på **Konfigurera webb tjänsten** och väljer **förutsägbar webb tjänst** i Machine Learning Studio (klassisk) för att starta processen med att konvertera ditt utbildnings experiment till ett ***förutsägelse experiment***. Syftet med förutsägande experiment är att använda din tränade modell för att ta fram nya data, med målet att bli drifts dugligd som en Azure-webbtjänst.
 
 Den här omvandlingen görs med hjälp av följande steg:
 
@@ -95,14 +95,14 @@ Här är ett exempel: Antag att ditt förutsägelse experiment returnerar hela r
 
 Om du vill behålla din Machine Learning-modell, men du vill träna den med nya data, har du två alternativ:
 
-1. **Träna om modellen medan webb tjänsten körs** – om du vill träna om modellen medan den förutsägbara webb tjänsten körs, kan du göra detta genom att göra några ändringar i övnings experimentet och göra det till en ***omskolning***. Du kan distribuera den som en  ***webb* tjänst**för att träna. Instruktioner för hur du gör detta finns i [omträna Machine Learning modeller program mässigt](/azure/machine-learning/studio/retrain-machine-learning-model).
+1. **Träna om modellen medan webb tjänsten körs** – om du vill träna om modellen medan den förutsägbara webb tjänsten körs, kan du göra detta genom att göra några ändringar i övnings experimentet och göra det till en ***omskolning***, och sedan kan du distribuera det som en  ***webb* tjänst**för att träna. Instruktioner för hur du gör detta finns i [omträna Machine Learning modeller program mässigt](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Gå tillbaka till det ursprungliga inlärnings experimentet och Använd olika tränings data för att utveckla din modell** – ditt förutsägelse experiment är länkat till webb tjänsten, men utbildnings experimentet är inte direkt länkat på det här sättet. Om du ändrar det ursprungliga inlärnings experimentet och klickar på **Konfigurera webb tjänsten**, kommer det att skapa ett *nytt* förutsägelse experiment som, när det distribueras, kommer att skapa en *ny* webb tjänst. Den ursprungliga webb tjänsten uppdateras inte bara.
 
    Om du behöver ändra inlärnings experimentet öppnar du det och klickar på **Spara som** för att göra en kopia. Detta lämnar det ursprungliga inlärnings experimentet, förebyggande experimentet och webb tjänsten. Nu kan du skapa en ny webb tjänst med dina ändringar. När du har distribuerat den nya webb tjänsten kan du bestämma om du vill stoppa den tidigare webb tjänsten eller låta den köras bredvid den nya.
 
 **Du vill träna en annan modell**
 
-Om du vill göra ändringar i det ursprungliga förutsägande experimentet, till exempel välja en annan algoritm för maskin inlärning, prova en annan utbildnings metod osv., måste du följa den andra proceduren som beskrivs ovan för att träna om din modell: öppna övnings experiment, klicka på **Spara som** för att göra en kopia och börja sedan med att utveckla den nya sökvägen till utveckla din modell, skapa ett förutsägelse experiment och distribuera webb tjänsten. Detta skapar en ny webb tjänst som inte är relaterad till den ursprungliga, som du kan välja vilken eller båda, som ska fortsätta köras.
+Om du vill göra ändringar i ditt ursprungliga förutsägelse experiment, till exempel om du väljer en annan algoritm för maskin inlärning, försöker med en annan utbildnings metod osv., måste du följa den andra proceduren som beskrivs ovan för att träna om din modell: öppna övnings experimentet, klicka på **Spara som** för att göra en kopia och starta sedan den nya sökvägen till utveckla din modell, skapa förutsägande experiment och distribuera webb tjänsten. Detta skapar en ny webb tjänst som inte är relaterad till den ursprungliga, som du kan välja vilken eller båda, som ska fortsätta köras.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om processen för att utveckla och experimentera finns i följande artiklar:

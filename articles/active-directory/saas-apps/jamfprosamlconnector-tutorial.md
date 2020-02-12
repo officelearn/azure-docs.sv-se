@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80bc0a1680d43b40b5ab69db5ded5898e5a52ddf
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
-ms.translationtype: HT
+ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137479"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150345"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Självstudie: Azure Active Directory SSO-integrering med JAMF Pro
 
@@ -164,7 +164,7 @@ I det här avsnittet beviljar du B. Simon-åtkomst till JAMF Pro.
 
 7. Rulla ned till **användar mappnings** avsnittet på samma sida. Utför sedan följande steg.
 
-    ![Avsnittet användar mappning på sidan för enkel inloggning i JAMF Pro.](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+    ![Avsnittet användar mappning på sidan för enkel inloggning i JAMF Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
 
     a. Välj alternativet **NameID** för **identitets leverantörens användar mappning**. Som standard är det här alternativet inställt på **NameID**, men du kan definiera ett anpassat attribut.
 

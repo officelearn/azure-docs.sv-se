@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 11ee8f52a8fd4db2d052eeaeef1387b011d23050
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 7909fbb958a66d00616d4ed1b844d02bb47d997e
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131555"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152507"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Använda NewTek TriCaster-kodaren för att skicka en enda bit hastighet i real tid  
 > [!div class="op_single_selector"]
@@ -34,10 +34,10 @@ Den här artikeln visar hur du konfigurerar [NewTek TriCaster](https://newtek.co
 
 Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac eller Linux använder du Azure Portal för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
+När du använder TriCaster för att skicka en bidrags väg till AMS-kanaler som är aktiverade för Live encoding, kan det finnas video-/ljud fel i din Live-händelse om du använder vissa funktioner i TriCaster, t. ex. snabb styckning mellan matningar eller växlar till/från arbets flöden. AMS-teamet arbetar på att åtgärda de här problemen tills du har det inte rekommenderas att använda dessa funktioner.
+
 > [!NOTE]
-> När du använder TriCaster för att skicka en bidrags väg till AMS-kanaler som är aktiverade för Live encoding, kan det finnas video-/ljud fel i din Live-händelse om du använder vissa funktioner i TriCaster, t. ex. snabb styckning mellan matningar eller växlar till/från arbets flöden. AMS-teamet arbetar på att åtgärda de här problemen tills du har det inte rekommenderas att använda dessa funktioner.
->
->
+>  Överväg att flytta till TLS 1,2, prefferred TLS-versionen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

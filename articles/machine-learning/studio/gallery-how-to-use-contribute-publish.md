@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5049bdfdc84df16c4b8070decf47fd2d726d7777
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427562"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153034"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI Gallery
 
@@ -24,7 +24,7 @@ Galleriet har en mängd resurser som du kan använda för att utveckla egna anal
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Vad kan jag hitta i galleriet?
 
-Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Microsoft och medlemmar av data vetenskaps gruppen. Dessa är:
+Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Microsoft och medlemmar av data vetenskaps gruppen. Exempel på dessa är:
 
 * **Experiment** – galleriet innehåller en mängd olika experiment som har utvecklats i Azure Machine Learning Studio (klassisk). Detta sträcker sig från snabba koncept experiment som demonstrerar en speciell maskin inlärnings teknik, till fullständigt utvecklade lösningar för komplexa maskin inlärnings problem.
 * **Självstudier** – ett antal självstudier finns tillgängliga för att vägleda dig genom maskin inlärnings tekniker och-koncept, eller för att beskriva avancerade metoder för att lösa olika Machine Learning-problem.
@@ -55,7 +55,7 @@ Du kan hämta **experiment**, **anpassade moduler**och **Jupyter-anteckningsböc
 Så här hämtar du en resurs i AI-galleriet:
 
 1. Öppna resursen i AI-galleriet.
-1. Klicka på **öppna i Studio**.
+1. Klicka på **Öppna i Studio**.
 
 ![Öppna ett objekt från AI-galleriet](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
@@ -88,9 +88,9 @@ Och du kan logga in med ett diskussions verktyg som Disqus för att få meddelan
 
 1. I galleriet anger du ett **namn** och **taggar** som är beskrivande. Markera de metoder som du har använt eller det verkliga problem du löser. Ett exempel på en beskrivande experiment rubrik är ”binär klassificering: Twitter-Attitydanalys”.
 
-1. I den **sammanfattning** anger du en sammanfattning av experimentet. Beskriv experimentet löste problemet och hur du närmat sig.
+1. Ange en sammanfattning av experimentet i rutan **Sammanfattning** . Beskriv experimentet löste problemet och hur du närmat sig.
 
-1. I den **detaljerad beskrivning** rutan, beskriver de steg som du har gjort i varje del av experimentet. Vissa användbara avsnitt att inkludera är:
+1. Beskriv de steg du vidtog i varje del av experimentet i rutan **detaljerad beskrivning** . Vissa användbara avsnitt att inkludera är:
    * Skärmbild av experimentet graph
    * Datakällor och förklaring
    * Databearbetning
@@ -98,19 +98,19 @@ Och du kan logga in med ett diskussions verktyg som Disqus för att få meddelan
    * Modellbeskrivning
    * Resultat och utvärdering av modellprestanda
 
-   Du kan använda markdown för att formatera en beskrivning. Om du vill se hur dina poster i experimentet beskrivningssida ser ut när experimentet har publicerats, **förhandsversion**.
+   Du kan använda markdown för att formatera en beskrivning. Om du vill se hur dina poster på sidan experiment beskrivning kommer att se ut när experimentet publiceras väljer du för **hands version**.
 
    > [!TIP]
    > Textrutorna för markdown-redigering och förhandsgranskning är små. Vi rekommenderar att du skriver experiment dokumentationen i en markdown-redigerare (t. ex. [Visual Studio Code](https://aka.ms/vscode)) och kopierar och klistrar in den färdiga dokumentationen i text rutan i galleriet.
 
-1. På den **valet av** väljer du en miniatyrbild för experimentet. På miniatyrbilden visas överst på sidan med experiment och i panelen experiment. Andra användare ser på miniatyrbilden när de söker i galleriet. Du kan ladda upp en bild från datorn eller välj en bild från galleriet.
+1. På sidan **avbildnings val** väljer du en miniatyr bild för experimentet. På miniatyrbilden visas överst på sidan med experiment och i panelen experiment. Andra användare ser på miniatyrbilden när de söker i galleriet. Du kan ladda upp en bild från datorn eller välj en bild från galleriet.
 
-1. På den **inställningar** sidan under **synlighet**, Välj om du vill publicera innehållet offentligt (**offentliga**) eller att den endast är tillgängligt för personer som har en länk till sidan ( **Olistade**).
+1. På sidan **Inställningar** under **synlighet**väljer du om du vill publicera ditt innehåll offentligt (**offentligt**) eller om du vill att det endast ska vara tillgängligt för personer som har en länk till sidan (inte**listad**).
 
    > [!TIP]
-   > Om du vill kontrollera att din dokumentation ser korrekt ut innan du släpper offentligt du först publicera experiment som **nya**. Senare, du kan ändra synlighetsinställningen till **offentliga** på sidan med experiment. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
+   > Om du vill vara säker på att dokumentationen ser korrekt ut innan du släpper den offentligt, kan du börja med att publicera experimentet som inte **visas**. Senare kan du ändra Synlighets inställningen till **offentlig** på sidan experiment information. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
 
-1. Om du vill publicera experimentet i galleriet, Välj den **OK** kryssmarkeringen.
+1. Om du vill publicera experimentet i galleriet markerar du kryss rutan **OK** .
 
 ### <a name="update-your-experiment"></a>Uppdatera experimentet
 
@@ -122,22 +122,22 @@ Du kan ändra följande information för experimentet direkt i galleriet:
 * Sammanfattning eller beskrivning
 * Taggar
 * Bild
-* Inställningar (**offentliga** eller **nya**)
+* Synlighets inställning (**offentlig** eller inte **listad**)
 
 Du kan också ta bort experimentet från galleriet.
 
 Du kan göra dessa ändringar eller ta bort du experimentet, från sidan experiment eller från din profilsida i galleriet.
 
-* På sidan med experiment, om du vill ändra information om ditt experiment, Välj **redigera**. Sidan försätts i redigeringsläge. Om du vill göra ändringar, Välj **redigera** bredvid experiment namn, sammanfattning eller taggar. När du är klar med ändringarna väljer **klar**. Ändra inställningarna för kolumnsynlighet för experimentet (**offentliga** eller **nya**), eller om du vill ta bort experimentet från galleriet, Välj den **inställningar** ikon.
+* På sidan experiment information, för att ändra information om experimentet, väljer du **Redigera**. Sidan försätts i redigeringsläge. Om du vill göra ändringar väljer du **Redigera** bredvid experimentets namn, Sammanfattning eller taggar. När du är klar med ändringarna väljer du **klar**. Om du vill ändra Synlighets inställningarna för experimentet (**offentligt** eller ej **listat**) eller ta bort experimentet från galleriet väljer du ikonen **Inställningar** .
 
-* Välj nedpilen för experimentet på din profilsida och välj sedan **redigera**. Detta tar dig till sidan för ditt experiment i redigeringsläge. När du är klar med ändringarna, Välj **klar**. Om du vill ta bort experimentet från galleriet, Välj **ta bort**.
+* På din profil sida väljer du nedåtpilen för experimentet och väljer sedan **Redigera**. Detta tar dig till sidan för ditt experiment i redigeringsläge. När du har gjort ändringarna väljer du **klar**. Om du vill ta bort experimentet från galleriet väljer du **ta bort**.
 
 ### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Tips för att dokumentera och publicera ditt experiment
 
 * Du kan anta att läsaren har tidigare datavetenskap upplevelse, men det kan vara bra att använda enkla språk. Innehåller en förklaring i detalj när det är möjligt.
 * Ge tillräckligt med information och detaljerade förklaringar för att kunna gå experimentet.
 * Visuella objekt kan vara användbart att tolka och använda dokumentationen experiment på rätt sätt. Visuella objekt är experimentdiagram och skärmdumpar av data.
-* Om du inkluderar en data uppsättning i experimentet (det vill säga du inte importerar data uppsättningen via modulen importera data), är data uppsättningen en del av experimentet och publiceras i galleriet. Se till att den data uppsättning som du publicerar har licens villkor som tillåter delning och nedladdning av vem som helst. Bidrag till galleriet ingår i Azure [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/).
+* Om du inkluderar en data uppsättning i experimentet (det vill säga du inte importerar data uppsättningen via modulen importera data), är data uppsättningen en del av experimentet och publiceras i galleriet. Se till att den data uppsättning som du publicerar har licens villkor som tillåter delning och nedladdning av vem som helst. Galleri bidrag omfattas av [användnings villkoren för](https://azure.microsoft.com/support/legal/website-terms-of-use/)Azure.
 
 ## <a name="contribute-tutorials-and-collections"></a>Contribute-självstudier och samlingar
 
@@ -156,7 +156,7 @@ Du kan hjälpa andra genom att skriva en **själv studie kurs** i galleriet som 
 1. På sidan **Inställningar** , för **synlighet**, väljer du om ditt bidrag är **offentligt** (vem som helst kan se det **) eller inte** (endast personer med en direkt länk kan visa det).
 
    > [!TIP]
-   > Om du vill kontrollera att din dokumentation ser korrekt ut innan du släpper offentligt du först publicera experiment som **nya**. Senare, du kan ändra synlighetsinställningen till **offentliga** på sidan med experiment. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
+   > Om du vill vara säker på att dokumentationen ser korrekt ut innan du släpper den offentligt, kan du börja med att publicera experimentet som inte **visas**. Senare kan du ändra Synlighets inställningen till **offentlig** på sidan experiment information. Observera att när du har angett ett experiment som är **offentligt** kan du inte senare ändra det till **Unlisted**.
 
 1. Välj **Skapa**.
 
@@ -177,7 +177,7 @@ Du kan redigera objekten i samlingen genom att välja **Redigera**.
 * Om du vill lägga till anteckningar i objekten i samlingen markerar du det övre högra hörnet av ett objekt och väljer sedan **Lägg till/Redigera anteckning**.
 * Om du vill ta bort ett objekt från samlingen markerar du det övre högra hörnet av ett objekt och väljer sedan **ta bort**.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **Vilka är kraven för att skicka eller redigera en avbildning?**
 
@@ -185,20 +185,20 @@ Avbildningar som du skickar med ditt bidrag används för att skapa en panel. Vi
 
 **Vad händer med data uppsättningen jag använde i ett experiment? Har data uppsättningen även publicerats i galleriet?**
 
-Om din data uppsättning är en del av experimentet och inte importeras via modulen importera data, publiceras data uppsättningen i galleriet som en del av experimentet. Kontrol lera att den data uppsättning som du publicerar med ditt experiment har lämpliga licens villkor. Licensvillkoren ska tillåta vem som helst kan dela och hämta data. Bidrag till galleriet ingår i Azure [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/).
+Om din data uppsättning är en del av experimentet och inte importeras via modulen importera data, publiceras data uppsättningen i galleriet som en del av experimentet. Kontrol lera att den data uppsättning som du publicerar med ditt experiment har lämpliga licens villkor. Licensvillkoren ska tillåta vem som helst kan dela och hämta data. Galleri bidrag omfattas av [användnings villkoren för](https://azure.microsoft.com/support/legal/website-terms-of-use/)Azure.
 
 **Jag har ett experiment som använder modulen importera data för att hämta data från Azure HDInsight eller SQL Server. Den använder mina autentiseringsuppgifter för att hämta data. Kan jag publicera den här typen av experiment? Hur kan jag vara säker på att mina autentiseringsuppgifter inte delas?**
 
 För närvarande kan du inte publicera i galleriet ett experiment som använder autentiseringsuppgifter.
 
-**Hur anger jag flera taggar?**
+**Hur gör jag för att ange flera taggar?**
 
 När du anger en tagg för att ange en annan tagg, trycker du på TABB-tangenten.
 
-## <a name="we-want-to-hear-from-you"></a>Vi vill gärna höra vad du har att säga.
+## <a name="we-want-to-hear-from-you"></a>Vi vill gärna höra från dig!
 
 Vi vill att galleriet ska drivas av våra användare och för våra användare. Använd glad till höger för att berätta för oss vad du älskar eller hat om galleriet.  
 
 ![Feedback](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[TA MIG TILL TJÄNSTEN GALLERIET &GT;&GT;](https://gallery.azure.ai)**
+**[TA mig till GALLERIet > >](https://gallery.azure.ai)**

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024593"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149838"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -74,7 +74,7 @@ För att ge dina användare enkel åtkomst till dina molnappar stöder Azure AD 
 
 Idag kommer majoriteten av att kompromissa inloggnings försök komma från äldre autentisering. Äldre autentisering stöder inte Multi-Factor Authentication. Även om du har aktiverat en Multi-Factor Authentication princip i din katalog kan en angripare autentisera med hjälp av ett äldre protokoll och kringgå Multi-Factor Authentication. 
 
-När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autentiseringsbegäranden som gjorts av ett äldre protokoll att blockeras. Säkerhets standarder blockerar inte Exchange ActiveSync.
+När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autentiseringsbegäranden som gjorts av ett äldre protokoll att blockeras. Säkerhets standardvärden blockerar Exchange Active Sync grundläggande autentisering.
 
 > [!WARNING]
 > Innan du aktiverar säkerhets inställningarna kontrollerar du att administratörerna inte använder äldre autentiseringsprotokoll. Mer information finns i [så här flyttar du bort från äldre autentisering](concept-fundamentals-block-legacy-authentication.md).
@@ -83,7 +83,7 @@ När säkerhets inställningarna har Aktiver ATS i din klient kommer alla autent
 
 Organisationer använder en mängd olika Azure-tjänster som hanteras via Azure Resource Manager API, inklusive:
 
-- Azure portal 
+- Azure-portalen 
 - Azure PowerShell 
 - Azure CLI
 

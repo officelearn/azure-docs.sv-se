@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 16689982156743f5dc4e2ed09a0f9bc097a51b9b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 6e1b162d17e2369b579fc1210c57e0409b0546bc
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903041"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148478"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera konfigurationsfiler för VPN-klienten för P2S RADIUS-autentisering
 
@@ -38,7 +38,6 @@ Konfigurations arbets flödet för P2S RADIUS-autentisering är följande:
 
 Om du vill använda avsnitten i den här artikeln bestämmer du först vilken typ av autentisering du vill använda: användar namn/lösen ord, certifikat eller andra typer av autentisering. I varje avsnitt finns det steg för Windows, Mac OS X och Linux (begränsade steg som är tillgängliga just nu).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="adeap"></a>Autentisering av användar namn/lösen ord
 
@@ -50,7 +49,7 @@ När du konfigurerar autentisering av användar namn/lösen ord kan du bara skap
 
 Du kan generera VPN-klientens konfigurationsfiler genom att använda Azure Portal eller genom att använda Azure PowerShell.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 1. Navigera till den virtuella Nätverksgatewayen.
 2. Klicka på **punkt-till-plats-konfiguration**.

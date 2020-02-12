@@ -1,5 +1,6 @@
 ---
-title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
+title: ContentDefinitions
+titleSuffix: Azure AD B2C
 description: Ange ContentDefinitions-elementet för en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3a940c7676a59ed85d5cf16c76f72a12ce0026d5
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 724736bedd81ea45d7472a615fa22cde6916f21c
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136276"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148869"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -56,7 +57,6 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
   ...
 ```
 
-
 ## <a name="contentdefinition"></a>ContentDefinition
 
 **ContentDefinition** -elementet innehåller följande attribut:
@@ -72,22 +72,59 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | LoadUri | 1:1 | En sträng som innehåller webb adressen till HTML5-sidan för innehålls definitionen. |
 | RecoveryUri | 0:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehålls definitionen. |
 | DataUri | 1:1 | En sträng som innehåller den relativa URL: en för en HTML-fil som ger användar upplevelsen för att anropa steget. |
-| Metadata | 1:1 | En samling nyckel/värde-par som innehåller de metadata som används av innehålls definitionen. |
+| Metadata | 0:1 | En samling nyckel/värde-par som innehåller de metadata som används av innehålls definitionen. |
 | LocalizedResourcesReferences | 0:1 | En samling med lokaliserade resurs referenser. Använd det här elementet för att anpassa lokaliseringen av ett användar gränssnitt och ett anspråks attribut. |
 
 ### <a name="datauri"></a>DataUri
 
-**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Värdets format är `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I följande tabell visas värdena och beskrivningarna av de sid identifierare som du kan använda.
+**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Värdets format är `urn:com:microsoft:aad:b2c:elements:page-name:version`. I följande tabell visas de sid identifierare som du kan använda.
 
-| Värde |   Beskrivning |
+| Sid identifierare | Beskrivning |
 | ----- | ----------- |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Visar en felsida när ett undantag eller ett fel påträffas. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Visar ett formulär som gör det möjligt för användare att skapa eller uppdatera sin profil. |
+| `globalexception` | Visar en felsida när ett undantag eller ett fel påträffas. |
+| `providerselection` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. |
+| `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
+| `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
+| `multifactor` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
+| `selfasserted` | Visar ett formulär som gör det möjligt för användare att skapa eller uppdatera sin profil. |
 
+## <a name="select-a-page-layout"></a>Välj en sidlayout
+
+Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och typ av sida. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+[Versions](page-layout.md) delen av `DataUri` anger det innehålls paket som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i principen. Om du tänker aktivera Java Script på klient sidan måste de element som du baserar Java Script på vara oföränderliga. Om de inte är oföränderliga kan eventuella ändringar orsaka oväntade beteenden på dina användar sidor. Du kan förhindra dessa problem genom att framtvinga användningen av en sidlayout och ange en version för sidlayouten. På så sätt ser du till att alla innehålls definitioner som du har baserat på Java Script är oföränderliga. Även om du inte tänker aktivera Java Script måste du fortfarande ange sidlayouten för sidorna.
+
+I följande exempel visas **DataUri** för `selfasserted` version `1.2.0`:
+
+```xml
+<ContentDefinition Id="api.localaccountpasswordreset">
+<LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+<RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+<DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+<Metadata>
+    <Item Key="DisplayName">Local account change password page</Item>
+</Metadata>
+</ContentDefinition>
+```
+
+#### <a name="migrating-to-page-layout"></a>Migrera till sidlayouten
+
+Formatet för värdet måste innehålla ordet `contract`: _urn: com: Microsoft: AAD: B2C: Elements:**kontrakt**:p ålder-Name: version_. Om du vill ange en sidlayout i dina anpassade principer som använder ett gammalt **DataUri** -värde, använder du följande tabell för att migrera till det nya formatet.
+
+| Gammalt DataUri värde | Nytt DataUri värde |
+| ----------------- | ----------------- |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
@@ -103,19 +140,6 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | --------- | -------- | ----------- |
 | Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
 | LocalizedResourcesReferenceId | Ja | Identifieraren för **LocalizedResources** -elementet. |
-
-I följande exempel visas en innehålls definition för registrering eller inloggning:
-
-```XML
-<ContentDefinition Id="api.signuporsignin">
-  <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-  <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-  <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
-  <Metadata>
-    <Item Key="DisplayName">Signin and Signup</Item>
-  </Metadata>
-</ContentDefinition>
-```
 
 I följande exempel visas en registrerings-eller inloggnings innehålls definition med en referens till lokalisering av engelska, franska och spanska:
 
@@ -154,3 +178,8 @@ ID-attributet för **ContentDefinition** -elementet anger vilken typ av sida som
 | **API. selfasserted. profileupdate** | [updateprofile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Sidan profil uppdatering** – visar ett formulär som användarna kan använda för att uppdatera sin profil. Den här sidan liknar registrerings sidan för sociala konton, förutom fälten för lösen ords inmatning. |
 | **API. signuporsignin** | [Unified. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Enhetlig registrering eller inloggnings sida** – hanterar användarens registrerings-och inloggnings process. Användare kan använda företags identitets leverantörer, sociala identitets leverantörer som Facebook, Google + eller lokala konton. |
 
+## <a name="next-steps"></a>Nästa steg
+
+Ett exempel på hur du anpassar användar gränssnittet med hjälp av innehålls definitioner finns i:
+
+[Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip](custom-policy-ui-customization.md)

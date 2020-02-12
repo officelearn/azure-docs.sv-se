@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e440d9d882d0459d04a15b8f39ea6877707ea096
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6976f0bb671b94f71b71287483c2ab88d0959899
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427451"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152779"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrera analyser från Excel till Azure Machine Learning Studio (klassisk)
 
@@ -54,8 +54,8 @@ I början utförde Excel-modellen klart modellen Studio (klassisk):
 |  | Excel | Studio (klassisk) |
 | --- |:---:|:---:|
 | Prestanda | | |
-| <ul style="list-style-type: none;"><li>Justerad R-kvadrat</li></ul> |0.96 |Gäller inte |
-| <ul style="list-style-type: none;"><li>Koefficienten för <br />Bestämning</li></ul> |Gäller inte |0.78<br />(låg exakthet) |
+| <ul style="list-style-type: none;"><li>Justerad R-kvadrat</li></ul> |0.96 |Saknas |
+| <ul style="list-style-type: none;"><li>Koefficienten för <br />Bestämning</li></ul> |Saknas |0.78<br />(låg exakthet) |
 | Medelvärde för absolut fel |$9,5 m |$19.4 m |
 | Medelvärde för absolut fel (%) |6.03% |12.2% |
 
@@ -71,17 +71,17 @@ När vi använde rekommendationerna har vi uppnått samma bas linje prestanda i 
 
 |  | Excel | Studio (klassisk) (initial) | Studio (klassiskt) med minsta kvadratmetoden |
 | --- |:---:|:---:|:---:|
-| Namngett värde |Faktiska värden (numeriska) |Det |Det |
-| Deltagare |Excel-> data analys-> regression |Linjär regression. |Linjär regression |
-| Alternativ för att lära |Gäller inte |Standardvärden |vanliga minsta kvadratmetoden<br />L2 = 0,005 |
-| Datauppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |Det |Det |
-| Dela: träna |Excel tränade på de första 18 raderna och testats på de sista 8 raderna. |Det |Det |
-| Dela: testa |Excel Regressions formel som tillämpas på de sista 8 raderna |Det |Det |
+| Namngett värde |Faktiska värden (numeriska) |det |det |
+| Learner |Excel-> data analys-> regression |Linjär regression. |Linjär regression |
+| Alternativ för att lära |Saknas |Appar |vanliga minsta kvadratmetoden<br />L2 = 0,005 |
+| Datauppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |det |det |
+| Dela: träna |Excel tränade på de första 18 raderna och testats på de sista 8 raderna. |det |det |
+| Dela: testa |Excel Regressions formel som tillämpas på de sista 8 raderna |det |det |
 | **Prestanda** | | | |
-| Justerad R-kvadrat |0.96 |Gäller inte | |
-| Effektiv bestämning |Gäller inte |0.78 |0.952049 |
+| Justerad R-kvadrat |0.96 |Saknas | |
+| Effektiv bestämning |Saknas |0.78 |0.952049 |
 | Medelvärde för absolut fel |$9,5 m |$19.4 m |$9,5 m |
-| Medelvärde för absolut fel (%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
+| Medelvärde för absolut fel (%) |<span style="background-color: 00FF00;">6,03%</span> |12.2% |<span style="background-color: 00FF00;">6,03%</span> |
 
 Dessutom jämförs Excel-koefficienterna bra med funktions vikterna i den tränade Azure-modellen:
 
@@ -92,7 +92,7 @@ Dessutom jämförs Excel-koefficienterna bra med funktions vikterna i den träna
 | Funktion B |11071967.08 |11007300 |
 | Funktion C |25383318.09 |25140800 |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Vi ville använda den Machine Learning webb tjänsten i Excel. Våra affärsanalytiker förlitar sig på Excel och vi behövde ett sätt att anropa Machine Learning-webbtjänsten med en rad Excel-data och returnera det förväntade värdet till Excel. 
 
 Vi ville också optimera vår modell med hjälp av de alternativ och algoritmer som finns i Studio (klassisk).

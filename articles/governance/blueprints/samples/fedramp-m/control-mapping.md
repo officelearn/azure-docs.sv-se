@@ -3,12 +3,12 @@ title: FedRAMP, måttliga skiss exempel kontroller
 description: Kontroll mappning av exemplet på FedRAMP-måttlig skiss. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544558"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150486"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Kontroll mappning för exemplet på FedRAMP-måttlig skiss
 
@@ -27,7 +27,7 @@ Den här skissen hjälper dig att granska konton som kanske inte uppfyller organ
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
-- Externa konton med skrivbehörigheter bör tas bort från prenumerationen
+- Externa konton med Skriv behörighet bör tas bort från din prenumeration
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Rollbaserade scheman
 
@@ -70,7 +70,7 @@ Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst geno
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
-- Fjärrfelsökning bör inaktive ras för webb program
+- Fjärrfelsökning bör stängas av för webbprogram
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
 
@@ -79,7 +79,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 - Granska diagnostikinställning
 - Granskning på SQL Server måste vara aktiverat
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 
 ## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
 
@@ -95,7 +95,7 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - Granska diagnostikinställning
 - Granskning på SQL Server måste vara aktiverat
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Distribuera granskning på SQL-servrar
 - Distribuera diagnostikinställningar för nätverks säkerhets grupper
@@ -170,7 +170,7 @@ Den här skissen hjälper dig att använda starka lösen ord genom att tilldela 
 Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar sårbarheter för operativ system, sårbarheter i SQL och säkerhets risker för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också princip definitioner som granskar och tillämpar avancerad data säkerhet på SQL-servrar. Avancerad data säkerhet inkluderar sårbarhets bedömning och avancerade hot skydds funktioner som hjälper dig att förstå sårbarheter i dina distribuerade resurser.
 
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
 - Säkerhets problem i säkerhets konfiguration på dina virtuella datorer bör åtgärdas
@@ -190,7 +190,7 @@ Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut pu
 
 - Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
 - Åtkomst via slut punkt mot Internet bör vara begränsad
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
+- Webb portar bör begränsas för nätverks säkerhets grupper som är kopplade till den virtuella datorn
 - Granska obegränsad nätverks åtkomst till lagrings konton
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) gränser skydd | Åtkomst punkter
@@ -212,17 +212,17 @@ Den här skissen hjälper dig att skydda konfidentiell och integritet på överf
 - API-appen bör bara vara tillgänglig via HTTPS
 - Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Funktionsapp bör endast vara tillgängligt via HTTPS
+- Funktionen App bör enbart vara åtkomliga via HTTPS
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade
 - Säker överföring till lagrings konton ska vara aktiverat
-- Webb program bör endast vara tillgängliga via HTTPS
+- Webbprogram bör enbart vara åtkomliga via HTTPS
 
 ## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) skydd av information i vila | Kryptografiskt skydd
 
 Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller för att skydda informationen i vila genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver princip definitionerna som tilldelas av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; och granska saknad kryptering på SQL-databaser, virtuella dator diskar och variabler för Automation-konto.
 
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Distribuera transparent data kryptering för SQL DB
 - Disk kryptering bör tillämpas på virtuella datorer
@@ -268,7 +268,7 @@ Den här skissen hjälper dig att övervaka systemet genom att granska och framt
 - \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
 - \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
 - Distribuera Avancerat skydd på lagrings konton
 - Distribuera granskning på SQL-servrar

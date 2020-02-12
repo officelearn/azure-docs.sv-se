@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,19 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792557"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152677"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Enkel frågesyntax i Azure Kognitiv sökning
 
 Azure Kognitiv sökning implementerar två Lucene-baserade frågespråk: [enkel Query parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) och [Lucene Query parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). I Azure Kognitiv sökning utesluter den enkla frågesyntaxen de oskarpa/lutnings alternativen.  
 
-> [!NOTE]  
->  Azure Kognitiv sökning tillhandahåller en alternativ [Lucene-frågesyntax](query-lucene-syntax.md) för mer komplexa frågor. Mer information om hur du analyserar arkitektur och fördelar med varje syntax finns i [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md).
+> [!NOTE]
+> Den enkla frågesyntaxen används för frågeuttryck som skickas i **Sök** -parametern i [sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) -API: t, inte att förväxlas med [OData-syntaxen](query-odata-filter-orderby-syntax.md) som används för parametern [$filter](search-filters.md) för detta API. Dessa olika syntaxer har sina egna regler för att skapa frågor, undantags strängar och så vidare.
+>
+> Azure Kognitiv sökning innehåller en alternativ [fullständig Lucene-frågesyntax](query-lucene-syntax.md) för mer komplexa frågor i **Sök** parametern. Mer information om hur du analyserar arkitektur och fördelar med varje syntax finns i [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Så här anropar du enkel parsning
 
@@ -72,7 +74,7 @@ Suffixets operator är en asterisk `*`. `lux*` kan till exempel söka efter doku
 
 ## <a name="phrase-search-operator"></a>Fras Sök operator
 
-Fras operatorn innesluter en fras inom citat tecken `" "`. Exempel: när `Roach Motel` (utan citat tecken) söker efter dokument som innehåller `Roach` och/eller `Motel` var som helst, så matchar `"Roach Motel"` (med citat tecken) bara dokument som innehåller hela frasen och i den ordningen (text analys fortfarande gäller).
+Fras operatorn innesluter en fras inom citat tecken `" "`. Exempel: när `Roach Motel` (utan citat tecken) söker efter dokument som innehåller `Roach` och/eller `Motel` var som helst, så matchar `"Roach Motel"` (med citat tecken) bara dokument som innehåller hela frasen och i den ordningen (text analys gäller fortfarande).
 
 ## <a name="precedence-operator"></a>Prioritets operator
 
@@ -88,7 +90,7 @@ Prioritets operatorn omsluter strängen inom parenteser `( )`. `motel+(wifi | lu
 > [!NOTE]  
 >  Även om undantag bevarar token tillsammans, kan text analys dela upp dem, beroende på analys läget. Mer information finns i [språk &#40;stöd&#41; för Azure kognitiv sökning REST API](index-add-language-analyzers.md) .  
 
-## <a name="see-also"></a>Se också  
+## <a name="see-also"></a>Se även  
 
 + [Sök efter &#40;dokument Azure-kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene-frågesyntax](query-lucene-syntax.md)

@@ -320,26 +320,45 @@
         - name: FileStore
           href: /azure/databricks/data/filestore
           maintainContext: true
-    - name: Business Intelligence-verktyg
+    - name: Integreringar
       items:
-        - name: Ansluta BI-verktyg
-          href: /azure/databricks/bi/jdbc-odbc-bi
+        - name: Översikt över integreringar
+          href: /azure/databricks/integrations/index
           maintainContext: true
-        - name: Tableau
-          href: /azure/databricks/bi/tableau
-          maintainContext: true
-        - name: Power BI
-          href: /azure/databricks/bi/power-bi
-          maintainContext: true
-        - name: Alteryx
-          href: /azure/databricks/bi/alteryx
-          maintainContext: true
-        - name: Looker
-          href: /azure/databricks/bi/looker
-          maintainContext: true
-        - name: SQL Workbench/J
-          href: /azure/databricks/bi/workbenchj
-          maintainContext: true
+        - name: Business Intelligence-verktyg
+          items:
+            - name: Ansluta BI-verktyg
+              href: /azure/databricks/bi/jdbc-odbc-bi
+              maintainContext: true
+            - name: Tableau
+              href: /azure/databricks/bi/tableau
+              maintainContext: true
+            - name: Power BI
+              href: /azure/databricks/bi/power-bi
+              maintainContext: true
+            - name: Alteryx
+              href: /azure/databricks/bi/alteryx
+              maintainContext: true
+            - name: Looker
+              href: /azure/databricks/bi/looker
+              maintainContext: true
+            - name: SQL Workbench/J
+              href: /azure/databricks/bi/workbenchj
+              maintainContext: true
+        - name: Partnerdataintegrering
+          items:
+            - name: Översikt över partnerintegreringar
+              href: /azure/databricks/integrations/ingestion/index
+            - name: Qlik-integrering
+              href: /azure/databricks/integrations/ingestion/qlik
+            - name: Fivetran-integrering
+              href: /azure/databricks/integrations/ingestion/fivetran
+            - name: InfoWorks-integrering
+              href: /azure/databricks/integrations/ingestion/infoworks
+            - name: StreamSets-integrering
+              href: /azure/databricks/integrations/ingestion/streamsets
+            - name: Syncsort-integrering
+              href: /azure/databricks/integrations/ingestion/syncsort
     - name: Data Lake
       items:
         - name: Introduktion till Delta Lake
@@ -1818,9 +1837,9 @@
         - name: Versionstyper
           href: /azure/databricks/release-notes/release-types
           maintainContext: true
-        - name: Statussida för Azure Databricks
-          href: /azure/databricks/status
-          maintainContext: true
+    - name: Statussida för Azure Databricks
+      href: /azure/databricks/status
+      maintainContext: true
     - name: Utvecklarguide för R
       href: /azure/machine-learning/r-developers-guide
     - name: Azure-översikt

@@ -9,9 +9,9 @@
   expanded: true
   items:
     - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
-      href: ./servers/quickstart-onboard-portal.md
+      href: ./servers/onboard-portal.md
     - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
-      href: ./servers/quickstart-onboard-powershell.md
+      href: ./servers/onboard-service-principal.md
 - name: Referens
   items:
     - name: Azure Connected Machine Agent CLI-gränssnitt

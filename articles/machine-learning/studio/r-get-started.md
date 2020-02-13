@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 81e232e37e437c4fa9d23a49a720b88511423905
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 3972fb3c0717069f84b177c54e8fc002ec52f469
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427565"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152881"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Komma igång med R-programmeringsspråket i Azure Machine Learning Studio (klassisk)
 
@@ -756,7 +756,7 @@ Kör den här koden och se vad som händer. Observations området som skapas på
 
 Det finns en viss struktur med udda utseende i relationerna mellan dessa variabler. Detta kan bero på trender i data och från det faktum att vi inte har standardiserat variablerna.
 
-### <a name="correlation-analysis"></a>Korrelationsanalys
+### <a name="correlation-analysis"></a>Korrelations analys
 
 För att utföra korrelations analys behöver vi både ta bort och standardisera variablerna. Vi kan bara använda R `scale()`-funktionen, som båda centrerar och skalar variabler. Den här funktionen kan köras snabbare. Jag vill dock visa ett exempel på försvars program i R.
 
@@ -930,7 +930,7 @@ outframe
 
 Den första kodraden är lite knepig och en förklaring kan hjälpa dig att förstå den. Arbeta från insidan vi har följande:
 
-1. Operatorn **[[[** med argumentet**1**väljer vektorn för korrelationer i lags från det första elementet i objekt listan CCF.
+1. Operatorn **[[** med argumentet**1**väljer vektorn för korrelationer i lags från det första elementet i objekt listan CCF.
 2. Funktionen `do.call()` använder funktionen `rbind()` över elementen i listan returnerar efter `lapply()`.
 3. Funktionen `data.frame()` tvingar det resultat som genereras av `do.call()` till en dataframe.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Översätt tal till tal, C# (.net Core Windows) – tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 2b42d427530bb34cbc245d585f7ba01046379a14
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b5aa8cbbdcaca912a25481475e14adcb2159ad94
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467422"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156334"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -26,7 +26,7 @@ Innan du börjar ska du se till att:
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=dotnetcore)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna `Program.cs` och ersätt all kod i den med följande.
 
@@ -43,7 +43,8 @@ Innan du börjar ska du se till att:
            public static async Task TranslateSpeechToSpeech()
            {
                // Creates an instance of a speech translation config with specified subscription key and service region.
-               // Replace with your own subscription key and service region (e.g., "westus").
+               // Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+               // from here: https://aka.ms/speech/sdkregion).   
                var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
                // Sets source and target languages.

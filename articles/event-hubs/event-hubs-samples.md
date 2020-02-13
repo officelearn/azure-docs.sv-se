@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: e70d2e07f74a48e1d99e04c5369a933cfd9cede1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: da950c2219d3faf679953690d207372b64913ba8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905347"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162066"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Git-databaser med exempel för Azure Event Hubs 
-Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). De här exemplen visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
+Du kan hitta Event Hubs exempel på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Dessa exempel demonstrerar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
 
 ## <a name="net-samples"></a>.NET-exempel
 
 | Version | Exempel plats |
 | ------- | ---------------- | 
-| Azure. Messaging. EventHubs version 5 (senaste) | [Event Hubs-exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs processor exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
+| Azure. Messaging. EventHubs version 5 (senaste) | [Event Hubs exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs processor exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
 | Microsoft. Azure. EventHubs version 4 (bakåtkompatibelt) | [GitHub-plats](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
 
 ## <a name="java-samples"></a>Java-exempel
@@ -46,7 +46,7 @@ Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure
 | Azure-eventhub version 5 (senaste) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
 | Azure-eventhub version 1 (bakåtkompatibelt) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
 
-## <a name="nodejs-samples"></a>Node.js-exempel
+## <a name="javascript-samples"></a>JavaScript-exempel
 
 | Version | Exempel plats |
 | ------- | ---------------- | 
@@ -55,20 +55,20 @@ Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure
 
 
 ## <a name="go-samples"></a>Go-kodexempel
-Du kan hitta Go-exempel för Azure Event Hubs i den [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub-lagringsplatsen.
+Du kan hitta go-exempel för Azure Event Hubs i [Azure-Event-Hub-go-GitHub-](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) lagringsplatsen.
 
 ## <a name="azure-cli-samples"></a>Azure CLI-exempel
-Du hittar Azure CLI-exempel för Azure Event Hubs i den [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub-lagringsplatsen.
+Du kan hitta Azure CLI-exempel för Azure Event Hubs i GitHub-lagringsplatsen för [Azure-Event-Hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) .
 
 ## <a name="azure-powershell-samples"></a>Azure PowerShell-exempel
-Du hittar Azure PowerShell-exempel för Azure Event Hubs i den [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub-lagringsplatsen.
+Du kan hitta Azure PowerShell exempel för Azure Event Hubs i GitHub-lagringsplatsen för [Azure-Event-Hub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) .
  
 ## <a name="apache-kafka-samples"></a>Apache Kafka-exempel
-Du kan hitta exempel för Event Hubs för Apache Kafka-funktionen i den [azure-event-hubs-för-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub-lagringsplatsen.
+Du kan hitta exempel för funktionen Event Hubs för Apache Kafka i [Azure-Event-Hub-for-Kafka GitHub-](https://github.com/Azure/azure-event-hubs-for-kafka) lagringsplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan läsa mer om Event Hubs i följande artiklar:
 
-- [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
 - [Event Hubs-funktioner](event-hubs-features.md)
 - [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

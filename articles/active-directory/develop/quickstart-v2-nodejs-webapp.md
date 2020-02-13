@@ -11,20 +11,18 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 0d69f762cea53f2a4c022ad6dddb52faeced1adf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4aa0cce83f9adc8c648656899ec6dc12d498e26b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703345"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160456"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Snabb start: lägga till inloggning med OpenID Anslut till en Node. js-webbapp
 
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
-
 I den här snabb starten får du lära dig hur du konfigurerar OpenID Connect-autentisering i ett webb program som skapats med Node. js med Express. Exemplet är utformat för att köras på vilken plattform som helst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
@@ -120,7 +118,7 @@ $ npm install -g bunyan
 $ node app.js | bunyan
 ```
 
-### <a name="youre-done"></a>Då ska det vara klart!
+### <a name="youre-done"></a>Du är klar!
 
 Du kommer att kunna köra en server på `http://localhost:3000`.
 

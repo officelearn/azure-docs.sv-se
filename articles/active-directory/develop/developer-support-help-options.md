@@ -13,12 +13,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e85a768d8e4f11ca3637bc8f0b394cfb1ea9744a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697480"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160975"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support- och hjälpalternativ för utvecklare
 
@@ -31,7 +31,7 @@ Om du bara börjar integrera med Azure Active Directory (Azure AD), Microsoft-id
 > * Om du hittar ett problem med ett av våra autentiseringspaket, Utlös ett *GitHub* -problem
 > * Slutligen, om du behöver prata med någon, kanske du vill öppna en support förfrågan
 
-## <a name="search"></a>Sök
+## <a name="search"></a>Söka
 
 Om du har en utvecklings fråga kanske du kan hitta svaret i dokumentationen, [GitHub-exempel](https://github.com/azure-samples)eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
 
@@ -60,13 +60,13 @@ Om du inte hittar ett svar på din fråga via sökning skickar du en ny fråga t
 
 |Komponent/Area  | Taggar |
 |---------|---------|
-| ADAL-bibliotek | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
+| ADAL-bibliotek | [ADAL](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL-bibliotek     | [msal](https://stackoverflow.com/questions/tagged/msal) |
-| OWIN mellanprogram  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
+| OWIN mellanprogram  | [[Azure-Active-Directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[Azure-AD-B2B]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure-B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [Microsoft Graph-API](https://developer.microsoft.com/graph/) | [[Microsoft-Graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| Andra områden som rör autentiserings-eller auktoriserings ämnen | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| Andra områden som rör autentiserings-eller auktoriserings ämnen | [[Azure-Active-Directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 Följande inlägg från Stack Overflow innehåller tips om hur du ställer frågor och hur du lägger till käll koden. Följ dessa rikt linjer för att öka sannolikheten för att community-medlemmar ska kunna utvärdera och svara på din fråga snabbt:
 
@@ -79,8 +79,8 @@ Om du hittar ett fel eller problem som rör våra bibliotek kan du generera ett 
 
 En lista över bibliotek och deras GitHub-databaser finns i följande avsnitt:
 
-* [ADAL](active-directory-authentication-libraries.md) -bibliotek och GitHub-databaser
-* [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)och [MSAL. obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) bibliotek och GitHub-databaser
+* [ADAL-bibliotek (Azure Active Directory Authentication Library)](../azuread-dev/active-directory-authentication-libraries.md) och GitHub-databaser
+* Bibliotek för [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) och GitHub-databaser
 
 ## <a name="open-a-support-request"></a>Öppna en supportbegäran
 

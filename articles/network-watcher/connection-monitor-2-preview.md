@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049241"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169326"
 ---
 # <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Enhetlig anslutnings övervakning med anslutnings övervakaren (för hands version)
 
@@ -403,7 +403,7 @@ Om du vill skapa en test grupp i en anslutnings övervakare anger du värdet fö
 
       ![Lägg till destinationer 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Klicka på fliken "slut punkter" om du vill välja virtuella Azure-datorer som mål. Slut punkts listan fylls med O365 och D365-test-URL: er, grupperat efter namn.  Du kan också välja en slut punkt som skapats i andra test grupper i samma anslutnings övervakare. Om du vill lägga till en ny slut punkt klickar du på "+ slut punkt" från det övre högra hörnet på skärmen och anger URL: en för slut punkten/IP/FQDN och namn
+   2. Klicka på fliken "slut punkter" om du vill välja slut punkter som mål. Slut punkts listan fylls med O365 och D365-test-URL: er, grupperat efter namn.  Du kan också välja en slut punkt som skapats i andra test grupper i samma anslutnings övervakare. Om du vill lägga till en ny slut punkt klickar du på "+ slut punkt" från det övre högra hörnet på skärmen och anger URL: en för slut punkten/IP/FQDN och namn
 
       ![Lägg till slut punkter](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -423,7 +423,7 @@ Om du vill skapa en test grupp i en anslutnings övervakare anger du värdet fö
 
       ![Lägg till TG](./media/connection-monitor-2-preview/add-test-config.png)
 
-Alla källor och mål som läggs till i en test grupp med den angivna test konfigurationen får dela upp till enskilda tester. Exempel:
+Alla källor och mål som läggs till i en test grupp med den angivna test konfigurationen får dela upp till enskilda tester. Några exempel:
 
 * Test grupp: TG1
 * Källor: 3 (A, B, C)
@@ -497,7 +497,7 @@ Du kan filtrera listan baserat på:
 
 ![Filtrera tester](./media/connection-monitor-2-preview/cm-view.png)
 
-Exempel:
+Några exempel:
 
 1. För att titta på alla tester i alla anslutnings övervakare (för hands version) där Källans IP = 10.192.64.56:
    1. Ändra vy efter till "tests"

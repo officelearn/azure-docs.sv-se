@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dc911ff06208b1fd0af7651c8274a45c958bf0cd
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274750"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159207"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ för certifikat signering i SAML-token för Galleri-appar i Azure Active Directory
 
@@ -76,4 +76,4 @@ Om du vill ändra ett programs signerings alternativ för SAML-certifikat och al
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera enkel inloggning till program som inte finns i Azure Active Directory app-galleriet](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Felsöka SAML-baserad enkel inloggning](../develop/howto-v1-debug-saml-sso-issues.md)
+* [Felsöka SAML-baserad enkel inloggning](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

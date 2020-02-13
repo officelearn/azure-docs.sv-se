@@ -2,13 +2,13 @@
 title: Åtkomst regler för brand vägg
 description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg genom att tillåta åtkomst till ("vit listning") REST API-och lagrings slut punkts domän namn eller tjänstspecifika IP-adressintervall.
 ms.topic: article
-ms.date: 07/17/2019
-ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/11/2020
+ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745197"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168025"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg
 
@@ -115,6 +115,10 @@ Sök efter den angivna regionen, till exempel **Storage. AustraliaCentral**.
 I ett virtuellt Azure-nätverk använder du nätverks säkerhets regler för att filtrera trafik från en resurs, till exempel en virtuell dator i ett behållar register. För att förenkla skapandet av reglerna för Azure-nätverk använder du **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). En service-tagg representerar en grupp IP-adressprefix för att få åtkomst till en Azure-tjänst globalt eller per Azure-region. Taggen uppdateras automatiskt när adresserna ändras. 
 
 Du kan till exempel skapa en regel för utgående nätverks säkerhets grupp med mål- **AzureContainerRegistry** för att tillåta trafik till ett Azure Container Registry. Om du bara vill tillåta åtkomst till tjänst tag gen i en angiven region anger du regionen i följande format: **AzureContainerRegistry**. [*regions namn*].
+
+## <a name="configure-client-firewall-rules-for-mcr"></a>Konfigurera brand Väggs regler för MCR
+
+Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand vägg kan du läsa mer i rikt linjerna för att konfigurera [brand Väggs regler för MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR är det primära registret för alla Microsoft-publicerade Docker-avbildningar, till exempel Windows Server-avbildningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

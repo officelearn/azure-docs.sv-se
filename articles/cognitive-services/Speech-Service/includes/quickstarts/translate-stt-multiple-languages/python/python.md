@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: identifiera tal, python-tal-tjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: db435c29737c5861fc28f3f90606bf662784eada
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cce536b97c231c26992c1cd6e7d0797b3452c8e5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466841"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156099"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -26,7 +26,7 @@ Innan du börjar ska du se till att:
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=python)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=python)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna `quickstart.py` och ersätt all kod i den med följande.
 
@@ -38,7 +38,8 @@ Innan du börjar ska du se till att:
     def translate_speech_to_text():
 
         # Creates an instance of a speech translation config with specified subscription key and service region.
-        # Replace with your own subscription key and service region (e.g., "westus").
+        # Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+        # from here: https://aka.ms/speech/sdkregion).   
         translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=speech_key, region=service_region)
 
         # Sets source and target languages.

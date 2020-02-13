@@ -2,20 +2,20 @@
 title: SnaSkapa en händelsehubb med Azure CLI – Azure Event Hubs | Microsoft Docs
 description: Den här snabbstarten beskriver hur du skapar en händelsehubb med Azure CLI och sedan skickar och tar emot händelser med Java.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 3bc7b409d590ac096b70431ae009fed36c968307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/11/2020
+ms.author: spelluru
+ms.openlocfilehash: 92fd7d15ee5bc54cc41b78f4ba0d078d3f8fac6b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148251"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162641"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Snabbstart: Skapa en händelsehubb med Azure CLI
 
@@ -23,14 +23,14 @@ Azure Event Hubs är en strömningstjänst för stordata och händelseinmatnings
 
 I den här snabbstarten har du skapat en händelsehubb med hjälp av Azure CLI.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto][] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda Azure CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lokalt måste du utföra följande steg för att logga in i Azure och ange din aktuella prenumeration:
 
@@ -74,16 +74,15 @@ Gratulerar! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namn
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en resursgrupp, en Event Hubs-namnrymd och en händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en event hub, se den **skicka och ta emot händelser** Självstudier: 
+I den här artikeln har du skapat en resursgrupp, en Event Hubs-namnrymd och en händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en händelsehubben finns i självstudierna **skicka och ta emot händelser** : 
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
-- [C (skicka)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (endast reecive)](event-hubs-storm-getstarted-receive.md)
+- [C (endast sändning)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (endast mottagning)](event-hubs-storm-getstarted-receive.md)
 
 [Skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install the Azure CLI]: /cli/azure/install-azure-cli

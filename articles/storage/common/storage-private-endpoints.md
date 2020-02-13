@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806889"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158918"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Använda privata slut punkter för Azure Storage (för hands version)
 
@@ -50,7 +50,7 @@ När du skapar den privata slut punkten måste du ange det lagrings konto och de
 > [!TIP]
 > Skapa en separat privat slut punkt för den sekundära instansen av lagrings tjänsten för bättre Läs prestanda på RA-GRS-konton.
 
-Om du vill läsa tillgänglighet på ett [Geo-redundant lagrings konto med Läs åtkomst](storage-redundancy-grs.md#read-access-geo-redundant-storage)behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser. Du behöver inte skapa en privat slut punkt för den sekundära instansen för **redundansväxling**. Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen.
+Om du vill ha Läs behörighet till den sekundära regionen med ett lagrings konto som kon figurer ATS för Geo-redundant lagring, behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser av tjänsten. Du behöver inte skapa en privat slut punkt för den sekundära instansen för **redundansväxling**. Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen. Mer information om alternativ för redundans finns [Azure Storage redundans](storage-redundancy.md).
 
 #### <a name="resources"></a>Resurser
 
@@ -106,9 +106,9 @@ De rekommenderade DNS-zonnamn för privata slut punkter för lagrings tjänster 
 | :--------------------- | :----------------------------------- |
 | Blob Service           | `privatelink.blob.core.windows.net`  |
 | Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Filtjänst           | `privatelink.file.core.windows.net`  |
+| Fil tjänst           | `privatelink.file.core.windows.net`  |
 | Kötjänst          | `privatelink.queue.core.windows.net` |
-| Tabelltjänst          | `privatelink.table.core.windows.net` |
+| Table service          | `privatelink.table.core.windows.net` |
 | Statiska webbplatser        | `privatelink.web.core.windows.net`   |
 
 #### <a name="resources"></a>Resurser
@@ -118,7 +118,7 @@ Mer information om hur du konfigurerar en egen DNS-server för att stödja priva
 - [Namnmatchning för resurser i virtuella nätverk i Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
 - [DNS-konfiguration för privata slut punkter](/azure/private-link/private-endpoint-overview#dns-configuration)
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Pris information finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link).
 

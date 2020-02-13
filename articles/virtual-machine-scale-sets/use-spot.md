@@ -6,14 +6,14 @@ tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544794"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162692"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>För hands version: virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -25,9 +25,8 @@ Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid oc
 > Punkt instanser finns för närvarande i offentlig för hands version.
 > Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> För den första delen av den offentliga för hands versionen har plats instanser ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Priser för punkt instanser är varierande, baserat på region och SKU. Mer information finns i avsnittet om priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
@@ -48,12 +47,12 @@ Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure 
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuera virtuella datorer i skalnings uppsättningar
 
 Om du vill distribuera virtuella datorer på skalnings uppsättningar kan du ställa in den nya *prioritets* flaggan på *plats*. Alla virtuella datorer i din skalnings uppsättning anges till dekor. Använd någon av följande metoder för att skapa en skalnings uppsättning med virtuella datorer:
-- [Azure-portalen](#portal)
+- [Azure Portal](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Azure Resource Manager mallar](#resource-manager-templates)
 
-## <a name="portal"></a>Portalen
+## <a name="portal"></a>Portal
 
 Processen för att skapa en skalnings uppsättning som använder virtuella datorer är samma som i [artikeln komma igång](quick-create-portal.md). När du distribuerar en skalnings uppsättning kan du välja att ange flaggan för punkt och avpolicyn: ![skapa en skalnings uppsättning med virtuella datorer](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
@@ -105,7 +104,7 @@ Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mall
 
 Om du vill ta bort instansen när den har avlägsnats ändrar du `evictionPolicy` parametern till `Delete`.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **F:** När det har skapats är en punkt instans samma som standard instans?
 
@@ -160,12 +159,12 @@ Om du vill ta bort instansen när den har avlägsnats ändrar du `evictionPolicy
 
 | Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Ja                               |
+| Enterprise-avtal         | Ja                               |
 | Betala per användning                | Ja                               |
 | Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Erbjudande                     | Inte tillgänglig                     |
-| Sponsrat                    | Inte tillgänglig                     |
-| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
+| Fördelar                     | Inte tillgängligt                     |
+| Sponsrat                    | Inte tillgängligt                     |
+| Kostnads fri utvärdering                   | Inte tillgängligt                     |
 
 
 **F:** Var kan jag skicka frågor?

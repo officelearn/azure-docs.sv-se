@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 3f95a0743ca6fadff0c7a26a796ef20659adfb80
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: cb9441e6ce19094ff72e902cdeea151041ceb963
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697752"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161158"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory medgivande
 
@@ -28,7 +28,7 @@ Ramverket är baserat på en användare eller en administratör som ger tillåte
 
 Godkännande ramverket bygger på OAuth 2,0 och de olika flödena, till exempel auktoriseringskod och beviljande av klientautentiseringsuppgifter, med hjälp av offentliga eller konfidentiella klienter. Med hjälp av OAuth 2,0 gör Azure AD det möjligt att bygga många olika typer av klient program, till exempel på en telefon, surfplatta, server eller ett webb program, och få till gång till de resurser som krävs.
 
-Mer information om hur du använder medgivande ramverket med auktoriserings bidrag för OAuth 2.0 finns i [bevilja åtkomst till webb program med hjälp av oauth 2,0 och Azure AD](v1-protocols-oauth-code.md) och [autentiserings scenarier för Azure AD](authentication-scenarios.md). Information om hur du får behörighet för att få åtkomst till Office 365 via Microsoft Graph finns i [app-autentisering med Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Mer information om hur du använder medgivande ramverket med auktoriserings bidrag för OAuth 2.0 finns i [bevilja åtkomst till webb program med hjälp av oauth 2,0 och Azure AD](v2-oauth2-auth-code-flow.md) och [autentiserings scenarier för Azure AD](authentication-scenarios.md). Information om hur du får behörighet för att få åtkomst till Office 365 via Microsoft Graph finns i [app-autentisering med Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Godkännande upplevelse – ett exempel
 
@@ -42,13 +42,13 @@ Följande steg visar hur medgivande upplevelsen fungerar för både programutvec
 
 1. Om användaren inte redan är autentiserad kommer Azure ADs `/authorize`-slutpunkt att begära att användaren loggar in.
 
-    ![Användare eller administratör logga in på Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![Användare eller administratör logga in på Azure AD](./media/consent-framework/usersignin.png)
 
 1. När användaren har loggat in avgör Azure AD om användaren måste visas en godkännande sida. Det här fastställandet baseras på om användaren (eller organisationens administratör) redan har gett medgivande för programmet. Om medgivande inte redan har beviljats uppmanar Azure AD användaren att godkänna och visar de nödvändiga behörigheter som de behöver för att fungera. De behörigheter som visas i dialog rutan för medgivande matchar de som har marker ATS i de **delegerade behörigheterna** i Azure Portal.
 
-    ![Visar ett exempel på behörigheter som visas i dialog rutan medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Visar ett exempel på behörigheter som visas i dialog rutan medgivande](./media/consent-framework/consent.png)
 
-1. När användaren har gett sitt medgivande returneras en auktoriseringskod till ditt program, som har lösts för att erhålla en åtkomsttoken och en uppdaterad token. Mer information om det här flödet finns i [webb-API-app-typ](web-api.md).
+1. När användaren har gett sitt medgivande returneras en auktoriseringskod till ditt program, som har lösts för att erhålla en åtkomsttoken och en uppdaterad token. Mer information om det här flödet finns i [OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md).
 
 1. Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administrativt medgivande förhindrar att dialog rutan för medgivande visas för alla användare i klient organisationen och kan göras i [Azure Portal](https://portal.azure.com) av användare med rollen administratör. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 

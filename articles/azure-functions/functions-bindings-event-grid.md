@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547463"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167511"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid utlösare för Azure Functions
 
@@ -97,7 +97,7 @@ namespace Company.Function
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -149,7 +149,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -180,7 +180,7 @@ module.exports = function (context, eventGridEvent) {
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -224,19 +224,7 @@ Det här avsnittet innehåller följande exempel:
 * [Event Grid utlösare, sträng parameter](#event-grid-trigger-string-parameter)
 * [Event Grid trigger, POJO-parameter](#event-grid-trigger-pojo-parameter)
 
-I följande exempel visas utlösarens bindning i en *Function. JSON* -fil och [Java-funktioner](functions-reference-java.md) som använder bindningen och utskriften av en händelse, först mottagandet händelsen som ```String``` och sekund som en POJO.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+I följande exempel visas utlösare bindning i [Java](functions-reference-java.md) som använder bindningen och utskrift av en händelse, första mottagande händelsen som `String` och sekund som POJO.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Event Grid utlösare, sträng parameter
 
@@ -351,12 +339,12 @@ I Azure Functions 1. x kan du använda följande parameter typer för utlösaren
 * `JObject`
 * `string`
 
-In Azure Functions 2.x and higher, you also have the option to use the following parameter type for the Event Grid trigger:
+I Azure Functions 2. x och högre kan du också välja att använda följande parameter typ för Event Grid-utlösaren:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-definierar egenskaper för fälten som är gemensamma för alla händelse typer.
 
 > [!NOTE]
-> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`.
+> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet med `Microsoft.Azure.EventGrid.Models`.
 
 # <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
 
@@ -365,30 +353,30 @@ I Azure Functions 1. x kan du använda följande parameter typer för utlösaren
 * `JObject`
 * `string`
 
-In Azure Functions 2.x and higher, you also have the option to use the following parameter type for the Event Grid trigger:
+I Azure Functions 2. x och högre kan du också välja att använda följande parameter typ för Event Grid-utlösaren:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-definierar egenskaper för fälten som är gemensamma för alla händelse typer.
 
 > [!NOTE]
-> In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`. For information about how to reference NuGet packages in a C# script function, see [Using NuGet packages](functions-reference-csharp.md#using-nuget-packages)
+> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet med `Microsoft.Azure.EventGrid.Models`. Information om hur du refererar till NuGet-paket i C# en-skript funktion finns i [använda NuGet-paket](functions-reference-csharp.md#using-nuget-packages)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property.
+Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen `name` i *Function. JSON* -filen.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property, typed as `func.EventGridEvent`.
+Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *. JSON* -filens `name`, som `func.EventGridEvent`.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The Event Grid event instance is available via the parameter associated to the `EventGridTrigger` attribute, typed as an `EventSchema`. See the [example](#example) for more detail.
+Händelse instansen Event Grid är tillgänglig via den parameter som är kopplad till attributet `EventGridTrigger`, skriven som en `EventSchema`. Se [exemplet](#example) för mer information.
 
 ---
 
 ## <a name="event-schema"></a>Händelseschema
 
-Data for an Event Grid event is received as a JSON object in the body of an HTTP request. The JSON looks similar to the following example:
+Data för en Event Grid-händelse tas emot som ett JSON-objekt i bröd texten i en HTTP-begäran. JSON ser ut ungefär som i följande exempel:
 
 ```json
 [{
@@ -416,49 +404,49 @@ Data for an Event Grid event is received as a JSON object in the body of an HTTP
 }]
 ```
 
-The example shown is an array of one element. Event Grid always sends an array and may send more than one event in the array. The runtime invokes your function once for each array element.
+Exemplet som visas är en matris med ett-element. Event Grid skickar alltid en matris och kan skicka fler än en händelse i matrisen. Körningen anropar funktionen en gång för varje mat ris element.
 
-The top-level properties in the event JSON data are the same among all event types, while the contents of the `data` property are specific to each event type. The example shown is for a blob storage event.
+Egenskaperna på den högsta nivån i Event JSON-data är desamma bland alla händelse typer, medan innehållet i egenskapen `data` är särskilt för varje händelse typ. Exemplet som visas är en Blob Storage-händelse.
 
-For explanations of the common and event-specific properties, see [Event properties](../event-grid/event-schema.md#event-properties) in the Event Grid documentation.
+Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händelse egenskaper](../event-grid/event-schema.md#event-properties) i Event Grid-dokumentationen.
 
-The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
+`EventGridEvent` typen definierar bara egenskaperna på den översta nivån. Egenskapen `Data` är en `JObject`.
 
 ## <a name="create-a-subscription"></a>Skapa en prenumeration
 
-To start receiving Event Grid HTTP requests, create an Event Grid subscription that specifies the endpoint URL that invokes the function.
+Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
-For functions that you develop in the Azure portal with the Event Grid trigger, select **Add Event Grid subscription**.
+För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **Lägg till Event Grid prenumeration**.
 
-![Create subscription in portal](media/functions-bindings-event-grid/portal-sub-create.png)
+![Skapa prenumeration i portalen](media/functions-bindings-event-grid/portal-sub-create.png)
 
-When you select this link, the portal opens the **Create Event Subscription** page with the endpoint URL prefilled.
+När du väljer den här länken öppnar portalen sidan **Skapa händelse prenumeration** med slut PUNKTens URL förifylld.
 
-![Endpoint URL prefilled](media/functions-bindings-event-grid/endpoint-url.png)
+![Förifyllt slut punkts-URL](media/functions-bindings-event-grid/endpoint-url.png)
 
-For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
+Mer information om hur du skapar prenumerationer med hjälp av Azure Portal finns i avsnittet [Skapa anpassad händelse-Azure Portal](../event-grid/custom-event-quickstart-portal.md) i Event Grid-dokumentationen.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-To create a subscription by using [the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use the [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) command.
+Om du vill skapa en prenumeration med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)använder du kommandot [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) .
 
-The command requires the endpoint URL that invokes the function. The following example shows the version-specific URL pattern:
+Kommandot kräver slut punkts-URL: en som anropar funktionen. I följande exempel visas det användarspecifika URL-mönstret:
 
-#### <a name="version-2x-and-higher-runtime"></a>Version 2.x (and higher) runtime
+#### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
     https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 
-#### <a name="version-1x-runtime"></a>Version 1.x runtime
+#### <a name="version-1x-runtime"></a>Version 1. x-körning
 
     https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
-The system key is an authorization key that has to be included in the endpoint URL for an Event Grid trigger. The following section explains how to get the system key.
+System nyckeln är en auktoriseringskod som måste inkluderas i slut punkts-URL: en för en Event Grid-utlösare. I följande avsnitt beskrivs hur du hämtar system nyckeln.
 
-Here's an example that subscribes to a blob storage account (with a placeholder for the system key):
+Här är ett exempel som prenumererar på ett Blob Storage-konto (med en plats hållare för system nyckeln):
 
-#### <a name="version-2x-and-higher-runtime"></a>Version 2.x (and higher) runtime
+#### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -469,7 +457,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
 ```
 
-#### <a name="version-1x-runtime"></a>Version 1.x runtime
+#### <a name="version-1x-runtime"></a>Version 1. x-körning
 
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
@@ -480,27 +468,27 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-For more information about how to create a subscription, see [the blob storage quickstart](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) or the other Event Grid quickstarts.
+Mer information om hur du skapar en prenumeration finns i [snabb starten för Blob Storage](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) eller andra event Grid snabb starter.
 
-### <a name="get-the-system-key"></a>Get the system key
+### <a name="get-the-system-key"></a>Hämta system nyckeln
 
-You can get the system key by using the following API (HTTP GET):
+Du kan hämta system nyckeln med hjälp av följande API (HTTP GET):
 
-#### <a name="version-2x-and-higher-runtime"></a>Version 2.x (and higher) runtime
+#### <a name="version-2x-and-higher-runtime"></a>Version 2. x (och högre) runtime
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-#### <a name="version-1x-runtime"></a>Version 1.x runtime
+#### <a name="version-1x-runtime"></a>Version 1. x-körning
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-This is an admin API, so it requires your function app [master key](functions-bindings-http-webhook.md#authorization-keys). Don't confuse the system key (for invoking an Event Grid trigger function) with the master key (for performing administrative tasks on the function app). When you subscribe to an Event Grid topic, be sure to use the system key.
+Det här är ett administrations-API, så den kräver [huvud nyckeln](functions-bindings-http-webhook.md#authorization-keys)för Function-appen. Blanda inte ihop system nyckeln (för att anropa en Event Grid trigger-funktion) med huvud nyckeln (för att utföra administrativa uppgifter i Function-appen). När du prenumererar på ett Event Grid-ämne ska du se till att använda system nyckeln.
 
-Here's an example of the response that provides the system key:
+Här är ett exempel på svaret som innehåller system nyckeln:
 
 ```
 {
@@ -515,10 +503,10 @@ Here's an example of the response that provides the system key:
 }
 ```
 
-You can get the master key for your function app from the **Function app settings** tab in the portal.
+Du kan hämta huvud nyckeln för din Function-app från fliken **funktions program inställningar** i portalen.
 
 > [!IMPORTANT]
-> The master key provides administrator access to your function app. Don't share this key with third parties or distribute it in native client applications.
+> Huvud nyckeln ger administratörs åtkomst till din Function-app. Dela inte den här nyckeln med tredje part eller distribuera den i interna klient program.
 
 Mer information finns i [Authorization Keys](functions-bindings-http-webhook.md#authorization-keys) i referens artikeln för http-utlösare.
 
@@ -600,7 +588,7 @@ Funktionen Event Grid trigger kör och visar loggar som liknar följande exempel
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Läs mer om Event Grid](../event-grid/overview.md)

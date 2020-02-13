@@ -7,14 +7,14 @@ documentationcenter: ''
 author: spelluru
 manager: ''
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c5d3eca4a01488f521f9a85fa129eb0ac72c363
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dd95bde74b77686c0971c41a8c3f262f73107b61
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904546"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169231"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Azure Event Hubs stöder Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till Event Hubs resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, Virtual Machine Scale Sets och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.
@@ -24,7 +24,7 @@ Den här artikeln visar hur du auktoriserar åtkomst till en Event Hub genom att
 ## <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
 Innan du kan använda hanterade identiteter för Azure-resurser för att auktorisera Event Hubs resurser från din virtuella dator måste du först aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i någon av följande artiklar:
 
-- [Azure-portalen](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -136,6 +136,15 @@ Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Micr
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
 ---
+
+## <a name="samples"></a>Exempel
+- [Microsoft. Azure. EventHubs-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    I de här exemplen används det gamla biblioteket **Microsoft. Azure. EventHubs** , men du kan enkelt uppdatera det så att det använder det senaste **Azure. Messaging. EventHubs** -biblioteket. Om du vill flytta exemplet från att använda det gamla biblioteket till ett nytt, se [guiden för att migrera från Microsoft. Azure. EventHubs till Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+- [Exempel för Azure. Messaging. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+    Det här exemplet har uppdaterats för att använda det senaste **Azure. Messaging. EventHubs** -biblioteket.
+
 
 ## <a name="next-steps"></a>Nästa steg
 - I följande artikel finns information om hanterade identiteter för Azure-resurser: [Vad är Managed identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)

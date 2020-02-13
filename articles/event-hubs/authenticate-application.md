@@ -6,17 +6,17 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: cce96039ca3883e0ea5ea0b738e0f6e2e079262d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4256cebe44b732b190ef1666d0438d17e058b820
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996206"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169297"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser
-Microsoft Azure tillhandahåller integrerad hantering av åtkomstkontroll för resurser och program som baseras på Azure Active Directory (AD Azure). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token `https://eventhubs.azure.net/`är. Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
+Microsoft Azure tillhandahåller integrerad hantering av åtkomstkontroll för resurser och program som baseras på Azure Active Directory (AD Azure). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token är `https://eventhubs.azure.net/`. Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
 
 När en roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, Event Hubs namn området eller någon annan resurs under den. En Azure AD-säkerhet kan tilldela roller till en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -27,8 +27,8 @@ När en roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst 
 Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
 
 - [Azure Event Hubs data ägare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Använd den här rollen för att ge fullständig åtkomst till Event Hubs resurser.
-- [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Använd den här rollen för att ge sändnings åtkomst till Event Hubs-resurser.
-- [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att få åtkomst till Event Hubs resurser.   
+- [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Använd den här rollen för att ge åtkomst till Event Hubs resurser.
+- [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att ge åtkomst till Event Hubs resurser.   
 
 > [!IMPORTANT]
 > Vår för hands version har stöd för att lägga till Event Hubs behörigheter för data åtkomst till ägaren eller deltagar rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen ägare och deltagare. Om du använder rollen ägare eller deltagare växlar du till att använda rollen Azure Event Hubs data Owner.
@@ -67,10 +67,10 @@ En viktig fördel med att använda Azure AD med Event Hubs är att dina autentis
 
 I följande avsnitt beskrivs hur du konfigurerar ditt egna program eller webb program för autentisering med Microsoft Identity Platform 2,0. Mer information om Microsoft Identity Platform 2,0 finns i [Översikt över Microsoft Identity Platform (v 2.0)](../active-directory/develop/v2-overview.md).
 
-En översikt över kod grant-flöde för OAuth 2.0, se [flöde beviljat med auktorisera åtkomst till Azure Active Directory-webbprogram med hjälp av OAuth 2.0-koden](../active-directory/develop/v2-oauth2-auth-code-flow.md).
+En översikt över OAuth 2,0 Code Granting Flow finns i bevilja [åtkomst till Azure Active Directory webb program med hjälp av OAuth-kod för kod beviljande i 2,0 OAuth](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ### <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrera ditt program med en Azure AD-klient
-Det första steget i att använda Azure AD för att auktorisera Event Hubs-resurser är att registrera klient programmet med en Azure AD-klient från [Azure Portal](https://portal.azure.com/). När du registrerar klient programmet anger du information om programmet till AD. Azure AD tillhandahåller sedan ett klient-ID (kallas även ett program-ID) som du kan använda för att associera ditt program med Azure AD Runtime. Läs mer om klient-ID i [program och tjänstobjekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
+Det första steget i att använda Azure AD för att auktorisera Event Hubs-resurser är att registrera klient programmet med en Azure AD-klient från [Azure Portal](https://portal.azure.com/). När du registrerar klient programmet anger du information om programmet till AD. Azure AD tillhandahåller sedan ett klient-ID (kallas även ett program-ID) som du kan använda för att associera ditt program med Azure AD Runtime. Mer information om klient-ID finns i [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
 Följande bilder visar steg för att registrera ett webb program:
 
@@ -103,6 +103,13 @@ När du har registrerat ditt program och beviljat IT-behörigheter för att skic
 
 En lista över scenarier där det finns stöd för att hämta token finns i avsnittet [scenarier](https://aka.ms/msal-net-scenarios) i [Microsoft Authentication Library (MSAL) för .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub-lagringsplatsen.
 
+## <a name="samples"></a>Exempel
+- [Microsoft. Azure. EventHubs-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    I de här exemplen används det gamla biblioteket **Microsoft. Azure. EventHubs** , men du kan enkelt uppdatera det så att det använder det senaste **Azure. Messaging. EventHubs** -biblioteket. Om du vill flytta exemplet från att använda det gamla biblioteket till ett nytt, se [guiden för att migrera från Microsoft. Azure. EventHubs till Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+- [Exempel för Azure. Messaging. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+    Det här exemplet har uppdaterats för att använda det senaste **Azure. Messaging. EventHubs** -biblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md)?

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701934"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160074"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Program med en sida: Hämta en token för att anropa ett API
 
@@ -42,7 +42,7 @@ Du kan ställa in de API-omfattningar som du vill att åtkomsttoken ska inkluder
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Hämta en token med ett popup-fönster
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Följande kod kombinerar det tidigare beskrivna mönstret med metoder för en popup-upplevelse:
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 MSAL vinkel omslutningen ger HTTP-spärren, som automatiskt får åtkomst-token och kopplar dem till HTTP-begäranden till API: er.
 
@@ -111,9 +111,11 @@ ngOnDestroy() {
 
 Alternativt kan du uttryckligen Hämta token genom att använda metoderna för att hämta token enligt beskrivningen i biblioteket Core MSAL. js.
 
+---
+
 ## <a name="acquire-a-token-with-a-redirect"></a>Hämta en token med en omdirigering
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Följande mönster är som beskrivits tidigare men visas med en metod för omdirigering för att förvärva token interaktivt. Du måste registrera återdirigerings återanropet som tidigare nämnts.
 
@@ -142,6 +144,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## <a name="request-optional-claims"></a>Begär valfria anspråk
+
 Du kan använda valfria anspråk i följande syfte:
 
 - Inkludera ytterligare anspråk i token för ditt program.
@@ -150,7 +153,6 @@ Du kan använda valfria anspråk i följande syfte:
 
 Om du vill begära valfria anspråk i `IdToken`kan du skicka ett stringified-anspråks objekt till fältet `claimsRequest` i `AuthenticationParameters.ts`-klassen.
 
-### <a name="javascript"></a>JavaScript
 ```javascript
 "optionalClaims":  
    {
@@ -168,12 +170,14 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 Mer information finns i [valfria anspråk](active-directory-optional-claims.md).
 
-
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Den här koden är samma som beskrivs ovan.
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

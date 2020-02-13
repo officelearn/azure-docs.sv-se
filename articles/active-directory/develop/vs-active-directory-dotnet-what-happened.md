@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 83717f9a78d80923f020ab699be9ddabbbcc12ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0f426e7a87204acd4be6529f7dd11a954f23491a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700013"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159479"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt MVC-projekt (Visual Studio Azure Active Directory Connected service)?
 
 > [!div class="op_single_selector"]
-> - [Kom igång](vs-active-directory-dotnet-getting-started.md)
+> - [Komma igång](vs-active-directory-dotnet-getting-started.md)
 > - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
 Den här artikeln beskriver de exakta ändringar som gjorts i ASP.NET MVC-projekt när du lägger till den [Azure Active Directory anslutna tjänsten med Visual Studio](vs-active-directory-add-connected-service.md).
@@ -164,4 +164,4 @@ När du lägger till den anslutna tjänsten säkerhetskopierar Visual Studio 201
 ## <a name="next-steps"></a>Nästa steg
 
 - [Autentiserings scenarier för Azure Active Directory](authentication-scenarios.md)
-- [Lägg till inloggning med Microsoft i en ASP.NET-webbapp](quickstart-v1-aspnet-webapp.md)
+- [Lägg till inloggning med Microsoft i en ASP.NET-webbapp](quickstart-v2-aspnet-webapp.md)

@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 0cd4c45403d59819bf7ba729ea99de76ccf967ca
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819897"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162165"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Lagra Azure SQL Database säkerhets kopior i upp till 10 år
 
-Många program har regler, efterlevnad eller andra affärs behov som kräver att du bevarar databas säkerhets kopiorna utöver de 7-35 dagar som tillhandahålls av Azure SQL Database [Automatisk säkerhets kopiering](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning (brv) kan du lagra angivna fullständiga säkerhets kopieringar i SQL Database i [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Blob Storage i upp till 10 år. Alla säkerhetskopior kan återställas till en ny databas.
+Många program har regler, efterlevnad eller andra affärs behov som kräver att du bevarar databas säkerhets kopiorna utöver de 7-35 dagar som tillhandahålls av Azure SQL Database [Automatisk säkerhets kopiering](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning (brv) kan du lagra angivna fullständiga SQL Database-säkerhetskopieringar i Azure Blob Storage med Read-Access Geo-redundant lagring i upp till 10 år. Du kan sedan återställa en säkerhets kopia som en ny databas. Mer information om Azure Storage redundans finns [Azure Storage redundans](../storage/common/storage-redundancy.md).
 
 > [!NOTE]
 > BRV kan aktive ras för enskilda databaser och databaser i pooler. Den är inte tillgänglig ännu för instans databaser i hanterade instanser. Du kan använda SQL Agent-jobb för att schemalägga [säkerhets kopiering av skrivskyddade databaser](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till vä-hö över 35 dagar.

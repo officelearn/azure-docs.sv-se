@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6e8c0e1c7fef884844b8aaae9dc4c7e3eaa220a2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 5672334ab42ab474d862ae4c9649b94b58bb6af4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274561"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157285"
 ---
 Azure Storage erbjuder flera typer av lagrings konton. Varje typ stöder olika funktioner och har en egen pris modell. Tänk på dessa skillnader innan du skapar ett lagrings konto för att fastställa vilken typ av konto som passar bäst för dina program. Typerna av lagrings konton är:
 
@@ -27,11 +27,11 @@ I följande tabell beskrivs typerna av lagrings konton och deras funktioner:
 
 | Storage Account-typ | Tjänster som stöds                       | Prestanda nivåer som stöds      | Åtkomst nivåer som stöds         | Replikeringsalternativ               | Distributionsmodell<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Kryptering<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Allmänt-syfte v2   | BLOB, fil, kö, tabell, disk och Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frekvent, låg frekvent, Arkiv<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (för hands version), RA-GZRS (för hands version)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resurshanterare             | Krypterad              |
-| Generell användning v1   | BLOB, fil, kö, tabell och disk       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Gäller inte                            | LRS, GRS, RA-GRS                  | Resource Manager, klassisk    | Krypterad              |
-| BlockBlobStorage   | BLOB (endast block-blobar och bifogade blobbar) | Premium                       | Gäller inte                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resurshanterare             | Krypterad              |
-| FileStorage   | Endast fil | Premium                       | Gäller inte                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resurshanterare             | Krypterad              |
-| BlobStorage         | BLOB (endast block-blobar och bifogade blobbar) | Standard                      | Frekvent, låg frekvent, Arkiv<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resurshanterare             | Krypterad              |
+| Allmänt-syfte v2   | BLOB, fil, kö, tabell, disk och Data Lake Gen2<div role="complementary" aria-labelledby="data-lake-gen2"><sup>6</sup></div>      | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Frekvent, låg frekvent, Arkiv<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (för hands version), RA-GZRS (för hands version)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Krypterade              |
+| Generell användning v1   | BLOB, fil, kö, tabell och disk       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Saknas                            | LRS, GRS, RA-GRS                  | Resource Manager, klassisk    | Krypterade              |
+| BlockBlobStorage   | BLOB (endast block-blobar och bifogade blobbar) | Premium                       | Saknas                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Krypterade              |
+| FileStorage   | Endast fil | Premium                       | Saknas                            | LRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div>                               | Resource Manager             | Krypterade              |
+| BlobStorage         | BLOB (endast block-blobar och bifogade blobbar) | Standard                      | Frekvent, låg frekvent, Arkiv<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Krypterade              |
 
 <div id="deployment-model"><sup>1</sup> Vi rekommenderar att du använder Azure Resource Manager distributions modell. Lagrings konton som använder den klassiska distributions modellen kan fortfarande skapas på vissa platser och befintliga klassiska konton fortsätter att stödjas. Mer information finns i <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser</a>.</div>
 
@@ -39,7 +39,7 @@ I följande tabell beskrivs typerna av lagrings konton och deras funktioner:
 
 <div id="archive"><sup>3</sup> Arkiv nivån är bara tillgänglig på nivån för en enskild BLOB, inte på lagrings konto nivå. Det går bara att arkivera blobbar och bifogade blobbar. Mer information finns i <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Azure Blob Storage: frekvent, låg frekvent lagring och Arkiv lag</a>rings nivåer.</div>
 
-<div id="zone-redundant-storage"><sup>4</sup> Zone-redundant lagring (ZRS) och geo-Zone-redundant lagring (GZRS/RA-GZRS) (för hands version) är endast tillgängliga för generella standard-, BlockBlobStorage-och FileStorage-konton i vissa regioner. Mer information om ZRS finns i <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">zon-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet</a>. Mer information om GZRS/RA-GZRS finns i <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">geo-Zone-redundant lagring för hög tillgänglighet och maximal hållbarhet (för hands version)</a>. Mer information om andra replikeringsalternativ finns <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage replikering</a>.</div>
+<div id="zone-redundant-storage"><sup>4</sup> Zone-redundant lagring (ZRS) och geo-Zone-redundant lagring (GZRS/RA-GZRS) (för hands version) är endast tillgängliga för generella standard-, BlockBlobStorage-och FileStorage-konton i vissa regioner. Mer information om alternativ för Azure Storage redundans finns i <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Azure Storage redundans</a>.</div>
 
 <div id="premium-performance"><sup>5</sup> Premium-prestanda för General-Purpose v2-och General-Purpose v1-konton är endast tillgängligt för disk-och sid-blob. Premium-prestanda för block-eller append-blobar är bara tillgängliga på BlockBlobStorage-konton. Premium-prestanda för filer är bara tillgängliga på FileStorage-konton.</div>
 

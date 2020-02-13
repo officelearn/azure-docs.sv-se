@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443f1eb1576f2d6eb28d0de16f37e37912b707b9
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9ac0f4d5c10cf128b6161163a81cc171bcafbd36
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547361"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159003"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Använda hanterade identiteter för Azure-resurser på en virtuell Azure-dator för att hämta en åtkomsttoken 
 
@@ -30,7 +30,7 @@ Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med e
 
 Den här artikeln innehåller olika kod-och skript exempel för hämtning av token, samt vägledning för viktiga ämnen som hantering av token för förfallo datum och HTTP-fel. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -45,7 +45,7 @@ Om du planerar att använda Azure PowerShell exemplen i den här artikeln måste
 
 ## <a name="overview"></a>Översikt
 
-Ett klient program kan begära hanterade identiteter för Azure-resurser [endast app-åtkomsttoken](../develop/developer-glossary.md#access-token) för åtkomst till en specifik resurs. Token [baseras på hanterade identiteter för Azure Resources-tjänstens huvud namn](overview.md#how-does-the-managed-identities-for-azure-resources-work). Därför behöver inte klienten registrera sig för att få en åtkomsttoken under sitt eget tjänst huvud namn. Token är lämplig för användning som en Bearer-token i [tjänst-till-tjänst-anrop som kräver klientautentiseringsuppgifter](../develop/v1-oauth2-client-creds-grant-flow.md).
+Ett klient program kan begära hanterade identiteter för Azure-resurser [endast app-åtkomsttoken](../develop/developer-glossary.md#access-token) för åtkomst till en specifik resurs. Token [baseras på hanterade identiteter för Azure Resources-tjänstens huvud namn](overview.md#how-does-the-managed-identities-for-azure-resources-work). Därför behöver inte klienten registrera sig för att få en åtkomsttoken under sitt eget tjänst huvud namn. Token är lämplig för användning som en Bearer-token i [tjänst-till-tjänst-anrop som kräver klientautentiseringsuppgifter](../develop/v2-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -352,7 +352,7 @@ Anrop till Azure AD skapas endast på tråd:
 
 Slut punkten för hanterade identiteter för Azure-resurser signalerar fel via statusfältet i HTTP-svarsmeddelandet, antingen som 4xx eller 5xx fel:
 
-| Status kod | Fel Orsak | Så här hanterar du |
+| Statuskod | Fel Orsak | Så här hanterar du |
 | ----------- | ------------ | ------------- |
 | 404 hittades inte. | IMDS-slutpunkten uppdateras. | Försök igen med expontential backoff. Se rikt linjer nedan. |
 | 429 för många begär Anden. |  IMDS begränsning har nåtts. | Försök igen med exponentiell backoff. Se rikt linjer nedan. |
@@ -371,7 +371,7 @@ Om ett fel inträffar innehåller motsvarande HTTP-svar-text JSON fel informatio
 
 I det här avsnittet dokumenteras möjliga fel svar. Statusen "200 OK" är ett lyckat svar och åtkomsttoken finns i JSON för svars texten i access_token-elementet.
 
-| Statuskod | Fel | Fel Beskrivning | Lösning |
+| Statuskod | Fel | Felbeskrivning | Lösning |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Felaktig begäran | invalid_resource | AADSTS50001: det gick inte att hitta programmet med namnet *\<-URI\>* i klient organisationen med namnet *\<klient organisations-ID\>* . Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din autentiseringsbegäran till fel klient. \ | (Endast Linux) |
 | 400 Felaktig begäran | bad_request_102 | Obligatoriskt metadata-huvud har inte angetts | Antingen saknas `Metadata`s huvudets huvud fält i din förfrågan eller så är det felaktigt formaterat. Värdet måste anges som `true`, i gemener. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel.|
@@ -381,7 +381,7 @@ I det här avsnittet dokumenteras möjliga fel svar. Statusen "200 OK" är ett l
 |           | access_denied | Resurs ägaren eller auktoriseringsservern nekade begäran. |  |
 |           | unsupported_response_type | Auktoriseringsservern har inte stöd för att hämta en åtkomsttoken med den här metoden. |  |
 |           | invalid_scope | Det begärda omfånget är ogiltigt, okänt eller felaktigt. |  |
-| 500 internt Server fel | okänd | Det gick inte att hämta token från Active Directory. Mer information finns i loggarna i *\<fil Sök väg\>* | Kontrol lera att hanterade identiteter för Azure-resurser har Aktiver ATS på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen.<br><br>Kontrol lera också att HTTP GET-begärande-URI: n är korrekt formaterad, särskilt resurs-URI: n som anges i frågesträngen. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel, eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över tjänster och deras respektive resurs-ID.
+| 500 internt Server fel | okänt | Det gick inte att hämta token från Active Directory. Mer information finns i loggarna i *\<fil Sök väg\>* | Kontrol lera att hanterade identiteter för Azure-resurser har Aktiver ATS på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](qs-configure-portal-windows-vm.md) om du behöver hjälp med VM-konfigurationen.<br><br>Kontrol lera också att HTTP GET-begärande-URI: n är korrekt formaterad, särskilt resurs-URI: n som anges i frågesträngen. Se "exempel förfrågan" i föregående REST-avsnitt för ett exempel, eller [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md) för en lista över tjänster och deras respektive resurs-ID.
 
 ## <a name="retry-guidance"></a>Vägledning för nytt försök 
 

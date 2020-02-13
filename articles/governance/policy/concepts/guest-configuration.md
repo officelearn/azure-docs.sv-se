@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830504"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169532"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -36,13 +36,13 @@ Innan du kan använda gäst-konfigurationen, måste du registrera resursprovider
 
 Registrera resursprovidern för gäst-konfiguration via Azure portal genom att följa dessa steg:
 
-1. Starta Azure-portalen och klicka på **alla tjänster**. Sök efter och välj **prenumerationer**.
+1. Starta Azure Portal och klicka på **alla tjänster**. Sök efter och välj **prenumerationer**.
 
 1. Hitta och klicka på den prenumeration som du vill aktivera gäst-konfiguration för.
 
-1. I den vänstra menyn i den **prenumeration** klickar du på **resursprovidrar**.
+1. På den vänstra menyn på sidan **prenumeration** klickar du på **resurs leverantörer**.
 
-1. Filtrera efter eller Bläddra tills du hittar **Microsoft.GuestConfiguration**, klicka sedan på **registrera** på samma rad.
+1. Filtrera fram eller rulla tills du har hittat **Microsoft. GuestConfiguration**och klicka sedan på **Registrera** på samma rad.
 
 ### <a name="registration---powershell"></a>Registrering – PowerShell
 
@@ -62,7 +62,7 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 |Operativsystem|Verktyget-validering|Anteckningar|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby och Python installeras av tillägget gäst-konfiguration. |
+|Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Ruby och Python installeras av tillägget gäst-konfiguration. |
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
@@ -98,23 +98,23 @@ För att kunna kommunicera med resurs leverantören för gäst konfiguration i A
 
 Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** -definitionen används för att förbereda datorn med gäst konfigurations agenten och andra komponenter som stöder [verifierings verktygen](#validation-tools).
 
-Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
+**DeployIfNotExists** princip definition verifierar och korrigerar följande objekt:
 
 - Verifiera att datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning för närvarande finns kan du hämta tilldelningen och förbereda datorn genom att:
   - Autentisera till datorn med en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Installera den senaste versionen av den **Microsoft.GuestConfiguration** tillägg
-  - Installera [verifieringsverktyg](#validation-tools) och beroenden, om det behövs
+  - Installera den senaste versionen av **Microsoft. GuestConfiguration** -tillägget
+  - Installera [validerings verktyg](#validation-tools) och beroenden, om det behövs
 
 Om tilldelningen **DeployIfNotExists** är icke-kompatibel kan en [reparations uppgift](../how-to/remediate-resources.md#create-a-remediation-task) användas.
 
 När **DeployIfNotExists** -tilldelningen är kompatibel använder **AuditIfNotExists** -princip tilldelningen de lokala verifierings verktygen för att avgöra om konfigurations tilldelningen är kompatibel eller inte kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
 
-Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/get-compliance-data.md).
+Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration för att rapportera efterlevnad i noden **efterlevnad** . Mer information finns i [Hämta efterlevnadsprinciper](../how-to/get-compliance-data.md).
 
 > [!NOTE]
 > **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet _\[för hands version\]: granska säkerhets inställningar för lösen ord i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet _\[för hands version\]: granska säkerhets inställningar för lösen ord i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
 
@@ -183,10 +183,10 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Exempel på gäst konfiguration
 
-Exempel på gäst konfiguration av principer finns på följande platser:
+Källa för de inbyggda initiativen för princip-gäst konfiguration finns på följande platser:
 
-- [Exempel index – gäst konfiguration](../samples/index.md#guest-configuration)
-- [Azure Policy exempel GitHub lagrings platsen](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Inbyggda initiativ – gäst konfiguration](../samples/built-in-initiatives.md#guest-configuration)
+- [Azure Policy exempel GitHub lagrings platsen](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
 
 ## <a name="next-steps"></a>Nästa steg
 

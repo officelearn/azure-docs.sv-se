@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/20/2019
 ms.author: femila
-ms.openlocfilehash: 7003cc90bdb456eba9cfaebc1e24332d2e4a6251
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5b1574eaac8771043e09500225b65e4835c8e627
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029936"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157490"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Snabb start: skapa ett dedikerat Event Hubs-kluster med Azure Portal 
 Event Hubs kluster erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet har ett garanterat 99,99% SLA och är bara tillgängligt på vår dedikerade pris nivå. Ett [Event Hubs kluster](event-hubs-dedicated-overview.md) kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i ett kluster inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Det dedikerade erbjudandet omfattar även den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad, så att du automatiskt kan registrera och logga data strömmar till [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -106,6 +106,10 @@ Om du vill ändra storleken på klustret efter att du har skapat eller om din ö
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du skapat ett Event Hubs-kluster. Stegvisa instruktioner för att skicka och ta emot händelser från en händelsehubben och att avbilda händelser till en Azure Storage eller Azure Data Lake Store finns i följande själv studie kurser:
 
-- [Skicka och ta emot händelser i .NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- Skicka och ta emot händelser 
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 - [Använd Azure Portal för att aktivera Event Hubs avbildning](event-hubs-capture-enable-through-portal.md)
 - [Använd Azure Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

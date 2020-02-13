@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 2e94c48188d0eed22b338d0d7238c0d27a5d1862
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 457f1008b75fe0605c0d2934f2de09937fac8d21
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782208"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162454"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuera virtuella datorer med hjälp av en Resource Manager-mall
 
@@ -33,10 +33,10 @@ Du har möjlighet att ange ett högsta pris som du är villig att betala per tim
 > Punkt instanser finns för närvarande i offentlig för hands version.
 > Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> För den första delen av den offentliga för hands versionen har plats instanser ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
 
 
-## <a name="use-a-template"></a>Använd en mall 
+
+## <a name="use-a-template"></a>Använda en mall 
 
 Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mallar. Lägg till egenskaperna `priority`, `evictionPolicy` och `billingProfile` i mallen: 
 
@@ -48,9 +48,6 @@ Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mall
                 }
 ```
 
-
-> [!IMPORTANT]
-> I den första delen av den offentliga för hands versionen kan du ange ett högsta pris, men det ignoreras. Virtuella datorer med virtuella datorer har ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
 
 
 Här är en exempel-mall med de tillagda egenskaperna för en VM-VM. Ersätt resurs namnen med dina egna och `<password>` med ett lösen ord för det lokala administratörs kontot på den virtuella datorn.

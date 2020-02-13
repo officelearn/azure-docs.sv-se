@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9a260577906ec94ecba87bb1be02fe35d8c763b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 882904ec09014df821c648bb4823d7a0930abba5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467677"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156262"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -46,7 +46,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/from-microphone/app/src/main/res/layout/activity_main.xml)]
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna till källfilen `MainActivity.java`. Ersätt all kod i den här filen med följande:
 
@@ -58,7 +58,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt också strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria prov prenumerationen.
+1. Ersätt också strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria prov prenumerationen.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 

@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: b2b59eb4c81f28a0bb74aca11d925405256c16a5
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f63105e97f447bd3d536b5de2908fbc830f903d4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75928020"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156306"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -26,7 +26,7 @@ Innan du börjar:
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=linux)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Skapa en C++-källfil med namnet `helloworld.cpp` och klistra in följande kod i den.
 
@@ -34,7 +34,7 @@ Innan du börjar:
 
 1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 > [!NOTE]
 > Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
@@ -84,7 +84,7 @@ Innan du börjar:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
      ```
 
-1. Kör appen.
+1. Kör programmet.
 
    ```sh
    ./helloworld

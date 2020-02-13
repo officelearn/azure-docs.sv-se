@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ddd4f45e88c0bcc63fb62cc816fae4dbad255841
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970217"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157592"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -36,7 +36,7 @@ I Azure Storage finns dessa datatjänster:
 
 Varje tjänst nås via ett lagringskonto. För att komma igång läser du [Skapa ett lagringskonto](storage-account-create.md).
 
-## <a name="blob-storage"></a>Blobb-lagring
+## <a name="blob-storage"></a>Blob Storage
 
 Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blob Storage är optimerat för att lagra stora mängder ostrukturerade data, exempelvis text eller binära data.
 
@@ -78,7 +78,7 @@ Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill 
 
 Mer information om Azure Queues finns i [introduktionen till Queues](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Tabellagring
+## <a name="table-storage"></a>Table Storage
 
 Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen till Azure Table Storage i [Översikt över Azure Table Storage](../tables/table-storage-overview.md). Utöver den befintliga Azure Table Storage-tjänsten finns ett nytt tabell-API för Azure Cosmos DB som tillhandahåller genomströmningsoptimerade tabeller, global distribution och automatiska sekundärindex. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Tabell-API för Azure Cosmos DB](https://aka.ms/premiumtables).
 
@@ -120,17 +120,15 @@ De Azure Storage klient biblioteken innehåller metoder för att kryptera data f
 
 ## <a name="redundancy"></a>Redundans
 
-För att säkerställa att dina data är beständiga kan Azure Storage replikera flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ.
+För att säkerställa att dina data är beständiga, Azure Storage lagra flera kopior av dina data. När du konfigurerar ditt lagringskonto väljer du ett redundansalternativ.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Mer information om haveriberedskap finns i avsnittet om [haveriberedskap och redundans för lagringskonto (förhandsversion) i Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Överföra data till och från Azure Storage
 
 Du kan flytta data till eller från Azure Storage på flera olika sätt. Vilket alternativ du väljer beror på storleken på datauppsättningen och din nätverksbandbredd. Mer information finns i [Välja en Azure-lösning för dataöverföring](storage-choose-data-transfer-solution.md).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Detaljerad information om priser för Azure Storage finns på [prissidan](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

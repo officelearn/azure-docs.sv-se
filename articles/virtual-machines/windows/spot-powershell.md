@@ -7,14 +7,14 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 8752522e4b5a7b91778d6eb2cd8e4ba3bac95da0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17186d1d7b50ea872dc47eca8c2c4491787d2a38
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782130"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158952"
 ---
 # <a name="preview-deploy-spot-vms-using-azure-powershell"></a>För hands version: distribuera virtuella datorer med hjälp av Azure PowerShell
 
@@ -29,7 +29,7 @@ Du har möjlighet att ange ett högsta pris som du är villig att betala per tim
 > Punkt instanser finns för närvarande i offentlig för hands version.
 > Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> För den första delen av den offentliga för hands versionen har plats instanser ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
+
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
@@ -37,9 +37,6 @@ Du har möjlighet att ange ett högsta pris som du är villig att betala per tim
 Skapa en spotVM med [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) för att skapa konfigurationen. Ta med `-Priority Spot` och ange `-MaxPrice` till antingen:
 - `-1` så att den virtuella datorn inte avlägsnas baserat på priset.
 - en dollar mängd, upp till 5 siffror. `-MaxPrice .98765` innebär till exempel att den virtuella datorn kommer att frigöras när priset för en spotVM går ungefär $. 98765 per timme.
-
-> [!IMPORTANT]
-> I den första delen av den offentliga för hands versionen kan du ange ett högsta pris, men det ignoreras. Virtuella datorer med virtuella datorer har ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
 
 
 I det här exemplet skapas en spotVM som inte frigörs baserat på priser (endast när Azure behöver kapaciteten tillbaka).

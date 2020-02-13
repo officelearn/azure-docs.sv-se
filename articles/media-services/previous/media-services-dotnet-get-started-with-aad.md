@@ -1,5 +1,5 @@
 ---
-title: Använd Azure AD-autentisering för att få åtkomst till Azure Media Services-API med .NET | Microsoft Docs
+title: Använd Azure AD-autentisering för att komma åt Azure Media Services API med .NET | Microsoft Docs
 description: Det här avsnittet visar hur du använder Azure Active Directory (Azure AD)-autentisering för att få åtkomst till Azure Media Services (AMS) API med .NET.
 services: media-services
 documentationcenter: ''
@@ -13,88 +13,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726538"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162887"
 ---
-# <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använda Azure AD-autentisering för att få åtkomst till Azure Media Services-API med .NET
+# <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använd Azure AD-autentisering för att komma åt Azure Media Services API med .NET
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Från och med windowsazure.mediaservices 4.0.0.4, stöder Azure Media Services autentisering baserat på Azure Active Directory (AD Azure). Det här avsnittet visar hur du använder Azure AD-autentisering för att få åtkomst till Azure Media Services-API med Microsoft .NET.
+Från och med windowsazure. Media Services 4.0.0.4 stöder Azure Media Services autentisering baserat på Azure Active Directory (Azure AD). Det här avsnittet visar hur du använder Azure AD-autentisering för att komma åt Azure Media Services API med Microsoft .NET.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Ett Azure-konto. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
-- Ett Media Services-konto. Mer information finns i [skapar ett Azure Media Services-konto med Azure-portalen](media-services-portal-create-account.md).
-- Senast [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) paketet.
-- Bekant med ämnet [åtkomst till Azure Media Services-API med översikt över Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+- Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+- Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
+- Det senaste [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) -paketet.
+- Hjälp med att [komma åt Azure Media Services API med Azure AD-autentisering – översikt](media-services-use-aad-auth-to-access-ams-api.md). 
 
-När du använder Azure AD-autentisering med Azure Media Services kan autentisera du på något av två sätt:
+När du använder Azure AD-autentisering med Azure Media Services kan du autentisera på ett av två sätt:
 
-- **Användarautentisering** autentiserar en person som använder appen för att interagera med Azure Media Services-resurser. Interaktivt program bör först frågar användaren om autentiseringsuppgifter. Ett exempel är en management-konsolapp som används av behöriga användare att övervaka kodningsjobb eller liveuppspelning. 
-- **Autentisering av tjänstens huvudnamn** autentiserar en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, mellannivå tjänster eller schemalagda jobb, t.ex webbappar, funktionsappar, logic apps, API: er eller mikrotjänster.
+- **Användarautentisering** autentiserar en person som använder appen för att interagera med Azure Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange autentiseringsuppgifter. Ett exempel är en hanterings konsol app som används av behöriga användare för att övervaka kodnings jobb eller direktsänd strömning. 
+- **Autentisering av tjänstens huvud namn** autentiserar en tjänst. Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb, till exempel webbappar, Function-appar, Logic Apps, API: er eller mikrotjänster.
 
 >[!IMPORTANT]
->Azure Media Services stöder för närvarande en modell för Azure Access Control Service-autentisering. Access Control-auktorisering ska att bli inaktuella den 22 juni 2018. Vi rekommenderar att du migrerar till en Azure Active Directory-autentiseringsmodellen så snart som möjligt.
+>Azure Media service stöder för närvarande en Azure Access Control Service Authentication-modell. Access Control auktorisering kommer dock att bli inaktuellt den 22 juni 2018. Vi rekommenderar att du migrerar till en Azure Active Directory autentiserings modell så snart som möjligt.
 
-## <a name="get-an-azure-ad-access-token"></a>Hämta en Azure AD-token
+## <a name="get-an-azure-ad-access-token"></a>Hämta en Azure AD-åtkomsttoken
 
-Klientappen måste begära en Azure AD-åtkomsttoken för att ansluta till Azure Media Services-API med Azure AD-autentisering. När du använder SDK för Media Services .NET-klient kan många av information om hur du skaffa en Azure AD-åtkomsttoken omsluten och förenklad för dig i den [AzureAdTokenProvider](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenProvider.cs) och [AzureAdTokenCredentials](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenCredentials.cs)klasser. 
+För att ansluta till Azure Media Services-API med Azure AD-autentisering måste klient appen begära en Azure AD-åtkomsttoken. När du använder Media Services .NET-klient-SDK är många av detaljerna för att hämta en Azure AD-åtkomsttoken omslutna och förenklade i klasserna [AzureAdTokenProvider](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenProvider.cs) och [AzureAdTokenCredentials](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.Authentication/AzureAdTokenCredentials.cs) . 
 
-Du behöver inte ange Azure AD-auktoritet, Media Services resurs-URI eller intern information om Azure AD-program. Detta är välkända värden som redan har konfigurerats av Azure AD åtkomst tokenleverantör-klassen. 
+Du behöver till exempel inte ange Azure AD-auktoritet, Media Services resurs-URI eller ursprunglig information om Azure AD-program. Dessa är välkända värden som redan har kon figurer ATS av Azure AD Access token Provider-klassen. 
 
-Om du inte använder Azure Media Service .NET SDK, rekommenderar vi att du använder den [Azure AD-Autentiseringsbiblioteket](../../active-directory/develop/active-directory-authentication-libraries.md). Om du vill hämta värden för parametrarna som du vill använda med Azure AD-Autentiseringsbiblioteket, se [använder Azure portal för att få åtkomst till Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md).
+Om du inte använder Azure Media service .NET SDK rekommenderar vi att du använder [Azure AD Authentication-biblioteket](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). För att hämta värden för de parametrar som du behöver använda med Azure AD Authentication Library, se [använd Azure Portal för att komma åt Azure AD-autentiseringsinställningar](media-services-portal-get-started-with-aad.md).
 
-Du har också möjlighet att ersätta standardimplementering av den **AzureAdTokenProvider** med en egen implementering.
+Du kan också välja att ersätta standard implementeringen av **AzureAdTokenProvider** med din egen implementering.
 
 ## <a name="install-and-configure-azure-media-services-net-sdk"></a>Installera och konfigurera Azure Media Services .NET SDK
 
 >[!NOTE] 
->Om du vill använda Azure AD-autentisering med Media Services .NET SDK måste du ha senast [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) paketet. Lägg även till en referens till den **Microsoft.IdentityModel.Clients.ActiveDirectory** sammansättningen. Om du använder en befintlig app kan innehålla den **Microsoft.WindowsAzure.MediaServices.Client.Common.Authentication.dll** sammansättningen. 
+>Om du vill använda Azure AD-autentisering med Media Services .NET SDK måste du ha det senaste [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) -paketet. Lägg också till en referens till sammansättningen **Microsoft. IdentityModel. clients. ActiveDirectory** . Om du använder en befintlig app inkluderar du sammansättningen **Microsoft. windowsazure. Media Services. client. Common. Authentication. dll** . 
 
 1. Skapa ett nytt C#-konsolprogram i Visual Studio.
-2. Använd den [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) nuget för att installera **Azure Media Services .NET SDK**. 
+2. Använd NuGet-paketet [windowsazure. Media Services](https://www.nuget.org/packages/windowsazure.mediaservices) för att installera **Azure Media Services .NET SDK**. 
 
-    Om du vill lägga till referenser med hjälp av NuGet, gör du följande: i **Solution Explorer**, högerklicka på projektnamnet och välj sedan **hantera NuGet-paket**. Sök sedan efter **windowsazure.mediaservices** och välj **installera**.
+    Utför följande steg för att lägga till referenser med NuGet: i **Solution Explorer**högerklickar du på projekt namnet och väljer sedan **Hantera NuGet-paket**. Sök sedan efter **windowsazure. Media Services** och välj **Installera**.
     
     ELLER
 
-    Kör följande kommando **Pakethanterarkonsolen** i Visual Studio.
+    Kör följande kommando i **Package Manager-konsolen** i Visual Studio.
 
         Install-Package windowsazure.mediaservices -Version 4.0.0.4
 
-3. Lägg till **med** i källkoden.
+3. Lägg till **med** i käll koden.
 
         using Microsoft.WindowsAzure.MediaServices.Client; 
 
-## <a name="use-user-authentication"></a>Använda autentisering med användarnamn
+## <a name="use-user-authentication"></a>Använd användarautentisering
 
-För att ansluta till Azure Media Service-API med alternativet användare autentisering, måste klientappen begära en Azure AD-token med hjälp av följande parametrar:  
+För att ansluta till Azure Media Service-API med alternativet för användarautentisering måste klient programmet begära en Azure AD-token med hjälp av följande parametrar:  
 
-- Azure AD tenant-slutpunkten. Klient-informationen kan hämtas från Azure-portalen. Hovra över den inloggade användaren i det övre högra hörnet.
+- Azure AD-klientens slut punkt. Klient informationen kan hämtas från Azure Portal. Hovra över den inloggade användaren i det övre högra hörnet.
 - Media Services resurs-URI.
-- Media Services (ursprunglig) program klient-ID. 
-- Media Services (ursprunglig) program omdirigerings-URI. 
+- Media Services (inbyggt) program klient-ID. 
+- Media Services (inbyggt) omdirigerings-URI. 
 
-Värdena för dessa parametrar finns i **AzureEnvironments.AzureCloudEnvironment**. Den **AzureEnvironments.AzureCloudEnvironment** konstant är en hjälp i .NET SDK för att hämta rätt miljö varierande inställningarna för en offentlig Azure-datacenter. 
+Värdena för dessa parametrar finns i **AzureEnvironments. AzureCloudEnvironment**. Konstanten **AzureEnvironments. AzureCloudEnvironment** är en hjälp program i .NET SDK för att hämta rätt miljö variabel inställningar för ett offentligt Azure-datacenter. 
 
-Den innehåller fördefinierade miljöinställningar för att komma åt Media Services i offentlig Datacenter endast. Du kan använda för suveräna eller government cloud-regioner, **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, eller **AzureGermanCloudEnvironment** respektive.
+Den innehåller i förväg definierade miljö inställningar för åtkomst till Media Services i offentliga data Center. Du kan använda **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**eller **AzureGermanCloudEnvironment** för statliga moln regioner.
 
-I följande kodexempel skapas en token:
+Följande kod exempel skapar en token:
     
     var tokenCredentials = new AzureAdTokenCredentials("microsoft.onmicrosoft.com", AzureEnvironments.AzureCloudEnvironment);
     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
   
-Om du vill börja programmera mot Media Services, måste du skapa en **CloudMediaContext** -instans som representerar serverkontext. Den **CloudMediaContext** innehåller referenser till viktiga samlingar, inklusive jobb, tillgångar, filer, åtkomstprinciper och lokaliserare. 
+Om du vill starta programmering mot Media Services måste du skapa en **CloudMediaContext** -instans som representerar Server kontexten. **CloudMediaContext** innehåller referenser till viktiga samlingar, till exempel jobb, till gångar, filer, åtkomst principer och positionerare. 
 
-Du också behöva skicka den **resurs-URI för REST medietjänster** till den **CloudMediaContext** konstruktor. Om du vill hämta resurs-URI för REST medietjänster, logga in på Azure-portalen väljer du ditt Azure Media Services-konto, Välj **API-åtkomst**, och välj sedan **Anslut till Azure Media Services med användarautentisering**. 
+Du måste också skicka resurs- **URI för MEDIE rest-tjänster** till **CloudMediaContext** -konstruktorn. Om du vill hämta resurs-URI för medie REST-tjänster loggar du in på Azure Portal, väljer ditt Azure Media Services-konto, väljer **API-åtkomst**och väljer sedan **Anslut till Azure Media Services med användarautentisering**. 
 
-Följande exempel skapar en **CloudMediaContext** instans:
+Följande kod exempel skapar en **CloudMediaContext** -instans:
 
     CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
 
@@ -125,19 +125,19 @@ I följande exempel visas hur du skapar Azure AD-token och kontexten:
     }
 
 >[!NOTE]
->Om du får ett undantag där det står ”fjärrservern returnerade ett fel: (401) Ej behörig ”, se den [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) avsnitt av åtkomst till Azure Media Services-API med översikt över Azure AD-autentisering.
+>Om du får ett undantag som säger "Fjärrservern returnerade ett fel: (401) obehörig," se avsnittet [åtkomst kontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) för att komma åt Azure Media Services API med Azure AD-autentisering.
 
-## <a name="use-service-principal-authentication"></a>Använd autentisering av tjänstens huvudnamn
+## <a name="use-service-principal-authentication"></a>Använd tjänstens huvud namns autentisering
     
-För att ansluta till Azure Media Services-API med tjänstens huvudnamn alternativet är mellannivå appen (webb-API eller web application) måste du begär en Azure AD-token med följande parametrar:  
+För att ansluta till Azure Media Services-API med tjänstens huvud namn måste du begära en Azure AD-token med följande parametrar i mellannivåns app (webb-API eller webb program):  
 
-- Azure AD tenant-slutpunkten. Klient-informationen kan hämtas från Azure-portalen. Hovra över den inloggade användaren i det övre högra hörnet.
+- Azure AD-klientens slut punkt. Klient informationen kan hämtas från Azure Portal. Hovra över den inloggade användaren i det övre högra hörnet.
 - Media Services resurs-URI.
-- Azure AD application värden: den **klient-ID** och **klienthemlighet**.
+- Azure AD-program värden: **klient-ID** och **klient hemlighet**.
 
-Värdena för den **klient-ID** och **klienthemlighet** parametrar finns i Azure-portalen. Mer information finns i [komma igång med Azure AD-autentisering med Azure portal](media-services-portal-get-started-with-aad.md).
+Värdena för parametrarna **klient-ID** och **klient hemlighet** hittar du i Azure Portal. Mer information finns i [komma igång med Azure AD-autentisering med hjälp av Azure Portal](media-services-portal-get-started-with-aad.md).
 
-I följande kodexempel skapas en token med hjälp av den **AzureAdTokenCredentials** konstruktor som tar **AzureAdClientSymmetricKey** som en parameter: 
+I följande kod exempel skapas en token med hjälp av **AzureAdTokenCredentials** -konstruktorn som tar **AzureAdClientSymmetricKey** som parameter: 
     
     var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
                                 new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
@@ -145,17 +145,17 @@ I följande kodexempel skapas en token med hjälp av den **AzureAdTokenCredentia
 
     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
-Du kan också ange den **AzureAdTokenCredentials** konstruktor som tar **AzureAdClientCertificate** som en parameter. 
+Du kan också ange **AzureAdTokenCredentials** -konstruktorn som tar **AzureAdClientCertificate** som en parameter. 
 
-Anvisningar om hur du skapar och konfigurerar ett certifikat i ett formulär som kan användas av Azure AD finns i [autentiserar till Azure AD i daemon-appar med certifikat - manuella konfigurationssteg](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md).
+Instruktioner för hur du skapar och konfigurerar ett certifikat i ett formulär som kan användas av Azure AD finns i [autentisera till Azure AD i daemon-appar med certifikat – manuella konfigurations steg](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md).
 
     var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
                                 new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
                                 AzureEnvironments.AzureCloudEnvironment);
 
-Om du vill börja programmera mot Media Services, måste du skapa en **CloudMediaContext** -instans som representerar serverkontext. Du också behöva skicka den **resurs-URI för REST medietjänster** till den **CloudMediaContext** konstruktor. Du kan hämta den **resurs-URI för REST medietjänster** värdet i Azure Portal.
+Om du vill starta programmering mot Media Services måste du skapa en **CloudMediaContext** -instans som representerar Server kontexten. Du måste också skicka resurs- **URI för MEDIE rest-tjänster** till **CloudMediaContext** -konstruktorn. Du kan också hämta **resurs-URI för media rest Services** -värdet från Azure Portal.
 
-Följande exempel skapar en **CloudMediaContext** instans:
+Följande kod exempel skapar en **CloudMediaContext** -instans:
 
     CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
     
@@ -191,4 +191,4 @@ I följande exempel visas hur du skapar Azure AD-token och kontexten:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [ladda upp filer till ditt konto](media-services-dotnet-upload-files.md).
+Kom igång med [att ladda upp filer till ditt konto](media-services-dotnet-upload-files.md).

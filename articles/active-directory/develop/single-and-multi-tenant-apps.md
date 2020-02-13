@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 364395a05737f6dc6333b922f54376a9d5149fe6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 38cb1222a64b1759528749caa15dfb1bb906cef6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701458"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159921"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Innehav i Azure Active Directory
 
@@ -46,9 +46,9 @@ I Azure Portal kan du konfigurera din app så att den blir en enskild klient ell
 
 Det kan vara svårt att skapa fantastiska appar för flera klient organisationer på grund av antalet olika principer som IT-administratörer kan ange i sina klienter. Om du väljer att bygga en app för flera klienter följer du dessa rekommendationer:
 
-* Testa din app i en klient som har konfigurerat [principer för villkorlig åtkomst](conditional-access-dev-guide.md).
+* Testa din app i en klient som har konfigurerat [principer för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
 * Följ principen om minst användar åtkomst för att säkerställa att din app endast begär behörigheter som den verkligen behöver. Undvik att begära behörigheter som kräver administratörs medgivande eftersom detta kan hindra användare från att förvärva din app i alla organisationer. 
-* Ange lämpliga namn och beskrivningar för behörigheter som du exponerar som en del av din app. Detta hjälper användare och administratörer att veta vad de accepterar när de försöker använda appens API: er. Mer information finns i avsnittet metod tips i [guiden behörigheter](v1-permissions-and-consent.md).
+* Ange lämpliga namn och beskrivningar för behörigheter som du exponerar som en del av din app. Detta hjälper användare och administratörer att veta vad de accepterar när de försöker använda appens API: er. Mer information finns i avsnittet metod tips i [guiden behörigheter](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

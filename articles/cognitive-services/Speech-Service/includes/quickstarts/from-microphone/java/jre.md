@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ebabeccc43998c229bcd28063b6cbabae4b046ea
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: cd00fb2df0063bd8bc753f9078194648f6745f1b
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795687"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156147"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -21,7 +21,7 @@ Innan du börjar:
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=jre)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 
@@ -35,7 +35,7 @@ Innan du börjar:
 
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 1. Spara ändringarna i projektet.
 

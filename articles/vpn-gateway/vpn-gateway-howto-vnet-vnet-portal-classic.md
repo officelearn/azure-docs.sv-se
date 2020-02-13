@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: ca24cbdd9541456cbaa3f384587fee17d47f5ca2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ddcc7fcc14c7958e8c0d012c2395ad2b6c422f4f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864119"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157915"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
 
@@ -22,7 +22,7 @@ ms.locfileid: "75864119"
 Den här artikeln hjälper dig att skapa en VPN gateway-anslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Stegen i den här artikeln gäller den klassiska distributions modellen och Azure Portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -33,7 +33,7 @@ Den här artikeln hjälper dig att skapa en VPN gateway-anslutning mellan virtue
 
 ![Diagram över VNet till VNet-anslutning](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about-vnet-to-vnet-connections"></a>Om VNet-till-VNet-anslutningar
 
@@ -50,7 +50,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 * **Geografisk redundans i flera regioner och geografisk närvaro**
 
   * Du kan ange din egna geografiska replikering eller synkronisering med en säker anslutning, utan att passera några Internet-slutpunkter.
-  * Med Azure Load Balancer-och Microsoft-teknik och kluster teknik från tredje part kan du konfigurera arbets belastning med hög tillgänglighet med GEO-redundans i flera Azure-regioner. Ett viktigt exempel är att konfigurera att SQL alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
+  * Med Azure Load Balancer-och Microsoft-teknik och kluster teknik från tredje part kan du konfigurera arbets belastning med hög tillgänglighet med GEO-redundans i flera Azure-regioner. Ett viktigt exempel är att konfigurera SQL så att det alltid är aktiverat med tillgänglighetsgrupper som är spridda över flera Azure-regioner.
 * **Regional program med flera nivåer med stark isolerings gränser**
 
   * Inom samma region kan du konfigurera flera nivåer med flera virtuella nätverk som är anslutna till varandra med stark isolering och säker kommunikation mellan olika nivåer.
@@ -73,7 +73,7 @@ I följande tabell visas ett exempel på hur du definierar din virtuella nätver
 
 **Exempel**
 
-| Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |
+| Virtual Network | Adress utrymme | Region | Ansluter till den lokala nätverks platsen |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |USA, östra |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |USA, västra |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -135,7 +135,7 @@ Till exempel ansluter TestVNet1 till en lokal nätverks plats som du skapar med 
 
 Den lokala platsen för varje VNet är det andra virtuella nätverket. Följande exempel värden används för vår konfiguration:
 
-| Virtual Network | Adressutrymme | Region | Ansluter till den lokala nätverks platsen |
+| Virtual Network | Adress utrymme | Region | Ansluter till den lokala nätverks platsen |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |USA, östra |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |USA, västra |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -160,7 +160,7 @@ Varje virtuellt nätverk måste ha en virtuell nätverksgateway. Den virtuella N
 3. Gateway-undernätets namn fylls i automatiskt med det obligatoriska namnet "GatewaySubnet". **Adress intervallet** innehåller de IP-adresser som allokeras till VPN gateway-tjänsterna. Vissa konfigurationer tillåter ett Gateway-undernät på/29, men det är bäst att använda en/28 eller/27 för att hantera framtida konfigurationer som kan kräva fler IP-adresser för gateway-tjänsterna. I våra exempel inställningar använder vi 10.11.1.0/27. Justera adress utrymmet och klicka sedan på **OK**.
 4. Konfigurera **Gateway-storleken**. Den här inställningen refererar till [Gateway-SKU: n](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 5. Konfigurera **Dirigerings typen**. Dirigerings typen för den här konfigurationen måste vara **dynamisk**. Du kan inte ändra cirkulations typen senare om du inte avrundar gatewayen och skapar en ny.
-6. Klicka på **OK**.
+6. Klicka på **OK**
 7. På sidan **ny VPN-anslutning** klickar du på **OK** för att börja skapa den virtuella Nätverksgatewayen. Att skapa en gateway kan ofta ta 45 minuter eller mer, beroende på vald gateway-SKU.
 
 ## <a name="vnet4settings"></a>Steg 5 – Konfigurera TestVNet4-inställningar

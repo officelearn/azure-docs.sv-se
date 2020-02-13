@@ -1,5 +1,5 @@
 ---
-title: Liveuppspelning med lokala kodare med hjälp av Azure portal | Microsoft Docs
+title: Live Stream med lokala kodare som använder Azure Portal | Microsoft Docs
 description: Den här vägledningen visar dig stegen för att skapa en kanal som är konfigurerad för en genomströmningsleverans.
 services: media-services
 documentationcenter: ''
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9a8ab024443744f50482dd2ca1cfb33db43359e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a83d6ae2e3ed13f0d03e0fdc87a3b45a4119ba88
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463380"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162760"
 ---
-# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Utför du direktsänd strömning med lokala kodare med hjälp av Azure portal
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Utför Direktsänd strömning med lokala kodare med hjälp av Azure Portal
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-live-passthrough-get-started.md)
+> * [Portalen](media-services-portal-live-passthrough-get-started.md)
 > * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här vägledningen visar dig stegen för att använda Azure-portalen för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Följande krävs för att kunna genomföra vägledningen:
 
-* Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Ett Azure-konto. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* En webbkamera. Till exempel [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm).
+* En webbkamera. Till exempel [Telestream Wirecast-kodaren](media-services-configure-wirecast-live-encoder.md). 
 
 Vi rekommenderar att du tittar närmare på följande artiklar:
 
@@ -54,8 +54,8 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
 > [!NOTE]
 > Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
     
-1. Anslut en videokamera till en dator. <br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
-1. Starta och konfigurera en lokal direktsänd kodare som matar ut en RTMP- eller fragmenterad MP4-dataström i multibithastighet. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
+1. Anslut en videokamera till en dator. <br/>För installations tips kan du läsa mer i installations [programmet för enkel och bärbar händelse]( https://link.medium.com/KNTtiN6IeT).
+1. Starta och konfigurera en lokal direktsänd kodare som matar ut en RTMP- eller fragmenterad MP4-dataström i multibithastighet. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Ta också en titt på den här bloggen: [produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
    
     Det här steget kan också utföras när du har skapat din kanal.
 1. Skapa och starta en genomströmningskanal
@@ -70,7 +70,7 @@ Följande steg beskriver uppgifter som ingår i att skapa vanliga appar för dir
     När du använder Azure-portalen, skapas även en tillgång då du skapar en direktsänd händelse. 
 
 1. Starta händelsen eller programmet när du är redo att påbörja strömning och arkivering.
-1. Som alternativ kan den direktsända kodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
+1. Som alternativ kan livekodaren få signal om att starta en annons. Annonsen infogas i utdataströmmen.
 1. Stoppa händelsen eller programmet när du vill stoppa strömningen och arkiveringen av händelsen.
 1. Ta bort händelsen eller programmet (och ta eventuellt bort tillgången).     
 
@@ -101,7 +101,7 @@ Om du vill ta bort arkiverat innehåll, stoppar du och tar bort händelsen och t
 
 Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången.
 
-Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningslokaliseraren.
+Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningspositioneraren.
 
 ### <a name="to-use-the-portal-to-create-a-channel"></a>Använda portalen för att skapa en kanal
 Detta avsnitt visar hur du använder alternativet **Snabbregistrering** för att skapa en genomströmningskanal.

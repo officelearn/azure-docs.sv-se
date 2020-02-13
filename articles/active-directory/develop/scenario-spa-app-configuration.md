@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f72b2b85fcaae4e0a21e4bbe2f3af79359ca2fa6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f1e0bf44515aab18019b19b4f0a6f84183e5aac3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701917"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160091"
 ---
 # <a name="single-page-application-code-configuration"></a>Program med en sida: kod konfiguration
 
@@ -31,14 +31,14 @@ Microsoft Identity Platform tillhandahåller följande bibliotek för Microsoft 
 
 | MSAL-bibliotek | Beskrivning |
 |--------------|--------------|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. |
+| ![MSAL. js](media/sample-v2-code/logo_js.png) <br/> [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Oformaterat JavaScript-bibliotek för användning i alla webb program på klient sidan som bygger på JavaScript-eller SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. |
 | ![MSAL vinkel](media/sample-v2-code/logo_angular.png) <br/> [MSAL-vinkel](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Omslutning av kärnan MSAL. js-biblioteket för att förenkla användningen av appar på en sida som är byggda genom ram-ramverket. Det här biblioteket är i för hands version och har [kända problem](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) med vissa vinkel versioner och webbläsare. |
 
 ## <a name="application-code-configuration"></a>Program kod konfiguration
 
 I ett MSAL-bibliotek skickas programmets registrerings information som konfiguration under biblioteks initieringen.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 // Configuration object constructed.
@@ -52,9 +52,10 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
+
 Mer information om konfigurerbara alternativ finns i avsnittet [om att initiera program med MSAL. js](msal-js-initializing-client-applications.md).
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -68,6 +69,8 @@ import { MsalModule } from '@azure/msal-angular';
 
   export class AppModule { }
 ```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

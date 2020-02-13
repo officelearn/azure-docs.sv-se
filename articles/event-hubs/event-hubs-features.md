@@ -13,37 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827729"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157184"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktionerna och terminologin i Azure Event Hubs
 
-Azure Event Hubs är en skalbar händelsebearbetningstjänst som matar in och bearbetar stora mängder händelser och data med låg fördröjning och hög tillförlitlighet. Se [vad är Event Hubs?](event-hubs-what-is-event-hubs.md) för en översikt.
+Azure Event Hubs är en skalbar händelsebearbetningstjänst som matar in och bearbetar stora mängder händelser och data med låg fördröjning och hög tillförlitlighet. Se [Vad är Event Hubs?](event-hubs-what-is-event-hubs.md) för en översikt på hög nivå.
 
-Den här artikeln bygger på informationen i den [översiktsartikeln](event-hubs-what-is-event-hubs.md), och innehåller teknisk och implementering information om Event Hubs-komponenter och funktioner.
+Den här artikeln bygger på informationen i [översikts artikeln](event-hubs-what-is-event-hubs.md)och ger teknisk och implementerings information om Event Hubs-komponenter och-funktioner.
 
 ## <a name="namespace"></a>Namnrymd
-Ett namnområde för Event Hubs innehåller en unik omfattningsbehållare som refereras av dess [fullständigt kvalificerade domännamnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), i vilket du skapar en eller flera händelsehubbar Kafka-avsnitt. 
+Ett Event Hubs-namnområde innehåller en unik omfattnings behållare som refereras till av det [fullständigt kvalificerade domän namnet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), där du kan skapa ett eller flera Event Hub-eller Kafka-ämnen. 
 
 ## <a name="event-hubs-for-apache-kafka"></a>Event Hubs för Apache Kafka
 
-[Den här funktionen](event-hubs-for-kafka-ecosystem-overview.md) innehåller en slutpunkt som ger kunder möjlighet att kommunicera med Event Hubs med Kafka-protokollet. Den här integreringen ger kunderna en Kafka-slutpunkt. Detta gör det möjligt för kunder att konfigurera sina befintliga Kafka-program att kommunicera med Event Hubs, vilket ger ett alternativ till att köra sina egna Kafka-kluster. Event Hubs för Apache Kafka har stöd för Kafka-protokollet 1.0 och senare. 
+[Den här funktionen](event-hubs-for-kafka-ecosystem-overview.md) ger en slut punkt som gör det möjligt för kunder att kommunicera med Event Hubs med Kafka-protokollet. Den här integreringen ger kunderna en Kafka-slutpunkt. Detta gör det möjligt för kunder att konfigurera sina befintliga Kafka-program att kommunicera med Event Hubs, vilket ger ett alternativ till att köra sina egna Kafka-kluster. Event Hubs för Apache Kafka har stöd för Kafka-protokollet 1.0 och senare. 
 
-Med den här integreringen behöver du inte kör Kafka-kluster eller hantera dem med Zookeeper. Detta kan du också att arbeta med några av de mest krävande funktionerna i Event Hubs som att samla in, automatisk ökning och Geo-Haveriberedskap.
+Med den här integrationen behöver du inte köra Kafka-kluster eller hantera dem med Zookeeper. Detta kan du också att arbeta med några av de mest krävande funktionerna i Event Hubs som att samla in, automatisk ökning och Geo-Haveriberedskap.
 
 Den här integrationen kan också program, t.ex. spegling Maker eller ramverk som Kafka ansluta ska fungera clusterless bara konfigurationsändringar. 
 
 ## <a name="event-publishers"></a>Händelseutfärdare
 
-En enhet som skickar data till en händelsehubb är en händelse tillverkare eller *händelseutfärdare*. Händelseutfärdare kan utfärda händelser med hjälp av HTTPS eller AMQP 1.0 eller Kafka 1.0 och senare. Händelseutfärdare använder en SAS-token (signatur för delad åtkomst) för att identifiera sig mot en händelsehubb och kan ha en unik identitet eller använda en gemensam SAS-token.
+En entitet som skickar data till en Event Hub är en händelse producent eller *händelse utgivare*. Händelseutfärdare kan utfärda händelser med hjälp av HTTPS eller AMQP 1.0 eller Kafka 1.0 och senare. Händelseutfärdare använder en SAS-token (signatur för delad åtkomst) för att identifiera sig mot en händelsehubb och kan ha en unik identitet eller använda en gemensam SAS-token.
 
 ### <a name="publishing-an-event"></a>Publicera en händelse
 
-Du kan publicera en händelse via AMQP 1.0, Kafka 1.0 (och senare) eller HTTPS. Event Hubs tillhandahåller [klientbibliotek och klasser](event-hubs-dotnet-framework-api-overview.md) för att publicera händelser till en händelsehubb från .NET-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](https://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata) har en gräns på 1 MB, oavsett om det är en enskild händelse eller en batch. Publicering av händelser som är större än det här tröskelvärdet resultat i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
+Du kan publicera en händelse via AMQP 1.0, Kafka 1.0 (och senare) eller HTTPS. Event Hubs tillhandahåller [klient bibliotek och klasser](event-hubs-dotnet-framework-api-overview.md) för att publicera händelser till en händelsehubben från .net-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](https://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enstaka publikation (en instans av händelsedata) har en gräns på 1 MB, oavsett om det är en enskild händelse eller en batch. Publicering av händelser som är större än det här tröskelvärdet resultat i ett fel. Bästa metoden för en utfärdare är att vara ovetande om partitioner i händelsehubben och att bara ange en *partitionsnyckel* (presenteras i nästa avsnitt) eller sin identitet via sin SAS-token.
 
 Valet att använda AMQP eller HTTPS är specifikt för användningsscenariot. AMQP kräver en beständig dubbelriktad socket och dessutom säkerhet på transportnivå (TLS) eller SSL/TLS. AMQP har högre nätverkskostnader när sessionen initieras, men HTTPS kräver ytterligare SSL-kostnader för varje begäran. AMQP har högre prestanda för frekventa utfärdare.
 
@@ -63,7 +63,7 @@ Du behöver inte skapa utgivarnamnen i förväg, men de måste matcha SAS-token 
 
 ## <a name="capture"></a>Capture
 
-[Event Hubs Capture](event-hubs-capture-overview.md) gör att du kan avbilda strömmande data i Event Hubs och spara den till ett Blob storage-konto eller ett tjänstkonto för Azure Data Lake automatiskt. Du kan aktivera avbildning från Azure-portalen och ange en minsta storlek och tidsfönster att utföra insamlingen. Med Event Hubs Capture kan ange du din egen Azure Blob Storage-konto och en behållare eller ett konto för Azure Data Lake-tjänsten, av vilka används för att lagra insamlade data. Inlästa data skrivs i Apache Avro-format.
+Med [Event Hubs Capture](event-hubs-capture-overview.md) kan du automatiskt samla in strömmande data i Event Hubs och spara dem på ditt val av antingen ett Blob Storage-konto eller ett Azure Data Lake tjänst konto. Du kan aktivera avbildning från Azure-portalen och ange en minsta storlek och tidsfönster att utföra insamlingen. Med Event Hubs Capture kan ange du din egen Azure Blob Storage-konto och en behållare eller ett konto för Azure Data Lake-tjänsten, av vilka används för att lagra insamlade data. Inlästa data skrivs i Apache Avro-format.
 
 ## <a name="partitions"></a>Partitioner
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -83,7 +83,7 @@ Publicerings-/prenumerationsmekanismen för Event Hubs aktiveras via *konsumentg
 
 Inom en arkitektur för strömbearbetning utgör varje nedströms program en konsumentgrupp. Om du vill skriva händelsedata till långsiktig lagring utgör programmet för att skriva data till lagring en konsumentgrupp. Komplex händelsebearbetning kan sedan utföras av en annan, separat konsumentgrupp. Du får bara åtkomst till en partition via en konsumentgrupp. Det finns alltid en förinställd konsumentgrupp i en händelsehubb, och du kan skapa upp till 20 konsumentgrupper för en händelsehubb på standardnivå.
 
-Det får vara högst 5 samtidiga läsare på en partition per konsumentgrupp; men **rekommenderar vi att det finns endast en aktiv mottagare på en partition per konsumentgrupp**. Inom en enda partition får varje läsare alla meddelanden. Om du har flera läsare på samma partition kan bearbeta du dubbletter av meddelanden. Du måste hantera det i din kod, vilket inte kanske är enkelt. Men är det en giltig metod i vissa situationer.
+Det får finnas högst 5 samtidiga läsare på en partition per konsument grupp. **vi rekommenderar dock att det bara finns en aktiv mottagare på en partition per konsument grupp**. Inom en enda partition får varje läsare alla meddelanden. Om du har flera läsare på samma partition kan bearbeta du dubbletter av meddelanden. Du måste hantera det i din kod, vilket inte kanske är enkelt. Men är det en giltig metod i vissa situationer.
 
 
 Följande är exempel på URI-konventionen för konsumentgrupper:
@@ -134,11 +134,14 @@ Det är ditt ansvar att hantera positionen (offset).
 
 Besök följande länkar för mer utförlig information om Event Hubs:
 
-* Kom igång med en [kurs om händelsehubbar][Event Hubs tutorial]
+- Kom igång med händelsehubbar
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Programmeringsguide för Event Hubs](event-hubs-programming-guide.md)
 * [Tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
-* [Event Hubs-exempel][]
+* [Event Hubs exempel][]
 
-[Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
-[Event Hubs-exempel]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Event Hubs exempel]: https://github.com/Azure/azure-event-hubs/tree/master/samples

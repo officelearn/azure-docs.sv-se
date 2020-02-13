@@ -8,39 +8,35 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 02/11/2020
+ms.openlocfilehash: b6147e45ca686328b1702faa5a8d50d9a75e50d6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466533"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157847"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Hantera Azure Kognitiv sökning-tjänsten med PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](search-manage.md)
+> * [Portalen](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0) -> 
 
-Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att skapa och konfigurera Azure kognitiv sökning. **AZ. search** -modulen utökar Azure PowerShell] med fullständig paritet till [Azure-kognitiv sökning hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **AZ. search**kan du utföra följande uppgifter:
+Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att skapa och konfigurera Azure kognitiv sökning. **AZ. search** -modulen utökar [Azure PowerShell](https://docs.microsoft.com/powershell/) med fullständig paritet till [Sök hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement) och möjlighet att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * [Visa en lista över alla Sök tjänster i din prenumeration](#list-search-services)
-> * [Hämta information om en speciell Sök tjänst](#get-search-service-information)
+> * [Visa en lista över Sök tjänster i en prenumeration](#list-search-services)
+> * [Information om tjänst utbyte](#get-search-service-information)
 > * [Skapa eller ta bort en tjänst](#create-or-delete-a-service)
 > * [Återskapa Admin-API – nycklar](#regenerate-admin-keys)
 > * [Skapa eller ta bort fråge-API – nycklar](#create-or-delete-query-keys)
-> * [Skala en tjänst genom att öka eller minska repliker och partitioner](#scale-replicas-and-partitions)
+> * [Skala upp eller ned med repliker och partitioner](#scale-replicas-and-partitions)
 
-PowerShell kan inte användas för att ändra namn, region eller nivå för din tjänst. Dedikerade resurser allokeras när en tjänst skapas. Att ändra den underliggande maskin varan (plats eller nodtyp) kräver en ny tjänst. Det finns inga verktyg eller API: er för överföring av innehåll från en tjänst till en annan. All innehålls hantering är via [rest](https://docs.microsoft.com/rest/api/searchservice/) -eller [.net](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) -API: er, och om du vill flytta index måste du återskapa och läsa in dem på nytt i en ny tjänst. 
+Ibland tillfrågas frågor om uppgifter som *inte* finns i listan ovan. För närvarande kan du inte använda antingen **AZ. search** -modulen eller hanterings REST API för att ändra server namn, region eller nivå. Dedikerade resurser allokeras när en tjänst skapas. Därför kräver ändring av den underliggande maskin varan (plats eller nodtyp) en ny tjänst. På samma sätt finns det inga verktyg eller API: er för att överföra innehåll, till exempel ett index, från en tjänst till en annan.
 
-Det finns inga dedikerade PowerShell-kommandon för innehålls hantering, men du kan skriva PowerShell-skript som anropar REST eller .NET för att skapa och läsa in index. **AZ. search** -modulen innehåller inte dessa åtgärder.
-
-Andra aktiviteter som inte stöds via PowerShell eller någon annan API (endast Portal) inkluderar:
-+ [Koppla en kognitiv tjänst resurs](cognitive-search-attach-cognitive-services.md) för [AI-berikad indexering](cognitive-search-concept-intro.md). En kognitiv tjänst är kopplad till en färdigheter, inte en prenumeration eller tjänst.
-+ [Lösningar](search-monitor-usage.md#add-on-monitoring-solutions) för att övervaka Azure-kognitiv sökning.
+I en tjänst är skapandet och hanteringen av innehåll via [Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/) eller [.NET SDK](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search). Det finns inga dedikerade PowerShell-kommandon för innehåll, men du kan skriva PowerShell-skript som anropar REST-eller .NET-API: er för att skapa och läsa in index.
 
 <a name="check-versions-and-load"></a>
 
@@ -92,7 +88,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Visa en lista över alla Azure Kognitiv sökning-tjänster i din prenumeration
+## <a name="list-services-in-a-subscription"></a>Visa en lista över tjänster i en prenumeration
 
 Följande kommandon är från [**AZ. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), returnerar information om befintliga resurser och tjänster som redan har skapats i din prenumeration. Om du inte vet hur många Sök tjänster som redan har skapats, returnerar de här kommandona informationen och sparar en resa till portalen.
 

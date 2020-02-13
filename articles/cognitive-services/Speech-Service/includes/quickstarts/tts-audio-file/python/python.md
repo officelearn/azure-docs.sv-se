@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: syntetisera tal i ljud filen, python-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d82b2904f16cc9816a22caadba598a7a44bfa007
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 738ce3d52464897df42be49828ca838b9f77d441
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466862"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156286"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](~/articles/cognitive-services/Speech-Service/get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en utan kostnad](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 eller senare](https://www.python.org/downloads/).
 * Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
     * Windows: x64 och x86.
@@ -79,8 +79,8 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 
 import azure.cognitiveservices.speech as speechsdk
 
-# Creates an instance of a speech config with specified subscription key and service region.
-# Replace with your own subscription key and service region (e.g., "westus").
+# Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+# from here: https://aka.ms/speech/sdkregion).
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
@@ -146,7 +146,7 @@ Om det finns problem med att följa dessa anvisningar finns den mer omfattande [
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/19/2018
-ms.openlocfilehash: 4ce1272c38bcb066f9e88ca739561ccd7696c989
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6dff1fe974ad4ffa993e4df03b4903d7e46e1990
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363514"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162267"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Genom gång av Azure Monitoring REST API
 
@@ -57,7 +57,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Om du vill fråga Azure Monitor-API: t bör klient programmet använda det tidigare skapade tjänstens huvud namn för att autentisera. Följande exempel på PowerShell-skript visar ett tillvägagångs sätt med hjälp av [Active Directory-autentiseringsbibliotek](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) för att hämta JWT-autentiseringstoken. JWT-token skickas som en del av en HTTP-auktoriseringsregel i begär anden till Azure Monitor REST API.
+Om du vill fråga Azure Monitor-API: t bör klient programmet använda det tidigare skapade tjänstens huvud namn för att autentisera. Följande exempel på PowerShell-skript visar ett tillvägagångs sätt med hjälp av [Active Directory-autentiseringsbibliotek](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) för att hämta JWT-autentiseringstoken. JWT-token skickas som en del av en HTTP-auktoriseringsregel i begär anden till Azure Monitor REST API.
 
 ```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -620,7 +620,7 @@ För att hitta resurs-ID för en önskad resurs, är det en bra idé att använd
 
 ![Alt "Azure Resource Explorer"](./media/rest-api-walkthrough/azure_resource_explorer.png)
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Resurs-ID: t kan också hämtas från Azure Portal. Det gör du genom att navigera till önskad resurs och sedan välja egenskaper. Resurs-ID visas i avsnittet egenskaper, som visas på följande skärm bild:
 

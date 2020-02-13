@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e729bee0ac9beac447893ed8dbf1bba633e412
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274185"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159054"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program
 
@@ -31,7 +31,7 @@ Det här problemet uppstår vanligt vis om program leverantören har ändrat sin
 
 Microsoft har teknik för att automatiskt identifiera när integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så tar det en stund att åtgärda problemet. Om någon av dessa integreringar inte fungerar som den ska kan du öppna ett support ärende så att det kan åtgärdas så snabbt som möjligt.
 
-**Om du är kontakt med den här appens leverantör kan du** skicka dem på vårt sätt så att Microsoft kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/howto-app-gallery-listing.md) för att komma igång.
+**Om du är kontakt med den här appens leverantör kan du** skicka dem på vårt sätt så att Microsoft kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Autentiseringsuppgifterna fylls i och skickas, men sidan indikerar att autentiseringsuppgifterna är felaktiga
 
@@ -59,7 +59,7 @@ Om de tidigare förslagen inte fungerar, kan det vara fallet att en ändring har
 
 Microsoft har teknik för att automatiskt identifiera när program integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så kan det ta lite tid att åtgärda problemet. När en integrering inte fungerar som den ska kan du öppna ett support ärende för att få den åtgärdad så snabbt som möjligt. 
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/howto-app-gallery-listing.md) för att komma igång.
+Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Tillägget fungerar i Chrome och Firefox, men inte i Internet Explorer
 
@@ -73,7 +73,7 @@ Det finns två huvudsakliga orsaker till det här problemet:
 
   * Den här situationen kan tyvärr variera beroende på webbläsarens version, datorns hastighet eller besöks plats. I det här fallet rekommenderar vi att du kontaktar supporten så att vi kan åtgärda integreringen för det specifika programmet.
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/howto-app-gallery-listing.md) för att komma igång.
+Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Kontrol lera om programmets inloggnings sida har ändrats nyligen eller kräver ett ytterligare fält
 
@@ -81,7 +81,7 @@ Om programmets inloggnings sida har ändrats drastiskt gör det ibland att våra
 
 Microsoft har teknik för att automatiskt identifiera när program integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så kan det ta lite tid att åtgärda problemet. När en integrering inte fungerar som den ska kan du öppna ett support ärende för att få den åtgärdad så snabbt som möjligt. 
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../develop/howto-app-gallery-listing.md) för att komma igång.
+Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du åtkomst panelens webb läsar tillägg
 

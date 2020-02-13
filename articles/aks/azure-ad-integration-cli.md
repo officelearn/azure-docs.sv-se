@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616282"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158153"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten med hjälp av Azure CLI
 
@@ -40,7 +40,7 @@ aksname="myakscluster"
 
 Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][open-id-connect].
 
-Från inifrån Kubernetes-klustret används webhook-token-autentisering för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret. Mer information om autentisering med webhook-token finns i dokumentationen för webhook- [autentisering][kubernetes-webhook].
+Från inifrån Kubernetes-klustret används webhook-token-autentisering för att verifiera autentiseringstoken. Webhook-token-autentisering konfigureras och hanteras som en del av AKS-klustret. Mer information om autentisering med webhook-token finns i [dokumentationen för webhook-autentisering][kubernetes-webhook].
 
 > [!NOTE]
 > När du konfigurerar Azure AD för AKS-autentisering konfigureras två Azure AD-program. Den här åtgärden måste utföras av en Azure-innehavaradministratör.
@@ -77,8 +77,8 @@ serverApplicationSecret=$(az ad sp credential reset \
 
 Azure AD behöver behörighet att utföra följande åtgärder:
 
-* Läsa katalogdata
-* Logga in och läsa användarprofil
+* Läs katalogdata
+* Logga in och läsa användar profil
 
 Tilldela dessa behörigheter med hjälp av kommandot [AZ AD App permission Add][az-ad-app-permission-add] :
 
@@ -172,7 +172,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Om användaren som du beviljar RBAC-bindningen för finns i samma Azure AD-klient tilldelar du behörigheter baserat på *userPrincipalName*. Om användaren finns i en annan Azure AD-klient frågar du efter och använder egenskapen *ObjectID* i stället.
 
-Skapa ett yaml-manifest `basic-azure-ad-binding.yaml` med namnet och klistra in följande innehåll. På den sista raden ersätter du *userPrincipalName_or_objectId* med UPN-eller objekt-ID-utdata från föregående kommando:
+Skapa ett YAML-manifest med namnet `basic-azure-ad-binding.yaml` och klistra in följande innehåll. På den sista raden ersätter du *userPrincipalName_or_objectId* med UPN-eller objekt-ID-utdata från föregående kommando:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -197,7 +197,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 
 ## <a name="access-cluster-with-azure-ad"></a>Åtkomst till kluster med Azure AD
 
-Nu ska vi testa integreringen av Azure AD-autentisering för AKS-klustret. `kubectl` Ange konfigurations kontexten för att använda vanliga användarautentiseringsuppgifter. Den här kontexten skickar alla autentiseringsbegäranden tillbaka till Azure AD.
+Nu ska vi testa integreringen av Azure AD-autentisering för AKS-klustret. Ange `kubectl` konfigurations kontext för att använda vanliga användarautentiseringsuppgifter. Den här kontexten skickar alla autentiseringsbegäranden tillbaka till Azure AD.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
@@ -209,7 +209,7 @@ Använd nu kommandot [kubectl get poddar][kubectl-get] för att Visa poddar i al
 kubectl get pods --all-namespaces
 ```
 
-Du får en inloggnings fråga för att autentisera med Azure AD-autentiseringsuppgifter med hjälp av en webbläsare. När du har autentiserat `kubectl` visar kommandot poddar i AKS-klustret, vilket visas i följande exempel på utdata:
+Du får en inloggnings fråga för att autentisera med Azure AD-autentiseringsuppgifter med hjälp av en webbläsare. När du har autentiserat visar `kubectl`-kommandot poddar i AKS-klustret, som visas i följande exempel på utdata:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -238,7 +238,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * Du definierade lämpligt objekt-ID eller UPN, beroende på om användar kontot finns i samma Azure AD-klient eller inte.
 * Användaren är inte medlem i fler än 200 grupper.
-* Hemligheten som definierats i program registreringen för servern matchar det värde som kon figurer ATS med`--aad-server-app-secret`
+* Hemligheten som definierats i program registreringen för servern matchar det värde som konfigureras med hjälp av `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -260,7 +260,7 @@ Metod tips för identitets-och resurs kontroll finns i [metod tips för autentis
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update

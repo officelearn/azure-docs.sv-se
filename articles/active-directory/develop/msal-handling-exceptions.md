@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084014"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160852"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Hantera undantag och fel i MSAL
 
@@ -506,7 +506,7 @@ Följande mål-C-exempel kod visar metod tips för hantering av några vanliga f
 
 ## <a name="conditional-access-and-claims-challenges"></a>Utmaningarna för villkorlig åtkomst och anspråk
 
-När token hämtas i bakgrunden kan ditt program få fel när en [utmanings utmaning för anspråk](conditional-access-dev-guide.md) , till exempel MFA-princip, krävs av ett API som du försöker få åtkomst till.
+När token hämtas i bakgrunden kan ditt program få fel när en [utmanings utmaning för anspråk](../azuread-dev/conditional-access-dev-guide.md) , till exempel MFA-princip, krävs av ett API som du försöker få åtkomst till.
 
 Mönstret för att hantera det här felet är att interaktivt hämta en token med hjälp av MSAL. Att interaktivt förvärva en token frågar användaren och ger dem möjlighet att uppfylla den nödvändiga principen för villkorlig åtkomst.
 
@@ -520,7 +520,7 @@ För att hantera anspråks utmaningen måste du använda metoden `.WithClaim()` 
 
 ### <a name="javascript"></a>JavaScript
 
-När du hämtar token tyst (med `acquireTokenSilent`) med hjälp av MSAL. js kan programmet få fel meddelanden när en [utmanings utmaning för anspråk](conditional-access-dev-guide.md) som MFA-princip krävs av ett API som du försöker få åtkomst till.
+När du hämtar token tyst (med `acquireTokenSilent`) med hjälp av MSAL. js kan programmet få fel meddelanden när en [utmanings utmaning för anspråk](../azuread-dev/conditional-access-dev-guide.md) som MFA-princip krävs av ett API som du försöker få åtkomst till.
 
 Mönstret för att hantera det här felet är att göra ett interaktivt anrop för att hämta token i MSAL. js som `acquireTokenPopup` eller `acquireTokenRedirect` som i följande exempel:
 

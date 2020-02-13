@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8124aea96ab00e7f09782531702dcb5cfa4ccdf2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701832"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159972"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Program med en sida: inloggning och utloggning
 
@@ -47,7 +47,7 @@ Du kan inte använda båda metoderna pop-up och Redirect i ditt program. Valet m
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Logga in med ett popup-fönster
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -63,7 +63,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Med MSAL-vinkel omslutningen kan du skydda specifika vägar i ditt program genom att lägga till `MsalGuard` i väg definitionen. Det här skydds metoden anropar metoden för att logga in när den vägen nås.
 
@@ -89,10 +89,11 @@ Aktivera konfigurations alternativet `popUp` för en popup-fönster upplevelse. 
             })]
          })
 ```
+---
 
 ## <a name="sign-in-with-redirect"></a>Logga in med omdirigering
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Omdirigerings metoderna returnerar inte ett löfte på grund av att huvud-appen har flyttats bort. Om du vill bearbeta och komma åt de returnerade tokens måste du registrera lyckade och felfria återanrop innan du anropar omdirigerings metoderna.
 
@@ -110,12 +111,14 @@ const loginRequest = {
 userAgentApplication.loginRedirect(loginRequest);
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Koden här är samma som beskrivs tidigare i avsnittet om att logga in med ett popup-fönster. Standard flödet är omdirigerat.
 
 > [!NOTE]
 > ID-token innehåller inte de vidarebefordrade omfattningarna och representerar bara den autentiserade användaren. De godkända omfattningarna returneras i åtkomsttoken, som du hämtar i nästa steg.
+
+---
 
 ## <a name="sign-out"></a>Logga ut
 
@@ -123,7 +126,7 @@ MSAL-biblioteket innehåller en `logout` metod som rensar cacheminnet i webbläs
 
 Du kan konfigurera den URI som den ska omdirigeras till efter utloggning genom att ange `postLogoutRedirectUri`. Denna URI bör också registreras som utloggnings-URI i program registreringen.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
@@ -140,7 +143,7 @@ userAgentApplication.logout();
 
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -154,6 +157,8 @@ userAgentApplication.logout();
 // In app.component.ts
 this.authService.logout();
 ```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

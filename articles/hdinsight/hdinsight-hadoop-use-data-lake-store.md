@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 23c292a950deea262ee063b4141b07a4f64f9f84
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/05/2020
+ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061336"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162420"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Använd Data Lake Storage Gen1 som ytterligare lagrings utrymme
 
-Du kan också använda Data Lake Storage Gen1 som ytterligare lagring för klustret. I sådana fall kan klustrets standard lagring antingen vara ett Azure Storage Blob eller ett Data Lake Storage konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagrings utrymme måste du använda den fullständigt kvalificerade sökvägen till filerna. Exempel:
+Du kan också använda Data Lake Storage Gen1 som ytterligare lagring för klustret. I sådana fall kan klustrets standard lagring antingen vara ett Azure Storage Blob eller ett Data Lake Storage konto. Om du kör HDInsight-jobb mot data som lagras i Data Lake Storage som ytterligare lagrings utrymme måste du använda den fullständigt kvalificerade sökvägen till filerna. Några exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observera att det inte finns någon **cluster_root_path** i URL-adressen nu. Det beror på att Data Lake Storage inte är ett standard lagrings utrymme i det här fallet, så allt du behöver göra är att ange sökvägen till filerna.
 
-För att kunna använda en Data Lake Storage Gen1 som ytterligare lagrings utrymme behöver du bara ge tjänstens huvud namn åtkomst till Sök vägarna där filerna lagras.  Exempel:
+För att kunna använda en Data Lake Storage Gen1 som ytterligare lagrings utrymme behöver du bara ge tjänstens huvud namn åtkomst till Sök vägarna där filerna lagras.  Några exempel:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -130,6 +130,8 @@ Du måste ha ett huvud namn för Azure Active Directory (Azure AD) för att kunn
 
 > [!NOTE]  
 > Om du ska använda Azure Data Lake Storage Gen1 som ytterligare lagring för HDInsight-kluster rekommenderar vi starkt att du gör detta när du skapar klustret enligt beskrivningen i den här artikeln. Att lägga till Azure Data Lake Storage Gen1 som ytterligare lagrings utrymme i ett befintligt HDInsight-kluster är inte ett scenario som stöds.
+
+Mer information om grunderna i åtkomst kontroll modellen för Data Lake Storage Gen1 finns [i åtkomst kontroll i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="access-files-from-the-cluster"></a>Åtkomst till filer från klustret
 

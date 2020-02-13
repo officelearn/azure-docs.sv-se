@@ -12,16 +12,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 58fce1ca2401ecf79e478377e7547a6c5785f7d1
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: c11f7daf68585d63d19fca282ef2f4a306303ac7
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703651"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160737"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in personliga konton (hotmail.com, outlook.com osv.) och arbets- och skolkonton från alla instanser av Active Directory (Azure AD).
 
@@ -39,7 +37,7 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 >
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
@@ -64,7 +62,7 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Steg 2: Ladda ned ditt ASP.NET Core-projekt
 
@@ -86,7 +84,7 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
-> Var:
+> Där:
 > - `Enter_the_Application_Id_here` – är **Program-ID (klient)** för det program som registrerats på Azure-portalen. Du kan hitta **Program-ID (klient)** på appens **översiktssida**.
 > - `Enter_the_Tenant_Info_Here` – är något av följande alternativ:
 >   - Om ditt program stöder **Endast konton i den här organisationskatalogen** ska du ersätta värdet med **klient-ID** eller **klientnamn** (till exempel contoso.microsoft.com)

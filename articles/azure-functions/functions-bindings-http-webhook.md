@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 11f5c07305fa9192097dbcb1386c13707c0d46f7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 25f3cb6f03e3a3c581d8977168e572554b5e0cc7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711132"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168125"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -256,28 +256,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 * [Läs parameter från en väg](#read-parameter-from-a-route)
 * [Läs POJO-brödtext från en POST-begäran](#read-pojo-body-from-a-post-request)
 
-I följande exempel visas HTTP trigger-bindningen i en *Function. JSON* -fil och de respektive [Java-funktioner](functions-reference-java.md) som använder bindningen. 
-
-Här är *Function. JSON* -filen:
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "anonymous",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
+I följande exempel visas bindningen för HTTP-utlösare.
 
 #### <a name="read-parameter-from-the-query-string"></a>Läs parameter från frågesträngen
 
@@ -515,7 +494,7 @@ Ett fullständigt exempel finns i [utlösaren exempel](#trigger---example).
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `HttpTrigger`-attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Description|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 | **typ** | Saknas| Required-måste anges till `httpTrigger`. |
 | **riktning** | Saknas| Required-måste anges till `in`. |
@@ -878,7 +857,7 @@ Använd bindningen för HTTP-utdata för att svara på avsändaren av HTTP-begä
 
 I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . För C# klass bibliotek finns det inga egenskaper för attribut som motsvarar dessa *funktioner. JSON* -egenskaper.
 
-|Egenskap  |Description  |
+|Egenskap  |Beskrivning  |
 |---------|---------|
 | **typ** |måste anges till `http`. |
 | **riktning** | måste anges till `out`. |
@@ -917,11 +896,11 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }
 ```
 
-|Egenskap  |Standard | Description |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 | customHeaders|ingen|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options`-rubriken till i svaret för att undvika innehålls typs avlyssning. |
 |dynamicThrottlesEnabled|Sant<sup>\*</sup>|När den här inställningen är aktive rad kommer pipelinen för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med en 429 "upptagen"-svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup> Standardvärdet i en förbruknings plan är `true`. Standardvärdet i en dedikerad plan är `false`.|
-|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`tillämpas [HSTS-beteendet (http Strict Transport Security) för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [`HstsOptions`-klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Exemplet ovan ställer också in [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) -egenskapen på 10 dagar. Följande egenskaper stöds för `hsts`: <table><tr><th>Egenskap</th><th>Description</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>Läs</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
+|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`tillämpas [HSTS-beteendet (http Strict Transport Security) för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [`HstsOptions`-klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Exemplet ovan ställer också in [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) -egenskapen på 10 dagar. Följande egenskaper stöds för `hsts`: <table><tr><th>Egenskap</th><th>Beskrivning</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>Läs</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|Maximalt antal HTTP-funktioner som körs parallellt. På så sätt kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder många system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning. <br/><sup>*</sup> Standardvärdet för en förbruknings plan är 100. Standardvärdet för en dedikerad plan är obundet (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen. <br/><sup>\*</sup> Standardvärdet för en förbruknings plan är 200. Standardvärdet för en dedikerad plan är obundet (`-1`).|
 |routePrefix|api|Det väg-prefix som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |

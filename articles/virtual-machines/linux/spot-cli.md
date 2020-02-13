@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0635be14937a3688792f65208dcb9d482b9e6d44
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 110e935671ab1d640b2ff3dc26c203b262e999fe
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782000"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163100"
 ---
 # <a name="preview-deploy-spot-vms-using-the-azure-cli"></a>För hands version: distribuera virtuella datorer med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ Processen för att skapa en virtuell dator med dekor med hjälp av Azure CLI är
 > Punkt instanser finns för närvarande i offentlig för hands version.
 > Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> För den första delen av den offentliga för hands versionen har plats instanser ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
+
 
 
 ## <a name="install-azure-cli"></a>Installera Azure CLI

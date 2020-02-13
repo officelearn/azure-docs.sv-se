@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062871"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157233"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -93,7 +93,7 @@ Om du vill lära dig hur du skapar en Premium-filresurs, se vår artikel på äm
 För närvarande kan du inte direkt konvertera mellan en standard fil resurs och en Premium-filresurs. Om du vill växla till någon av nivåerna måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Du kan göra detta med hjälp av någon av de Azure Files kopierings verktyg som stöds, till exempel Robocopy eller AzCopy.
 
 > [!IMPORTANT]
-> Premium-filresurser är tillgängliga med LRS i de flesta regioner som erbjuder lagrings konton och med ZRS i en mindre delmängd regioner. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. För att ta reda på vilka regioner som stöder ZRS, se [support täckning och regional tillgänglighet](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+> Premium-filresurser är tillgängliga med LRS i de flesta regioner som erbjuder lagrings konton och med ZRS i en mindre delmängd regioner. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. Information om regioner som stöder ZRS finns [Azure Storage redundans](../common/storage-redundancy.md).
 >
 > För att hjälpa oss att prioritera nya regioner och funktioner på Premium-nivå kan du fylla i den här [undersökningen](https://aka.ms/pfsfeedback).
 
@@ -155,41 +155,14 @@ Nya fil resurser börjar med det fullständiga antalet krediter i sin burst-Buck
 
 ## <a name="file-share-redundancy"></a>Redundans för fil resurs
 
-Azure Files standard resurser stöder fyra alternativ för dataredundans: lokalt redundant lagring (LRS), Zone-redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Azure Files Premium-resurser stöder både LRS och ZRS, ZRS är för närvarande tillgänglig i en mindre delmängd regioner.
-
-I följande avsnitt beskrivs skillnaderna mellan olika alternativ för redundans:
-
-### <a name="locally-redundant-storage"></a>Lokalt redundant lagring
-
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### <a name="zone-redundant-storage"></a>Zon redundant lagring
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
+Om du väljer Geo-redundant lagring med Läs behörighet (RA-GRS) bör du känna till att Azure-filen inte har stöd för Geo-redundant lagring med Läs åtkomst (RA-GRS) i vilken region som helst. Fil resurser i RA-GRS-lagrings kontot fungerar som de skulle ha i GRS-konton och debiteras GRS-priserna.
 
 > [!Warning]  
 > Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
 
-Geo-redundant lagring (GRS) är utformat för att tillhandahålla minst 99.99999999999999% (16 9) objekt hållbarhet för objekt under ett år genom att replikera dina data till en sekundär region som är hundratals mil bort från den primära regionen. Om ditt lagrings konto har GRS aktiverat, är dina data varaktiga även vid ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte går att återvinna.
-
-Om du väljer Geo-redundant lagring med Läs behörighet (RA-GRS) bör du känna till att Azure-filen inte har stöd för Geo-redundant lagring med Läs åtkomst (RA-GRS) i vilken region som helst. Fil resurser i RA-GRS-lagrings kontot fungerar som de skulle ha i GRS-konton och debiteras GRS-priserna.
-
-GRS replikerar dina data till ett annat data Center i en sekundär region, men dessa data är tillgängliga för läsning endast om Microsoft initierar en redundansväxling från den primära till den sekundära regionen.
-
-För ett lagrings konto med GRS aktiverat replikeras alla data först med lokalt redundant lagring (LRS). En uppdatering allokeras först till den primära platsen och replikeras med hjälp av LRS. Uppdateringen replikeras sedan asynkront till den sekundära regionen med hjälp av GRS. När data skrivs till den sekundära platsen replikeras de också inom den platsen med hjälp av LRS.
-
-Både den primära och sekundära regionen hanterar repliker mellan olika fel domäner och uppgraderings domäner inom en lagrings skalnings enhet. Enhetens skalnings enhet är den grundläggande replikeringstjänsten i data centret. Replikering på den här nivån tillhandahålls av LRS; Mer information finns i [Lokalt Redundant lagring (LRS): låg kostnads data redundans för Azure Storage](../common/storage-redundancy-lrs.md).
-
-Tänk på följande när du bestämmer vilket replikeringsalternativ som ska användas:
-
-* Geo-Zone-redundant lagring (GZRS) (för hands version) ger hög tillgänglighet tillsammans med maximal hållbarhet genom att replikera data synkront över tre tillgänglighets zoner i Azure och sedan replikera data asynkront till den sekundära regionen. Du kan också aktivera Läs behörighet till den sekundära regionen. GZRS har utformats för att ge minst 99.99999999999999% (16 9) objekts hållbarhet under ett angivet år. Mer information om GZRS finns i [geo-Zone-redundant lagring för hög tillgänglighet och maximal hållbarhet (för hands version)](../common/storage-redundancy-gzrs.md).
-* Zone-redundant lagring (ZRS) ger hög tillgänglighet med synkron replikering och kan vara ett bättre alternativ för vissa scenarier än GRS. Mer information om ZRS finns i [ZRS](../common/storage-redundancy-zrs.md).
-* Asynkron replikering innebär en fördröjning från den tid som data skrivs till den primära regionen till när den replikeras till den sekundära regionen. I händelse av en regional katastrof kan ändringar som ännu inte har repliker ATS till den sekundära regionen gå förlorade om data inte kan återställas från den primära regionen.
-* Med GRS är repliken inte tillgänglig för Läs-eller skriv åtkomst om inte Microsoft initierar en redundansväxling till den sekundära regionen. Om det är en redundansväxling har du Läs-och skriv åtkomst till dessa data när redundansväxlingen har slutförts. Mer information finns i [rikt linjerna för haveri beredskap](../common/storage-disaster-recovery-guidance.md).
+Azure Files Premium-resurser stöder både LRS och ZRS, ZRS är för närvarande tillgänglig i en mindre delmängd regioner.
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Publicera till större fil resurser (standard nivån)
 

@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361219"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157515"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör om ett avbrott uppstår i Azure-tjänsten som påverkar Azure Cloud Services
 På Microsoft är arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga för dig när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
@@ -27,7 +27,7 @@ Azure har redan många inbyggda plattforms funktioner som stöder program med h�
 Den här artikeln beskriver ett verkligt haveri återställnings scenario, när en hel region upplever ett avbrott på grund av stor natur katastrof eller omfattande avbrott i tjänsten. Detta är ovanliga förekomster, men du måste förbereda dig för möjligheten att det uppstår ett avbrott i en hel region. Om en hel region upplever avbrott i tjänsten blir de lokalt redundanta kopiorna av dina data tillfälligt otillgängliga. Om du har aktiverat geo-replikering lagras tre ytterligare kopior av dina Azure Storage blobbar och tabeller i en annan region. I händelse av ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas mappar Azure om alla DNS-poster till den geo-replikerade regionen.
 
 > [!NOTE]
-> Tänk på att du inte har någon kontroll över den här processen och att den endast kommer att ske för data Center som är i stor drifts störning. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i [haveri beredskap och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka din egen redundans kanske du vill överväga att använda [Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), vilket skapar en skrivskyddad kopia av dina data i en annan region.
+> Tänk på att du inte har någon kontroll över den här processen och att den endast kommer att ske för data Center som är i stor drifts störning. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i [haveri beredskap och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka din egen redundans kanske du vill överväga att använda [Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-redundancy.md), vilket skapar en skrivskyddad kopia av dina data i en annan region.
 >
 >
 
@@ -46,7 +46,7 @@ Mer information om hur du skapar och distribuerar ett moln tjänst program finns
 
 Beroende på dina program data källor kan du behöva kontrol lera återställnings procedurerna för program data källan.
 
-* Azure Storage data källor finns i [Azure Storage replikering](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
+* Azure Storage data källor finns i [Azure Storage redundans](../storage/common/storage-redundancy.md) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda redundans modellen för ditt program.
 * För SQL Database källor, Läs [Översikt: Cloud affärs kontinuitet och databas haveri beredskap med SQL Database](../sql-database/sql-database-business-continuity.md) för att kontrol lera vilka alternativ som är tillgängliga baserat på den valda replikerings modellen för ditt program.
 
 

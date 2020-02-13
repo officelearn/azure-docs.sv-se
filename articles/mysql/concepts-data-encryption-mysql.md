@@ -6,21 +6,21 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 3f68ae9665b6235d44411835299721b835745252
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 1d4153ac5e02d28d054034f33859332158d5a555
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048324"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162369"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 
 > [!NOTE]
 > För tillfället måste du begära åtkomst för att använda den här funktionen. Kontakta AskAzureDBforMySQL@service.microsoft.comom du vill göra det.
 
-Azure Database for MySQL data kryptering med en kundhanterad nyckel kan du Bring Your Own Key (BYOK) för data skydd i vila. Det gör det också möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data. Med kundhanterad kryptering är du ansvarig för, och full kontroll över, en nyckels livs cykel, nyckel användnings behörigheter och granskning av åtgärder på nycklar.
+Data kryptering med Kundhanterade nycklar för Azure Database for MySQL ger dig möjlighet att ta din qwn-nyckel (BYOK) för data skydd i vila. Det gör det också möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data. Med kundhanterad kryptering ansvarar du för och i en fullständig kontroll av, en nyckels livs cykel, nyckel användnings behörigheter och granskning av åtgärder på nycklar.
 
-För Azure Database for MySQL anger du data kryptering på server nivå. Med den här typen av data kryptering använder du nyckeln i krypteringen av data krypterings nyckeln (DEK). DEK är en kundhanterad, asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instans. DEK beskrivs mer detaljerat längre fram i den här artikeln.
+Data kryptering med Kundhanterade nycklar för Azure Database for MySQL anges på server nivå. För en specifik server används en kundhanterad nyckel, som kallas nyckel krypterings nyckel (KEK), för att kryptera data krypterings nyckeln (DEK) som används av tjänsten. KEK är en asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instans. Nyckel krypterings nyckeln (KEK) och data krypterings nyckeln (DEK) beskrivs mer detaljerat längre fram i den här artikeln.
 
 Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög tillgänglighet och ger skalbar och säker lagring för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2, verifierade HSM: er (Hardware Security modules). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering och dekryptering till auktoriserade entiteter. Key Vault kan generera nyckeln, importera den eller [låta den överföras från en lokal HSM-enhet](../key-vault/key-Vault-hsm-protected-keys.md).
 
@@ -31,11 +31,11 @@ Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög ti
 
 Data kryptering för Azure Database for MySQL ger följande fördelar:
 
-* Ökad transparens, detaljerad kontroll och hantering för krypterings nyckeln.
-* Central hantering och organisation av nycklar genom att vara värd för dem i Azure Key Vault.
-* Möjlighet att implementera separering av uppgifter i hanteringen av nycklar och data i organisationen.
-* Möjlighet att separera nyckel hantering från data hantering i en organisation, så att en Key Vault administratör kan återkalla nyckel åtkomst behörigheter för att göra en krypterad databas oåtkomlig.
-* Bättre förtroende från slutanvändarna eftersom Microsoft inte kan se eller extrahera krypterings nycklar i Key Vault.
+* Data åtkomsten styrs helt av dig genom möjligheten att ta bort nyckeln och göra databasen otillgänglig 
+* Fullständig kontroll över nyckel livs cykeln, inklusive rotation av nyckeln för att passa företags principer
+* Central hantering och organisation av nycklar i Azure Key Vault
+* Möjlighet att implementera separering av uppgifter mellan säkerhets chefer och DBA-och system administratörer
+
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 

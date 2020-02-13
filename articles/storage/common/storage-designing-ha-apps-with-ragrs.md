@@ -10,12 +10,12 @@ ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945454"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157100"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet
 
@@ -23,8 +23,8 @@ En vanlig funktion i molnbaserade infrastrukturer som Azure Storage är att de t
 
 Lagrings konton som kon figurer ATS för Geo-redundant replikering replikeras synkront i den primära regionen och replikeras sedan asynkront till en sekundär region som är hundratals mil bort. Azure Storage erbjuder två typer av Geo-redundant replikering:
 
-* [Geo-Zone-redundant lagring (GZRS) (för hands version)](storage-redundancy-gzrs.md) tillhandahåller replikering för scenarier som kräver både hög tillgänglighet och maximal hållbarhet. Data replikeras synkront över tre tillgänglighets zoner i Azure i den primära regionen med zoner-redundant lagring (ZRS) och replikeras asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Läs åtkomst geo-Zone-redundant lagring (RA-GZRS).
-* [Geo-redundant lagring (GRS)](storage-redundancy-grs.md) tillhandahåller replikering mellan regioner för att skydda mot regionala avbrott. Data replikeras synkront tre gånger i den primära regionen med hjälp av lokalt redundant lagring (LRS) och replikeras sedan asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Geo-redundant lagring med Läs behörighet (RA-GRS).
+* [Geo-Zone-redundant lagring (GZRS) (för hands version)](storage-redundancy.md) tillhandahåller replikering för scenarier som kräver både hög tillgänglighet och maximal hållbarhet. Data replikeras synkront över tre tillgänglighets zoner i Azure i den primära regionen med zoner-redundant lagring (ZRS) och replikeras asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Läs åtkomst geo-Zone-redundant lagring (RA-GZRS).
+* [Geo-redundant lagring (GRS)](storage-redundancy.md) tillhandahåller replikering mellan regioner för att skydda mot regionala avbrott. Data replikeras synkront tre gånger i den primära regionen med hjälp av lokalt redundant lagring (LRS) och replikeras sedan asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Geo-redundant lagring med Läs behörighet (RA-GRS).
 
 Den här artikeln visar hur du utformar ditt program för att hantera ett avbrott i den primära regionen. Om den primära regionen blir otillgänglig kan programmet anpassas för att utföra Läs åtgärder mot den sekundära regionen i stället. Kontrol lera att ditt lagrings konto har kon figurer ATS för RA-GRS eller RA-GZRS innan du börjar.
 
@@ -200,12 +200,12 @@ Geo-redundant lagring fungerar genom att replikera transaktioner från den prim�
 
 I följande tabell visas ett exempel på vad som kan hända när du uppdaterar information om en medarbetare så att de blir medlem i rollen *Administratörer* . För det här exemplet kräver detta att du uppdaterar den **anställdas** entitet och uppdaterar en **Administratörs roll** -entitet med ett antal av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i rätt ordning i den sekundära regionen.
 
-| **Tid** | **Transaktionen**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Resultat** |
+| **Tid** | **Transaktionen**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Medför** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktion A: <br> Infoga medarbetare <br> entitet i primär |                                   |                    | Transaktion A infogad till primär,<br> ännu inte repliker ATS. |
 | T1       |                                                            | Transaktion A <br> replikeras till<br> alternativ | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |
-| T2       | Transaktion B:<br>Uppdatering<br> anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
-| T3       | Transaktion C:<br> Uppdatering <br>administratör<br>roll entitet i<br>huvud |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
+| T2       | Transaktion B:<br>Uppdatera<br> anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
+| T3       | Transaktion C:<br> Uppdatera <br>administratörstoken<br>roll entitet i<br>huvud |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
 | *T4*     |                                                       | Transaktion C <br>replikeras till<br> alternativ | T1         | Transaktion C replikerad till sekundär.<br>LastSyncTime har inte uppdaterats eftersom <br>transaktion B har ännu inte repliker ATS.|
 | *T*     | Läs entiteter <br>från sekundär                           |                                  | T1                 | Du får det inaktuella värdet för anställda <br> entitet eftersom transaktion B inte har <br> har repliker ATS än. Du får det nya värdet för<br> administratörs roll entitet eftersom C har<br> replikeras. Tiden för senaste synkroniseringen är fortfarande inte<br> uppdaterats eftersom transaktion B<br> har inte repliker ATS. Du kan se att<br>administratörs rollens entitet är inkonsekvent <br>eftersom entitetens datum/tid är efter <br>Tid för senaste synkronisering. |
 | *T6*     |                                                      | Transaktion B<br> replikeras till<br> alternativ | T6                 | *T6* – alla transaktioner via C har <br>replikerad, tid för senaste synkronisering<br> har uppdaterats. |
@@ -214,38 +214,7 @@ I det här exemplet antar du att klienten växlar till att läsa från den sekun
 
 För att identifiera att den har potentiellt inkonsekventa data kan klienten använda värdet för den *senaste synkroniseringstid* som du kan hämta när som helst genom att skicka en fråga till en lagrings tjänst. Detta anger den tid då data i den sekundära regionen senast var konsekventa och när tjänsten hade tillämpat alla transaktioner innan den tidpunkten. I exemplet ovan har den senaste synkroniseringstid angetts till *T1*när tjänsten infogar entiteten **anställda** i den sekundära regionen. Den finns kvar i *T1* tills tjänsten uppdaterar den **anställdas** entitet i den sekundära regionen när den är inställd på *T6*. Om klienten hämtar den senaste synkroniseringen när den läser entiteten *T5*, kan den jämföra den med tidsstämpeln för entiteten. Om tidsstämpeln i entiteten är senare än den senaste synkroniseringen, är entiteten i ett potentiellt inkonsekvent tillstånd och du kan vidta det som är lämplig åtgärd för ditt program. Om du använder det här fältet måste du känna till när den senaste uppdateringen till den primära uppdateringen slutfördes.
 
-## <a name="getting-the-last-sync-time"></a>Hämtar tid för senaste synkronisering
-
-Du kan använda PowerShell eller Azure CLI för att hämta den senaste synkroniseringstid för att avgöra när data senast skrevs till den sekundära.
-
-### <a name="powershell"></a>PowerShell
-
-Om du vill hämta den senaste synkroniseringstid-tiden för lagrings kontot med hjälp av PowerShell installerar du en Azure Storage Preview-modul som har stöd för att hämta geo-replikeringstrafiken statistik. Exempel:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
-```
-
-Kontrol lera sedan lagrings kontots **GeoReplicationStats. LastSyncTime** -egenskap. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
-
-```powershell
-$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
-    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-Om du vill hämta den senaste synkroniseringen för lagrings kontot med hjälp av Azure CLI kontrollerar du lagrings kontots **geoReplicationStats. lastSyncTime** -egenskap. Använd parametern `--expand` för att returnera värden för egenskaperna som är kapslade under **geoReplicationStats**. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
-
-```azurecli
-$lastSyncTime=$(az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --expand geoReplicationStats \
-    --query geoReplicationStats.lastSyncTime \
-    --output tsv)
-```
+Information om hur du kontrollerar tidpunkten för senaste synkronisering finns i [kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md).
 
 ## <a name="testing"></a>Testning
 
@@ -267,7 +236,7 @@ Du kan utöka det här exemplet för att fånga upp ett större antal förfrågn
 
 Om du har gjort tröskelvärdena för att växla ditt program till skrivskyddat läge, blir det enklare att testa beteendet med icke-produktions transaktions volymer.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Mer information om hur du läser från den sekundära regionen, inklusive ett annat exempel på hur den senaste synkroniseringstid-egenskapen anges finns [Azure Storage alternativ för redundans och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 3e414e40cb92f5c7e8c2e1d083419d57e06a0995
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834171"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161927"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -38,7 +38,7 @@ För att konfigurera en hanterad identitet i portalen skapar du först ett progr
 
 3. Välj **identitet**.
 
-4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**.
+4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Save** (Spara).
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -253,10 +253,10 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 > |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
-> |resource|Söka i data|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
-> |api-version|Söka i data|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
+> |resource|Fråga|AAD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.|
+> |api-version|Fråga|Den version av token API som ska användas. "2017-09-01" är för närvarande den enda version som stöds.|
 > |hemlighet|Huvud|Värdet för MSI_SECRET-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).|
-> |clientid|Söka i data|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
+> |clientid|Fråga|(Valfritt, såvida inte användaren tilldelas) ID för den användar tilldelnings identitet som ska användas. Om det utelämnas används den systemtilldelade identiteten.|
 
 > [!IMPORTANT]
 > Om du försöker hämta tokens för användarspecifika identiteter måste du inkludera egenskapen `clientid`. Annars försöker token-tjänsten hämta en token för en tilldelad identitet, som kan vara eller inte finns.
@@ -270,7 +270,7 @@ Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 > |resource|App-ID-URI för den mottagande webb tjänsten.|
 > |token_type|Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-Svaret är detsamma som [svaret på AAD-begäran om tjänst-till-tjänst-](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
+Svaret är detsamma som [svaret på AAD-begäran om tjänst-till-tjänst-](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#get-a-token)åtkomsttoken.
 
 > [!NOTE]
 > Miljövariabler ställs in när processen startas första gången, så när du har aktiverat en hanterad identitet för ditt program kan du behöva starta om programmet eller distribuera om dess kod innan `MSI_ENDPOINT` och `MSI_SECRET` är tillgängliga för din kod.
@@ -299,9 +299,9 @@ Content-Type: application/json
 }
 ```
 
-### <a name="code-examples"></a>Kodexempel
+### <a name="code-examples"></a>Kod exempel
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
 
 > [!TIP]
 > För .NET-språk kan du också använda [Microsoft. Azure. Services. AppAuthentication](#asal) i stället för att göra den här begäran själv.

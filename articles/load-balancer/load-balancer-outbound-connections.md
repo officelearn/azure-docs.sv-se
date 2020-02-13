@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d3e4a794a948dd6bd9860c9b7e6f06ac981f86b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934558"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162505"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -43,7 +43,7 @@ Azure Load Balancer och relaterade resurser definieras explicit när du använde
 | Enheter | Scenario | Metod | IP-protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Standard, Basic | [1. virtuell dator med offentlig IP-adress (med eller utan Load Balancer)](#ilpip) | SNAT, Port maskerad, används inte | TCP, UDP, ICMP, ESP | Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort. Instansen har alla tillfälliga portar tillgängliga. När du använder Standard Load Balancer bör du använda [utgående regler](load-balancer-outbound-rules-overview.md) för att uttryckligen definiera utgående anslutning |
-| Standard, Basic | [2. offentlig Load Balancer associerad med en virtuell dator (ingen offentlig IP-adress på instansen)](#lb) | SNAT med port maskerad (PAT) med hjälp av Load Balancer-frontend | TCP, UDP |Azure delar den offentliga IP-adressen för offentliga Load Balancer-frontend med flera privata IP-adresser. Azure använder tillfälliga portar för frontend-PAT. |
+| Standard, Basic | [1. virtuell dator med en offentlig IP-adress på instans nivå (med eller utan Load Balancer)](#ilpip) | SNAT, Port maskerad, används inte | TCP, UDP, ICMP, ESP | Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort. Instansen har alla tillfälliga portar tillgängliga. När du använder Standard Load Balancer stöds inte [utgående regler](load-balancer-outbound-rules-overview.md) om en offentlig IP-adress tilldelas den virtuella datorn |
 | ingen eller Basic | [3. fristående virtuell dator (inga Load Balancer, ingen offentlig IP-adress)](#defaultsnat) | SNAT med port maskerad (PAT) | TCP, UDP | Azure utser automatiskt en offentlig IP-adress för SNAT, delar denna offentliga IP-adress med flera privata IP-adresser för tillgänglighets uppsättningen och använder tillfälliga portar för den här offentliga IP-adressen. Det här scenariot är en återgång för föregående scenarier. Vi rekommenderar inte det om du behöver synlighet och kontroll. |
 
 Om du inte vill att en virtuell dator ska kommunicera med slut punkter utanför Azure i det offentliga IP-adressutrymmet, kan du använda nätverks säkerhets grupper (NSG: er) för att blockera åtkomsten vid behov. Avsnittet [förhindra utgående anslutning](#preventoutbound) diskuterar NSG: er mer detaljerat. Vägledning om hur du utformar, implementerar och hanterar ett virtuellt nätverk utan någon utgående åtkomst omfattas inte av den här artikeln.
@@ -161,9 +161,9 @@ Följande tabell visar förallokeringar av SNAT-portar för nivåer av backend-p
 | Poolstorlek (VM-instanser) | Förallokerade SNAT-portar per IP-konfiguration|
 | --- | --- |
 | 1-50 | 1,024 |
-| 51–100 | 512 |
-| 101–200 | 256 |
-| 201–400 | 128 |
+| 51-100 | 512 |
+| 101-200 | 256 |
+| 201-400 | 128 |
 | 401-800 | 64 |
 | 801 – 1000 | 32 |
 

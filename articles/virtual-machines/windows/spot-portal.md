@@ -7,14 +7,14 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 682ee86c373c715080ef1baf82b473242a2e43db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8845d0f9277384c1cc32b31b5ea5151cd0668c79
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74782052"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158986"
 ---
 # <a name="preview-deploy-spot-vms-using-the-azure-portal"></a>För hands version: distribuera virtuella datorer med hjälp av Azure Portal
 
@@ -28,7 +28,7 @@ Du har möjlighet att ange ett högsta pris som du är villig att betala per tim
 > Punkt instanser finns för närvarande i offentlig för hands version.
 > Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> För den första delen av den offentliga för hands versionen har plats instanser ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
+
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 

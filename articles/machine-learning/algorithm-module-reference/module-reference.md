@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: 7f2d282541e8a5a3752a0784a3f00a48ad2fb303
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769165"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162590"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmen & module-referens för Azure Machine Learning designer
 
@@ -35,7 +35,7 @@ Hjälp med att välja algoritmer finns i
 | Funktioner | Beskrivning | Modul |
 | --- |--- | --- |
 | Indata och utdata | Flytta data från moln källor till din pipeline. Skriv resultaten eller mellanliggande data till Azure Storage, en SQL-databas eller Hive, medan du kör en pipeline eller Använd moln lagring för att utbyta data mellan pipeliner.  | [Ange data manuellt](enter-data-manually.md) <br/> [Exportera data](export-data.md) <br/> [Importera data](import-data.md) |
-| Dataomvandling | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägg till kolumner](add-columns.md) <br/> [Lägg till rader](add-rows.md) <br/> [Använd matematik åtgärd](apply-math-operation.md) <br/> [Använd SQL-transformering](apply-sql-transformation.md) <br/> [Rensa saknade data](clean-missing-data.md) <br/> [Klipp värden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till data uppsättning](convert-to-dataset.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera data](normalize-data.md) <br/> [Partition och exempel](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välj kolumner-transformering](select-columns-transform.md) <br/> [Välj kolumner i data uppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
+| Dataomvandling | Åtgärder för data som är unika för maskin inlärning, till exempel normaliserande eller diskretisering data, Dimensional reducering och konvertering av data mellan olika fil format.| [Lägg till kolumner](add-columns.md) <br/> [Lägg till rader](add-rows.md) <br/> [Använd matematik åtgärd](apply-math-operation.md) <br/> [Använd SQL-transformering](apply-sql-transformation.md) <br/> [Rensa saknade data](clean-missing-data.md) <br/> [Klipp värden](clip-values.md) <br/> [Konvertera till CSV](convert-to-csv.md) <br/> [Konvertera till data uppsättning](convert-to-dataset.md) <br/> [Konvertera till indikator värden](convert-to-indicator-values.md) <br/> [Redigera metadata](edit-metadata.md) <br/> [Koppla data](join-data.md) <br/> [Normalisera data](normalize-data.md) <br/> [Partition och exempel](partition-and-sample.md)  <br/> [Ta bort dubblettrader](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Välj kolumner-transformering](select-columns-transform.md) <br/> [Välj kolumner i data uppsättning](select-columns-in-dataset.md) <br/> [Dela data](split-data.md) |
 | Val av funktion | Välj en delmängd av relevanta, användbara funktioner som du kan använda när du skapar en analys modell. | [Filtrera baserat funktions val](filter-based-feature-selection.md) <br/> [Viktighets funktion för permutation](permutation-feature-importance.md) |
 | Statistiska funktioner | Tillhandahålla en mängd olika statistiska metoder för data vetenskap. | [Sammanfatta data](summarize-data.md)|
 

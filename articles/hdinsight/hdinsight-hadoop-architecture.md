@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 02/07/2020
+ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162891"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162216"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Apache Hadoop-arkitektur i HDInsight
 
@@ -28,7 +28,7 @@ I den här artikeln introduceras garn och hur det koordinerar körningen av prog
 
 GARN styr och dirigerar data bearbetning i Hadoop. GARN har två kärn tjänster som körs som processer på noder i klustret:
 
-* Hanteraren
+* ResourceManager
 * NodeManager
 
 Resurs hanteraren ger kluster beräknings resurser till program som MapReduce-jobb. Resurs hanteraren beviljar dessa resurser som behållare, där varje behållare består av en allokering av processor kärnor och RAM-minne. Om du kombinerar alla resurser som är tillgängliga i ett kluster och sedan distribuerar kärnor och minne i block, är varje resurs block en behållare. Varje nod i klustret har en kapacitet för ett visst antal behållare, och därför har klustret en fast gräns för antalet behållare som är tillgängliga. Tilldelningen av resurser i en behållare kan konfigureras.
@@ -46,6 +46,27 @@ När en användare skickar ett MapReduce-program för att köras i klustret skic
 Alla typer av HDInsight-kluster distribuerar garn. ResourceManager distribueras för hög tillgänglighet med en primär och sekundär instans, som körs på de första och andra Head-noderna i klustret. Endast den enda instansen av ResourceManager är aktiv i taget. NodeManager-instanserna körs över tillgängliga arbetsnoder i klustret.
 
 ![Apache-garn på Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+
+## <a name="soft-delete"></a>Mjuk borttagning
+
+Om du vill ångra borttagningen av en fil från ditt lagrings konto, se:
+
+### <a name="azure-storage"></a>Azure Storage
+
+* [Mjuk borttagning för Azure Storage-blobar](../storage/blobs/storage-blob-soft-delete.md)
+* [Ångra borttagning av BLOB](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage gen 1
+
+[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+
+### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
+
+[Kända problem med Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+
+## <a name="trash-purging"></a>Rensning av skräp
+
+Egenskapen `fs.trash.interval` från **HDFS** > **Avancerad kärna** bör ha kvar standardvärdet `0` eftersom du inte bör lagra några data i det lokala fil systemet. Det här värdet påverkar inte fjär lagrings konton (WASB, ADLS GEN1, ABFS)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -17,16 +17,14 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4d06e5a2bfe05a530fe369f70880ea04f0bc3dd3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b45ba0c0b417be9cf308fedbb7fad2f6ad5fceaf
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700523"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159739"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Microsoft Identity Platform och OAuth 2,0-enhetens Authorization-flöde
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Microsoft Identity Platform stöder auktorisering av [enhets behörighet](https://tools.ietf.org/html/rfc8628), vilket gör att användarna kan logga in på inmatade enheter, till exempel en smart TV, IoT-enhet eller skrivare.  Om du vill aktivera det här flödet har enheten användaren besöka en webb sida i webbläsaren på en annan enhet för att logga in.  När användaren loggar in kan enheten hämta åtkomsttoken och uppdatera tokens efter behov.  
 
@@ -60,11 +58,11 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Kan vara/vanliga,/consumers eller/organizations.  Det kan också vara den katalog klient som du vill begära behörighet från i GUID eller eget namn format.  |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
-| `scope` | Rekommenderad | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  |
+| `scope` | Rekommenderas | En blankstegsavgränsad lista med [omfattningar](v2-permissions-and-consent.md) som du vill att användaren ska godkänna.  |
 
 ### <a name="device-authorization-response"></a>Svar på enhets auktorisering
 
@@ -72,12 +70,12 @@ Ett lyckat svar är ett JSON-objekt som innehåller den information som krävs f
 
 | Parameter | Format | Beskrivning |
 | ---              | --- | --- |
-|`device_code`     | String | En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern. Klienten använder den här parametern för att begära åtkomsttoken från auktoriseringsservern. |
-|`user_code`       | String | En kort sträng som visas för den användare som används för att identifiera sessionen på en sekundär enhet.|
+|`device_code`     | Sträng | En lång sträng som används för att verifiera sessionen mellan klienten och auktoriseringsservern. Klienten använder den här parametern för att begära åtkomsttoken från auktoriseringsservern. |
+|`user_code`       | Sträng | En kort sträng som visas för den användare som används för att identifiera sessionen på en sekundär enhet.|
 |`verification_uri`| URI | Den URI som användaren ska gå till med `user_code` för att kunna logga in. |
 |`expires_in`      | int | Antalet sekunder innan `device_code` och `user_code` upphör att gälla. |
 |`interval`        | int | Antalet sekunder som klienten ska vänta mellan avsöknings begär Anden. |
-| `message`        | String | En läslig sträng med instruktioner för användaren. Detta kan lokaliseras genom att inkludera en **frågeparameter** i formulärets begäran `?mkt=xx-XX`, fylla i lämplig språk kultur kod. |
+| `message`        | Sträng | En läslig sträng med instruktioner för användaren. Detta kan lokaliseras genom att inkludera en **frågeparameter** i formulärets begäran `?mkt=xx-XX`, fylla i lämplig språk kultur kod. |
 
 > [!NOTE]
 > `verification_uri_complete` svars fältet ingår inte eller stöds inte för tillfället.  Vi nämner detta eftersom om du läser [standarden](https://tools.ietf.org/html/rfc8628) ser du att `verification_uri_complete` visas som en valfri del av enhetens kod flödes standard.
@@ -134,7 +132,7 @@ Ett lyckat svar på token kommer att se ut så här:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | String| Alltid "Bearer. |
+| `token_type` | Sträng| Alltid "Bearer. |
 | `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar det de omfattningar som åtkomsttoken är giltig för. |
 | `expires_in`| int | Antal sekunder innan den inkluderade åtkomsttoken är giltig för. |
 | `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes.  |

@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b347357bca1a7c1057a480b4afdef59d08718310
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 09d0def2ebd012670b9502f6f9b02ad18a02922d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703073"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160415"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotek för Microsoft Identity Platform-autentisering
 
@@ -31,7 +31,7 @@ ms.locfileid: "76703073"
 Vi rekommenderar att du använder bibliotek som skrivits av protokoll domän experter som följer en SDL-metod (Security Development Lifecycle). Dessa metoder omfattar [det som Microsoft följer][Microsoft-SDL]. Om du får en kod för protokollen bör du följa en metod som Microsoft SDL. Var noga med säkerhets aspekterna i specifikationerna för varje protokoll.
 
 > [!NOTE]
-> Letar du efter ADAL (Azure Active Directory Authentication Library)? Kolla in [biblioteks guiden för ADAL](active-directory-authentication-libraries.md).
+> Letar du efter ADAL (Azure Active Directory Authentication Library)? Kolla in [biblioteks guiden för ADAL](../azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="types-of-libraries"></a>Typer av bibliotek
 
@@ -72,7 +72,7 @@ Använd mellanprogram bibliotek för att skydda webb program och webb-API: er. W
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET-säkerhet |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[MVC-app](quickstart-v2-aspnet-webapp.md) |[ASP.NET API-referens](https://docs.microsoft.com/dotnet/api/?view=aspnetcore-2.0) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| IdentityModel-tillägg för .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [MVC-app](quickstart-v2-aspnet-webapp.md) |[Referens](https://docs.microsoft.com/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet) |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Azure AD Passport |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Webapp](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Azure AD Passport |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Webbapp](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
 ## <a name="microsoft-supported-libraries-by-os--language"></a>Microsoft-bibliotek som stöds av OS/språk
 
@@ -93,10 +93,10 @@ Se även [scenarier av plattformar och språk som stöds](authentication-flows-a
 
 | Plattform | Biblioteksnamn | Testad version | Källkod | Exempel |
 |:---:|:---:|:---:|:---:|:---:|
-|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | Version 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+|![JavaScript](media/sample-v2-code/logo_js.png)|[Hej. js](https://adodson.com/hello.js/) | Version 1.13.5 |[Hej. js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Java](https://github.com/scribejava/scribejava) | [Version 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Gluu OpenID Connect-bibliotek](https://github.com/GluuFederation/oxAuth) | [Version 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Gluu OpenID Connect-bibliotek](https://github.com/GluuFederation/oxAuth) | |
-| ![Python](media/sample-v2-code/logo_python.png) | [Begär Anden – OAuthlib](https://github.com/requests/requests-oauthlib) | [Version 1.2.0 eller senare](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Begär Anden – OAuthlib](https://github.com/requests/requests-oauthlib) | |
+| ![Python](media/sample-v2-code/logo_python.png) | [Begär Anden – OAuthlib](https://github.com/requests/requests-oauthlib) | [Version 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [Begär Anden – OAuthlib](https://github.com/requests/requests-oauthlib) | |
 | ![Node.js](media/sample-v2-code/logo_nodejs.png) | [OpenID-klient](https://github.com/panva/node-openid-client) | [Version 2.4.5](https://github.com/panva/node-openid-client/releases/tag/v2.4.5) | [OpenID-klient](https://github.com/panva/node-openid-client) | |
 | ![PHP](media/sample-v2-code/logo_php.png) | [PHP-OAuth2 – klient](https://github.com/thephpleague/oauth2-client) | [Version 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [OAuth2-klient](https://github.com/thephpleague/oauth2-client/) | |
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-OAuth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
-ms.translationtype: HT
+ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046093"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162097"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -122,9 +122,9 @@ Så här visar du resultatet i CSV:
 
 ### <a name="file-system-features"></a>Funktioner i fil systemet
 
-| Funktion | Supportstatus | Anteckningar |
+| Funktion | Support status | Anteckningar |
 |---------|----------------|-------|
-| Åtkomstkontrollistor (ACL) | Fullt stöd | Windows ACL: er bevaras av Azure File Sync och framtvingas av Windows Server på Server slut punkter. Windows ACL: er stöds inte (ännu) av Azure Files om filer nås direkt i molnet. |
+| Åtkomst kontrol listor (ACL: er) | Fullt stöd | Windows ACL: er bevaras av Azure File Sync och framtvingas av Windows Server på Server slut punkter. Windows ACL: er stöds inte (ännu) av Azure Files om filer nås direkt i molnet. |
 | Hårda länkar | Överhoppad | |
 | Symboliska länkar | Överhoppad | |
 | Monteringspunkter | Stöds delvis | Monterings punkter kan vara roten i en server slut punkt, men de hoppas över om de finns i en server slut punkts namnrymd. |
@@ -147,13 +147,13 @@ Så här visar du resultatet i CSV:
 | ehthumbs. db | Temporär fil för medie miniatyrer |
 | ~$\*.\* | Tillfällig Office-fil |
 | \*. tmp | Temporär fil |
-| \*.laccdb | Lås fil för åtkomst databasen|
+| \*. LACCDB | Lås fil för åtkomst databasen|
 | 635D02A9D91C401B97884B82B3BCDAEA.* | Intern Sync-fil|
 | \\system volym information | Mapp som är speciell för volym |
 | $RECYCLE. PLATS| Mapp |
 | \\SyncShareState | Mapp för synkronisering |
 
-### <a name="failover-clustering"></a>Redundanskluster
+### <a name="failover-clustering"></a>Kluster för växling vid fel
 Windows Server-redundanskluster stöds av Azure File Sync för distributions alternativet "fil server för allmän användning". Redundanskluster stöds inte på Skalbar filserver för program data (SOFS) eller på klusterdelade volymer (CSV: er).
 
 > [!Note]  
@@ -206,10 +206,10 @@ För att Azure File Sync och DFS-R ska fungera sida vid sida:
 
 Mer information finns i [DFS Replication översikt](https://technet.microsoft.com/library/jj127250).
 
-### <a name="sysprep"></a>Sysprep
+### <a name="sysprep"></a>Funktionen
 Att använda Sysprep på en server där Azure File Sync-agenten är installerad stöds inte och kan leda till oväntade resultat. Agent installation och Server registrering bör ske när du har distribuerat Server avbildningen och slutfört Sysprep-miniinstallationsprogrammet.
 
-### <a name="windows-search"></a>Windows Search
+### <a name="windows-search"></a>Windows search
 Om moln skiktning är aktiverat på en server slut punkt hoppas filer som skiktas över och inte indexeras av Windows Search. Filer som inte är på en nivå indexeras korrekt.
 
 ### <a name="antivirus-solutions"></a>Antivirus lösningar
@@ -246,19 +246,19 @@ I allmänhet bör Azure File Sync stödja samverkan med krypterings lösningar s
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra HSM-lösningar (hierarkisk lagrings hantering)
 Inga andra HSM-lösningar ska användas med Azure File Sync.
 
-## <a name="region-availability"></a>Tillgänglighet för regioner
+## <a name="region-availability"></a>Regional tillgänglighet
 Azure File Sync är endast tillgängligt i följande regioner:
 
 | Region | Data Center plats |
 |--------|---------------------|
 | Australien, östra | New South Wales |
 | Australien, sydöstra | Victoria |
-| Brasilien, södra | Sao Paulo (delstat) |
+| Brasilien, södra | Sao Paulo-tillstånd |
 | Kanada, centrala | Toronto |
 | Kanada, östra | Quebec City |
 | Indien, centrala | Pune |
 | USA, centrala | Iowa |
-| Asien, östra | Hongkong SAR |
+| Asien, östra | Hongkong |
 | USA, östra | Virginia |
 | USA, östra 2 | Virginia |
 | Frankrike, centrala | Paris |
@@ -270,7 +270,7 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | USA, norra centrala | Illinois |
 | Europa, norra | Irland |
 | Sydafrika, norra | Johannesburg |
-| Södra Afrika, västra * | Kapstaden |
+| Södra Afrika, västra * | Kap stadens |
 | USA, södra centrala | Texas |
 | Indien, södra | Chennai |
 | Sydostasien | Singapore |
@@ -278,20 +278,20 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Storbritannien, västra | Cardiff |
 | US Gov, Arizona | Arizona |
 | US Gov, Texas | Texas |
-| USA Gov Virginia | Virginia |
+| US Gov, Virginia | Virginia |
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
 | Europa, västra | Nederländerna |
 | USA, västra centrala | Wyoming |
 | USA, västra | Kalifornien |
-| USA, västra 2 | Washington |
+| USA, västra 2 | Region |
 
 Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
 
 För regionerna som har marker ATS med asterisker måste du kontakta Azure-supporten för att begära åtkomst till Azure Storage i dessa regioner. Processen beskrivs i [det här dokumentet](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### <a name="azure-disaster-recovery"></a>Azure haveri beredskap
-Azure File Sync integreras med alternativet [Geo-redundant Storage redundans](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) för att skydda mot förlust av en Azure-region. GRS Storage fungerar med asynkron blockering av replikering mellan lagring i den primära regionen, som du normalt interagerar med och lagring i den länkade sekundära regionen. I händelse av en katastrof som gör att Azure-regionen tillfälligt eller permanent är offline, kommer Microsoft att redundansväxla redundans till den kopplade regionen. 
+Azure File Sync integreras med [Geo-redundant lagring](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) för att skydda mot förlust av en Azure-region. GRS Storage fungerar med asynkron blockering av replikering mellan lagring i den primära regionen, som du normalt interagerar med och lagring i den länkade sekundära regionen. I händelse av en katastrof som gör att Azure-regionen tillfälligt eller permanent är offline, kommer Microsoft att redundansväxla redundans till den kopplade regionen. 
 
 > [!Warning]  
 > Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
@@ -326,8 +326,8 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
 | US Gov, Arizona      | US Gov, Texas       |
-| USA Gov, Iowa         | USA Gov Virginia    |
-| USA Gov Virginia      | US Gov, Texas       |
+| US Gov, Iowa         | US Gov, Virginia    |
+| US Gov, Virginia      | US Gov, Texas       |
 | Europa, västra         | Europa, norra       |
 | USA, västra centrala     | USA, västra 2          |
 | USA, västra             | USA, östra            |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: e494a5141a96409fc6691df3a5f1194600ad0c32
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086471"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157982"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -31,13 +31,12 @@ Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad
 
 Följande begränsningar gäller när du skapar och hanterar AKS-kluster som stöder flera Node-pooler:
 
+* Se [kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions].
 * Du kan inte ta bort standard-noden (första).
 * Det går inte att använda Dirigerings tillägget för HTTP-program.
 * AKS-klustret måste använda standard-SKU: n för att använda flera noder, och funktionen stöds inte med Basic SKU-belastningsutjämnare.
 * AKS-klustret måste använda skalnings uppsättningar för virtuella datorer för noderna.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-nodkonfigurationer måste längden vara mellan 1 och 12 tecken, och längden måste vara mellan 1 och 6 tecken för Windows-noder.
-* AKS-klustret kan ha högst 10 noder i pooler.
-* AKS-klustret kan ha högst 1000 noder över de 10 noderna i poolen.
 * Alla noder i pooler måste finnas i samma VNet och undernät.
 * När du skapar flera noder i klustrets skapande tid måste alla Kubernetes-versioner som används av Node-pooler matcha versions uppsättningen för kontroll planet. Detta kan uppdateras efter att klustret har etablerats med hjälp av åtgärder per nod.
 
@@ -604,6 +603,7 @@ Information om hur du skapar och använder Windows Server container Node-pooler 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
+[quotas-skus-regions]: quotas-skus-regions.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create

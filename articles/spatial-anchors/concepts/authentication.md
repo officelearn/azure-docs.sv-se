@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 3de84e2d814acfca67bc722243a90fa41f6536e1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152609"
+ms.locfileid: "77161689"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -92,7 +92,7 @@ När den är färdig hanterar SDK utbyte av konto nyckeln för en åtkomsttoken 
 
 ## <a name="azure-ad-user-authentication"></a>Azure AD-användarautentisering
 
-Den rekommenderade metoden är att använda en Azure AD-token för program som är riktade till Azure Active Directory användare, som du kan hämta med ADAL-biblioteket enligt beskrivningen i följande dokumentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); Du bör följa stegen under "snabb starter", bland annat:
+Den rekommenderade metoden är att använda en Azure AD-token för program som är riktade till Azure Active Directory användare, som du kan hämta med hjälp av [MSAL-biblioteket](../../active-directory/develop/msal-overview.md). Följ stegen i listan [Registrera en app snabb start](../../active-directory/develop/quickstart-register-app.md), som inkluderar:
 
 1. Konfiguration i Azure Portal
     1.  Registrera ditt program i Azure AD som ett **internt program**. Som en del av registreringen måste du bestämma om ditt program ska vara flera innehavare eller inte och ange de omdirigerings-URL: er som tillåts för ditt program.
@@ -118,7 +118,7 @@ Den rekommenderade metoden är att använda en Azure AD-token för program som �
         3.  Om programmet har stöd för **alla Microsoft-konto användare ersätter du**värdet med **common**
     3.  Ange **resursen** till "https://sts.mixedreality.azure.com" på din Tokenbegäran. Den här resursen indikerar Azure AD att ditt program begär en token för tjänsten Azure spatial ankare.
 
-Med detta bör ditt program kunna hämta från ADAL till en Azure AD-token. Du kan ange att Azure AD-token som **authenticationToken** i konfigurations objekt för Cloud session.
+Med detta bör ditt program kunna hämta från MSAL till en Azure AD-token. Du kan ange att Azure AD-token som **authenticationToken** i konfigurations objekt för Cloud session.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -168,7 +168,7 @@ Det rekommenderade alternativet för att distribuera appar som utnyttjar Azures 
 
 Här förutsätts att appen använder sin egen mekanism (till exempel: Microsoft-konto, PlayFab, Facebook, Google ID, anpassad användar namn/lösen ord osv.) för att autentisera till backend-tjänsten. När dina användare har autentiserats för Server dels tjänsten kan tjänsten hämta en Azure AD-token, byta ut den för en åtkomsttoken för Azure spatiala ankare och återställa den till klient programmet.
 
-Azure AD-åtkomsttoken hämtas med ADAL-biblioteket enligt beskrivningen i följande dokumentation: [https://docs.microsoft.com/azure/active-directory/develop/v1-overview](../../active-directory/develop/v1-overview.md); Du bör följa stegen under "snabb starter", bland annat:
+Azure AD-åtkomsttoken hämtas med [MSAL-biblioteket](../../active-directory/develop/msal-overview.md). Följ stegen i listan [Registrera en app snabb start](../../active-directory/develop/quickstart-register-app.md), som inkluderar:
 
 1.  Konfiguration i Azure Portal:
     1.  Registrera ditt program i Azure AD:

@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 11c6da0b79f169b250dc0178f76dcd885ce91668
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015845"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162896"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Så här utför du Direktsänd strömning med lokala kodare med hjälp av .NET
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-live-passthrough-get-started.md)
+> * [Portalen](media-services-portal-live-passthrough-get-started.md)
 > * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
@@ -40,7 +40,7 @@ Följande krävs för att kunna genomföra vägledningen:
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
 * Konfigurera din utvecklings miljö. Mer information finns i [Konfigurera din miljö](media-services-set-up-computer.md).
-* En webbkamera. Till exempel [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm).
+* En webbkamera. Till exempel [Telestream Wirecast-kodaren](media-services-configure-wirecast-live-encoder.md).
 
 Vi rekommenderar att du läser följande artiklar:
 

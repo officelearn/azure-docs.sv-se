@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 724736bedd81ea45d7472a615fa22cde6916f21c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148869"
+ms.locfileid: "77157881"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -84,11 +84,11 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | `globalexception` | Visar en felsida när ett undantag eller ett fel påträffas. |
 | `providerselection` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. |
 | `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
-| `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
+| `unifiedssd` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
 | `multifactor` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
 | `selfasserted` | Visar ett formulär som gör det möjligt för användare att skapa eller uppdatera sin profil. |
 
-## <a name="select-a-page-layout"></a>Välj en sidlayout
+### <a name="select-a-page-layout"></a>Välj en sidlayout
 
 Du kan aktivera [JavaScript-kod på klient sidan](javascript-samples.md) genom att infoga `contract` mellan `elements` och typ av sida. Till exempel `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
@@ -126,6 +126,29 @@ Formatet för värdet måste innehålla ordet `contract`: _urn: com: Microsoft: 
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
+
+### <a name="metadata"></a>Metadata
+
+Ett **metadataelement** innehåller följande element:
+
+| Element | Förekomster | Beskrivning |
+| ------- | ----------- | ----------- |
+| Objekt | 0: n | Metadata som relaterar till innehålls definitionen. |
+
+**Objekt** elementet i **metadata** -elementet innehåller följande attribut:
+
+| Attribut | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| Nyckel | Ja | Nyckeln metadata.  |
+
+#### <a name="metadata-keys"></a>Nycklar för metadata
+
+Innehålls definitionen stöder följande metadata: 
+
+| Nyckel | Krävs | Beskrivning |
+| --------- | -------- | ----------- |
+| displayName | Nej | En sträng som innehåller namnet på innehålls definitionen. |
+
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
 **LocalizedResourcesReferences** -elementet innehåller följande element:
@@ -134,7 +157,7 @@ Formatet för värdet måste innehålla ordet `contract`: _urn: com: Microsoft: 
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1: n | En lista med lokaliserade resurs referenser för innehålls definitionen. |
 
-**LocalizedResourcesReferences** -elementet innehåller följande attribut:
+**LocalizedResourcesReference** -elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |

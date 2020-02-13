@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 9860ab6b16c6639581d0bcd1783d43f420f88d74
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8f6307e37ff24d2a3f10bcf39ed989acdf3611f9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668429"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158000"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här använder du klient biblioteket för iOS för Azure Mobile Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "74668429"
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och ladda ned ett fördefinierat iOS Xcode-projekt. I den här hand boken fokuserar vi på klient sidans iOS SDK. Mer information om Server sidans SDK för Server delen finns i Server SDK-HOWTOs.
 
-## <a name="reference-documentation"></a>Referensdokumentation
+## <a name="reference-documentation"></a>Referens dokumentation
 
 Referens dokumentationen för iOS client SDK finns här: [klient referens för Azure Mobile Apps iOS][2].
 
@@ -561,7 +561,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga a
 3. Använd terminalen och kör `pod install` från katalogen som innehåller ditt projekt och öppna sedan den genererade Xcode-arbetsytan (inte projektet).
 4. Lägg till följande kod i programmet, enligt det språk som du använder. I vart och ett, gör du följande ersättningar:
 
-   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure-portalen].
+   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure Portal].
    * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
    * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -897,7 +897,7 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
@@ -920,6 +920,6 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 [5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/configure-authentication-provider-aad.md
-[8]:../active-directory/develop/quickstart-v1-ios.md
+[8]:../active-directory/develop/quickstart-v2-ios.md
 [9]: ../app-service/configure-authentication-provider-facebook.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

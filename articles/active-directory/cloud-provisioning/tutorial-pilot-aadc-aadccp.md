@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47806fe9c5c97c1f5a9c26d4ca38fb46bdf4057c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f47f55252c6274360f200a4bce0ed0b739e3d8a3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931407"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166570"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
 Den här självstudien vägleder dig genom pilot etablering av molnet för en test Active Directory skog som redan har synkroniserats med Azure Active Directory (Azure AD) Connect-synkronisering.
 
-![Create](media/tutorial-migrate-aadc-aadccp/diagram.png)
+![Skapa](media/tutorial-migrate-aadc-aadccp/diagram.png)
 
 ## <a name="considerations"></a>Överväganden
 Tänk på följande innan du provar den här självstudien:
@@ -35,7 +35,7 @@ Tänk på följande innan du provar den här självstudien:
 
 4. Det här är ett avancerat scenario. Se till att du följer de steg som beskrivs i den här självstudien noggrant.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En test miljö med Azure AD Connect Sync version 1.4.32.0 eller senare
 - En ORGANISATIONSENHET eller grupp som finns i omfånget och kan användas som pilot. Vi rekommenderar att du börjar med en liten uppsättning objekt.
@@ -67,8 +67,7 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
  3. På sidan **Beskrivning** anger du följande och klickar på **Nästa**:
 
     **Namn:** Ge regeln ett beskrivande namn<br>
-    **Beskrivning:** Lägg till en meningsfull beskrivning<br> 
-    
+    **Beskrivning:** Lägg till en meningsfull beskrivning<br>
     **Anslutet system:** Välj den AD-anslutning som du vill skriva den anpassade synkroniseringsregeln för<br>
     **Ansluten system objekt typ:** Användarvänlig<br>
     **Metaversum-objekt typ:** Sända<br>
@@ -144,7 +143,7 @@ Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
 1. Logga in på Azure Portal.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)** .</br>
-![Azure-portalen](media/how-to-install/install6.png)</br>
+![Azure Portal](media/how-to-install/install6.png)</br>
 
 3.  På skärmen **Azure AD Provisioning (för hands version)** klickar du på **Granska alla agenter**.
 ![Azure AD-etablering](media/how-to-install/install7.png)</br>

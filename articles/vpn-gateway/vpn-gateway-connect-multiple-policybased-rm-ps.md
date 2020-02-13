@@ -7,24 +7,24 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 97db6af7233a8cc0e1feac75734225815282131a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: dec088ed751856957735867f740dc951c3b8f2ac
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896160"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162080"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Anslut Azure VPN-gatewayer till flera lokala principbaserade VPN-enheter med hjälp av PowerShell
 
 Den här artikeln hjälper dig att konfigurera en Azure Route-baserad VPN-gateway för att ansluta till flera lokala principbaserade VPN-enheter som utnyttjar anpassade IPsec/IKE-principer på S2S VPN-anslutningar.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>Om principbaserad och routning-baserade VPN-gatewayer
 
 Princip- *vs.* Route-baserade VPN-enheter skiljer sig åt i hur IPSec-trafikväljare anges i en anslutning:
 
-* **Principbaserad** VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafiken krypteras/dekrypteras via IPsec-tunnlar. Den bygger vanligt vis på brand Väggs enheter som utför paket filtrering. Kryptering och dekryptering av IPsec-tunnlar läggs till i motorn för paketfiltrering och bearbetning.
+* **Principbaserad** VPN-enheter använder kombinationer av prefix från båda nätverken för att definiera hur trafiken krypteras/dekrypteras via IPsec-tunnlar. Den bygger vanligt vis på brand Väggs enheter som utför paket filtrering. Kryptering och dekryptering av IPsec-tunnel läggs till i paket filtrerings-och bearbetnings motorn.
 * **Route-baserad** VPN-enheter använder valfri-till-valfri (jokertecken) trafik väljare och låter tabeller dirigeras/vidarebefordras till olika IPsec-tunnlar. Den bygger vanligt vis på perronger där varje IPsec-tunnel modelleras som ett nätverks gränssnitt eller VTI (virtuellt tunnel gränssnitt).
 
 I följande diagram markeras de två modellerna:
@@ -40,7 +40,7 @@ För närvarande stöder Azure båda lägena för VPN-gatewayer: routning-basera
 
 |                          | **Principbaserad VPN Gateway** | **Routningsbaserad VPN Gateway**       |**Routningsbaserad VPN Gateway**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **Azure Gateway SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **Azure Gateway-SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
 | **IKE-version**          | IKEv1                       | IKEv2                            | IKEv1 och IKEv2                                    |
 | **Bekräftat. S2S-anslutningar** | **1**                       | 10                               |Standard: 10<br> Andra SKU: er: 30                     |
 |                          |                             |                                  |                                                    |

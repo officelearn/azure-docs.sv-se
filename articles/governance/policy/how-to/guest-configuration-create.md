@@ -3,12 +3,12 @@ title: Så här skapar du principer för gäst konfiguration
 description: Lär dig hur du skapar en Azure Policy princip för gäst konfiguration för virtuella Windows-eller Linux-datorer med Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: 7a6c6bb68302d41cd750c59062432a40cf01e8bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8bd769b61ed87c9ded45ceca11586cfe105740c9
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278460"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167192"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
@@ -374,7 +374,7 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 En referens för att skapa GPG-nycklar som ska användas med Linux-datorer finns i en artikel på GitHub, vilket [genererar en ny GPG-nyckel](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-När innehållet har publicerats lägger du till en tagg med namnet `GuestConfigPolicyCertificateValidation` och värde `enabled` till alla virtuella datorer där kod signering ska krävas. Den här taggen kan levereras i stor skala med hjälp av Azure Policy. Se [Apply-taggen och dess standardvärde](../samples/apply-tag-default-value.md) -exempel. När den här taggen är på plats, aktiverar princip definitionen som genereras med hjälp av `New-GuestConfigurationPolicy` cmdleten krav via gäst konfigurations tillägget.
+När innehållet har publicerats lägger du till en tagg med namnet `GuestConfigPolicyCertificateValidation` och värde `enabled` till alla virtuella datorer där kod signering ska krävas. Se [taggens exempel](../samples/built-in-policies.md#tags) för hur taggar kan levereras i skala med hjälp av Azure policy. När den här taggen är på plats, aktiverar princip definitionen som genereras med hjälp av `New-GuestConfigurationPolicy` cmdleten krav via gäst konfigurations tillägget.
 
 ## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Fel sökning av princip tilldelningar för gäst konfiguration (för hands version)
 

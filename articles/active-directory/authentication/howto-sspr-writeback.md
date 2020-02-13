@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f1fa447312ad6a1f92eaed1164020cb6ee95606e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847260"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161604"
 ---
 # <a name="how-to-configure-password-writeback"></a>Anvisningar: Konfigurera tillbakaskrivning av lösen ord
 
@@ -35,7 +35,7 @@ Följande steg förutsätter att du redan har konfigurerat Azure AD Connect i di
 Vanliga fel söknings uppgifter om tillbakaskrivning av lösen ord finns i avsnittet [Felsöka tillbakaskrivning av lösen ord](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) i vår fel söknings artikel.
 
 > [!WARNING]
-> Tillbakaskrivning av lösen ord slutar att fungera för kunder som använder Azure AD Connect versioner 1.0.8641.0 och äldre när [Azure Access Control Service (ACS) tas ur bruk den 7 November 2018](../develop/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre kommer inte längre att tillåta tillbakaskrivning av lösen ord vid den tidpunkten eftersom de är beroende av ACS för den funktionen.
+> Tillbakaskrivning av lösen ord slutar att fungera för kunder som använder Azure AD Connect versioner 1.0.8641.0 och äldre när [Azure Access Control Service (ACS) tas ur bruk den 7 November 2018](../azuread-dev/active-directory-acs-migration.md). Azure AD Connect-versioner 1.0.8641.0 och äldre kommer inte längre att tillåta tillbakaskrivning av lösen ord vid den tidpunkten eftersom de är beroende av ACS för den funktionen.
 >
 > För att undvika avbrott i tjänsten, uppgradera från en tidigare version av Azure AD Connect till en nyare version, se artikeln [Azure AD Connect: uppgradera från en tidigare version till den senaste](../hybrid/how-to-upgrade-previous-version.md)
 >

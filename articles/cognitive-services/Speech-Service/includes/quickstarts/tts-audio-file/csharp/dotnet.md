@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: syntetisera tal i Audio-fil C# , (.net) – tal-service'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 72086f1df2b497a722b2752b56a32e6c269fe32d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 17e5f35e83f5cb6e8115a9d344f93abf84e5b38a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768133"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156617"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -65,6 +65,9 @@ namespace helloworld
 Innan du kan initiera ett `SpeechSynthesizer`-objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region. Infoga den här koden i metoden `SynthesisToAudioFileAsync()`.
 
 ````C#
+// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+// from here: https://aka.ms/speech/sdkregion).
+// The default language is "en-us".
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
@@ -197,7 +200,7 @@ Nu är du redo att bygga din app och testa vår tal syntes med röst tjänsten.
 
 [!INCLUDE [footer](./footer.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
 - [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

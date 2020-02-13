@@ -7,14 +7,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
-ms.openlocfilehash: 5b6358c3316fae3df37243a941664214bd9272f4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: a77fedd92800a73ef446f1f8241a518e42f977ee
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264587"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156517"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -23,7 +23,7 @@ Innan du börjar ska du se till att:
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=windows)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna käll filen **HelloWorld. cpp**från Visual Studio.
 
@@ -55,7 +55,11 @@ Innan du börjar ska du se till att:
     {
         // Set these
         std::string subscriptionKey("YourSubscriptionKey");
+
+        // Replace below with your own service region (e.g., "westus", use the one of SpeechSDKParameters
+        // from here: https://aka.ms/speech/sdkregion).   
         std::string region("YourServiceRegion");
+        
         std::string speechLanguage("en-US");
     
         // Create the conversation object you'll need to manage the conversation

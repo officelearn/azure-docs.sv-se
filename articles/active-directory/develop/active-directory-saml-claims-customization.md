@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698687"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161264"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -59,7 +59,7 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 |---------------|-------------|
 | **Standard** | Standardvärdet för käll formatet används i Azure AD. |
 | **Bestående** | Azure AD kommer att använda beständigt som NameID-format. |
-| **E-postadress** | Azure AD kommer att använda EmailAddress som NameID-format. |
+| **EmailAddress** | Azure AD kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerad** | Azure AD kommer att använda ospecificerat som NameID-format. |
 | **Kvalificerat namn för Windows-domän** | Azure AD kommer att använda WindowsDomainQualifiedName som NameID-format. |
 
@@ -139,7 +139,7 @@ Du kan använda följande funktioner för att transformera anspråk.
 | **Extrahera ()-före matchning** | Returnerar del strängen tills den matchar det angivna värdet.<br/>Om exempelvis värdet för indata är "BSimon_US" är det matchande värdet "_US", och anspråkets utdata är "BSimon". |
 | **Extrahera () – mellan matchning** | Returnerar del strängen tills den matchar det angivna värdet.<br/>Exempel: om indatans värde är "Finance_BSimon_US" är det första matchande värdet "Finance_", det andra matchning svärdet är "_US", och anspråkets utdata är "BSimon". |
 | **ExtractAlpha ()-prefix** | Returnerar den alfabetiska delen av strängen.<br/>Om värdet till exempel är "BSimon_123" returnerar det "BSimon". |
-| **ExtractAlpha() - Suffix** | Returnerar den alfabetiska delen för suffixet i strängen.<br/>Om värdet till exempel är "123_Simon" returnerar det "Simon". |
+| **ExtractAlpha ()-suffix** | Returnerar den alfabetiska delen för suffixet i strängen.<br/>Om värdet till exempel är "123_Simon" returnerar det "Simon". |
 | **ExtractNumeric ()-prefix** | Returnerar prefixets numeriska del av strängen.<br/>Om värdet till exempel är "123_BSimon" returneras "123". |
 | **ExtractNumeric ()-suffix** | Returnerar suffixets numeriska del av strängen.<br/>Om värdet till exempel är "BSimon_123" returneras "123". |
 | **IfEmpty()** | Matar ut ett attribut eller en konstant om indata är null eller tomt.<br/>Om du till exempel vill mata ut ett attribut som lagras i en extensionattribute om medarbetar-ID: t för en specifik användare är tomt. Det gör du genom att konfigurera följande värden:<br/>Parameter 1 (indata): User. Anställningsnr<br/>Parameter 2 (utdata): User. extensionAttribute1<br/>Parameter 3 (utdata om det inte finns någon matchning): User. Anställningsnr |
@@ -180,4 +180,4 @@ Först verifierar Azure AD om Brita användar typ är `All guests`. Eftersom det
 
 * [Program hantering i Azure AD](../manage-apps/what-is-application-management.md)
 * [Konfigurera enkel inloggning för program som inte finns i Azure AD-programgalleriet](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Felsöka SAML-baserad enkel inloggning](howto-v1-debug-saml-sso-issues.md)
+* [Felsöka SAML-baserad enkel inloggning](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

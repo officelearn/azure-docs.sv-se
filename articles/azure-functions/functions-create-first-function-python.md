@@ -1,17 +1,17 @@
 ---
-title: Skapa en HTTP-utlöst python-funktion i Azure
+title: Skapa en server lös python-funktion för HTTP-begäranden i Azure Functions
 description: Skapa och distribuera en server lös python-kod till molnet med hjälp av Azure Functions.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 529a992178fae5566c8e315956388c4cd4b80257
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116214"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157898"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Snabb start: skapa en HTTP-utlöst python-funktion i Azure
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en python-funktion i Azure som svarar på HTTP-begäranden
 
 I den här artikeln använder du kommando rads verktyg för att skapa en python-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto.
 

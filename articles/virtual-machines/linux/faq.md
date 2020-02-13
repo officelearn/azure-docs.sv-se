@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 107f2376df7eb767953b32b3447937e24869894c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fa1d870effc92f63fb661119214fc635eae95672
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036172"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162471"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Vanliga frågor om Virtuella Linux-datorer
 Den här artikeln beskriver några vanliga frågor om virtuella Linux-datorer som skapats i Azure med hjälp av distributions modellen Resource Manager. För Windows-versionen av det här avsnittet, se [vanliga frågor och svar om virtuella Windows-datorer](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -30,7 +30,7 @@ Alla prenumeranter kan köra serverprogramvara på en virtuell Azure-dator. Mer 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Hur mycket lagringsutrymme kan jag använda med en virtuell dator?
 Varje data disk kan vara upp till 32 767 GiB. Antalet datadiskar som du kan använda beror på storleken på den virtuella datorn. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Azure Managed Disks är de rekommenderade disk lagrings erbjudanden som används med Azure Virtual Machines för beständig data lagring. Du kan använda flera Managed Disks till varje virtuell dator. Managed Disks tillhandahåller två lagringsalternativ: Premium och Standard. Information om priser finns i [Managed disks priser](https://azure.microsoft.com/pricing/details/managed-disks).
+Azure Managed Disks är de rekommenderade disk lagrings erbjudanden som används med Azure Virtual Machines för beständig data lagring. Du kan använda flera Managed Disks för varje virtuell dator. Managed Disks erbjuder två typer av varaktiga lagrings alternativ: Premium och standard Managed Disks. Information om priser finns i [Managed disks priser](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Azure Storage-konton kan också tillhandahålla lagring för operativ system disken och alla data diskar. Varje disk är en VHD-fil som lagras som en sidblob. Information om priser finns i [Information om lagringspriser](https://azure.microsoft.com/pricing/details/storage/).
 

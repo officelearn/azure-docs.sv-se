@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/29/2017
-ms.openlocfilehash: 3c1df04e96aff55ae5b9f7130b1593638e3ea1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6097d38d3335be356ca75f5a9d0eadeed414b03
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395070"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166938"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Monitor logg processer med anslutnings programmet för Microsoft Flow
 Med [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbets flöden med hundratals åtgärder för olika tjänster. Utdata från en åtgärd kan användas som indata till en annan som gör det möjligt att skapa integration mellan olika tjänster.  Med Azure Log Analytics-anslutaren för Microsoft Flow kan du bygga arbets flöden som innehåller data som hämtats av logg frågor från en Log Analytics arbets yta i Azure Monitor.
@@ -36,7 +36,7 @@ Självstudien i den här artikeln visar hur du skapar ett flöde som automatiskt
 
 
 ## <a name="step-3-add-a-log-analytics-action"></a>Steg 3: Lägg till en Log Analytics-åtgärd
-1. Klicka på **+ Nytt steg** och sedan på **Lägg till en åtgärd**.
+1. Klicka på **+ nytt steg**och klicka sedan på **Lägg till en åtgärd**.
 2. Sök efter **Log Analytics**.
 3. Klicka på **Azure Log Analytics – kör fråga och visualisera resultat**.<br><br>![Log Analytics köra Query-fönstret](media/flow-tutorial/flow02.png)
 
@@ -77,6 +77,5 @@ Självstudien i den här artikeln visar hur du skapar ett flöde som automatiskt
 
 - Lär dig mer om [logg frågor i Azure Monitor](../log-query/log-query-overview.md).
 - Läs mer om [Microsoft Flow](https://ms.flow.microsoft.com).
-
 
 

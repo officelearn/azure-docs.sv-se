@@ -3,8 +3,7 @@ title: 'Snabb start: skapa en Event Hub med konsument grupp – Azure Event Hubs
 description: 'Snabb start: skapa ett Event Hubs-namnområde med en Event Hub och en konsument grupp med hjälp av Azure Resource Manager mallar'
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
@@ -12,18 +11,18 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: faff7800ea4436d58ed72e8179c7845a6d8f65a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/11/2020
+ms.author: spelluru
+ms.openlocfilehash: 88cd29af75239f0ad79eb78b5ff8e106c3b2ee56
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437137"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163083"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Event Hub med en Azure Resource Manager mall
 
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här snabb starten skapar du en Event Hub med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/management/overview.md). Du distribuerar en Azure Resource Manager-mall för att skapa ett namn område av typen [Event Hubs](event-hubs-what-is-event-hubs.md), med en Event Hub. Artikeln visar hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar][Authoring Azure Resource Manager templates]. Den JSON-syntax och de egenskaper som ska användas i en mall finns i avsnittet om [Microsoft.EventGrid-resurstyper](/azure/templates/microsoft.eventhub/allversions).
 
@@ -89,14 +88,13 @@ Write-Host "Press [ENTER] to continue ..."
 
 I den här artikeln har du skapat ett Event Hubs-namnområde och en händelsehubben i namn området. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en händelsehubben finns i självstudierna **skicka och ta emot händelser** :
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (endast sändning)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (endast reecive)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (endast mottagning)](event-hubs-storm-getstarted-receive.md)
 
 
 [3]: ./media/event-hubs-quickstart-powershell/sender1.png

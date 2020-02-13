@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: MT
+ms.openlocfilehash: 54401d4fd8a911fc9cf5bc67d4324e84005fa752
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091790"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157252"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Data inmatning för Azure Datautforskaren
 
@@ -90,7 +90,7 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga data med
 
 | Metod | Svarstid |
 | --- | --- |
-| **Infogad inmatning** | Direkt |
+| **Infogad inmatning** | Omgående |
 | **Mata in från fråga** | Tid för fråga + bearbetnings tid |
 | **Mata in från lagring** | Hämtnings tid + bearbetnings tid |
 | **Inhämtning i kö** | Tid för batch + bearbetnings tid |
@@ -118,7 +118,7 @@ För organisationer med en befintlig infrastruktur som baseras på en meddelande
 ## <a name="supported-data-formats"></a>Data format som stöds
 
 För alla inmatnings metoder förutom inmatning från fråga formaterar du data så att Azure Datautforskaren kan parsa det. 
-* De data format som stöds är: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (Line-separerad, multi-line), Avro och Parquet. 
+* De data format som stöds är: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (Line-separerad, multi-line), Avro, Orc och Parquet. 
 * Stöder ZIP-och GZIP-komprimering.
 
 > [!NOTE]

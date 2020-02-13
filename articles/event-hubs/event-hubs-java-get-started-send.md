@@ -6,38 +6,38 @@ author: spelluru
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: a2cce90b5aa28dac6ff945ac48f70bfd319683b9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029902"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158017"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Använda Java för att skicka händelser till eller ta emot händelser från Azure Event Hubs (Azure-eventhubs)
 
-Den här självstudien visar hur du skapar Java-program för att skicka händelser till eller ta emot händelser från Azure Event Hubs.
-
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Detaljerad översikt över Event Hubs finns i Event Hubs översikt och Event Hubs funktioner.
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure-eventhubs Java-** paketet.
 
 > [!WARNING]
-> Den här snabb starten använder de gamla **Azure-eventhubs** **-och Azure-eventhubs-EPH-** paketen. Vi rekommenderar att du [migrerar](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) din kod för att använda det senaste [Azure-eventhubs-](get-started-java-send-v2.md) paketet. 
+> Den här snabb starten använder de gamla **Azure-eventhubs** **-och Azure-eventhubs-EPH-** paketen. En snabb start som använder det senaste paketet **Azure-Messaging-eventhubs** finns i [skicka och ta emot händelser med Azure-Messaging-eventhubs](get-started-java-send-v2.md). Information om hur du flyttar ditt program från att använda det gamla paketet till ett nytt finns i [hand boken för att migrera från Azure-eventhubs till Azure-Messaging-eventhubs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md). 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien, finns följande förhandskrav:
+Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
-- Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- En Java-utvecklingsmiljön. I den här självstudien används [Sol förmörkelse](https://www.eclipse.org/).
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckel namnet är: **RootManageSharedAccessKey**.
+För att slutföra den här snabbstarten, behöver du följande förhandskrav:
+
+- **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
+- En Java-utvecklingsmiljön. Den här snabb starten använder [Sol förmörkelse](https://www.eclipse.org/).
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomst nyckeln i koden som du skriver senare i den här snabb starten. Standard nyckel namnet är: **RootManageSharedAccessKey**.
 
 ## <a name="send-events"></a>Skicka händelser 
 Det här avsnittet visar hur du skapar ett Java-program för att skicka händelser till en Event Hub. 
 
 > [!NOTE]
-> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
+> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Du kan också följa stegen i den här snabb starten för att skapa en egen.
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Lägg till referens till Azure Event Hubs-biblioteket
 
@@ -140,7 +140,7 @@ Skapa en enda händelse genom att omvandla en sträng till UTF-8 byte kodningen.
 
 Skapa och kör programmet och kontrollera att det inte finns några fel.
 
-Grattis! Du har nu skickat meddelanden till en händelsehubb.
+Gratulerar! Du har nu skickat meddelanden till en händelsehubb.
 
 ### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Bilaga: Hur meddelanden skickas till EventHub-partitioner
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 3f0f3528a59c721fe6926dd4c8c5039b680e1588
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025766"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161893"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurera VPN-gatewayöverföring för peer-kopplade virtuella nätverk
 
@@ -33,7 +33,7 @@ Två scenarier beskrivs i det här dokumentet:
 
 ## <a name="requirements"></a>Krav
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Exemplet i det här dokumentet kräver att följande resurser skapas:
 
@@ -54,9 +54,9 @@ De konton som du använder för att skapa peer-kopplade virtuella nätverk måst
     
 |Virtuellt nätverk|Distributionsmodell|Roll|Behörigheter|
 |---|---|---|---|
-|Hub-RM|Resurshanterare|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Gäller inte|
-|Spoke-Classic|Resurshanterare|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|Hub-RM|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Saknas|
+|Spoke-Classic|Resource Manager|[Nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Klassisk|[Klassisk nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) och hur du tilldelar särskilda behörigheter till [anpassade roller](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (endast Resource Manager).

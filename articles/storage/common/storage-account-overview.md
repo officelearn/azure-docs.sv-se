@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274543"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157284"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
@@ -115,11 +115,9 @@ Om det finns en ändring i användnings mönstret för dina data kan du när som
 > [!IMPORTANT]
 > Om du ändrar åtkomst nivån för ett befintligt lagrings konto eller BLOB kan ytterligare kostnader uppstå. Mer information finns i [avsnittet fakturering av lagrings konto](#storage-account-billing).
 
-## <a name="replication"></a>Replikering
+## <a name="redundancy"></a>Redundans
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Mer information om Storage Replication finns [Azure Storage replikering](storage-redundancy.md).
 
 ## <a name="encryption"></a>Kryptering
 
@@ -189,5 +187,5 @@ Mer information om Azure Storage REST API finns i [Azure Storage Services REST A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [skapar ett lagringskonto](storage-account-create.md)
+- [Skapa ett lagringskonto](storage-account-create.md)
 - [Skapa ett lagringskonto för en blockblob](../blobs/storage-blob-create-account-block-blob.md)

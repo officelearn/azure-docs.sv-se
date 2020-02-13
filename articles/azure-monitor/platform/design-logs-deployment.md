@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395763"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162250"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
 
@@ -42,7 +42,7 @@ Att identifiera hur många arbets ytor du behöver påverkas av ett eller flera 
 
 IT-organisationer idag modelleras efter antingen en centraliserad, decentraliserad eller en mellan hybrid hybrider av båda strukturerna. Därför har följande distributions modeller för arbets ytor ofta använts för att mappa till någon av dessa organisations strukturer:
 
-* **Centraliserad**: alla loggar lagras på en central arbets yta och administreras av ett enda team, med Azure Monitor tillhandahålla differentierad åtkomst per team. I det här scenariot är det enkelt att hantera, söka bland resurser och korsa-korrelerade loggar. Arbets ytan kan växa avsevärt beroende på mängden data som samlas in från flera resurser i din prenumeration, med ytterligare administrations kostnader för att upprätthålla åtkomst kontroll till olika användare.
+* **Centraliserad**: alla loggar lagras på en central arbets yta och administreras av ett enda team, med Azure Monitor tillhandahålla differentierad åtkomst per team. I det här scenariot är det enkelt att hantera, söka bland resurser och korsa-korrelerade loggar. Arbets ytan kan växa avsevärt beroende på mängden data som samlas in från flera resurser i din prenumeration, med ytterligare administrations kostnader för att upprätthålla åtkomst kontroll till olika användare. Den här modellen kallas "hubb och eker".
 * **Decentraliserad**: varje team har sin egen arbets yta som skapats i en resurs grupp som de äger och hanterar, och loggdata åtskiljs per resurs. I det här scenariot kan arbets ytan vara säker och åtkomst kontrollen är konsekvent med resurs åtkomst, men det är svårt att korsa korrelerande loggar. Användare som behöver en bred vy över många resurser kan inte analysera data på ett meningsfullt sätt.
 * **Hybrid**: kraven på säkerhets gransknings efterlevnad försäkrar ytterligare det här scenariot eftersom många organisationer implementerar båda distributions modellerna parallellt. Detta leder ofta till en komplicerad, dyr och hårt hanterad konfiguration med luckor i loggar täckning.
 
@@ -65,12 +65,12 @@ De data som en användare har åtkomst till bestäms av en kombination av faktor
 
 | Faktor | Beskrivning |
 |:---|:---|
-| [Åtkomstläge](#access-mode) | Metod som användaren använder för att få åtkomst till arbets ytan.  Definierar omfattningen av tillgängliga data och åtkomst kontroll läge som används. |
+| [Åtkomst läge](#access-mode) | Metod som användaren använder för att få åtkomst till arbets ytan.  Definierar omfattningen av tillgängliga data och åtkomst kontroll läge som används. |
 | [Åtkomst kontrol läge](#access-control-mode) | Inställning på arbets ytan som definierar om behörigheter tillämpas på arbets ytan eller resurs nivån. |
 | [Behörigheter](manage-access.md) | Behörigheter som tillämpas på enskilda eller grupper av användare för arbets ytan eller resursen. Definierar vilka data som användaren kommer att ha åtkomst till. |
 | [RBAC för tabell nivå](manage-access.md#table-level-rbac) | Valfria detaljerade behörigheter som gäller för alla användare oavsett åtkomst läge eller åtkomst kontrol läge. Definierar vilka data typer som en användare kan komma åt. |
 
-## <a name="access-mode"></a>Åtkomstläge
+## <a name="access-mode"></a>Åtkomst läge
 
 *Åtkomst Läget* avser hur en användare kommer åt en Log Analytics-arbetsyta och definierar omfattningen av de data som de har åtkomst till. 
 

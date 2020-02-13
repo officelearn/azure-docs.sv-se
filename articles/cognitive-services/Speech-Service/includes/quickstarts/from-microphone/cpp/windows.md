@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: e1385dd17e686370508576ec0cb713820f27f6b2
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: cc349c2d5e43946648533d546398e95d4fa98382
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75927868"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156436"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -27,7 +27,7 @@ Innan du börjar:
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=windows)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna källfilen **helloworld.cpp**.
 
@@ -37,7 +37,7 @@ Innan du börjar:
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 1. Välj **arkiv** > **Spara alla**på Meny raden.
 

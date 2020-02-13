@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 2126fed5231f2264ba9a0bbc13be9410bb8294da
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69e2c053c9fb874889bc3d5b08be6e0c7ce875a5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978840"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162913"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services begrepp 
 
@@ -29,7 +29,7 @@ Det här avsnittet ger en översikt över de viktigaste Media Services begreppen
 
 ## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>till gångar och lagring
 ### <a name="assets"></a>Tillgångar
-En [tillgången](https://docs.microsoft.com/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning) och metadata om dessa filer. När de digitala filerna överförs till en tillgång, kan de användas i Media Services kodning och strömning arbetsflöden.
+En [till gång](https://docs.microsoft.com/rest/api/media/operations/asset) innehåller digitala filer (inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning) och metadata om dessa filer. När de digitala filerna överförs till en tillgång, kan de användas i Media Services kodning och strömning arbetsflöden.
 
 En till gång mappas till en BLOB-behållare i Azure Storage-kontot och filerna i till gången lagras som block-blobbar i den behållaren. Page blobbar stöds inte av Azure Media Services.
 
@@ -108,10 +108,10 @@ Media Services stöder följande kodare på begäran som beskrivs i den här art
 
 Information om kodare som stöds finns i [kodare](media-services-encode-asset.md).
 
-## <a name="live-streaming"></a>Liveströmning
+## <a name="live-streaming"></a>Liveuppspelning
 I Azure Media Services representerar en kanal en pipeline för bearbetning av direktuppspelat strömmande innehåll. En kanal tar emot direktsända indata strömmar på något av två sätt:
 
-* En lokal Live-kodare skickar RTMP med flera bit hastigheter eller Smooth Streaming (fragmenterad MP4) till kanalen. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Live Encoder, Wirecast, Teradek, Haivision och TriCaster Encoder. De inmatade strömmarna passerar genom kanaler utan ytterligare kodning och kodning. På begäran levererar Media Services strömmen till kunder.
+* En lokal Live-kodare skickar RTMP med flera bit hastigheter eller Smooth Streaming (fragmenterad MP4) till kanalen. Du kan använda följande Live-kodare som utvärderar multi-bitrs Smooth Streaming: MediaExcel, Ateme, Föreställing Communications, Envivio, Cisco och grundämne. Följande Live-kodare utdata RTMP: Adobe Flash Live Encoder, [Wirecast](media-services-configure-wirecast-live-encoder.md), Teradek, Haivision och TriCaster Encoder. De inmatade strömmarna passerar genom kanaler utan ytterligare kodning och kodning. På begäran levererar Media Services strömmen till kunder.
 * En data ström med en bit hastighet (i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4)) skickas till den kanal som är aktive rad för att utföra direktsänd kodning med Media Services. Kanalen utför sedan Live Encoding av strömmen med en enda bithastighet till en video-ström med flera bithastigheter (anpassningsbar). På begäran levererar Media Services strömmen till kunder.
 
 ### <a name="channel"></a>Kanal
@@ -127,11 +127,11 @@ Du kan ange hur många timmar du vill behålla det inspelade innehållet för pr
 
 ArchiveWindowLength anger också den maximala tid som klienter kan söka bakåt i tiden från den nuvarande aktiva positionen. Program kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
-Varje program (händelse) är associerat med en till gång. För att publicera programmet måste du skapa en positionerare för den associerade till gången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
+Varje program (händelse) är associerat med en till gång. För att publicera programmet måste du skapa en positionerare för den associerade till gången. Med den här positioneraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
 En kanal har stöd för upp till tre program som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av ett program, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två program som körs samtidigt. Ett program ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Det andra programmet ställs in för att arkivera i 10 minuter och det här programmet publiceras.
 
-Mer information finns här:
+Mer information finns i:
 
 * [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 * [Arbeta med kanaler som tar emot liveuppspelningar med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md)
@@ -190,7 +190,7 @@ Med progressiv nedladdning kan du starta uppspelning av media innan hela filen h
 >[!NOTE]
 >Du måste dekryptera krypterade resurser om du vill att de ska vara tillgängliga för progressiv nedladdning.
 
-För att ge användarna en URL för progressiv nedladdning måste du först skapa en OnDemandOrigin-lokaliserare. När du skapar en positionerare får du bas sökvägen till till gången. Du måste lägga till namnet på MP4-filen. Exempel:
+För att ge användarna en URL för progressiv nedladdning måste du först skapa en OnDemandOrigin-lokaliserare. När du skapar en positionerare får du bas sökvägen till till gången. Du måste lägga till namnet på MP4-filen. Några exempel:
 
 http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
@@ -214,25 +214,25 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 
 {namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = mpd-Time-CSF)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (format = mpd-Time-CSF)
 
 * Apple HTTP Live Streaming (HLS) v4
 
 {namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = M3U8-AAPL)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (format = M3U8-AAPL)
 
 * Apple HTTP Live Streaming (HLS) v3
 
 {namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = M3U8-AAPL-v3)
 
-http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest (format = M3U8-AAPL-v3)
 
 ## <a name="additional-notes"></a>Ytterligare information
 
 * Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

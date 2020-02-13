@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Översätt tal till tal, C++ (Windows) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 1048391da1fa4bb5c13537ec7b3b38561c3ad20d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aab16b860440ff1fc304cbc200209c1dd6cc85c4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467412"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156638"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -26,7 +26,7 @@ Innan du börjar ska du se till att:
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=windows)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Öppna källfilen **helloworld.cpp**.
 
@@ -44,7 +44,8 @@ Innan du börjar ska du se till att:
    void TranslateSpeechToSpeech()
    {
        // Creates an instance of a speech translation config with specified subscription key and service region.
-       // Replace with your own subscription key and service region (e.g., "westus").
+       // Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
+       // from here: https://aka.ms/speech/sdkregion).   
        auto config = SpeechTranslationConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
        // Sets source and target languages.

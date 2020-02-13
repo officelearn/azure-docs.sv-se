@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5d29598b0962fc42c855e7a26917a34269c30ddb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615868"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158070"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst-och identitets alternativ för Azure Kubernetes service (AKS)
 
@@ -40,7 +40,7 @@ Säkerheten för AKS-kluster kan förbättras med integrering av Azure Active Di
 
 ![Azure Active Directory integrering med AKS-kluster](media/concepts-identity/aad-integration.png)
 
-Med Azure AD-integrerade AKS-kluster kan du ge användare eller grupper åtkomst till Kubernetes-resurser inom ett namn område eller över klustret. För att hämta `kubectl` en konfigurations kontext kan en användare köra kommandot [AZ AKS get-credentials][az-aks-get-credentials] . När en användare interagerar med AKS-klustret med `kubectl`, uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden ger en enda källa för användar konto hantering och autentiseringsuppgifter för lösen ord. Användaren kan bara komma åt resurserna som definieras av kluster administratören.
+Med Azure AD-integrerade AKS-kluster kan du ge användare eller grupper åtkomst till Kubernetes-resurser inom ett namn område eller över klustret. För att hämta en `kubectl` konfigurations kontext kan en användare köra kommandot [AZ AKS get-credentials][az-aks-get-credentials] . När en användare interagerar med AKS-klustret med `kubectl`uppmanas de att logga in med sina autentiseringsuppgifter för Azure AD. Den här metoden ger en enda källa för användar konto hantering och autentiseringsuppgifter för lösen ord. Användaren kan bara komma åt resurserna som definieras av kluster administratören.
 
 Azure AD-autentisering i AKS-kluster använder OpenID Connect, ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. OAuth 2,0 definierar mekanismer för att hämta och använda åtkomsttoken för att komma åt skyddade resurser och OpenID Connect implementerar autentisering som ett tillägg till auktoriseringen av OAuth 2,0. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][openid-connect]. För att verifiera de autentiseringstoken som erhålls från Azure AD via OpenID Connect, använder AKS-kluster Kubernetes webhook-token-autentisering. Mer information finns i dokumentationen för [webhook token-autentisering][webhook-token-docs].
 
@@ -57,7 +57,7 @@ Mer information finns i [Vad är Azure RBAC?][azure-rbac]
 
 ## <a name="roles-and-clusterroles"></a>Roller och ClusterRoles
 
-Innan du tilldelar behörigheter till användare med Kubernetes RBAC definierar du först dessa behörigheter som en *roll*. Kubernetes- roller beviljar behörigheter. Det finns inget begrepp för *neka* -behörighet.
+Innan du tilldelar behörigheter till användare med Kubernetes RBAC definierar du först dessa behörigheter som en *roll*. Kubernetes-roller *beviljar* behörigheter. Det finns inget begrepp för *neka* -behörighet.
 
 Roller används för att bevilja behörigheter inom ett namn område. Om du behöver bevilja behörigheter över hela klustret, eller till kluster resurser utanför ett angivet namn område, kan du i stället använda *ClusterRoles*.
 
@@ -91,7 +91,7 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - Internal -->
-[openid-connect]: ../active-directory/develop/v1-protocols-openid-connect-code.md
+[openid-connect]: ../active-directory/develop/v2-protocols-oidc.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
 [aks-aad]: azure-ad-integration-cli.md

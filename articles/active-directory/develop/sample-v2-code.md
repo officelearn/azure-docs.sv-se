@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3c77b74eb97f03b1234cb2735b4a680b030d2073
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0282336cb5df7d010571a15e9d1f9d93b82d461e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108191"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160330"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kod exempel för Microsoft Identity Platform (v 2.0-slut punkt)
 
@@ -34,7 +34,7 @@ Du kan använda Microsoft Identity Platform för att:
 Den här artikeln beskriver och tillhandahåller länkar till exempel för Microsoft Identity Platform-slutpunkten. De här exemplen visar hur det är färdigt och innehåller även kodfragment som du kan använda i dina program. På sidan kod exempel hittar du detaljerade README-avsnitt som hjälper dig med krav, installation och konfiguration. Kommentarer i koden hjälper dig att förstå de kritiska avsnitten.
 
 > [!NOTE]
-> Om du är intresse rad av v 1.0-exempel kan du se [kod exempel för Azure AD (v 1.0-slutpunkt)](sample-v1-code.md).
+> Om du är intresse rad av v 1.0-exempel kan du se [kod exempel för Azure AD (v 1.0-slutpunkt)](../azuread-dev/sample-v1-code.md).
 
 Information om det grundläggande scenariot för varje exempel typ finns i [app types för Microsoft Identity Platform-slutpunkten](v2-app-types.md).
 
@@ -132,6 +132,6 @@ Mer information om [exempel](https://github.com/microsoftgraph/msgraph-community
 
 ## <a name="see-also"></a>Se även
 
-- [Guide för Azure Active Directory (v 1.0)-utvecklare](v1-overview.md)
+- [Guide för Azure Active Directory (v 1.0)-utvecklare](../azuread-dev/v1-overview.md)
 - [Koncept och referens för Azure AD-Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 - [Hjälp program bibliotek för Azure AD Graph API](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)

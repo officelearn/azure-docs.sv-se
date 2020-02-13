@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111475"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162947"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använd följande databas för att koppla databaser i Azure Datautforskaren
 
@@ -206,8 +206,8 @@ Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](ht
 
 |**Inställning**  |**Beskrivning**  |
 |---------|---------|
-|Namn på Uppföljnings kluster     |  Namnet på Uppföljnings klustret. Detta är det kluster som mallen ska distribueras på.  |
-|Konfigurations namn för bifogad databas    |    Namnet på det anslutna databas konfigurations objekt. Namnet kan vara vilken sträng som helst, så länge det är unikt på kluster nivå.     |
+|Namn på Uppföljnings kluster     |  Namnet på Uppföljnings klustret. var mallen ska distribueras.  |
+|Konfigurations namn för bifogad databas    |    Namnet på det anslutna databas konfigurations objekt. Namnet kan vara vilken sträng som helst som är unik på kluster nivå.     |
 |Databasnamn     |      Namnet på databasen som ska följas. Om du vill följa alla ledares databaser använder du "*".   |
 |Resurs-ID för ledar kluster    |   Resurs-ID för ledar klustret.      |
 |Standard princip för ändrings typ    |   Standard princip för ändrings typ. Kan vara `Union`, `Replace` eller `None`. Mer information om ändrings typen av standard princip objekt finns i avsnittet [ändra typ kontroll kommando](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |

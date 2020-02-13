@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 3e246ffe66dca38916d1072c489cf8e3ab265334
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f139fc8cb59c40ea169e195312326773296b0592
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700158"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159633"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Lägga till en Azure Active Directory med hjälp av anslutna tjänster i Visual Studio
 
@@ -26,7 +26,7 @@ Den här artikeln och dess tilläggs artiklar innehåller information om hur du 
 
 Den Active Directory anslutna tjänsten har för närvarande inte stöd för ASP.NET Core program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-konto: om du inte har ett Azure-konto kan du [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) eller [aktivera dina förmåner för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** eller senare. [Hämta Visual Studio nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -74,4 +74,4 @@ När du lägger till den anslutna tjänsten i guiden lägger Visual Studio till 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Autentiserings scenarier för Azure Active Directory](authentication-scenarios.md)
-- [Lägg till inloggning med Microsoft i en ASP.NET-webbapp](quickstart-v1-aspnet-webapp.md)
+- [Lägg till inloggning med Microsoft i en ASP.NET-webbapp](quickstart-v2-aspnet-webapp.md)

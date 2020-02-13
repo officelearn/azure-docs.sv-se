@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3ea5b63642328db6996a322e64360c3af5d757b2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 792b331710eb820a6b1f03c3015f1b183db8f464
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022485"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163134"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -60,7 +60,7 @@ Tabellen nedan innehåller information om regioner och geopolitiska gränser fö
 
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
-| **Moln för amerikanska myndigheter** |US Gov, Arizona; USA Gov, Iowa; USA Gov, Texas; USA Gov, Virginia; USA DoD, centrala; USA DoD, östra  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
+| **Moln för amerikanska myndigheter** |US Gov, Arizona; US Gov, Iowa; US Gov, Texas; US Gov, Virginia; US DoD, centrala; US DoD, östra  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
 | **Kina, östra** |Kina, östra, Kina, östra 2 |Shanghai, Shanghai2 |
 | **Kina, norra** |Kina, norra, Kina, norra 2 |Beijing, Beijing2 |
 | **Tyskland** |Tyskland, centrala, Tyskland, östra |Berlin, Frankfurt |
@@ -86,9 +86,11 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |Stöds |Stöds |Amsterdam, Hongkong SAR, Johannesburg, London, Newport (Wales), Sao Paulo, Silicon dal, Singapore, Sydney, Tokyo, Washington DC |
 | **[C3ntro](https://www.c3ntro.com/data1/express-route1.php)** |Stöds |Stöds |Miami |
 | **CDC** | Stöds | Stöds | Canberra, Canberra2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Stöds |Stöds |Amsterdam2, Chicago, Hongkong, Las Vegas, New York, Paris, San-Antonio, Silicon dal, Tokyo, Toronto, Washington DC, Washington DC2 |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Stöds |Stöds |Amsterdam2, Chicago, Hongkong, Las Vegas, London2, New York, Paris, San-Antonio, Silicon dal, Tokyo, Toronto, Washington DC, Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** |Stöds |Stöds |Hong Kong, Taipei, |
+| **Kina, mobil internationell** |Stöds |Stöds | Singapore |
 | **China Telecom Global** |Stöds |Stöds |Hongkong SAR |
+| **Kina, Unicom global** |Stöds |Stöds | Singapore2 |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Stöds |Stöds |Chicago, Dallas, Montreal, Toronto, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds |Amsterdam, Amsterdam2, Chicago, Dublin, Frankfurt, London, London2, Newport, New York, Osaka, Paris, Silicon dal, Silicon Valley2, Singapore2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
@@ -97,7 +99,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Devoli](https://devoli.com/expressroute)** | Stöds |Stöds | Auckland, Melbourne, Sydney |
 | **du datamena** |Stöds |Stöds | Dubai2 |
 | **eir** |Stöds |Stöds |Dublin|
-| **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Stöds |Stöds |Singapore, Singapore2 |
+| **[Epsilon, global kommunikation](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Stöds |Stöds |Singapore, Singapore2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Borås, Dublin, Frankfurt, Genève, Hongkong SAR, London, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, kisel dal, Singapore, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat Förenade Arabemiraten** |Stöds |Stöds |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, London |
@@ -240,7 +242,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Amsterdam, Frankfurt, London, Singapore, Washington DC |
 | **[BroadBand Tower, Inc.](https://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokyo |
 | **[C3ntro Telecom](https://www.c3ntro.com/data/express-route)** | Equinix, Megaport | Dallas |
-| **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | Hongkong SAR |
+| **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | Hongkong |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | Frankfurt, Hamburg |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amsterdam | 
 | **[CMC telekom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapore | 
@@ -260,7 +262,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | Toronto |
 | **[Kaalam Telecom Bahrain B. S. C](http://www.kalaam-telecom.com/en/inbusiness/expressroute.html)**| Level 3 Communications |Amsterdam |
 | **LGA Telecom** |Equinix |Singapore|
-| **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hongkong SAR 
+| **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |Hongkong 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | Sydney |
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | Amsterdam |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
@@ -271,7 +273,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 | **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Amsterdam, Dublin, London, Paris |
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Frankfurt |  
 | **Rogers** | Cologix, Equinix | Montreal, Toronto |
-| **[Spectrum Enterprise](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Borås, Los Angeles, New York, Silicon dal | 
+| **[Spektrum Enterprise](https://enterprise.spectrum.com/services/cloud/cloud-connect.html)** | Equinix | Chicago, Borås, Los Angeles, New York, Silicon dal | 
 | **[Tamares Telecom](https://www.tamarestelecom.com/our-services/#Connectivity)** | Equinix | London | 
 | **[TDC Erhverv](https://tdc.dk/Produkter/cloudaccessplus)** | Equinix | Amsterdam | 
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdam |
@@ -299,7 +301,7 @@ Om du är fjärran sluten och inte har fiber anslutning eller om du vill utforsk
 | **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport, PacketFabric |
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX räckvidd, Megaport, PacketFabric |
 | **[QTS Data Center](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud )** | Megaport, PacketFabric |
-| **[Stream Data Centers]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
+| **[Strömma Data Center]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX räckvidd, Megaport, PacketFabric |
 | **[vXchnge](https://www.vxchnge.com/colocation-services/interconnection)** | IX räckvidd, Megaport |
 | **[T5 Datacenters](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |

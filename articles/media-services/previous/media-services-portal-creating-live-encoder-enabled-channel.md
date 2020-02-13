@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015212"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162573"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utföra Direktsänd strömning med Media Services för att skapa strömmar med flera bit hastigheter med Azure Portal  
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-> * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+> * [Portalen](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [REST-API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
@@ -43,8 +43,8 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 
 1. Anslut en videokamera till en dator. <br/>För installations tips kan du läsa mer i installations [programmet för enkel och bärbar händelse]( https://link.medium.com/KNTtiN6IeT).
 
-    Om du inte har åtkomst till en kamera kan du använda verktyg som t. ex. [Wirecast](https://www.telestream.net/wirecast/overview.htm) för multistream för att generera en live-feed från en videofil.
-1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ta också en titt på den här bloggen: [Produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
+    Om du inte har åtkomst till en kamera kan du använda verktyg som t. ex. [Wirecast för multistream](media-services-configure-wirecast-live-encoder.md) för att generera en live-feed från en videofil.
+1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ta också en titt på den här bloggen: [produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
 
     Det här steget kan också utföras när du har skapat din kanal.
 1. Skapa och starta en kanal. 
@@ -65,8 +65,8 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 
 Följande krävs för att kunna genomföra självstudien.
 
-* Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. 
-  Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Du behöver ett Azure-konto för att slutföra den här självstudien. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. 
+  Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett Media Services-konto. Mer information om att skapa ett Media Services-konto finns i [Skapa konto](media-services-portal-create-account.md).
 * En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
@@ -94,7 +94,7 @@ Följande krävs för att kunna genomföra självstudien.
         Du kan inte ändra protokollalternativ när kanalen eller dess associerade händelse/program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje strömningsprotokoll.  
    2. Du kan använda IP-begränsning på inmatningen. 
 
-       Du kan definiera de IP-adresser som får mata in en video på den här kanalen. Tillåtna IP-adresser kan anges som antingen en enskild IP-adress (t.ex. ”10.0.0.1”), ett IP-intervall med en IP-adress och en CIDR-undernätsmask (t.ex. ”10.0.0.1/22”) eller ett IP-intervall med en IP-adress och en CIDR-undernätsmask med punktavgränsad decimalform (t.ex. '10.0.0.1(255.255.252.0)').
+       Du kan definiera de IP-adresser som får mata in en video på den här kanalen. Tillåtna IP-adresser kan anges antingen som en enskild IP-adress (t. ex. 10.0.0.1), ett IP-intervall med en IP-adress och en CIDR-nätmask (t. ex. 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en punktavgränsad decimal näts mask (t. ex. 10.0.0.1 (255.255.252.0)).
 
        Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 6. På fliken **Förhandsvisning** appliceras IP-begränsning på förhandsgranskningen.
@@ -123,7 +123,7 @@ En kanal är associerad med händelser och program som gör att du kan styra pub
 
 Du kan ange det antal timmar som du vill behålla inspelat innehåll för händelsen genom att ställa in längden för **Arkivfönster**. Det här värdet kan anges från minst 5 minuter till högst 25 timmar. Även arkivfönstrets längd påverkar den maximala tid som klienter kan söka bakåt i tiden från den aktuella direktsända positionen. Händelser kan köras under den angivna tidsperioden men innehåll som understiger fönsterlängden ignoreras kontinuerligt. Värdet för den här egenskapen avgör också hur länge klientmanifesten kan växa.
 
-Varje händelse är associerad till en tillgång. För att publicera händelsen måste du skapa en OnDemand-lokaliserare för den associerade tillgången. Med den här lokaliseraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
+Varje händelse är associerad till en tillgång. För att publicera händelsen måste du skapa en OnDemand-lokaliserare för den associerade tillgången. Med den här positioneraren kan du skapa en strömnings-URL som du kan tillhandahålla till dina klienter.
 
 En kanal har stöd för upp till tre händelser som körs samtidigt så du kan skapa flera arkiv för samma inkommande dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Ditt verksamhetsbehov kan till exempel vara att arkivera 6 timmar av en händelse, men bara sända 10 minuter. För att åstadkomma detta måste du skapa två händelser som körs samtidigt. En händelse ställs in för att arkivera 6 timmar av händelsen, men programmet publiceras inte. Den andra händelsen ställs in för att arkivera i 10 minuter och det här programmet publiceras.
 
@@ -135,7 +135,7 @@ Om du vill ta bort arkiverat innehåll, stoppar du och tar bort händelsen och t
 
 Även efter att du stoppat och tagit bort händelsen skulle användarna kunna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort tillgången.
 
-Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningslokaliseraren.
+Om du vill behålla det arkiverade innehållet, men inte att det ska vara tillgängligt för strömning, tar du bort strömningspositioneraren.
 
 ### <a name="createstartstop-events"></a>Skapa/Starta/Stoppa händelser
 När dataströmmen väl flödar till kanalen kan du påbörja strömningshändelsen genom att skapa en tillgång, ett program och en strömningspositionerare. Detta arkiverar dataströmmen och gör den tillgänglig för visning via strömningsslutpunkten. 

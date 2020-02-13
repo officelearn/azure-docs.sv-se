@@ -14,27 +14,27 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773240"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158034"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
-När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
+När hela Azure-regioner eller data Center (om inga [tillgänglighets zoner](../availability-zones/az-overview.md) används) upplever drift stopp, är det viktigt att data bearbetningen fortsätter att fungera i en annan region eller data Center. Därför är *geo-haveri beredskap* och *geo-replikering* viktiga funktioner för alla företag. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
 
 > [!NOTE]
 > Funktionen för geo-katastrof återställning är bara tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
-Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. En *avbrott* är Azure Event Hubs är tillfälligt otillgänglig och kan påverka vissa komponenter av tjänsten, till exempel ett meddelandearkiv eller även hela datacentret. Men när problemet är löst, blir Event Hubs tillgänglig igen. Ett avbrott medför normalt förlusten av meddelanden eller andra data. Ett exempel på sådana ett avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott kan endast kort anslutning förluster på grund av problem med tillfälliga eller. 
+Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. Ett *avbrott* är tillfälligt otillgängligt för Azure Event Hubs och kan påverka vissa komponenter i tjänsten, t. ex. ett meddelande arkiv eller till och med hela data centret. Men när problemet är löst, blir Event Hubs tillgänglig igen. Ett avbrott medför normalt förlusten av meddelanden eller andra data. Ett exempel på sådana ett avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott kan endast kort anslutning förluster på grund av problem med tillfälliga eller. 
 
-En *haveriberedskap* definieras som permanenta eller mer långsiktiga förlusten av en Event Hubs-kluster, Azure-region eller datacenter. Den region eller datacenter kan eller kan inte bli tillgänglig igen, eller kanske inte körs i timmar eller dagar. Exempel på sådana katastrofer är fire, överbelasta eller jordbävning. Problem som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. Men i de flesta fall bör det finnas inga data går förlorade och meddelanden kan återställas när datacentret är säkerhetskopiera.
+En *katastrof* definieras som en permanent eller mer långsiktig förlust av ett Event Hubs-kluster, Azure-region eller data Center. Den region eller datacenter kan eller kan inte bli tillgänglig igen, eller kanske inte körs i timmar eller dagar. Exempel på sådana katastrofer är fire, överbelasta eller jordbävning. Problem som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. Men i de flesta fall bör det finnas inga data går förlorade och meddelanden kan återställas när datacentret är säkerhetskopiera.
 
-Funktionen Geo-disaster recovery i Azure Event Hubs är en lösning för haveriberedskap. Koncept och arbetsflödet som beskrivs i den här artikeln gäller katastrofscenarier och inte tillfälliga eller tillfälliga avbrott. En detaljerad beskrivning av haveriberedskap i Microsoft Azure finns i [i den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Funktionen Geo-disaster recovery i Azure Event Hubs är en lösning för haveriberedskap. Koncept och arbetsflödet som beskrivs i den här artikeln gäller katastrofscenarier och inte tillfälliga eller tillfälliga avbrott. En detaljerad beskrivning av haveri beredskap i Microsoft Azure finns i [den här artikeln](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och termer
 
@@ -44,13 +44,13 @@ Funktionen för geo-katastrof återställning är endast tillgänglig för [stan
 
 I den här artikeln används följande termer:
 
--  *Alias*: Namnet på en katastrof återställnings konfiguration som du ställer in. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
+-  *Alias*: namnet på en katastrof återställnings konfiguration som du ställer in. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
 
--  *Primär/sekundär namnrymd*: De namn områden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
+-  *Primär/sekundär namnrymd*: de namn områden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
 
--  *Metadata*: Entiteter som händelse hubbar och konsument grupper; och deras egenskaper för tjänsten som är associerad med namn området. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
+-  *Metadata*: entiteter som händelse hubbar och konsument grupper; och deras egenskaper för tjänsten som är associerad med namn området. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
 
--  *Redundans*: Processen för att aktivera det sekundära namn området.
+-  *Redundans*: processen att aktivera det sekundära namn området.
 
 ## <a name="supported-namespace-pairs"></a>Namn rymds par som stöds
 Följande kombinationer av primära och sekundära namn rymder stöds:  
@@ -100,7 +100,7 @@ Om du har gjort ett misstag; till exempel du länkade fel regioner under den fö
 
 ## <a name="samples"></a>Exempel
 
-Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) visar hur du ställer in och initiera redundans. Detta exempel visar följande begrepp:
+[Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) visar hur du konfigurerar och initierar en redundansväxling. Detta exempel visar följande begrepp:
 
 - Inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Event Hubs. 
 - Steg som krävs för att köra exempelkoden. 
@@ -120,7 +120,7 @@ Observera följande överväganden att tänka på med den här versionen:
  
 3. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, schemalagda meddelanden och nya dubbletter ska fungera. 
 
-4. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) minst en gång. 
+4. Att redundansväxla en komplex distribuerad infrastruktur bör återställas [minst en](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) gång. 
 
 5. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut.
 
@@ -137,12 +137,16 @@ Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) går igenom ett enkelt arbetsflöde som skapar ett geo-par och initierar en redundansväxling för en katastrofåterställning.
-* Den [REST API-referens](/rest/api/eventhub/disasterrecoveryconfigs) beskriver API: er för att utföra Geo-katastrofberedskapskonfigurationen.
+* [Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) går igenom ett enkelt arbets flöde som skapar en geo-par och initierar en redundansväxling för ett haveri beredskaps scenario.
+* I [referensen REST API](/rest/api/eventhub/disasterrecoveryconfigs) beskrivs API: er för att utföra den geo-haveri återställnings konfigurationen.
 
 Besök följande länkar för mer utförlig information om Event Hubs:
 
-* Kom igång med en [kurs om händelsehubbar](event-hubs-dotnet-standard-getstarted-send.md)
+- Kom igång med händelsehubbar
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 * [Exempelprogram som använder Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

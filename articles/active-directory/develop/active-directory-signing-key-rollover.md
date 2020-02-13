@@ -12,18 +12,18 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d3994b56b55a7aac0ba3ab64d53b6436bc19c45b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698551"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161196"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Förnyelse av signerings nyckel i Azure Active Directory
 Den här artikeln beskriver vad du behöver veta om de offentliga nycklar som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar är i regelbunden följd och att de i nödfall kan överföras direkt. Alla program som använder Azure AD bör kunna hantera nyckel förnyelse processen program mässigt eller upprätta en periodisk manuell förnyelse process. Fortsätt att läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar programmet eller upprättar en periodisk manuell förnyelse process för att hantera nyckel förnyelse vid behov.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Översikt över signerings nycklar i Azure AD
-Azure AD använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Azure AD använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar Azure AD en säkerhetstoken som innehåller information om användaren. Den här token signeras av Azure AD med hjälp av den privata nyckeln innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD, måste programmet verifiera tokens signatur med den offentliga nyckel som exponeras av Azure AD och som finns i klient organisationens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [federationsmetadata](azure-ad-federation-metadata.md).
+Azure AD använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Azure AD använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar Azure AD en säkerhetstoken som innehåller information om användaren. Den här token signeras av Azure AD med hjälp av den privata nyckeln innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD, måste programmet verifiera tokens signatur med den offentliga nyckel som exponeras av Azure AD och som finns i klient organisationens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).
 
 Av säkerhets synpunkt kan Azure ADs signerings nyckel sammanfattas regelbundet och, i händelse av en nöd situation, kunna överföras omedelbart. Alla program som integreras med Azure AD bör förberedas för att hantera en nyckel förnyelse händelse oavsett hur ofta den kan inträffa. Om det inte är det och ditt program försöker använda en nyckel som har gått ut för att verifiera signaturen på en token, kommer inloggnings förfrågan att Miss lyckas.
 
@@ -131,7 +131,7 @@ Om du har lagt till autentisering till din lösning manuellt kanske programmet s
 ### <a name="vs2013"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2013
 Om ditt program har skapats med hjälp av en mall för webb program i Visual Studio 2013 och du har valt **organisations konton** från menyn **ändra autentisering** , har det redan den logik som krävs för att hantera förnyelse av nycklar automatiskt. Den här logiken lagrar organisationens unika identifierare och information om signerings nyckeln i två databas tabeller som är kopplade till projektet. Du kan hitta anslutnings strängen för databasen i projektets Web. config-fil.
 
-Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du behöver skriva den själv eller följer du stegen i [webbprogram / API er med hjälp av andra bibliotek eller manuellt använda några av protokoll som stöds.](#other).
+Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du måste skriva den själv eller följa stegen i [webb program/API: er med hjälp av andra bibliotek eller manuellt implementera något av de protokoll som stöds.](#other).
 
 Med följande steg kan du kontrol lera att logiken fungerar korrekt i ditt program.
 
@@ -281,7 +281,7 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. I **\<Lägg till tumavtryck = "" >** inställningen ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web.config**.
+2. I **\<Lägg till tumavtryck = "" >** inställningen ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web. config** .
 3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in bör du kontrol lera att ändringarna i programmet är korrekta genom att läsa den [lägga till inloggning i ditt webb program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller genom att hämta och inspektera följande kod exempel: [flera innehavares moln program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Webb program skyddar resurser och har skapats med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) v 1.0 för .NET 3,5

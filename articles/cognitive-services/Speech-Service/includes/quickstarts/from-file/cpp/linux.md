@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: 6655cf4ba57bda8f2bfdd1a0b2781e2385db2e6f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ea219937fc765abd05e3ff438c0a48eb76a298b8
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748972"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77155968"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -35,7 +35,7 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 1. Ersätt strängen `whatstheweatherlike.wav` med ditt eget fil namn.
 
@@ -87,7 +87,7 @@ Innan du börjar ska du se till att:
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
      ```
 
-1. Kör appen.
+1. Kör programmet.
 
    ```sh
    ./helloworld

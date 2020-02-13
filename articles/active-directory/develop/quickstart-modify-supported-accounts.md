@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704127"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160697"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
 
@@ -25,7 +25,7 @@ När du registrerar en app på Microsoft Identity Platform vill du kanske att ap
 
 I den här snabbstarten lär du hur du ändrar appens konfiguration för att ändra vilka, eller vilka konton, som har åtkomst till appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -63,7 +63,7 @@ Om du skriver ett program som du vill göra tillgängliga för dina kunder eller
 
 Ensidesprogram (SPA, Single-page applications) är vanligtvis strukturerade med en klientdel som bygger starkt på JavaScript, körs i webbläsaren och anropar programmets webb-API-serverdel för att utföra sin affärslogik. För SPA:er som hanteras i Azure AD använder du implicit OAuth 2.0-beviljande för att autentisera användaren med Azure AD och hämta en token som du kan använda för att skydda anrop från programmets JavaScript-klient till dess serverdels-webb-API.
 
-När användaren har gett sitt medgivande kan det här autentiseringsprotokollet användas till att hämta token för att skydda anrop mellan klienten och andra webb-API-resurser som har konfigurerats för programmet. Om du vill lära dig mer om implicit auktoriseringsbeviljande och få hjälp med att avgöra om det är rätt val för ditt programscenario kan du läsa om flödet för implicit OAuth 2.0-beviljande i Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) och [v2.0](v2-oauth2-implicit-grant-flow.md).
+När användaren har gett sitt medgivande kan det här autentiseringsprotokollet användas till att hämta token för att skydda anrop mellan klienten och andra webb-API-resurser som har konfigurerats för programmet. Om du vill lära dig mer om implicit auktoriseringsbeviljande och få hjälp med att avgöra om det är rätt val för ditt programscenario kan du läsa om flödet för implicit OAuth 2.0-beviljande i Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) och [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan aktivera implicit OAuth 2.0-beviljande för appen genom att följa stegen som beskrivs nedan.
 

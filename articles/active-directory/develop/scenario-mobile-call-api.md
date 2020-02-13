@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f41c9a0e4754c60fd248e540a81e2afa833d655b
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132409"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160159"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Anropa ett webb-API från en mobilapp
 
@@ -124,7 +124,7 @@ Om du behöver anropa samma API flera gånger, eller om du behöver anropa flera
 
 - **Stegvist godkännande**: med Microsoft Identity Platform kan appar få användar medgivande när behörigheter krävs i stället för alla vid starten. Varje gången appen är redo att anropa ett API bör den endast begära de omfattningar som krävs.
 
-- **Villkorlig åtkomst**: när du gör flera API-begäranden i vissa scenarier kan du behöva uppfylla ytterligare krav för villkorlig åtkomst. Kraven kan öka på det här sättet om den första begäran inte har några principer för villkorlig åtkomst och appen försöker få tyst åtkomst till ett nytt API som kräver villkorlig åtkomst. För att hantera det här problemet, se till att fånga fel från tysta begär Anden och Förbered dig för att skapa en interaktiv begäran.  Mer information finns i [rikt linjer för villkorlig åtkomst](conditional-access-dev-guide.md).
+- **Villkorlig åtkomst**: när du gör flera API-begäranden i vissa scenarier kan du behöva uppfylla ytterligare krav för villkorlig åtkomst. Kraven kan öka på det här sättet om den första begäran inte har några principer för villkorlig åtkomst och appen försöker få tyst åtkomst till ett nytt API som kräver villkorlig åtkomst. För att hantera det här problemet, se till att fånga fel från tysta begär Anden och Förbered dig för att skapa en interaktiv begäran.  Mer information finns i [rikt linjer för villkorlig åtkomst](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Anropa flera API: er med hjälp av stegvisa medgivande och villkorlig åtkomst
 

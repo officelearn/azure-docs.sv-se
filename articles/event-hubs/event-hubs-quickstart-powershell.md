@@ -2,29 +2,28 @@
 title: 'Snabb start: skapa en Event Hub med PowerShell – Azure Event Hubs'
 description: Den här snabbstarten beskriver hur du skapar en händelsehubb med Azure PowerShell och hur du sedan skickar och tar emot händelser med hjälp av .NET Standard SDK.
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 2a88fe340037c31a71cb34181682095f31400c36
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: spelluru
+ms.openlocfilehash: 89ec1957e75fa45eef6c7939a77e5cc1b3cf7806
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720606"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162148"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Snabbstart: Skapa en händelsehubb med Azure PowerShell
 
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här snabbstarten har du skapat en händelsehubb med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -65,20 +64,19 @@ Tillåten period för `MessageRetentionInDays` är mellan 1 och 7 dagar.
 New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```
 
-Grattis! Du har använt Azure PowerShell för att skapa en Event Hubs-namnrymd och en händelsehubb i den namnrymden. 
+Gratulerar! Du har använt Azure PowerShell för att skapa en Event Hubs-namnrymd och en händelsehubb i den namnrymden. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln skapade du en Event Hubs-namnrymd och använde exempelprogram för att skicka och ta emot meddelanden från din händelsehubb. Stegvisa instruktioner för att skicka händelser till (eller) ta emot händelser från en händelsehubben finns i självstudierna **skicka och ta emot händelser** : 
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (endast sändning)](event-hubs-c-getstarted-send.md)
-- [Apache Storm (endast reecive)](event-hubs-storm-getstarted-receive.md)
+- [Apache Storm (endast mottagning)](event-hubs-storm-getstarted-receive.md)
 
 
 [Skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

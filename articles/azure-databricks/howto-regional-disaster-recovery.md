@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639879"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161944"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveri beredskap för Azure Databricks kluster
 
@@ -37,7 +37,7 @@ Följ dessa krav för att skapa en egen regional haveri beredskaps topologi:
 
    1. Etablera flera Azure Databricks arbets ytor i separata Azure-regioner. Skapa till exempel den primära Azure Databricks arbets ytan i öst-2; USA. Skapa den sekundära haveri återställnings Azure Databricks arbets ytan i en separat region, till exempel västra USA.
 
-   2. Använd [Geo-redundant lagring](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). De data som associeras Azure Databricks lagras som standard i Azure Storage. Resultaten från Databricks-jobb lagras också i Azure Blob Storage, så att de bearbetade data är varaktiga och förblir hög tillgängliga när klustret har avslut ATS. Eftersom lagrings-och Databricks-klustret är samplacerade måste du använda Geo-redundant lagring så att data kan nås i den sekundära regionen om den primära regionen inte längre är tillgänglig.
+   2. Använd [Geo-redundant lagring](../storage/common/storage-redundancy.md). De data som associeras Azure Databricks lagras som standard i Azure Storage. Resultaten från Databricks-jobb lagras också i Azure Blob Storage, så att de bearbetade data är varaktiga och förblir hög tillgängliga när klustret har avslut ATS. Eftersom lagrings-och Databricks-klustret är samplacerade måste du använda Geo-redundant lagring så att data kan nås i den sekundära regionen om den primära regionen inte längre är tillgänglig.
 
    3. När den sekundära regionen har skapats måste du migrera användare, användarmappar, bärbara datorer, kluster konfiguration, jobb konfiguration, bibliotek, lagring, init-skript och konfigurera om åtkomst kontroll. Ytterligare information beskrivs i följande avsnitt.
 

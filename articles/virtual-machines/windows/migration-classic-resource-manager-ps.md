@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 802d97e2c9b64fd9d8caeaf479af3f4aec356607
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 109bffe7b5ab9bb322c4ddb2f7b8ec4ac87a54cc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153136"
+ms.locfileid: "77168343"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av PowerShell
 De här stegen visar hur du använder Azure PowerShell-kommandon för att migrera infrastruktur som en tjänst (IaaS) resurser från den klassiska distributions modellen till Azure Resource Manager distributions modell.
@@ -52,8 +52,6 @@ Här följer några bra metoder som vi rekommenderar när du utvärderar om du v
 Det finns två huvudsakliga alternativ för att installera Azure PowerShell: [PowerShell-galleriet](https://www.powershellgallery.com/profiles/azure-sdk/) eller [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI tar emot månatliga uppdateringar. PowerShell-galleriet tar emot uppdateringar regelbundet. Den här artikeln baseras på Azure PowerShell version 2.1.0.
 
 Installations anvisningar finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
-
-<br>
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Steg 3: kontrol lera att du är administratör för prenumerationen
 För att utföra den här migreringen måste du läggas till som en medadministratör för prenumerationen i [Azure Portal](https://portal.azure.com).
@@ -104,6 +102,14 @@ Vänta fem minuter tills registreringen är klar. Kontrol lera status för godk�
 
 Kontrol lera att RegistrationState är `Registered` innan du fortsätter.
 
+Innan du växlar till den klassiska distributions modellen ser du till att du har tillräckligt med Azure Resource Manager virtuella virtuella processorer i Azure-regionen för din aktuella distribution eller det virtuella nätverket. Du kan använda följande PowerShell-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+
+I det här exemplet kontrol leras tillgängligheten i regionen **USA, västra** . Ersätt exempel områdets namn med ditt eget.
+
+```powershell
+    Get-AzVMUsage -Location "West US"
+```
+
 Logga nu in på ditt konto för den klassiska distributions modellen.
 
 ```powershell
@@ -122,27 +128,17 @@ Ange din Azure-prenumeration för den aktuella sessionen. I det här exemplet an
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
-<br>
 
-## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Steg 5: ha tillräckligt med VM-virtuella processorer för Resource Manager
-Se till att du har tillräckligt med Azure Resource Manager virtuell dator virtuella processorer i Azure-regionen för din aktuella distribution eller det virtuella nätverket. Du kan använda följande PowerShell-kommando för att kontrol lera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Mer information om vCPU kvoter finns i [gränser och Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
-
-I det här exemplet kontrol leras tillgängligheten i regionen **USA, västra** . Ersätt exempel områdets namn med ditt eget.
-
-```powershell
-Get-AzVMUsage -Location "West US"
-```
-
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Steg 6: kör kommandon för att migrera dina IaaS-resurser
-* [Migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migrera virtuella datorer i ett virtuellt nätverk](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Migrera ett lagrings konto](#step-62-migrate-a-storage-account)
+## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>Steg 5: kör kommandon för att migrera dina IaaS-resurser
+* [Migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migrera virtuella datorer i ett virtuellt nätverk](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migrera ett lagrings konto](#step-52-migrate-a-storage-account)
 
 > [!NOTE]
 > Alla åtgärder som beskrivs här är idempotenta. Om du har problem med en funktion som inte stöds eller ett konfigurations fel rekommenderar vi att du gör om åtgärden för att förbereda, avbryta eller bekräfta. Plattformen försöker sedan utföra åtgärden igen.
 
 
-### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 6,1: alternativ 1 – migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)
+### <a name="step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Steg 5,1: alternativ 1 – migrera virtuella datorer i en moln tjänst (inte i ett virtuellt nätverk)
 Hämta listan över moln tjänster med hjälp av följande kommando. Välj sedan den moln tjänst som du vill migrera. Om de virtuella datorerna i moln tjänsten finns i ett virtuellt nätverk eller om de har webb-eller arbets roller, returnerar kommandot ett fel meddelande.
 
 ```powershell
@@ -223,7 +219,7 @@ Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräf
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 6,1: alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
+### <a name="step-51-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Steg 5,1: alternativ 2 – migrera virtuella datorer i ett virtuellt nätverk
 
 Om du vill migrera virtuella datorer i ett virtuellt nätverk migrerar du det virtuella nätverket. De virtuella datorerna migreras automatiskt till det virtuella nätverket. Välj det virtuella nätverk som du vill migrera.
 > [!NOTE]
@@ -266,7 +262,7 @@ Om den för beredda konfigurationen ser bra ut kan du flytta framåt och bekräf
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="step-62-migrate-a-storage-account"></a>Steg 6,2: Migrera ett lagrings konto
+### <a name="step-52-migrate-a-storage-account"></a>Steg 5,2: Migrera ett lagrings konto
 När du har migrerat de virtuella datorerna utför du följande nödvändiga kontroller innan du migrerar lagrings kontona.
 
 > [!NOTE]

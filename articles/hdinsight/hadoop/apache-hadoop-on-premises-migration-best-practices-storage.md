@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71afbf09d563a43469689132dfce071b40d694b6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435759"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162675"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight
 
@@ -198,7 +198,7 @@ Alla data som skrivs till Azure Storage krypteras automatiskt med hjälp av [kr
 - [Lokalt redundant lagring (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Zonredundant lagring (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Geo-redundant lagring (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Geo-redundant lagring med läsbehörighet (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Geo-redundant lagring med läsbehörighet (RA-GRS)](../../storage/common/storage-redundancy.md)
 
 Azure Data Lake Storage tillhandahåller lokalt redundant lagring (LRS), men du bör också kopiera viktiga data till ett annat Data Lake Storage konto i en annan region med en frekvens som är anpassad till behoven hos Disaster Recovery-planen. Det finns olika metoder för att kopiera data, inklusive [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)eller [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Vi rekommenderar också att du tillämpar åtkomst principer för Data Lake Storage konto för att förhindra oavsiktlig borttagning.
 

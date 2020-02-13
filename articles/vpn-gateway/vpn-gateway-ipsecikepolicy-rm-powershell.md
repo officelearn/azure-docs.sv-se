@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514926"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161910"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-princip för S2S VPN-anslutningar och VNet-till-VNet-anslutningar
 
 Den här artikeln vägleder dig genom stegen för att konfigurera IPsec/IKE-princip för plats-till-plats-VPN eller VNet-till-VNet-anslutningar med hjälp av distributions modellen för Resource Manager och PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>Om IPsec-och IKE-principinställningar för Azure VPN-gatewayer
 IPsec-och IKE-protokoll standarden stöder en mängd olika krypteringsalgoritmer i olika kombinationer. Läs mer [om kryptografiska krav och Azure VPN-gatewayer](vpn-gateway-about-compliance-crypto.md) för att se hur detta kan hjälpa till att säkerställa att anslutningar mellan lokala nätverk och VNET-till-VNet fungerar som uppfyller dina krav på efterlevnad eller säkerhet.

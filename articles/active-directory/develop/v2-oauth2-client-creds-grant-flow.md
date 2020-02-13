@@ -17,16 +17,14 @@ ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ebdebd48710e892ec8f1a96eeba0f91228024420
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4bf6d777662ad1ba4843d6e650dfd3a6a357822f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700540"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159768"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter flödet
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Du kan använda [tilldelningen oauth 2,0-klientautentiseringsuppgifter](https://tools.ietf.org/html/rfc6749#section-4.4) som anges i RFC 6749, ibland kallat *två-ledade OAuth*, för att få åtkomst till webb värd resurser med hjälp av identiteten för ett program. Den här typen av tilldelning används ofta för server-till-Server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. Dessa typer av program kallas ofta för *daemon* eller *tjänst konton*.
 
@@ -117,12 +115,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Detta kan vara i ett GUID eller eget namn format. Om du inte vet vilken klient som användaren tillhör och du vill låta dem logga in med en klient använder du `common`. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
 | `redirect_uri` | Krävs | Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad och den kan ha ytterligare Sök vägs segment. |
-| `state` | Rekommenderad | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Statusen används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
+| `state` | Rekommenderas | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Statusen används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 
 I det här läget tvingar Azure AD att endast en klient organisations administratör kan logga in för att slutföra begäran. Administratören kommer att uppmanas att godkänna alla direkta program behörigheter som du har begärt för din app i registrerings portalen för appen.
 
@@ -180,13 +178,13 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
 | `client_id` | Krävs | Det program-ID som har tilldelats din app. Du hittar den här informationen i portalen där du registrerade appen. |
 | `scope` | Krävs | Värdet som angavs för parametern `scope` i denna begäran ska vara resurs-ID: t (program-ID-URI) för den resurs som du vill ha, fäst med `.default` suffixet. För Microsoft Graph exemplet är värdet `https://graph.microsoft.com/.default`. <br/>Det här värdet anger Microsoft Identity Platform-slutpunkten för alla direkta program behörigheter som du har konfigurerat för din app. slut punkten bör utfärda en token för de som associeras med den resurs som du vill använda. Mer information om `/.default` omfattning finns i [medgivande dokumentationen](v2-permissions-and-consent.md#the-default-scope). |
 | `client_secret` | Krävs | Den klient hemlighet som du genererade för din app i registrerings portalen för appen. Klient hemligheten måste vara URL-kodad innan den kan skickas. |
-| `grant_type` | Krävs | Måste anges till `client_credentials`. |
+| `grant_type` | Krävs | måste anges till `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
 
@@ -202,14 +200,14 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Parameter | Villkor | Beskrivning |
+| Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Katalogen som klienten ska använda för att hantera i GUID-eller domän namns format. |
 | `client_id` | Krävs |Det program-ID (klient) som har tilldelats din app. |
 | `scope` | Krävs | Värdet som angavs för parametern `scope` i denna begäran ska vara resurs-ID: t (program-ID-URI) för den resurs som du vill ha, fäst med `.default` suffixet. För Microsoft Graph exemplet är värdet `https://graph.microsoft.com/.default`. <br/>Det här värdet informerar Microsoft Identity Platform-slutpunkten om alla direkta program behörigheter som du har konfigurerat för din app. den bör utfärda en token för de som associeras med den resurs som du vill använda. Mer information om `/.default` omfattning finns i [medgivande dokumentationen](v2-permissions-and-consent.md#the-default-scope). |
 | `client_assertion_type` | Krävs | Värdet måste anges till `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Krävs | En kontroll (en JSON-webbtoken) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Läs om [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för att lära dig hur du registrerar ditt certifikat och formatet på intyget.|
-| `grant_type` | Krävs | Måste anges till `client_credentials`. |
+| `grant_type` | Krävs | måste anges till `client_credentials`. |
 
 Observera att parametrarna är nästan desamma som i fallet med delad hemlighet, förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 
@@ -281,5 +279,5 @@ Läs [dokumentations översikten över klientens autentiseringsuppgifter](https:
 
 | Exempel | Plattform |Beskrivning |
 |--------|----------|------------|
-|[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-konsol | Ett enkelt .NET Core-program som visar användare av en klient som frågar Microsoft Graph som använder appens identitet, i stället för för en användares räkning. Exemplet illustrerar också variationen med hjälp av certifikat för autentisering. |
-|[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webb program som synkroniserar data från Microsoft Graph med appens identitet, i stället för för en användares räkning. |
+|[Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2,1-konsol | Ett enkelt .NET Core-program som visar användare av en klient som frågar Microsoft Graph som använder appens identitet, i stället för för en användares räkning. Exemplet illustrerar också variationen med hjälp av certifikat för autentisering. |
+|[Active Directory-Dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Ett webb program som synkroniserar data från Microsoft Graph med appens identitet, i stället för för en användares räkning. |

@@ -5,19 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 06/28/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 5df0fe23183b53f13d6c6545e248724324434cde
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 73c2b742ede21a4e86d717d994f8ebc4f16389c9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029870"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157234"
 ---
-Replikeringsalternativ för ett lagringskonto är bland annat:
+Alternativ för redundans för ett lagrings konto är:
 
-* [Lokalt Redundant lagring (LRS)](../articles/storage/common/storage-redundancy-lrs.md): En enkel och låg kostnads strategi för replikering. Data replikeras synkront tre gånger inom den primära regionen.
-* [Zon-redundant lagring (ZRS)](../articles/storage/common/storage-redundancy-zrs.md): Replikering för scenarier som kräver hög tillgänglighet. Data replikeras synkront över tre tillgänglighets zoner i Azure i den primära regionen.
-* [Geo-redundant lagring (GRS)](../articles/storage/common/storage-redundancy-grs.md): Replikering mellan regioner för att skydda mot regionala avbrott. Data replikeras synkront tre gånger i den primära regionen, sedan replikeras asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Geo-redundant lagring med Läs behörighet (RA-GRS).
-* [GZRS (geo-Zone-redundant lagring) (för hands version)](../articles/storage/common/storage-redundancy-gzrs.md): Replikering för scenarier som kräver både hög tillgänglighet och maximal hållbarhet. Data replikeras synkront över tre tillgänglighets zoner i Azure i den primära regionen, sedan replikeras asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Läs åtkomst geo-Zone-redundant lagring (RA-GZRS).
+* Lokalt redundant lagring (LRS): en enkel, låg kostnads redundans strategi. Data kopieras synkront tre gånger inom den primära regionen.
+* Zone-redundant lagring (ZRS): redundans för scenarier som kräver hög tillgänglighet. Data kopieras synkront över tre tillgänglighets zoner i Azure i den primära regionen.
+* Geo-redundant lagring (GRS): Cross-regional redundans för att skydda mot regionala avbrott. Data kopieras synkront tre gånger i den primära regionen och kopieras sedan asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Geo-redundant lagring med Läs behörighet (RA-GRS).
+* Geo-Zone-redundant lagring (GZRS) (för hands version): redundans för scenarier som kräver både hög tillgänglighet och maximal hållbarhet. Data kopieras synkront över tre tillgänglighets zoner i Azure i den primära regionen och kopieras sedan asynkront till den sekundära regionen. För Läs åtkomst till data i den sekundära regionen aktiverar du Läs åtkomst geo-Zone-redundant lagring (RA-GZRS).
+
+Mer information om alternativ för redundans i Azure Storage finns [Azure Storage redundans](../articles/storage/common/storage-redundancy.md).

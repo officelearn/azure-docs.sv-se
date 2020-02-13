@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 6cf6e07e3bbad6b98fcce9cc0e39cdab97375a2a
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b297a3f975450b7459895ce7c0abc79e9b2fcdea
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148580"
+ms.locfileid: "77168936"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide till net # neurala Network Specification language för Azure Machine Learning Studio (klassisk)
 
@@ -460,6 +460,6 @@ output Digit [10] from Hid3 all;
 + Det totala antalet noder kan beräknas med hjälp av skiktets deklarerade dimensionalitet, [50, 5, 5], enligt följande: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Eftersom `Sharing[d]` bara är falskt för `d == 0`, är antalet kernels `MapCount * NodeCount\[0] = 10 * 5 = 50`.
 
-## <a name="acknowledgements"></a>Bekräftelser
+## <a name="acknowledgements"></a>Erkännanden
 
 NET #-språket för anpassning av arkitekturen i neurala-nätverk utvecklades på Microsoft av Shon Katzenberger (arkitekt, Machine Learning) och Alexey Kamenev (program varu tekniker, Microsoft Research). Den används internt för maskin inlärnings projekt och program som sträcker sig från bild identifiering till text analys. Mer information finns i [neurala Garns i Azure Machine Learning Studio – introduktion till net #](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

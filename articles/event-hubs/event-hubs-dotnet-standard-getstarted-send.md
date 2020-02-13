@@ -11,35 +11,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: a58c344f644f91634fba267ff157bd56a18f40d3
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: MT
+ms.openlocfilehash: 78c20c72d0e344d993878f6e06ccc94f42048606
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900107"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162335"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Core (Microsoft. Azure. EventHubs)
-Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
-
-Den här självstudien visar hur du skapar .NET C# Core-program i för att skicka händelser till eller ta emot händelser från en händelsehubben. 
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Microsoft. Azure. EventHubs** .net Core Library.
 
 > [!WARNING]
-> Den här snabb starten använder det gamla **Microsoft. Azure. EventHubs** -paketet. Vi rekommenderar att du [migrerar](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md) koden så att den använder det senaste [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) -paketet.  
+> Den här snabb starten använder det gamla **Microsoft. Azure. EventHubs** -paketet. En snabb start som använder det senaste **Azure. Messaging. EventHubs** -biblioteket finns i [skicka och ta emot händelser med hjälp av Azure. Messaging. EventHubs-biblioteket](get-started-dotnet-standard-send-v2.md). Information om hur du flyttar ditt program från att använda det gamla biblioteket till ett nytt finns i [guiden för att migrera från Microsoft. Azure. EventHubs till Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
 
+## <a name="prerequisites"></a>Förutsättningar
+Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
-## <a name="prerequisites"></a>Krav
+För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
+- **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
 - [.NET Core Visual Studio 2015- eller 2017-verktyg](https://www.microsoft.com/net/core). 
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hub-namnområdet** genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hub-namnområdet** genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder anslutnings strängen senare i den här snabb starten.
 
 ## <a name="send-events"></a>Skicka händelser 
 Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skicka händelser till en händelsehubben. 
 
 > [!NOTE]
-> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
+> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Du kan också följa stegen i den här snabb starten för att skapa en egen.
 
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram

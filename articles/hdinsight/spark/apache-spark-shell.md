@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/12/2019
-ms.openlocfilehash: f088b8210b8170d22e84d131f0a72f5f8caa3b92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435215"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162811"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Köra Apache Spark från Spark-gränssnittet
 
@@ -27,29 +27,74 @@ Ett interaktivt [Apache Spark](https://spark.apache.org/) -gränssnitt ger en re
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Spark tillhandahåller gränssnitt för Scala (Spark-Shell) och python (pyspark). I SSH-sessionen anger du något av följande kommandon:
+1. Spark tillhandahåller gränssnitt för Scala (Spark-Shell) och python (pyspark). I SSH-sessionen anger du *något* av följande kommandon:
 
     ```bash
     spark-shell
-    pyspark
+
+    # Optional configurations
+    # spark-shell --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    Nu kan du ange Spark-kommandon på det aktuella språket.
+    ```bash
+    pyspark
 
-1. Några grundläggande exempel kommandon:
+    # Optional configurations
+    # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
+    ```
+
+    Om du tänker använda valfri konfiguration ser du till att du först granskar [OutOfMemoryError-undantag för Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
+
+1. Några grundläggande exempel kommandon. Välj lämpligt språk:
+
+    ```spark-shell
+    val textFile = spark.read.textFile("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(line => line.contains("apple")).show()
+    ```
+
+    ```pyspark
+    textFile = spark.read.text("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(textFile.value.contains("apple")).show()
+    ```
+
+1. Fråga en CSV-fil. Observera att språket nedan fungerar för `spark-shell` och `pyspark`.
 
     ```scala
-    // Load data
+    spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
+    ```
+
+1. Fråga en CSV-fil och lagra resultat i variabeln:
+
+    ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
 
-    // Show data
+    ```pyspark
+    data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
+
+1. Visa resultat:
+
+    ```spark-shell
     data.show()
-
-    // Select certain columns
     data.select($"BuildingID", $"Country").show(10)
+    ```
 
-    // exit shell
+    ```pyspark
+    data.show()
+    data.select("BuildingID", "Country").show(10)
+    ```
+
+1. Avsluta
+
+    ```spark-shell
     :q
+    ```
+
+    ```pyspark
+    exit()
     ```
 
 ## <a name="sparksession-and-sparkcontext-instances"></a>SparkSession-och SparkContext-instanser
@@ -62,7 +107,7 @@ För att få åtkomst till SparkSession-instansen anger du `spark`. För att få
 
 Spark Shell-kommandot (`spark-shell`eller `pyspark`) stöder många kommando rads parametrar. Om du vill se en fullständig lista över parametrar startar du Spark-gränssnittet med växeln `--help`. En del av dessa parametrar kan endast tillämpas på `spark-submit`, vilket Spark-gränssnittet radbryts.
 
-| växla | description | Exempel |
+| byta | beskrivning | Exempel |
 | --- | --- | --- |
 | --huvud MASTER_URL | Anger huvud-URL: en. I HDInsight är det här värdet alltid `yarn`. | `--master yarn`|
 | --jar v7 JAR_LIST | Kommaavgränsad lista över lokala jar v7 som ska ingå i classpath-driv rutiner och utförar. I HDInsight består den här listan av sökvägar till standard fil systemet i Azure Storage eller Data Lake Storage. | `--jars /path/to/examples.jar` |

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f5d1fff7d1343ad569fa015ebdb65d0152f04376
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153221"
+ms.locfileid: "77168321"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -32,9 +32,18 @@ Om det är ett krav för ditt program att skicka längre ljud bör du överväga
 
 ## <a name="regions-and-endpoints"></a>Regioner och slutpunkter
 
-Dessa regioner har stöd för tal till text-avskrift med hjälp av REST-API. Kontrollera att du väljer den slutpunkt som matchar din region för prenumerationen.
+Slut punkten för REST API har följande format:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Ersätt `<REGION_IDENTIFIER>` med den identifierare som matchar regionen för din prenumeration från den här tabellen:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är det språk som är inställt på engelska som använder den västra amerikanska slut punkten: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ## <a name="query-parameters"></a>Frågeparametrar
 

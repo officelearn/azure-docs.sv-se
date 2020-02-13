@@ -3,12 +3,12 @@ title: Tagga resurser för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5751f2d1bc123c5918ae0fabc5b908b5f4fec71d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c7f8d8672e205fa677bff33c8ed173c1105b26c6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087324"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166581"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera dina Azure-resurser
 
@@ -39,11 +39,11 @@ Följande begränsningar gäller för taggar:
 
 Om du vill använda taggar för resurser måste användaren ha Skriv behörighet till den resurs typen. Använd [deltagar](../../role-based-access-control/built-in-roles.md#contributor) rollen om du vill använda taggar för alla resurs typer. Använd deltagar rollen för den resursen om du bara vill använda taggar för en resurs typ. Om du till exempel vill använda taggar för virtuella datorer använder du den [virtuella dator deltagaren](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
-## <a name="policies"></a>Policys
+## <a name="policies"></a>Principer
 
 Du kan använda [Azure policy](../../governance/policy/overview.md) för att tillämpa taggnings regler och konventioner. Genom att skapa en princip undviker du syftet med resurser som distribueras till din prenumeration som inte följer de förväntade taggarna för din organisation. I stället för att manuellt tillämpa taggar eller söka efter resurser som inte är kompatibla, kan du skapa en princip som automatiskt tillämpar de taggar som krävs under distributionen. Taggar kan nu också tillämpas på befintliga resurser med den nya [ändra](../../governance/policy/concepts/effects.md#modify) -effekt och en [reparations uppgift](../../governance/policy/how-to/remediate-resources.md). I följande avsnitt visas exempel principer för taggar.
 
-[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-general-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/azure-policy-samples-policies-tags.md)]
 
 ## <a name="powershell"></a>PowerShell
 
@@ -426,7 +426,7 @@ Använd funktionen [resourceGroup](../templates/template-functions-resource.md#r
 }
 ```
 
-## <a name="portal"></a>organisationer i en installation
+## <a name="portal"></a>Portal
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
 

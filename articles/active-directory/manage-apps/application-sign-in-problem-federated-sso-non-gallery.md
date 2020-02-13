@@ -16,19 +16,19 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8aac627936aef2cfa79bbd92d6163fe40b4d32
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70a85a81996766b862cd6fbc3b605636385e0fda
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274860"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159190"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga in till ett program som inte är ett galleri som kon figurer ATS för federerad enkel inloggning
 
 För att felsöka inloggnings problemen nedan rekommenderar vi att du följer dessa förslag för att få bättre diagnos och automatisera lösnings stegen:
 
 - Installera [tillägget Mina appar säker webbläsare](access-panel-extension-problem-installing.md) för att hjälpa Azure Active Directory (Azure AD) för att ge bättre diagnos och lösningar när du använder test miljön i Azure Portal.
-- Återskapa felet med hjälp av test upplevelsen på sidan konfiguration av app i Azure Portal. Läs mer om [Debug SAML-baserade enkla inloggnings program](../develop/howto-v1-debug-saml-sso-issues.md)
+- Återskapa felet med hjälp av test upplevelsen på sidan konfiguration av app i Azure Portal. Läs mer om [Debug SAML-baserade enkla inloggnings program](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 ## <a name="application-not-found-in-directory"></a>Programmet hittades inte i katalogen
 
@@ -40,7 +40,7 @@ Issuer-attributet skickar från programmet till Azure AD i SAML-begäran stämme
 
 **Lösning**
 
-Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
+Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
@@ -66,11 +66,11 @@ Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som k
 
 **Möjlig orsak** 
 
-AssertionConsumerServiceURL-värdet i SAML-begäran matchar inte svars-URL-värdet eller det mönster som kon figurer ATS i Azure AD. AssertionConsumerServiceURL-värdet i SAML-begäran är den URL som visas i fel meddelandet. 
+AssertionConsumerServiceURL-värdet i SAML-begäran matchar inte svars-URL-värdet eller det mönster som konfigurerats i Azure AD. AssertionConsumerServiceURL-värdet i SAML-begäran är den URL som visas i felmeddelandet. 
 
 **Lösning** 
 
-Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
+Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
  
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.** 
 
@@ -102,7 +102,7 @@ Användaren har inte beviljats åtkomst till programmet i Azure AD.
 
 **Lösning**
 
-Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
+Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
 1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör.**
 
@@ -146,9 +146,9 @@ De användare som du har valt att kunna starta dessa program med hjälp av metod
 
 Azure AD stöder inte SAML-begäran som skickades av programmet för enkel inloggning. Några vanliga problem är:
 
--   Obligatoriska fält saknas i SAML-begäran
+-   Obligatoriska fält som saknas i SAML-begäran
 
--   Kodad metod för SAML-begäran
+-   SAML-begärandekodad metod
 
 **Lösning**
 
@@ -172,7 +172,7 @@ Attributet `Issuer` som skickas från programmet till Azure AD i SAML-begäran m
 
 **Lösning**
 
-Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../develop/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa dessa steg:
+Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa dessa steg:
 
 1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör**.
 

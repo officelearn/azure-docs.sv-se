@@ -1,7 +1,7 @@
 ---
 title: 'Snabb start: Översätt tal-till-text, Java (Windows, Linux) – tal service'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: f7efecc88fe3c4400732d18a2eea39701269d89c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30e293eceafc9c94d6c4e0aba70dfbc3313d7665
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469622"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156084"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -26,7 +26,7 @@ Innan du börjar ska du se till att:
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=jre)
 
-## <a name="add-sample-code"></a>Lägg till exempelkod
+## <a name="add-sample-code"></a>Lägga till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 
@@ -51,7 +51,8 @@ Innan du börjar ska du se till att:
        {
            // Creates an instance of a speech translation config with specified
            // subscription key and service region. Replace with your own subscription key
-           // and service region (e.g., "westus").
+           // and service region (e.g., "westus", use the one of SpeechSDKParameters
+           // from here: https://aka.ms/speech/sdkregion).   
 
            int exitCode = 1;
            SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(("YourSubscriptionKey",  "YourServiceRegion");

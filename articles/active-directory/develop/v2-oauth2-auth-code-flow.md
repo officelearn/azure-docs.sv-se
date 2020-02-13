@@ -17,16 +17,14 @@ ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 031890b389e78c4ca01e6d6ae52430db865ede2f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 8a847afa2253223ebe9450d350cd18f5f659e0e3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931063"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159785"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 OAuth 2,0 Authorization Code Grant kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. Med hjälp av Microsoft Identity Platform-implementeringen av OAuth 2,0 kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. Den här guiden är språk oberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda [Azures Azure-autentisering med öppen källkod](reference-v2-libraries.md).
 

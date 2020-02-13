@@ -12,16 +12,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: deeecbe96a0809435ae1f805d35cb4a0bd34d8ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 503cfb1e299c4e96e4e87107ce25af273848ca8f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703550"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160635"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Snabb start: lägga till Microsoft Identity Platform-inloggning till en ASP.NET-webbapp
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 I den här snabb starten ska du aktivera en ASP.NET-webbapp för att logga in personliga konton (hotmail.com, outlook.com, andra) och arbets-och skol konton från valfri Azure Active Directory (Azure AD)-instans.
 
@@ -39,7 +37,7 @@ I den här snabb starten ska du aktivera en ASP.NET-webbapp för att logga in pe
 > 1. Ange ett namn för ditt program och klicka på **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt med ett enda klick.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 >
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
@@ -62,7 +60,7 @@ I den här snabb starten ska du aktivera en ASP.NET-webbapp för att logga in pe
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) appen konfigureras med det här attributet
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen har konfigurerats med det här attributet
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
 
@@ -85,7 +83,7 @@ I den här snabb starten ska du aktivera en ASP.NET-webbapp för att logga in pe
 > > Den här snabb starten stöder Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
-> Var:
+> Där:
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Tenant_Info_Here` – är ett av alternativen nedan:
 >   - Om ditt program **endast stöder min organisation**ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.onmicrosoft.com)
@@ -192,7 +190,7 @@ Du kan skydda en kontrollant eller kontrollantåtgärder med attributet `[Author
 
 Prova att använda ASP.NET-självstudien för en komplett steg för steg-guide till att skapa appar och nya funktioner, bland annat en fullständig förklaring av den här snabbstarten.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar appen som används i den här snabbstarten
 
 > [!div class="nextstepaction"]
 > [Självstudie om inloggning](./tutorial-v2-asp-webapp.md)

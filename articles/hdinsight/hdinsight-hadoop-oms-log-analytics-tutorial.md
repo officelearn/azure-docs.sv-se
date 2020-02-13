@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.openlocfilehash: 980569edf8322c6c22a4357a5b946ded85f0ebe4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e4b33e132e660fba7d06ff33c7db06c7727dd26c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063753"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162794"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använd Azure Monitor loggar för att övervaka HDInsight-kluster
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
   Instruktioner för hur du skapar ett HDInsight-kluster finns i [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Azure PowerShell AZ-modul.  Se [Introduktion till new Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+* Azure PowerShell AZ-modul.  Se [Introduktion till new Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Se till att du har den senaste versionen. Om det behövs kör du `Update-Module -Name Az`.
 
 > [!NOTE]  
 > Vi rekommenderar att placera både HDInsight-klustret och Log Analytics-arbetsytan i samma region för bättre prestanda. Azure Monitor-loggar är inte tillgängliga i alla Azure-regioner.
@@ -62,7 +62,7 @@ I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster om 
 
 ## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Aktivera Azure Monitor loggar med Azure PowerShell
 
-Du kan aktivera Azure Monitor loggar med hjälp av cmdleten [Enable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightoperationsmanagementsuite) i Azure PowerShell AZ-modulen.
+Du kan aktivera Azure Monitor loggar med hjälp av cmdleten [Enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) i Azure PowerShell AZ-modulen.
 
 ```powershell
 # Enter user information
@@ -72,19 +72,32 @@ $LAW = "<your-Log-Analytics-workspace>"
 # End of user input
 
 # obtain workspace id for defined Log Analytics workspace
-$WorkspaceId = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW).CustomerId
+$WorkspaceId = (Get-AzOperationalInsightsWorkspace `
+                    -ResourceGroupName $resourceGroup `
+                    -Name $LAW).CustomerId
 
 # obtain primary key for defined Log Analytics workspace
-$PrimaryKey = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $resourceGroup -Name $LAW | Get-AzOperationalInsightsWorkspaceSharedKeys).PrimarySharedKey
+$PrimaryKey = (Get-AzOperationalInsightsWorkspace `
+                    -ResourceGroupName $resourceGroup `
+                    -Name $LAW | Get-AzOperationalInsightsWorkspaceSharedKeys).PrimarySharedKey
 
-# Enables Operations Management Suite
-Enable-AzHDInsightOperationsManagementSuite -ResourceGroupName $resourceGroup -Name $cluster -WorkspaceId $WorkspaceId -PrimaryKey $PrimaryKey
+# Enables monitoring and relevant logs will be sent to the specified workspace.
+Enable-AzHDInsightMonitoring `
+    -ResourceGroupName $resourceGroup `
+    -Name $cluster `
+    -WorkspaceId $WorkspaceId `
+    -PrimaryKey $PrimaryKey
+
+# Gets the status of monitoring installation on the cluster.
+Get-AzHDInsightMonitoring `
+    -ResourceGroupName $resourceGroup `
+    -Name $cluster
 ```
 
-Om du vill inaktivera använder du cmdleten [disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite) :
+Om du vill inaktivera använder du cmdleten [disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) :
 
 ```powershell
-Disable-AzHDInsightOperationsManagementSuite -Name "<your-cluster>"
+Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 ```
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installera lösningar för hantering av HDInsight-kluster

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9e55edcb7c107a3dfa91f61aaa1fea64bc62f21
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 71b437f57f9d9e6e18af88d6413269cac6f66c47
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848881"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161672"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD-Graph API
 
@@ -26,11 +26,11 @@ Du kan behöva migrera ett befintligt användar arkiv till en B2C-klient. Du kan
 För B2C-klienter finns det två huvudsakliga lägen för att kommunicera med Graph API:
 
 * För **interaktiva**, kör en gång-aktiviteter bör du agera som administratörs konto i B2C-klienten när du utför uppgifterna. För det här läget krävs en administratör för att logga in med autentiseringsuppgifter innan administratören kan utföra anrop till Graph API.
-* För **automatiserade**, kontinuerliga uppgifter bör du använda någon typ av tjänst konto som du anger med de behörigheter som krävs för att utföra hanterings uppgifter. I Azure AD kan du göra detta genom att registrera ett program och autentisera till Azure AD. Detta görs med hjälp av ett *program-ID* som använder [OAuth 2,0-klientens autentiseringsuppgifter](../active-directory/develop/service-to-service.md). I det här fallet fungerar programmet som de ska, inte som en användare, för att anropa Graph API.
+* För **automatiserade**, kontinuerliga uppgifter bör du använda någon typ av tjänst konto som du anger med de behörigheter som krävs för att utföra hanterings uppgifter. I Azure AD kan du göra detta genom att registrera ett program och autentisera till Azure AD. Detta görs med hjälp av ett *program-ID* som använder [OAuth 2,0-klientens autentiseringsuppgifter](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). I det här fallet fungerar programmet som de ska, inte som en användare, för att anropa Graph API.
 
 I den här artikeln får du lära dig hur du utför det automatiska användnings fallet. Du skapar ett .NET 4,5-`B2CGraphClient` som utför åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD). Klienten har ett Windows kommando rads gränssnitt (CLI) som gör att du kan anropa olika metoder. Koden är dock skriven att bete sig i ett icke-interaktivt, automatiserat sätt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa program eller användare behöver du en Azure AD B2C klient. Om du inte redan har en, [skapar du en Azure Active Directory B2C klient](tutorial-create-tenant.md).
 
@@ -60,7 +60,7 @@ Behörigheterna *läsa och skriva katalog data* som du har beviljat tidigare ink
 
 Om du vill ge ditt program möjlighet att ta bort användare eller uppdatera lösen ord, måste du ge rollen som *användar administratör* .
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Under **Hantera**väljer du **roller och administratörer**.
@@ -73,7 +73,7 @@ Ditt Azure AD B2C-program har nu ytterligare behörigheter som krävs för att t
 
 ## <a name="get-the-sample-code"></a>Hämta exempelkoden
 
-Kod exemplet är ett .NET-konsol program som använder [Active Directory-autentiseringsbibliotek (ADAL)](../active-directory/develop/active-directory-authentication-libraries.md) för att interagera med Azure AD Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
+Kod exemplet är ett .NET-konsol program som använder [Active Directory-autentiseringsbibliotek (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) för att interagera med Azure AD Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
 
 Du kan [Ladda ned exempel arkivet](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) (\*. zip) eller klona GitHub-lagringsplatsen:
 
@@ -85,7 +85,7 @@ När du har fått kod exemplet konfigurerar du det för din miljö och skapar se
 
 1. Öppna därefter `B2CGraphClient\B2CGraphClient.sln`-lösningen i Visual Studio.
 1. Öppna filen *app. config* i **B2CGraphClient** -projektet.
-1. Ersätt `<appSettings>`-avsnittet med följande XML. Then replace `{your-b2c-tenant}` with the name of your tenant, and `{Application ID}` and `{Client secret}` with the values you recorded earlier.
+1. Ersätt `<appSettings>`-avsnittet med följande XML. Ersätt sedan `{your-b2c-tenant}` med namnet på din klient och `{Application ID}` och `{Client secret}` med de värden du registrerade tidigare.
 
     ```xml
     <appSettings>
@@ -95,31 +95,31 @@ När du har fått kod exemplet konfigurerar du det för din miljö och skapar se
     </appSettings>
     ```
 
-1. Skapa lösningen. Right-click on the **B2CGraphClient** solution in the Solution Explorer, and then select **Rebuild Solution**.
+1. Skapa lösningen. Högerklicka på **B2CGraphClient** -lösningen i Solution Explorer och välj sedan **Återskapa lösning**.
 
-If the build is successful, the `B2C.exe` console application can be found in `B2CGraphClient\bin\Debug`.
+Om versionen lyckas kan du hitta `B2C.exe` konsol program i `B2CGraphClient\bin\Debug`.
 
 ## <a name="review-the-sample-code"></a>Granska exempelkoden
 
-To use the B2CGraphClient, open a Command Prompt (`cmd.exe`) and change to project's `Debug` directory. Then, run the `B2C Help` command.
+Om du vill använda B2CGraphClient öppnar du en kommando tolk (`cmd.exe`) och ändrar till projektets `Debug` Directory. Kör sedan kommandot `B2C Help`.
 
 ```cmd
 cd B2CGraphClient\bin\Debug
 B2C Help
 ```
 
-The `B2C Help` command displays a brief description of the available subcommands. Each time you invoke one of its subcommands, `B2CGraphClient` sends a request to the Azure AD Graph API.
+Kommandot `B2C Help` visar en kort beskrivning av de tillgängliga under kommandona. Varje gången du anropar ett av dess under kommandon skickar `B2CGraphClient` en begäran till Azure AD-Graph API.
 
-The following sections discuss how the application's code makes calls to the Azure AD Graph API.
+I följande avsnitt diskuteras hur programmets kod gör anrop till Azure AD-Graph API.
 
 ### <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Any request to the Azure AD Graph API requires an access token for authentication. `B2CGraphClient` uses the open-source Active Directory Authentication Library (ADAL) to assist in obtaining access tokens. ADAL makes token acquisition easier by providing a helper API and taking care of a few important details like caching access tokens. You don't have to use ADAL to get tokens, however. You could instead get tokens by manually crafting HTTP requests.
+Alla förfrågningar till Azure AD-Graph API kräver en åtkomsttoken för autentisering. `B2CGraphClient` använder Active Directory-autentiseringsbibliotek med öppen källkod (ADAL) för att få åtkomst till tokens. ADAL gör token-förvärv enklare genom att tillhandahålla ett hjälp-API och ta hand om några viktiga uppgifter som cachelagring av åtkomsttoken. Du behöver dock inte använda ADAL för att hämta tokens. Du kan i stället hämta token genom att manuellt utforma HTTP-begäranden.
 
 > [!NOTE]
-> You must use ADAL v2 or higher to get access tokens that can be used with the Azure AD Graph API. You cannot use ADAL v1.
+> Du måste använda ADAL v2 eller högre för att få åtkomsttoken som kan användas med Azure AD-Graph API. Du kan inte använda ADAL v1.
 
-When `B2CGraphClient` executes, it creates an instance of the `B2CGraphClient` class. The constructor for this class sets up the ADAL authentication scaffolding:
+När `B2CGraphClient` körs skapas en instans av klassen `B2CGraphClient`. Konstruktorn för den här klassen ställer in ramverk för ADAL-autentisering:
 
 ```csharp
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
@@ -138,9 +138,9 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-Let's use the `B2C Get-User` command as an example.
+Vi använder kommandot `B2C Get-User` som exempel.
 
-When `B2C Get-User` is invoked without additional arguments, the application calls the `B2CGraphClient.GetAllUsers()` method. `GetAllUsers()` then calls `B2CGraphClient.SendGraphGetRequest()`, which submits an HTTP GET request to the Azure AD Graph API. Before `B2CGraphClient.SendGraphGetRequest()` sends the GET request, it first obtains an access token by using ADAL:
+När `B2C Get-User` anropas utan ytterligare argument anropar programmet `B2CGraphClient.GetAllUsers()`s metoden. `GetAllUsers()` anropar sedan `B2CGraphClient.SendGraphGetRequest()`, som skickar en HTTP GET-begäran till Azure AD-Graph API. Innan `B2CGraphClient.SendGraphGetRequest()` skickar GET-begäran får den först en åtkomsttoken med hjälp av ADAL:
 
 ```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -151,29 +151,29 @@ public async Task<string> SendGraphGetRequest(string api, string query)
     ...
 ```
 
-You can get an access token for the Graph API by calling the ADAL `AuthenticationContext.AcquireToken()` method. ADAL then returns an `access_token` that represents the application's identity.
+Du kan hämta en åtkomsttoken för Graph API genom att anropa metoden ADAL `AuthenticationContext.AcquireToken()`. ADAL returnerar sedan ett `access_token` som representerar programmets identitet.
 
-### <a name="read-users"></a>Read users
+### <a name="read-users"></a>Läsa användare
 
-When you want to get a list of users or get a particular user from the Azure AD Graph API, you can send an HTTP `GET` request to the `/users` endpoint. A request for all of the users in a tenant looks like this:
+När du vill hämta en lista över användare eller hämta en viss användare från Azure AD-Graph API kan du skicka en HTTP-`GET`-begäran till `/users`-slutpunkten. En begäran om alla användare i en klient organisation ser ut så här:
 
 ```HTTP
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
 Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
 ```
 
-To see this request, run:
+Kör följande om du vill se den här begäran:
 
  ```cmd
  B2C Get-User
  ```
 
-There are two important things to note:
+Det finns två viktiga saker att tänka på:
 
-* The access token obtained by using ADAL is added to the `Authorization` header by using the `Bearer` scheme.
-* For B2C tenants, you must use the query parameter `api-version=1.6`.
+* Den åtkomsttoken som erhålls med hjälp av ADAL läggs till i `Authorization`s huvudet med hjälp av `Bearer`s schema.
+* För B2C-klienter måste du använda Frågeparametern `api-version=1.6`.
 
-Both of these details are handled in the `B2CGraphClient.SendGraphGetRequest()` method:
+Båda dessa uppgifter hanteras i `B2CGraphClient.SendGraphGetRequest()`-metoden:
 
 ```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -196,11 +196,11 @@ public async Task<string> SendGraphGetRequest(string api, string query)
     ...
 ```
 
-### <a name="create-consumer-user-accounts"></a>Create consumer user accounts
+### <a name="create-consumer-user-accounts"></a>Skapa konsument användar konton
 
-When you create user accounts in your B2C tenant, you can send an HTTP `POST` request to the `/users` endpoint. The following HTTP `POST` request shows an example user to be created in the tenant.
+När du skapar användar konton i B2C-klienten kan du skicka en HTTP `POST`-begäran till `/users`-slutpunkten. Följande begäran om HTTP-`POST` visar en exempel användare som skapas i klienten.
 
-Most of properties in the following request are required to create consumer users. The `//` comments have been included for illustration--do not include them in an actual request.
+De flesta av egenskaperna i följande begäran krävs för att skapa konsument användare. `//` kommentarer har inkluderats för illustrationen – ta inte med dem i en faktisk begäran.
 
 ```HTTP
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -229,14 +229,14 @@ Content-Length: 338
 }
 ```
 
-To see the request, run one of the following commands:
+Kör något av följande kommandon för att se begäran:
 
 ```cmd
 B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-The `Create-User` command takes as an input parameter a JSON file that contains a JSON representation of a user object. Det finns två exempel-JSON-filer i kod exemplet: `usertemplate-email.json` och `usertemplate-username.json`. Du kan ändra filerna så att de passar dina behov. Förutom de obligatoriska fälten ovan ingår flera valfria fält i filerna.
+Kommandot `Create-User` tar som en indataparameter av typen JSON som innehåller en JSON-representation av ett användar objekt. Det finns två exempel-JSON-filer i kod exemplet: `usertemplate-email.json` och `usertemplate-username.json`. Du kan ändra filerna så att de passar dina behov. Förutom de obligatoriska fälten ovan ingår flera valfria fält i filerna.
 
 Mer information om obligatoriska och valfria fält finns i referens för [entiteter och komplex typ | Graph API referens](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference).
 
@@ -288,7 +288,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-Ett exempel:
+Några exempel:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -330,7 +330,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-Utdata visar information om varje anpassat attribut. Ett exempel:
+Utdata visar information om varje anpassat attribut. Några exempel:
 
 ```json
 {

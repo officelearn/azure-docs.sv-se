@@ -3,18 +3,18 @@ title: Snabb start – Konfigurera regler och åtgärder i Azure IoT Central
 description: Den här snabb starten visar dig som ett verktyg för att konfigurera telemetri-baserade regler och åtgärder i ditt Azure IoT Central-program.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a63e77fb3c50d4387c27912336d65f9f84d2d5c9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027806"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169479"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Snabb start: Konfigurera regler och åtgärder för din enhet i Azure IoT Central
 
@@ -22,7 +22,7 @@ ms.locfileid: "77027806"
 
 I den här snabb starten skapar du en regel som skickar ett e-postmeddelande när temperaturen som rapporteras av en enhets sensor överskrider 90&deg; F.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du slutföra de två föregående snabb starterna [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägga till en simulerad enhet till ditt IoT Central-program](./quick-create-pnp-device.md) för att skapa **MXChip IoT DevKit** Device-mallen för att arbeta med.
 
@@ -38,7 +38,7 @@ Innan du börjar bör du slutföra de två föregående snabb starterna [skapa e
 
 1. I avsnittet **villkor** definierar du vad som utlöser din regel. Använd följande information för att definiera ett villkor baserat på temperatur telemetri:
 
-    | Field        | Värde            |
+    | Fält        | Värde            |
     | ------------ | ---------------- |
     | Mått  | Temperatur      |
     | Operator     | är större än  |

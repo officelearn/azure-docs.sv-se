@@ -17,16 +17,14 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e673c2dfd9b3bef6d443498fc96a8c71e0737851
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 64d8481200359b4a4421e3f3c99e4fc5a32ef23f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030769"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159549"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Program som integreras med Microsoft Identity Platform följer en auktoriserings modell som ger användare och administratörer kontroll över hur data kan nås. Implementeringen av auktoriserings modellen har uppdaterats på Microsoft Identity Platform-slutpunkten och den ändrar hur en app måste interagera med Microsoft Identity Platform. Den här artikeln beskriver de grundläggande begreppen i den här verifierings modellen, inklusive omfång, behörigheter och medgivande.
 
@@ -202,7 +200,7 @@ När du är redo att begära behörigheter från din organisations administratö
 ```
 
 
-| Parameter     | Villkor     | Beskrivning                                                                               |
+| Parameter     | Tillstånd     | Beskrivning                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Kan tillhandahållas i GUID eller eget namn format eller allmänt refereras till organisationer som visas i exemplet. Använd inte "common", eftersom personliga konton inte kan tillhandahålla administrativt medgivande, förutom i kontexten för en klient. För att säkerställa bästa kompatibilitet med personliga konton som hanterar klienter använder du klient-ID när det är möjligt. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |

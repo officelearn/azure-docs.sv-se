@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274632"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159173"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
@@ -152,7 +152,7 @@ Vi använder Azure AD PowerShell-cmdlets för att gå igenom några scenarier, b
 - Visar en lista över de program för vilka en princip har kon figurer ATS.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för program tjänstens huvud namn i Azure AD.
 
 1.  Börja med att hämta den senaste för hands versionen av Azure AD PowerShell-cmdleten. 
@@ -271,4 +271,4 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur autentisering fungerar i Azure AD finns i [autentiserings scenarier för Azure AD](../develop/authentication-scenarios.md).
 - Mer information om enkel inloggning med användare finns i [enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md).
-- Besök [Active Directory Developer ' s guide](../develop/v1-overview.md) för att få en översikt över allt innehåll som hör till utvecklare.
+- Besök [Microsofts identitets plattform](../develop/v2-overview.md) och se om det finns en översikt över allt innehåll i utvecklare.

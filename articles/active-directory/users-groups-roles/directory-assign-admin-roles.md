@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b5ac2e899de33614fa30b1f4baf0e85efec26bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898850"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158170"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -52,7 +52,7 @@ Följande administratörs roller är tillgängliga:
 Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Observera att användare som har tilldelats den här rollen inte har lagts till som ägare när de skapar nya program registreringar eller företags program.
 
 Program administratörer kan hantera programautentiseringsuppgifter som gör det möjligt för dem att personifiera programmet. Användare som har tilldelats den här rollen kan därför endast hantera programautentiseringsuppgifter för de program som antingen inte har tilldelats till några Azure AD-roller eller som tilldelas till följande administratörs roller:
-* Program administratör
+* Programadministratör
 * Programutvecklare
 * Moln program administratör
 * Katalog läsare
@@ -79,7 +79,7 @@ Rollen som administratör för autentisering är för närvarande en offentlig f
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Ett exempel:
+> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Några exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -121,7 +121,7 @@ Användare med den här rollen kan skapa, läsa, uppdatera och ta bort alla anpa
 
 ### <a name="billing-administratorbilling-administrator-permissions"></a>[Faktureringsadministratör](#billing-administrator-permissions)
 
-Gör inköp, hanterar prenumerationer, hanterar support ärenden och övervakar tjänstens hälsa.
+Gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
 
 ### <a name="cloud-application-administratorcloud-application-administrator-permissions"></a>[Molnprogramadministratör](#cloud-application-administrator-permissions)
 
@@ -219,7 +219,7 @@ Den här administratören hanterar federationen mellan Azure Active Directory kl
 
 ### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[Global administratör/företags administratör](#company-administrator-permissions)
 
-Användare med den här rollen har åtkomst till alla administrativa funktioner i Azure Active Directory, samt tjänster som använder Azure Active Directory identiteter som Microsoft 365 Security Center, Microsoft 365 Compliance Center, Exchange Online, SharePoint Online och Skype för företag – online. Den person som registrerar sig för den Azure Active Directory klienten blir global administratör. Endast globala administratörer kan tilldela andra administratörs roller. Det kan finnas mer än en global administratör på ditt företag. Globala administratörer kan återställa lösen ordet för alla användare och alla andra administratörer.
+Användare med den här rollen har åtkomst till alla administrativa funktioner i Azure Active Directory, samt tjänster som använder Azure Active Directory identiteter som Microsoft 365 Security Center, Microsoft 365 Compliance Center, Exchange Online, SharePoint Online och Skype för företag – online. Den person som registrerar sig för den Azure Active Directory klienten blir global administratör. Det kan finnas mer än en global administratör på ditt företag. Globala administratörer kan återställa lösen ordet för alla användare och alla andra administratörer.
 
 > [!NOTE]
 > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som "företags administratör". Det är "global administratör" i [Azure Portal](https://portal.azure.com).
@@ -265,7 +265,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Några exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -366,7 +366,7 @@ I | Kan göra
 Identitets skydds Center | Alla behörigheter för säkerhets läsar rollen<br>Dessutom kan du utföra alla åtgärder för identitets skydds Center förutom att återställa lösen ord
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Alla behörigheter för säkerhets läsar rollen<br>**Det går inte att** hantera roll tilldelningar eller inställningar för Azure AD
 [Office 365 Säkerhets-och efterlevnadscenter](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Hantera säkerhets principer<br>Visa, undersöka och reagera på säkerhetshot<br>Visa rapporter
-Azure Avancerat skydd | Övervaka och svara på misstänkt säkerhets aktivitet
+Azure Advanced Threat Protection | Övervaka och svara på misstänkt säkerhets aktivitet
 Windows Defender ATP och EDR | Tilldela roller<br>Hantera dator grupper<br>Konfigurera identifiering av slut punkts hot och automatiserad reparation<br>Visa, undersöka och svara på aviseringar
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visar information om användare, enhet, registrering, konfiguration och program<br>Det går inte att göra ändringar i Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Lägg till administratörer, lägga till principer och inställningar, ladda upp loggar och utföra styrnings åtgärder
@@ -447,12 +447,12 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 
 | | |
 | --- | --- |
-|Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användar visningar</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
+|Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
 |<p>För alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användar egenskaper utom användarens huvud namn</p>
 |Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Ett exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Några exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -1689,15 +1689,15 @@ Roll mal len ID används huvudsakligen av Graph API-eller PowerShell-användare.
 
 Graph-displayName | Visnings namn för Azure Portal | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
-Program administratör | Program administratör | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+Programadministratör | Program administratör | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programutvecklare | Programutvecklare | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administratör för autentisering | Administratör för autentisering | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Azure DevOps-administratör | Azure DevOps-administratör | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection administratör | Azure Information Protection administratör | 7495fdc4-34c4-4d15-a289-98788ce399fd
 B2C användar flödes administratör | B2C användar flödes administratör | 6e591065-9bad-43ed-90f3-e9424366d2f0
-B2C User Flow Attribute Administrator | B2C User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
-B2C IEF Keyset Administrator | B2C IEF Keyset Administrator | aaf43236-0c0d-4d5f-883a-6955382ac081
-B2C IEF Policy Administrator | B2C IEF Policy Administrator | 3edaf663-341e-4475-9f94-5c398ef6c070
+B2C-administratör för användar flöde | B2C-administratör för användar flöde | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
+B2C IEF Keys-administratör | B2C IEF Keys-administratör | aaf43236-0c0d-4d5f-883a-6955382ac081
+B2C IEF-princip administratör | B2C IEF-princip administratör | 3edaf663-341e-4475-9f94-5c398ef6c070
 Fakturerings administratör | Faktureringsadministratör | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Moln program administratör | Moln program administratör | 158c047a-c907-4556-b7ef-446551a6b5f7
 Moln enhets administratör | Moln enhets administratör | 7698a772-787b-4ac8-901f-60d6b08affd2
@@ -1708,7 +1708,7 @@ Administratör för villkorsstyrd åtkomst | Administratör för villkorlig åtk
 Administratör för CRM-tjänsten | Dynamics 365-administratör | 44367163-eba1-44c3-98af-f5787879f96a
 Åtkomst god kännare för kund lås | Customer Lockbox åtkomst god kännare | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administratör för Skriv bords analys | Administratör för Skriv bords analys | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Enhets administratörer | Enhets administratörer | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Enhetsadministratörer | Enhets administratörer | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Enhets anslutning | Enhets anslutning | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Enhets hanterare | Enhets hanterare | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Enhets användare | Enhets användare | d405c6df-0af8-4e3b-95e4-4d06e542189e
@@ -1730,7 +1730,7 @@ Meddelande Center läsare | Meddelande Center läsare | 790c1fb9-7f7d-4f88-86a1-
 Office Apps-administratör | Office Apps-administratör | 2b745bdf-0803-4d80-aa65-822c4493daac
 Partnersupport, nivå 1 | Support för partner 1 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Partnersupport, nivå 2 | Support för partner – nivå 2 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
-Lösen ords administratör | Lösen ords administratör | 966707d0-3269-4727-9be2-8c3a10f19b9d
+Lösen ords administratör | Lösenordsadministratör | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI tjänst administratör | Power BI administratör | a9ea8996-122f-4c74-9520-8edcd192826c
 Power Platform-administratör | Power-plattform administratör | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Administratör för privilegie rad autentisering | Administratör för privilegie rad autentisering | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
@@ -1755,7 +1755,7 @@ Anslutning till arbets plats enhet | Anslutning till arbets plats enhet | c34f68
 
 Följande roller ska inte användas. De är inaktuella och kommer att tas bort från Azure AD i framtiden.
 
-* AdHoc-licens administratör
+* Ad hoc-licensadministratör
 * Enhets anslutning
 * Enhets hanterare
 * Enhets användare

@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 1073b9014c83ae5d52d0b1a740819c48c9622936
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152728"
+ms.locfileid: "77162862"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
 > [!Important]
-> Funktionen för autoskalning fungerar bara för Apache Spark-, ApacheHive-, LLAP-och Apache HBase-kluster som skapats efter den 8 maj 2019.
+> Funktionen för autoskalning fungerar bara för Apache Spark-, ApacheHive-, LLAP-och Apache HBase-kluster som skapats efter den 8 maj 2019. Autoskalning för LLAP och HBase finns i för hands versionen.
 
 Azure HDInsights kluster funktion för automatisk skalning skalar automatiskt antalet arbetsnoder i ett kluster upp och ned. Andra typer av noder i klustret kan inte skalas för närvarande.  När du skapar ett nytt HDInsight-kluster kan du ange ett minsta och högsta antal arbets noder. Autoskalning övervakar sedan resurs kraven för analys belastningen och skalar antalet arbetsnoder uppåt eller nedåt. Den här funktionen kostar inget extra.
 

@@ -17,12 +17,12 @@ ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: MT
+ms.openlocfilehash: 9cb13ea56c39f365ddb888a5d4e94228b1881fc4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758758"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160368"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -156,7 +156,7 @@ Från och med 15 November 2018, att Azure AD sluta acceptera tidigare autentiser
 
 Om din app återanvänder auktoriseringskoder för att hämta token för flera resurser, rekommenderar vi att du använda koden för att få en uppdateringstoken och sedan använda den uppdateringstoken för att hämta ytterligare token för andra resurser. Auktoriseringskoder kan bara användas en gång, men uppdateringstoken kan användas flera gånger i flera resurser. Alla nya appar som försöker återanvända en autentiseringsmetod under OAuth-kodfragmentet får ett invalid_grant fel.
 
-Mer information om uppdateringstoken finns i [Uppdatera åtkomsttoken](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Om du använder ADAL eller MSAL hanteras detta av biblioteket – Ersätt den andra instansen av "AcquireTokenByAuthorizationCodeAsync" med "AcquireTokenSilentAsync". 
+Mer information om uppdateringstoken finns i [Uppdatera åtkomsttoken](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Om du använder ADAL eller MSAL hanteras detta av biblioteket – Ersätt den andra instansen av "AcquireTokenByAuthorizationCodeAsync" med "AcquireTokenSilentAsync". 
 
 ## <a name="may-2018"></a>Maj 2018
 
@@ -166,7 +166,7 @@ Mer information om uppdateringstoken finns i [Uppdatera åtkomsttoken](v1-protoc
 
 **Påverkade slut punkter**: både v 1.0 och v 2.0
 
-**Protokoll som påverkas**: implicit flöde och [OBO flöde](v1-oauth2-on-behalf-of-flow.md)
+**Protokoll som påverkas**: implicit flöde och [på uppdrag av flöde](v2-oauth2-on-behalf-of-flow.md)
 
 Efter den 1 maj 2018 går det inte att använda id_tokens som kontroll i ett OBO flöde för nya program. Åtkomsttoken ska användas i stället för att skydda API: er, även mellan en klient och mellan nivån för samma program. Appar som registrerats före den 1 maj 2018 kommer att fortsätta att fungera och kunna utväxla id_tokens för en åtkomsttoken. Detta mönster anses dock inte vara en bästa praxis.
 

@@ -11,16 +11,14 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: b219b507ac14b2a66b23f93d9fb1035f56cb8164
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 2710263aa099618d57f763edd199673ae04b53ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018694"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160499"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 I den här snabb starten får du lära dig hur du integrerar ett python-webbprogram med Microsoft Identity Platform. Din app kommer att logga in en användare, hämta en åtkomsttoken för att anropa Microsoft Graph-API: et och göra en begäran till Microsoft Graph API.
 
@@ -28,7 +26,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
@@ -49,9 +47,9 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
@@ -91,7 +89,7 @@ Om du vill köra det här exemplet behöver du:
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör ändringarna åt mig]()
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) appen konfigureras med det här attributet
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen har konfigurerats med det här attributet
 
 #### <a name="step-2-download-your-project"></a>Steg 2: Ladda ned ditt projekt
 
@@ -110,7 +108,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
-> Var:
+> Där:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here` – är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.

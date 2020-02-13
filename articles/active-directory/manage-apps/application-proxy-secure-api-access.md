@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: celested
+ms.date: 02/12/2020
+ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: b741f42bb215df59903fed7ed84094b7d037ce65
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ecd5d8bae22d67f8d9f5b99d5c94eecf54a4a1f3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063010"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166017"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Säker åtkomst till lokala API: er med Azure AD-programproxy
 
@@ -38,7 +38,7 @@ Azure AD-programproxy bildar lösningens stamnät, arbetar som en offentlig slut
 
 Eftersom Azure AD-programproxy-autentisering och-auktorisering bygger på Azure AD kan du använda villkorlig åtkomst för Azure AD för att se till att endast betrodda enheter kan komma åt API: er som publicerats via programproxy. Använd Azure AD Join eller Azure AD hybrid anslutet för Station ära datorer och Intune Hanterat för enheter. Du kan också dra nytta av Azure Active Directory Premium funktioner som Azure Multi-Factor Authentication och datorn inlärnings skydd för [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här genom gången behöver du:
 
@@ -53,19 +53,19 @@ Så här publicerar du SecretAPI Web API via Application Proxy:
 
 1. Bygg och publicera SecretAPI-projektet som en ASP.NET-webbapp på din lokala dator eller intranät. Se till att du har åtkomst till webbappen lokalt. 
    
-1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory** i det vänstra navigerings fältet. På sidan **Översikt** väljer du sedan **företags program**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **Azure Active Directory**. Välj sedan **företags program**.
    
 1. Överst på sidan **företags program – alla program** väljer du **nytt program**.
    
-1. På sidan **Bläddra i Azure AD-galleriet** , under **lokala program**, väljer du **Lägg till ett lokalt program**. Sidan **Lägg till ett eget lokalt program** visas.
+1. På sidan **Lägg till ett program** väljer du **lokala program**. Sidan **Lägg till ett eget lokalt program** visas.
    
 1. Om du inte har någon Application Proxy-anslutning installerad uppmanas du att installera den. Välj **Hämta Application Proxy Connector** för att ladda ned och installera anslutningen. 
    
 1. När du har installerat Application Proxy Connector går du till sidan **Lägg till en egen lokal app** :
    
-   1. Ange *SecretAPI* bredvid **namn**.
+   1. Bredvid **namn**, anger du *SecretAPI*.
       
-   1. Ange den URL som du använder för att få åtkomst till API: et inifrån intranätet bredvid **intern URL**. 
+   1. Bredvid **intern URL**anger du den URL som du använder för att få åtkomst till API: et inifrån intranätet.
       
    1. Se till att **förautentisering** har angetts till **Azure Active Directory**. 
       

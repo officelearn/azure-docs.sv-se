@@ -9,17 +9,17 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 149ec84732171cd57b3f8a9590d5340107536eac
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 894c9d34f3e9874a51f5939021f908ac4ecaaaa9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75928132"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156471"
 ---
 > [!NOTE]
 > Talet SDK för Unit stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
@@ -90,7 +90,7 @@ Följ dessa steg om du vill lägga till exempel skript koden för Unity-projekte
 
 1. Sök efter och ersätt strängen `YourSubscriptionKey` med prenumerations nyckeln för röst tjänsten.
 
-1. Sök efter och ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
+1. Sök efter och ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Om du till exempel använder den kostnadsfria utvärderingsversionen är regionen `westus`.
 
 1. Spara ändringarna i skriptet.
 

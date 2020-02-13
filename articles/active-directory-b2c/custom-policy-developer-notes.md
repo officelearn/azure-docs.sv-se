@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd02f143fe35edd867ce26f26a4cba74bd6f10b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847347"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166969"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Developer-kommentarer för anpassade principer i Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="identity-providers-tokens-protocols"></a>Identitets leverantörer, token, protokoll
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | Till exempel Google +.  |
 | IDP-OAUTH2 |  |  | X | Till exempel Facebook.  |
@@ -69,27 +69,27 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 | IDP – OAUTH1 (t. ex. Twitter) |  |  |  | Stöds inte |
 | IDP-SAML |  |   | X | Till exempel Salesforce, ADFS. |
 | IDP-WSFED | X |  |  |  |
-| OAUTH1 för förlitande part |  |  |  | Stöds inte. |
+| OAUTH1 för förlitande part |  |  |  | Stöds ej. |
 | OAUTH2 för förlitande part |  |  | X |  |
 | OIDC för förlitande part |  |  | X |  |
-| SAML för förlitande part | X |  |  |  |
+| SAML för förlitande part |  |X  |  |  |
 | WSFED för förlitande part | X |  |  |  |
 | REST API med Basic-och certifikatautentisering |  |  | X | Till exempel Azure Logic Apps. |
 
 ### <a name="component-support"></a>Komponent stöd
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi Factor Authentication |  |  | X |  |
 | Azure Active Directory som lokal katalog |  |  | X |  |
 | Azure E-mail Subsystem för e-postverifiering |  |  | X |  |
 | Stöd för flera språk|  |  | X |  |
 | Predikat-validering |  |  | X | Till exempel komplexitet av lösen ord. |
-| Använda e-postleverantörer från tredje part | X |  |  |  |
+| Använda e-postleverantörer från tredje part |  |X  |  |  |
 
 ### <a name="content-definition"></a>Innehålls definition
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Felsida, API. fel |  |  | X |  |
 | IDP-urvals sida, API. idpselections |  |  | X |  |
@@ -105,7 +105,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="app-ief-integration"></a>App-IEF-integrering
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Parameter för frågesträng domain_hint |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
 | Parameter för frågesträng login_hint |  |  | X | Tillgängligt som anspråk kan skickas till IDP. |
@@ -115,7 +115,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="session-management"></a>Sessionshantering
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | SSO-sessionsbiljett |  |  | X |  |
 | Provider för extern inloggningssession |  |  | X |  |
@@ -124,7 +124,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="security"></a>Säkerhet
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | Princip nycklar – generera, manuell, uppladdning |  |  | X |  |
 | Princip nycklar – RSA/cert, hemligheter |  |  | X |  |
@@ -132,7 +132,7 @@ Funktioner för anpassad princip/identitets upplevelse Framework är under konst
 
 ### <a name="developer-interface"></a>Gränssnittet för utvecklare
 
-| Funktion | Utveckling | Förhandsversion | Allmänt tillgänglig | Anteckningar |
+| Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal – IEF UX |  |  | X |  |
 | Application Insights UserJourney-loggar |  | X |  | Används för fel sökning under utveckling.  |

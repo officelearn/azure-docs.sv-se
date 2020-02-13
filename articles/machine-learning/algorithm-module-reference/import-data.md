@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 930ff1abf77c4e28d377daf12174ff3fbb60cf23
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152252"
+ms.locfileid: "77163202"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -42,7 +42,7 @@ Innan du använder moln lagring måste du registrera ett data lager i din Azure 
 
 När du har definierat de data som du vill ha och ansluter till källan, härleds data typen för varje kolumn baserat på de värden som den innehåller och data läses in i din **[Designer-pipeline](./import-data.md)** . Utdata från **import data** är en data uppsättning som kan användas med alla designer-pipeliner.
 
-Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till nya data genom att köra [Importera data](./import-data.md)på nytt. Men om du inte vill läsa från källan varje gång du kör pipelinen, ställer du in alternativet **Använd cachelagrat resultat** till sant. När det här alternativet är markerat kontrollerar modulen om pipelinen har körts tidigare med samma källa och samma ingångs alternativ. Om en tidigare körning hittas används data i cacheminnet i stället för att läsa in data från källan igen.
+Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till nya data genom att köra [Importera data](./import-data.md)på nytt.
 
 ## <a name="how-to-configure-import-data"></a>Konfigurera import data
 
@@ -60,11 +60,7 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
     ![Importera – data – för hands version](media/module/import-data.png)
 
-1. Välj alternativet **Använd cachelagrat resultat** om du vill cachelagra data uppsättningen för åter användning på efterföljande körningar.
 
-    Förutsatt att det inte finns några andra ändringar i modulens parametrar, laddar pipelinen bara data första gången modulen körs och använder sedan en cachelagrad version av data uppsättningen.
-
-    Avmarkera det här alternativet om du behöver läsa in data på nytt varje gången du kör pipelinen.
 
 1. Köra en pipeline.
 

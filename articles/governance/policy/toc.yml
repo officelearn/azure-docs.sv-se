@@ -37,218 +37,30 @@
 - name: Exempel
   items:
     - name: Index
-      displayName: 'list, examples'
+      displayName: 'list, builtins'
       href: ./samples/index.md
-    - name: Allmänt
+    - name: Inbyggda principer
+      href: ./samples/built-in-policies.md
+    - name: Inbyggda initiativ
+      href: ./samples/built-in-initiatives.md
+    - name: Användningsmönster
       items:
-        - name: Namngivning
-          items:
-            - name: Tillåt flera namnmönster
-              displayName: 'deny, indexed'
-              href: samples/allow-multiple-name-patterns.md
-            - name: Kräv like-mönster
-              displayName: 'deny, indexed'
-              href: samples/enforce-like-pattern.md
-            - name: Kräv matchningsmönster
-              displayName: 'deny, indexed'
-              href: samples/enforce-match-pattern.md
-            - name: Kräv taggmatchningsmönster
-              displayName: 'deny, all'
-              href: samples/enforce-tag-match-pattern.md
-        - name: Taggar
-          items:
-            - name: Använd taggen och dess standardvärde
-              displayName: 'append, builtin, concat'
-              href: samples/apply-tag-default-value.md
-            - name: Principinitiativ för faktureringstaggar
-              href: samples/billing-tags-policy-initiative.md
-            - name: Framtvinga tagg och dess värde
-              displayName: 'deny, concat, builtin'
-              href: samples/enforce-tag-value.md
-            - name: Lägg till tagg och dess värde i resursgrupper
-              displayName: 'deny, concat'
-              href: samples/enforce-tag-on-resource-groups.md
-        - name: Platser
-          items:
-            - name: Tillåtna platser
-              displayName: 'deny, builtin, location'
-              href: samples/allowed-locations.md
-        - name: Resurstyper
-          items:
-            - name: Tillåtna resurstyper
-              displayName: 'deny, builtin, resourceTypes'
-              href: samples/allowed-resource-types.md
-            - name: Otillåtna resurstyper
-              displayName: 'deny, builtin, resourceTypes'
-              href: samples/not-allowed-resource-types.md
-    - name: Compute
-      items:
-        - name: Virtuella datorer
-          items:
-            - name: Tillåt anpassad avbildning av virtuell dator från en resursgrupp
-              displayName: 'deny, concat, ExistingResourceGroups'
-              href: samples/allow-custom-vm-image.md
-            - name: 'Tillåtna SKU:er för lagringskonton och virtuella datorer'
-              displayName: 'initiative, vmSKUs, storageSKUs'
-              href: samples/allowed-skus-storage.md
-            - name: Godkända VM-avbildningar
-              displayName: deny
-              href: samples/allowed-custom-images.md
-            - name: Granska om ej tillgängligt tillägg
-              displayName: auditIfNotExists
-              href: samples/audit-extension-not-exist.md
-            - name: Otillåtna VM-tillägg
-              displayName: deny
-              href: samples/not-allowed-vm-extension.md
-        - name: Skalningsuppsättningar för virtuella datorer
-          items:
-            - name: Granska när VM inte använder hanterad disk
-              displayName: audit
-              href: samples/create-vm-managed-disk.md
-            - name: Skapa VM med hanterad disk
-              displayName: deny
-              href: samples/use-managed-disk-vm.md
-            - name: Neka Hybrid Use Benefit
-              displayName: deny
-              href: samples/deny-hybrid-use.md
-            - name: Endast tillåta en viss VM-plattformsavbildning
-              displayName: deny
-              href: samples/allow-certain-vm-image.md
-    - name: Data Lake
-      items:
-        - name: Kräv kryptering för Data Lake Store
-          displayName: deny
-          href: samples/enforce-data-lake-store-encryption.md
-    - name: Gästkonfiguration
-      items:
-        - name: Granska program som inte är installerade på Linux
-          displayName: 'audit, vm'
-          href: samples/guest-configuration-applications-installed-linux.md
-    - name: Nyckelvalv
-      items:
-        - name: Granska valv där slutpunkter i virtuella nätverk saknas
-          displayName: 'audit, KeyVault, indexed'
-          href: samples/keyvault-no-vnet-rules.md
-    - name: Övervakning
-      items:
-        - name: Granska diagnostikinställning
-          displayName: 'auditIfNotExists, resourceTypes'
-          href: samples/audit-diagnostic-setting.md
-    - name: Nätverk
-      items:
-        - name: Nätverksgränssnitt
-          items:
-            - name: NSG X på varje nätverkskort
-              displayName: deny
-              href: samples/nsg-on-nic.md
-            - name: Använda godkända undernät för VM-nätverksgränssnitt
-              displayName: deny
-              href: samples/use-approved-subnet-vm-nics.md
-            - name: Använda godkända vNet för VM-nätverksgränssnitt
-              displayName: 'deny, concat'
-              href: samples/use-approved-vnet-vm-nics.md
-        - name: Virtuella nätverk
-          items:
-            - name: 'Tillåtna SKU:er för programgateway'
-              displayName: deny
-              href: samples/allowed-app-gateway-sku.md
-            - name: 'Tillåtna vNet-gateway SKU:er'
-              displayName: deny
-              href: samples/allowed-vnet-gateway-sku.md
-            - name: 'Tillåtna SKU:er för lastbalanserare'
-              displayName: deny
-              href: samples/allowed-load-balancer-skus.md
-            - name: Ingen nätverkspeering till ER-nätverk
-              displayName: 'deny, all, concat, ExistingResourceGroups'
-              href: samples/no-peering-express-route-network.md
-            - name: Ingen användardefinierad routningstabell
-              displayName: 'deny, all'
-              href: samples/no-user-defined-route-table.md
-            - name: NSG x i varje undernät
-              displayName: 'deny, all'
-              href: samples/nsg-on-subnet.md
-            - name: Använda godkända undernät för VM-nätverksgränssnitt
-              displayName: deny
-              href: samples/use-approved-subnet-vm-nics.md
-            - name: Använda godkända vNet för VM-nätverksgränssnitt
-              displayName: deny
-              href: samples/use-approved-vnet-vm-nics.md
-        - name: Nätverkssäkerhetsgrupper
-          items:
-            - name: NSG X på varje nätverkskort
-              displayName: deny
-              href: samples/nsg-on-nic.md
-            - name: NSG x i varje undernät
-              displayName: 'deny, all'
-              href: samples/nsg-on-subnet.md
-        - name: ExpressRoute
-          items:
-            - name: Tillåten ExpressRoute-bandbredd
-              displayName: deny
-              href: samples/allowed-express-route-bandwidth.md
-            - name: 'Tillåtna ExpressRoute-SKU:er'
-              displayName: deny
-              href: samples/allowed-express-route-skus.md
-            - name: Tillåtna ExpressRoute-peeringplatser
-              displayName: 'deny, Location'
-              href: samples/allowed-express-route-peering.md
-        - name: Nätverksbevakare
-          items:
-            - name: Granska om Network Watcher inte är aktiverat för regionen
-              displayName: 'auditIfNotExists, Location'
-              href: samples/network-watcher-not-enabled.md
-        - name: Programgateways
-          items:
-            - name: 'Tillåtna SKU:er för programgateway'
-              displayName: deny
-              href: samples/allowed-app-gateway-sku.md
-    - name: SQL
-      items:
-        - name: SQL Servrar
-          items:
-            - name: Granska när det saknas Azure AD-administratör
-              displayName: auditIfNotExists
-              href: samples/audit-no-aad-admin.md
-            - name: Granska inställningar för hotidentifiering på servernivå
-              displayName: auditIfNotExists
-              href: samples/audit-sql-server-threat-detection-setting.md
-            - name: Granska granskningsinställningar för SQL Server
-              displayName: 'auditIfNotExists, builtin'
-              href: samples/sql-server-audit.md
-            - name: Granska granskningsinställningar på SQL-servernivå
-              displayName: auditIfNotExists
-              href: samples/audit-sql-server-audit-setting.md
-        - name: SQL Databases
-          items:
-            - name: 'Tillåtna SKU:er för SQL DB'
-              displayName: deny
-              href: samples/allowed-sql-db-skus.md
-            - name: Granska SQL DB-nivå för hotidentifiering på servernivå
-              displayName: auditIfNotExists
-              href: samples/audit-db-threat-detection-setting.md
-            - name: Granska SQL DB-kryptering
-              displayName: 'auditIfNotExists, disabled, indexed, builtin'
-              href: samples/sql-database-encryption-audit.md
-            - name: Granska granskningsinställning på SQL DB-nivån
-              displayName: auditIfNotExists
-              href: samples/audit-sql-db-audit-setting.md
-    - name: Storage
-      items:
-        - name: 'Tillåtna SKU:er för lagringskonto och virtuella datorer'
-          displayName: 'initiative, vmSKUs, storageSKUs'
-          href: samples/allowed-skus-storage.md
-        - name: 'Tillåtna SKU:er för lagringskonto'
-          displayName: 'deny, builtin, storageSKUs'
-          href: samples/allowed-storage-account-skus.md
-        - name: Neka lågfrekvent åtkomstnivå för lagringskonton
-          displayName: 'deny, all'
-          href: samples/deny-cool-access-tiering.md
-        - name: Garantera endast HTTPS-trafik för lagringskonto
-          displayName: 'deny, all'
-          href: samples/ensure-https-storage-account.md
-        - name: Garantera kryptering för lagringsfil
-          displayName: 'deny, all'
-          href: samples/ensure-storage-file-encryption.md
+        - name: Logiska operatorer
+          href: ./samples/pattern-logical-operators.md
+        - name: Fält
+          href: ./samples/pattern-fields.md
+        - name: Parametrar
+          href: ./samples/pattern-parameters.md
+        - name: Effektinformation
+          href: ./samples/pattern-effect-details.md
+        - name: Värdeoperator
+          href: ./samples/pattern-value-operator.md
+        - name: Räkneoperator
+          href: ./samples/pattern-count-operator.md
+        - name: Gruppera till initiativ
+          href: ./samples/pattern-group-with-initiative.md
+        - name: Distribuera resurser
+          href: ./samples/pattern-deploy-resources.md
 - name: Begrepp
   items:
     - name: Azure Policy-definitionsstruktur

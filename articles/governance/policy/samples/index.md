@@ -1,38 +1,39 @@
 ---
 title: Index för principexempel
-description: Index för Azure Policy-exempel. Kategorierna omfattar namngivning, taggar, Key Vault, nätverk, lagring med mera.
-ms.date: 03/19/2019
+description: Index för inbyggda Azure Policy-program. Kategoritaggar, regelefterlevnad, Key Vault, Kubernetes, gästkonfiguration med mera.
+ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 54e77a83a03d9a8f5cedd59f010569d7ecef7d90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070106"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168037"
 ---
 # <a name="azure-policy-samples"></a>Azure Policy-exempel
 
-Följande tabell innehåller länkar till exempel för Azure Policy. De här exemplen finns även i [lagringsplatsen för Azure Policy-exempel](https://github.com/Azure/azure-policy).
+Den här sidan är ett index för inbyggda principdefinitioner och språkanvändningsmönster i Azure Policy.
 
-[!INCLUDE [azure-policy-samples-general](../../../../includes/azure-policy-samples-general.md)]
+## <a name="built-ins"></a>Inbyggda program
 
-[!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
+- [Principer](./built-in-policies.md)
+- [Initiativ](./built-in-initiatives.md)
 
-[!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+## <a name="patterns"></a>Mönster
 
-[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
+Följande är exempel på olika mönster för språk och operatörer i Azure Policy:
 
-[!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
-
-[!INCLUDE [azure-policy-samples-monitoring](../../../../includes/azure-policy-samples-monitoring.md)]
-
-[!INCLUDE [azure-policy-samples-network](../../../../includes/azure-policy-samples-network.md)]
-
-[!INCLUDE [azure-policy-samples-sql](../../../../includes/azure-policy-samples-sql.md)]
-
-[!INCLUDE [azure-policy-samples-storage](../../../../includes/azure-policy-samples-storage.md)]
+- [Logiska operatorer](./pattern-logical-operators.md)
+- [Fält](./pattern-fields.md)
+- [Parametrar](./pattern-parameters.md)
+- [Effektinformation](./pattern-effect-details.md)
+- [Värdeoperator](./pattern-value-operator.md)
+- [Räkneoperator](./pattern-count-operator.md)
+- [Gruppera principdefinitioner i ett initiativ](./pattern-group-with-initiative.md)
+- [Distribuera resurser med deployIfNotExists](./pattern-deploy-resources.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Se de inbyggda programmen på [Azure Policy GitHub-lagringsplatsen](https://github.com/Azure/azure-policy).
 - Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).

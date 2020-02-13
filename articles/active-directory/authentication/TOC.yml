@@ -64,7 +64,7 @@
   items:
     - name: Återställning av lösenord för självbetjäning
       items:
-        - name: Distribuera återställning av lösenord via självbetjäning
+        - name: Distributionsguide
           href: howto-sspr-deployment.md
         - name: Förhandsregistrera autentiseringsdata
           href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
           href: howto-sspr-windows.md
     - name: Molnbaserad MFA
       items:
-        - name: Distribuera molnbaserad MFA
+        - name: Distributionsguide
           href: howto-mfa-getstarted.md
         - name: MFA per användare
           href: howto-mfa-userstates.md

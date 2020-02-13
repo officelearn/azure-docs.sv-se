@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: iainfoulds
   ms.author: iainfou
-  ms.date: 08/20/2019
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74847159"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77166424"
 landingContent:
 - title: Om autentisering
   linkLists:
@@ -39,16 +39,16 @@ landingContent:
       url: concept-sspr-howitworks.md
     - text: Tillbakaskrivning av lösenord
       url: concept-sspr-writeback.md
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
-    - text: Snabbstart för självbetjäning av lösenordsåterställning
-      url: quickstart-sspr.md
+    - text: Aktivera lösenordsåterställning via självbetjäning
+      url: tutorial-enable-sspr.md
+    - text: Aktivera tillbakaskrivning av lösenord för lokala
+      url: tutorial-enable-writeback.md
   - linkListType: deploy
     links:
-    - text: Distribuera självbetjäning av lösenordsåterställning för Azure AD
+    - text: Distributionsguide för självbetjäning av lösenordsåterställning
       url: howto-sspr-deployment.md
-    - text: Aktivera tillbakaskrivning av lösenord
-      url: howto-sspr-writeback.md
     - text: Aktivera återställning av lösenord från Windows-inloggningsskärmen
       url: howto-sspr-windows.md
 - title: Aktivera Azure Multi-Factor Authentication
@@ -59,13 +59,13 @@ landingContent:
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Pilottesta Azure MFA för specifika program
-      url: tutorial-mfa-applications.md
-    - text: Använda riskidentifieringar för att utlösa multifaktorautentisering och lösenordsändringar
+    - text: Aktivera Azure Multi-Factor Authentication
+      url: tutorial-enable-azure-mfa.md
+    - text: Aktivera riskbaserad Azure Multi-Factor Authentication
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Distribuera Azure Multi-Factor Authentication
+    - text: Distributionsguide för Azure Multi-Factor Authentication
       url: howto-mfa-getstarted.md
     - text: Använda NPS-tillägget för att integrera lokala program
       url: howto-mfa-nps-extension.md

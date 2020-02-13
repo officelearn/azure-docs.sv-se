@@ -907,22 +907,6 @@
           href: platform/rest-api-walkthrough.md
     - name: Visualisera data
       items:
-        - name: Vyer
-          items:
-            - name: Vydesigner
-              href: platform/view-designer.md
-            - name: Panelreferens
-              href: platform/view-designer-tiles.md
-            - name: Referens för visualiseringsdel
-              href: platform/view-designer-parts.md
-            - name: Filter
-              href: platform/view-designer-filters.md
-        - name: Power BI
-          items:
-            - name: Exportera loggdata
-              href: platform/powerbi.md
-            - name: Exportera programdata
-              href: app/export-power-bi.md
         - name: Arbetsböcker
           items:
             - name: Översikt
@@ -949,6 +933,36 @@
                       href: platform/workbooks-time.md
                     - name: Textparametrar
                       href: platform/workbooks-text.md
+        - name: Vyer
+          items:
+            - name: Konvertera vyer till arbetsböcker
+              items:
+                - name: Översikt över konvertering
+                  href: platform/view-designer-conversion-overview.md
+                - name: Konverteringsalternativ
+                  href: platform/view-designer-conversion-options.md
+                - name: Översikt och åtkomst
+                  href: platform/view-designer-conversion-access.md
+                - name: Vanliga åtgärder
+                  href: platform/view-designer-conversion-tasks.md
+                - name: Panelkonverteringar
+                  href: platform/view-designer-conversion-tiles.md
+                - name: Exempel
+                  href: platform/view-designer-conversion-examples.md
+            - name: Vydesigner
+              href: platform/view-designer.md
+            - name: Panelreferens
+              href: platform/view-designer-tiles.md
+            - name: Referens för visualiseringsdel
+              href: platform/view-designer-parts.md
+            - name: Filter
+              href: platform/view-designer-filters.md
+        - name: Power BI
+          items:
+            - name: Exportera loggdata
+              href: platform/powerbi.md
+            - name: Exportera programdata
+              href: app/export-power-bi.md
         - name: Instrumentpaneler
           items:
             - name: Instrumentpanel som använder loggdata

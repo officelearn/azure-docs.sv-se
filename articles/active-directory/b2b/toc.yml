@@ -15,7 +15,9 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Självstudier
       items:
-        - name: Massinbjudan av B2B-gästanvändare
+        - name: Massinbjudan via PowerShell
+          href: bulk-invite-powershell.md
+        - name: Massinbjudan via portalen (förhandsversion)
           href: tutorial-bulk-invite.md
         - name: Använda multifaktorautentisering
           href: b2b-tutorial-require-mfa.md

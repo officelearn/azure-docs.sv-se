@@ -327,7 +327,15 @@
     - name: Utlösare och bindningar
       items:
         - name: Blob Storage
-          href: functions-bindings-storage-blob.md
+          items:
+            - name: Översikt
+              href: functions-bindings-storage-blob.md
+            - name: Utlösare
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Indata
+              href: functions-bindings-storage-blob-input.md
+            - name: Resultat
+              href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x

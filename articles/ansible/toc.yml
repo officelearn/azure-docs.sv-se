@@ -10,7 +10,7 @@
     - name: Distribuera Ansible-lösningsmallar till CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Installera Ansible på virtuella Linux-datorer
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Köra spelböcker i Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
         - name: Konfigurera virtuella Linux-datorer
-          href: /azure/virtual-machines/linux/ansible-create-vm
+          href: ./ansible-create-vm.md
           maintainContext: true
         - name: Hantera virtuella Linux-datorer
-          href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+          href: ./ansible-manage-linux-vm.md
           maintainContext: true
 - name: Självstudier
   items:

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769962"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117618"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Konfigurera lagringskonton för Cloudyn
 
@@ -34,12 +34,12 @@ Om du inte har en S3-bucket (AWS Simple Storage Service) måste du skapa en. Mer
 
 Det är enkelt att konfigurera Azure Storage för användning i Cloudyn. Samla information om lagringskontot och kopiera den i Cloudyn-portalen.
 
-1. Logga in på Azure Portal på https://portal.azure.com.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **Alla tjänster**, välj **Lagringskonton**, rulla till lagringskontot du vill använda och välj kontot.
 3. På sidan för lagringskontot går du till **Inställningar** och klickar på **Åtkomstnycklar**.
 4. Kopiera ditt **lagringskontonamn** och din **anslutningssträng** under key1.  
    ![Kopiera lagringskontonamnet och anslutningssträngen](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
+5. Öppna Cloudyn-portalen från Azure-portalen eller gå till [https://azure.cloudyn.com](https://azure.cloudyn.com) och logga in.
 6. Klicka på kugghjulssymbolen och välj sedan **Hantering av lagringsrapporter**.
 7. Klicka på **Lägg till ny +** och se till att Microsoft Azure är markerat. Klistra in namnet på ditt Azure Storage-konto i området **Namn**. Klistra in **anslutningssträngen** i motsvarande område. Ange ett containernamn och klicka sedan på **Spara**.  
    ![Klistra in Azure Storage-kontonamnet och anslutningssträngen i rutan Lägg till en ny rapportlagring](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -147,7 +147,7 @@ Du kan också ange behörighet för att skapa rapporter i din S3-bucket med hjä
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Lägga till AWS-rapportlagring i Cloudyn
 
-1. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
+1. Öppna Cloudyn-portalen från Azure-portalen eller gå till [https://azure.cloudyn.com](https://azure.cloudyn.com) och logga in.
 2. Klicka på kugghjulssymbolen och välj sedan **Hantering av lagringsrapporter**.
 3. Klicka på **Lägg till ny +** och se till att AWS är markerat.
 4. Välj ett konto och en lagringsbucket. Namnet på AWS-lagringsbucketen fylls i automatiskt.  

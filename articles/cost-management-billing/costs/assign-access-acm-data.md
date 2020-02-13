@@ -1,21 +1,20 @@
 ---
 title: Tilldela åtkomst till Azure Cost Management-data
 description: I den här artikeln går vi igenom att tilldela behörighet till Azure Cost Management-data för olika omfång.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2020
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8ba31d58e57081ca8d2edbe5d6d0c3db3a470cb7
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773972"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152065"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Tilldela åtkomst till Cost Management-data
 

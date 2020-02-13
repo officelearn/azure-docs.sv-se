@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 927014ed0c2b261351df786ad8a6b56f20c573a8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5f5522201534a54f5d132257553469eed5addab3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984871"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169876"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -29,8 +29,8 @@ Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordn
 
 1. **Utbilda**
     + Utveckla utbildnings skript för maskin inlärning i **python** eller med den visuella designern.
-    + Skapa och konfigurera en **beräkningsmålet**.
-    + **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Under utbildningen kan skripten läsa från eller skriva till **data lager**. Och posterna för körningen sparas som **körs** i **arbets ytan** och grupperas under **experiment**.
+    + Skapa och konfigurera ett **beräknings mål**.
+    + **Skicka skripten** till det konfigurerade Compute-målet som ska köras i den miljön. Under utbildningen kan skripten läsa från eller skriva till **data lager**. Och posterna för körningen sparas som **körs** i **arbets ytan** och grupperas under **experiment**.
 
 1. **Paket** – när en tillfredsställande körning hittas registrerar du den sparade modellen i **modell registret**.
 
@@ -63,10 +63,10 @@ Använd följande verktyg för Azure Machine Learning:
 + <a href="#experiments">Experiment</a>
 + <a href="#github-tracking-and-integration">Git-spårning</a>
 + <a href="#iot-module-endpoints">IoT-moduler</a>
-+ <a href="#logging">Loggning</a>
++ <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#models">Modellerna</a>
-+ <a href="#runs">Kör</a>
++ <a href="#runs">Fungerar</a>
 + <a href="#run-configurations">Kör konfiguration</a>
 + <a href="#snapshots">Ögonblicks bild</a>
 + <a href="#training-scripts">Tränings skript</a>
@@ -84,9 +84,6 @@ Aktiviteter kan ge aviseringar via SDK eller webb gränssnittet så att du enkel
 
 ### <a name="compute-instance"></a>Beräknings instans (för hands version)
 
-> [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA**, **östra USA 2**, **Nord Europa** eller **Storbritannien, södra**, med stöd för andra regioner som kommer snart.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
 
 En **Azure Machine Learning beräknings instans** (tidigare VM) är en fullständigt hanterad molnbaserad arbets station som innehåller flera verktyg och miljöer som är installerade för maskin inlärning. Beräknings instanser kan användas som beräknings mål för utbildnings-och inferencing-jobb. För stora aktiviteter är [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
 
@@ -176,7 +173,7 @@ Pipeline-steg kan återanvändas och kan köras utan att köra efterföljande st
 
 Mer information om maskin inlärnings pipeliner med den här tjänsten finns i [pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 
-### <a name="models"></a>Modeller
+### <a name="models"></a>Modellerna
 
 I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa en modell för maskininlärning innebär att välja en algoritm, att förse den med data och justering av hyperparametrar. Utbildning är en iterativ process som skapar en tränad modell, som kapslar in det modellen har lärt dig under utbildning.
 
@@ -199,7 +196,7 @@ Du kan inte ta bort en registrerad modell som används av en aktiv distribution.
 
 Ett exempel på hur du registrerar en modell finns i [träna en bild klassificerings modell med Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-### <a name="runs"></a>Körningar
+### <a name="runs"></a>Körs
 
 En körning är en enskild körning av ett utbildnings skript. Azure Machine Learning registrerar alla körningar och lagrar följande information:
 

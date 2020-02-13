@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892455"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162709"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Självstudie: simulera ett problem med att läsa data från den primära regionen
 
-Den här självstudien är del två i en serie. I den lär du dig om fördelarna med [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) genom att simulera ett fel.
+Den här självstudien är del två i en serie. I den här artikeln får du lära dig om fördelarna med [Geo-redundant lagring med Läs behörighet](../common/storage-redundancy.md) (RA-GRS) genom att simulera ett haveri.
 
-Du kan använda antingen [statiska routnings](#simulate-a-failure-with-an-invalid-static-route) -eller [Fiddler](#simulate-a-failure-with-fiddler)för att simulera ett haveri. Med båda metoderna kan du simulera misslyckade begär anden till den primära slut punkten för det [geo-redundanta](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) lagrings kontot med Läs åtkomst (RA-GRS), vilket gör att programmet läses från den sekundära slut punkten i stället.
+Du kan använda antingen [statiska routnings](#simulate-a-failure-with-an-invalid-static-route) -eller [Fiddler](#simulate-a-failure-with-fiddler)för att simulera ett haveri. Med båda metoderna kan du simulera misslyckade begär anden till den primära slut punkten för det [geo-redundanta](../common/storage-redundancy.md) lagrings kontot med Läs åtkomst (RA-GRS), vilket gör att programmet läses från den sekundära slut punkten i stället.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -31,7 +31,7 @@ I del två i serien lär du dig hur du:
 > * Simulera ett fel med [en ogiltig statisk väg](#simulate-a-failure-with-an-invalid-static-route) eller [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simulerar en återställning av den primära slutpunkten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien slutför du den föregående själv studie kursen: [gör dina program data hög tillgängliga med Azure Storage][previous-tutorial].
 
@@ -41,7 +41,7 @@ Om du vill simulera ett haveri med Fiddler kan du hämta och [Installera Fiddler
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simulera ett fel med en felaktig statisk väg
 
-Du kan skapa en felaktig statisk väg för alla begäranden till den primära slutpunkten för ditt [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS). I den här kursen används den lokala värden som gateway för dirigering av begäranden till lagringskontot. När den lokala värden används som gateway kommer alla begäranden till den primära slutpunkt för lagringskontot att utföra en loopback i värden, vilket resulterar i ett fel. Följ stegen nedan för att simulera ett fel och en återställning av den primära slutpunkten med en felaktig statisk väg.
+Du kan skapa en felaktig statisk väg för alla begäranden till den primära slutpunkten för ditt [Read-Access Geo Redundant](../common/storage-redundancy.md)-lagringskonto (RA-GRS). I den här kursen används den lokala värden som gateway för dirigering av begäranden till lagringskontot. När den lokala värden används som gateway kommer alla begäranden till den primära slutpunkt för lagringskontot att utföra en loopback i värden, vilket resulterar i ett fel. Följ stegen nedan för att simulera ett fel och en återställning av den primära slutpunkten med en felaktig statisk väg.
 
 ### <a name="start-and-pause-the-application"></a>Starta och pausa programmet
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67fe048c5afb07c65dcddc797e3a1d8461b1893f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: fa8013722376a4864ba955783dbde1f73c0d9e8a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965960"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163117"
 ---
-# <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
+# <a name="get-started-guide-for-azure-developers"></a>Kom igång-guide för Azure-utvecklare
 
 ## <a name="what-is-azure"></a>Vad är Azure?
 
@@ -50,7 +50,7 @@ Azure erbjuder tjänster som har stöd för dina program utvecklings-och värd b
 ![Azure Application hosting-alternativ](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
 
-#### <a name="azure-app-service"></a>Azure Apptjänst
+#### <a name="azure-app-service"></a>Azure App Service
 
 När du vill att den snabbaste sökvägen ska publicera dina webbaserade projekt bör du överväga Azure App Service. App Service gör det enkelt att utöka dina webbappar till att stödja dina mobila klienter och publicera enkelt förbrukade REST-API: er. Den här plattformen tillhandahåller autentisering med hjälp av sociala leverantörer, principbaserad automatisk skalning, testning i produktion och kontinuerliga och containerbaserade distributioner.
 
@@ -96,7 +96,7 @@ Azure Service Fabric är en distribuerad system plattform. Den här plattformen 
 * Distribuera
 * Övervakning
 * Uppgradering/uppdatering
-* Tas bort
+* Rader
 
 Appar som körs på en delad pool med datorer kan starta små och skala till hundratals eller tusentals datorer efter behov.
 
@@ -171,7 +171,7 @@ Det är viktigt att inte bara veta vem som använder dina program, utan även f�
 
   > **När du ska använda**: när du vill skapa en SSO-miljö arbetar du med diagrambaserade data eller autentiserar domänbaserade användare.
   >
-  > **Kom igång**: Mer information finns i [Azure Active Directory Developer ' s guide](../../active-directory/develop/v1-overview.md).
+  > **Kom igång**: Mer information finns i [Azure Active Directory Developer ' s guide](../../active-directory/develop/v2-overview.md).
 
 - **App Service autentisering**: när du väljer app service som värd för din app får du även inbyggt stöd för autentisering för Azure AD, tillsammans med sociala identitets leverantörer – inklusive Facebook, Google, Microsoft och Twitter.
 
@@ -193,7 +193,7 @@ Med ditt program igång i Azure måste du övervaka prestanda, titta efter probl
 
     >**Kom igång**: [kom igång med Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
-### <a name="devops-integration"></a>DevOps-integration
+### <a name="devops-integration"></a>DevOps-integrering
 
 Oavsett om det är etablering av virtuella datorer eller om du publicerar dina webbappar med kontinuerlig integrering, integreras Azure med de flesta populära DevOps-verktygen. Du kan arbeta med de verktyg som du redan har och maximera din befintliga upplevelse med stöd för verktyg som:
 
@@ -238,15 +238,15 @@ Azure tillhandahåller två sätt att hantera dina program och tjänster från k
 
 -   [Azure PowerShell](../../powershell-install-configure.md): innehåller en uppsättning moduler med cmdletar som gör att du kan hantera Azure-resurser med hjälp av Windows PowerShell.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
-[Azure Portal](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure Portal för att skapa, hantera och ta bort Azure-resurser och-tjänster. Det innehåller:
+[Azure Portal](https://portal.azure.com) är ett webbaserat program. Du kan använda Azure Portal för att skapa, hantera och ta bort Azure-resurser och-tjänster. Den innehåller:
 
 * En konfigurerbar instrument panel
 * Azure Resource Management-verktyg
 * Åtkomst till prenumerations inställningar och fakturerings information. Mer information finns i [Översikt över Azure Portal](../../azure-portal-overview.md).
 
-### <a name="rest-apis"></a>REST API:er
+### <a name="rest-apis"></a>REST-API:er
 
 Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och-program från valfri enhet med Internet. En fullständig uppsättning REST API-dokumentation finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/).
 
@@ -254,7 +254,7 @@ Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssni
 
 Tillsammans med REST API: er kan många Azure-tjänster också hantera resurser från dina program program mässigt med hjälp av plattformsspecifika Azure-SDK: er, inklusive SDK: er för följande utvecklings plattformar:
 
--   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
+-   [NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
@@ -288,7 +288,7 @@ Alla Azure-prenumerationer har en förtroenderelation med en Azure AD-instans. D
 
 Samt definiera enskilda Azure-konto identiteter, även kallade *användare*, kan du definiera *grupper* i Azure AD. Att skapa användar grupper är ett bra sätt att hantera åtkomst till resurser i en prenumeration med hjälp av rollbaserad åtkomst kontroll (RBAC). Information om hur du skapar grupper finns [i skapa en grupp i Azure Active Directory för hands version](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Du kan också skapa och hantera grupper med [hjälp av PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
 
-### <a name="manage-your-subscriptions"></a>Hantera prenumerationer
+### <a name="manage-your-subscriptions"></a>Hantera dina prenumerationer
 
 En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. Ett enda Azure-konto kan innehålla flera prenumerationer. Faktureringen för Azure-tjänster görs per prenumeration. En lista över tillgängliga prenumerations erbjudanden per typ finns i [Microsoft Azure erbjudande information](https://azure.microsoft.com/support/legal/offer-details/). Azure-prenumerationer har en konto administratör som har fullständig kontroll över prenumerationen. De har också en tjänst administratör som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerations administratörer finns i [lägga till eller ändra Azure-prenumerations administratörer](../../cost-management-billing/manage/add-change-subscription-administrator.md). Enskilda konton kan beviljas detaljerad kontroll över Azure-resurser med hjälp av [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md).
 

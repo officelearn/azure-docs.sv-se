@@ -10,20 +10,16 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: c07e880ea9b3c382d3c6ecde51dfe8f4ab5c24fc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 28d176289a0b6cfe659f390feb441158c57f6533
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988438"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169943"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
-
-> [!NOTE]
-> Compute instances (för hands version) är endast tillgängliga för arbets ytor med en region i **norra centrala USA**, **östra USA 2**, **Nord Europa** eller **Storbritannien, södra**, med stöd för andra regioner som kommer snart.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.  Du kan distribuera en modell till antingen en beräknings instans eller en virtuell dator med hjälp av stegen i den här artikeln.
 
 Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på din Azure Machine Learning beräknings instans. Använd beräknings instanser om något av följande villkor är uppfyllt:
 
@@ -33,7 +29,7 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 > [!TIP]
 > Att distribuera en modell från en Jupyter Notebook på en beräknings instans till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn beräknings instansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Machine Learning-arbetsyta med en beräknings instans som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
@@ -100,7 +96,7 @@ print("prediction:", resp.text)
 
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
-* [Använd en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
+* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

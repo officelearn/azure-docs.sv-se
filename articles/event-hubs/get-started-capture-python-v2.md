@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 788fcf15ebd68aae525c2895340f437594c9c58c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906403"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187247"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Avbilda Event Hubs data i Azure Storage och läsa den med hjälp av python (Azure-eventhub version 5)
 
-Du kan konfigurera en Event Hub så att de data som skickas till en Event Hub samlas in i ett Azure Storage-konto eller Azure Data Lake Storage. Den här artikeln visar hur du skriver python-kod för att skicka händelser till en händelsehubben och läsa insamlade data från Azure Blob Storage. Mer information om den här funktionen finns i [Översikt över Event Hubs avbildnings funktionen](event-hubs-capture-overview.md).
+Du kan konfigurera en Event Hub så att data som skickas till en Event Hub samlas in i ett Azure Storage-konto eller Azure Data Lake Storage gen 1 eller gen 2. Den här artikeln visar hur du skriver python-kod för att skicka händelser till en händelsehubben och läsa insamlade data från **Azure Blob Storage**. Mer information om den här funktionen finns i [Översikt över Event Hubs avbildnings funktionen](event-hubs-capture-overview.md).
 
 I den här snabb starten används [Azure python SDK](https://azure.microsoft.com/develop/python/) för att demonstrera insamlings funktionen. *Sender.py* -appen skickar simulerad miljö telemetri till Event Hub i JSON-format. Händelsehubben har konfigurerats för att använda avbildningsfunktionen för att skriva dessa data till Blob storage i batchar. *Capturereader.py* -appen läser dessa blobbar och skapar en tilläggs fil för varje enhet. Appen skriver sedan data till CSV-filer.
 
@@ -37,7 +37,7 @@ I den här snabbstarten kommer du att göra följande:
 > * Skicka data till händelsehubben med hjälp av ett Python-skript.
 > * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Python 2,7 och 3,5 eller senare, med PIP installerat och uppdaterat.  
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.  
@@ -55,7 +55,7 @@ I den här snabbstarten kommer du att göra följande:
 I det här avsnittet skapar du ett Python-skript som skickar 200-händelser (10 enheter * 20 händelser) till en Event Hub. Dessa händelser är ett exempel på en miljö läsning som skickas i JSON-format. 
 
 1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code][Visual Studio Code].
-2. Skapa ett skript som heter *sender.py*. 
+2. Skapa ett skript med namnet *Sender.py*. 
 3. Klistra in följande kod i *Sender.py*. 
    
     ```python

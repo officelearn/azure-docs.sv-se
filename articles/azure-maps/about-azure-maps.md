@@ -3,30 +3,30 @@ title: Översikt | Microsoft Azure Maps
 description: Lär dig mer om tjänster och funktioner i Microsoft Azure Maps och hur du använder dem i dina program.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2909dbebc7531be0e45b321cc31b599b0f63ee4a
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262579"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190343"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
 Azure Maps är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla geografisk kontext till webb-och mobil program. Azure Maps tillhandahåller:
 
-* REST API: er för åter givning av kartor i flera format och i satellit-bilder.
-* Söker efter adresser, platser och punkter av intresse runtom i världen.
-* Olika typer av Routning: punkt-till-punkt, Multipoint, Multipoint-optimering, isochrone, nytto fordon, trafik påverkan och mat ris routning
-* Vyn trafikflöde och incidenter.
-* Mobilitets tjänster för att begära offentlig transitering och alternativa transport sätt (t. ex. cykel resurs, Scooter resurs och bil delning) och planera vägar i real tid. 
-* Upprätta en användar plats genom geolokalisering och konvertera plats till tids zoner. 
-* Tjänster för avgränsning och kart data lagring med plats information som finns i Azure. 
+* REST API: er för rendering av kartor i flera format och i satellit-bilder.
+* Sök efter tjänster för att hitta adresser, platser och intressanta platser i världen.
+* Olika alternativ för routning; till exempel punkt-till-punkt, Multipoint, Multipoint-optimering, isochrone, nytto fordon, trafik påverkan och mat ris routning.
+* Vyn trafikflödes visning och incidenter för program som kräver trafik information.
+* Mobilitets tjänsten för att begära logistik för offentlig överföring, planera vägar i real tid och begära information för alternativa transport metoder.
+* Tidszon och tjänster för geolokalisering och konvertera en plats till tids zoner.
+* Att serva och mappa data lagring med plats information som finns i Azure. 
 * Plats information via Geospatial analys. 
 
 Dessutom är Azure Maps Services tillgängliga via Web SDK eller Android SDK. De här verktygen hjälper utvecklare att snabbt utveckla och skala lösningar som integrerar plats information i Azure-lösningar. 
@@ -39,11 +39,11 @@ I följande video beskriver vi Azure Maps mer ingående:
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-## <a name="map-controls"></a>Kartkontroller
+## <a name="map-controls"></a>Kart kontroller
 
 ### <a name="web-sdk"></a>Web SDK
 
-Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder för dina webb-eller mobil program. Den här kontrollen använder WebGL, så du kan återge stora data mängder med hög prestanda. Utveckla med SDK genom att använda Java Script eller TypeScript.
+Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder. Du kan använda den här interaktiva kartan för både dina webb program eller mobila program. Kart kontrollen använder WebGL, vilket innebär att du kan återge stora data mängder med hög prestanda. Utveckla med SDK genom att använda Java Script eller TypeScript.
 
 ![Exempel karta över populations ändringar](media/about-azure-maps/Introduction_WebMapControl.png)
 
@@ -57,21 +57,21 @@ Använd Azure Maps Android SDK för att skapa appar för mobil mappning.
 
 Azure Maps består av följande nio tjänster som kan tillhandahålla geografisk kontext till dina Azure-program.
 
-### <a name="data-service"></a>Data Service
+### <a name="data-service"></a>Datatjänst
 
 Data är absolut nödvändigt för Maps. Använd data service för att ladda upp och lagra geospatiala data för användning med spatiala åtgärder eller bild sammansättning.  Att ta med kund information närmare Azure Maps tjänsten minskar svars tiden, ökar produktiviteten och skapar nya scenarier i dina program. Mer information om den här tjänsten finns i [dokumentationen för data service API](https://docs.microsoft.com/rest/api/maps/data).
 
 ### <a name="mobility-service"></a>Mobilitetstjänsten
 
-Med tjänsten Azure Maps mobilitet kan du planera real tids resor. Den returnerar bästa möjliga väg alternativ och ger olika typer av rese lägen. För Metro-områden kan de här lägena omfatta promenad, cykla och offentlig överföring. Du kan begära transit färdväg, rad geometri, listor över stopp, schemalagda och real tids införslar och tjänst aviseringar.
+Med tjänsten Azure Maps mobilitet kan du planera real tids resor. Den returnerar bästa möjliga väg alternativ och ger olika typer av rese lägen. För Metro-områden kan de här lägena omfatta promenad, cykla och offentlig överföring. Du kan begära transit färdväg, rad geometri, listor över stopp, schemalagda införslar, real tids införslar och tjänst aviseringar.
 
-Tjänsten tillåter också sökningar efter vissa objekt typer, till exempel delade cyklar, scooters eller bilar runt en plats. Användare kan begära antalet tillgängliga cyklar i närmaste Docker och söka efter delning av de tillgängliga fordonen. Dessutom kan användarna hitta information som framtida tillgänglighet av fordon och aktuell bränsle nivå.
+Tjänsten tillåter också sökning efter vissa objekt typer runt en plats. Användare kan söka efter delade cyklar, scooters eller bilar runt en plats. Användare kan begära antalet tillgängliga cyklar i närmaste Docker och söka efter delning av de tillgängliga fordonen. Dessutom kan användarna hitta information som framtida tillgänglighet för fordon och aktuell bränsle nivå.
 
 Mer information om tjänsten finns i [dokumentationen för Mobility API](https://docs.microsoft.com/rest/api/maps/mobility).
 
 ### <a name="render-service"></a>Renderingstjänst
 
-Åter givnings tjänsten hjälper utvecklare att skapa webb-och mobil program runt mappning. Tjänsten använder antingen grafiska rasterbilder av hög kvalitet, tillgängliga i 19 zoomningsnivåer, eller helt anpassningsbara kartbilder i vektorformat.
+Åter givnings tjänsten hjälper utvecklare att skapa webb-och mobil program med kart funktioner. Tjänsten använder antingen grafiska rasterbilder av hög kvalitet, tillgängliga i 19 zoomningsnivåer, eller helt anpassningsbara kartbilder i vektorformat.
 
 ![Exempel på en karta från åter givnings tjänsten](media/about-azure-maps/Introduction_Map.png)
 
@@ -79,7 +79,7 @@ Nu finns förhandsversions-API:er med återgivningstjänsten, så att utvecklare
 
 ### <a name="route-service"></a>Routningstjänst
 
-I Route Service finns robusta geometriberäkningar för verklig infrastruktur och anvisningar om flera transportlägen. Tjänsten gör det möjligt för utvecklare att beräkna riktningar efter ett antal färdmedel, till exempel bil, lastbil, cykel eller gående. Tjänsten kan också inkludera indata som trafikförhållanden, viktbegränsningar eller transport av farligt material.
+I Route Service finns robusta geometriberäkningar för verklig infrastruktur och anvisningar om flera transportlägen. Tjänsten gör det möjligt för utvecklare att beräkna vägvisningar i ett antal rese lägen, till exempel bil, Last bil, cykel eller promenad. Tjänsten tar också hänsyn till inmatningar som trafik villkor, vikt begränsningar eller transport av farligt material.
 
 ![Exempel på en karta från Route service](media/about-azure-maps/Introduction_Route.png)
 
@@ -108,7 +108,7 @@ API:er för sökningar inom batch och område finns för närvarande som förhan
 
 ### <a name="spatial-operations-service"></a>Tjänst för spatial verksamhet
 
-Tjänsten Azure Maps spatial drift tar plats information och analyserar den snabbt för att hjälpa till att informera kunder om pågående händelser i tid och utrymme. Den möjliggör analys i nära real tid och förutsägande modellering av händelser. 
+Tjänsten Azure Maps spatiala åtgärder tar plats information. Den analyserar snabbt plats information och hjälper till att informera kunder om pågående händelser i tid och utrymme. Den möjliggör analys i nära real tid och förutsägande modellering av händelser. 
 
 Tjänsten gör det möjligt för kunderna att förbättra sin plats information med ett bibliotek med vanliga geospatiala matematiska beräkningar. Vanliga beräkningar är närmast punkt, fantastisk cirkel avstånd och buffertar. Läs mer om tjänsten och de olika funktionerna i API-dokumentationen för [spatiala åtgärder](https://docs.microsoft.com/rest/api/maps/spatial).
 
@@ -118,7 +118,7 @@ Med tids zons tjänsten kan du fråga aktuell, historisk och framtida tids zons 
 
 * Konvertera Microsoft Windows Time-Zone-ID till IANA-tidszoner.
 * Hämtar en tids zons förskjutning till UTC.
-* Hämtar den aktuella tiden i en tidszon. 
+* Hämtar aktuell tid i en vald tidszon. 
 
 Ett typiskt JSON-svar för en fråga till tids zons tjänsten ser ut som i följande exempel:
 
@@ -169,7 +169,7 @@ Azure Maps erbjuder också en praktisk [JavaScript-mappning](https://docs.micros
 
 Att komma åt Azure Maps-tjänsterna är en fråga om att gå till [Azure Portal](https://portal.azure.com) och skapa ett Azure Maps-konto.
 
-I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto har två nycklar som redan har skapats för dig. Börja integrera de här plats funktionerna i ditt program med hjälp av antingen nycklar och gör en begäran till tjänsten Azure Maps.
+I Azure Maps används ett schema för nyckelbaserad autentisering. Ditt konto har två nycklar som redan har skapats för dig, Använd båda nycklarna. Börja integrera de här plats funktionerna i programmet och gör förfrågningar till de Azure Maps tjänsterna.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

@@ -1,0 +1,38 @@
+---
+title: 'Mönster: värde operatorn i en princip definition'
+description: Detta Azure Policy mönster innehåller ett exempel på hur du använder värde operatorn i en princip definition.
+ms.date: 01/31/2020
+ms.topic: sample
+ms.openlocfilehash: ace7b7cd4a765cdb8c7aa764b52b180c60508ab2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77172788"
+---
+# <a name="azure-policy-pattern-the-value-operator"></a>Azure Policy mönster: värde operatorn
+
+[Värde](../concepts/definition-structure.md#value) operatorn utvärderar [parametrar](../concepts/definition-structure.md#parameters), mall- [funktioner som stöds](../concepts/definition-structure.md#policy-functions)eller litteraler till ett angivet värde för ett givet [villkor](../concepts/definition-structure.md#conditions).
+
+> [!WARNING]
+> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit **nekande**. Mer information finns i [undvika mall-haverier](../concepts/definition-structure.md#avoiding-template-failures).
+
+## <a name="sample-policy-definition"></a>Exempel på princip definition
+
+Den här princip definitionen lägger till eller ersätter taggen som anges i parametern **TagName** (_sträng_) på resurser och ärver värdet för **TagName** från resurs gruppen som resursen finns i. Den här utvärderingen sker när resursen har skapats eller uppdaterats. Som en [ändrings](../concepts/effects.md#modify) funktion kan reparationen köras på befintliga resurser via en [reparations uppgift](../how-to/remediate-resources.md).
+
+:::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json":::
+
+### <a name="explanation"></a>Förklaring
+
+:::code language="json" source="~/policy-templates/patterns/pattern-value-operator.json" range="20-30" highlight="7,8":::
+
+**Värde** operatorn används i **policyRule. if** -block i **Egenskaper**. I det här exemplet används den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf** för att ange att båda villkors satserna måste vara sanna för att **ändringen**ska äga rum.
+
+**värdet** utvärderar resultatet av [resourceGroup ()](../../../azure-resource-manager/templates/template-functions-resource.md#resourcegroup) till villkoret **notEquals** för ett tomt värde. Om det taggnamn som anges i **TagName** för den överordnade resurs gruppen finns, utvärderas villkoret till sant.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Granska andra [mönster och inbyggda definitioner](./index.md).
+- Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
+- Granska [Förstå policy-effekter](../concepts/effects.md).

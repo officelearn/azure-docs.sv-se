@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 33e1037a0fe261f9fb0d06a9ebb0b3b323fe8d5f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5657a2d2c348b371f81aed74c92e52b5199cdc61
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701271"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159888"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
@@ -50,8 +50,8 @@ I den här guiden används följande bibliotek:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library för Java Script Preview|
 
 > [!NOTE]
-> *Msal. js* riktar sig till Microsoft Identity Platform-slutpunkten, som möjliggör personliga konton och skolan och arbets konton för att logga in och förvärva token. Slut punkten för Microsoft Identity Platform har [vissa begränsningar](azure-ad-endpoint-comparison.md#limitations).
-> Information om skillnaderna mellan v 1.0 och v 2.0-slut punkter finns i [jämförelse guiden för slut punkten](azure-ad-endpoint-comparison.md).
+> *Msal. js* riktar sig till Microsoft Identity Platform-slutpunkten, som möjliggör personliga konton och skolan och arbets konton för att logga in och förvärva token. Slut punkten för Microsoft Identity Platform har [vissa begränsningar](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
+> Information om skillnaderna mellan v 1.0 och v 2.0-slut punkter finns i [jämförelse guiden för slut punkten](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
 
@@ -65,7 +65,7 @@ I den här guiden används följande bibliotek:
 >
 > Om du vill konfigurera kod exemplet innan du kör det går du vidare till [konfigurations steget](#register-your-application).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * För att kunna köra den här självstudien behöver du en lokal webb server, till exempel [Node. js](https://nodejs.org/en/download/), [.net Core](https://www.microsoft.com/net/core)eller IIS Express-integrering med [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -266,7 +266,7 @@ Det SPA-skydd som genereras av den här guiden anropar `acquireTokenSilent` och/
 
 #### <a name="getting-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
+Efter den första inloggningen vill du inte be användarna att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Så *acquireTokenSilent* bör användas mest av tiden för att hämta tokens. Det finns dock situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 
 - Användare måste ange sina autentiseringsuppgifter på grund av att lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.
@@ -325,7 +325,7 @@ Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du kontot längst upp till höger och anger sedan din portal-session till den Azure AD-klient som du vill använda.
 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
@@ -377,7 +377,7 @@ Lägg till följande kod i `index.html`-filen inom `<script></script>`-taggarna:
     };
     ```
 
-    Var:
+    Där:
     - *\<Enter_the_Application_Id_here >* är **program-ID: t (Client)** för det program som du har registrerat.
     - *\<Enter_the_Tenant_info_here >* har angetts till något av följande alternativ:
        - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76530901"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179132"
 ---
 Den här artikeln beskriver hur du planerar för säkerhets kopiering och haveri beredskap (DR) för virtuella IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
 
@@ -33,7 +33,7 @@ Innan vi tittar på säkerhets kopierings-och DR-alternativ kan vi Sammanfattnin
 
 ### <a name="azure-iaas-resiliency"></a>Azure IaaS-återhämtning
 
-*Återhämtning* syftar på toleransen för normala fel som inträffar i maskin varu komponenter. Återhämtning är möjligheten att återställa från fel och fortsätta att fungera. Det handlar inte om att undvika fel, utan om att reagera på fel på ett sätt som förhindrar avbrott eller dataförluster. Målet med elasticiteten är att återställa programmet till ett fullt fungerande tillstånd efter fel. Azure Virtual Machines och disks har utformats för att vara elastiska för vanliga maskin varu fel. Nu ska vi titta på hur Azure IaaS-plattformen ger den här återhämtnings förmågan.
+*Återhämtning* syftar på toleransen för normala fel som inträffar i maskin varu komponenter. Återhämtning är möjligheten att återställa från fel och fortsätta att fungera. Det är inte att undvika att undvika problem, utan att svara på problem på ett sätt som förhindrar avbrott eller data förlust. Målet med elasticiteten är att återställa programmet till ett fullt fungerande tillstånd efter fel. Azure Virtual Machines och disks har utformats för att vara elastiska för vanliga maskin varu fel. Nu ska vi titta på hur Azure IaaS-plattformen ger den här återhämtnings förmågan.
 
 En virtuell dator består huvudsakligen av två delar: en beräknings Server och de beständiga diskarna. Båda påverkar fel toleransen för en virtuell dator.
 
@@ -51,7 +51,7 @@ Kunder kan använda [tillgänglighets uppsättningar](../articles/virtual-machin
 
 På grund av dessa separata fel domäner påverkar inte lokaliserade maskin varu fel flera virtuella datorer i uppsättningen samtidigt. Att ha separata fel domäner ger hög tillgänglighet för ditt program. Det anses vara en bra idé att använda tillgänglighets uppsättningar när hög tillgänglighet krävs. I nästa avsnitt beskrivs Disaster Recovery-aspekten.
 
-### <a name="backup-and-disaster-recovery"></a>Säkerhetskopiering och katastrofåterställning
+### <a name="backup-and-disaster-recovery"></a>Säkerhets kopiering och haveri beredskap
 
 Haveri beredskap är möjligheten att återställa från sällsynta, men större incidenter. Dessa incidenter omfattar icke-tillfälliga, storskaliga haverier, till exempel avbrott i tjänsten som påverkar en hel region. Haveri beredskap omfattar säkerhets kopiering och arkivering av data, och kan innehålla manuella åtgärder, till exempel att återställa en databas från en säkerhets kopia.
 
@@ -103,17 +103,17 @@ Om du använder [Premium-SSD](../articles/virtual-machines/windows/disks-types.m
 För ohanterade diskar kan du använda den lokalt redundanta lagrings typen för IaaS diskar, men se till att Azure Backup är aktiverat med alternativet Geo-redundant lagring för Recovery Services-valvet.
 
 > [!NOTE]
-> Om du använder geo [-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) eller alternativet [Geo-redundant lagring med Läs åtkomst](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) för dina ohanterade diskar, behöver du fortfarande konsekventa ögonblicks bilder för säkerhets kopiering och Dr. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots).
+> Om du använder geo [-redundant lagring](../articles/storage/common/storage-redundancy-grs.md) eller alternativet [Geo-redundant lagring med Läs åtkomst](../articles/storage/common/storage-redundancy.md) för dina ohanterade diskar, behöver du fortfarande konsekventa ögonblicks bilder för säkerhets kopiering och Dr. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots).
 
  Följande tabell är en sammanfattning av de lösningar som är tillgängliga för DR.
 
 | Scenario | Automatisk replikering | DR-lösning |
 | --- | --- | --- |
-| Premium SSD-diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Managed Disks | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Premium SSD diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Hanterade diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Ohanterade lokalt redundanta lagrings diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Ohanterade geo-redundanta lagrings diskar | Mellan region ([Geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
-| Ohanterade geo-redundanta lagrings diskar med Läs behörighet | Mellan region ([Read-Access Geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
+| Ohanterade geo-redundanta lagrings diskar med Läs behörighet | Mellan region ([Read-Access Geo-redundant lagring](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
 
 Hög tillgänglighet uppnås bäst genom att använda hanterade diskar i en tillgänglighets uppsättning tillsammans med Azure Backup. Om du använder ohanterade diskar kan du fortfarande använda Azure Backup för DR. Om du inte kan använda Azure Backup och använder [konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots), som beskrivs i ett senare avsnitt, är en alternativ lösning för säkerhets kopiering och Dr.
 

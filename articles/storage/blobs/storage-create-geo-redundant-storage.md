@@ -6,36 +6,36 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0eabd918b5f8f52049792ceb28ef8055945d6475
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892914"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162182"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
 Den här självstudien är del ett i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
 
-När du har slutfört den här självstudien har du ett konsolprogram som laddar upp och hämtar en blob från ett [Read-Access Geo Redundant](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)-lagringskonto (RA-GRS).
+När du har slutfört den här självstudien har du ett konsolprogram som laddar upp och hämtar en blob från ett [Read-Access Geo Redundant](../common/storage-redundancy.md)-lagringskonto (RA-GRS).
 
 Med RA-GRS replikeras transaktioner från en primär region till en sekundär region. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. Programmet använder mönstret [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) (Kretsbrytare) för att avgöra vilken slutpunkt som ska anslutas till. Det växlar automatiskt mellan slutpunkter när fel och återställningar simuleras.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-I del ett i den här serien lärde du dig att:
+I en del av serien får du lära dig hur du:
 
 > [!div class="checklist"]
 > * skapar ett lagringskonto
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
@@ -52,7 +52,7 @@ För att slutföra den här självstudien behöver du:
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
 
-* Installera [Node.js](https://nodejs.org).
+* Installera [Node. js](https://nodejs.org).
 
 ---
 
@@ -74,7 +74,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Namn** | mystorageaccount | Ett unikt värde för lagringskontot |
-   | **Distributionsmodell** | Resurshanterare  | Resource Manager innehåller de senaste funktionerna.|
+   | **Distributionsmodell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
    | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984854"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169840"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning beräknings instans?
 
@@ -26,9 +26,6 @@ Använd en beräknings instans som din fullständigt konfigurerade och hanterade
 
 Beräknings instanser används vanligt vis som utvecklings miljöer.  De kan också användas som beräknings mål för utbildning och inferencing för utveckling och testning.  För stora aktiviteter är ett [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
 
-> [!NOTE]
-> Beräknings instanser är för närvarande endast tillgängliga för arbets ytor med en region i **norra centrala USA**, **östra USA 2**, **Nord Europa** eller **Storbritannien, södra**, med stöd för andra regioner som kommer snart.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
 
 ## <a name="why-use-a-compute-instance"></a>Varför ska man använda en beräknings instans?
 
@@ -48,7 +45,7 @@ Med Azure Machine Learning Compute-instansen kan du skapa, träna och distribuer
 
 De här verktygen och miljöerna är installerade på beräknings instansen: 
 
-|Allmänna verktyg & miljöer|Information|
+|Allmänna verktyg & miljöer|Detaljer|
 |----|:----:|
 |Drivrutiner|`CUDA`</br>`cuDNN`</br>`NVIDIA`</br>`Blob FUSE` |
 |Intel MPI-bibliotek||
@@ -60,19 +57,19 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 |NCCL 2,0 ||
 |Protobuf|| 
 
-|**R** -verktyg & miljöer|Information|
+|**R** -verktyg & miljöer|Detaljer|
 |----|:----:|
 |RStudio server med öppen källkod||
 |R-kernel||
 |Azure Machine Learning SDK för R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK-exempel|
 
-|**Python** -verktyg & miljöer|Information|
+|**Python** -verktyg & miljöer|Detaljer|
 |----|----|
-|Anaconda Python||
+|Anaconda python||
 |Jupyter och tillägg||
 |Jupyterlab och tillägg||
-|Visual Studio-kod ||
-[Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>från PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
+|Visual Studio Code ||
+[Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>från PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
 |Andra PyPI-paket|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda-paket|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Djup inlärnings paket|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -124,7 +121,7 @@ Du kan utföra följande åtgärder:
 
 För varje beräknings instans i din arbets yta kan du:
 
-* Komma åt Jupyter, JupyterLab, RStudio, VS Code-URI: er på beräknings instansen
+* Åtkomst Jupyter, JupyterLab, RStudio på beräknings instansen
 * SSH till beräknings instans. SSH-åtkomst är inaktive rad som standard men kan aktive ras vid skapande av beräknings instanser. SSH-åtkomst sker via en funktion för offentlig/privat nyckel. På fliken får du information om SSH-anslutning, till exempel IP-adress, användar namn och port nummer.
 * Hämta information om en angiven beräknings instans, till exempel IP-adress och region.
 

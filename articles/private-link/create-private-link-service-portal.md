@@ -8,16 +8,16 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: f62adbaea8d6549af0137f49542ee89e7531b9ef
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e316da12345c0bf1ea3682dadb1a7a65f250747b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136170"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191091"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Snabb start: skapa en privat länk-tjänst med hjälp av Azure Portal
 
-En Azure Private Link-tjänst refererar till din egen tjänst som hanteras av en privat länk. Du kan ge privat länk åtkomst till den tjänst eller resurs som fungerar bakom Azure Load Balancer. Konsumenter av tjänsten kan komma åt den privat från sina egna virtuella nätverk. I den här snabb starten får du lära dig hur du skapar en privat länk-tjänst med hjälp av Azure Portal.
+En Azure Private Link-tjänst refererar till din egen tjänst som hanteras av en privat länk. Du kan ge privat länk åtkomst till den tjänst eller resurs som fungerar bakom Azure Standard Load Balancer. Konsumenter av tjänsten kan komma åt den privat från sina egna virtuella nätverk. I den här snabb starten får du lära dig hur du skapar en privat länk-tjänst med hjälp av Azure Portal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -37,9 +37,9 @@ I det här avsnittet skapar du ett virtuellt nätverk. Du skapar också ett unde
 
 1. I fönstret **Skapa virtuellt nätverk** anger eller väljer du följande värden:
 
-   - **Namn**: ange **MyVNet**.
-   - **ResourceGroup**: Välj **Skapa ny**, ange **MyResourceGroupLB**och välj **OK**.
-   - **Under näts** > **namn**: ange **MyBackendSubnet**.
+   - **Namn**: ange **myVNet**.
+   - **ResourceGroup**: Välj **Skapa ny**, ange **myResourceGroupLB**och välj **OK**.
+   - **Under näts** > **namn**: ange **myBackendSubnet**.
 
 1. Välj **Skapa**.
 
@@ -56,12 +56,12 @@ Använd portalen för att skapa en standard intern belastningsutjämnare. Namnet
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | **Prenumeration**               | Välj din prenumeration.    |
-    | **Resursgrupp**         | Välj **MyResourceGroupLB** från rutan.|
+    | **Resursgrupp**         | Välj **myResourceGroupLB** från rutan.|
     | **Namn**                   | Ange **myLoadBalancer**.                                   |
     | **Region**         | Välj **USA, östra 2**.                                        |
     | **Typ**          | Välj **Intern**.                                        |
     | **SKU**           | Välj **standard**.                          |
-    | **Virtuellt nätverk**           | Välj **MyVNet**.                          |
+    | **Virtuellt nätverk**           | Välj **myVNet**.                          |
     | **Tilldelning av IP-adress**              | Välj **Statisk**.   |
     | **Privat IP-adress**|Ange en adress i adress utrymmet för det virtuella nätverket och under nätet. Ett exempel är 10.3.0.7.  |
 
@@ -88,13 +88,13 @@ Använd en hälso avsökning för att låta belastnings utjämning övervaka res
 
 Så här skapar du en hälso avsökning för att övervaka hälso tillståndet för resurserna:
 
-1. Välj **alla resurser** på menyn längst till vänster och välj sedan **MyLoadBalancer** i resurs listan.
+1. Välj **alla resurser** på menyn längst till vänster och välj sedan **myLoadBalancer** i resurs listan.
 
 1. Under **Inställningar** väljer du **Hälsoavsökningar** och sedan **Lägg till**.
 
 1. På sidan **Lägg till hälso avsökning** anger eller väljer du följande värden:
 
-   - **Namn**: ange **MyHealthProbe**.
+   - **Namn**: ange **myHealthProbe**.
    - **Protokoll**: Välj **TCP**.
    - **Port**: ange **80**.
    - **Intervall**: ange **15**. Det här värdet är antalet sekunder mellan avsöknings försök.
@@ -110,23 +110,23 @@ En belastnings Utjämnings regel definierar hur trafiken distribueras till resur
 - Server delens IP-pool för att ta emot trafiken.
 - Käll-och mål portarna som krävs.
 
-Belastnings Utjämnings regeln med namnet **MyLoadBalancerRule** lyssnar på port 80 i **LoadBalancerFrontEnd** -klient delen. Regeln skickar nätverks trafik till **MyBackendPool** backend-adresspoolen på samma port 80.
+Belastnings Utjämnings regeln med namnet **myLoadBalancerRule** lyssnar på port 80 i **LoadBalancerFrontEnd** -klient delen. Regeln skickar nätverks trafik till **myBackendPool** backend-adresspoolen på samma port 80.
 
 Så här skapar du en belastnings Utjämnings regel:
 
-1. Välj **alla resurser** på menyn längst till vänster och välj sedan **MyLoadBalancer** i resurs listan.
+1. Välj **alla resurser** på menyn längst till vänster och välj sedan **myLoadBalancer** i resurs listan.
 
 1. Under **Inställningar**väljer du **regler för belastnings utjämning**och väljer sedan **Lägg till**.
 
 1. På sidan **Lägg till belastnings Utjämnings regel** anger eller väljer du följande värden om de inte redan finns:
 
-   - **Namn**: ange **MyLoadBalancerRule**.
+   - **Namn**: ange **myLoadBalancerRule**.
    - **IP-adress för klient del:** Ange **LoadBalancerFrontEnd**.
    - **Protokoll**: Välj **TCP**.
    - **Port**: ange **80**.
    - **Backend-port**: ange **80**.
-   - **Serverdelspool**: Välj **MyBackendPool**.
-   - **Hälsoavsökning**: Välj **MyHealthProbe**. 
+   - **Backend-pool**: Välj **myBackendPool**.
+   - **Hälso avsökning**: Välj **myHealthProbe**. 
 
 1. Välj **OK**.
 
@@ -144,7 +144,7 @@ I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastn
     |-------------------|------------------------------------------------------------------------------|
     | Projekt information:  |                                                                              |
     | **Prenumeration**      | Välj din prenumeration.                                                     |
-    | **Resursgrupp**    | Välj **MyResourceGroupLB**.                                                    |
+    | **Resursgrupp**    | Välj **myResourceGroupLB**.                                                    |
     | Instans information: |                                                                              |
     | **Namn**              | Ange **myPrivateLinkService**. |
     | **Region**            | Välj **USA, östra 2**.                                                        |
@@ -155,9 +155,9 @@ I det här avsnittet skapar du en privat länk-tjänst bakom en standard belastn
 
     | Inställning                           | Värde                                                                           |
     |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Lastbalanserare**                     | Välj **MyLoadBalancer**.                                                           |
-    | **IP-adress för Load Balancer-klient** | Välj IP-adressen för klient delen av **MyLoadBalancer**.                                |
-    | **Käll-NAT virtuellt nätverk**        | Välj **myVNET**.                                                                   |
+    | **Lastbalanserare**                     | Välj **myLoadBalancer**.                                                           |
+    | **IP-adress för Load Balancer-klient** | Välj IP-adressen för klient delen av **myLoadBalancer**.                                |
+    | **Käll-NAT virtuellt nätverk**        | Välj **myVNet**.                                                                   |
     | **Käll-NAT-undernät**                 | Välj **myBackendSubnet**.                                                          |
     | **Aktivera TCP-proxy v2**               | Välj **Ja** eller **Nej** beroende på om ditt program förväntar sig ett TCP-proxy v2-huvud. |
     | **Inställningar för privata IP-adresser**       | Konfigurera tilldelnings metoden och IP-adressen för varje NAT-IP.                  |

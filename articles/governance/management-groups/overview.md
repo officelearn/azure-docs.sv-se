@@ -4,12 +4,12 @@ description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur d
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: a8b087eeaa2f087e79a4d05764199e3b72b6ec66
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151980"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186990"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -23,7 +23,7 @@ Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer fö
 
 ![Exempel på ett hierarkiträd för hanteringsgrupp](./media/tree.png)
 
-Du kan till exempel skapa en hierarki som tillämpar en princip som begränsar VM-platser till regionen USA, västra i gruppen med namnet ”Produktion”. Den här principen ärver till alla de EA-prenumerationer som är underordnade till den hanterings gruppen och gäller för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
+Du kan till exempel skapa en hierarki som tillämpar en princip som begränsar VM-platser till regionen USA, västra i gruppen med namnet ”Produktion”. Den här principen ärver till alla Enterprise-avtal-prenumerationer (EA) som är underordnade till den hanterings gruppen och gäller för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
 
 Ett annat scenario där du kan använda hanteringsgrupper är för att ge användaråtkomst till flera prenumerationer. Genom att flytta flera prenumerationer under hanteringsgruppen kan du skapa en tilldelning av [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) till den. Detta gör även att alla prenumerationer ärver åtkomsten.
 Genom att tilldela till hanteringsgruppen kan du ge användarna åtkomst till allt de behöver istället för att skapa skript för RBAC för flera prenumerationer.

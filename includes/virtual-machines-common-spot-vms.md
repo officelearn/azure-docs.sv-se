@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a6c333da0e88af25e3907af23f792a210002477f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901620"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179020"
 ---
 Med hjälp av virtuella datorer kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
 
@@ -23,16 +23,12 @@ Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid oc
 > Punkt instanser finns för närvarande i offentlig för hands version.
 > Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> För den första delen av den offentliga för hands versionen har plats instanser ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
 
 ## <a name="eviction-policy"></a>Borttagnings princip
 
 Virtuella datorer kan avlägsnas baserat på kapacitet eller det högsta pris som du har angett. För virtuella datorer är borttagnings principen inställd på *frigörning* som flyttar de avlägsnade virtuella datorerna till statusen stoppad-frigjord, så att du kan distribuera om de avlägsnade virtuella datorerna vid ett senare tillfälle. Däremot kommer omtilldelning av virtuella datorer att vara beroende av att det finns tillgänglig dekor kapacitet. De friallokerade virtuella datorerna räknas över till din vCPU kvot och du debiteras för de underliggande diskarna. 
 
 Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure schemalagda händelser](../articles/virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer avlägsnas och du har 30 sekunder på dig att slutföra jobben och utföra avstängnings uppgifter innan avlägsnandet. 
-
-> [!IMPORTANT]
-> I den första delen av den offentliga för hands versionen kan du ange ett högsta pris, men det ignoreras. Virtuella datorer med virtuella datorer har ett fast pris, så det kommer inte att finnas några prisbaserade avvisningar.
 
 
 | Alternativ | Resultat |
@@ -54,9 +50,9 @@ Följande VM-storlekar stöds inte för virtuella datorer på platsen:
 
 Virtuella datorer för virtuella datorer kan för närvarande inte använda tillfälliga OS-diskar.
 
-Virtuella datorer kan distribueras till valfri region, förutom Microsoft Azure Kina och försvars avdelningen (DoD) i Azure Government region.
+Virtuella datorer kan distribueras till vilken region som helst, förutom Microsoft Azure Kina 21Vianet.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
@@ -64,7 +60,7 @@ Priser för virtuella datorer i virtuella datorer är varierande, baserat på re
 Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset som ska `-1`avlägsnas inte den virtuella datorn baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
 
 
-##  <a name="frequently-asked-questions"></a>Vanliga frågor
+##  <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F:** När den har skapats är en virtuell dator på samma sätt som vanlig standard-VM?
 
@@ -94,12 +90,12 @@ Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) me
 
 | Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Ja                               |
+| Enterprise-avtal         | Ja                               |
 | Betala per användning                | Ja                               |
 | Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Erbjudande                     | Inte tillgänglig                     |
-| Sponsrat                    | Inte tillgänglig                     |
-| Kostnadsfri utvärderingsversion                   | Inte tillgänglig                     |
+| Fördelar                     | Inte tillgängligt                     |
+| Sponsrat                    | Inte tillgängligt                     |
+| Kostnads fri utvärdering                   | Inte tillgängligt                     |
 
 
 **F:** Var kan jag skicka frågor?

@@ -7,15 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 02/03/2020
-ms.custom: mvc
+ms.date: 02/12/2020
 ms.topic: overview
-ms.openlocfilehash: ad24418bf3879e4ef9a0ae4833c37c051079c668
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133853"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190310"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure-båge för servrar (förhands granskning)
 
@@ -41,6 +40,8 @@ Med Azure Arc for Servers (för hands version) stöds endast vissa regioner:
 - WestUS2
 - Västeuropa
 - WestAsia
+
+I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. För återhämtning i händelse av ett regionalt avbrott, om du har flera platser som tillhandahåller en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -135,10 +136,10 @@ Att ansluta datorer i din hybrid miljö direkt med Azure kan utföras med hjälp
 
 | Metod | Beskrivning |
 |--------|-------------|
-| Interaktivt | Installera agenten manuellt på ett enda eller litet antal datorer enligt stegen i [ansluta datorer från Azure Portal](quickstart-onboard-portal.md).<br> Från Azure Portal kan du generera ett skript och köra det på datorn för att automatisera installations-och konfigurations stegen för agenten.|
-| I skala | Installera och konfigurera agenten för flera datorer efter att [ansluta datorerna med ett huvud namn för tjänsten](quickstart-onboard-powershell.md).<br> Den här metoden skapar ett huvud namn för tjänsten för att ansluta datorer icke-interaktivt.|
+| Interaktivt | Installera agenten manuellt på ett enda eller litet antal datorer enligt stegen i [ansluta datorer från Azure Portal](onboard-portal.md).<br> Från Azure Portal kan du generera ett skript och köra det på datorn för att automatisera installations-och konfigurations stegen för agenten.|
+| I skala | Installera och konfigurera agenten för flera datorer efter att [ansluta datorerna med ett huvud namn för tjänsten](onboard-service-principal.md).<br> Den här metoden skapar ett huvud namn för tjänsten för att ansluta datorer icke-interaktivt.|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill börja utvärdera Azure-bågen för servrar (för hands version) följer du artikeln [Connect hybrid Machines to Azure från Azure Portal](quickstart-onboard-portal.md). 
+- Om du vill börja utvärdera Azure-bågen för servrar (för hands version) följer du artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md). 

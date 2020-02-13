@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a31dc1c6d1a7f4dce6e7baae5a0e0e8f3d6d3d34
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748890"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179098"
 ---
 ## <a name="trigger"></a>Utlösare
 
@@ -289,17 +289,7 @@ def main(event: func.EventHubEvent):
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-I följande exempel visas en Utlös ande bindning för Event Hub i en *Function. JSON* -fil och en [Java-funktion](../articles/azure-functions/functions-reference-java.md) som använder bindningen. Funktionen loggar meddelande texten i Event Hub-utlösaren.
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "msg",
-  "direction": "in",
-  "eventHubName": "myeventhubname",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
+I följande exempel visas en trigger-bindning (Event Hub) som loggar meddelande texten i Event Hub-utlösaren.
 
 ```java
 @FunctionName("ehprocessor")
@@ -357,7 +347,7 @@ I Java [Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overv
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `EventHubTrigger`-attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Description|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ** | Saknas | måste anges till `eventHubTrigger`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
@@ -374,7 +364,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 Event Hubs utlösaren innehåller flera [Egenskaper för metadata](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Egenskaper för metadata kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. Egenskaperna kommer från [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) -klassen.
 
-|Egenskap|Typ|Description|
+|Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|`PartitionContext`-instansen.|
 |`EnqueuedTimeUtc`|`DateTime`|Kötid i UTC.|
@@ -624,7 +614,7 @@ I [Java Functions runtime-biblioteket](https://docs.microsoft.com/java/api/overv
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `EventHub`-attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Description|
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
 |**typ** | Saknas | Måste vara inställd på eventHub. |
 |**riktning** | Saknas | Måste anges till ”ut”. Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
@@ -697,7 +687,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 }  
 ```
 
-|Egenskap  |Standard | Description |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |`maxBatchSize`|10|Maximalt antal händelser som tas emot per Receive-slinga.|
 |`prefetchCount`|300|Standard antalet för hämtningar som används av underliggande `EventProcessorHost`.|

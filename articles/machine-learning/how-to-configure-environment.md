@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 56d6e8642ffd127f0982485902c466b76cbaaeed
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 32db7b19b7ec63135c3359f9685dd767dd0921f5
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986520"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169846"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 * [Visual Studio Code](#vscode): om du använder Visual Studio code innehåller [Azure Machine Learning tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) omfattande språk stöd för python samt funktioner för att arbeta med Azure Machine Learning mycket bekvämare och produktivitet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#compute-instance), en [DSVM](#dsvm)eller [Azure Databricks](#aml-databricks).
 
@@ -50,17 +50,13 @@ Om du vill installera SDK-miljön för den [lokala datorn](#local), [Jupyter Not
 - I Linux eller macOS behöver du bash-gränssnittet.
 
     > [!TIP]
-    > Om du använder Linux eller macOS och använder ett annat skal än bash (till exempel zsh) kan du få fel när du kör vissa kommandon. Undvik problemet genom att använda den `bash` kommando för att starta en ny bash-gränssnitt och kör kommandon det.
+    > Om du använder Linux eller macOS och använder ett annat skal än bash (till exempel zsh) kan du få fel när du kör vissa kommandon. Undvik det här problemet genom att använda kommandot `bash` för att starta ett nytt bash-gränssnitt och köra kommandona där.
 
 - På Windows måste du Kommandotolken eller Anaconda kommandotolk (installerad som Anaconda och Miniconda).
 
 ## <a id="compute-instance"></a>Din egen molnbaserade beräknings instans
 
 Azure Machine Learning [Compute-instansen (förhands granskning)](concept-compute-instance.md) är en säker, molnbaserad Azure-arbetsstation som tillhandahåller data experter med en Jupyter Notebook-Server, JupyterLab och en helt för beredd ml-miljö.
-
-> [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA**, **östra USA 2**, **Nord Europa** eller **Storbritannien, södra**, med stöd för andra regioner som kommer snart.
->Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.
 
 Det finns inget att installera eller konfigurera för en beräknings instans.  Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
@@ -69,7 +65,7 @@ Läs mer om [beräknings instanser](concept-compute-instance.md).
 
 [Stoppa beräknings instansen](tutorial-1st-experiment-sdk-train.md#clean-up-resources)om du vill sluta att debiteras för beräknings kostnader.
 
-## <a id="dsvm"></a>Virtuell dator för datavetenskap
+## <a id="dsvm"></a>Data Science Virtual Machine
 
 DSVM är en anpassad avbildning av en virtuell dator (VM). Det är utformat för data vetenskaps arbete som är förkonfigurerat med:
 
@@ -210,7 +206,7 @@ När du använder en lokal dator (som också kan vara en virtuell fjärrdator) s
 
 ### <a id="jupyter"></a>Jupyter-anteckningsböcker
 
-Jupyter Notebooks är en del av den [Jupyter projekt](https://jupyter.org/). De ger en interaktiv kodningserfarenheter där du skapar dokument som blandar live-koden med löpande text och grafik. Jupyter-anteckningsböcker är också ett bra sätt att dela dina resultat med andra, eftersom du kan spara utdata från kod avsnitten i dokumentet. Du kan installera Jupyter Notebooks på en rad olika plattformar.
+Jupyter-anteckningsböcker är en del av [Jupyter-projektet](https://jupyter.org/). De ger en interaktiv kodningserfarenheter där du skapar dokument som blandar live-koden med löpande text och grafik. Jupyter-anteckningsböcker är också ett bra sätt att dela dina resultat med andra, eftersom du kan spara utdata från kod avsnitten i dokumentet. Du kan installera Jupyter Notebooks på en rad olika plattformar.
 
 Proceduren i avsnittet [lokal dator](#local) installerar nödvändiga komponenter för att köra Jupyter-anteckningsböcker i en Anaconda-miljö.
 
@@ -251,7 +247,7 @@ Så här aktiverar du dessa komponenter i Jupyter Notebooks miljön:
 1. Om du vill konfigurera Jupyter Notebook att använda arbets ytan Azure Machine Learning går du till avsnittet [skapa en konfigurations fil för arbets yta](#workspace) .
 
 
-### <a id="vscode"></a>Visual Studio Code
+### <a id="vscode"></a>Visual Studio-kod
 
 Visual Studio Code är en mycket populär kod redigerare för olika plattformar som stöder en omfattande uppsättning programmeringsspråk och verktyg via tillägg som är tillgängliga i [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode). [Azure Machine Learning-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installerar [python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för kodning i alla typer av python-miljöer (Virtual, Anaconda osv.). Dessutom innehåller den praktiska funktioner för att arbeta med Azure Machine Learning resurser och köra Azure Machine Learning experiment utan att lämna Visual Studio Code.
 
@@ -311,7 +307,7 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
 
 1. Välj **endast ett** alternativ (ingen annan SDK-installation stöds)
 
-   |SDK-&nbsp;paket&nbsp;extra|Källa|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK-&nbsp;paket&nbsp;extra|Källa|PyPi&nbsp;namn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |För Databricks| Överför python-ägg eller PyPI | azureml-sdk[databricks]|
    |För Databricks – med-<br> automatiserade ML-funktioner| Överför python-ägg eller PyPI | azureml – SDK [automl]|
@@ -351,7 +347,7 @@ Prova:
 
 + Lär dig hur du [skapar en pipeline med Databricks som inlärnings beräkning](how-to-create-your-first-pipeline.md).
 
-## <a id="workspace"></a>Skapa en konfigurationsfil för arbetsyta
+## <a id="workspace"></a>Skapa en konfigurations fil för arbets ytor
 
 Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur du kommunicerar med din Azure Machine Learning-arbetsyta. Filen heter *config. JSON*och har följande format:
 
@@ -365,7 +361,7 @@ Konfigurations filen för arbets ytan är en JSON-fil som talar om för SDK hur 
 
 Den här JSON-filen måste finnas i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
 
-Om du vill använda den här filen från din kod använder `ws=Workspace.from_config()`. Den här koden läser in informationen från filen och ansluter till din arbetsyta.
+Använd `ws=Workspace.from_config()`om du vill använda den här filen från din kod. Den här koden läser in informationen från filen och ansluter till din arbetsyta.
 
 Du kan skapa konfigurations filen på tre sätt:
 
@@ -373,7 +369,7 @@ Du kan skapa konfigurations filen på tre sätt:
 
 * **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från **översikts** avsnittet på arbets ytan.
 
-     ![Azure portal](./media/how-to-configure-environment/configure.png)
+     ![Azure-portalen](./media/how-to-configure-environment/configure.png)
 
 * **Skapa filen program mässigt**: i följande kodfragment ansluter du till en arbets yta genom att ange PRENUMERATIONS-ID, resurs grupp och arbets ytans namn. Sedan sparas arbets ytans konfiguration till filen:
 

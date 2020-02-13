@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: ba974228d63c542027ea5191d2c5877e7288b331
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050022"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169775"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -255,7 +255,7 @@ Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vis
 När du använder **gilla** -och **notLike** -villkoren anger du ett jokertecken `*` i värdet.
 Värdet får inte ha fler än ett jokertecken `*`.
 
-När du använder **matchnings** -och **notMatch** -villkor, anger du `#` för att matcha en siffra, `?` för en bokstav `.` matcha eventuella tecken och andra tecken för att matcha det faktiska tecknet. **Matchnings** -och **notMatch** är Skift läges känsliga, men alla andra villkor som utvärderar en _stringValue_ är Skift läges känsliga. Skift läges känsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
+När du använder **matchnings** -och **notMatch** -villkor, anger du `#` för att matcha en siffra, `?` för en bokstav `.` matcha eventuella tecken och andra tecken för att matcha det faktiska tecknet. **Matchnings** -och **notMatch** är Skift läges känsliga, men alla andra villkor som utvärderar en _stringValue_ är Skift läges känsliga. Skift läges känsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**.
 
 I ett fält värde för **\[\*\] Ali Aset** mat ris, utvärderas varje element i matrisen individuellt med logiska element **och** mellan element. Mer information finns i [utvärdera \[\*\] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -271,7 +271,7 @@ Följande fält stöds:
 - `kind`
 - `type`
 - `location`
-  - Använd **Global** för resurser som är plats oberoende. Ett exempel finns i [samples-tillåtna platser](../samples/allowed-locations.md).
+  - Använd **Global** för resurser som är plats oberoende.
 - `identity.type`
   - Returnerar typen av [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md) som är aktive rad på resursen.
 - `tags`
@@ -663,7 +663,7 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
 
 ### <a name="understanding-the--alias"></a>Förstå alias [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Några exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

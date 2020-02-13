@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988233"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169950"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Den här artikeln innehåller även detaljerad information om *avancerade säker
 > [!WARNING]
 > Microsoft stöder inte användning av Azure Machine Learning designer eller Automatisk maskin inlärning (från Studio) med resurser i ett virtuellt nätverk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -124,10 +124,6 @@ Använd följande steg för att använda Azure Machine Learning experiment funkt
 <a id="amlcompute"></a>
 
 ## <a name="compute-instance"></a>Använd en Machine Learning-beräkning
-
-> [!NOTE]
-> Compute instances (för hands version) är för närvarande endast tillgängliga för arbets ytor med en region som är **Central USA** eller **Storbritannien, södra**, med stöd för andra regioner som kommer snart.
-> Använd någon av dessa regioner för att skapa en beräknings instans som kan läggas till i det virtuella nätverket.
 
 Om du vill använda en Azure Machine Learning beräknings instans eller beräknings kluster i ett virtuellt nätverk måste följande nätverks krav uppfyllas:
 
@@ -508,5 +504,5 @@ Mer information om hur du konfigurerar en nätverks regel finns i [distribuera o
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera utbildnings miljöer](how-to-set-up-training-targets.md)
-* [Var du vill distribuera modeller](how-to-deploy-and-where.md)
+* [Distribuera modeller](how-to-deploy-and-where.md)
 * [Distribuera modeller på ett säkert sätt med SSL](how-to-secure-web-service.md)

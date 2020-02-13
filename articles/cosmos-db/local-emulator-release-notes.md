@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719695"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168652"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -22,9 +22,13 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 | | |
 |---------|---------|
 |**Ladda ned MSI**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Kom igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
+|**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="291"></a>2.9.1
+
+- I den här versionen åtgärdas några problem i API-stöd för frågor och en återställning av kompatibilitet med äldre OSs som Windows Server 2012.
 
 ### <a name="290"></a>2.9.0
 

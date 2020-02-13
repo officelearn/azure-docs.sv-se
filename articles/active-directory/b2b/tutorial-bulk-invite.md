@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c43f1fe0d5850b53f0f72f05633e498a94d871c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149312"
+ms.locfileid: "77166444"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudie: grupp inbjudan till Azure AD B2B Collaboration Users (för hands version)
 
@@ -27,7 +27,7 @@ ms.locfileid: "77149312"
 
 > [!NOTE]
 > Från och med 12/22/2019 har funktionen för grupp användare (förhands granskning) inaktiverats tillfälligt.
-> Det finns för närvarande inget känt datum för när funktionen aktive ras på nytt i Azure Portal. Om du vill bjuda in gäst användare i bulk med hjälp av PowerShell, se [B2B-kod och PowerShell-exempel](code-samples.md).
+> Det finns för närvarande inget känt datum för när funktionen aktive ras på nytt i Azure Portal. Om du vill bjuda in gäst användare i bulk med hjälp av PowerShell läser du [själv studie kursen för B2B-Gruppinbjudan](bulk-invite-powershell.md) eller [B2B-koden och PowerShell-exempel](code-samples.md)
 
 Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien får du lära dig hur du använder Azure Portal för att skicka mass inbjudningar till externa användare. Närmare bestämt kan du göra följande:
 

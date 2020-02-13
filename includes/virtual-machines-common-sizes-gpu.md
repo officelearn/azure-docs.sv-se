@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 0f15a6a277020d593465fa0aa78fc434413c4545
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 8f256749c363e2900fe62bda557f7cb4caa72e3e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909198"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179081"
 ---
 GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgängliga med enkla eller flera NVIDIA GPU: er. De här storlekarna är utformade för beräknings intensiva, grafik intensiva och visualiserings arbets belastningar. Den här artikeln innehåller information om antalet och typen av GPU, virtuella processorer, data diskar och nätverkskort. Lagrings data flöde och nätverks bandbredd ingår också för varje storlek i grupperingen.
 
@@ -34,7 +34,7 @@ Premium Storage caching: stöds inte
 
 Virtuella datorer i NC-serien drivs av [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) -kortet och Intel Xeon E5-2690 v3-processorn (Haswell). Användare kan gå igenom data snabbare genom att använda CUDA för energi gransknings program, krasch simulering, Ray-spårad åter givning, djup inlärning med mera. NC24r-konfigurationen ger ett nätverks gränssnitt med låg latens och hög genom strömning som är optimerat för tätt sammansatta parallella dator arbets belastningar.
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
@@ -59,7 +59,7 @@ NC24rs v2-konfigurationen ger ett nätverks gränssnitt med låg fördröjning o
 > För den här storleks familjen anges vCPU-kvoten (kärnor) i din prenumeration till 0 i varje region. [Begär en vCPU kvot ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
 
-| Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |
@@ -82,7 +82,7 @@ Virtuella datorer i NCv3-serien drivs av [NVIDIA Tesla V100](https://www.nvidia.
 > För den här storleks familjen anges vCPU-kvoten (kärnor) i din prenumeration till 0 i varje region. [Begär en vCPU kvot ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
 
-| Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000/200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000/400 | 8 |
@@ -118,7 +118,7 @@ I stor skala är NDv2 byggd för både beräknings intensiva skalbarhet (med 8 G
 > OBS! den ND40s_v2 med 16 GB minne per GPU är inte längre tillgänglig för för hands versionen och har ersatts av den uppdaterade ND40rs_v2.
 <br>
 
-| Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximal nätverks bandbredd | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximal nätverks bandbredd | Maximalt antal nätverkskort |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 GB (NVLink) | 16 | 32 | 80000/800 | 24000 Mbit/s | 8 |
 
@@ -128,13 +128,13 @@ Premium Storage: stöds
 
 Premium Storage caching: stöds
 
-De virtuella datorerna i ND-serien är ett nytt tillägg till GPU-familjen som är utformad för AI-och djup inlärnings arbets belastningar. De erbjuder utmärkt prestanda för utbildning och härledning. ND-instanser drivs av [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) -GPU: er och Intel Xeon E5-2690 v4-processorer (Broadwell). Dessa instanser ger utmärkta prestanda för flytt ALS åtgärder med enkel precision, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, caffe och andra ramverk. ND-serien erbjuder även en mycket större GPU-minnesstorlek (24 GB), vilket gör det möjligt att passa större neurala nätverksmodeller. I likhet med NC-serien erbjuder ND-serien en konfiguration med ett sekundärt nätverk med låg latens, högt data flöde via RDMA och InfiniBand-anslutning så att du kan köra storskaliga utbildnings jobb över flera GPU: er.
+De virtuella datorerna i ND-serien är ett nytt tillägg till GPU-familjen som är utformad för AI-och djup inlärnings arbets belastningar. De erbjuder utmärkt prestanda för utbildning och härledning. ND-instanser drivs av [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) -GPU: er och Intel Xeon E5-2690 v4-processorer (Broadwell). Dessa instanser ger utmärkta prestanda för flytt ALS åtgärder med enkel precision, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, caffe och andra ramverk. ND-serien erbjuder även en mycket större GPU-minnes storlek (24 GB), vilket gör det möjligt att få plats med mycket större neurala NET-modeller. I likhet med NC-serien erbjuder ND-serien en konfiguration med ett sekundärt nätverk med låg latens, högt data flöde via RDMA och InfiniBand-anslutning så att du kan köra storskaliga utbildnings jobb över flera GPU: er.
 
 > [!IMPORTANT]
 > För den här storleks familjen ställs vCPU (Core)-kvoten per region i din prenumeration till 0. [Begär en vCPU kvot ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_ND6s | 6 |112 | 736 | 1 | 24 | 12 | 20000/200 | 4 |
 | Standard_ND12s | 12 |224 | 1474 | 2 | 48 | 24 | 40000/400 | 8 | 
@@ -155,7 +155,7 @@ De virtuella datorerna med NV-serien drivs av [NVIDIA Tesla M60](https://images.
 
 Varje GPU i NV-instanser levereras med en GRID-licens. Den här licensen ger dig möjlighet att använda en NV-instans som virtuell arbets station för en enskild användare, eller att 25 samtidiga användare kan ansluta till den virtuella datorn för ett virtuellt program scenario.
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt antal nätverkskort | Virtuella arbets stationer | Virtuella program |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort | Virtuella arbets stationer | Virtuella program |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |380 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
@@ -169,15 +169,15 @@ Premium Storage: stöds
 
 Premium Storage caching: stöds
 
-De virtuella datorerna i NVv3-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU-och NVIDIA grid-teknik med Intel E5-2690 v4-processorer (Broadwell). Dessa virtuella datorer är avsedda för GPU-accelererade grafik program och virtuella skriv bord där kunder vill visualisera sina data, simulera resultat för att visa, arbeta med CAD eller återge och strömma innehåll. Dessutom kan dessa virtuella datorer köra arbetsbelastningar med enkel precision som kodning och rendering. NVv3 Virtual Machines stöder Premium Storage och levereras med två gånger system minnet (RAM) jämfört med dess föregående NV-serie.  
+De virtuella datorerna i NVv3-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU-och NVIDIA grid-teknik med Intel E5-2690 v4-processorer (Broadwell). Dessa virtuella datorer är avsedda för GPU-accelererade grafik program och virtuella skriv bord där kunder vill visualisera sina data, simulera resultat för att visa, arbeta med CAD eller återge och strömma innehåll. Dessutom kan de virtuella datorerna köra enskilda precisions arbets belastningar som kodning och åter givning. NVv3 Virtual Machines stöder Premium Storage och levereras med två gånger system minnet (RAM) jämfört med dess föregående NV-serie.  
 
 Varje GPU i NVv3-instanser levereras med en GRID-licens. Den här licensen ger dig möjlighet att använda en NV-instans som virtuell arbets station för en enskild användare, eller att 25 samtidiga användare kan ansluta till den virtuella datorn för ett virtuellt program scenario.
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort | Virtuella arbets stationer | Virtuella program | 
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort | Virtuella arbets stationer | Virtuella program | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV12s_v3 |12 |112 |336 | 1 | 8 | 12 | 20000/200 | 4 | 1 | 25 |
-| Standard_NV24s_v3 |24 |224 |672 | 2 | 16 | 24 | 40000/400 | 8 | 2 | 50 |
-| Standard_NV48s_v3 |48 |448 |1344 | 4 | 32 | 32 | 80000/800 | 8 | 4 | 100 |
+| Standard_NV12s_v3 |12 |112 |736 | 1 | 8 | 12 | 20000/200 | 4 | 1 | 25 |
+| Standard_NV24s_v3 |24 |224 |1474 | 2 | 16 | 24 | 40000/400 | 8 | 2 | 50 |
+| Standard_NV48s_v3 |48 |448 |2948 | 4 | 32 | 32 | 80000/800 | 8 | 4 | 100 |
 
 1 GPU = ett halvt M60-kort.
 
@@ -194,7 +194,7 @@ De virtuella datorerna i NVv4-serien drivs av [AMD Radeon Instinct MI25](https:/
 [Registrera dig och få till gång till de här datorerna under för hands versionen](https://aka.ms/nvv4signup).
 <br>
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | 
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 |
 | Standard_NV8as_v4 |8 |28 |176 | 1/4 | 4 | 8 | 4 |

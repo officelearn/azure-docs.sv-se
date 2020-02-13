@@ -11,28 +11,31 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: c8c6e2741eeeadf2afc0c027da8f9cf957c29c95
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 022af5ce0774ff106a29a2ef0bcf3fe11acfda15
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023250"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187206"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs-.NET Core (Azure. Messaging. EventHubs) 
-Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i Event Hubs kan du lagra data med ett lagrings kluster eller process händelser. Du kan till exempel transformera händelse data med hjälp av en real tids analys-Provider. Den här storskaliga händelse insamlings-och bearbetnings funktionen är en viktig komponent i moderna program arkitekturer, inklusive Sakernas Internet (IoT). En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
-
-Den här självstudien visar hur du skickar händelser till eller tar emot händelser från en Event Hub med hjälp av Event Hubs .NET Core SDK. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET Core (Azure. Messaging. EventHubs) 
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net Core Library. 
 
 > [!IMPORTANT]
-> Den här snabb starten använder det nya **Azure. Messaging. EventHubs** -biblioteket. En snabb start som använder det gamla **Microsoft. Azure. EventHubs** -biblioteket finns i [den här artikeln](event-hubs-dotnet-standard-getstarted-send.md). 
+> Den här snabb starten använder det nya **Azure. Messaging. EventHubs** -biblioteket. En snabb start som använder det gamla **Microsoft. Azure. EventHubs** -biblioteket finns i [skicka och ta emot händelser med hjälp av Microsoft. Azure. EventHubs-biblioteket](event-hubs-dotnet-standard-getstarted-send.md). 
 
-## <a name="prerequisites"></a>Krav
+
+
+## <a name="prerequisites"></a>Förutsättningar
+Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
+
+För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
 - **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
 - **Microsoft Visual Studio 2019**. Klient biblioteket för Azure Event Hubs använder nya funktioner som introducerades i C# 8,0.  Du kan fortfarande använda biblioteket med äldre versioner av C#, men vissa av dess funktioner är inte tillgängliga.  Om du vill aktivera dessa funktioner måste du vara [mål för .net Core 3,0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) eller [Ange den språk version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) som du vill använda (8,0 eller senare). Om du använder Visual Studio är tidigare versioner av Visual Studio 2019 inte kompatibla med de verktyg som behövs för att C# bygga 8,0-projekt. Visual Studio 2019, inklusive den kostnads fria community-versionen, kan hämtas [här](https://visualstudio.microsoft.com/vs/)
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hubs namn området genom att** följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hubs namn området genom att** följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder anslutnings strängen senare i den här snabb starten.
 
 ## <a name="send-events"></a>Skicka händelser 
 Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skicka händelser till en händelsehubben. 
@@ -226,5 +229,6 @@ I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. F
 ## <a name="next-steps"></a>Nästa steg
 Kolla in exemplen på GitHub. 
 
-- [Event Hubs-exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
+- [Event Hubs exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [Event processor-exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
+- [Exempel på rollbaserad åtkomst kontroll (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

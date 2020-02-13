@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9338c1a42737180ec5395f30060b4eed35ce5eda
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381074"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186616"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Snabb start: blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst  
 
-Om du vill hålla din miljö skyddad kan du blockera misstänkta användare från inloggning. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten för att ett inloggnings försök inte utfördes av en legitim ägare till ett användar konto. Sannolikheten (låg, medium, hög) anges i form av ett beräknat värde som kallas [inloggnings risk nivåer](conditions.md#sign-in-risk). Genom att ange risk villkor för inloggning kan du konfigurera en princip för villkorlig åtkomst som svarar på speciella risk nivåer för inloggning.
+Om du vill hålla din miljö skyddad kan du blockera misstänkta användare från inloggning. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyserar varje inloggning och beräknar sannolikheten för att ett inloggnings försök inte utfördes av en legitim ägare till ett användar konto. Sannolikheten (låg, medium, hög) anges i form av ett beräknat värde som kallas [inloggnings risk nivåer](concept-conditional-access-conditions.md#sign-in-risk). Genom att ange risk villkor för inloggning kan du konfigurera en princip för villkorlig åtkomst som svarar på speciella risk nivåer för inloggning.
 
 Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) som blockerar en inloggning när en konfigurerad risk nivå för inloggning har upptäckts.
 
@@ -28,9 +28,9 @@ Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åt
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra scenariot i den här självstudien behöver du:
+För att kunna slutföra scenariot i den här självstudien behöver du:
 
 - **Åtkomst till en Azure AD Premium P2-version** – medan villkorlig åtkomst är en Azure AD Premium P1-funktion behöver du en P2-utgåva eftersom scenariot i den här snabb starten kräver identitets skydd.
 - **Identitets skydd** – scenariot i den här snabb starten kräver att identitets skydd aktive ras. Om du inte vet hur du aktiverar identitets skydd, se [aktivera Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
@@ -143,7 +143,7 @@ När du kör **verktyget vad händer om-princip** för det här scenariot ska **
 
 1. På sidan [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) går du till menyn högst upp och klickar på **What If**.  
 
-   ![What If](./media/app-sign-in-risk/14.png)
+   ![WhatIf](./media/app-sign-in-risk/14.png)
 
 1. Klicka på **användare**, Välj **Alan Charon** på sidan **användare** och klicka sedan på **Välj**.
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 5a32d92dd8a44602034d84262f2e502a60ac23a9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: d819d4f7b3049a5c034ec8ac5170175f3ad3e9bb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760648"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190836"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Snabb start: använda Azure Service Bus köer med Java för att skicka och ta emot meddelanden
 
@@ -30,8 +30,8 @@ I den här självstudien får du lära dig hur du skapar Java-program för att s
 > [!NOTE]
 > Du hittar Java-exempel på GitHub i [Azure-Service-Bus-lagringsplatsen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Krav
-1. En Azure-prenumeration. För den här kursen behöver du ett Azure-konto. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Förutsättningar
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Om du inte har en kö att arbeta med följer du stegen i artikeln [använd Azure Portal för att Service Bus skapa](service-bus-quickstart-portal.md) en kö.
     1. Läs snabb **översikten** över Service Bus **köer**. 
     2. Skapa ett Service Bus- **namnområde**. 
@@ -124,9 +124,9 @@ Det primära sättet att ta emot meddelanden från en kö är att använda ett *
 När du använder **ReceiveAndDelete** -läget är ta emot en enda åtgärd – det vill säga när Service Bus tar emot en läsbegäran för ett meddelande i en kö, markerar det meddelandet som förbrukat och returnerar det till programmet. **ReceiveAndDelete** -läget (som är standard läget) är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande i händelse av ett fel. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran.
 Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet startas om och börjar förbruka meddelanden igen, har det fått meddelandet som förbrukades innan kraschen.
 
-I **PeekLock** -läge blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropet **tas bort** från det mottagna meddelandet. När Service Bus ser **borttagnings** anropet markeras meddelandet som förbrukat och tas bort från kön.
+I **PeekLock** -läge blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Complete ()** för det mottagna meddelandet. När Service Bus ser det **fullständiga anropet ()** , markeras meddelandet som förbrukat och tas bort från kön. 
 
-Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLock** -läge (inte standard läget). I exemplet nedan används en oändlig loop och bearbetar meddelanden när de anländer till våra `TestQueue`:
+Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLock** -läge (inte standard läget). Exemplet nedan använder callback-modellen med en registrerad meddelande hanterare och bearbetar meddelanden när de anländer till vår `TestQueue`. Det här läget anropar **Complete ()** automatiskt när återanropet returnerar normalt och anropar **överge ()** om motringningen genererar ett undantag. 
 
 ```java
     public void run() throws Exception {
@@ -179,16 +179,16 @@ Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLoc
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Hantera programkrascher och oläsbara meddelanden
-Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning, kan det anropa metoden **unlockMessage** i det mottagna meddelandet (i stället för **deleteMessage** -metoden). Detta gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
+Service Bus innehåller funktioner som hjälper dig att återställa fel i programmet eller lösa problem med bearbetning av meddelanden på ett snyggt sätt. Om ett mottagar program inte kan bearbeta meddelandet av någon anledning, kan det anropa metoden **Abandon ()** på klient objekt med det mottagna meddelandets lås-token som erhållits via **getLockToken ()** . Detta gör att Service Bus låser upp meddelandet i kön och gör det tillgängligt att tas emot igen, antingen genom samma användningsprogram eller ett annat användningsprogram.
 
 Det finns också en tids gräns som är kopplad till ett meddelande som är låst i kön och om programmet inte kan bearbeta meddelandet innan tids gränsen för låsning går ut (till exempel om programmet kraschar), så Service Bus låser upp meddelandet automatiskt och gör det tillgängligt för att tas emot igen.
 
-I händelse av att programmet kraschar efter bearbetning av meddelandet men innan **deleteMessage** -begäran utfärdas omlevereras meddelandet till programmet när det startas om. Det här kallas ofta för *At Least Once Processing*, det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av **getMessageId** -metoden för meddelandet, som förblir konstant över leverans försök.
+I händelse av att programmet kraschar när meddelandet har bearbetats men innan **hela begäran ()** har utfärdats skickas meddelandet vidare till programmet när det startas om. Det här kallas ofta för *At Least Once Processing*, det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av **getMessageId** -metoden för meddelandet, som förblir konstant över leverans försök.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Service Bus köer, se [köer, ämnen och prenumerationer][Queues, topics, and subscriptions] för mer information.
 
 Mer information finns på [Java Developer Center](https://azure.microsoft.com/develop/java/).

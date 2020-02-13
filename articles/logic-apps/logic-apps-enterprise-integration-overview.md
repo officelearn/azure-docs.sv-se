@@ -8,16 +8,16 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 141f1a7fc8f966132cb3570fd9d9cfa911127eed
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792446"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191377"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>B2B-lösningar för företags integrering med Azure Logic Apps och Enterprise-integrationspaket
 
-För Business-to-Business-lösningar (B2B) och sömlös kommunikation mellan organisationer kan du bygga automatiserade arbets flöden för företags integrering med hjälp av Enterprise-integrationspaket (EIP) med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Även om organisationer använder olika protokoll och format kan de utbyta meddelanden elektroniskt. EIP omvandlar olika format till ett format som organisationens system kan bearbeta och stöder bransch standard protokoll, inklusive [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md)och [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Du kan också skydda meddelanden med både kryptering och digitala signaturer. EIP stöder dessa [företags integrerings anslutningar](../connectors/apis-list.md#integration-account-connectors) och dessa bransch standarder:
+För Business-to-Business-lösningar (B2B) och sömlös kommunikation mellan organisationer kan du bygga automatiserade arbets flöden för företags integrering med hjälp av Enterprise-integrationspaket (EIP) med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Även om organisationer använder olika protokoll och format kan de utbyta meddelanden elektroniskt. EIP omvandlar olika format till ett format som organisationens system kan bearbeta och stöder bransch standard protokoll, inklusive [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md)och [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Du kan också förbättra säkerheten för meddelanden med både kryptering och digitala signaturer. EIP stöder dessa [företags integrerings anslutningar](../connectors/apis-list.md#integration-account-connectors) och dessa bransch standarder:
 
 * Electronic Data Interchange (EDI)
 * Enterprise Application Integration (EAI)
@@ -48,7 +48,7 @@ Här följer de övergripande stegen för att komma igång med att skapa B2B-Log
 
 ![Krav för att skapa B2B Logic Apps](./media/logic-apps-enterprise-integration-overview/overview.png)  
 
-## <a name="try-now"></a>Prova nu
+## <a name="try-now"></a>Testa nu
 
 [Distribuera en app Logic-app med fullt drift som skickar och tar emot AS2-meddelanden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive)
 

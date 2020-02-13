@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 8759de162227e8504360e64673ca9295c12cd13a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 428c336d98e278910b229e9c0d877a9ae6268c96
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121900"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169710"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migrera prenumerationer och lagrings konton som är associerade med StorSimple Enhetshanteraren-tjänsten
 
@@ -35,7 +35,7 @@ Du kan behöva flytta din StorSimple-tjänst till en ny registrering eller till 
 |Kan jag överföra ägarskapet för en Azure-prenumeration till en annan katalog? | Ja       | Nej       | Koppla en befintlig prenumeration till din Azure AD-katalog | Se [associera en befintlig prenumeration till din Azure AD-katalog](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md). Det kan ta upp till 10 minuter innan allt visas korrekt.|
 | StorSimple enheten från en StorSimple Enhetshanteraren tjänst till en annan tjänst i en annan region?      | Nej        | Ja            | Ingen, manuell process |Samma som ovan.|
 | Lagrings konto till en ny prenumeration eller resurs grupp?     | Ja        | Nej             |Flytta lagrings kontot till en annan prenumeration eller resurs grupp |Om lagrings kontots åtkomst nycklar uppdateras efter flytten måste användaren konfigurera åtkomst nycklarna manuellt för det migrerade lagrings kontot via tjänsten StorSimple Enhetshanteraren.|
-| Klassiskt lagrings konto till ett Azure Resource Manager lagrings konto      | Ja        | Nej             |Migrera från klassisk till Azure Resource Manager |<li>Detaljerade anvisningar om hur du migrerar ett lagrings konto från klassisk till Azure Resource Manager finns i [Migrera ett klassiskt lagrings konto](../virtual-machines/windows/migration-classic-resource-manager-ps.md#step-62-migrate-a-storage-account).</li><li> Om lagrings kontots åtkomst nycklar uppdateras efter migreringen måste användaren synkronisera åtkomst nycklarna för det migrerade lagrings kontot via tjänsten StorSimple Enhetshanteraren. Detta är för att se till att StorSimple-enheterna fungerar som de ska och att de ska kunna skikta primära/säkerhetskopierade data till Azure. Detaljerade anvisningar om hur du synkroniserar åtkomst nycklar finns i [rotations arbets flödet](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts).</li><li> Om det klassiska lagrings kontot har migrerats i ett StorSimple Cloud Appliance, men den underliggande virtuella datorn fortfarande är i klassiskt läge, bör installationen fungera korrekt. Om den underliggande virtuella datorn för moln installationen migreras, fungerar inte inaktivera-och ta bort-funktionerna.</li><li> Du måste skapa en ny StorSimple Cloud-utrustning i Azure Portal och sedan redundansväxla från de äldre moln enheterna. Du kan inte skapa en StorSimple Cloud Appliance i den nya Azure Portal med ett klassiskt lagrings konto, men de måste ha ett Azure Resource Manager lagrings konto. Mer information finns i [distribuera och hantera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).</li>|
+| Klassiskt lagrings konto till ett Azure Resource Manager lagrings konto      | Ja        | Nej             |Migrera från klassisk till Azure Resource Manager |<li>Detaljerade anvisningar om hur du migrerar ett lagrings konto från klassisk till Azure Resource Manager finns i [Migrera ett klassiskt lagrings konto](../virtual-machines/windows/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account).</li><li> Om lagrings kontots åtkomst nycklar uppdateras efter migreringen måste användaren synkronisera åtkomst nycklarna för det migrerade lagrings kontot via tjänsten StorSimple Enhetshanteraren. Detta är för att se till att StorSimple-enheterna fungerar som de ska och att de ska kunna skikta primära/säkerhetskopierade data till Azure. Detaljerade anvisningar om hur du synkroniserar åtkomst nycklar finns i [rotations arbets flödet](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts).</li><li> Om det klassiska lagrings kontot har migrerats i ett StorSimple Cloud Appliance, men den underliggande virtuella datorn fortfarande är i klassiskt läge, bör installationen fungera korrekt. Om den underliggande virtuella datorn för moln installationen migreras, fungerar inte inaktivera-och ta bort-funktionerna.</li><li> Du måste skapa en ny StorSimple Cloud-utrustning i Azure Portal och sedan redundansväxla från de äldre moln enheterna. Du kan inte skapa en StorSimple Cloud Appliance i den nya Azure Portal med ett klassiskt lagrings konto, men de måste ha ett Azure Resource Manager lagrings konto. Mer information finns i [distribuera och hantera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).</li>|
 
 ## <a name="datacenter-changes"></a>Data Center ändringar
 

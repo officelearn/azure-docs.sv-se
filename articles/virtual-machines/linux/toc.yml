@@ -160,6 +160,8 @@
           href: disk-scalability-targets.md
         - name: Lagring och haveriberedskap för diskar
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Delade diskar
+          href: disks-shared.md
         - name: Tillfälliga operativsystemdiskar
           href: ephemeral-os-disks.md
     - name: Nätverk
@@ -553,6 +555,8 @@
         - name: Distribuera diskar med mall
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: Aktivera delade diskar
+          href: disks-shared-enable.md
         - name: Ladda upp en virtuell hårddisk till en disk – CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Ändra storlek på en disk

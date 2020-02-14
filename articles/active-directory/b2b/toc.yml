@@ -23,8 +23,6 @@
           href: b2b-tutorial-require-mfa.md
     - name: Exempel
       items:
-        - name: Exempel på registreringsportal för självbetjäning
-          href: self-service-portal.md
         - name: Kod och Azure PowerShell-exempel
           href: code-samples.md
     - name: Begrepp
@@ -50,6 +48,8 @@
           href: conditional-access.md
         - name: B2B för hybridorganisationer
           href: hybrid-organizations.md
+        - name: Registrering av självbetjäning
+          href: self-service-portal.md
         - name: Aktuella begränsningar
           href: current-limitations.md
     - name: Anvisningar

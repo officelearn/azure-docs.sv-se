@@ -52,6 +52,8 @@
           href: how-to-manage-lab-accounts.md
         - name: Konfigurera labbkonton
           href: how-to-configure-lab-accounts.md
+        - name: Tillåt labbets skapare att välja plats för labbet
+          href: allow-lab-creator-pick-lab-location.md
         - name: Anslut dina labb till ett peerkopplat virtuellt nätverk
           href: how-to-connect-peer-virtual-network.md
         - name: Bifoga eller ta bort ett delat bildgalleri

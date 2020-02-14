@@ -313,14 +313,20 @@
           href: search-pagination-page-layout.md
         - name: Relevansjustering (bedömningsprofiler)
           href: index-add-scoring-profiles.md
-    - name: Hantera och övervaka
+    - name: Hantera en tjänst
       items:
-        - name: Portaladministration
+        - name: Portalen
           href: search-manage.md
-        - name: PowerShell-administration
+        - name: PowerShell
           href: search-manage-powershell.md
-        - name: Övervaka aktivitet och loggning
+    - name: Övervaka och logga
+      items:
+        - name: Grunder
           href: search-monitor-usage.md
+        - name: Övervaka frågeaktivitet
+          href: search-monitor-queries.md
+        - name: Diagnostikloggning
+          href: search-monitor-logs.md
         - name: Sök efter trafikanalys
           href: search-traffic-analytics.md
     - name: Felsöka

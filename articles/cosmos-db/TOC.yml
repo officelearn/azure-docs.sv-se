@@ -554,6 +554,8 @@
           href: cassandra-introduction.md
         - name: Protokollstöd för Wire
           href: cassandra-support.md
+        - name: Elastisk skalning
+          href: manage-scale-cassandra.md
         - name: Snabbstarter
           items:
             - name: .NET
@@ -1071,6 +1073,8 @@
           href: migrate-cosmosdb-data.md
         - name: Migrera få relationsdata
           href: migrate-relational-to-cosmos-db-sql-api.md
+        - name: Migrera – Couchbase till SQL-API
+          href: couchbase-cosmos-migration.md
     - name: Massexecutor-bibliotek
       items:
         - name: Om bibliotek för massexecutor

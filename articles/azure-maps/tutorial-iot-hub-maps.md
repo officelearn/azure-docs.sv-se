@@ -1,24 +1,24 @@
 ---
 title: 'Självstudie: implementera IoT spatial Analytics | Microsoft Azure Maps'
 description: 'Integrera IoT Hub med Microsoft Azure Maps-tjänst-API: er.'
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 24295e27a3b94f6960777a8704fdf448697da4e1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 48d148256fe69bbdfd188f1d8472c2de80b0fa64
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987320"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208377"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
-Att spåra och fånga relevanta händelser som inträffar i utrymme och tid är ett vanligt IoT-scenario. Exempel scenarier är hantering av flottan, till gångs spårning, mobilitet och smarta stads program. Den här självstudien vägleder dig genom ett lösnings mönster för att använda Azure Maps API: er Relevanta händelser registreras av IoT Hub med hjälp av den händelse prenumerations modell som tillhandahålls av Event Grid.
+I ett IoT-scenario är det vanligt att fånga och spåra relevanta händelser som inträffar i utrymme och tid. Exempel scenarier är hantering av flottan, till gångs spårning, mobilitet och smarta stads program. Den här självstudien vägleder dig genom ett lösnings mönster med Azure Maps API: er. Relevanta händelser registreras av IoT Hub med hjälp av den händelse prenumerations modell som tillhandahålls av Event Grid.
 
 I den här självstudien kommer du att:
 
@@ -34,9 +34,9 @@ I den här självstudien kommer du att:
 
 ## <a name="use-case"></a>Användningsfall
 
-Den här lösningen visar ett scenario där en bil hyr företag planerar att övervaka och logga händelser för sina hyr bilar. Leverantörer av hyr bil hyr ut bilar för en bestämd geografisk region och behöver hålla koll på sina till-platser medan de hyrs. Instanser av en bil som lämnar den valda geografiska regionen måste loggas. Loggnings data garanterar att principer, avgifter och andra affärs aspekter hanteras korrekt.
+Den här lösningen visar ett scenario där en bil hyr företag planerar att övervaka och logga händelser för sina hyr bilar. Bil uthyrnings företag hyr vanligt vis bilar till en bestämd geografisk region. De måste spåra bilarnas till mig när de hyrs. Instanser av en bil som lämnar vald geografisk region måste loggas. Loggnings data garanterar att principer, avgifter och andra affärs aspekter hanteras korrekt.
 
-I vårt användnings fall är hyr bilar utrustade med IoT-enheter som skickar telemetridata till Azure IoT Hub med jämna mellanrum. Telemetrin innehåller den aktuella platsen och anger om bilens motor körs. Schemat för enhets platsen följer IoT Plug and Play- [schemat för geospatiala data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). Schemat för hyr bils enhets telemetri ser ut så här:
+I vårt användnings fall är hyr bilar utrustade med IoT-enheter som regelbundet skickar telemetridata till Azure IoT Hub. Telemetrin innehåller den aktuella platsen och anger om bilens motor körs. Schemat för enhets platsen följer IoT Plug and Play- [schemat för geospatiala data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). Schemat för hyr bils enhets telemetri ser ut så här:
 
 ```JSON
 {
@@ -63,9 +63,13 @@ I vårt användnings fall är hyr bilar utrustade med IoT-enheter som skickar te
 }
 ```
 
-Nu ska vi använda telemetri från fordons enheter för att uppnå målet. Vi vill köra regler för avgränsning och svara när vi får en händelse som anger att bilen har flyttat. För att göra det kommer vi att prenumerera på händelser för enhets telemetri från IoT Hub via Event Grid. Det finns flera sätt att prenumerera på Event Grid i den här självstudien använder vi Azure Functions. Azure Functions reagerar på händelser som publicerats i Event Grid. Den implementerar också affärs logik för hyr bilar, som baseras på Azure Maps rums analys. Kod inuti Azure Function kontrollerar om fordonet har lämnat det inre avgränsnings gränsen. Om fordonet har lämnat den här gränsen, samlar Azure-funktionen in ytterligare information, till exempel den adress som är kopplad till den aktuella platsen. Funktionen implementerar också logik för att lagra meningsfulla händelse data i en datablob-lagring som ger en beskrivning av händelse omständigheterna. Händelse omständigheterna kan vara till hjälp för bil uthyrnings företaget och hyres kunden.
+Nu ska vi använda telemetri från fordons enheter för att uppnå målet. Vi vill köra regler för avgränsnings regler. Och vi vill svara när vi får en händelse som anger att bilen har flyttat. För att göra det kommer vi att prenumerera på händelser för enhets telemetri från IoT Hub via Event Grid. 
 
-Följande diagram innehåller en översikt över systemet.
+Det finns flera sätt att prenumerera på Event Grid i den här självstudien använder vi Azure Functions. Azure Functions reagerar på händelser som publicerats i Event Grid. Den implementerar också affärs logik för hyr bilar, som baseras på Azure Maps rums analys. 
+
+Kod inuti Azure Function kontrollerar om fordonet har lämnat det inre avgränsnings gränsen. Om fordonet har lämnat den här gränsen, samlar Azure-funktionen in ytterligare information, till exempel den adress som är kopplad till den aktuella platsen. Funktionen implementerar också logik för att lagra meningsfulla händelse data i en datablob-lagring som ger en beskrivning av händelse omständigheterna. 
+
+Händelse omständigheterna kan vara till hjälp för bil uthyrnings företaget och hyres kunden. Följande diagram innehåller en översikt över systemet.
 
  
   <center>
@@ -74,16 +78,16 @@ Följande diagram innehåller en översikt över systemet.
   
   </center>
 
-Följande bild visar avgränsnings ytan, markerat i blått och hyres fordonets väg, vilket visas med en grön linje.
+Följande bild visar det yt avgränsnings områden som marker ATS i blått. Hyres fordonets väg anges med en grön linje.
 
   ![Netstängsel-väg](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-För att slutföra stegen i den här självstudien måste du först skapa en resurs grupp i Azure Portal. Gör så här om du vill skapa en resurs grupp:
+För att slutföra stegen i den här självstudien måste du först skapa en resurs grupp i Azure Portal. Gör så här för att skapa en resurs grupp:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -106,13 +110,13 @@ För att slutföra stegen i den här självstudien måste du först skapa en res
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
-För att implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi har skapat. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+För att implementera affärs logik baserat på Azure Maps spatial analys måste vi skapa ett Azure Maps-konto i resurs gruppen som vi har skapat. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta din primära nyckel för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 
 
-### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-För att logga händelse data skapar vi ett **v2storage** -konto för generell användning i resurs gruppen "ContosoRental" för att lagra data som blobar. Om du vill skapa ett lagrings konto följer du anvisningarna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Därefter måste vi skapa en behållare för att lagra blobbar. Följ stegen nedan för att göra det:
+För att logga händelse data skapar vi ett **v2storage** -konto för generell användning i resurs gruppen "ContosoRental" för att lagra data som blobar. Om du vill skapa ett lagrings konto följer du anvisningarna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Härnäst måste vi skapa en behållare för att lagra blobbar. Följ stegen nedan för att göra det:
 
 1. I ditt lagrings konto navigerar du till behållare.
 
@@ -131,7 +135,7 @@ Nu har vi ett lagrings konto och en behållare för att logga händelse data. Nu
 
 ### <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-En IoT Hub är en hanterad tjänst i molnet som fungerar som en central meddelande hubb för dubbelriktad kommunikation mellan ett IoT-program och de enheter som hanteras av den. Skapa ett IoT Hub i resurs gruppen "ContosoRental" för att dirigera meddelanden om telemetri till en Event Grid. Konfigurera en meddelande vägs integrering där vi ska filtrera meddelanden baserat på bil status. Vi kommer också att skicka meddelanden om enhets telemetri till Event Grid när bilen flyttas.
+IoT Hub är en hanterad tjänst i molnet. IoT Hub fungerar som en central meddelande hubb för dubbelriktad kommunikation mellan ett IoT-program och de enheter som hanteras av den. Skapa ett IoT Hub i resurs gruppen "ContosoRental" för att dirigera meddelanden om telemetri till en Event Grid. Konfigurera en meddelande vägs integrering där vi ska filtrera meddelanden baserat på bil status. Vi kommer också att skicka meddelanden om enhets telemetri till Event Grid när bilen flyttas.
 
 > [!Note] 
 > IoT Hub funktioner för att publicera händelser på enhets telemetri på Event Grid finns i offentlig för hands version. Offentliga för hands versions funktioner är tillgängliga i alla regioner utom **östra USA, västra USA, Västeuropa, Azure Government, Azure Kina 21Vianet** och **Azure Germany**. 
@@ -199,12 +203,16 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
    ```
 
 
-Nu ska vi skapa en Azure-funktion i resurs gruppen "ContosoRental" och sedan konfigurera en meddelande väg i IoT Hub för att filtrera enhets telemetri meddelanden.
+Nu ska vi skapa en Azure-funktion i resurs gruppen "ContosoRental" och sedan konfigurera en meddelande väg i IoT Hub för att filtrera telemetri-meddelanden.
 
 
 ## <a name="create-an-azure-function-and-add-an-event-grid-subscription"></a>Skapa en Azure-funktion och Lägg till en Event Grid-prenumeration
 
-Azure Functions är en server lös beräknings tjänst som gör det möjligt för oss att köra kod på begäran utan att uttryckligen behöva etablera eller hantera beräknings infrastruktur. Ta en titt på [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) -dokumentationen om du vill veta mer om Azure Functions. Logiken som vi implementerar i funktionen använder de plats data som kommer från enheten för enhets telemetri för att bedöma den logiska statusen. Om ett fordon hamnar utanför den yttre gränsen kommer funktionen att samla in mer information, t. ex. adressen till platsen via [Hämta Sök adress omvänt API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) som översätter en specifik plats till en human adress. All relevant händelse information lagras sedan i BLOB Store. Steg 5 nedan pekar på den körbara kod som implementerar en sådan logik. Följ stegen nedan för att skapa en Azure-funktion som skickar data loggar till BLOB-behållaren i lagrings kontot och lägger till en Event Grid-prenumeration på den.
+Azure Functions är en server lös beräknings tjänst som gör det möjligt för oss att köra kod på begäran utan att uttryckligen behöva etablera eller hantera beräknings infrastruktur. Ta en titt på [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) -dokumentationen om du vill veta mer om Azure Functions. 
+
+Logiken som vi implementerar i funktionen använder de plats data som kommer från enheten för enhets telemetri för att bedöma den logiska statusen. Om ett fordon hamnar utanför den yttersta gränsen kommer funktionen att samla in mer information, till exempel adressen till platsen via [omvänt API: t get search-adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). Detta API översätter en specifik plats koordinat till en human gatuadress. 
+
+All relevant händelse information behålls i BLOB-arkivet. Steg 5 nedan pekar på den körbara kod som implementerar en sådan logik. Följ stegen nedan för att skapa en Azure-funktion som skickar data loggar till BLOB-behållaren i Blob Storage-kontot och lägger till en Event Grid-prenumeration på den.
 
 1. I instrument panelen Azure Portal väljer du skapa en resurs. Välj **Beräkna** i listan över tillgängliga resurs typer och välj sedan **Function app**.
 
@@ -216,7 +224,7 @@ Azure Functions är en server lös beräknings tjänst som gör det möjligt fö
 
 2. Granska programmets information och välj "skapa".
 
-3. När appen har skapats måste vi lägga till en funktion i den. Gå till Function-appen och klicka på **ny funktion** för att lägga till en funktion, Välj **på Portal** som utvecklings miljö och välj sedan **Fortsätt**.
+3. När appen har skapats måste vi lägga till en funktion i den. Gå till Function-appen. Klicka på **ny funktion** för att lägga till en funktion och välj **i portalen** som utvecklings miljö. Välj sedan **Fortsätt**.
 
     ![Skapa – funktion](./media/tutorial-iot-hub-maps/function.png)
 
@@ -231,20 +239,20 @@ Azure Functions är en server lös beräknings tjänst som gör det möjligt fö
 7. Ersätt följande parametrar i c#-skriptet:
     * Ersätt **SUBSCRIPTION_KEY** med din primära prenumerations nyckel för Azure Maps-kontot.
     * Ersätt **UDID** med UDID för den avgränsning som du laddade upp, 
-    * Funktionen **CreateBlobAsync** i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY**, **ACCOUNT_NAME** och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel, konto namn och data lagrings behållare.
+    * Funktionen **CreateBlobAsync** i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY**, **ACCOUNT_NAME**och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel, konto namn och data lagrings behållare.
 
 10. Klicka på **Lägg till Event Grid prenumeration**.
     
     ![Lägg till händelse-rutnät](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. Fyll i prenumerations information, under **information om händelse prenumerations** namn din prenumeration och för händelse schema väljer du Event Grid schema. Under **ämnes information** väljer du "Azure IoT Hub Accounts" som typ av ämne. Välj samma prenumeration som du använde för att skapa resurs gruppen, välj "ContosoRental" som "resurs grupp" och välj den IoT Hub som du skapade som "resurs". Välj **telemetri för enhet** som händelse typ. När du har valt dessa alternativ visas "ämnes typ"-ändringen till "IoT Hub" automatiskt.
+11. Fyll i prenumerations information, under **information om händelse prenumerations** namn din prenumeration och för händelse schema väljer du Event Grid schema. Under **ämnes information** väljer du "Azure IoT Hub Accounts" som typ av ämne. Välj samma prenumeration som du använde för att skapa resurs gruppen, välj "ContosoRental" som "resurs grupp". Välj IoT Hub som du skapade som "resurs". Välj **telemetri för enhet** som händelse typ. När du har valt dessa alternativ visas "ämnes typ"-ändringen till "IoT Hub" automatiskt.
 
     ![händelse – rutnät – prenumeration](./media/tutorial-iot-hub-maps/af-egs.png)
  
 
 ## <a name="filter-events-using-iot-hub-message-routing"></a>Filtrera händelser med IoT Hub meddelanderoutning
 
-När du har lagt till en Event Grid-prenumeration i Azure-funktionen kan du nu se en standard meddelande väg för att Event Grid i IoT Hub **meddelande cirkulations** bladet. Med meddelanderoutning kan du dirigera olika data typer, t. ex. meddelanden om telemetri, enhetens livs cykel händelser och enhetens dubbla ändrings händelser till olika slut punkter. Mer information om IoT Hub-meddelanderoutning finns i [använda IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)meddelanderoutning.
+När du har lagt till en Event Grid-prenumeration i Azure-funktionen visas en standard meddelande väg för att Event Grid i IoT Hub **meddelande cirkulations** bladet. Med meddelanderoutning kan du dirigera olika data typer till olika slut punkter. Du kan till exempel dirigera meddelanden om enhets telemetri, livs cykel händelser för enhet och enhets dubbla ändrings händelser. Mer information om IoT Hub-meddelanderoutning finns i [använda IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)meddelanderoutning.
 
 ![hubb – tex-Route](./media/tutorial-iot-hub-maps/hub-route.png)
 

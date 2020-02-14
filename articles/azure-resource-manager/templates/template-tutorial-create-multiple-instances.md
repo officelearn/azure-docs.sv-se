@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94a7218933935aa1a9d38a9fc420bb8d3f669492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a37178f8dc8ecc3c61ca16f193e2e52c309d46
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472746"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209485"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Självstudie: Skapa flera resursinstanser med Resource Manager-mallar
 
@@ -27,7 +27,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -44,7 +44,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
-4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+4. Det finns en resurs med namnet ”Microsoft.Storage/storageAccounts” definierad i mallen. Jämför mallen med [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 5. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy.json** till den lokala datorn.
 
 ## <a name="edit-the-template"></a>Redigera mallen
@@ -108,7 +108,7 @@ Den färdiga mallen ser ut så här:
 }
 ```
 
-Läs mer om hur du skapar flera instanser i [distribuera flera instanser av en resurs eller egenskap i Azure Resource Manager-mallar](./create-multiple-instances.md)
+Läs mer om hur du skapar flera instanser i [distribuera flera instanser av en resurs eller egenskap i Azure Resource Manager-mallar](./copy-resources.md)
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 

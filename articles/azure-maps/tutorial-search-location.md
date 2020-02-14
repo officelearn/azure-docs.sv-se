@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: Sök efter närliggande platser på en karta | Microsoft Azure Maps'
 description: I den här självstudien får du lära dig att söka efter orienterings punkter på en karta med hjälp av Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9b390806e678c7900b166a07316d7f8ac32a5153
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1035f9c8284f3acf2667d93ce257039defeb3c71
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716181"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209519"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -39,7 +39,7 @@ Logga in på [Azure Portal](https://portal.azure.com).
 Skapa ett nytt Maps-konto med följande steg:
 
 1. Klicka på [Skapa en resurs](https://portal.azure.com) längst upp till vänster i **Azure Portal**.
-2. Skriv *Maps* i rutan **Sök på Marketplace**.
+2. Skriv *Maps* i rutan **Sök i Marketplace**.
 3. Bland *resultaten* väljer du **Maps**. Klicka på knappen **Skapa** som visas nedanför kartan.
 4. Ange följande värden på sidan **Skapa Maps-konto**:
     * Den *Prenumeration* som ska användas för det här kontot.

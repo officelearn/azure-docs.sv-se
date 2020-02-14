@@ -1,24 +1,24 @@
 ---
 title: 'Självstudie: dirigera elektriska bilar med Azure Notebooks (python) | Microsoft Azure Maps'
 description: 'Dirigera elektriska fordon med Microsoft Azure mappar API: er för Routning och Azure Notebooks.'
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844759"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208173"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
-Azure Maps är en portfölj med geospatiala tjänst-API: er som är internt integrerade i Azure. Med dessa API: er kan utvecklare, företag och ISV: er skapa plats medveten appar, IoT, mobilitet, logistik och till gångs spårnings lösningar. 
+Azure Maps är en portfölj med geospatiala tjänst-API: er som är internt integrerade i Azure. Dessa API: er gör det möjligt för utvecklare, företag och ISV att utveckla plats medveten appar, IoT, mobilitet, logistik och till gångs spårnings lösningar. 
 
 Azure Maps REST-API: er kan anropas från språk som python och R för att aktivera geospatiala data analyser och maskin inlärnings scenarier. Azure Maps erbjuder en robust uppsättning [routnings-API: er](https://docs.microsoft.com/rest/api/maps/route) som gör att användarna kan beräkna vägar mellan flera data punkter. Beräkningarna baseras på olika villkor, till exempel fordons typ eller nåbart utrymme. 
 
@@ -35,7 +35,7 @@ I den här kursen ska du:
 > * Hitta och visualisera en väg till närmaste elektriska fordons laddnings Station baserat på enhets tid.
 
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 För att slutföra den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). 
 
@@ -49,7 +49,7 @@ Mer information om autentisering i Azure Maps finns i [hantera autentisering i A
 
 Om du vill följa med i den här självstudien måste du skapa ett Azure Notebook-projekt och hämta och köra Jupyter Notebook-filen. Anteckningsbok-filen innehåller python-kod som implementerar scenariot i den här självstudien. Gör så här för att skapa ett Azure Notebook-projekt och ladda upp anteckningsbok-dokumentet för Jupyter:
 
-1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Välj **Mina projekt**högst upp på den offentliga profil sidan.
 
     ![Knappen mina projekt](./media/tutorial-ev-routing/myproject.png)
@@ -74,7 +74,7 @@ Om du vill följa med i den här självstudien måste du skapa ett Azure Noteboo
 
 1. När överföringen har slutförts visas filen på projekt sidan. Dubbelklicka på filen för att öppna den som en Jupyter Notebook.
 
-Du kan få bättre förståelse för de funktioner som implementeras i Notebook-filen genom att köra koden i antecknings boken en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i appen Notebook.
+Försök att förstå de funktioner som implementeras i Notebook-filen. Kör koden i anteckningsbok-filen, en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i appen Notebook.
 
   ![Knappen Kör](./media/tutorial-ev-routing/run.png)
 
@@ -83,7 +83,7 @@ Du kan få bättre förståelse för de funktioner som implementeras i Notebook-
 Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att utföra följande steg:
 
 1. Hämta filen [*Requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
-1. På instrumentpanelen för projektet väljer **Projektinställningar**. 
+1. På instrument panelen för projektet väljer du **projekt inställningar**. 
 1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till**.
 1. Under **miljö konfigurations steg**gör du följande:   
     a. I den första List rutan väljer du **krav. txt**.  
@@ -156,7 +156,7 @@ boundsData = {
 
 När du har bestämt räckvidden för nåbarhet (isochrone) för det elektriska fordonet kan du söka efter debitering av stationer inom intervallet. 
 
-Följande skript anropar Azure Maps [efter sökning i GEOMETRY API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). Den söker efter elektriska fordons uttags stationer inom gränserna för Car: s maximala räckvidd och tolkar sedan svaret på en matris med platser som kan nås.
+Följande skript anropar Azure Maps [efter sökning i GEOMETRY API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). Den söker efter avgifts stationer för elektriska fordon, inom gränserna för den maximalt tillgängliga räckvidden för bilen. Sedan parsar skriptet svaret till en matris med platser som kan kommas åt.
 
 Om du vill söka efter elektriska fordons uttags stationer inom det nåbara intervallet kör du följande skript:
 

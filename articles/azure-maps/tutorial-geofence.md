@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: skapa en inhägnad och spåra enheter på en karta | Microsoft Azure Maps'
 description: Lär dig hur du ställer in en avgränsning och spårar enheter i förhållande till den gräns som används för Microsoft Azure Maps-spatialdata.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c1f08fa5623642538f2ea99b2de07947b1bd9206
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899210"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209604"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geografiskt avgränsnings tecken genom att använda Azure Maps
 
@@ -32,7 +32,7 @@ I den här självstudien lär vi dig att:
 > *   Använda Azure Maps geofence-tjänst-API:er för att spåra huruvida en byggsresurs befinner sig på byggarbetsplatsen.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 

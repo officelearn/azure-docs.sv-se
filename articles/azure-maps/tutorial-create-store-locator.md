@@ -1,24 +1,24 @@
 ---
 title: 'Självstudie: skapa ett program för Store Locator med Azure Maps | Microsoft Azure Maps'
 description: I den här självstudien får du lära dig hur du skapar en app Locator-webbapp med hjälp av Microsoft Azure Maps-webbsdk.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987013"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209570"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
-Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig hur man:
+Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig att:
     
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:et Azure Kartkontroll.
@@ -33,11 +33,11 @@ Den här självstudien vägleder dig genom processen med att skapa en enkel buti
 
 Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) eller [källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
-## <a name="design"></a>Designa
+## <a name="design"></a>Design
 
 Innan du sätter igång i koden är det en bra idé att börja med en design. Din butikslokaliserare kan vara så enkel eller komplex som du vill. I den här självstudien skapar vi en enkel butikslokaliserare. Vi tar några tips på vägen för att hjälpa dig att utöka vissa funktioner om du vill. Vi skapar en butikslokaliserare för det fiktiva företaget Contoso Coffee. Följande bild visar ett trådblock i en allmän layout för butikslokaliserarestore som vi skapar i den här självstudien:
 
@@ -381,7 +381,7 @@ Kör programmet nu, du ser rubriken, sökrutan och Sök knappen. Men kartan syns
 
 Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande lägga till Java Script för att läsa in och parsa data och sedan återge data på kartan. Kom igång genom att öppna *index.js* och lägg till kod till den, enligt beskrivningen i följande steg.
 
-1. Lägg till globala alternativ för att göra det lättare att uppdatera inställningarna. Definiera variablerna för kartan, popup-fönstret, data källan, ett ikon lager, en HTML-markör som visar mitten av ett Sök område och en instans av Azure Maps Sök tjänst klienten.
+1. Lägg till globala alternativ för att göra det lättare att uppdatera inställningarna. Definiera variablerna för kartan, popup-fönstret, data källan, ikon skiktet och HTML-markören. Ange HTML-markören som anger mitten på ett Sök område. Och definiera en instans av Azure Maps Sök tjänst klienten.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -397,9 +397,9 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
 
 1. Lägg till kod till *index.js*. Följande kod initierar kartan. Vi har lagt till en [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att vänta tills sidan har lästs in. Sedan kabelansluter vi händelser för att övervaka inläsningen av kartan och ge funktioner till knappen Sök och min plats.
 
-   När användaren väljer sökknappen, eller när användaren trycker på RETUR efter att ha angett en plats i sökrutan, initieras en fuzzy-sökning mot användarens fråga. Skicka i en matris med ISO 2-värden till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
+   När användaren väljer Sök knappen, eller anger en plats i sökrutan, trycker på RETUR, en Fuzzy-sökning mot användarens fråga initieras. Skicka i en matris med ISO 2-värden till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
   
-   När sökningen är klar tar du det första resultatet och ställer in kameran på kartan över det området. När användaren väljer knappen My Location (Min plats) använder du HTML5-Geolocation-API:et som är inbyggt i webbläsaren om du vill hämta användarens plats och centrera kartan över deras plats.  
+   När sökningen är klar ska du ta det första resultatet och ställa in kart kameran över detta område. När användaren väljer knappen min plats hämtar du användarens plats med hjälp av HTML5s API för geolokalisering. Detta API är inbyggt i webbläsaren. Centrera sedan kartan över deras plats.  
 
    > [!Tip]
    > När du använder popup-fönster är det bäst att skapa en enda `Popup`-instans och återanvända instansen genom att uppdatera dess innehåll och position. För varje `Popup`-instans som du lägger till i koden läggs flera DOM-element till på sidan. Ju fler DOM-element det finns på en sida, desto fler saker måste webbläsaren hålla reda på. Om det finns för många objekt kan webbläsaren bli långsam.
@@ -527,7 +527,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
     map.markers.add(centerMarker);
     ```
 
-1. På kartans `ready`-händelselyssnare lägger du till en datakälla. Gör sedan ett anrop för att läsa in och parsa datauppsättningen. Aktivera klustring på datakällan. Klustring av överlappande punkter i datakällgrupper i ett kluster. Klustren separeras i enskilda punkter när användaren zoomar in. Detta ger en mer flytande användarupplevelse och ger bättre prestanda.
+1. På kartans `ready`-händelselyssnare lägger du till en datakälla. Gör sedan ett anrop för att läsa in och parsa datauppsättningen. Aktivera klustring på datakällan. Klustring av överlappande punkter i datakällgrupper i ett kluster. Klustren separeras i enskilda punkter när användaren zoomar in. Det här beteendet ger en bättre användar upplevelse och förbättrar prestandan.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -928,7 +928,7 @@ Första gången en användare väljer knappen My Location (Min plats) visas en s
 
 ![skärm bild av webbläsarens begäran om att komma åt användarens plats](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-När du zoomar in tillräckligt i ett område som har kaféer separeras klustren i enskilda platser. Välj en av ikonerna på kartan eller ett objekt på panelen på sidopanelen för att se ett popup-fönster som visar information om den platsen.
+När du zoomar in tillräckligt i ett område som har kaféer separeras klustren i enskilda platser. Välj en av ikonerna på kartan eller Välj ett objekt på sido panelen för att se ett popup-fönster. Popup-fönstret visar information om den valda platsen.
 
 <center>
 

@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846484"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210199"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
 
@@ -18,7 +18,7 @@ I den här självstudien skapar du och distribuerar python-kod till Azure Functi
 
 Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](functions-create-first-azure-function-azure-cli-linux.md). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Function-app och Dockerfile med hjälp av Azure Functions Core Tools.
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 
 Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS eller Linux. När du har slutfört kursen debiteras du för några amerikanska dollar i ditt Azure-konto.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core tools](./functions-run-local.md#v2) version 2.7.1846 eller senare
@@ -256,7 +256,7 @@ Du kan följa den här självstudien på alla datorer som kör Windows, Mac OS e
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. När avbildningen körs i en lokal behållare öppnar du en webbläsare för att `http://localhost:8080`, som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definieras i *Function. JSON* med egenskapen `"authLevel": "function"`. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa lokalt, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"`, återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *Function. JSON*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook.md#authorization-keys).
+1. När avbildningen körs i en lokal behållare öppnar du en webbläsare för att `http://localhost:8080`, som ska Visa platshållarbilden som visas nedan. Avbildningen visas nu eftersom din funktion körs i den lokala behållaren, som i Azure, vilket innebär att den skyddas av en åtkomst nyckel som definieras i *Function. JSON* med egenskapen `"authLevel": "function"`. Behållaren har inte publicerats i en Function-app i Azure, men nyckeln är inte tillgänglig ännu. Om du vill testa lokalt, stoppa Docker, ändra egenskapen Authorization till `"authLevel": "anonymous"`, återskapa avbildningen och starta om Docker. Återställ sedan `"authLevel": "function"` i *Function. JSON*. Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Platshållarbild som visar att behållaren körs lokalt](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 

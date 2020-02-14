@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python) | Microsoft Azure Maps'
 description: Den här självstudien visar hur du kopplar sensor data med väder prognos data från Microsoft Azure Maps väder tjänst med Azure Notebooks (python).
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989628"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208037"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
 
@@ -31,7 +31,7 @@ I den här kursen ska du:
 > * Rita prognos data i grafer.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du först:
 
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Begär dagliga prognos data
 
-I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](https://aka.ms/AzureMapsWeatherDailyForecast) i Azure Maps väderleks tjänsten för att få dagliga väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
+I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](https://aka.ms/AzureMapsWeatherDailyForecast) i Azure Maps väder tjänsten. Detta API returnerar väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
 
 
 ```python
@@ -129,7 +129,7 @@ display(Image(poi_range_map))
 ![Turbin-platser](./media/weather-service-tutorial/location-map.png)
 
 
-Vi ska gruppera prognos data med demonstrations data baserat på Station-ID: t för väder data centret. Den här grupperingen förstärker demonstrations data med prognos data. 
+Vi ska gruppera prognos data med demonstrations data baserat på Station-ID. Stations-ID: t är för väder data centret. Den här grupperingen förstärker demonstrations data med prognos data.
 
 ```python
 # Group forecasted data for all locations

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 855036a5a8e87bd10e9a4d524a1e8ea8bcdccf50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086295"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209740"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrera en Android-app från Google Maps
 
@@ -338,7 +338,7 @@ Här är ett exempel på Google Maps med språket inställt på "fr".
 
 **Efter: Azure Maps**
 
-Azure Maps tillhandahåller tre olika sätt att ange språket och den regionala vyn för kartan. Det första alternativet är att skicka information om språket och den regionala vyn till `AzureMaps`-klassen. Det här alternativet använder den statiska `setLanguage` och `setView` metoder globalt. Standard språket och den regionala vyn ställs in för alla Azure Maps kontroller som läses in i din app. I det här exemplet anges franska med språk koden "fr-FR".
+Azure Maps tillhandahåller tre olika sätt att ange språket och den regionala vyn för kartan. Det första alternativet är att skicka information om språket och den regionala vyn till `AzureMaps`-klassen. Det här alternativet använder den statiska `setLanguage` och `setView` metoder globalt. Standard språket och den regionala vyn ställs in över alla Azure Maps kontroller som läses in i din app. I det här exemplet anges franska med språk koden "fr-FR".
 
 ```java
 static {
@@ -725,7 +725,7 @@ public void onMapReady(GoogleMap googleMap) {
 Ett panel lager kan läggas till i kartan på samma sätt som andra lager. En formaterad URL med plats hållare för x, y och zoomning; `{x}`är `{y}``{z}` används för att berätta för lagret var du ska få åtkomst till panelerna. Panel lager i Azure Maps också stöd för `{quadkey}`, `{bbox-epsg-3857}`och `{subdomain}` plats hållare. Om du vill göra panel lagret halv genomskinligt används värdet 0,8 för opacitet. Ogenomskinlighet och genomskinlighet, men Använd inverterade värden. Om du vill konvertera mellan båda alternativen subtraherar du värdet från siffran ett.
 
 > [!TIP]
-> I Azure Maps är det praktiskt att återge lager under andra lager, inklusive bas kart skikt. Det är ofta önskvärt att återge panel lager under kart etiketterna så att de är lätta att läsa. Metoden `map.layers.add` tar en andra parameter som är ID: t för det lager där det nya lagret ska infogas. Följande kod kan användas för att infoga ett panel lager under kart etiketterna: `map.layers.add(myTileLayer, "labels");`
+> I Azure Maps är det praktiskt att återge lager under andra lager, inklusive bas kart skikt. Dessutom är det ofta önskvärt att återge panel lager under kart etiketterna så att de är lätta att läsa. Metoden `map.layers.add` tar en andra parameter som är ID: t för det lager där det nya lagret ska infogas. Följande kod kan användas för att infoga ett panel lager under kart etiketterna: `map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {

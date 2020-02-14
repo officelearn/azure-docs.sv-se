@@ -1,24 +1,24 @@
 ---
 title: 'Självstudie: Sök efter flera vägar i färd läge | Microsoft Azure Maps'
 description: I den här självstudien får du lära dig hur du hittar vägar för olika färd sätt med hjälp av Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989662"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209502"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta vägar för olika färd sätt med hjälp av Azure Maps
 
-I den här självstudien visas hur du använder ditt Azure Maps-konto och Route service. Route service kan hitta vägen till din intresse punkt, prioriterad av ditt rese läge. Du kan visa två olika vägar på kartan, en för bilar och en för Last bilar. Routningstjänsten tar hänsyn till begränsningar på grund av fordonets höjd och vikt, eller om fordonet bär farligt gods. I den här guiden får du lära dig hur man:
+I den här självstudien visas hur du använder ditt Azure Maps-konto och Route service. Route service kan hitta vägen till din intresse punkt, prioriterad av ditt rese läge. Du kan visa två olika vägar på kartan, en för bilar och en för Last bilar. Routningstjänsten tar hänsyn till begränsningar på grund av fordonets höjd och vikt, eller om fordonet bär farligt gods. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:n för kartkontroll
@@ -26,7 +26,7 @@ I den här självstudien visas hur du använder ditt Azure Maps-konto och Route 
 > * Skapa vägfrågor som deklarerar resläge
 > * Visa flera vägar på kartan
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och väljer pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Skapa en ny karta
@@ -79,7 +79,7 @@ Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kar
     </html>
     ```
 
-    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt Azure Maps-API:erna.
+    Observera att HTML-huvudet innehåller CSS- och JavaScriptresursfiler som med Azure Kartkontroll-biblioteket som värd. Observera `onload`-händelsen i innehållet på sidan, som anropar funktionen `GetMap` när sidans innehåll har lästs in. Den här funktionen innehåller infogad JavaScript-kod för att komma åt API:et i Azure Maps.
 
 3. Lägg till följande JavaScript-kod i funktionen `GetMap`. Ersätt strängen `<Your Azure Maps Key>` med den primära nyckel som du kopierade från ditt Maps-konto.
 
@@ -158,7 +158,7 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
     });
     ```
     
-    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg raderna och start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att radlinjen inte täcker för vägetiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start-och slut punkterna ska renderas. I det här fallet har uttryck lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt. 
+    I Maps `ready` händelse hanteraren skapas en data källa för att lagra väg raderna och start-och slut punkterna. Ett linjeskikt skapas och ansluts till datakällan för att definiera hur väglinjen ska renderas. Uttryck används för att hämta linjens bredd och färg från egenskaperna för väglinjefunktionen. När du lägger till skiktet på kartan skickas en andra parameter med värdet `'labels'`, där det anges att det här lagret ska renderas under kartetiketterna. Detta säkerställer att väg linjen inte besvarar väg etiketterna. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur start-och slut punkterna ska renderas. I det här fallet har uttryck lagts till för att hämta ikon bilden och text etiketts information från egenskaper för varje punkt objekt. 
     
 2. För den här självstudien ska du ange en startpunkt som ett fiktivt företag i Seattle som heter Fabrikam, och målplatsen som ett Microsoft-kontor. Lägg till följande kod i händelse hanteraren för Maps-`ready`.
 
@@ -198,9 +198,13 @@ I den här självstudien beräknas och renderas två vägar på kartan. En väg 
 
 <a id="multipleroutes"></a>
 
-## <a name="render-routes-prioritized-by-mode-of-travel"></a>Återge vägar prioriterade efter färdmedel
+## <a name="render-routes-prioritized-by-mode-of-travel"></a>Återge rutter prioriterade efter färdmedel
 
-Det här avsnittet visar hur du använder Maps Route service API för att hitta flera vägar från en viss start punkt till slut punkten baserat på ditt transport sätt. Route Service tillhandahåller API:er för att planera den *snabbaste*, *kortaste*, *, miljövänligaste* eller *mest spännande* rutten mellan två platser, med hänsyn till aktuella trafikförhållanden. Användare kan även planera rutter i framtiden genom att använda Azures omfattande historiska trafikdatabas för att förutsäga hur snabba olika rutter är på olika dagar och tidpunkter. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Samtliga följande kodblock ska läggas till **i kartinläsningsfunktionen eventListener i kartan**, så att de laddas först när kartan har lästs in helt.
+I det här avsnittet visas hur du använder Maps Route service-API. Route API används för att hitta flera vägar från en viss start punkt till slut punkten, baserat på ditt transport sätt. Route service innehåller API: er för att planera *snabbast*, *kortaste*, *eko*eller *thrilLing* vägar. Det går inte bara att planera API: erna genom att planera mellan två platser, men de anser också de aktuella trafik villkoren. 
+
+Med väg-API: et kan användare planera vägar i framtiden med hjälp av Azures omfattande historiska trafik databas. API: et kan förutsäga vägens varaktigheter för en specifik dag och tid. Mer information finns i [Hämta väganvisningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). 
+
+Alla följande kodblock ska läggas till **i eventListener för kart läsning** för att säkerställa att de läses in när kartan har lästs in helt.
 
 1. I GetMap-funktionen lägger du till följande till JavaScript-kod.
 
@@ -244,7 +248,7 @@ Det här avsnittet visar hur du använder Maps Route service API för att hitta 
     });
     ```
 
-    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av metoden `geojson.getFeatures()`. Väg linjen läggs sedan till i data källan. Ett index på 0 garanterar att det återges före andra rader i data källan. Detta görs eftersom beräkningen av lastbilsvägen ofta tar längre tid än beräkningen för en bilväg, och om lastbilens väglinje läggs till i datakällan efter bilvägen renderas den före bilvägen. Två egenskaper läggs till i väg linjen för trucken, en linje färg som är en bra nyans av blått och en linje bredd på nio bild punkter.
+    Det här kodfragmentet ovan frågar Azure Maps routningstjänsten via [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) -metoden. Flödes raden extraheras sedan från insamlingen för polyjson-funktionen från svaret som extraheras med hjälp av metoden `geojson.getFeatures()`. Väg linjen läggs sedan till i data källan. Ett index på 0 garanterar att det återges före andra rader i data källan. Detta görs eftersom väg beräkningen för Last bilar är ofta långsammare än en flödes beräkning. Om väg linjen för trucken läggs till i data källan efter Car-vägen, kommer den att visas ovanför den. Två egenskaper läggs till i väg linjen för trucken, en linje färg som är en bra nyans av blått och en linje bredd på nio bild punkter.
 
 3. Lägg till följande JavaScript-kod för att skapa en väg för en bil och visa resultatet.
 
@@ -270,7 +274,7 @@ Det här avsnittet visar hur du använder Maps Route service API för att hitta 
 
     ![Prioriterade rutter med Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    Lastbilsvägen är blå och tjockare och bilvägen är lila och tunnare. Bilvägen sträcker sig över Lake Washington via I-90, som går genom tunnlarna under bostadsområdena och begränsar farlig avfallslast. Lastbilsvägen som anger en USHazmatClass2-lasttyp dirigeras korrekt för att använda en annan väg.
+    Truck-vägen är tjock blå och bilen är tunn lila. Car-vägen går över Lake Washington via I-90, som går genom tunnlar under bostads områden. Eftersom tunnlarna ligger nära bostads områden är farligt avfall Last begränsat. Truck-vägen, som anger en USHazmatClass2 Last typ, dirigeras till att använda en annan väg.
 
 ## <a name="next-steps"></a>Nästa steg
 

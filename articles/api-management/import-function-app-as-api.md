@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442587"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209196"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importera en Azure-funktionsapp som API i Azure API Management | Microsoft Docs
 
@@ -26,7 +26,7 @@ Azure API Management har funktioner för att importera Azure-funktionsappar som 
 
 Den här artikeln visar hur du importerar en Azure-funktionsapp som API i Azure API Management. Vi beskriver också testprocessen.
 
-Du lär dig att göra följande:
+Du lär dig hur du:
 
 > [!div class="checklist"]
 > * Importera en Azure-funktionsapp som API
@@ -35,7 +35,7 @@ Du lär dig att göra följande:
 > * Testa API:et i Azure Portal
 > * Testa API:et i utvecklarportalen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför snabbstarten [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
 * Se till att du har en Azure Funktions-app i din prenumeration. Mer information finns i [Skapa en Azure-funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Det måste innehålla funktioner med HTTP-utlösare och inställningar för auktoriseringsnivå inställda på *Anonym* eller *Funktion*.
@@ -118,7 +118,7 @@ Import av en Azure-funktionsapp genererar automatiskt:
 * Värd nyckel i Funktionsapp med namnet APIM-{namnet på*din Azure API Management*-tjänstinstans},
 * Namngivet värde i Azure API Management-instansen med namnet {*ditt Azure Funktionsapp instance Name*}-Key, som innehåller den skapade värd nyckeln.
 
-För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API anrop](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på den *Server dels* enhet som är kopplad till Funktionsapp.
+För API: er som skapats efter 4 april 2019, skickas värd nyckeln i HTTP-begäranden från API Management till Funktionsapp i en rubrik. Äldre API: er skickar värd nyckeln som [en frågeparameter](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Det här beteendet kan ändras via `PATCH Backend` [REST API anrop](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) på den *Server dels* enhet som är kopplad till Funktionsapp.
 
 > [!WARNING]
 > Om du tar bort eller ändrar värdet för antingen värdnyckeln för Azure-funktionsappen eller det namngivna Azure API Management-värdet bryts kommunikationen mellan tjänsterna. Värdena synkroniseras inte automatiskt.

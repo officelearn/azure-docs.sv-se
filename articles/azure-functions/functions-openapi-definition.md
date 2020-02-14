@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562021"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210216"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Skapa en OpenAPI-definition för ett Server lös API med hjälp av Azure API Management
 
@@ -18,7 +18,7 @@ REST API: er beskrivs ofta med hjälp av en OpenAPI-definition. Den här definit
 
 I den här självstudien skapar du en funktion som avgör om en nödreparation på en vindturbin är kostnadseffektiv. Sedan skapar du en OpenAPI-definition för Function-appen med hjälp av [Azure API Management](../api-management/api-management-key-concepts.md) så att funktionen kan anropas från andra appar och tjänster.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * skapar en funktion i Azure
@@ -45,7 +45,7 @@ Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket 
 
 1. Välj **Fler mallar...** och välj sedan **Slutför och Visa mallar**
 
-1. Välj HTTP-utlösare, skriv `TurbineRepair` som funktions **namn**, Välj `Function` för **[Autentiseringsnivå](functions-bindings-http-webhook.md#http-auth)** och välj sedan **skapa**.  
+1. Välj HTTP-utlösare, skriv `TurbineRepair` som funktions **namn**, Välj `Function` för **[Autentiseringsnivå](functions-bindings-http-webhook-trigger.md#http-auth)** och välj sedan **skapa**.  
 
     ![Skapa HTTP-funktion för OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
@@ -145,21 +145,21 @@ Nu är du redo att generera OpenAPI-definitionen.
     | **E-postadress för administratör** | din e-post | E-post som tog emot system meddelanden från API Management. |
     | **prisnivå** | Konsumtion (för hands version) | Förbruknings nivån är i för hands version och är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
 
-1. Välj **Skapa** om du vill skapa API Management-instansen, vilket kan ta flera minuter.
+1. Välj **skapa** för att skapa API Management-instansen, vilket kan ta flera minuter.
 
 1. Välj **aktivera Application Insights** för att skicka loggar till samma plats som funktions programmet, Godkänn sedan de återstående standardvärdena och välj **Link API**.
 
-1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Klicka på **Välj** för att fortsätta.
+1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Välj **Välj** för att fortsätta.
 
     ![Importera Azure Functions till API Management](media/functions-openapi-definition/import-function-openapi.png)
 
 1. På sidan **skapa från Funktionsapp** godkänner du standardvärdena och väljer **skapa**
 
-    ![Skapa från funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
+    ![Skapa från Funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
 
 API: et har nu skapats för funktionen.
 
-## <a name="test-the-api"></a>Testa API:et
+## <a name="test-the-api"></a>Testa API: et
 
 Innan du använder OpenAPI-definitionen bör du kontrol lera att API: et fungerar.
 

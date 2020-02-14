@@ -132,7 +132,16 @@
           displayName: 'linked templates, nested templates'
           href: linked-templates.md
         - name: Skapa flera instanser
-          href: create-multiple-instances.md
+          items:
+            - name: Resurser
+              displayName: 'iteration,copy'
+              href: copy-resources.md
+            - name: Egenskaper
+              displayName: 'iteration,copy'
+              href: copy-properties.md
+            - name: Variabler
+              displayName: 'iteration,copy'
+              href: copy-variables.md
         - name: Resurser på prenumerationsnivå
           href: deploy-to-subscription.md
         - name: Nivåresurser för hanteringsgrupp

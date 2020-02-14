@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 67f9168d2b18a98850588554f77c4a5859f365df
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: b954c812bea6c2abf4376c2cee38a3789461ad01
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086412"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208751"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrera en webbapp från Google Maps
 
 De flesta Web Apps, som använder Google Maps, använder Google Maps v3 Java Script SDK. Azure Maps Web SDK är lämplig Azure-baserad SDK för att migrera till. Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder. Du kan köra din app på både webb-och mobil program. Den här kontrollen använder WebGL, så att du kan rendera stora datauppsättningar med höga prestanda. Utveckla med det här SDK: t med Java Script eller TypeScript.
 
-Om du migrerar ett befintligt webb program bör du kontrol lera om det använder ett kart kontroll bibliotek med öppen källkod. Exempel på kart kontroll bibliotek med öppen källkod är: cesium, häfte och openlager. Om programmet använder ett kart kontroll bibliotek med öppen källkod och du inte vill använda Azure Maps Web SDK kan du fortfarande migrera. I det här fallet ansluter du ditt program till Azure Maps panel tjänster ([väg plattor](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [satellit paneler](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Följande beskriver hur du använder Azure Maps i några vanliga kart kontroll bibliotek med öppen källkod.
+Om du migrerar ett befintligt webb program bör du kontrol lera om det använder ett kart kontroll bibliotek med öppen källkod. Exempel på kart kontroll bibliotek med öppen källkod är: cesium, häfte och openlager. Du kan fortfarande migrera ditt program, även om det använder ett kart kontroll bibliotek med öppen källkod, och du inte vill använda Azure Maps Web SDK. I det här fallet ansluter du ditt program till Azure Maps panel tjänster ([väg plattor](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [satellit paneler](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Följande beskriver hur du använder Azure Maps i några vanliga kart kontroll bibliotek med öppen källkod.
 
 - Cesium – en 3D-kart kontroll för webben. [Kod exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [dokumentation](https://cesiumjs.org/)
 - Broschyr – förenklad 2D-kart kontroll för webben. [Kod exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [dokumentation](https://leafletjs.com/)
@@ -44,7 +44,7 @@ Tabellen innehåller nyckel-API-funktioner i Google Maps v3 JavaScript SDK och A
 | Netencoder-tjänst        | ✓                          |
 | Vägbeskrivnings tjänst      | ✓                          |
 | Distans mat ris tjänst | ✓                          |
-| Höjnings tjänst       | Planerat                    |
+| Höjnings tjänst       | Planerad                    |
 
 ## <a name="notable-differences-in-the-web-sdks"></a>Viktiga skillnader i webb-SDK: er
 
@@ -62,7 +62,7 @@ Följande är några viktiga skillnader mellan Google Maps och Azure Maps webb-S
 
 ## <a name="web-sdk-side-by-side-examples"></a>Webb-SDK sida vid sida-exempel
 
-Den här samlingen innehåller kod exempel för varje plattform, varje exempel omfattar ett vanligt användnings fall. Det är avsett att hjälpa dig att migrera ditt webb program från Google Maps v3 JavaScript SDK till Azure Maps Web SDK. Kod exempel som är relaterade till webb program finns i Java Script. Azure Maps även tillhandahålla TypeScript-definitioner som ett ytterligare alternativ genom en [NPM-modul](how-to-use-map-control.md).
+Den här samlingen innehåller kod exempel för varje plattform och varje exempel omfattar ett vanligt användnings fall. Det är avsett att hjälpa dig att migrera ditt webb program från Google Maps v3 JavaScript SDK till Azure Maps Web SDK. Kod exempel som är relaterade till webb program finns i Java Script. Azure Maps även tillhandahålla TypeScript-definitioner som ett ytterligare alternativ genom en [NPM-modul](how-to-use-map-control.md).
 
 ### <a name="load-a-map"></a>Läsa in en karta
 
@@ -80,7 +80,7 @@ Båda SDK: erna har samma steg för att läsa in en karta:
 - När du refererar till det `div`-element som kartan återges i, kräver `Map`-klassen i Azure Maps bara `id` svärdet medan Google Maps kräver ett `HTMLElement`-objekt.
 - Koordinater i Azure Maps definieras som positions objekt, som kan anges som en enkel siffer mat ris i formatet `[longitude, latitude]`.
 - Zoomnings nivån i Azure Maps är en nivå som är lägre än zoomnings nivån i Google Maps. Den här avvikelsen beror på skillnaden i storleks förändrings systemet för de två plattformarna.
-- Azure Maps lägger inte till några navigerings kontroller på kart arbets ytan. Som standard har en karta som standard inte zoomnings knappar och kart stils knappar. Men det finns kontroller för att lägga till en mappnings väljare, zoomnings knappar, kompass-och rotations kontroll och en kanna.
+- Azure Maps lägger inte till några navigerings kontroller på kart arbets ytan. Som standard har en karta som standard inte zoomnings knappar och kart stils knappar. Men det finns kontroll alternativ för att lägga till en mappnings-eller zoomnings knappar, kompass-och rotations kontroll och en kanna.
 - En händelse hanterare läggs till i Azure Maps för att övervaka `ready`s händelsen för kart instansen. Den här händelsen kommer att utlösa när kartan har läst in WebGL-kontexten och alla nödvändiga resurser. Lägg till all kod som du vill köra när kartan är klar med inläsningen till den här händelse hanteraren.
 
 I de grundläggande exemplen nedan används Google Maps för att läsa in en karta som är centrerad över New York vid koordinater. Longitud:-73,985, latitud: 40,747 och kartan är på zoomnings nivån 12.
@@ -212,7 +212,7 @@ Här är ett exempel på Google Maps med språket inställt på "fr-FR".
 
 **Efter: Azure Maps**
 
-Azure Maps tillhandahåller två olika sätt att ange språk och regional vy för kartan. Det första alternativet är att lägga till den här informationen i namn området för den globala *atlasen* , vilket leder till att alla instanser av kart kontroll i appen används som standard för de här inställningarna. Följande ställer in språket på franska ("fr-FR") och den regionala vyn till "Auto":
+Azure Maps tillhandahåller två olika sätt att ange språk och regional vy för kartan. Det första alternativet är att lägga till den här informationen i namn området för den globala *atlasen* . Det leder till att alla instanser av kart kontroll i appen används som standard för de här inställningarna. Följande ställer in språket på franska ("fr-FR") och den regionala vyn till "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -246,7 +246,7 @@ Här är ett exempel på Azure Maps med språket "fr" och användar regionen ins
 
 ### <a name="setting-the-map-view"></a>Ställa in Map-vyn
 
-I både Azure Maps och Google Maps kan dynamiska Maps program mässigt flyttas till nya geografiska platser. Det gör du genom att anropa lämpliga funktioner i Java Script. Exemplet visar hur du gör kartan för att Visa satellit antenn bilder, centrera kartan över en plats och ändra zoomnings nivån till 15 i Google Maps. Följande plats koordinater används: longitud:-111,0225 och latitud: 35,0272.
+I både Azure Maps och Google Maps kan dynamiska Maps program mässigt flyttas till nya geografiska platser. Det gör du genom att anropa lämpliga funktioner i Java Script. Exemplet visar hur du gör kartan för att Visa satellit antenn bilder, centrera kartan över en plats och ändra zoomnings nivån. Följande plats koordinater används: longitud:-111,0225 och latitud: 35,0272.
 
 > [!NOTE]
 > Google Maps använder paneler som är 256 pixlar i dimensioner, medan Azure Maps använder en större 512-pixel-panel. Därför kräver Azure Maps mindre antal nätverks begär Anden för att läsa in samma mappnings område som Google Maps. På grund av hur panelbaserade pyramider fungerar i kart kontroller, måste du subtrahera zoomnings nivån som används i Google Maps med siffran en när du använder Azure Maps. Denna aritmetiska åtgärd ser till att större paneler i Azure Maps återger samma mappnings område som i Google Maps,
@@ -856,7 +856,7 @@ Ange en enda callback-funktion i `map.data.setStyle`-metoden. I motringningsfunk
 
 **Efter: Azure Maps**
 
-Interjson är den grundläggande data typen i Azure Maps. Importera den till en data källa med hjälp av metoden `datasource.importFromUrl`. Använd ett bubbeldiagram som innehåller funktioner för åter givning av skalade cirklar baserat på egenskaperna för funktionerna i en data källa. I stället för att ha en callback-funktion konverteras affärs logiken till ett uttryck och skickas till format alternativen. Uttryck definierar hur affärs logiken fungerar. Uttryck kan skickas till en annan tråd och utvärderas mot funktions data. Du kan lägga till flera data källor och lager i Azure Maps, var och en med olika affärs logik. Med den här funktionen kan flera data uppsättningar återges på kartan på olika sätt.
+Interjson är den grundläggande data typen i Azure Maps. Importera den till en data källa med hjälp av metoden `datasource.importFromUrl`. Använd ett bubbel lager. Bubble-lagret innehåller funktioner för åter givning av skalade cirklar, baserat på egenskaperna för funktionerna i en data källa. I stället för att ha en callback-funktion konverteras affärs logiken till ett uttryck och skickas till format alternativen. Uttryck definierar hur affärs logiken fungerar. Uttryck kan skickas till en annan tråd och utvärderas mot funktions data. Du kan lägga till flera data källor och lager i Azure Maps, var och en med olika affärs logik. Med den här funktionen kan flera data uppsättningar återges på kartan på olika sätt.
 
 ```html
 <!DOCTYPE html>
@@ -953,7 +953,7 @@ I följande exempel läser koden in en jord bävning data från den senaste veck
 
 **Före: Google Maps**
 
-Använd MarkerCluster-biblioteket till kluster markörer. Kluster ikonerna är begränsade till bilder, som har numren ett till fem som namn och de finns i samma katalog.
+Använd MarkerCluster-biblioteket till kluster markörer. Kluster ikonerna är begränsade till bilder, som har talen ett till fem som namn. De finns i samma katalog.
 
 ```html
 <!DOCTYPE html>
@@ -1151,7 +1151,7 @@ Importera inre JSON-data direkt med hjälp av funktionen `importDataFromUrl` i `
 
 Värme kartor, även kallade punkt Täthets kartor, är en typ av data visualisering. De används för att representera densiteten för data med hjälp av en uppsättning färger. Och används ofta för att visa data "aktiva punkter" på en karta. Värme kartor är ett bra sätt att återge data uppsättningar med stora punkter.
 
-I följande exempel läses ett interjson-flöde över alla jord bävningar under den senaste månaden från USGS DATAUPPSÄTTNINGEN och återges som en viktad termisk karta. Egenskapen `"mag"` används som vikt.
+Följande exempel läser in ett interjson-flöde för alla jord bävningar under den senaste månaden, från USGS DATAUPPSÄTTNINGEN och återger dem som en viktad termisk karta. Egenskapen `"mag"` används som vikt.
 
 **Före: Google Maps**
 
@@ -1395,7 +1395,7 @@ Om du klickar på en av trafik ikonerna i Azure Maps visas ytterligare informati
 
 ### <a name="add-a-ground-overlay"></a>Lägg till ett mark överlägg
 
-Både Azure och Google Maps stöder överlägg av de refererade bilderna på kartan. De refererade bilderna flyttas och skalas när du panorera och zoomar kartan. I Google Maps kallas de refererade bilderna som bas överlägg när de befinner sig i Azure Maps de kallas för bild lager. Detta är bra för att skapa vånings planer, täcka gamla kartor eller bilder från en drönare.
+Både Azure och Google Maps stöder överlägg av de refererade bilderna på kartan. De refererade bilderna flyttas och skalas när du panorera och zoomar kartan. I Google Maps kallas de refererade bilderna som bas överlägg när de befinner sig i Azure Maps de kallas för bild lager. De är fantastiska för att skapa vånings planer, täcka gamla kartor eller bilder från en drönare.
 
 **Före: Google Maps**
 

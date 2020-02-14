@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b9fdd1b25e53e1cdc8aa76564304a61adaa8d804
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935210"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201602"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -63,7 +63,7 @@ Huvud funktionerna i hanterade instanser visas i följande tabell:
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
 | VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Inga |
+| VNet – klassisk distributions modell | Nej |
 | Portal stöd | Ja|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
@@ -80,9 +80,6 @@ I vCore-modellen kan du välja mellan generationens maskin vara.
 - **Gen5** Logiska processorer baseras på Intel E5-2673 v4 (Broadwell) 2,3-GHz-och Intel SP-8160-processorer (Skylake), fast NVMe SSD, Hyper-threaded Logical Core och beräknings storlekar mellan 4 och 80 kärnor.
 
 Hitta mer information om skillnaden mellan maskin varu generationer i [resurs gränser för hanterade instanser](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-
-> [!IMPORTANT]
-> Nya Gen4-databaser stöds inte längre i regionerna Australien, östra eller Brasilien, södra.
 
 ## <a name="managed-instance-service-tiers"></a>Tjänst nivåer för hanterade instanser
 
@@ -153,14 +150,14 @@ I följande tabell sammanfattas åtgärder och typiska övergripande varaktighet
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instans skapandet av 4 virtuella kärnor, i ett tomt eller icke-tomt undernät|Skapa virtuellt kluster * *|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Efterföljande instans skapas i det icke-tomma under nätet (andra, tredje osv.)|Storleks ändring av virtuellt kluster|90% av åtgärderna har slutförts om 2,5 timmar|
-|**Uppdatering** |Ändring av instans egenskap (administratörs lösen ord, AAD-inloggning, Azure Hybrid-förmån flagga)|Gäller inte|Upp till 1 minut|
-|Uppdatering |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter|
-|Uppdatering |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
-|Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
-|Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
-|Uppdatering |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Bifoga databasfiler|90% av åtgärderna har slutförts på 4 timmar 5 min * *|
-|Uppdatering |Instans skala ned till 4 virtuella kärnor (Affärskritisk)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts på 4 timmar + tid för att dirigera alla databaser (220 GB/timme)|
-|Uppdatering |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
+|**Uppdatera** |Ändring av instans egenskap (administratörs lösen ord, AAD-inloggning, Azure Hybrid-förmån flagga)|Saknas|Upp till 1 minut|
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning tjänst nivå)|Bifoga databasfiler|90% av åtgärderna har slutförts på 5 minuter|
+|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk tjänst nivå)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning)|-Storleks ändring av virtuellt kluster<br>-Bifoga databasfiler|90% av åtgärderna har slutförts om 2,5 timmar|
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
+|Uppdatera |Instans skala ned till 4 virtuella kärnor (Generell användning)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Bifoga databasfiler|90% av åtgärderna har slutförts på 4 timmar 5 min * *|
+|Uppdatera |Instans skala ned till 4 virtuella kärnor (Affärskritisk)|-Storleks ändring av virtuellt kluster (om det är färdigt för första gången kan det krävas att skapa virtuella kluster * *)<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna har slutförts på 4 timmar + tid för att dirigera alla databaser (220 GB/timme)|
+|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa)|-Storleks ändring av virtuellt kluster<br>-Always on-tillgänglighets grupps dirigering|90% av åtgärderna slutförs om 2,5 timmar + tid för att dirigera alla databaser (220 GB/timme)|
 |**Redundanstestning**|Borttagning av instans|Logg säkerhets kopiering för alla databaser|90% åtgärder har slutförts på upp till 1 minut.<br>OBS! om den sista instansen i under nätet tas bort, kommer den här åtgärden att schemalägga borttagning av virtuellt kluster efter 12 timmar * * *|
 |Borttagning|Borttagning av virtuellt kluster (som användarinitierad åtgärd)|Borttagning av virtuellt kluster|90% av åtgärderna har slutförts på upp till 1,5 timmar|
 
@@ -190,14 +187,14 @@ I följande tabell sammanfattas möjligheten att avbryta vissa hanterings åtgä
 
 Kategori  |Åtgärd  |Avbrytbar  |Beräknad tids längd för avbrott  |
 |---------|---------|---------|---------|
-|Distribution |Skapa instans |Inga |  |
-|Uppdatering |Skalning av instans lagring upp/ned (Generell användning) |Inga |  |
-|Uppdatering |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Uppdatering |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Uppdatering |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter |
-|Ta bort |Borttagning av instans |Inga |  |
-|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Inga |  |
+|Distribution |Skapa instans |Nej |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Generell användning) |Nej |  |
+|Uppdatera |Skalning av instans lagring upp/ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Generell användning) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatera |Virtuella kärnor (Instance Compute) skalar upp och ned (Affärskritisk) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Uppdatera |Instans tjänst nivå ändring (Generell användning till Affärskritisk och vice versa) |Ja |90% av åtgärderna har slutförts på 5 minuter |
+|Ta bort |Borttagning av instans |Nej |  |
+|Ta bort |Borttagning av virtuellt kluster (som användarinitierad åtgärd) |Nej |  |
 
 Om du vill avbryta hanterings åtgärden går du till bladet översikt och klickar på meddelande rutan för pågående åtgärder. En skärm med kontinuerlig åtgärd visas från höger sida och det kommer att finnas en knapp för att avbryta åtgärden. När du har klickat på uppmanas du att klicka igen och bekräfta att du vill avbryta åtgärden.
 
@@ -269,7 +266,7 @@ Autentisering med hanterade instanser avser hur användare bekräftar sin identi
 
   Den här autentiseringsmetoden använder identiteter som hanteras av Azure Active Directory och stöds för hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
-### <a name="authorization"></a>Autentisering
+### <a name="authorization"></a>Auktorisering
 
 Auktorisering syftar på vad en användare kan göra inom en Azure SQL Database och styrs av ditt användar kontos databas roll medlemskap och behörigheter på objekt nivå. En hanterad instans har samma Authorization-funktioner som SQL Server 2017.
 
@@ -277,7 +274,7 @@ Auktorisering syftar på vad en användare kan göra inom en Azure SQL Database 
 
 Distributions alternativet för hanterade instanser riktar sig mot användar scenarier med en Mass databas migrering från lokala eller IaaS databas implementeringar. Hanterad instans har stöd för flera alternativ för migrering av databas:
 
-### <a name="back-up-and-restore"></a>Säkerhetskopiera och återställ  
+### <a name="back-up-and-restore"></a>Säkerhetskopiera och återställa  
 
 Migreringsprocessen utnyttjar SQL-säkerhetskopieringar till Azure Blob Storage. Säkerhets kopior som lagras i Azure Storage BLOB kan återställas direkt till en hanterad instans med hjälp av [kommandot T-SQL REstore](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -299,7 +296,7 @@ Distributions alternativet för hanterade instanser stöder bakåtkompatibilitet
   
 Följande diagram visar kompatibiliteten för Surface Area i den hanterade instansen:  
 
-![migreringsarkivet](./media/sql-database-managed-instance/migration.png)
+![migrering](./media/sql-database-managed-instance/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och i en hanterad instans
 
@@ -328,7 +325,7 @@ I följande tabell visas flera egenskaper, som är tillgängliga via Transact SQ
 |`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database. Detta indikerar **inte** SQL-motor version 12 (SQL Server 2014). Den hanterade instansen kör alltid den senaste säkra versionen av SQL-motorn, som är lika med eller högre än den senaste tillgängliga RTM-versionen av SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Värdet är samma som i SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar en hanterad instans unikt.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, där `<instanceName>` är namn som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Fullständigt instans-DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`. database.windows.net, där `<instanceName>` är ett namn som tillhandahålls av kunden, medan `<dnsPrefix>` automatiskt är en del av namnet som garanterar unikt DNS-namn ("wcus17662feb9ce98", t. ex.)|Exempel: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Nästa steg
 

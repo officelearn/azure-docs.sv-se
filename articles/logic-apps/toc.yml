@@ -87,7 +87,7 @@
           href: logic-apps-handle-large-messages.md
         - name: Skydda
           items:
-            - name: Skydda dina logikappar
+            - name: Förbättra säkerheten för logikappar
               href: logic-apps-securing-a-logic-app.md
             - name: Autentisera med hanterade identiteter
               href: create-managed-service-identity.md
@@ -97,7 +97,7 @@
           items:
             - name: 'Skapa anpassade API:er för logikappar'
               href: logic-apps-create-api-app.md
-            - name: 'Säkra anrop till anpassade API:er'
+            - name: 'Förbättra säkerheten för anrop till anpassade API:er'
               href: logic-apps-custom-api-authentication.md
             - name: 'Distribuera och anropa anpassade API:er'
               href: logic-apps-custom-api-host-deploy-call.md

@@ -19,20 +19,30 @@
       href: concept-conditional-access-policy-common.md
     - name: Komponenter för princip för villkorsstyrd åtkomst
       href: concept-conditional-access-policies.md
-    - name: Molnappar och åtgärder
-      href: concept-conditional-access-cloud-apps.md
-    - name: Villkor
-      href: conditions.md
-    - name: Platsvillkor
-      href: location-condition.md
-    - name: Kontroller
-      href: controls.md
+    - name: Tilldelningar
+      items:
+        - name: Användare och grupper
+          href: concept-conditional-access-users-groups.md
+        - name: Molnappar eller åtgärder
+          href: concept-conditional-access-cloud-apps.md
+        - name: Villkor
+          href: concept-conditional-access-conditions.md
+    - name: Åtkomstkontroller
+      items:
+        - name: Bevilja
+          href: concept-conditional-access-grant.md
+        - name: Session
+          href: concept-conditional-access-session.md
     - name: Läget Endast rapport
       href: concept-conditional-access-report-only.md
     - name: Tjänstberoenden
       href: service-dependencies.md
+    - name: Platsvillkor
+      href: location-condition.md
     - name: Konsekvensverktyg
       href: what-if-tool.md
+    - name: Kontroller
+      href: controls.md
     - name: Klassisk policymigrering
       href: policy-migration.md
     - name: Principer för baslinjeskydd
@@ -84,10 +94,6 @@
       items:
         - name: Felsöka med hjälp av What If-verktyget
           href: troubleshoot-conditional-access-what-if.md
-- name: Referens
-  items:
-    - name: Teknisk referens
-      href: technical-reference.md
 - name: Resurser
   items:
     - name: Azures feedbackforum

@@ -21,7 +21,11 @@
 - name: Begrepp
   items:
     - name: Platser och partners
-      href: virtual-wan-locations-partners.md
+      items:
+        - name: Hubbplatser och partner
+          href: virtual-wan-locations-partners.md
+        - name: Automatiseringsriktlinjer för partner
+          href: virtual-wan-configure-automation-providers.md
     - name: IPSec-principer
       href: virtual-wan-ipsec.md
 - name: Anvisningar
@@ -46,8 +50,6 @@
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Konfigurera Azure AD-autentisering för flera program för användar-VPN
       href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Konfigurera automation (Virtual WAN-partner)
-      href: virtual-wan-configure-automation-providers.md
     - name: Ladda ned globala och navbaserade VPN-profiler
       href: global-hub-profile.md
     - name: Konfigurera routning

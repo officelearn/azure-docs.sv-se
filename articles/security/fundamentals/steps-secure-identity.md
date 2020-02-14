@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d3afc784688a14e4d5d2fc6ae9dc5c1a9e45c4a0
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: cafa9d6100e03d8315bf5dd19d863ca90aadd4bb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057217"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190898"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -107,7 +107,7 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 1. Blockera [äldre autentisering om du använder AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Konfigurera [SharePoint Online och Exchange Online för att använda modern autentisering](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Om du har Azure AD Premium använder du [villkorliga åtkomst principer](../../active-directory/conditional-access/conditions.md) för att blockera äldre autentisering, annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. Om du har Azure AD Premium använder du [villkorliga åtkomst principer](../../active-directory/conditional-access/overview.md) för att blockera äldre autentisering, annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltiga start punkter för autentisering
 

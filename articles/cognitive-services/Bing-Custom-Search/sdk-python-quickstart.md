@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.author: aahi
-ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4f4b6bad38992a9e0146d6324bc3a3fc7632ded2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136151"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201262"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Snabb start: anropa din Anpassad sökning i Bing slut punkt med python SDK 
 
@@ -47,17 +47,17 @@ from msrest.authentication import CognitiveServicesCredentials
 
 ## <a name="create-a-search-client-and-send-a-request"></a>Skapa en Sök klient och skicka en begäran
 
-1. Skapa en variabel för din prenumerationsnyckel.
+1. Skapa en variabel för din prenumerations nyckel och slut punkt.
 
     ```python
     subscription_key = 'your-subscription-key'
-    endpoint = 'your-custom-endpoint'
+    endpoint = 'your-endpoint'
     ```
 
 2. Skapa en instans av `CustomSearchClient`med hjälp av ett `CognitiveServicesCredentials`-objekt med prenumerations nyckeln. 
 
     ```python
-    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Skicka en Sök förfrågan med `client.custom_instance.search()`. Lägg till Sök termen i `query`-parametern och ange `custom_config` till ditt anpassade konfigurations-ID för att använda din Sök instans. Du kan hämta ditt ID från [Anpassad sökning i Bing Portal](https://www.customsearch.ai/)genom att klicka på fliken **produktion** .

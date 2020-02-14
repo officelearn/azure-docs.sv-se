@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e066d28afc4b0959b15284378cde682fbc05615
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845583"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190468"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
@@ -27,7 +27,7 @@ Att skapa ett virtuellt nätverk för att experimentera med är tillräckligt, m
 
 ## <a name="naming"></a>Namngivning
 
-Alla Azure-resurser har ett namn. Namnet måste vara unikt inom ett omfång, vilket kan variera för varje resurs typ. Namnet på ett virtuellt nätverk måste till exempel vara unikt inom en [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan dupliceras i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure- [region](https://azure.microsoft.com/regions/#services). Att definiera en namngivnings konvention som du kan använda konsekvent när du namnger resurser är till hjälp när du hanterar flera nätverks resurser över tid. Förslag finns i [namngivnings konventioner](/azure/architecture/best-practices/resource-naming#networking).
+Alla Azure-resurser har ett namn. Namnet måste vara unikt inom ett omfång, vilket kan variera för varje resurs typ. Namnet på ett virtuellt nätverk måste till exempel vara unikt inom en [resurs grupp](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), men kan dupliceras i en [prenumeration](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) eller Azure- [region](https://azure.microsoft.com/regions/#services). Att definiera en namngivnings konvention som du kan använda konsekvent när du namnger resurser är till hjälp när du hanterar flera nätverks resurser över tid. Förslag finns i [namngivnings konventioner](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
 
 ## <a name="regions"></a>Regioner
 
@@ -87,7 +87,7 @@ Azure skapar flera standard vägar för utgående trafik från ett undernät. Du
 
 Om du behöver implementera anpassad routning rekommenderar vi att du bekantar dig med [routning i Azure](virtual-networks-udr-overview.md).
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutningar
 
 Du kan ansluta ett virtuellt nätverk till andra virtuella nätverk med hjälp av peering för virtuella nätverk eller till ditt lokala nätverk med hjälp av en Azure VPN-gateway.
 

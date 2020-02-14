@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 657cded5e16897f9581bbcf365bacc2d2f1a821a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754355"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191000"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
 
@@ -125,7 +125,7 @@ Fält måste markeras som hämtnings bara i indexet om du vill ha dem i Sök res
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtrera, fasett och sortera komplexa fält
 
-Samma [OData Path-syntax](query-odata-filter-orderby-syntax.md) som används för filtrering och fältade sökningar kan också användas för att fasetta, sortera och välja fält i en sökbegäran. För komplexa typer gäller reglerna som styr vilka under fält som kan markeras som sorterbara eller aspekt bara. Mer information om dessa regler finns i referens för [create index API](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+Samma [OData Path-syntax](query-odata-filter-orderby-syntax.md) som används för filtrering och fältade sökningar kan också användas för att fasetta, sortera och välja fält i en sökbegäran. För komplexa typer gäller reglerna som styr vilka under fält som kan markeras som sorterbara eller aspekt bara. Mer information om dessa regler finns i referens för [create index API](/rest/api/searchservice/create-index).
 
 ### <a name="faceting-sub-fields"></a>Fasett-underfält
 
@@ -149,7 +149,7 @@ Om du vill filtrera efter ett komplext samlings fält kan du använda ett **lamb
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Precis som med enkla fält på översta nivån kan enkla under fält av komplexa fält bara tas med i filter om de har det **filter** bara attributet inställt på `true` i index definitionen. Mer information finns i referens för [create index API](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+Precis som med enkla fält på översta nivån kan enkla under fält av komplexa fält bara tas med i filter om de har det **filter** bara attributet inställt på `true` i index definitionen. Mer information finns i referens för [create index API](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Nästa steg
 

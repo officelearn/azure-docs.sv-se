@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell skript exempel – konfigurera IPv6-slut punkter för virtuella nätverk (för hands version)
+title: Azure PowerShell skript exempel – konfigurera IPv6-slutpunkter
 titlesuffix: Azure Virtual Network
 description: Aktivera IPv6-slutpunkter med PowerShell i Azure Virtual Network
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248818"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201401"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i skript exempel för virtuella nätverk (för hands version)
 
@@ -35,7 +35,7 @@ Registrera på följande sätt:
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Det tar upp till 30 minuter för funktions registrering att slutföras. Du kan kontrol lera din registrerings status genom att köra följande Azure PowerShell kommando: Kontrol lera registreringen på följande sätt:
+Det tar upp till 30 minuter för funktions registrering att slutföras. Du kan kontrol lera din registrerings status genom att köra följande Azure PowerShell kommando: kontrol lera registreringen på följande sätt:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
@@ -264,7 +264,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Skapar ett virtuellt nätverkskort och ansluter det till det virtuella nätverket, undernätet och NSG. |
 | [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Skapar en tillgänglighetsuppsättning. Tillgänglighets uppsättningar säkerställer programmets drift tid genom att sprida de virtuella datorerna över fysiska resurser, till exempel om fel inträffar, påverkas inte hela uppsättningen. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
-| [New-AzVM](/powershell/module/az.compute/new-azvm)  | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även vilken avbildning av virtuell dator som ska användas samt administrativa autentiseringsuppgifter.  |
+| [New-AzVM](/powershell/module/az.compute/new-azvm)  | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,5 +1,5 @@
 ---
-title: Skapa en måttvarning med en Resource Manager-mall
+title: Skapa en metrisk varning med en Resource Manager-mall
 description: Lär dig hur du använder en Resource Manager-mall för att skapa en måtta aviseringar.
 author: harelbr
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 463a389116cd58e50839d717b700b604f545e5f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969420"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190104"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
+# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -107,8 +107,8 @@ Spara JSON-filen nedan som simplestaticmetricalert. JSON för den här genom gå
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1657,8 +1657,8 @@ Spara JSON-filen nedan som alla VM-in-Resource-Group-static. JSON för den här 
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2304,8 +2304,8 @@ Spara JSON-filen nedan som alla-VM-in-Subscription-static. JSON för den här ge
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2946,8 +2946,8 @@ Spara JSON-filen nedan som lista över virtuella datorer – statisk. JSON för 
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }

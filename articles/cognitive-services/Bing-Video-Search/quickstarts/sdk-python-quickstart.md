@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2020
 ms.author: aahi
-ms.openlocfilehash: c1afea4e6cacc1f6e9ac84ca20e638836540396e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9d7b2a8950134e530e042e862a1c19abe89fd78d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448393"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201228"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>Snabb start: utför en Videos ökning med Videosökning i Bing SDK för python
 
-Använd den här snabbstarten till att börja söka efter nyheter med SDK:t Videosökning i Bing för Python. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:t ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) med ytterligare kommentarer och funktioner.
+Använd den här snabbstarten till att börja söka efter nyheter med SDK:t Videosökning i Bing för Python. Även om Videosökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så är SDK:n ett enkelt sätt att integrera tjänsten i dina program. Du hittar käll koden för det här exemplet på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) med ytterligare kommentarer och funktioner.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Python](https://www.python.org/) 2.x eller 3.x
 - SDK:t Videosökning i Bing för Python
@@ -43,10 +43,10 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och lägg till följande importinstruktioner. 
+1. Skapa en ny Python-fil i valfri IDE eller redigerare och följande importinstruktioner. 
 
     ```python
-    from azure.cognitiveservices.search.videosearch import VideoSearchAPI
+    from azure.cognitiveservices.search.videosearch import VideoSearchClient
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
@@ -55,6 +55,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     ```
 
 ## <a name="create-the-search-client"></a>Skapa sökklienten
@@ -62,7 +63,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 Skapa en instans av `CognitiveServicesCredentials` och instantiera klienten:
 
 ```python
-client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+client = VideoSearchAPI(endpoint, CognitiveServicesCredentials(subscription_key))
 ```
 
 ## <a name="send-a-search-request-and-get-a-response"></a>Skicka en förfrågan och få ett svar
@@ -91,7 +92,7 @@ client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 > [!div class="nextstepaction"]
 > [Skapa en webbapp med en sida](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
 - [Vad är API för videosökning i Bing?](../overview.md)
 - [Exempel med Cognitive Services SDK för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

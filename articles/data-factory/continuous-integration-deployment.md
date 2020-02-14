@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f1b15688004d23e8a568695b565b5b34d7b466d6
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 02/12/2020
+ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110180"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187816"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -139,6 +139,9 @@ Nedan följer en guide för hur du konfigurerar en version av en Azure-pipeline,
 
    ![Välj Skapa version](media/continuous-integration-deployment/continuous-integration-image10.png)
 
+> [!IMPORTANT]
+> I CI/CD-scenarier måste integrerings körnings typen (IR) i olika miljöer vara densamma. Om du till exempel har en lokal IR-anslutning i utvecklings miljön, måste samma IR också vara av typen egen värd i andra miljöer, till exempel test och produktion. Om du däremot delar integrerings körningar över flera steg, måste du konfigurera integration runtime som länkad egen värd i alla miljöer, till exempel utveckling, testning och produktion.
+
 ### <a name="get-secrets-from-azure-key-vault"></a>Hämta hemligheter från Azure Key Vault
 
 Om du har hemligheter som ska skickas i en Azure Resource Manager-mall rekommenderar vi att du använder Azure Key Vault med Azure pipelines-versionen.
@@ -184,11 +187,11 @@ Det finns två sätt att hantera hemligheter:
 
 Distributionen kan inte utföras om du försöker uppdatera aktiva utlösare. Om du vill uppdatera aktiva utlösare måste du stoppa dem manuellt och sedan starta om dem efter distributionen. Du kan göra detta med hjälp av en Azure PowerShell uppgift:
 
-1.  Lägg till en **Azure PowerShell** aktivitet på fliken **aktiviteter** i versionen.
+1.  Lägg till en **Azure PowerShell** aktivitet på fliken **aktiviteter** i versionen. Välj aktivitet version 4. *. 
 
-1.  Välj **Azure Resource Manager** som Anslutnings typ och välj sedan din prenumeration.
+1.  Välj den prenumeration som din fabrik är i.
 
-1.  Välj **infogat skript** som skript typ och ange sedan din kod. Följande kod stoppar utlösarna:
+1.  Välj **skript fil Sök väg** som skript typ. Detta kräver att du sparar ditt PowerShell-skript i din lagrings plats. Följande PowerShell-skript kan användas för att stoppa utlösare:
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -196,21 +199,28 @@ Distributionen kan inte utföras om du försöker uppdatera aktiva utlösare. Om
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-    ![Azure PowerShell aktivitet](media/continuous-integration-deployment/continuous-integration-image11.png)
-
 Du kan slutföra liknande steg (med funktionen `Start-AzDataFactoryV2Trigger`) för att starta om utlösarna efter distributionen.
 
-> [!IMPORTANT]
-> I CI/CD-scenarier måste integrerings körnings typen (IR) i olika miljöer vara densamma. Om du till exempel har en lokal IR-anslutning i utvecklings miljön, måste samma IR också vara av typen egen värd i andra miljöer, till exempel test och produktion. Om du däremot delar integrerings körningar över flera steg, måste du konfigurera integration runtime som länkad egen värd i alla miljöer, till exempel utveckling, testning och produktion.
+### <a name="sample-pre--and-post-deployment-script"></a>Exempel skript för för-och efter distribution
 
-#### <a name="sample-pre--and-post-deployment-script"></a>Exempel skript för för-och efter distribution
+Följande exempel skript kan användas för att stoppa utlösare före distribution och starta om dem efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort. Spara skriptet i en Azure DevOps git-lagringsplats och referera till den via en Azure PowerShell aktivitet som använder version 4. *.
 
-Följande exempel skript visar hur du stoppar utlösare före distributionen och sedan startar om dem efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort. Om du vill installera den senaste versionen av Azure PowerShell, se [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
+När du kör ett skript för för distribution måste du ange en variant av följande parametrar i fältet **skript argument** .
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
+
+
+När du kör ett skript efter distribution måste du ange en variant av följande parametrar i fältet **skript argument** .
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+
+Här är det skript som kan användas för för-och-distribution. IT-konton för borttagna resurser och resurs referenser.
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder,
     [parameter(Mandatory = $false)] [String] $armTemplate,
     [parameter(Mandatory = $false)] [String] $ResourceGroupName,
     [parameter(Mandatory = $false)] [String] $DataFactoryName,

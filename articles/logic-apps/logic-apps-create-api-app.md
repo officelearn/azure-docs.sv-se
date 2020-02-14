@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
-ms.openlocfilehash: e4200d09a02da1fd95f9bf5051b7f9d5fca5aa98
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793219"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191433"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -206,9 +206,9 @@ Webhook-utlösare fungerar ungefär som [webhook-åtgärder](#webhook-actions) s
 > [!TIP]
 > Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på en utlösare i GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="secure-calls-to-your-apis-from-logic-apps"></a>Säkra anrop till dina API: er från Logic Apps
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Förbättra säkerheten för anrop till dina API: er från Logic Apps
 
-När du har skapat dina anpassade API: er konfigurerar du autentisering för dina API: er så att du kan anropa dem säkert från Logic Apps. Lär dig [att säkra anrop till anpassade API: er från Logic Apps](../logic-apps/logic-apps-custom-api-authentication.md).
+När du har skapat dina anpassade API: er konfigurerar du autentisering för dina API: er så att du kan anropa dem säkert från Logic Apps. Lär dig [hur du kan förbättra säkerheten för anrop till anpassade API: er från Logic Apps](../logic-apps/logic-apps-custom-api-authentication.md).
 
 ## <a name="deploy-and-call-your-apis"></a>Distribuera och anropa dina API: er
 

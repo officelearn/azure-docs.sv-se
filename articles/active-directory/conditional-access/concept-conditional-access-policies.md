@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f3e815f541ad4cfabc22d917ca9cecba47b50f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077612"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186239"
 ---
 # <a name="building-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
@@ -32,21 +32,21 @@ Tilldelnings delen styr vem, vad och var för principen för villkorlig åtkomst
 
 ### <a name="users-and-groups"></a>Användare och grupper
 
-Användare och grupper som principen ska inkludera eller exkludera. Den här tilldelningen kan omfatta alla användare, vissa grupper av användare, katalog roller eller externa gäst användare. 
+[Användare och grupper](concept-conditional-access-users-groups.md) som principen ska inkludera eller exkludera. Den här tilldelningen kan omfatta alla användare, vissa grupper av användare, katalog roller eller externa gäst användare. 
 
 ### <a name="cloud-apps-or-actions"></a>Molnappar eller åtgärder
 
-Molnappar eller-åtgärder kan inkludera eller exkludera moln program eller användar åtgärder som ska omfattas av principen.
+[Molnappar eller-åtgärder](concept-conditional-access-cloud-apps.md) kan inkludera eller exkludera moln program eller användar åtgärder som ska omfattas av principen.
 
-### <a name="conditions"></a>Villkor
+### <a name="conditions"></a>Tillstånd
 
-En princip kan innehålla flera villkor.
+En princip kan innehålla flera [villkor](concept-conditional-access-conditions.md).
 
 #### <a name="sign-in-risk"></a>Inloggnings risk
 
 För organisationer med [Azure AD Identity Protection](../identity-protection/overview.md)kan de risk identifieringar som genererats påverka dina principer för villkorlig åtkomst.
 
-#### <a name="device-platforms"></a>Enhetsplattformar
+#### <a name="device-platforms"></a>Enhets plattformar
 
 Organisationer med flera plattformar för operativ system enheter kanske vill genomdriva vissa principer på olika plattformar. 
 
@@ -56,7 +56,7 @@ Informationen som används för att beräkna enhets plattformen kommer från ove
 
 Plats data tillhandahålls av IP-datageolokalisering. Administratörer kan välja att definiera platser och välja att markera vissa som betrodda som de för deras organisations nätverks platser.
 
-#### <a name="client-apps"></a>Klientappar
+#### <a name="client-apps"></a>Klient program
 
 Som standard tillämpas principer för villkorlig åtkomst på webb läsar appar, mobilappar och skriv bords klienter som stöder modern autentisering. 
 
@@ -66,11 +66,13 @@ Med det här tilldelnings villkoret kan principer för villkorlig åtkomst rikta
 
 Den här kontrollen används för att undanta enheter som är hybrid Azure AD-anslutna eller som är kompatibla med Intune. Detta undantag kan göras för att blockera ohanterade enheter. 
 
-## <a name="access-controls"></a>Åtkomstkontroller
+## <a name="access-controls"></a>Åtkomst kontroller
 
 Åtkomst kontroll delen av principen för villkorlig åtkomst styr hur en princip tillämpas.
 
-### <a name="grant"></a>Bevilja
+### <a name="grant"></a>Ömsesidigt
+
+[Tillåt](concept-conditional-access-grant.md) ger administratörer ett sätt att tillämpa principer där de kan blockera eller bevilja åtkomst.
 
 #### <a name="block-access"></a>Blockera åtkomst
 
@@ -84,7 +86,7 @@ Kontrollen Grant kan utlösa verk ställande av en eller flera kontroller.
 - Kräv att enheten är markerad som kompatibel (Intune)
 - Kräv hybrid Azure AD-ansluten enhet
 - Kräv godkänd klientapp
-- Kräv appskyddsprincip
+- Kräva appskyddsprincip
 
 Administratörer kan välja att kräva en av de tidigare kontrollerna eller alla valda kontroller med följande alternativ. Standardvärdet för flera kontroller är att kräva alla.
 
@@ -93,7 +95,7 @@ Administratörer kan välja att kräva en av de tidigare kontrollerna eller alla
 
 ### <a name="session"></a>Session
 
-Sessions kontroller kan begränsa upplevelsen 
+[Sessions kontroller](concept-conditional-access-session.md) kan begränsa upplevelsen 
 
 - Använd app-framtvingade begränsningar
    - Fungerar för närvarande endast med Exchange Online och SharePoint Online.
@@ -121,11 +123,11 @@ En princip för villkorlig åtkomst måste innehålla minst följande för att k
 
 ![Tom princip för villkorlig åtkomst](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
+Artikeln [vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md) innehåller vissa principer som vi tror är användbara för de flesta organisationer.
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
-
-[Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
 [Planera en molnbaserad Azure Multi-Factor Authentication-distribution](../authentication/howto-mfa-getstarted.md)
 

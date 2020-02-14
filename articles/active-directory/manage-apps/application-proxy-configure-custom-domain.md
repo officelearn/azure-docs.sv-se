@@ -1,5 +1,5 @@
 ---
-title: Anpassade domäner i Azure AD-programproxy | Microsoft Docs
+title: Anpassade domäner i Azure AD Application Proxy | Microsoft Docs
 description: Konfigurera och hantera anpassade domäner i Azure AD-programproxy.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062532"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185544"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurera anpassade domäner med Azure AD-programproxy
 
-När du publicerar ett program via Azure Active Directory-programproxy skapar du en extern URL för dina användare. Den här URL: en hämtar standard domänen *yourtenant.msappproxy.net*. Om du till exempel publicerar en app med namnet *utgifter* i din klient med namnet *contoso*, är den externa webb adressen *https: \//expenses-contoso.msappproxy.net*. Om du vill använda ditt eget domän namn i stället för *msappproxy.net*kan du konfigurera en anpassad domän för ditt program. 
+När du publicerar ett program via Azure Active Directory-programproxy skapar du en extern URL för dina användare. Den här URL: en hämtar standard domänen *yourtenant.msappproxy.net*. Om du till exempel publicerar en app med namnet *utgifter* i din klient med namnet *contoso*, är den externa webb adressen *https:\//expenses-contoso.msappproxy.net*. Om du vill använda ditt eget domän namn i stället för *msappproxy.net*kan du konfigurera en anpassad domän för ditt program. 
 
 ## <a name="benefits-of-custom-domains"></a>Förmåner för anpassade domäner
 
@@ -49,7 +49,7 @@ Det finns flera alternativ för att konfigurera din DNS-konfiguration, beroende 
 
 Om du inte vill att dina interna användare ska dirigeras via programproxyn kan du konfigurera en *DNS-konfiguration med delad hjärna*. En delad DNS-infrastruktur dirigerar interna värdar till en intern domän namn server och externa värdar till en extern domän namn server för namn matchning. 
 
-![DNS med delad hjärna](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+![Split-brain DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
 ### <a name="different-internal-and-external-urls"></a>Olika interna och externa URL: er 
 
@@ -93,7 +93,7 @@ Publicera din app via Application Proxy med en anpassad domän:
    
 6. Om domänen redan har ett certifikat visas certifikat informationen i fältet **certifikat** . Annars väljer du fältet **certifikat** . 
    
-   ![Klicka om du vill överföra ett certifikat](./media/application-proxy-configure-custom-domain/certificate.png)
+   ![Klicka om du vill ladda upp ett certifikat](./media/application-proxy-configure-custom-domain/certificate.png)
    
 7. På sidan **SSL-certifikat** bläddrar du till och väljer din PFX-certifikatfil. Ange lösen ordet för certifikatet och välj **Ladda upp certifikat**. Mer information om certifikat finns i avsnittet [certifikat för anpassade domäner](#certificates-for-custom-domains) .
    
@@ -144,5 +144,5 @@ När ett certifikat går ut får du en varning om att ladda upp ett annat certif
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) till dina publicerade appar med Azure AD-autentisering.
-* [Aktivera villkorlig åtkomst](../conditional-access/technical-reference.md#cloud-apps-assignments) till dina publicerade appar.
+* [Aktivera villkorlig åtkomst](../conditional-access/overview.md) till dina publicerade appar.
 

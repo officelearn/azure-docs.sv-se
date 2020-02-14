@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122485"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201636"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
 
@@ -126,7 +126,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### <a name="lightweight-management-mode"></a>Läge för förenklad hantering
 
-Om [SQL Server IaaS agent Extension](virtual-machines-windows-sql-server-agent-extension.md) inte har installerats på den virtuella datorn, är rekommendationen att registreras hos resurs leverantören för SQL-VM i Lightweight-läge. Detta kommer att installera SQL IaaS-tillägget i [lättviktigt läge](#management-modes) och förhindra att SQL Server tjänsten startar om. Du kan sedan uppgradera till fullständigt läge när som helst, men om du gör det startas tjänsten om SQL Server tjänsten så att du kan vänta tills en schemalagd underhålls period är aktiv. Du måste ange vilken typ av SQL Server licens som du betalar per användning (`PAYG`) för att betala per användning, eller Azure Hybrid-förmån (`AHUB`) för att använda din egen licens.
+Om [SQL Server IaaS agent Extension](virtual-machines-windows-sql-server-agent-extension.md) inte har installerats på den virtuella datorn, är rekommendationen att registreras hos resurs leverantören för SQL-VM i Lightweight-läge. Detta kommer att installera SQL IaaS-tillägget i [lättviktigt läge](#management-modes) och förhindra att SQL Server tjänsten startar om. Du kan sedan uppgradera till fullständigt läge när som helst, men om du gör det startas tjänsten om SQL Server tjänsten så att du kan vänta tills en schemalagd underhålls period är aktiv. 
+
+Ange SQL Server licens typ som antingen`PAYG`(betala per användning) för att betala per användning, Azure Hybrid-förmån (`AHUB`) om du vill använda din egen licens eller haveri beredskap (`DR`) för att aktivera den [kostnads fria Dr Replica-licensen](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
 
 Kluster instanser för växling vid fel och distributioner med flera instanser kan bara registreras med resurs leverantören för SQL-VM i Lightweight-läge. 
 
@@ -176,7 +178,7 @@ Använd följande PowerShell-kommando om du vill registrera SQL Server VM direkt
 
 SQL Server 2008 och 2008 R2 som är installerade på Windows Server 2008 (_inte R2_) kan registreras med resurs leverantören för SQL-VM i [läget noagent](#management-modes). Det här alternativet säkerställer efterlevnad och tillåter att SQL Server VM övervakas i Azure Portal med begränsad funktionalitet.
 
-Ange antingen `AHUB` eller `PAYG` som **sqlLicenseType**och antingen `SQL2008-WS2008` eller `SQL2008R2-WS2008` som **sqlImageOffer**. 
+Ange antingen `AHUB`, `PAYG`eller `DR` som **sqlLicenseType**, och antingen `SQL2008-WS2008` eller `SQL2008R2-WS2008` som **sqlImageOffer**. 
 
 För att registrera din SQL Server 2008-eller 2008 R2-instans på Windows Server 2008-instansen använder du följande AZ CLI-eller PowerShell-kodfragment: 
 

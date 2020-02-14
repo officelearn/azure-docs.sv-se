@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880265"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185889"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Gör så här: planera din distribution av villkorlig åtkomst i Azure Active Directory
 
@@ -53,7 +53,7 @@ Använd följande exempel mall för att skapa principer för villkorlig åtkomst
 |Ett åtkomst försök har gjorts:<br>– Till en molnbaserad app *<br>– av användare och grupper*<br>Där<br>– Villkor 1 (till exempel utanför Corp-nätverk)<br>– Villkor 2 (till exempel enhets plattformar)|Bevilja åtkomst med (och):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetens efterlevnad)|
 |Ett åtkomst försök har gjorts:<br>– Till en molnbaserad app *<br>– av användare och grupper*<br>Där<br>– Villkor 1 (till exempel utanför Corp-nätverk)<br>– Villkor 2 (till exempel enhets plattformar)|Bevilja åtkomst med (eller):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetens efterlevnad)|
 
-**När detta inträffar** definieras den huvudprincip (**som**) som försöker få åtkomst till en molnbaserad app (**vad**). Om det behövs kan du även ta med **hur** ett åtkomst försök utförs. I villkorlig åtkomst är de element som definierar vem, vad och hur kallas för villkor. Mer information finns i [Vad är villkor i Azure Active Directory villkorlig åtkomst?](conditions.md) 
+**När detta inträffar** definieras den huvudprincip (**som**) som försöker få åtkomst till en molnbaserad app (**vad**). Om det behövs kan du även ta med **hur** ett åtkomst försök utförs. I villkorlig åtkomst är de element som definierar vem, vad och hur kallas för villkor. Mer information finns i [Vad är villkor i Azure Active Directory villkorlig åtkomst?](concept-conditional-access-conditions.md) 
 
 **Därefter**definierar du svars principen till ett åtkomst villkor. I ditt svar kan du antingen blockera eller bevilja åtkomst med ytterligare krav, till exempel Multi-Factor Authentication (MFA). En fullständig översikt finns i [Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?](controls.md)  
 
@@ -116,7 +116,7 @@ Vanliga användnings fall för att kräva MFA är åtkomst:
 
 Med principer för villkorlig åtkomst kan du implementera automatiserade svar på inloggningar från potentiellt komprometterade identiteter. Sannolikheten för att ett konto har komprometterats uttrycks i form av risk nivåer. Det finns två risk nivåer som beräknas med identitets skydd: inloggnings risker och användar risker. Om du vill implementera ett svar på en inloggnings risk har du två alternativ:
 
-- [Villkoret för inloggnings risk](conditions.md#sign-in-risk) i principen för villkorlig åtkomst
+- [Villkoret för inloggnings risk](concept-conditional-access-conditions.md#sign-in-risk) i principen för villkorlig åtkomst
 - [Principen för inloggnings risker](../identity-protection/howto-sign-in-risk-policy.md) i identitets skydd 
 
 Den bästa metoden är att hantera inloggnings risken som villkor eftersom det ger dig fler anpassnings alternativ.

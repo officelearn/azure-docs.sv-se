@@ -8,18 +8,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818088"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191173"
 ---
 # <a name="storefront-details-tab"></a>Fliken Butiksinformation
 
 Den här artikeln förklarar hur du anger information för din butik. Fliken **butik information** består av följande avsnitt:
 
--   **Information om erbjudande**
+-   **Erbjudande information**
 -   **Utgivar information**
 -   **List information**
 -   **Marknadsförings artefakter**
@@ -27,7 +27,7 @@ Den här artikeln förklarar hur du anger information för din butik. Fliken **b
 ![Skapa en ny konsult tjänst erbjudande – butik information-fliken](media/consultingoffer-storefront-details.png)
 
 
-## <a name="offer-details"></a>Information om erbjudande
+## <a name="offer-details"></a>Erbjudande information
 
 Avsnittet **erbjudande information** innehåller följande rutor:
 
@@ -71,7 +71,7 @@ Ange beskrivningen av konsult tjänst erbjudandet i rutan **erbjudande Beskrivni
 
 Ta inte med din e-postadress eller ditt telefonnummer i din erbjudande beskrivning. Knappen **kontakta mig** ingår i ditt erbjudande för att ladda upp leads till det mål för hantering av lead som du identifierar för ditt erbjudande.
 
-Ange en beskrivning av erbjudandet i markdown-format. Om du inte är bekant med markdown eller formatering för HTML, se [Använd markdown för att skriva dokument](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Ange en beskrivning av erbjudandet i markdown-format. Om du inte är bekant med markdown eller formatering för HTML, se [Använd markdown för att skriva dokument](/contribute/markdown-reference).
 
 Använd de här formaten för att se till att ditt erbjudande är enkelt för dina kunder att läsa.
 
@@ -85,7 +85,7 @@ Följande exempel visar en väldefinierad erbjudande beskrivning och dess relate
 
 **Erbjudande Beskrivning**: den här tre dagars workshopen är för teknik-och affärs ledare och hålls på plats på klientens anläggning.
 
-Agenda
+Ordningen
 
 Dag 1
 

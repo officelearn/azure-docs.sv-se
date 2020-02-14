@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 750ccbfa885b4679dfa61240b49ea9ec86a46d51
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120649"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198504"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide för utvecklare till varaktiga entiteter i .NET
 
@@ -203,7 +203,7 @@ Förutom att tillhandahålla typ kontroll är gränssnitten användbara för en 
 
 ### <a name="example-client-signals-entity-through-interface"></a>Exempel: klient Signals-entitet via gränssnitt
 
-Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Ett exempel:
+Klient koden kan använda `SignalEntityAsync<TEntityInterface>` för att skicka signaler till entiteter som implementerar `TEntityInterface`. Exempel:
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -371,7 +371,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 Till skillnad från vanliga funktioner har klass metoder för entiteter inte direkt åtkomst till indata-och utgående bindningar. I stället måste bindnings data samlas in i deklarationen för ingångs punkt funktionen och sedan skickas till `DispatchAsync<T>`-metoden. Alla objekt som skickas till `DispatchAsync<T>` skickas automatiskt till konstruktorn för entity-klassen som ett argument.
 
-I följande exempel visas hur en `CloudBlobContainer` referens från [BLOB-databindningen](../functions-bindings-storage-blob.md#input) kan göras tillgänglig för en klass baserad entitet.
+I följande exempel visas hur en `CloudBlobContainer` referens från [BLOB-databindningen](../functions-bindings-storage-blob-input.md) kan göras tillgänglig för en klass baserad entitet.
 
 ```csharp
 public class BlobBackedEntity

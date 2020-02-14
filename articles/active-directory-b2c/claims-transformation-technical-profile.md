@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf06fe7d4e529eb04b156a2d61011198a6fe0978
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: fbc1d59ac401adedcf897d0c16edb6904c89acc3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949431"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193451"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för anspråks omvandling i en Azure Active Directory B2C anpassad princip
 
@@ -99,6 +99,12 @@ Den tekniska profilen för anspråks omvandling gör att du kan köra en ansprå
   </OrchestrationSteps>
 </UserJourney>
 ```
+
+## <a name="metadata"></a>Metadata
+
+| Attribut | Obligatoriskt | Beskrivning |
+| --------- | -------- | ----------- |
+| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
 
 ## <a name="use-a-validation-technical-profile"></a>Använd en teknisk verifierings profil
 

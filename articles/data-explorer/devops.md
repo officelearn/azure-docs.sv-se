@@ -1,6 +1,6 @@
 ---
-title: Azure DevOps-uppgift för Azure Data Explorer
-description: I det här avsnittet får du lära dig att skapa en releasepipeline och distribuera
+title: Azure DevOps-aktivitet för Azure Datautforskaren
+description: I det här avsnittet lär du dig hur du skapar en versions pipeline och distribuerar
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -8,113 +8,113 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6394d7149bd4e80f0a17a59a6259eedf4c806fd4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388983"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188180"
 ---
-# <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps-uppgift för Azure Data Explorer
+# <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps-aktivitet för Azure Datautforskaren
 
-[Azure DevOps-tjänster](https://azure.microsoft.com/services/devops/) ger utveckling samarbetsverktyg som högpresterande pipelines, kostnadsfria privata Git-lagringsplatser, konfigurerbara Kanban-kort och omfattande automatiserad och kontinuerlig testfunktionerna. [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) är en Azure DevOps-funktion som hjälper dig att hantera CI/CD för att distribuera din kod med höga prestanda pipelines som fungerar med alla språk, plattformar och molnet.
-[Azure Data Explorer - Admin-kommandon](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) är Azure Pipelines uppgiften som hjälper dig att skapa publiceringskanaler och distribuera din databas ändras till Datautforskaren i Azure-databaser. Den är tillgänglig utan kostnad i den [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+[Azure DevOps Services](https://azure.microsoft.com/services/devops/) innehåller utvecklings samarbets verktyg som högpresterande pipelines, kostnads fria privata git-lagringsplatser, konfigurerbara kanban-kort och omfattande automatiserade och kontinuerliga testnings funktioner. [Azure-pipeliner](https://azure.microsoft.com/services/devops/pipelines/) är en Azure DevOps-funktion som du kan använda för att hantera CI/CD för att distribuera din kod med högpresterande pipelines som fungerar med alla språk, plattformar och moln.
+[Azure datautforskaren-admin-kommandon](https://marketplace.visualstudio.com/items?itemName=Azure-Kusto.PublishToADX) är en prenumeration på Azure pipelines som gör att du kan skapa lanserings pipeliner och distribuera dina databas ändringar till dina Azure datautforskaren-databaser. Den är tillgänglig kostnads fritt i [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 
-Det här dokumentet beskrivs ett enkelt exempel på användning av den **Datautforskaren i Azure – administratören kommandon** aktiviteten för att distribuera ditt schema ändras till din databas. Fullständig CI/CD-pipelines finns i [dokumentation för Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
+Det här dokumentet beskriver ett enkelt exempel på hur du använder aktiviteten **Azure datautforskaren – admin-kommandon** för att distribuera dina schema ändringar till din databas. För kompletta CI/CD-pipelines, se [Azure DevOps-dokumentationen](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* Azure Data Explorer konfiguration:
-    * En [Datautforskaren i Azure-kluster och databas](/azure/data-explorer/create-cluster-database-portal)
-    * Skapa Azure Active Directory (Azure AD)-app genom att [etablera en Azure AD-program](/azure/kusto/management/access-control/how-to-provision-aad-app).
-    * Bevilja åtkomst till din Azure AD-App i Azure Data Explorer databasen genom att [hantera databasbehörigheter för Azure Data Explorer](/azure/data-explorer/manage-database-permissions).
-* Konfigurationen av Azure DevOps:
-    * [Registrera dig för en kostnadsfri organisation](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
+* Konfiguration av Azure Datautforskaren-kluster:
+    * Ett [Azure datautforskaren-kluster och-databas](/azure/data-explorer/create-cluster-database-portal)
+    * Skapa Azure Active Directory-app (Azure AD) genom att [tillhandahålla ett Azure AD-program](/azure/kusto/management/access-control/how-to-provision-aad-app).
+    * Bevilja åtkomst till din Azure AD App i Azure Datautforskaren-databasen genom att [Hantera behörigheter för azure datautforskaren-databasen](/azure/data-explorer/manage-database-permissions).
+* Installation av Azure-DevOps:
+    * [Registrera dig för en kostnads fri organisation](/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
     * [Skapa en organisation](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
     * [Skapa ett projekt i Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
-    * [Kod med Git](/azure/devops/user-guide/code-with-git?view=azure-devops)
+    * [Kod med git](/azure/devops/user-guide/code-with-git?view=azure-devops)
 
 ## <a name="create-folders"></a>Skapa mappar
 
-Skapa följande exempel mappar (*Functions*, *principer*, *tabeller*) på Git-lagringsplatsen. Kopiera filer från [här](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) till respektive mappar som visas nedan och spara ändringarna. Exempelfilerna tillhandahålls för att köra följande arbetsflöde.
+Skapa följande exempel mappar (*Functions*, *policys*, *Tables*) i git-lagringsplatsen. Kopiera filerna [härifrån till respektive](https://github.com/Azure/azure-kusto-docs-samples/tree/master/DevOps_release_pipeline) mappar som visas nedan och genomför ändringarna. Exempelfilerna tillhandahålls för att köra följande arbets flöde.
 
 ![Skapa mappar](media/devops/create-folders.png)
 
 > [!TIP]
-> När du skapar ett eget arbetsflöde, rekommenderar vi att din kod idempotenta. Till exempel använda [.create och slå samman tabell](/azure/kusto/management/tables#create-merge-tables) i stället för [.create tabell](/azure/kusto/management/tables#create-table), och använda [.create-eller alter](/azure/kusto/management/functions#create-or-alter-function) i stället för [.create](/azure/kusto/management/functions#create-function) funktionen.
+> När du skapar ett eget arbets flöde rekommenderar vi att du gör koden idempotenta. Använd till exempel [. skapa-sammanfoga tabell](/azure/kusto/management/create-table-command#create-merge-table) i stället för [. CREATE TABLE](/azure/kusto/management/create-table-command)och use [. Create-eller-Alter](/azure/kusto/management/functions#create-or-alter-function) -funktionen i stället för [. Create](/azure/kusto/management/functions#create-function) -funktionen.
 
 ## <a name="create-a-release-pipeline"></a>Skapa en versionspipeline
 
 1. Logga in på din [Azure DevOps-organisation](https://dev.azure.com/).
-1. Välj **Pipelines** > **versioner** vänster meny och väljer **ny pipeline**.
+1. Välj **pipelines** > **utgåvor** från menyn till vänster och välj **ny pipeline**.
 
     ![Ny pipeline](media/devops/new-pipeline.png)
 
-1. Den **New viktig pipeline** öppnas. I den **Pipelines** fliken den **Välj en mall** fönstret Välj **tom jobbet**.
+1. Fönstret **ny version pipeline** öppnas. Välj **Tom jobb**i fönstret **Välj en mall** på fliken **pipeliner** .
 
      ![Välj en mall](media/devops/select-template.png)
 
-1. Välj **scenen** knappen. I **scenen** fönstret Lägg till den **namn på etapp**. Välj **spara** att spara din pipeline.
+1. Knappen Välj **steg** . I fönstret **Stage** lägger du till **namnet på scenen**. Välj **Spara** för att spara din pipeline.
 
-    ![Namn på scenen](media/devops/stage-name.png)
+    ![Namnge scenen](media/devops/stage-name.png)
 
-1. Välj **lägga till en artefakt** knappen. I den **lägga till en artefakt** fönstret markerar du databasen var koden finns, fyller du i relevant information och klicka på **Lägg till**. Välj **spara** att spara din pipeline.
+1. Välj **Lägg till en artefakt** knapp. I fönstret **Lägg till en artefakt** väljer du den lagrings plats där koden finns, fyller i relevant information och klickar på **Lägg till**. Välj **Spara** för att spara din pipeline.
 
     ![Lägg till en artefakt](media/devops/add-artifact.png)
 
-1. I den **variabler** fliken **+ Lägg till** att skapa en variabel för **slutpunkts-URL** som ska användas i uppgiften. Skriv den **namn** och **värdet** för slutpunkten. Välj **spara** att spara din pipeline. 
+1. På fliken **variabler** väljer du **+ Lägg** till för att skapa en variabel för **slut punkts-URL** som ska användas i uppgiften. Skriv **namnet** och **värdet** för slut punkten. Välj **Spara** för att spara din pipeline. 
 
     ![Skapa variabel](media/devops/create-variable.png)
 
-    Du hittar din Endpoint_URL översiktssidan för din **Azure Data Explorer klustret** i Azure portal innehåller Azure Data Explorer-kluster-URI. Skapa URI: N i formatet `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Till exempel https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    För att hitta din Endpoint_URL innehåller sidan Översikt för ditt **Azure datautforskaren-kluster** i Azure Portal Azure datautforskaren-klustrets URI. Skapa URI i följande format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Till exempel https:\//kustodocs.westus.kusto.Windows.net? DatabaseName = SampleDB
 
-    ![Azure Data Explorer kluster-URI](media/devops/adx-cluster-uri.png)
+    ![Azure Datautforskaren kluster-URI](media/devops/adx-cluster-uri.png)
 
-## <a name="create-tasks-to-deploy"></a>Skapa uppgifter för att distribuera
+## <a name="create-tasks-to-deploy"></a>Skapa uppgifter som ska distribueras
 
-1. I den **Pipeline** fliken, klickar du på **1 jobb, 0 uppgift** att lägga till aktiviteter. 
+1. På fliken **pipelines** klickar du på **1 jobb, 0 aktivitet** för att lägga till aktiviteter. 
 
-    ![Lägga till aktiviteter](media/devops/add-task.png)
+    ![Lägg till aktiviteter](media/devops/add-task.png)
 
-1. Skapa tre uppgifter att distribuera **tabeller**, **Functions**, och **principer**, i den här ordningen. 
+1. Skapa tre uppgifter för att distribuera **tabeller**, **funktioner**och **principer**i den här ordningen. 
 
-1. I den **uppgifter** fliken **+** av **agentjobbet**. Sök efter **Azure-datautforskaren**. I **Marketplace**, installera den **Datautforskaren i Azure – administratören kommandon** tillägget. Välj **Lägg till** i **kör kommandot för Azure Data Explorer**.
+1. På fliken **aktiviteter** väljer du **+** efter **Agent jobb**. Sök efter **Azure-datautforskaren**. I **Marketplace**installerar du **Azure-datautforskaren – administratörs kommando** tillägg. Välj sedan **Lägg till** i **Kör Azure datautforskaren kommandot**.
 
-     ![Lägg till kommandon för administratör](media/devops/add-admin-commands.png)
+     ![Lägg till administratörs kommandon](media/devops/add-admin-commands.png)
 
-1. Klicka på **Kusto-kommandot** till vänster och uppdatera uppgiften med följande information:
-    * **Visningsnamn**: Namnet på aktiviteten
-    * **Filsökväg**: I den **tabeller** uppgift, ange */Tables/* .csl eftersom tabellen skapas filer finns i den *tabell* mapp.
-    * **Slutpunkts-URL**: Ange den `EndPoint URL`variabel har skapats i föregående steg.
-    * Välj **Använd tjänstslutpunkt** och välj **+ ny**.
+1. Klicka på **kommandot Kusto** till vänster och uppdatera uppgiften med följande information:
+    * **Visnings namn**: uppgiftens namn
+    * **Fil Sök väg**: i tabellen **tabeller** anger du */Tables/* . CSL eftersom tabellens skapelse-filer finns i mappen *Table* .
+    * **Slut punkts-URL**: Ange `EndPoint URL`variabeln som skapades i föregående steg.
+    * Välj **Använd tjänst slut punkt** och välj **+ ny**.
 
-    ![Uppdatera Kusto-kommandouppgiften](media/devops/kusto-command-task.png)
+    ![Uppdatera Kusto kommando uppgift](media/devops/kusto-command-task.png)
 
-1. Ange följande information i den **lägga till Azure Data Explorer tjänstanslutning** fönster:
+1. Slutför följande information i fönstret **Lägg till Azure datautforskaren service-anslutning** :
 
     |Inställning  |Föreslaget värde  |
     |---------|---------|
-    |**Anslutningsnamn**     |    Ange ett namn som identifierar den här tjänstens slutpunkt     |
-    |**Kluster-Url**    |    Värdet finns i översiktsavsnittet för ditt Azure Data Explorer-kluster i Azure portal | 
-    |**Id för tjänstens huvudnamn**    |    Ange det AAD-ID (som skapats som krav)     |
-    |**App-nyckel för tjänstens huvudnamn**     |    Ange AAD-App-nyckel (som skapats som krav)    |
-    |**Id för AAD-klient**    |      Ange din AAD-klient (t.ex microsoft.com contoso.com...)    |
+    |**Anslutningsnamn**     |    Ange ett namn för att identifiera den här tjänst slut punkten     |
+    |**Kluster-URL**    |    Du hittar värdet i avsnittet Översikt i Azure Datautforskaren-klustret i Azure Portal | 
+    |**Tjänstens huvud namns-ID**    |    Ange ID för AAD-app (skapas som krav)     |
+    |**App-nyckel för tjänstens huvud namn**     |    Ange app-nyckeln för AAD (skapad som nödvändig)    |
+    |**AAD-klient-ID**    |      Ange din AAD-klient (till exempel microsoft.com, contoso.com...)    |
 
-    Välj **Tillåt alla pipelines så att de använder den här anslutningen** kryssrutan. Välj **OK**.
+    Markera kryss rutan **Tillåt att alla pipeliner använder den här anslutningen** . Välj **OK**.
 
-    ![Lägg till tjänstanslutning](media/devops/add-service-connection.png)
+    ![Lägg till tjänst anslutning](media/devops/add-service-connection.png)
 
-1. Upprepa steg 1-5 en annan två gånger för att distribuera filer från den *Functions* och *principer* mappar. Välj **Spara**. I den **uppgifter** fliken kan du läsa de tre aktiviteter som skapats: **Distribuera tabeller**, **distribuera Functions**, och **distribuera principer**.
+1. Upprepa steg 1-5 ytterligare två gånger för att distribuera filer från mapparna *funktioner* och *principer* . Välj **Spara**. På fliken **aktiviteter** , se de tre uppgifter som skapats: **distribuera tabeller**, **distribuera funktioner**och **distribuera principer**.
 
     ![Distribuera alla mappar](media/devops/deploy-all-folders.png)
 
-1. Välj **+ Release** > **skapa version** att skapa en version.
+1. Välj **+ version** > **Skapa version** för att skapa en version.
 
     ![Skapa en version](media/devops/create-release.png)
 
-1. I den **loggar** och kontrollera distributionens status är lyckad.
+1. På fliken **loggar** kontrollerar du att distributions statusen har slutförts.
 
-    ![Distributionen är klar](media/devops/deployment-successful.png)
+    ![Distributionen har slutförts](media/devops/deployment-successful.png)
 
-Du har nu slutfört skapandet av en releasepipeline för distribution av tre uppgifter till Förproduktion.
+Nu har du slutfört skapandet av en versions pipeline för distribution av tre uppgifter till för produktion.

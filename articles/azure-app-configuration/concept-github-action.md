@@ -6,14 +6,14 @@ ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899620"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190385"
 ---
-# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synkronisera konfigurations instansen för din app med GitHub-åtgärder
+# <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synkronisera en App Configuration-instans med GitHub Actions
 Azure App konfiguration använder GitHub-åtgärder för att uppdatera en konfigurations instans för appar när den utlöses av en åtgärd som utförs på en GitHub-lagringsplats. Du kan utnyttja GitHub-arbetsflöden för att uppdatera app-konfigurationen, så att du kan integrera uppdateringar av app-konfigurationen i samma arbets flöde som används för att uppdatera app-koden.
 
 Ett [arbets flöde](https://help.github.com/articles/about-github-actions#workflow) för GitHub-åtgärder är en automatiserad process som definierats i din GitHub-lagringsplats. Den här processen visar GitHub hur du skapar och distribuerar ditt GitHub-projekt. Azure App-konfigurationen tillhandahåller åtgärden *Azure App konfigurations synkronisering* för att aktivera uppdateringar till en app Configuration-instans när ändringar görs i käll lagrings platsen. 
@@ -25,8 +25,7 @@ GitHub-händelser, till exempel en push-överföring till en lagrings plats, kan
 GitHub- [dokumentationen](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) innehåller djupgående visning av GitHub-arbetsflöden och åtgärder. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Aktivera GitHub-åtgärder i din lagrings plats
-Om du vill börja använda den här GitHub-åtgärden går du till din lagrings plats och väljer fliken **åtgärder** . Leta upp och Välj åtgärden GitHub i Marketplace genom att söka efter "Azure App konfigurations synkronisering". 
-
+Om du vill börja använda den här GitHub-åtgärden går du till din lagrings plats och väljer fliken **åtgärder** . Klicka på "nytt arbets flöde" och sedan "skapa ett arbets flöde själv". Därifrån söker du på Marketplace efter "Azure App konfigurations synkronisering".
 > [!div class="mx-imgBorder"]
 > ![väljer fliken åtgärd](media/find-github-action.png)
 
@@ -190,11 +189,11 @@ Indataparametrar anger data som används av åtgärden under körning.  Följand
 | format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
 | connectionString | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
 | brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
-| prefix | Inga | Prefix som ska läggas till i början av nycklar. |
-| etikett | Inga | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
-| begränsade | Inga | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
-| djuplodande | Inga | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
-| tags | Inga | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
+| prefix | Nej | Prefix som ska läggas till i början av nycklar. |
+| etikett | Nej | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
+| begränsade | Nej | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
+| djuplodande | Nej | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
+| taggar | Nej | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
 
 ## <a name="next-steps"></a>Nästa steg
 

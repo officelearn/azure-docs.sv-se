@@ -1,6 +1,6 @@
 ---
-title: Med API Management-tjänsten för att generera HTTP-begäranden
-description: Lär dig att använda principer för begäranden och svar i API Management för att anropa externa tjänster från ditt API
+title: Använda API Management-tjänsten för att generera HTTP-begäranden
+description: Lär dig att använda principer för begäran och svar i API Management för att anropa externa tjänster från ditt API
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557959"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190018"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Använda externa tjänster från Azure API Management-tjänsten
-Principerna som är tillgängliga i Azure API Management-tjänsten kan göra en stor mängd arbete baserat helt och hållet på den inkommande begäranden, utgående svar och grundläggande konfigurationsinformation. Men att kunna interagera med externa tjänster från API Management principer öppnas många fler möjligheter.
+De principer som är tillgängliga i Azure API Management-tjänsten kan göra en mängd användbart arbete baserat enbart på inkommande begäran, utgående svar och grundläggande konfigurations information. Men att kunna interagera med externa tjänster från API Management principer öppnar flera fler möjligheter.
 
-Du tidigare har sett hur du interagerar med den [Azure Event Hub-tjänsten för loggning, övervakning och analys](api-management-log-to-eventhub-sample.md). Den här artikeln visar principer som gör att du kan interagera med alla externa HTTP-baserade tjänster. Dessa principer kan användas för att utlösa fjärrevenemang eller för att hämta information som används för att ändra den ursprungliga begäran och svaret på något sätt.
+Du har tidigare sett hur du interagerar med [tjänsten Azure Event Hub för loggning, övervakning och analys](api-management-log-to-eventhub-sample.md). Den här artikeln visar principer som gör att du kan interagera med en extern HTTP-baserad tjänst. Dessa principer kan användas för att utlösa fjärrhändelser eller för att hämta information som används för att ändra den ursprungliga begäran och svaret på något sätt.
 
-## <a name="send-one-way-request"></a>En-sätt – begäran om att skicka
-Eventuellt enklaste externa interaktion är fire-and-forget-formatet för begäran som gör att en extern tjänst för att aviseras om någon typ av viktiga händelsen. Principer för åtkomstkontroll flow `choose` kan användas för att identifiera alla typer av villkor som du är intresserad av.  Om villkoret är uppfyllt, kan du göra en extern HTTP-begäran med hjälp av den [-en-sätt – begäran om att skicka](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) princip. Detta kan vara en begäran om att ett meddelandesystem som Hipchat eller Slack eller ett e-postmeddelande API som SendGrid eller MailChimp eller för viktiga supportärenden liknande PagerDuty. Alla dessa meddelandesystem har enkla HTTP-APIs som kan anropas.
+## <a name="send-one-way-request"></a>Skicka – envägs-begäran
+Den enklaste externa interaktionen är förmodligen en brand-och-glöm-stil för begäran som gör det möjligt för en extern tjänst att meddelas av någon typ av viktig händelse. Princip `choose` för kontroll flöde kan användas för att identifiera vilken typ av villkor som du är intresse rad av.  Om villkoret är uppfyllt kan du göra en extern HTTP-begäran med hjälp av principen för att [skicka en-enkelriktad begäran](/azure/api-management/api-management-advanced-policies#SendOneWayRequest) . Detta kan vara en begäran till ett meddelande system som HipChat eller slack, eller ett e-post-API som SendGrid eller MailChimp, eller för kritiska support ärenden som PagerDuty. Alla dessa meddelande system har enkla HTTP-API: er som kan anropas.
 
-### <a name="alerting-with-slack"></a>Aviseringar med Slack
-I följande exempel visar hur du skickar ett meddelande till en Slack chattrum om HTTP-svarsstatuskod är större än eller lika med 500. Ett Intervallfel med 500 tyder på problem med serverdels-API som klienten om API: et inte kan lösa sig själva. Det krävs någon typ av åtgärd från API Management-sida.  
+### <a name="alerting-with-slack"></a>Avisering med slack
+Följande exempel visar hur du skickar ett meddelande till ett slack chatt-rum om HTTP-svarets status kod är större än eller lika med 500. Ett fel av 500-intervall indikerar ett problem med Server dels-API: et som klienten för API: et inte kan lösa sig själva. Det krävs vanligt vis en viss typ av åtgärder på API Management del.  
 
 ```xml
 <choose>
@@ -57,31 +57,31 @@ I följande exempel visar hur du skickar ett meddelande till en Slack chattrum o
 </choose>
 ```
 
-Slack har begreppet inkommande webhooks. När du konfigurerar en inkommande webhook, genererar en särskild URL, vilket gör att du kan göra en enkel POST-begäran och skicka ett meddelande till Slack-kanal i Slack. JSON-texten som du skapar baseras på ett format som definierats av Slack.
+Slacket har begreppet inkommande Webhooks. När du konfigurerar en inkommande Web Hook genererar slack en särskild URL, vilket gör att du kan göra en enkel POST-begäran och skicka ett meddelande till slack-kanalen. JSON-texten som du skapar baseras på ett format som definieras av slack.
 
-![Slack Webhook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
+![Slack-webbhook](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
-### <a name="is-fire-and-forget-good-enough"></a>Är fire- and -forget tillräckligt bra?
-Det finns vissa kompromisser när du använder en fire-and-forget-formatet för begäran. Om det av någon anledning misslyckas denna begäran, och sedan felet inte rapporteras. Komplexiteten med att ha sekundära fel reporting system- och ytterligare kostnaden för att vänta tills svaret är inte berättigat i den här specifika situation. För scenarier där det är viktigt att kontrollera svar, kommer [-begäran om att skicka](/azure/api-management/api-management-advanced-policies#SendRequest) principen är ett bättre alternativ.
+### <a name="is-fire-and-forget-good-enough"></a>Är brand och glömma tillräckligt?
+Det finns vissa kompromisser när du använder en Fire-och-glömma-typ av begäran. Om det av någon anledning Miss lyckas, kommer begäran inte att rapporteras. I den här situationen är komplexiteten med att ha ett sekundärt rapporterings system och den ytterligare prestanda kostnaden för att vänta på responsen inte berättigad. För scenarier där det är viktigt att kontrol lera svaret är det ett bättre alternativ att [skicka begäran](/azure/api-management/api-management-advanced-policies#SendRequest) .
 
 ## <a name="send-request"></a>Skicka begäran
-Den `send-request` principen gör det möjligt med hjälp av en extern tjänst att utföra komplex bearbetningsfunktioner och returnera data till API management-tjänsten som kan användas för ytterligare behandling av princip.
+`send-request` principen gör det möjligt att använda en extern tjänst för att utföra komplexa bearbetnings funktioner och returnera data till API Management-tjänsten som kan användas för ytterligare princip bearbetning.
 
-### <a name="authorizing-reference-tokens"></a>Auktorisera referens token
-En större funktion i API Management skyddar serverdelsresurser. Om auktoriseringsservern som används av ditt API skapar [JWT-tokens](https://jwt.io/) som en del av dess OAuth2-flöde som [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) gör det, kan du använda den `validate-jwt` policyn för att verifiera tokens giltighet. Vissa auktorisering servrar skapa vad kallas [referera token](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) som inte går att verifiera utan att göra en motringning till auktoriseringsservern.
+### <a name="authorizing-reference-tokens"></a>Auktoriserar referens-token
+En större funktion i API Management skyddar Server dels resurser. Om auktoriseringsservern som används av ditt API skapar [JWT-token](https://jwt.io/) som en del av dess OAuth2-flöde, som [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) gör, så kan du använda `validate-jwt`-principen för att kontrol lera giltigheten för token. Vissa auktoriseringsregler skapar vad som kallas [Reference-token](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) som inte kan verifieras utan att göra en motringning till auktoriseringsservern.
 
-### <a name="standardized-introspection"></a>Standardiserad introspektion
-Tidigare var har det ingen standardiserad möjlighet att kontrollera en referens-token med en auktoriseringsservern. Men en nyligen föreslagna standard [RFC 7662](https://tools.ietf.org/html/rfc7662) publicerades av IETF som definierar hur resursservern kan verifiera giltigheten hos en token.
+### <a name="standardized-introspection"></a>Standardiserade introspektionsfunktionerna
+Tidigare har det inte gjorts något standardiserat sätt att verifiera en reference-token med en Authorization-Server. En nyligen föreslagen standard [RFC 7662](https://tools.ietf.org/html/rfc7662) publicerades av IETF som definierar hur en resurs Server kan verifiera att en token är giltig.
 
-### <a name="extracting-the-token"></a>Extrahera token
-Det första steget är att extrahera token från auktoriseringsrubriken. Huvudets värde ska vara formaterad med den `Bearer` auktoriseringsschema, ett blanksteg och sedan autentiseringstoken som per [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Det finns tyvärr fall där auktoriseringsschema utelämnas. För att kontot för den här vid parsning av, API Management delar upp huvudets värde på ett blanksteg och väljer den sista strängen returnerade matris med strängar. Detta ger en lösning för felaktigt formaterat auktorisering rubriker.
+### <a name="extracting-the-token"></a>Extraherar token
+Det första steget är att extrahera token från Authorization-huvudet. Huvudvärdet ska vara formaterat med `Bearer` Authorization-schemat, ett enda utrymme och sedan token-token enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1). Det finns tyvärr fall där Authorization-schemat utelämnas. För att kontot ska kunna parsas, API Management delas huvudets värde på ett blank steg och den sista strängen från den returnerade matrisen med strängar väljs. Detta ger en lösning för dåligt formaterade auktoriseringsarkiv.
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 ```
 
-### <a name="making-the-validation-request"></a>Gör begäran om verifiering
-När API Management har autentiseringstoken, göra API Management begäran om att validera token. RFC 7662 anropar den här processen introspektion och kräver att du `POST` ett HTML-formulär till introspektion resursen. HTML-formulär minst måste innehålla ett nyckel/värde-par med nyckeln `token`. Denna begäran till auktoriseringsservern måste också autentiseras för att säkerställa att skadliga klienter inte kan gå fiske för giltig token.
+### <a name="making-the-validation-request"></a>Göra verifierings förfrågan
+När API Management har en autentiseringstoken kan API Management göra begäran om att validera token. RFC 7662 anropar den här processen introspektionsfunktionerna och kräver att du `POST` ett HTML-formulär till introspektionsfunktionerna-resursen. HTML-formuläret måste innehålla minst ett nyckel/värde-par med nyckeln `token`. Den här begäran till auktoriseringsservern måste också vara autentiserad, för att se till att skadliga klienter inte kan gå med på giltiga tokens.
 
 ```xml
 <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
@@ -97,13 +97,17 @@ När API Management har autentiseringstoken, göra API Management begäran om at
 </send-request>
 ```
 
-### <a name="checking-the-response"></a>Kontrollera svaret
-Den `response-variable-name` attributet används för att ge åtkomst till returnerade svaret. Namnet som definierats i den här egenskapen kan användas som en nyckel till den `context.Variables` ordlista att komma åt den `IResponse` objekt.
+### <a name="checking-the-response"></a>Kontrollerar svaret
+`response-variable-name`-attributet används för att ge åtkomst till det returnerade svaret. Namnet som definieras i den här egenskapen kan användas som en nyckel i `context.Variables`-ordlistan för att komma åt `IResponse`-objektet.
 
-Svarsobjekt, kan du hämta brödtext och RFC 7622 API Management som ser svaret måste vara ett JSON-objekt och måste innehålla minst en egenskap som kallas `active` som är ett booleskt värde. När `active` är SANT och sedan token ska vara giltigt.
+Från objektet Response kan du hämta bröd texten och RFC 7622 meddelar API Management att svaret måste vara ett JSON-objekt och måste innehålla minst en egenskap som kallas `active` som är ett booleskt värde. När `active` är true anses token vara giltig.
 
-### <a name="reporting-failure"></a>Rapporterar fel
-Du kan använda en `<choose>` princip för att identifiera om token är ogiltig och i så fall returneras ett 401-svar.
+Alternativt, om auktoriseringsservern inte innehåller fältet "aktiv" för att ange om token är giltig, använder du ett verktyg som Postman för att avgöra vilka egenskaper som anges i en giltig token. Om ett giltigt token-svar till exempel innehåller en egenskap som kallas "expires_in", kontrol lera om det här egenskaps namnet finns i svaret på auktoriseringsservern på följande sätt:
+
+< när Condition = "@ ((IResponse)-kontexten. Variabler ["tokenstate"]). Body.As<JObject>(). Egenskap ("expires_in") = = null) ">
+
+### <a name="reporting-failure"></a>Rapporterings problem
+Du kan använda en `<choose>`-princip för att identifiera om token är ogiltig och, i så fall, returnera ett 401-svar.
 
 ```xml
 <choose>
@@ -118,10 +122,10 @@ Du kan använda en `<choose>` princip för att identifiera om token är ogiltig 
 </choose>
 ```
 
-Enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) som beskriver hur `bearer` token ska användas, API Management returnerar också en `WWW-Authenticate` huvud med 401-svar. WWW-autentisering är avsedd att instruera en klient på hur du skapar en korrekt auktoriserad begäran. På grund av det breda utbudet av metoder som är möjligt med OAuth2-ramverket är det svårt att kommunicera all information som behövs. Som tur är har pågår för att [klienter identifiera hur du godkänner begäranden till resursservern korrekt](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
+Enligt [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3) , som beskriver hur `bearer`-token ska användas, kan API Management även returnera en `WWW-Authenticate`-rubrik med 401-svaret. WWW-autentisera är avsedd att instruera en klient om hur man skapar en korrekt auktoriserad begäran. På grund av de många metoder som är möjliga med OAuth2-ramverket är det svårt att kommunicera all nödvändig information. Lyckligt vis finns det ansträngningar för att hjälpa [klienter att identifiera hur de ska auktorisera begär anden till en resurs Server](https://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
-### <a name="final-solution"></a>Sista lösning
-I slutet kommer få du följande princip:
+### <a name="final-solution"></a>Slutgiltig lösning
+I slutet får du följande princip:
 
 ```xml
 <inbound>
@@ -157,32 +161,32 @@ I slutet kommer få du följande princip:
 </inbound>
 ```
 
-Detta är endast en av många exempel på hur `send-request` princip kan användas för att integrera användbara externa tjänster i processen för begäranden och svar som passerar genom API Management-tjänsten.
+Detta är bara ett av många exempel på hur `send-request`s principen kan användas för att integrera användbara externa tjänster i processen med begär Anden och svar som passerar genom API Managements tjänsten.
 
-## <a name="response-composition"></a>Svaret sammansättning
-Den `send-request` principen kan användas för att utöka en primär begäran till en backend-system, som du såg i exemplet ovan, eller den kan användas som en fullständig Ersätt för backend-anropet. Med den här tekniken skapa du enkelt sammansatta resurser som räknas samman från flera olika system.
+## <a name="response-composition"></a>Svars sammansättning
+`send-request` principen kan användas för att förbättra en primär begäran till ett Server dels system, som du såg i föregående exempel, eller så kan den användas som en fullständig ersättning för Server dels anropet. Med den här metoden kan du enkelt skapa sammansatta resurser som aggregeras från flera olika system.
 
-### <a name="building-a-dashboard"></a>Att skapa en instrumentpanel
-Ibland vill du kan exponera information som finns i flera backend-system, till exempel, för att driva en instrumentpanel. KPI: er kommer från alla olika serverdelar, men du vill inte ge direktåtkomst till dem och det skulle vara skönt om all information som kan hämtas i en enskild begäran. En del av backend-information behöver kanske vissa uppdelning och undantang och lite sanitizing först! Att cachelagra den sammansatta resursen är en användbar för att minska belastningen serverdelen som du vet användarna har vana hammering på F5 för att se om deras underpresterar mått kan komma att ändras.    
+### <a name="building-a-dashboard"></a>Skapa en instrument panel
+Ibland vill du kunna visa information som finns i flera backend-system, till exempel för att driva en instrument panel. KPI: erna kommer från alla olika Server delar, men du föredrar att inte ge direkt åtkomst till dem och det skulle vara bra om all information kan hämtas i en enskild begäran. Kanske vissa av Server delens information behöver viss segmentering och finfördela och en lite sanerad första! Att kunna cachelagra den sammansatta resursen är ett bra sätt att minska Server dels belastningen när du vet att användarna har till följd av F5-nyckeln för att se om deras underpresterande mått kan ändras.    
 
 ### <a name="faking-the-resource"></a>Faking resursen
-Det första steget att skapa instrumentpanelen resursen är att konfigurera en ny åtgärd i Azure-portalen. Det här är en platshållare åtgärd som används för att konfigurera en sammansättning för att skapa dynamiska resurs.
+Det första steget för att skapa en instrument panels resurs är att konfigurera en ny åtgärd i Azure Portal. Detta är en plats hållare-åtgärd som används för att konfigurera en sammansättnings princip för att bygga den dynamiska resursen.
 
-![Instrumentpanel för åtgärden](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
+![Instrument panels åtgärd](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
 
-### <a name="making-the-requests"></a>Förfrågningar
-När åtgärden har skapats kan konfigurera du en princip specifikt för den åtgärden. 
+### <a name="making-the-requests"></a>Göra begär Anden
+När åtgärden har skapats kan du konfigurera en princip som är specifik för den åtgärden. 
 
-![Instrumentpanel för åtgärden](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Instrument panels åtgärd](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
-Det första steget är att extrahera alla frågeparametrar från den inkommande begäran så att du kan vidarebefordra dem till serverdelen. I det här exemplet på instrumentpanelen visar information baserat på en viss tidsperiod och därför har en `fromDate` och `toDate` parametern. Du kan använda den `set-variable` princip för att hämta informationen från fråge-URL.
+Det första steget är att extrahera alla frågeparametrar från den inkommande begäran, så att du kan vidarebefordra dem till Server delen. I det här exemplet visar instrument panelen information som baseras på en tids period och därför har en `fromDate`-och `toDate`-parameter. Du kan använda `set-variable` principen för att extrahera informationen från URL: en för begäran.
 
 ```xml
 <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
 <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
 ```
 
-När du har den här informationen kan göra du begäranden till backend-system. Varje begäran skapar en ny URL med parameterinformation och anropar dess respektive server och lagrar svaret i en variabel i kontexten.
+När du har den här informationen kan du göra förfrågningar till alla Server dels system. Varje begäran skapar en ny URL med parameter informationen och anropar dess respektive server och lagrar svaret i en Sammanhangs variabel.
 
 ```xml
 <send-request mode="new" response-variable-name="revenuedata" timeout="20" ignore-error="true">
@@ -206,10 +210,10 @@ När du har den här informationen kan göra du begäranden till backend-system.
 </send-request>
 ```
 
-Dessa begäranden köra i ordningsföljd, vilket inte är idealiskt. 
+Dessa begär Anden körs i följd, vilket inte är idealiskt. 
 
-### <a name="responding"></a>Svara
-Du kan använda för att konstruera sammansatta svaret den [returnera svar](/azure/api-management/api-management-advanced-policies#ReturnResponse) princip. Den `set-body` element kan använda ett uttryck för att skapa en ny `JObject` med alla komponenter representationer inbäddad som egenskaper.
+### <a name="responding"></a>Tillgodose
+Om du vill skapa ett sammansatt svar kan du använda [Return-Response-](/azure/api-management/api-management-advanced-policies#ReturnResponse) principen. `set-body`-elementet kan använda ett uttryck för att skapa en ny `JObject` med alla komponent representationer inbäddade som egenskaper.
 
 ```xml
 <return-response response-variable-name="existing response variable">
@@ -227,7 +231,7 @@ Du kan använda för att konstruera sammansatta svaret den [returnera svar](/azu
 </return-response>
 ```
 
-Fullständig principen ser ut så här:
+Den fullständiga principen ser ut så här:
 
 ```xml
 <policies>
@@ -279,8 +283,8 @@ Fullständig principen ser ut så här:
 </policies>
 ```
 
-Du kan konfigurera instrumentpanelen resursen som ska cachelagras i minst en timme i konfigurationen av platshållaren igen. 
+I konfigurationen av plats hållar åtgärden kan du konfigurera instrument panelens resurs att cachelagras i minst en timme. 
 
 ## <a name="summary"></a>Sammanfattning
-Azure API Management-tjänsten tillhandahåller flexibla principer som kan tillämpas selektivt på HTTP-trafik och gör sammansättning av backend-tjänster. Om du vill förbättra din API-gateway med aviseringar funktion, verifiering, verifiering funktioner eller skapa nya sammansatta resurser baserat på flera serverdelstjänster på `send-request` och tillhörande principer öppnar en värld av möjligheter.
+Azure API Management-tjänsten ger flexibla principer som kan tillämpas selektivt på HTTP-trafik och möjliggör sammansättning av backend-tjänster. Oavsett om du vill förbättra API-gatewayen med aviserings funktioner, verifiering, verifierings funktioner eller skapa nya sammansatta resurser baserat på flera backend-tjänster, kan `send-request` och relaterade principer öppna en värld av möjligheter.
 

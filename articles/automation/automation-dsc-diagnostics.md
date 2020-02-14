@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 69801909c6bc8d215ca7dd3ccb7ac349201e8774
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111527"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198572"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar
 
@@ -36,62 +36,62 @@ Med Azure Monitor loggar kan du:
 För att kunna börja skicka konfigurations rapporter för automatiserings tillstånd till Azure Monitor loggar behöver du:
 
 - Utgåvan 2016 eller senare av [Azure PowerShell](/powershell/azure/overview) (v-2.3.0).
-- Ett Azure Automation-konto. Mer information finns i [komma igång med Azure Automation](automation-offering-get-started.md)
-- En Log Analytics arbets yta med ett tjänst erbjudande för **Automation &-kontroll** . Mer information finns i [Kom igång med Azure Monitor loggar](../log-analytics/log-analytics-get-started.md).
-- Minst en nod för Azure Automation tillstånds konfiguration. Mer information finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md)
-- [XDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) -modulen, version 2.7.0.0 eller senare. Installations anvisningar finns i [Visa DSC-loggar på noden](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
+- Ett Azure Automation-konto. Mer information finns i [Introduktion till Azure Automation](automation-intro.md).
+- En Log Analytics arbets yta med ett tjänst erbjudande för Automation &-kontroll. Mer information finns i [Kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+- Minst en nod för Azure Automation tillstånds konfiguration. Mer information finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
+- [XDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) -modulen, version 2.7.0.0 eller senare. Installations anvisningar finns i [felsöka Azure Automation önskad tillstånds konfiguration](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurera integration med Azure Monitor loggar
 
 Utför följande steg för att börja importera data från Azure Automation DSC till Azure Monitor loggar:
 
-1. Logga in på ditt Azure-konto i PowerShell. Se [Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)
-1. Hämta _ResourceID_ för ditt Automation-konto genom att köra följande PowerShell-kommando: (om du har fler än ett Automation-konto väljer du _ResourceID_ för det konto som du vill konfigurera).
+1. Logga in på ditt Azure-konto i PowerShell. Se [Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Hämta resurs-ID för ditt Automation-konto genom att köra följande PowerShell-cmdlet. Om du har fler än ett Automation-konto väljer du resurs-ID för det konto som du vill konfigurera.
 
    ```powershell
-   # Find the ResourceId for the Automation Account
+   # Find the ResourceId for the Automation account
    Get-AzResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
-1. Hämta _ResourceID_ för din Log Analytics-arbetsyta genom att köra följande PowerShell-kommando: (om du har fler än en arbets yta väljer du _ResourceID_ för den arbets yta som du vill konfigurera).
+1. Hämta resurs-ID: t för din Log Analytics-arbetsyta genom att köra följande PowerShell-cmdlet. Om du har fler än en arbets yta väljer du resurs-ID för den arbets yta som du vill konfigurera.
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace
    Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
-1. Kör följande PowerShell-kommando och ersätt `<AutomationResourceId>` och `<WorkspaceResourceId>` med _ResourceID_ -värden från vart och ett av de föregående stegen:
+1. Kör följande PowerShell-cmdlet och ersätt `<AutomationResourceId>` och `<WorkspaceResourceId>` med *ResourceID* -värden från var och en av de föregående stegen.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
    ```
 
-Om du vill sluta importera data från Azure Automation tillstånds konfiguration till Azure Monitor loggar kör du följande PowerShell-kommando:
+1. Om du vill stoppa importen av data från Azure Automation tillstånds konfiguration till Azure Monitor loggar kör du följande PowerShell-cmdlet.
 
-```powershell
-Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
-```
+   ```powershell
+   Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Category 'DscNodeStatus'
+   ```
 
 ## <a name="view-the-state-configuration-logs"></a>Visa tillstånds konfigurations loggarna
 
-När du har ställt in integrering med Azure Monitor loggar för konfigurations data för Automation-tillstånd kan de visas genom att välja **loggar** i avsnittet **övervakning** i den vänstra rutan på sidan för tillstånds konfiguration (DSC).  
+När du har konfigurerat integration med Azure Monitor loggar för konfigurations data för Automation-tillstånd kan du visa dem genom att välja **loggar** i avsnittet **övervakning** i den vänstra rutan på sidan för tillstånds konfiguration (DSC).
 
 ![Loggar](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-Bladet för **loggs ökning** öppnas och du ser en **DscNodeStatusData** -åtgärd för varje nod för tillstånds konfiguration och en **DscResourceStatusData** -åtgärd för varje [DSC-resurs](/powershell/scripting/dsc/resources/resources) som kallas för nodens konfiguration.
+Fönstret **loggs ökning** öppnas med en fråge region som är begränsad till din Automation-konto resurs. Du kan söka i tillstånds konfigurations loggarna efter DSC-åtgärder genom att söka i Azure Monitor loggar. Posterna för DSC-åtgärder lagras i tabellen AzureDiagnostics. Skriv till exempel följande fråga om du vill hitta noder som inte är kompatibla.
 
-**DscResourceStatusData** -åtgärden innehåller fel information för alla DSC-resurser som misslyckades.
-
-Klicka på varje åtgärd i listan om du vill se data för åtgärden.
-
-Du kan också visa loggarna genom att söka i Azure Monitor loggar. Se [hitta data med loggs ökningar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Ange följande fråga för att hitta dina tillstånds konfigurations loggar.
-
-```
-AzureDiagnostics
+```AzureDiagnostics
 | where Category == 'DscNodeStatus' 
 | where OperationName contains 'DSCNodeStatusData'
 | where ResultType != 'Compliant'
 ```
+Filtrerings information:
+
+* Filtrera på *DscNodeStatusData* för att returnera åtgärder för varje nod i tillstånds konfigurationen.
+* Filtrera på *DscResourceStatusData* för att returnera åtgärder för varje DSC-resurs som kallas för den nods konfiguration som tillämpas på resursen. 
+* Filtrera på *DscResourceStatusData* om du vill returnera fel information för alla DSC-resurser som inte fungerar.
+
+Mer information om hur du skapar logg frågor för att hitta data finns i [Översikt över logg frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Skicka ett e-postmeddelande när kompatibilitetskontroll för tillstånds konfiguration Miss lyckas
 
@@ -102,45 +102,48 @@ Om du vill skapa en varnings regel börjar du med att skapa en loggs ökning fö
 1. Klicka på **loggar**på översikts sidan för Log Analytics-arbetsyta.
 1. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga: `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
-   Om du har konfigurerat loggar från fler än ett Automation-konto eller en prenumeration på din arbets yta, kan du gruppera dina aviseringar efter prenumeration och Automation-konto.
-   Namnet på Automation-kontot kan härledas från resurs fältet i sökningen efter DscNodeStatusData.
-1. Öppna skärmen **Skapa regel** genom att klicka på **+ ny varnings regel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns i [skapa en varnings regel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+   Om du har konfigurerat loggar från fler än ett Automation-konto eller en prenumeration på din arbets yta, kan du gruppera dina aviseringar efter prenumeration och Automation-konto. Härled namnet på Automation-kontot från resurs fältet i sökningen efter DscNodeStatusData.
+1. Öppna skärmen **Skapa regel** genom att klicka på **+ ny varnings regel** överst på sidan. 
+
+Mer information om alternativen för att konfigurera aviseringen finns i [skapa en varnings regel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Hitta felande DSC-resurser över alla noder
 
 En fördel med att använda Azure Monitor loggar är att du kan söka efter misslyckade kontroller över flera noder.
-För att hitta alla instanser av DSC-resurser som misslyckades.
+Så här hittar du alla instanser av DSC-resurser som har misslyckats:
 
 1. Klicka på **loggar**på översikts sidan för Log Analytics-arbetsyta.
 1. Skapa en loggs öknings fråga för aviseringen genom att skriva följande sökning i fältet fråga: `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Visa historisk DSC-nods status
 
-Slutligen kanske du vill visualisera din status historik för DSC-noder över tid.
-Du kan använda den här frågan för att söka efter status för DSC-nodens status över tid.
+Om du vill visualisera din status historik för DSC-noder över tid kan du använda den här frågan:
 
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=DscNodeStatus NOT(ResultType="started") | measure Count() by ResultType interval 1hour`
 
-Då visas ett diagram över nodens status över tid.
+Den här frågan visar ett diagram över nodens status över tid.
 
 ## <a name="azure-monitor-logs-records"></a>Azure Monitor loggar poster
 
-Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor loggar.
+Azure Automation diagnostik skapar du två kategorier med poster i Azure Monitor loggar:
+
+* DscNodeStatusData (Node status data)
+* Resurs status data (DscResourceStatusData)
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
 | Egenskap | Beskrivning |
 | --- | --- |
 | TimeGenerated |Datum och tid då kompatibilitetskontroll kördes. |
-| OperationName |DscNodeStatusData |
+| OperationName |DscNodeStatusData. |
 | ResultType |Om noden är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
 | NodeComplianceStatus_s |Om noden är kompatibel. |
 | DscReportStatus |Om kompatibilitetskontrollen har körts. |
-| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden är __"ApplyOnly"__ , __"ApplyandMonitior"__ och __"ApplyandAutoCorrect"__ . <ul><li>__ApplyOnly__: DSC tillämpar konfigurationen och gör ingenting ytterligare om inte en ny konfiguration skickas till målnoden eller när en ny konfiguration hämtas från en server. Efter första tillämpning av en ny konfiguration söker DSC inte efter avvikelse från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills den har slutförts innan __ApplyOnly__ börjar gälla. </li><li> __ApplyAndMonitor__: Detta är standardvärdet. LCM använder alla nya konfigurationer. Efter den första körningen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna. DSC försöker tillämpa konfigurationen tills den har slutförts innan __ApplyAndMonitor__ börjar gälla.</li><li>__ApplyAndAutoCorrect__: DSC använder alla nya konfigurationer. Efter den första applikationen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna och tillämpar sedan den aktuella konfigurationen igen.</li></ul> |
+| ConfigurationMode | Hur konfigurationen tillämpas på noden. Möjliga värden: <ul><li>*ApplyOnly*: DSC tillämpar konfigurationen och gör ingenting ytterligare om inte en ny konfiguration skickas till målnoden eller när en ny konfiguration hämtas från en server. Efter första tillämpning av en ny konfiguration söker DSC inte efter avvikelse från ett tidigare konfigurerat tillstånd. DSC försöker tillämpa konfigurationen tills det lyckas innan *ApplyOnly* -värdet börjar gälla. </li><li>*ApplyAndMonitor*: Detta är standardvärdet. LCM använder alla nya konfigurationer. Efter den första körningen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna. DSC försöker tillämpa konfigurationen tills det lyckas innan *ApplyAndMonitor* -värdet börjar gälla.</li><li>*ApplyAndAutoCorrect*: DSC använder alla nya konfigurationer. Efter den första applikationen av en ny konfiguration, om mål-noden går från det önskade läget, rapporterar DSC den avvikelsen i loggarna och tillämpar sedan den aktuella konfigurationen igen.</li></ul> |
 | HostName_s | Namnet på den hanterade noden. |
 | IP-adress | Den hanterade nodens IPv4-adress. |
-| Kategori | DscNodeStatus |
+| Kategori | DscNodeStatus. |
 | Resurs | Namnet på Azure Automation kontot. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
 | NodeId_g |GUID som identifierar den hanterade noden. |
@@ -149,14 +152,14 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | ReportStartTime_t |Datum och tid då rapporten startades. |
 | ReportEndTime_t |Datum och tid då rapporten slutfördes. |
 | NumberOfResources_d |Antalet DSC-resurser som anropades i konfigurationen som tillämpas på noden. |
-| SourceSystem | Hur Azure Monitor loggar in data. Always *Azure* för Azure Diagnostics. |
-| ResourceId |Anger Azure Automation kontot. |
+| SourceSystem | Hur Azure Monitor loggar in data. Always "Azure" för Azure Diagnostics. |
+| ResourceId |Identifierare för det Azure Automation kontot. |
 | ResultDescription | Beskrivningen för den här åtgärden. |
 | SubscriptionId | ID för Azure-prenumerationen (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resurs gruppen för Automation-kontot. |
-| ResourceProvider | Utforskaren. AUTOMATISKA |
-| ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |GUID som är den efterföljande rapportens korrelations-ID. |
+| ResourceProvider | Utforskaren. Automatiska. |
+| ResourceType | AUTOMATIONACCOUNTS. |
+| CorrelationId |GUID som är korrelations-ID för Kompatibilitetsrapport. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
@@ -166,7 +169,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | OperationName |DscResourceStatusData|
 | ResultType |Om resursen är kompatibel. |
 | NodeName_s |Namnet på den hanterade noden. |
-| Kategori | DscNodeStatus |
+| Kategori | DscNodeStatus. |
 | Resurs | Namnet på Azure Automation kontot. |
 | Tenant_g | GUID som identifierar klienten för anroparen. |
 | NodeId_g |GUID som identifierar den hanterade noden. |
@@ -185,8 +188,8 @@ Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor lo
 | ResultDescription | Beskrivningen för den här åtgärden. |
 | SubscriptionId | ID för Azure-prenumerationen (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resurs gruppen för Automation-kontot. |
-| ResourceProvider | Utforskaren. AUTOMATISKA |
-| ResourceType | AUTOMATIONACCOUNTS |
+| ResourceProvider | Utforskaren. Automatiska. |
+| ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID som är den efterföljande rapportens korrelations-ID. |
 
 ## <a name="summary"></a>Sammanfattning

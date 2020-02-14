@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: d7fbb4c6f30754569b0aeea60f10d4a10e792ba7
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 6f767abdf8673e3adffc6c4e3748733054ba723d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933927"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201874"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>Lägga till eller ta bort en under näts delegering
 
 Under näts delegering ger explicita behörigheter till tjänsten för att skapa tjänstespecifika resurser i under nätet med en unik identifierare när tjänsten distribueras. Den här artikeln beskriver hur du lägger till eller tar bort ett delegerat undernät för en Azure-tjänst.
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>organisationer i en installation
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -42,8 +42,8 @@ I det här avsnittet skapar du ett virtuellt nätverk och under nätet som du se
     | Adressutrymme | Ange *10.0.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **öster**.|
-    | Undernät – Namn | Ange *undernät*. |
+    | plats. | Välj **öster**.|
+    | Undernät – namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.0.0.0/24*. |
     |||
 1. Lämna resten som standard och välj sedan **skapa**.
@@ -90,7 +90,7 @@ I följande exempel skapas en resursgrupp med namnet **myResourceGroup** på pla
 ```
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa det virtuella nätverket **myVnet** med undernätet **mySubnet** i **myResourceGroup** med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa ett virtuellt nätverk med namnet **myVnet** med undernätet **mySubnet** i **myResourceGroup** med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -162,7 +162,7 @@ Använd [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/net
 Om du vill kontrol lera att delegeringen har tagits bort använder du [AZ Network VNet Subnet show](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-show). Kontrol lera att tjänsten har tagits bort från under nätet under egenskapen **serviceName**:
 
 ```azurecli-interactive
-  az network vnet show \
+  az network vnet subnet show \
   --resource-group myResourceGroup \
   --name mySubnet \
   --vnet-name myVnet \

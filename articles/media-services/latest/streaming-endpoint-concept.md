@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 02/11/2020
 ms.author: juliako
-ms.openlocfilehash: c8901dccb67e91c608e999f823cf7d2e757da08b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 14fee047e1f62ae7f7d3484d89779e1512e4bab7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186020"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198725"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
 
@@ -66,7 +66,7 @@ CDN|Azure CDN, CDN för tredje part eller ingen CDN.|Azure CDN, CDN för tredje 
 Faktureringen beräknas proportionellt| Dagligen|Dagligen
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skalning|Skalar upp till det riktade data flödet automatiskt.|Ytterligare SUs
+Skala|Skalar upp till det riktade data flödet automatiskt.|Ytterligare SUs
 IP-filtrering/G20/anpassad värd <sup>1</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
 Rekommenderad användning |Rekommenderas för de flesta strömnings scenarier.|Professional-användning.
@@ -155,8 +155,10 @@ När standard slut punkten för direkt uppspelning skapas, konfigureras den som 
 
 CDN-integrering är aktiverat i alla Azure-datacenter förutom Kina och federala myndighets regioner.
 
+Azure Media Services integration med Azure CDN implementeras på **Azure CDN från Verizon** för standard slut punkter för direkt uppspelning. Premium-slutpunkter för direkt uppspelning kan konfigureras med alla **Azure CDN pris nivåer och leverantörer**. 
+
 > [!IMPORTANT]
-> Azure Media Services integration med Azure CDN implementeras på **Azure CDN från Verizon** för standard slut punkter för direkt uppspelning. Premium-slutpunkter för direkt uppspelning kan konfigureras med alla **Azure CDN pris nivåer och leverantörer**. Mer information om Azure CDN funktioner finns i CDN- [översikten](../../cdn/cdn-overview.md).
+> Mer information om Azure CDN finns i [CDN-översikten](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Ta reda på om DNS-ändring gjorts
 
@@ -165,6 +167,10 @@ Du kan avgöra om DNS-ändring har gjorts på en strömmande slut punkt (trafike
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
 Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
+
+## <a name="see-also"></a>Se även
+
+[Översikt över CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: dacoulte
-ms.openlocfilehash: 47c5d01834e835279f2ec19c19af13284f7ba0af
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
-ms.translationtype: HT
+ms.openlocfilehash: 91e59a04fba7036b00a9f545517c23f6dea197f7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172816"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192520"
 ---
 |Namn |Beskrivning |Påverkan (ar) |Version |
 |---|---|---|---|
-|[Granska delegering av omfattningar till en hanterings klient](https://github.com/Azure/azure-policy/blob/masterbuilt-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json) |Granska delegering av omfattningar till en hanterings klient via Azure Lighthouse. |Granskning, inaktive rad |1.0.0 |
+|[Granska delegering av omfattningar till en hanterings klient](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json) |Granska delegering av omfattningar till en hanterings klient via Azure Lighthouse. |Granskning, inaktive rad |1.0.0 |

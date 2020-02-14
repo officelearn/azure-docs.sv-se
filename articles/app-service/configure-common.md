@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666199"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198589"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -27,7 +27,7 @@ I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan di
 
 I appens vänstra meny väljer du **konfiguration** > **program inställningar**.
 
-![Programinställningar](./media/configure-common/open-ui.png)
+![Program inställningar](./media/configure-common/open-ui.png)
 
 För ASP.NET-och ASP.NET Core-utvecklare kan ställa in appinställningar i App Service som att ställa in dem i `<appSettings>` i *Web. config* eller *appSettings. JSON*, men värdena i App Service åsidosätter dem i *Web. config* eller *appSettings. JSON*. Du kan behålla utvecklings inställningarna (till exempel lokalt MySQL-lösenord) i *Web. config* eller *appSettings. JSON*, men produktions hemligheter (till exempel Azure MySQL-databasens lösen ord) är säkert i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
@@ -88,9 +88,9 @@ Appinställningar har följande JSON-formatering:
 
 I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **program inställningar**.
 
-![Programinställningar](./media/configure-common/open-ui.png)
+![Program inställningar](./media/configure-common/open-ui.png)
 
-För ASP.NET och ASP.NET Core utvecklare ska du ställa in anslutnings strängar i App Service till exempel att ställa in dem i `<connectionStrings>` i *Web. config*, men värdena som du anger i App Service åsidosätter dem i *Web. config*. Du kan behålla utvecklings inställningarna (till exempel en databas fil) i *Web. config* och produktions hemligheter (till exempel SQL Database autentiseringsuppgifter) som är säkra i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
+För ASP.NET och ASP.NET Core utvecklare ska du ställa in anslutnings strängar i App Service till exempel att ställa in dem i `<connectionStrings>` i *Web. config*, men värdena som du anger i App Service åsidosätter dem i *Web. config*. Du kan behålla utvecklings inställningarna (till exempel en databas fil) i *Web. config* och produktions hemligheter (till exempel SQL Database autentiseringsuppgifter) på ett säkert sätt i App Service. Samma kod använder utvecklings inställningarna när du felsöker lokalt, och den använder dina produktions hemligheter när de distribueras till Azure.
 
 För andra språk stackar är det bättre att använda [appinställningar](#configure-app-settings) istället, eftersom anslutnings strängar kräver speciell formatering i variabel nycklar för att få åtkomst till värdena. Här är ett undantag, men vissa Azure Database-typer säkerhets kopie ras tillsammans med appen om du konfigurerar anslutnings strängar i appen. Mer information finns i [vad säkerhets kopie ras](manage-backup.md#what-gets-backed-up). Om du inte behöver denna automatiserade säkerhets kopiering ska du använda inställningarna för appen.
 
@@ -166,7 +166,7 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
 - **Stack-inställningar**: program varu stacken för att köra appen, inklusive språk-och SDK-versioner. För Linux-appar och anpassade behållar appar kan du också ange ett valfritt start kommando eller en valfri fil.
 - **Plattforms inställningar**: gör att du kan konfigurera inställningar för värd plattformen, inklusive:
     - **Bitness**: 32-bitars eller 64-bitars.
-    - **WebSocket-protokoll**: för [ASP.NET SignalR] eller [socket.io](https://socket.io/), till exempel.
+    - **WebSocket-protokoll**: för [ASP.NET-SignalR] eller [socket.io](https://socket.io/), till exempel.
     - **Always on**: Håll appen inläst även när det inte finns någon trafik. Det krävs för kontinuerliga WebJobs eller för WebJobs som utlöses med ett CRON-uttryck.
     - **Hanterad pipeline-version**: läge för IIS- [pipeline]. Ange den som **klassisk** om du har en äldre app som kräver en äldre version av IIS.
     - **Http-version**: ange till **2,0** för att aktivera stöd för [https/2-](https://wikipedia.org/wiki/HTTP/2) protokoll.
@@ -182,7 +182,7 @@ Den här inställningen gäller endast för Windows-appar.
 
 I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **standard dokument**.
 
-![Standarddokument](./media/configure-common/open-documents.png)
+![Standard dokument](./media/configure-common/open-documents.png)
 
 Standard dokumentet är webb sidan som visas i rot-URL: en för en webbplats. Den första matchande filen i listan används. Om du vill lägga till ett nytt standard dokument klickar du på **nytt dokument**. Glöm inte att klicka på **Spara**.
 
@@ -192,7 +192,7 @@ Om appen använder moduler som dirigerar baserat på URL i stället för att bet
 
 I [Azure Portal]söker du efter och väljer **app Services**och väljer sedan din app. I appens vänstra meny väljer du **konfiguration** > **Sök vägs mappningar**.
 
-![Sökvägsmappningar](./media/configure-common/open-path.png)
+![Sök vägs mappningar](./media/configure-common/open-path.png)
 
 På sidan **Sök vägs mappningar** visas olika saker baserade på typen av operativ system.
 
@@ -254,7 +254,7 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: https://www.asp.net/signalr
+[ASP.NET-SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurera mellanlagringsmiljöer i Azure App Service]: ./deploy-staging-slots.md

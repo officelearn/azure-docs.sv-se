@@ -1,20 +1,19 @@
 ---
 title: Apache Hadoop komponenter och versioner – Azure HDInsight
 description: Lär dig Apache Hadoop-komponenter och-versioner i Azure HDInsight.
-keywords: Hadoop-versioner, Hadoop eko system komponenter, Hadoop-komponenter, så här kontrollerar du Hadoop-version
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/21/2019
-ms.openlocfilehash: ed4175d55d3c462c75dad7305f95e2ec4f84baf9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/02/2020
+ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764474"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198964"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -33,7 +32,7 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 |------------------------|---------------|-----------------------------|
 | Apache Hadoop och garn | 3.1.1         | 2.7.3                       |
 | Apache Tez             | 0.9.1         | 0.7.0                       |
-| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache gris             | 0.16.0        | 0.16.0                      |
 | Apache Hive            | 3.1.0         | 2.1.0, 1.2.1                |
 | Apache Tez-Hive2       | -             | 0.8.4                       |
 | Apache Ranger          | 1.1.0         | 0.7.0                       |
@@ -58,7 +57,7 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 
 De Hadoop-eko systemets komponent versioner som är associerade med HDInsight-kluster versioner kan ändras med uppdateringar till HDInsight. Om du vill kontrol lera Hadoop-komponenterna och kontrol lera vilka versioner som används för ett kluster använder du Ambari-REST API. **GetComponentInformation** -kommandot hämtar information om tjänst komponenter. Mer information finns i [Apache Ambari-dokumentationen](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-### <a name="release-notes"></a>Viktig information
+### <a name="release-notes"></a>Versionsanmärkningar
 
 Mer information om de senaste versionerna av HDInsight finns i avsnittet om [versions information för HDInsight](hdinsight-release-notes.md) .
 
@@ -86,15 +85,15 @@ I följande tabell visas de versioner av HDInsight som **inte** är tillgänglig
 
 | HDInsight-version | HDP-version | VM-OPERATIVSYSTEM | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet på Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 |HDP 2.5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Inga |
-| HDInsight 3,4 |HDP 2.4 |Ubuntu 14.0.4-LTS |Den 29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Inga |
-| HDInsight 3,3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Inga |
-| HDInsight 3,3 |HDP 2.3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Inga |
-| HDInsight 3,2 |HDP 2.2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |Den 1 april 2017 |Ja |Inga |
-| HDInsight 3,1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |Den 30 juni 2016 |Ja |Inga |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Inga |
-| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |31 maj 2015 |Ja |Inga |
-| HDInsight 1,6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Inga |Inga |
+| HDInsight 3,5 |HDP 2.5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
+| HDInsight 3,4 |HDP 2.4 |Ubuntu 14.0.4-LTS |Den 29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2.3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
+| HDInsight 3,2 |HDP 2.2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |Den 1 april 2017 |Ja |Nej |
+| HDInsight 3,1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |Den 30 juni 2016 |Ja |Nej |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
+| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |31 maj 2015 |Ja |Nej |
+| HDInsight 1,6 |HDP 1.1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Nej |Nej |
 
 > [!NOTE]  
 > Kluster med hög tillgänglighet med två head-noder distribueras som standard för HDInsight version 2,1 och senare. De är inte tillgängliga för HDInsight version 1,6-kluster.
@@ -107,7 +106,7 @@ Enterprise Security är ett valfritt paket som du kan lägga till i ditt HDInsig
 
     Tidigare kan du bara skapa HDInsight-kluster med en lokal administratörs användare och en lokal SSH-användare. Den lokala administratörs användaren har åtkomst till alla filer, mappar, tabeller och kolumner.  Med Enterprise Security Package kan du aktivera rollbaserad åtkomst kontroll genom att integrera HDInsight-kluster med dina egna Active Directory, inklusive lokala Active Directory, Azure Active Directory Domain Services eller Active Directory på IaaS virtuell dator. Domän administratören i klustret kan ge användarna behörighet att använda sina egna företags användar namn och lösen ord för att komma åt klustret.
 
-    Mer information finns här:
+    Mer information finns i:
 
     - [En introduktion till Apache Hadoop säkerhet med domänanslutna HDInsight-kluster](./domain-joined/hdinsight-security-overview.md)
     - [Planera Azure-domänanslutna Apache Hadoop kluster i HDInsight](./domain-joined/apache-domain-joined-architecture.md)
@@ -119,7 +118,7 @@ Enterprise Security är ett valfritt paket som du kan lägga till i ditt HDInsig
   - Integrering med Apache Ranger för auktorisering för Hive-, Spark SQL-och garn köer.
   - Du kan ange åtkomst kontroll för filer och mappar.
 
-    Mer information finns här:
+    Mer information finns i:
 
   - [Konfigurera Apache Hive principer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
@@ -131,6 +130,8 @@ För närvarande stöder endast följande kluster typer Enterprise Security Pack
 
 - Hadoop (endast HDInsight 3,6)
 - Spark
+- Kafka
+- HBase
 - Interaktiv fråga
 
 ### <a name="support-for-azure-data-lake-storage"></a>Stöd för Azure Data Lake Storage
@@ -148,10 +149,7 @@ Service nivå avtalet (SLA) definieras i ett _support fönster_. Support fönstr
 - Formel 1: Lägg till 180 dagar till det datum då HDInsight-klustrets version X släpptes.
 - Formel 2: Lägg till 90 dagar till det datum då HDInsight-klustrets version X + 1 görs tillgänglig i Azure Portal.
 
-_Datumet för indragningen_ är det datum då kluster versionen inte kan skapas i HDInsight. Från och med den 31 juli 2017 kan du inte ändra storlek på ett HDInsight-kluster efter indragnings datumet.
-
-> [!NOTE]  
-> HDInsight Windows-kluster (inklusive version 2,1, 3,0, 3,1, 3,2 och 3,3) körs på Azure gäst operativ system familj version 4, som använder 64-bitars versionen av Windows Server 2012 R2. Azure gäst operativ system familj version 4 stöder .NET Framework versionerna 4,0, 4,5, 4.5.1 och 4.5.2.
+_Indragnings datumet_ är det datum då kluster versionen inte kan skapas i HDInsight. Från och med den 31 juli 2017 kan du inte ändra storlek på ett HDInsight-kluster efter indragnings datumet.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Hortonworks viktig information som är associerad med HDInsight-versioner
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 495fa3837681fb2a78d86e6c34d4b4888b1e37f4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e7283f5e28edc6f7beaad3a2743aa155f6ea6e14
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863690"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198657"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Ta bort en virtuell nätverksgateway med PowerShell (klassisk)
 
@@ -29,15 +29,22 @@ Den här artikeln hjälper dig att ta bort en VPN-gateway i den klassiska distri
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. installera de senaste PowerShell-cmdletarna.
 
-Hämta och installera den senaste versionen av PowerShell-cmdletarna för Azure Service Management (SM). Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-### <a name="2-connect-to-your-azure-account"></a>2. Anslut till ditt Azure-konto. 
+### <a name="2-connect-to-your-azure-account"></a>2. Anslut till ditt Azure-konto.
 
 Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
 
-```powershell
-Add-AzureAccount
-```
+1. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande kommando för att växla till Service Management:
+
+   ```powershell
+   azure config mode asm
+   ```
+2. Anslut till ditt konto. Använd följande exempel för att ansluta:
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="export"></a>Steg 2: exportera och Visa nätverks konfigurations filen
 

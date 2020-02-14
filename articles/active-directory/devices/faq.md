@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a27c9ae1b75b9517bd3af92486df96434c5b34fb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207389"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185853"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
 
@@ -55,9 +55,9 @@ Endast följande enheter visas under **användar enheter**:
 
 ---
 
-### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices-"></a>F: Varför ser mina användare ett fel meddelande om att "din organisation har tagit bort enheten" eller "din organisation har inaktiverat enheten" på sina Windows 10-enheter?
+### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices"></a>F: Varför ser mina användare ett fel meddelande om att "din organisation har tagit bort enheten" eller "din organisation har inaktiverat enheten" på sina Windows 10-enheter?
 
-**A:** På Windows 10-enheter som är anslutna till eller har registrerats med Azure AD utfärdas användare en [Primary Refresh token (PRT)](concept-primary-refresh-token.md) som aktiverar enkel inloggning. Giltigheten för PRT baseras på enhetens validaity. Användarna ser det här meddelandet om enheten antingen tas bort eller inaktive ras i Azure AD utan att åtgärden initieras från själva enheten. En enhet kan tas bort eller inaktive ras i Azure AD något av följande scenarier: 
+**A:** På Windows 10-enheter som är anslutna till eller har registrerats med Azure AD utfärdas användare en [Primary Refresh token (PRT)](concept-primary-refresh-token.md) som aktiverar enkel inloggning. Giltigheten för PRT baseras på själva enhetens giltighet. Användarna ser det här meddelandet om enheten antingen tas bort eller inaktive ras i Azure AD utan att åtgärden initieras från själva enheten. En enhet kan tas bort eller inaktive ras i Azure AD något av följande scenarier: 
 
 - Användaren inaktiverar enheten från portalen Mina appar. 
 - En administratör (eller användare) tar bort eller inaktiverar enheten i Azure Portal eller med hjälp av PowerShell
@@ -119,7 +119,7 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>F: har Windows 10-enhets registrering i Azure AD stöd för TPM i FIPS-läge?
 
-**A:** Registrering av Windows 10-enheter stöds bara för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med Azure AD Join eller hybrid Azure AD Join. Observera att Microsoft inte tillhandahåller några verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. 
+**A:** Registrering av Windows 10-enheter stöds bara för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med Azure AD Join eller hybrid Azure AD Join. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM för support. 
 
 ---
 
@@ -293,7 +293,7 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>F: Hur kan jag blockera användare från att lägga till ytterligare arbets konton (registrerade Azure AD) på mina företags Windows 10-enheter?
 
-**A:** Aktivera följande register för att hindra användarna från att lägga till ytterligare arbets konton till din företags domän, Azure AD-anslutna eller hybrid Azure AD-anslutna Windows 10-enheter. Den här principen kan även användas för att blockera domänanslutna datorer från att oavsiktligt få Azure AD registrerat med samma användar konto. 
+**A:** Aktivera följande register för att hindra användarna från att lägga till ytterligare arbets konton till din företags domän, Azure AD-ansluten eller hybrid Azure AD-anslutna Windows 10-enheter. Den här principen kan även användas för att blockera domänanslutna datorer från att oavsiktligt få Azure AD registrerat med samma användar konto. 
 
 `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
@@ -312,7 +312,7 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 
 **!**
 
-- Användare som ingår i principen för villkorlig åtkomst behöver en [version av Office som stöds för MacOS](../conditional-access/technical-reference.md#client-apps-condition) för att komma åt resurser. 
+- Användare som ingår i principen för villkorlig åtkomst behöver en [version av Office som stöds för MacOS](../conditional-access/concept-conditional-access-conditions.md) för att komma åt resurser. 
 - Under det första försöket till åtkomst uppmanas användarna att registrera enheten med hjälp av företags portalen.
 
 ---

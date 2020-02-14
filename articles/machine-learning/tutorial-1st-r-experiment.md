@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: din första ML-modell med R'
+title: 'Självstudie: logistik Regressions modell i R'
 titleSuffix: Azure Machine Learning
-description: I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning och träna en logistik Regressions modell modell med R-paketen azuremlsdk och cirkumflex för att förutse sannolikheten för en oåterkallelighet i en bil haveri.
+description: I den här självstudien skapar du en logistik Regressions modell med R-paketen azuremlsdk och cirkumflex för att förutse sannolikheten för en oåterkallelighet i en bil haveri.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,27 +9,28 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 11/04/2019
-ms.openlocfilehash: 7ea02fa4544b478e6b041e0b9c342bccdfe6c48c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/07/2020
+ms.openlocfilehash: 37f2f98e594f558a9cd3c3e5994bf17a71ff1899
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533449"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191262"
 ---
-# <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Självstudie: träna och distribuera din första modell i R med Azure Machine Learning
+# <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>Självstudie: skapa en logistik Regressions modell i R med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning.  Du tränar och distribuerar en **cirkumflex** -modell för att förutsäga sannolikheten för en allvarlig olycka i en bil haveri. När du har slutfört den här självstudien har du erfarenhet av R SDK för att skala upp för att utveckla mer komplexa experiment och arbets flöden.
+I den här självstudien använder du R och Azure Machine Learning för att skapa en logistik Regressions modell som förutsäger sannolikheten för en allvarlig skada i en bil olycka. När du har slutfört den här självstudien har du praktisk kunskap om Azure Machine Learning R SDK för att skala upp till att utveckla mer komplexa experiment och arbets flöden.
 
-I den här självstudien kommer du att lära dig följande:
-
+I den här självstudien utför du följande åtgärder:
 > [!div class="checklist"]
-> * Anslut din arbets yta
+> * Skapa en Azure Machine Learning-arbetsyta
+> * Klona en Notebook-mapp med de filer som krävs för att köra den här självstudien i din arbets yta
+> * Öppna RStudio från din arbets yta
 > * Läs in data och Förbered för utbildning
-> * Ladda upp data till data lagret så att den är tillgänglig för fjärran sluten utbildning
-> * Skapa en beräknings resurs
-> * Träna en cirkumflex-modell för att förutsäga sannolikheten för en allvarlighet
+> * Ladda upp data till ett data lager så att det är tillgängligt för fjärran sluten utbildning
+> * Skapa en beräknings resurs för att träna modellen på distans
+> * Träna en `caret` modell för att förutsäga sannolikheten för en allvarlighet
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
@@ -66,13 +67,11 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. Öppna mappen med ett versions nummer.  Det här talet representerar den aktuella versionen för R SDK.
 
-1. Öppna mappen **vignettes**
-
-1. Välj **"..."** till höger om mappen " **träna-and-Deploy-to-ACI** " och välj sedan **klona**.
+1. Välj **"..."** till höger om mappen **vignettes** och välj sedan **klona**.
 
     ![Klona mapp](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona mappen " **träna-and-Deploy-to-ACI** " där.
+1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona mappen **vignettes** där.
 
 ## <a name="a-nameopenopen-rstudio"></a><a name="open">öppna RStudio
 
@@ -84,12 +83,13 @@ Använd RStudio på en beräknings instans eller Notebook VM för att köra den 
 
 1. När beräkningen har körts använder du **RStudio** -länken för att öppna RStudio.
 
-1. I RStudio är din **träna-och--ACI** -mapp några nivåer ned från **användare** i avsnittet **filer** längst ned till höger.  Välj mappen **träna-och-distribuera-till-ACI** för att hitta de filer som behövs i den här självstudien.
+1. I RStudio är din *vignettes* -mapp några nivåer ned från *användare* i avsnittet **filer** längst ned till höger.  Under *vignettes*väljer du mappen *träna-and-Deploy-to-ACI* för att hitta de filer som behövs i den här självstudien.
 
 > [!Important]
-> Resten av den här artikeln innehåller samma innehåll som du ser i **träna-and-Deploy-to-ACI. RMD** -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden.  
+> Resten av den här artikeln innehåller samma innehåll som du ser i *träna-and-Deploy-to-ACI. RMD* -fil. Om du har erfarenhet av RMarkdown kan du använda koden från filen.  Eller så kan du kopiera/klistra in kodfragment från där, eller från den här artikeln till ett R-skript eller kommando raden.  
 
-## <a name="set-up-your-development-environment"></a>Konfigurera utvecklingsmiljön
+
+## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
 Installations programmet för ditt utvecklings arbete i den här självstudien innehåller följande åtgärder:
 
 * Installera de paket som krävs
@@ -102,12 +102,6 @@ Den här självstudien förutsätter att du redan har Azure ML SDK installerat. 
 
 ```R
 library(azuremlsdk)
-```
-
-I självstudien används data från [ **DAAG** -paketet](https://cran.r-project.org/package=DAAG). Installera paketet om du inte har det.
-
-```R
-install.packages("DAAG")
 ```
 
 Utbildnings-och Poäng skripten (`accidents.R` och `accident_predict.R`) har vissa ytterligare beroenden. Om du planerar att köra dessa skript lokalt ser du till att du har de nödvändiga paketen också.
@@ -147,15 +141,21 @@ wait_for_provisioning_completion(compute_target)
 ```
 
 ## <a name="prepare-data-for-training"></a>Förbereda data för utbildning
-I den här självstudien används data från **DAAG** -paketet. Den här data uppsättningen innehåller data från över 25 000 bil krascher i USA, med variabler som du kan använda för att förutsäga sannolikheten för en allvarlighet. Börja med att importera data till R och omvandla dem till en ny dataframe-`accidents` för analys, och exportera dem till en `Rdata` fil.
+I den här självstudien används data från den amerikanska [nationella motorväg trafiksäker administration](https://cdan.nhtsa.gov/tsftables/tsfar.htm) (tack vare [Mary C. Meyer och Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
+Den här data uppsättningen innehåller data från över 25 000 bil krascher i USA, med variabler som du kan använda för att förutsäga sannolikheten för en allvarlighet. Börja med att importera data till R och omvandla dem till en ny dataframe-`accidents` för analys, och exportera dem till en `Rdata` fil.
 
 ```R
-library(DAAG)
-data(nassCDS)
-
+nassCDS <- read.csv("nassCDS.csv", 
+                     colClasses=c("factor","numeric","factor",
+                                  "factor","factor","numeric",
+                                  "factor","numeric","numeric",
+                                  "numeric","character","character",
+                                  "numeric","numeric","character"))
 accidents <- na.omit(nassCDS[,c("dead","dvcat","seatbelt","frontal","sex","ageOFocc","yearVeh","airbag","occRole")])
 accidents$frontal <- factor(accidents$frontal, labels=c("notfrontal","frontal"))
 accidents$occRole <- factor(accidents$occRole)
+accidents$dvcat <- ordered(accidents$dvcat, 
+                          levels=c("1-9km/h","10-24","25-39","40-54","55+"))
 
 saveRDS(accidents, file="accidents.Rd")
 ```
@@ -394,5 +394,6 @@ Du kan också behålla resursgruppen men ta bort en enstaka arbetsyta. Visa arbe
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har slutfört ditt första Azure Machine Learning experiment i R kan du läsa mer om [Azure Machine Learning SDK för r](https://azure.github.io/azureml-sdk-for-r/index.html).
+* Nu när du har slutfört ditt första Azure Machine Learning experiment i R kan du läsa mer om [Azure Machine Learning SDK för r](https://azure.github.io/azureml-sdk-for-r/index.html).
 
+* Läs mer om Azure Machine Learning med R från exemplen i de andra *vignettes* -mapparna.

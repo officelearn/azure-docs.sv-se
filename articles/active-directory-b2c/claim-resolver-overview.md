@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836056"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193387"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -66,14 +66,14 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Gäller inte |
+| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | SAKNAS |
 | {OIDC:ClientId} |Parametern `client_id` frågesträng. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametern `domain_hint` frågesträng. | facebook.com |
 | {OIDC: LoginHint} |  Parametern `login_hint` frågesträng. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | Gäller inte |
+| {OIDC:MaxAge} | `max_age`. | SAKNAS |
 | {OIDC:Nonce} |Parametern `Nonce` frågesträng. | defaultNonce |
 | {OIDC: prompt} | Parametern `prompt` frågesträng. | inloggning |
-| {OIDC:Resource} |Parametern `resource` frågesträng. | Gäller inte |
+| {OIDC:Resource} |Parametern `resource` frågesträng. | SAKNAS |
 | {OIDC: omfång} |Parametern `scope` frågesträng. | OpenID |
 
 ### <a name="context"></a>Kontext
@@ -96,13 +96,35 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV:loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Gäller inte |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | SAKNAS |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Åtkomsttoken. | Gäller inte |
+| {oauth2:access_token} | Åtkomsttoken. | SAKNAS |
+
+## <a name="using-claim-resolvers"></a>Använda anspråks matchare 
+
+Du kan använda anspråk matchare med följande element: 
+
+| Objekt | Element | Inställningar |
+| ----- | ----------------------- | --------|
+|Application Insights teknisk profil |`InputClaim` | |
+|[Azure Active Directory](active-directory-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
+|[OAuth2](oauth2-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
+|[OpenID Connect](openid-connect-technical-profile.md) , teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
+|Teknisk profil för [anspråks omvandling](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Teknisk profil för [RESTful-Provider](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|[SAML2](saml-technical-profile.md) teknisk profil| `OutputClaim`| 1, 2|
+|[Egen, kontrollerad](self-asserted-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
+|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|[RelyingParty](relyingparty.md#technicalprofile) teknisk profil| `OutputClaim`| 2 |
+
+Autentiseringsinställningar 
+1. `IncludeClaimResolvingInClaimsHandling` metadata måste anges till `true`
+1. Attributet indata-eller utgående anspråk `AlwaysUseDefaultValue` måste anges till `true`
 
 ## <a name="how-to-use-claim-resolvers"></a>Använda anspråk matchare
 

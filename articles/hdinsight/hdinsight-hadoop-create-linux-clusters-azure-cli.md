@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 0921caa19ee86ddf2766642211d8204059550b02
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990699"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199049"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -25,7 +25,7 @@ Stegen i det här dokumentet beskriver hur du skapar ett HDInsight 3,6-kluster m
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installerar Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) cli.
 
@@ -48,7 +48,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
     |---|---|
     |`--workernode-count`| Antalet arbetsnoder i klustret. I den här artikeln används variabeln `clusterSizeInNodes` som det värde som skickas till `--workernode-count`. |
     |`--version`| HDInsight-klustrets version. I den här artikeln används variabeln `clusterVersion` som det värde som skickas till `--version`. Se även: [HDInsight-versioner som stöds](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Typ av HDInsight-kluster, t. ex. Hadoop, interactivehive, HBase, Kafka, Storm, Spark, rserver, mlservices.  I den här artikeln används variabeln `clusterType` som det värde som skickas till `--type`. Se även: [kluster typer och konfiguration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
+    |`--type`| Typ av HDInsight-kluster, t. ex. Hadoop, interactivehive, HBase, Kafka, Storm, Spark, rserver, mlservices.  I den här artikeln används variabeln `clusterType` som det värde som skickas till `--type`. Se även: [kluster typer och konfiguration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
     |`--component-version`|Versioner av olika Hadoop-komponenter, i blankstegsavgränsad versioner i formatet komponent = version. I den här artikeln används variabeln `componentVersion` som det värde som skickas till `--component-version`. Se även: [Hadoop-komponenter](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
 
     Ersätt `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`och `PASSWORD` med önskade värden. Ändra värdena för de andra variablerna efter behov. Ange sedan CLI-kommandona.
@@ -161,7 +161,7 @@ az group delete \
     --name $resourceGroupName
 ```
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 

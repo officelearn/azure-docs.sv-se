@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 049762382bb1a67da21f5b95fdf28319672bfca6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766055"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198215"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
-Den här artikeln förklarar hur du använder [tjänsten för statisk avbildning](https://docs.microsoft.com/rest/api/maps/render/getmapimage) med bild sammansättnings funktionen för att tillåta överlägg ovanpå en raster karta. Med bild komposition kan du få en raster panel tillbaka, med ytterligare data som anpassade kartnålar, etiketter och geometri överlägg.
+Den här artikeln förklarar hur du använder [tjänsten för statisk avbildning](https://docs.microsoft.com/rest/api/maps/render/getmapimage), med bild sammansättnings funktioner, för att tillåta överlägg ovanpå en raster karta. Med bild komposition kan du få en raster panel tillbaka, med ytterligare data som anpassade kartnålar, etiketter och geometri överlägg.
 
 Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan du använda Postman-programmet. Du kan använda [API: er för Azure Maps data tjänst](https://docs.microsoft.com/rest/api/maps/data) för att lagra och återge överlägg.
 
 > [!Tip]
 > Det är ofta mycket mer kostnads effektivt att använda Azure Maps Web SDK för att visa en enkel karta på en webb sida än att använda tjänsten för statisk avbildning. Webb-SDK: n använder kart paneler och om inte användaren Pans och zoomar in kartan så genererar de ofta bara en bråkdel av en transaktion per kart belastning. Observera att Azure Maps Web SDK har alternativ för att inaktivera panorering och zoomning. Dessutom tillhandahåller Azure Maps Web SDK en mer omfattande uppsättning data visualiserings alternativ än en statisk kart webb tjänst.  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
@@ -43,7 +43,7 @@ Slutför följande steg för att återge kartnålar med etiketter och en anpassa
 
 1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny**. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj knappen **skapa** . 
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som den plats där du vill spara begäran och välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som plats för att spara begäran. Välj sedan **Spara**.
     
     ![Skapa en begäran i Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -148,7 +148,7 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Om du vill hämta udId öppnar du en ny flik i Postman-appen och väljer Hämta HTTP-metod på fliken Builder och gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId.
+6. Öppna en ny flik i Postman-appen för att hämta udId. Välj Hämta HTTP-metod på fliken Builder. gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId.
 
    ```JSON
    {

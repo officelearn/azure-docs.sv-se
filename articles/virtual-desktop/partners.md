@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/13/2020
 ms.author: helohr
-ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906840"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201789"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -46,6 +46,8 @@ Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utö
 10ZiG-teknik, med topp-och noll-klientens maskin vara och program vara, är en värnar sedan länge-partner med Microsoft och en dedikerad Microsoft Azure-och Windows-partner för virtuella skriv bord. 10ZiG Windows 10 IoT-baserade tunna klienter är kraftfulla, pålitliga och pris värda slut punkter för alla Windows-användare med virtuella skriv bord. 10ZiG Manager-programvara ger enastående hantering och distribution utan licens begränsningar utan extra kostnad. 10ZiG Tech-teamet, kostnads garanti programmet och inga problem med att gå vidare är en virtuell support lösning för Windows Virtual Desktop i molnet.
 
 10ZiG's världs marknads ledarskap i tunna och noll klient slut punkter och hanterings program för virtuella skriv bord är WINS av hur de fungerar för kunderna. Den tunna klient maskin varan har funktioner och alternativ som utformats för att säkerställa att kunderna får rätt klient enheter utifrån deras behov. 10ZiG anpassar sina enheter så att de passar kund miljöer med Windows-baserade och Linux-baserade klienter som ger bästa möjliga prestanda i virtuella skriv bord, både i och utanför molnet.
+
+- [Gå till partner webbplatsen](https://www.10zig.com/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -148,6 +150,8 @@ Likviditets Essentials utökar värdet för virtuella Windows-datorer genom att 
 Liquit program agg regering och leverans program vara gör det möjligt för företag och tjänst leverantörer att ansluta till och kombinera med arbets ytans Server delar (Citrix, VMWare, Windows Virtual Desktop, RDP och Legacy) och leverera en anpassad och konsekvent kund upplevelse, oavsett var kundens program finns. När en kund publicerar den smarta ikonen bestämmer Liquit var du vill starta programmet baserat på kundens plats, enhet och profil rättigheter.
 
 Som certifierad integrations partner bidrar Liquit till att påskynda över gången till molnet utan en fördröjning för RIP och-ersättning. Windows Virtual Desktop kan enkelt ansluta till en befintlig miljö, skapa en arbets yta och leverera Skriv bordet. Du kan sedan ta din tid att migrera från gamla plattformar och göra ändringar i Server delen utan att användarna märker. Få en konsekvent slut användar upplevelse, flexibel infrastruktur och upprätthålla kontrollen över dina program oavsett var de befinner sig.
+
+- [Gå till partner webbplatsen](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>Logga in VSI
 

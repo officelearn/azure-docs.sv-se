@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5846934a8ad8455ca375b4bc54fc46d45aba1cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379984"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185873"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Felsöka med hjälp av What If-verktyget i villkorlig åtkomst
 
@@ -26,7 +26,7 @@ Den här artikeln förklarar hur du kan använda det här verktyget för att tes
 
 ## <a name="what-it-is"></a>Vad det är
 
-Med **verktyget för what if princip för villkorlig åtkomst** kan du förstå effekten av dina principer för villkorlig åtkomst på din miljö. Med verktyget kan du utvärdera en simulerad användarinloggning i stället för att testa principerna genom att köra många manuella inloggningar. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten visar inte bara tillämpade principer för villkorlig åtkomst, utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
+Med **verktyget för what if princip för villkorlig åtkomst** kan du förstå effekten av dina principer för villkorlig åtkomst på din miljö. I stället för att testa att köra dina principer genom att utföra flera inloggningar manuellt kan du använda det här verktyget för att utvärdera en simulerad inloggning av en användare. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten visar inte bara tillämpade principer för villkorlig åtkomst, utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
 
 **What If** -verktyget är ett sätt att snabbt fastställa de principer som gäller för en speciell användare. Du kan använda informationen, till exempel om du behöver felsöka ett problem.    
 
@@ -48,7 +48,7 @@ Du hittar **What If** -verktyget på sidan **[villkorlig åtkomst – principer]
 
 Starta verktyget genom att klicka på **What If**i verktygsfältet överst i listan över principer.
 
-![What If](./media/what-if-tool/01.png)
+![WhatIf](./media/what-if-tool/01.png)
 
 Innan du kan köra en utvärdering måste du konfigurera inställningarna.
 
@@ -56,7 +56,7 @@ Innan du kan köra en utvärdering måste du konfigurera inställningarna.
 
 Det här avsnittet innehåller information om inställningarna för simulerings körning.
 
-![What If](./media/what-if-tool/02.png)
+![WhatIf](./media/what-if-tool/02.png)
 
 ### <a name="user"></a>Användare
 
@@ -72,11 +72,11 @@ IP-adressen är en enskild IPv4-adress för att efterlikna [plats villkoret](loc
 
 ### <a name="device-platforms"></a>Enhets plattformar
 
-Den här inställningen imiterar [villkoret för enhets plattformar](conditions.md#device-platforms) och motsvarar **alla plattformar (inklusive ej stödda)** . 
+Den här inställningen imiterar [villkoret för enhets plattformar](concept-conditional-access-conditions.md#device-platforms) och motsvarar **alla plattformar (inklusive ej stödda)** . 
 
 ### <a name="client-apps"></a>Klient program
 
-Med den här inställningen imiteras [villkoret för klient program](conditions.md#client-apps).
+Med den här inställningen imiteras [villkoret för klient program](concept-conditional-access-conditions.md#client-apps-preview).
 Som standard gör den här inställningen en utvärdering av alla principer som har **webbläsare** eller **mobilappar och skriv bords klienter,** antingen individuellt eller båda markerade. Den identifierar också principer som tillämpar **Exchange ActiveSync (EAS)** . Du kan begränsa den här inställningen genom att välja:
 
 - **Webbläsare** för att utvärdera alla principer som har minst **webbläsare** vald. 
@@ -84,13 +84,13 @@ Som standard gör den här inställningen en utvärdering av alla principer som 
 
 ### <a name="sign-in-risk"></a>Inloggnings risk
 
-Den här inställningen imiterar [inloggnings risk villkoret](conditions.md#sign-in-risk).   
+Den här inställningen imiterar [inloggnings risk villkoret](concept-conditional-access-conditions.md#sign-in-risk).   
 
 ## <a name="evaluation"></a>Version 
 
 Du startar en utvärdering genom att klicka på **What If**. Utvärderings resultatet ger dig en rapport som består av: 
 
-![What If](./media/what-if-tool/03.png)
+![WhatIf](./media/what-if-tool/03.png)
 
 - En indikator om de klassiska principerna finns i din miljö
 - Principer som gäller för din användare

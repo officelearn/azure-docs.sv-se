@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453488"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191513"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Konfigurera en enskild IP-adress för en eller flera integrerings tjänst miljöer i Azure Logic Apps
 
@@ -19,7 +19,7 @@ När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjän
 
 Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvägg, men du kan använda liknande begrepp för en virtuell nätverks installation, till exempel en brand vägg från en tredje part från Azure Marketplace. Det här avsnittet fokuserar på installations programmet för flera ISE-instanser, men du kan också använda den här metoden för en enskild ISE när ditt scenario kräver att du begränsar antalet IP-adresser som behöver åtkomst. Överväg om ytterligare kostnader för brand väggen eller den virtuella nätverks enheten passar ditt scenario. Läs mer om [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-brandvägg som körs i samma virtuella nätverk som din ISE. Om du inte har en brand vägg lägger du först [till ett undernät](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) som heter `AzureFirewallSubnet` till ditt virtuella nätverk. Du kan sedan [skapa och distribuera en brand vägg](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) i det virtuella nätverket.
 

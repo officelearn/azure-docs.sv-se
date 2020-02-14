@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/14/2020
+ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989866"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201806"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
 
@@ -49,9 +49,13 @@ Så här uppdaterar du kompatibilitetsnivån för jobbet i Azure Portal:
 
 När du uppdaterar kompatibilitetsnivån verifierar T-kompilatorn jobbet med den syntax som motsvarar den valda kompatibilitetsnivån.
 
-## <a name="compatibility-level-12"></a>Kompatibilitetsnivå 1.2
+## <a name="compatibility-level-12"></a>Kompatibilitetsnivå 1,2
 
 Följande större ändringar introduceras i kompatibilitetsnivån 1,2:
+
+###  <a name="amqp-messaging-protocol"></a>AMQP meddelande protokoll
+
+**1,2 nivå**: Azure Stream Analytics använder meddelande protokollet [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) för att skriva till Service Bus köer och ämnen. Med AMQP kan du skapa hybrid program mellan plattformar med ett öppet standard protokoll.
 
 ### <a name="geospatial-functions"></a>Geospatiala funktioner
 
@@ -119,7 +123,7 @@ Följande viktiga ändringar har introducerats i kompatibilitetsnivå 1.1:
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML-format
 
-**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Ett exempel:
+**1,0-nivå:** Azure Stream Analytics använda DataContractSerializer, så att meddelande innehållet innehöll XML-taggar. Exempel:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

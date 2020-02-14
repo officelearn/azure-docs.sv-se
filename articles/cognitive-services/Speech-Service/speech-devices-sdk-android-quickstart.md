@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 657cf0a0648cd53e5692a2cf5333ba29951b77a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380328"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189124"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Snabb start: Kör exempel programmet för tal enheter SDK på Android
 
@@ -23,9 +23,9 @@ I den här snabb starten lär du dig att använda tal enheter SDK för Android f
 
 Den här guiden kräver ett [Azure Cognitive Services](get-started.md) -konto med en tjänst resurs för tal. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-Källkoden för exempelprogrammet som ingår i SDK: N för tal-enheter. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+Källkoden för exempelprogrammet som ingår i SDK: N för tal-enheter. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar använda tal enheter SDK måste du:
 
@@ -34,7 +34,7 @@ Innan du börjar använda tal enheter SDK måste du:
 - Hämta den senaste versionen av [tal enheter SDK](https://aka.ms/sdsdk-download)och extrahera zip-filen till din arbets katalog.
 
   > [!NOTE]
-  > Filen Android-Sample-Release. zip innehåller appen Android-exempel och den här snabb starten förutsätter att appen extraheras till C:\SDSDK\Android-Sample-Release
+  > Den här snabb starten förutsätter att appen extraheras till C:\SDSDK\Android-Sample-Release
 
 - Så här hämtar du en [Azure-prenumerations nyckel för tal tjänsten](get-started.md)
 
@@ -42,9 +42,9 @@ Innan du börjar använda tal enheter SDK måste du:
 
 - Om du planerar att använda tal tjänsten för att identifiera avsikter (eller åtgärder) från användarens yttranden behöver du en [Luis-prenumeration (Language Understanding service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) . Mer information om LUIS och avsikts igenkänning finns i [känna igen tal C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)insikter med Luis.
 
-  Du kan [skapa en enkel LUIS-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller Använd exemplet LUIS-modell, LUIS-example.json. Exemplet LUIS-modellen är tillgänglig från den [tal Devices SDK hämtningsplats](https://aka.ms/sdsdk-luis). Ladda upp din modell JSON-filen till den [LUIS portal](https://www.luis.ai/home)väljer **importera ny app**, och välj sedan JSON-filen.
+  Du kan [skapa en enkel Luis-modell](https://docs.microsoft.com/azure/cognitive-services/luis/) eller använda exempel Luis-modellen Luis-example. JSON. Exempel modellen för LUIS finns på [hämtnings platsen för tal enheter SDK](https://aka.ms/sdsdk-luis). Om du vill överföra modellens JSON-fil till [Luis-portalen](https://www.luis.ai/home)väljer du **Importera ny app**och väljer sedan JSON-filen.
 
-- Installera [Android Studio](https://developer.android.com/studio/) och [Vysor](https://vysor.io/download/) på din dator.
+- Installera [Android Studio](https://developer.android.com/studio/) och [VYSOR](https://vysor.io/download/) på din dator.
 
 ## <a name="set-up-the-device"></a>Konfigurera enheten
 
@@ -52,9 +52,9 @@ Innan du börjar använda tal enheter SDK måste du:
 
    ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1. Enheten bör visas under **väljer du en enhet**. Välj den **visa** knappen bredvid enheten.
+1. Enheten ska visas under **Välj en enhet**. Välj knappen **Visa** bredvid enheten.
 
-1. Ansluta till det trådlösa nätverket genom att välja mappikonen och välj sedan **inställningar** > **WLAN**.
+1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **inställningar** > **WLAN**.
 
    ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
 
@@ -65,7 +65,7 @@ Innan du börjar använda tal enheter SDK måste du:
    >
    > ![Vysor filmapp](media/speech-devices-sdk/qsg-10.png)
    >
-   > Välj **inställningar**. Sök efter ”mac-adress” och välj sedan **Mac-adress** > **avancerade WLAN**. Skriv ned MAC-adressen som visas längst ned i dialogrutan.
+   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress** > **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialogrutan.
    >
    > ![Vysor MAC-adress](media/speech-devices-sdk/qsg-11.png)
    >
@@ -81,9 +81,32 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    ![Android Studio – öppna ett befintligt projekt](media/speech-devices-sdk/qsg-5.png)
 
-1. Gå till C:\SDSDK\Android-Sample-Release\example. Välj **OK** att öppna exempelprojektet.
+1. Gå till C:\SDSDK\Android-Sample-Release\example. Klicka på **OK** för att öppna exempel projektet.
 
-1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
+1. Konfigurera gradle för att referera till tal-SDK: n. Följande filer finns under **Gradle-skript** i Android Studio.
+
+    Uppdatera **build. gradle (projekt: exempel)** , allprojects-blocket måste matcha nedan, genom att lägga till maven-raderna.
+
+    ```xml
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenCentral()
+            maven {
+                url 'https://csspeechstorage.blob.core.windows.net/maven/'
+            }
+        }
+    }
+    ```
+
+    Uppdatera **build. gradle (modulen: app)** genom att lägga till den här raden i avsnittet beroenden. 
+    
+    ```xml
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    ```
+    
+1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
 
    För tal-och LUIS går din information till MainActivity. java:
 
@@ -129,16 +152,16 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    | Variabel | Betydelse | Tillgängliga värden |
    | -------- | ------- | ---------------- |
-   | `DeviceGeometry` | Fysiska mic-konfiguration | För en cirkulär dev-paket: `Circular6+1` |
-   |          |         | För en linjär dev-paket: `Linear4` |
-   | `SelectedGeometry` | Mic programvarukonfiguration | För en cirkulär dev-paket använder som alla mikrofoner: `Circular6+1` |
-   |          |         | För en cirkulär dev-paket använder som fyra mikrofoner: `Circular3+1` |
-   |          |         | För en linjär dev-paket använder som alla mikrofoner: `Linear4` |
-   |          |         | För en linjär dev-paket använder som två mikrofoner: `Linear2` |
+   | `DeviceGeometry` | Fysiska mic-konfiguration | För ett cirkulärt dev-paket: `Circular6+1` |
+   |          |         | För en linjär dev-sats: `Linear4` |
+   | `SelectedGeometry` | Mic programvarukonfiguration | För ett cirkulärt dev-paket som använder alla MICS: `Circular6+1` |
+   |          |         | För ett cirkulärt dev-paket som använder fyra MICS: `Circular3+1` |
+   |          |         | För en linjär dev-sats som använder alla MICS: `Linear4` |
+   |          |         | För en linjär dev-sats som använder två MICS: `Linear2` |
 
-1. Att skapa programmet på den **kör** menyn och välj **kör ”app”** . Den **Välj distributionsmålet** dialogrutan visas.
+1. Om du vill skapa programmet väljer du **kör app**på menyn **Kör** . Dialog rutan **Välj distributions mål** visas.
 
-1. Välj din enhet och välj sedan **OK** du distribuerar program till enheten.
+1. Välj din enhet och välj sedan **OK** för att distribuera programmet till enheten.
 
    ![Välj dialogrutan distribution mål](media/speech-devices-sdk/qsg-7.png)
 
@@ -152,7 +175,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
 1. Experiment!
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du inte kan ansluta till tal enheten. Skriv följande kommando i kommando tolkens fönster. Den kommer att returnera en lista över enheter:
 
@@ -161,11 +184,11 @@ Om du inte kan ansluta till tal enheten. Skriv följande kommando i kommando tol
 ```
 
 > [!NOTE]
-> Det här kommandot använder Android fel söknings bryggan `adb.exe`, som är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användarnamn] \AppData\Local\Android\Sdk\platform-verktyg. Du kan lägga till den här katalogen till sökvägen att göra det mer praktiskt att anropa `adb`. Annars måste du ange den fullständiga sökvägen för din installation av adb.exe i alla kommandon som anropar `adb`.
+> Det här kommandot använder Android fel söknings bryggan `adb.exe`, som är en del av Android Studio-installationen. Det här verktyget finns i C:\Users\[användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att anropa `adb`. Annars måste du ange den fullständiga sökvägen till din installation av ADB. exe i varje kommando som anropar `adb`.
 >
 > Om du ser ett fel `no devices/emulators found` kontrollerar du att USB-kabeln är ansluten och ser till att en hög kvalitets kabel används.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Granska viktig information](devices-sdk-release-notes.md)
+> [Läs viktig information](devices-sdk-release-notes.md)

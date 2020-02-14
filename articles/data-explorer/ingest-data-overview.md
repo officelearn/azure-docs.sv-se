@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 54401d4fd8a911fc9cf5bc67d4324e84005fa752
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157252"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187980"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Data inmatning för Azure Datautforskaren
 
@@ -133,8 +133,8 @@ För alla inmatnings metoder förutom inmatning från fråga formaterar du data 
 
 Schema mappning hjälper till att binda käll data fält till mål tabell kolumner.
 
-* [CSV-mappning](/azure/kusto/management/mappings?branch=master#csv-mapping) (valfritt) fungerar med alla ordinal-baserade format. Det kan utföras med hjälp av kommando parametern för att mata in eller [skapas i tabellen](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) och refereras till i kommando parametern för intag.
-* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorisk) och [Avro-mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatorisk) kan utföras med hjälp av kommando parametern intag. De kan också [skapas i förväg i tabellen](/azure/kusto/management/tables#create-ingestion-mapping) och refereras till i kommando parametern för intag.
+* [CSV-mappning](/azure/kusto/management/mappings?branch=master#csv-mapping) (valfritt) fungerar med alla ordinal-baserade format. Det kan utföras med hjälp av kommando parametern för att mata in eller [skapas i tabellen](/azure/kusto/management/create-ingestion-mapping-command) och refereras till i kommando parametern för intag.
+* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorisk) och [Avro-mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatorisk) kan utföras med hjälp av kommando parametern intag. De kan också [skapas i förväg i tabellen](/azure/kusto/management/create-ingestion-mapping-command) och refereras till i kommando parametern för intag.
 
 ## <a name="next-steps"></a>Nästa steg
 

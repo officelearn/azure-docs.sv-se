@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 213e5523c0c99309c3244e19a406a7b82297188f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161808"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190367"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2,0 med Azure Active Directory och API Management
 
@@ -71,7 +71,7 @@ Det första steget är att registrera ett program i Azure AD som representerar A
 
 Varje klient program som anropar API: et måste registreras som ett program i Azure AD. I det här exemplet är klient programmet Developer-konsolen i API Management Developer-portalen. Så här registrerar du ett annat program i Azure AD för att representera Developer-konsolen.
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **API-registreringar**.
+1. Gå till [Azure Portal](https://portal.azure.com) för att registrera ditt program. Sök efter och välj **app-registreringar**.
 
 1. Välj **ny registrering**.
 
@@ -97,7 +97,7 @@ När hemligheten skapas noterar du nyckel värdet för användning i ett senare 
 
 Nu när du har registrerat två program som ska representera API: et och Developer-konsolen måste du bevilja behörighet att tillåta klient-app att anropa backend-appen.  
 
-1. Gå till [Azure Portal](https://portal.azure.com) om du vill bevilja behörighet till klient programmet. Sök efter och välj **API-registreringar**.
+1. Gå till [Azure Portal](https://portal.azure.com) om du vill bevilja behörighet till klient programmet. Sök efter och välj **app-registreringar**.
 
 1. Välj klient programmet. Välj sedan **API-behörigheter**i listan över sidor för appen.
 
@@ -202,7 +202,7 @@ Du kan använda [validate JWT](api-management-access-restriction-policies.md#Val
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID URI of backend-app}</value>
+            <value>{Application ID of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>

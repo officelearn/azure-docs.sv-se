@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 54e2516211495f7f044f716c518291ca8008f92d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118908"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189004"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
@@ -79,9 +79,9 @@ När din administratör har aktiverat klient organisations modell för din organ
 
    > [!NOTE]
    > Office 365 företags kunder i Nordamerika är berättigade att skapa en klient modell (engelska). Den här funktionen är inte tillgänglig om du är Customer Lockbox, kund nyckel eller Office 365 myndighets kund. För att avgöra om du är en Customer Lockbox-eller kund nyckel kund, se:
-   > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Kund nyckel](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365-myndigheter](https://www.microsoft.com/microsoft-365/government)
+   > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Kund nyckel](/microsoft-365/compliance/customer-key-overview)
+   > * [Office 365-myndigheter](/microsoft-365/government)
 
 1. Välj **Anmäl dig**.
 

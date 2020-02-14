@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 03b23d86bca10077ede43f3b4e5a6c5fa6f5dd28
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165467"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186791"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Det går inte att skapa Jupyter Notebook i Azure HDInsight
 
@@ -52,9 +52,9 @@ En versions konflikt.
 
     Spara ändringarna genom att ange **CTRL + X**, **Y**, **RETUR**.
 
-1. I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, där `CLUSTERNAME` är namnet på klustret.
 
-1. Välj **Jupyter** och starta sedan om tjänsten.
+1. Starta om Jupyter-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

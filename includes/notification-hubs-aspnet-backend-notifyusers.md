@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "70934109"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192907"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
 
 I följande avsnitt beskrivs skapandet av en ny ASP.NET-WebAPI-serverdel. Den här processen har tre huvudsakliga syften:
 
 - **Autentisera klienter**: Du lägger till en meddelandehanterare för att autentisera klientbegäranden och associera användaren med begäran.
-- **Registrera för meddelanden med hjälp av WebAPI-serverdelen**: Du lägger till en kontrollant som hanterar nya registreringar så att en klientenhet kan ta emot meddelanden. Det autentiserade användarnamnet läggs automatiskt till i registreringen som en [tagg](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Registrera dig för meddelanden med hjälp av WebAPI-serverdel**: Du lägger till en domänkontrollant för att hantera nya registreringar för en klientenhet för att ta emot meddelanden. Det autentiserade användarnamnet läggs automatiskt till i registreringen som en [tagg](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
 - **Skicka meddelanden till klienter**: Du lägger till en kontrollant som gör att användare kan utlösa en säker push-överföring till enheter och klienter som är associerade med taggen.
 
 Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
@@ -108,7 +108,7 @@ I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **Authen
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
 
-                if (verifyUserAndPwd(user, password))
+                if (VerifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
                     HttpContext.Current.User =
@@ -123,7 +123,7 @@ I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **Authen
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool verifyUserAndPwd(string user, string password)
+        private bool VerifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;

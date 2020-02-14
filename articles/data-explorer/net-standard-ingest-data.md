@@ -1,24 +1,24 @@
 ---
-title: Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
-description: I den här artikeln får lära du att mata in (load) data i Datautforskaren i Azure med hjälp av SDK för .NET Standard.
+title: Mata in data med Azure Datautforskaren .NET standard SDK (för hands version)
+description: I den här artikeln får du lära dig hur du matar in data i Azure Datautforskaren med hjälp av .NET standard SDK.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 53cf055a0900a25923fe67b961755c1f4367e1fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1301ae7e0cdff36f3771a44769c8bf9cc9c62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496878"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187919"
 ---
-# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Mata in data med hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)
+# <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Mata in data med Azure Datautforskaren .NET standard SDK (för hands version)
 
-Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. ADX tillhandahåller två klientbibliotek för .NET Standard: ett [bibliotek för inmatning](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) och [ett databibliotek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln får skapa du först en tabell och datamappning av i ett testkluster. Sedan köar du en inmatning till klustret och verifierar resultatet.
+Azure Data Explorer (ADX) är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. ADX tillhandahåller två klientbibliotek för .NET Standard: ett [bibliotek för inmatning](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) och [ett databibliotek](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln skapar du först en tabell och data mappning i ett test kluster. Sedan köar du en inmatning till klustret och verifierar resultatet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -55,7 +55,7 @@ var password = "<Password>";
 ```
 
 ## <a name="construct-the-connection-string"></a>Skapa anslutningssträngen
-Nu kan du skapa anslutningssträngen. Du kan skapa måltabellen och mappningen i ett senare steg.
+Skapa nu anslutningssträngen. Du kan skapa måltabellen och mappningen i ett senare steg.
 
 ```csharp
 var kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -123,7 +123,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ## <a name="define-ingestion-mapping"></a>Definiera mappning av inmatning
 
 Mappa inkommande CSV-data till de kolumnnamn som används när du skapade tabellen.
-Etablera ett [mappningsobjekt för CSV-kolumnen](/azure/kusto/management/tables#create-ingestion-mapping) på tabellen
+Etablera ett [mappningsobjekt för CSV-kolumnen](/azure/kusto/management/create-ingestion-mapping-command) på tabellen
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";
@@ -226,7 +226,7 @@ Kör följande kommando för att visa status för alla åtgärder för inmatning
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
+Behåll de resurser du har skapat om du planerar att följa våra andra artiklar. Om inte kör du följande kommando i din databas för att rensa tabellen `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

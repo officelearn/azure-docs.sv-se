@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931111"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190920"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Felsöka vanliga indexerings problem i Azure Kognitiv sökning
 
@@ -112,6 +112,6 @@ Indexerare hittar dokument från en [data källa](https://docs.microsoft.com/res
 
 * Dokumentet har inte indexerats. Kontrol lera portalen för att köra en lyckad indexerare.
 * Dokumentet uppdaterades när indexeraren kördes. Om indexeraren är enligt ett [schema](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), kommer den att köras igen och hämta dokumentet.
-* [Frågan](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) som anges i data källan utesluter dokumentet. Indexerare kan inte indexera dokument som inte är en del av data källan.
+* [Frågan](/rest/api/searchservice/create-data-source) som anges i data källan utesluter dokumentet. Indexerare kan inte indexera dokument som inte är en del av data källan.
 * [Fält mappningar](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) eller [AI-berikning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) har ändrat dokumentet och det ser annorlunda ut än förväntat.
 * Använd [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att hitta ditt dokument.

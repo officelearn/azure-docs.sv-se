@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/27/2020
-ms.openlocfilehash: b8bb68f7da74e547b020ae00a4672e10d70cbfd1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d7723ea63cbb9bab6adf42d7e92f84a6b8b2ab9b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844470"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199015"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight
 
@@ -52,7 +52,7 @@ Du kan lägga till en tom Edge-nod i ett befintligt HDInsight-kluster till ett n
 
 Som du ser i exemplet kan du anropa en [skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md) för att utföra ytterligare konfiguration, till exempel installera [Apache nyans](hdinsight-hadoop-hue-linux.md) i Edge-noden. Skript åtgärds skriptet måste vara offentligt tillgängligt på webben.  Om skriptet till exempel lagras i Azure Storage använder du antingen offentliga behållare eller offentliga blobbar.
 
-Storleken på den virtuella datorns Edge-nod måste uppfylla kraven på HDInsight-klustrets arbetsnods VM-storlek. De rekommenderade VM-storlekarna för arbetsnoder finns i [skapa Apache Hadoop kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types).
+Storleken på den virtuella datorns Edge-nod måste uppfylla kraven på HDInsight-klustrets arbetsnods VM-storlek. De rekommenderade VM-storlekarna för arbetsnoder finns i [skapa Apache Hadoop kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
 När du har skapat en Edge-nod kan du ansluta till Edge-noden med SSH och köra klient verktyg för att komma åt Hadoop-klustret i HDInsight.
 
@@ -81,7 +81,7 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
     |---|---|
     |Prenumeration|Välj en Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Välj den resurs grupp som används för det befintliga HDInsight-klustret.|
-    |Location|Välj platsen för det befintliga HDInsight-klustret.|
+    |plats.|Välj platsen för det befintliga HDInsight-klustret.|
     |Klusternamn|Ange namnet på ett befintligt HDInsight-kluster.|
 
 1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan**och välj sedan **köp** för att skapa Edge-noden.
@@ -105,7 +105,7 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
     |---|---|
     |Prenumeration|Välj en Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en ny resurs grupp som används för klustret.|
-    |Location|Välj en plats för resursgruppen.|
+    |plats.|Välj en plats för resursgruppen.|
     |Klusternamn|Ange ett namn för det nya klustret som ska skapas.|
     |Användarnamn för klusterinloggning|Ange användar namnet för Hadoop HTTP.  Standardnamnet är **admin**.|
     |Lösenord för klusterinloggning|Ange användarens lösen ord för Hadoop HTTP.|
@@ -154,15 +154,15 @@ Du kan ta bort en Edge-nod från Azure Portal.
 2. Öppna HDInsight-klustret med en Edge-nod.
 3. Välj **program**. Du ska se en lista över Edge-noder.  
 4. Högerklicka på den Edge-nod som du vill ta bort och välj sedan **ta bort**.
-5. Välj **Ja** för att bekräfta.
+5. Bekräfta genom att välja **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur du lägger till en Edge-nod och hur du kommer åt Edge-noden. Mer information finns i följande artiklar:
 
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md): Läs mer om hur du installerar ett HDInsight-program till dina kluster.
-* [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett Opublicerat HDInsight-program till HDInsight.
+* [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett opublicerat HDInsight-program till HDInsight.
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
 * [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
 * [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): information om hur du använder skriptåtgärd till att installera fler program.
-* [Skapa Linux-baserade Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.
+* [Skapa Linux-baserade Apache Hadoop kluster i HDInsight med Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.

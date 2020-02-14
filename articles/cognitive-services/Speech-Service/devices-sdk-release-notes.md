@@ -8,23 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c12aaea1dbc99a3f6db064e03b4b49e569f15194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446949"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189062"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
 
 I följande avsnitt listas ändringar i de senaste versionerna.
 
+## <a name="speech-devices-sdk-190"></a>1\.9.0 för tal enheter SDK:
+
+- Inledande binärfiler för [URBETTER DDK](https://aka.ms/sdsdk-download-urbetter) (Linux arm64) tillhandahålls.
+- Roobo v1 använder nu Maven för tal-SDK: n
+- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.9.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+
 ## <a name="speech-devices-sdk-170"></a>1\.7.0 för tal enheter SDK:
 
 - Linux ARM stöds nu.
-- Inledande binärfiler för Roobo v2 anges (Linux-ARM64).
+- Första binärfiler för [Roobo v2-DDK](https://aka.ms/sdsdk-download-roobov2) tillhandahålls (Linux-arm64).
 - Windows-användare kan använda `AudioConfig.fromDefaultMicrophoneInput()` eller `AudioConfig.fromMicrophoneInput(deviceName)` för att ange vilken mikrofon som ska användas.
 - Biblioteks storleken har optimerats.
 - Stöd för multi-turn-igenkänning med samma tal-/avsikts igenkännings objekt.
@@ -49,7 +55,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Nya nyckelords teknik ger avsevärda kvalitets förbättringar, se bryta ändringar.
 - Ny pipeline för ljud bearbetning för förbättrad igenkänning i långt fält.
 
-**Större ändringar**
+**Bryta ändringar**
 
 - På grund av den nya nyckelords tekniken måste alla nyckelord skapas på nytt i den förbättrade nyckelords portalen. För att helt ta bort gamla nyckelord från enheten avinstallera den gamla appen.
   - ADB Uninstall com. Microsoft. coginitiveservices. Speech. Samples. sdsdkstarterapp
@@ -64,7 +70,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Uppdaterad nyckelords hantering, se bryta ändringar.
 - Exempel programmet lägger till val av språk för både tal igenkänning och översättning.
 
-**Större ändringar**
+**Bryta ändringar**
 
 - Att [Installera ett nyckelord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklats, det är nu en del av appen och behöver inte separat installation på enheten.
 - Nyckelords igenkänningen har ändrats och två händelser stöds.
@@ -83,7 +89,7 @@ I följande avsnitt listas ändringar i de senaste versionerna.
 - Tal igenkännings precisionen förbättras med vår förbättrade algoritm för ljud bearbetning
 - Ett program med kontinuerlig igenkännings ljud session har åtgärd ATS.
 
-**Större ändringar**
+**Bryta ändringar**
 
 - Med den här versionen införs ett antal icke-bakåtkompatibla ändringar. Mer information om API: erna finns i [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
 - KWS-modellens filer är inte kompatibla med tal enheter SDK-1.0.1. De befintliga nyckelorden tas bort när de nya nyckelorden skrivs till enheten.

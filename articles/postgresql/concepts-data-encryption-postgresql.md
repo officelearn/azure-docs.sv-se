@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157541"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198708"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
 > [!NOTE]
 > För tillfället måste du begära åtkomst för att använda den här funktionen. Kontakta AskAzureDBforPostgreSQL@service.microsoft.comom du vill göra det.
 
-Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server gör att du kan ta din qwn-nyckel (BYOK) för data skydd i vila. Det gör det också möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data. Med kundhanterad kryptering ansvarar du för och i en fullständig kontroll av, en nyckels livs cykel, nyckel användnings behörigheter och granskning av åtgärder på nycklar.
+Med data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server kan du ta med din egen nyckel (BYOK) för data skydd i vila. Det gör det också möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data. Med kundhanterad kryptering ansvarar du för och i en fullständig kontroll av, en nyckels livs cykel, nyckel användnings behörigheter och granskning av åtgärder på nycklar.
 
 Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server, anges på server nivå. För en specifik server används en kundhanterad nyckel, som kallas nyckel krypterings nyckel (KEK), för att kryptera data krypterings nyckeln (DEK) som används av tjänsten. KEK är en asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instans. Nyckel krypterings nyckeln (KEK) och data krypterings nyckeln (DEK) beskrivs mer detaljerat längre fram i den här artikeln.
 

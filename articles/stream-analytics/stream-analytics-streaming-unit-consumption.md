@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d270d38bce45c45f9323a971ad69dc2b931a9169
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369855"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201500"
 ---
-# <a name="understand-and-adjust-streaming-units"></a>Förstå och justera strömnings enheter
+# <a name="understand-and-adjust-streaming-units"></a>Förstå och justera direktuppspelningsenheter
 
 Strömnings enheter (SUs) representerar de data bearbetnings resurser som allokeras för att köra ett Stream Analytics jobb. Ju fler SU:er, desto fler processor- och minnesresurser allokeras för jobbet. Med den här kapaciteten kan du fokusera på fråge logiken och göra en sammanfattning av behovet av att hantera maskin vara för att köra Stream Analytics-jobbet inom rimlig tid.
 
@@ -59,6 +59,8 @@ Temporala (tidsorienterade) frågedata är kärn uppsättningen av tillstånds k
 Observera att ett jobb med komplex fråge logik kan ha hög SU%-användning även när det inte kontinuerligt tar emot inkommande händelser. Detta kan inträffa efter en plötslig insamling i in-och utdata-händelser. Jobbet kan fortsätta att underhålla tillstånd i minnet om frågan är komplex.
 
 SU%-användning kan plötsligt släppas till 0 under en kort period innan de återgår till förväntade nivåer. Detta inträffar på grund av tillfälliga fel eller systeminitierade uppgraderingar. Att öka antalet strömnings enheter för ett jobb kanske inte minskar SU-användningen om frågan inte är [helt parallell](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+
+Använd [Event Rate-mått](stream-analytics-monitoring.md)när du jämför användning under en viss tids period. InputEvents-och OutputEvents-mått visar hur många händelser som lästs och bearbetats. Det finns mått som indikerar antalet fel händelser, t. ex. deserialiserings fel. När antalet händelser per tidsenhet ökar ökar SU% i de flesta fall.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Tillståndskänsliga frågans logik i temporala element
 En av den unika funktionen för Azure Stream Analytics-jobb är att utföra tillståndskänsliga bearbetning, till exempel fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner. Var och en av dessa operatörer behåller statusinformation. Maximal fönster storlek för de här fråge elementen är sju dagar. 

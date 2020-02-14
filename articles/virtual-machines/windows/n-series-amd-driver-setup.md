@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 7527cd59ef812c108cc53f84ad19f4d2cff9ec5e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: fdc6834f3fb5ee97f27a6397645b965863e90a6b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893570"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190542"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -29,7 +29,7 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-| OS | Drivrutin |
+| Operativsystem | Drivrutin |
 | -------- |------------- |
 | Windows 10-EVD – build 1903 <br/><br/>Windows 10 – build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [19. q 4.1](https://download.microsoft.com/download/7/e/5/7e558ac0-3fff-413d-af62-800285a2fc53/Radeon-Pro-Software-for-Enterprise-19.Q4.1-Technical-Preview.exe) (. exe) |
 
@@ -37,7 +37,7 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 
 1. Anslut via fjärr skrivbord till varje virtuell NVv4-serien.
 
-1. Hämtningsstatus och Extrahera installationsfilerna för driv rutinen. Navigera till mappen och kör setup. exe för att installera driv rutinen som stöds för ditt Windows-operativsystem.
+1. Hämta och Extrahera installationsfilerna för driv rutinen. Navigera till mappen och kör setup. exe för att installera driv rutinen som stöds för ditt Windows-operativsystem.
 
 ## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
 

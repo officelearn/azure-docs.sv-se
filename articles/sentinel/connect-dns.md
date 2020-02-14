@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c5e58f496176ec0f1b8317c8b862a8ef2ffa434d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 96515d81668bf172325f88e3e5bac8d8cccfa999
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262735"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190862"
 ---
 # <a name="connect-your-domain-name-server"></a>Anslut din domän namns Server
 
@@ -45,12 +45,12 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | [Windows-agenter](../azure-monitor/platform/agent-windows.md) | Ja | Lösningen samlar in DNS-information från Windows-agenter. |
 | [Linux-agenter](../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Lösningen samlar inte in DNS-information från direkt Linux-agenter. |
-| [System Center Operations Manager-hanteringsgrupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
+| [System Center Operations Manager hanterings grupp](../azure-monitor/platform/om-agents.md) | Ja | Lösningen samlar in DNS-information från agenter i en ansluten hanteringsgrupp för Operations Manager. En direkt anslutning från Operations Manager agent till Azure Monitor krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 | [Azure Storage-konto](../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Azure storage används inte av lösningen. |
 
 ### <a name="data-collection-details"></a>Information om insamling av data
 
-Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas nära realtid från den [analytiska och granskningsloggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
+Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS-servrar där en Log Analytics-agenten är installerad. Inventeringsrelaterade data, till exempel antalet DNS-servrar, zoner och resursposter som samlas in genom att köra DNS PowerShell-cmdlets. Data uppdateras en gång varannan dag. Händelse-relaterade data samlas in nära real tid från de [analytiska och gransknings loggar](https://technet.microsoft.com/library/dn800669.aspx#enhanc) som tillhandahålls av förbättrad DNS-loggning och diagnostik i Windows Server 2012 R2.
 
 
 ## <a name="connect-your-dns-appliance"></a>Anslut din DNS-installation
@@ -73,7 +73,17 @@ Lösningen samlar in DNS-inventering och DNS-händelse-relaterade data från DNS
 
 Sök efter schemat **DnsEvents** i Log Analytics och se till att det finns händelser.
 
+## <a name="troubleshooting"></a>Felsökning
+
+Om Sök frågor inte visas i Azure Sentinel följer du dessa steg så att frågorna visas korrekt:
+1. Aktivera [DNS-analys loggar på dina servrar](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+2. Kontrol lera att DNSEvents visas i listan Log Analytics samling.
+3. Aktivera [Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
+4. I Azure DNS Analytics, under **konfiguration**, ändra inställningarna, spara den och ändra den sedan igen, och spara den sedan igen.
+5. Kontrol lera Azure DNS analys för att se till att frågorna nu visas.
+
 ## <a name="next-steps"></a>Nästa steg
+
 I det här dokumentet har du lärt dig hur du ansluter lokala DNS-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 - Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).

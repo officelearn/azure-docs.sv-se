@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 701e42caba5325df34bdbb2381389708b9b5a03f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131885"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198862"
 ---
 # <a name="install-azure-farmbeats"></a>Installera Azure FarmBeats
 
@@ -83,7 +83,9 @@ Du behöver följande behörigheter i Azure-klienten för att installera Azure F
 - Prenumeration – ägare
 - Resurs grupp där FarmBeats installeras – ägare
 
-De första två behörigheterna krävs för att [skapa AAD](#create-an-aad-application) -programsteget. Om det behövs kan du få någon med rätt behörighet för att skapa AAD-programmet. Personen som installerar FarmBeats måste vara ägare till resurs gruppen där FarmBeats installeras.
+De första två behörigheterna krävs för att [skapa AAD](#create-an-aad-application) -programsteget. Om det behövs kan du få någon med rätt behörighet för att skapa AAD-programmet.
+
+Den person som kör FarmBeats-installationen från Marketplace måste vara ägare till resurs gruppen där FarmBeats installeras. För prenumerations ägare sker detta automatiskt när resurs gruppen skapas. För andra måste du i förväg skapa resurs gruppen och be prenumerations ägaren att bli ägare till resurs gruppen.
 
 Du kan kontrol lera åtkomst behörigheterna i Azure Portal genom att följa anvisningarna i [rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
@@ -120,7 +122,15 @@ Kör följande steg i en Cloud Shell-instans med hjälp av PowerShell-miljön. F
         ./create_aad_script.ps1
     ```
 
-4. AAD-skriptet tar cirka 2 minuter att köra och matar ut värden på skärmen samt till en JSON-fil i samma katalog. Om du har någon annan som kör skriptet ber du dem att dela dessa utdata med dig.
+4. Skriptet frågar efter följande tre indata:
+
+    - FarmBeats webbplats namn: det här är det unika URL-prefixet för ditt FarmBeats-webbprogram. Om prefixet redan används, kommer skriptet att fel. När din FarmBeats-distribution har installerats kan du komma åt den från https://\<FarmBeats-webbplats-Name >. azurewebsites. net och Swagger-API: erna finns på https://\<FarmBeats-webbplats-Name >-api.azurewebsites.net
+
+    - Azure-inloggnings-ID: Ange Azures inloggnings-ID för den användare som du vill lägga till som administratör för FarmBeats. Den här användaren kan sedan ge åtkomst till FarmBeats-webbprogram till andra användare. Inloggnings-ID: t är vanligt vis formuläret john.doe@domain.com. Azure UPN stöds också.
+
+    - Prenumerations-ID: Detta är ID: t för den prenumeration som du vill installera Azure-FarmBeats i
+
+5. AAD-skriptet tar cirka 2 minuter att köra och matar ut värden på skärmen samt till en JSON-fil i samma katalog. Om du har någon annan som kör skriptet ber du dem att dela dessa utdata med dig.
 
 ### <a name="create-sentinel-account"></a>Skapa Sentinel-konto
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: f7dcf342a1b9b2107138044dfc207d6dbcb42e9e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4259868ff3b3c9ca9f9818532acd7e865e0300d7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260891"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205725"
 ---
 Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:
 
@@ -29,9 +29,9 @@ Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sä
 
 Lär dig att:
 
-- [Installera och konfigurera Ansible i Linux för användning med Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Skapa en virtuell Linux-dator](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Hantera en virtuell Linux-dator](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
+- [Installera och konfigurera Ansible i Linux för användning med Azure](../articles/ansible/ansible-install-configure.md).
+- [Skapa en virtuell Linux-dator](../articles/ansible/ansible-create-vm.md).
+- [Hantera en virtuell Linux-dator](../articles/ansible/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef

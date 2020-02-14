@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792027"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191336"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTP-slutpunkter i Azure Logic Apps
 
@@ -28,7 +28,7 @@ Om du vill konfigurera en HTTP-slutpunkt kan du använda vilken typ av utlösare
 
 Om du inte har använt Logic Apps, se [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -302,17 +302,17 @@ Om du vill visa JSON-definitionen för svars åtgärden och din Logic Apps fulls
 }
 ```
 
-## <a name="q--a"></a>Frågor och svar
+## <a name="q--a"></a>f & A
 
 #### <a name="q-what-about-url-security"></a>F: vad gäller URL-säkerhet?
 
 **A**: Azure på ett säkert sätt skapar callback-URL: er för Logic app med hjälp av [signaturen för delad åtkomst (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Den här signaturen passerar som en frågeparameter och måste verifieras innan din Logi Kap par kan köras. Azure genererar signaturen med en unik kombination av en hemlig nyckel per Logic app, Utlösarens namn och åtgärden som utförs. Så om någon har åtkomst till den hemliga Logic app-nyckeln kan de inte generera en giltig signatur.
 
 > [!IMPORTANT]
-> För produktion och säkra system rekommenderar vi starkt att du anropar din Logic-app direkt från webbläsaren av följande anledningar:
+> För produktions-och högre säkerhets system rekommenderar vi starkt att du anropar din Logic-app direkt från webbläsaren av följande anledningar:
 >
 > * Den delade åtkomst nyckeln visas i URL: en.
-> * Du kan inte hantera säkra innehålls principer på grund av delade domäner i Azure Logic Apps kunder.
+> * Du kan inte hantera principer för säkerhets innehåll på grund av delade domäner i Azure Logic Apps kunder.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>F: kan jag konfigurera HTTP-slutpunkter ytterligare?
 

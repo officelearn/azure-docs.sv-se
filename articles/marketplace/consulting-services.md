@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825976"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191132"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsult tjänster för Azure Marketplace och AppSource
 Konsult tjänster i Azure Marketplace och AppSource ger Microsoft-partner målet att ansluta kunder med tjänster för att stödja och utöka användningen av Azure och affärs mål. 
@@ -31,7 +31,7 @@ Marketplace-butiker justeras med mål grupper och Microsofts moln produkter som 
 |Relevans för lösning     |Tekniska appar som skapats för eller bygger på Azure|Affärsappar som utnyttjar/utökar D365, Power BI, O365, Azure. (Appar för att lägga till eller lägga till färdiga appar)|
 |Publicerings alternativ     |Kontakta mig, utvärderings version, Transact eller tjänster för Azure|Kontakta mig, utvärderings version eller tjänster för Dynamics 365 och Power BI|
 |I produkt miljö      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-klientprogram| 
-|Annat      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
+|Andra      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
 
 Konsult tjänster erbjuder som baseras på Microsoft Dynamics 365 och Power BI är berättigade att listas på Microsoft AppSource. Mer information finns i [rikt linjer för Microsoft AppSource Consulting Services-registrering](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
@@ -53,8 +53,8 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 |Skaffa  |Lösnings områden  |
 |---------|---------|
 |Moln plattform och infrastruktur     |   Moln plattform, data Center      |
-|Program utveckling och ISV     |  Program utveckling, program integrering, DevOps       |
-|Datahantering och analys    |  Data analys, data plattform       |
+|Program utveckling och ISV     |  Application Development, Application Integration, DevOps       |
+|Datahantering och analys    |  Data Analytics, Data Platform       |
 
 
 **De kvalificerade kompetenserna anges i följande tabell för AppSource:**
@@ -151,7 +151,7 @@ Exempel:
 
 När du ska granska erbjudande beskrivningar och erbjudande sammanfattningar, kommer teamet att tillämpa följande kriterier:
 
-|Erbjudandetyp  |Krävs |Rekommenderas  |
+|Erbjudande typ  |Obligatoriskt |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Ta med en detaljerad agenda för flera dagar eller flera vecko bedömningar, och tydliggör vilken slut produkt som kunden kan förväntar sig      |    Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste erbjuda en person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ    |  Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering       |
@@ -159,7 +159,7 @@ När du ska granska erbjudande beskrivningar och erbjudande sammanfattningar, ko
 |**Koncept bevis**    |    Tydliggör vilka tekniska förändringar, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som ett resultat av ärendet     | Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering        |
 |**Workshop**    |   Ta med en detaljerad agenda varje dag, varje vecka eller varje månad, beroende på den valda varaktigheten för ditt erbjudande. Tydliggör vad inlärnings målen eller andra slut produkter är av din workshop     |   Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering      |
 
-I Cloud Partner Portal kan du lägga till formatering i listan med hjälp av [markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Detta är ett enkelt design språk som hjälper dig att lägga till polska till din lista. 
+I Cloud Partner Portal kan du lägga till formatering i listan med hjälp av [markdown](/contribute/markdown-reference). Detta är ett enkelt design språk som hjälper dig att lägga till polska till din lista. 
 
 **Exempel på markdown-anteckningar**
 * Lägg till * i början och slutet av kopierings blocket – utan blank steg för att skapa kursiv stil (t. ex. *innehåll*)

@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
+ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494493"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198896"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
@@ -32,7 +32,7 @@ Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apac
 
 Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
 
-1. Redigera URL-adressen `https://SPARKCLUSTER.azurehdinsight.net/jupyter` genom att ersätta `SPARKCLUSTER` med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. Redigera URL-`https://SPARKCLUSTER.azurehdinsight.net/jupyter` genom att ersätta `SPARKCLUSTER` med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
 2. På webb sidan Jupyter väljer du **ny** > **PySpark** för att skapa en antecknings bok.
 
@@ -60,7 +60,9 @@ Program kan skapa dataframes direkt från filer eller mappar på fjärrlagringen
 
     ![Status för interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status för interaktiv Spark SQL-fråga")
 
-2. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**).
+1. Observera att sessions-ID: t returnerades. Från bilden ovan är sessions-ID: t 0. Om du vill kan du hämta sessionsinformation genom att gå till `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements` där kluster namn är namnet på ditt Spark-kluster och ID-numret för din sessions-ID.
+
+1. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data

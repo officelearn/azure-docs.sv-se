@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133840"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190503"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 
@@ -175,7 +175,7 @@ Följande är ett exempel skript. Du bör ersätta resurs gruppen, platsen, namn
 
 Red Hat Enterprise Linux Gold-avbildningar med egen prenumeration kan säkras genom användning av [Azure Disk Encryption](../../linux/disk-encryption-overview.md). Men prenumerationen **måste** registreras innan kryptering aktive ras.  Information om hur du registrerar en RHEL BYOS guld-avbildning finns på Red Hat-webbplatsen. Se [hur du registrerar och prenumererar på ett system till Red Hat-kundportalen med Red Hat-prenumeration-Manager](https://access.redhat.com/solutions/253273); Om du har en aktiv Red Hat-prenumeration kan du också läsa [skapa Red Hat kund Portal aktiverings nycklar](https://access.redhat.com/articles/1378093).
 
-Azure Disk Encryption stöds inte för [anpassade Red Hat-bilder](/linux/redhat-create-upload-vhd). Ytterligare ADE-krav och nödvändiga komponenter finns dokumenterade i [Azure Disk Encryption för virtuella Linux-datorer](../../linux/disk-encryption-overview.md#additional-vm-requirements).
+Azure Disk Encryption stöds inte för [anpassade Red Hat-bilder](../../linux/redhat-create-upload-vhd.md). Ytterligare ADE-krav och nödvändiga komponenter finns dokumenterade i [Azure Disk Encryption för virtuella Linux-datorer](../../linux/disk-encryption-overview.md#additional-vm-requirements).
 
 Steg för att använda Azure Disk Encryption finns i [Azure Disk Encryption scenarier för virtuella Linux-datorer](../../linux/disk-encryption-linux.md) och relaterade artiklar.
 

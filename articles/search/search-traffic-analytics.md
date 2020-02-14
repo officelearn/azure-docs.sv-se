@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 84e60b0a942bad94d8e36eb20b5be8e3f55af80a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426997"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190945"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implementera Sök trafik analys i Azure Kognitiv sökning
 
@@ -106,7 +106,7 @@ Varje gång en sökbegäran utfärdas av en användare bör du logga in som en S
 **SearchServiceName**: (sträng) Sök tjänst namn **SearchId**: (GUID) unik identifierare för Sök frågan (kommer i Söksvaret) **IndexName**: (sträng) Sök tjänst index som ska frågas **QueryTerms**: (sträng) Sök villkoren som anges i användar **resultcount som**: (int) antalet dokument som returnerades (kommer i Sök svaret) **ScoringProfile**: (sträng) namn på den bedömnings profil som används, om något
 
 > [!NOTE]
-> Antal begär Anden för användardefinierade frågor genom att lägga till $count = true i Sök frågan. Mer information finns [här](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
+> Antal begär Anden för användardefinierade frågor genom att lägga till $count = true i Sök frågan. Mer information finns [här](/rest/api/searchservice/search-documents#counttrue--false).
 >
 
 > [!NOTE]

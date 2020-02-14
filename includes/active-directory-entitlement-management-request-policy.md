@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c73a62b2d5feeae42a5ea35c88073dd5fcc0d78c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981161"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192874"
 ---
 ## <a name="for-users-in-your-directory"></a>För användare i din katalog
 
@@ -81,7 +81,7 @@ Följ de här stegen om du vill tillåta att användare som inte tillhör din ka
 1. När du har valt alla anslutna organisationer klickar du på **Välj**.
 
     > [!NOTE]
-    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](../articles/active-directory/b2b/allow-deny-list.md).
+    > Alla användare från de valda anslutna organisationerna kommer att kunna begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är kopplade till organisationen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../articles/active-directory/b2b/allow-deny-list.md).
 
 1. Hoppa ned till [godkännande](#approval) avsnittet.
 
@@ -198,7 +198,7 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
 
 ## <a name="enable-requests"></a>Aktivera begär Anden
 
-1. Om du vill att Access-paketet ska göras omedelbart tillgängligt för användare i begär ande principen att begära, klickar du på **Ja** för att aktivera.
+1. Om du vill att Access-paketet ska göras omedelbart tillgängligt för användare i förfrågnings principen att begära, flytta aktivera växla till **Ja**.
 
     Du kan alltid aktivera det i framtiden när du är klar med att skapa åtkomst paketet.
 
@@ -206,4 +206,4 @@ Om du till exempel har listat Alice och Bob som första god kännare, anger du C
 
     ![Åtkomst paket-princip-aktivera princip inställning](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. Klicka på **Next**.
+1. Klicka på **Nästa**.

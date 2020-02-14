@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: ddcc7fcc14c7958e8c0d012c2395ad2b6c422f4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157915"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201857"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
 
@@ -61,9 +61,9 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 
 Mer information om VNet-till-VNet-anslutningar finns i [Att tänka på när du använder VNet-till-VNet](#faq) i slutet av den här artikeln.
 
-### <a name="before-you-begin"></a>Innan du börjar
+### <a name="powershell"></a>Arbeta med Azure PowerShell
 
-Innan du börjar den här övningen ska du ladda ned och installera den senaste versionen av Azure Service Management (SM) PowerShell-cmdletar. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Vi använder portalen för de flesta av stegen, men du måste använda PowerShell för att skapa anslutningarna mellan virtuella nätverk. Du kan inte skapa anslutningar med hjälp av Azure Portal.
+Vi använder portalen för de flesta av stegen, men du måste använda PowerShell för att skapa anslutningarna mellan virtuella nätverk. Du kan inte skapa anslutningar med hjälp av Azure Portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="plan"></a>Steg 1 – Planera dina IP-adressintervall
 
@@ -209,37 +209,34 @@ När du skapar en klassisk virtuella nätverk i Azure Portal, är det namn som d
 
 I följande steg ska du ansluta till ditt Azure-konto och hämta och Visa nätverks konfigurations filen för att hämta de värden som krävs för dina anslutningar.
 
-1. Hämta och installera den senaste versionen av PowerShell-cmdletarna för Azure Service Management (SM). Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+1. Hämta och installera den senaste versionen av PowerShell-cmdletarna för Azure Service Management (SM). Mer information finns i [arbeta med Azure PowerShell](#powershell).
 
-2. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-   Kontrollera prenumerationerna för kontot.
+2. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande exempel för att ansluta. Du måste köra dessa kommandon lokalt med PowerShell Service Management-modulen. Använd följande kommando för att växla till Service Management:
 
    ```powershell
-   Get-AzSubscription
+   azure config mode asm
    ```
-
-   Om du har mer än en prenumeration väljer du den du vill använda.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-   Använd sedan följande cmdlet för att lägga till din Azure-prenumeration i PowerShell för den klassiska distributionsmodellen.
+3. Anslut till ditt konto. Använd följande exempel för att ansluta:
 
    ```powershell
    Add-AzureAccount
    ```
-3. Exportera och Visa nätverks konfigurations filen. Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. I det här exemplet exporteras nätverks konfigurations filen till **C:\AzureNet**.
+4. Kontrollera prenumerationerna för kontot.
+
+   ```powershell
+   Get-AzureSubscription
+   ```
+5. Om du har mer än en prenumeration väljer du den du vill använda.
+
+   ```powershell
+   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+   ```
+6. Exportera och Visa nätverks konfigurations filen. Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. I det här exemplet exporteras nätverks konfigurations filen till **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-4. Öppna filen med en text redigerare och visa namnen på dina virtuella nätverk och platser. Detta är det namn som du använder när du skapar dina anslutningar.<br>VNet-namn visas som **VirtualNetworkSite namn =**<br>Plats namn anges som **LocalNetworkSiteRef namn =**
+7. Öppna filen med en text redigerare och visa namnen på dina virtuella nätverk och platser. Namnen är de namn som du använder när du skapar dina anslutningar.<br>VNet-namn visas som **VirtualNetworkSite namn =**<br>Plats namn anges som **LocalNetworkSiteRef namn =**
 
 ## <a name="createconnections"></a>Steg 8 – skapa VPN gateway-anslutningar
 
@@ -273,7 +270,7 @@ I exemplen ser du att den delade nyckeln är exakt samma. Den delade nyckeln må
 ## <a name="faq"></a>Aspekter av VNet-till-VNet-överväganden för klassiska virtuella nätverk
 * De virtuella nätverken kan finnas i samma eller olika prenumerationer.
 * De virtuella nätverken kan finnas i samma eller olika Azure-regioner (platser).
-* En molntjänst eller en slutpunkt för belastningsutjämning kan inte omfatta flera virtuella nätverk, även om de är sammankopplade.
+* En moln tjänst eller en slut punkt för belastnings utjämning kan inte omfatta flera virtuella nätverk, även om de är anslutna till varandra.
 * Att ansluta flera virtuella nätverk tillsammans kräver inte några VPN-enheter.
 * VNet-till-VNet stöder anslutning av virtuella Azure-nätverk. Den stöder inte anslutning av virtuella datorer eller moln tjänster som inte har distribuerats till ett virtuellt nätverk.
 * VNet-till-VNet kräver dynamiska routnings-gatewayer. Azures statiska RRAS-gatewayer stöds inte.

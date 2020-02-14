@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure Virtual Network-peering – Resource Manager – olika prenumerationer
+title: Skapa en VNet-peering – olika prenumerationer
 titlesuffix: Azure Virtual Network
 description: Lär dig hur du skapar en virtuell nätverks-peering mellan virtuella nätverk som skapats via Resource Manager som finns i olika Azure-prenumerationer.
 services: virtual-network
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: da85d8904fcd44788d6a87a22ea14d683982e333
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d085279167b498b13cfb79b97703cfdff7d6dd8a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020020"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201772"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa ett virtuellt nätverk peering – Resource Manager, olika prenumerationer
 
@@ -27,8 +27,8 @@ Stegen för att skapa en virtuell nätverks-peering skiljer sig beroende på om 
 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
-|[Både Resource Manager](tutorial-connect-virtual-networks-portal.md) |Det|
-|[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |Det|
+|[Både Resource Manager](tutorial-connect-virtual-networks-portal.md) |det|
+|[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |det|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Detsamma|
 
 Det går inte att skapa en virtuell nätverks-peering mellan två virtuella nätverk som distribueras via den klassiska distributions modellen. Om du behöver ansluta virtuella nätverk som båda har skapats via den klassiska distributions modellen kan du använda en Azure- [VPN gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att ansluta de virtuella nätverken.
@@ -48,7 +48,7 @@ Följande steg använder olika konton för varje prenumeration. Om du använder 
 1. Logga in på [Azure Portal](https://portal.azure.com) som *användare a*. Det konto som du loggar in med måste ha de behörigheter som krävs för att skapa en virtuell nätverks-peering. En lista över behörigheter finns i [behörigheter för virtuella nätverks-peering](virtual-network-manage-peering.md#permissions).
 2. Välj **+ skapa en resurs**, Välj **nätverk**och välj sedan **virtuellt nätverk**.
 3. Välj eller ange följande exempel värden för följande inställningar och välj sedan **skapa**:
-    - **Name**: *myVnetA*
+    - **Namn**: *myVnetA*
     - **Adress utrymme**: *10.0.0.0/16*
     - **Under näts namn**: *standard*
     - **Adress intervall för under nätet**: *10.0.0.0/24*
@@ -65,7 +65,7 @@ Följande steg använder olika konton för varje prenumeration. Om du använder 
 11. Logga ut från portalen som användare a och logga sedan in som användare b.
 12. Slutför steg 2-3, ange eller Välj följande värden i steg 3:
 
-    - **Name**: *myVnetB*
+    - **Namn**: *myVnetB*
     - **Adress utrymme**: *10.1.0.0/16*
     - **Under näts namn**: *standard*
     - **Adress intervall för under nätet**: *10.1.0.0/24*

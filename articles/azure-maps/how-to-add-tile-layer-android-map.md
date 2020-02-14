@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4113f632e70bf1008c688066b51a27f1bc3c6345
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911513"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198266"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 
 Den här artikeln visar hur du återger ett panel lager på en karta med hjälp av Azure Maps Android SDK. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om Azure Maps displacerings systemet finns i dokumentationen för [zoomnings nivåer och Brick rutnät](zoom-levels-and-tile-grid.md) .
 
-Ett panel lager läses in i paneler från en server. Dessa avbildningar kan antingen förrenderas och lagras på samma sätt som andra bilder på en server med hjälp av en namngivnings konvention som panel lagret förstår, eller en dynamisk tjänst som genererar bilderna i farten. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps TileLayer-klass; 
+Ett panel lager läses in i paneler från en server. Dessa bilder kan förrenderas och lagras på samma sätt som andra bilder på en server med hjälp av en namngivnings konvention som panel lagret förstår. Eller så kan de här avbildningarna återges med en dynamisk tjänst som genererar avbildningarna nära real tid. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps TileLayer-klassen:
 
 * X-, Y-, zoomnings-och zoomnings nivå, x är kolumnen och Y är panelens rad position i panel rutnätet.
 * Quadkey notation – kombination x, y, zoomnings information till ett enda sträng värde som är en unik identifierare för en panel.
@@ -35,16 +35,16 @@ Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL til
 * panelens `{z}` zoomnings nivå. Behöver också `{x}` och `{y}`.
 * quadkey-identifierare för `{quadkey}` panel baserat på Bing Maps-panelens system namngivnings konvention.
 * `{bbox-epsg-3857}`-en sträng med en avgränsnings ruta med formatet `{west},{south},{east},{north}` i rums referens systemet EPSG 3857.
-* `{subdomain}` – en plats hållare där under domän värden om de anges kommer att läggas till.
+* `{subdomain}` – en plats hållare för under domänens värden, om värdet under domän är angivet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Lägg till ett panel lager på kartan
 
- Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler. Dessa paneler använder systemet "x, y, zoom". Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 Du kan lägga till ett panel lager till kartan genom att följa stegen nedan.
 

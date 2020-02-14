@@ -1,25 +1,25 @@
 ---
 title: 'Lägg till autentisering för att säkra anrop till anpassade API: er'
-description: 'Konfigurera autentisering för att säkra anrop till anpassade API: er från Azure Logic Apps'
+description: 'Konfigurera autentisering för att förbättra säkerheten för anrop till anpassade API: er från Azure Logic Apps'
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666915"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191411"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Säkra anrop till anpassade API: er från Azure Logic Apps
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Öka säkerheten för anrop till anpassade API: er från Azure Logic Apps
 
-För att säkra anrop till dina API: er kan du konfigurera Azure Active Directory (Azure AD)-autentisering via Azure Portal så att du inte behöver uppdatera koden. Eller så kan du kräva och ställa in autentisering via API-koden.
+För att förbättra säkerheten för anrop till dina API: er kan du konfigurera Azure Active Directory (Azure AD)-autentisering via Azure Portal så att du inte behöver uppdatera koden. Eller så kan du kräva och ställa in autentisering via API-koden.
 
 ## <a name="authentication-options-for-your-api"></a>Autentiseringsalternativ för ditt API
 
-Du kan säkra anrop till ditt anpassade API på följande sätt:
+Du kan förbättra säkerheten för anrop till ditt anpassade API på följande sätt:
 
 * [Inga kod ändringar](#no-code): skydda ditt api med [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) via Azure Portal, så du behöver inte uppdatera koden eller distribuera om ditt API.
 
@@ -197,7 +197,7 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 }
 ```
 
-| Egenskap | Krävs | Beskrivning | 
+| Egenskap | Obligatoriskt | Beskrivning | 
 | -------- | -------- | ----------- | 
 | tenant | Ja | GUID för Azure AD-klienten | 
 | audience | Ja | GUID för den mål resurs som du vill få åtkomst till, vilket är klient-ID: t från program identiteten för din webbapp eller API-app | 
@@ -206,7 +206,7 @@ Det här avsnittet har redan kon figurer ATS för föregående mall, men om du r
 | typ | Ja | Autentiseringstypen. För ActiveDirectoryOAuth-autentisering är värdet `ActiveDirectoryOAuth`. | 
 |||| 
 
-Ett exempel:
+Exempel:
 
 ``` json
 {
@@ -248,10 +248,10 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 } 
 ```
 
-| Egenskap | Krävs | Beskrivning |
+| Egenskap | Obligatoriskt | Beskrivning |
 | -------- | -------- | ----------- |
 | `type` | Ja | Autentiseringstypen. För SSL-klientcertifikat måste värdet vara `ClientCertificate`. |
-| `password` | Inga | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
+| `password` | Nej | Lösen ordet för att komma åt klient certifikatet (PFX-filen) |
 | `pfx` | Ja | Det Base64-kodade innehållet i klient certifikatet (PFX-filen) |
 ||||
 
@@ -271,11 +271,11 @@ I avsnittet **auktorisering** inkluderar du följande egenskaper:
 }
 ```
 
-| Egenskap | Krävs | Beskrivning | 
+| Egenskap | Obligatoriskt | Beskrivning | 
 | -------- | -------- | ----------- | 
 | typ | Ja | Autentiseringstypen som du vill använda. För grundläggande autentisering måste värdet vara `Basic`. | 
 | användarnamn | Ja | Det användar namn som du vill använda för autentisering | 
-| password | Ja | Det lösen ord som du vill använda för autentisering | 
+| lösenord | Ja | Det lösen ord som du vill använda för autentisering | 
 |||| 
 
 <a name="azure-ad-code"></a>

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967122"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190428"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -141,7 +141,7 @@ Om du använder Hybridanslutningar för att få åtkomst till SQL Server kan en 
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Undantaget orsakades av ett problem med den Hybridanslutningshanteraren som har åtgärd ATS sedan. Se till att [uppdatera Hybridanslutningshanteraren](https://go.microsoft.com/fwlink/?LinkID=841308) för att lösa problemet.
 
@@ -314,4 +314,4 @@ Du kan också ange de angivna dynamiska och statiska MIME-typerna som du vill ko
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Hur gör jag för att migrera från en lokal miljö till App Service?
 
-Om du vill migrera platser från Windows-och Linux-webbservrar till App Service kan du använda Azure App Service Migration Assistant. Migrations verktyget skapar webbappar och databaser i Azure efter behov och publicerar sedan innehållet. Mer information finns i [Azure App Service Migration Assistant](https://www.migratetoazure.net/).
+Om du vill migrera platser från Windows-och Linux-webbservrar till App Service kan du använda Azure App Service Migration Assistant. Migrations verktyget skapar webbappar och databaser i Azure efter behov och publicerar sedan innehållet. Mer information finns i [Azure App Service Migration Assistant](https://appmigration.microsoft.com/).

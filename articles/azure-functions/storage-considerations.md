@@ -3,12 +3,12 @@ title: Lagrings överväganden för Azure Functions
 description: Läs mer om lagrings kraven för Azure Functions och om kryptering av lagrade data.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 353fdd3bf7775e3bc7a9d017a9e8dd8238b09830
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964987"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190305"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Lagrings överväganden för Azure Functions
 
@@ -17,7 +17,7 @@ Azure Functions kräver ett Azure Storage-konto när du skapar en Function App-i
 
 |Lagrings tjänst  | Funktions användning  |
 |---------|---------|
-| [Azure Blob Storage](/storage/blobs/storage-blobs-overview.md)     | Bevara bindnings tillstånd och funktions nycklar.  <br/>Används också av [aktivitets nav i Durable Functions](durable/durable-functions-task-hubs.md). |
+| [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md)     | Bevara bindnings tillstånd och funktions nycklar.  <br/>Används också av [aktivitets nav i Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Azure Files](../storage/files/storage-files-introduction.md)  | Fil resurs som används för att lagra och köra din Function app-kod i en [förbruknings plan](functions-scale.md#consumption-plan). |
 | [Azure Queue Storage](../storage/queues/storage-queues-introduction.md)     | Används av [aktivitets nav i Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Azure Table Storage](../storage/tables/table-storage-overview.md)  |  Används av [aktivitets nav i Durable Functions](durable/durable-functions-task-hubs.md).       |

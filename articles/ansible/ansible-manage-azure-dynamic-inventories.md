@@ -4,12 +4,12 @@ description: Lär dig hur du använder Ansible för att hantera dina dynamiska A
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d2ebf202cfc9f94b28fc7a512e1fea452401aec6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442788"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193607"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Självstudie: Konfigurera dynamiska lager för dina Azure-resurser med Ansible
 
@@ -24,7 +24,7 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
 > * Installera nginx på de taggade virtuella datorerna
 > * Konfigurera en dynamisk inventering som innehåller de konfigurerade Azure-resurserna
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -47,7 +47,7 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
 
 1. Skapa två virtuella Linux-datorer på Azure med någon av följande metoder:
 
-    - **Ansible-spelbok** – Artikeln [Skapa en grundläggande virtuell dator i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm) illustrerar hur du skapar en virtuell dator från en Ansible-spelbok. Om du använder en spelbok för att definiera en eller båda av de virtuella datorerna kontrollerar du att SSH-anslutningen används i stället för ett lösenord.
+    - **Ansible-spelbok** – Artikeln [Skapa en grundläggande virtuell dator i Azure med Ansible](./ansible-create-vm.md) illustrerar hur du skapar en virtuell dator från en Ansible-spelbok. Om du använder en spelbok för att definiera en eller båda av de virtuella datorerna kontrollerar du att SSH-anslutningen används i stället för ett lösenord.
 
     - **Azure CLI** – Ange vart och ett av följande kommandon i Cloud Shell för att skapa de två virtuella datorerna:
 
@@ -63,7 +63,7 @@ Ansible kan användas för att hämta lagerinformation från olika källor (där
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## <a name="tag-a-vm"></a>Tagga en VM
+## <a name="tag-a-vm"></a>Tagga en virtuell dator
 
 Du kan [använda taggar för att organisera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) efter användardefinierade kategorier. 
 
@@ -316,4 +316,4 @@ Det här avsnittet illustrerar en metod för att testa att Nginx är installerat
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Snabb start: Konfigurera virtuella Linux-datorer i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snabb start: Konfigurera virtuella Linux-datorer i Azure med Ansible](./ansible-create-vm.md)

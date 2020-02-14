@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961607"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205728"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -33,7 +33,7 @@ Ja. Du debiteras för varje transaktion. Mer information finns på sidan med [pr
 
 **Kommer jag att debiteras för den faktiska storleken på data på disken eller för den allokerade kapaciteten på disken för en standard hanterad disk?**
 
-Du debiteras baserat på diskens etablerade kapacitet. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
+Du debiteras baserat på den allokerade kapaciteten för disken. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
 **Hur skiljer sig priserna från Premium Managed disks från ohanterade diskar?**
 
@@ -148,7 +148,7 @@ Generation 1-avbildningar kan bara använda GPT-partitionering på data diskar, 
 **Vad är Azure disk-reservationer?**
 Disk reservation är möjligheten att köpa ett års disk lagring i förväg, vilket minskar den totala kostnaden. Mer information om Azure disk reservations finns i vår artikel om ämnet: [förstå hur reservations rabatten tillämpas på Azure-diskar](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Vilka alternativ erbjuder Azure disk reservation?** Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du betala med en enskild förskottsbetalning eller månatligen. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks. 
+**Vilka alternativ erbjuder Azure disk reservation?** Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du välja att betala med en enda, förskotts betalning eller månads betalningar. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks. 
 
 Reservationer görs i form av diskar, inte kapacitet. Med andra ord får du en enda P80-disk när du reserverar en P80-disk (32 TiB). du kan sedan inte dela upp den här reservationen i två mindre P70-diskar (16 TiB). Du kan naturligtvis reservera så många eller så få diskar som du vill, inklusive två separata P70-diskar (16 TiB).
 
@@ -160,6 +160,44 @@ Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, 
 
 **Vad händer när reservationen för Azure disks upphör att gälla?**    
 Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
+
+### <a name="azure-shared-disks"></a>Azure delade diskar
+
+**Stöds funktionen delade diskar för ohanterade diskar eller sid-blobar?**
+
+Nej, det stöds bara för Premium SSD-hanterade diskar.
+
+**Vilka regioner stöder delade diskar?**
+
+För närvarande endast västra centrala USA.
+
+**Kan delade diskar användas som en OS-disk?**
+
+Nej, delade diskar stöds bara för data diskar.
+
+**Vilka disk storlekar stöder delade diskar?**
+
+Endast Premium-SSD som är p15 eller större stöder delade diskar.
+
+**Kan jag aktivera delade diskar om jag har en befintlig Premium SSD?**
+
+Alla hanterade diskar som skapats med API version 2019-07-01 eller senare kan aktivera delade diskar. Om du vill göra det måste du demontera disken från alla virtuella datorer som den är kopplad till. Redigera sedan `maxShares`-egenskapen på disken.
+
+**Hur inaktiverar jag det om jag inte längre vill använda en disk i delat läge?**
+
+Demontera disken från alla virtuella datorer som den är kopplad till. Redigera sedan egenskapen maxShare på disken till 1.
+
+**Kan du ändra storlek på en delad disk?**
+
+Ja.
+
+**Kan jag aktivera Skriv Accelerator på en disk som även har delade diskar aktiverade?**
+
+Nej.
+
+**Kan jag aktivera cachelagring av värden för en disk som har en delad disk aktive rad?**
+
+Det enda alternativet för cachelagring av värden som stöds är none.
 
 ## <a name="ultra-disks"></a>Ultra disks
 

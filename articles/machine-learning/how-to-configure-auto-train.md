@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: b7f837c56214d2d01d0f119e0107a095bcfd782b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048571"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198777"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -174,6 +174,8 @@ Några exempel är:
 
 De tre olika `task` parameter värden (den tredje aktivitets typen är `forecasting`och använder en liknande algoritm som `regression` aktiviteter) för att fastställa listan över modeller som ska användas. Använd parametrarna `whitelist` eller `blacklist` för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) för ([klassificering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [Prognosticering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)och [regression](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
+För automatisk ML-tjänsten krävs att `experiment_timeout_minutes` anges till en minimal tids gräns på 15 minuter för att hjälpa till att undvika experiment timeout-fel.
+
 ### <a name="primary-metric"></a>Primär mått
 Det primära måttet avgör vilket mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
 
@@ -307,7 +309,7 @@ project_folder = './sample_projects/automl-classification'
 experiment = Experiment(ws, experiment_name)
 ```
 
-Skicka experiment för att köra och generera en modell. Överför `AutoMLConfig` till `submit`-metoden för att generera modellen.
+Skicka experimentet för att köra och generera en modell. Överför `AutoMLConfig` till `submit`-metoden för att generera modellen.
 
 ```python
 run = experiment.submit(automl_config, show_output=True)

@@ -1,124 +1,140 @@
 ---
-title: Inställningar och dataväxling vanliga frågor och svar | Microsoft Docs
-description: Ger svar på frågor IT-administratörer kan ha om inställningar och data appsynkronisering.
+title: Enterprise State Roaming FAQ – Azure Active Directory
+description: Vanliga frågor och svar om ESR
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f9270aff6bc2aab7e210716ffe3e21efb07b8ed
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 87a9c9b808e737f8e72da803085bfebd8263319a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481959"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194355"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Vanliga frågor och svar om inställningar och dataväxling
-Den här artikeln får du svar på några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering.
 
-## <a name="what-data-roams"></a>Vilka data som flyttas?
-**Inställningar för Windows**: datorinställningar som är inbyggda i operativsystemet Windows. I allmänhet bör dessa inställningar som anpassar datorn och de kan vara följande övergripande kategorier:
+I den här artikeln besvaras några frågor som IT-administratörer kan ha om inställningar och synkronisering av AppData.
 
-* *Tema*, som innehåller funktioner, till exempel inställningar för fjärrskrivbord tema och Aktivitetsfältet.
-* *Internet Explorer-inställningarna*, inklusive nyligen öppnade flikar och Favoriter.
-* *Inställningar för webbläsaren Microsoft Edge*, till exempel Favoriter och läsa listan.
-* *Lösenord*, inklusive Internet-lösenord och Wi-Fi-profiler.
-* *Språkinställningar*, som innehåller inställningar för tangentbordslayout, systemspråk, datum och tid och mycket mer.
-* *Enkel åtkomstfunktioner*, till exempel högkontrasttema, Skärmförstoraren och Skärmläsaren.
-* *Andra Windows-inställningar*, t.ex musinställningar.
+## <a name="what-data-roams"></a>Vilka data är nätverks växlingar?
 
-**Programdata**: Universella Windows-appar kan skriva inställningsdata till en central mapp och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till enskilda apputvecklaren för att designa en app att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder centrala finns i den [API: et för appdata storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 appdata roaming utvecklarblogg](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Windows-inställningar**: dator inställningar som är inbyggda i operativ systemet Windows. Detta är vanligt vis inställningar som anpassar din dator och de omfattar följande breda kategorier:
 
-## <a name="what-account-is-used-for-settings-sync"></a>Vilket konto används för synkronisering av inställningar?
-I Windows 8.1 för synkronisering av alltid konsument Microsoft-konton. Företagsanvändare hade möjlighet att ansluta ett Microsoft-konto till deras Active Directory-domänkonto som ska få åtkomst till inställningar för synkronisering. I Windows 10 ansluten detta Microsoft-konto funktioner ersätts med ett konto för primär/sekundär ramverk.
-
-Det primära kontot har definierats som används för att logga in på Windows-kontot. Detta kan vara ett Microsoft-konto, ett Azure Active Directory (Azure AD)-konto, en lokal Active Directory-konto eller ett lokalt konto. Förutom det primära kontot Windows 10-användare kan lägga till en eller flera sekundära molnkonton sin enhet. Ett sekundärt konto är vanligtvis ett Microsoft-konto, en Azure AD-konto eller några andra kontot, till exempel Gmail- eller Facebook. Dessa sekundära konton har åtkomst till ytterligare tjänster som enkel inloggning och Windows Store, men de kan inte stöda synkronisering.
-
-I Windows 10, endast det primära kontot för enheten kan användas för synkronisering av inställningar (se [hur uppgraderar jag från synkronisera inställningar för Microsoft-konto i Windows 8 till Azure AD sync inställningar i Windows 10?](enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
-
-Data är aldrig blandat mellan olika användarkonton på enheten. Det finns två regler för synkronisering av inställningar:
-
-* Windows-inställningar kommer alltid att flyttas med det primära kontot.
-* AppData taggas med det konto som användes för att hämta appen. Endast appar som taggats med det primära kontot synkroniseras. App ägarskap taggning bestäms när en app är sidoladdad via Windows Store eller hantering av mobilenheter (MDM).
-
-Om en appägare inte kan identifieras, kommer den flyttas med det primära kontot. Om en enhet uppgraderas från Windows 8 eller Windows 8.1 till Windows 10, taggas alla appar som skapats av Microsoft-konto. Detta är eftersom de flesta användare hämta appar med hjälp av Windows Store och det fanns inget Windows Store-stöd för Azure AD-konton innan Windows 10. Om en app installeras via en offline-licens, taggas appen med det primära kontot på enheten.
+* *Tema*, som innehåller funktioner som Skriv bords tema och inställningar i aktivitets fältet.
+* *Internet Explorer-inställningar*, inklusive nyligen öppnade flikar och favoriter.
+* *Inställningar för Microsoft Edge-webbläsare*, till exempel favoriter och läslista.
+* *Lösen ord*, inklusive Internet lösen ord, Wi-Fi-profiler och andra.
+* *Språk inställningar*, som innehåller inställningar för tangentbordslayouter, system språk, datum och tid med mera.
+* *Hjälpmedels funktioner*, till exempel hög kontrast tema, skärm läsaren och förstorings glas.
+* *Andra Windows-inställningar*, till exempel mus inställningar.
 
 > [!NOTE]
-> Windows 10-enheter som ägs av företaget och är anslutna till Azure AD kan inte längre ansluta sina Microsoft-konton till ett domänkonto. Möjligheten att ansluta ett Microsoft-konto till ett domänkonto och har alla användarens data sync för att Microsoft-konto (det vill säga Microsoft-kontot nätverksväxling via anslutna Microsoft-konto och Active Directory-funktioner) tas bort från Windows 10 enheter som är anslutna till en ansluten Active Directory eller Azure AD-miljö.
->
->
+> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
 
-## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Hur uppgraderar jag från synkronisera inställningar för Microsoft-konto i Windows 8 till Azure AD sync inställningar i Windows 10?
-Om du är ansluten till Active Directory-domän som kör Windows 8.1 med ett anslutet microsoftkonto, kommer det att synkronisera inställningar via ditt Microsoft-konto. Efter uppgraderingen till Windows 10, fortsätter du att synkronisera användarinställningar via Microsoft-konto så länge du använder en domänansluten och Active Directory-domänen kan inte anslutas till Azure AD.
+**Program data**: universella Windows-appar kan skriva inställnings data till en central mapp, och alla data som skrivs till den här mappen synkroniseras automatiskt. Det är upp till den enskilda appens utvecklare att utforma en app för att dra nytta av den här funktionen. Mer information om hur du utvecklar en universell Windows-app som använder roaming finns i [API för lagrings-API för AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) och [Windows 8 AppData-Roaming-bloggen för utvecklare](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
-Om den lokala Active Directory-domän ansluter med Azure AD, försöker enheten synkronisera inställningar med hjälp av den anslutna Azure AD-konto. Om Azure AD-administratör inte har aktiverat för Enterprise State Roaming, dina anslutna slutar Azure AD-konto att synkronisera inställningar. Om du är en Windows 10-användare och du loggar in med en Azure AD-identitet, startar du synkronisera windows-inställningar som administratören gör det möjligt för synkronisering av inställningar via Azure AD.
+## <a name="what-account-is-used-for-settings-sync"></a>Vilket konto används för synkronisering av inställningar?
 
-Om du har lagrat personliga data på enheten företagets bör du vara medveten om att Windows-operativsystem och program börjar synkroniseras till Azure AD. Detta har följande inverkan:
+I Windows 8,1 används alltid vanliga konsument Microsoft-konton för synkronisering av inställningar. Företags användare hade möjlighet att ansluta en Microsoft-konto till sitt Active Directory domän konto för att få åtkomst till synkronisering av inställningar. I Windows 10 ersätts den här anslutna Microsoft-konto funktionen med ett primärt/sekundärt konto ramverk.
 
-* Inställningarna för ditt personliga Microsoft-konto kommer avviker förutom de inställningarna för ditt arbete eller skola Azure AD-konton. Detta beror på att Microsoft-konto och Azure AD-inställningar synkroniseras nu använder separata konton.
-* Personliga data, till exempel Wi-Fi-lösenord, web-autentiseringsuppgifter och Favoriter i Internet Explorer som redan har synkroniserats via ett anslutna Microsoft-konto kommer att synkroniseras via Azure AD.
+Det primära kontot definieras som det konto som används för att logga in på Windows. Detta kan vara ett Microsoft-konto, ett Azure Active Directory (Azure AD)-konto, ett lokalt Active Directory-konto eller ett lokalt konto. Förutom det primära kontot kan Windows 10-användare lägga till ett eller flera sekundära moln konton på sina enheter. Ett sekundärt konto är vanligt vis ett Microsoft-konto, ett Azure AD-konto eller något annat konto, till exempel Gmail eller Facebook. Dessa sekundära konton ger till gång till ytterligare tjänster, till exempel enkel inloggning och Windows Store, men de kan inte synkronisera inställningar.
 
-## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Hur kan Microsoft-konto och Azure AD Enterprise tillstånd centrala samverkan arbete?
-I November 2015 eller senare versioner av Windows 10 stöds Enterprise State Roaming bara för ett enskilt konto i taget. Om du logga in till Windows med ett arbets eller skolkonto för Azure AD, synkroniseras alla data via Azure AD. Om du loggar in på Windows med hjälp av ett personligt microsoftkonto, synkroniseras alla data via Microsoft-konto. Universal appdata ska flyttas med hjälp av endast det primära inloggning kontot på enheten och den kommer att flyttas endast om appens licens ägs av det primära kontot. Universal appdata för apparna som ägs av sekundära konton kommer inte att synkroniseras.
+I Windows 10 kan endast det primära kontot för enheten användas för synkronisering av inställningar (se [Hur gör jag för att uppgradering från Microsoft-konto inställningar synkronisera i Windows 8 till Azure AD Settings Sync i Windows 10?](enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
-## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Inställningar synkroniseras för Azure AD-konton från flera klienter?
-När flera Azure AD-konton från olika Azure AD-klienter är på samma enhet, måste du uppdatera enhetsregistret att kommunicera med Azure Rights Management-tjänsten för varje Azure AD-klient.  
+Data är aldrig blandade mellan de olika användar kontona på enheten. Det finns två regler för synkronisering av inställningar:
 
-1. Hitta GUID för varje Azure AD-klient. Öppna Azure portal och välj en Azure AD-klient. GUID för klienten är på egenskapssidan för den valda klientorganisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), namngivna **katalog-ID**. 
-2. När du har GUID som du behöver lägga till registernyckeln **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<klient-ID GUID >** .
-   Från den **klient-ID GUID** nyckeln, skapa ett nytt flersträngsvärde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**. Ange licensiering distribution point URL: er i andra Azure-klienter som har åtkomst till enheten för sina data.
-3. Du kan hitta licensiering distribution point URL: er genom att köra den **Get-AadrmConfiguration** från AADRM-modulen. Om värdena för den **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** är olika, ange båda värdena. Om värdena är samma, ange värdet bara en gång.
+* Windows-inställningar kommer alltid att roamas med det primära kontot.
+* AppData kommer att märkas med det konto som används för att hämta appen. Endast appar som är taggade med det primära kontot synkroniseras. Taggning av apparnas ägarskap fastställs när en app läses in i Windows Store eller hantering av mobila enheter (MDM).
 
-## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Vad är de centrala alternativen för kompatibilitetsinställningarna för befintliga Windows-datorprogram?
-Roaming fungerar bara för universella Windows-appar. Det finns två alternativ för att aktivera roaming i ett befintligt stationära Windows-program:
+Om det inte går att identifiera en Apps ägare, kommer den att roamas med det primära kontot. Om en enhet uppgraderas från Windows 8 eller Windows 8,1 till Windows 10, kommer alla appar att märkas som köpta av Microsoft-konto. Detta beror på att de flesta användare får appar via Windows Store och det fanns inget Windows Store-stöd för Azure AD-konton före Windows 10. Om en app installeras via en offline-licens kommer appen att märkas med det primära kontot på enheten.
 
-* Den [Desktop brygga](https://aka.ms/desktopbridge) hjälper dig att använda dina befintliga Windows-skrivbordsappar för universella Windows-plattformen. Härifrån kan måste minimala kodändringar utföras för att dra nytta av Azure AD app dataroaming. Desktop bryggan ger dina appar med en app-identitet som behövs för att aktivera AppData roaming för befintliga skrivbordsappar.
-* [Användarens upplevelse Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) hjälper dig att skapa en mall för anpassade inställningar för befintliga Windows-skrivbordsappar och aktivera växling för Win32-appar. Det här alternativet kräver inte apputvecklaren att ändra koden i appen. UE-V är begränsad till en lokal Active Directory roaming för kunder som har köpt Microsoft Desktop Optimization Pack.
+> [!NOTE]
+> Windows 10-enheter som ägs av företaget och är anslutna till Azure AD kan inte längre ansluta sina Microsoft-konton till ett domän konto. Möjligheten att ansluta en Microsoft-konto till ett domän konto och att alla användares data ska synkroniseras till Microsoft-konto (det vill säga att Microsoft-konto-roaming via den anslutna Microsoft-konto och Active Directory funktion) tas bort från Windows 10 enheter som är anslutna till en ansluten Active Directory eller Azure AD-miljö.
 
-Administratörer kan konfigurera UE-V för att flyttas Windows-skrivbordsapp data genom att ändra roaming för Windows OS-inställningar och data för universell app via [grupprinciper för UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), inklusive:
+## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Hur gör jag för att uppgradering från Microsoft-konto inställningar synkronisera i Windows 8 till Azure AD-inställningar synkronisering i Windows 10?
 
-* Flyttas Grupprincip för Windows-inställningar
-* Synkronisera inte Grupprincip för Windows-appar
-* Internet Explorer i programavsnittet
+Om du är ansluten till den Active Directory domän som kör Windows 8,1 med en ansluten Microsoft-konto, synkroniserar du inställningarna via din Microsoft-konto. När du har uppgraderat till Windows 10 fortsätter du att synkronisera användar inställningar via Microsoft-konto så länge du är en domänansluten användare och Active Directory domän inte ansluter till Azure AD.
 
-I framtiden, kan Microsoft undersöka sätt att göra UE-V som kommer att integreras i Windows och utöka UE-V för att flytta inställningar via Azure AD-molnet.
+Om den lokala Active Directorys domänen ansluter med Azure AD försöker enheten synkronisera inställningarna med det anslutna Azure AD-kontot. Om Azure AD-administratören inte aktiverar Enterprise State Roaming kommer ditt anslutna Azure AD-konto att sluta synkronisera inställningar. Om du är en Windows 10-användare och loggar in med en Azure AD-identitet börjar du synkronisera Windows-inställningar så snart din administratör aktiverar inställningar synkronisering via Azure AD.
+
+Om du har lagrat personliga data på din företags enhet bör du vara medveten om att Windows operativ system-och program data kommer att börja synkroniseras med Azure AD. Detta har följande konsekvenser:
+
+* Dina personliga Microsoft-konto inställningar påverkar inte inställningarna på ditt arbets-eller skol Azure AD-konto. Detta beror på att synkroniseringen av Microsoft-konto och Azure AD-inställningar nu använder separata konton.
+* Personliga data som Wi-Fi-lösenord, webbautentiseringsuppgifter och Internet Explorer-favoriter som tidigare har synkroniserats via en ansluten Microsoft-konto kommer att synkroniseras via Azure AD.
+
+## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work"></a>Hur fungerar Microsoft-konto och Azure AD Enterprise State Roaming-interoperabilitet?
+
+I november 2015 eller senare versioner av Windows 10 stöds Enterprise State Roaming bara för ett enda konto i taget. Om du loggar in i Windows med ett arbets-eller skol Azure AD-konto kommer alla data att synkroniseras via Azure AD. Om du loggar in i Windows med hjälp av en personlig Microsoft-konto kommer alla data att synkroniseras via Microsoft-konto. Universellt AppData kommer att roamas med bara det primära inloggnings kontot på enheten och den får bara roaming om appens licens ägs av det primära kontot. Universellt AppData för appar som ägs av ett sekundärt konto kommer inte att synkroniseras.
+
+## <a name="do-settings-sync-for-azure-ad-accounts-from-multiple-tenants"></a>Synkroniserar inställningarna för Azure AD-konton från flera klienter?
+
+När flera Azure AD-konton från olika Azure AD-klienter finns på samma enhet måste du uppdatera enhetens register för att kommunicera med Azure Rights Management-tjänsten för varje Azure AD-klient.  
+
+1. Hitta GUID för varje Azure AD-klient. Öppna Azure Portal och välj en Azure AD-klient. Klientens GUID finns på egenskaps sidan för den valda klient organisationen (https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), märkt **katalog-ID**. 
+2. När du har GUID måste du lägga till register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft\windows\settingsync\winmsipc\<klient-ID-guid >** .
+   Skapa ett nytt multi-sträng-värde (REG-MULTI-SZ) med namnet **AllowedRMSServerUrls**från ID-nyckeln för **klient-ID** : t. Ange URL: er för licens distributions platsen för de andra Azure-klienter som enheten har åtkomst till för dess data.
+3. Du hittar URL: erna för licens distributions platsen genom att köra cmdleten **Get-AadrmConfiguration** från AADRM-modulen. Ange båda värdena om värdena för **LicensingIntranetDistributionPointUrl** och **LicensingExtranetDistributionPointUrl** skiljer sig. Om värdena är desamma anger du värdet bara en gång.
+
+## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>Vad är alternativen för nätverks växlings inställningar för befintliga Windows-baserade Skriv bords program?
+
+Roaming fungerar bara för universella Windows-appar. Det finns två alternativ för att aktivera roaming i ett befintligt Windows Desktop-program:
+
+* [Desktop-bryggan](https://aka.ms/desktopbridge) hjälper dig att ta dina befintliga Windows-skrivbordsappar till universell Windows-plattform. Härifrån kommer minimal kod ändringar att krävas för att dra nytta av nätverks växling av Azure AD-AppData. Desktop-bryggan ger dina appar en app-identitet, vilket krävs för att aktivera centrala AppData för befintliga skrivbordsappar.
+* Med [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) kan du skapa en anpassad inställnings mall för befintliga Windows-skrivbordsappar och aktivera roaming för Win32-appar. Det här alternativet kräver inte att appens utvecklare ändrar koden för appen. UE-V är begränsad till lokal Active Directory nätverks växling för kunder som har köpt Microsoft Desktop Optimization Pack.
+
+Administratörer kan konfigurera UE-V till nätverks växling av Windows-AppData genom att ändra roaming av Windows OS-inställningar och universella AppData via [UE-v grup principer](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), inklusive:
+
+* Grup princip för centrala Windows-inställningar
+* Synkronisera inte grup princip för Windows-appar
+* Nätverks växling i Internet Explorer i avsnittet program
+
+I framtiden kan Microsoft undersöka sätt att göra UE-V djupt integrerat i Windows och utöka UE-V till roaming-inställningar via Azure AD-molnet.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Kan jag lagra synkroniserade inställningar och data lokalt?
-Enterprise State Roaming lagrar alla synkroniserade data i Microsoft-molnet. UE-V erbjuder en lokal nätverksväxling lösning.
 
-## <a name="who-owns-the-data-thats-being-roamed"></a>Vem äger de data som är att flyttade?
-Företag egna data flyttade via Enterprise State Roaming. Data lagras i ett Azure-datacenter. Alla data krypteras både under överföring och i vila i molnet med Azure Rights Management-tjänsten från Azure Information Protection. Det här är en förbättring jämfört med Microsoft-konto-baserade inställningar sync, vilket endast vissa känsliga data, till exempel autentiseringsuppgifterna krypteras innan de lämnar enheten.
+Enterprise State Roaming lagrar alla synkroniserade data i Microsoft-molnet. UE-V erbjuder en lokal nätverks växlings lösning.
 
-Microsoft strävar efter att skydda kunddata. En enterprise-användarens inställningsdata krypteras automatiskt av Azure Rights Management-tjänsten innan de lämnar en Windows 10-enhet, så att ingen annan användare kan läsa dessa data. Om din organisation har en betald prenumeration för Azure Rights Management-tjänsten, du kan använda andra funktioner för skydd, till exempel spåra och återkalla dokument automatiskt skydda e-postmeddelanden som innehåller känslig information och hantera dina egna nycklar (det ”ta med din egen nyckel ”lösning, kallas även BYOK). Mer information om dessa funktioner och hur den här skyddstjänsten fungerar finns i [vad är Azure Rights Management](/azure/information-protection/what-is-information-protection).
+## <a name="who-owns-the-data-thats-being-roamed"></a>Vem äger de data som roamas?
 
-## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Kan jag hantera synkronisering för en viss app eller inställningen?
-I Windows 10 finns det ingen inställning för MDM eller en Grupprincip att inaktivera för ett enskilt program. Innehavaradministratörer kan inaktivera synkronisering av appdata för alla appar på en hanterad enhet, men det finns ingen mer detaljerad kontroll på en per app- eller i appen.
+Företagen äger de data som har centraliserats via Enterprise State Roaming. Data lagras i ett Azure-datacenter. Alla användar data krypteras både under överföring och i vila i molnet med hjälp av Azure Rights Management-tjänsten från Azure Information Protection. Detta är en förbättring jämfört med Microsoft-konto-baserade inställningar synkronisering, som krypterar endast vissa känsliga data, till exempel autentiseringsuppgifter innan de lämnar enheten.
 
-## <a name="how-can-i-enable-or-disable-roaming"></a>Hur kan jag aktivera eller inaktivera nätverksväxling?
-I den **inställningar** app, gå till **konton** > **synkronisera dina inställningar**. Den här sidan ser du vilket konto som används för att flytta inställningarna och du kan aktivera eller inaktivera enskilda grupper av inställningar för att vara flyttade.
+Microsoft strävar efter att skydda kund information. En företags användares inställnings data krypteras automatiskt av Azure Rights Management-tjänsten innan den lämnar en Windows 10-enhet, så inga andra användare kan läsa dessa data. Om din organisation har en betald prenumeration för Azure Rights Management-tjänsten kan du använda andra skydds funktioner, till exempel spåra och återkalla dokument, automatiskt skydda e-postmeddelanden som innehåller känslig information och hantera dina egna nycklar ("placera din egen nyckel "lösning, som även kallas BYOK). Mer information om de här funktionerna och hur den här skydds tjänsten fungerar finns i [Vad är Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
-## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Vad är Microsofts rekommendation för att aktivera nätverksväxling i Windows 10?
-Microsoft har ett par olika inställningar nätverksväxling lösningar som är tillgängliga, inklusive centrala användarprofiler, UE-V och Enterprise tillstånd centrala.  Microsoft strävar efter att göra en investering i Enterprise State Roaming i framtida versioner av Windows. Om din organisation inte är redo eller bekväm med att flytta data till molnet kan sedan rekommenderar vi att du använder UE-V som din primära centrala teknik. Om din organisation kräver nätverksväxling stöd för befintliga Windows-skrivbordsprogram, men är otålig och vill flytta till molnet, rekommenderar vi att du använder Enterprise tillstånd centrala och UE-V. Även om UE-V- och Enterprise State Roaming är mycket lik tekniker kan är de inte ömsesidigt uteslutande. De kompletterar varandra för att säkerställa att din organisation tillhandahåller centrala tjänster som användarna behöver.  
+## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Kan jag hantera synkronisering för en speciell app eller inställning?
 
-När du använder både Enterprise State Roaming och UE-V, gäller följande regler:
+I Windows 10 finns det ingen MDM-eller grupprincip-inställning för att inaktivera roaming för ett enskilt program. Klient organisations administratörer kan inaktivera AppData-synkronisering för alla appar på en hanterad enhet, men det finns ingen bättre kontroll på per app eller på-App-nivå.
 
-* Enterprise State Roaming är primär centrala agenten på enheten. UE-V används för att komplettera ”Win32 klyftan”.
-* UE-V för Windows-inställningar och data med moderna UWP-app ska inaktiveras när med gruppen UE-V åtkomstprinciper. Dessa omfattas redan av Enterprise State Roaming.
+## <a name="how-can-i-enable-or-disable-roaming"></a>Hur kan jag aktivera eller inaktivera roaming?
 
-## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Hur Enterprise State Roaming stöder virtuell datorinfrastruktur (VDI)?
-Enterprise State Roaming stöds på Windows 10-klient SKU: er, men inte på servern SKU: er. Om en VM-klient finns på en hypervisor-dator och du via en fjärranslutning loggar in på den virtuella datorn, kommer dina data flyttas. Om flera användare delar samma OS och användare logga in på en server för en fullständig Skrivbordsmiljö via en fjärranslutning, kanske roaming inte fungerar. Det senare fallet sessionsbaserad stöds inte officiellt.
+I appen **Inställningar** går du till **konton** > **Synkronisera dina inställningar**. På den här sidan kan du se vilket konto som används för att använda roaming-inställningar och du kan aktivera eller inaktivera enskilda grupper av inställningar för nätverks växling.
 
-## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Vad händer om min organisation köper en prenumeration som omfattar Azure Rights Management när du använder centrala?
-Om din organisation redan använder roaming i Windows 10 med den kostnadsfria prenumerationen för Azure Rights Management-begränsad användning, kan du köpa en [betald prenumeration](https://azure.microsoft.com/pricing/details/information-protection/) som innehåller Azure Rights Management inte kommer att ha skyddstjänsten deras eventuella inverkan på funktionerna i den övergripande funktionen och inga konfigurationsändringar krävs av IT-administratören.
+## <a name="what-is-microsofts-recommendation-for-enabling-roaming-in-windows-10"></a>Vad är Microsofts rekommendation för att aktivera roaming i Windows 10?
+
+Microsoft har några olika inställningar för nätverks växlings lösningar som är tillgängliga, inklusive centrala användar profiler, UE-V och Enterprise State Roaming.  Microsoft strävar efter att göra en investering i Enterprise State Roaming i framtida versioner av Windows. Om din organisation inte är klar eller bekvämt med att flytta data till molnet rekommenderar vi att du använder UE-V som din primära centrala teknik. Om din organisation kräver roaming-stöd för befintliga Windows-skrivbordsprogram, men är Eager att flytta till molnet, rekommenderar vi att du använder både Enterprise State Roaming och UE-V. Även om UE-V och Enterprise State Roaming är mycket likartade tekniker, är de inte ömsesidigt uteslutande. De kompletterar varandra för att se till att din organisation tillhandahåller de centrala tjänster som användarna behöver.  
+
+När du använder både Enterprise State Roaming och UE-V gäller följande regler:
+
+* Enterprise State Roaming är den primära centrala agenten på enheten. UE-V används för att komplettera "Win32-gap".
+* UE-V-roaming för Windows-inställningar och modern UWP-AppData bör inaktive ras när du använder grup principer för UE-V. De är redan täckta av Enterprise State Roaming.
+
+## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-vdi"></a>Hur stöder Enterprise State Roaming Virtual Desktop Infrastructure (VDI)?
+
+Enterprise State Roaming stöds på Windows 10-klient-SKU: er, men inte på Server-SKU: er. Om en virtuell klient dator finns på en hypervisor-dator och du loggar in på en fjärran sluten dator på den virtuella datorn, kommer dina data att växlas. Om flera användare delar samma operativ system och användare via fjärr anslutning till en server för att få en fullständig Skriv bords upplevelse kanske nätverks växlingen inte fungerar. Det senare session-baserade scenariot stöds inte officiellt.
+
+## <a name="what-happens-when-my-organization-purchases-a-subscription-that-includes-azure-rights-management-after-using-roaming"></a>Vad händer när min organisation köper en prenumeration som innehåller Azure Rights Management efter att ha använt nätverks växling?
+
+Om din organisation redan använder roaming i Windows 10 med Azure Rights Management-prenumeration med begränsad användning kan du köpa en [betald prenumeration](https://azure.microsoft.com/pricing/details/information-protection/) som omfattar Azure Rights Management Protection-tjänsten påverkar inte funktionerna i funktionen för nätverks växling, och inga konfigurations ändringar krävs av IT-administratören.
 
 ## <a name="known-issues"></a>Kända problem
-Se dokumentationen i den [felsökning](enterprise-state-roaming-troubleshooting.md) avsnittet för en lista över kända problem. 
+
+I dokumentationen i [fel söknings](enterprise-state-roaming-troubleshooting.md) avsnittet finns en lista över kända problem. 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-En översikt finns i [företagsroaming översikt](enterprise-state-roaming-overview.md)
+En översikt finns i [Översikt över företags tillstånds växling](enterprise-state-roaming-overview.md)

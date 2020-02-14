@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a89983a9ae45f21deb7a823de049373b4ff9b935
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ca77d4704fb71972090ce0b96dfdb888ef7d1d2c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989067"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190338"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Reagera på Azure Maps händelser med Event Grid 
 
-Azure Maps integreras med Azure Event Grid, så att användarna kan skicka händelse meddelanden till andra tjänster och utlösa efterföljande processer. Syftet med den här artikeln är att hjälpa dig att konfigurera dina affärs program så att de lyssnar på Azure Maps händelser. Med den här tjänsten kan du reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt. Användare kan till exempel skapa ett program för att uppdatera en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en enhet går in på en inhägnad.
+Azure Maps integreras med Azure Event Grid, så att användarna kan skicka händelse meddelanden till andra tjänster och utlösa efterföljande processer. Syftet med den här artikeln är att hjälpa dig att konfigurera dina affärs program så att de lyssnar på Azure Maps händelser. Detta gör att användarna kan reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt. Användare kan till exempel skapa ett program för att uppdatera en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en enhet går in på en inhägnad.
 
 Azure Event Grid är en helt hanterad tjänst för händelse dirigering som använder en publicerings prenumerations modell. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) och [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Den kan leverera händelse aviseringar till icke-Azure-tjänster som använder Webhooks. En fullständig lista över de händelse hanterare som Event Grid stöder finns i [en introduktion till Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -32,8 +32,8 @@ Event Grid använder [händelse prenumerationer](https://docs.microsoft.com/azur
 
 | eventType | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Utlöses när de mottagna koordinaterna har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
-| Microsoft.Maps.GeofenceExited | Utlöses när de mottagna koordinaterna har flyttats från ett angivet geografiskt avgränsnings tecken till utsidan |
+| Microsoft.Maps.GeofenceEntered | Utlöses när mottagna koordinater har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
+| Microsoft.Maps.GeofenceExited | Utlöses när mottagna koordinater har flyttats inifrån ett angivet geografiskt avgränsnings tecken utanför |
 | Microsoft.Maps.GeofenceResult | Genereras varje gång en inhägnad fråga returnerar ett resultat, oavsett tillstånd |
 
 ## <a name="event-schema"></a>Händelseschema
@@ -80,9 +80,9 @@ I följande exempel visas schemat för GeofenceResult:
 
 Program som hanterar Azure Mapss gräns händelser bör följa några rekommenderade metoder:
 
-* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare. Det är viktigt att inte anta att händelser kommer från en viss källa. Kontrol lera alltid meddelande ämnet för att se till att det kommer från den källa som du förväntar dig.
-* Meddelanden kan tas emot i rätt ordning eller efter en fördröjning. Använd fältet `X-Correlation-id` i svars huvudet för att ta reda på om informationen om objekt är aktuell.
-* När get-och POST-API: et anropas med parametern mode set till `EnterAndExit`, genereras en Enter-eller Exit-händelse för varje geometri i det avgränsnings värde för vilket statusen har ändrats från det föregående API-anropet med polystängsel.
+* Konfigurera flera prenumerationer för att dirigera händelser till samma händelse hanterare. Det är viktigt att inte anta att händelser kommer från en viss källa. Kontrol lera alltid meddelande ämnet för att se till att meddelandet kommer från den källa som du förväntar dig.
+* Använd fältet `X-Correlation-id` i svars huvudet för att ta reda på om informationen om objekt är aktuell. Meddelanden kan tas emot i rätt ordning eller efter en fördröjning.
+* När en GET-eller a POST-begäran i det geometriska API: t anropas med parametern mode inställd på `EnterAndExit`, genereras en retur-eller Exit-händelse för varje geometri i det avgränsnings värde som statusen har ändrats från det föregående API-anropet för polystängsel.
 
 ## <a name="next-steps"></a>Nästa steg
 

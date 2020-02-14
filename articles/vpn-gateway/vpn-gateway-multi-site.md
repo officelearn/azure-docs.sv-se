@@ -6,21 +6,21 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: yushwang
-ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902441"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198111"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Lägga till en plats-till-plats-anslutning till ett VNet med en befintlig VPN gateway-anslutning (klassisk)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 >
 >
@@ -55,10 +55,13 @@ Innan du påbörjar konfigurationen kontrollerar du att du har följande:
 
 * Kompatibel VPN-maskinvara för varje lokal plats. Kontrol lera [om VPN-enheter för Virtual Network anslutning](vpn-gateway-about-vpn-devices.md) för att kontrol lera om den enhet som du vill använda är något som är känt för att vara kompatibel.
 * En externt riktad offentlig IPv4-IP-adress för varje VPN-enhet. Det går inte att hitta IP-adressen bakom en NAT. Detta är ett krav.
-* Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Se till att du installerar Service Management-versionen (SM) förutom Resource Manager-versionen. Mer information finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) .
 * Någon som är kunskap om hur du konfigurerar din VPN-maskinvara. Du måste ha en stark förståelse för hur du konfigurerar VPN-enheten eller arbetar med någon som gör det.
 * De IP-adressintervall som du vill använda för det virtuella nätverket (om du inte redan har skapat ett).
 * IP-adressintervall för var och en av de lokala nätverks platser som du ska ansluta till. Du måste kontrol lera att IP-adressintervallet för var och en av de lokala nätverks platser som du vill ansluta till inte överlappar varandra. Annars avvisar portalen eller REST API den konfiguration som överförs.<br>Om du till exempel har två lokala nätverks platser som båda innehåller IP-adressintervallet 10.2.3.0/24 och du har ett paket med en mål adress 10.2.3.3, vet inte Azure vilken plats du vill skicka paketet till eftersom adress intervallen överlappar varandra. Azure tillåter inte att du överför en konfigurations fil som har överlappande intervall för att förhindra problem med Routning.
+
+### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
+
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. skapa en VPN för plats-till-plats
 Om du redan har en plats-till-plats-VPN med en dynamisk routning Gateway, är det bra! Du kan fortsätta att [Exportera konfigurations inställningarna för det virtuella nätverket](#export). Annars gör du följande:
@@ -72,6 +75,19 @@ Om du redan har en plats-till-plats-VPN med en dynamisk routning Gateway, är de
 2. Konfigurera en dynamisk routning Gateway med hjälp av följande anvisningar: [Konfigurera en VPN gateway](vpn-gateway-configure-vpn-gateway-mp.md). Se till att välja **dynamisk routning** för din gateway-typ.
 
 ## <a name="export"></a>2. exportera nätverks konfigurations filen
+
+Öppna PowerShell-konsolen med utökade rättigheter. Använd följande kommando för att växla till Service Management:
+
+```powershell
+azure config mode asm
+```
+
+Anslut till ditt konto. Använd följande exempel för att ansluta:
+
+```powershell
+Add-AzureAccount
+```
+
 Exportera Azure-nätverks konfigurations filen genom att köra följande kommando. Du kan ändra platsen för filen och exportera den till en annan plats om det behövs.
 
 ```powershell
@@ -156,7 +172,7 @@ Importera nätverks konfigurations filen. När du importerar den här filen med 
 ## <a name="6-download-keys"></a>6. hämta nycklar
 När dina nya tunnlar har lagts till använder du PowerShell-cmdlet "Get-AzureVNetGatewayKey" för att hämta de i förväg delade IPsec/IKE-nycklarna för varje tunnel.
 
-Ett exempel:
+Exempel:
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

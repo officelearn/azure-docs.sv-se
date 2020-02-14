@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2ad8894078a15bf37a5383cdff3721f4bf7be910
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424976"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186217"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?
 
@@ -51,7 +51,7 @@ Med bevilja kontroller kan du antingen blockera åtkomsten helt eller tillåta �
 
 ![Kontroll](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multifaktorautentisering
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 Du kan använda den här kontrollen för att kräva Multi-Factor Authentication för att få åtkomst till den angivna Cloud-appen. Den här kontrollen stöder följande Multi-Factor providers:
 
@@ -85,18 +85,18 @@ Mer information finns i [Konfigurera Azure Active Directory enhets principer fö
 Eftersom dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter kan du vilja skydda företags data som nås med hjälp av enheter även i de fall där de inte hanteras av dig.
 Du kan använda [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data oberoende av en lösning för hantering av mobila enheter (MDM).
 
-Med godkända klient program kan du kräva en klient app som försöker komma åt dina molnappar för att stödja [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy). Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen. En princip för villkorlig åtkomst som kräver godkända klient program kallas även för [app-baserad villkorlig åtkomst princip](app-based-conditional-access.md). En lista över godkända klient program som stöds finns i [godkända klient program krav](technical-reference.md#approved-client-app-requirement).
+Med godkända klient program kan du kräva en klient app som försöker komma åt dina molnappar för att stödja [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy). Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen. En princip för villkorlig åtkomst som kräver godkända klient program kallas även för [app-baserad villkorlig åtkomst princip](app-based-conditional-access.md). En lista över godkända klient program som stöds finns i [godkända klient program krav](concept-conditional-access-grant.md#require-approved-client-app).
 
 ### <a name="app-protection-policy-preview"></a>Skydds princip för app (för hands version)
 
 Eftersom dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter kan du vilja skydda företags data som nås med hjälp av enheter även i de fall där de inte hanteras av dig.
 Du kan använda [Intune App Protection-principer](https://docs.microsoft.com/intune/app-protection-policy) för att skydda företagets data oberoende av en lösning för hantering av mobila enheter (MDM).
 
-Med appens skydds princip kan du begränsa åtkomsten till klient program som har rapporter ATS till Azure AD har tagit emot [Intunes skydds principer för appar](https://docs.microsoft.com/intune/app-protection-policy). Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen som har en princip för Intune App Protection. En princip för villkorlig åtkomst som kräver en app Protection-princip kallas även för en [app Protection-baserad princip för villkorlig åtkomst](app-protection-based-conditional-access.md). 
+Med appens skydds princip kan du begränsa åtkomsten till klient program som har rapporter ATS till Azure AD har tagit emot [Intunes skydds principer för appar](https://docs.microsoft.com/intune/app-protection-policy). Du kan till exempel begränsa åtkomsten till Exchange Online till Outlook-appen som har en princip för Intune App Protection. En princip för villkorlig åtkomst som kräver en app Protection-princip kallas även för en [app Protection-baserad princip för villkorlig åtkomst](concept-conditional-access-session.md#application-enforced-restrictions). 
 
 Enheten måste vara registrerad i Azure AD innan ett program kan markeras som princip skyddad.
 
-En lista över de principer som är skyddade med klient program som stöds finns i [krav på skydds princip för appar](technical-reference.md#app-protection-policy-requirement).
+En lista över de principer som är skyddade med klient program som stöds finns i [krav på skydds princip för appar](concept-conditional-access-session.md#application-enforced-restrictions).
 
 ### <a name="terms-of-use"></a>Användningsvillkor
 

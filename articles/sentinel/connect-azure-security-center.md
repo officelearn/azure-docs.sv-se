@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d8f960d8cf1310ec0a380e75bdaa714408e2cac
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 4c75d1870ca3b966acdd658c91c0af8fd7465bfb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563674"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190884"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Anslut data från Azure Security Center
 
@@ -24,13 +24,12 @@ ms.locfileid: "75563674"
 
 Med Azure Sentinel kan du ansluta aviseringar från [Azure Security Center](../security-center/security-center-intro.md) och strömma dem till Azure Sentinel. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du vill exportera aviseringar från Azure Security Center måste du vara deltagare i prenumerationen vars loggar du strömmar.
+- Om du vill exportera aviseringar från Azure Security Center måste du ha rollen som säkerhets läsare i prenumerationen på de loggar du strömmar.
 
 - Du måste ha [Azure Security Center standard nivå](../security-center/security-center-pricing.md) som körs på prenumerationen. Annars uppgraderar du [din prenumeration till standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Du måste logga in med en användare som har behörighet som global administratör eller säkerhets administratör för varje prenumeration som du vill ansluta.
 
 
 ## <a name="connect-to-azure-security-center"></a>Anslut till Azure Security Center
@@ -41,7 +40,7 @@ Med Azure Sentinel kan du ansluta aviseringar från [Azure Security Center](../s
 
 1. Du kan välja om du vill att aviseringarna från Azure Security Center automatiskt ska generera incidenter i Azure Sentinel automatiskt. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
 
-3. Klicka på **anslut**.
+3. Klicka på **Anslut**.
 
 4. Om du vill använda det relevanta schemat i Log Analytics för Azure Security Center aviseringar söker du efter **SecurityAlert**.
 

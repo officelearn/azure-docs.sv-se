@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483462"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195070"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera hantering av autentisering med villkorlig åtkomst
 
@@ -45,11 +45,28 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 - OneNote online
 - Office.com
 - O365 administrations Portal
-- Exchange Online
+- exchange online
 - SharePoint och OneDrive
 - Team webb klient
 - Dynamics CRM Online
-- Azure Portal
+- Azure-portalen
+
+### <a name="user-sign-in-frequency-and-device-identities"></a>Användar inloggnings frekvens och enhets identiteter
+
+Om du har en Azure AD-ansluten, en hybrid Azure AD-anslutning eller registrerade Azure AD-enheter, kommer den här händelsen att uppfylla principen för inloggnings frekvens även när en användare låser upp sin enhet eller loggar i interaktivt. I följande 2 exempel anges användar inloggnings frekvensen till 1 timme:
+
+Exempel 1:
+
+- Vid 00:00 loggar användaren in på Windows 10 Azure AD-anslutna enheter och börjar arbeta med ett dokument som är lagrat på SharePoint Online.
+- Användaren fortsätter att arbeta med samma dokument på sina enheter i en timme.
+- Vid 01:00 uppmanas användaren att logga in igen baserat på kravet på inloggnings frekvens i principen för villkorlig åtkomst som kon figurer ATS av administratören.
+
+Exempel 2:
+
+- Vid 00:00 loggar användaren in på Windows 10 Azure AD-anslutna enheter och börjar arbeta med ett dokument som är lagrat på SharePoint Online.
+- Vid 00:30 hämtar användaren upp och tar en paus låsning av enheten.
+- Vid 00:45 återgår användaren från sin paus och låser upp enheten.
+- Vid 01:45 uppmanas användaren att logga in igen baserat på kravet på inloggnings frekvens i principen för villkorlig åtkomst som kon figurer ATS av administratören sedan den senaste inloggningen skedde vid 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistence för att bläddra i sessioner
 
@@ -67,7 +84,7 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: kontroll för inloggnings frekvens
 
-1. Skapa ny princip
+1. Skapa en ny princip
 1. Välj alla nödvändiga villkor för kundens miljö, inklusive mål molnappar.
 
    > [!NOTE]
@@ -86,7 +103,7 @@ Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som kö
 
 ### <a name="policy-2-persistent-browser-session"></a>Princip 2: beständig webbläsarsession
 
-1. Skapa ny princip
+1. Skapa en ny princip
 1. Välj alla obligatoriska villkor.
 
    > [!NOTE]
@@ -107,7 +124,7 @@ Använd verktyget för att simulera en inloggning från användaren till mål pr
 
 ![Resultat för What If verktyget för villkorlig åtkomst](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
-## <a name="policy-deployment"></a>Princip distribution
+## <a name="policy-deployment"></a>Distribution av princip
 
 För att se till att principen fungerar som förväntat, är den rekommenderade rekommenderade metoden att testa den innan den distribueras till produktion. Vi rekommenderar att du använder en test klient för att kontrol lera om den nya principen fungerar som den ska. Mer information finns i [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).
 

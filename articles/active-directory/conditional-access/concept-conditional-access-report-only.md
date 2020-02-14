@@ -1,22 +1,22 @@
 ---
-title: Vad är läget endast i rapporten för villkorlig åtkomst? -Azure Active Directory
+title: Vad är läget endast i rapporten för villkorlig åtkomst? - Azure Active Directory
 description: Hur kan du använda en rapport i läge med distribution av principer för villkorlig åtkomst
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4289f4870ca03657afabec07049b3333412f3899
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 75880f4c533a503852d62ff940e53d4bcc30d218
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180334"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186125"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Vad är läget endast i rapporten för villkorlig åtkomst?
 
@@ -25,7 +25,8 @@ Villkorlig åtkomst används ofta av våra kunder för att skydda dig genom att 
 Endast rapport läge är ett nytt tillstånd för villkorlig åtkomst som gör att administratörer kan utvärdera effekten av principer för villkorlig åtkomst innan de aktive ras i deras miljö.  Med den här versionen av endast rapport läge:
 
 - Principer för villkorlig åtkomst kan aktive ras i endast rapport läge.
-- Under inloggningen utvärderas principer i endast rapport läge men tillämpas inte. Resultaten loggas i flikarna **villkorlig åtkomst** och **endast rapporter (för hands version)** i inloggnings logg informationen.
+- Under inloggningen utvärderas principer i endast rapport läge men tillämpas inte.
+- Resultaten loggas i flikarna **villkorlig åtkomst** och **endast rapporter (för hands version)** i inloggnings logg informationen.
 - Kunder med en Azure Monitor prenumeration kan övervaka påverkan av sina principer för villkorlig åtkomst med hjälp av arbets boken för villkorlig åtkomst.
 
 > [!WARNING]

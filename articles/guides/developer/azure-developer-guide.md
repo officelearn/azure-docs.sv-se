@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: fa8013722376a4864ba955783dbde1f73c0d9e8a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163117"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186953"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Kom igång-guide för Azure-utvecklare
 
@@ -60,7 +60,7 @@ Eftersom alla tre typer av appar delar App Service runtime, kan du vara värd f�
 
 App Service har utformats med DevOps i åtanke. Det stöder olika verktyg för publicering och kontinuerlig integrering av distributioner. Dessa verktyg omfattar GitHub Webhooks, Jenkins, Azure DevOps, TeamCity och andra.
 
-Du kan migrera dina befintliga program till App Service med hjälp av [verktyget online-migrering](https://www.migratetoazure.net/).
+Du kan migrera dina befintliga program till App Service med hjälp av [verktyget online-migrering](https://appmigration.microsoft.com/).
 
 > **När du ska använda**: Använd App Service när du migrerar befintliga webb program till Azure och när du behöver en fullständigt hanterad värd plattform för dina webb program. Du kan också använda App Service när du behöver stöd för mobila klienter eller exponera REST-API: er med din app.
 >

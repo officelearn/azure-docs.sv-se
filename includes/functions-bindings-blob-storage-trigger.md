@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 557e34e8a6bddd36a92b0e212bda3609baa14407
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fa3888d28c52625684676036def7e2920b77b5ca
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642167"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77202117"
 ---
 Du kan använda följande parameter typer för den Utlös ande blobben:
 
@@ -28,8 +28,8 @@ Du kan använda följande parameter typer för den Utlös ande blobben:
 * `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
-<sup>1</sup> kräver "Inout"- `direction` bindning i *Function. JSON* eller `FileAccess.ReadWrite` i C# ett klass bibliotek.
+<sup>1</sup> kräver "Inout"-bindningen `direction` i *Function. JSON* eller `FileAccess.ReadWrite` C# i ett klass bibliotek.
 
-Om du försöker binda till en av lagrings-SDK-typerna och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+Om du försöker binda till en av lagrings-SDK-typerna och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
 
-Bindning till `string`, `Byte[]`eller Poco rekommenderas endast om BLOB-storleken är liten, eftersom hela BLOB-innehållet läses in i minnet. I allmänhet är det bättre att använda en `Stream` eller `CloudBlockBlob` -typ. Mer information finns i [samtidighets-och minnes användning](#trigger---concurrency-and-memory-usage) längre fram i den här artikeln.
+Bindning till `string`, `Byte[]`eller POCO rekommenderas endast om BLOB-storleken är liten, eftersom hela BLOB-innehållet läses in i minnet. I allmänhet är det bättre att använda en `Stream` eller `CloudBlockBlob` typ. Mer information finns i [samtidighets-och minnes användning](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) längre fram i den här artikeln.

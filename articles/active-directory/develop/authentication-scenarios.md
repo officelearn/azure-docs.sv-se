@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085375"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195003"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
 ## <a name="what-is-authentication"></a>Vad är autentisering
 
-Den här artikeln beskriver många av de autentiseringsmetoder du behöver känna till för att skapa skyddade webbappar, webb-API: er eller appar som anropar skyddade webb-API: er. Om du ser en term som du inte är bekant med kan du prova vår [ord lista](developer-glossary.md).
+Den här artikeln beskriver många av de autentiseringsmetoder du behöver känna till för att skapa skyddade webbappar, webb-API: er eller appar som anropar skyddade webb-API: er. Om du ser en term som du inte är bekant med kan du prova vår [ord lista](developer-glossary.md) eller våra [Microsoft Identity Platform-videor](identity-videos.md) som beskriver grundläggande begrepp.
 
 **Autentisering** är en process för att bevisa att du är den som du säger. Autentisering förkortas ibland AuthN.
 

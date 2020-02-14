@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0e35efc0da929136a889b1611a48a60671ed2af8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f105eac0f6f21ea3358340a4e2aaec7d1f1a95ad
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828336"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190548"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Säkerhets kontroller för Virtuella Windows-datorer
 
@@ -43,18 +43,18 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Vir
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Authentication| Ja |  |
-| Authorization| Ja |  |
+| Autentisering| Ja |  |
+| Auktorisering| Ja |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Ja | Se [kryptera virtuella diskar på en virtuell Windows-dator](/azure/virtual-machines/windows/encrypt-disks). |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Se [kryptera virtuella diskar på en virtuell Windows-dator](/azure/virtual-machines/windows/encrypt-disks). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Azure Virtual Machines stöder [ExpressRoute](/azure/expressroute) och VNET-kryptering. Se [kryptering under överföring i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kundhanterade nycklar är ett Azure-krypterings scenario som stöds. Se [Översikt över Azure-kryptering](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
-| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
-| Krypterade API-anrop| Ja | Via HTTPS och SSL. |
+| Kryptering på kolumn nivå (Azure Data Services)| SAKNAS | |
+| Krypterade API-anrop| Ja | Via HTTPS och TLS. |
 
 
 

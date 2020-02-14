@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911578"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198232"
 ---
 # <a name="how-to-use-image-templates"></a>Så här använder du avbildningsmallar
 
@@ -24,7 +24,7 @@ Avbildningar kan användas med HTML-markörer och olika skikt i Azure Maps Web S
  - Polygon-lager kan återges med en fyllnings mönster bild. 
  - HTML-markörer kan återge punkter med hjälp av bilder och andra HTML-element.
 
-För att säkerställa bästa prestanda med lager måste dessa bilder läsas in i kart avbildningens Sprite-resurs före åter givning. [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) för SymbolLayer förladdar ett par markör bilder i en fåtal med färg till kart bilden Sprite som standard. Samma markör bilder och fler är tillgängliga som SVG-mallar och kan användas för att skapa bilder med anpassade skalor, samt en primär och sekundär färg för kunden. Det finns totalt 42 bildmallar. 27 symbol ikoner och fyllnings mönster med 15 polygoner.
+För att säkerställa bästa prestanda med lager läser du in avbildningarna i bild Sprite-resursen för avbildningar före åter givning. [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), i SymbolLayer, förinstallerar ett par markör bilder i en fåtal med färgerna i kart bilden Sprite som standard. Dessa markör bilder och fler är tillgängliga som SVG-mallar. De kan användas för att skapa bilder med anpassade skalor eller som en primär och sekundär-färg för kunden. Det finns totalt 42 bildmallar har angetts: 27 symbol ikoner och 15 polygon fyllnings mönster.
 
 Bildmallar kan läggas till i kart avbildningen Sprite-resurser med hjälp av funktionen `map.imageSprite.createFromTemplate`. Den här funktionen tillåter att upp till fem parametrar skickas in.
 
@@ -32,9 +32,9 @@ Bildmallar kan läggas till i kart avbildningen Sprite-resurser med hjälp av fu
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-där `id` är en unik identifierare som du skapar som är tilldelad avbildningen när den läggs till i Maps-avbildningen Sprite. Använd den här identifieraren i skikten för att ange vilken bild resurs som ska renderas. `templateName` anger vilken bildfil som ska användas. Alternativet `color` anger bildens primära färg och `secondaryColor` alternativ anger bildens sekundära färg. Alternativet `scale` skalar bildmallen innan den tillämpas på bilden Sprite. När avbildningen tillämpas på bilden Sprite, konverteras den till en PNG-fil. För att säkerställa en tydlig åter givning är det bättre att skala Bildmallarna innan du lägger till den i spriten än att skala den i ett lager.
+`id` är en unik identifierare som du skapar. `id` tilldelas till bilden när den läggs till i Maps-bilden Sprite. Använd den här identifieraren i skikten för att ange vilken bild resurs som ska renderas. `templateName` anger vilken bildfil som ska användas. Alternativet `color` anger bildens primära färg och `secondaryColor` alternativ anger bildens sekundära färg. Alternativet `scale` skalar bildmallen innan den tillämpas på bilden Sprite. När avbildningen tillämpas på bilden Sprite, konverteras den till en PNG. För att säkerställa en tydlig åter givning är det bättre att skala upp bildmallen innan du lägger till den i spriten, än att skala den i ett lager.
 
-Den här funktionen läser in bilden asynkront i bilden Sprite och returnerar därför ett löfte som du kan vänta på att funktionen slutförs.
+Den här funktionen läser in bilden asynkront i bilden Sprite. Därför returneras ett löfte som du kan vänta på att den här funktionen slutförs.
 
 Följande kod visar hur du skapar en avbildning från en av de inbyggda mallarna och använder den med ett symbol lager.
 
@@ -106,7 +106,7 @@ Se <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML-markören för penna 
 
 ## <a name="create-custom-reusable-templates"></a>Skapa anpassade åter användnings bara mallar
 
-Om programmet använder samma ikon med olika ikoner eller om du skapar en modul som lägger till ytterligare bildmallar, kan du enkelt lägga till och hämta ikonerna från Azure Maps Web SDK genom att använda följande statiska funktioner i `atlas` namn området.
+Om programmet använder samma ikon med olika ikoner eller om du skapar en modul som lägger till ytterligare bildmallar, kan du enkelt lägga till och hämta dessa ikoner från Azure Maps Web SDK. Använd följande statiska funktioner i `atlas` namn området.
 
 | Namn | Returtyp | Beskrivning | 
 |-|-|-|
@@ -133,7 +133,7 @@ Se <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>mallen Lägg till anpassad
 
 ## <a name="list-of-image-templates"></a>Lista över bildmallar
 
-I följande tabell visas alla bildmallar som är tillgängliga i Azure Maps Web SDK med mallnamnet ovanför varje bild. Som standard är den primära färgen blå och den sekundära färgen är vit. Om du vill göra den sekundära färgen lättare att se på en vit bakgrund, har följande bilder den sekundära färg uppsättningen till svart.
+I den här tabellen visas alla bildmallar som är tillgängliga i Azure Maps Web SDK. Mallnamnet är ovanför varje bild. Som standard är den primära färgen blå och den sekundära färgen är vit. Om du vill göra den sekundära färgen lättare att se på en vit bakgrund, har följande bilder den sekundära färg uppsättningen till svart.
 
 **Mallar för symbol ikon**
 
@@ -145,19 +145,19 @@ I följande tabell visas alla bildmallar som är tillgängliga i Azure Maps Web 
 | markör-fyrkant | markör-kvadratiskt-kluster | markör-pil | markör-boll-PIN-kod | 
 |![markör-kvadratisk ikon](./media/image-templates/marker-square.png)|![markör-kvadratisk-kluster ikon](./media/image-templates/marker-square-cluster.png)|![markör-pil-ikon](./media/image-templates/marker-arrow.png)|![ikon för markör-boll-fäst punkt](./media/image-templates/marker-ball-pin.png)|
 ||||
-| markör-kvadratiskt rundad | markör-kvadratiskt avrundat kluster | flag | flagga – triangel |
+| markör-kvadratiskt rundad | markör-kvadratiskt avrundat kluster | flaggan | flagga – triangel |
 | ![markör – fyrkantigt rundad ikon](./media/image-templates/marker-square-rounded.png) | ![markör-kvadratiskt avrundat kluster ikon](./media/image-templates/marker-square-rounded-cluster.png) | ![flagg ikon](./media/image-templates/flag.png) | ![flagga – triangel-ikon](./media/image-templates/flag-triangle.png) |
 ||||
-| triangel | triangel-tjock | triangel-pil upp | triangel-pil-vänster |
+| nedåtriktad | triangel-tjock | triangel-pil upp | triangel-pil-vänster |
 | ![triangel-ikon](./media/image-templates/triangle.png) | ![triangel-tjock ikon](./media/image-templates/triangle-thick.png) | ![triangel-pil upp-ikon](./media/image-templates/triangle-arrow-up.png) | ![triangel-pil-vänster-ikon](./media/image-templates/triangle-arrow-left.png) |
 ||||
 | sexhörning | sexhörning – tjock | sexhörning, rundad | sexhörning – rundad – tjock |
 | ![sexhörnings ikon](./media/image-templates/hexagon.png) | ![sexhörning – tjock ikon](./media/image-templates/hexagon-thick.png) | ![sexhörning, rundad ikon](./media/image-templates/hexagon-rounded.png) | ![sexhörning – rundad – tjock ikon](./media/image-templates/hexagon-rounded-thick.png) |
 ||||
 | pin | PIN-Round | rundad ruta | rundad – fyrkant – tjock |
-| ![fästikon](./media/image-templates/pin.png) | ![PIN-rundad ikon](./media/image-templates/pin-round.png) | ![rundad kvadratisk ikon](./media/image-templates/rounded-square.png) | ![rundad fyrkant – tjock ikon](./media/image-templates/rounded-square-thick.png) |
+| ![Fäst ikon](./media/image-templates/pin.png) | ![PIN-rundad ikon](./media/image-templates/pin-round.png) | ![rundad kvadratisk ikon](./media/image-templates/rounded-square.png) | ![rundad fyrkant – tjock ikon](./media/image-templates/rounded-square-thick.png) |
 ||||
-| pil upp | pil upp-tunn | bil ||
+| pil upp | pil upp-tunn | sidvagn ||
 | ![pil upp-ikonen](./media/image-templates/arrow-up.png) | ![pil upp-tunn ikon](./media/image-templates/arrow-up-thin.png) | ![bil-ikon](./media/image-templates/car.png) | |
 
 **Mönster för fyllnings mönster för polygon**

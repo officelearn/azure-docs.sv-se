@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array disaster recovery och enheten redundans | Microsoft Docs
-description: Läs mer om att redundansväxla StorSimple Virtual Array.
+title: StorSimple för haveri beredskap för virtuella matriser och enhets växling vid fel | Microsoft Docs
+description: Läs mer om hur du kan Redundansväxla din virtuella StorSimple-matris.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,170 +15,170 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a676f4187af2d358934539e4ca29dbc5c25897
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61409628"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190645"
 ---
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Disaster recovery och enheten redundans för StorSimple Virtual Array via Azure-portalen
+# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Haveri beredskap och redundanstest för din virtuella StorSimple-matris via Azure Portal
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskrivs haveriberedskap för din Microsoft Azure StorSimple Virtual Array inklusive detaljerade steg att växla över till en annan virtuell matris. En redundansväxling kan du flytta dina data från en *källa* enheten i datacentret till en *target* enhet. Målenheten kan finnas i samma eller en annan geografisk plats. Redundansväxling av enhet är för hela enheten. Under redundansväxlingen ändras molndata för källenheten ägarskap till som målenheten.
+I den här artikeln beskrivs haveri beredskap för din Microsoft Azure StorSimple virtuella matris, inklusive detaljerade steg för att redundansväxla till en annan virtuell matris. Med en redundansväxling kan du flytta data från en *käll* enhet i data centret till en *målenhet* . Mål enheten kanske finns på samma eller en annan geografisk plats. Redundansväxlingen för hela enheten. Under redundansväxlingen ändrar käll enhetens moln data ägande till den på mål enheten.
 
-Den här artikeln gäller bara för StorSimple Virtual Array. Om du vill redundansväxla en 8000-serien-enhet går du till [enheten redundans och återställning vid återställning av din StorSimple-enhet](storsimple-device-failover-disaster-recovery.md).
+Den här artikeln gäller endast för virtuella StorSimple-matriser. Om du vill redundansväxla en enhet med 8000-serien går du till [enhetens redundans och haveri beredskap för din StorSimple-enhet](storsimple-device-failover-disaster-recovery.md).
 
-## <a name="what-is-disaster-recovery-and-device-failover"></a>Vad är disaster recovery och enheten redundans?
+## <a name="what-is-disaster-recovery-and-device-failover"></a>Vad är haveri beredskap och enhets växling vid fel?
 
-I ett scenario med disaster recovery (DR), den primära enheten slutar fungera. I det här scenariot kan du flytta molndata som hör till misslyckade enheten till en annan enhet. Du kan använda den primära enheten som den *källa* och ange en annan enhet som den *target*. Den här processen kallas den *redundans*. Under redundansväxlingen, alla volymer eller resurser från källenheten ändra ägarskap och överförs till målenheten. Ingen filtrering av data är tillåten.
+I en haveri beredskap (DR) slutar den primära enheten att fungera. I det här scenariot kan du flytta de moln data som är kopplade till den felande enheten till en annan enhet. Du kan använda den primära enheten som *källa* och ange en annan enhet som *mål*. Den här processen kallas för *redundans*. Under redundansväxlingen byter alla volymer eller resurser från käll enheten ägarskap och överförs till mål enheten. Ingen filtrering av data är tillåten.
 
-DR modelleras som en fullständig enhet återställning med hjälp av den termiska kartan-baserade lagringsnivåer och spårning. En termisk karta definieras genom att tilldela ett värde för den termiska data baserat på läsa och skriva mönster. Den här termisk mappar sedan nivåerna lägsta termisk datasegmenten till molnet först samtidigt som datasegment hög termisk (mest används) på den lokala nivån. Under en Katastrofåterställning använder StorSimple den termiska kartan för att återställa och rehydrate data från molnet. Enheten hämtar alla volymer/resurser i den senaste senaste säkerhetskopieringen (enligt bedömning internt) och utför en återställning från säkerhetskopian. Den virtuella matrisen samordnar hela DR-processen.
+DR modelleras som en fullständig återställnings enhet med hjälp av termisk karta – baserad nivå och spårning. En värme karta definieras genom att ett värme värde tilldelas data baserat på Läs-och skriv mönster. Den här värme kartan utvärderar sedan de lägsta värme data segmenten till molnet och behåller de höga värme data segmenten (mest använda) på den lokala nivån. Under en DR använder StorSimple värme kartan för att återställa och dehydratisera data från molnet. Enheten hämtar alla volymer/resurser i den senaste senaste säkerhets kopian (som fastställs internt) och utför en återställning från den säkerhets kopian. Den virtuella matrisen dirigerar hela DR-processen.
 
 > [!IMPORTANT]
-> Källenheten tas bort i slutet av redundansväxling av enhet och därför en återställning efter fel stöds inte.
+> Käll enheten tas bort i slutet av redundansväxlingen och därför stöds inte återställning efter fel.
 > 
 > 
 
-Katastrofåterställning är orkestreras via funktionen enheten växling vid fel och initieras från den **enheter** bladet. Det här bladet tabulates alla StorSimple-enheter som är anslutna till din StorSimple Device Manager-tjänsten. Du kan se namn, status, etablerade och högsta kapacitet, typ och modell för varje enhet.
+Haveri beredskap dirigeras via funktionen enhets växling vid fel och initieras från bladet **enheter** . Det här bladet tabulates alla StorSimple-enheter som är anslutna till din StorSimple Enhetshanteraren-tjänst. För varje enhet kan du se det egna namnet, status, etablerad och maximal kapacitet, typ och modell.
 
-## <a name="prerequisites-for-device-failover"></a>Krav för redundansväxling av enhet
+## <a name="prerequisites-for-device-failover"></a>Krav för redundans av enhet
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
-Se till att följande krav är uppfyllda för redundansväxling av enhet:
+Kontrol lera att följande krav är uppfyllda för en enhets växling vid fel:
 
-* Källenheten måste finnas i en **inaktiverad** tillstånd.
-* Målenheten måste visas som **redo att konfigurera** i Azure-portalen. Etablera en virtuell matris mål av samma eller högre kapacitet. Använd det lokala webbgränssnittet för att konfigurera och registrera den virtuella Målmatrisen har.
+* Käll enheten måste vara **inaktive rad** .
+* Mål enheten måste visas som **klar för konfiguration** i Azure Portal. Etablera en virtuell mål mat ris med samma eller högre kapacitet. Använd det lokala webb gränssnittet för att konfigurera och registrera den virtuella mål matrisen.
   
   > [!IMPORTANT]
-  > Försök inte att konfigurera den registrerade virtuella enheten via tjänsten. Någon enhetskonfiguration ska utföras via tjänsten.
+  > Försök inte konfigurera den registrerade virtuella enheten via tjänsten. Ingen enhets konfiguration bör utföras via tjänsten.
   > 
   > 
-* Målenheten kan inte ha samma namn som källenheten.
-* Käll- och enheten måste vara av samma typ. Du kan bara redundansväxla en virtuell matris som konfigurerats som en server till en annan filserver. Detsamma gäller för en iSCSI-server.
-* För en filserver-DR rekommenderar vi att du ansluter målenheten till samma domän som källan. Den här konfigurationen garanterar att behörigheter till resursen löses automatiskt. Endast redundans till en målenhet i samma domän.
-* Tillgängliga målenheter för Katastrofåterställning är enheter som har samma eller större kapacitet som jämfört med källan. Enheter som är anslutna till din tjänst men inte uppfyller villkoren för tillräckligt med utrymme är inte tillgängliga som kan användas.
+* Mål enheten får inte ha samma namn som käll enheten.
+* Käll-och mål enheten måste vara av samma typ. Du kan bara redundansväxla en virtuell matris som kon figurer ATS som en fil server till en annan fil server. Samma sak gäller för en iSCSI-server.
+* För en fil server DR rekommenderar vi att du ansluter mål enheten till samma domän som källan. Den här konfigurationen säkerställer att resurs behörigheterna automatiskt löses. Det finns bara stöd för redundans till en mål enhet i samma domän.
+* Tillgängliga mål enheter för DR är enheter som har samma eller större kapacitet jämfört med käll enheten. De enheter som är anslutna till din tjänst men inte uppfyller kriterierna för tillräckligt med utrymme är inte tillgängliga som mål enheter.
 
-### <a name="other-considerations"></a>Annat att tänka på
+### <a name="other-considerations"></a>Andra överväganden
 
-* För en planerad redundans 
+* För planerad redundans:
   
-  * Vi rekommenderar att du vidtar alla volymer eller resurser på källenheten offline.
-  * Vi rekommenderar att du gör en säkerhetskopia av enheten och fortsätter sedan med växling vid fel att minimera dataförlust. 
-* En oplanerad redundans med enheten använder den senaste säkerhetskopian för att återställa data.
+  * Vi rekommenderar att du tar alla volymer eller resurser på käll enheten offline.
+  * Vi rekommenderar att du gör en säkerhets kopia av enheten och fortsätter sedan med redundansväxlingen för att minimera data förlust.
+* För en oplanerad redundansväxling använder enheten den senaste säkerhets kopian för att återställa data.
 
-### <a name="device-failover-prechecks"></a>Enheten redundans föruppdateringskontrollen
+### <a name="device-failover-prechecks"></a>För-kontroller av enhetens redundans
 
-Innan DR påbörjas, utför enheten föruppdateringskontrollen. Dessa kontroller kan du se till att inga fel inträffar när DR inleds. Föruppdateringskontrollen är:
+Innan DR påbörjas utför enheten för-kontroller. Dessa kontroller hjälper till att se till att inga fel inträffar när DR påbörjas. För-incheckningarna är:
 
-* Validerar det storage-kontot.
-* Kontrollera cloud-anslutning till Azure.
-* Kontrollera tillgängligt utrymme på målenheten.
-* Kontrollerar om en iSCSI-servern enheten källvolymen har
+* Verifierar lagrings kontot.
+* Kontrollerar moln anslutningen till Azure.
+* Kontrollerar tillgängligt utrymme på mål enheten.
+* Kontrollerar om en iSCSI-servers käll enhets volym har
   
   * giltiga ACR-namn.
-  * giltigt IQN (högst 220 tecken).
-  * giltigt CHAP-lösenord (12 – 16 tecken lång).
+  * giltigt IQN (inte mer än 220 tecken).
+  * giltiga CHAP-lösenord (12-16 tecken).
 
-Om något av föregående prechecks misslyckas kan du gå vidare med DR. Lös problemen och försök sedan DR.
+Om någon av de föregående för incheckningarna inte kan fortsätta kan du inte fortsätta med DR. Lös problemen och försök sedan med DR igen.
 
-När ar har slutförts, överförs ägarskapet för molndata på källenheten till målenheten. Källenheten är sedan inte längre tillgänglig i portalen. Blockeras åtkomsten till alla volymer/resurser på källenheten och målenheten blir aktiv.
-
-> [!IMPORTANT]
-> Om enheten är inte längre tillgänglig, är den virtuella datorn som du har etablerats på värdsystemet fortfarande förbruka resurser. När DR är slutförd kan du ta bort den här virtuella datorn från värdsystemet.
-> 
-> 
-
-## <a name="fail-over-to-a-virtual-array"></a>Växla över till en virtuell matris
-
-Vi rekommenderar att etablera, konfigurera och registrera en annan StorSimple Virtual Array med din StorSimple Device Manager-tjänsten innan du kör den här proceduren.
+När DR-filen har slutförts överförs ägarskapet för moln data på käll enheten till mål enheten. Käll enheten är sedan inte längre tillgänglig i portalen. Åtkomst till alla volymer/resurser på käll enheten är blockerad och mål enheten blir aktiv.
 
 > [!IMPORTANT]
+> Även om enheten inte längre är tillgänglig, kommer den virtuella dator som du har allokerat på värd systemet fortfarande att förbruka resurser. När DR-filen har slutförts kan du ta bort den virtuella datorn från värd systemet.
 > 
-> * Du kan inte växla över från en enhet i StorSimple 8000-serien till en virtuell enhet 1200.
-> * Du kan växla över från en virtuell enhet FIPS Federal Information Processing Standard () aktiverat till en annan FIPS-aktiverad enhet eller till en icke-FIPS-enhet som har distribuerats i Government portal.
+> 
+
+## <a name="fail-over-to-a-virtual-array"></a>Redundansväxla till en virtuell matris
+
+Vi rekommenderar att du etablerar, konfigurerar och registrerar en annan virtuell StorSimple-matris med din StorSimple Enhetshanteraren-tjänst innan du kör den här proceduren.
+
+> [!IMPORTANT]
+> 
+> * Du kan inte redundansväxla från en StorSimple 8000-serie till en virtuell 1200-enhet.
+> * Du kan redundansväxla från en Federal Information Processing Standard (FIPS) aktive rad virtuell enhet till en annan FIPS-aktiverad enhet eller till en icke-FIPS-enhet som distribueras i myndighets portalen.
 
 
-Utför följande steg för att återställa enheten till målets virtuella StorSimple-enheter.
+Utför följande steg för att återställa enheten till en virtuell StorSimple-enhet.
 
-1. Etablera och konfigurera en målenhet som uppfyller den [krav för redundansväxling av enhet](#prerequisites). Slutför enhetskonfigurationen via det lokala webbgränssnittet och registrera den till StorSimple Device Manager-tjänsten. Om du skapar en filserver, går du till steg 1 av [konfigurera som filserver](storsimple-virtual-array-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). Om du skapar en iSCSI-server går du till steg 1 av [konfigurera som iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
+1. Etablera och konfigurera en målenhet som uppfyller [kraven för redundans av enhet](#prerequisites). Slutför enhets konfigurationen via det lokala webb gränssnittet och registrera den till din StorSimple Enhetshanteraren-tjänst. Om du skapar en fil server går du till steg 1 av [Konfigurera som fil Server](storsimple-virtual-array-deploy3-fs-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device). Om du skapar en iSCSI-server går du till steg 1 av [Konfigurera som iSCSI-server](storsimple-virtual-array-deploy3-iscsi-setup.md#step-1-complete-the-local-web-ui-setup-and-register-your-device).
 
-2. Ta volymer/resurser offline på värden. Om du vill koppla volymer/resurser finns i operativsystemet-specifika instruktionerna för värden. Om det inte redan offline, måste du ta alla volymer/resurser offline på enheten genom att göra följande.
+2. Ta volymer/resurser offline på värden. Om du vill ta volymerna/resurserna offline kan du läsa mer i operativ systemets instruktioner för värden. Om du inte redan är offline måste du göra alla volymer/resurser offline på enheten genom att göra följande.
    
-    1. Gå till **enheter** bladet och välj din enhet.
+    1. Gå till bladet **enheter** och välj din enhet.
    
-    2. Gå till **Inställningar > Hantera > resurser** (eller **Inställningar > Hantera > volymer**). 
+    2. Gå till **inställningar > hantera > resurser** (eller **inställningar > Hantera > volymer**). 
    
-    3. Välj en resurs/volym, högerklicka och välj **ta offline**. 
+    3. Välj en resurs/volym, högerklicka och välj **Koppla från**. 
    
-    4. När du uppmanas att bekräfta **jag är införstådd med konsekvenserna av att koppla den här resursen.** 
+    4. När du uppmanas att bekräfta kontrollerar **du att den tar den här resursen offline.** 
    
-    5. Klicka på **ta offline**.
+    5. Klicka på **Koppla från**.
 
-3. I din StorSimple Device Manager-tjänst går du till **Management > enheter**. I den **enheter** bladet Välj och klicka på källenheten.
+3. I StorSimple Enhetshanteraren-tjänsten går du till **hantering > enheter**. På bladet **enheter** väljer du och klickar på din käll enhet.
 
-4. I din **instrumentpanelen** bladet klickar du på **inaktivera**.
+4. I bladet för din **enhets instrument panel** klickar du på **inaktivera**.
 
-5. I den **inaktivera** bladet du uppmanas att bekräfta. Inaktivering av enheten är en *permanent* process som inte kan ångras. Du är också en påminnelse om att ta dina resurser/volymer offline på värden. Ange enhetsnamnet för att bekräfta och klicka på **inaktivera**.
+5. Du uppmanas att bekräfta i bladet **inaktivera** . Enhets inaktive ring är en *permanent* process som inte kan ångras. Du blir också påmind om att ta dina resurser/volymer offline på värden. Ange enhets namnet som ska bekräftas och klicka på **inaktivera**.
    
     ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
-6. Inaktiveringen startar. Du får ett meddelande när inaktiveringen har slutförts.
+6. Inaktive ringen startar. Du får ett meddelande när inaktive ringen har slutförts.
    
     ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
-7. På sidan enheter ändrar enhetens tillstånd nu till **inaktiverad**.
+7. Enhetens tillstånd kommer nu att ändras till **inaktiverat**på sidan enheter.
     ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
-8. I den **enheter** bladet Välj och klicka på inaktiverad källenheten för redundans. 
-9. I den **instrumentpanelen** bladet klickar du på **Redundansväxla**. 
-10. I den **Redundansväxla enhet** bladet gör du följande:
+8. I bladet **enheter** väljer du och klickar på den inaktiverade käll enheten för redundans. 
+9. I bladet för **enhets instrument panelen** klickar du på **redundans**. 
+10. På bladet **redundansväxla över enhet** gör du följande:
     
-    1. Enheten källfält fylls i automatiskt. Observera den totala datastorleken för källenheten. Storleken på data ska vara mindre än den tillgängliga kapaciteten på målenheten. Granska informationen som är associerade med källenheten som enhetens namn, total kapacitet och namnen på de resurser som har redundansväxlats.
+    1. Fältet käll enhet fylls i automatiskt. Notera den totala data storleken för käll enheten. Data storleken måste vara mindre än den tillgängliga kapaciteten på mål enheten. Granska informationen som är kopplad till käll enheten, till exempel enhets namn, total kapacitet och namnen på de resurser som har redundansväxlats.
 
-    2. Välj den nedrullningsbara listan över tillgängliga enheter en **målenheten**. Endast de enheter som har tillräcklig kapacitet visas i listrutan.
+    2. Välj en **målenhet**i list rutan med tillgängliga enheter. Endast de enheter som har tillräcklig kapacitet visas i list rutan.
 
-    3. Kontrollera att **jag förstår att den här åtgärden misslyckas över data till målenheten**. 
+    3. Kontrol lera att **Jag förstår att den här åtgärden kommer att redundansväxla data till mål enheten**. 
 
-    4. Klicka på **Redundansväxla**.
+    4. Klicka på **redundans**.
     
         ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
-11. Ett redundansjobb initierar och du får ett meddelande. Gå till **enheter > jobb** att övervaka växling vid fel.
+11. Ett jobb för redundans initieras och du får ett meddelande. Gå till **enheter > jobb** för att övervaka redundansväxlingen.
     
      ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
-12. I den **jobb** bladet visas ett redundansjobb som skapats för källenheten. Det här jobbet utför DR-föruppdateringskontrollen.
+12. På bladet **jobb** visas ett jobb för redundans som skapats för käll enheten. Detta jobb utför DR-förbockarna.
     
     ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
-     När DR föruppdateringskontrollen har lyckats kommer redundansväxlingen starta återställningsjobb för varje resurs/volym som finns på källenheten.
+     När DR-förbockerna har slutförts skapar redundansväxlingen återställnings jobb för varje resurs/volym som finns på käll enheten.
     
     ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
-13. När redundansväxlingen är klar går du till den **enheter** bladet.
+13. När redundansväxlingen är klar går du till bladet **enheter** .
     
-    1. Välj och klicka på StorSimple-enheten som användes som målenheten för failover-processen.
-    2. Gå till **Inställningar > Management > resurser** (eller **volymer** om iSCSI-servern). I den **resurser** bladet kan du visa alla resurser (volymer) från den gamla enheten.
+    1. Markera och klicka på den StorSimple-enhet som användes som mål enheten för redundansväxlingen.
+    2. Gå till **inställningar > hanterings > resurser** (eller **volymer** om iSCSI-servern). På bladet **resurser** kan du Visa alla resurser (volymer) från den gamla enheten.
         ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Behöver du [skapa en DNS-alias](https://support.microsoft.com/kb/168322) så att alla program som försöker ansluta kan kommer du automatiskt till den nya enheten.
+14. Du måste [skapa ett DNS-alias](https://support.microsoft.com/kb/168322) så att alla program som försöker ansluta kan omdirigeras till den nya enheten.
 
 ## <a name="errors-during-dr"></a>Fel under DR
 
-**Molnet anslutning avbrott under en Katastrofåterställning**
+**Moln anslutnings avbrott under DR**
 
-Om molnanslutning avbryts DR har börjat och innan enheten återställningen är slutförd, misslyckas DR. Du får ett meddelande med fel. Målenheten för Haveriberedskap har markerats som *oanvändbar.* Du kan inte använda samma målenheten för framtida DRs.
+Om moln anslutningen bryts när DR har startat och innan enhets återställningen är klar, kommer DR att Miss lyckas. Du får ett fel meddelande. Mål enheten för DR är markerad som *oanvändbar.* Du kan inte använda samma mål enhet för framtida DRs.
 
-**Ingen kompatibel målenheter**
+**Inga kompatibla mål enheter**
 
-Om de tillgängliga målservrar enheterna inte har tillräckligt med utrymme, ser du ett fel för den effekt som att det finns ingen kompatibel målenheter.
+Om det inte finns tillräckligt med utrymme på mål enheterna visas ett fel meddelande om att det inte finns några kompatibla mål enheter.
 
-**Precheck fel**
+**För kontroll felen**
 
-Om någon av föruppdateringskontrollen inte är uppfyllt, ser du precheck fel.
+Om någon av de här förbockarna inte uppfylls visas för ininchecknings felen.
 
-## <a name="business-continuity-disaster-recovery-bcdr"></a>Kontinuitet för företag-haveriberedskap (BCDR)
+## <a name="business-continuity-disaster-recovery-bcdr"></a>Katastrof återställning av affärs kontinuitet (BCDR)
 
-Ett affärskontinuitet disaster recovery (BCDR) affärsscenario inträffar när hela Azure-datacentret slutar att fungera. Detta kan påverka din StorSimple Device Manager-tjänsten och de associera StorSimple-enheterna.
+Ett BCDR-scenario (verksamhets kontinuitet haveri beredskap) inträffar när hela Azure-datacenter slutar fungera. Detta kan påverka din StorSimple-Enhetshanteraren-tjänst och tillhör ande StorSimple-enheter.
 
-Om det finns StorSimple-enheter som registrerats precis innan en katastrof har inträffat sedan dessa StorSimple-enheter kan behöva tas bort. Efter en katastrof, kan du återskapa och konfigurera dessa enheter.
+Om det finns StorSimple enheter som har registrerats precis innan en haveri påträffas kan dessa StorSimple-enheter behöva tas bort. Efter haveriet kan du återskapa och konfigurera enheterna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du [administrera StorSimple Virtual Array med hjälp av det lokala webbgränssnittet](storsimple-ova-web-ui-admin.md).
+Lär dig mer om hur du [administrerar den virtuella StorSimple-matrisen med hjälp av det lokala webb gränssnittet](storsimple-ova-web-ui-admin.md).
 

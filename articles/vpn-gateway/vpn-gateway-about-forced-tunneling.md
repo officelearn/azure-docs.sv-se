@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6b31555215f4f2efc63d0e1df0a7b4bf13a43924
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834589"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201585"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Konfigurera framtvingad tunneling med den klassiska distributionsmodellen
 
@@ -33,13 +33,13 @@ Tvingad tunneltrafik i Azure konfigureras via virtuella nätverk användardefini
 
 * Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
 
-  * **Lokala virtuella nätverket vägar:** direkt till målets virtuella datorer i samma virtuella nätverk.
-  * **Lokala vägar:** till Azure VPN-gateway.
-  * **Standardvägen:** direkt till Internet. Paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna tas bort.
+  * **Lokala VNet-vägar:** Direkt till de virtuella mål datorerna i samma virtuella nätverk.
+  * **Lokala vägar:** Till Azure VPN-gatewayen.
+  * **Standard väg:** Direkt till Internet. Paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna tas bort.
 * Med lanseringen av användardefinierade vägar kan du skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till din VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
 * Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket.
 * Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en VPN-gateway för dynamisk routning (inte en statisk gateway).
-* ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner. Finns det [dokumentation om ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) för mer information.
+* ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner. Mer information finns i [ExpressRoute-dokumentationen](https://azure.microsoft.com/documentation/services/expressroute/) .
 
 ## <a name="configuration-overview"></a>Översikt över konfiguration
 I följande exempel tunneltrafik klientdelen undernät inte Tvingad. Arbetsbelastningar i undernätet på klientsidan kan fortsätta att godkänna och svara på kundernas önskemål direkt från Internet. Medelnivån och Backend-undernät är Tvingad tunneltrafik. Alla utgående anslutningar från de här två undernät till Internet ska tvingas eller omdirigeras tillbaka till en lokal plats via en S2S VPN-tunnlarna.
@@ -49,13 +49,26 @@ På så sätt kan du begränsa och granska Internetåtkomst från dina virtuella
 ![Forcerade tunnlar](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Kontrollera att du har följande innan du påbörjar konfigurationen.
+Kontrollera att du har följande innan du påbörjar konfigurationen:
 
 * En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 * Konfigurerade virtuella nätverk. 
-* Den senaste versionen av Azure PowerShell-cmdlets. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-## <a name="configure-forced-tunneling"></a>Konfigurera forcerade tunnlar
+### <a name="to-sign-in"></a>Logga in
+
+1. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande kommando för att växla till Service Management:
+
+   ```powershell
+   azure config mode asm
+   ```
+2. Anslut till ditt konto. Använd följande exempel för att ansluta:
+
+   ```powershell
+   Add-AzureAccount
+   ```
+
+## <a name="configure-forced-tunneling"></a>Konfigurera tvingad tunneltrafik
 Följande procedur kan du ange Tvingad tunneltrafik för ett virtuellt nätverk. Konfigurationsstegen motsvarar nätverkskonfigurationsfilen VNet.
 
 ```xml

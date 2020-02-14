@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
-ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893709"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191346"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du inte har ett Azure-konto med en prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -139,7 +139,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
 ## <a name="check-or-adjust-communication-settings"></a>Kontrol lera eller justera kommunikations inställningar
 
-Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i de här ämnena:
+Den lokala datagatewayen är beroende av [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) för moln anslutning och upprättar motsvarande utgående anslutningar till gatewayens associerade Azure-region. Om din arbets miljö kräver att trafiken går via en proxy eller brand vägg för att få åtkomst till Internet, kan denna begränsning förhindra att den lokala datagatewayen ansluter till moln tjänsten för gateway och Azure Service Bus. Gatewayen har flera kommunikations inställningar, som du kan justera. Mer information finns i följande avsnitt:
 
 * [Justera kommunikations inställningarna för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
 * [Konfigurera proxyinställningar för den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
@@ -188,7 +188,7 @@ För att få insyn i alla lokala datagatewayer i en Azure AD-klient kan globala 
 
 <a name="restart-gateway"></a>
 
-## <a name="restart-gateway"></a>Starta om gateway
+## <a name="restart-gateway"></a>Starta om Gateway
 
 Som standard körs Gateway-installationen på den lokala datorn som ett Windows-tjänst konto med namnet "lokal datagateway-tjänst". Gateway-installationen använder dock `NT SERVICE\PBIEgwService` namnet för inloggnings uppgifterna "logga in som" och har behörighet att logga in som en tjänst.
 
@@ -203,7 +203,7 @@ Precis som med andra Windows-tjänster kan du starta och stoppa gatewayen på ol
 
 Användare i din organisation kan komma åt lokala data som de redan har behörighet till. Innan dessa användare kan ansluta till din lokala data källa måste du dock installera och konfigurera en lokal datagateway. Vanligt vis är en administratör den person som installerar och konfigurerar en gateway. De här åtgärderna kan kräva Server administratörs behörighet eller särskild kunskap om dina lokala servrar.
 
-Gatewayen underlättar snabb och säker kommunikation bakom – scener-kommunikationen. Den här kommunikationen flödar mellan en användare i molnet, moln tjänsten gateway och den lokala data källan. Gateway-moln tjänsten krypterar och lagrar autentiseringsuppgifter för data källan och gateway-informationen. Tjänsten dirigerar även frågor och resultat mellan användaren, gatewayen och din lokala data källa.
+Gatewayen hjälper till att under lätta snabbare och säkrare bakom kommunikationen i bakgrunden. Den här kommunikationen flödar mellan en användare i molnet, moln tjänsten gateway och den lokala data källan. Gateway-moln tjänsten krypterar och lagrar autentiseringsuppgifter för data källan och gateway-informationen. Tjänsten dirigerar även frågor och resultat mellan användaren, gatewayen och din lokala data källa.
 
 Gatewayen fungerar med brand väggar och använder endast utgående anslutningar. All trafik kommer som säker utgående trafik från Gateway-agenten. Gatewayen vidarebefordrar data från lokala källor på krypterade kanaler via [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Den här Service Bus skapar en kanal mellan gatewayen och den anropande tjänsten, men lagrar inte några data. Alla data som passerar genom gatewayen krypteras.
 
@@ -226,7 +226,7 @@ Dessa steg beskriver vad som händer när du interagerar med ett element som är
 
 1. Resultaten skickas från data källan tillbaka till gatewayen och sedan till moln tjänsten Gateway. Gateway-moln tjänsten använder sedan resultaten.
 
-### <a name="authentication-to-on-premises-data-sources"></a>Autentisering till lokala datakällor
+### <a name="authentication-to-on-premises-data-sources"></a>Autentisering till lokala data källor
 
 En lagrad autentiseringsuppgift används för att ansluta från gatewayen till lokala data källor. Oavsett användare använder gatewayen lagrade autentiseringsuppgifter för att ansluta. Det kan finnas autentiserings undantag för vissa tjänster, till exempel DirectQuery och LiveConnect för Analysis Services i Power BI.
 
@@ -238,7 +238,7 @@ Microsofts moln tjänster använder [Azure AD](../active-directory/fundamentals/
 
 Om du inte är en domän administratör kanske du inte känner till ditt UPN. Du hittar UPN för ditt konto genom att köra kommandot `whoami /upn` från din arbets Station. Även om resultatet ser ut som en e-postadress, är resultatet UPN för ditt lokala domän konto.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synkronisera ett lokalt Active Directory med Azure AD
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synkronisera en lokal Active Directory med Azure AD
 
 UPN för lokala Active Directory-konton och Azure AD-konton måste vara samma. Se därför till att varje lokalt Active Directory konto matchar ditt Azure AD-konto. Moln tjänsterna vet bara om konton i Azure AD. Så du behöver inte lägga till ett konto i din lokala Active Directory. Om kontot inte finns i Azure AD kan du inte använda det kontot.
 
@@ -259,7 +259,7 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 
 ## <a name="faq-and-troubleshooting"></a>Vanliga frågor och svar
 
-Mer information finns i de här ämnena:
+Mer information finns i följande avsnitt:
 
 * [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)

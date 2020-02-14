@@ -3,12 +3,12 @@ title: Referens C# för Azure Functions-utvecklare
 description: Lär dig hur du utvecklar Azure Functions C#med hjälp av.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: cfa53fe2defca768196af595c1d088d41bc60f71
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921050"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198385"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens C# för Azure Functions-utvecklare
 
@@ -204,7 +204,7 @@ Om du installerar kärn verktygen med NPM, som inte påverkar den version av kä
 
 ## <a name="supported-types-for-bindings"></a>Typer som stöds för bindningar
 
-Varje bindning har sina egna typer som stöds. ett BLOB-Utlösar-attribut kan till exempel användas för en sträng parameter, en POCO-parameter, en `CloudBlockBlob` parameter eller någon av flera andra typer som stöds. [Bindnings referens artikeln för BLOB-bindningar](functions-bindings-storage-blob.md#trigger---usage) visar alla parameter typer som stöds. Mer information finns i [utlösare och bindningar](functions-triggers-bindings.md) och [bindnings referens dokument för varje bindnings typ](functions-triggers-bindings.md#next-steps).
+Varje bindning har sina egna typer som stöds. ett BLOB-Utlösar-attribut kan till exempel användas för en sträng parameter, en POCO-parameter, en `CloudBlockBlob` parameter eller någon av flera andra typer som stöds. [Bindnings referens artikeln för BLOB-bindningar](functions-bindings-storage-blob-trigger.md#usage) visar alla parameter typer som stöds. Mer information finns i [utlösare och bindningar](functions-triggers-bindings.md) och [bindnings referens dokument för varje bindnings typ](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -353,7 +353,7 @@ Definiera en tvingande bindning enligt följande:
 
 ### <a name="single-attribute-example"></a>Exempel på ett attribut
 
-Följande exempel kod skapar en [utgående bindning för Storage BLOB](functions-bindings-storage-blob.md#output) med en BLOB-sökväg som definieras vid körning och skriver sedan en sträng till blobben.
+Följande exempel kod skapar en [utgående bindning för Storage BLOB](functions-bindings-storage-blob-output.md) med en BLOB-sökväg som definieras vid körning och skriver sedan en sträng till blobben.
 
 ```cs
 public static class IBinderExample
@@ -378,7 +378,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exempel på flera attribut
 
-I föregående exempel hämtas app-inställningen för funktionens huvud anslutnings sträng för lagrings kontot (som är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()`. Använd en `Binder` parameter, inte `IBinder`.  Ett exempel:
+I föregående exempel hämtas app-inställningen för funktionens huvud anslutnings sträng för lagrings kontot (som är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()`. Använd en `Binder` parameter, inte `IBinder`.  Exempel:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

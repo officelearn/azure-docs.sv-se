@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983052"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185591"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,8 +50,8 @@ Elementet **claimType** innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| DisplayName | 1:1 | Rubriken som visas för användare på olika skärmar. Värdet kan [lokaliseras](localization.md). |
-| Datatyp | 1:1 | Anspråkets typ. Data typerna för Boolean, date, dateTime, int, Long, String, stringCollection kan användas. Primitiv data typ representerar motsvarigheten till C# variabeln datatyp. stringCollection representerar en samling med strängar. Mer information finns i [ C# typer och variabler](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Datum följer ISO 8601-konventionen. |
+| displayName | 1:1 | Rubriken som visas för användare på olika skärmar. Värdet kan [lokaliseras](localization.md). |
+| Datatyp | 1:1 | Anspråkets typ. Data typerna för Boolean, date, dateTime, int, Long, String, stringCollection och telefonnummer kan användas. Primitiv data typ representerar motsvarigheten till C# variabeln datatyp. stringCollection representerar en samling med strängar. Mer information finns i [ C# typer och variabler](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Datum följer ISO 8601-konventionen. |
 | DefaultPartnerClaimTypes | 0:1 | Partnerns standard anspråks typer som används för ett angivet protokoll. Värdet kan skrivas över i **PartnerClaimType** som anges i **InputClaim** -eller **OutputClaim** -elementen. Använd det här elementet för att ange standard namnet för ett protokoll.  |
 | Streckkodsmasker | 0:1 | En valfri sträng med maskering av tecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
 | UserHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för användarna att förstå syftet. Värdet kan [lokaliseras](localization.md). |
@@ -107,7 +107,7 @@ Det innebär att den JWT-token som utfärdas av Azure AD B2C, genererar `family_
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex`. Värdet `Simple` anger att en enkel textmask används för den inledande delen av ett sträng anspråk. Värdet `Regex` anger att ett reguljärt uttryck tillämpas på sträng anspråket som helhet.  Om `Regex`-värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
-| `Regex` | Inga | Om **`Type`** är inställt på `Regex`anger du det reguljära uttrycket som ska användas.
+| `Regex` | Nej | Om **`Type`** är inställt på `Regex`anger du det reguljära uttrycket som ska användas.
 
 I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `Simple` masken:
 
@@ -146,7 +146,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MergeBehavior | Inga | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`eller `ReplaceAll`. `Append`-värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`-värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`-värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
+| MergeBehavior | Nej | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`eller `ReplaceAll`. `Append`-värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`-värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`-värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
 
 **Begränsnings** elementet innehåller följande element:
 
@@ -163,7 +163,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 | --------- | -------- | ----------- |
 | Text | Ja | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
 |Värde | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Inga | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel konfigureras List rutan för en **stad** med ett standardvärde som är inställt på `New York`:
 
@@ -191,7 +191,7 @@ List rutan stad med ett standardvärde som är inställt på New York:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
-| HelpText | Inga | Mönstret eller det reguljära uttrycket för det här anspråket. |
+| HelpText | Nej | Mönstret eller det reguljära uttrycket för det här anspråket. |
 
 I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613099"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189824"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -54,7 +54,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) -objektet skickas till funktionen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -82,7 +82,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. Ett [Timer-objekt](#usage) skickas till funktionen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -113,7 +113,7 @@ module.exports = function (context, myTimer) {
 
 I följande exempel används en timerupplösning-bindning vars konfiguration beskrivs i filen *Function. JSON* . Den faktiska [python-funktionen](functions-reference-python.md) som använder bindningen beskrivs i filen  *__init__. py* . Objektet som har skickats till funktionen är av typen [Azure. functions. TimerRequest-objekt](/python/api/azure-functions/azure.functions.timerrequest). Funktions logiken skriver till loggarna som anger om det aktuella anropet beror på en utebliven schema förekomst. 
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -213,13 +213,13 @@ public void keepAlive(
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `TimerTrigger` attribut.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `TimerTrigger`-attributet.
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Ej tillämpligt | Måste vara inställd på "timerTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Ej tillämpligt | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar timer-objektet i funktions koden. | 
+|**typ** | Saknas | Måste vara inställd på "timerTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
+|**riktning** | Saknas | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Saknas | Namnet på variabeln som representerar timer-objektet i funktions koden. | 
 |**schedule**|**ScheduleExpression**|Ett [cron-uttryck](#ncrontab-expressions) eller ett [TimeSpan](#timespan) -värde. En `TimeSpan` kan bara användas för en Function-app som körs i en App Service-plan. Du kan lägga till schema uttrycket i en app-inställning och ange den här egenskapen till appens inställnings namn i **%** tecken, som i det här exemplet: "% ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Om `true`anropas funktionen när körningen startar. Till exempel startar körningen när funktions programmet aktive ras efter inaktivitet på grund av inaktivitet. När Function-appen startas om på grund av funktions ändringar och när funktions programmet skalas ut. Därför bör **runOnStartup** sällan om de skulle anges till `true`, särskilt i produktion. |
 |**useMonitor**|**UseMonitor**|Ange till `true` eller `false` för att ange om schemat ska övervakas. Schema övervakningen har kvar schema förekomster för att se till att schemat upprätthålls korrekt även när Function App-instanser startas om. Om detta inte anges uttryckligen är standardvärdet `true` för scheman som har ett upprepnings intervall som är större än eller lika med 1 minut. För scheman som utlöses mer än en gång per minut är standardvärdet `false`.
@@ -261,8 +261,8 @@ Varje fält kan ha en av följande typer av värden:
 |Ett speciellt värde |<nobr>"0 5 * * * *"</nobr>|i hh: 05:00 där HH är varje timme (en gång i timmen)|
 |Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|5: mm: 00 varje dag, där mm är varje minut i timmen (60 gånger per dag)|
 |Ett intervall (`-` operator)|<nobr>"5-7 * * * *"</nobr>|vid HH: mm: 05, hh: mm: 06 och HH: mm: 07 där hh: mm är varje minut i varje timme (3 gånger per minut)|
-|En uppsättning värden (`,` operatör)|<nobr>"5,8,10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
-|Ett intervall värde (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|i hh: 05:00, hh: 10:00, hh: 15:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
+|En uppsättning värden (`,` operatör)|<nobr>"5, 8, 10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
+|Ett intervall värde (`/` operator)|<nobr>"0 */5 * * *"</nobr>|i hh: 00:00, hh: 05:00, hh: 10:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -319,7 +319,7 @@ Till skillnad från ett CRON-uttryck anger ett `TimeSpan` värde tidsintervall m
 |"24:00:00" | var 24: e timme        |
 |"1,00:00:00" | Varje dag        |
 
-## <a name="scale-out"></a>Skalbarhet
+## <a name="scale-out"></a>Skala ut
 
 Om en Function-app skalar ut till flera instanser, körs bara en instans av en timer-utlöst funktion över alla instanser.
 
@@ -340,7 +340,7 @@ Timer-utlösaren använder ett lagrings lås för att säkerställa att det bara
 
 Till skillnad från kön utlöses inte timer-utlösaren igen när en funktion Miss lyckas. När en funktion Miss lyckas anropas den inte igen förrän nästa gång enligt schemat.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Information om vad som ska göras när timer-utlösaren inte fungerar som förväntat finns i [undersöka och rapportera problem med timer-utlösta funktioner som inte kan utlösas](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
@@ -350,4 +350,4 @@ Information om vad som ska göras när timer-utlösaren inte fungerar som förv�
 > [Gå till en snabb start som använder en timer-utlösare](functions-create-scheduled-function.md)
 
 > [!div class="nextstepaction"]
-> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

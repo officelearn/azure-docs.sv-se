@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 02/06/2019
+ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: a71751ba8dde2152a00a1455a51d13a3dedb792a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51b69e8b7f6c980fd851cdf3e60ecfe0ade29e71
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437167"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187335"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Skapa en namnrymd med händelsehubb och aktivera avbildning med hjälp av en mall
 
@@ -235,7 +235,7 @@ Blobcontainern dit du kan avbilda dina händelsedata.
 }
 ```
 
-Använd följande parametrar om du väljer Azure Data Lake Store som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Information om hur du anger behörigheter finns [i den här artikeln](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+Använd följande parametrar om du väljer Azure Data Lake Store gen 1 som mål. Du måste ange behörigheter för den Data Lake Store-sökväg som du vill avbilda händelsen på. Om du vill ange behörigheter, se [samla in data till Azure Data Lake Storage gen 1](event-hubs-capture-enable-through-portal.md#capture-data-to-azure-data-lake-storage-gen-1).
 
 ### <a name="subscriptionid"></a>subscriptionId
 
@@ -433,7 +433,7 @@ Du kan även konfigurera Event Hubs Capture via [Azure Portal](https://portal.az
 
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
 * [Skapa en Event Hub](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 

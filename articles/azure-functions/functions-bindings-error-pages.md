@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: 06dc4c5c1713ee10f263e573a698e9ea36ca2662
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 920b887382ca55d84c66fabb8f1464fd05041094
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227326"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198469"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions fel hantering
 
@@ -28,7 +28,7 @@ Vid integrering med Azure-tjänster kan fel komma från API: erna för underligg
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Blob Storage](functions-bindings-storage-blob.md#exceptions-and-return-codes)
++ [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 

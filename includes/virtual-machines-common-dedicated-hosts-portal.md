@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 77eb54f5d7194f3006ce463fc5f905165bdfc659
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 2d440db3e55638fcf2e3d3f3fe76f82ac4d25948
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833947"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192501"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Den första versionen stöder följande VM-serien: DSv3 och ESv3. 
+- Den första versionen stöder följande VM-serien: DSv3, ESv3 och Fsv2. 
 
 ## <a name="create-a-host-group"></a>Skapa en värdgrupp
 
@@ -54,7 +54,7 @@ Det bör bara ta en stund att skapa värd gruppen.
 
 ## <a name="create-a-dedicated-host"></a>Skapa en dedikerad värd
 
-Skapa nu en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden. Följande värd-SKU-värden stöds: DSv3_Type1 och ESv3_Type1.
+Skapa nu en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.
 
 Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: 65fc3259b0bc5fce61ccd1ceb8df30f1bba49b19
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 102523316aaa59803fb9a6957457fc7bd4f6ce4f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161723"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186818"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Självstudie: Använda Apache Kafka-producenten och konsument-API:er
 
@@ -33,21 +33,20 @@ Mer information om API:er finns i Apache-dokumentationen i [Producent-API](https
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Apache Kafka på HDInsight 3,6. Information om hur du skapar en Kafka på HDInsight-kluster finns i [starta med Apache Kafka på HDInsight](apache-kafka-get-started.md).
-
+* Apache Kafka på HDInsight-kluster. Information om hur du skapar klustret finns i [starta med Apache Kafka på HDInsight](apache-kafka-get-started.md).
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks) eller motsvarande, till exempel openjdk.
-
 * [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
-
-* En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* En SSH-klient som SparaTillFil. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Exempelprogrammet finns på [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i underkatalogen `Producer-Consumer`. Programmet består i huvudsak av fyra filer:
+Exempelprogrammet finns på [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i underkatalogen `Producer-Consumer`. Om du använder **Enterprise Security Package (ESP)** aktiverat Kafka-kluster bör du använda den program version som finns i `DomainJoined-Producer-Consumer` under katalogen.
 
+Programmet består i huvudsak av fyra filer:
 * `pom.xml`: Den här filen definierar projektberoenden, Java-version och paketeringsmetoder.
 * `Producer.java`: Den här filen skickar slumpmässiga meningar till Kafka med producent-API:et.
 * `Consumer.java`: Den här filen använder konsument-API:n till att läsa data från Kafka och generera den till STDOUT.
+* `AdminClientWrapper.java`: den här filen använder admin API för att skapa, beskriva och ta bort Kafka ämnen.
 * `Run.java`: Kommandoradsgränssnittet används för att köra producent- och konsumentkoden.
 
 ### <a name="pomxml"></a>Pom.xml
@@ -116,9 +115,11 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
 
 ## <a name="build-and-deploy-the-example"></a>Skapa och distribuera exemplet
 
+Om du vill hoppa över det här steget kan färdiga jar v7 hämtas från under katalogen `Prebuilt-Jars`. Ladda ned Kafka-Producer-Consumer. jar. Om klustret är **Enterprise Security Package (ESP)** aktiverat använder du Kafka-Producer-Consumer-ESP. jar. Kör steg 3 för att kopiera jar till ditt HDInsight-kluster.
+
 1. Hämta och extrahera exemplen från [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Ange den aktuella katalogen till platsen för `hdinsight-kafka-java-get-started\Producer-Consumer` katalogen och Använd följande kommando:
+2. Ange din aktuella katalog som `hdinsight-kafka-java-get-started\Producer-Consumer` katalogens plats. Om du använder **Enterprise Security Package (ESP)** aktiverat Kafka-kluster ska du ange platsen till `DomainJoined-Producer-Consumer`under katalog. Använd följande kommando för att bygga programmet:
 
     ```cmd
     mvn clean package
@@ -140,29 +141,12 @@ I den här koden är konsumenten konfigurerad att läsa från början av ämnet 
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. I den öppna SSH-anslutningen anger du följande kommando för att installera `jq`:
+1. Om du vill hämta värdar för Kafka-Broker ersätter du värdena för `<clustername>` och `<password>` i följande kommando och kör den. Använd samma Skift läge för `<clustername>` som visas i Azure Portal. Ersätt `<password>` med lösen ordet för kluster inloggning och kör sedan:
 
     ```bash
     sudo apt -y install jq
-    ```
-
-1. Konfigurera lösen ords variabel. Ersätt `PASSWORD` med lösen ordet för kluster inloggning och ange sedan kommandot:
-
-    ```bash
-    export password='PASSWORD'
-    ```
-
-1. Extrahera korrekt bokstäver-kluster namn. Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades. Det här kommandot kommer att hämta det faktiska Skift läget och sedan lagra det i en variabel. Ange följande kommando:
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-    > [!Note]  
-    > Om du utför den här processen utanför klustret finns det en annan procedur för att lagra kluster namnet. Hämta kluster namnet i gemener från Azure Portal. Ersätt sedan kluster namnet för `<clustername>` i följande kommando och kör det: `export clusterName='<clustername>'`.  
-
-1. Använd följande kommando för att hämta Kafka-Broker-värdar:
-
-    ```bash
+    export clusterName='<clustername>'
+    export password='<password>'
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 

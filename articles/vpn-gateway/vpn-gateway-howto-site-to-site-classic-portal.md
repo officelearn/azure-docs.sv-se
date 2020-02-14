@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 298d720d3848f27b18aa24897357dfaa47a12a70
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863731"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201568"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -20,7 +20,7 @@ ms.locfileid: "75863731"
 Den här artikeln visar hur du kan använda Azure Portal för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Stegen i den här artikeln gäller den klassiska distributions modellen och gäller inte för den aktuella distributions modellen, Resource Manager. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -39,7 +39,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 * Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
 * Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
-* För närvarande krävs PowerShell för att ange den delade nyckeln och skapa VPN-gatewayanslutningen. Installera den senaste versionen av Azure Service Management (SM) PowerShell-cmdletar. Information om hur du installerar cmdletarna finns i [tjänst hantering](/powershell/azure/servicemanagement/install-azure-ps). Mer information om PowerShell-installationer i allmänhet finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör.
+* PowerShell krävs för att kunna ange den delade nyckeln och skapa VPN gateway-anslutningen. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ### <a name="values"></a>Exempel på konfigurationsvärden för övningen
 
@@ -54,7 +54,7 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
   * BackEnd: 10.12.0.0/24 (valfritt för den här övningen)
 * **GatewaySubnet:** 10.11.255.0/27
 * **Resursgrupp:** TestRG1
-* **Plats:** Östra USA
+* **Plats:** USA, östra
 * **DNS-server:** 10.11.0.3 (valfritt för den här övningen)
 * **Namn på lokal plats:** Site2
 * **Klientadressutrymme:** Adressutrymmet som finns på din lokala plats.
@@ -65,19 +65,19 @@ När du skapar ett virtuellt nätverk som ska användas med en S2S-anslutning m�
 
 * Om du redan har ett VNet, kontrollerar du att inställningarna är kompatibla med din VPN-gatewaydesign. Var särskilt noga med alla undernät som överlappar med andra nätverk. 
 
-* Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som exempel. Se till att ersätta värdena med dina egna.
+* Om du inte redan har ett virtuellt nätverk, skapa ett. Skärmbilderna anges som exempel. Glöm inte att byta ut värdena mot dina egna.
 
 ### <a name="to-create-a-virtual-network"></a>Så här skapar du ett virtuellt nätverk
 
 1. Navigera till [Azure-portalen](https://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.
 2. Klicka på * *+ skapa en resurs*. Skriv ”Virtuella nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
 3. Klicka på **(ändra till klassiskt)** och klicka sedan på **skapa**.
-4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk (klassisk)** . På den här sidan lägger du till ditt första adressutrymme och ett enda adressintervall för ett undernät. När du har skapat ditt VNet, kan du gå tillbaka och lägga till ytterligare undernät och adressutrymmen.
+4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk (klassisk)** . På den här sidan lägger du till ditt första adressutrymme och ett enda adressintervall för ett undernät. När du har skapat det virtuella nätverket kan du gå tillbaka och lägga till ytterligare undernät och adress utrymmen.
 
    ![Sidan Skapa virtuellt nätverk](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Sidan Skapa virtuellt nätverk")
 5. Verifiera att **Prenumeration** är korrekt. Du kan ändra prenumerationer i listrutan.
 6. Klicka på **Resursgrupp** och välj en befintlig resursgrupp eller skapa en ny genom att ange ett namn. Mer information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
-7. Välj därefter **Plats**-inställningar för ditt VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att placeras.
+7. Välj därefter **Plats**-inställningar för din VNet. Platsen avgör var resurserna som du distribuerar till detta VNet kommer att placeras.
 8. Klicka på **Skapa** för att skapa ditt VNet.
 9. När du har klickat på ”Skapa”, visas en ikon på instrumentpanelen som visar framstegen för ditt VNet. Panelen ändras när VNet skapas.
 
@@ -159,23 +159,24 @@ I det här steget anger du den delade nyckeln och skapar anslutningen. Nyckeln s
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Steg 1. Anslut till ditt Azure-konto
 
-Du måste köra dessa kommandon lokalt med PowerShell Service Management-modulen. Använd följande kommando för att växla till Service Management:
+Du måste köra dessa kommandon lokalt med PowerShell Service Management-modulen. 
 
-```powershell
-azure config mode asm
-```
+1. Öppna PowerShell-konsolen med utökade rättigheter. Använd följande kommando för att växla till Service Management:
 
-1. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
+   ```powershell
+   azure config mode asm
+   ```
+2. Anslut till ditt konto. Använd följande exempel för att ansluta:
 
    ```powershell
    Add-AzureAccount
    ```
-2. Kontrollera prenumerationerna för kontot.
+3. Kontrollera prenumerationerna för kontot.
 
    ```powershell
    Get-AzureSubscription
    ```
-3. Om du har mer än en prenumeration väljer du den du vill använda.
+4. Om du har mer än en prenumeration väljer du den du vill använda.
 
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
@@ -183,7 +184,7 @@ azure config mode asm
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Steg 2. Ange den delade nyckeln och skapa anslutningen
 
-När du skapar ett klassiskt VNet i portalen (inte använder PowerShell) lägger Azure till namnet på resurs gruppen till det korta namnet. Till exempel, enligt Azure, är namnet på det VNet som du skapade för den här övningen "Group TestRG1 TestVNet1", inte "TestVNet1". PowerShell kräver det fullständiga namnet på det virtuella nätverket, inte det korta namnet som visas i portalen. Det långa namnet är inte synligt i portalen. Med följande steg kan du exportera nätverks konfigurations filen för att hämta de exakta värdena för det virtuella nätverks namnet. 
+När du skapar ett klassiskt VNet i portalen (inte använder PowerShell) lägger Azure till resurs grupp namnet till det korta namnet. Till exempel, enligt Azure, är namnet på det VNet som du skapade för den här övningen "Group TestRG1 TestVNet1", inte "TestVNet1". PowerShell kräver det fullständiga namnet på det virtuella nätverket, inte det korta namnet som visas i portalen. Det långa namnet är inte synligt i portalen. Med följande steg kan du exportera nätverks konfigurations filen för att hämta de exakta värdena för det virtuella nätverks namnet. 
 
 1. Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. I det här exemplet exporteras nätverkskonfigurationsfilen till C:\AzureNet.
 

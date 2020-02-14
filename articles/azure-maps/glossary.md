@@ -1,6 +1,6 @@
 ---
 title: Azure Maps ord lista | Microsoft Docs
-description: En ord lista med vanliga termer som är kopplade till Azure Maps, Location Based Services och GIS.
+description: En ord lista med ofta använda termer som är kopplade till Azure Maps, platsbaserade tjänster och GIS.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 02bf5ba30a1fc7b4ee739cb0a591ffe084269541
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408861"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198249"
 ---
 # <a name="glossary"></a>Ordlista
 
-Följande är en lista med vanliga ord som används med Azure Maps.
+I följande lista beskrivs vanliga ord som används med Azure Maps-tjänsterna.
 
 ## <a name="a"></a>A
 
 <a name="address-validation"></a>**Adress verifiering**: processen att verifiera att det finns en adress.
 
-<a name="advanced-routing"></a>**Avancerad routning**: en samling tjänster som utför förskotts åtgärder med hjälp av routnings data, till exempel beräkning av nåbara intervall (ISO Kron), avstånds-matriser och batch Route-begäranden.
+<a name="advanced-routing"></a>**Avancerad routning**: en samling tjänster som utför förskotts åtgärder med hjälp av routnings data för vägar. till exempel beräkna nåbara intervall (ISO Kron), avstånds-matriser och batch Route-begäranden.
 
 <a name="aerial-imagery"></a>**Flyg bilder**: se [satellit-bilder](#satellite-imagery). 
 
-<a name="along-a-route-search"></a>I **en vägs ökning**: en rums fråga som söker efter data inom en angiven avvisnings tid eller avstånd från en väg Sök väg.
+<a name="along-a-route-search"></a>**Utmed en vägs ökning**: en spatial fråga som söker efter data inom en angiven avvisnings tid eller avstånd från en väg Sök väg.
 
 <a name="altitude"></a>**Höjd**: höjden eller den vertikala höjningen av en punkt ovanför en referens yta. Höjd mätningarna baseras på en specifik referens punkt, t. ex. Mean Sea-nivå. Se även höjning.
 
-<a name="ambiguous"></a>**Tvetydig**: ett läge med osäkerhet i data klassificering som finns när ett objekt kan ha en lämplig tilldelning av två eller flera värden för ett angivet attribut. Till exempel när "CA"-koden "CA" visas returneras två tvetydiga resultat. "Kanada" och "Kalifornien" som "CA" är ett land och en delstats kod för respektive. 
+<a name="ambiguous"></a>**Tvetydig**: ett läge med osäkerhet i data klassificering som finns när ett objekt kan ha en lämplig tilldelning av två eller flera värden för ett angivet attribut. Till exempel returneras två tvetydiga resultat för "CA": t. ex. "Kanada" och "Kalifornien". "CA" är ett land och en delstats kod för "Kanada" respektive "Kalifornien". 
 
 <a name="annotation"></a>**Anteckning**: text eller grafik som visas på kartan för att ge information till användaren. Anteckningen kan identifiera eller beskriva en speciell kart organisation, ange allmän information om ett område på kartan eller tillhandahålla information om kartan.
 
-<a name="antimeridian"></a>**Antimeridian**: även<sup>kallat 180e</sup> Meri Dian är den punkt där-180 grader och 180 grader av longitud möts. Som är mittemot den viktigaste Meri Dian i hela världen.
+<a name="antimeridian"></a>**Antimeridian**: kallas<sup>även 180-</sup> Meri Dian. Detta är punkten där-180 grader och 180 grader av longitud möts. Vilket är motsatsen till den viktigaste Meri Dian i hela världen.
 
 <a name="application-programming-interface-api"></a>**API (Application Programming Interface)** : en specifikation som gör det möjligt för utvecklare att skapa program.
 
 <a name="api-key"></a>**API-nyckel**: se [autentisering med delad nyckel](#shared-key-authentication).
 
-<a name="area-of-interest-aoi"></a>**Intresse område (AOI)** : den omfattning som används för att definiera ett fokus område för antingen en kart-eller databas produktion.
+<a name="area-of-interest-aoi"></a>**Intresse område (AOI)** : den omfattning som används för att definiera ett fokus område för antingen en karta eller en databas produktion.
 
 <a name="asset-tracking"></a>**Till gångs spårning**: processen att spåra platsen för en till gång, till exempel en person, ett fordon eller något annat objekt.
 
@@ -63,7 +63,7 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="batch-request"></a>**Batch-begäran**: processen att kombinera flera begär anden till en enskild begäran.
 
-<a name="bearing"></a>**Bär**: den vågräta riktningen för en punkt i förhållande till en annan punkt. Detta uttrycks som en vinkel i förhållande till norr, från 0 till 360 grader i medurs riktning. 
+<a name="bearing"></a>**Bär**: den vågräta riktningen för en punkt i förhållande till en annan punkt. Detta uttrycks som en vinkel i förhållande till norr, från 0 – grader till 360 grader i medurs riktning. 
 
 <a name="boundary"></a>**Gräns**: en linje eller polygon som separerar intilliggande politiska entiteter, t. ex. länder/regioner, distrikt och egenskaper. En kant linje är en linje som kanske inte följer fysiska funktioner, till exempel floder, berg eller väggar.
 
@@ -75,11 +75,11 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="cadastre"></a>**Cadastre**: en post med registrerat land och egenskaper. Se även [paket](#parcel).
 
-<a name="camera"></a>**Kamera**: i kontexten för en interaktiv kart kontroll definierar en kamera mappnings fältet i vyn. Visnings området för kameran bestäms utifrån flera kart parametrar. Center, zoomnings nivå, höjd vinkel. 
+<a name="camera"></a>**Kamera**: i kontexten för en interaktiv kart kontroll definierar en kamera mappnings fältet i vyn. CAD-områdets visnings område bestäms baserat på flera kart parametrar: Center, zoomnings nivå, höjd vinkel. 
 
 <a name="centroid"></a>**Centroid**: det geometriska mitten av en funktion. Centroid för en rad är mitt punkten medan centroid för en polygon skulle vara dess centrum av Area.
 
-<a name="choropleth-map"></a>**Choropleth-karta**: en tema karta där områden skuggas i proportion till en mätning av en statistisk variabel som visas på kartan. Du kan till exempel färga gränsen för varje AMERIKANSKt tillstånd baserat på dess relativa befolkning till alla andra tillstånd.
+<a name="choropleth-map"></a>**Choropleth karta**: en tema karta där områden är skuggade i proportion till en mätning av en statistisk variabel. Den här statistiska variabeln visas på kartan. Du kan till exempel färga gränsen för varje AMERIKANSKt tillstånd baserat på dess relativa befolkning till alla andra tillstånd.
 
 <a name="concave-hull"></a>**Concave skrov**: en form som representerar en möjlig Concave-geometri som innesluter alla former i den angivna data uppsättningen. Den genererade figuren påminner om att figursätta data med plast brytning och sedan Värm upp den, vilket leder till att stor sträcker sig mellan punkter att Cave i mot andra data punkter.
 
@@ -127,11 +127,11 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 ## <a name="e"></a>E
 
-<a name="elevation"></a>**Höjning**: det lodräta avståndet för en punkt eller ett objekt ovanför eller under en referens yta eller ett datum (vanligt vis havs nivå). Höjning avser vanligt vis den lodräta höjden på marken.
+<a name="elevation"></a>**Höjning**: det lodräta avståndet för en punkt eller ett objekt ovanför eller under en referens yta eller ett datum. I allmänhet är referens ytan en havs nivå. Höjning avser vanligt vis den lodräta höjden på marken.
 
 <a name="envelope"></a>**Envelope**: se [avgränsnings rutan](#bounding-box).
 
-<a name="extended-postal-code"></a>**Utökat post**nummer: ett post nummer som kan innehålla ytterligare information. Till exempel har zip-koder fem siffror, men ett utökat post nummer, kallat zip + 4, innehåller fyra ytterligare siffror. Dessa ytterligare siffror används för att identifiera ett geografiskt segment inom det femte-siffriga leveransområdet, till exempel ett stads block, en grupp lägenheter eller en box som underlättar e-postsortering och-leverans.
+<a name="extended-postal-code"></a>**Utökat post**nummer: ett post nummer som kan innehålla ytterligare information. Zip-koder i USA har till exempel fem siffror. Men ett utökat post nummer, kallat zip + 4, innehåller fyra ytterligare siffror. Dessa ytterligare siffror används för att identifiera ett geografiskt segment inom ett leverans område med fem siffror, till exempel ett City, en grupp lägenheter eller en box. Att känna till det geografiska segmentet bidrar till effektiv e-postsortering och leverans.
 
 <a name="extent"></a>**Omfattning**: se [avgränsnings rutan](#bounding-box).
 
@@ -147,7 +147,7 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="find-nearby"></a>**Sök i närheten**: en rums fråga som söker efter ett fast linje avstånd (som kråkfotsnotation) från en punkt.
 
-<a name="fleet-management"></a>**Hantering av flottan**: hantering av nytto fordon, till exempel bilar, Last bilar, fartyg och plan. Flottans hantering kan omfatta en mängd funktioner, till exempel fordons finansiering, underhåll, telematik (spårning och diagnostik) samt driv rutin, hastighet, bränsle och hälso tillstånd och säkerhets hantering. Flottans hantering är en process som används av företag som använder transport i sin verksamhet för att minimera riskerna och minska sina övergripande kostnader för transport och personal, samtidigt som den garanterar efterlevnad av myndighets lagstiftningen.
+<a name="fleet-management"></a>**Hantering av flottan**: hantering av nytto fordon, till exempel bilar, Last bilar, fartyg och plan. Flottans hantering kan omfatta en mängd funktioner, till exempel fordons finansiering, underhåll, telematik (spårning och diagnostik) samt driv rutin, hastighet, bränsle och hälso tillstånd och säkerhets hantering. Flottans hantering är en process som används av företag som använder transport i sin verksamhet. Företagen vill minimera riskerna och minska sina totala kostnader för transport och personal, samtidigt som du säkerställer efterlevnaden av myndighets lagstiftningen.
 
 <a name="free-flow-speed"></a>**Fri flödes hastighet**: den kostnads fria flödes hastigheten förväntas under ideala förhållanden. Vanligt vis hastighets gränsen.
 
@@ -155,7 +155,7 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="fuzzy-search"></a>**Fuzzy-sökning**: en sökning som tar i en fritext text sträng som kan vara en adress eller ett intresse punkt. 
 
-## <a name="g"></a>G
+## <a name="g"></a>Projektredovisnings
 
 <a name="geocode"></a>**Landskod**: en adress eller plats som har konverterats till en koordinat som kan användas för att visa den platsen på en karta. 
 
@@ -217,7 +217,7 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 ## <a name="l"></a>L
 
-<a name="landsat"></a>**LANDSAT**: Multispectral, jord-kretsing-satelliter som utvecklats av NASA och som samlar in bilder av mark som används i många branscher, t. ex. jord-, skogsbruks-och cartography.
+<a name="landsat"></a>**LANDSAT**: Multispectral, jord-kretsing-satelliter som utvecklats av NASA som samlar in bilder av mark. Den här bilder används i många branscher, till exempel jord-, skogsbruks-och cartography.
 
 <a name="latitude"></a>**Latitud**: vinkel Avståndet mäts i grader från likställaren i en norr eller syd-riktning.
 
@@ -247,7 +247,7 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="multipoint"></a>**Multipoint**: en geometri som representerar en samling punkt objekt.
 
-<a name="multipolygon"></a>**Multipolygon**: en geometri som representerar en samling polygon-objekt. Om du till exempel vill visa avgränsningen av Hawaii, visas varje ön med en polygon och kanten av Hawaii skulle därför vara en multipolygon.
+<a name="multipolygon"></a>**Multipolygon**: en geometri som representerar en samling polygon-objekt. Om du till exempel vill visa avgränsningen av Hawaii visas varje ön med en polygon. Därför skulle gränserna för Hawaii vara en multipolygon.
 
 <a name="municipality"></a>**Kommun**: en stad eller stad. 
 
@@ -285,21 +285,21 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="post-code"></a>**Post**nummer: se [post nummer](#postal-code).
 
-<a name="postal-code"></a>**Post nummer**: en serie bokstäver eller siffror, eller både och, i ett särskilt format, som används av post tjänsten för ett land/en region för att dela upp geografiska områden i zoner för att förenkla leverans av e-post.
+<a name="postal-code"></a>**Post nummer**: en serie bokstäver eller siffror, eller båda, i ett särskilt format. Post numret används av post tjänsten för ett land/en region för att dela upp geografiska områden i zoner för att förenkla leverans av e-post.
 
 <a name="primary-key"></a>**Primär nyckel**: den första av två prenumerations nycklar som tillhandahölls för Azure Maps autentisering med delad nyckel. Se [autentisering med delad nyckel](#shared-key-authentication).
 
-<a name="prime-meridian"></a>**Primtal Meri Dian**: en linje med longitud som representerar en longitud på 0 grader. I allmänhet minskar värdet för longitud när du reser i en Westerly riktning tills 180-grader och ökar när du reser i Easterly-instruktioner till-180-grader. 
+<a name="prime-meridian"></a>**Primtal Meri Dian**: en linje med longitud som representerar en longitud på 0 grader. I allmänhet minskar värdet för longitud när du reser i en Westerly riktning tills 180 graderas och ökar när du reser i Easterly-instruktioner till-180-grader. 
 
 <a name="prj"></a>**PRJ**: en textfil som ofta medföljer en formfil-fil som innehåller information om det projicerade koordinatsystemet som data uppsättningen finns i.
 
 <a name="projection"></a>**Projektion**: ett projicerat koordinatsystem baserat på en kart projektion, till exempel tvär Mercator, Albers Equal Area och Robinson. Dessa ger möjlighet till projekt kartor över jordens sfäriska yta på ett tvådimensionellt kartesiska koordinat plan. Projekterade koordinatsystem kallas ibland för kart projektioner.
 
-## <a name="q"></a>Q
+## <a name="q"></a>C
 
 <a name="quadkey"></a>**Quadkey**: ett bas-4-adress index för en panel i ett quadtree-inpassande system. Mer information finns i [zoomnings nivåer och Brick rutnäts](zoom-levels-and-tile-grid.md) dokumentation för mer information.
 
-<a name="quadtree"></a>**Quadtree**: en data struktur där varje nod har exakt fyra underordnade. I det ordnings system som används i Azure Maps används en quadtree-struktur, som en användare zoomar in på en nivå, varje kart panel bryts upp i fyra underpaneler.  Mer information finns i [zoomnings nivåer och Brick rutnäts](zoom-levels-and-tile-grid.md) dokumentation för mer information.
+<a name="quadtree"></a>**Quadtree**: en data struktur där varje nod har exakt fyra underordnade. I det ordnings system som används i Azure Maps används en quadtree-struktur, som en användare zoomar in på en nivå, varje kart panel bryts upp i fyra under paneler.  Mer information finns i [zoomnings nivåer och Brick rutnäts](zoom-levels-and-tile-grid.md) dokumentation för mer information.
 
 <a name="queries-per-second-qps"></a>**Frågor per sekund (frågor per sekund)** : antalet frågor eller förfrågningar som kan göras till en tjänst eller plattform inom en sekund. 
 
@@ -321,7 +321,7 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="reproject"></a>**Projekt**: se [omvandling](#transformation).
 
-<a name="rest-service"></a>**REST-tjänst**: akronym för representations tillstånds överföring. En arkitektur för att utbyta information mellan peer-datorer i en decentraliserad, distribuerad miljö. REST gör att program på olika datorer kan kommunicera oberoende av ett operativ system eller en plattform genom att skicka en Hypertext Transfer Protocol (HTTP)-begäran till en URL (Uniform Resource Locator) och hämta tillbaka data.
+<a name="rest-service"></a>**REST-tjänst**: akronym för representations tillstånds överföring. En arkitektur för att utbyta information mellan peer-datorer i en decentraliserad, distribuerad miljö. REST gör att program på olika datorer kan kommunicera oberoende av ett operativ system eller en plattform. En tjänst kan skicka en Hypertext Transfer Protocol-begäran (HTTP) till en URL (Uniform Resource Locator) och hämta tillbaka data.
 
 <a name="route"></a>**Route**: en sökväg mellan två eller flera platser, som även kan innehålla ytterligare information, till exempel instruktioner för waypoints längs vägen.
 
@@ -345,13 +345,13 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="spatial-query"></a>**Spatial fråga**: en begäran till en tjänst som utför en spatial åtgärd. Till exempel en radiell sökning eller en vägs ökning.
 
-<a name="spatial-reference"></a>**Rums referens**: ett koordinatbaserade lokala, regionala eller globala system som används för att exakt hitta geografiska enheter. Den definierar koordinatsystemet som används för att relatera kart koordinater till platser i verkligheten. Rums referenser säkerställer att spatialdata från olika lager eller källor kan integreras för korrekt visning eller analys. Azure Maps använder referens systemet [EPSG: 3857](https://epsg.io/3857) koordinatsystemet och WGS 84 för indata för indata. 
+<a name="spatial-reference"></a>**Rums referens**: ett koordinatbaserade lokala, regionala eller globala system som används för att exakt hitta geografiska enheter. Den definierar koordinatsystemet som används för att relatera kart koordinater till platser i verkligheten. Rums referenser säkerställer att spatialdata från olika lager eller källor kan integreras för korrekt visning eller analys. Azure Maps använder referens systemet [EPSG: 3857](https://epsg.io/3857) koordinatsystemet och WGS 84 för indata för indata.
 
 <a name="sql-spatial"></a>**SQL-spatialdata**: syftar på de spatiala funktioner som är inbyggda i SQL Azure och SQL Server 2008 och senare. Den här spatiala funktionen är även tillgänglig som ett .NET-bibliotek som kan användas oberoende av SQL Server. Mer information finns i dokumentationen om [spatial data (SQL Server)](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) .
 
 <a name="subscription-key"></a>**Prenumerations nyckel**: se [autentisering med delad nyckel](#shared-key-authentication).
 
-<a name="synchronous-request"></a>**Synkron begäran**: en http-begäran öppnar en anslutning och väntar på ett svar. Webbläsare begränsar antalet samtidiga HTTP-begäranden som kan göras från en sida. Om flera tids krävande synkrona begär Anden görs samtidigt, kan den här gränsen nås och begär Anden fördröjs tills en av de andra begär Anden har slutförts.
+<a name="synchronous-request"></a>**Synkron begäran**: en http-begäran öppnar en anslutning och väntar på ett svar. Webbläsare begränsar antalet samtidiga HTTP-begäranden som kan göras från en sida. Om flera tids krävande synkrona begär Anden görs samtidigt, kan den här gränsen nås. Begär Anden kommer att fördröjas tills en av de andra begär Anden har slutförts.
 
 ## <a name="t"></a>T
 
@@ -363,20 +363,20 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="thematic-maps"></a>**Tematiska kartor**: en tema karta är en enkel karta som görs för att återspegla ett tema om ett geografiskt område. Ett vanligt scenario för den här typen av karta är att färgsätta de administrativa regionerna, till exempel länder/regioner baserat på vissa data mått.
 
-<a name="tile-layer"></a>**Panel lager**: ett lager som visas genom att montera kart paneler (rektangulära sektioner) i ett kontinuerligt lager. Panelerna är antingen raster bild paneler eller vektor paneler. Raster panels lager återges vanligt vis i förväg och lagras som bilder på en server. Det kan ta upp mycket lagrings utrymme. Vektor panels lager återges i farten i klient programmet, vilket innebär att lagrings kraven på Server sidan är mindre.
+<a name="tile-layer"></a>**Panel lager**: ett lager som visas genom att montera kart paneler (rektangulära sektioner) i ett kontinuerligt lager. Panelerna är antingen raster bild paneler eller vektor paneler. Raster panels lager återges vanligt vis i förväg och de lagras som bilder på en server. Raster panels lager kan använda ett stort lagrings utrymme. Vektor panels lager återges nära real tid i klient programmet. Lagrings kraven på Server sidan är därför mindre för vektor panels lager.
 
 <a name="time-zone"></a>**Tidszon**: en region i världen som iakttar en enhetlig normal tid för juridiska, kommersiella och sociala ändamål. Tids zoner tenderar att följa gränserna för länder/regioner och deras indelningar.
 
 <a name="transaction"></a>**Transaktion**: Azure Maps använder en transaktionell licensierings modell där;
 
 - En transaktion skapas för varje 15 mappnings-eller trafik paneler som begärs.
-- En transaktion skapas för varje API-anrop till en av tjänsterna i Azure Maps, till exempel search eller routing.
+- En transaktion skapas för varje API-anrop till en av tjänsterna i Azure Maps. Sökning och routning är exempel på Azure Maps-tjänst.
 
 <a name="transformation"></a>**Transformering**: processen att konvertera data mellan olika geografiska koordinatsystem. Du kan till exempel ha vissa data som fångats i Storbritannien och som baseras på OSGB 1936-geografiska koordinatsystemet. Azure Maps använder varianten [EPSG: 3857](https://epsg.io/3857) koordinat Reference system för WGS84. För att data ska kunna visas korrekt måste dess koordinater omvandlas från ett system till ett annat.
 
 <a name="traveling-salesmen-problem-tsp"></a>**TSP (Travel Sales-problem)** : ett Hamiltonian-krets problem där en säljare måste hitta det mest effektiva sättet att besöka en serie stoppas och sedan återgå till Start platsen.  
 
-<a name="trilateration"></a>**Trilateration**: processen för att fastställa positionen för en punkt på jordens yta med avseende på två andra punkter genom att mäta avstånden mellan alla tre punkterna.
+<a name="trilateration"></a>**Trilateration**: processen för att fastställa positionen för en punkt på jordens yta, med avseende på två andra punkter, genom att mäta avstånden mellan alla tre punkterna.
 
 <a name="turn-by-turn-navigation"></a>**Slå-vid-Stäng navigering**: ett program som innehåller väg instruktioner för varje steg i en väg när användarna närmar sig nästa manövrar.
 
@@ -386,19 +386,19 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="vector-tile"></a>**Vektor panel**: en öppen data specifikation för att lagra geospatiala vektor data med samma panel system som kart kontrollen. Se även [panel lager](#tile-layer).
 
-<a name="vehicle-routing-problem-vrp"></a>**Problem med VRP (vehikel)** : en klass av problem där en uppsättning beställda vägar för en flotta av fordon beräknas och beaktas som en uppsättning begränsningar. Dessa begränsningar kan omfatta saker som leverans tid i Windows, flera väg kapaciteter och rese varaktighets begränsningar.
+<a name="vehicle-routing-problem-vrp"></a>**Problem med VRP (vehikel)** : en klass av problem där en uppsättning beställda vägar för en flotta av fordon beräknas och beaktas som en uppsättning begränsningar. Dessa begränsningar kan omfatta leverans tid i Windows, flera väg kapaciteter och rese varaktighets begränsningar.
 
-<a name="voronoi-diagram"></a>**Voronoi-diagram**: en partition av utrymme i områden, eller celler, som omger en uppsättning geometriska objekt (vanligt vis punkt funktioner). Dessa celler, eller polygoner, måste uppfylla kriterierna för Delaunay-trianglar. Alla platser inom ett områden är närmare objektet det omger än med andra objekt i uppsättningen. Voronoi-diagram används ofta för att avgränsa områden som påverkar geografiska funktioner. 
+<a name="voronoi-diagram"></a>**Voronoi-diagram**: en partition av utrymme i områden, eller celler, som omger en uppsättning geometriska objekt, vanligt vis punkt funktioner. Dessa celler, eller polygoner, måste uppfylla kriterierna för Delaunay-trianglar. Alla platser inom ett områden är närmare objektet det omger än med andra objekt i uppsättningen. Voronoi-diagram används ofta för att avgränsa områden som påverkar geografiska funktioner. 
 
-## <a name="w"></a>W
+## <a name="w"></a>A
 
 <a name="waypoint"></a>**Waypoint**: en waypoint är en specificerad geografisk plats som definieras av longitud och latitud som används i navigerings syfte. Används ofta för att representera en punkt där någon navigerar en väg genom.
 
-<a name="waypoint-optimization"></a>**Optimering av waypoint**: processen för att ordna om en uppsättning waypoints för att minimera res tiden eller avståndet som krävs för att släppa igenom alla angivna waypoints. Kallas ofta för problem med [rese försäljning](#traveling-salesmen-problem-tsp) eller [fordons routning](#vehicle-routing-problem-vrp) , beroende på Optimeringens komplexitet.
+<a name="waypoint-optimization"></a>**Optimering av waypoint**: processen för att ordna om en uppsättning waypoints för att minimera res tiden eller avståndet som krävs för att släppa igenom alla angivna waypoints. Beroende på Optimeringens komplexitet kallas den här optimeringen ofta för [problem med rese försäljning](#traveling-salesmen-problem-tsp) eller [fordons routning](#vehicle-routing-problem-vrp).
 
 <a name="web-map-service-wms"></a>**Webb kart tjänst (WMS)** : WMS är en öppen geografisk konsortium (OGC) som definierar avbildnings kart tjänster. WMS-tjänster tillhandahåller kart avbildningar för olika områden i en karta på begäran. Bilderna innehåller förrenderade Symbology och kan återges i ett av flera namngivna format om det definieras av tjänsten.
 
-<a name="web-mercator"></a>**Web Mercator**: även kallat sfärisk Mercator-projektion är en liten variant av Mercator-projektion, som används främst i webbaserade mappnings program. Den använder samma formler som standard-Mercator projektion som används för små skalnings kartor. Webb-Mercator använder dock de sfäriska formlerna i alla skalor, medan storskaliga Mercator-kartor använder vanligt vis Ellipsoidal form för projektionen. Avvikelsen är imperceptible i global skala, men gör att Maps av lokala områden skiljer sig något från sanna Ellipsoidal Mercator-kartor på samma skala.
+<a name="web-mercator"></a>**Webb Mercator**: kallas även för sfäriska Mercator-projektioner. Det är en liten variant av Mercator-projektion, som används främst i webbaserade mappnings program. Den använder samma formler som standard-Mercator projektion som används för små skalnings kartor. Webb-Mercator använder dock de sfärisk formlerna i alla skalor, men storskaliga Mercator Maps använder vanligt vis Ellipsoidal form för projektionen. Avvikelsen är imperceptible i global skala, men det gör att Maps av lokala områden skiljer sig något från sanna Ellipsoidal Mercator-kartor, på samma skala.
 
 <a name="wgs84"></a>**WGS84**: en uppsättning konstanter som används för att relatera spatiala koordinater till platser på kartans yta. WGS84-datum är den standard som används av de flesta online mappnings leverantörer och GPS-enheter. Azure Maps använder varianten [EPSG: 3857](https://epsg.io/3857) koordinat Reference system för WGS84.
 
@@ -408,5 +408,5 @@ Följande är en lista med vanliga ord som används med Azure Maps.
 
 <a name="zip-code"></a>**Post**nummer: se [post nummer](#postal-code).
 
-<a name="Zoom level"></a>**Zoomnings nivå**: anger detalj nivån och hur mycket av kartan som är synlig. När du zoomar ut allt på nivå 0, kommer hela världs kartan ofta att visas, men visar begränsad information, till exempel namn och gränser för land/region samt namn på havs. När du zoomar in närmare på nivå 17, visar kartan ett område med några stads block med detaljerad väg information. Mer information finns i dokumentationen för [zoomnings nivåer och Brick rutnät](zoom-levels-and-tile-grid.md) .
+<a name="Zoom level"></a>**Zoomnings nivå**: anger detalj nivån och hur mycket av kartan som är synlig. När du zoomar in hela vägen till nivå 0, är hela världs kartan ofta synlig. Men kartan visar begränsad information, till exempel namn, gränser och havs namn för land/region. När du zoomar in närmare på nivå 17, visar kartan ett område med några stads block med detaljerad väg information. I Azure Maps är den högsta zoomnings nivån 22. Mer information finns i dokumentationen för [zoomnings nivåer och Brick rutnät](zoom-levels-and-tile-grid.md) .
 

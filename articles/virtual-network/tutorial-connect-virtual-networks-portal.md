@@ -1,5 +1,5 @@
 ---
-title: Koppla samman virtuella nätverk med peerkoppling - självstudie - Azure Portal | Microsoft Docs
+title: Ansluta virtuella nätverk med VNet-peering – självstudier – Azure Portal
 description: I den här självstudien får du lära dig hur du kopplar samman virtuella nätverk med peerkoppling, med hjälp av Azure Portal.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,16 +13,16 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 65749182bf93e84c8712409cd16bd3a60184c7ca
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016059"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201306"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
-Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig hur man:
+Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa två virtuella nätverk
@@ -34,7 +34,7 @@ Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-conn
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="log-in-to-azure"></a>Logga in på Azure 
+## <a name="log-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
@@ -47,7 +47,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Inställning|Värde|
     |---|---|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och skriv *myResourceGroup*.|
+    |Resursgrupp| Välj **Skapa ny** och ange *myResourceGroup*.|
     |Region| Välj **USA, östra**.|
     |Namn|myVirtualNetwork1|
 
@@ -62,7 +62,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Adressutrymme|10.1.0.0/16|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
     |Namn på undernät | Subnet2|
-    |Undernätsadressintervall|10.1.0.0/24|
+    |Adressintervall för undernät|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Peerkoppla virtuella nätverk
 
@@ -102,7 +102,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
     |---|---|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
     |Namn|myVm1|
-    |Location| Välj **USA, östra**.|
+    |plats.| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
@@ -136,7 +136,7 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
 
     ![Ansluta till den virtuella datorn](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
-3. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
+3. Öppna den nedladdade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
 4. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
 6. I ett senare steg används ping för att kommunicera med den virtuella datorn *myVm2* från den virtuella datorn *myVm1*. Ping använder som standard ICMP (Internet Control Message Protocol), som nekas via Windows-brandväggen. På den virtuella datorn *myVm1* aktiverar du ICMP via Windows-brandväggen, så att du kan pinga den här virtuella datorn från *myVm2* i ett senare steg, med hjälp av PowerShell:
@@ -163,9 +163,9 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller: 
+Ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs: 
 
-1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
 3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 

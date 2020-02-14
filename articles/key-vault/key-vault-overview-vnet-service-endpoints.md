@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: d8461cb2d98ec8fe914c2cc878e9002d132c9995
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b9c458b42f7436377d41cf5095d404dedbe0ffd1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845817"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191615"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänst slut punkter för virtuella nätverk för Azure Key Vault
 
@@ -21,7 +21,7 @@ Med tjänst slut punkter för virtuella nätverk för Azure Key Vault kan du beg
 
 Det finns ett viktigt undantag för den här begränsningen. Om en användare har valt att tillåta betrodda Microsoft-tjänster, kan anslutningar från dessa tjänster göra genom brand väggen. Dessa tjänster omfattar till exempel Office 365 Exchange Online, Office 365 SharePoint Online, Azure Compute, Azure Resource Manager och Azure Backup. Sådana användare måste ändå presentera en giltig Azure Active Directory-token och måste ha behörigheter (konfigurerade som åtkomst principer) för att utföra den begärda åtgärden. Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="usage-scenarios"></a>Användningsscenarier
+## <a name="usage-scenarios"></a>Användnings scenarier
 
 Du kan konfigurera [Key Vault brand väggar och virtuella nätverk](key-vault-network-security.md) för att neka åtkomst till trafik från alla nätverk (inklusive Internet trafik) som standard. Du kan bevilja åtkomst till trafik från specifika virtuella Azure-nätverk och offentliga Internet IP-adressintervall, så att du kan bygga en säker nätverks gränser för dina program.
 
@@ -66,12 +66,12 @@ Här är en lista över betrodda tjänster som har behörighet att komma åt ett
 |Azure Resource Manager mall distributions tjänst|[Skicka säkra värden under distributionen](../azure-resource-manager/templates/key-vault-parameter.md).|
 |Azure Disk Encryption volym krypterings tjänst|Tillåt åtkomst till BitLocker Key (Windows VM) eller DM-lösen fras (Linux VM) och nyckel krypterings nyckel under distributionen av virtuella datorer. Detta gör att [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).|
 |Azure Backup|Tillåt säkerhets kopiering och återställning av relevanta nycklar och hemligheter under Azure Virtual Machines säkerhets kopiering med [Azure Backup](../backup/backup-introduction-to-azure-backup.md).|
-|Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online & SharePoint Online|Tillåt åtkomst till kund nyckel för Azure Storage tjänst kryptering med [kund nyckel](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Tillåt åtkomst till klient nyckeln för [Azure information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|Azure Apptjänst|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
+|Azure App Service|[Distribuera Azure Web App-certifikat via Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Azure SQL Database|[Transparent datakryptering med Bring Your Own Key stöd för Azure SQL Database och informations lager](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
-|Azure-datasjölagring|[Kryptering av data i Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
+|Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
 |Azure Databricks|[Snabb, enkel och gemensam Apache Spark-baserad analys tjänst](../azure-databricks/what-is-azure-databricks.md)|
 |Azure API Management|[Distribuera certifikat för anpassad domän från Key Vault med MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 |Azure Data Factory|[Hämta autentiseringsuppgifter för data lager i Key Vault från Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|

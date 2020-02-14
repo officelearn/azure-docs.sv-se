@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 17c7949f2bbd6d75343bb2e6825be36b56a20967
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695338"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185833"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET
 
@@ -25,7 +25,7 @@ Du har använt Azure Active Directory Authentication Library för .NET (ADAL.NET
 
 Var ska du börja? Den här artikeln hjälper dig att migrera din Xamarin iOS-app från ADAL till MSAL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du redan har en Xamarin iOS-app som är integrerad med iOS-Broker. Om du inte gör det går du direkt till MSAL.NET och påbörjar Broker-implementering där. Information om hur du anropar iOS-Broker i MSAL.NET med ett nytt program finns i [den här dokumentationen](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
 ## <a name="background"></a>Bakgrund
@@ -37,7 +37,7 @@ Mäklare är program som tillhandahålls av Microsoft på Android och iOS. (Se [
 De aktiverar:
 
 - Enkel inloggning.
-- Enhets identifiering, vilket krävs av vissa [principer för villkorlig åtkomst](../conditional-access/overview.md). Mer information finns i [enhets hantering](../conditional-access/conditions.md#device-platforms).
+- Enhets identifiering, vilket krävs av vissa [principer för villkorlig åtkomst](../conditional-access/overview.md). Mer information finns i [enhets hantering](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
 - Verifiering av program identifiering, som också krävs i vissa företags scenarier. Mer information finns i [Intunes hantering av mobil program (MAM)](https://docs.microsoft.com/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrera från ADAL till MSAL
@@ -118,7 +118,7 @@ I MSAL.NET gör du två saker för att ange objekt fönstret för iOS:
 1. I `AppDelegate.cs`anger `App.RootViewController` till en ny `UIViewController()`. Den här tilldelningen säkerställer att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. Använd `.WithParentActivityOrWindow(App.RootViewController)`på AcquireTokenInteractive-anropet och skicka i referensen till objekt fönstret som du använder.
 
-**Till exempel:**
+**Exempel:**
 
 Följande gäller i `App.cs`:
 ```csharp
@@ -151,7 +151,7 @@ ADAL.NET och MSAL.NET använder URL: er för att anropa Broker och returnera Ser
 <tr><td>
 URL-schemat är unikt för din app.
 </td><td>
-Filtypen 
+Det går inte att ta bort 
 
 `CFBundleURLSchemes` namn måste innehålla 
 
@@ -189,7 +189,7 @@ ADAL.NET och MSAL.NET använder båda `-canOpenURL:` för att kontrol lera om Se
 <table>
 <tr><td>Aktuell ADAL-kod:</td><td>MSAL motsvarighet:</td></tr>
 <tr><td>
-Användningsområden 
+Används 
 
 `msauth`
 
@@ -201,7 +201,7 @@ Användningsområden
 </array>
 ```
 </td><td>
-Användningsområden 
+Används 
 
 `msauthv2`
 

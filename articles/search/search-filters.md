@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f4ce3cd0db20f76aa6169f15254cf36ee64151a5
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406751"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191007"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
@@ -51,7 +51,7 @@ Om du vill ha en begränsad inverkan i dina Sök resultat kan du inte välja fil
 
 + `$select` parameter används för att ange vilka fält som ska ingå i en resultat uppsättning, vilket effektivt rensar svaret innan det skickas till det anropande programmet. Den här parametern kan inte förfina frågan eller minska dokument samlingen, men om ett mindre svar är ditt mål är den här parametern ett alternativ att tänka på. 
 
-Mer information om någon av parametrarna finns i [Sök efter dokument > begäran > frågeparametrar](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+Mer information om någon av parametrarna finns i [Sök efter dokument > begäran > frågeparametrar](/rest/api/searchservice/search-documents#query-parameters).
 
 
 ## <a name="how-filters-are-executed"></a>Hur filter körs
@@ -197,8 +197,8 @@ Mer information om hur du arbetar med fler exempel finns i [syntax för OData fi
 
 ## <a name="see-also"></a>Se även
 
-+ [Hur full texts ökning fungerar i Azure Kognitiv sökning](search-lucene-query-architecture.md)
-+ [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
++ [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)

@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 02/12/2020
+ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177379"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198879"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimera Apache Spark jobb i HDInsight
 
-Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning på grund av felaktiga konfigurationer (särskilt fel storleks körningar), långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
+Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning på grund av felaktiga konfigurationer (särskilt fel storleks körningar), långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb. Information om att komma igång med Apache Spark i HDInsight finns i [skapa Apache Spark kluster med hjälp av Azure Portal](apache-spark-jupyter-spark-sql-use-portal.md).
 
 I följande avsnitt beskrivs vanliga Spark-jobb optimeringar och rekommendationer.
 
@@ -57,13 +57,15 @@ Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vi
 
 När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azure Data Lake Storage som kluster standard lagring. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster, så dina data tas inte bort automatiskt när du tar bort klustret. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
 
-| Lagrings typ | Filsystem | Hastighet | Tillfälliga | Användningsfall |
+| Lagrings typ | Filsystem | Hastighet | Tillfälliga | Användnings fall |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:** //URL/ | **Standard** | Ja | Tillfälligt kluster |
 | Azure Blob Storage (säker) | **wasbs:** //URL/ | **Standard** | Ja | Tillfälligt kluster |
-| Azure Data Lake Storage gen 2| **ABFS:** //URL/ | **Tid** | Ja | Tillfälligt kluster |
-| Azure Data Lake Storage Gen1| **ADL:** //URL/ | **Tid** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage Gen 2| **ABFS:** //URL/ | **Tid** | Ja | Tillfälligt kluster |
+| Azure Data Lake Storage gen 1| **ADL:** //URL/ | **Tid** | Ja | Tillfälligt kluster |
 | Lokal HDFS | **HDFS:** //URL/ | **Snabbaste** | Nej | Interaktivt 24/7-kluster |
+
+En fullständig beskrivning av de lagrings alternativ som är tillgängliga för HDInsight-kluster finns i [Jämför lagrings alternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).
 
 ## <a name="use-the-cache"></a>Använd cachen
 
@@ -74,7 +76,7 @@ Spark tillhandahåller egna inbyggda funktioner för cachelagring, som kan anvä
     * Fungerar inte med partitionering, vilket kan ändras i framtida Spark-versioner.
 
 * Cachelagring på lagrings nivå (rekommenderas)
-    * Kan implementeras med hjälp av [Alluxio](https://www.alluxio.io/).
+    * Kan implementeras i HDInsight med hjälp av funktionen för [IO-cache](apache-spark-improve-performance-iocache.md) .
     * Använder minnes-och SSD-cachelagring.
 
 * Lokal HDFS (rekommenderas)
@@ -106,6 +108,8 @@ Prova följande om du vill ta bort meddelanden om slut på minne:
 * Föredra `TreeReduce`, vilket ger mer arbete på de exekverare eller partitioner som ska `Reduce`, vilket innebär att allt fungerar på driv rutinen.
 * Utnyttja DataFrames i stället för RDD-objekt på lägre nivå.
 * Skapa ComplexTypes som kapslar in åtgärder, till exempel "Top N", olika agg regeringar eller fönster åtgärder.
+
+Ytterligare fel söknings steg finns i [OutOfMemoryError-undantag för Apache Spark i Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
 ## <a name="optimize-data-serialization"></a>Optimera Dataserialisering
 
@@ -193,7 +197,11 @@ Tänk på följande när du kör samtidiga frågor:
 3. Distribuera frågor över parallella program.
 4. Ändra storlek baserat på både vid utvärderings körning och på föregående faktorer, till exempel GC-overhead.
 
-Övervaka dina frågeresultat för avvikande eller andra prestanda problem genom att titta på vyn tids linje, SQL graf, jobb statistik och så vidare. Ibland är ett eller flera av körningarna långsammare än de andra, och uppgifter tar mycket längre tid att köra. Detta händer ofta i större kluster (> 30 noder). I det här fallet delar du in arbetet i ett större antal aktiviteter så att Scheduler kan kompensera för långsamma aktiviteter. Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true`.
+Mer information om hur du använder Ambari för att konfigurera körningar finns i [Apache Spark inställningar-Spark-körningar](apache-spark-settings.md#configuring-spark-executors).
+
+Övervaka dina frågeresultat för avvikande eller andra prestanda problem genom att titta på vyn tids linje, SQL graf, jobb statistik och så vidare. Information om hur du felsöker Spark-jobb med hjälp av garn och Spark historik Server finns i avsnittet om [fel sökning Apache Spark jobb som körs på Azure HDInsight](apache-spark-job-debugging.md). Tips om hur du använder garn tids linje server finns i [Access Apache HADOOP garn program loggar](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+Ibland är ett eller flera av körningarna långsammare än de andra, och uppgifter tar mycket längre tid att köra. Detta händer ofta i större kluster (> 30 noder). I det här fallet delar du in arbetet i ett större antal aktiviteter så att Scheduler kan kompensera för långsamma aktiviteter. Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true`.
 
 ## <a name="optimize-job-execution"></a>Optimera jobb körningen
 

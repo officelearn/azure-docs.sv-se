@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 59670742586f596a817ad52383160a38358a6786
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: fda65e900b7faf0ff77d533e8dbfd2e7369ad602
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911389"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198147"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Ge data feedback till Azure Maps
 
-Azure Maps har vanligt vis varit tillgängligt sedan den 2018 maj, vilket ger nya kart data, lättanvända REST API: er och kraftfulla SDK: er som stöd för våra företags kunder på ett antal olika företags användnings fall. Den verkliga världen ändras varje sekund och det är viktigt att vi tillhandahåller en riktig digital representation av våra kunder. Våra kunder som planerar att öppna eller stänga anläggningar måste se till att våra kartor uppdateras så att de kan planera för leverans-, underhålls-eller kund tjänster på rätt sätt. Vi har skapat webbplatsen för Azure Maps data feedback för att hjälpa våra kunder att tillhandahålla direkt data feedback. Kundernas data feedback skickas direkt till våra data leverantörer och deras kart redigerare som snabbt kan utvärdera och införliva feedback i våra mappnings produkter.  
+Azure Maps har varit tillgängligt sedan maj 2018. Azure Maps har fått nya kart data, lättanvända REST API: er och kraftfulla SDK: er som stöder våra företags kunder med olika typer av affärs användnings fall. Den verkliga världen ändras varje sekund och det är viktigt att vi tillhandahåller en riktig digital representation av våra kunder. Våra kunder som planerar att öppna eller stänga anläggningar behöver våra kartor för att snabbt kunna uppdatera dem. Därför kan de effektivt planera för leverans-, underhålls-eller kund tjänster på rätt sätt. Vi har skapat webbplatsen för Azure Maps data feedback för att hjälpa våra kunder att tillhandahålla direkt data feedback. Kundernas data feedback skickas direkt till våra data leverantörer och deras kart redigerare. De kan snabbt utvärdera och införliva feedback i våra mappnings produkter.  
 
 [Azure Maps data feedback-webbplatsen](https://feedback.azuremaps.com) är ett enkelt sätt för våra kunder att tillhandahålla feedback från kart data, särskilt i affärs punkter av intresse-och bostads adresser. Den här artikeln vägleder dig hur du ger olika typer av feedback på webbplatsen för Azure Maps feedback.
 
 ## <a name="add-a-business-place-or-a-residential-address"></a>Lägg till en företags plats eller en bostads adress 
 
-Du kanske vill ge feedback för en saknad orienterings punkt eller bostads adress på kartan. Det finns två sätt att göra detta på. öppna webbplatsen för Azure Map-data feedback och Sök efter den saknade platsens koordinater och klicka på Lägg till en plats
+Du kanske vill ge feedback om en intresse rad som saknas eller en bostads adress. Det finns två sätt att göra detta på. Öppna webbplatsen för Azure Map data feedback, Sök efter den saknade platsens koordinater och klicka sedan på Lägg till en plats
 
   ![Sök efter saknad plats](./media/how-to-use-feedback-tool/search-poi.png)
 
-Eller så kan du interagera med kartan och klicka på platsen för att släppa en PIN-kod på koordinaten och klicka på Lägg till en plats. 
+Eller så kan du interagera med kartan. Klicka på platsen för att släppa en PIN-kod på koordinaten och klicka på Lägg till en plats.
 
   ![Lägg till PIN-kod](./media/how-to-use-feedback-tool/add-poi.png)
 
@@ -38,23 +38,23 @@ När du klickar på dirigeras du till ett formulär för att ange motsvarande in
 
 ## <a name="fix-a-business-place-or-a-residential-address"></a>Åtgärda en affärs plats eller en bostads adress 
 
-På feedback-webbplatsen kan du också söka efter och hitta en affärs plats eller en adress och ge feedback för att åtgärda adressen eller PIN-koden, om den inte är korrekt. Om du vill ge feedback för att åtgärda adressen använder du Sök fältet för att söka efter en företags plats eller en lokal adress. Klicka på platsen för ditt intresse i listan resultat och klicka på "åtgärda det här stället".
+På feedback-webbplatsen kan du också söka efter och hitta en affärs plats eller en adress. Du kan ge feedback för att åtgärda adressen eller PIN-platsen om de inte är korrekta. Om du vill ge feedback för att åtgärda adressen använder du Sök fältet för att söka efter en företags plats eller en lokal adress. Klicka på platsen för ditt intresse från resultat listan. Klicka på "åtgärda den här platsen".
 
   ![Sök plats för att åtgärda](./media/how-to-use-feedback-tool/fix-place.png)
 
-Om du vill ge feedback om att åtgärda adressen, fyller du i formuläret "korrigera en plats" och klickar på knappen Skicka.
+Om du vill ge feedback för att åtgärda adressen, fyller du i formuläret "korrigera en plats" och klickar sedan på knappen Skicka.
 
   ![korrigera formulär](./media/how-to-use-feedback-tool/fix-form.png)
 
-Om PIN-koden för PIN-koden är fel markerar du kryss rutan på sidan "korrigera en plats" som säger "PIN-platsen är felaktig" och flyttar PIN-koden till rätt plats och klickar sedan på knappen Skicka.
+Om PIN-koden för PIN-koden är fel markerar du kryss rutan på "korrigera en plats"-form som säger "PIN-platsen är felaktig". Flytta PIN-koden till rätt plats och klicka sedan på knappen Skicka.
 
   ![flytta PIN-plats](./media/how-to-use-feedback-tool/move-pin.png)
 
 ## <a name="add-a-comment"></a>Lägg till en kommentar 
 
-Förutom att du kan söka efter en plats kan du med hjälp av feedback-verktyget lägga till en fritext kommentar för information som är relaterad till platsen. Om du vill lägga till en kommentars ökning för platsen eller klickar du på platsen och klickar på Lägg till en kommentar, skriver en kommentar och klickar sedan på Skicka. 
+Förutom att du kan söka efter en plats kan du också med hjälp av feedback-verktyget lägga till en fritext kommentar för information som är relaterad till platsen. Om du vill lägga till en kommentar söker du efter platsen eller klickar på platsen. Klicka på Lägg till en kommentar, Skriv en kommentar och klicka sedan på Skicka.
 
-  ![lägg till kommentar](./media/how-to-use-feedback-tool/add-comment.png)
+  ![Lägg till kommentar](./media/how-to-use-feedback-tool/add-comment.png)
 
 ## <a name="track-status"></a>Spåra status 
 

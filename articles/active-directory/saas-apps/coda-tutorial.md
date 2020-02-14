@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f015b1568098b506abc847608a1fca91ef72b6e9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 74da278dbbc0ac32407c345524e224ca5f7616da
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761226"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194756"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CODA
 
@@ -32,12 +32,12 @@ I den här självstudien får du lära dig hur du integrerar CODA med Azure Acti
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Aktive rad prenumeration för enkel inloggning (SSO) för CODA.
+* CODA-aktiverad (Single Sign-on)-prenumeration (Enterprise) med GDrive-integrering inaktive rad. Kontakta [CODA support team](mailto:support@coda.io) för att inaktivera GDrive-integrering för din organisation om den är aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -67,12 +67,33 @@ Konfigurera och testa Azure AD SSO med CODA med en test användare som heter **B
 
 Om du vill konfigurera och testa Azure AD SSO med CODA slutför du följande Bygg stenar:
 
+1. **[Börja konfigurera CODA SSO](#begin-configuration-of-coda-sso)** -för att börja konfigurera SSO i CODA.
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera CODA SSO](#configure-coda-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa CODA-testanvändare](#create-coda-test-user)** – om du vill ha en motsvarighet till B. Simon i CODA som är länkat till Azure AD-representation av användare.
+   * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+   * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera CODA SSO](#configure-coda-sso)** – för att slutföra konfigurationen av inställningar för enkel inloggning i CODA.
+   * **[Skapa CODA-testanvändare](#create-coda-test-user)** – om du vill ha en motsvarighet till B. Simon i CODA som är länkat till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+
+## <a name="begin-configuration-of-coda-sso"></a>Börja konfigurera CODA SSO
+
+Följ de här stegen i CODA för att börja.
+
+1. I CODA öppnar du panelen **organisations inställningar** .
+
+   ![Öppna organisations inställningar](media/coda-tutorial/org-settings.png)
+
+1. Se till att din organisation har inaktiverat GDrive-integrering. Om den är aktive rad kan du kontakta [CODA support-teamet](mailto:support@coda.io) för att hjälpa dig att migrera GDrive.
+
+   ![GDrive inaktiverat](media/coda-tutorial/gdrive-off.png)
+
+1. Under **autentisera med enkel inloggning (SAML)** väljer du alternativet **Konfigurera SAML** .
+
+   ![SAML-inställningar](media/coda-tutorial/saml-settings-link.png)
+
+1. Observera värdena för **entitets-ID** och **URL för SAML-svar**, som du behöver i efterföljande steg.
+
+   ![Entitets-ID och SAML-svars-URL som ska användas i Azure](media/coda-tutorial/azure-settings.png)
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
@@ -86,20 +107,20 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://coda.io/samlId/<CUSTOMID>`
+   a. I text rutan **identifierare** anger du "ENTITETS-ID" ovan. Det ska följa mönstret: `https://coda.io/samlId/<CUSTOMID>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://coda.io/samlId/<CUSTOMID>/consume`
+   b. I text rutan **svars-URL** anger du URL för SAML-svar från ovan. Det ska följa mönstret: `https://coda.io/login/sso/saml/<CUSTOMID>/consume`
 
-    > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [CODA-klientens support team](mailto:support@coda.io) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+   > [!NOTE]
+   > Värdena skiljer sig från ovanstående. Du kan hitta värdena i CODA-konsolen "Configure SAML". Uppdatera dessa värden med den faktiska identifieraren och svars-URL.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
+   ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 1. I avsnittet **Konfigurera CODA** kopierar du lämpliga URL: er baserat på ditt krav.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -108,7 +129,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
 1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I **Namn**-fältet skriver du `B.Simon`.
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
@@ -125,7 +146,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+   ![Länken Lägg till användare](common/add-assign-user.png)
 
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
@@ -133,17 +154,27 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-coda-sso"></a>Konfigurera CODA SSO
 
-Om du vill konfigurera enkel inloggning på **CODA** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [CODA support team](mailto:support@coda.io). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Slutför installationen genom att ange värden från Azure Active Directory i CODA- **konfigurationen för SAML** .
+
+1. I CODA öppnar du panelen **organisations inställningar** .
+1. Under **autentisera med enkel inloggning (SAML)** väljer du alternativet **Konfigurera SAML** .
+1. Ange att **SAML-providern** ska **Azure Active Directory**.
+1. I **inloggnings-URL för identitets leverantör**klistrar du in **inloggnings-URL:** en från Azure-konsolen.
+1. I **identitets leverantörens utfärdare**klistrar du in **Azure AD-identifieraren** från Azure-konsolen.
+1. I **offentligt certifikat för identitetsprovider**väljer du alternativet **överför certifikat** och väljer den certifikat fil som du laddade ned tidigare.
+1. Välj **Spara**.
+
+Detta slutför det arbete som krävs för installationen av SAML SSO-anslutningen.
 
 ### <a name="create-coda-test-user"></a>Skapa CODA-test användare
 
 I det här avsnittet skapas en användare som kallas Britta Simon i CODA. CODA stöder just-in-Time-etablering av användare, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i CODA skapas en ny efter autentiseringen.
 
-## <a name="test-sso"></a>Testa SSO 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på CODA-panelen i åtkomst panelen, bör du loggas in automatiskt på det CODA som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på CODA-panelen i åtkomst panelen, bör du loggas in automatiskt på det CODA som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

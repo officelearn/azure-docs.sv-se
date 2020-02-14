@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1a8832234978a2c8b2db25d88b5dd6c211b634b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381123"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186460"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv godkända klient program för Cloud app-åtkomst med villkorlig åtkomst 
 
@@ -36,7 +36,7 @@ I terminologin för villkorlig åtkomst kallas dessa klient appar **godkända kl
 
 ![Villkorlig åtkomst](./media/app-based-conditional-access/05.png)
 
-En lista över godkända klient program finns i [godkända klient program krav](technical-reference.md#approved-client-app-requirement).
+En lista över godkända klient program finns i [godkända klient program krav](concept-conditional-access-grant.md).
 
 Du kan kombinera app-baserade villkorliga åtkomst principer med andra principer, till exempel [enhets principer för villkorlig åtkomst](require-managed-devices.md) för att ge flexibilitet i hur du skyddar data för både personliga och företags enheter.
 
@@ -44,12 +44,12 @@ Du kan kombinera app-baserade villkorliga åtkomst principer med andra principer
 
 Det här avsnittet förutsätter att du är bekant med:
 
-- Den tekniska referensen för [godkända klient program krav](technical-reference.md#approved-client-app-requirement) .
+- [Godkänt klient program krav](concept-conditional-access-grant.md).
 - Grundläggande begrepp för [villkorlig åtkomst i Azure Active Directory](overview.md).
 - Så här [konfigurerar du en princip för villkorlig åtkomst](app-based-mfa.md).
 - [Migreringen av principer för villkorlig åtkomst](best-practices.md#policy-migration).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en app-baserad villkorlig åtkomst princip måste du ha en Enterprise Mobility + Security eller en Azure Active Directory Premium-prenumeration och användarna måste ha licens för EMS eller Azure AD. 
 
@@ -139,7 +139,7 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. **Namnet** på den villkorliga åtkomst principen.
 1. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en vald användare eller grupp.
-1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**. Online 
+1. **Molnappar:** Som molnappar måste du välja **Office 365 Exchange Online**. Onlinemallar 
 1. **Villkor:** Som **villkor**måste du konfigurera- **klient program**:
    1. Som **klient program (för hands version)** väljer du **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
    1. Som **åtkomst kontroller**måste du ha valt **Kräv godkänd klient app (för hands version)** .

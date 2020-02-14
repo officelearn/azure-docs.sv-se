@@ -8,19 +8,19 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790686"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191387"
 ---
-# <a name="secure-b2b-messages-with-certificates"></a>Skydda B2B-meddelanden med certifikat
+# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Förbättra säkerheten för B2B-meddelanden med hjälp av certifikat
 
-När du behöver hålla B2B-kommunikation konfidentiellt kan du skydda B2B-kommunikationen för dina företags integrerings program, särskilt Logic Apps, genom att lägga till certifikat till ditt integrations konto. Certifikat är digitala dokument som kontrollerar identiteter för deltagarna i elektronisk kommunikation och hjälper dig att säkra kommunikationen på följande sätt:
+När du behöver hålla B2B-kommunikation konfidentiellt kan du öka säkerheten för B2B-kommunikation i dina företags integrerings program, särskilt Logic Apps, genom att lägga till certifikat till ditt integrations konto. Certifikat är digitala dokument som kontrollerar identiteter för deltagarna i elektronisk kommunikation och hjälper dig att säkra kommunikationen på följande sätt:
 
 * Kryptera meddelande innehåll.
-* Signera meddelanden digitalt. 
+* Signera meddelanden digitalt.
 
 Du kan använda dessa certifikat i dina företags integrerings appar:
 
@@ -47,7 +47,7 @@ Om du vill använda ett *offentligt certifikat* i Logi Kap par som har B2B-funkt
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------|
    | **Namn** | <*certifikat namn*> | Certifikatets namn, som är "publicCert" i det här exemplet | 
-   | **Certifikat typ** | Offentligt | Ditt certifikats typ |
+   | **Certifikat typ** | Offentlig | Ditt certifikats typ |
    | **Certifikat** | <*certifikat-fil namn*> | Om du vill söka efter och välja den certifikat fil som du vill överföra väljer du mappikonen bredvid rutan **certifikat** . |
    ||||
 

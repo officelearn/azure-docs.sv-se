@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c43e3386886456eed0c58fefd0fb1212795db66c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480169"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185479"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
 
@@ -33,7 +33,7 @@ Detta påstående verifierar formatet för telefonnumret. Om det är i ett gilti
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | sträng | Anspråket för sträng typ som ska konverteras från. |
-| OutputClaim | outputClaim | sträng | Resultatet av denna omvandling av anspråk. |
+| OutputClaim | outputClaim | phoneNumber | Resultatet av denna omvandling av anspråk. |
 
 Omvandlingen av **ConvertStringToPhoneNumberClaim** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) eller [visnings kontroll](display-controls.md). **UserMessageIfClaimsTransformationInvalidPhoneNumber** -metadata för självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
 
@@ -77,7 +77,7 @@ Detta extraherar lands koden och det nationella numret från det inskickade ansp
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | sträng | Telefonnumrets sträng anspråk. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och landskod. |
-| InputParameter | throwExceptionOnFailure | boolean | Valfritt En parameter som anger om ett undantag genereras när telefonnumret är ogiltigt. Standardvärdet är false. |
+| InputParameter | throwExceptionOnFailure | boolesk | Valfritt En parameter som anger om ett undantag genereras när telefonnumret är ogiltigt. Standardvärdet är false. |
 | InputParameter | countryCodeType | sträng | Valfritt En parameter som anger typen av landskod i utgående anspråk. Tillgängliga värden är **CallingCode** (den internationella anrops koden för ett land, t. ex. + 1) eller **ISO3166** (ISO-3166-landkoden med två bokstäver). |
 | OutputClaim | nationalNumber | sträng | Sträng anspråket för det nationella numret för telefonnumret. |
 | OutputClaim | countryCode | sträng | Sträng anspråket för telefonnumrets landskod. |

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9f00bebfbab7b3726930e212893ae9dd2f5c17c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835801"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193485"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -121,7 +121,7 @@ Namnet på anspråket är namnet på Azure AD-attributet om inte attributet **Pa
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD Technical Provider-åtgärder
 
-### <a name="read"></a>Läsa
+### <a name="read"></a>Läs
 
 **Läs** åtgärden läser data om ett enda användar konto. Om du vill läsa användar data måste du ange en nyckel som ett indata-anspråk, till exempel **ObjectID**, **userPrincipalName**, **signInNames** (alla typer, användar namn och e-postbaserat konto) eller **alternativeSecurityId**.
 
@@ -253,15 +253,16 @@ Följande tekniska profil tar bort ett socialt användar konto med **alternative
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`eller `DeleteClaimsPrincipal`. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Inga | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |
-| UserMessageIfClaimsPrincipalDoesNotExist | Inga | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. Värdet kan [lokaliseras](localization.md).|
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Inga | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false`.|
-| UserMessageIfClaimsPrincipalAlreadyExists | Inga | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. Värdet kan [lokaliseras](localization.md).|
-| ApplicationObjectId | Inga | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
-| ClientId | Inga | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Generera ett fel om objektet användare inte finns i katalogen. Möjliga värden: `true` eller `false`. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel ska höjas (se beskrivningen av RaiseErrorIfClaimsPrincipalDoesNotExist) anger du det meddelande som ska visas för användaren om användar objekt inte finns. Värdet kan [lokaliseras](localization.md).|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Nej | Generera ett fel om det redan finns ett användar objekt. Möjliga värden: `true` eller `false`.|
+| UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel ska höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists-Attribute Description) anger du det meddelande som ska visas för användaren om användar objekt redan finns. Värdet kan [lokaliseras](localization.md).|
+| ApplicationObjectId | Nej | Programobjekts-ID för tilläggets attribut. Värde: ObjectId för ett program. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md). |
+| ClientId | Nej | Klient identifieraren för åtkomst till klienten som en tredje part. Mer information finns i [använda anpassade attribut i en anpassad profil redigerings princip](custom-policy-custom-attributes.md) |
+| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
 
 
 

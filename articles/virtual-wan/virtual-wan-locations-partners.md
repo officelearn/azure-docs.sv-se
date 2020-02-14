@@ -1,19 +1,19 @@
 ---
-title: Azure Virtual WAN-partners platser | Microsoft Docs
+title: Azure virtuella WAN-partners och platser | Microsoft Docs
 description: Den här artikeln innehåller en lista över virtuella Azure-partners och nav platser i Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: afa808c95c88184fb531e858fbfe6d102a6f1f08
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157167"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190408"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Virtuella WAN-partner och platser för virtuella hubbar
 
@@ -34,7 +34,7 @@ Följande avancerade automatiserings funktioner har kon figurer ATS i enhets kon
 * Automatisk nedladdning av Azures anslutnings information
 * Konfiguration av lokal lokal enhet 
 
-Vissa anslutnings partner kan utöka automatiseringen så att du kan ta med att skapa Azure Virtual Hub VNet och VPN Gateway. Om du vill veta mer om automation, se [Konfigurera Automation – WAN-partner](virtual-wan-configure-automation-providers.md).
+Vissa anslutnings partner kan utöka automatiseringen så att du kan ta med att skapa Azure Virtual Hub VNet och VPN Gateway. Om du vill veta mer om automation, se [automatiserings rikt linjer för virtuella WAN-partner](virtual-wan-configure-automation-providers.md).
 
 ## <a name="partners"></a>Anslutning via partner
 
@@ -50,4 +50,4 @@ Följande partner är planerad i vår översikt för en nära framtid: Arista, A
 
 * Mer information om virtuellt WAN finns i [vanliga frågor och svar om virtuella](virtual-wan-faq.md)WAN.
 
-* Mer information om hur du automatiserar anslutningen till Azure Virtual WAN finns i [virtuella WAN-partner – så här automatiserar du](virtual-wan-configure-automation-providers.md).
+* Mer information om hur du automatiserar anslutningen till Azure Virtual WAN finns i [automatiserings rikt linjer för virtuella WAN-partner](virtual-wan-configure-automation-providers.md).

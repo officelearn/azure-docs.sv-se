@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: fbb81764262d98a401a26cd089e53ad37007050c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911404"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198198"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
 Azure Maps Android SDK är ett vektor kart bibliotek för Android. Den här artikeln vägleder dig genom processerna för att installera Azure Maps Android SDK och läsa in en karta.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
@@ -111,7 +111,7 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
 
     Att ställa in autentiseringsinformationen i `AzureMaps`-klassen globalt med `setSubscriptionKey` eller `setAadProperties` metoder gör det så att du inte behöver lägga till autentiseringsinformation i alla vyer. 
 
-    Kart kontrollen innehåller sina egna livs cykel metoder för hantering av Android: s OpenGL-livscykel, som måste anropas direkt från den som innehåller aktiviteten. För att appen ska fungera korrekt ska du anropa kart kontrollens livs cykel metoder, du måste åsidosätta följande livs cykel metoder i aktiviteten som innehåller kart kontrollen och anropa respektive kart kontroll metod. 
+    Kart kontrollen innehåller sina egna livs cykel metoder för att hantera Android: s OpenGL-livscykel. Dessa livs cykel metoder måste anropas direkt från den som innehåller aktiviteten. För att appen ska kunna anropa kart kontrollens livs cykel metoder måste du åsidosätta följande livs cykel metoder i den aktivitet som innehåller kart kontrollen. Och du måste anropa respektive kart kontroll metod. 
 
     * onCreate (paket) 
     * onStart () 

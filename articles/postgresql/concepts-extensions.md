@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.openlocfilehash: 069fc83e773c00be41e21e23fc01c589c13d687d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372711"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201279"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg buntar samman flera relaterade SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Efter att ha lästs in i databasen, fungerar utöknings funktionen som inbyggda funktioner.
@@ -33,7 +33,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | stöd för indexering av vanliga data typer i registret|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | beräkna suveräna cirkel avstånd på jordens yta|
@@ -63,7 +63,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
-> |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
 ## <a name="postgres-10-extensions"></a>Postgres 10-tillägg 
@@ -79,7 +79,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | stöd för indexering av vanliga data typer i registret|
 > |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | datatyp för automatiskt krypterade lösen ord|
 > |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/10/dblink.html)                       | 1.2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/10/earthdistance.html)                | 1.1             | beräkna suveräna cirkel avstånd på jordens yta|
@@ -109,7 +109,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
-> |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
 ## <a name="postgres-96-extensions"></a>Postgres 9,6-tillägg 
@@ -125,7 +125,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | stöd för indexering av vanliga data typer i registret|
 > |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | datatyp för automatiskt krypterade lösen ord|
 > |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1.3             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/9.6/earthdistance.html)                | 1.1             | beräkna suveräna cirkel avstånd på jordens yta|
@@ -155,7 +155,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
-> |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
 ## <a name="postgres-95-extensions"></a>Postgres 9,5-tillägg 
@@ -171,7 +171,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | stöd för indexering av vanliga data typer i registret|
 > |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | datatyp för automatiskt krypterade lösen ord|
 > |[citext](https://www.postgresql.org/docs/9.5/citext.html)                       | 1.1             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/9.5/dblink.html)                       | 1.1             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1.0             | beräkna suveräna cirkel avstånd på jordens yta|
@@ -199,27 +199,31 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.0           | Spatiala typer och funktioner för PostGIS-topologi|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/9.5/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
-> |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1.0             | generera globalt unika identifierare (UUID)|
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
-Pg_stat_statements-tillägget är förinstallerat på varje Azure Database for PostgreSQL-Server för att ge dig ett sätt att spåra körnings statistik över SQL-uttryck.
+[Pg_stat_statements-tillägget](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerat på varje Azure Database for postgresql-server för att ge dig ett sätt att spåra körnings statistik över SQL-uttryck.
 Inställningen `pg_stat_statements.track`, som styr vilka instruktioner som räknas av tillägget, används som standard för att `top`, vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all`. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Det uppstår en kompromiss mellan information om körningen pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du anger `pg_stat_statements.track` till `none`. Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
 ## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
-med dbLink och postgres_fdw kan du ansluta från en PostgreSQL-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. När du använder dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar kan du göra detta genom att ange "Tillåt åtkomst till Azure-tjänster" till på. Detta behövs även om du vill använda tilläggen för att återgå till samma server. Inställningen "Tillåt åtkomst till Azure-tjänster" finns på Azure Portal sidan för postgres-servern under anslutnings säkerhet. Att aktivera "Tillåt åtkomst till Azure-tjänster" på placerar alla Azure IP-adresser i listan över tillåtna.
+med [dbLink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) och [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) kan du ansluta från en postgresql-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. När du använder dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar kan du göra detta genom att ange "Tillåt åtkomst till Azure-tjänster" till på. Detta behövs även om du vill använda tilläggen för att återgå till samma server. Inställningen "Tillåt åtkomst till Azure-tjänster" finns på Azure Portal sidan för postgres-servern under anslutnings säkerhet. Att aktivera "Tillåt åtkomst till Azure-tjänster" på placerar alla Azure IP-adresser i listan över tillåtna.
 
 För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL, förutom för anslutningar till andra Azure Database for PostgreSQL-servrar.
 
 ## <a name="uuid"></a>uuid
-Om du planerar att använda `uuid_generate_v4()` från UUID-ossp-tillägget kan du överväga att jämföra med `gen_random_uuid()` från pgcrypto-tillägget för prestanda förmåner.
-
+Om du planerar att använda `uuid_generate_v4()` från [UUID-ossp-tillägget](https://www.postgresql.org/docs/current/uuid-ossp.html)kan du överväga att jämföra med `gen_random_uuid()` från [pgcrypto-tillägget](https://www.postgresql.org/docs/current/pgcrypto.html) för prestanda förmåner.
 
 ## <a name="pgaudit"></a>pgAudit
-PgAudit-tillägget innehåller loggning av session-och objekt granskning. Information om hur du använder det här tillägget i Azure Database for PostgreSQL finns i [artikeln gransknings begrepp](concepts-audit.md). 
+[PgAudit-tillägget](https://github.com/pgaudit/pgaudit/blob/master/README.md) innehåller loggning av session-och objekt granskning. Information om hur du använder det här tillägget i Azure Database for PostgreSQL finns i [artikeln gransknings begrepp](concepts-audit.md). 
+
+## <a name="pg_prewarm"></a>pg_prewarm
+Pg_prewarm-tillägget läser in relations data i cacheminnet. Att förvärma cacheminnet innebär att dina frågor har bättre svars tider vid första körningen efter en omstart. I postgres 10 och nedan görs förvärmingen manuellt med hjälp av [funktionen för invarm](https://www.postgresql.org/docs/10/pgprewarm.html).
+
+I postgres 11 och senare kan du konfigurera förvärmning så att det sker [automatiskt](https://www.postgresql.org/docs/current/pgprewarm.html). Du måste inkludera pg_prewarm i `shared_preload_libraries` Parameters lista och starta om servern för att tillämpa ändringen. Parametrar kan anges från mallen [Azure Portal](howto-configure-server-parameters-using-portal.md), [CLI](howto-configure-server-parameters-using-cli.md), REST API eller arm. 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB är en databas för tids serier som är paketerad som ett tillägg för PostgreSQL. TimescaleDB tillhandahåller tidsorienterade analys funktioner, optimeringar och skalar postgres för arbets belastningar för tids serier.

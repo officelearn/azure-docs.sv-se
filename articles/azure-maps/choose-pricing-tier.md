@@ -8,45 +8,45 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 8764e9161f952118ca7ae28343dcd16477cf1eee
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2950c0e0fdd6839b905386c90665d95563a0a3f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155765"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190286"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välj rätt pris nivå i Azure Maps
 
 Azure Maps erbjuder två pris nivåer, S0 och S1. Syftet med den här artikeln är att hjälpa dig att välja rätt pris nivå för dina behov. Du kan välja rätt pris nivå genom att ställa följande två frågor.
 
-## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Vilka geospatiala funktioner planerar jag att använda?
-Pris nivån för S0 är rätt för dig om de grundläggande geospatiala API: erna uppfyller tjänst kraven. Om du vill ha mer avancerade funktioner för ditt program bör du tänka på väljer för pris nivån S1. Exempel på avancerade funktioner: flyg-plus hybrid bilder, hämtning av väg intervall och batch-kod. Tabellen med **pris nivå funktioner** kan hjälpa dig att välja en pris nivå som passar bäst för ditt program.
-
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Hur många samtidiga användare planerar jag att stödja? 
-Pris nivåerna S0 och S1 hanterar olika mängder data genom strömning. Pris nivån S0 hanterar upp till **50 frågor per sekund**, medan S1-nivån hanterar **fler än 50 frågor per sekund**.
+Pris nivåerna S0 och S1 hanterar olika mängder data genom strömning. Pris nivån S0 hanterar upp till **50 frågor per sekund**. S1-nivån hanterar **fler än 50 frågor per sekund**.
+
+## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Vilka geospatiala funktioner planerar jag att använda?
+Pris nivån för S0 är rätt för dig, om de geospatiala geospatiala API: erna uppfyller tjänst kraven. Om du vill ha mer avancerade funktioner för ditt program bör du tänka på väljer för pris nivån S1. Avancerade funktioner är: flyg-plus hybrid bilder, hämtning av väg intervall och grupp-och-kod. Gå igenom tabellen med **pris nivå funktioner** och välj den pris nivå som passar bäst för ditt program.
 
 ### <a name="pricing-tier-capabilities"></a>Pris nivå funktioner
 
-| Kapacitet                              |        S0           |  S1      |
+| Funktion                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Mappa åter givning                              | ✓                   | ✓       |
 | Satellit bilder                       |                     | ✓        |
-| Sök                                  | ✓                    | ✓        |
-| Batch Search                            |                     | ✓        |
+| Söka                                  | ✓                    | ✓        |
+| Batch-sökning                            |                     | ✓        |
 | Routa                                   | ✓                    |✓        |
-| Batch Routing                            |                    | ✓        |
-| Matrix Routing                          |                     | ✓        |
-| Route Range (Isochrones)                |                     | ✓        |
+| Batchbearbetning                            |                    | ✓        |
+| Mat ris routning                          |                     | ✓        |
+| Flödes intervall (ISO Kron)                |                     | ✓        |
 | Trafik                                |✓                    |✓        |
 | Tidszon                               |✓                    |✓        |
 | Geolokalisering (förhands granskning)                    |✓                   |✓        |
-| Spatial Operations                        |                    |✓        |
+| Rums åtgärder                        |                    |✓        |
 | Geofencing                                |                    |✓        |
 | Azure Maps data (förhands granskning)                |                     | ✓        |
 | Mobilitet (för hands version)                       |                     | ✓        |
 | Väder (för hands version)                        |✓                    |✓        |
 
-Dessa ytterligare data punkter är värda att tänka på:
+Överväg följande ytterligare punkter:
 * Vilken typ av företag har du?
 * Hur kritiskt är ditt program?
 
@@ -57,7 +57,7 @@ Se **pris nivån riktade kunder** för att få en bättre uppfattning om pris ni
 | Prisnivå  |     Riktad kund                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>Pris nivån S0 används för program i alla stadier av produktion: från koncept koncept utveckling och tidigt test till program produktion och distribution. Den här nivån är dock utformad för storskalig utveckling eller kunder med låga samtidiga användare eller både och. <p>|
-| S1            |    <p>Pris nivån S1 är för kunder som behöver stöd för storskaliga företags-, verksamhets kritiska program eller stora mängder av samtidiga användare. Det är också för de kunder som behöver avancerade geospatiala tjänster.</p>|
+| S1            |    <p>Pris nivån S1 är för kunder med storskaliga företags program, verksamhets kritiska program eller stora volymer av samtidiga användare. Det är också för de kunder som behöver avancerade geospatiala tjänster.</p>|
 
 ## <a name="next-steps"></a>Nästa steg
 

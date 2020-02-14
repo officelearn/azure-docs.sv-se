@@ -1,20 +1,20 @@
 ---
-title: Azure virtuella WAN-partner | Microsoft Docs
+title: Automatiserings rikt linjer för Azure Virtual WAN-partners | Microsoft Docs
 description: Den här artikeln hjälper partner att konfigurera Azure Virtual WAN Automation.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775307"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190421"
 ---
-# <a name="virtual-wan-partners"></a>Virtuella WAN-partner
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Automatiserings rikt linjer för virtuella WAN-partner
 
 Den här artikeln hjälper dig att förstå hur du konfigurerar Automation-miljön för att ansluta och konfigurera en grenad enhet (en lokal VPN-enhet eller SDWAN CPE) för Azure Virtual WAN. Om du är en provider som tillhandahåller avdelnings enheter som kan hantera VPN-anslutning via IPsec/IKEv2 eller IPsec/IKEv1, är den här artikeln för dig.
 
@@ -27,7 +27,7 @@ En grenen het (en lokal VPN-enhet eller SDWAN CPE) använder vanligt vis en styr
 * Testa Portal upplevelsen av Azure Virtual WAN.
 * Bestäm sedan vilken del av anslutnings stegen du vill automatisera. Vi rekommenderar minst att du automatiserar:
 
-  * Access Control
+  * Åtkomstkontroll
   * Ladda upp information om gren enhet till Azure Virtual WAN
   * Hämta Azure-konfiguration och konfigurera anslutning från gren enheten till Azure Virtual WAN
 

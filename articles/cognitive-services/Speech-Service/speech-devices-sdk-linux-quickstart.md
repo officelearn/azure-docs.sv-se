@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8035cce1482c3c441cc956272a7300f0d0ea8194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815306"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189067"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Snabb start: Kör exempel programmet för tal enheter SDK på Linux
 
@@ -25,9 +25,9 @@ Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) p
 
 Den här guiden kräver ett [Azure Cognitive Services](get-started.md) -konto med en tjänst resurs för tal. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår i tal enheter SDK. Det är också [finns på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+Käll koden för [exempel programmet](https://aka.ms/sdsdk-download-JRE) ingår i tal enheter SDK. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -38,7 +38,7 @@ För den här snabbstarten krävs:
 * En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en utan kostnad](get-started.md).
 * Ladda ned den senaste versionen av [tal enheter SDK](https://aka.ms/sdsdk-download-JRE) för Java och extrahera zip-filen till din arbets katalog.
    > [!NOTE]
-   > JRE-Sample-Release. zip-filen innehåller exempel appen JRE och den här snabb starten förutsätter att appen extraheras till/home/wcaltest/JRE-Sample-Release
+   > Den här snabb starten förutsätter att appen extraheras till/home/wcaltest/JRE-Sample-Release
 
 Se till att dessa beroenden är installerade innan du startar Sol förmörkelse.
 
@@ -96,7 +96,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```
@@ -116,7 +116,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 ## <a name="configure-the-sample-application"></a>Konfigurera exempel programmet
 
-1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova taligenkänning kan också lägga till din [tjänst för Språkförståelse](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerationsnyckel och program-ID.
+1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
 
    För tal-och LUIS hamnar informationen i `FunctionsList.java`:
 
@@ -191,4 +191,4 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Granska viktig information](devices-sdk-release-notes.md)
+> [Läs viktig information](devices-sdk-release-notes.md)

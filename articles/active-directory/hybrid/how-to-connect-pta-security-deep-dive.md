@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f9686be08de2589cddadf741dadf243d0e7895
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1ddce8d4d7ca1f03c0a57d0f0c8c41ac122973e0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174442"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185561"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory djupgående säkerhets djup
 
@@ -45,7 +45,7 @@ Dessa är viktiga säkerhets aspekter av den här funktionen:
   - En fullständig lista över nätverks kraven finns i [Azure Active Directory direktautentisering: snabb start](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Lösen ord som användare anger under inloggningen krypteras i molnet innan de lokala autentiserings agenter accepterar dem för verifiering mot Active Directory.
 - HTTPS-kanalen mellan Azure AD och den lokala Autentiseringstjänsten skyddas med hjälp av ömsesidig autentisering.
-- Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
+- Skyddar dina användar konton genom att arbeta sömlöst med [villkorliga åtkomst principer i Azure AD](../active-directory-conditional-access-azure-portal.md), inklusive Multi-Factor Authentication (MFA), [blockera äldre autentisering](../conditional-access/concept-conditional-access-conditions.md) och genom att [filtrera bort lösen ords attacker med brute force](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Komponenter som ingår
 
@@ -72,7 +72,7 @@ I följande avsnitt beskrivs de här faserna i detalj.
 
 ### <a name="authentication-agent-installation"></a>Installation av autentiseringstjänst
 
-Endast globala administratörer kan installera en autentiseringstjänst (med Azure AD Connect eller fristående) på en lokal server. Vid installationen läggs två nya poster till på **kontroll panelen** > -**program** > **program och funktioner** :
+Endast globala administratörer kan installera en autentiseringstjänst (med Azure AD Connect eller fristående) på en lokal server. Vid installation läggs två nya poster till på **kontroll panelen** > **program** > **program och funktioner** :
 - Själva appen för autentisering av agent. Det här programmet körs med [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) -behörigheter.
 - Uppdaterings programmet som används för att automatiskt uppdatera Autentiseringstjänsten. Det här programmet körs med [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) -behörighet.
 
@@ -104,7 +104,7 @@ Autentiserings agenter använder följande steg för att registrera sig för Azu
     -  Ingen av de andra Azure AD-tjänsterna använder den här certifikat utfärdaren.
     - Certifikatets ämne (unikt namn eller DN) har angetts till ditt klient-ID. Detta unika namn är ett GUID som unikt identifierar din klient. Detta DN omfångerar certifikatet för användning endast med din klient.
 6. Azure AD lagrar Authentication agentens offentliga nyckel i en Azure SQL-databas som bara Azure AD har åtkomst till.
-7. Certifikatet (utfärdat i steg 5) lagras på den lokala servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) -platsen). Den används av både autentiseringstjänsten och uppdaterings programmen.
+7. Certifikatet (utfärdat i steg 5) lagras på den lokala servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) plats). Den används av både autentiseringstjänsten och uppdaterings programmen.
 
 ### <a name="authentication-agent-initialization"></a>Initiering av autentiserings agent
 
@@ -141,7 +141,7 @@ Direktautentisering hanterar en användar inloggnings förfrågan enligt följan
 8. Azure AD STS placerar begäran om lösen ords verifiering, som består av användar namnet och de krypterade lösen ords värdena, till den Service Bus Queue som är unik för din klient.
 9. Eftersom de initierade autentiseringsinställningarna är permanenta anslutna till Service Bus kön, hämtar en av de tillgängliga autentiseringsmetoderna en begäran om lösen ords validering.
 10. Authentication-agenten hittar det krypterade lösen ordet som är särskilt för dess offentliga nyckel, genom att använda en identifierare och dekrypterar den med hjälp av dess privata nyckel.
-11. Autentiseringstjänsten försöker verifiera användar namnet och lösen ordet mot lokala Active Directory med hjälp av [Win32 LogonUser API: t](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) med parametern **DwLogonType** inställd på **LOGON32_LOGON_NETWORK**. 
+11. Autentiseringstjänsten försöker verifiera användar namnet och lösen ordet mot lokala Active Directory med hjälp av [Win32 LogonUser API: et](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) med parametern **dwLogonType** inställd på **LOGON32_LOGON_NETWORK**. 
     - Detta API är samma API som används av Active Directory Federation Services (AD FS) (AD FS) för att logga in användare i ett federerat inloggnings scenario.
     - Detta API är beroende av standard lösnings processen i Windows Server för att hitta domänkontrollanten.
 12. Autentiseringstjänsten tar emot resultatet från Active Directory, till exempel lyckad, användar namn eller lösen ord eller lösen ordet har upphört att gälla.
@@ -167,7 +167,7 @@ Förnya en Autentiseringstyps förtroende med Azure AD:
     - Dessa nycklar genereras via standard-RSA 2048-bitars kryptering.
     - Den privata nyckeln lämnar aldrig den lokala servern.
 3. Authentication agent gör sedan en begäran om certifikat förnyelse till Azure AD över HTTPS, med följande komponenter som ingår i begäran:
-    - Det befintliga certifikatet som hämtades från CERT_SYSTEM_STORE_LOCAL_MACHINE-platsen i Windows certifikat arkiv. Det finns ingen global administratör som är involverad i den här proceduren, så det finns ingen åtkomsttoken som krävs för den globala administratörens räkning.
+    - Det befintliga certifikatet som hämtades från CERT_SYSTEM_STORE_LOCAL_MACHINE plats i Windows certifikat arkiv. Det finns ingen global administratör som är involverad i den här proceduren, så det finns ingen åtkomsttoken som krävs för den globala administratörens räkning.
     - Den offentliga nyckeln som genererades i steg 2.
     - En certifikat signerings förfrågan (CSR eller certifikat förfrågan). Den här begäran gäller för ett nytt digitalt identitets certifikat, med Azure AD som certifikat utfärdare.
 4. Azure AD validerar det befintliga certifikatet i begäran om förnyelse av certifikat. Sedan verifierar den att begäran kom från en autentiseringsnyckel som registrerats på din klient organisation.
@@ -176,11 +176,11 @@ Förnya en Autentiseringstyps förtroende med Azure AD:
     - Använd Azure AD-rot certifikat utfärdaren för att signera certifikatet.
     - Ange certifikatets ämne (unikt namn eller DN) till klient-ID: t, ett GUID som unikt identifierar din klient. DN omfångerar certifikatet enbart till din klient organisation.
 6. Azure AD lagrar den nya offentliga nyckeln för Autentiseringstjänsten i en Azure SQL-databas som bara den har åtkomst till. Det gör också att den gamla offentliga nyckeln som är kopplad till Authentication agent ogiltig förklaras.
-7. Det nya certifikatet (utfärdat i steg 5) lagras sedan på servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) -platsen).
-    - Eftersom processen för förnyelse av förtroende inträffar icke-interaktivt (utan den globala administratörens närvaro), har inte längre åtkomst till att uppdatera det befintliga certifikatet på CERT_SYSTEM_STORE_LOCAL_MACHINE-platsen. 
+7. Det nya certifikatet (utfärdat i steg 5) lagras sedan på servern i Windows certifikat arkiv (särskilt på [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) plats).
+    - Eftersom processen för förnyelse av förtroende inträffar icke-interaktivt (utan den globala administratörens närvaro), har Autentiseringstjänsten inte längre åtkomst för att uppdatera det befintliga certifikatet på den CERT_SYSTEM_STORE_LOCAL_MACHINE platsen. 
     
    > [!NOTE]
-   > Den här proceduren tar inte bort själva certifikatet från CERT_SYSTEM_STORE_LOCAL_MACHINE-platsen.
+   > Den här proceduren tar inte bort själva certifikatet från CERT_SYSTEM_STORE_LOCAL_MACHINE plats.
 8. Det nya certifikatet används för autentisering från det här läget på. Varje efterföljande förnyelse av certifikatet ersätter certifikatet på CERT_SYSTEM_STORE_LOCAL_MACHINE plats.
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Automatisk uppdatering av autentiseringsinställningarna

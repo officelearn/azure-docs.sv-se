@@ -5,53 +5,56 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a780a42179a0bacf0e4a12ba1e75ae84943539b4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970388"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190728"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Felsök problem med Azure VM-tillägg
 
 Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa Azure Site Recovery fel som rör VM-agenten och tillägget.
 
 
-## <a name="azure-site-recovery-extension-time-out"></a>Tids gräns för Azure Site Recovery-tillägget  
+## <a name="azure-site-recovery-extension-time-out"></a>Timeout för Azure Site Recoverys tillägg  
 
 Fel meddelande: "tids gränsen nåddes för aktivitets körningen under spårningen för att tilläggs åtgärden skulle startats"<br>
 Felkod: "151076"
 
- Azure Site Recovery installera ett tillägg på den virtuella datorn som en del av jobbet Aktivera skydd. Något av följande villkor kan förhindra att skyddet utlöses och att jobbet Miss fungerar. Slutför följande fel söknings steg och försök sedan igen:
+ Azure Site Recovery installerat ett tillägg på den virtuella datorn som en del av ett jobb för att aktivera skydd. Något av följande villkor kan förhindra att skyddet utlöses och att jobbet Miss fungerar. Slutför följande fel söknings steg och försök sedan igen:
 
-**Orsak 1: [agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 3: [Site Recovery-tillägget kan inte uppdateras eller läsas in](#the-site-recovery-extension-fails-to-update-or-load)**  
+- [Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+- [Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+- [Site Recovery-tillägget kan inte uppdateras eller läsas in](#the-site-recovery-extension-fails-to-update-or-load)
 
 Fel meddelande: "föregående Site Recovery tilläggs åtgärd tar längre tid än förväntat."<br>
-Felkod: "150066"<br>
+Felkod: "150066"
 
-**Orsak 1: [agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 3: [Site Recoverys tilläggets status är felaktig](#the-site-recovery-extension-fails-to-update-or-load)**  
+- [Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+- [Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
+- [Site Recovery tilläggets status är felaktig](#the-site-recovery-extension-fails-to-update-or-load)
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>Skyddet Miss lyckas eftersom den virtuella dator agenten inte svarar
 
 Fel meddelande: "tids gränsen nåddes för uppgifts körningen under spårningen för att tilläggs åtgärden skulle starta."<br>
-Felkod: "151099"<br>
+Felkod: "151099"
 
-Det här felet kan inträffa om Azures gästa Gent på den virtuella datorn inte är i klar läge.
-Du kan kontrol lera statusen för Azures gästa Gent i [Azure Portal](https://portal.azure.com/). Gå till den virtuella datorn som du försöker skydda och kontrol lera statusen i "VM > Inställningar > Egenskaper > agent status". Merparten av tiden som agentens status blir klar efter omstart av den virtuella datorn. Om starta om inte är ett möjligt alternativ, eller om du fortfarande har problem, kan du utföra följande fel söknings steg.
+Det här felet kan inträffa om Azure Guest-agenten i den virtuella datorn inte har statusen klar.
 
-**Orsak 1: [agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+Du kan kontrol lera statusen för Azures gästa Gent i [Azure Portal](https://portal.azure.com/). Gå till den virtuella datorn som du försöker skydda och kontrol lera statusen i **VM** > **inställningar** > **Egenskaper** > **agent status**. I de flesta fall är statusen för agenten klar efter omstart av den virtuella datorn. Men om du inte kan starta om eller om du fortfarande har problem, kan du utföra följande fel söknings steg:
+
+- [Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
+- [Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 
 
 Fel meddelande: "tids gränsen nåddes för uppgifts körningen under spårningen för att tilläggs åtgärden skulle starta."<br>
-Felkod: "151095"<br>
+Felkod: "151095"
 
-Detta inträffar när Agent versionen på Linux-datorn är gammal. Slutför följande fel söknings steg.<br>
-  **Orsak 1: [agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+Felet uppstår när Agent versionen på Linux-datorn är inaktuell. Slutför följande fel söknings steg:
+
+- [Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)  
+
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)
@@ -59,14 +62,14 @@ Detta inträffar när Agent versionen på Linux-datorn är gammal. Slutför föl
 #### <a name="solution"></a>Lösning
 Den virtuella dator agenten kan ha skadats eller också har tjänsten stoppats. Genom att installera om VM-agenten får du den senaste versionen. Den hjälper också till att starta om kommunikationen med tjänsten.
 
-1. Ta reda på om tjänsten Windows Azure gästa Gent körs i VM-tjänsterna (Services. msc). Försök att starta om tjänsten Windows Azure gästa Gent.    
-2. Om tjänsten Windows Azure gästa Gent inte visas i tjänster går du till **program och funktioner** i kontroll panelen för att avgöra om Windows gästa Gent tjänst är installerad.
-4. Om Windows Azures gästa Gent visas i **program och funktioner**avinstallerar du Windows gäst-agenten.
-5. Hämta och installera den [senaste versionen av agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörs behörighet för att slutföra installationen.
-6. Kontrol lera att Windows Azures gästa Gent tjänster visas i tjänster.
-7. Starta om skydds jobbet.
+1. Ta reda på om tjänsten Windows Azure gästa Gent körs i VM-tjänsterna (Services. msc). Starta om tjänsten Windows Azure gästa Gent.    
+1. Om tjänsten Windows Azure gästa Gent inte visas i tjänster öppnar du kontroll panelen. Gå till **program och funktioner** för att se om tjänsten Windows gästa Gent är installerad.
+1. Om Windows Azures gästa Gent visas i **program och funktioner**avinstallerar du Windows Azures gästa Gent.
+1. Hämta och installera den [senaste versionen av agent-MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörs behörighet för att slutföra installationen.
+1. Kontrol lera att tjänsten Windows Azure gästa Gent visas i tjänster.
+1. Starta om skydds jobbet.
 
-Kontrol lera också att [Microsoft .NET 4,5 har installerats](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) på den virtuella datorn. .NET 4,5 krävs för att den virtuella dator agenten ska kunna kommunicera med tjänsten.
+Kontrol lera också att [Microsoft .NET 4,5 har installerats](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) på den virtuella datorn. Du behöver .NET 4,5 för att VM-agenten ska kunna kommunicera med tjänsten.
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)
 
@@ -78,20 +81,19 @@ De flesta Agent-relaterade eller felrelaterade fel för virtuella Linux-datorer 
    > [!NOTE]
    > Vi *rekommenderar starkt* att du bara uppdaterar agenten via en distributions lagrings plats. Vi rekommenderar inte att du laddar ned agent koden direkt från GitHub och uppdaterar den. Om den senaste agenten för distributionen inte är tillgänglig kan du kontakta distributions supporten för instruktioner om hur du installerar den. Om du vill söka efter den senaste agenten går du till sidan [Windows Azure Linux-Agent](https://github.com/Azure/WALinuxAgent/releases) i GitHub-lagringsplatsen.
 
-2. Se till att Azure-agenten körs på den virtuella datorn genom att köra följande kommando: `ps -e`
+1. Se till att Azure-agenten körs på den virtuella datorn genom att köra följande kommando: `ps -e`
 
    Om processen inte körs startar du om den med hjälp av följande kommandon:
 
-   * För Ubuntu: `service walinuxagent start`
-   * För andra distributioner: `service waagent start`
+   - För Ubuntu: `service walinuxagent start`
+   - För andra distributioner: `service waagent start`
 
-3. [Konfigurera agenten för automatisk omstart](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
-4. Aktivera skydd av den virtuella datorn.
-
-
+1. [Konfigurera agenten för automatisk omstart](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
+1. Aktivera skydd av den virtuella datorn.
 
 ### <a name="the-site-recovery-extension-fails-to-update-or-load"></a>Site Recovery-tillägget kan inte uppdateras eller läsas in
-Om tillägg status är "Tom", "notrappsteg" eller över gång.
+
+Tilläggets status visas som "Tom", "notrappsteg" eller "över gång".
 
 #### <a name="solution"></a>Lösning
 
@@ -100,11 +102,11 @@ Avinstallera tillägget och försök sedan igen.
 Så här avinstallerar du tillägget:
 
 1. I [Azure Portal](https://portal.azure.com/)går du till den virtuella dator som har problem med säkerhets kopieringen.
-2. Välj **inställningar**.
-3. Välj **Tillägg**.
-4. Välj **Site Recovery tillägg**.
-5. Välj **Avinstallera**.
+1. Välj **Inställningar**.
+1. Välj **Tillägg**.
+1. Välj **Site Recovery tillägg**.
+1. Välj **Avinstallera**.
 
-För virtuella Linux-datorer, om VMSnapshot-tillägget inte visas i Azure Portal, [uppdaterar du Azure Linux-agenten](../virtual-machines/linux/update-agent.md)och kör sedan skyddet.
+För virtuella Linux-datorer, om VMSnapshot-tillägget inte visas i Azure Portal, [uppdaterar du Azure Linux-agenten](../virtual-machines/linux/update-agent.md). Kör sedan skyddet.
 
-Om du slutför de här stegen installeras tillägget om under skyddet.
+När du har slutfört de här stegen kommer tillägget att installeras om under skyddet.

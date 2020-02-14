@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936395"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200086"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -34,11 +34,11 @@ Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. För närvarand
 
 Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="subscription-key"></a>Prenumerations nyckel
 
-Som med alla funktioner i Speech-tjänsten skapar du en prenumerationsnyckel från den [Azure-portalen](https://portal.azure.com) genom att följa våra [startguide](get-started.md).
+Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md).
 
 >[!NOTE]
 > En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -89,14 +89,14 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` som inaktiverar svordomar filtrering, `Masked` som ersätter svordomar med asterisker `Removed` som tar bort alla svordomar från resultatet, eller `Tags` som lägger till ”svordomar”-taggar. Standardinställningen är `Masked`. |
-| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar skiljetecken, `Dictated` vilket medför att explicit skiljetecken `Automatic` som gör att avkodaren handlar om skiljetecken, eller `DictatedAndAutomatic` vilket medför processens skiljetecken eller automatiskt. |
+| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` som inaktiverar svordomar, `Masked` som ersätter svordomar med asterisker, `Removed` som tar bort alla svordomar från resultatet eller `Tags` som lägger till "svordoms"-taggar. Standardvärdet är `Masked`. |
+| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar interpunktion, `Dictated` som innebär explicit interpunktion, `Automatic` som tillåter avkodaren att hantera skiljetecken eller `DictatedAndAutomatic` som anger dikterade skiljetecken eller automatisk. |
 | `AddWordLevelTimestamps` | Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` som gör att tidsstämplar på Word-nivå och `false` (standardvärdet) inaktive ras. |
 | `AddSentiment` | Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` som aktiverar sentiment per uttryck och `false` (standardvärdet) för att inaktivera det. |
 | `AddDiarization` | Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` som gör det möjligt att inaktivera diarization och `false` (standardvärdet). Det kräver också att `AddWordLevelTimestamps` anges till sant.|
 |`TranscriptionResultsContainerUrl`|Valfri URL med [tjänstens SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren.
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 Batch-avskrift stöder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva avskrifter till lagring.
 
@@ -129,8 +129,8 @@ För svartvita indata skapas en resultat fil för ett avskrifts resultat. För l
                                                              speakerId as a string if
                                                              diarization requested for
                                                              mono audio file'
-          "Offset": number                                  'time in milliseconds'
-          "Duration": number                                'time in milliseconds'
+          "Offset": number                                  'time in ticks (1 tick is 100 nanosec)'
+          "Duration": number                                'time in ticks (1 tick is 100 nanosec)'
           "OffsetInSeconds" : number                        'Real number. Two decimal places'
           "DurationInSeconds" : number                      'Real number. Two decimal places'
           "NBest": [
@@ -150,8 +150,8 @@ För svartvita indata skapas en resultat fil för ett avskrifts resultat. För l
               "Words": [
                 {
                   "Word": string
-                  "Offset": number                          'time in milliseconds'
-                  "Duration": number                        'time in milliseconds'
+                  "Offset": number                          'time in ticks (1 tick is 100 nanosec)'
+                  "Duration": number                        'time in ticks (1 tick is 100 nanosec)'
                   "OffsetInSeconds": number                 'Real number. Two decimal places'
                   "DurationInSeconds": number               'Real number. Two decimal places'
                   "Confidence": number                      'between 0 and 1'
@@ -199,7 +199,7 @@ Om du vill begära diarization behöver du bara lägga till relevant parameter i
 
 Tidsstämplar på Word-nivå måste också vara "aktiverat" eftersom parametrarna i ovanstående begäran visar.
 
-## <a name="sentiment-analysis"></a>Känsloanalys
+## <a name="sentiment-analysis"></a>Attitydanalys
 
 Funktionen sentiment beräknar sentiment uttryckt i ljudet. Sentiment uttrycks med ett värde mellan 0 och 1 för `Negative`, `Neutral`och `Positive` sentiment. Sentiment-analys kan till exempel användas i Call Center-scenarier:
 
@@ -247,7 +247,7 @@ Exempel på JSON-utdata ser ut så här:
 }
 ```
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 Avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan fråga efter status för dina avskrifter genom en `GET` i [avskrifts metoden](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Behåll informationen som returneras till en rimlig storlek genom att ange `take` parameter (några hundra). [Ta bort avskrifter](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Detta garanterar snabba svar från avskrifts hanterings samtal.
 
@@ -265,7 +265,7 @@ Exempel koden konfigurerar klienten och skickar in avskrifts förfrågan. Den s�
 
 Fullständig information om föregående anrop finns i vårt Swagger- [dokument](https://westus.cris.ai/swagger/ui/index). För det fullständiga exemplet som visas här går du till [GitHub](https://aka.ms/csspeech/samples) i under katalogen `samples/batch`.
 
-Anteckna asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som du skapar är en .NET-HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud Filinformation och en `GetTranscriptions` metod för att ta emot resultaten. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` används för att skapa en referens för att hämta status för avskrift.
+Anteckna asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som du skapar är en .NET-HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot resultatet. `PostTranscriptions` returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts statusen.
 
 Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinjemodeller för att skriva av den filen eller filerna. Om du vill ange modeller, kan du skicka på samma metod som modell-ID för akustiska och språkmodellen.
 

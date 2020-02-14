@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 085933f9a74ee37779ce63ce499d89ea53a9f7d6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030886"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198947"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
 
@@ -27,7 +27,7 @@ Hadoop uppnår hög tillgänglighet och tillförlitlighet genom att replikera tj
 Noder i ett HDInsight-kluster implementeras med hjälp av Azure Virtual Machines. I följande avsnitt beskrivs de olika nodtyper som används med HDInsight.
 
 > [!NOTE]  
-> Alla typer av noder används inte för en kluster typ. En Hadoop-kluster typ har till exempel inte några Nimbus-noder. Mer information om noder som används av kluster typer av HDInsight finns i avsnittet kluster typer i [skapa Linux-baserade Hadoop-kluster i HDInsight-](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) dokument.
+> Alla typer av noder används inte för en kluster typ. En Hadoop-kluster typ har till exempel inte några Nimbus-noder. Mer information om noder som används av kluster typer av HDInsight finns i avsnittet kluster typer i [skapa Linux-baserade Hadoop-kluster i HDInsight-](hdinsight-hadoop-provision-linux-clusters.md#cluster-type) dokument.
 
 ### <a name="head-nodes"></a>Huvudnoder
 

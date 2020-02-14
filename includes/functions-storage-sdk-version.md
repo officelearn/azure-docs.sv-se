@@ -2,20 +2,20 @@
 title: ta med fil
 description: ta med fil
 services: functions
-author: ggailey777
-manager: cfowler
+author: craigshoemaker
+manager: gwallace
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/17/2018
-ms.author: tdykstra
+ms.date: 01/28/2020
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: c2fff707dcaafac69efcad3dbf33446a7b797396
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6a37850eb6536c5399d63144e60ea210fbc194d8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67608393"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198434"
 ---
-### <a name="azure-storage-sdk-version-in-functions-1x"></a>Azure Storage SDK-versionen i Functions 1.x
+#### <a name="azure-storage-sdk-version-in-functions-1x"></a>Azure Storage SDK-version i functions 1. x
 
-I funktioner 1.x, Storage-utlösare och bindningar använda version 7.2.1 av Azure Storage SDK ([WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) NuGet-paketet). Om du refererar till en annan version av Storage SDK, och du binder till en typ av Storage SDK i din funktionssignatur, kan Functions-körning rapporterar att den inte kan bindas till den typen. Lösningen är att se till att projektreferenserna [WindowsAzure.Storage 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).
+I funktionerna 1. x använder Storage-utlösare och bindningar version 7.2.1 av Azure Storage SDK ([windowsazure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1) NuGet-paketet). Om du refererar till en annan version av Storage SDK och du binder till en lagrings-SDK-typ i funktions signaturen, kan funktions körningen rapportera att den inte kan bindas till den typen. Lösningen är att se till att projektet refererar till [windowsazure. Storage 7.2.1](https://www.nuget.org/packages/WindowsAzure.Storage/7.2.1).

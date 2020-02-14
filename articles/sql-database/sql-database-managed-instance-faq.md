@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835020"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201687"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -82,21 +82,11 @@ Ett alternativ är att [Exportera databasen till en BACPAC](sql-database-export.
 
 Detta är den rekommenderade metoden om databasen är mindre än 100 GB. Transaktionsreplikering kan användas om alla tabeller i databasen har primära nycklar.
 
-## <a name="gen-4-vs-gen-5"></a>Gen 4 vs gen 5 
-
-**Hur gör jag för att välja mellan generation 4 och generation 5-maskinvarukompatibilitet för hanterad instans?**
-
-Det beror på arbets belastningen eftersom viss maskin varu generering är bättre för vissa typer av arbets belastningar än den andra. Även om ämnet i prestandan är i stället för att förenkla, är följande skillnader mellan de maskin varu generationer som påverkar arbets belastnings prestandan:
-- Gen 4 ger ett bättre beräknings stöd eftersom det baseras på fysiska processorer, jämfört med gen 5 som baseras på vCore-processorer. Det kan vara mer fördelaktigt för beräknings intensiva arbets belastningar.
-- Gen 5 stöder accelererat nätverk som resulterar i en bättre IO-bandbredd till Fjärrlagring. Det kan vara fördelaktigt för i/o-intensiva arbets belastningar på Generell användning tjänst nivåer. Gen 5 använder snabbare SSD-lokala diskar jämfört med generation 4. Det kan vara fördelaktigt för i/o-intensiva arbets belastningar på affärs kritiska tjänst nivåer.
-
-Vi rekommenderar starkt att du testar prestanda för faktiska arbets belastningar som är avsedda för produktion innan du fortsätter att ta reda på vilken maskin varu generation som fungerar bättre i ett särskilt fall.
-
 ## <a name="switch-hardware-generation"></a>Växla maskin varu generering 
 
 **Kan jag byta maskin vara för den hanterade instansen mellan generation 4 och gen 5 Online?**
 
-Automatisk Online-växling mellan maskin varu generationer är möjlig om båda maskin varu generationerna är tillgängliga i den region där din hanterade instans är etablerad. I det här fallet kan du använda [skript från blogg inlägg](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) som förklarar hur du växlar mellan maskin varu generationer.
+Automatisk Online-växling mellan maskin varu generationer är möjlig om båda maskin varu generationerna är tillgängliga i den region där din hanterade instans är etablerad. I det här fallet kan du kontrol lera [vCore modell översikts sida](sql-database-service-tiers-vcore.md) som förklarar hur du växlar mellan maskin varu generationer.
 
 Detta är en långvarig åtgärd som en ny hanterad instans skapas i bakgrunden och databaserna överförs automatiskt mellan den gamla och nya instansen med en snabb redundans i slutet av processen. 
 
@@ -108,8 +98,6 @@ Om båda maskin varu generationerna inte stöds i samma region, är det möjligt
 **Hur gör jag för att finjustera prestanda för min hanterade instans?**
 
 Generell användning hanterade instansen använder Fjärrlagring på grund av vilken storlek data och loggfiler som är viktiga för prestanda. Mer information finns i [effekten av logg fils storleken på generell användning hanterade instans prestanda](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
-
-För i/o-intensiva arbets belastningar kan du använda generation 5-maskinvara, jämfört med gen 4 för beräknings intensiva arbets belastningar. Mer information finns i [Hur gör jag för att Välj mellan gen 4 och gen 5](#gen-4-vs-gen-5).
 
 Om din arbets belastning består av många små transaktioner bör du överväga att byta Anslutnings typ från proxy till omdirigeringsläge.
 

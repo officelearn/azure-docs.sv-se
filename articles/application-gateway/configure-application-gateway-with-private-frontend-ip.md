@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: c49c37ced4a5d5cc7cdde0737b889aad3b538f7f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f56929e14aef34f675139782328ed5c559df12c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898981"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198640"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Konfigurera en Programgateway med en intern belastningsutjämnare (ILB)
 
@@ -27,9 +27,9 @@ Den här artikeln vägleder dig genom stegen för att konfigurera en Programgate
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal i <https://portal.azure.com>kv
+Logga in på Azure Portal på <https://portal.azure.com>
 
-## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan antingen skapa ett nytt virtuellt nätverk eller använda ett befintligt. I det här exemplet skapar du ett nytt virtuellt nätverk. Du kan skapa ett virtuellt nätverk samtidigt som du skapar programgatewayen. Application Gateway instanser skapas i separata undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
 
@@ -141,7 +141,7 @@ Gör så här:
 ### <a name="add-backend-servers-to-backend-pool"></a>Lägg till backend-servrar i backend-poolen
 
 1. Välj **Alla resurser** och välj sedan **myAppGateway**.
-2. Välj **serverdelspooler**. Välj **appGatewayBackendPool**.
+2. Välj **backend-pooler**. Välj **appGatewayBackendPool**.
 3. Under **måltyp** väljer du **virtuell dator** och under **mål**väljer du den vNIC som är kopplad till myVM.
 4. Upprepa om du vill lägga till MyVM2.
    ![privat – frontendip – 4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)

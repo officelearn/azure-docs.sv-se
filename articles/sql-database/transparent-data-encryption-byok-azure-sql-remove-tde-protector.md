@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/12/2019
-ms.openlocfilehash: ba591872f4f8af93e5f7e13e0fb69d0679fd1a0c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/12/2020
+ms.openlocfilehash: be187e34e3232c0755e2613ffffe0647da70079c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965755"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201670"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett transparent datakryptering-skydd (TDE) med PowerShell
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen
 - Du måste ha Azure PowerShell installerat och igång.
@@ -180,6 +180,8 @@ För kommando referensen, se [Azure CLI-nyckel valvet](/cli/azure/keyvault/key).
 
 2. Säkerhetskopiera nyckel materialet i TDE-skyddskomponenten i Key Vault.
 3. Ta bort den potentiellt komprometterade nyckeln från Key Vault
+
+[!INCLUDE [sql-database-akv-permission-delay](includes/sql-database-akv-permission-delay.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

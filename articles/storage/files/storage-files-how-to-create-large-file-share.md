@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732152"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190676"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora fil resurser
 
-Ursprungligen kunde standard fil resurser bara skala upp till 5 TiB. Nu kan de med stora fil resurser skala upp till 100 TiB. Du kan aktivera den här skalningen på dina befintliga lagrings konton för dina befintliga fil resurser. Premium fil resurser skalas upp till 100 TiB som standard.
+När du aktiverar stora fil resurser på ditt lagrings konto kan fil resurserna skala upp till 100 TiB. Du kan aktivera den här skalningen på dina befintliga lagrings konton för dina befintliga fil resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -26,12 +26,12 @@ Ursprungligen kunde standard fil resurser bara skala upp till 5 TiB. Nu kan de m
 
 ## <a name="restrictions"></a>Begränsningar
 
-För tillfället kan du bara använda LRS eller ZRS på stora fil resurser – aktiverade konton. Du kan inte använda GZRS, GRS eller RA-GRS.
+För närvarande kan du bara använda lokalt redundant lagring (LRS) eller zon redundant lagring (ZRS) på konton med stor fil resurs – aktiverade konton. Du kan inte använda geo-Zone-redundant lagring (GZRS), Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS).
 Att aktivera stora fil resurser på ett konto är en oåterkallelig process. När du har aktiverat det kan du inte konvertera ditt konto till GZRS, GRS eller RA-GRS.
 
 ## <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>organisationer i en installation
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Alla tjänster** i Azure-portalen. 
@@ -47,9 +47,9 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 1. Ange replikeringen till antingen **Lokalt Redundant lagring** eller **zon-redundant lagring**.
 1. Lämna dessa fält till standardvärdena:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
-   |Distributionsmodell     |Resurshanterare         |
+   |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |
    |Typ av konto     |StorageV2 (generell användning v2)         |
    |Åtkomstnivå     |Frekvent         |
@@ -87,7 +87,7 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 Du kan också aktivera stora fil resurser på dina befintliga konton. Om du aktiverar stora fil resurser kommer du inte att kunna konvertera till GZRS, GRS eller RA-GRS. Att aktivera stora fil resurser går inte att ångra på det här lagrings kontot.
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>organisationer i en installation
 
 1. Öppna [Azure Portal](https://portal.azure.com)och gå till det lagrings konto där du vill aktivera stora fil resurser.
 1. Öppna lagrings kontot och välj **konfiguration**.
@@ -120,7 +120,7 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 När du har aktiverat stora fil resurser på ditt lagrings konto kan du skapa fil resurser i det kontot med högre kvoter. 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>organisationer i en installation
 
 Att skapa en stor fil resurs är nästan identiskt med att skapa en standard fil resurs. Den största skillnaden är att du kan ange en kvot på upp till 100 TiB.
 
@@ -155,7 +155,7 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 När du har aktiverat stora fil resurser på ditt lagrings konto kan du också expandera befintliga fil resurser i det kontot till den högre kvoten. 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>organisationer i en installation
 
 1. Välj **fil resurser**från ditt lagrings konto.
 1. Högerklicka på fil resursen och välj sedan **kvot**.

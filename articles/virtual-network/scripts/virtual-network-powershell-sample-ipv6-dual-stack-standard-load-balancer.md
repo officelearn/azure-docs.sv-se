@@ -1,25 +1,24 @@
 ---
-title: Azure PowerShell skript exempel – konfigurera IPv6-slut punkter för virtuella nätverk med Standard Load Balancer (för hands version)
+title: Azure PowerShell skript exempel – konfigurera IPv6-frontend med Standard Load Balancer (förhands granskning)
 titlesuffix: Azure Virtual Network
 description: Aktivera IPv6-slutpunkter med PowerShell i Azure Virtual Network
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fc5bc23ffec0956cb53e62f0cd14d7135d5fbcca
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 24d25813a5cafc98f04d3daef2803aa44acc7f69
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269707"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201330"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Konfigurera IPv6-slutpunkter i ett virtuellt nätverks skript exempel med Standard Load Balancer (för hands version)
+# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Konfigurera IPv6-frontend i skript exempel för virtuella nätverk med Standard Load Balancer (för hands version)
 
 Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt nätverk med dubbla stackar med ett dubbelt stack-undernät, en belastningsutjämnare med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, regler för dubbla nätverks säkerhets grupper och dubbla offentliga IP-adresser.
 
@@ -35,7 +34,7 @@ Registrera på följande sätt:
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
-Det tar upp till 30 minuter för funktions registrering att slutföras. Du kan kontrol lera din registrerings status genom att köra följande Azure PowerShell kommando: Kontrol lera registreringen på följande sätt:
+Det tar upp till 30 minuter för funktions registrering att slutföras. Du kan kontrol lera din registrerings status genom att köra följande Azure PowerShell kommando: kontrol lera registreringen på följande sätt:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
 Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
@@ -264,7 +263,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Skapar ett virtuellt nätverkskort och ansluter det till det virtuella nätverket, undernätet och NSG. |
 | [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Skapar en tillgänglighetsuppsättning. Tillgänglighets uppsättningar säkerställer programmets drift tid genom att sprida de virtuella datorerna över fysiska resurser, till exempel om fel inträffar, påverkas inte hela uppsättningen. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
-| [New-AzVM](/powershell/module/az.compute/new-azvm)  | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även vilken avbildning av virtuell dator som ska användas samt administrativa autentiseringsuppgifter.  |
+| [New-AzVM](/powershell/module/az.compute/new-azvm)  | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647381"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191084"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -55,10 +55,11 @@ En privat länk-tjänst anger följande egenskaper:
 |Load Balancer IP-konfiguration för klient del (loadBalancerFrontendIpConfigurations)    |    Privata länk tjänsten är kopplad till IP-adressen för klient delen för en Standard Load Balancer. All trafik som är avsedd för tjänsten når klient delen för SLB. Du kan konfigurera SLB-regler för att dirigera trafiken till lämpliga Server dels grupper där dina program körs. IP-konfigurationer för belastningsutjämnare i klient delen skiljer sig från NAT IP-konfigurationer.      |
 |NAT IP-konfiguration (ipConfigurations)    |    Den här egenskapen refererar till IP-konfigurationen för NAT (Network Address Translation) för den privata länk tjänsten. NAT-IP kan väljas från alla undernät i tjänst leverantörens virtuella nätverk. Tjänsten för privata länkar utför NAT-ing på den privata länk trafiken. Detta säkerställer att det inte finns någon IP-konflikt mellan käll-och mål adress utrymmet (tjänst leverantör). På mål sidan (tjänst leverantörs sidan) visas NAT-IP-adressen som käll-IP för alla paket som tas emot av din tjänst och mål-IP för alla paket som skickas av din tjänst.       |
 |Anslutningar för privata slut punkter (privateEndpointConnections)     |  Den här egenskapen listar de privata slut punkter som ansluter till tjänsten för privata länkar. Flera privata slut punkter kan ansluta till samma privata länk tjänst och tjänst leverantören kan styra statusen för enskilda privata slut punkter.        |
+|TCP-proxy v2 (EnableProxyProtocol)     |  Med den här egenskapen kan tjänst leverantören använda TCP proxy v2 för att hämta anslutnings information om tjänste konsumenten. Service providern ansvarar för att konfigurera mottagares konfigurationerna för att kunna parsa proxy Protocol v2-huvudet.        |
 |||
 
 
-### <a name="details"></a>Information
+### <a name="details"></a>Detaljer
 
 - Private Link service kan nås från godkända privata slut punkter i samma region. Den privata slut punkten kan nås från samma virtuella nätverk, regionalt peer-virtuella nätverk, globalt peered virtuella nätverk och lokalt med privata VPN-eller ExpressRoute-anslutningar. 
  
@@ -95,14 +96,28 @@ Konsumenter som har exponering (styrs av Synlighets inställningen) till din pri
 
 Åtgärden att godkänna anslutningarna kan automatiseras med hjälp av egenskapen för automatiskt godkännande i tjänsten Private Link. Automatiskt godkännande är en möjlighet för tjänste leverantörer att förgodkänna en uppsättning prenumerationer för automatisk åtkomst till tjänsten. Kunderna måste dela sina prenumerationer offline för att tjänst leverantörer ska kunna läggas till i listan med automatiskt godkännande. Automatiskt godkännande är en delmängd av Synlighets mat ris. Synlighet styr exponerings inställningarna medan automatiskt godkännande styr godkännande inställningarna för din tjänst. Om en kund begär en anslutning från en prenumeration i listan med automatiskt godkännande godkänns anslutningen automatiskt och anslutningen upprättas. Tjänste leverantörer behöver inte längre godkänna begäran manuellt. Å andra sidan, om en kund begär en anslutning från en prenumeration i Synlighets mat ris och inte i matrisen för automatiskt godkännande, kommer begäran att kontakta tjänst leverantören men tjänst leverantören måste godkänna anslutningarna manuellt.
 
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Hämta anslutnings information med TCP-proxy v2
+
+När du använder Private Link service, är käll-IP-adressen för de paket som kommer från privat slut punkt nätverks adressen översatt (NAT) på tjänst leverantörs sidan med den NAT-IP som tilldelas från leverantörens virtuella nätverk. Därför tar programmen emot den allokerade NAT-IP-adressen i stället för den faktiska käll-IP-adressen för tjänste konsumenter. Om ditt program behöver faktisk käll-IP-adress från konsument sidan, kan du aktivera Proxy-protokollet på tjänsten och hämta informationen från proxy-protokollets huvud. Förutom käll-IP-adressen bär även proxy Protocol-huvudet LinkID för den privata slut punkten. Kombinationen av käll-IP-adress och LinkID kan hjälpa tjänst leverantörer att identifiera sina konsumenter unikt. Mer information om proxy-protokoll finns här. 
+
+Den här informationen kodas med en anpassad Vector-Vector (Type-Length-Value) enligt följande:
+
+Anpassad TLV-information:
+
+|Fält |Längd (oktetter)  |Beskrivning  |
+|---------|---------|----------|
+|Typ  |1        |PP2_TYPE_AZURE (0xEE)|
+|Längd  |2      |Värdets längd|
+|Värde  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|  |4        |UINT32 (4 byte) som representerar LINKID för den privata slut punkten. Kodat i little endian format.|
+
+
 ## <a name="limitations"></a>Begränsningar
 
 Följande är de kända begränsningarna när du använder den privata länk tjänsten:
 - Stöds endast på Standard Load Balancer 
 - Stöder endast IPv4-trafik
 - Stöder endast TCP-trafik
-- Det finns inte stöd för att skapa och hantera erfarenhet från Azure Portal
-- Anslutnings information för klienter som använder proxy-protokollet är inte tillgänglig för tjänst leverantören
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)

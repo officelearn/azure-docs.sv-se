@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: d29168f154c80eb2c66d0316f773375325ded67f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062191"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190032"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Eventuella korrigeringar för fel meddelandet "du kan inte ta dig dit härifrån"
 
@@ -29,7 +29,7 @@ Om du får det **här meddelandet kan du inte se** att du försöker komma åt d
 
 ![Fel meddelande som rör webb läsar stöd](media/user-help-device-remediation/browser-version.png)
 
-För att åtgärda det här problemet måste du installera och köra en webbläsare som stöds baserat på operativ systemet. Om du använder Windows 10 innehåller de webbläsare som stöds Microsoft Edge, Internet Explorer och Google Chrome. Om du använder ett annat operativ system kan du kontrol lera den fullständiga listan över [webbläsare som stöds](../conditional-access/technical-reference.md#supported-browsers).
+För att åtgärda det här problemet måste du installera och köra en webbläsare som stöds baserat på operativ systemet. Om du använder Windows 10 innehåller de webbläsare som stöds Microsoft Edge, Internet Explorer och Google Chrome. Om du använder ett annat operativ system kan du kontrol lera den fullständiga listan över [webbläsare som stöds](../conditional-access/concept-conditional-access-conditions.md#supported-browsers).
 
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>Kontrol lera att du använder ett operativ system som stöds
 Kontrol lera att du kör en version av operativ systemet som stöds, inklusive:

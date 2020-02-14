@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 46d566dc7527097d36b72886ada1f8c94f727535
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056690"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198759"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
-När du använder regler för belastnings utjämning med Azure Load Balancer måste du ange en hälso avsökning för att tillåta Load Balancer att identifiera Server delens slut punkts status.  Konfigurationen av hälso avsökningen och avsöknings Svaren avgör vilka instanser av backend-poolen som kommer att ta emot nya flöden. Du kan använda hälso avsökningar för att identifiera ett programs fel på en backend-slutpunkt. Du kan också skapa ett anpassat svar på en hälso avsökning och använda hälso avsökningen för flödes kontroll för att hantera inläsning eller planerad stillestånds tid. När en hälso avsökning Miss lyckas, slutar Load Balancer att skicka nya flöden till respektive ohälsosam instans. Utgående anslutning påverkas inte, endast inkommande anslutningar påverkas.
+När du använder regler för belastnings utjämning med Azure Load Balancer måste du ange hälso avsökningar för att tillåta Load Balancer att identifiera Server delens slut punkts status.  Konfigurationen av hälso avsökningen och avsöknings Svaren avgör vilka instanser av backend-poolen som kommer att ta emot nya flöden. Du kan använda hälso avsökningar för att identifiera ett programs fel på en backend-slutpunkt. Du kan också skapa ett anpassat svar på en hälso avsökning och använda hälso avsökningen för flödes kontroll för att hantera inläsning eller planerad stillestånds tid. När en hälso avsökning Miss lyckas, slutar Load Balancer att skicka nya flöden till respektive ohälsosam instans. Utgående anslutning påverkas inte, endast inkommande anslutningar påverkas.
 
 Hälso avsökningar stöder flera protokoll. Tillgängligheten för ett speciellt hälso avsöknings protokoll varierar med Load Balancer SKU.  Dessutom varierar funktions sättet för tjänsten med Load Balancer SKU som visas i den här tabellen:
 

@@ -4,12 +4,12 @@ description: Innehåller fel söknings vägledning som hjälper dig att diagnost
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 2b7b8903da0d8dd83591b260bacb496b0c253ae3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172589"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198632"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Felsökning av långsam säkerhetskopiering av filer och mappar i Azure Backup
 
@@ -25,6 +25,18 @@ Innan du börjar felsöka problem rekommenderar vi att du hämtar och installera
 Vi rekommenderar också starkt att du läser igenom [vanliga frågor om Azure Backup-tjänsten](backup-azure-backup-faq.md) för att se till att du inte har några vanliga konfigurations problem.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Orsak: säkerhets kopierings jobb körs i ej optimerat läge
+
+* MARS-agenten kan köra säkerhets kopierings jobbet i **optimerat läge** med hjälp av USN (Update Sequence Number) ändra journal eller ej **optimerat läge** genom att söka efter ändringar i kataloger eller filer genom att genomsöka hela volymen.
+* Icke-optimerat läge är långsamt eftersom agenten måste genomsöka varje fil och varje fil på volymen och jämföra med metadata för att fastställa de ändrade filerna.
+* Du kan kontrol lera detta genom att öppna **jobb information** från mars agent-konsolen och kontrol lera statusen för att se om det står att **överföring av data (ej optimerad, kan ta längre tid)** enligt nedan:
+
+    ![Körs i ej optimerat läge](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+
+* Följande villkor kan orsaka att säkerhets kopierings jobbet körs i ej optimerat läge:
+  * Den första säkerhets kopieringen (kallas även inledande replikering) körs alltid i ej optimerat läge
+  * Om det tidigare säkerhets kopierings jobbet Miss lyckas körs nästa schemalagda säkerhets kopierings jobb som inte optimerat.
 
 <a id="cause1"></a>
 

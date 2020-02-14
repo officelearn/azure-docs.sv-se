@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: c0aa33cce8dc163722557b1ef868cf0de8bea8fe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928736"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187485"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka paket körning i SSIS integration runtime
 
@@ -30,7 +30,7 @@ Använd SSIS-katalogen (SSISDB) för att kontrol lera informations loggarna för
 
 ## <a name="common-errors-causes-and-solutions"></a>Vanliga fel, orsaker och lösningar
 
-### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>Fel meddelande: "anslutningens tids gräns har upphört att gälla" eller "tjänsten har påträffat ett fel vid bearbetning av begäran. Försök igen. "
+### <a name="error-message-connection-timeout-expired-or-the-service-has-encountered-an-error-processing-your-request-please-try-again"></a>Fel meddelande: "anslutningens tids gräns har upphört att gälla" eller "tjänsten har påträffat ett fel vid bearbetning av begäran. Försök igen.”
 
 Här är möjliga orsaker och rekommenderade åtgärder:
 * Data källan eller målet är överbelastat. Kontrol lera belastningen på data källan eller målet och se om det finns tillräckligt med kapacitet. Om du t. ex. använde Azure SQL Database kan du skala upp om databasen troligen är tids gräns.
@@ -142,7 +142,7 @@ Kontrol lera att din egen värd för integration runtime är installerad och ig�
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Fel meddelande: "mellanlagrings åtgärds fel: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {" OperationErrorMessages ":" fel: den begärda OLE DB providern... är inte registrerad. Om 64-bitars driv rutinen inte är installerad kör du paketet i 32-bitars läge... "
 
-Se till att motsvarande provider som används av dina OLE DB-anslutningar i paketet är installerade på den lokala integration runtime-datorn korrekt. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Se till att motsvarande provider som används av dina OLE DB-anslutningar i paketet är installerade på den lokala integration runtime-datorn korrekt. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Fel meddelande: "mellanlagrings åtgärds fel: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {" OperationErrorMessages ":" fel: system. IO. FileLoadException: det gick inte att läsa in filen eller sammansättningen "Microsoft. WindowsAzure. Storage, version =..." Culture = neutral, PublicKeyToken = 31bf3856ad364e35 ' eller något av dess beroenden. Den Funna sammansättningens manifest definition matchar inte sammansättnings referensen. ..."
 
@@ -157,7 +157,7 @@ En möjlig orsak är att integration runtime med egen värd inte har installerat
 
 ### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Fel meddelande: "status för mellanlagring av aktivitet: misslyckades. Uppgifts fel för mellanlagring: felkod: 2906, ErrorMessage: det gick inte att köra paketet., utdata: {"OperationErrorMessages": "SSIS utförar slutkod:-1. \ n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration":..., "durationInQueue": {"integrationRuntimeQueue":...}} "
 
-Kontrol lera att C++ Visual runtime är installerat på den lokala integration runtime-datorn. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Kontrol lera att C++ Visual runtime är installerat på den lokala integration runtime-datorn. Mer information finns i [Konfigurera egen värd-IR som proxy för Azure-SSIS IR i ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Flera paket körningar utlöses oväntade
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/03/2020
-ms.openlocfilehash: 6ed0742a214b001ab773e33e851abfb94495984b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aeb86823ddb25bbe0340630b55360806faef59e9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767678"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186888"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -47,7 +47,7 @@ Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i 
 
 ![Skapa en användartilldelad hanterad identitet](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-### <a name="create-a-data-lake-storage-gen2-account"></a>Skapa ett Data Lake Storage Gen2-konto
+### <a name="create-a-data-lake-storage-gen2-account"></a>Skapa ett Data Lake Storage Gen2 konto
 
 Skapa ett Azure Data Lake Storage Gen2-lagringskonto.
 
@@ -57,7 +57,7 @@ Skapa ett Azure Data Lake Storage Gen2-lagringskonto.
 1. Klicka på **Skapa**.
 1. På skärmen **skapa lagrings konto** :
     1. Välj rätt prenumeration och resurs grupp.
-    1. Ange ett namn för ditt Data Lake Storage Gen2-konto. Mer information om namngivnings konventioner för lagrings konto finns i [namngivnings konventioner för Azure-resurser](/azure/architecture/best-practices/resource-naming#storage).
+    1. Ange ett namn för ditt Data Lake Storage Gen2-konto. Mer information om namngivnings konventioner för lagrings konto finns i [namngivnings konventioner för Azure-resurser](/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).
     1. Klicka på fliken **Avancerat** .
     1. Klicka på **aktive rad** bredvid **hierarkiskt namn område** under **data Lake Storage Gen2**.
     1. Klicka på **Granska + skapa**.

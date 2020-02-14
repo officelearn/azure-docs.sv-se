@@ -1,31 +1,31 @@
 ---
-title: Klient program i princip för villkorlig åtkomst – Azure Active Directory
-description: ''
+title: Molnappar eller åtgärder i princip för villkorlig åtkomst – Azure Active Directory
+description: Vad är molnappar eller åtgärder i en princip för villkorlig åtkomst för Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afc25c906ecd3b7807e6bf3e0763ac1673ebd99
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544063"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186392"
 ---
-# <a name="conditional-access-cloud-apps-and-actions"></a>Villkorlig åtkomst: molnappar och åtgärder
+# <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
-Molnappar eller åtgärder är en viktig del av en princip för villkorlig åtkomst. Med principer för villkorlig åtkomst kan administratörer tilldela kontroller till vissa program eller åtgärder. 
+Molnappar eller åtgärder är en nyckel signal i en princip för villkorlig åtkomst. Med principer för villkorlig åtkomst kan administratörer tilldela kontroller till vissa program eller åtgärder.
 
 - Administratörer kan välja i listan över program som innehåller inbyggda Microsoft-program och alla [Azure AD-integrerade program](../manage-apps/what-is-application-management.md) , inklusive Galleri, icke-galleri och program som publicerats via [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administratörer kan välja att definiera principer som inte baseras på ett moln program, men på en användar åtgärd. Den enda åtgärd som stöds är att registrera säkerhets information (förhands granskning), så att villkorlig åtkomst kan användas för att genomdriva kontroller kring den [kombinerade säkerhets informations registreringen](../authentication/howto-registration-mfa-sspr-combined.md).
 
-![Definiera en princip för villkorlig åtkomst och ange molnappar](./media/concept-conditional-access-cloud-apps/conditional-access-define-policy-specify-cloud-apps.png)
+![Definiera en princip för villkorlig åtkomst och ange molnappar](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
 ## <a name="microsoft-cloud-applications"></a>Microsoft Cloud-program
 
@@ -61,7 +61,7 @@ Administratörer kan tilldela en princip för villkorlig åtkomst till följande
 - Office Delve
 - Office Sway
 - Outlook Groups
-- Power BI-tjänst
+- Power BI tjänst
 - Project Online
 - Skype för företag – Online
 - Virtuellt privat nätverk (VPN)
@@ -98,7 +98,7 @@ Viktiga program som ingår i klient programmet för Office 365 (för hands versi
 
 Microsoft Azure hanterings programmet innehåller flera underliggande tjänster. 
 
-   - Azure portal
+   - Azure-portalen
    - Azure Resource Manager Provider
    - API: er för klassisk distributions modell
    - Azure PowerShell
@@ -118,12 +118,13 @@ Förutom Microsoft-appar kan administratörer lägga till alla registrerade Azur
 - [Anpassade program som inte är i galleriet](../manage-apps/add-non-gallery-app.md)
 - [Äldre program som publicerats via app Delivery controllers och Networks](../manage-apps/secure-hybrid-access.md)
 
-## <a name="user-actions"></a>Användaråtgärder
+## <a name="user-actions"></a>Användar åtgärder
 
 Användar åtgärder är uppgifter som kan utföras av en användare. Den enda åtgärd som stöds för närvarande är att **Registrera säkerhets information (för hands version)** , vilket gör att principen för villkorlig åtkomst kan tillämpas när användare som har Aktiver ATS för kombinerad registrering försöker registrera sin säkerhets information. Mer information finns i artikeln [kombinerad säkerhets informations registrering (för hands version)](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Komponenter för villkorlig åtkomst princip](concept-conditional-access-policies.md)
+- [Villkorlig åtkomst: villkor](concept-conditional-access-conditions.md)
+
+- [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 - [Klient program beroenden](service-dependencies.md)
-- [Microsoft Intune: Kräv MFA för enhets registrering](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)

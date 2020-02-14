@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: d85f6ba9d50b7d30930322ca34cb15edb30e1472
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 683b35661a41325cfd5baa877acdb0e37529bb94
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775001"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198742"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Vi flyttar virtuella dator avbildningar på Azure Marketplace till hanterad disk lagring
 
@@ -61,6 +61,6 @@ Det går inte att uppdatera VM-avbildningarna under flytten.
 
 Nej, publicerings processen är oförändrad. 
 
-## <a name="next-steps"></a>Nästa steg
+### <a name="can-the-publisher-move-their-offers-to-managed-disk"></a>Kan utgivaren flytta sina erbjudanden till den hanterade disken?
 
-Besök sidan med [Publisher-guiden för virtuella datorer](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
+Nej, utgivaren kan inte flytta sina erbjudanden till den hanterade disken. De måste vänta och avbildningarna kommer att flyttas automatiskt. Vi kommer att skicka meddelanden till utgivaren innan vi gör några ändringar.

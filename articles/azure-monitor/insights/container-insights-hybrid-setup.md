@@ -3,18 +3,18 @@ title: Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare |
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare för att övervaka Kubernetes-kluster som finns på Azure Stack eller annan miljö.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 7796cc7300f34a7a412495754c083b112ba05041
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759900"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198062"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
 
-Azure Monitor for containers innehåller omfattande övervaknings upplevelse för Azure Kubernetes service-och AKS-motorns kluster som finns i Azure. I den här artikeln beskrivs hur du aktiverar övervakning av Kubernetes-kluster som finns utanför Azure och uppnår en liknande övervaknings upplevelse.
+Azure Monitor for containers innehåller omfattande övervaknings upplevelse för Azure Kubernetes service (AKS) och [AKS-motorn på Azure](https://github.com/Azure/aks-engine), som är ett självhanterat Kubernetes-kluster som finns på Azure. I den här artikeln beskrivs hur du aktiverar övervakning av Kubernetes-kluster som finns utanför Azure och uppnår en liknande övervaknings upplevelse.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrollera att du har följande:
 
@@ -74,7 +74,7 @@ Om du inte är bekant med begreppet att distribuera resurser med hjälp av en ma
 
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.59 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Den här metoden innehåller två JSON-mallar. En mall anger konfigurationen för att aktivera övervakning och den andra innehåller parametervärden som du konfigurerar för att ange följande:
 
@@ -279,14 +279,14 @@ När du har distribuerat diagrammet kan du granska data för ditt hybrid Kuberne
 >[!NOTE]
 >Inmatnings fördröjningen är cirka fem till tio minuter från agenten som ska genomföras i Azure Log Analytics-arbetsytan. Status för klustret visar värdet **inga data** eller **okända** förrän alla nödvändiga övervaknings data är tillgängliga i Azure Monitor.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om det uppstår ett fel vid försök att aktivera övervakning för ditt hybrid Kubernetes-kluster, kopierar du PowerShell-skriptet [TroubleshootError_nonAzureK8s. ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) och sparar det i en mapp på datorn. Det här skriptet används för att identifiera och åtgärda de problem som uppstått. Problemen som är utformade för att identifiera och försöka korrigera är följande:
 
 * Den angivna Log Analyticss arbets ytan är giltig
 * Log Analytics arbets ytan konfigureras med Azure Monitor för container lösning. Annars konfigurerar du arbets ytan.
-* OmsAgent REPLICASET-Pod körs
-* OmsAgent daemonset-Pod körs
+* OmsAgent REPLICASET-poddar körs
+* OmsAgent daemonset-poddar körs
 * OmsAgent-tjänsten för hälso tillstånd körs
 * Log Analytics arbetsyte-ID och nyckel som kon figurer ATS på behållarens agent matchar i arbets ytan som insikten är konfigurerad med.
 * Verifiera att alla Linux Worker-noder har `kubernetes.io/role=agent` etikett för att schemalägga RS-pod. Lägg till den om den inte finns.

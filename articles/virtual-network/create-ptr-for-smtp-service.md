@@ -1,5 +1,5 @@
 ---
-title: Konfigurera zoner för omvänd sökning för en SMTP-banderoll i Azure
+title: Konfigurera zoner för omvänd sökning för en SMTP-annons kontroll
 titlesuffix: Azure Virtual Network
 description: Beskriver hur du konfigurerar zoner för omvänd sökning för en SMTP-banderoll i Azure
 services: virtual-network
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 084fdb7f850f3819738a982127fa98efab114197
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 6c37ba61005c9936e6421d06369d1f52b93ac264
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059026"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201704"
 ---
 # <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Konfigurera zoner för omvänd sökning för en SMTP-annons kontroll
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver hur du använder en omvänd zon i Azure DNS och skap
 
 Om du är värd för en SMTP-server i Microsoft Azure kan du få följande fel meddelande när du skickar eller tar emot ett meddelande från fjärranslutna e-postservrar:
 
-**554: Ingen PTR-post**
+**554: ingen PTR-post**
 
 ## <a name="solution"></a>Lösning
 

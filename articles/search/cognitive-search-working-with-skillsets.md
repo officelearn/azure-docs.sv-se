@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760801"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191031"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Färdigheter-koncept och-sammansättning i Azure Kognitiv sökning
 
@@ -41,13 +41,13 @@ För att Envision hur en färdigheter progressivt berikar ditt dokument, så bö
 
 När ett dokument har berikats pipelinen visas det som ett träd med innehåll och tillhör ande berikare. Trädet instansieras som utdata från dokument sprickor. Formatet för anriknings träd möjliggör anriknings pipelinen för att bifoga metadata till till och med primitiva data typer, men det är inte ett giltigt JSON-objekt, men kan projiceras i ett giltigt JSON-format. I följande tabell visas en status för ett dokument som anges i pipelinen:
 
-|Data Source\Parsing läge|Default|JSON, JSON-linjer & CSV|
+|Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
 |---|---|---|
-|Blob-lagring|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|Gäller inte |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Gäller inte|
+|Blob Storage|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|SAKNAS |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|SAKNAS|
 
- När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
+ När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. 
 
 Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
 För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell gransknings exempel](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), men samma koncept gäller för att ge dokument från alla andra data källor.

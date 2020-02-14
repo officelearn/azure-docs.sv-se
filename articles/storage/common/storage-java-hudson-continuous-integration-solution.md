@@ -9,14 +9,14 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970196"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201393"
 ---
-# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
+# <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-lösning för kontinuerlig integrering
 ## <a name="overview"></a>Översikt
 Följande information visar hur du använder Blob Storage som en lagrings plats för bygg artefakter som skapats av en Hudson-lösning för kontinuerlig integrering (CI) eller som en källa till nedladdnings bara filer som ska användas i en build-process. Ett av scenarier där du kan använda det här är när du kodar i en smidig utvecklings miljö (med Java eller andra språk), versioner körs baserat på kontinuerlig integrering och du behöver en lagrings plats för dina Bygg artefakter, så att du kan, Du kan till exempel dela dem med andra medlemmar i organisationen, dina kunder eller underhålla ett arkiv.  Ett annat scenario är när ditt build-jobb själva kräver andra filer, till exempel beroenden som ska laddas ned som en del av den inmatade versionen.
 
@@ -35,14 +35,14 @@ Fördelarna med att använda Blob Service som värd för dina Agile-utvecklings 
 * Prestanda när dina kunder och partners laddar ned dina build-artefakter.
 * Kontroll över användar åtkomst principer, med ett val mellan anonym åtkomst, utgångs-baserade signaturer för delad åtkomst, privat åtkomst osv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att kunna använda Blob Service med din Hudson CI-lösning:
 
 * En lösning för kontinuerlig integrering med Hudson.
   
     Om du för närvarande inte har en Hudson CI-lösning kan du köra en Hudson CI-lösning med hjälp av följande metod:
   
-  1. Hämta Hudson-KRIGet från <http://hudson-ci.org/>på en Java-aktiverad dator.
+  1. [Hämta Hudson War-filen](https://www.eclipse.org/hudson/download.php)på en Java-aktiverad dator.
   2. Kör Hudson-KRIGet i en kommando tolk som öppnas i den mapp som innehåller Hudson-KRIGet. Om du till exempel har hämtat version 3.1.2:
      
       `java -jar hudson-3.1.2.war`

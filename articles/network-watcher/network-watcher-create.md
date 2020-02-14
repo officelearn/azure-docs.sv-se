@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77812a3765a027152c957f6dbb7c9b3811a2278f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845121"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191182"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Skapa en Azure Network Watcher-instans
 
@@ -51,7 +51,7 @@ az provider register -n Microsoft.Network
 
 Gå till **alla tjänster** > **nätverks** > **Network Watcher**. Du kan välja alla prenumerationer som du vill aktivera Network Watcher för. Den här åtgärden skapar en Network Watcher i varje region som är tillgänglig.
 
-![Skapa en nätverks övervakare](./media/network-watcher-create/figure1.png)
+![skapa en nätverks övervakare](./media/network-watcher-create/figure1.png)
 
 När du aktiverar Network Watcher med hjälp av portalen anges namnet på Network Watcher-instansen automatiskt till *NetworkWatcher_region_name* där *Region_name* motsvarar den Azure-region där instansen är aktive rad. Till exempel heter en Network Watcher som är aktive rad i regionen västra centrala USA *NetworkWatcher_westcentralus*.
 
@@ -132,5 +132,3 @@ Nu när du har en instans av Network Watcher kan du läsa mer om tillgängliga f
 * [Säkerhetsgruppvy](network-watcher-security-group-view-overview.md)
 * [NSG flödes loggning](network-watcher-nsg-flow-logging-overview.md)
 * [Virtual Network Gateway-felsökning](network-watcher-troubleshoot-overview.md)
-
-När en Network Watcher instans är kan du aktivera paket fångst i virtuella datorer. Mer information finns i [skapa en avisering om utlöst paket avbildning](network-watcher-alert-triggered-packet-capture.md)

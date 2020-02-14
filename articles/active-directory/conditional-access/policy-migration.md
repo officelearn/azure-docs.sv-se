@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846187"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185912"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrering av klassisk princip för villkorlig åtkomst
 
@@ -89,7 +89,7 @@ Om du har en ny princip som har konfigurerat villkor för **Exchange Active Sync
 
 ![Villkor för villkorlig åtkomst](./media/policy-migration/16.png)
  
-[App-baserade](technical-reference.md#approved-client-app-requirement) klassiska principer för Office 365 Exchange Online som omfattar **Exchange Active Sync** som klient program villkor tillåter **stöd** för [plattformar](technical-reference.md#device-platform-condition)som stöds och **inte stöds** . Även om du inte kan konfigurera enskilda enhets plattformar i en relaterad ny princip kan du begränsa stödet till endast [plattformar som stöds](technical-reference.md#device-platform-condition) . 
+App-baserade klassiska principer för Office 365 Exchange Online som omfattar **Exchange Active Sync** som klient program villkor tillåter **stöd** för plattformar som stöds och **inte stöds** . Även om du inte kan konfigurera enskilda enhets plattformar i en relaterad ny princip kan du begränsa stödet till endast [plattformar som stöds](concept-conditional-access-conditions.md#device-platforms) . 
 
 ![Villkorlig åtkomst Välj Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -109,9 +109,9 @@ I det här fallet kan du konsolidera dina klassiska principer till en ny princip
 
 ### <a name="device-platforms"></a>Enhets plattformar
 
-Klassiska principer med [app-baserade kontroller](technical-reference.md#approved-client-app-requirement) är förkonfigurerade med iOS och Android som [enhets plattforms villkor](technical-reference.md#device-platform-condition). 
+Klassiska principer med app-baserade kontroller är förkonfigurerade med iOS och Android som enhets plattforms villkor. 
 
-I en ny princip måste du välja de [enhets plattformar](technical-reference.md#device-platform-condition) som du vill stödja individuellt.
+I en ny princip måste du välja de [enhets plattformar](concept-conditional-access-conditions.md#device-platforms) som du vill stödja individuellt.
 
 ![Val av enhets plattformar för villkorlig åtkomst](./media/policy-migration/41.png)
 

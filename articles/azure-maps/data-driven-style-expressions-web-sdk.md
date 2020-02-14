@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e3e8476d09541518d964bfaff4dabad47755eeb9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911769"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189656"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 
-Med uttryck kan du tillämpa affärs logik för att formatera alternativ som ser till att egenskaperna som definierats i varje form i en data källa. Uttryck kan också användas för att filtrera data i en data källa eller ett lager. Uttryck kan bestå av villkorlig logik, t. ex. if-statements, och kan även användas för att manipulera data med; sträng, logiska och matematiska operatorer. 
+Med uttryck kan du tillämpa affärs logik för att formatera alternativ som ser till att egenskaperna som definierats i varje form i en data källa. Uttryck kan filtrera data i en data källa eller ett lager. Uttryck kan bestå av villkorsstyrd logik, t. ex. if-Statements. Och kan användas för att manipulera data med hjälp av: sträng operatorer, logiska operatorer och matematiska operatorer.
 
-Data drivna format kan minska mängden kod som behövs för att implementera affärs logik kring formatering. När det används med lager utvärderas uttryck vid åter givnings tiden på en separat tråd som ger bättre prestanda jämfört med att utvärdera affärs logiken i UI-tråden.
+Data drivna format minskar mängden kod som behövs för att implementera affärs logik kring formatering. När det används med lager utvärderas uttryck vid åter givnings tiden i en separat tråd. Den här funktionen ger ökad prestanda jämfört med att utvärdera affärs logiken i UI-tråden.
 
-Följande videoklipp ger en översikt över data driven format i Azure Maps Web SDK.
+Den här videon ger en översikt över data driven format i Azure Maps Web SDK.
 
 <br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen är en sträng som anger namnet på uttrycks operatorn. Till exempel "+" eller "Case". Nästa element (om det finns några) är argumenten för uttrycket. Varje argument är antingen ett litteralt värde (en sträng, en siffra, ett booleskt värde eller ett `null`) eller en annan uttrycks mat ris. Följande pseudocode definierar den grundläggande strukturen ett uttryck. 
+Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen är en sträng som anger namnet på uttrycks operatorn. Till exempel "+" eller "Case". Nästa element (om det finns några) är argumenten för uttrycket. Varje argument är antingen ett litteralt värde (en sträng, en siffra, ett booleskt värde eller ett `null`) eller en annan uttrycks mat ris. Följande pseudocode definierar den grundläggande strukturen i ett uttryck. 
 
 ```javascript
 [ 
@@ -39,7 +39,7 @@ Uttryck visas som JSON-matriser. Det första elementet i ett uttryck i matrisen 
 ] 
 ```
 
-Azure Maps Web SDK stöder många typer av som kan användas på egen hand eller i kombination med andra uttryck.
+Azure Maps Web SDK stöder många typer av uttryck. Uttryck kan användas på egen hand eller i kombination med andra uttryck.
 
 | Typ av uttryck | Beskrivning |
 |---------------------|-------------|
@@ -53,10 +53,10 @@ Azure Maps Web SDK stöder många typer av som kan användas på egen hand eller
 | [Matematiska uttryck](#math-expressions) | Innehåller matematiska operatorer för att utföra data drivna beräkningar i uttrycks ramverket. |
 | [Uttryck för sträng operator](#string-operator-expressions) | Uttryck för sträng operatorer utför konverterings åtgärder på strängar som sammanfogning och konvertering av ärendet. |
 | [Typ uttryck](#type-expressions) | Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, t. ex. strängar, siffror och booleska värden. |
-| [Uttryck för variabel bindning](#variable-binding-expressions) | Uttryck för variabel bindning gör att resultatet av en beräkning lagras i en variabel och refereras till någon annan stans i ett uttryck med flera gånger utan att behöva beräkna om det lagrade värdet. |
+| [Uttryck för variabel bindning](#variable-binding-expressions) | Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel och refereras till i ett uttryck flera gånger utan att behöva beräkna om det lagrade värdet. |
 | [Uttryck för zoomning](#zoom-expression) | Hämtar den aktuella zoomnings nivån för kartan vid åter givnings tiden. |
 
-I alla exempel i det här dokumentet används följande funktion för att demonstrera olika sätt i att de olika typerna av uttryck kan användas. 
+I alla exempel i det här dokumentet används följande funktion för att demonstrera olika sätt som de olika typerna av uttryck kan användas på. 
 
 ```javascript
 {
@@ -87,14 +87,14 @@ Data uttryck ger till gång till egenskaps data i en funktion.
 | `['geometry-type']` | sträng | Hämtar funktionens geometri typ: punkt, MultiPoint, lin Est ring, MultiLineString, polygon, multipolygon. |
 | `['get', string]` | värde | Hämtar egenskap svärdet från den aktuella funktionens egenskaper. Returnerar null om den begärda egenskapen saknas. |
 | `['get', string, object]` | värde | Hämtar egenskap svärdet från egenskaperna för det angivna objektet. Returnerar null om den begärda egenskapen saknas. |
-| `['has', string]` | boolean | Anger om egenskaperna för en funktion har den angivna egenskapen. |
-| `['has', string, object]` | boolean | Anger om egenskaperna för objektet har den angivna egenskapen. |
+| `['has', string]` | boolesk | Anger om egenskaperna för en funktion har den angivna egenskapen. |
+| `['has', string, object]` | boolesk | Anger om egenskaperna för objektet har den angivna egenskapen. |
 | `['id']` | värde | Hämtar funktionens ID om det har en sådan. |
-| `['length', string | array]` | nummer | Hämtar längden för en sträng eller matris. |
+| `['length', string | array]` | nummer | Hämtar längden för en sträng eller en matris. |
 
 **Exempel**
 
-Egenskaperna för en funktion kan nås direkt i ett uttryck med hjälp av ett `get` uttryck. I följande exempel används värdet "zoneColor" för funktionen för att ange färg egenskapen för ett bubbeldiagram. 
+Egenskaperna för en funktion kan nås direkt i ett uttryck med hjälp av ett `get` uttryck. I det här exemplet används värdet "zoneColor" för funktionen för att ange färg egenskapen för ett bubbeldiagram. 
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -102,7 +102,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Exemplet ovan fungerar bra om alla punkt funktioner har egenskapen `zoneColor`, men om de inte gör det kommer färgen förmodligen att återgå till "svart". Om du vill ändra återställnings färgen kan ett `case` uttryck användas i kombination med uttrycket `has` för att kontrol lera om egenskapen finns och om den inte returnerar en återställnings färg i stället.
+Ovanstående exempel fungerar bra om alla punkt funktioner har egenskapen `zoneColor`. Om de inte gör det kommer färgen sannolikt att återgå till "svart". Om du vill ändra återställnings färgen använder du ett `case` uttryck i kombination med uttrycket `has` för att kontrol lera om egenskapen finns. Om egenskapen inte finns returnerar du en återställnings färg.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -117,7 +117,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Bubbeldiagram och symbol lager kommer att återge koordinaterna för alla former i en data källa som standard. Detta kan göras för att markera hörnen på en polygon eller linje. `filter` alternativ för skiktet kan användas för att begränsa geometri typen för de funktioner som återges genom att använda ett `['geometry-type']` uttryck i ett booleskt uttryck. I följande exempel begränsas ett bubbel lager så att endast `Point` funktioner återges.
+Bubbeldiagram och symbol lager kommer att återge koordinaterna för alla former i en data källa som standard. Det här beteendet kan markera hörnen för en polygon eller en linje. `filter` alternativ för skiktet kan användas för att begränsa geometri typen för de funktioner som återges genom att använda ett `['geometry-type']` uttryck i ett booleskt uttryck. I följande exempel begränsas ett bubbel lager så att endast `Point` funktioner återges.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -170,15 +170,15 @@ Matematiska uttryck tillhandahåller matematiska operatorer för att utföra dat
 
 ## <a name="aggregate-expression"></a>Mängd uttryck
 
-Ett mängd uttryck definierar en beräkning som bearbetas över en uppsättning data och kan användas med alternativet `clusterProperties` för en `DataSource`. Utdata från dessa uttryck måste vara en siffra eller ett booleskt värde. 
+Ett mängd uttryck definierar en beräkning som bearbetas över en uppsättning data och kan användas med alternativet `clusterProperties` för en `DataSource`. Utdata från dessa uttryck måste vara ett tal eller ett booleskt värde. 
 
-Ett agg regerings uttryck tar i tre värden. ett operator värde och ett start värde och ett uttryck för att hämta en egenskap från varje funktion i en data för att tillämpa den sammanställda åtgärden. Det här uttrycket har följande format:
+Ett agg regerings uttryck tar i tre värden: ett operator värde och ett start värde och ett uttryck för att hämta en egenskap från varje funktion i en data för att tillämpa den sammanställda åtgärden. Det här uttrycket har följande format:
 
 ```javascript
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
 ```
 
-- operator: en uttrycks funktion som sedan tillämpas på alla värden som beräknas av `mapExpression` för varje punkt i klustret. Operatorer som stöds; 
+- operator: en uttrycks funktion som sedan tillämpas på alla värden som beräknas av `mapExpression` för varje punkt i klustret. Operatorer som stöds: 
     - För tal: `+`, `*`, `max``min`
     - För booleska värden: `all``any`
 - initialValue: ett initialt värde där det första beräknade värdet aggregeras mot.
@@ -186,7 +186,7 @@ Ett agg regerings uttryck tar i tre värden. ett operator värde och ett start v
 
 **Exempel**
 
-Om alla funktioner i en data uppsättning har en `revenue`-egenskap som är ett tal. Den totala intäkten för alla punkter i ett kluster som skapats från data uppsättningen kan beräknas med följande mängd uttryck: `['+', 0, ['get', 'revenue']]`
+Om alla funktioner i en data uppsättning har en `revenue`-egenskap, vilket är ett tal. Sedan kan den totala intäkten för alla punkter i ett kluster, som skapas från data uppsättningen, beräknas. Den här beräkningen görs med följande mängd uttryck: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Booleska uttryck
 
@@ -196,15 +196,15 @@ När värden jämförs skrivs jämförelsen strikt. Värden av olika typer betra
 
 | Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Logisk negation. Returnerar `true` om indatatypen är `false`och `false` om indatatypen är `true`. |
-| `['!= ', value, value]` | boolean | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
-| `['<', value, value]` | boolean | Returnerar `true` om den första indatamängden är strikt mindre än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['<=', value, value]` | boolean | Returnerar `true` om den första indatamängden är mindre än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['==', value, value]` | boolean | Returnerar `true` Om indatavärdena är lika, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['>', value, value]` | boolean | Returnerar `true` om den första indatamängden är exakt större än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['>=' value, value]` | boolean | Returnerar `true` om den första indatamängden är större än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['all', boolean, boolean, …]` | boolean | Returnerar `true` om alla indata är `true``false` annars. |
-| `['any', boolean, boolean, …]` | boolean | Returnerar `true` om några indata är `true``false` annars. |
+| `['! ', boolean]` | boolesk | Logisk negation. Returnerar `true` om indatatypen är `false`och `false` om indatatypen är `true`. |
+| `['!= ', value, value]` | boolesk | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
+| `['<', value, value]` | boolesk | Returnerar `true` om den första indatamängden är strikt mindre än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['<=', value, value]` | boolesk | Returnerar `true` om den första indatamängden är mindre än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['==', value, value]` | boolesk | Returnerar `true` Om indatavärdena är lika, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['>', value, value]` | boolesk | Returnerar `true` om den första indatamängden är exakt större än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['>=' value, value]` | boolesk | Returnerar `true` om den första indatamängden är större än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['all', boolean, boolean, …]` | boolesk | Returnerar `true` om alla indata är `true``false` annars. |
+| `['any', boolean, boolean, …]` | boolesk | Returnerar `true` om några indata är `true``false` annars. |
 
 ## <a name="conditional-expressions"></a>Villkorliga uttryck
 
@@ -214,7 +214,7 @@ Följande uttryck utför villkorliga logik åtgärder på indata. `case` uttryck
 
 ### <a name="case-expression"></a>Case-uttryck
 
-Ett `case` uttryck är en typ av villkors uttryck som ger IF-Statement som Logic (om/sedan/Else). Den här typen av uttrycks steg genom en lista över booleska villkor och returnerar värdet output för det första booleska villkoret som är sant.
+Ett `case` uttryck är en typ av villkors uttryck som tillhandahåller "om/sedan/Else"-logik. Den här typen av uttrycks steg i en lista över booleska villkor. Det returnerar utmatning svärdet för det första booleska villkoret för att utvärdera till sant.
 
 Följande pseudocode definierar strukturen för det `case` uttrycket. 
 
@@ -294,7 +294,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-I följande exempel används en matris för att visa en uppsättning etiketter som alla ska returnera samma värde. Det här är mycket mer effektivt än att lista varje etikett individuellt. I detta fall returneras färgen "röd" om `entityType` egenskapen är "restaurang" eller "grocery_store".
+I följande exempel används en matris för att visa en uppsättning etiketter som alla ska returnera samma värde. Den här metoden är mycket mer effektiv än att lista varje etikett individuellt. I detta fall returneras färgen "röd" om `entityType` egenskapen är "restaurang" eller "grocery_store".
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -315,7 +315,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-I följande exempel används ett matchnings uttryck för att utföra en "i matris" eller "matris innehåller" typ filter, i det här fallet filtrerar data som har ett ID-värde som finns i en lista över tillåtna ID: n. När du använder uttryck med filter måste resultatet vara ett booleskt värde.
+I följande exempel används ett matchnings uttryck för att utföra en "i matris" eller "matris innehåller" typ filter. I det här fallet filtrerar uttrycket data som har ett ID-värde som finns i en lista över tillåtna ID: n. När du använder uttryck med filter måste resultatet vara ett booleskt värde.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -401,7 +401,7 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matris \| objekt | Returnerar en literal matris eller ett objekt värde. Använd det här uttrycket för att förhindra att en matris eller ett objekt utvärderas som ett uttryck. Detta är nödvändigt när en matris eller ett objekt måste returneras av ett uttryck. |
 | `['image', string]` | sträng | Kontrollerar om ett angivet bild-ID läses in i Maps-avbildningen Sprite. Om så är fallet returneras ID, annars returneras null. |
-| `['to-boolean', value]` | boolean | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indatatypen är en tom sträng, `0`, `false`, `null`eller `NaN`. annars `true`. |
+| `['to-boolean', value]` | boolesk | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indatatypen är en tom sträng, `0`, `false`, `null`eller `NaN`. annars `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Konverterar indatavärdet till en färg. Om flera värden anges utvärderas var och en i ordning tills den första lyckade konverteringen erhålls. Om ingen av indatana kan konverteras, är uttrycket ett fel. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nummer | Konverterar indatavärdet till ett tal, om möjligt. Om indatatypen är `null` eller `false`är resultatet 0. Om indatatypen är `true`är resultatet 1. Om indatatypen är en sträng konverteras den till ett tal med hjälp av funktionen [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) -sträng i språk specifikationen ECMAScript. Om flera värden anges utvärderas var och en i ordning tills den första lyckade konverteringen erhålls. Om ingen av indatana kan konverteras, är uttrycket ett fel. |
 | `['to-string', value]` | sträng | Konverterar indatavärdet till en sträng. Om indatatypen är `null`är resultatet `""`. Om indatatypen är ett booleskt värde är resultatet `"true"` eller `"false"`. Om indatatypen är ett tal, konverteras den till en sträng med hjälp av funktionen [toString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) Number i språk specifikationen ECMAScript. Om indatatypen är en färg konverteras den till CSS RGBA-färgsträng `"rgba(r,g,b,a)"`. Annars konverteras inmatarna till en sträng med hjälp av [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) -funktionen i språk specifikationen ECMAScript. |
@@ -441,7 +441,7 @@ Färg uttryck gör det enklare att skapa och ändra färg värden.
 
 **Exempel**
 
-I följande exempel skapas och RGB-färgvärdet som har ett *rött* värde av `255`och *gröna* och *blå* värden som beräknas genom att `2.5` multipliceras med värdet för egenskapen `temperature`. När temperaturen ändras ändras färgen till olika nyanser av *rött*.
+I följande exempel skapas ett RGB-färg värde som har ett *rött* värde av `255`och *gröna* och *blå* värden som beräknas genom att `2.5` multipliceras med värdet för egenskapen `temperature`. När temperaturen ändras ändras färgen till olika nyanser av *rött*.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -492,7 +492,7 @@ exempel på ![sträng operator uttryck](media/how-to-expressions/string-operator
 
 ## <a name="interpolate-and-step-expressions"></a>Interpolerade och steg uttryck
 
-Interpolerade och steg uttryck kan användas för att beräkna värden längs en interpolerad kurva eller en steg funktion. Dessa uttryck tar i ett uttryck som returnerar ett numeriskt värde som indatatyp, till exempel `['get',  'temperature']`. Indatavärdet utvärderas mot par av indata-och utdatakolumner, som kallas "stoppa", för att fastställa det värde som passar bäst för funktionen interpolerad kurva eller funktion. Indatavärdena för varje stopp måste vara ett tal och vara i stigande ordning. Värdena för utdata måste vara ett tal, en matris med tal eller en färg.
+Interpolerade och steg uttryck kan användas för att beräkna värden längs en interpolerad kurva eller en steg funktion. Dessa uttryck tar i ett uttryck som returnerar ett numeriskt värde som indatatyp, till exempel `['get',  'temperature']`. Indatavärdet utvärderas mot par av indata-och utdataparametrar, för att avgöra vilket värde som passar bäst för funktionen interpolerad kurva eller steg. Värdena för utdata kallas för "stoppa". Indatavärdena för varje stopp måste vara ett tal och vara i stigande ordning. Värdena för utdata måste vara ett tal, en matris med tal eller en färg.
 
 ### <a name="interpolate-expression"></a>Interpolerat uttryck
 
@@ -527,7 +527,7 @@ Följande pseudocode definierar strukturen för det `interpolate` uttrycket.
 
 **Exempel**
 
-I följande exempel används ett `linear interpolate`-uttryck för att ange egenskapen `color` för ett bubbeldiagram baserat på egenskapen `temperature` för punkt funktionen. Om `temperature` svärdet är mindre än 60 kommer "blå" att returneras, om mellan 60 och mindre än 70, kommer gult att returneras, om mellan 70 och mindre än 80, returneras "orange", om 80 eller senare, "röd" kommer att returneras.
+I följande exempel används ett `linear interpolate`-uttryck för att ange egenskapen `color` för ett bubbeldiagram baserat på egenskapen `temperature` för punkt funktionen. Om `temperature`-värdet är mindre än 60 returneras "blått". Om det är mellan 60 och mindre än 70 kommer gult att returneras. Om det är mellan 70 och mindre än 80 kommer "orange" att returneras. Om det är 80 eller högre returneras "röd".
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -576,7 +576,7 @@ Steg uttryck returnerar utdata för stoppet precis före indatavärdet eller det
 
 **Exempel**
 
-I följande exempel används ett `step`-uttryck för att ange egenskapen `color` för ett bubbeldiagram baserat på egenskapen `temperature` för punkt funktionen. Om `temperature` svärdet är mindre än 60 kommer "blå" att returneras, om mellan 60 och mindre än 70, returneras "gult", om mellan 70 och mindre än 80, returneras "orange", om 80 eller senare, "röd" kommer att returneras.
+I följande exempel används ett `step`-uttryck för att ange egenskapen `color` för ett bubbeldiagram baserat på egenskapen `temperature` för punkt funktionen. Om `temperature`-värdet är mindre än 60 returneras "blått". Om det är mellan 60 och mindre än 70 returneras "gult". Om det är mellan 70 och mindre än 80 kommer "orange" att returneras. Om det är 80 eller högre returneras "röd".
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -601,16 +601,16 @@ Följande bild visar hur färgerna väljs för uttrycket ovan.
 exempel på ![steg-uttryck](media/how-to-expressions/step-expression-example.png)
 </center>
 
-## <a name="layer-specific-expressions"></a>Lagerbaserat uttryck
+## <a name="layer-specific-expressions"></a>Lager-/regionsspecifika uttryck
 
 Särskilda uttryck som endast gäller för specifika lager.
 
 ### <a name="heat-map-density-expression"></a>Uttryck för termisk kart täthet
 
-Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']`. Det här värdet är ett tal mellan `0` och `1` och används i kombination med ett `interpolation`-eller `step` uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) för värme kart skiktet.
+Ett termiskt kart Täthets uttryck hämtar värdet för värme kartan för varje pixel i ett värme kart skikt och definieras som `['heatmap-density']`. Det här värdet är ett tal mellan `0` och `1`. Den används i kombination med ett `interpolation`-eller `step` uttryck för att definiera färg toningen som används för att färga värme kartan. Det här uttrycket kan bara användas i [färg alternativet](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) för värme kart skiktet.
 
 > [!TIP]
-> Färgen vid index 0 i ett interpolation-uttryck eller standard färgen för en steg färg definierar ytans färg där det inte finns några data och som kan användas för att definiera en bakgrunds färg. Många föredrar att ange det här värdet som transparent eller en halv genomskinlig svart. 
+> Färgen vid index 0, i ett interpolation-uttryck eller standard färgen för en steg färg definierar färgen för det utrymme där det inte finns några data. Färgen vid index 0 kan användas för att definiera en bakgrunds färg. Många föredrar att ange det här värdet som transparent eller en halv genomskinlig svart.
 
 **Exempel**
 
@@ -630,7 +630,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-Förutom att använda en mjuk toning för att färga en värme karta kan färger anges inom en uppsättning intervall med hjälp av ett `step` uttryck. Om du använder ett `step` uttryck för att färgsätta värme kartan bryts densiteten visuellt i intervall som påminner om en profil eller en polär stil karta.  
+Förutom att använda en mjuk toning för att färga en värme karta kan färger anges inom en uppsättning intervall med hjälp av ett `step` uttryck. Om du använder ett `step`-uttryck för att färgsätta värme kartan, bryts densiteten i områden som liknar en profil-eller radar format karta.  
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -651,14 +651,14 @@ Mer information finns i dokumentationen för att [lägga till en termisk kart sk
 
 ### <a name="line-progress-expression"></a>Uttryck för linje förlopp
 
-Ett uttryck för linje förlopp hämtar förloppet längs en övertoningsfyllning i ett linje lager och definieras som `['line-progress']`. Det här värdet är ett tal mellan 0 och 1 och används i kombination med ett `interpolation`-eller `step`-uttryck. Det här uttrycket kan bara användas med [alternativet strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) för rad skiktet. 
+Ett uttryck för linje förlopp hämtar förloppet längs en övertoningsfyllning i ett linje lager och definieras som `['line-progress']`. Värdet är ett tal mellan 0 och 1. Den används i kombination med ett `interpolation`-eller `step`-uttryck. Det här uttrycket kan bara användas med [alternativet strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) för rad skiktet. 
 
 > [!NOTE]
 > Alternativet `strokeGradient` för linje lagret kräver att `lineMetrics` alternativet för data källan ska vara inställt på `true`.
 
 **Exempel**
 
-I följande exempel används uttrycket `['line-progress']` för att tillämpa en färg toning på linjen för en linje.
+I det här exemplet används uttrycket `['line-progress']` för att tillämpa en färg toning på linjen för en linje.
 
 ```javascript
 var layer = new atlas.layer.LineLayer(datasource, null, {
@@ -793,11 +793,11 @@ exempel](media/how-to-expressions/number-format-expression.png) ![Number format 
 
 ## <a name="zoom-expression"></a>Uttryck för zoomning
 
-Ett `zoom` uttryck används för att hämta den aktuella zoomnings nivån för kartan vid åter givnings tid och definieras som `['zoom']`. Det här uttrycket returnerar ett tal mellan kartans minsta och högsta zoomnings nivå intervall. Genom att använda det här uttrycket kan du ändra formaten dynamiskt när kart nivån för kartan ändras. `zoom`-uttrycket får bara användas med `interpolate`-och `step`-uttryck.
+Ett `zoom` uttryck används för att hämta den aktuella zoomnings nivån för kartan vid åter givnings tid och definieras som `['zoom']`. Det här uttrycket returnerar ett tal mellan kartans minsta och högsta zoomnings nivå intervall. Azure Maps interaktiva kart kontroller för webb-och Android-stöd 25 zoomnings nivåer, numrerade 0 till 24. Med hjälp av uttrycket `zoom` kan format ändras dynamiskt när kart nivån för kartan ändras. `zoom`-uttrycket får bara användas med `interpolate`-och `step`-uttryck.
 
 **Exempel**
 
-Som standard har radien för data punkter som återges i värme kart skiktet ett fast pixel-radie för alla zoomnings nivåer. När kartan zoomas samman samlas data samman och termisk kart skiktet ser annorlunda ut. Ett `zoom` uttryck kan användas för att skala radien för varje zoomnings nivå så att varje data punkt täcker samma fysiska område i kartan. Det gör att värme kart lagret ser mer statiskt och konsekvent. Varje zoomnivå på kartan har två gånger så många bild punkter lodrätt och vågrätt som föregående zoomnings nivå. Om du skalar radien så att den dubbleras med varje zoomnivå skapas en värme karta som ser konsekvent ut på alla zoomnings nivåer. Detta kan åstadkommas med hjälp av uttrycket `zoom` med ett `base 2 exponential interpolation` uttryck som visas nedan. 
+Som standard har radien för data punkter som återges i värme kart skiktet ett fast pixel-radie för alla zoomnings nivåer. När kartan är insamlad är data aggarna tillsammans och värme kart lagret annorlunda. Ett `zoom` uttryck kan användas för att skala radien för varje zoomnings nivå så att varje data punkt täcker samma fysiska område i kartan. Det gör att värme kart lagret ser mer statisk och konsekvent. Varje zoomnivå på kartan har två gånger så många bild punkter lodrätt och vågrätt som föregående zoomnings nivå. Om du skalar radien, så att den dubbleras med varje zoomnivå, skapas en värme karta som ser konsekvent ut på alla zoomnings nivåer. Det kan åstadkommas med hjälp av `zoom` uttryck med ett `base 2 exponential interpolation` uttryck som visas nedan. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -819,16 +819,16 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 ## <a name="variable-binding-expressions"></a>Uttryck för variabel bindning
 
-Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel så att den kan refereras till någon annan stans i ett uttryck, utan att behöva beräkna om den. Detta är en användbar optimering för uttryck som omfattar många beräkningar
+Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel. Så att beräknings resultaten kan refereras till någon annan stans i ett uttryck flera gånger. Det är en bra optimering för uttryck som omfattar många beräkningar.
 
 | Uttryck | Returtyp | Beskrivning |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var`-uttrycket i det underordnade uttrycket som returnerar resultatet. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var`-uttrycket i det underordnade uttrycket som returnerar resultatet. |
 | `['var', name: string]` | valfri | Refererar till en variabel som skapats med `let`-uttrycket. |
 
 **Exempel**
 
-I det här exemplet används ett uttryck som beräknar intäkterna relativt temperatur förhållandet och använder sedan ett `case`-uttryck för att utvärdera olika booleska åtgärder för det här värdet. `let` uttryck används för att lagra intäkterna relativt till temperatur förhållandet så att det bara behöver beräknas en gång och uttrycket `var` refererar till den här variabeln så ofta som det behövs utan att behöva beräkna om den.
+I det här exemplet används ett uttryck som beräknar intäkterna relativt temperatur förhållandet och använder sedan ett `case`-uttryck för att utvärdera olika booleska åtgärder för det här värdet. `let`-uttrycket används för att lagra intäkterna i förhållande till temperatur förhållandet, så att det bara behöver beräknas en gång. `var` uttrycket refererar till den här variabeln så ofta som det behövs utan att du behöver beräkna om den.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {

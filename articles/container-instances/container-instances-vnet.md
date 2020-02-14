@@ -4,12 +4,12 @@ description: Lär dig hur du distribuerar behållar grupper till ett nytt eller 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 318576e9b5c5b32bbc993ea16494c938b74bd2f4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901861"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200069"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållar instanser i ett virtuellt Azure-nätverk
 
@@ -260,7 +260,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>Ta bort nätverks resurser
 
-Den här funktionen kräver för närvarande flera ytterligare kommandon för att ta bort nätverks resurserna som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser.
+Den här funktionen kräver för närvarande flera ytterligare kommandon för att ta bort nätverks resurserna som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser. Skriptet förutsätter att din resurs grupp innehåller ett enda virtuellt nätverk med en enda nätverks profil.
 
 Ange `RES_GROUP` variabeln till namnet på den resurs grupp som innehåller det virtuella nätverk och undernät som ska tas bort innan du kör skriptet. Uppdatera namnet på det virtuella nätverket om du inte använde `aci-vnet` namnet som du föreslog tidigare. Skriptet är formaterat för bash-gränssnittet. Om du föredrar ett annat gränssnitt, t. ex. PowerShell eller kommando tolken, måste du justera variabel tilldelning och-åtkomst på motsvarande sätt.
 
@@ -269,9 +269,11 @@ Ange `RES_GROUP` variabeln till namnet på den resurs grupp som innehåller det 
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
+# Assumes one virtual network in resource group
 RES_GROUP=<my-resource-group>
 
 # Get network profile ID
+# Assumes one profile in virtual network
 NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile

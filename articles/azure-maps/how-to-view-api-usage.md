@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cd60552abf247f448acdaad700396dca0cd1a1f7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911341"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198130"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Visa användningsstatistik för Azure Maps API
 
-Den här artikeln visar hur du visar användnings måtten för API: er för ditt Azure Maps-konto i [portalen](https://portal.azure.com). Måtten visas i ett användbart diagram format längs en anpassad tids period.
+Den här artikeln visar hur du visar användnings statistik för API: er för ditt Azure Maps-konto i [Azure Portal](https://portal.azure.com). Måtten visas i ett användbart diagram format längs en anpassad tids period.
 
 ## <a name="view-metric-snapshot"></a>Visa mått ögonblicks bild
 
@@ -35,22 +35,22 @@ Fortsätt till nästa avsnitt om du behöver anpassa diagrammen för just din an
 
 3. När ditt Maps-konto är öppet klickar du på **mått** menyn till vänster.
 
-4. I fönstret **mått** väljer du något av följande:
+4. Välj något av följande alternativ i fönstret **mått** :
 
    1. **Tillgänglighet** – som visar *genomsnitt* av API-tillgänglighet under en viss tids period.
    2. **Användning** – som visar hur användnings *antalet* används för ditt konto.
 
       ![Fönstret Azure Maps användnings statistik](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)** . Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Använd**.
+5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)** . Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Verkställ**.
 
     ![Tidsintervallet Azure Maps mått](media/how-to-view-api-usage/time-range.png)
 
-6. När du har lagt till ditt mått kan du sedan **lägga till filter** från bland de egenskaper som är relevanta för det måttet och sedan välja värdet för den egenskap som du vill visa grafen för.
+6. När du har lagt till ditt mått kan du **lägga till filter** från de egenskaper som är relevanta för det måttet. Välj sedan värdet för den egenskap som du vill ska visas i diagrammet.
 
     ![Filter för Azure Maps användnings statistik](media/how-to-view-api-usage/filter.png)
 
-7. Du kan också **använda delning** för ditt mått baserat på din valda mått egenskap. Detta gör att grafen kan delas upp i flera grafer, ett för varje värde för egenskapen. I följande bild motsvarar färgen på varje diagram det egenskaps värde som visas längst ned i diagrammet.
+7. Du kan också **använda delning** för ditt mått baserat på din valda mått egenskap. Det gör att grafen kan delas upp i flera grafer, för varje värde för egenskapen. I följande bild motsvarar färgen på varje diagram det egenskaps värde som visas längst ned i diagrammet.
 
     ![Delning av Azure Maps användnings statistik](media/how-to-view-api-usage/splitting.png)
 

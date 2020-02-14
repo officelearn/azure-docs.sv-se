@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: cc152460be777c30d79f783b9acfa846a4c73a72
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548345"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188025"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
@@ -23,9 +23,9 @@ Använd den klassiska inmatningen (bulk) i stället för strömnings inmatning n
 > [!NOTE]
 > Streaming-inmatningen har inte stöd för följande funktioner:
 > * [Databas markörer](/azure/kusto/management/databasecursor).
-> * [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
+> * [Data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/create-ingestion-mapping-command) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Logga in på [webb gränssnittet](https://dataexplorer.azure.com/).
@@ -54,7 +54,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Välj lämplig typ av strömnings inmatning
 
-|   |Event Hub  |Anpassad inmatning  |
+|   |Händelsehubb  |Anpassad inmatning  |
 |---------|---------|---------|
 |Data fördröjning mellan inmatnings initiering och data som är tillgängliga för fråga   |    längre fördröjning     |   kortare fördröjning      |
 |Utvecklings kostnader    |   snabb och enkel installation, inga utvecklings kostnader    |   hög utvecklings kostnader för program för att hantera fel och säkerställa data konsekvens     |

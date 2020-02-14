@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: eb4b51c94a62ad9f700b7cd448ff0f53485a16bf
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 02/13/2020
+ms.openlocfilehash: 2fa43cb9ec526cfab2367431712e09406556a529
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110451"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191908"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
-För scenarier där dina Logi Kap par och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md)kan du skapa en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en privat och isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den offentliga, "globala", Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
+För scenarier där dina Logi Kap par och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md)kan du skapa en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den offentliga, "globala", Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
 
 När du skapar en ISE, *injicerar* Azure som ISE i ditt virtuella Azure-nätverk, som sedan distribuerar tjänsten Logic Apps till ditt virtuella nätverk. När du skapar en Logic app eller ett integrations konto väljer du din ISE som plats. Din Logic app-eller integrations konto kan sedan få direkt åtkomst till resurser, till exempel virtuella datorer, servrar, system och tjänster, i ditt virtuella nätverk.
 
@@ -49,7 +49,7 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
   * Se till att ditt virtuella nätverk [ger åtkomst till din ISE](#enable-access) så att din ISE kan fungera korrekt och vara tillgänglig.
 
-  * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som tillhandahåller en privat anslutning till Microsofts moln tjänster, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
+  * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som ger en privat anslutning till Microsofts moln tjänster som under lättas av anslutnings leverantören, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
 
     **Namn**: <*route-Name*><br>
     **Adressprefix**: 0.0.0.0/0<br>
@@ -75,9 +75,10 @@ För att se till att din ISE är tillgänglig och att Logi Kap par i som ISE kan
 
 * Om du har skapat ett nytt virtuellt Azure-nätverk och undernät utan några begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md#network-security-groups) i det virtuella nätverket för att styra trafiken mellan undernät.
 
-* I ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen, i det virtuella nätverk där du vill konfigurera NSG: er, måste du [öppna portarna i den här tabellen](#network-ports-for-ise). Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
+* I ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du vill använda den här vägen, eller om du redan använder NSG: er, se till att du [öppnar portarna i den här tabellen](#network-ports-for-ise) i det virtuella nätverket där du har NSG: er eller vill ställa in NSG: er.
 
-* Om du tidigare har en befintlig NSG: er, se till att du [öppnar portarna i den här tabellen](#network-ports-for-ise). Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
+  > [!NOTE]
+  > Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)måste du använda *både* TCP-och UDP-protokollen. NSG säkerhets regler beskriver de portar som du måste öppna för IP-adresserna som behöver åtkomst till dessa portar. Kontrol lera att alla brand väggar, routrar eller andra objekt som finns mellan dessa slut punkter också behåller de portarna som är tillgängliga för dessa IP-adresser.
 
 <a name="network-ports-for-ise"></a>
 
@@ -94,17 +95,17 @@ I den här tabellen beskrivs de portar i ditt virtuella Azure-nätverk som anvä
 | Kommunikation mellan undernät | Inkommande & utgående | 80, 443 | VirtualNetwork | VirtualNetwork | För kommunikation mellan undernät |
 | Kommunikation från Azure Logic Apps | Utgående | 80, 443 | VirtualNetwork | Internet | Porten är beroende av den externa tjänst som Logic Apps tjänsten kommunicerar med |
 | Azure Active Directory | Utgående | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage beroende | Utgående | 80, 443 | VirtualNetwork | Storage | |
+| Azure Storage beroende | Utgående | 80, 443, 445 | VirtualNetwork | Storage | |
 | Kommunikation till Azure Logic Apps | Inkommande | 443 | Intern ISE: <br>VirtualNetwork <p><p>Extern ISE: <br>Internet | VirtualNetwork | IP-adressen för datorn eller tjänsten som anropar eventuella utlösare för begäran eller webhookar i din Logic app. Om du stänger eller blockerar den här porten förhindras HTTP-anrop till Logic Apps med begär ande utlösare. |
 | Körnings historik för Logic app | Inkommande | 443 | Intern ISE: <br>VirtualNetwork <p><p>Extern ISE: <br>Internet | VirtualNetwork | IP-adressen för den dator där du vill visa din Logic Apps körnings historik. Även om du stänger eller blockerar den här porten hindrar dig inte från att Visa körnings historiken kan du inte Visa indata och utdata för varje steg i den här körnings historiken. |
 | Anslutnings hantering | Utgående | 443 | VirtualNetwork  | AppService | |
 | Publicera diagnostikloggar & mått | Utgående | 443 | VirtualNetwork  | AzureMonitor | |
 | Kommunikation från Azure Traffic Manager | Inkommande | Intern ISE: 454 <p><p>Extern ISE: 443 | AzureTrafficManager | VirtualNetwork | |
-| Logic Apps designer – dynamiska egenskaper | Inkommande | 454 | Se antecknings kolumnen för IP-adresser som ska tillåtas | VirtualNetwork | Begär Anden kommer från Logic Apps åtkomst slut punktens [inkommande](../logic-apps/logic-apps-limits-and-config.md#inbound) IP-adresser för den regionen. |
-| Nätverks hälso kontroll | Inkommande | 454 | Se antecknings kolumnen för IP-adresser som ska tillåtas | VirtualNetwork | Begär Anden kommer från Logic Apps åtkomst slut punkten för både [inkommande](../logic-apps/logic-apps-limits-and-config.md#inbound) och [utgående](../logic-apps/logic-apps-limits-and-config.md#outbound) IP-adresser för den regionen. |
+| Logic Apps designer – dynamiska egenskaper | Inkommande | 454 | Se **antecknings** kolumnen för IP-adresser som ska tillåtas | VirtualNetwork | Begär Anden kommer från Logic Apps åtkomst slut punktens [inkommande](../logic-apps/logic-apps-limits-and-config.md#inbound) IP-adresser för den regionen. |
+| Nätverks hälso kontroll | Inkommande | 454 | Se **antecknings** kolumnen för IP-adresser som ska tillåtas | VirtualNetwork | Begär Anden kommer från Logic Apps åtkomst slut punkten för både [inkommande](../logic-apps/logic-apps-limits-and-config.md#inbound) och [utgående](../logic-apps/logic-apps-limits-and-config.md#outbound) IP-adresser för den regionen. |
 | Beroende för App Service hantering | Inkommande | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Kopplings distribution | Inkommande | 454 | AzureConnectors | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
-| Distribution av kopplings princip | Inkommande | 3443 | Internet | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
+| Distribution av kopplings princip | Inkommande | 3443 | APIManagement | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
 | Azure SQL-beroende | Utgående | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Utgående | 1886 | VirtualNetwork | AzureMonitor | För att publicera hälso status till Resource Health |
 | API Management hanterings slut punkt | Inkommande | 3443 | APIManagement | VirtualNetwork | |
@@ -117,31 +118,28 @@ I den här tabellen beskrivs de portar i ditt virtuella Azure-nätverk som anvä
 
 ## <a name="create-your-ise"></a>Skapa din ISE
 
-Följ dessa steg om du vill skapa en integrerings tjänst miljö (ISE):
+1. I rutan [Azure Portal](https://portal.azure.com), i den huvudsakliga Azure Search-rutan, anger du `integration service environments` som filter och väljer **integrerings tjänst miljöer**.
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**på huvud menyn i Azure.
-I rutan Sök anger du "integration service Environment" som filter.
+   ![Hitta och välj integrerings tjänst miljöer](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-   ![Skapa ny resurs](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+1. I fönstret **miljöer för integrations tjänster** väljer du **Lägg till**.
 
-1. I fönstret Skapa Integration Service Environment väljer du **skapa**.
-
-   ![Välj "skapa"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
+   ![Hitta och välj integrerings tjänst miljöer](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
 1. Ange den här informationen för din miljö och välj sedan **Granska + skapa**, till exempel:
 
    ![Ange miljö information](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Egenskap | Krävs | Värde | Beskrivning |
+   | Egenskap | Obligatoriskt | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Prenumeration** | Ja | <*Azure-prenumerationsnamn*> | Azure-prenumerationen som ska användas för din miljö |
-   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn*> | Den Azure-resurs grupp där du vill skapa din miljö |
+   | **Resursgrupp** | Ja | <*Azure-resurs-grupp-namn*> | En ny eller befintlig Azure-resurs grupp där du vill skapa din miljö |
    | **Namn på integrerings tjänst miljö** | Ja | <*miljö-namn*> | Ditt ISE-namn, som endast får innehålla bokstäver, siffror, bindestreck (`-`), under streck (`_`) och punkter (`.`). |
    | **Plats** | Ja | <*Azure-datacenter-region*> | Azure Data Center-regionen där du distribuerar din miljö |
    | **SKU** | Ja | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
    | **Ytterligare kapacitet** | Denaturering <br>Ja <p><p>Utvecklarläget <br>Inte tillämpligt | Denaturering <br>0 till 10 <p><p>Utvecklarläget <br>Inte tillämpligt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](#add-capacity) |
    | **Åtkomst slut punkt** | Ja | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. <p><p>Valet påverkar också hur du kan visa och komma åt indata och utdata i din Logic app kör historik. Mer information finns i [åtkomst till ISE-slutpunkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
-   | **Virtuellt nätverk** | Ja | <*Azure-Virtual-Network-name*> | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p>**Viktigt**: du kan *bara* utföra den här inmatningen när du skapar din ISE. |
+   | **Virtuellt nätverk** | Ja | <*Azure-Virtual-Network-name*> | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p><p>**Viktigt**: du kan *bara* utföra den här inmatningen när du skapar din ISE. |
    | **Undernät** | Ja | <*undernät – resurs lista*> | En ISE kräver fyra *tomma* undernät för att skapa och distribuera resurser i din miljö. [Följ stegen i den här tabellen](#create-subnet)om du vill skapa varje undernät. |
    |||||
 
@@ -159,7 +157,7 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder minst en `/27` i adress utrymmet eftersom varje undernät kräver *minst* *32 adresser.* Några exempel:
+   * Använder minst en `/27` i adress utrymmet eftersom varje undernät kräver *minst* *32 adresser.* Exempel:
 
      * `10.0.0.0/27` har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
 
@@ -177,20 +175,20 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    1. I listan **undernät** väljer du **Hantera under näts konfiguration**.
 
-      ![Hantera under näts konfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Hantera under näts konfiguration](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet-configuration.png)
 
    1. I fönstret **undernät** väljer du **undernät**.
 
-      ![Lägga till undernät](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![Lägg till fyra tomma undernät](./media/connect-virtual-network-vnet-isolated-environment/add-empty-subnets.png)
 
    1. Ange den här informationen i fönstret **Lägg till undernät** .
 
       * **Namn**: namnet på under nätet
       * **Adress intervall (CIDR-block)** : under nätets intervall i det virtuella nätverket och i CIDR-format
 
-      ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
+      ![Lägg till information om undernät](./media/connect-virtual-network-vnet-isolated-environment/provide-subnet-details.png)
 
-   1. När du är klar väljer du **OK**.
+   1. När du är klar väljer du **Ok**.
 
    1. Upprepa de här stegen för tre fler undernät.
 
@@ -203,13 +201,13 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    ![När verifieringen är klar väljer du "skapa"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure börjar distribuera din miljö, som vanligt vis tar inom två timmar att slutföra. Ibland kan distributionen ta upp till fyra timmar. För att kontrol lera distributions status går du till Azure-verktygsfältet och väljer aviserings ikonen, som öppnar fönstret meddelanden.
+   Azure börjar distribuera din miljö, som vanligt vis tar inom två timmar att slutföra. Ibland kan distributionen ta upp till fyra timmar. Om du vill kontrol lera distributions statusen i Azure-verktygsfältet väljer du ikonen meddelanden, som öppnar fönstret meddelanden.
 
    ![Kontrol lera distributions status](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
    Om distributionen har slutförts visas följande meddelande i Azure:
 
-   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![Distributionen lyckades](./media/connect-virtual-network-vnet-isolated-environment/deployment-success-message.png)
 
    Annars följer du Azure Portal anvisningarna för fel sökning av distribution.
 
@@ -233,23 +231,42 @@ I rutan Sök anger du "integration service Environment" som filter.
 
 ## <a name="add-ise-capacity"></a>Lägg till ISE-kapacitet
 
-Premium ISE-bas enheten har fast kapacitet, så om du behöver mer data flöde kan du lägga till fler skalnings enheter, antingen under skapandet eller efteråt. Du kan Autoskala baserat på prestanda mått eller baserat på ett antal ytterligare bearbetnings enheter. Om du väljer automatisk skalning baserat på mått kan du välja mellan olika kriterier och ange tröskelvärdena för att uppfylla villkoren. Developer SKU: n inkluderar inte möjligheten att lägga till skalnings enheter.
+Premium ISE-bas enheten har fast kapacitet, så om du behöver mer data flöde kan du lägga till fler skalnings enheter, antingen under skapandet eller efteråt. Developer SKU: n inkluderar inte möjligheten att lägga till skalnings enheter.
 
 1. Leta upp din ISE i Azure Portal.
 
-1. Om du vill granska användnings-och prestanda mått för din ISE väljer du **Översikt**på din ISES huvud meny.
+1. Om du vill granska användnings-och prestanda mått för din ISE väljer du **Översikt**på din ISE-meny.
 
    ![Visa användning för ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
-1. Om du vill konfigurera automatisk skalning väljer du **skala ut**under **Inställningar**. På fliken **Konfigurera** väljer du **Aktivera autoskalning**.
+1. Under **Inställningar**väljer du **skala ut**. I fönstret **Konfigurera** väljer du bland följande alternativ:
 
-   ![Aktivera automatisk skalning](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+   * [**Manuell skalning**](#manual-scale): skala baserat på antalet bearbetnings enheter som du vill använda.
+   * [**Anpassad autoskalning**](#custom-autoscale): skala baserat på prestanda mått genom att välja bland olika kriterier och ange tröskelvärdena för att uppfylla villkoren.
 
-1. Ange ett namn för inställningen för **autoskalning inställnings namn**.
+   ![Välj den skalnings typ som du vill använda](./media/connect-virtual-network-vnet-isolated-environment/select-scale-out-options.png)
 
-1. I **standard** -avsnittet väljer du antingen **skala baserat på ett mått** eller **skala till ett angivet instans antal**.
+<a name="manual-scale"></a>
 
-   * Om du väljer instans-baserad anger du antalet bearbetnings enheter mellan 0 och 10.
+### <a name="manual-scale"></a>Manuell skalning
+
+1. När du har valt **manuell skalning**, för **ytterligare kapacitet**väljer du det antal skalnings enheter som du vill använda.
+
+   ![Välj den skalnings typ som du vill använda](./media/connect-virtual-network-vnet-isolated-environment/select-manual-scale-out-units.png)
+
+1. När du är klar väljer du **Spara**.
+
+<a name="custom-autoscale"></a>
+
+### <a name="custom-autoscale"></a>Anpassad autoskalning
+
+1. När du har valt **anpassad autoskalning**anger du ett namn för inställningen i **autoskalning inställnings namn**och du kan också välja den Azure-resurs grupp där inställningen tillhör.
+
+   ![Ange namnet på inställningen för autoskalning och Välj resurs grupp](./media/connect-virtual-network-vnet-isolated-environment/select-custom-autoscale.png)
+
+1. För **standard** villkoret väljer du antingen **skala baserat på ett mått** eller **skala till ett angivet instans antal**.
+
+   * Om du väljer instans-baserad anger du antalet för bearbetnings enheterna, vilket är ett värde mellan 0 och 10.
 
    * Följ dessa steg om du väljer Metric-baserad:
 
@@ -257,7 +274,13 @@ Premium ISE-bas enheten har fast kapacitet, så om du behöver mer data flöde k
 
      1. I fönstret **skalnings regel** ställer du in kriterier och åtgärder som ska vidtas när regeln utlöses.
 
-     1. När du är klar väljer du **Lägg till**.
+     1. Ange följande värden för **instans gränser**:
+
+        * **Minimum**: minsta antal bearbetnings enheter som ska användas
+        * **Max**: det högsta antalet bearbetnings enheter som ska användas
+        * **Standard**: om några problem inträffar när du läser resurs måtten och den aktuella kapaciteten är lägre än standard kapaciteten skalas automatisk skalning till standard antalet bearbetnings enheter. Men om den aktuella kapaciteten överstiger standard kapaciteten skalas inte autoskalning i.
+
+1. Om du vill lägga till ett annat villkor väljer du **Lägg till skalnings villkor**.
 
 1. Spara ändringarna när du är klar med inställningarna för autoskalning.
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: dacoulte
-ms.openlocfilehash: 31f91d403da76c5f513f44c609fa12d153700c53
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
-ms.translationtype: HT
+ms.openlocfilehash: 473ddd358a7a7d487c33f31b78ce643bac55849e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172704"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192806"
 ---
 |Namn |Beskrivning |Påverkan (ar) |Version |
 |---|---|---|---|
-|[Distribuera Avancerat skydd för Cosmos DB-konton](https://github.com/Azure/azure-policy/blob/masterbuilt-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |Den här principen aktiverar Avancerat skydd mellan Cosmos DB-konton. |DeployIfNotExists, inaktiverat |1.0.0 |
+|[Distribuera Avancerat skydd för Cosmos DB-konton](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cosmos%20DB/CosmosDbAdvancedThreatProtection_Deploy.json) |Den här principen aktiverar Avancerat skydd mellan Cosmos DB-konton. |DeployIfNotExists, inaktiverat |1.0.0 |

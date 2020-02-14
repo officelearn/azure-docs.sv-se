@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fd235f3f39d67f86c8387add79ca0dbf17dc5906
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911673"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198317"
 ---
 # <a name="drawing-tool-events"></a>Rit verktygs händelser
 
-När du använder rit verktyg på en karta är det ofta användbart att reagera på vissa händelser när användaren ritar på kartan. I följande tabell visas alla händelser som stöds av klassen `DrawingManager`.
+När du använder rit verktyg på en karta är det bra att reagera på vissa händelser när användaren ritar på kartan. I den här tabellen listas alla händelser som stöds av klassen `DrawingManager`.
 
 | Händelse | Beskrivning |
 |-------|-------------|
 | `drawingchanged` | Utlöses när en koordinat i en form har lagts till eller ändrats. | 
-| `drawingchanging` | Utlöses när en förhands gransknings koordinat för en form visas. Kan till exempel utlösa flera gånger när en koordinat dras. | 
+| `drawingchanging` | Utlöses när en förhands gransknings koordinat för en form visas. Den här händelsen kommer till exempel att utlösa flera gånger när en koordinat dras. | 
 | `drawingcomplete` | Utlöses när en form har tagits bort eller tagits bort från redigerings läget. |
 | `drawingmodechanged` | Utlöses när rit läget har ändrats. Det nya ritnings läget överförs till händelse hanteraren. |
 | `drawingstarted` | Utlöses när användaren börjar att rita en form eller placerar en form i redigerings läge.  |
@@ -39,11 +39,11 @@ Se händelser för rit verktyg för rit <a href='https://codepen.io/azuremaps/pe
 
 ## <a name="examples"></a>Exempel
 
-Följande är exempel på några vanliga scenarier som använder rit verktygs händelser.
+Nu ska vi se några vanliga scenarier som använder rit verktygs händelser.
 
 ### <a name="select-points-in-polygon-area"></a>Välj punkter i polygon-ytan
 
-Följande kod visar hur du övervakar ritningen över former som representerar polygon-områden (polygoner, rektanglar och cirklar) och avgör vilka data punkter på kartan som ligger inom det ritade området. `drawingcomplete`-händelsen används för att utlösa Select-logiken. I Välj logik upprepas alla data punkter på kartan genom att de testas och testas i snitt med området polygon i den ritade figuren. I det här exemplet används [Turf. js](https://turfjs.org/) -biblioteket med öppen källkod för att utföra en spatial skärnings beräkning.
+Den här koden visar hur du övervakar en händelse av en användares ritnings former. I det här exemplet övervakar koden former av polygoner, rektanglar och cirklar. Sedan avgör den vilka data punkter på kartan som ligger inom det ritade fältet. `drawingcomplete`-händelsen används för att utlösa Select-logiken. I SELECT Logic loopar koden genom alla data punkter på kartan. Det kontrollerar om det finns en skärning av punkten och området för den ritade figuren. I det här exemplet används [Turf. js](https://turfjs.org/) -biblioteket med öppen källkod för att utföra en spatial skärnings beräkning.
 
 <br/>
 
@@ -55,7 +55,7 @@ Se <a href='https://codepen.io/azuremaps/pen/XWJdeja'>data i den ritade polygone
 
 ### <a name="draw-and-search-in-polygon-area"></a>Rita och Sök i polygon-område
 
-Följande kod visar hur du utför en sökning efter intressanta punkter i ett form område när användaren har ritat formen. `drawingcomplete`-händelsen används för att utlösa Sök logiken. Om användaren ritar en rektangel eller polygon utförs en sökning i geometrin. Om en cirkel ritas, används Radi-och Center positionen för att utföra en orienterings punkts ökning. Händelsen `drawingmodechanged` används för att avgöra när användaren växlar till ett ritläge och rensar arbets ytan.
+Den här koden söker efter antecknings punkter inuti en forms yta efter att användaren har ritat formen. Du kan ändra och köra koden genom att klicka på Redigera på kod penna i det övre högra hörnet i ramen. `drawingcomplete`-händelsen används för att utlösa Sök logiken. Om användaren ritar en rektangel eller polygon utförs en sökning i geometrin. Om en cirkel ritas, används Radi-och Center positionen för att utföra en orienterings punkts ökning. `drawingmodechanged`-händelsen används för att avgöra när användaren växlar till rit läget och den här händelsen rensar arbets ytan.
 
 <br/>
 
@@ -67,7 +67,7 @@ Se Penn <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>ritning och Sök i po
 
 ### <a name="create-a-measuring-tool"></a>Skapa ett Mät verktyg
 
-Följande kod visar hur du kan använda rit händelser för att skapa ett Mät verktyg. `drawingchanging` används för att övervaka formen när den ritas. När användaren flyttar musen beräknas formens dimensioner. `drawingcomplete`-händelsen används för att göra en slutgiltig beräkning på formen när den har ritats. `drawingmodechanged`-händelsen används för att avgöra när användaren växlar till ett ritläge och rensar arbets ytan och gammal mått information.
+Koden nedan visar hur du kan använda rit händelser för att skapa ett Mät verktyg. `drawingchanging` används för att övervaka formen, när den ritas. När användaren flyttar musen beräknas formens dimensioner. `drawingcomplete`-händelsen används för att göra en slutgiltig beräkning på formen när den har ritats. Händelsen `drawingmodechanged` används för att avgöra när användaren växlar till ett ritläge. Dessutom rensar `drawingmodechanged`-händelsen arbets ytan och rensar gammal mått information.
 
 <br/>
 

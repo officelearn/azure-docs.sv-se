@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ad5e961e390b60784355ff3bc72aca4a2f73e11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460739"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190968"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Så här indexerar du stora data uppsättningar i Azure Kognitiv sökning
 
@@ -55,7 +55,7 @@ Schemaläggning av indexering är en viktig mekanism för att bearbeta stora dat
 
 Enligt design börjar schemalagd indexering i bestämda intervall, med ett jobb som normalt slutförs innan nästa schemalagda intervall återupptas. Men om bearbetningen inte slutförs inom intervallet stoppas indexeraren (på grund av att tids gränsen uppnåddes). Vid nästa intervall återupptas bearbetningen där det senast slutade, med systemet som håller koll på var det inträffar. 
 
-I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer#request-syntax) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
+I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -99,7 +99,7 @@ Vid den schemalagda tiden börjar alla indexerare köra, läsa in data, tillämp
 > [!Note]
 > När du ökar repliker bör du överväga att öka antalet partitioner om index storleken projiceras för att öka markant. Partitioner lagrar segment av indexerat innehåll. Ju fler partitioner du har, desto mindre är sektorn som var och en måste lagra.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 + [Översikt över indexeraren](search-indexer-overview.md)
 + [Indexering i portalen](search-import-data-portal.md)

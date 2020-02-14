@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: edad748bc2192f98b9674b80dada5b03aa9ee2d1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840289"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197994"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -121,14 +121,15 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | URL: en för REST API slut punkten. |
 | AuthenticationType | Ja | Den typ av autentisering som utförs av RESTful-anspråks leverantören. Möjliga värden: `None`, `Basic`, `Bearer`eller `ClientCertificate`. Värdet `None` anger att REST API inte är anonymt. Värdet `Basic` anger att REST API skyddas med HTTP Basic-autentisering. Endast verifierade användare, inklusive Azure AD B2C, har åtkomst till ditt API. Värdet `ClientCertificate` (rekommenderas) anger att REST API begränsar åtkomsten genom att använda autentisering med klient certifikat. Endast tjänster som har rätt certifikat, till exempel Azure AD B2C, har åtkomst till ditt API. Värdet `Bearer` anger att REST API begränsar åtkomsten med hjälp av klientens OAuth2 Bearer-token. |
-| SendClaimsIn | Inga | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form`, `Header`eller `QueryString`. `Body`-värdet är det inloggade anspråk som skickas i begär ande texten i JSON-format. `Form`-värdet är det inloggade anspråk som skickas i begär ande texten i ett et-tecken av typen & "avgränsat nyckel värde". `Header`-värdet är det inloggade anspråk som skickas i begär ande huvudet. `QueryString`-värdet är det inloggade anspråk som skickas i frågesträngen för begäran. HTTP-verben som anropas av var och en är följande:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Hämta</li><li>`QueryString`: Hämta</li></ul> |
-| ClaimsFormat | Inga | Anger formatet för de utgående anspråken. Möjliga värden: `Body` (standard), `Form`, `Header`eller `QueryString`. `Body`-värdet är det utgående anspråket som skickas i begär ande texten i JSON-format. `Form`-värdet är det utgående anspråket som skickas i begär ande texten i ett et-tecken med formatet & "avgränsat nyckel värde". `Header`-värdet är det utgående anspråket som skickas i begär ande huvudet. `QueryString`-värdet är det utgående anspråket som skickas i frågesträngen för begäran. |
-| ClaimUsedForRequestPayload| Inga | Namn på ett sträng anspråk som innehåller nytto lasten som ska skickas till REST API. |
-| DebugMode | Inga | Kör den tekniska profilen i fel söknings läge. Möjliga värden: `true`eller `false` (standard). I fel söknings läge kan REST API returnera mer information. Se avsnittet [returnera fel meddelande](#returning-error-message) . |
+| SendClaimsIn | Nej | Anger hur inloggade anspråk skickas till RESTful-anspråks leverantören. Möjliga värden: `Body` (standard), `Form`, `Header`eller `QueryString`. `Body`-värdet är det inloggade anspråk som skickas i begär ande texten i JSON-format. `Form`-värdet är det inloggade anspråk som skickas i begär ande texten i ett et-tecken av typen & "avgränsat nyckel värde". `Header`-värdet är det inloggade anspråk som skickas i begär ande huvudet. `QueryString`-värdet är det inloggade anspråk som skickas i frågesträngen för begäran. HTTP-verben som anropas av var och en är följande:<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: Hämta</li><li>`QueryString`: Hämta</li></ul> |
+| ClaimsFormat | Nej | Anger formatet för de utgående anspråken. Möjliga värden: `Body` (standard), `Form`, `Header`eller `QueryString`. `Body`-värdet är det utgående anspråket som skickas i begär ande texten i JSON-format. `Form`-värdet är det utgående anspråket som skickas i begär ande texten i ett et-tecken med formatet & "avgränsat nyckel värde". `Header`-värdet är det utgående anspråket som skickas i begär ande huvudet. `QueryString`-värdet är det utgående anspråket som skickas i frågesträngen för begäran. |
+| ClaimUsedForRequestPayload| Nej | Namn på ett sträng anspråk som innehåller nytto lasten som ska skickas till REST API. |
+| DebugMode | Nej | Kör den tekniska profilen i fel söknings läge. Möjliga värden: `true`eller `false` (standard). I fel söknings läge kan REST API returnera mer information. Se avsnittet [returnera fel meddelande](#returning-error-message) . |
+| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -148,7 +149,7 @@ Om autentiseringstypen har angetts till `None`används inte elementet **Cryptogr
 
 Om typen av autentisering har angetts till `Basic`innehåller elementet **CryptographicKeys** följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Ja | Det användar namn som används för att autentisera. |
 | BasicAuthenticationPassword | Ja | Det lösen ord som används för att autentisera. |
@@ -173,7 +174,7 @@ I följande exempel visas en teknisk profil med grundläggande autentisering:
 
 Om typen av autentisering har angetts till `ClientCertificate`innehåller elementet **CryptographicKeys** följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | Mängden | Ja | X509-certifikatet (RSA-nyckel uppsättning) som ska användas för att autentisera. |
 
@@ -194,9 +195,9 @@ Om typen av autentisering har angetts till `ClientCertificate`innehåller elemen
 
 Om typen av autentisering har angetts till `Bearer`innehåller elementet **CryptographicKeys** följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
-| BearerAuthenticationToken | Inga | OAuth 2,0 Bearer-token. |
+| BearerAuthenticationToken | Nej | OAuth 2,0 Bearer-token. |
 
 ```XML
 <TechnicalProfile Id="REST-API-SignUp">
@@ -217,15 +218,15 @@ Om typen av autentisering har angetts till `Bearer`innehåller elementet **Crypt
 
 REST API kan behöva returnera ett fel meddelande, till exempel "användaren inte kunde hittas i CRM-systemet". Om ett fel inträffar ska REST API returnera ett HTTP 409-fel meddelande (konflikt svars status kod) med följande attribut:
 
-| Attribut | Krävs | Beskrivning |
+| Attribut | Obligatoriskt | Beskrivning |
 | --------- | -------- | ----------- |
 | version | Ja | 1.0.0 |
 | status | Ja | 409 |
-| code | Inga | En felkod från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
-| requestId | Inga | En begärande-ID från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
+| code | Nej | En felkod från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
+| requestId | Nej | En begärande-ID från RESTful-slutpunkt-providern, som visas när `DebugMode` är aktive rad. |
 | userMessage | Ja | Ett fel meddelande som visas för användaren. |
-| developerMessage | Inga | Utförlig beskrivning av problemet och hur du åtgärdar det, som visas när `DebugMode` har Aktiver ATS. |
-| moreInfo | Inga | En URI som pekar på ytterligare information, som visas när `DebugMode` är aktive rad. |
+| developerMessage | Nej | Utförlig beskrivning av problemet och hur du åtgärdar det, som visas när `DebugMode` har Aktiver ATS. |
+| moreInfo | Nej | En URI som pekar på ytterligare information, som visas när `DebugMode` är aktive rad. |
 
 I följande exempel visas ett REST API som returnerar ett fel meddelande som är formaterat i JSON:
 

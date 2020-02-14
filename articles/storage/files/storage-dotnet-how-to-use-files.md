@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 361ee5179b20d9488bb477a4e3c9fc0f0e6f266e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460359"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190652"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -36,10 +36,10 @@ Mer information om Azure Files finns i [Vad är Azure Files?](storage-files-intr
 
 Azure Files tillhandahåller två breda metoder för klientprogram: Server Message Block (SMB) och REST. I .NET är API: erna för `System.IO` och `WindowsAzure.Storage` abstrakta dessa metoder.
 
-API | Används till att | Anteckningar
+API | När du ska använda detta | Anteckningar
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Ditt program: <ul><li>Behöver läsa/skriva filer med hjälp av SMB</li><li>Körs på en enhet som har åtkomst via port 445 till ditt Azure Files-konto</li><li>Behöver inte hantera några av de administrativa inställningarna för filresursen</li></ul> | Fil-I/O som implementeras med Azure Files över SMB är vanligt vis samma som I/O med nätverks fil resurs eller lokal lagrings enhet. En introduktion till ett antal funktioner i .NET, inklusive fil-I/O, finns i självstudier för [konsol programmet](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Ditt program: <ul><li>Det går inte att komma åt Azure Files med SMB på port 445 på grund av brand Väggs-eller Internet leverantörs begränsningar</li><li>Kräver administrativa funktioner, som möjligheten att ställa in en filresurs kvot eller skapa en signatur för delad åtkomst</li></ul> | Den här artikeln visar hur du använder `Microsoft.Azure.Storage.File` för fil-I/O med REST i stället för SMB och hantering av fil resursen.
+[Microsoft. Azure. Storage. File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Ditt program: <ul><li>Det går inte att komma åt Azure Files med SMB på port 445 på grund av brand Väggs-eller Internet leverantörs begränsningar</li><li>Kräver administrativa funktioner, som möjligheten att ställa in en filresurs kvot eller skapa en signatur för delad åtkomst</li></ul> | Den här artikeln visar hur du använder `Microsoft.Azure.Storage.File` för fil-I/O med REST i stället för SMB och hantering av fil resursen.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Skapa konsolprogrammet och hämta monteringen
 
@@ -79,7 +79,7 @@ Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 1. Sök efter och installera dessa paket:
 
    * **Microsoft. Azure. Storage. common**
-   * **Microsoft.Azure.Storage.File**
+   * **Microsoft. Azure. Storage. File**
    * **Microsoft. Azure. ConfigurationManager**
 
 ## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagrings konto i filen app. config
@@ -497,8 +497,8 @@ Mer information om Azure Files finns i följande resurser:
 
 ### <a name="reference"></a>Referens
 
-* [API:er för .NET i Azure Storage](/dotnet/api/overview/azure/storage)
-* [Fil-tjänstens REST-API](/rest/api/storageservices/File-Service-REST-API)
+* [Azure Storage-API: er för .NET](/dotnet/api/overview/azure/storage)
+* [Fil tjänst REST API](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>Blogginlägg
 

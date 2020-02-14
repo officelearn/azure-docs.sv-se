@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 667fa1c85c63ffb87e49c4bf99112f57d0c85a72
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 0d26ad6802e551523875dcad13066fdbdbf39ada
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031925"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191040"
 ---
-# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Felsöka anslutnings problem med privat länk tjänst
+# <a name="troubleshoot-private-link-service-connectivity-problems"></a>Felsöka anslutningsproblem för Private Link-tjänsten
 
 Den här guiden innehåller steg-för-steg-anvisningar om hur du verifierar och diagnostiserar anslutning för konfiguration av privata länkar. 
 
@@ -112,4 +112,4 @@ Om du har problem med anslutningen till konfiguration av privat länk går du ig
 
  * [Skapa en privat länk tjänst (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
 
- * [Fel söknings guide för privat slut punkt](https://docs.microsoft.com/azure/private-link/private-endpoint-connectivity-troubleshooting)
+ * [Fel söknings guide för privat slut punkt](troubleshoot-private-endpoint-connectivity.md)

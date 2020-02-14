@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443835"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201738"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -38,8 +38,8 @@ Den hanterade instansen har egenskaper och resurs gränser som är beroende av d
 | Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
-> - Gen4-maskinvaran har fasats ut. Vi rekommenderar att du distribuerar nya hanterade instanser på Gen5-maskinvara.
-> - Gen4-maskinvara är för närvarande endast tillgängligt i följande regioner: Nord Europa, Västeuropa, östra USA, södra centrala USA, norra centrala USA, västra USA 2, centrala USA, centrala Kanada, södra Indien, Sydostasien och Korea, centrala.
+> - Gen4-maskinvaran föråldras och är inte längre tillgänglig för de nya distributionerna. Alla nya hanterade instanser måste distribueras på Gen5 maskin vara.
+> - Överväg att [flytta dina hanterade instanser till generation 5](sql-database-service-tiers-vcore.md) -maskin vara för att få en större mängd vCore och skalbarhet för lagring, accelererat nätverk, bästa i/o-prestanda och minimal svars tid.
 
 ### <a name="in-memory-oltp-available-space"></a>Tillgängligt utrymme i minnet för OLTP 
 
@@ -134,10 +134,10 @@ Följande tabell visar de **regionala standard gränserna** för prenumerations 
 
 |Prenumerationstyp| Maximalt antal hanterade instans under nät | Max antal vCore-enheter * |
 | :---| :--- | :--- |
-|Användningsbaserad betalning|3|320|
+|Betala per användning|3|320|
 |CSP |8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Betala per användning – utveckling/testning|3|320|
-|Enterprise – utveckling/testning|3|320|
+|Enterprise Dev/Test|3|320|
 |EA|8 (15 i vissa regioner * *)|960 (1440 i vissa regioner * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional och MSDN-plattformar|2|32|
@@ -162,7 +162,7 @@ Initiera processen för att erhålla en större kvot:
 
      ![Typ kvot för utfärdande](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
-3. Klicka på **Next**.
+3. Klicka på **Nästa**.
 4. På **fliken problem** för den nya support förfrågan:
    - För **allvarlighets grad**väljer du problemets allvarlighets grad.
    - Om **du vill ha mer information anger**du ytterligare information om problemet, inklusive fel meddelanden.
@@ -176,7 +176,7 @@ Initiera processen för att erhålla en större kvot:
      > - Antalet virtuella kärnor per tjänst nivå som krävs i befintliga undernät efter kvot ökningen (om något av de befintliga under näten måste expanderas.
      > - Antalet nya undernät och det totala antalet virtuella kärnor per tjänst nivå inom de nya under näten (om du behöver distribuera hanterade instanser i nya undernät).
 
-5. Klicka på **Next**.
+5. Klicka på **Nästa**.
 6. På fliken kontakt information för den nya support förfrågan anger du önskad kontakt metod (e-post eller telefon) och kontakt uppgifter.
 7. Klicka på **Skapa**.
 

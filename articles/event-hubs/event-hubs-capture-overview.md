@@ -13,25 +13,26 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 17906a7d0953d8b320301d74cda81d14c9ad340f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 324425662622201bb50261d396d3eef1f531ba37
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123443"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187299"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Samla in händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
-Händelsehubbar i Azure kan du automatiskt samla in strömmande data i Event Hubs i en [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) konto föredrar, med den ökade flexibiliteten Ange ett tids- eller storleksintervall. Det går snabbt att ställa in Capture, det finns inga administrativa kostnader för att köra den och den skalar automatiskt med Event Hubs [genomflödesenheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och kan du fokusera på databearbetning i stället för datainsamling.
+Med Azure Event Hubs kan du automatiskt samla in strömmande data i Event Hubs i [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto, med den extra flexibiliteten att ange en tid eller ett storleks intervall. Att konfigurera avbildningen är snabbt, det finns inga administrativa kostnader att köra den och skalar automatiskt med Event Hubs [data flödes enheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och kan du fokusera på databearbetning i stället för datainsamling.
 
 Event Hubs Capture kan du bearbeta realtidsdata och batch-baserade pipelines för samma dataström. Det innebär att du kan skapa lösningar för dina behov över tid. Om du skapar batch-baserade system idag med ett öga mot framtida realtidsbearbetning, eller om du vill lägga till en effektiv kalla sökvägen till en befintlig lösning i realtid, kan Event Hubs Capture arbeta med strömmande data enklare.
 
+
 ## <a name="how-event-hubs-capture-works"></a>Så här Event Hubs Capture fungerar
 
-Event Hubs är en stabil buffert tid kvarhållning för telemetri ingress, liknar en distribuerad logg. Nyckeln till skalning i Event Hubs är den [konsumentmönster indelat i partitioner modellen](event-hubs-scalability.md#partitions). Varje partition är en oberoende segment av data och används oberoende av varandra. Med tiden åldrarna dessa data av, baserat på konfigurerbara kvarhållningsperioden. Därför kan det finns en viss händelsehubb för aldrig hämtar ”full”.
+Event Hubs är en stabil buffert tid kvarhållning för telemetri ingress, liknar en distribuerad logg. Den nyckel som ska skalas i Event Hubs är den [partitionerade konsument modellen](event-hubs-scalability.md#partitions). Varje partition är en oberoende segment av data och används oberoende av varandra. Med tiden åldrarna dessa data av, baserat på konfigurerbara kvarhållningsperioden. Därför kan det finns en viss händelsehubb för aldrig hämtar ”full”.
 
-Event Hubs Capture kan du ange ditt eget Azure Blob storage-konto och en behållare eller ett Azure Data Lake Store-konto, som används för att lagra insamlade data. Dessa konton kan vara i samma region som din event hub eller i en annan region, att lägga till funktionen Event Hubs Capture flexibilitet.
+Med Event Hubs Capture kan du ange ditt eget Azure Blob Storage-konto och-behållare, eller Azure Data Lake Storage konto som används för att lagra insamlade data. Dessa konton kan vara i samma region som din event hub eller i en annan region, att lägga till funktionen Event Hubs Capture flexibilitet.
 
 Insamlade data skrivs i [Apache Avro][Apache Avro] -format: ett kompakt, fast binärformat som ger omfattande data strukturer med infogat schema. Det här formatet används ofta i Hadoop-ekosystemet, Stream Analytics och Azure Data Factory. Mer information om hur du arbetar med Avro finns senare i den här artikeln.
 
@@ -53,16 +54,16 @@ Om din Azure Storage-BLOB är tillfälligt otillgänglig, kommer Event Hubs fån
 
 ### <a name="scaling-to-throughput-units"></a>Skala till dataflödesenheter
 
-Trafik för Event Hubs styrs av [genomflödesenheter](event-hubs-scalability.md#throughput-units). En genomflödesenhet kan 1 MB per sekund eller 1 000 händelser per sekund för ingångshändelser och två gånger det beloppet utgående data. Standard Event Hubs kan konfigureras med 1-20-dataflödes enheter och du kan köpa mer med en kvot som ökar [support förfrågan][support request]. Användning utöver din köpta genomflödesenheter är begränsad. Event Hubs Capture kopierar data direkt från den interna lagringen för Event Hubs, vilket kringgår throughput unit utgående kvoter och spara din utgående trafik för andra läsare för bearbetning, till exempel Stream Analytics- eller Spark.
+Event Hubs trafik styrs av [data flödes enheter](event-hubs-scalability.md#throughput-units). En genomflödesenhet kan 1 MB per sekund eller 1 000 händelser per sekund för ingångshändelser och två gånger det beloppet utgående data. Standard Event Hubs kan konfigureras med 1-20-dataflödes enheter och du kan köpa mer med en kvot som ökar [support förfrågan][support request]. Användning utöver din köpta genomflödesenheter är begränsad. Event Hubs Capture kopierar data direkt från den interna lagringen för Event Hubs, vilket kringgår throughput unit utgående kvoter och spara din utgående trafik för andra läsare för bearbetning, till exempel Stream Analytics- eller Spark.
 
 När du konfigurerat Event Hubs Capture körs automatiskt när du skickar din första händelsen och fortsätter att köras. Om du vill göra det enklare för dina nedströms bearbetning veta att processen fungerar, skriver Händelsehubbar tomma filer när det finns inga data. Den här processen ger en förutsägbar takt och markör som kan mata batch-processorer.
 
 ## <a name="setting-up-event-hubs-capture"></a>Ställa in Event Hubs Capture
 
-Du kan konfigurera avbildningsfunktionen på den event hub skapas med den [Azure-portalen](https://portal.azure.com), eller med hjälp av Azure Resource Manager-mallar. Mer information finns i följande artiklar:
+Du kan konfigurera avbildningen vid skapande tiden för händelsehubben med hjälp av [Azure Portal](https://portal.azure.com)eller med hjälp av Azure Resource Manager mallar. Mer information finns i följande artiklar:
 
-- [Aktivera Event Hubs Capture i Azure Portal](event-hubs-capture-enable-through-portal.md)
-- [Skapa ett namnområde för Event Hubs med en händelsehubb och aktivera avbildning med en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+- [Aktivera Event Hubs avbildning med hjälp av Azure Portal](event-hubs-capture-enable-through-portal.md)
+- [Skapa ett Event Hubs-namnområde med en Event Hub och aktivera avbildning med en Azure Resource Manager-mall](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>Utforska de hämtade filerna och arbeta med Avro
@@ -127,28 +128,28 @@ Det här kommandot returnerar
 
 Du kan också använda Avro-verktyg för att konvertera filen till JSON-format och utföra andra bearbetning.
 
-Om du vill utföra mer avancerad bearbetning, hämta och installera Avro för valfri plattform. När detta skrivs det finns implementeringar för C, C++, C\#, Java, NodeJS, Perl, PHP, Python och Ruby.
+Om du vill utföra mer avancerad bearbetning, hämta och installera Avro för valfri plattform. När detta skrivs finns det tillgängliga implementeringar för C, C++, C\#, Java, NodeJS, perl, php, python och Ruby.
 
-Apache Avro har slutfört Komma igång guider för [Java][Java] och [python][Python]. Du kan också läsa den [komma igång med Event Hubs Capture](event-hubs-capture-python.md) artikeln.
+Apache Avro har slutfört Komma igång guider för [Java][Java] och [python][Python]. Du kan också läsa artikeln [komma igång med Event Hubs Capture](event-hubs-capture-python.md) .
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Hur Event Hubs Capture debiteras
 
-Event Hubs Capture mäts på samma sätt dataflödesenheter: som en timme. Avgiften gäller direkt proportion till antalet dataflödesenheter som har köpt för namnområdet. Eftersom dataflödesenheter ökar och minskar, Event Hubs Capture taxor öka och minska för att tillhandahålla matchande prestanda. Mätarna inträffa tillsammans. Information om prissättning finns i [priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
+Event Hubs Capture mäts på samma sätt dataflödesenheter: som en timme. Avgiften gäller direkt proportion till antalet dataflödesenheter som har köpt för namnområdet. Eftersom dataflödesenheter ökar och minskar, Event Hubs Capture taxor öka och minska för att tillhandahålla matchande prestanda. Mätarna inträffa tillsammans. Pris information finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 Observera att insamlaren inte förbrukar utgångs kvoten när den faktureras separat. 
 
 ## <a name="integration-with-event-grid"></a>Integrering med Event Grid 
 
-Du kan skapa en Azure Event Grid-prenumeration med ett namnområde för Event Hubs som källa. Följande självstudie visar hur du skapar en Event Grid-prenumeration med en händelsehubb som källa och en Azure Functions-app som mottagare: [processen och migrera avbildade Event Hubs-data till SQL Data Warehouse med hjälp av Event Grid och Azure Functions](store-captured-data-data-warehouse.md).
+Du kan skapa en Azure Event Grid-prenumeration med ett namnområde för Event Hubs som källa. Följande självstudie visar hur du skapar en Event Grid-prenumeration med en Event Hub som en källa och en Azure Functions app som mottagare: [bearbeta och migrera insamlade Event Hubs data till en SQL Data Warehouse med event Grid och Azure Functions](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Nästa steg
-
 Event Hubs Capture är det enklaste sättet att hämta data till Azure. Med Azure Data Lake, Azure Data Factory och Azure HDInsight kan du utföra batchbearbetning och andra analytics med hjälp av välbekanta verktyg och plattformar du väljer, i valfri skala du behöver.
 
-Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
+Lär dig hur du aktiverar den här funktionen med hjälp av Azure Portal och Azure Resource Manager mall:
 
-* [Börja skicka och ta emot händelser](event-hubs-dotnet-framework-getstarted-send.md)
-* [Event Hubs-översikt][Event Hubs overview]
+- [Använd Azure Portal för att aktivera Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
+- [Använd en Azure Resource Manager-mall för att aktivera Event Hubs avbildning](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+
 
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/

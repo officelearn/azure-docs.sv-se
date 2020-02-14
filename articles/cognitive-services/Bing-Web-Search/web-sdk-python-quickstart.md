@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2019
 ms.author: aahi
-ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: a1407a35fbf645ad839fbf2fee046774fc303cb6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562875"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201211"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Snabbstart: Använda SDK för Webbsökning i Bing för Python
 
@@ -23,7 +23,7 @@ SDK för Webbsökning i Bing gör det enkelt att integrera Webbsökning i Bing i
 
 Vill du se koden på en gång? [Exemplen med SDK för Webbsökning i Bing för Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) finns på GitHub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 API för webbsökning i Bing är kompatibelt med Python 2.7, 3.3, 3.4, 3.5 och 3.6. Vi rekommenderar att du använder en virtuell miljö för den här snabbstarten.
 
 * Python 2.7, 3.3, 3.4, 3.5 eller 3.6
@@ -90,7 +90,7 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
 
     ```python
     # Import required modules.
-    from azure.cognitiveservices.search.websearch import WebSearchAPI
+    from azure.cognitiveservices.search.websearch import WebSearchClient
     from azure.cognitiveservices.search.websearch.models import SafeSearch
     from msrest.authentication import CognitiveServicesCredentials
 
@@ -98,7 +98,7 @@ Om svaret innehåller webbplatser, bilder, nyheter eller videor skrivs det förs
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
     # Instantiate the client and replace with your endpoint.
-    client = WebSearchAPI(CognitiveServicesCredentials(subscription_key), base_url = "YOUR_ENDPOINT")
+    client = WebSearchClient(endpoint="YOUR_ENDPOINT", CognitiveServicesCredentials(subscription_key))
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")
@@ -321,6 +321,6 @@ När du är klar med det här projektet bör du ta bort din prenumerationsnyckel
 > [!div class="nextstepaction"]
 > [Exempel med Cognitive Services SDK för Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Azure Python SDK-referens](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)

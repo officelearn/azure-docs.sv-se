@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911701"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190254"
 ---
 # <a name="consumption-model"></a>Förbrukningsmodell
 
-Online-routning innehåller en uppsättning parametrar för en detaljerad beskrivning av den fordonsbaserade förbruknings modellen.
-Beroende på värdet för **fordonets motortyp**, stöds två huvudsakliga förbrukningsmodeller: _förbränning_ och _elektrisk_. Det är fel att ange parametrar som hör till olika modeller i samma begäran.
-Förbrukningsmodellen kan inte användas med **färdlägena** _cykel_ och _fotgängare_.
+Routningstjänsten innehåller en uppsättning parametrar för en detaljerad beskrivning av den fordonsbaserade förbruknings modellen.
+Beroende på värdet för **vehicleEngineType**stöds två huvudsakliga förbruknings modeller: _förbränning_ och _elektrisk_. Det är fel att ange parametrar som tillhör olika modeller i samma begäran. Dessutom kan inte förbruknings modell parametrar användas med följande **travelMode** -värden: _cykel_ och _gående_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Parameter begränsningar för förbruknings modell
 
-I båda konsumtions modellerna måste du uttryckligen ange vissa parametrar för att även ange andra. Dessa beroenden är:
+I båda förbruknings modellerna finns det vissa beroenden när du anger parametrar. Det innebär att det kan krävas några andra parametrar för att explicit ange vissa parametrar. Här är dessa beroenden för att vara medvetna om:
 
-* Alla parametrar kräver att **constantSpeedConsumption** anges av användaren. Det går inte att ange någon annan förbruknings modell parameter, med undantag för **vehicleWeight**, om **constantSpeedConsumption** inte har angetts.
+* Alla parametrar kräver att **constantSpeedConsumption** anges av användaren. Det går inte att ange någon annan förbruknings modell parameter om **constantSpeedConsumption** inte har angetts. **VehicleWeight** -parametern är ett undantag för det här kravet.
 * **accelerationEfficiency** och **decelerationEfficiency** måste alltid anges som ett par (dvs. båda eller inga).
 * Om **accelerationEfficiency** och **decelerationEfficiency** har angetts får produkten av deras värden inte vara större än 1 (för att förhindra beständig rörelse).
-* **uphillEfficiency** och **downhillEfficiency** måste alltid anges som ett par (dvs. båda eller inga).
+* **uphillEfficiency** och **downhillEfficiency** måste alltid anges som ett par (det vill säga båda eller inga).
 * Om **uphillEfficiency** och **downhillEfficiency** har angetts får produkten av deras värden inte vara större än 1 (för att förhindra beständig rörelse).
 * Om \*__effektivitets__ parametrar anges av användaren måste även **vehicleWeight** anges. När **vehicleEngineType** är _förbränning_måste även **fuelEnergyDensityInMJoulesPerLiter** anges.
 * **maxChargeInkWh** och **currentChargeInkWh** måste alltid anges som ett par (dvs. båda eller inga).
@@ -38,7 +37,7 @@ I båda konsumtions modellerna måste du uttryckligen ange vissa parametrar för
 
 ## <a name="combustion-consumption-model"></a>Förbrännings förbruknings modell
 
-Förbrännings- och förbrukningsmodellen används när **fordonets motortyp** är inställd på _förbränning_.
+Förbrännings förbruknings modellen används när **vehicleEngineType** är inställd på _förbränning_.
 Listan över parametrar som tillhör den här modellen är nedan. Se avsnittet parametrar för detaljerad beskrivning.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +52,7 @@ Listan över parametrar som tillhör den här modellen är nedan. Se avsnittet p
 
 ## <a name="electric-consumption-model"></a>Elektrisk förbruknings modell
 
-Elförbrukningsmodellen används när **fordonets motortyp** är inställd på _elektrisk_.
+Den elektriska förbruknings modellen används när **vehicleEngineType** är inställt på _elektrisk_.
 Listan över parametrar som tillhör den här modellen är nedan. Se avsnittet parametrar för detaljerad beskrivning.
 
 * constantSpeedConsumptionInkWhPerHundredkm
@@ -68,5 +67,5 @@ Listan över parametrar som tillhör den här modellen är nedan. Se avsnittet p
 
 ## <a name="sensible-values-of-consumption-parameters"></a>Lämpliga värden för förbruknings parametrar
 
-En viss uppsättning förbruknings parametrar kan avvisas, även om den kan uppfylla alla explicita krav som anges ovan. Det inträffar när värdet för en speciell parameter, eller en kombination av värden för flera parametrar, anses leda till orimliga värden för förbruknings värden. Om detta inträffar indikerar det förmodligen ett indatafel, eftersom det är så viktigt att ta hänsyn till alla lämpliga-värden för förbruknings parametrar. Om en viss uppsättning förbruknings parametrar avvisas, innehåller det medföljande fel meddelandet en text förklaring av anledningen (erna).
+En viss uppsättning förbruknings parametrar kan avvisas även om mängden kan uppfylla alla specifika krav. Det inträffar när värdet för en speciell parameter, eller en kombination av värden för flera parametrar, anses leda till orimliga värden för förbruknings värden. Om detta inträffar indikerar det förmodligen ett indatafel, eftersom det är så viktigt att ta hänsyn till alla lämpliga-värden för förbruknings parametrar. Om en viss uppsättning förbruknings parametrar avvisas, innehåller det medföljande fel meddelandet en text förklaring av anledningen (erna).
 De detaljerade beskrivningarna av parametrarna innehåller exempel på lämpliga-värden för båda modellerna.

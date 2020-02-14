@@ -15,12 +15,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aee049f91aaa071595ab42e9bb4d6b2f5e8616d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d970bbc5619bc25a1cf5d6abbdcf41fb4a0ae196
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021831"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195529"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
@@ -98,6 +98,11 @@ Om identitets klienten är en just-in-Time (JIT) eller virus klient (vilket inne
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>En gäst användare kan inte använda AzureAD PowerShell v1-modulen
 
 Från och med 18 november 2019 blockeras gäst användare i din katalog (definierade som användar konton där **userType** -egenskapen är lika med **gäst**) från att använda AzureAD PowerShell v1-modulen. Användaren måste antingen vara en medlems användare (där **userType** är lika med **medlem**) eller använda AzureAD PowerShell V2-modulen.
+
+## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Jag kan inte bjuda in gäst användare för B2B-samarbete i en Azure-klient för amerikanska myndigheter
+
+I Azure-molnet för amerikanska myndigheter stöds för närvarande inte B2B-samarbete mellan klienter som båda är i Azures offentliga moln för amerikanska myndigheter och som båda stöder B2B-samarbete. Om du bjuder in en användare i en klient som inte är en del av Azure-molnet för amerikanska myndigheter eller som ännu inte stöder B2B-samarbete får du ett fel meddelande. Mer information och begränsningar finns i [Azure Active Directory Premium P1-och P2-variationer](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

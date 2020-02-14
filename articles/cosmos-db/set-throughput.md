@@ -1,30 +1,30 @@
 ---
-title: Etablera data flöde i Azure Cosmos-behållare och databaser
+title: Etablera dataflöde för Azure Cosmos-behållare och databaser
 description: Lär dig hur du ställer in tillhandahållet data flöde för dina Azure Cosmos-behållare och-databaser.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931276"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188775"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
-En Azure Cosmos-databas är en hanterings enhet för en uppsättning behållare. En databas består av en uppsättning schema-oberoende behållare. En Azure Cosmos-behållare är enhets skalbarhet för både data flöde och lagring. En behållare är vågrätt partitionerad i en uppsättning datorer i en Azure-region och distribueras i alla Azure-regioner som är kopplade till ditt Azure Cosmos-konto.
+En Azure Cosmos-databas är en enhet för hantering för en uppsättning behållare. En databas består av en uppsättning schemaoberoende behållare. En Azure Cosmos-behållare är Faktureringsenhet skalbarhet för både dataflöde och lagring. En behållare är horisontellt partitionerade över en uppsättning datorer i en Azure-region och distribueras över alla Azure-regioner som är associerade med ditt Azure Cosmos-konto.
 
 Med Azure Cosmos DB kan du etablera data flöde med två granularitet:
  
-- Azure Cosmos-behållare
+- Azure Cosmos-containrar
 - Azure Cosmos-databaser
 
 ## <a name="set-throughput-on-a-container"></a>Ange data flöde i en behållare  
 
-Det data flöde som har allokerats på en Azure Cosmos-behållare är exklusivt reserverat för den behållaren. Behållaren tar emot det etablerade data flödet hela tiden. Det etablerade data flödet på en behållare backas upp av service avtal. Information om hur du konfigurerar data flöde i en behållare finns i [etablera data flöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
+Det data flöde som har allokerats på en Azure Cosmos-behållare är exklusivt reserverat för den behållaren. Behållaren tar emot det etablerade dataflödet som hela tiden. Dataflöde i en behållare har inget serviceavtal med ekonomisk uppbackning av serviceavtal. Information om hur du konfigurerar data flöde i en behållare finns i [etablera data flöde på en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 
 Att ställa in tillhandahållet data flöde på en behållare är det alternativ som används oftast. Du kan skala data flöde elastiskt för en behållare genom att tillhandahålla valfri mängd data flöde med hjälp av [enheter för programbegäran (ru: er)](request-units.md). 
 
@@ -42,17 +42,17 @@ Följande bild visar hur en fysisk partition är värd för en eller flera logis
 
 När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett tillhandahållet data flöde på specifika behållare i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
-Genom att ställa in data flöde på en Azure Cosmos-databas garanteras att du tar emot det etablerade data flödet för databasen hela tiden. Eftersom alla behållare i databasen delar det etablerade data flödet ger Azure Cosmos DB inga förutsägbara data flödes garantier för en viss behållare i databasen. Den del av data flödet som en viss behållare kan ta emot är beroende av:
+Genom att ställa in data flöde på en Azure Cosmos-databas garanteras att du tar emot det etablerade data flödet för databasen hela tiden. Eftersom alla behållare i databasen delar det etablerade data flödet ger Azure Cosmos DB inga förutsägbara data flödes garantier för en viss behållare i databasen. Del av vilket dataflöde som kan ta emot en viss behållare är beroende av:
 
 * Antalet behållare.
 * Val av partitionsnyckel för olika behållare.
-* Distributionen av arbets belastningen mellan olika logiska partitioner i behållarna. 
+* Distribution av arbetsbelastning i olika logiska partitioner av behållarna. 
 
 Vi rekommenderar att du konfigurerar data flödet på en databas när du vill dela data flödet över flera behållare, men inte vill tilldela data flödet till en viss behållare. 
 
 Följande exempel visar var det är önskvärt att etablera data flöde på databas nivå:
 
-* Att dela en Databass etablerade data flöde i en uppsättning behållare är användbart för ett program med flera innehavare. Varje användare kan representeras av en separat Azure Cosmos-behållare.
+* Att dela en Databass etablerade data flöde i en uppsättning behållare är användbart för ett program med flera innehavare. Varje användare kan representeras av en distinkt Azure Cosmos-behållare.
 
 * Att dela en Databass etablerade data flöde i en uppsättning behållare är användbart när du migrerar en NoSQL-databas, till exempel MongoDB eller Cassandra, som finns på ett kluster med virtuella datorer eller från lokala fysiska servrar till Azure Cosmos DB. Tänk på det etablerade data flödet som kon figurer ATS på din Azure Cosmos-databas som en logisk motsvarighet, men mer kostnads effektivt och elastiskt, till beräknings kapaciteten för ditt MongoDB-eller Cassandra-kluster.  
 
@@ -60,24 +60,11 @@ Alla behållare som skapats i en databas med ett allokerat data flöde måste sk
 
 Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Det data flöde som har allokerats för en databas kan delas av behållarna i databasen. Varje ny behållare i delat data flöde i databas nivå kräver 100 RU/s. När du etablerar behållare med det delade databas erbjudandet:
+Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. I en delad data flödes databas:
 
-* Varje 25 behållare grupperas i en partitionsuppsättning och databas data flödet (D) delas mellan behållarna i partitionsuppsättningen. Om det finns upp till 25 behållare i databasen och när som helst, om du bara använder en behållare, kan denna behållare använda max. d-genomflödet.
+* Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Varje ny behållare efter de första fyra kräver ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s.
 
-* För varje ny behållare som skapats efter 25 behållare skapas en ny partitionsuppsättning och databas data flödet delas mellan nya partitionsuppsättningar som skapats (det vill säga D/2 för 2 partitionsuppsättningar, D/3 för 3 partitionsuppsättningar...). Om du använder en enda behållare från databasen när som helst, kan den använda högst (D/2, D/3, d/4... genom strömning). Med tanke på det sänkta data flödet rekommenderar vi att du inte skapar fler än 25 behållare i en databas.
-
-**Exempel**
-
-* Om du skapar en databas med namnet "Mindb" med ett tillhandahållet data flöde på 10K RU/s.
-
-* Om du etablerar 25 behållare under "Mindb" grupperas alla behållare i en partitionsuppsättning. När som helst, om du bara använder en behållare från databasen, kan den använda högst 10 000 RU/s (D).
-
-* När du etablerar 26-behållaren skapas en ny partitionsuppsättning och data flödet delas jämnt mellan båda partitionsuppsättningar. Så när som helst, om du bara använder en behållare från databasen, kan den använda maximalt 5 K RU/s (D/2). Eftersom det finns två partitionsuppsättningar, delas flödes fördelnings faktorn i D/2.
-
-   Följande bild visar föregående exempel grafiskt:
-
-   ![Delnings faktor i data flöde på databas nivå](./media/set-throughput/database-level-throughput-shareability-factor.png)
-
+* Du kan ha högst 25 behållare i databasen. Om du redan har fler än 25 behållare i en delad data flödes databas kommer du inte att kunna skapa ytterligare behållare förrän antalet behållare är mindre än 25.
 
 Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 
@@ -85,7 +72,7 @@ Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Ange data flöde för en databas och en behållare
 
-Du kan kombinera de två modellerna. Etablering av data flöde på både databasen och behållaren tillåts. Följande exempel visar hur du etablerar data flöde i en Azure Cosmos-databas och en behållare:
+Du kan kombinera de två modellerna. Etablering av data flöde på både databasen och behållaren tillåts. I följande exempel visar hur du etablera dataflöde för en Azure Cosmos-databas och en behållare:
 
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* och det etablerade data flödet för *"K"* ru: er. 
 * Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D*och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Observera att du bara kan konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
@@ -118,11 +105,11 @@ Du kan skala det etablerade data flödet för en behållare eller en databas nä
 |---------|---------|---------|
 |Minsta ru: er |400 (efter de första fyra behållarna kräver varje ytterligare behållare minst 100 ru: er per sekund.) |400|
 |Minsta ru: er per behållare|100|400|
-|Maximalt ru: er|Obegränsat, på databasen.|Obegränsat, på behållaren.|
-|Ru: er tilldelad eller tillgänglig för en speciell behållare|Inga garantier. Ru: er som tilldelas en specifik behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnyckel för behållare som delar data flödet, distributionen av arbets belastningen och antalet behållare. |Alla ru: er som kon figurer ATS på behållaren är exklusivt reserverade för behållaren.|
-|Maximalt lagrings utrymme för en behållare|Många.|Många.|
-|Maximalt data flöde per logisk partition för en behållare|10 000 ru: er|10 000 ru: er|
-|Maximalt lagrings utrymme (data index) per logisk partition för en behållare|10 GB|10 GB|
+|Maximal ru: er|Obegränsat, på databasen.|Obegränsat, på behållaren.|
+|Ru: er tilldelad eller tillgänglig för en speciell behållare|Inga garantier. Ru: er som tilldelas en specifik behållare beror på egenskaperna. Egenskaper kan vara valet av partitionsnyckel för behållare som delar data flödet, distributionen av arbets belastningen och antalet behållare. |Alla ru: er som har konfigurerats på behållaren är enbart för behållaren.|
+|Maximalt lagringsutrymme för en behållare|Många.|Många.|
+|Högsta dataflöde per logisk partition för en behållare|10K ru: er|10K ru: er|
+|Maximalt lagringsutrymme (data + index) per logisk partition för en behållare|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608728"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185565"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
@@ -91,7 +91,7 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 ### <a name="review-your-conditional-access-policies"></a>Granska dina principer för villkorlig åtkomst
 
-- Se till att undanta gäster från alla principer för villkorlig åtkomst som nya gäst användare inte kan uppfylla eftersom det gör att de inte kan logga in i din katalog. Gäster har till exempel troligen ingen registrerad enhet, inte på en känd plats och vill inte registrera sig för Multi-Factor Authentication (MFA), så att de här kraven i en princip för villkorlig åtkomst blockerar gäster från att använda rättigheten hanterings. Mer information finns i [Vad är villkor i Azure Active Directory villkorlig åtkomst?](../conditional-access/conditions.md).
+- Se till att undanta gäster från alla principer för villkorlig åtkomst som nya gäst användare inte kan uppfylla eftersom det gör att de inte kan logga in i din katalog. Gäster har till exempel troligen ingen registrerad enhet, inte på en känd plats och vill inte registrera sig för Multi-Factor Authentication (MFA), så att de här kraven i en princip för villkorlig åtkomst blockerar gäster från att använda rättigheten hanterings. Mer information finns i [Vad är villkor i Azure Active Directory villkorlig åtkomst?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Undantags inställningar för villkorlig åtkomst policy för Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
 
@@ -143,7 +143,7 @@ Du kan välja vad som händer när en extern användare, som har bjudits in till
 
 1. Om du vill ta bort gäst användar kontot i den här katalogen kan du ange antalet dagar innan det tas bort. Om du vill ta bort gäst användar kontot så fort de förlorar sin senaste tilldelning till alla åtkomst paket, anger du **antalet dagar innan externa användare tas bort från katalogen** till **0**.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ## <a name="next-steps"></a>Nästa steg
 

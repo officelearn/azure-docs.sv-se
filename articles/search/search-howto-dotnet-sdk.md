@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112593"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190973"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Använda Azure Kognitiv sökning från ett .NET-program
 
@@ -33,8 +33,8 @@ De andra NuGet-paketen i SDK: n är:
 
 De olika klient biblioteken definierar klasser som `Index`, `Field`och `Document`, samt åtgärder som `Indexes.Create` och `Documents.Search` i `SearchServiceClient`-och `SearchIndexClient`-klasserna. Dessa klasser är indelade i följande namn rymder:
 
-* [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
-* [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
+* [Microsoft. Azure. search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
+* [Microsoft. Azure. search. Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
 
 Om du vill ge feedback om en kommande uppdatering av SDK: n, se vår [feedback-sida](https://feedback.azure.com/forums/263029-azure-search/) eller skapa ett problem på [GitHub](https://github.com/azure/azure-sdk-for-net/issues) och nämna "Azure kognitiv sökning" i ärende titeln.
 
@@ -462,7 +462,7 @@ Det första du ska märka är att namnet på varje offentlig egenskap i klassen 
 > 
 > 
 
-Det andra är att märka att varje egenskap är dekorerad med attribut som `IsFilterable`, `IsSearchable`, `Key`och `Analyzer`. Dessa attribut mappar direkt till [motsvarande fältattribut i ett Azure kognitiv sökning-index](https://docs.microsoft.com/rest/api/searchservice/create-index#request). `FieldBuilder`-klassen använder dessa egenskaper för att skapa fält definitioner för indexet.
+Det andra är att märka att varje egenskap är dekorerad med attribut som `IsFilterable`, `IsSearchable`, `Key`och `Analyzer`. Dessa attribut mappar direkt till [motsvarande fältattribut i ett Azure kognitiv sökning-index](/rest/api/searchservice/create-index). `FieldBuilder`-klassen använder dessa egenskaper för att skapa fält definitioner för indexet.
 
 Den tredje viktiga informationen om `Hotel`-klassen är data typerna för de offentliga egenskaperna. .NET-typerna för dessa egenskaper mappar till deras motsvarande fälttyper i indexdefinitionen. Exempelvis mappar `Category`-strängegenskapen till `category`-fältet, som är av typen `Edm.String`. Det finns liknande typ mappningar mellan `bool?`, `Edm.Boolean`, `DateTimeOffset?`och `Edm.DateTimeOffset` och så vidare. De speciella reglerna för typ mappningen dokumenteras med metoden `Documents.Get` i Azure- [kognitiv sökning .NET SDK-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). `FieldBuilder`-klassen tar hand om den här mappningen åt dig, men det kan fortfarande vara bra att förstå om du behöver felsöka eventuella problem med serialiseringen.
 

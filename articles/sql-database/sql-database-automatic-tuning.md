@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 179bb5c9d718a556b829af8f860cb284597835aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821897"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190764"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -71,13 +71,20 @@ Alternativen för automatisk justering är tillgängliga i Azure SQL Database:
 | **Drop index** – identifierar redundanta och duplicerade index dagligen, förutom unika index och index som inte har använts under en längre tid (> 90 dagar). Observera att det här alternativet inte är kompatibelt med program som använder partitions växlings-och index tips. Det går inte att släppa oanvända index för Premium-och Affärskritisk tjänst nivåer. | Ja | Nej |
 | **FRAMTVINGA senaste fungerande plan** (automatisk plan korrigering) – identifierar SQL-frågor med hjälp av en körnings plan som är långsammare än den tidigare fungerande planen, och frågor som använder det senaste fungerande schemat i stället för försämrat-planen. | Ja | Ja |
 
-Automatisk justering identifierar **skapa index**, **Drop index**och **Framtvinga senaste lämpliga plan** rekommendationer som kan optimera databas prestanda och visa dem i [Azure Portal](sql-database-advisor-portal.md)och exponera dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [ REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Om du vill veta mer om den senaste effektiva planen och konfigurera alternativ för automatisk justering via T-SQL, se [Automatisk justering inför automatisk plan korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
+Automatisk justering identifierar **skapa index**, **Drop index**och **Framtvinga senaste lämpliga plan** rekommendationer som kan optimera databas prestanda och visa dem i [Azure Portal](sql-database-advisor-portal.md)och exponera dem via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) och [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). Om du vill veta mer om den senaste effektiva planen och konfigurera alternativ för automatisk justering via T-SQL, se [Automatisk justering inför automatisk plan korrigering](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 
 Du kan antingen manuellt tillämpa justerings rekommendationer med hjälp av portalen, eller så kan du låta automatisk justering tillämpa justerings rekommendationer åt dig. Fördelarna med att låta systemet tillämpa justerings rekommendationer för dig är att det automatiskt validerar att det finns en positiv vinst för arbets belastnings prestandan, och om det inte finns någon betydande prestanda förbättring påträffad kommer den att Återställ automatiskt justerings rekommendationen. Observera att om frågor påverkas av justerings rekommendationer som inte körs ofta kan validerings fasen ta upp till 72 timmar efter design.
 
 Om du använder justerings rekommendationer via T-SQL, är den automatiska prestanda valideringen och återförings metoderna inte tillgängliga. Rekommendationer som tillämpas på detta sätt förblir aktiva och visas i listan över justerings rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den från Azure Portal.
 
 Automatiska justerings alternativ kan aktive ras oberoende eller inaktive ras per databas, eller så kan de konfigureras på SQL Database servrar och tillämpas på alla databaser som ärver inställningar från servern. SQL Database servrar kan ärva Azure-standardvärden för automatiska justerings inställningar. Azure-standardvärden för tillfället är inställt på FORCE_LAST_GOOD_PLAN är aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX har inaktiverats.
+
+> [!IMPORTANT]
+> Från och med mars kommer 2020 ändringar i Azure-standardvärden för automatisk justering att gälla enligt följande:
+> - Nya Azure-standardvärden är FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled och DROP_INDEX = inaktive rad.
+> - Befintliga servrar utan inställningar för automatisk justering konfigureras automatiskt med de nya Azure-standardinställningarna. Detta gäller för alla kunder som för närvarande har automatisk justering i ett odefinierat tillstånd.
+> - Nya servrar som skapas konfigureras automatiskt med de nya Azure-standardvärdena (till skillnad från tidigare när konfigurationen för automatisk justering var i ett odefinierat tillstånd när en ny server skapas).
+>
 
 Att konfigurera alternativ för automatisk justering på en server och ärva inställningar för databaser som tillhör den överordnade servern är en rekommenderad metod för att konfigurera automatisk justering eftersom det fören klar hanteringen av automatiska justerings alternativ för ett stort antal databaser.
 

@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: dacoulte
-ms.openlocfilehash: 2b49495e3d0dac8890854659e334f0c46c069dd6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
-ms.translationtype: HT
+ms.openlocfilehash: e3cb0e12a2ec141ecf97b53ff91ba9b6ec255f53
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77172781"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77192549"
 ---
 |Namn |Beskrivning |Påverkan (ar) |Version |
 |---|---|---|---|
-|[Diagnostikloggar i IoT Hub ska vara aktive rad](https://github.com/Azure/azure-policy/blob/masterbuilt-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |Granska aktivering av diagnostikloggar. På så sätt kan du återskapa aktivitets spårningar som ska användas i utrednings syfte. När en säkerhets incident inträffar eller när nätverket komprometteras |AuditIfNotExists, inaktiverat |2.0.0 |
+|[Diagnostikloggar i IoT Hub ska vara aktive rad](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Internet%20of%20Things/IoTHub_AuditDiagnosticLog_Audit.json) |Granska aktivering av diagnostikloggar. På så sätt kan du återskapa aktivitets spårningar som ska användas i utrednings syfte. När en säkerhets incident inträffar eller när nätverket komprometteras |AuditIfNotExists, inaktiverat |2.0.0 |

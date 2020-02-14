@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3c853ef3a5a40381aba4e1c13eaf9ad7d8653170
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964097"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186623"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Kräv app Protection-princip för Cloud app-åtkomst med villkorlig åtkomst (för hands version)
 
@@ -36,7 +36,7 @@ I terminologin för villkorlig åtkomst är dessa klient program kända för pri
 
 ![Villkorlig åtkomst](./media/app-protection-based-conditional-access/05.png)
 
-En lista över principbaserad klient program finns i [krav på skydds princip för appar](technical-reference.md#approved-client-app-requirement).
+En lista över principbaserad klient program finns i [krav på skydds princip för appar](concept-conditional-access-grant.md).
 
 Du kan kombinera program skydds baserade principer för villkorlig åtkomst med andra principer, till exempel [enhets principer för villkorlig åtkomst](require-managed-devices.md). På så sätt kan du ge flexibilitet i hur du skyddar data för både personliga och företags enheter.
 
@@ -55,12 +55,12 @@ I likhet med efterlevnad som rapporteras av Intune för iOS och Android för en 
 
 Den här artikeln förutsätter att du är bekant med:
 
-- Teknisk referens för [skydds princip för program skydd](technical-reference.md#app-protection-policy-requirement) .
-- Den tekniska referensen för [godkända klient program krav](technical-reference.md#approved-client-app-requirement) .
+- [Krav för skydds principen för appen](concept-conditional-access-grant.md).
+- [Godkänt klient program krav](concept-conditional-access-grant.md).
 - Grundläggande begrepp för [villkorlig åtkomst i Azure Active Directory](overview.md).
 - Så här [konfigurerar du en princip för villkorlig åtkomst](app-based-mfa.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en app Protection-baserad princip för villkorlig åtkomst måste du:
 

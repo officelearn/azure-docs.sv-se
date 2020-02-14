@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 78c20c72d0e344d993878f6e06ccc94f42048606
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162335"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187463"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Core (Microsoft. Azure. EventHubs)
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Microsoft. Azure. EventHubs** .net Core Library.
@@ -371,6 +371,9 @@ Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Micros
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar:
 
+- [Exempel på rollbaserad åtkomst kontroll (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    I de här exemplen används det gamla biblioteket **Microsoft. Azure. EventHubs** , men du kan enkelt uppdatera det så att det använder det senaste **Azure. Messaging. EventHubs** -biblioteket. Om du vill flytta exemplet från att använda det gamla biblioteket till ett nytt, se [guiden för att migrera från Microsoft. Azure. EventHubs till Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).)
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md)
 - [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

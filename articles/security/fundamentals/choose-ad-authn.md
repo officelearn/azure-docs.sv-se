@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: f32980b736232449d24de8721f354d9ca5dd03ab
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7a13e50e6b5357264e7096fa58e34a4bcaf6ad8b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064435"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190919"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning
 
@@ -185,7 +185,7 @@ Följande diagram innehåller en översikt över de hög nivå arkitektur kompon
 |Vad är alternativen för multifaktorautentisering?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA-Server](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA från tredje part](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Anpassade kontroller med villkorlig åtkomst *](../../active-directory/conditional-access/controls.md)|
 |Vilka användar konto tillstånd stöds?|Inaktiverade konton<br>(upp till 30 minuters fördröjning)|Inaktiverade konton<br><br>Kontot är utelåst<br><br>Kontot har gått ut<br><br>Lösen ordet upphörde<br><br>Inloggnings tider|Inaktiverade konton<br><br>Kontot är utelåst<br><br>Kontot har gått ut<br><br>Lösen ordet upphörde<br><br>Inloggnings tider|
 |Vilka är alternativen för villkorlig åtkomst?|[Villkorlig åtkomst för Azure AD med Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Villkorlig åtkomst för Azure AD med Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Villkorlig åtkomst för Azure AD med Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[AD FS anspråks regler](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Finns det stöd för äldre protokoll?|[Ja](../../active-directory/conditional-access/conditions.md)|[Ja](../../active-directory/conditional-access/conditions.md)|[Ja](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Finns det stöd för äldre protokoll?|[Ja](../../active-directory/conditional-access/overview.md)|[Ja](../../active-directory/conditional-access/overview.md)|[Ja](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Kan du anpassa logo typen, avbildningen och beskrivningen på inloggnings sidorna?|[Ja, med Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Ja, med Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Ja](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |Vilka avancerade scenarier stöds?|[Smart lösen ords utelåsning](../../active-directory/authentication/howto-password-smart-lockout.md)<br><br>[Läckta autentiseringsuppgifter-rapporter, med Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Smart lösen ords utelåsning](../../active-directory/authentication/howto-password-smart-lockout.md)|Autentiserings system med låg latens för Multisite<br><br>[AD FS extra näts utelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integrering med identitets system från tredje part](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 

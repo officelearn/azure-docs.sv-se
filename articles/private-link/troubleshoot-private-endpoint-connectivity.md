@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1c3fc4ebaffe2347a9c46b626b94042d1c9cfe11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: df4ec6ddbba029eb29d2440717697968f8c79302
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031860"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191072"
 ---
-# <a name="troubleshoot-private-endpoint-connectivity-problems"></a>Felsöka anslutnings problem med privat slut punkt
+# <a name="troubleshoot-private-endpoint-connectivity-problems"></a>Felsöka anslutningsproblem för privata slutpunkter
 
 Den här guiden innehåller steg-för-steg-anvisningar om hur du verifierar och diagnostiserar konfigurationen för den privata slut punkten. 
 
@@ -100,7 +100,7 @@ Gå igenom stegen nedan för att se till att alla vanliga konfigurationer är de
        ![NSG utgående regler](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
 5. Om anslutningen har verifierats kan anslutnings problemet vara relaterat till andra aspekter som hemligheter, tokens och lösen ord på program nivån.
-   - I det här fallet granskar du konfigurationen av den privata länk resurs som är associerad med den privata slut punkten. Se [fel söknings guide för privata länkar](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting). 
+   - I det här fallet granskar du konfigurationen av den privata länk resurs som är associerad med den privata slut punkten. Se [fel söknings guide för privata länkar](troubleshoot-private-link-connectivity.md). 
 
 6. Kontakta [support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) teamet för Azure om problemet fortfarande är olöst och det fortfarande finns anslutnings problem. 
 
@@ -108,4 +108,4 @@ Gå igenom stegen nedan för att se till att alla vanliga konfigurationer är de
 
  * [Skapa en privat slut punkt på det uppdaterade under nätet (Azure Portal)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
 
- * [Fel söknings guide för privat länk](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting)
+ * [Fel söknings guide för privat länk](troubleshoot-private-link-connectivity.md)

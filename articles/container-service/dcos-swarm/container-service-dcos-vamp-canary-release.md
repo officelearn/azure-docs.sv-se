@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275661"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189117"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>FÖRÅLDRAD Kanarie release-mikrotjänster med vamp på ett Azure Container Service DC/OS-kluster
 
@@ -127,7 +127,7 @@ När ElasticSearch rapporter har **körts**kan du lägga till paketet vamp DC/OS
 
 Nu när vamp är igång kan du distribuera en tjänst från en skiss. 
 
-I sin enklaste form beskriver en [vamp skiss](https://vamp.io/documentation/using-vamp/blueprints/) vilka slut punkter (gateways), kluster och tjänster som ska distribueras. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper för kontroll av Kanarie-eller A-B-test.  
+I sin enklaste form beskriver en [vamp skiss](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) vilka slut punkter (gateways), kluster och tjänster som ska distribueras. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper för kontroll av Kanarie-eller A-B-test.  
 
 I det här scenariot används ett exempel på ett monolitisk-program som kallas [**Sava**](https://github.com/magneticio/sava), som är i version 1,0. Monolit paketeras i en Docker-behållare, som finns i Docker Hub under magneticio/Sava: 1.0.0. Appen körs normalt på Port 8080, men du vill visa den under port 9050 i det här fallet. Distribuera appen via vamp med hjälp av en enkel skiss.
 
@@ -151,7 +151,7 @@ I det här scenariot används ett exempel på ett monolitisk-program som kallas 
               webport: 8080/http # cluster endpoint, used for canary releasing
    ```
 
-4. Klicka på **Spara**. Vamp initierar distributionen.
+4. Klicka på **Save** (Spara). Vamp initierar distributionen.
 
 Distributionen visas på sidan **distributioner** . Klicka på distributionen för att övervaka dess status.
 
@@ -211,7 +211,7 @@ Så här sammanfogar du den nya Sava 1,1-tjänsten med den pågående distributi
               webport: 8080/http # cluster endpoint to update
    ```
   
-3. Klicka på **Spara**. Skissen lagras och visas på sidan **ritningar** .
+3. Klicka på **Save** (Spara). Skissen lagras och visas på sidan **ritningar** .
 
 4. Öppna åtgärds menyn i skissen Sava: 1.1 och klicka på **sammanfoga till**.
 
@@ -287,9 +287,9 @@ Vi har också använt några kraftfulla funktioner i vamp: sammanslagning av en 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att hantera vamp-åtgärder via [vamp-REST API](https://vamp.io/documentation/api/api-reference/).
+* Lär dig mer om att hantera vamp-åtgärder via [vamp-REST API](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Skapa vamp Automation-skript i Node. js och kör dem som [vamp-arbetsflöden](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Skapa vamp Automation-skript i Node. js och kör dem som [vamp-arbetsflöden](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Se ytterligare [vamp-självstudier](https://vamp.io/documentation/tutorials/).
+* Se ytterligare [vamp-självstudier](https://docs.vamp.io/tutorials/).
 

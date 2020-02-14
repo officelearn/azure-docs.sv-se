@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773943"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188194"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
@@ -24,7 +24,7 @@ ms.locfileid: "76773943"
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här artikeln skapar du en Event Hub, ansluter till den från Azure Datautforskaren och ser data flödet genom systemet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett test kluster och en databas](create-cluster-database-portal.md).
@@ -33,7 +33,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
@@ -61,7 +61,7 @@ I den här artikeln skapar du exempel data och skickar dem till en Event Hub. De
     |---|---|---|
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för händelsehubben.|
     | Resursgrupp | *test-hub-rg* | Skapa en ny resursgrupp. |
-    | Location | *USA, västra* | Välj *västra USA* för den här artikeln. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
+    | plats. | *USA, västra* | Välj *västra USA* för den här artikeln. Välj den region som bäst uppfyller dina behov för ett produktionssystem. Skapa händelsehubbens namnområde på samma plats som klustret Kusto för bästa prestanda (viktigast för händelsehubbnamnområden med högt dataflöde).
     | Namn på namnområde | Ett unikt namnområdesnamn | Välj ett unikt namn som identifierar namnområdet. Till exempel *mytestnamespace*. Domännamnet *servicebus.windows.net* läggs till i namnet som du anger. Namnet får endast innehålla bokstäver, siffror och bindestreck. Namnet måste börja med en bokstav och sluta med en bokstav eller siffra. Värdet måste innehålla mellan 6 och 50 tecken.
     | Namn på händelsehubb | *test-hub* | Händelsehubben finns under namnområdet, som tillhandahåller en unik omfångscontainer. Namnet på händelsehubben måste vara unikt inom namnområdet. |
     | Konsumentgruppens namn | *test-group* | Konsumentgrupper gör att flera konsumerande program kan ha en separat vy över händelseströmmen. |
@@ -117,8 +117,8 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     | Namnområde för händelsehubb | Ett unikt namnområdesnamn | Namnet som du valde tidigare, som identifierar ditt namnområde. |
     | Händelsehubb | *test-hub* | Händelsehubben som du skapade. |
     | Konsumentgrupp | *test-group* | Konsumentgruppen som definierades i hubben som du skapade. |
-    | Egenskaper för händelse system | Välj relevanta egenskaper | [System egenskaper för Event Hub](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. När du lägger till system egenskaper [skapar](/azure/kusto/management/tables#create-table) eller [uppdaterar](/azure/kusto/management/tables#alter-table-and-alter-merge-table) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. |
-    | Komprimering | *Inga* | Komprimerings typen för nytto lasten för Event Hub-meddelanden. Komprimerings typer som stöds: *ingen, gzip*.|
+    | Egenskaper för händelse system | Välj relevanta egenskaper | [System egenskaper för Event Hub](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. När du lägger till system egenskaper [skapar](/azure/kusto/management/create-table-command) eller [uppdaterar](/azure/kusto/management/alter-table-command) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. |
+    | Komprimering | *Alternativet* | Komprimerings typen för nytto lasten för Event Hub-meddelanden. Komprimerings typer som stöds: *ingen, gzip*.|
     | | |
 
     **Mål tabell:**

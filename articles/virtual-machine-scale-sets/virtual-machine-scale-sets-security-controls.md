@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271784"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190613"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Säkerhets kontroller för Azure Virtual Machine Scale Sets
 
@@ -34,14 +34,14 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring) och [övervaka och uppdatera en virtuell Windows-dator i Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
-| Loggning och granskning av data planet | Inga |  |
+| Loggning och granskning av data planet | Nej |  |
 
 ## <a name="identity"></a>Identitet
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
 | Autentisering| Ja |  |
-| Autentisering| Ja |  |
+| Auktorisering| Ja |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
@@ -50,8 +50,8 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Se [Azure Disk Encryption för Virtual Machine Scale Sets](disk-encryption-overview.md). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Azure Virtual Machines stöder [ExpressRoute](/azure/expressroute) och VNET-kryptering. Se [kryptering under överföring i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kundhanterade nycklar är ett Azure-krypterings scenario som stöds. Se [Azure Disk Encryption för Virtual Machine Scale Sets](disk-encryption-overview.md)|
-| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
-| Krypterade API-anrop| Ja | Via HTTPS och SSL. |
+| Kryptering på kolumn nivå (Azure Data Services)| SAKNAS | |
+| Krypterade API-anrop| Ja | Via HTTPS och TLS. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 

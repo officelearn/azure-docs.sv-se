@@ -7,17 +7,17 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 93c0b3e27156655acee24d424cd890b48bb8e4e7
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 78455c90bab694b77a5e4a56d0b40518867d8d8c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064996"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188354"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Mata in data från IoT Hub i Azure Datautforskaren 
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-iot-hub.md)
+> * [Portalen](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-iot-hub-resource-manager.md)
@@ -83,7 +83,7 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
     | IoT Hub | IoT Hub namn |
     | Princip för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet |
     | Konsumentgrupp |  Konsument gruppen som definierats i den IoT Hub inbyggda slut punkten |
-    | Egenskaper för händelse system | [System egenskaperna för IoT Hub Event](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). När du lägger till system egenskaper [skapar](/azure/kusto/management/tables#create-table) eller [uppdaterar](/azure/kusto/management/tables#alter-table-and-alter-merge-table) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. | | | 
+    | Egenskaper för händelse system | [System egenskaperna för IoT Hub Event](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). När du lägger till system egenskaper [skapar](/azure/kusto/management/create-table-command) eller [uppdaterar](/azure/kusto/management/alter-table-command) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. | | | 
 
     > [!NOTE]
     > Om du vill [redundansväxla manuellt](/azure/iot-hub/iot-hub-ha-dr#manual-failover)måste du återskapa data anslutningen.

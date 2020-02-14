@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7f997865ba33a51c3e3aa7a4c7e990037be9e534
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: df4092ecc3f7d075f1a2821854cdb668ee2cebe5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637341"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191209"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Självstudier: Koda en fjärrfil utifrån URL och strömma videon – .NET
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon – .NET
 
 Den här självstudien visar hur enkelt det är att koda och börja strömma videor på en rad olika webbläsare och enheter med hjälp av Azure Media Services. Ett indatainnehåll kan anges med HTTP-URL:er, SAS-URL:er eller sökvägar till filer i Azure Blob Storage.
 Exemplet i det här ämnet kodar innehåll som du gör tillgängligt via en HTTPS-URL. Observera att AMS v3 för närvarande inte stöder segmentvis överföringskodning över HTTPS-URL:er.
@@ -47,7 +47,7 @@ Klona en GitHub-lagringsplats som innehåller det strömmande .NET-exemplet till
 
 Exemplet finns i mappen [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
 
-Öppna [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API: er](access-api-cli-how-to.md).
+Öppna [appSettings. JSON](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) i det nedladdade projektet. Ersätt värdena med autentiseringsuppgifterna som du fick från avsnittet om [åtkomst till API: er](access-api-cli-how-to.md).
 
 Exemplet utför följande åtgärder:
 
@@ -68,7 +68,7 @@ När du kör appen visas URL:er som kan användas för uppspelning av video med 
 1. Tryck på Ctrl+F5 för att köra programmet *EncodeAndStreamFiles*.
 2. Välj Apples **HLS**-protokoll (slutar med *manifest(format=m3u8-aapl)* ) och kopiera strömnings-URL:en från konsolen.
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Resultat](./media/stream-files-tutorial-with-api/output.png)
 
 I exemplets [källkod](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs), kan du se hur URL:en är byggd. För att skapa den, måste du sammanfoga strömningsslutpunktens värdnamn och sökvägen för strömningslokaliseraren.  
 
@@ -85,7 +85,7 @@ I den här artikeln används Azure Media Player för att testa dataströmmen.
      Du kan klistra in URL:en i formatet HLS, Dash eller Smooth så växlar Azure Media Player automatiskt till ett lämpligt strömningsprotokoll för uppspelning på din enhet.
 3. Tryck på **Uppdatera spelare**.
 
-Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 
+Azure Media Player kan användas för att testa men ska inte användas i en produktionsmiljö. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -114,4 +114,4 @@ SDK:erna i Azure Media Services v3 är inte trådsäkra. När du arbetar med fle
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)
+> [Självstudie: Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)

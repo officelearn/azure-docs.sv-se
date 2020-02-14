@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3cd57c09c08ab4c86feeca27915639123b439d0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180308"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186090"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Konfigurera en princip för villkorlig åtkomst i enbart rapport läge (förhands granskning)
 
@@ -41,9 +41,12 @@ Så här visar du resultatet av en rapport princip för en viss inloggning:
 1. Välj en inloggning eller Lägg till filter för att begränsa resultaten.
 1. I **informations** lådan väljer du fliken **endast rapporter (för hands version)** om du vill visa de principer som utvärderas under inloggningen.
 
+> [!NOTE]
+> När du laddar ned inloggnings loggar väljer du JSON-format för att inkludera endast resultat data för rapporten villkorlig åtkomst.
+
 ## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Konfigurera Azure Monitor-integrering med Azure AD
 
-För att kunna visa den sammanlagda effekten av principer för villkorlig åtkomst med hjälp av den nya arbets boken för villkorlig åtkomst, måste du integrera Azure Monitor med Azure AD och exportera inloggnings loggarna. Det finns två steg för att ställa in denna integrering: 
+För att kunna visa den sammanlagda effekten av principer för villkorlig åtkomst med hjälp av den nya arbets boken för villkorlig åtkomst, måste du integrera Azure Monitor med Azure AD och exportera inloggnings loggarna. Det finns två steg för att konfigurera den här integrationen: 
 
 1. [Registrera dig för en Azure Monitor prenumeration och skapa en arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 1. [Exportera inloggnings loggarna från Azure AD till Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
@@ -61,7 +64,7 @@ När du har integrerat dina Azure AD-loggar med Azure Monitor kan du övervaka e
 1. Välj ett tidsintervall (om tidsintervallet överskrider den tillgängliga data mängden visas alla tillgängliga data) i rapporten. När du har angett **principer för villkorlig åtkomst** och **tidsintervalls** parametrar kommer rapporten att läsas in.
    1. Du kan också söka efter enskilda **användare** eller **appar** för att begränsa rapportens omfattning.
 1. Välj mellan att visa data inom tidsintervallet med antalet användare eller antalet inloggningar.
-1. Beroende på **datavyn**visar **effekt sammanfattningen** antalet användare eller inloggningar i omfånget för de valda parametrarna, grupperade efter totalt antal, **lyckade**, **misslyckade** **användar åtgärder**och **inte tillämpade** . Välj en panel för att undersöka inloggningar för en viss resultat typ. 
+1. Beroende på **datavyn**visar **effekt sammanfattningen** antalet användare eller inloggningar i omfånget för de valda parametrarna, grupperat efter totalt antal, **lyckade**, **misslyckade** **användar åtgärder**och **verkställs inte**. Välj en panel för att undersöka inloggningar för en viss resultat typ. 
    1. Om du har ändrat arbets boks parametrarna kan du välja att spara en kopia för framtida användning. Välj ikonen Spara längst upp i rapporten och ange ett namn och en plats att spara till.
 1. Rulla nedåt för att Visa fördelningen av inloggningar för varje villkor.
 1. Visa **inloggnings informationen** längst ned i rapporten för att undersöka enskilda inloggnings händelser som filtrerats enligt valen ovan.

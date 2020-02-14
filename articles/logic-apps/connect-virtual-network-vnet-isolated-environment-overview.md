@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
-ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/10/2020
+ms.openlocfilehash: 1f743384f467e4559412fa1a46d48011b568d249
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860765"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191592"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -27,7 +27,7 @@ Din Logi Kap par kan nu direkt komma åt system som är inuti eller anslutna til
 
 * En **ISE**-märkt koppling för systemet
 * En **Core**-märkt inbyggd utlösare eller åtgärd, till exempel http-utlösare eller åtgärd
-* En anpassad anslutningsapp
+* En anpassad anslutning
 
 I den här översikten beskrivs mer information om hur en ISE ger dina Logic Apps och integrations konton direkt åtkomst till ditt virtuella Azure-nätverk och jämför skillnader mellan en ISE och den globala Logic Appss tjänsten.
 
@@ -45,7 +45,7 @@ När du skapar en integrerad service Environment (ISE) i Azure kan du välja det
 
 Logic Apps i en ISE ger samma användar upplevelse och liknande funktioner som den offentliga globala Logic Appss tjänsten. Du kan använda alla inbyggda utlösare, åtgärder och hanterade anslutningar som är tillgängliga i den globala Logic Appss tjänsten. Vissa hanterade anslutningar erbjuder ytterligare ISE-versioner. Skillnaden finns i där de körs och de etiketter som de visar i Logic Apps designer när du arbetar i en ISE.
 
-![Kopplingar med och utan etiketter i en ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
+![Kopplingar med och utan etiketter i en ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-trigger-actions-integration-service-environment.png)
 
 * Inbyggda utlösare och åtgärder visar **kärn** etiketten och körs alltid i samma ISE som din Logic app. Hanterade anslutningar som visar **ISE** -etiketten körs också i samma ISE som din Logic app.
 
@@ -108,13 +108,13 @@ För lokala system som är anslutna till ett virtuellt Azure-nätverk kan du inj
   > [!NOTE]
   > Om du vill använda Windows-autentisering med SQL Server-anslutaren i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder du anslutningens icke-ISE-version med den [lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md). ISE-märkta versioner stöder inte Windows-autentisering.
 
-* Anpassade anslutningsappar
+* Anpassad anslutning
 
   * Om du har anpassade anslutningar som kräver den lokala datagatewayen och du har skapat dessa anslutningar utanför en ISE kan Logic Apps i en ISE också använda dessa anslutningar.
-  
+
   * Anpassade anslutningar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala data källor som är anslutna till det virtuella nätverket som är värd för ISE. Därför behöver Logic Apps i en ISE förmodligen inte datagatewayen när de kommunicerar med dessa resurser.
 
-För lokala system som inte är anslutna till ett virtuellt nätverk eller inte har ISE-labled-kopplingar måste du först [Konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) innan dina Logi Kap par kan ansluta till dessa system.
+För lokala system som inte är anslutna till ett virtuellt nätverk eller inte har ISE-märkta anslutningar måste du först [Konfigurera den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md) innan dina Logi Kap par kan ansluta till dessa system.
 
 <a name="create-integration-account-environment"></a>
 

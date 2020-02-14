@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 5cd82635f3aec2cca251e122aadf96f70d377c8a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833839"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190524"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure PowerShell
 
@@ -28,7 +28,7 @@ Kontrol lera att du har installerat Azure PowerShell version 2.8.0 eller senare 
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Följande VM-serien stöds: DSv3 och ESv3. 
+- Följande VM-serien stöds: DSv3, ESv3 och Fsv2. 
 
 ## <a name="create-a-host-group"></a>Skapa en värdgrupp
 
@@ -56,7 +56,7 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>Skapa en värd
 
-Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.  Under för hands versionen kommer vi att stödja följande värd-SKU-värden: DSv3_Type1 och ESv3_Type1.
+Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.
 
 
 Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).

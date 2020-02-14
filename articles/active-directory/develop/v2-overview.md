@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700302"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194508"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft Identity Platform (v 2.0)
 
@@ -42,7 +42,11 @@ Med Microsoft Identity Platform kan du skriva kod en gång och komma åt alla an
 
 ## <a name="getting-started"></a>Komma igång
 
-Det behöver inte vara svårt att arbeta med identiteter. Välj ett [scenario](authentication-flows-app-scenarios.md) som gäller för dig – varje scenario Sök väg har en snabb start och en översikts sida för att komma igång på några minuter:
+Det behöver inte vara svårt att arbeta med identiteter. 
+
+Titta på en [Microsoft Identity Platform-video](identity-videos.md) för att lära dig grunderna. 
+
+Välj ett [scenario](authentication-flows-app-scenarios.md) som gäller för dig – varje scenario Sök väg har en snabb start och en översikts sida för att komma igång på några minuter:
 
 - [Bygga en app med en enda sida](scenario-spa-overview.md)
 - [Bygg en webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)

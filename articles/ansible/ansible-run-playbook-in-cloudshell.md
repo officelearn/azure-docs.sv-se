@@ -4,18 +4,18 @@ description: I den här snabb starten får du lära dig hur du utför olika Ansi
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: d04708be82a704c2ce20a928380fca1d325493da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155969"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193658"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>Snabb start: köra Ansible spel böcker via bash i Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt, webb läsar gränssnitt som är tillgängligt för hantering av Azure-resurser. Med Cloud Shell kan du antingen använda en kommando rad för bash eller PowerShell. I den här artikeln använder du bash i Azure Cloud Shell för att köra en Ansible-Spelbok.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Konfigurera Azure Cloud Shell** – om du är nybörjare på Azure Cloud Shell kan du läsa [snabb start för bash i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
@@ -47,4 +47,4 @@ Verifiera konfigurationen genom att använda Ansible för att skapa en Azure-res
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Snabb start: Konfigurera virtuell dator i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snabb start: Konfigurera virtuell dator i Azure med Ansible](./ansible-create-vm.md)

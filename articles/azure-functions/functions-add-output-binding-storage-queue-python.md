@@ -3,12 +3,12 @@ title: Lägg till en Azure Storage Queue-bindning till python-funktionen
 description: Integrera en Azure Storage kö med en python-funktion med hjälp av en utgående bindning.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: 14a381d13da052fd67679ed17bbb6b6711f7a0e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715363"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198487"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage Queue-bindning till python-funktionen
 
@@ -156,7 +156,7 @@ Observera att du *inte* behöver skriva någon kod för autentisering, få en Qu
 1. När du är klar stoppar du värden med **Ctrl**+**C**.
 
 > [!TIP]
-> Under starten hämtar värden och installerar [lagrings bindnings tillägget](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) och andra tillägg för Microsoft-bindning. Den här installationen sker eftersom bindnings tillägg är aktiverade som standard i *Host. JSON* -filen med följande egenskaper:
+> Under starten hämtar värden och installerar [lagrings bindnings tillägget](functions-bindings-storage-blob.md#add-to-your-functions-app) och andra tillägg för Microsoft-bindning. Den här installationen sker eftersom bindnings tillägg är aktiverade som standard i *Host. JSON* -filen med följande egenskaper:
 >
 > ```json
 > {

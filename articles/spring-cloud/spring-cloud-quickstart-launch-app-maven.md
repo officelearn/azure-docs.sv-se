@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: a8ccda88239a150a24c9abaf6ebb172f0fd01dba
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd8ce6d9b4dc63592e491a06a0055a7d065252b5
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278930"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201447"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
@@ -63,7 +63,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras. När tjänsten har d
 ## <a name="set-up-your-configuration-server"></a>Konfigurera konfigurations servern
 
 1. På sidan tjänst **Översikt** väljer du **konfigurations Server**.
-1. I avsnittet **standard databas** ställer du in **URI** till **https://github.com/Azure-Samples/piggymetrics** , anger **etikett** till **config**och väljer sedan **tillämpa** för att spara ändringarna.
+1. I avsnittet **standard databas** ställer du in **URI** till **https://github.com/Azure-Samples/piggymetrics-config** och väljer sedan **tillämpa** för att spara ändringarna.
 
     > [!div class="mx-imgBorder"]
     > ![definiera och tillämpa konfigurations inställningar](media/maven-qs-apply-config.jpg)

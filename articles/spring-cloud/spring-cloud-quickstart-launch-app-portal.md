@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 3f461e625101c578cc3029c6804cea801365d092
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137743"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201551"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -76,9 +76,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Gå till sidan tjänst **Översikt** och välj **konfigurations Server**.
 
-1. I avsnittet **standard plats** ställer du in **URI** till "https\://GitHub.com/Azure-samples/piggymetrics".
-
-1. Ange **etiketten** till "config".
+1. I avsnittet **standard plats** ställer du in **URI** till "https://github.com/Azure-Samples/piggymetrics-config".
 
 1. Välj **tillämpa** för att spara ändringarna.
 

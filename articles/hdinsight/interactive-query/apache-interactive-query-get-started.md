@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 09/17/2019
-ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f03797a8c7df1609a32f934bc090c7adc899aa9a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076365"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198930"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Vad är interaktiv fråga i Azure HDInsight?
 
-Interaktiv fråga (kallas även Apache Hive LLAP eller [analytisk bearbetning av låg latens](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är en [kluster typ](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)för Azure HDInsight. Interaktiv fråga stöder cachelagring i minnet, vilket gör Apache Hive frågor snabbare och mycket mer interaktivt. Kunder använder interaktiv fråga för att fråga data som lagras i Azure Storage & Azure Data Lake Storage på ett snabbt sätt. Interaktiv fråga gör det enkelt för utvecklare och data expert att arbeta med stora data med BI-verktyg som de älskar mest. En interaktiv HDInsight-fråga stöder flera verktyg för att få åtkomst till Big data på ett enkelt sätt.
+Interaktiv fråga (kallas även Apache Hive LLAP eller [analytisk bearbetning av låg latens](https://cwiki.apache.org/confluence/display/Hive/LLAP)) är en [kluster typ](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)för Azure HDInsight. Interaktiv fråga stöder cachelagring i minnet, vilket gör Apache Hive frågor snabbare och mycket mer interaktivt. Kunder använder interaktiv fråga för att fråga data som lagras i Azure Storage & Azure Data Lake Storage på ett snabbt sätt. Interaktiv fråga gör det enkelt för utvecklare och data expert att arbeta med stora data med BI-verktyg som de älskar mest. En interaktiv HDInsight-fråga stöder flera verktyg för att få åtkomst till Big data på ett enkelt sätt.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -30,7 +30,7 @@ Du kan bara komma åt Hive-tjänsten i det interaktiva fråge klustret via Apach
 Information om hur du skapar ett HDInsight-kluster finns i [skapa Apache Hadoop kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Välj kluster typen interaktiv fråga.
 
 > [!IMPORTANT]
-> Den minsta huvudnoden storleken för interaktiva Query-kluster är Standard_D13_v2. Mer information finns i [diagrammet storleks schema för virtuell Azure-dator](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
+> Den minsta huvudnoden storleken för interaktiva fråge kluster är Standard_D13_v2. Mer information finns i [diagrammet storleks schema för virtuell Azure-dator](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
 
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Köra Apache Hive frågor från interaktiv fråga
 
@@ -40,7 +40,7 @@ Om du vill köra Hive-frågor kan du välja mellan följande alternativ:
 
     Se [visualisera interaktiva frågor Apache Hive data med Power BI i Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) se [visualisera big data med Power BI i Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
 
-* Använd Visual Studio
+* Använda Visual Studio
 
     Se [ansluta till Azure HDInsight och köra apache Hive frågor med hjälp av data Lake verktyg för Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 

@@ -1,41 +1,41 @@
 ---
-title: Vad är enterprise tillståndsväxling i Azure Active Directory? | Microsoft Docs
-description: Enterprise State Roaming ger användarna en enhetlig upplevelse på sina Windows-enheter och minskar den tid som behövs för att konfigurera en ny enhet.
+title: Vad är roaming för företags tillstånd i Azure Active Directory?
+description: Enterprise State Roaming ger användare en enhetlig upplevelse på sina Windows-enheter
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481911"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194287"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Vad är Enterprise State Roaming?
 
-Med Windows 10, [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) användare få möjlighet att synkronisera sina användarinställningar och inställningar för programdata till molnet på ett säkert sätt. Enterprise State Roaming ger användarna en enhetlig upplevelse på sina Windows-enheter och minskar den tid som behövs för att konfigurera en ny enhet. Enterprise State Roaming fungerar ungefär som standard [synkronisering av konsumenten](https://go.microsoft.com/fwlink/?linkid=2015135) som introducerades i Windows 8. Enterprise State Roaming erbjuder dessutom:
+Med Windows 10 kan [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) -användare få möjlighet att på ett säkert sätt synkronisera sina användar inställningar och program inställnings data till molnet. Enterprise State Roaming ger användare en enhetlig upplevelse på sina Windows-enheter och minskar tiden som krävs för att konfigurera en ny enhet. Enterprise State Roaming fungerar på samma sätt som den vanliga [synkroniseringen av konsument inställningar](https://go.microsoft.com/fwlink/?linkid=2015135) som infördes i Windows 8. Dessutom erbjuder Enterprise State Roaming:
 
-* **Uppdelning av företagets och konsumentdata** – organisationer har kontroll över sina data och det finns ingen blandning av företagets data i ett molnkonto för konsumenter eller konsumentdata i en enterprise cloud-konto.
-* **Förbättrad säkerhet** – Data krypteras automatiskt innan de lämnar användarens Windows 10-enhet med hjälp av Azure Rights Management (Azure RMS) och data förblir krypterade i vila i molnet. Allt innehåll förblir krypterade i vila i molnet, förutom namnområden, till exempel namn på inställningar och Windows-app.  
-* **Bättre hantering och övervakning** – ger kontroll och synlighet över som synkroniserar inställningar i din organisation och på vilka enheter via Azure AD portal-integrering. 
+* **Separering av företags-och konsument data** – organisationer har kontroll över sina data och det finns ingen blandning av företags data i ett moln konto eller konsument data i ett företags moln konto.
+* **Förbättrad säkerhet** – data krypteras automatiskt innan användaren lämnar användarens Windows 10-enhet med hjälp av Azure Rights Management (Azure RMS) och data förblir krypterade i vila i molnet. Allt innehåll förblir krypterat i vila i molnet, förutom för namn områden, t. ex. namn på Inställningar och namn på Windows-appar.  
+* **Bättre hantering och övervakning** – ger kontroll och insyn över vem som synkroniserar inställningarna i din organisation och på vilka enheter via Azure AD Portal-integreringen. 
 
-Enterprise State Roaming är tillgängligt i flera Azure-regioner. Du hittar den uppdaterade listan över tillgängliga regioner på den [Azure-tjänster efter regioner](https://azure.microsoft.com/regions/#services) sidan under Azure Active Directory.
+Enterprise State Roaming finns i flera Azure-regioner. Du hittar den uppdaterade listan över tillgängliga regioner på sidan [Azure-tjänster per region](https://azure.microsoft.com/regions/#services) under Azure Active Directory.
 
 | Artikel | Beskrivning |
 | --- | --- |
-| [Aktivera Enterprise Tillståndsväxling i Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming är tillgänglig för alla företag med en Premium Azure Active Directory (Azure AD)-prenumeration. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [Azure AD-produkt](https://azure.microsoft.com/services/active-directory) sidan. |
-| [Inställningar och dataväxling vanliga frågor och svar](enterprise-state-roaming-faqs.md) |Det här avsnittet får du svar på några frågor som IT-administratörer kan ha om inställningar och data appsynkronisering. |
-| [Gruppen principer och MDM-inställningar för synkronisering av inställningar](enterprise-state-roaming-group-policy-settings.md) |Windows 10 ger en Grupprincip och hantering av mobilenheter (MDM)-principinställningar för att begränsa inställningar för synkronisering. |
-| [Centrala inställningsreferens för Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Följande är en fullständig lista över alla inställningar som kommer att flyttade och/eller säkerhetskopierade i Windows 10. |
-| [Felsökning](enterprise-state-roaming-troubleshooting.md) |Det här avsnittet går igenom några grundläggande steg för att felsöka och innehåller en lista över kända problem. |
+| [Aktivera Enterprise State Roaming i Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming är tillgänglig för alla organisationer med en Premium Azure Active Directory-prenumeration (Azure AD). Mer information om hur du skaffar en Azure AD-prenumeration finns på produkt sidan för [Azure AD](https://azure.microsoft.com/services/active-directory) . |
+| [Vanliga frågor och svar om inställningar och data nätverks växling](enterprise-state-roaming-faqs.md) |I den här artikeln besvaras några frågor som IT-administratörer kan ha om inställningar och synkronisering av AppData. |
+| [Grup princip och MDM-inställningar för synkronisering av inställningar](enterprise-state-roaming-group-policy-settings.md) |Windows 10 tillhandahåller grupprincip-och princip inställningar för hantering av mobila enheter (MDM) för att begränsa inställningarna för synkronisering. |
+| [Referens för nätverks växlings inställningar i Windows 10](enterprise-state-roaming-windows-settings-reference.md) |En lista med inställningar som ska roamas och/eller säkerhets kopie ras i Windows 10. |
+| [Felsökning](enterprise-state-roaming-troubleshooting.md) |Den här artikeln går igenom några grundläggande steg för fel sökning och innehåller en lista över kända problem. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du aktiverar enterprise tillståndsväxling finns i [aktivera enterprise tillståndsväxling](enterprise-state-roaming-enable.md).
+Information om hur du aktiverar företags tillstånds växling finns i [Aktivera företags tillstånds växling](enterprise-state-roaming-enable.md).

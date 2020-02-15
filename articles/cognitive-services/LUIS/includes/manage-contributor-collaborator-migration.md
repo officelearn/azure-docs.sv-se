@@ -6,21 +6,21 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 09/02/2019
 ms.author: diberry
-ms.openlocfilehash: 3064211fe44a416a6288b86c977ed7e2337a7ccd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8fd7f23235dbd94ee8d20aa693ec5b659cb6d64d
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451642"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279642"
 ---
 Hantering av bidrag från medarbetare beror på appens aktuella status.
 
-**För [redigering av resurs migrerade](../luis-migration-authoring.md) appar**: _deltagare_ hanteras i Azure Portal för redigerings resursen med hjälp av **åtkomst kontroll (IAM)** sidan. Lägg till en användare med hjälp av medarbetarens e-postadress och _deltagar_ rollen. 
+**För [redigering av resurs migrerade](../luis-migration-authoring.md) appar**: _deltagare_ hanteras i Azure Portal för redigerings resursen med hjälp av **åtkomst kontroll (IAM)** sidan. Lägg till en användare med hjälp av medarbetarens e-postadress och _deltagar_ rollen.
 
-**För appar som inte har migrerats än**: alla _medarbetare_ hanteras i Luis-portalen från varje apps sida för **hantering av > samarbets partners** . [Lägg till en användares e-postadress](../luis-how-to-collaborate.md)på den här sidan. Detta ger endast redigerings åtkomst till den här appen. 
+**För appar som inte har migrerats än**: alla _medarbetare_ hanteras i Luis-portalen från varje apps sida för **hantering av > samarbets partners** . [Lägg till en användares e-postadress](../luis-how-to-collaborate.md)på den här sidan. Detta ger endast redigerings åtkomst till den här appen.
 
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 551167cda28a2bb6007e66c1b4b458a0a7b2e396
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718029"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252067"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
@@ -46,6 +46,12 @@ Portarna är: 49152 – 65535. Klass rums labb är placerade bakom en belastning
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Vilka offentliga IP-adressintervall ska jag öppna i min organisations brand Väggs inställningar för att ansluta till virtuella labb datorer via RDP/SSH?
 Se [Azure IP-intervall och service märken – offentliga moln](https://www.microsoft.com/download/details.aspx?id=56519), som tillhandahåller det offentliga IP-adressintervallet för data Center i Azure. Du kan öppna IP-adresserna för de regioner där dina labb konton finns.
+
+## <a name="virtual-machine-images"></a>Avbildningar av virtuella datorer
+
+### <a name="as-a-lab-creator-why-cant-i-enable-additional-image-options-in-the-virtual-machine-images-dropdown-when-creating-a-new-lab"></a>Varför kan jag inte aktivera ytterligare avbildnings alternativ i list rutan avbildning av virtuella datorer när jag skapar en ny labb-skapare?
+
+När en administratör lägger till dig som en labb skapare till ett labb konto får du behörighet att skapa labb. Men du har inte behörighet att redigera några inställningar i labb kontot, inklusive listan över aktiverade avbildningar av virtuella datorer. Om du vill aktivera ytterligare avbildningar kontaktar du din labb konto administratör för att göra det åt dig, eller be administratören att lägga till dig som deltagar roll till labb kontot. Deltagar rollen ger dig behörighet att redigera avbildnings listan för virtuella datorer i labb kontot.
 
 ## <a name="users"></a>Användare
 

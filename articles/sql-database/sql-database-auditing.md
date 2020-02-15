@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161961"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212887"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL Database-granskning
 
@@ -90,7 +90,7 @@ Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto vä
 
    ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-Om du vill konfigurera ett lagrings konto under ett virtuellt nätverk eller en brand vägg behöver du en [Active Directory administratör](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) på servern, aktivera **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot** på lagrings kontot. Dessutom måste du ha behörigheten "Microsoft. Authorization/roleAssignments/Write" för det valda lagrings kontot.
+Om du vill konfigurera ett lagrings konto under ett virtuellt nätverk eller en brand vägg behöver du en [Active Directory administratör](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) på servern, aktivera **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot** på lagrings kontot. Dessutom måste du ha behörigheten "Microsoft. Authorization/roleAssignments/Write" för det valda lagrings kontot.
 
 Vi rekommenderar att du är [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) för att kunna bevilja den hanterade identiteten rollen Storage BLOB data Contributor. Mer information om behörigheter och rollbaserad åtkomst kontroll finns i [Vad är rollbaserad åtkomst kontroll (RBAC) för Azure-resurser?](../role-based-access-control/overview.md) och [Lägg till eller ta bort roll tilldelningar med hjälp av azure RBAC och Azure Portal](../role-based-access-control/role-assignments-portal.md)
 

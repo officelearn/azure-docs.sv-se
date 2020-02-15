@@ -2,13 +2,13 @@
 title: Tagga stöd för resurser
 description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehåller information om alla Azure-tjänster.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: e17e6a996f54d6211f87ec20765d3fde782b7d6d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/13/2020
+ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715613"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207935"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](tag-resources.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten. Du kan visa kostnader efter taggar i [Cost Management kostnads analys](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) och Azure- [faktura och användnings data per dag](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,6 +116,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. Migrate](#microsoftmigrate)
 > - [Microsoft. MixedReality](#microsoftmixedreality)
 > - [Microsoft. NetApp](#microsoftnetapp)
+> - [Microsoft. Notebook](#microsoftnotebooks)
 > - [Microsoft. Network](#microsoftnetwork)
 > - [Microsoft. NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft. ObjectStore](#microsoftobjectstore)
@@ -148,6 +149,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft. SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
+> - [Microsoft. SpoolService](#microsoftspoolservice)
 > - [Microsoft. SQL](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft. Storage](#microsoftstorage)
@@ -192,7 +194,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | aktörer | Nej | Nej |
 > | anonymousapiusers | Nej | Nej |
 > | konfiguration | Nej | Nej |
-> | logs | Nej | Nej |
+> | loggar | Nej | Nej |
 > | rapporter | Nej | Nej |
 > | servicehealthmetrics | Nej | Nej |
 > | services | Nej | Nej |
@@ -367,6 +369,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/billingProfiles/instruktioner | Nej | Nej |
 > | billingAccounts/billingProfiles/fakturor | Nej | Nej |
 > | billingAccounts/billingProfiles/fakturor/pris dokument | Nej | Nej |
+> | billingAccounts/billingProfiles/fakturor/transaktioner | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | Nej | Nej |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | Nej | Nej |
@@ -430,7 +433,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | enheten | Nej | Nej |
 > | enrollmentAccounts | Nej | Nej |
 > | fakturor | Nej | Nej |
-> | överlåtelse | Nej | Nej |
+> | Överlåtelse | Nej | Nej |
 > | överföringar/acceptTransfer | Nej | Nej |
 > | överföringar/declineTransfer | Nej | Nej |
 > | överföringar/operationStatus | Nej | Nej |
@@ -484,7 +487,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Redis | Ja | Ja |
-> | RedisConfigDefinition | Nej | Nej |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -668,7 +670,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Avgifter | Nej | Nej |
 > | CostTags | Nej | Nej |
 > | krediter | Nej | Nej |
-> | händelser | Nej | Nej |
+> | evenemang | Nej | Nej |
 > | Prognoser | Nej | Nej |
 > | samtliga | Nej | Nej |
 > | Marknads platser | Nej | Nej |
@@ -678,7 +680,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ReservationRecommendations | Nej | Nej |
 > | ReservationSummaries | Nej | Nej |
 > | ReservationTransactions | Nej | Nej |
-> | Tags | Nej | Nej |
+> | Taggar | Nej | Nej |
 > | klienter | Nej | Nej |
 > | Villkor | Nej | Nej |
 > | UsageDetails | Nej | Nej |
@@ -707,6 +709,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | register/getBuildSourceUploadUrl | Nej | Nej |
 > | register/GetCredentials | Nej | Nej |
 > | register/importImage | Nej | Nej |
+> | register/privateEndpointConnectionProxies | Nej | Nej |
+> | register/privateEndpointConnectionProxies/validate | Nej | Nej |
+> | register/privateLinkResources | Nej | Nej |
 > | register/queueBuild | Nej | Nej |
 > | register/regenerateCredential | Nej | Nej |
 > | register/regenerateCredentials | Nej | Nej |
@@ -745,7 +750,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | Aviseringar | Nej | Nej |
-> | billingAccounts | Nej | Nej |
+> | BillingAccounts | Nej | Nej |
 > | Budgetar | Nej | Nej |
 > | CloudConnectors | Nej | Nej |
 > | Anslutningar | Ja | Ja |
@@ -764,7 +769,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ExternalSubscriptions/prognos | Nej | Nej |
 > | ExternalSubscriptions/fråga | Nej | Nej |
 > | Prognostisering | Nej | Nej |
-> | Söka i data | Nej | Nej |
+> | Fråga | Nej | Nej |
 > | Registrera dig | Nej | Nej |
 > | Reportconfigs | Nej | Nej |
 > | Rapporter | Nej | Nej |
@@ -792,7 +797,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | utskrifts | Ja | Ja |
+> | Utskrifts | Ja | Ja |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -970,7 +975,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | IotHubs | Ja | Ja |
 > | IotHubs / eventGridFilters | Nej | Nej |
 > | IotHubs/securitySettings | Nej | Nej |
-> | ProvisioningServices | Ja | Ja |
+> | provisioningServices | Ja | Ja |
 > | användningar | Nej | Nej |
 
 ## <a name="microsoftdevops"></a>Microsoft. DevOps
@@ -1170,7 +1175,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | utskrifts | Ja | Ja |
+> | Utskrifts | Ja | Ja |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
@@ -1393,6 +1398,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | netAppAccounts/capacityPools/Volumes/mountTargets | Ja | Nej |
 > | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja | Nej |
 
+## <a name="microsoftnotebooks"></a>Microsoft. Notebook
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | Nej | Nej |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1514,7 +1526,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | kluster | Ja | Ja |
-> | enheter | Nej | Nej |
 > | linkTargets | Nej | Nej |
 > | storageInsightConfigs | Nej | Nej |
 > | arbets ytor | Ja | Ja |
@@ -1525,6 +1536,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | arbets ytor/privateEndpointConnections | Nej | Nej |
 > | arbets ytor/privateLinkResources | Nej | Nej |
 > | arbets ytor/fråga | Nej | Nej |
+> | arbets ytor/scopedPrivateLinkProxies | Nej | Nej |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1640,10 +1652,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | childAvailabilityStatuses | Nej | Nej |
 > | childResources | Nej | Nej |
 > | emergingissues | Nej | Nej |
-> | händelser | Nej | Nej |
+> | evenemang | Nej | Nej |
 > | impactedResources | Nej | Nej |
 > | metadata | Nej | Nej |
-> | Ansökningar | Nej | Nej |
+> | ansökningar | Nej | Nej |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -1658,7 +1670,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | notifyResourceJobs | Nej | Nej |
 > | Providers | Nej | Nej |
 > | resourceGroups | Ja | Nej |
-> | prenumerationer | Nej | Nej |
+> | prenumerationer | Ja | Nej |
 > | klienter | Nej | Nej |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1747,8 +1759,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | dina | Nej | Nej |
 > | fall | Nej | Nej |
 > | dataConnectors | Nej | Nej |
+> | dataConnectorsCheckRequirements | Nej | Nej |
 > | poster | Nej | Nej |
 > | entityQueries | Nej | Nej |
+> | Incidenter | Nej | Nej |
 > | officeConsents | Nej | Nej |
 > | settings | Nej | Nej |
 
@@ -1782,6 +1796,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | containerGroupSets | Ja | Ja |
 > | edgeclusters | Ja | Ja |
 > | edgeclusters/program | Nej | Nej |
+> | managedclusters | Ja | Ja |
+> | managedclusters/nodetypes | Nej | Nej |
 > | nätet | Ja | Ja |
 > | secretstores | Ja | Ja |
 > | secretstores/certifikat | Nej | Nej |
@@ -1839,6 +1855,14 @@ Hoppa till ett namn område för en resurs leverantör:
 > | applicationDefinitions | Ja | Ja |
 > | program | Ja | Ja |
 > | jitRequests | Ja | Ja |
+
+## <a name="microsoftspoolservice"></a>Microsoft. SpoolService
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | registeredSubscriptions | Nej | Nej |
+> | buffertar | Ja | Ja |
 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
@@ -2004,6 +2028,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | enheter | Ja | Ja |
 > | leverantören | Nej | Nej |
 > | leverantörer/SKU: er | Nej | Nej |
+> | leverantörer/vnfs | Nej | Nej |
 > | vnfs | Ja | Ja |
 
 ## <a name="microsoftweb"></a>Microsoft.Web

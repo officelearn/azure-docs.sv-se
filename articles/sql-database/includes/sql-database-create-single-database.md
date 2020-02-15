@@ -3,14 +3,15 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
-ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: vanto
+ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496123"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252176"
 ---
 I det här steget ska du skapa en Azure SQL Database enskild databas. 
 
@@ -19,7 +20,7 @@ I det här steget ska du skapa en Azure SQL Database enskild databas.
 >
 > Mer information finns i [skapa en brand Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
 Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
@@ -29,14 +30,14 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
    ![Skapa en enkel databas](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. På fliken **grundläggande** i avsnittet **projekt information** skriver eller väljer du följande värden:
+4. På fliken **grundläggande** i avsnittet **projekt information** skriver eller väljer du följande värden:
 
    - **Prenumeration**: list rutan och välj rätt prenumeration om den inte visas.
    - **Resurs grupp**: Välj **Skapa ny**, skriv `myResourceGroup`och välj **OK**.
 
      ![Ny SQL-databas – fliken grundläggande](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. I avsnittet **databas information** skriver eller väljer du följande värden:
+5. I avsnittet **databas information** skriver eller väljer du följande värden:
 
    - **Databas namn**: Ange `mySampleDatabase`.
    - **Server**: Välj **Skapa ny**, ange följande värden och välj sedan **Välj**.
@@ -63,18 +64,22 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
      - Alternativt kan du också välja **ändra konfiguration** för att ändra maskin varu genereringen.
    - Välj **Använd**.
 
-5. Välj fliken **ytterligare inställningar** . 
-6. I avsnittet **data källa** , under **Använd befintliga data**, väljer du `Sample`.
+6. Välj fliken **nätverk** och bestäm om du vill tillåta att [**Azure-tjänster och-resurser får åtkomst till den här servern**](../sql-database-networkaccess-overview.md)eller lägga till en [privat slut punkt](../../private-link/private-endpoint-overview.md).
+
+   ![Fliken nätverk](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Välj fliken **ytterligare inställningar** . 
+8. I avsnittet **data källa** , under **Använd befintliga data**, väljer du `Sample`.
 
    ![Ytterligare SQL DB-inställningar](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
 
-7. Lämna resten av värdena som standard och välj **Granska + skapa** längst ned i formuläret.
-8. Granska de slutgiltiga inställningarna och välj **skapa**.
+9. Lämna resten av värdena som standard och välj **Granska + skapa** längst ned i formuläret.
+10. Granska de slutgiltiga inställningarna och välj **skapa**.
 
-9. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
+11. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910012"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251846"
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
 
@@ -20,14 +20,14 @@ URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpool
 
 Ett av scenarierna är att dirigerar begäranden för olika innehållstyper till olika serverdels-serverpooler.
 
-I följande exempel betjänar Application Gateway trafik för contoso.com från tre backend-server grupper, till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
+I följande exempel servar Application Gateway trafik åt contoso.com från tre serverdels-serverpooler, till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Begär Anden för\:http//contoso.com/video/* dirigeras till VideoServerPool och http\://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Begär Anden för http\://contoso.com/video/* dirigeras till VideoServerPool och http-\://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
-> Regler bearbetas i den ordning de visas i portalen. Vi rekommenderar starkt att konfigurera lyssnare för flera platser första innan du konfigurerar en grundläggande lyssnare.  Detta säkerställer att trafik dirigeras till rätt serverdel. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren.
+> För v1 SKU bearbetas regler i den ordning de visas i portalen. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren. För v2-SKU: n har exakta matchningar högre prioritet. Vi rekommenderar dock starkt att du konfigurerar lyssnare för flera platser först innan du konfigurerar en grundläggande lyssnare. Detta säkerställer att trafik dirigeras till rätt serverdel.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 

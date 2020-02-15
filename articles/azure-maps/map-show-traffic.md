@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910894"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208428"
 ---
 # <a name="show-traffic-on-the-map"></a>Visa trafik på kartan
 
 Det finns två typer av trafik data tillgängliga i Azure Maps:
 
 - Incident data – består av punkt-och linjebaserade data för sådant som konstruktion, väg stängningar och olyckor.
-- Flow-data – innehåller mått för trafik flödet på vägarna. Trafik flödes data används ofta för att färga vägarna baserat på hur mycket trafik som saktar ned flödet i förhållande till hastighets gränsen eller något annat mått. Trafik flödes data i Azure Maps har tre olika mått mått:
+- Flow-data – innehåller mått för trafik flödet på vägarna. Ofta används trafikflödes data för att färga vägarna. Färgerna baseras på hur mycket trafik som saktar ned flödet, i förhållande till hastighets gränsen eller något annat mått. Trafik flödes data i Azure Maps har tre olika mått mått:
     - `relative` – är i förhållande till vägens fria flödes hastighet.
     - `absolute` – är den absoluta hastigheten hos alla fordon på vägen.
     - `relative-delay` – visar områden som är långsammare än förväntad fördröjning.
@@ -58,7 +58,7 @@ Se alternativen för rit <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Öv
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)

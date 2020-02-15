@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277968"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208892"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -29,7 +29,7 @@ Genom att utveckla funktioner på den lokala datorn och publicera dem på Azure 
 > * [Kör funktionen lokalt.](#start)
 > * [Publicera projektet till Azure.](#publish)
 
-## <a name="core-tools-versions"></a>Core Tools-versioner
+## <a name="core-tools-versions"></a>Core tools-versioner
 
 Det finns tre versioner av Azure Functions Core Tools. Vilken version du använder beror på din lokala utvecklings miljö, [Val av språk](supported-languages.md)och support nivå som krävs:
 
@@ -218,7 +218,7 @@ Som standard migreras de här inställningarna inte automatiskt när projektet p
 Värdena för funktionen app-inställningar kan också läsas i koden som miljövariabler. Mer information finns i avsnittet miljövariabler i de här språkspecifika referens avsnitten:
 
 * [C#förkompilerade](functions-dotnet-class-library.md#environment-variables)
-* [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
+* [C#skript (. CSX)](functions-reference-csharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -230,7 +230,7 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
 Även när du använder Microsoft Azure Storage-emulator för utveckling kanske du vill testa med en faktisk lagrings anslutning. Förutsatt att du redan har [skapat ett lagrings konto](../storage/common/storage-create-storage-account.md)kan du hämta en giltig lagrings anslutnings sträng på något av följande sätt:
 
-- Sök efter och välj **lagrings konton**från [Azure-portalen]. 
+- Sök efter och välj **lagrings konton**från [Azure Portal]. 
   ![välja lagrings konton från Azure Portal](./media/functions-run-local/select-storage-accounts.png)
   
   Välj ditt lagrings konto, Välj **åtkomst nycklar** i **Inställningar**och kopiera sedan ett av värdena för **anslutnings strängen** .
@@ -294,9 +294,9 @@ Du kan också ange alternativen i kommandot med följande argument:
 | Argument     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2. x) Genererar samma C# skript-mallar (. CSX) som används i version 1. x och i portalen. |
-| **`--language`** , **`-l`**| Programmeringsspråket för mallar, till exempel C#, F#eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet i version 2. x eller Välj ett språk som matchar arbets körningen. |
-| **`--name`** , **`-n`** | Funktions namnet. |
-| **`--template`** , **`-t`** | Använd kommandot `func templates list` för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
+| **`--language`** **`-l`**| Programmeringsspråket för mallar, till exempel C#, F#eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet i version 2. x eller Välj ett språk som matchar arbets körningen. |
+| **`--name`** **`-n`** | Funktions namnet. |
+| **`--template`** **`-t`** | Använd kommandot `func templates list` för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
 
 Om du till exempel vill skapa en JavaScript-HTTP-utlösare i ett enda kommando kör du:
 
@@ -354,12 +354,12 @@ func host start
 | **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) version 2. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
 | **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Endast version 2. x. |
-| **`--nodeDebugPort`** , **`-n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
+| **`--nodeDebugPort`** **`-n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
 | **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Endast version 2. x. |
-| **`--port`** , **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
+| **`--port`** **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
-| **`--script-root`** , **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
-| **`--timeout`** , **`-t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
+| **`--script-root`** **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
+| **`--timeout`** **`-t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Bind till `https://localhost:{port}` i stället för att `http://localhost:{port}`. Som standard skapar det här alternativet ett betrott certifikat på din dator.|
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:
@@ -373,7 +373,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->När du kör lokalt tillämpas inte auktorisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"`. Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook.md#authorization-keys).
+>När du kör lokalt tillämpas inte auktorisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"`. Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Skicka test data till en funktion
 
@@ -439,10 +439,10 @@ Du kan också anropa en funktion direkt genom att använda `func run <FunctionNa
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--content`** , **`-c`** | Infogat innehåll. |
-| **`--debug`** , **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
-| **`--timeout`** , **`-t`** | Vänte tiden (i sekunder) tills den lokala funktionens värd är klar.|
-| **`--file`** , **`-f`** | Fil namnet som ska användas som innehåll.|
+| **`--content`** **`-c`** | Infogat innehåll. |
+| **`--debug`** **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
+| **`--timeout`** **`-t`** | Vänte tiden (i sekunder) tills den lokala funktionens värd är klar.|
+| **`--file`** **`-f`** | Fil namnet som ska användas som innehåll.|
 | **`--no-interactive`** | Kräver inte någon indatamängd. Användbart för automatiserings scenarier.|
 
 Om du till exempel vill anropa en HTTP-utlöst funktion och skicka innehålls texten kör du följande kommando:
@@ -482,12 +482,12 @@ Följande publicerings alternativ stöds bara i version 2. x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only`** , **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
+| **`--publish-settings-only`** **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på. funcignore-filen. |
 | **`--list-included-files`** | Visar en lista över publicerade filer, som baseras på. funcignore-filen. |
 | **`--nozip`** | Stänger av standard `Run-From-Package`s läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
-| **`--build`** , **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local`. |
+| **`--build`** **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local`. |
 | **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C# skript (. CSX)-projekt. |
@@ -542,8 +542,8 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure-portalen]: https://portal.azure.com 
+[Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
+[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
 [tilläggs paket]: functions-bindings-register.md#extension-bundles

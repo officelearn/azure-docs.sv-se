@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 14fee047e1f62ae7f7d3484d89779e1512e4bab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198725"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206114"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
 
@@ -147,17 +147,20 @@ Du måste också fundera över hur anpassningsbar strömning fungerar. Varje ens
 
 ### <a name="enable-azure-cdn-integration"></a>Aktivera Azure CDN-integrering
 
+> [!IMPORTANT]
+> Du kan inte aktivera CDN för utvärderings-eller student Azure-konton.
+>
+> CDN-integrering är aktiverat i alla Azure-datacenter utom federala myndigheter och regioner i Kina.
+
 När en slut punkt för direkt uppspelning har tillhandahållits med CDN aktiverat har en definierad vänte tid på Media Services innan DNS-uppdateringen görs för att mappa slut punkten för direkt uppspelning till CDN-slutpunkten.
 
 Om du senare vill inaktivera/aktivera CDN måste slut punkten för direkt uppspelning vara i **stoppat** tillstånd. Det kan ta upp till två timmar innan Azure CDN-integreringen har Aktiver ATS och för att ändringarna ska vara aktiva över alla CDN pop. Du kan dock starta slut punkten för direkt uppspelning och strömma utan avbrott från slut punkten för direkt uppspelning och när integrationen är klar levereras data strömmen från CDN. Under etablerings perioden kommer slut punkten för direkt uppspelning att vara i **Start** läge och du kan observera försämrade prestanda.
 
 När standard slut punkten för direkt uppspelning skapas, konfigureras den som standard med standard-Verizon. Du kan konfigurera Premium Verizon-eller standard Akamai-providers med hjälp av REST API: er.
 
-CDN-integrering är aktiverat i alla Azure-datacenter förutom Kina och federala myndighets regioner.
-
 Azure Media Services integration med Azure CDN implementeras på **Azure CDN från Verizon** för standard slut punkter för direkt uppspelning. Premium-slutpunkter för direkt uppspelning kan konfigureras med alla **Azure CDN pris nivåer och leverantörer**. 
 
-> [!IMPORTANT]
+> [!NOTE]
 > Mer information om Azure CDN finns i [CDN-översikten](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Ta reda på om DNS-ändring gjorts

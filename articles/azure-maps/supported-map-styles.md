@@ -1,19 +1,19 @@
 ---
 title: Kart format som stöds | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om olika typer av kart åter givning som stöds av Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: I den här artikeln får du lära dig om olika kart åter givnings format som stöds av Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910630"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208292"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
 Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
@@ -31,7 +31,7 @@ En **väg** karta är en standard karta som visar vägar, naturliga och artifici
 
 ## <a name="blank-and-blank_accessible"></a>Tom och blank_accessible
 
-De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yta där du kan visualisera data på. **Blank_accessible** formatet fortsätter att tillhandahålla skärm läsar uppdateringar med plats information om var kartan finns, även om bas kartan inte visas.
+De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yta där du kan visualisera data på. **Blank_accessible** formatet fortsätter att tillhandahålla skärm läsar uppdateringar med kartans plats information, även om bas kartan inte visas.
 
 > [!Note]
 > I webb-SDK kan du ändra bakgrunds färgen för kartan genom att ange CSS-`background-color` formatet för Map DIV-element.
@@ -39,7 +39,7 @@ De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yt
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
 
-## <a name="satellite"></a>satellite 
+## <a name="satellite"></a>satellit 
 **Satellit** stilen är en kombination av satellit-och antenn bilder.
 
 ![kart stil för satellit panel](./media/supported-map-styles/satellite.png)
@@ -80,7 +80,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 * Kontroll av Android-kartning
 
 
-## <a name="night"></a>natt
+## <a name="night"></a>Natten
 **natt** är en mörk version av kart formatet för vägar med färgade vägar och symboler.
 
 ![stil för natt karta](./media/supported-map-styles/night.png)

@@ -1,19 +1,19 @@
 ---
 title: Geografiskt JSON-dataformat för geografiskt avgränsnings tecken | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du förbereder de avgränsnings data som kan användas i Microsoft Azure Maps GET-och POST-API.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f853962bba7302affd78d5ef267460893ea80a33
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 7d1c9a1587771a020f5c9f89e2497a25eb1bba70
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911580"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210029"
 ---
 # <a name="geofencing-geojson-data"></a>Polystaket, polyjson-data
 
@@ -32,10 +32,10 @@ Data för avgränsning eller uppsättning av gränser representeras av `Feature`
 
 | Namn | Typ | Krävs  | Beskrivning |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | Datetime  | sant | Start datum tiden för giltighets tids perioden. |
-| endTime   | Datetime  | sant |  Slutdatumet för giltighets tids perioden. |
+| startTime | Datum/tid  | true | Start datum tiden för giltighets tids perioden. |
+| endTime   | Datum/tid  | true |  Slutdatumet för giltighets tids perioden. |
 | recurrenceType | sträng | false |   Periodens upprepnings typ. Värdet kan vara `Daily`, `Weekly`, `Monthly`eller `Yearly`. Standardvärdet är `Daily`.|
-| businessDayOnly | Boolean | false |  Ange om data endast är giltiga under arbets dagar. Standardvärdet är `false`.|
+| businessDayOnly | Boolesk | false |  Ange om data endast är giltiga under arbets dagar. Standardvärdet är `false`.|
 
 
 * Alla koordinater-värden representeras som [longitud, latitud] som definieras i `WGS84`.

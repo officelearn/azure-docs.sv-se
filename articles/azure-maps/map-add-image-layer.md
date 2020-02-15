@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933204"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209723"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Lägga till ett bild lager till en karta
 
-Den här artikeln visar hur du kan täcka en bild till en fast uppsättning koordinater på kartan. Här följer några exempel på de typer av bilder som ofta finns på Maps:
+Den här artikeln visar hur du lägger till en bild i en fast uppsättning koordinater. Här följer några exempel på olika typer av avbildningar som kan skrivas över på Maps:
 
 * Avbildningar hämtade från drönare
 * Skapa Floorplans
@@ -62,9 +62,9 @@ Här är det fullständiga kod exemplet i föregående kod.
 
 ## <a name="import-a-kml-file-as-ground-overlay"></a>Importera en KML-fil som mark överlägg
 
-I nästa exempel visas hur du lägger till KML-information för mark överlägg som ett bild lager på kartan. KML-överlägg ger norr, syd, öst och västra koordinater och en rotations medsols, medan bild lagret förväntar sig koordinater för varje hörn i bilden. KML-markplanet i det här exemplet är av Chartres-Cathedral och kommer från [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+Det här exemplet visar hur du lägger till KML-information för mark överlägg som ett bild lager på kartan. KML-överlägg ger norra, syd-, sydöstra-och västra koordinater och en rotations medsols rotation. Men bild lagret förväntar sig att koordinaterna för varje hörn i bilden. KML-markplanet i det här exemplet är för Chartres-Cathedral och det kommer från [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-I följande kod används den statiska `getCoordinatesFromEdges` funktionen i klassen [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) . Den beräknar bildens fyra hörn från Nord-, syd-, öst-och väst-och rotations information från KML-markplanet.
+I koden används funktionen för statisk `getCoordinatesFromEdges` från [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) -klassen. Den beräknar bildens fyra hörn med hjälp av Nord-, syd-, sydöstra-, väst-och rotations informationen för KML-markplanet.
 
 <br/>
 

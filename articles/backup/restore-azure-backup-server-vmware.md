@@ -3,12 +3,12 @@ title: Återställa virtuella VMware-datorer med Azure Backup Server
 description: Använd Azure Backup Server (MABS) för att återställa virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: 7c93c3100d8756fd9faf8cf02152a870bd0c106c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171910"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212367"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Återställa virtuella VMware-datorer
 
@@ -44,7 +44,7 @@ Den här artikeln förklarar hur du använder Microsoft Azure Backup Server (MAB
 
      * Om du väljer **Återställ som virtuell dator på en värd**anger du informationen för **ESXi-värden, resurspool, mappar** och **sökväg**på skärmen **Ange mål** .
 
-      ![Välj återställnings typ](./media/restore-azure-backup-server-vmware/recovery-type.png)
+      ![Välj återställningstyp](./media/restore-azure-backup-server-vmware/recovery-type.png)
 
 8. På sidan **Sammanfattning** granskar du inställningarna och klickar på **Återställ** för att starta återställnings processen. Skärmen **återställnings status** visar förloppet för återställnings åtgärden.
 
@@ -52,24 +52,28 @@ Den här artikeln förklarar hur du använder Microsoft Azure Backup Server (MAB
 
 Du kan återställa enskilda filer från en skyddad VM-återställnings punkt. Den här funktionen är endast tillgänglig för virtuella Windows Server-datorer. Att återställa enskilda filer liknar att återställa hela den virtuella datorn, förutom att du bläddrar till VMDK och letar upp de filer som du vill ha innan du påbörjar återställnings processen. Så här återställer du en enskild fil eller väljer filer från en virtuell Windows Server-dator:
 
+>[!NOTE]
+>Att återställa en enskild fil från en virtuell dator är bara tillgängligt för virtuella Windows-datorer och disk återställnings punkter.
+
 1. I MABS Administratörskonsol klickar du på **återställnings** visning.
 
 2. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan återställnings punkter för.
 
-    ![Tillgängliga återställnings punkter](./media/restore-azure-backup-server-vmware/recovery-points.png)
+    ![Tillgängliga återställnings punkter](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
 3. I rutan **återställnings punkter för:** använder du kalendern för att välja det datum som innehåller önskade återställnings punkt (er). Beroende på hur säkerhets kopierings principen har kon figurer ATS kan datum ha fler än en återställnings punkt. När du har valt den dag då återställnings punkten togs, se till att du har valt rätt **återställnings tid**. Om det valda datumet har flera återställnings punkter väljer du återställnings punkten genom att välja den i list rutan återställnings tid. När du har valt återställnings punkten visas listan över återställnings bara objekt i rutan **sökväg:** .
 
 4. Du hittar de filer som du vill återställa genom att dubbelklicka på objektet i kolumnen **återställnings Bart objekt** i rutan **sökväg** för att öppna det. Välj den fil, de filer eller mappar som du vill återställa. Om du vill markera flera objekt trycker du på **CTRL** -tangenten när du markerar varje objekt. Använd **Sök vägs** fönstret för att söka i listan över filer eller mappar som visas i kolumnen **återställnings Bart objekt** . **Sök listan nedan** söker inte i undermappar. Om du vill söka i undermappar dubbelklickar du på mappen. Använd **upp** -knappen för att flytta från en underordnad mapp till den överordnade mappen. Du kan välja flera objekt (filer och mappar), men de måste finnas i samma överordnade mapp. Du kan inte återställa objekt från flera mappar i samma återställnings jobb.
 
+    ![Granska val av återställning](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
+
 5. När du har valt objekt för återställning går du till menyfliksområdet Administratörskonsol verktyg och klickar på **Återställ** för att öppna **återställnings guiden**. I återställnings guiden visar sidan **Granska val av återställning** de valda objekten som ska återställas.
-    ![granska val av återställning](./media/restore-azure-backup-server-vmware/review-recovery.png)
 
 6. På skärmen **Ange återställnings alternativ** , om du vill aktivera begränsning av nätverks bandbredd, klickar du på **ändra**. Om du vill lämna nätverks begränsningen inaktive rad klickar du på **Nästa**. Inga andra alternativ för den här guide skärmen är tillgängliga för virtuella VMware-datorer. Om du väljer att ändra nätverks bandbredds begränsningen i dialog rutan begränsa väljer du **Aktivera begränsning av nätverks bandbredds användning** för att aktivera det. När du har aktiverat konfigurerar du **inställningarna** och **arbets schemat**.
 7. På skärmen **Välj återställnings typ** klickar du på **Nästa**. Du kan bara återställa dina filer eller mappar till en nätverksmapp.
 8. På skärmen **Ange mål** klickar du på **Bläddra** för att hitta en nätverks plats för dina filer eller mappar. MABS skapar en mapp där alla återställda objekt kopieras. Mappnamnet har prefixet MABS_day-månad-år. När du väljer en plats för de återställda filerna eller mappen, anges information för den platsen (mål, mål Sök väg och tillgängligt utrymme).
 
-       ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
+    ![Ange plats för att återställa filer](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
 9. På skärmen **Ange återställnings alternativ** väljer du vilken säkerhets inställning som ska användas. Du kan välja att ändra nätverks bandbreddens användnings begränsning, men begränsningen är inaktive rad som standard. Dessutom är **San-återställning** och **meddelanden** inte aktiverade.
 10. På sidan **Sammanfattning** granskar du inställningarna och klickar på **Återställ** för att starta återställnings processen. Skärmen **återställnings status** visar förloppet för återställnings åtgärden.

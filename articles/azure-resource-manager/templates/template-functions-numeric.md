@@ -3,25 +3,25 @@ title: Template Functions-numeric
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med siffror.
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: 1a611277bb473d605c76d131a18f9ccb550fab29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483952"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207267"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Numeriska funktioner för Azure Resource Manager mallar
 
 Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
-* [add](#add)
+* [skapa](#add)
 * [copyIndex](#copyindex)
-* [div](#div)
-* [float](#float)
+* [tagg](#div)
+* [flyta](#float)
 * [int](#int)
-* [max](#max)
+* [bekräftat](#max)
 * [minimum](#min)
-* [mod](#mod)
+* [rest](#mod)
 * [mul](#mul)
 * [Build](#sub)
 
@@ -109,16 +109,16 @@ Returnerar indexet för en upprepnings slinga.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| loopName | Inga | sträng | Namnet på slingan för att hämta iterationen. |
-| redovisningsmotkonto |Inga |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
+| loopName | Nej | sträng | Namnet på slingan för att hämta iterationen. |
+| redovisningsmotkonto |Nej |int |Talet som ska läggas till i det nollbaserade upprepning svärdet. |
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Den här funktionen används alltid med ett **copy** -objekt. Om inget värde anges för **förskjutning**returneras det aktuella upprepning svärdet. Upprepning svärdet börjar med noll. Du kan använda iteration slingor när du definierar antingen resurser eller variabler.
 
 Med egenskapen **loopName** kan du ange om copyIndex refererar till en resurs upprepning eller egenskaps upprepning. Om inget värde anges för **loopName**används den aktuella resurs typen iteration. Ange ett värde för **loopName** när du går igenom en egenskap. 
  
-En fullständig beskrivning av hur du använder **copyIndex**finns i [skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
+En fullständig beskrivning av hur du använder **copyIndex**finns i [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 
 Ett exempel på hur du använder **copyIndex** när du definierar en variabel finns i [variabler](template-syntax.md#variables).
 
@@ -217,7 +217,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>float
+## <a name="float"></a>flyt
 `float(arg1)`
 
 Konverterar värdet till ett flytt ALS nummer. Du använder bara den här funktionen när du skickar anpassade parametrar till ett program, till exempel en Logic app.
@@ -375,7 +375,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>min
 `min (arg1)`
 
 Returnerar det minsta värdet från en matris med heltal eller en kommaavgränsad lista med heltal.
@@ -649,8 +649,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](template-syntax.md).
-* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
+* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 * Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
 

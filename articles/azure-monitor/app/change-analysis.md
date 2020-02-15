@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f2602dbee12f82c32ab3a3c2ec0566d8dfbeaa83
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665365"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211821"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -31,7 +31,7 @@ Följande diagram illustrerar arkitekturen för ändrings analys:
 
 ![Arkitektur diagram över hur ändrings analys får ändra data och ger den till klient verktyg](./media/change-analysis/overview.png)
 
-För närvarande är ändrings analys integrerad i lösningen för att **diagnostisera och lösa problem** i App Service webbapp, samt vara tillgängligt som ett fristående blad i Azure Portal.
+För närvarande är ändrings analys integrerad i lösningen för att **diagnostisera och lösa problem** i App Service webbapp, samt tillgänglig som en fristående flik i Azure Portal.
 Se avsnittet *Visa ändringar för alla resurser i Azure* för att få åtkomst till ändrings analys bladet och *ändrings analysen för avsnittet Web Apps funktion* för att använda den i Web App-portalen senare i den här artikeln.
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>Ändringar i Azure Resource Manager spårade egenskaper
@@ -51,13 +51,14 @@ Med ändrings analys samlas distributions-och konfigurations status för ett pro
 
 Ändringar i resurs beroenden kan också orsaka problem i en webbapp. Om en webbapp till exempel anropar en Redis cache kan Redis cache-SKU: n påverka webbappens prestanda. Om du vill identifiera ändringar i beroenden kontrollerar ändrings analysen webbappens DNS-post. På så sätt identifieras ändringar i alla app-komponenter som kan orsaka problem.
 För närvarande stöds följande beroenden:
-- Web Apps
+- Webbappar
 - Azure Storage
 - Azure SQL
 
 ### <a name="enablement"></a>Aktivering
-Resurs leverantören Microsoft. ChangeAnalysis måste registreras med en prenumeration för Azure Resource Manager spårade egenskaper och proxy-inställningar ändra att data ska vara tillgängliga. När du anger webbappen diagnostiserar och löser problem eller hämtar det fristående ändrings analys bladet registreras denna resurs leverantör automatiskt. Det finns inga prestanda-och kostnads implementeringar för din prenumeration.
-För att webbappen ska ändras i gästen krävs separat aktivering för att genomsöka filer i en webbapp. Se *Aktivera ändrings analys i avsnittet diagnosticera och lösa problem* i den här artikeln längre fram i den här artikeln för mer information.
+Resurs leverantören Microsoft. ChangeAnalysis måste registreras med en prenumeration för Azure Resource Manager spårade egenskaper och proxy-inställningar ändra att data ska vara tillgängliga. När du anger ett verktyg för att diagnostisera och lösa problem, eller ta fram fliken för att skapa ändrings analyser, registreras denna resurs leverantör automatiskt. Det finns inga prestanda-och kostnads implementeringar för din prenumeration. När du aktiverar ändrings analys för webbappar (eller aktiverar i verktyget diagnostisera och lösa problem) har den försumbar prestanda påverkan på webbappen och ingen fakturerings kostnad.
+För att webbappen ska ändras i gästen krävs separat aktivering för att genomsöka filer i en webbapp. Mer information finns i [Aktivera ändrings analys i avsnittet diagnosticera och lösa problem](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) längre fram i den här artikeln.
+
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Visa ändringar för alla resurser i Azure
 I Azure Monitor finns det ett fristående blad för ändrings analys för att visa alla ändringar med insikter och resurser för program beroenden.
@@ -73,7 +74,7 @@ Välj resurs grupp och resurser för att starta visning av ändringar.
 Du kan se insikter och relaterade beroende resurser som är värdar för ditt program. Den här vyn är utformad för att vara programinriktad för utvecklare för att felsöka problem.
 
 Resurser som stöds för närvarande är:
-- Virtual Machines
+- Virtuella datorer
 - Skalnings uppsättning för virtuell dator
 - Nätverks resurser för Azure
 - Webbapp med ändringar i gäst fil spårning och miljövariabler

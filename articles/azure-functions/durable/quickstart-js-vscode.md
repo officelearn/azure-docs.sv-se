@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 431bd45763cbe24e44d47342b32c5c452a27b0f6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845720"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210301"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -22,9 +22,9 @@ I den här artikeln får du lära dig hur du använder Azure Functions-tillägge
 
 ![Köra beständiga funktioner i Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här kursen behöver du:
+För att slutföra den här självstudien behöver du:
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/download).
 
@@ -57,7 +57,7 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
     | Välj en version | Azure Functions v2 | Du ser bara det här alternativet när kärn verktygen inte redan har installerats. I det här fallet installeras kärn verktyg första gången du kör appen. |
     | Välj en mall för projektets första funktion | HTTP-utlösare | Skapa en HTTP-utlöst funktion i appen ny funktion. |
     | Ange ett funktions namn | HttpTrigger | Tryck på RETUR för att använda standard namnet. |
-    | Auktorisationsnivå | Funktion | På `function` behörighets nivå måste du ange en åtkomst nyckel när du anropar funktionens HTTP-slutpunkt. Detta gör det svårare att komma åt en oskyddad slut punkt. Mer information finns i [Authorization Keys](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Auktorisationsnivå | Funktion | På `function` behörighets nivå måste du ange en åtkomst nyckel när du anropar funktionens HTTP-slutpunkt. Detta gör det svårare att komma åt en oskyddad slut punkt. Mer information finns i [Authorization Keys](../functions-bindings-http-webhook-trigger.md#authorization-keys).  |
     | Välj hur du vill öppna projektet | Lägg till i arbets ytan | Skapar Function-appen i den aktuella arbets ytan. |
 
 Visual Studio Code installerar Azure Functions Core Tools, om det behövs. Det skapar också ett Function-projekt i en ny arbets yta. Det här projektet innehåller konfigurationsfilerna [Host. JSON](../functions-host-json.md) och [Local. Settings. JSON](../functions-run-local.md#local-settings-file) . Dessutom skapas en HttpExample-mapp som innehåller- [definitions filen function. JSON](../functions-reference-node.md#folder-structure) och [filen index. js](../functions-reference-node.md#exporting-a-function), en Node. js-fil som innehåller funktions koden.
@@ -84,13 +84,13 @@ Skapa först en HTTP-utlöst funktion som startar en orkestrering av beständig 
 
     ![Välj mallen för HTTP-startmallen](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Lämna standardnamnet som `DurableFunctionsHttpStart` och tryck på ** **RETUR** och välj sedan **anonym** autentisering.
+3. Lämna standard namnet som `DurableFunctionsHttpStart` och tryck på * * * * Ange * * och välj sedan **Anonym** autentisering.
 
     ![Välj anonym autentisering](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
 Nu har vi skapat en startpunkt till vår beständiga funktion. Vi lägger till en orkestrerare.
 
-### <a name="orchestrator"></a>Orchestrator
+### <a name="orchestrator"></a>Dirigering
 
 Nu ska vi skapa en Orchestrator för att koordinera aktivitets funktioner.
 

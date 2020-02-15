@@ -4,12 +4,12 @@ description: Skapa och distribuera en server lös python-kod till molnet med hj�
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157898"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212437"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en python-funktion i Azure som svarar på HTTP-begäranden
 
@@ -97,7 +97,7 @@ I Azure Functions är ett funktions projekt en behållare för en eller flera en
     cd LocalFunctionProj
     ```
     
-1. Lägg till en funktion i projektet med hjälp av följande kommando, där argumentet `--name` är det unika namnet på din funktion och argumentet `--template` anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
+1. Lägg till en funktion i projektet med hjälp av följande kommando, där argumentet `--name` anger det unika namnet för din funktion (HttpExample i det här fallet) och argumentet `--template` anger funktionens utlösare (HTTP-utlösare). Det här `func new` kommandot skapar en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -167,7 +167,7 @@ För HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` som d
 }
 ```
 
-Varje bindning kräver en riktning, en typ och ett unikt namn. HTTP-utlösaren har en inkommande bindning av typen [`httpTrigger`](functions-bindings-http-webhook.md#trigger) och utgående bindning av typen [`http`](functions-bindings-http-webhook.md#output).
+Varje bindning kräver en riktning, en typ och ett unikt namn. HTTP-utlösaren har en inkommande bindning av typen [`httpTrigger`](functions-bindings-http-webhook-trigger.md) och utgående bindning av typen [`http`](functions-bindings-http-webhook-output.md).
 
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt

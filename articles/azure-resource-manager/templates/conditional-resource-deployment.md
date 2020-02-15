@@ -3,12 +3,12 @@ title: Villkorlig distribution med mallar
 description: Beskriver hur du villkorligt distribuerar en resurs i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: b4ee733e81f3a923f268f33f5826387059923bcb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122006"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207799"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Villkorlig distribution i Resource Manager-mallar
 
@@ -88,4 +88,4 @@ Om du distribuerar en mall med [slutfört läge](deployment-modes.md) och en res
 ## <a name="next-steps"></a>Nästa steg
 
 * Rekommendationer om hur du skapar mallar finns i [metod tips för Azure Resource Manager mallar](template-best-practices.md).
-* Om du vill skapa flera instanser av en resurs, se [resurs, egenskap eller variabel iteration i Azure Resource Manager mallar](create-multiple-instances.md).
+* Om du vill skapa flera instanser av en resurs, se [resurs upprepning i Azure Resource Manager mallar](copy-resources.md).

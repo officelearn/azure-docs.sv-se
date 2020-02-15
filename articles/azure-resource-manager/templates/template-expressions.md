@@ -2,13 +2,13 @@
 title: Mallens syntax och uttryck
 description: Beskriver deklarativ JSON-syntax för Azure Resource Manager mallar.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/13/2020
+ms.openlocfilehash: 7bca3125f80225d2180734f483194a63e39d9cf5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120597"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207408"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntax och uttryck i Azure Resource Manager mallar
 
@@ -16,11 +16,9 @@ Den grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck f
 
 Ett mall uttryck får inte överstiga 24 576 tecken.
 
-Uttryck stöder JSON (null) och egenskaper har stöd för ett litteralt värde på null. I båda fallen behandlar Resource Manager-mallar den som om egenskapen inte finns.
-
 ## <a name="use-functions"></a>Använda funktioner
 
-I följande exempel visas ett uttryck i standardvärdet för en parameter:
+Azure Resource Manager innehåller [funktioner](template-functions.md) som du kan använda i en mall. I följande exempel visas ett uttryck som använder en funktion i standardvärdet för en parameter:
 
 ```json
 "parameters": {
@@ -40,6 +38,12 @@ Om du vill skicka ett sträng värde som en parameter till en funktion använder
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+De flesta funktioner fungerar på samma sätt som när de distribueras till en resurs grupp, prenumeration, hanterings grupp eller klient organisation. Följande funktioner har begränsningar baserat på omfånget:
+
+* [resourceGroup](template-functions-resource.md#resourcegroup) -kan bara användas i distributioner till en resurs grupp.
+* [resourceId](template-functions-resource.md#resourceid) -kan användas i valfri omfattning, men giltiga parametrar ändras beroende på omfattningen.
+* [prenumeration](template-functions-resource.md#subscription) – kan bara användas i distributioner till en resurs grupp eller prenumeration.
 
 ## <a name="escape-characters"></a>Escape-tecken
 
@@ -65,6 +69,15 @@ Om du vill undanta dubbla citat tecken i ett uttryck, till exempel lägga till e
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+## <a name="null-values"></a>Null-värden
+
+Om du vill ange en egenskap till null kan du använda **Null** eller **[JSON (null)]** . [JSON-funktionen](template-functions-array.md#json) returnerar ett tomt objekt när du anger `null` som parameter. I båda fallen behandlar Resource Manager-mallar den som om egenskapen inte finns.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

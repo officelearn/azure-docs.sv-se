@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 08/07/2019
+ms.date: 02/13/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93ce54262fe6dd38ef2ebc07d676608dae7cfff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bbdafde85097d0052edd5984b594fd37066dc1e6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968920"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279735"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
@@ -35,7 +35,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Skapa ett nav i Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics-vs2019.png)
+   ![Skapa ett nav i Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
 1. Välj **Nästa: storlek och skala** för att fortsätta skapa hubben.
 
@@ -48,10 +48,18 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
     - **IoT Hub-enheter**: Antalet meddelanden som tillåts per enhet per dag beror på hubbens prisnivå. Om du till exempel vill att hubben ska stödja ingångar av 700 000-meddelanden väljer du två enheter i S1-nivån.
     Mer information om de andra alternativen för nivån finns i avsnittet om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
 
+    - **Azure Security Center**: aktivera det här för att lägga till ett extra lager med hot skydd i IoT och dina enheter. Det här alternativet är inte tillgängligt för hubbar på den kostnads fria nivån. Mer information om den här funktionen finns [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
+
     - **Avancerade inställningar** > **enhet-till-moln-partitioner**: den här egenskapen relaterar enhets-till-moln-meddelanden till antalet samtidiga läsare av meddelanden. De flesta hubbar behöver bara fyra partitioner.
 
-1. I den här artikeln godkänner du standard alternativen och väljer sedan **Granska + skapa** för att granska dina val. Du ser något som liknar den här skärmen.
+1. I den här artikeln godkänner du standard alternativen och väljer sedan **Nästa: Taggar** för att gå vidare till nästa skärm.
 
-   ![Granska informationen för att skapa den nya hubben](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
+    Taggar är namn/värde-par. Du kan tilldela samma tagg till flera resurser och resurs grupper för att kategorisera resurser och konsolidera fakturering.
+
+   ![Ange storlek och skala för en ny hubb med hjälp av Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+
+    Välj **Nästa: granska + skapa** för att granska dina val. Du ser något som liknar den här skärmen.
+
+   ![Granska informationen för att skapa den nya hubben](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 1. Välj **skapa** för att skapa din nya hubb. Det tar några minuter att skapa hubben.

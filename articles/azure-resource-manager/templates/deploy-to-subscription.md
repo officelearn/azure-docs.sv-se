@@ -3,12 +3,12 @@ title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c53d274303a203a427a36f8f729f6b43cee44e40
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120612"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207663"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -135,7 +135,7 @@ Följande mall skapar en tom resurs grupp.
 }
 ```
 
-Använd [Kopiera-elementet](create-multiple-instances.md) med resurs grupper för att skapa fler än en resurs grupp.
+Använd [Kopiera-elementet](copy-resources.md) med resurs grupper för att skapa fler än en resurs grupp.
 
 ```json
 {
@@ -170,7 +170,7 @@ Använd [Kopiera-elementet](create-multiple-instances.md) med resurs grupper fö
 }
 ```
 
-Information om resurs upprepning finns i [distribuera fler än en instans av en resurs eller egenskap i Azure Resource Manager mallar](./create-multiple-instances.md)och [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](./template-tutorial-create-multiple-instances.md).
+Information om resurs upprepning finns i [distribuera fler än en instans av en resurs i Azure Resource Manager mallar](./copy-resources.md)och [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](./template-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-group-and-resources"></a>Resurs grupp och resurser
 

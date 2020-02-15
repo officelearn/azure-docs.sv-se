@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967353"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251218"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -27,9 +27,9 @@ När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en und
 > API Management accepterar endast begär Anden med [värd huvud](https://tools.ietf.org/html/rfc2616#section-14.23) värden som matchar standard domän namnet eller något av de konfigurerade anpassade domän namnen.
 
 > [!WARNING]
-> Kunder som vill använda certifikat låsning för att förbättra säkerheten för sina program måste använda ett anpassat domän namn > och certifikat som de hanterar, inte standard certifikatet. Kunder som fäster standard certifikatet i stället kommer att ta ett hårt beroende på egenskaperna för certifikatet som de inte styr, vilket inte är en rekommenderad metod.
+> Kunder som vill använda certifikat låsning för att förbättra säkerheten för sina program måste använda ett anpassat domän namn och certifikat som de hanterar, inte standard certifikatet. Kunder som fäster standard certifikatet i stället kommer att ta ett hårt beroende på egenskaperna för certifikatet som de inte styr, vilket inte är en rekommenderad metod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
@@ -55,7 +55,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     - **SCM** (standard är: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > Endast **Gateway** -slutpunkten i tillgänglig för konfiguration i förbruknings nivån.
+    > Endast **Gateway** -slutpunkten är tillgänglig för konfiguration i förbruknings nivån.
     > Du kan uppdatera alla slut punkter eller några av dem. Kunder som uppdaterar **gatewayen** (denna URL används ofta för att anropa API: et som exponeras via API Management) och **portalen** (URL: en Developer Portal).
     > **Hanterings** -och **SCM** -slutpunkter används internt av API Management instansens ägare och därför är de mindre ofta tilldelade till ett anpassat domän namn.
     > **Premium** -nivån stöder inställning av flera värdnamn för **Gateway** -slutpunkten.
@@ -73,7 +73,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     > Vi rekommenderar att du använder Azure Key Vault för att hantera certifikat och ställa in dem för automatisk rotation.
     > Om du använder Azure Key Vault för att hantera SSL-certifikatet för den anpassade domänen kontrollerar du att certifikatet har infogats i Key Vault [som ett _certifikat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), inte en _hemlighet_.
     >
-    > Om du vill hämta ett SSL-certifikat måste API Management ha en lista med behörigheterna Hämta hemligheter på den Azure Key Vault som innehåller certifikatet. När du använder Azure Portal alla de nödvändiga konfigurations stegen att utföras automatiskt. När du använder kommando rads verktyg eller hanterings-API måste dessa behörigheter beviljas manuellt. Detta görs i två steg. Använd först sidan hanterade identiteter på din API Management-instans för att se till att den hanterade identiteten är aktive rad och anteckna det huvud-ID som visas på sidan. Andra, ge behörighets listan och hämta hemligheter till detta huvud namns-ID på den Azure Key Vault som innehåller certifikatet.
+    > Om du vill hämta ett SSL-certifikat måste API Management ha behörigheterna lista och hämta hemligheter på den Azure Key Vault som innehåller certifikatet. När du använder Azure Portal alla de nödvändiga konfigurations stegen att utföras automatiskt. När du använder kommando rads verktyg eller hanterings-API måste dessa behörigheter beviljas manuellt. Detta görs i två steg. Använd först sidan hanterade identiteter på din API Management-instans för att se till att den hanterade identiteten är aktive rad och anteckna det huvud-ID som visas på sidan. Andra, ge behörighets listan och hämta hemligheter till detta huvud namns-ID på den Azure Key Vault som innehåller certifikatet.
     >
     > Om certifikatet är inställt på automatisk rotation, kommer API Management automatiskt att hämta den senaste versionen utan drift avbrott till tjänsten (om din API Management-nivå har SLA-i. e. i alla nivåer förutom utvecklings nivån).
 

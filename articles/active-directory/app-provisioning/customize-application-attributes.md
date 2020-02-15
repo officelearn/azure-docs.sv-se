@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf1515bcf2223ae730a47f7105d51206ba638cd7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 842e5c4771fcac0b8011dda1df11c646bf8f070c
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161621"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207204"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -300,7 +300,7 @@ Vissa attribut, till exempel phoneNumbers och e-postmeddelanden, är flervärdes
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Återställa standardattribut och attribut mappningar
 
-Om du behöver börja om och återställa dina befintliga mappningar till deras standard tillstånd, kan du markera kryss rutan **Återställ standard mappningar** och spara konfigurationen. Om du gör det anges alla mappningar som om programmet precis har lagts till i din Azure AD-klient från program galleriet.
+Om du behöver börja om och återställa dina befintliga mappningar till deras standard tillstånd, kan du markera kryss rutan **Återställ standard mappningar** och spara konfigurationen. Om du gör det anges alla mappningar och omfångs filter som om programmet precis har lagts till i din Azure AD-klient från program galleriet.
 
 Om du väljer det här alternativet tvingas en omsynkronisering av alla användare när etablerings tjänsten körs.
 

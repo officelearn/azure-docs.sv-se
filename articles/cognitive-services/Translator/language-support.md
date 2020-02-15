@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118811"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206131"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk-och region stöd för Translator Text API
 
@@ -50,7 +50,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Kantonesiska (traditionell)|   `yue`|  Statistikuppgifter|
 |Katalanska|   `ca`    |   Statistikuppgifter|
 |Kinesiska, förenklad|    `zh-Hans`|Neurala|
-|Traditionell kinesisk|   `zh-Hant`       |Neurala|
+|Kinesiska, traditionell|   `zh-Hant`       |Neurala|
 |Kroatiska|  `hr`    |Neurala|
 |Tjeckiska| `cs`    |   Neurala|
 |Danska|    `da`        |Neurala|
@@ -104,7 +104,7 @@ Translator Text API har stöd för följande språk för text till text översä
 |Tahitian|  `ty`    |Statistikuppgifter|
 |Tamilska| `ta`    |   Neurala|
 |Telugu|    `te`    |   Neurala|
-|Thailändska|  `th`    |   Neurala|
+|Thai|  `th`    |   Neurala|
 |Tongan|    `to`    |   Statistikuppgifter|
 |Turkiska|   `tr`        |Neurala|
 |Ukrainska| `uk`    |   Neurala|
@@ -126,8 +126,8 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 |Bangla  | `bn` | Bengali-`Beng` | <--> | Latinska `Latn` |
 | Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
 | Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
-| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
-| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
+| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
+| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
 | Gujarati | `gu`  | Gujarati-`Gujr` | --> | Latinska `Latn` |
 | Hebreiska | `he` | Hebreisk `Hebr` | <--> | Latinska `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latinska `Latn` |
@@ -141,7 +141,7 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 | Serbiska (latinsk) | `sr-Latn` | Latinska `Latn` | --> | Kyrilliska `Cyrl`|
 | Tamilska | `ta` | Tamil `Taml` | --> | Latinska `Latn` |
 | Telugu | `te` | Telugu-`Telu` | --> | Latinska `Latn` |
-| Thailändska | `th` | Thai-`Thai` | <--> | Latinska `Latn` |
+| Thai | `th` | Thai-`Thai` | --> | Latinska `Latn` |
 
 ## <a name="dictionary"></a>Ordlista
 
@@ -193,7 +193,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Spanska      | `es`          |
 | Svenska      | `sv`          |
 | Tamilska      | `ta`          |
-| Thailändska      | `th`          |
+| Thai      | `th`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Urdu      | `ur`          |
@@ -222,7 +222,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Bosniska (latinsk)      | `bs`          |
 | Bulgariska      | `bg`          |
 | Kinesiska, förenklad      | `zh-Hans`          |
-|Traditionell kinesisk|   `zh-Hant`   |
+|Kinesiska, traditionell|   `zh-Hant`   |
 | Kroatiska      | `hr`          |
 | Tjeckiska      | `cs`          |
 | Danska      | `da`          |
@@ -259,7 +259,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Slovenska      | `sl`          |
 | Spanska      | `es`          |
 | Svenska      | `sv`          |
-| Thailändska      | `th`          |
+| Thai      | `th`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
 | Vietnamesiska      | `vi`          |

@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: b1a1caf985e9693e261684c1edb21184071ebfc8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e9aeb7234f5b840d790f6358bab2426462cc7986
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845916"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210233"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Skapa din första PowerShell-funktion i Azure
 
@@ -23,7 +23,7 @@ Du kan använda [Azure Functions-tillägg för Visual Studio Code] för att skap
 
 Följande steg stöds i macOS-, Windows-och Linux-baserade operativ system.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -61,7 +61,7 @@ Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som ka
 1. Välj **http-utlösare** som mall för din första funktion, Använd `HTTPTrigger` som funktions namn och välj en autentiseringsnivå för **funktionen**.
 
     > [!NOTE]
-    > För **funktions** nivån för autentisering krävs ett [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys) värde vid anrop av funktions slut punkten i Azure. Detta gör det svårare för bara vem som helst att anropa din funktion.
+    > För **funktions** nivån för autentisering krävs ett [funktions nyckel](functions-bindings-http-webhook-trigger.md#authorization-keys) värde vid anrop av funktions slut punkten i Azure. Detta gör det svårare för bara vem som helst att anropa din funktion.
 
 1. Välj **Lägg till på arbetsyta** när du uppmanas att göra det.
 

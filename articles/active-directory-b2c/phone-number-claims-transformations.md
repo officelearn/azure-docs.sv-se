@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185479"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212188"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
 
@@ -32,7 +32,8 @@ Detta påstående verifierar formatet för telefonnumret. Om det är i ett gilti
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | sträng | Anspråket för sträng typ som ska konverteras från. |
+| InputClaim | phoneNumberString | sträng |  Sträng anspråket för telefonnumret. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och landskod. Om indata-anspråks `country` anges, är telefonnumret i lokalt format (utan lands koden). |
+| InputClaim | ursprungslandet | sträng | Valfritt Sträng anspråket för lands koden för telefonnumret i ISO3166-format (ISO-3166-landskod). |
 | OutputClaim | outputClaim | phoneNumber | Resultatet av denna omvandling av anspråk. |
 
 Omvandlingen av **ConvertStringToPhoneNumberClaim** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) eller [visnings kontroll](display-controls.md). **UserMessageIfClaimsTransformationInvalidPhoneNumber** -metadata för självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
@@ -44,7 +45,8 @@ Du kan använda den här anspråks omvandlingen för att se till att det angivna
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="inputClaim" />
+    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
+    <InputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="country" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
@@ -63,11 +65,19 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exempel
+### <a name="example-1"></a>Exempel 1
 
 - Inmatade anspråk:
-  - **inputClaim**: + 1 (123) 456-7890
+  - **phoneNumberString**: 045 456-7890
+  - **land**: dk
 - Utgående anspråk:
+  - **outputClaim**: + 450546148120
+
+### <a name="example-2"></a>Exempel 2
+
+- Inmatade anspråk:
+  - **phoneNumberString**: + 1 (123) 456-7890
+- Utgående anspråk: 
   - **outputClaim**: + 11234567890
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString

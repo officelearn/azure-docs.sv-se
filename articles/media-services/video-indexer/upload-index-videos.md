@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: b0a4f390a3a897d14adc2944195b0c51148de495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169362"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209281"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -47,7 +47,7 @@ Artikeln visar hur du överför och indexerar dina videor med följande alternat
 
     Om det är en privat URL måste åtkomsttoken anges i begäran.
 - URL: en måste peka på en giltig mediafil och inte till en webb sida, till exempel en länk till sidan `www.youtube.com`.
-- Du kan ladda upp upp till 60 filmer per minut.
+- I ett betalt konto kan du överföra upp till 50 filmer per minut och i ett utvärderings konto upp till 5 filmer per minut.
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
@@ -161,7 +161,7 @@ När du har kopierat koden till din utvecklings plattform måste du ange två pa
     För att hämta din API-nyckel går du igenom det här flödet:
 
     * Navigera till https://api-portal.videoindexer.ai/
-    * Logga in
+    * Inloggning
     * Gå till **produkter** -> **auktorisering** -> **Authorization-prenumeration**
     * Kopiera **primär nyckeln**
 * Video-URL – en URL för video-/ljud filen som ska indexeras. URL:en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI:n och slutpunkten som hanterar filen måste skyddas med TLS 1.2 eller senare. URL:en måste vara kodad.
@@ -348,6 +348,7 @@ De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgär
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Samma video håller redan på att bearbetas i det angivna kontot.|
 |400|VIDEO_ALREADY_FAILED|Samma video misslyckades med att bearbetas i det angivna kontot för mindre än 2 timmar sedan. API-klienter ska vänta minst 2 timmar innan en video laddas upp på nytt.|
+|429||Utvärderings konton tillåts 5 uppladdningar per minut. Betalade konton tillåts 50 uppladdningar per minut.|
 
 ## <a name="next-steps"></a>Nästa steg
 

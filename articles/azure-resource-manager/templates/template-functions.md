@@ -2,19 +2,21 @@
 title: Mallfunktioner
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att hämta värden, arbeta med strängar och siffror och hämta distributions information.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: aef813595df96449d5dd59ad1e95e77c4c198d0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483978"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207050"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funktioner för Azure Resource Manager mallar
 
 I den här artikeln beskrivs alla funktioner som du kan använda i en Azure Resource Manager-mall. Information om hur du använder funktioner i din mall finns i [syntax för mallar](template-expressions.md).
 
 Information om hur du skapar dina egna funktioner finns i [användardefinierade funktioner](template-syntax.md#functions).
+
+De flesta funktioner fungerar på samma sätt när de distribueras till en resurs grupp, prenumeration, hanterings grupp eller klient organisation. Några funktioner kan inte användas i alla omfång. De anges i listorna nedan.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,25 +37,26 @@ Information om hur du skapar dina egna funktioner finns i [användardefinierade 
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Funktioner för matris och objekt
+
 Resource Manager innehåller flera funktioner för att arbeta med matriser och objekt.
 
-* [array](template-functions-array.md#array)
+* [lagringsmatriser](template-functions-array.md#array)
 * [coalesce](template-functions-array.md#coalesce)
 * [concat](template-functions-array.md#concat)
-* [contains](template-functions-array.md#contains)
+* [ingår](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
-* [empty](template-functions-array.md#empty)
-* [first](template-functions-array.md#first)
-* [intersection](template-functions-array.md#intersection)
-* [json](template-functions-array.md#json)
-* [last](template-functions-array.md#last)
-* [Längd](template-functions-array.md#length)
+* [saknas](template-functions-array.md#empty)
+* [förstagångskörningen](template-functions-array.md#first)
+* [överlappning](template-functions-array.md#intersection)
+* [utgör](template-functions-array.md#json)
+* [pågå](template-functions-array.md#last)
+* [krävande](template-functions-array.md#length)
 * [minimum](template-functions-array.md#min)
-* [max](template-functions-array.md#max)
-* [range](template-functions-array.md#range)
-* [skip](template-functions-array.md#skip)
-* [take](template-functions-array.md#take)
-* [union](template-functions-array.md#union)
+* [bekräftat](template-functions-array.md#max)
+* [intervall](template-functions-array.md#range)
+* [Ignorera](template-functions-array.md#skip)
+* [gå](template-functions-array.md#take)
+* [Union](template-functions-array.md#union)
 
 <a id="equals" aria-hidden="true" />
 <a id="less" aria-hidden="true" />
@@ -62,12 +65,13 @@ Resource Manager innehåller flera funktioner för att arbeta med matriser och o
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Jämförelsefunktioner
+
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
 * [är lika med](template-functions-comparison.md#equals)
-* [mindre än](template-functions-comparison.md#less)
+* [minskad](template-functions-comparison.md#less)
 * [lessOrEquals](template-functions-comparison.md#lessorequals)
-* [greater](template-functions-comparison.md#greater)
+* [störst](template-functions-comparison.md#greater)
 * [Större](template-functions-comparison.md#greaterorequals)
 
 <a id="deployment" aria-hidden="true" />
@@ -75,12 +79,13 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 <a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Funktioner för distributions värde
+
 Resource Manager innehåller följande funktioner för att hämta värden från avsnitt i mallen och värden som är relaterade till distributionen:
 
 * [spridningen](template-functions-deployment.md#deployment)
 * [miljö](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)
-* [variables](template-functions-deployment.md#variables)
+* [användarvariabler](template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
 <a id="bool" aria-hidden="true" />
@@ -89,9 +94,10 @@ Resource Manager innehåller följande funktioner för att hämta värden från 
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Logiska funktioner
+
 Resource Manager innehåller följande funktioner för att arbeta med logiska villkor:
 
-* [och](template-functions-logical.md#and)
+* [särskilt](template-functions-logical.md#and)
 * [booleska](template-functions-logical.md#bool)
 * [eventuella](template-functions-logical.md#if)
 * [Ogiltigt](template-functions-logical.md#not)
@@ -109,16 +115,17 @@ Resource Manager innehåller följande funktioner för att arbeta med logiska vi
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Numeriska funktioner
+
 Resource Manager innehåller följande funktioner för att arbeta med heltal:
 
-* [add](template-functions-numeric.md#add)
+* [skapa](template-functions-numeric.md#add)
 * [copyIndex](template-functions-numeric.md#copyindex)
-* [div](template-functions-numeric.md#div)
-* [float](template-functions-numeric.md#float)
+* [tagg](template-functions-numeric.md#div)
+* [flyta](template-functions-numeric.md#float)
 * [int](template-functions-numeric.md#int)
 * [minimum](template-functions-numeric.md#min)
-* [max](template-functions-numeric.md#max)
-* [mod](template-functions-numeric.md#mod)
+* [bekräftat](template-functions-numeric.md#max)
+* [rest](template-functions-numeric.md#mod)
 * [mul](template-functions-numeric.md#mul)
 * [Build](template-functions-numeric.md#sub)
 
@@ -134,18 +141,19 @@ Resource Manager innehåller följande funktioner för att arbeta med heltal:
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Resursfunktioner
+
 Resource Manager tillhandahåller följande funktioner för att hämta resurs-värden:
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
 * [listAccountSas](template-functions-resource.md#list)
 * [Listnycklar](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
-* [lista *](template-functions-resource.md#list)
-* [Providers](template-functions-resource.md#providers)
-* [Referens](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [Resurs-ID](template-functions-resource.md#resourceid)
-* [prenumeration](template-functions-resource.md#subscription)
+* [lista](template-functions-resource.md#list)
+* [finansiär](template-functions-resource.md#providers)
+* [förhållande](template-functions-resource.md#reference)
+* [resourceGroup](template-functions-resource.md#resourcegroup) -kan bara användas i distributioner till en resurs grupp.
+* [resourceId](template-functions-resource.md#resourceid) -kan användas i valfri omfattning, men giltiga parametrar ändras beroende på omfattningen.
+* [prenumeration](template-functions-resource.md#subscription) – kan bara användas i distributioner till en resurs grupp eller prenumeration.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -181,36 +189,37 @@ Resource Manager tillhandahåller följande funktioner för att hämta resurs-v�
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Strängfunktioner
+
 Resource Manager innehåller följande funktioner för att arbeta med strängar:
 
-* [base64](template-functions-string.md#base64)
+* [Base64](template-functions-string.md#base64)
 * [base64ToJson](template-functions-string.md#base64tojson)
 * [base64ToString](template-functions-string.md#base64tostring)
 * [concat](template-functions-string.md#concat)
-* [contains](template-functions-string.md#contains)
+* [ingår](template-functions-string.md#contains)
 * [dataUri](template-functions-string.md#datauri)
 * [dataUriToString](template-functions-string.md#datauritostring)
-* [empty](template-functions-string.md#empty)
+* [saknas](template-functions-string.md#empty)
 * [endsWith](template-functions-string.md#endswith)
-* [first](template-functions-string.md#first)
-* [format](template-functions-string.md#format)
-* [guid](template-functions-string.md#guid)
+* [förstagångskörningen](template-functions-string.md#first)
+* [formatering](template-functions-string.md#format)
+* [LED](template-functions-string.md#guid)
 * [indexOf](template-functions-string.md#indexof)
-* [last](template-functions-string.md#last)
+* [pågå](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
-* [Längd](template-functions-string.md#length)
+* [krävande](template-functions-string.md#length)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
-* [replace](template-functions-string.md#replace)
-* [skip](template-functions-string.md#skip)
+* [bytt](template-functions-string.md#replace)
+* [Ignorera](template-functions-string.md#skip)
 * [split](template-functions-string.md#split)
 * [startsWith](template-functions-string.md#startswith)
-* [string](template-functions-string.md#string)
-* [substring](template-functions-string.md#substring)
-* [take](template-functions-string.md#take)
+* [nollängd](template-functions-string.md#string)
+* [under sträng](template-functions-string.md#substring)
+* [gå](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toUpper](template-functions-string.md#toupper)
-* [trim](template-functions-string.md#trim)
+* [reducera](template-functions-string.md#trim)
 * [uniqueString](template-functions-string.md#uniquestring)
 * [URI](template-functions-string.md#uri)
 * [uriComponent](template-functions-string.md#uricomponent)
@@ -221,5 +230,5 @@ Resource Manager innehåller följande funktioner för att arbeta med strängar:
 
 * En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md)
 * Om du vill slå samman flera mallar, se [använda länkade mallar med Azure Resource Manager](linked-templates.md)
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md)
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 * Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md)

@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933304"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209791"
 ---
 # <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
@@ -61,7 +61,7 @@ Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och 
 - Med den fokuserade kartan använder du Shift-tangenten och tangenterna Uppil eller NEDPIL. 
 - Använd kontrollen mus, touch eller tangent bord/ange nycklar.
 
-**Ändra kart stil** Det är inte alla utvecklare som vill att alla möjliga kart format ska vara tillgängliga i sitt program. Utvecklaren kan konfigureras program mässigt och ändra mappnings formatet efter behov. Om utvecklaren visar kartans stil väljaren, kommer användaren att kunna ändra kart formatet med hjälp av musen, touch eller tangent bordet med tabb-/RETUR-tangenten. Utvecklaren kan ange vilka kart format som ska vara tillgängliga i kontrollen kartans stil väljare. 
+**Ändra kart stil** Alla utvecklare vill inte att alla möjliga kart format ska vara tillgängliga i sitt program. Utvecklaren kan ange och ändra kart formatet program mässigt. Om utvecklaren visar kontrollen format väljare för kartan kan användaren ändra kopplings formatet med musen, en touch eller tangent bordet med tabben eller ange nyckel. Utvecklaren kan ange vilka kart format som ska vara tillgängliga i kontrollen kartans stil väljare. 
 
 ## <a name="keyboard-shortcuts"></a>Kortkommandon
 
@@ -94,7 +94,7 @@ All ytterligare information som placeras på bas kartan bör ha motsvarande text
 
 ## <a name="make-popups-keyboard-accessible"></a>Gör tangent bordet tillgängligt för popup-fönster
 
-En markör eller symbol används ofta för att representera en plats på kartan. Ytterligare information om platsen visas vanligt vis i ett popup-fönster när användaren interagerar med markören. I de flesta program visas popup-fönster när en användare klickar eller trycker på en markör, men den här händelsen kräver att användaren använder en mus eller en pekskärm. En bra idé är att göra popup-fönster tillgängliga när du använder ett tangent bord. Den här funktionen kan uppnås genom att skapa en popup för varje data punkt och lägga till den på kartan. 
+En markör eller symbol används ofta för att representera en plats på kartan. Ytterligare information om platsen visas vanligt vis i ett popup-fönster när användaren interagerar med markören. I de flesta program visas popup-fönster när en användare klickar eller trycker på en markör. Men om du klickar och trycker måste användaren använda en mus och en pekskärm. En bra idé är att göra popup-fönster tillgängliga när du använder ett tangent bord. Den här funktionen kan uppnås genom att skapa en popup för varje data punkt och lägga till den på kartan. 
 
 I följande exempel läses intressanta punkter på kartan med ett symbol lager och ett popup-fönster läggs till i kartan för varje orienterings punkt. En referens till varje popup-fönster lagras i egenskaperna för varje data punkt. Den kan också hämtas för en markör, t. ex. När en markör klickas. När du fokuserar på kartan kan du trycka på TABB-tangenten för att gå igenom alla popup-fönster på kartan.
 
@@ -116,12 +116,12 @@ Här följer några ytterligare tips för att göra ditt webb mappnings program 
     - Begränsa uppdateringarna till en gång om några sekunder. 
     - Kombinera meddelanden tillsammans på ett logiskt sätt. 
 - Undvik att använda färg som enda sätt att förmedla information. Använd text, ikoner eller mönster för att komplettera eller ersätta färgen. Några saker att tänka på:
-    - Om du använder ett bubbeldiagram för att visa det relativa värdet mellan data punkter, bör du överväga att skala radien för varje bubbla förutom eller som ett alternativ till att färga dem. 
+    - Om du använder ett bubbel-lager för att visa det relativa värdet mellan data punkter, kan du överväga att skala radien för varje bubbla, färga bubblan eller bådadera. 
     - Överväg att använda ett symbol lager med olika ikoner för olika mått kategorier, till exempel trianglar, stjärnor och fyr kanter. Symbol lagret stöder också skalning av ikonens storlek. En text etikett kan också visas.
     - Om du visar rad data kan bredden användas för att representera vikt eller storlek. Ett mönster för streck mat ris kan användas för att representera olika kategorier av linjer. Ett symbol lager kan användas tillsammans med en linje för att täcka över ikoner längs linjen. Det är praktiskt att använda en pil-ikon för att Visa linjens flöde eller riktning.
     - Om du visar polygon-data, kan ett mönster, till exempel ränder, användas som ett alternativ till färg. 
 - Vissa visualiseringar som termiska kartor, panel lager och bild lager är inte tillgängliga för användare med nedsatt syn. Några saker att tänka på:
-    - Låt skärm läsaren beskriva vad lagret visar när det läggs till i kartan. Om t. ex. ett väderleks panels lager visas, låt skärm läsaren säga något som "väder polär-data som finns på kartan".
+    - Låt skärm läsaren beskriva vad lagret visar när det läggs till i kartan. Om t. ex. ett väderleks panels lager visas, har skärm läsaren säga "väder polär data överlappar kartan".
 - Begränsa mängden funktioner som kräver mus hovring. Dessa funktioner kommer inte att vara tillgängliga för användare som använder ett tangent bord eller en touch-enhet för att interagera med ditt program. Obs! det är fortfarande en bra idé att ha ett hov rings format för interaktivt innehåll, till exempel klicka bara ikoner, länkar och knappar.
 - Försök att navigera i programmet med tangent bordet. Kontrol lera att Tab-ordningen är logisk.
 - Om du skapar kortkommandon kan du försöka begränsa det till två nycklar eller färre. 

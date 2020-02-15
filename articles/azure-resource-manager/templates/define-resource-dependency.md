@@ -3,12 +3,12 @@ title: Ange distributions ordning för resurser
 description: Beskriver hur du anger en resurs som beroende av en annan resurs under distributionen för att säkerställa att resurser distribueras i rätt ordning.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121972"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207697"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager mallar
 
@@ -40,7 +40,7 @@ I följande exempel visas en skalnings uppsättning för virtuella datorer som �
 }
 ```
 
-I föregående exempel ingår ett beroende på de resurser som skapas via en Copy-loop med namnet **storageLoop**. Ett exempel finns i [skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
+I föregående exempel ingår ett beroende på de resurser som skapas via en Copy-loop med namnet **storageLoop**. Ett exempel finns i [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 
 När du definierar beroenden kan du inkludera resurs leverantörens namn område och resurs typ för att undvika tvetydighet. Om du till exempel vill klargöra en belastningsutjämnare och ett virtuellt nätverk som kan ha samma namn som andra resurser, använder du följande format:
 

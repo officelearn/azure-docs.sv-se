@@ -3,21 +3,21 @@ title: Mall-funktioner – jämförelse
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att jämföra värden.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 3f21066ae5882f51ef1e01343752eea725fece1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484056"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207320"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Jämförelse funktioner för Azure Resource Manager mallar
 
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
 * [är lika med](#equals)
-* [greater](#greater)
+* [störst](#greater)
 * [Större](#greaterorequals)
-* [mindre än](#less)
+* [minskad](#less)
 * [lessOrEquals](#lessorequals)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -38,7 +38,7 @@ Kontrollerar om två värden är lika med varandra.
 
 Returnerar **Sant** om värdena är lika. annars **false**.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Funktionen Equals används ofta med `condition`-elementet för att testa om en resurs har distribuerats.
 
@@ -126,10 +126,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Sant |
-| checkStrings | Bool | Sant |
-| checkArrays | Bool | Sant |
-| checkObjects | Bool | Sant |
+| Incheckningar | Bool | True |
+| checkStrings | Bool | True |
+| checkArrays | Bool | True |
+| checkObjects | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -164,7 +164,7 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Sant |
+| checkNotEquals | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -239,8 +239,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Falskt |
-| checkStrings | Bool | Sant |
+| Incheckningar | Bool | False |
+| checkStrings | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -254,7 +254,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
 ```
 
-## <a name="greaterorequals"></a>större än eller lika med
+## <a name="greaterorequals"></a>Större
 `greaterOrEquals(arg1, arg2)`
 
 Kontrollerar om det första värdet är större än eller lika med det andra värdet.
@@ -315,8 +315,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Falskt |
-| checkStrings | Bool | Sant |
+| Incheckningar | Bool | False |
+| checkStrings | Bool | True |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -330,7 +330,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>mindre än
+## <a name="less"></a>minskad
 `less(arg1, arg2)`
 
 Kontrollerar om det första värdet är mindre än det andra värdet.
@@ -391,8 +391,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Sant |
-| checkStrings | Bool | Falskt |
+| Incheckningar | Bool | True |
+| checkStrings | Bool | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -406,7 +406,7 @@ Om du vill distribuera den här exempelmall med PowerShell använder du:
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
 ```
 
-## <a name="lessorequals"></a>mindre än eller lika med
+## <a name="lessorequals"></a>lessOrEquals
 `lessOrEquals(arg1, arg2)`
 
 Kontrollerar om det första värdet är mindre än eller lika med det andra värdet.
@@ -467,8 +467,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Incheckningar | Bool | Sant |
-| checkStrings | Bool | Falskt |
+| Incheckningar | Bool | True |
+| checkStrings | Bool | False |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -483,8 +483,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](template-syntax.md).
-* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
+* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 * Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
 

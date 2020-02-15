@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169840"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252084"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning beräknings instans?
 
@@ -141,11 +141,11 @@ Du kan använda beräknings instanser som ett [utbildnings mål](concept-compute
 
 ## <a name="notebookvm"></a>Vad hände med den virtuella Notebook-datorn?
 
-Beräknings instanser ersätter den virtuella Notebook-datorn.  I regioner där beräknings instanser inte är tillgängliga ännu kan du fortsätta att använda Notebook-VM: ar med fullständig funktionalitet och skapa nya virtuella notebook-datorer.
+Beräknings instanser ersätter den virtuella Notebook-datorn.  
 
 Alla notebook-filer som lagras i fil resursen och data i arbets ytans data lager kommer att vara tillgängliga från en beräknings instans. Alla anpassade paket som tidigare har installerats på en VM-baserad virtuell dator måste dock installeras på nytt på beräknings instansen. Kvot begränsningar som gäller för att skapa beräknings kluster gäller även för skapande av beräknings instanser. 
 
-Det går inte att skapa nya virtuella dator datorer i regioner där beräknings instanser är tillgängliga. Men du kan fortfarande komma åt och använda de virtuella datorerna som du har skapat, med fullständig funktionalitet. Du kan skapa beräknings instanser i samma arbets yta som de befintliga virtuella datorerna. 
+Det går inte att skapa nya virtuella dator datorer. Men du kan fortfarande komma åt och använda de virtuella datorerna som du har skapat, med fullständig funktionalitet. Du kan skapa beräknings instanser i samma arbets yta som de befintliga virtuella datorerna. 
 
 
 ## <a name="next-steps"></a>Nästa steg

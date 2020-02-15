@@ -1,18 +1,18 @@
 ---
-title: Azure Functions Premium-prenumerationsavtal
+title: Azure Functions Premium-plan
 description: Information och konfigurations alternativ (VNet, ingen kall start, obegränsad körnings tid) för Azure Functions Premium-planen.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024644"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212463"
 ---
-# <a name="azure-functions-premium-plan"></a>Azure Functions Premium-prenumerationsavtal
+# <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
 Azure Functions Premium-planen (kallas ibland elastisk Premium-plan) är ett värd alternativ för Function-appar. Premium-prenumerationen innehåller funktioner som VNet-anslutning, ingen kall start och förstklassig maskin vara.  Flera Function-appar kan distribueras till samma Premium plan och med planen kan du konfigurera storlek på beräknings instanser, bas Plans storlek och maximal schema storlek.  En jämförelse av Premium-planen och andra plan-och värd typer finns i [funktions skala och värd alternativ](functions-scale.md).
 
@@ -88,11 +88,16 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 När du skapar eller skalar planen kan du välja mellan tre instans storlekar.  Du debiteras för det totala antalet kärnor och använt minne per sekund.  Din app kan automatiskt skala ut till flera instanser efter behov.  
 
-|SKU|Kärnor|Minne|Lagring|
+|SKU|Kärnor|Minne|Storage|
 |--|--|--|--|
-|EP1|1|3,5 GB|250 GB|
-|EP2|2|7GB|250 GB|
-|EP3|4|14 GB|250 GB|
+|EP1|1|3,5 GB|GB|
+|EP2|2|7GB|GB|
+|EP3|4|14 GB|GB|
+
+### <a name="memory-utilization-considerations"></a>Överväganden för minnes användning
+Att köra på en dator med mer minne innebär inte alltid att din Function-app kommer att använda allt tillgängligt minne.
+
+Till exempel begränsas en JavaScript Function-app av standard minnes gränsen i Node. js. Om du vill öka den här fasta minnes gränsen lägger du till appens inställning `languageWorkers:node:arguments` med värdet `--max-old-space-size=<max memory in MB>`.
 
 ## <a name="regions"></a>Regioner
 

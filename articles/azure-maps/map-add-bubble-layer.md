@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933652"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208564"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Lägg till ett bubbel-lager till en karta
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du återger punkt data från en data källa som ett 
 
 ## <a name="add-a-bubble-layer"></a>Lägga till ett bubbelskikt
 
-Följande kod läser in en matris med punkter i en data källa. Data punkterna är sedan anslutna till ett bubbel- [lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Bubble-lagret återger radien för varje bubbla med fem bild punkter, en fyllnings färg med vitt, en linje färg för blått och en linje bredd på sex bild punkter. 
+Följande kod läser in en matris med punkter i en data källa. Sedan ansluter den data punkterna till ett [bubbel-lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Bubble-lagret återger radien för varje bubbla med fem bild punkter och en fyllnings färg som är vit. Och en linje färg för blått och en linje bredd på sex bild punkter. 
 
 ```javascript
 //Add point locations.
@@ -62,7 +62,7 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Visa etiketter med ett bubbel-lager
 
-Följande kod visar hur du använder ett bubbeldiagram för att återge en punkt på kartan och ett symbol lager som återger en etikett. Om du vill dölja symbolen för symbol lagret ställer du in egenskapen `image` för de ikon alternativ som du vill `'none'`.
+Den här koden visar hur du använder ett bubbel-lager för att återge en punkt på kartan. Och hur du använder ett symbol lager för att återge en etikett. Om du vill dölja symbolen för symbol lagret ställer du in egenskapen `image` för de ikon alternativ som du vill `'none'`.
 
 <br/>
 

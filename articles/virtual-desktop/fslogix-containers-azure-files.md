@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d45fa08383d9f61776a739093d78fc033ad54a6b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891640"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212401"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
@@ -56,7 +56,7 @@ I följande tabell visas fördelarna och begränsningarna för tidigare använda
 
 #### <a name="performance"></a>Prestanda
 
-UPD kräver [Lagringsdirigering (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D är den lösning som vi rekommenderar för Windows Virtual Desktop.  
+UPD kräver [Lagringsdirigering (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D är den lösning som vi rekommenderar för Windows Virtual Desktop.  
 
 #### <a name="cost"></a>Kostnad
 
@@ -70,15 +70,15 @@ S2D-kluster kräver ett operativ system som korrigeras, uppdateras och bevaras i
 
 Den 19 november 2018 har [Microsoft förvärvat FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix hanterar flera utmaningar för profil behållare. Nyckel mellan dem är:
 
-- **Prestanda:** [FSLogix profil behållare](https://fslogix.com/products/profile-containers) är höga prestanda och löser prestanda problem som har historiskt blockerat cachelagrat Exchange-läge.
-- **OneDrive:** Utan FSLogix profil behållare stöds inte OneDrive för företag i icke-permanent RDSH-eller VDI-miljöer. [Bästa praxis för OneDrive för företag och FSLogix](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) beskriver hur de interagerar. Mer information finns i [använda Sync-klienten på virtuella skriv bord](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
+- **Prestanda:** [FSLogix profil behållare](/fslogix/configure-profile-container-tutorial/) är höga prestanda och löser prestanda problem som har historiskt blockerat cachelagrat Exchange-läge.
+- **OneDrive:** Utan FSLogix profil behållare stöds inte OneDrive för företag i icke-permanent RDSH-eller VDI-miljöer. [Bästa praxis för OneDrive för företag och FSLogix](/fslogix/overview/) beskriver hur de interagerar. Mer information finns i [använda Sync-klienten på virtuella skriv bord](/deployoffice/rds-onedrive-business-vdi/).
 - **Ytterligare mappar:** FSLogix ger möjlighet att utöka användar profiler för att inkludera ytterligare mappar.
 
 Eftersom förvärvs tjänsten ersatte befintliga användar profil lösningar, t. ex. UPD, med FSLogix profil behållare.
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Files integrering med Azure Active Directory Domain Service
 
-FSLogix profil behållares prestanda och funktioner utnyttjar molnet. Den 7 augusti 2019 Microsoft Azure filer som är allmänt tillgängliga för [Azure Files autentisering med Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). Genom att adressera både kostnads-och administrations kostnader är Azure Files med Azure AD DS-autentisering en Premium-lösning för användar profiler i Windows Virtual Desktop-tjänsten.
+FSLogix profil behållares prestanda och funktioner utnyttjar molnet. Den 7 augusti 2019 Microsoft Azure filer som är allmänt tillgängliga för [Azure Files autentisering med Azure Active Directory Domain Service (AD DS)](../storage/files/storage-files-active-directory-overview.md). Genom att adressera både kostnads-och administrations kostnader är Azure Files med Azure AD DS-autentisering en Premium-lösning för användar profiler i Windows Virtual Desktop-tjänsten.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Metod tips för virtuella Windows-datorer
 
@@ -87,7 +87,7 @@ Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal
 För att se till att din Windows Virtual Desktop-miljö följer bästa praxis:
 
 - Azure Files lagrings kontot måste finnas i samma region som de virtuella datorerna i sessionen.
-- Azure Files behörigheter ska matcha behörigheter som beskrivs i [behållare för krav – profiler](https://docs.microsoft.com/fslogix/overview#requirements).
+- Azure Files behörigheter ska matcha behörigheter som beskrivs i [behållare för krav – profiler](/fslogix/overview#requirements/).
 - Varje adresspool måste vara inbyggd av samma typ och storlek som den virtuella datorn baserat på samma huvud avbildning.
 - Varje virtuell dator i poolen för värdar måste finnas i samma resurs grupp för att hantera, skala och uppdatera.
 - För optimala prestanda bör lagrings lösningen och behållaren för FSLogix-profilen finnas på samma plats i data centret.
@@ -99,7 +99,7 @@ Använd följande guider för att skapa en Windows-miljö för virtuella skriv b
 
 - Om du vill börja skapa en lösning för Skriv bords virtualisering läser du [skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 - Information om hur du skapar en adresspool i din Windows-klient för virtuella datorer finns i [skapa en adresspool med Azure Marketplace](create-host-pools-azure-marketplace.md).
-- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](/azure/storage/files/storage-files-active-directory-enable).
+- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](/azure/storage/files/storage-files-active-directory-enable/).
 - Information om hur du konfigurerar FSLogix profil behållare finns i [skapa en profil behållare för en värd-pool med en fil resurs](create-host-pools-user-profile.md).
 - Information om hur du tilldelar användare till en adresspool finns i [Hantera app-grupper för Windows Virtual Desktop](manage-app-groups.md).
 - För att få åtkomst till dina Windows-resurser för virtuella skriv bord från en webbläsare, se [Anslut till Windows Virtual Desktop](connect-web.md).

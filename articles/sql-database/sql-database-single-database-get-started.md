@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
-ms.reviewer: carlrab, sstein
-ms.date: 09/09/2019
-ms.openlocfilehash: 5cfccd6e79b7289b6fd59abcabba05abab6ab09b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: carlrab, sstein, vanto
+ms.date: 02/14/2020
+ms.openlocfilehash: 2dacdfaa5443707ab82ae53922ac439319375276
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443845"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252179"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
 
@@ -80,8 +80,8 @@ När du är klar med dessa resurser kan du ta bort dem på följande sätt:
 
 - Skapa en brandväggsregel på servernivå för att ansluta till den enkla databasen från lokala eller fjärranslutna verktyg. Mer information finns i [Skapa en brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md).
 - När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
-  - [Ansluta och köra frågor med SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Ansluta och köra frågor med Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Ansluta och köra frågor med hjälp av Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Information om hur du skapar en enskild databas i den etablerade beräknings nivån med Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
 - Om du vill skapa en enskild databas i den allokerade beräknings nivån med hjälp av Azure PowerShell, se [Azure PowerShell exempel](sql-database-powershell-samples.md).
 - Information om hur du skapar en enskild databas i Server lös beräknings nivå med hjälp av Azure PowerShell finns i [skapa server lös databas](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).

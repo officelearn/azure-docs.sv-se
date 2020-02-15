@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841037"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206267"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -78,8 +78,8 @@ Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
 
 Det finns tre typer av egenskaper som kan användas för att skapa en medlemskaps regel.
 
-- Boolean
-- String
+- Boolesk
+- Sträng
 - Sträng samling
 
 Följande är de användar egenskaper som du kan använda för att skapa ett enda uttryck.
@@ -99,8 +99,8 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
 | companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
-| displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
-| Anställnings |Valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
+| displayName |valfritt sträng värde |(User. displayName-EQ "value") |
+| Anställnings |valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
 | facsimileTelephoneNumber |Valfritt sträng värde eller *Null* |(User. facsimileTelephoneNumber-EQ "value") |
 | givenName |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
 | jobTitle |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
@@ -119,14 +119,14 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | surname |Valfritt sträng värde eller *Null* |(User. efter namn – EQ "värde") |
 | telephoneNumber |Valfritt sträng värde eller *Null* |(User. telephoneNumber-EQ "value") |
 | usageLocation |Två bokstäver för bokstavs kod |(User. usageLocation-EQ "US") |
-| userPrincipalName |Valfritt sträng värde |(user.userPrincipalName -eq "alias@domain") |
-| userType |medlems gäster *Null* |(User. userType-EQ "medlem") |
+| userPrincipalName |valfritt sträng värde |(User. userPrincipalName-EQ "alias@domain") |
+| UserType |medlems gäster *Null* |(User. userType-EQ "medlem") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| otherMails |Valfritt sträng värde |(User. otherMails-contains "alias@domain") |
+| otherMails |valfritt sträng värde |(User. otherMails-contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain SMTP: alias@domain |(User. proxyAddresses-contains "SMTP: alias@domain") |
 
 Information om egenskaper som används för enhets regler finns i [regler för enheter](#rules-for-devices).
@@ -142,9 +142,9 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Börjar inte med |-notStartsWith |
 | Börjar med |-startsWith |
 | Innehåller inte |-notContains |
-| Innehåller |– innehåller |
+| Contains |– innehåller |
 | Matchar inte |-notMatch |
-| villkoren |-matcha |
+| Villkoren |-matcha |
 | I | – in |
 | Inte i | -notIn |
 
@@ -178,7 +178,7 @@ Värdena som används i ett uttryck kan bestå av flera typer, inklusive:
 
 * Strängar
 * Boolesk – sant, falskt
-* Tal
+* Nummer
 * Matriser – nummer mat ris, sträng mat ris
 
 När du anger ett värde i ett uttryck är det viktigt att du använder rätt syntax för att undvika fel. Några tips för syntax är:
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Egenskaper för tillägg och anpassade tilläggs egenskaper
 
-Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egenskaper i dynamiska medlemskaps regler. Attributen för tillägg synkroniseras från den lokala serverns AD och formatet "ExtensionAttributeX", där X är lika med 1-15. Här är ett exempel på en regel som använder attributet Extension som en egenskap:
+Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egenskaper i dynamiska medlemskaps regler. [Attributen för tillägg](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) synkroniseras från den lokala serverns AD och formatet "ExtensionAttributeX", där X är lika med 1-15. Här är ett exempel på en regel som använder attributet Extension som en egenskap:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Anpassade tilläggs egenskaper synkroniseras från lokala Windows Server AD eller från ett anslutet SaaS-program och har formatet `user.extension_[GUID]_[Attribute]`, där:
+[Anpassade tilläggs egenskaper](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) synkroniseras från lokala Windows Server AD eller från ett anslutet SaaS-program och har formatet `user.extension_[GUID]_[Attribute]`, där:
 
 * [GUID] är den unika identifieraren i Azure AD för programmet som skapade egenskapen i Azure AD
 * [Attribute] är namnet på egenskapen som det skapades
@@ -377,12 +377,12 @@ Följande enhets egenskaper kan användas.
  Enhets attribut  | Värden | Exempel
  ----- | ----- | ----------------
  accountEnabled | Sant falskt | (Device. accountEnabled-EQ true)
- displayName | Valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
- deviceOSType | Valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- deviceOSVersion | Valfritt sträng värde | (device.deviceOSVersion -eq "9.1")
+ displayName | valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
+ deviceOSType | valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ deviceOSVersion | valfritt sträng värde | (device.deviceOSVersion -eq "9.1")
  deviceCategory | ett giltigt namn på enhets kategori | (Device. deviceCategory-EQ "BYOD")
- deviceManufacturer | Valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
- deviceModel | Valfritt sträng värde | (device.deviceModel -eq "iPad Air")
+ deviceManufacturer | valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
+ deviceModel | valfritt sträng värde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personlig, företag, okänd | (Device. deviceOwnership-EQ "Company")
  enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)
@@ -399,7 +399,7 @@ Följande enhets egenskaper kan användas.
 
 De här artiklarna innehåller ytterligare information om grupper i Azure Active Directory.
 
-- [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Visa befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Skapa en ny grupp och lägga till medlemmar](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

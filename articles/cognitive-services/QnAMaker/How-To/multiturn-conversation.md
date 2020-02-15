@@ -1,22 +1,14 @@
 ---
 title: Flera-turn-konversationer – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Använd prompter och kontext för att hantera flera sätt, så kallade flera varv, för din robot från en fråga till en annan. Med flera varv kan du få en snabb konversation där föregående frågas sammanhang påverkar nästa fråga och svar.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
-ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/13/2020
+ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843268"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210422"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -31,6 +23,9 @@ Se följande demonstrations video om du vill se hur multi-turn fungerar:
 Vissa frågor kan inte besvaras i en enda tur. När du utformar dina klient program (Chat robot)-konversationer kan en användare ställa en fråga som behöver filtreras eller finjusteras för att fastställa rätt svar. Du gör det här flödet genom de frågor som är möjliga genom att presentera användaren med *uppföljnings*anvisningarna.
 
 När en användare ställer en fråga returnerar QnA Maker svaret _och_ eventuella uppföljnings frågor. Med det här svaret kan du Visa uppföljnings frågorna som alternativ.
+
+> [!CAUTION]
+> Frågor med flera frågor extraheras inte från dokument med vanliga frågor och svar. Om du behöver extrahering på flera sätt tar du bort de frågetecken som anger QnA-par som vanliga frågor och svar.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exempel på flera samtal med Chat-roboten
 
@@ -113,7 +108,7 @@ Lägg till en uppföljnings fråga till ett befintligt fråga-och-svar-par som i
 1. Välj **Lägg till uppföljnings fråga**i kolumnen **svar** i raden för att **Logga in**.
 1. Ange följande värden i fälten i popup-fönstret för **uppföljnings prompten** :
 
-    |Field|Värde|
+    |Fält|Värde|
     |--|--|
     |Visa text|Ange **Stäng av enheten**. Det här är en anpassad text som visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende| Markera den här kryss rutan. Ett svar returneras bara om frågan anger sammanhang.|
@@ -150,7 +145,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 1. Välj **Lägg till uppföljnings fråga**i **svars** kolumnen för den här frågan.
 1. Under **uppföljnings prompt (för hands version)** skapar du en ny uppföljning genom att ange följande värden:
 
-    |Field|Värde|
+    |Fält|Värde|
     |--|--|
     |Visa text|*Skapa ett Windows-konto*. Den anpassade text som ska visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende|Markera den här kryss rutan. Svaret returneras endast om frågan anger sammanhang.|

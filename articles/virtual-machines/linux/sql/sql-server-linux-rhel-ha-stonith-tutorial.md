@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 01/27/2020
-ms.openlocfilehash: 3f5f51c944cab84c00e29b2f72433a726ed70d33
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0eaff1685cea88d352f1a22f382b7af2ed0ed6cb
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024355"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252237"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera tillgänglighets grupper för SQL Server på virtuella RHEL-datorer i Azure 
 
@@ -22,7 +22,7 @@ ms.locfileid: "77024355"
 >
 > Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera HA. De kommandon som används för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln, [skapa tillgänglighets grupp resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > - Skapa en ny resurs grupp, tillgänglighets uppsättning och Azure Virtuella Linux-datorer (VM)
@@ -786,7 +786,7 @@ Vi kommer att följa guiden för att [skapa tillgänglighets grupps resurserna i
 
 ### <a name="create-the-ag-cluster-resource"></a>Skapa kluster resursen AG
 
-1. Använd följande kommando för att skapa resurs `ag_cluster` i den tillgängliga gruppen `ag1`.
+1. Använd följande kommando för att skapa resurs `ag_cluster` i tillgänglighets gruppen `ag1`.
 
     ```bash
     sudo pcs resource create ag_cluster ocf:mssql:ag ag_name=ag1 meta failure-timeout=30s master notify=true

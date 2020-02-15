@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0583e773a344a6786d13a5da30be24369d75f11f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767444"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251710"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>För hands version – skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -149,6 +149,10 @@ az aks create \
 > Om du får ett lösen ords verifierings fel kan du försöka skapa en resurs grupp i en annan region.
 > Försök sedan att skapa klustret med den nya resurs gruppen.
 
+> [!Note]
+> Om du inte kan skapa AKS-klustret eftersom versionen inte stöds i den här regionen kan du använda kommandot [AZ AKS get-versions-location öster] för att hitta den versions lista som stöds för den här regionen.
+
+
 Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om klustret. Ibland kan det ta längre tid än några minuter att etablera klustret. Tillåt upp till 10 minuter i dessa fall. 
 
 ## <a name="add-a-windows-server-node-pool"></a>Lägga till en pool för Windows Server-noder
@@ -279,7 +283,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
+När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress, använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
 ```
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -288,6 +292,9 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Om du vill se exempel appen i praktiken öppnar du en webbläsare till den externa IP-adressen för din tjänst.
 
 ![Bild av bläddring till ASP.NET exempel program](media/windows-container/asp-net-sample-app.png)
+
+> [!Note]
+> Om du får en tids gräns för anslutningen när du försöker läsa in sidan bör du kontrol lera att exempel appen är klar med följande kommando [kubectl get poddar--Watch]. Ibland kommer Windows-behållaren inte att startas när den externa IP-adressen är tillgänglig.
 
 ## <a name="delete-cluster"></a>Ta bort klustret
 

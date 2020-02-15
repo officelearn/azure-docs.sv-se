@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158170"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251625"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -246,7 +246,7 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > Dessa funktioner håller på att utvecklas.
 >
 
-### <a name="group-administratorgroup-administrator-permissions"></a>[Grupp administratör](#group-administrator-permissions)
+### <a name="groups-administratorgroups-administrator-permissions"></a>[Grupp administratör](#groups-administrator-permissions)
 
 Användare med den här rollen kan skapa/hantera grupper och dess inställningar, t. ex. namn och förfallo principer. Det är viktigt att förstå att tilldela en användare till den här rollen och ger dem möjlighet att hantera alla grupper i klient organisationen över olika arbets belastningar som team, SharePoint, Yammer, förutom Outlook. Användaren kan också hantera de olika grupp inställningarna över olika administrations portaler som Microsoft administrations Center, Azure Portal, och även arbets belastningar som team och administrations Center för SharePoint.
 
@@ -1081,7 +1081,7 @@ Kan läsa allt som en global administratör kan, men inte redigera något.
 | microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. webports/-upplånare/standard/Read   | Läsa standard egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
-### <a name="group-administrator-permissions"></a>Grupp administratörs behörighet
+### <a name="groups-administrator-permissions"></a>Grupper administratörs behörigheter
 Kan hantera alla aspekter av grupper och grupp inställningar som namngivnings-och förfallo principer.
 
 | **Åtgärder** | **Beskrivning** |

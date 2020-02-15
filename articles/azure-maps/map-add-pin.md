@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett symbol lager till en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om hur du använder symbol lagret för att anpassa och lägga till symboler på en karta med hjälp av Microsoft Azure Maps-webbsdk.
+description: I den här artikeln får du lära dig mer om hur du använder symbol lagret för att anpassa en symbol och hur du lägger till symboler på en karta med hjälp av Microsoft Azure Maps-webbsdk.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933128"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209706"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägga till ett symbol lager till en karta
 
-En symbol som är kopplad till en data källa och som används för att återge en ikon och/eller en text vid en viss tidpunkt. Symbol lager återges med WebGL och används för att återge stora samlingar av punkter på kartan. Jämfört med HTML-markör återger symbol lagret ett stort antal punkt data på kartan med bättre prestanda. Symbol lagret stöder dock inte traditionella CSS-och HTML-element för formatering.  
+Anslut en symbol till en data källa och Använd den för att återge en ikon eller en text vid en viss tidpunkt. 
+
+Symbol lager återges med WebGL. Använd ett symbol lager för att rendera stora samlingar av punkter på kartan. Jämfört med HTML-markör återger symbol lagret ett stort antal punkt data på kartan med bättre prestanda. Symbol lagret stöder dock inte traditionella CSS-och HTML-element för formatering.  
 
 > [!TIP]
 > Symbol lager som standard återger koordinaterna för alla Geometries i en data källa. Om du vill begränsa lagret så att det bara återger punkt geometri funktioner anger du `filter` egenskapen för lagret som `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du vill kan du även inkludera MultiPoint-funktioner.
@@ -33,7 +35,9 @@ Maps bild Sprite Manager läser in anpassade bilder som används av symbol skikt
 
 ## <a name="add-a-symbol-layer"></a>Lägga till ett symbolskikt
 
-Innan du kan lägga till ett symbol lager till kartan måste du utföra några steg. Börja med att skapa en data källa och Lägg till den på kartan. Ett symbol lager kan sedan skapas och skickas i data källan för att hämta data från data källan. Slutligen måste data läggas till i data källan så att det finns något som ska återges. Följande kod visar den kod som ska läggas till i kartan när den har lästs in. Koden återger en enda punkt på kartan med ett symbol lager. 
+Innan du kan lägga till ett symbol lager till kartan måste du utföra några steg. Börja med att skapa en data källa och Lägg till den på kartan. Skapa ett symbol lager. Sedan skickar du data källan till symbol lagret för att hämta data från data källan. Slutligen lägger du till data i data källan så att det finns något att återge. 
+
+Koden nedan visar vad som ska läggas till i kartan när den har lästs in. Det här exemplet återger en enda punkt på kartan med ett symbol lager. 
 
 ```javascript
 //Create a data source and add it to the map.

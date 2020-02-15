@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 359f2b42ca6f56087be53a5aeb328fe43a478d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 63f7eac52a555be1877f235bd2f7f1d9315d53d5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988299"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208513"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visa anvisningar från A till B
 
@@ -43,7 +43,7 @@ Det sjätte blocket med kod frågar Azure Maps Routningstjänst, som är en del 
 
 Det sista blocket i koden anger gränserna för kartan med kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskap.
 
-Flödes frågan, data källan, symbolen, rad skikten och kamerans gränser skapas och anges i kartans [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Den här kod strukturen säkerställer att resultaten visas först när kartan har lästs in helt.
+Route-fråga, data källa, symbol, linje lager och kamera gränser skapas i [händelse lyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Den här kod strukturen ser till att resultaten visas först när kartan har lästs in helt.
 
 ## <a name="query-the-route-via-fetch-api"></a>Fråga vägen via hämtnings-API
 
@@ -54,7 +54,7 @@ I koden ovan konstruerar det första blocket kod ett kart objekt och ställer in
 
 Det andra blocket kod skapar och lägger till ett [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) -objekt till kartan.
 
-Det tredje kod blocket skapar start-och mål platserna för vägen och lägger till dem i data källan. Du kan se [Lägg till en PIN-kod på kartan](map-add-pin.md) för instruktioner om hur du använder [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
+Det tredje kod blocket skapar start-och mål platserna för vägen. Sedan läggs de till i data källan. Du kan se [Lägg till en PIN-kod på kartan](map-add-pin.md) för instruktioner om hur du använder [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
 En [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) återger rad objekt i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som rader på kartan. Det fjärde blocket med kod skapar och lägger till ett linje skikt i kartan. Se egenskaperna för ett linje lager på [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
@@ -64,7 +64,7 @@ Nästa kodblock skapar `SouthWest` och `NorthEast` punkter från start-och mål 
 
 Det sista blocket i koden använder [hämtnings-API: t](https://fetch.spec.whatwg.org/) för att göra en Sök förfrågan till [Azure Maps Route-API: et](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Svaret parsas sedan. Om svaret lyckades används informationen om latitud och longitud för att skapa en matris med en linje genom att ansluta dessa punkter. Linje data läggs sedan till i data källan för att rendera vägen på kartan. Du kan se [Lägg till en rad på kartan](map-add-line-layer.md) för instruktioner.
 
-Flödes frågan, data källan, symbolen, rad skikten och kamerans gränser skapas och anges i kartans [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Återigen vill vi se till att resultaten visas när kartan har lästs in helt.
+Route-fråga, data källa, symbol, linje lager och kamera gränser skapas i [händelse lyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Återigen vill vi se till att resultaten visas när kartan har lästs in helt.
 
 ## <a name="next-steps"></a>Nästa steg
 

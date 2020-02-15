@@ -3,18 +3,18 @@ title: Template Functions – Logical
 description: Beskriver de funktioner som används i en Azure Resource Manager mall för att fastställa logiska värden.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 48c6a05c5a449626c66f9d75c8578b217906d8e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aef520a26124a85f414c4f4aa1a3e307d383c29b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483965"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207221"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager mallar
 
 Resource Manager innehåller flera funktioner för att göra jämförelser i dina mallar.
 
-* [och](#and)
+* [särskilt](#and)
 * [booleska](#bool)
 * [eventuella](#if)
 * [Ogiltigt](#not)
@@ -30,9 +30,9 @@ Kontrollerar om alla parameter värden är sanna.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Ja |boolesk |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolesk |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -68,11 +68,11 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falskt |
-| orExampleOutput | Bool | Sant |
-| notExampleOutput | Bool | Falskt |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
-## <a name="bool"></a>bool
+## <a name="bool"></a>booleska
 
 `bool(arg1)`
 
@@ -121,12 +121,12 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| trueString | Bool | Sant |
-| falseString | Bool | Falskt |
-| trueInt | Bool | Sant |
-| falseInt | Bool | Falskt |
+| trueString | Bool | True |
+| falseString | Bool | False |
+| trueInt | Bool | True |
+| falseInt | Bool | False |
 
-## <a name="if"></a>om
+## <a name="if"></a>eventuella
 
 `if(condition, trueValue, falseValue)`
 
@@ -136,7 +136,7 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| condition |Ja |boolean |Värdet för att kontrol lera om det är sant eller falskt. |
+| condition |Ja |boolesk |Värdet för att kontrol lera om det är sant eller falskt. |
 | trueValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är sant. |
 | falseValue |Ja | sträng, heltal, objekt eller matris |Värdet som ska returneras när villkoret är falskt. |
 
@@ -144,7 +144,7 @@ Returnerar ett värde baserat på om ett villkor är sant eller falskt.
 
 Returnerar den andra parametern när den första parametern är **True**; annars returnerar den tredje parametern.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 När villkoret är **Sant**utvärderas bara det sanna värdet. Om villkoret är **falskt**utvärderas bara det falska värdet. Med funktionen **IF** kan du inkludera uttryck som endast är villkorligt giltiga. Du kan till exempel referera till en resurs som finns under ett villkor, men inte med det andra villkoret. Ett exempel på villkorligt utvärdering av uttryck visas i följande avsnitt.
 
@@ -179,8 +179,8 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| yesOutput | String | ja |
-| noOutput | String | nej |
+| yesOutput | Sträng | ja |
+| noOutput | Sträng | nej |
 | objectOutput | Objekt | {"test": "värde1"} |
 
 I följande [exempel mall](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) visas hur du använder den här funktionen med uttryck som endast är villkorligt giltiga.
@@ -231,7 +231,7 @@ I följande [exempel mall](https://github.com/krnese/AzureDeploy/blob/master/ARM
 }
 ```
 
-## <a name="not"></a>inte
+## <a name="not"></a>Ogiltigt
 
 `not(arg1)`
 
@@ -241,7 +241,7 @@ Konverterar booleskt värde till motsatt värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det värde som ska konverteras. |
+| arg1 |Ja |boolesk |Det värde som ska konverteras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -277,9 +277,9 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falskt |
-| orExampleOutput | Bool | Sant |
-| notExampleOutput | Bool | Falskt |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** [lika](template-functions-comparison.md#equals)med.
 
@@ -301,7 +301,7 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | Sant |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>eller
 
@@ -313,9 +313,9 @@ Kontrollerar om ett parameter värde är sant.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |boolean |Det första värdet för att kontrol lera om är sant. |
-| arg2 |Ja |boolean |Det andra värdet för att kontrol lera om är sant. |
-| ytterligare argument |Inga |boolean |Ytterligare argument för att kontrol lera om är true. |
+| arg1 |Ja |boolesk |Det första värdet för att kontrol lera om är sant. |
+| arg2 |Ja |boolesk |Det andra värdet för att kontrol lera om är sant. |
+| ytterligare argument |Nej |boolesk |Ytterligare argument för att kontrol lera om är true. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -351,14 +351,14 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| andExampleOutput | Bool | Falskt |
-| orExampleOutput | Bool | Sant |
-| notExampleOutput | Bool | Falskt |
+| andExampleOutput | Bool | False |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | False |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](template-syntax.md).
-* Om du vill slå samman flera mallar, se [med länkade mallar med Azure Resource Manager](linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
-* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
+* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
 

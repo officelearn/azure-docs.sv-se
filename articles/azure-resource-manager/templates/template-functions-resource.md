@@ -3,12 +3,12 @@ title: Mall funktioner – resurser
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120540"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207016"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -124,7 +124,7 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 
 ### <a name="valid-uses"></a>Giltig användning
 
-List funktionerna kan bara användas i egenskaperna för en resurs definition och avsnittet utdata i en mall eller distribution. När du använder med [egenskap upprepning](create-multiple-instances.md#property-iteration)kan du använda List funktionerna för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda dem med `count` eftersom antalet måste bestämmas innan List funktionen har åtgärd ATS.
+List funktionerna kan bara användas i egenskaperna för en resurs definition och avsnittet utdata i en mall eller distribution. När du använder med [egenskap upprepning](copy-properties.md)kan du använda List funktionerna för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda dem med `count` eftersom antalet måste bestämmas innan List funktionen har åtgärd ATS.
 
 ### <a name="implementations"></a>Implementeringar
 
@@ -496,7 +496,7 @@ Använd `'Full'` när du behöver resurs värden som inte är en del av schemat 
 
 ### <a name="valid-uses"></a>Giltig användning
 
-Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](create-multiple-instances.md#property-iteration), kan du använda funktionen reference för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda den med `count` eftersom antalet måste bestämmas innan referens funktionen har åtgärd ATS.
+Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](copy-properties.md), kan du använda funktionen reference för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda den med `count` eftersom antalet måste bestämmas innan referens funktionen har åtgärd ATS.
 
 Du kan inte använda funktionen reference i utdata för en [kapslad mall](linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](linked-templates.md#linked-template).
 
@@ -758,7 +758,7 @@ Returnerar den unika identifieraren för en resurs. Du använder den här funkti
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. |
+| subscriptionId |Nej |sträng (i GUID-format) |Standardvärdet är den aktuella prenumerationen. Ange det här värdet när du behöver hämta en resurs i en annan prenumeration. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp eller prenumeration. |
 | resourceGroupName |Nej |sträng |Standardvärdet är aktuella resursgruppen. Ange det här värdet när du behöver hämta en resurs i en annan resursgrupp. Ange bara det här värdet när du distribuerar i omfånget för en resurs grupp. |
 | resourceType |Ja |sträng |Typ av resurs, inklusive resursproviderns namnområde. |
 | resourceName1 |Ja |sträng |Namnet på resursen. |
@@ -1064,6 +1064,6 @@ Du använder den här funktionen för att hämta resurs-ID för en resurs som di
 
 * En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
 * Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
 * Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
 

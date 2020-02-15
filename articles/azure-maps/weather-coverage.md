@@ -1,23 +1,23 @@
 ---
 title: Väder täckning | Microsoft Azure Maps
 description: I den här artikeln får du lära dig om väder täckning i Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 77b95806c2040e7950e1133fcc4c7bc5e0e2ab53
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989611"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207952"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
-Den här artikeln innehåller information om disponering för Azure Maps [väder tjänster](https://aka.ms/AzureMapsWeatherService). Azure Maps väder data tjänster returnerar information som radar paneler, aktuella väder förhållanden, väder prognoser och väder utmed en väg.
+Den här artikeln innehåller information om disponering för Azure Maps [väder tjänster](https://aka.ms/AzureMapsWeatherService). Azure Maps väder data tjänster returnerar information som radar paneler, aktuella väder förhållanden, väder prognoser och väder längs en väg.
 
 Azure Maps har inte samma nivå av information och exakthet för alla länder och regioner.
 
@@ -40,11 +40,11 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Bahamas                                  | ✓ |   |  ✓| 
 | Barbados                                 | ✓ |   |  ✓| 
 | Belize                                   | ✓ |   |  ✓| 
-| Bermuda                                  | ✓ |   |  ✓| 
+| Snygg                                  | ✓ |   |  ✓| 
 | Bolivia                                  | ✓ |   |  ✓| 
 | Bonaire                                  | ✓ |   |  ✓| 
 | Brasilien                                   | ✓ |   |  ✓| 
-| Brittiska Jungfruöarna                   | ✓ |   |  ✓| 
+| Brittiska Jungfru öarna                   | ✓ |   |  ✓| 
 | Kanada                                   | ✓ | ✓ |  ✓| 
 | Caymanöarna                           | ✓ |   |  ✓| 
 | Chile                                    | ✓ |   |  ✓| 
@@ -56,9 +56,9 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Dominikanska republiken                       | ✓ |   |  ✓| 
 | Ecuador                                  | ✓ |   |  ✓| 
 | El Salvador                              | ✓ |   |  ✓| 
-| Falklandsöarna                         | ✓ |   |  ✓| 
+| Falk lands öarna                         | ✓ |   |  ✓| 
 | Franska Guyana                            | ✓ |   |  ✓| 
-| Grönland                                | ✓ |   |  ✓| 
+| Grönland (Danmark)                                | ✓ |   |  ✓| 
 | Grenada                                  | ✓ |   |  ✓| 
 | Guadeloupe                               | ✓ |   |  ✓| 
 | Guatemala                                | ✓ |   |  ✓| 
@@ -102,11 +102,11 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Bahrain                     | ✓               |                              |        ✓| 
 | Benin                       | ✓               |                              |        ✓| 
 | Botswana                    | ✓               |                              |        ✓| 
-| Bouvetön               | ✓               |                              |        ✓| 
+| Bouvet-ön               | ✓               |                              |        ✓| 
 | Burkina Faso                | ✓               |                              |        ✓| 
 | Burundi                     | ✓               |                              |        ✓| 
 | Kamerun                    | ✓               |                              |        ✓| 
-| Cabo Verde                  | ✓               |                              |        ✓| 
+| Kap Verde                  | ✓               |                              |        ✓| 
 | Centralafrikanska republiken    | ✓               |                              |        ✓| 
 | Tchad                        | ✓               |                              |        ✓| 
 | Komorerna                     | ✓               |                              |        ✓| 
@@ -146,7 +146,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Niger                       | ✓               |                              |        ✓| 
 | Nigeria                     | ✓               |                              |        ✓| 
 | Oman                        | ✓               |                              |        ✓| 
-| Den palestinska myndigheten       | ✓               |                              |        ✓| 
+| Palestinska myndigheten       | ✓               |                              |        ✓| 
 | Qatar                       | ✓               |                              |        ✓| 
 | Réunion                     | ✓               |                              |        ✓| 
 | Rwanda                      | ✓               |                              |        ✓| 
@@ -166,7 +166,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tunisien                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | Förenade Arabemiraten        | ✓               |                              |        ✓| 
-| Västsahara              | ✓               |                              |        ✓| 
+| Västra Västsahara              | ✓               |                              |        ✓| 
 | Jemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 
@@ -196,7 +196,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
 | Japan                             | ✓ | ✓ |  ✓| 
-| Kazakstan                        | ✓ |   |  ✓| 
+| Kazakhstan                        | ✓ |   |  ✓| 
 | Kiribati                          | ✓ |   |  ✓| 
 | Korea                             | ✓ | ✓ |  ✓| 
 | Kirgizistan                        | ✓ |   |  ✓| 
@@ -229,7 +229,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tadzjikistan                        | ✓ |   |  ✓| 
 | Thailand                          | ✓ |   |  ✓| 
 | Timor-Leste                       | ✓ |   |  ✓| 
-| Tokelauöarna                           | ✓ |   |  ✓| 
+| Tokelau                           | ✓ |   |  ✓| 
 | Tonga                             | ✓ |   |  ✓| 
 | Turkmenistan                      | ✓ |   |  ✓| 
 | Tuvalu                            | ✓ |   |  ✓| 
@@ -269,7 +269,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Island                | ✓ |   |  ✓| 
 | Irland                | ✓ | ✓ |  ✓| 
 | Italien                  | ✓ |   |  ✓|
-| Isle of Man            | ✓ |   |  ✓| 
+| Isle of man            | ✓ |   |  ✓| 
 | Jersey                 | ✓ |   |  ✓| 
 | Kosovo                 | ✓ |   |  ✓| 
 | Lettland                 | ✓ |   |  ✓| 

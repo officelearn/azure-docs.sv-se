@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083233"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210507"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -585,6 +585,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 Mer information finns i dokumentationen för [AZ ml-modellen Deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
+### <a name="understanding-service-state"></a>Förstå tjänst tillstånd
+
+Under modell distributionen kan tjänst tillstånds ändringen visas när den distribueras fullständigt.
+
+I följande tabell beskrivs de olika tjänst tillstånden:
+
+| Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
+| ----- | ----- | ----- |
+| Övergår | Tjänsten håller på att distribueras. | Nej |
+| Skadad | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
+| Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
+| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
+
 ### <a id="notebookvm"></a>Beräknings instans webb tjänst (dev/test)
 
 Se [distribuera en modell för att Azure Machine Learning beräknings instans](how-to-deploy-local-container-notebook-vm.md).
@@ -942,7 +956,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Exempel: 
+När du har skapat ett paket kan du använda `package.pull()` för att hämta avbildningen till din lokala Docker-miljö. Utdata från det här kommandot visar namnet på bilden. Några exempel: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

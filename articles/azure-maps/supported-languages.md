@@ -1,19 +1,19 @@
 ---
 title: Lokaliserings stöd | Microsoft Azure Maps
 description: I den här artikeln får du lära dig om språk som stöds för tjänsterna i Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5de04b4e37e79a47f89bb235aad2b0f9cab69e6a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025443"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208156"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
 
@@ -22,10 +22,10 @@ Azure Maps stöder olika språk och vyer baserat på land/region. Den här artik
 
 ## <a name="azure-maps-supported-languages"></a>Azure Maps språk som stöds
 
-Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
+Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
   
 
-| ID         | Namn                   |  Kartor | Sök | Routning | Väder | Trafik incidenter | JS-kart kontroll |
+| ID         | Namn                   |  Maps | Söka | Routning | Väder | Trafik incidenter | JS-kart kontroll |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -109,7 +109,7 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 >
 > Efter den 1 augusti 2019 definierar **visnings** parametern det returnerade kart innehållet för de nya regionerna/länderna som anges ovan. Azure Maps **View** -parametern (kallas även för "användar region parameter") är en ISO-3166-landskod som visar rätt kartor för landet/regionen och som anger vilken uppsättning geografi innehåll som anges av polypolitiskt som returneras via Azure Maps Services, inklusive kant linjer och etiketter som visas på kartan. 
 
-Se till att du har ställt in parametern **Visa** som krävs för de REST-API: er och SDK: er som dina tjänster använder.
+Se till att ställa in parametern **Visa** som krävs för REST-API: er och SDK: er som dina tjänster använder.
 >  
 >
 >  **REST-API: er:**
@@ -142,12 +142,12 @@ Se till att du har ställt in parametern **Visa** som krävs för de REST-API: e
 >    * Azure Maps webb-SDK
 >    * Azure Maps Android SDK
 
-Som standard anges parametern View till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för användarna och ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med gällande lagar, inklusive de lagar som gäller mappning av det land där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
+Som standard har parametern View angetts till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för dina användare. Ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med gällande lagar, inklusive de lagar som gäller mappning av det land där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
 
 
 Följande tabell innehåller vyer som stöds.
 
-| Visa         | Beskrivning                            |  Kartor | Sök | JS-Kartkontroll |
+| Visa         | Beskrivning                            |  Maps | Söka | JS-Kartkontroll |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Förenade Arabemiraten (arabisk vy)    |   ✓   |        |     ✓          |
 | AR           | Argentina (argentinsk vy)           |   ✓   |    ✓   |     ✓          |
@@ -166,4 +166,4 @@ Följande tabell innehåller vyer som stöds.
 | SY           | Syrien (arabisk vy)                   |   ✓   |        |     ✓          |
 | CHANSEN           | Jemen (arabisk vy)                   |   ✓   |        |     ✓          |
 | Disk         | Returnera mappnings data baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
-| Enhetligt      | Enhetlig vy (andra)                  |   ✓   |   ✓     |     ✓          |
+| Gemensam      | Enhetlig vy (andra)                  |   ✓   |   ✓     |     ✓          |

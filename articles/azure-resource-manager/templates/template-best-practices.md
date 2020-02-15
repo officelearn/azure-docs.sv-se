@@ -3,12 +3,12 @@ title: Metodtips för mallar
 description: Beskriver rekommenderade metoder för att redigera Azure Resource Manager mallar. Innehåller förslag på hur du undviker vanliga problem när du använder mallar.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b87f66f194b9e1daf8fa6a546c02aa4e86caabc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484251"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207493"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Metod tips för Azure Resource Manager mall
 
@@ -156,7 +156,7 @@ Följande information kan vara till hjälp när du arbetar med [variabler](templ
 
 * Inkludera variabler för resurs namn som måste vara unika.
 
-* Använd en [kopierings slinga i variabler](create-multiple-instances.md#variable-iteration) för att skapa ett upprepat mönster av JSON-objekt.
+* Använd en [kopierings slinga i variabler](copy-variables.md) för att skapa ett upprepat mönster av JSON-objekt.
 
 * Ta bort oanvända variabler.
 

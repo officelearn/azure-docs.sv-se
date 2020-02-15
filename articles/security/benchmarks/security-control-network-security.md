@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934337"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251880"
 ---
 # <a name="security-control-network-security"></a>Säkerhets kontroll: nätverks säkerhet
 
@@ -21,7 +21,7 @@ Nätverks säkerhets rekommendationer fokusera på att ange vilka nätverks prot
 
 ## <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandvägg på din Virtual Network
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.1 | 9,2, 9,4, 14,1-14.3 | Kund |
 
@@ -47,7 +47,7 @@ https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1,2: övervaka och logga konfigurationen och trafiken för virtuella nätverk, undernät och nätverkskort
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.2 | 9,3, 12,2 | Kund |
 
@@ -63,7 +63,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ## <a name="13-protect-critical-web-applications"></a>1,3: skydda viktiga webb program
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.3 | 9.5 | Kund |
 
@@ -75,7 +75,7 @@ https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-a
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1,4: neka kommunikation med kända skadliga IP-adresser
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.4 | 12,3 | Kund |
 
@@ -109,7 +109,7 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 ## <a name="15-record-network-packets-and-flow-logs"></a>1,5: registrera nätverks paket och flödes loggar
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.5 | 12,5, 15,8 | Kund |
 
@@ -125,7 +125,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.6 | 12,6, 12,7 | Kund |
 
@@ -137,7 +137,7 @@ Konfigurera aviseringar med Azure Firewall: https://docs.microsoft.com/azure/fir
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1,7: hantera trafik till webb program
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.7 | 12,9, 12,10 | Kund |
 
@@ -157,7 +157,7 @@ https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimera komplexitet och administrativa kostnader för nätverks säkerhets regler
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.8 | 1.5 | Kund |
 
@@ -169,7 +169,7 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.9 | 11,1 | Kund |
 
@@ -183,7 +183,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy exempel för nätverk:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 Så här skapar du en Azure Blueprint:
 
@@ -191,7 +191,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 ## <a name="110-document-traffic-configuration-rules"></a>1,10: dokumentera trafik konfigurations regler
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1.1 | 11,2 | Kund |
 
@@ -211,7 +211,7 @@ https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1,11: Använd automatiserade verktyg för att övervaka konfigurationer för nätverks resurser och identifiera ändringar
 
-| Azure-ID | CIS-ID: n | Ansvar |
+| Azure-ID | CIS-ID: n | Ligger |
 |--|--|--|
 | 1,11 | 11,3 | Kund |
 
@@ -223,7 +223,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Policy exempel för nätverk:
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ## <a name="next-steps"></a>Nästa steg
 

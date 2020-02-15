@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfdfa9f69e00aa644c21fc96cb70e9fa460ca0c1
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422100"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211703"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Vägledning om hur du distribuerar webbappar med hjälp av Azure Resource Manager-mallar
 
@@ -90,7 +90,7 @@ Om din Resource Manager-mall använder MSDeploy kan det vara svårt att förstå
 
 1. Gå till platsens [kudu-konsol](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Bläddra till mappen på D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Leta efter filerna appManagerStatus. xml och appManagerLog. xml. Den första filen loggar status. Den andra filen loggar information om felet. Om felet inte är klart för dig kan du inkludera det när du ber om hjälp i forumet.
+3. Leta efter filerna appManagerStatus. xml och appManagerLog. xml. Den första filen loggar status. Den andra filen loggar information om felet. Om felet inte är klart för dig kan du inkludera det när du ber om hjälp i [forumet](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Välj ett unikt webb program namn
 

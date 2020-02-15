@@ -3,12 +3,12 @@ title: Host. JSON-referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3ad3682e301eb98d48372c3955c6ff049422c517
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: cc982d3f810c944a5273cbf0cf9778076d119692
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024678"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208832"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Host. JSON-referens för Azure Functions 2. x och senare 
 
@@ -19,7 +19,7 @@ ms.locfileid: "77024678"
 *Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga från och med version 2. x i Azure Functions Runtime.  
 
 > [!NOTE]
-> Den här artikeln gäller Azure Functions 2. x och senare versioner.  En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
+> Den här artikeln gäller Azure Functions 2. x och senare versioner.  En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
 
 Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md).
 
@@ -143,23 +143,23 @@ Den fullständiga JSON-strukturen finns i den tidigare [exempel filen Host. JSON
 > [!NOTE]
 > Logg sampling kan orsaka att vissa körningar inte visas på bladet Application Insights övervakning. Om du vill undvika logg sampling lägger du till `samplingExcludedTypes: "Request"` till `applicationInsights` svärdet.
 
-| Egenskap | Default | Beskrivning |
+| Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
-| samplingSettings | Ej tillämpligt | Se [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | Saknas | Se [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | samplingExcludedTypes | null | En semikolonavgränsad lista med typer som du inte vill ska samplas. Identifierade typer är: beroende, händelse, undantag, sid visningar, begäran, spårning. Alla instanser av de angivna typerna överförs. de typer som inte har angetts är samplade. |
 | samplingIncludedTypes | null | En semikolonavgränsad lista med typer som du vill ska samplas om. en tom lista förutsätter alla typer. Typ som anges i `samplingExcludedTypes` åsidosättning-typer som visas här. Identifierade typer är: beroende, händelse, undantag, sid visningar, begäran, spårning. Alla instanser av de angivna typerna överförs. de typer som inte har angetts är samplade. |
-| enableLiveMetrics | sant | Aktiverar insamling av Live-mått. |
-| enableDependencyTracking | sant | Aktiverar beroende spårning. |
-| enablePerformanceCountersCollection | sant | Aktiverar insamling av kudu prestanda räknare. |
+| enableLiveMetrics | true | Aktiverar insamling av Live-mått. |
+| enableDependencyTracking | true | Aktiverar beroende spårning. |
+| enablePerformanceCountersCollection | true | Aktiverar insamling av kudu prestanda räknare. |
 | liveMetricsInitializationDelay | 00:00:15 | Endast för internt bruk. |
-| httpAutoCollectionOptions | Ej tillämpligt | Se [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | Ej tillämpligt | Se [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | Saknas | Se [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | Saknas | Se [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
-| isEnabled | sant | Aktiverar eller inaktiverar sampling. | 
+| isEnabled | true | Aktiverar eller inaktiverar sampling. | 
 | maxTelemetryItemsPerSecond | 20 | Mål antalet för telemetri som loggats per sekund på varje server värd. Om din app körs på många värdar kan du minska det här värdet så att det ligger kvar i den övergripande trafik hastigheten. | 
 | evaluationInterval | 01:00:00 | Intervallet då den aktuella takten för telemetri utvärderas igen. Utvärderingen utförs som ett glidande medelvärde. Du kanske vill förkorta det här intervallet om din telemetri är ansvarig för plötsliga burst-överföring. |
 | initialSamplingPercentage| 1.0 | Den första samplings procenten som används i början av samplings processen för att dynamiskt variera procent andelen. Minska inte värdet när du felsöker. |
@@ -171,35 +171,35 @@ Den fullständiga JSON-strukturen finns i den tidigare [exempel filen Host. JSON
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
-| enableHttpTriggerExtendedInfoCollection | sant | Aktiverar eller inaktiverar utökad HTTP-begäran om HTTP-utlösare: inkommande begäran korrelations rubriker, stöd för flera instrument nycklar, HTTP-metod, sökväg och svar. |
-| enableW3CDistributedTracing | sant | Aktiverar eller inaktiverar stöd för W3C Distributed tracing Protocol (och aktiverar ett äldre korrelations schema). Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Om `enableHttpTriggerExtendedInfoCollection` är falskt gäller den här flaggan endast för utgående begär Anden, inte inkommande begär Anden. |
-| enableResponseHeaderInjection | sant | Aktiverar eller inaktiverar inmatning av korrelations rubriker med flera komponenter i svar. Genom att aktivera inmatning kan Application Insights konstruera en program karta till när flera Instrumentation-nycklar används. Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Den här inställningen gäller inte om `enableHttpTriggerExtendedInfoCollection` är falskt. |
+| enableHttpTriggerExtendedInfoCollection | true | Aktiverar eller inaktiverar utökad HTTP-begäran om HTTP-utlösare: inkommande begäran korrelations rubriker, stöd för flera instrument nycklar, HTTP-metod, sökväg och svar. |
+| enableW3CDistributedTracing | true | Aktiverar eller inaktiverar stöd för W3C Distributed tracing Protocol (och aktiverar ett äldre korrelations schema). Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Om `enableHttpTriggerExtendedInfoCollection` är falskt gäller den här flaggan endast för utgående begär Anden, inte inkommande begär Anden. |
+| enableResponseHeaderInjection | true | Aktiverar eller inaktiverar inmatning av korrelations rubriker med flera komponenter i svar. Genom att aktivera inmatning kan Application Insights konstruera en program karta till när flera Instrumentation-nycklar används. Aktive ras som standard om `enableHttpTriggerExtendedInfoCollection` är sant. Den här inställningen gäller inte om `enableHttpTriggerExtendedInfoCollection` är falskt. |
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights. snapshotConfiguration
 
 Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilder av undantag i .net-appar](/azure/azure-monitor/app/snapshot-debugger) och [Felsöka problem som aktiverar Application Insights Snapshot debugger eller visning av ögonblicks bilder](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Slut punkten som används för att ansluta till tjänsten Application Insights Snapshot Debugger. Om värdet är null används en standard slut punkt. |
 | captureSnapshotMemoryWeight | 0,5 | Vikten som ges till den aktuella processens minnes storlek vid kontroll om det finns tillräckligt med minne för att ta en ögonblicks bild. Det förväntade värdet är ett större än 0-bråk (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | Gränsen för antalet misslyckade förfrågningar för att begära ögonblicks bilder innan telemetri-processorn har inaktiverats.|
-| handleUntrackedExceptions | sant | Aktiverar eller inaktiverar spårning av undantag som inte spåras av Application Insights telemetri. |
-| isEnabled | sant | Aktiverar eller inaktiverar ögonblicks bild samling | 
+| handleUntrackedExceptions | true | Aktiverar eller inaktiverar spårning av undantag som inte spåras av Application Insights telemetri. |
+| isEnabled | true | Aktiverar eller inaktiverar ögonblicks bild samling | 
 | isEnabledInDeveloperMode | false | Aktiverar eller inaktiverar ögonblicks bild samling är aktive rad i utvecklarläge. |
-| isEnabledWhenProfiling | sant | Aktiverar eller inaktiverar skapande av ögonblicks bilder även om Application Insights Profiler samlar in en detaljerad profilerings session. |
+| isEnabledWhenProfiling | true | Aktiverar eller inaktiverar skapande av ögonblicks bilder även om Application Insights Profiler samlar in en detaljerad profilerings session. |
 | isExceptionSnappointsEnabled | false | Aktiverar eller inaktiverar filtrering av undantag. |
-| isLowPrioritySnapshotUploader | sant | Anger om SnapshotUploader-processen ska köras med lägre prioritet. |
+| isLowPrioritySnapshotUploader | true | Anger om SnapshotUploader-processen ska köras med lägre prioritet. |
 | maximumCollectionPlanSize | 50 | Det maximala antalet problem som vi kan spåra när som helst i ett intervall från ett till 9999. |
 | maximumSnapshotsRequired | 3 | Maximalt antal ögonblicks bilder som samlats in för ett enda problem, i ett intervall från en till 999. Ett problem kan betraktas som en enskild Throw-instruktion i ditt program. När antalet ögonblicks bilder som har samlats in för ett problem når detta värde samlas inga fler ögonblicks bilder in för problemet tills problem räknare återställs (se `problemCounterResetInterval`) och gränsen för `thresholdForSnapshotting` nås igen. |
 | problemCounterResetInterval | 24:00:00 | Hur ofta du kan återställa problem räknarna i ett intervall från en minut till sju dagar. När det här intervallet har nåtts återställs alla problem antal till noll. Befintliga problem som redan har nått tröskelvärdet för ögonblicks bilder, men som ännu inte har genererat antalet ögonblicks bilder i `maximumSnapshotsRequired`, förblir aktiva. |
-| provideAnonymousTelemetry | sant | Anger om anonym användning och fel telemetri ska skickas till Microsoft. Den här Telemetrin kan användas om du kontaktar Microsoft för att felsöka problem med Snapshot Debugger. Den används också för att övervaka användnings mönster. |
+| provideAnonymousTelemetry | true | Anger om anonym användning och fel telemetri ska skickas till Microsoft. Den här Telemetrin kan användas om du kontaktar Microsoft för att felsöka problem med Snapshot Debugger. Den används också för att övervaka användnings mönster. |
 | reconnectInterval | 00:15:00 | Hur ofta ansluter vi till Snapshot Debugger slut punkten igen. Det tillåtna intervallet är en minut till en dag. |
 | shadowCopyFolder | null | Anger den mapp som ska användas för skugg kopiering av binärfiler. Om den inte har angetts försöker mapparna som anges av följande miljövariabler i ordning: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
-| shareUploaderProcess | sant | Om värdet är true kommer endast en instans av SnapshotUploader att samla in och överföra ögonblicks bilder för flera appar som delar InstrumentationKey. Om värdet är false blir SnapshotUploader unikt för varje (ProcessName, InstrumentationKey) tupel. |
-| snapshotInLowPriorityThread | sant | Bestämmer om ögonblicks bilder ska bearbetas i en tråd för låg IO-prioritet. Att skapa en ögonblicks bild är en snabb åtgärd, men för att ladda upp en ögonblicks bild till Snapshot Debugger tjänsten måste den först skrivas till disk som en MiniDump. Detta sker i SnapshotUploader-processen. Genom att ange värdet True används låg prioritets-IO för att skriva Minidump, som inte konkurrerar med ditt program för resurser. Genom att ställa in det här värdet på falskt går det snabbare att skapa Minidump på kostnaderna för att sakta ned programmet. |
+| shareUploaderProcess | true | Om värdet är true kommer endast en instans av SnapshotUploader att samla in och överföra ögonblicks bilder för flera appar som delar InstrumentationKey. Om värdet är false blir SnapshotUploader unikt för varje (ProcessName, InstrumentationKey) tupel. |
+| snapshotInLowPriorityThread | true | Bestämmer om ögonblicks bilder ska bearbetas i en tråd för låg IO-prioritet. Att skapa en ögonblicks bild är en snabb åtgärd, men för att ladda upp en ögonblicks bild till Snapshot Debugger tjänsten måste den först skrivas till disk som en MiniDump. Detta sker i SnapshotUploader-processen. Genom att ange värdet True används låg prioritets-IO för att skriva Minidump, som inte konkurrerar med ditt program för resurser. Genom att ställa in det här värdet på falskt går det snabbare att skapa Minidump på kostnaderna för att sakta ned programmet. |
 | snapshotsPerDayLimit | 30 | Maximalt antal ögonblicks bilder som tillåts på en dag (24 timmar). Den här gränsen tillämpas också på Application Insights tjänst sidan. Uppladdningar är begränsade till 50 per dag per program (det vill säga per Instrumentation-nyckel). Det här värdet förhindrar skapandet av ytterligare ögonblicks bilder som slutligen kommer att avvisas under överföringen. Värdet noll tar bort gränsen helt, vilket inte rekommenderas. |
 | snapshotsPerTenMinutesLimit | 1 | Maximalt antal ögonblicks bilder som tillåts om 10 minuter. Även om det inte finns något övre gränser för det här värdet, är det bättre att öka det på produktions arbets belastningar eftersom det kan påverka programmets prestanda. Det går snabbt att skapa en ögonblicks bild, men att skapa en MiniDump av ögonblicks bilden och ladda upp den till Snapshot Debugger tjänsten är en mycket långsammare åtgärd som kommer att konkurrera med ditt program för resurser (både CPU och I/O). |
 | tempFolder | null | Anger den mapp där loggfiler för minidumpar och uppladdning ska skrivas. Om inget anges används *%Temp%\Dumps* . |
@@ -228,7 +228,7 @@ Med tilläggs paket kan du lägga till en kompatibel uppsättning funktions bind
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funktionen
 
 En lista med funktioner som jobb värden kör. En tom matris innebär att köra alla-funktioner. Endast avsedd att användas när du [Kör lokalt](functions-run-local.md). I Function-appar i Azure bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) för att inaktivera vissa funktioner i stället för att använda den här inställningen.
 
@@ -268,9 +268,9 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|enabled|sant|Anger om funktionen är aktive rad. | 
+|enabled|true|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
 |healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold`-inställningen.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
@@ -278,7 +278,7 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 ## <a name="http"></a>http
 
-Konfigurations inställningar kan hittas i [http-utlösare och bindningar](functions-bindings-http-webhook.md#hostjson-settings).
+Konfigurations inställningar kan hittas i [http-utlösare och bindningar](functions-bindings-http-webhook-output.md#hostjson-settings).
 
 ## <a name="logging"></a>Logging
 
@@ -300,12 +300,12 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always``debugOnly`. |
-|logLevel|Ej tillämpligt|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
-|konsol|Ej tillämpligt| Den [console](#console) inställning för aktivitetsloggning. |
-|applicationInsights|Ej tillämpligt| Inställningen [applicationInsights](#applicationinsights) . |
+|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
+|konsol|Saknas| Loggnings inställningen för [konsolen](#console) . |
+|applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>konsol
 
@@ -323,7 +323,7 @@ Den här inställningen är underordnad [loggning](#logging). Den styr konsol lo
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|false|Aktiverar eller inaktiverar konsol loggning.| 
 
@@ -367,13 +367,13 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|Den period som funktions nivå lås utförs för. Lås automatisk förnyelse.| 
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Ej tillämpligt|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
 
 ## <a name="version"></a>version
 

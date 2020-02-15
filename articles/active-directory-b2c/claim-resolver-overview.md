@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e3a80628e5729813e1d405e58ecb623925b63076
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193387"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251778"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -66,14 +66,14 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | SAKNAS |
+| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Saknas |
 | {OIDC:ClientId} |Parametern `client_id` frågesträng. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametern `domain_hint` frågesträng. | facebook.com |
 | {OIDC: LoginHint} |  Parametern `login_hint` frågesträng. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | SAKNAS |
+| {OIDC:MaxAge} | `max_age`. | Saknas |
 | {OIDC:Nonce} |Parametern `Nonce` frågesträng. | defaultNonce |
 | {OIDC: prompt} | Parametern `prompt` frågesträng. | inloggning |
-| {OIDC:Resource} |Parametern `resource` frågesträng. | SAKNAS |
+| {OIDC:Resource} |Parametern `resource` frågesträng. | Saknas |
 | {OIDC: omfång} |Parametern `scope` frågesträng. | OpenID |
 
 ### <a name="context"></a>Kontext
@@ -96,13 +96,13 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV:loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | SAKNAS |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Saknas |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Åtkomsttoken. | SAKNAS |
+| {oauth2:access_token} | Åtkomsttoken. | Saknas |
 
 ## <a name="using-claim-resolvers"></a>Använda anspråks matchare 
 
@@ -123,16 +123,16 @@ Du kan använda anspråk matchare med följande element:
 |[RelyingParty](relyingparty.md#technicalprofile) teknisk profil| `OutputClaim`| 2 |
 
 Autentiseringsinställningar 
-1. `IncludeClaimResolvingInClaimsHandling` metadata måste anges till `true`
-1. Attributet indata-eller utgående anspråk `AlwaysUseDefaultValue` måste anges till `true`
+1. `IncludeClaimResolvingInClaimsHandling` metadata måste anges till `true`.
+1. Attributet indata-eller utgående anspråk `AlwaysUseDefaultValue` måste anges till `true`.
 
-## <a name="how-to-use-claim-resolvers"></a>Använda anspråk matchare
+## <a name="claim-resolvers-samples"></a>Exempel på anspråks lösare
 
 ### <a name="restful-technical-profile"></a>RESTful teknisk profil
 
 I en [RESTful](restful-technical-profile.md) teknisk profil kanske du vill skicka användar språket, princip namnet, omfattningen och klient-ID: t. Baserat på dessa anspråk kan REST API köra anpassad affärs logik, och om det behövs kan du generera ett lokaliserat fel meddelande.
 
-I följande exempel visas en RESTful teknisk profil:
+I följande exempel visas en RESTful teknisk profil med det här scenariot:
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -142,12 +142,13 @@ I följande exempel visas en RESTful teknisk profil:
     <Item Key="ServiceUrl">https://your-app.azurewebsites.net/api/identity</Item>
     <Item Key="AuthenticationType">None</Item>
     <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
   </Metadata>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" />
-    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" />
-    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" />
+    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
@@ -159,9 +160,9 @@ Med hjälp av anspråks matchare kan du fylla i inloggnings namnet eller diriger
 
 ### <a name="dynamic-ui-customization"></a>Anpassning av dynamiskt gränssnitt
 
-Med Azure AD B2C kan du skicka frågesträngs parametrar till dina HTML-slutpunkter för innehålls definitioner så att du dynamiskt kan återge sid innehållet. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
+Med Azure AD B2C kan du skicka frågesträngs parametrar till definitions slut punkter för HTML-innehåll för att dynamiskt återge sid innehållet. Detta gör det till exempel möjligt att ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
 
-Följande exempel skickar i frågesträngen en parameter med namnet **campaignId** med värdet `hawaii`, en **språk** kod `en-US`och en **app** som representerar klient-ID:
+Följande exempel skickar i frågesträngparametern med namnet **campaignId** med värdet `hawaii`, en **språkkod** `en-US`och en **app** som representerar klient-ID:
 
 ```XML
 <UserJourneyBehaviors>
@@ -173,10 +174,21 @@ Följande exempel skickar i frågesträngen en parameter med namnet **campaignId
 </UserJourneyBehaviors>
 ```
 
-Som ett resultat Azure AD B2C skickar ovanstående parametrar till sidan HTML-innehåll:
+Därför skickar Azure AD B2C ovanstående parametrar till sidan HTML-innehåll:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
+```
+
+### <a name="content-definition"></a>Innehålls definition
+
+I en [ContentDefinition](contentdefinitions.md) `LoadUri`kan du skicka anspråk matchare för att hämta innehåll från olika platser, baserat på de parametrar som används. 
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
 ### <a name="application-insights-technical-profile"></a>Application Insights teknisk profil
@@ -195,4 +207,29 @@ Med Azure Application insikter och anspråks matchare kan du få insikter om anv
     <InputClaim ClaimTypeReferenceId="AppId" PartnerClaimType="{property:App}" DefaultValue="{OIDC:ClientId}" />
   </InputClaims>
 </TechnicalProfile>
+```
+
+### <a name="relying-party-policy"></a>Princip för förlitande part
+
+I en teknisk profil för [förlitande part](relyingparty.md) , kanske du vill skicka klient-ID eller KORRELATIONS-ID till det förlitande part programmet i JWT. 
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="correlationId" AlwaysUseDefaultValue="true" DefaultValue="{Context:CorrelationId}" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
 ```

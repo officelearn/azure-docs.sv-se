@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 3e7402be79f7b57a426543c35f08524e0da9d283
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c5a413a4fe8d9ac9b7aac59ca78cedc6d5a7a313
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024542"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206182"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Språk-och region stöd för API för textanalys
 
@@ -47,11 +47,11 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 > [!NOTE]
 > Mer information om språk stöd för den namngivna enhets igenkänningen (NER) v3 Public Preview finns i [namngivna entitetstyper](named-entity-types.md).
 
-| Språk              | Språkkod | Sentiment | Nyckelfraser | Igenkänning av namngiven entitet | Länkning av entitet |       Anteckningar        |
+| Språk              | Språkkod | Sentiment | Nyckel fraser | Igenkänning av namngiven enhet | Länkning av entitet |       Anteckningar        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabiska                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Tjeckiska                 |     `cs`      |           |             |           ✔ \*           |                |                    |
-| Kinesiska – Förenklad    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Kinesiska – Förenklad    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                | `zh` också accepterat                   |
 | Kinesiska (traditionell)   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
 | Danska                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Nederländska                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
@@ -64,7 +64,7 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 | Italienska               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Japanska              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
 | Koreanska                |     `ko`      |   ✔ \*\*  |      ✔      |           ✔ \*           |                |                    |
-| Norska (bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Norska (bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                | `nb` också accepterat                   |
 | Polska                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
 | Portugisiska (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` också accepterat |
 | Portugisiska (Brasilien)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
@@ -77,7 +77,7 @@ Språk stöd är inlednings vis insamlat i för hands version, som är i allmän
 
 \** är även tillgängligt i [Attitydanalys v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) och/eller [med namnet Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) offentlig förhands visning.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Cognitive Services dokumentations sida](https://docs.microsoft.com/azure/cognitive-services/)   
 [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

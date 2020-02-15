@@ -1,19 +1,19 @@
 ---
 title: Kart stils funktioner | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om stil relaterade funktioner som är tillgängliga i Microsoft Azure Maps-webbsdk.
-author: walsehgal
-ms.author: v-musehg
+description: I den här artikeln får du lära dig mer om utförande av funktioner som är tillgängliga i Microsoft Azure Maps-webbsdk.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cabf39f017afe440c883a63db57643c5c5367128
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b793a0fc977d3da4b4b6753877e838441e70e800
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189744"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210097"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Välj en kart stil i Azure Maps
 

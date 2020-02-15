@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: a2a65c6fcca4a037408c6b7e780708623aebed2b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114417"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212255"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -182,7 +182,7 @@ Välj följande alternativ, som du ser på bilden:
 
 1. Välj *på* för **status**
 2. Välj *version 2* för **flödes loggar version**. Version 2 innehåller statistik för flödes-session (byte och paket)
-3. Välj ett befintligt lagrings konto för att lagra flödes loggarna i. Ange värdet till *0*om du vill lagra data permanent. Du debiteras Azure Storage avgifter för lagrings kontot. Kontrol lera att lagrings utrymmet för Data Lake Storage Gen2 hierarkiskt namn område är inställt på sant. Dessutom kan NSG Flow-loggar inte lagras i ett lagrings konto med en brand vägg. 
+3. Välj ett befintligt lagrings konto för att lagra flödes loggarna i. Ange värdet till *0*om du vill lagra data permanent. Du debiteras Azure Storage avgifter för lagrings kontot. Kontrol lera att lagrings utrymmet för Data Lake Storage Gen2 hierarkiskt namn område är inställt på sant.
 4. Ange **kvarhållning** till det antal dagar som du vill lagra data för.
 > [!IMPORTANT]
 > För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025460"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209553"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
 
-Azure Maps använder både raster paneler och vektor paneler för att skapa kartor. Med den lägsta lösningen passar hela världen i en enda panel. Med den högsta upplösningen representerar en enda panel 38 kvadratmeter. När du zoomar in visas mer information om kontinenter, regioner, städer och enskilda gator. Mer information om paneler finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
+Azure Maps använder både raster paneler och vektor paneler för att skapa kartor. Med den lägsta lösningen passar hela världen i en enda panel. Med den högsta upplösningen representerar en enda panel 38 kvadratmeter. Du kan se mer information om kontinenter, regioner, städer och enskilda gator när du zoomar in kartan. Mer information om paneler finns i [zoomnings nivåer och panel rutnät](zoom-levels-and-tile-grid.md).
 
 Maps har dock inte samma nivå av information och exakthet för alla regioner. Följande tabeller beskriver den informations nivå som du kan återge för varje region.
 
@@ -29,7 +29,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Ø | Regionen representeras med förenklade data. |
 
 
-## <a name="africa"></a>Afrika 
+## <a name="africa"></a>Centralafrika 
 
 
 | Land/region | Raster paneler Unified | Vektor paneler Unified |
@@ -40,13 +40,13 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Botswana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Cabo Verde                       | ✓ | ✓ |
+| Kap Verde                       | ✓ | ✓ |
 | Kamerun                         | ✓ | ✓ |
 | Centralafrikanska republiken         | ✓ | Ø |
 | Tchad                             | ✓ | Ø |
 | Komorerna                          | ✓ | Ø |
 | Demokratiska republiken Kongo | ✓ | ✓ |
-| Côte d'Ivoire                    | ✓ | Ø |
+| Côte D' Ivoire                    | ✓ | Ø |
 | Djibouti                         | ✓ | Ø |
 | Egypten                            | ✓ | ✓ |
 | Ekvatorialguinea                | ✓ | Ø |
@@ -101,7 +101,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   | ✓ | ✓ |
+| Snygg                   | ✓ | ✓ |
 | Mångnationella staten staten Bolivia | ✓ | ✓ |
 | Bonaire, Sint Eustatius och Saba | ✓ | ✓ |
 | Brasilien                    | ✓ | ✓ |
@@ -117,7 +117,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Ecuador                   | ✓ | ✓ |
 | Falklandsöarna | ✓ | ✓ |
 | Franska Guyana             | ✓ | ✓ |
-| Grönland                 | ✓ | Ø |
+| Grönland (Danmark)                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadeloupe                | ✓ | ✓ |
 | Guatemala                 | ✓ | ✓ |
@@ -142,7 +142,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Saint Pierre och Miquelon | ✓ | ✓ |
 | Saint Vincent och Grenadinerna | ✓ | ✓ |
 | Sint Maarten (nederländska)      | ✓ | ✓ |
-| Sydgeorgien och Sydsandwichöarna | ✓ | ✓ |
+| Södra Georgien och Sydsandwichöarna | ✓ | ✓ |
 | Surinam                  | ✓ | ✓ |
 | Trinidad och Tobago       | ✓ | ✓ |
 | Turks- och Caicosöarna  | ✓ | ✓ |
@@ -174,7 +174,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Israel                    |   | ✓ |
 | Japan                     |   | Ø |
 | Jordanien                    | ✓ | ✓ |
-| Kazakstan                |   | ✓ |
+| Kazakhstan                |   | ✓ |
 | Kuwait                    | ✓ | ✓ |
 | Kirgizistan                |   | Ø |
 | Demokratiska folkrepubliken Laos |   | Ø |
@@ -189,7 +189,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Pakistan                  |   | Ø |
 | Filippinerna               | ✓ | ✓ |
 | Qatar                     | ✓ | ✓ |
-| Republiken Korea         | ✓ | Ø |
+| Sydkorea         | ✓ | Ø |
 | Saudiarabien              | ✓ | ✓ |
 | Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien           |   | ✓ |
 | Singapore                 | ✓ | ✓|
@@ -201,7 +201,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Timor-Leste               |   | Ø |
 | Turkmenistan              |   | Ø |
 | Förenade Arabemiraten      | ✓ | ✓ |
-| Förenta staternas mindre öar |   | Ø |
+| USA mindre öar |   | Ø |
 | Uzbekistan                |   | Ø |
 | Vietnam                   | ✓ | ✓ |
 | Jemen                     | ✓ | ✓ |
@@ -229,7 +229,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Pitcairn                  |   | Ø |
 | Samoaöarna                     |   | Ø |
 | Salomonöarna           |   | Ø|
-| Tokelauöarna                   |   | Ø |
+| Tokelau                   |   | Ø |
 | Tonga                     |   | Ø |
 | Tuvalu                    |   | Ø |
 | Vanuatu                   |   | Ø |
@@ -265,7 +265,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Ungern                   | ✓ | ✓ |
 | Island                   | ✓ | ✓ |
 | Irland                   | ✓ | ✓ |
-| Isle of Man               | ✓ | ✓ |
+| Isle of man               | ✓ | ✓ |
 | Italien                     | ✓ | ✓ |
 | Jan Mayen                 | ✓ | ✓ |
 | Jersey                    | ✓ | ✓ |

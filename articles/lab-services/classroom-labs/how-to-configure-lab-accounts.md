@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 597bbfdc35c556b5c75968084c01ac222fc468f4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 37a657093fd55ce752095417fe744f83946962db
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718081"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210591"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.
@@ -37,18 +37,6 @@ Följ dessa steg om du vill ansluta ett virtuellt nätverk som ett peer-nätverk
 Labb som skapats i det här kontot är anslutna till det valda virtuella nätverket. De kan komma åt resurserna i det valda virtuella nätverket. Mer information finns i [ansluta ditt labb nätverk till ett virtuellt peer-nätverk i Azure Lab Services](how-to-connect-peer-virtual-network.md).
 
 När du väljer ett virtuellt nätverk för det **virtuella peer-nätverket** är alternativet **Tillåt att labb skaparen att välja labb plats** inaktiverat. Det beror på att labb i labb kontot måste finnas i samma region som labb kontot för att de ska kunna ansluta till resurser i det virtuella peer-nätverket. 
-
-## <a name="allow-lab-creator-to-pick-location-for-the-lab"></a>Tillåt labb skapare att välja plats för labbet
-Du kan låta labb skaparen skapa labb på en annan plats än labb kontots placering genom att följa dessa steg: 
-
-1. På sidan **labb konto** väljer du **labb konfiguration** på den vänstra menyn.
-2. För att **Tillåt labb skaparen att välja labb plats**väljer du **aktive rad** om du vill att labb skaparen ska kunna välja en plats för labbet. Om den är inaktive rad skapas labben automatiskt på samma plats som labb kontot finns i. 
-    
-    Det här fältet är inaktiverat när du väljer ett virtuellt nätverk för fältet **peer Virtual Network** . Det beror på att labb i labb kontot måste finnas i samma region som labb kontot för att få åtkomst till resurser i det virtuella peer-nätverket. 
-1. Välj **Spara** i verktygsfältet. 
-
-    ![Konfigurera inställningen för labb plats](../media/how-to-manage-lab-accounts/labs-configuration-page-lab-location.png)
-
 
 ## <a name="specify-an-address-range-for-vms-in-the-lab"></a>Ange ett adress intervall för virtuella datorer i labbet
 Följande procedur innehåller steg för att ange ett adress intervall för virtuella datorer i labbet. Om du uppdaterar intervallet som du har angett gäller det ändrade adress intervallet endast för virtuella datorer som skapas när ändringen har gjorts. 

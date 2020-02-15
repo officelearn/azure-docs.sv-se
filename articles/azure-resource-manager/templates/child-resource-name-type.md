@@ -3,12 +3,12 @@ title: Underordnade resurser i mallar
 description: Beskriver hur du anger namn och typ för underordnade resurser i en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122023"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207901"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ange namn och typ för underordnade resurser
 
@@ -27,7 +27,7 @@ I en Resource Manager-mall kan du ange den underordnade resursen antingen i den 
 ]
 ```
 
-I nästa exempel visas den underordnade resursen utanför den överordnade resursen. Du kan använda den här metoden om den överordnade resursen inte har distribuerats i samma mall, eller om du vill använda [Kopiera](create-multiple-instances.md) för att skapa fler än en underordnad resurs.
+I nästa exempel visas den underordnade resursen utanför den överordnade resursen. Du kan använda den här metoden om den överordnade resursen inte har distribuerats i samma mall, eller om du vill använda [Kopiera](copy-resources.md) för att skapa fler än en underordnad resurs.
 
 ```json
 "resources": [

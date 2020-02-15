@@ -4,22 +4,21 @@ description: Lär dig hur du aktiverar identitets baserad autentisering över SM
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 01/06/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 489cb9e652d571b5322a1bd92663ca089e28b8cd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 06ff14b23057755a643e5a57fbaf711798cca00e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980782"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210490"
 ---
-# <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering över SMB för Azure Files
+# <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering på Azure Files
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-En översikt över Azure AD-autentisering över SMB för Azure Files finns i [Översikt över Azure Active Directory autentisering över SMB för Azure Files](storage-files-active-directory-overview.md).
-
+En översikt över den identitetsbaserade autentisering som stöds på Azure Files finns i [Översikt över Azure Active Directory autentisering över SMB för Azure Files](storage-files-active-directory-overview.md). Den här artikeln fokuserar på hur du aktiverar autentisering med Azure Active Directory Domain Services (Azure AD DS) på Azure Files. 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Översikt över arbets flödet
@@ -37,7 +36,7 @@ Följande diagram illustrerar arbets flödet från slut punkt till slut punkt f�
 
 ![Diagram över Azure AD över SMB för Azure Files arbets flöde](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du aktiverar Azure AD över SMB för Azure Files bör du kontrol lera att du har slutfört följande krav:
 
@@ -71,11 +70,11 @@ Innan du aktiverar Azure AD över SMB för Azure Files bör du kontrol lera att 
 
 ## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Aktivera Azure AD DS-autentisering för ditt konto
 
-Om du vill aktivera Azure AD DS-autentisering över SMB för Azure Files kan du ange en egenskap för lagrings konton som skapats efter den 24 september 2018 genom att använda Azure Portal, Azure PowerShell eller Azure CLI. Om du anger den här egenskapen registreras lagrings kontot med den associerade Azure AD DS-distributionen. Azure AD DS-autentisering över SMB aktive ras sedan för alla nya och befintliga fil resurser i lagrings kontot.
+Om du vill aktivera Azure AD DS-autentisering över SMB för Azure Files kan du ange en egenskap för lagrings konton med hjälp av Azure Portal, Azure PowerShell eller Azure CLI. Om du anger den här egenskapen implicit "domän anslutning" är lagrings kontot med den associerade Azure AD DS-distributionen. Azure AD DS-autentisering över SMB aktive ras sedan för alla nya och befintliga fil resurser i lagrings kontot.
 
 Tänk på att du bara kan aktivera Azure AD DS-autentisering över SMB när du har distribuerat Azure AD DS till Azure AD-klienten. Mer information finns i [krav](#prerequisites).
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Följ dessa steg om du vill aktivera Azure AD DS-autentisering över SMB med [Azure Portal](https://portal.azure.com):
 
@@ -147,11 +146,11 @@ Vi har lanserat två inbyggda Azure-roller för att bevilja behörigheter på re
 
 Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure-portalen
 Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till fil resursen eller [skapar en fil resurs i Azure Files](storage-how-to-create-file-share.md).
-2. Välj **åtkomstkontroll (IAM)** .
+2. Välj **Access Control (IAM)** .
 3. Välj **Lägg till en roll tilldelning**
 4. På bladet **Lägg till roll tilldelning** väljer du lämplig inbyggd roll (lagrings fil data SMB Share Reader, Storage File data SMB Share Contributor) från **roll** listan. Behåll alternativet **tilldela åtkomst till** med standardinställningen: **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj målets Azure AD-identitet efter namn eller e-postadress.
 5. Klicka på **Spara** för att slutföra roll tilldelnings åtgärden.
@@ -249,4 +248,4 @@ Mer information om Azure Files och hur du använder Azure AD över SMB finns i f
 
 - [Introduktion till Azure Files](storage-files-introduction.md)
 - [Översikt över Azure Active Directory-autentisering över SMB för Azure Files](storage-files-active-directory-overview.md)
-- [Vanliga frågor och svar](storage-files-faq.md)
+- [VANLIGA FRÅGOR OCH SVAR](storage-files-faq.md)

@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121700"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209366"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabb start: skapa en Azure Kognitiv sökning-tjänst i portalen
 
-Azure Kognitiv sökning är en fristående resurs som används för att koppla in en Sök funktion i anpassade appar. Även om Azure Kognitiv sökning enkelt integreras med andra Azure-tjänster, kan du också använda den som en fristående komponent eller integrera den med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
+Azure Kognitiv sökning är en fristående resurs som används för att koppla en Sök upplevelse till anpassade appar. Azure Kognitiv sökning integreras enkelt med andra Azure-tjänster, med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
 
 I den här artikeln får du lära dig hur du skapar en resurs i [Azure Portal](https://portal.azure.com/).
 
@@ -45,18 +45,18 @@ Om du har mer än en prenumeration väljer du en för Sök tjänsten.
 
 ## <a name="set-a-resource-group"></a>Ange en resurs grupp
 
-En resurs grupp krävs och är användbar för att hantera alla resurser, inklusive kostnader. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Kognitiv sökning för att indexera en Azure Cosmos DB databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
+En resurs grupp är en behållare som innehåller relaterade resurser för din Azure-lösning. Det krävs för Sök tjänsten. Det är också användbart för att hantera alla resurser, inklusive kostnader. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Kognitiv sökning för att indexera en Azure Cosmos DB databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
 
 Om du inte kombinerar resurser till en enda grupp, eller om befintliga resurs grupper är fyllda med resurser som används i orelaterade lösningar, skapar du en ny resurs grupp för din Azure Kognitiv sökning-resurs. 
 
 ![Skapa en ny resurs grupp](./media/search-create-service-portal/new-resource-group.png "Skapa en ny resursgrupp")
 
-Med tiden kan du spåra aktuella och projekterade kostnader alla (se skärm bilden) eller rulla nedåt för att Visa avgifter för enskilda resurser. Följande skärm bild visar vilken typ av kostnads information som du kan förväntar dig att se när du kombinerar flera resurser i en grupp.
+Med tiden kan du spåra aktuella och projicerade kostnader hela tiden, eller så kan du Visa avgifter för enskilda resurser. Följande skärm bild visar vilken typ av kostnads information som du kan se när du kombinerar flera resurser i en grupp.
 
 ![Hantera kostnader på resurs grupps nivå](./media/search-create-service-portal/resource-group-cost-management.png "Hantera kostnader på resurs grupps nivå")
 
 > [!TIP]
-> Resurs grupper fören klar rensningen eftersom borttagning av en grupp också tar bort tjänsterna i den. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
+> Resurs grupper fören klar rensningen eftersom borttagning av en grupp tar bort alla tjänster i den. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
 
 ## <a name="name-the-service"></a>Namnge tjänsten
 
@@ -65,10 +65,10 @@ I instans information anger du ett tjänst namn i **URL** -fältet. Namnet är e
 Kraven för tjänstnamn:
 
 * Det måste vara unikt inom namnområdet search.windows.net
-* 2 och 60 tecken
-* Använd gemena bokstäver, siffror och bindestreck (”-”)
-* Undvik streck (”-”) i de första 2 tecknen eller som sista enskilt tecken
-* Inga streck i följd (”--”) någonstans
+* Det måste vara mellan 2 och 60 tecken långt
+* Du måste använda små bokstäver, siffror eller bindestreck ("-")
+* Använd inte bindestreck ("-") i de första 2 tecknen eller som det sista enkla tecknet
+* Du får inte använda flera bindestreck ("--") var som helst
 
 > [!TIP]
 > Om du tror att du kommer att använda flera tjänster rekommenderar vi att du inkluderar regionen (eller platsen) i tjänst namnet som en namngivnings konvention. Tjänster inom samma region kan utbyta data utan kostnad, så om Azure Kognitiv sökning är i västra USA och du har andra tjänster även i västra USA, kan ett namn som `mysearchservice-westus` Spara en resa till sidan Egenskaper när du bestämmer dig för att kombinera eller bifoga resurser.
@@ -79,7 +79,7 @@ Som Azure-tjänst kan Azure Kognitiv sökning ligga i Data Center över hela vä
 
 Du kan minimera eller undvika bandbredds avgifter genom att välja samma plats för flera tjänster. Om du till exempel indexerar data som tillhandahålls av en annan Azure-tjänst (Azure Storage, Azure Cosmos DB Azure SQL Database) och skapar din Azure Kognitiv sökning-tjänst i samma region, undviks bandbredds avgifter (inga avgifter för utgående data när tjänsterna finns i samma region).
 
-Om du använder AI-anrikning skapar du dessutom din tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
+Om du använder AI-anrikning skapar du din Sök tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
 
 > [!Note]
 > Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i Central Indien kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningen i den här regionen är temporär och begränsad till endast nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
@@ -90,7 +90,7 @@ Om du använder AI-anrikning skapar du dessutom din tjänst i samma region som C
 
 Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten. Viktiga skillnader mellan nivåer är partitionens storlek och hastighet och begränsningar för antalet objekt som du kan skapa.
 
-Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. Om du senare behöver en högre eller lägre nivå måste du skapa tjänsten på nytt.
+Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. Om du behöver en högre eller lägre nivå måste du återskapa tjänsten.
 
 ## <a name="create-your-service"></a>Skapa din tjänst
 
@@ -98,7 +98,7 @@ När du har angett nödvändiga indata kan du gå vidare och skapa tjänsten.
 
 ![Granska och skapa tjänsten](./media/search-create-service-portal/new-service3.png "Granska och skapa tjänsten")
 
-Tjänsten distribueras inom några minuter, som du kan övervaka via Azure-meddelanden. Överväg att fästa tjänsten på instrument panelen för enkel åtkomst i framtiden.
+Tjänsten distribueras på några minuter. Du kan övervaka förloppet via Azure-meddelanden. Överväg att fästa tjänsten på instrument panelen för enkel åtkomst i framtiden.
 
 ![Övervaka och fäst tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervaka och fäst tjänsten")
 

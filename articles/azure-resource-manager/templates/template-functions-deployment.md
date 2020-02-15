@@ -3,12 +3,12 @@ title: Mall funktioner – distribution
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta distributions information.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: f2939efc9481255233fbdda29f4fa30adcd24b7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b241aaf43ee3204c9960d0099ce3c61d4c1a80ee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484043"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207289"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributions funktioner för Azure Resource Manager mallar 
 
@@ -17,7 +17,7 @@ Resource Manager innehåller följande funktioner för att hämta värden som ä
 * [spridningen](#deployment)
 * [miljö](#environment)
 * [parameters](#parameters)
-* [variables](#variables)
+* [användarvariabler](#variables)
 
 För att hämta värden från resurser, resurs grupper eller prenumerationer, se [resurs funktioner](template-functions-resource.md).
 
@@ -77,7 +77,7 @@ När objektet skickas som en länk, till exempel när du använder parametern **
 
 När du [distribuerar till en Azure-prenumeration](deploy-to-subscription.md), i stället för en resurs grupp, innehåller retur-objektet en `location`-egenskap. Egenskapen Location ingår när du distribuerar antingen en lokal mall eller en extern mall.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Du kan använda Deployment () för att länka till en annan mall baserat på den överordnade mallens URI.
 
@@ -247,7 +247,7 @@ Returnerar ett parameter värde. Det angivna parameter namnet måste definieras 
 
 Värdet för den angivna parametern.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Normalt använder du parametrar för att ange resurs värden. I följande exempel anges namnet på webbplatsen till det parameter värde som överfördes under distributionen.
 
@@ -328,11 +328,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | String | alternativ 1 |
+| stringOutput | Sträng | alternativ 1 |
 | intOutput | Int | 1 |
 | objectOutput | Objekt | {"One": "a", "två": "b"} |
 | arrayOutput | Matris | [1, 2, 3] |
-| crossOutput | String | alternativ 1 |
+| crossOutput | Sträng | alternativ 1 |
 
 Mer information om hur du använder parametrar finns [i parametrar i Azure Resource Manager mall](template-parameters.md).
 
@@ -346,13 +346,13 @@ Returnerar värdet för variabeln. Det angivna variabel namnet måste definieras
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| variableName |Ja |String |Namnet på variabeln som ska returneras. |
+| variableName |Ja |Sträng |Namnet på variabeln som ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
 Värdet för den angivna variabeln.
 
-### <a name="remarks"></a>Anmärkningar
+### <a name="remarks"></a>Kommentarer
 
 Normalt använder du variabler för att förenkla din mall genom att endast konstruera komplexa värden en gång. I följande exempel skapas ett unikt namn för ett lagrings konto.
 
@@ -420,16 +420,16 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | Variabel |
+| exampleOutput1 | Sträng | Variabel |
 | exampleOutput2 | Matris | [1, 2, 3, 4] |
-| exampleOutput3 | String | Variabel |
+| exampleOutput3 | Sträng | Variabel |
 | exampleOutput4 |  Objekt | {"Egenskap1": "värde1", "Egenskap2": "värde2"} |
 
 Mer information om hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitt i en Azure Resource Manager-mall finns i [redigera Azure Resource Manager-mallar](template-syntax.md).
+* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
 * Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
-* Iterera ett angivet antal gånger när du skapar en typ av resurs, finns i [och skapa flera instanser av resurser i Azure Resource Manager](create-multiple-instances.md).
-* Om du vill se hur du distribuerar mallen som du har skapat, se [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).
+* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
 

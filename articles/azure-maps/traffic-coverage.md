@@ -1,19 +1,19 @@
 ---
 title: Trafik täckning | Microsoft Azure Maps
 description: I den här artikeln får du lära dig mer om trafik täckning i Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 083f659f9392faff8f381e1552db23c291ffa8ca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 02d57f39f2a911864ebe16d05456409d0119b495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988154"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209536"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 
@@ -23,7 +23,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-|Land/region  |Incidenter  |Flow  |
+|Land/region  |Incidenter  |Flöde  |
 |---------|:---------:|:---------:|
 |Argentina      |✓         |✓         |
 |Brasilien     |✓         |✓         |
@@ -39,14 +39,14 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-|Land/region   |Incidenter  |Flow  |
+|Land/region   |Incidenter  |Flöde  |
 |---------|:---------:|:---------:|
 |Australien     |✓         |✓        |
 |Brunei   |✓         |✓        |
 |Hongkong SAR     |✓         |✓         |
 |Indien   |✓         |✓         |
 |Indonesien     |✓         |✓         |
-|Kazakstan    |✓         |✓         |
+|Kazakhstan    |✓         |✓         |
 |Macao SAR     |✓         |✓         |
 |Malaysia     |✓         |✓         |
 |Nya Zeeland     |✓         |✓         |
@@ -59,7 +59,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="europe"></a>Europa
 
-|Land/region   |Incidenter  |Flow  |
+|Land/region   |Incidenter  |Flöde  |
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Österrike     |✓         |✓         |
@@ -81,7 +81,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 |Island     |✓         |✓         |
 |Irland     |✓         |✓         |
 |Italien     |✓         |✓        |
-|Kazakstan    |✓         |✓        |
+|Kazakhstan    |✓         |✓        |
 |Lettland     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |
@@ -117,7 +117,7 @@ Maps har dock inte samma nivå av information och noggrannhet för alla länder 
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-|Land/region |Incidenter  |Flow  |
+|Land/region |Incidenter  |Flöde  |
 |---------|:---------:|:---------:|
 |Bahrain     |✓         |✓         |
 |Egypten     |✓         |✓         |

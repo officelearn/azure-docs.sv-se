@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c2dc98d683d822628dc9ea1b4ead02279ea10ea5
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687602"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251812"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Vanliga frågor och svar om Azure App Service på Linux
 
@@ -30,17 +30,17 @@ Du kan hitta alla Docker-filer på [GitHub](https://github.com/azure-app-service
 
 **Vilka är de förväntade värdena för start filen i avsnittet när jag konfigurerar körnings stacken?**
 
-| Framåt           | Förväntat värde                                                                         |
+| Stack           | Förväntat värde                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | kommandot för att starta JAR-appen (till exempel `java -jar my-app.jar --server.port=80`) |
-| Tomcat, WildFly | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | kommandot för att starta JAR-appen (till exempel `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat, Wildfly | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | konfigurations filen för PM2 eller skript filen                                |
 | .Net Core       | det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
 | Ruby            | det ruby-skript som du vill initiera din app med                     |
 
 De här kommandona eller skripten körs när den inbyggda Docker-behållaren har startats, men innan program koden startas.
 
-## <a name="management"></a>Förvaltning
+## <a name="management"></a>Hantering
 
 **Vad händer när jag trycker på knappen starta om i Azure Portal?**
 
@@ -58,7 +58,7 @@ Ja, du kan göra det via platsen för käll kontroll hantering (SCM).
 
 Du bör ställa in det **reserverade** fältet i App Service på *True*.
 
-## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integration och distribution
+## <a name="continuous-integration-and-deployment"></a>Kontinuerlig integrering och distribution
 
 **Min webbapp använder fortfarande en gammal Docker-behållar avbildning efter att jag har uppdaterat avbildningen på Docker Hub. Stöder du kontinuerlig integrering och distribution av anpassade behållare?**
 
@@ -86,7 +86,7 @@ Om git-distributionen Miss lyckas med din Linux-webbapp väljer du något av fö
 
    Om du får ett fel meddelande om att `curl` kommandot inte hittas kontrollerar du att du installerar en sväng genom att använda `apt-get install curl` innan du kör föregående `curl`-kommando.
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 **Jag vill använda Web Sockets i mitt Node. js-program, eventuella särskilda inställningar eller konfigurationer att ställa in?**
 
@@ -173,7 +173,7 @@ Här följer reglerna för att avgöra vilken behållare som är tillgänglig �
 - Den första behållaren för att definiera port 80 eller 8080
 - Om inget av ovanstående är sant kommer den första behållaren som definieras i filen att vara tillgänglig (exponeras)
 
-## <a name="pricing-and-sla"></a>Priser och SLA
+## <a name="pricing-and-sla"></a>Priser och service nivå avtal
 
 **Vad är prissättningen? nu är tjänsten allmänt tillgänglig?**
 

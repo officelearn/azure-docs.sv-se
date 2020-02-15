@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986248"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208547"
 ---
 # <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
@@ -76,13 +76,13 @@ I föregående exempel har du anpassat värme kartan genom att ange alternativ f
 
   | Färg uttryck för interpolation | Uttryck för stegvisa färger | 
   |--------------------------------|--------------------------|
-  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"interpolerat",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["linjär"\]<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, "transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "lila",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, "#fb00fb",<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"steg",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;"transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "flottan"<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, "grön",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "gul",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, "röd"<br/>\] |   
+  | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"interpolerat",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["linjär"\]<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, "transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "lila",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, "#fb00fb",<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, "#00c3ff"<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"steg",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;"transparent",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, "flottan"<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, "grön",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "gul",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, "röd"<br/>\] |   
 
 - `opacity`: anger hur ogenomskinligt eller transparent det termiskt kart skiktet är.
-- `intensity`: använder en multiplikator för varje data punkts vikt för att öka den övergripande intensiteten för termisk karta. Detta bidrar till att göra en skillnad i vikten av data punkter, vilket gör det lättare att visualisera dem.
+- `intensity`: använder en multiplikator för varje data punkts vikt för att öka den övergripande intensiteten för termisk karta. Det orsakar en skillnad i vikten av data punkter, vilket gör det lättare att visualisera dem.
 - `weight`: som standard har alla data punkter en vikt på 1, och viktas på samma sätt. Vikt alternativet fungerar som en multiplikator och du kan ange det som ett tal eller ett uttryck. Om ett tal har angetts som vikt, är det likvärdigheten att placera varje data punkt på kartan två gånger. Om vikten till exempel är 2, så dubbleras densiteten. Om du ställer in viktnings alternativet på ett tal återges den termiska kartan på samma sätt som med alternativet intensitet. 
 
-  Men om du använder ett uttryck kan vikten för varje data punkt baseras på egenskaperna för varje data punkt. Anta till exempel att varje data punkt representerar en jord bävning. Ett viktigt mått är att varje jord bävning data punkt har varit ett värde för storlek. Jord bävningar sker hela tiden, men de flesta har låg storlek och har inte märkts. Genom att använda värdet i ett uttryck för att tilldela vikten till varje data punkt får du en bättre representation av betydelsen av jord bävningar i värme kartan.
+  Men om du använder ett uttryck kan vikten för varje data punkt baseras på egenskaperna för varje data punkt. Anta till exempel att varje data punkt representerar en jord bävning. Värdet för storlek har varit ett viktigt mått för varje jord bävning data punkt. Jord bävningar sker hela tiden, men de flesta har låg storlek och har inte märkts. Använd värdet i ett uttryck för att tilldela vikten till varje data punkt. Genom att använda värdet för att tilldela vikten får du en bättre representation av betydelsen av jord bävningar i värme kartan.
 - `source` och `source-layer`: gör det möjligt att uppdatera data källan.
 
 Här är ett verktyg för att testa olika alternativ för termisk kart skikt.

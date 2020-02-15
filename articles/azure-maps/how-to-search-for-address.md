@@ -1,19 +1,19 @@
 ---
 title: Sök efter en plats med Azure Maps Sök tjänster | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du söker efter en plats med hjälp av Microsoft Azure Maps-Search Service för kodning och omvänt geografi.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b5da7eab9cff5c5e051fc4d5ab7ff582a95c20d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 40066f24fec00610a1efd10b2cb874b1100acdee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899224"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209893"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Sök efter en plats med Azure Maps Sök tjänster
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du:
 * Göra en [Omvänd adresss ökning](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för att översätta koordinatens placering till gatuadress
 * Sök efter en kors gata med [Sök adress omvänt kors gatan API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här artikeln måste du först skapa ett Azure Maps-konto och hämta konto prenumerations nyckeln. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
@@ -49,7 +49,7 @@ Om du har en uppsättning adresser till landskod, kan du använda [batch-API fö
 |---------------|------------------------------------------------| 
 | HTTP-metod | HÄMTA |
 | URL för begäran | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
-| Autentisering | Ingen autentisering |
+| Auktorisering | Ingen autentisering |
 
 3. Klicka på **params**och ange följande nyckel/värde-par som ska användas som fråga-eller Sök vägs parametrar i fråge-URL: 
 
@@ -59,7 +59,7 @@ Om du har en uppsättning adresser till landskod, kan du använda [batch-API fö
 |------------------|-------------------------| 
 | api-version | 1.0 | 
 | prenumerations nyckel | \<din Azure Maps nyckel\> | 
-| DocumentDB | 400 Broad St, Seattle, WA 98109 | 
+| query | 400 Broad St, Seattle, WA 98109 | 
 
 4. Klicka på **Skicka** och granska svars texten. 
 
@@ -75,7 +75,7 @@ I det här fallet angav du en fullständig adress fråga och får ett enda resul
 
 | Nyckel | Värde | 
 |-----|------------| 
-| typeahead | sant | 
+| typeahead | true | 
 
 Flaggan **typeahead** visar API för adresss ökning för att behandla frågan som en del indata och returnera en matris med förutsägande värden.
 
@@ -97,7 +97,7 @@ De flesta Sök frågor som standard `maxFuzzyLevel=1` för att få prestanda och
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
     | URL för begäran | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Autentisering | Ingen autentisering |
+    | Auktorisering | Ingen autentisering |
 
     **JSON** -ATTRIBUTET i URL-sökvägen bestämmer svars formatet. I den här artikeln används JSON för enkel användning och läsbarhet. Du hittar tillgängliga svars format i den **Hämta sökningens fuzzy** -definition av [Maps funktions-API-referens](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
@@ -109,7 +109,7 @@ De flesta Sök frågor som standard `maxFuzzyLevel=1` för att få prestanda och
     |------------------|-------------------------|
     | api-version | 1.0 |
     | prenumerations nyckel | \<din Azure Maps nyckel\> |
-    | DocumentDB | pizza |
+    | query | pizza |
 
 4. Klicka på **Skicka** och granska svars texten.
 
@@ -153,7 +153,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
     | URL för begäran | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Autentisering | Ingen autentisering |
+    | Auktorisering | Ingen autentisering |
   
 3. Klicka på **params**och ange följande nyckel/värde-par som ska användas som fråga-eller Sök vägs parametrar i fråge-URL:
   
@@ -163,7 +163,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
     |------------------|-------------------------|
     | api-version | 1.0 |
     | prenumerations nyckel | \<din Azure Maps nyckel\> |
-    | DocumentDB | 47.591180,-122,332700 |
+    | query | 47.591180,-122,332700 |
   
 4. Klicka på **Skicka** och granska svars texten.
 
@@ -173,7 +173,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
 
     | Nyckel | Värde |
     |-----|------------|
-    | nummer | sant |
+    | nummer | true |
 
     Om [värdet](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) för Frågeparametern skickas med begäran kan svaret omfatta sidan av gatan (vänster eller höger) och även en förskjutnings position för det talet.
   
@@ -181,7 +181,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
 
     | Nyckel | Värde |
     |-----|------------|
-    | returnSpeedLimit | sant |
+    | returnSpeedLimit | true |
   
     När [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) -Frågeparametern har angetts returnerar svaret den anslagna hastighets gränsen.
 
@@ -189,7 +189,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
 
     | Nyckel | Värde |
     |-----|------------|
-    | returnRoadUse | sant |
+    | returnRoadUse | true |
 
     När Frågeparametern [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) anges, returnerar svaret vägens användnings mat ris för omvända omvändare på gatu nivå.
 
@@ -197,7 +197,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
 
     | Nyckel | Värde |
     |-----|------------|
-    | roadUse | sant |
+    | roadUse | true |
 
     Du kan begränsa den omvända koden till en speciell typ av väg med hjälp av Frågeparametern [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) .
   
@@ -213,7 +213,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
     | URL för begäran | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Autentisering | Ingen autentisering |
+    | Auktorisering | Ingen autentisering |
   
 3. Klicka på **params**och ange följande nyckel/värde-par som ska användas som fråga-eller Sök vägs parametrar i fråge-URL:
   
@@ -221,7 +221,7 @@ Om du har en uppsättning koordinerande platser för omvänd landskod, kan du an
     |------------------|-------------------------|
     | api-version | 1.0 |
     | prenumerations nyckel | \<din Azure Maps nyckel\> |
-    | DocumentDB | 47.591180,-122,332700 |
+    | query | 47.591180,-122,332700 |
   
 4. Klicka på **Skicka** och granska svars texten.
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/14/2020
+ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112248"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251999"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST-självstudie: indexera och Sök i halv strukturerade data (JSON-blobbar) i Azure Kognitiv sökning
 
@@ -27,7 +27,7 @@ I den här självstudien använder du [Azure KOGNITIV sökning REST-API: er](htt
 > * Konfigurera och kör en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure Blob Storage
 > * Söka i indexet som du precis skapade
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster, verktyg och data används i den här snabb starten. 
 
@@ -83,7 +83,7 @@ Kör följande tre API-anrop från REST-klienten.
 
 ## <a name="create-a-data-source"></a>Skapa en datakälla
 
-Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)skapas ett Azure kognitiv sökning-objekt som anger vilka data som ska indexeras.
+Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) skapas ett Azure kognitiv sökning-objekt som anger vilka data som ska indexeras.
 
 Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten. 
 
@@ -126,7 +126,7 @@ Svaret ska se ut så här:
 
 ## <a name="create-an-index"></a>Skapa ett index
     
-Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), vilket skapar ett Azure kognitiv sökning-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
+Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-index), vilket skapar ett Azure kognitiv sökning-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
 URL:en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
 

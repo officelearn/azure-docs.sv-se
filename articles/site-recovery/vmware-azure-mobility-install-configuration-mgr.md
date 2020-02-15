@@ -3,14 +3,14 @@ title: Automatisera mobilitets tjänsten för haveri beredskap vid installation 
 description: Så här installerar du mobilitets tjänsten för VMware/Physical Server haveri beredskap med Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.topic: how-to
-ms.date: 12/22/2019
+ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: 235b96cfd2da0c097bc576c63f5bd1c8ed224781
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896025"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252235"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatisera mobilitets tjänst installation
 
@@ -20,7 +20,7 @@ När du distribuerar Site Recovery för haveri beredskap för lokala virtuella V
 
 - **Push-installation**: låt Site Recovery installera mobilitets tjänst agenten när du aktiverar replikering för en dator i Azure Portal.
 - **Manuell installation**: installera mobilitets tjänsten manuellt på varje dator. [Läs mer](vmware-physical-mobility-service-overview.md) om push och manuell installation.
-- **Automatiserad distribution**: automatiserad installation med verktyg för program varu distribution, till exempel Microsoft Endpoint Configuration Manager eller verktyg från tredje part, till exempel Intigua JetPatch.
+- **Automatiserad distribution**: automatiserad installation med verktyg för program varu distribution, till exempel Microsoft Endpoint Configuration Manager eller verktyg från tredje part, till exempel JetPatch.
 
 Automatisk installation och uppdatering tillhandahåller en lösning om:
 
@@ -31,7 +31,7 @@ Automatisk installation och uppdatering tillhandahåller en lösning om:
 - Du måste skala agent installationer till flera servrar samtidigt.
 - Du vill schemalägga installationer och uppgraderingar under planerat underhålls fönster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill automatisera installationen behöver du följande objekt:
 
@@ -352,11 +352,11 @@ cd /tmp
 
 1. I **Ange information om den här standard program** sidan anger du följande värden:
 
-    **Parametern** | **Windows-värde** | **Linux-värde**
+    **ProfileServiceApplicationProxy** | **Windows-värde** | **Linux-värde**
     --- | --- | ---
     **Namn** | Installera Microsoft Azure Mobility Service (Windows) | Installera Microsoft Azure Mobility Service (Linux).
     **Kommandorad** | install.bat | ./install_linux.sh
-    **Programmet kan köra** | Huruvida en användare är inloggad eller inte | Huruvida en användare är inloggad eller inte
+    **Programmet kan köra** | Oavsett om någon användare är inloggad | Oavsett om någon användare är inloggad
     **Andra parametrar** | Använd standardinställningen | Använd standardinställningen
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)

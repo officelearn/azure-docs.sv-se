@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 58fa891503342ac0ec9d41e9c458a71d18e58161
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/05/2020
+ms.openlocfilehash: a933caf0b0033cdcd1f27d4f795ba6466f34072a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445606"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210375"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Azure-portalen](create-cosmosdb-resources-portal.md)
-> * [.NET](create-sql-api-dotnet.md)
+> * [Azure Portal](create-cosmosdb-resources-portal.md)
+> * [NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](sql-api-introduction.md) -konto, skapa en dokument databas och behållare och lägga till data i behållaren. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure-prenumeration eller ett kostnads fritt Azure Cosmos DB utvärderings konto
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -51,7 +51,7 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
     
     Du kan behöva rulla åt höger för att se fönstret **Lägg till behållare** .
     
-    ![Datautforskaren på Azure-portalen, fönstret Lägg till container](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+    ![Fönstret Azure Portal Datautforskaren, Lägg till behållare](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
 1.  I fönstret **Lägg till behållare** anger du inställningarna för den nya behållaren.
     
@@ -59,7 +59,7 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
     |---|---|---|
     |**Databas-ID**|ToDoList|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
-    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.|
+    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. Container-ID: n har samma teckenuppsättnings krav som databas namn.|
     |**Partitionsnyckel**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel.|
 
     
@@ -73,7 +73,7 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 
 1. Expandera **ToDoList** -databasen i **datautforskaren**och expandera behållaren **objekt** . Välj sedan **objekt**och välj sedan **nytt objekt**. 
    
-   ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+   ![Skapa nya dokument i datautforskaren i Azure-portalen](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
 1. Lägg till följande struktur till dokumentet till höger i fönstret **dokument** :
 

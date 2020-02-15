@@ -1,19 +1,19 @@
 ---
 title: Sök effektivt genom att använda Azure Maps Search Service | Microsoft Azure Maps
 description: Lär dig hur du använder bästa praxis för Search Service med hjälp av Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e29b3d70c576955637424208aeb0f980669b67bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899170"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209808"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Metod tips för Azure Maps Search Service
 
@@ -26,7 +26,7 @@ Den här artikeln förklarar hur du använder ljud metoder när du anropar data 
 * Lär dig skillnaderna mellan resultat typer.
 * Läs adress Sök-svars strukturen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill ringa till API: erna för Azure Maps tjänsten behöver du ett Azure Maps konto och en nyckel. Mer information finns i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och [Hämta en primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
@@ -443,7 +443,7 @@ Java:
 URLEncoder.encode(query, "UTF-8") 
 ```
 
-Python:
+Python
 ```Python
 import urllib.parse 
 urllib.parse.quote(query)
@@ -455,7 +455,7 @@ C++:
 curl_easy_escape(query)
 ```
 
-PHP:
+PHP
 ```PHP
 urlencode(query)
 ```

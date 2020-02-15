@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1bdb4e40d7e173dcb2368f2f0cf645581647f6ee
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 09e5a6c5eee21e5432c4cf96a63fd2337307954a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202208"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211441"
 ---
 Azure Shared disks (för hands version) är en ny funktion för Azure Managed disks som möjliggör anslutning av en Azure-hanterad disk till flera virtuella datorer samtidigt. Genom att ansluta en hanterad disk till flera virtuella datorer kan du antingen distribuera nya eller migrera befintliga klustrade program till Azure.
 
@@ -55,7 +55,7 @@ Linux-kluster kan utnyttja kluster hanterare som [pacemaker](https://wiki.cluste
 
 Följande diagram illustrerar ett exempel på klustrade databas program i två noder som utnyttjar SCSI PR för att aktivera redundans från en nod till en annan.
 
-![Shared-disk-updated-Two-Node-Cluster-diagram. png](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Kluster med två noder. Ett program som körs i klustret hanterar åtkomst till disken](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 Flödet är följande:
 
@@ -68,7 +68,7 @@ Flödet är följande:
 
 Följande diagram illustrerar en annan vanlig klustrad arbets belastning som består av flera noder som läser data från disken för att köra parallella processer, till exempel utbildning av Machine Learning-modeller.
 
-![Shared-disk-updated-Machine-Learning-Trainer-Model. png](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![Fyra noder för virtuella datorer, varje nod registrerar sig för att skriva, programmet tar exklusiv reservation för att hantera Skriv resultaten korrekt](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 Flödet är följande:
 

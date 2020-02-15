@@ -1,24 +1,25 @@
 ---
-title: Event Grid utlösare för Azure Functions
+title: Azure Event Grid bindningar för Azure Functions
 description: Förstå hur du hanterar Event Grid händelser i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 09/04/2018
+ms.date: 02/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.custom: fasttrack-edit
+ms.openlocfilehash: df851a79ef3fbb7473e100619f58b7f35bce1d45
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77167511"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212016"
 ---
-# <a name="event-grid-trigger-for-azure-functions"></a>Event Grid utlösare för Azure Functions
+# <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Event Grid bindningar för Azure Functions
 
 Den här artikeln beskriver hur du hanterar [Event Grid](../event-grid/overview.md) händelser i Azure Functions. Mer information om hur du hanterar Event Grid meddelanden i en HTTP-slutpunkt får [du genom att läsa ta emot händelser till en HTTP-slutpunkt](../event-grid/receive-events.md).
 
 Event Grid är en Azure-tjänst som skickar HTTP-förfrågningar för att meddela dig om händelser som inträffar i *utgivare*. En utgivare är den tjänst eller resurs som har sitt ursprung i händelsen. Till exempel är ett Azure Blob Storage-konto en utgivare och [en BLOB-överföring eller borttagning är en händelse](../storage/blobs/storage-blob-event-overview.md). Vissa [Azure-tjänster har ett inbyggt stöd för att publicera händelser till Event Grid](../event-grid/overview.md#event-sources).
 
-Händelse *hanterare* tar emot och bearbetar händelser. Azure Functions är en av flera [Azure-tjänster som har inbyggt stöd för att hantera Event Grid händelser](../event-grid/overview.md#event-handlers). I den här artikeln får du lära dig hur du använder en Event Grid-utlösare för att anropa en funktion när en händelse tas emot från Event Grid.
+Händelse *hanterare* tar emot och bearbetar händelser. Azure Functions är en av flera [Azure-tjänster som har inbyggt stöd för att hantera Event Grid händelser](../event-grid/overview.md#event-handlers). I den här artikeln får du lära dig hur du använder en Event Grid-utlösare för att anropa en funktion när en händelse tas emot från Event Grid, och för att använda utgående bindning för att skicka händelser till ett [Event Grid anpassat ämne](../event-grid/post-to-custom-topic.md).
 
 Om du vill kan du använda en HTTP-utlösare för att hantera Event Grid händelser. Se [ta emot händelser till en HTTP-slutpunkt](../event-grid/receive-events.md). För närvarande kan du inte använda en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i [CloudEvents-schemat](../event-grid/cloudevents-schema.md#azure-functions). Använd i stället en HTTP-utlösare.
 
@@ -26,7 +27,7 @@ Om du vill kan du använda en HTTP-utlösare för att hantera Event Grid händel
 
 ## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
-Event Grid-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 2. x. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-eventgrid-Extensions](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) .
+Event Grid-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 2. x. Käll koden för paketet finns i GitHub-lagringsplatsen [Azure-Functions-eventgrid-Extensions](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) .
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -36,7 +37,11 @@ Event Grid-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions. EventGrid]
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>Exempel
+## <a name="trigger"></a>Utlösare
+
+Använd funktions utlösaren för att svara på en händelse som skickas till ett Event Grid ämne.
+
+## <a name="trigger---example"></a>Utlösare - exempel
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -66,7 +71,7 @@ namespace Company.Function
 }
 ```
 
-Mer information finns i paket, [attribut](#attributes), [konfiguration](#configuration)och [användning](#usage).
+Mer information finns i paket, [attribut](#trigger---attributes), [konfiguration](#trigger---configuration)och [användning](#trigger---usage).
 
 ### <a name="version-1x"></a>Version 1.x
 
@@ -127,7 +132,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-Mer information finns i paket, [attribut](#attributes), [konfiguration](#configuration)och [användning](#usage).
+Mer information finns i paket, [attribut](#trigger---attributes), [konfiguration](#trigger---configuration)och [användning](#trigger---usage).
 
 ### <a name="version-1x"></a>Version 1.x
 
@@ -284,7 +289,7 @@ I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtim
 
 ---
 
-## <a name="attributes"></a>Attribut
+## <a name="trigger---attributes"></a>Utlösare - attribut
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -316,11 +321,11 @@ Attribut stöds inte av python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Med [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) -anteckningen kan du konfigurera en Event Grid bindning genom att ange konfigurations värden. Se avsnittet [exempel](#example) och [konfiguration](#configuration) för mer information.
+Med [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) -anteckningen kan du konfigurera en Event Grid bindning genom att ange konfigurations värden. Se avsnittet [exempel](#trigger---example) och [konfiguration](#trigger---configuration) för mer information.
 
 ---
 
-## <a name="configuration"></a>Konfiguration
+## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
 I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . Det finns inga parametrar eller egenskaper för konstruktorn att ange i `EventGridTrigger`-attributet.
 
@@ -330,7 +335,7 @@ I följande tabell förklaras de egenskaper för bindnings konfigurationen som d
 | **riktning** | Required-måste anges till `in`. |
 | **Namn** | Obligatoriskt – variabel namnet som används i funktions koden för den parameter som tar emot händelse data. |
 
-## <a name="usage"></a>Användning
+## <a name="trigger---usage"></a>Utlösare - användning
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -370,11 +375,11 @@ Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i eg
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Händelse instansen Event Grid är tillgänglig via den parameter som är kopplad till attributet `EventGridTrigger`, skriven som en `EventSchema`. Se [exemplet](#example) för mer information.
+Händelse instansen Event Grid är tillgänglig via den parameter som är kopplad till attributet `EventGridTrigger`, skriven som en `EventSchema`. Se [exemplet](#trigger---example) för mer information.
 
 ---
 
-## <a name="event-schema"></a>Händelseschema
+## <a name="trigger---event-schema"></a>Utlös händelse schema
 
 Data för en Event Grid-händelse tas emot som ett JSON-objekt i bröd texten i en HTTP-begäran. JSON ser ut ungefär som i följande exempel:
 
@@ -412,7 +417,7 @@ Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händel
 
 `EventGridEvent` typen definierar bara egenskaperna på den översta nivån. Egenskapen `Data` är en `JObject`.
 
-## <a name="create-a-subscription"></a>Skapa en prenumeration
+## <a name="trigger---create-a-subscription"></a>Utlös – skapa en prenumeration
 
 Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
 
@@ -486,7 +491,7 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_exten
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Det här är ett administrations-API, så den kräver [huvud nyckeln](functions-bindings-http-webhook.md#authorization-keys)för Function-appen. Blanda inte ihop system nyckeln (för att anropa en Event Grid trigger-funktion) med huvud nyckeln (för att utföra administrativa uppgifter i Function-appen). När du prenumererar på ett Event Grid-ämne ska du se till att använda system nyckeln.
+Det här är ett administrations-API, så den kräver [huvud nyckeln](functions-bindings-http-webhook-trigger.md#authorization-keys)för Function-appen. Blanda inte ihop system nyckeln (för att anropa en Event Grid trigger-funktion) med huvud nyckeln (för att utföra administrativa uppgifter i Function-appen). När du prenumererar på ett Event Grid-ämne ska du se till att använda system nyckeln.
 
 Här är ett exempel på svaret som innehåller system nyckeln:
 
@@ -508,11 +513,11 @@ Du kan hämta huvud nyckeln för din Function-app från fliken **funktions progr
 > [!IMPORTANT]
 > Huvud nyckeln ger administratörs åtkomst till din Function-app. Dela inte den här nyckeln med tredje part eller distribuera den i interna klient program.
 
-Mer information finns i [Authorization Keys](functions-bindings-http-webhook.md#authorization-keys) i referens artikeln för http-utlösare.
+Mer information finns i [Authorization Keys](functions-bindings-http-webhook-trigger.md#authorization-keys) i referens artikeln för http-utlösare.
 
 Du kan också skicka ett HTTP-värde för att ange nyckel värdet själv.
 
-## <a name="local-testing-with-viewer-web-app"></a>Lokal testning med Viewer Web App
+## <a name="trigger---local-testing-with-viewer-web-app"></a>Utlös-lokal testning med visnings program för webb program
 
 Om du vill testa en Event Grid-utlösare lokalt måste du få Event Grid HTTP-begäranden som levereras från deras ursprung i molnet till din lokala dator. Ett sätt att göra detta är genom att fånga förfrågningar online och skicka dem manuellt på den lokala datorn:
 
@@ -584,6 +589,239 @@ Följande skärm bilder visar rubrikerna och begär ande texten i Postman:
 Funktionen Event Grid trigger kör och visar loggar som liknar följande exempel:
 
 ![Exempel Event Grid utlösa funktions loggar](media/functions-bindings-event-grid/eg-output.png)
+
+## <a name="output"></a>Resultat
+
+Använd Event Grid utgående bindning för att skriva händelser till ett anpassat ämne. Du måste ha en giltig [åtkomst nyckel för det anpassade ämnet](../event-grid/security-authentication.md#custom-topic-publishing).
+
+> [!NOTE]
+> Event Grid utgående bindning har inte stöd för signaturer för delad åtkomst (SAS-token). Du måste använda ämnets åtkomst nyckel.
+
+Se till att de nödvändiga paket referenserna är på plats innan du försöker implementera en utgående bindning.
+
+> [!IMPORTANT]
+> Den Event Grid utgående bindningen är endast tillgänglig för funktionerna 2. x och högre.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skriver ett meddelande till ett event Grid anpassat ämne med hjälp av metodens retur värde som utdata:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+I följande exempel visas hur du använder `IAsyncCollector`-gränssnittet för att skicka en batch med meddelanden.
+
+```csharp
+[FunctionName("EventGridAsyncOutput")]
+public static async Task Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    [EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]IAsyncCollector<EventGridEvent> outputEvents,
+    ILogger log)
+{
+    for (var i = 0; i < 3; i++)
+    {
+        var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+        await outputEvents.AddAsync(myEvent);
+    }
+}
+```
+
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+I följande exempel visas Event Grid utgående bindnings data i *Function. JSON* -filen.
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Här är C# skript koden som skapar en händelse:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, out EventGridEvent outputEvent, ILogger log)
+{
+    outputEvent = new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+Här är C# skript koden som skapar flera händelser:
+
+```cs
+#r "Microsoft.Azure.EventGrid"
+using System;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent, ILogger log)
+{
+    outputEvent.Add(new EventGridEvent("message-id-1", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+    outputEvent.Add(new EventGridEvent("message-id-2", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0"));
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+I följande exempel visas Event Grid utgående bindnings data i *Function. JSON* -filen.
+
+```json
+{
+    "type": "eventGrid",
+    "name": "outputEvent",
+    "topicEndpointUri": "MyEventGridTopicUriSetting",
+    "topicKeySetting": "MyEventGridTopicKeySetting",
+    "direction": "out"
+}
+```
+
+Här är JavaScript-kod som skapar en enskild händelse:
+
+```javascript
+module.exports = async function (context, myTimer) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = {
+        id: 'message-id',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    };
+    context.done();
+};
+```
+
+Här är JavaScript-kod som skapar flera händelser:
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+
+    context.bindings.outputEvent = [];
+
+    context.bindings.outputEvent.push({
+        id: 'message-id-1',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.bindings.outputEvent.push({
+        id: 'message-id-2',
+        subject: 'subject-name',
+        dataVersion: '1.0',
+        eventType: 'event-type',
+        data: "event-data",
+        eventTime: timeStamp
+    });
+    context.done();
+};
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Den Event Grid utgående bindningen är inte tillgänglig för python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Den Event Grid utgående bindningen är inte tillgänglig för Java.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Utdata-attribut och anteckningar
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+För [ C# klass bibliotek](functions-dotnet-class-library.md)använder du attributet [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
+
+Attributets konstruktor tar namnet på en app-inställning som innehåller namnet på det anpassade ämnet och namnet på en app-inställning som innehåller ämnes nyckeln. Mer information om de här inställningarna finns i [output-Configuration](#output---configuration). Här är ett exempel på en `EventGrid`-attribut:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    ...
+}
+```
+
+Ett fullständigt exempel finns i [utdata- C# exempel](#output).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+Attribut stöds inte av C# skript.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Attribut stöds inte av Java Script.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Den Event Grid utgående bindningen är inte tillgänglig för python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Den Event Grid utgående bindningen är inte tillgänglig för Java.
+
+---
+
+## <a name="output---configuration"></a>Utdata - konfiguration
+
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `EventGrid`-attributet.
+
+|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|---------|---------|----------------------|
+|**typ** | Saknas | Måste vara inställd på "eventGrid". |
+|**riktning** | Saknas | Måste anges till ”ut”. Den här parametern anges automatiskt när du skapar bindningen i Azure Portal. |
+|**Namn** | Saknas | Variabel namnet som används i funktions koden som representerar händelsen. |
+|**topicEndpointUri** |**TopicEndpointUri** | Namnet på en app-inställning som innehåller URI: n för det anpassade ämnet, t. ex. `MyTopicEndpointUri`. |
+|**topicKeySetting** |**TopicKeySetting** | Namnet på en app-inställning som innehåller en åtkomst nyckel för det anpassade ämnet. |
+
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!IMPORTANT]
+> Se till att du ställer in värdet för egenskapen `TopicEndpointUri` konfiguration till namnet på en app-inställning som innehåller URI: n för det anpassade ämnet. Ange inte URI för det anpassade ämnet direkt i den här egenskapen.
+
+## <a name="output---usage"></a>Utdata - användning
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Skicka meddelanden med hjälp av en metod parameter som `out EventGridEvent paramName`. Om du vill skriva flera meddelanden kan du använda `ICollector<EventGridEvent>` eller `IAsyncCollector<EventGridEvent>` i stället för `out EventGridEvent`.
+
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+Skicka meddelanden med hjälp av en metod parameter som `out EventGridEvent paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Om du vill skriva flera meddelanden kan du använda `ICollector<EventGridEvent>` eller `IAsyncCollector<EventGridEvent>` i stället för `out EventGridEvent`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Få åtkomst till utdata-händelsen med hjälp av `context.bindings.<name>` där `<name>` är värdet som anges i egenskapen `name` för *Function. JSON*.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Den Event Grid utgående bindningen är inte tillgänglig för python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Den Event Grid utgående bindningen är inte tillgänglig för Java.
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

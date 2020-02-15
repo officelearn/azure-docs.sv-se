@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 58bdbdfcb82806dfa0b2779967bddf1242a8b702
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 7e4586a5fba91fbc7432aa352b9608be728e8654
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115695"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251948"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>För hands version: kontrol lera uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -216,6 +216,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
+LastUpdateTime kommer att vara den tid då uppdateringen slutfördes, antingen initierad av dig eller av plattformen i fallet själv underhålls period inte användes. Om en uppdatering aldrig har tillämpats via underhålls kontrollen visas standardvärdet.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 

@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: d7d3182ad00d0ce151c6d327b29584c7e2ff1323
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457864"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251642"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric för Visual Studio Code
 
@@ -21,11 +21,11 @@ Den här artikeln innehåller en översikt över kraven och installationen av ti
 > [!IMPORTANT]
 > Service Fabric Java-program kan utvecklas på Windows-datorer, men kan bara distribueras till Azure Linux-kluster. Fel sökning av Java-program stöds inte i Windows.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav måste vara installerade på alla miljöer.
 
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
@@ -50,7 +50,7 @@ Följande krav måste vara installerade för .NET Core/C# utveckling:
 * [.Net Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 eller senare)
 * [för Visual Studio Code (drivs av OmniSharp) vs Code Extension C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Krävs för att C# felsöka tjänster. Du kan installera genom att klicka på ikonen tillägg i **aktivitets fältet** i vs Code och söka efter tillägget eller från vs Code Marketplace.
 
-## <a name="setup"></a>Installation
+## <a name="setup"></a>Konfiguration
 
 1. Öppen VS Code.
 2. Klicka på ikonen tillägg i **aktivitets fältet** på vänster sida om vs Code. Sök efter "Service Fabric". Klicka på **Installera** för Service Fabric Reliable Services-tillägget.
@@ -69,7 +69,7 @@ Service Fabric Reliable Services tillägget för VS Code innehåller många komm
 
 Kommandot **Service Fabric: skapa program** skapar ett nytt Service Fabric program i den aktuella arbets ytan. Beroende på vilka Yeoman-generatorer som installeras på din utvecklings dator kan du skapa flera olika typer av Service Fabric program, inklusive Java- C#,, container-och gäst projekt. 
 
-1.  Välj kommandot **Service Fabric: Lägg till tjänst**
+1.  Välj kommandot **Service Fabric: skapa program**
 2.  Välj typ för ditt nya Service Fabric-program. 
 3.  Ange namnet på det program som du vill skapa
 3.  Välj den typ av tjänst som du vill lägga till i Service Fabric programmet. 

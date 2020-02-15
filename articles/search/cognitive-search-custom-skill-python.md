@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122418"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210473"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exempel: skapa en anpassad kunskap med hjälp av python
 
@@ -52,7 +52,7 @@ Med Azure Functions-projektmallen i Visual Studio Code skapas ett projekt som ka
 1. Välj python-versionen (version 3.7.5 stöds av Azure Functions)
 1. Välj en mall för projektets första funktion. Välj **http-utlösare** för att skapa en http-utlöst funktion i den nya Function-appen.
 1. Ange ett funktions namn. I det här fallet ska vi använda **sammanlänkning** 
-1. Välj **funktion** som autentiseringsnivå. Det innebär att vi kommer att tillhandahålla en [funktions nyckel](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) för att anropa FUNKTIONENS http-slutpunkt. 
+1. Välj **funktion** som autentiseringsnivå. Det innebär att vi kommer att tillhandahålla en [funktions nyckel](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) för att anropa FUNKTIONENS http-slutpunkt. 
 1. Välj hur du vill öppna projektet. I det här steget väljer du **Lägg till i arbets yta** för att skapa Function-appen i den aktuella arbets ytan.
 
 I Visual Studio Code skapas funktionsappsprojektet på en ny arbetsyta. Det här projektet innehåller konfigurationsfilerna [host.json](../azure-functions/functions-host-json.md) och [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), plus eventuella språkspecifika projektfiler. 

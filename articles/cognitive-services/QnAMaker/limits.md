@@ -2,13 +2,13 @@
 title: Begränsningar och gränser – QnA Maker
 description: QnA Maker har meta-gränser för delar av knowledge base och tjänsten. Det är viktigt att hålla din kunskapsbas inom de här gränserna för att testa och publicera.
 ms.topic: article
-ms.date: 01/23/2020
-ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.date: 02/14/2020
+ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760240"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252016"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 
@@ -55,6 +55,8 @@ Det maximala antalet djup länkar som kan crawlas för extrahering av kring frå
 
 ## <a name="metadata-limits"></a>Metadata-gränser
 
+Metadata lagras och jämförs i gemener.
+
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Av Azure Kognitiv sökning pris nivå
 
 Det maximala antalet metadata-fält per kunskaps bas baseras på **[Azure kognitiv sökning nivå gränser](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
@@ -87,13 +89,13 @@ Längden på och godkända tecken för namn och värde för metadata visas i fö
 * URL/HTML-sida: 1 000 000 tecken
 
 ## <a name="create-knowledge-base-call-limits"></a>Skapa kunskapsbas anrop begränsningar:
-Dessa representerar gränser för varje skapa kunskapsbas åtgärden. det vill säga att klicka på *skapa KB* eller anropa CreateKnowledgeBase API.
+Dessa motsvarar gränserna för varje åtgärd för att skapa kunskaps bas. Det gör du genom att klicka på *skapa KB* eller anropa CreateKnowledgeBase-API: et.
 * Maximalt antal alternativa frågor per svar: 300
 * Maximalt antal URL: er: 10
 * Maximalt antal filer: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Uppdatera kunskapsbas anrop gränser
-Dessa representerar gränser för varje uppdateringsåtgärd; det vill säga att klicka på *spara och träna* eller anropa UpdateKnowledgeBase API.
+Dessa representerar gränserna för varje uppdaterings åtgärd. Det gör du genom att klicka på *Spara och träna* eller anropa UpdateKnowledgeBase-API: et.
 * Längden på varje källnamn: 300
 * Maximalt antal alternativa frågor som lagts till eller tagits bort: 300
 * Maximalt antal metadatafält läggs till eller tas bort: 10

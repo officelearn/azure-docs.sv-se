@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911902"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212488"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -30,7 +30,7 @@ Genom att aktivera distribuerad spårning för IoT Hub kan du:
 
 I den här artikeln använder du [Azure IoT-enhetens SDK för C](iot-hub-device-sdk-c-intro.md) med distribuerad spårning. Stöd för distribuerad spårning pågår fortfarande för de andra SDK: erna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - För hands versionen av Distributed tracing stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
@@ -130,6 +130,9 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Redigera exemplet skicka telemetri för att aktivera distribuerad spårning
 
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Hämta exemplet på GitHub</a>
+
 1. Använd en redigerare för att öppna `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` käll filen.
 
 1. Hitta deklarationen för konstanten `connectionString`:
@@ -152,7 +155,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
     [!code-c[](~/samples-iot-distributed-tracing/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
 
-### <a name="compile-and-run"></a>Kompilera och kör
+### <a name="compile-and-run"></a>Kompilera och köra
 
 1. Navigera till *iothub_ll_telemetry_sample* projekt katalog från cmake-katalogen (`azure-iot-sdk-c/cmake`) som du skapade tidigare och kompilera exemplet:
 
@@ -161,7 +164,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. Kör appen. Enheten skickar telemetri som stöder distribuerad spårning.
+1. Kör programmet. Enheten skickar telemetri som stöder distribuerad spårning.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -198,7 +201,7 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 1. Välj en **samplings frekvens** mellan 0% och 100%.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 1. Vänta några sekunder och klicka på **Uppdatera**, sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
 
@@ -272,7 +275,7 @@ Exempel på loggar som visas i Log Analytics:
 
 Information om de olika typerna av loggar finns i [Azure IoT Hub diagnostikloggar](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
-### <a name="application-map"></a>Programavbildning
+### <a name="application-map"></a>Programkarta
 
 För att visualisera flödet av IoT-meddelanden ställer du in exempel appen för program kartan. Exempel appen skickar de distribuerade spårnings loggarna till [program kartan](../application-insights/app-insights-app-map.md) med hjälp av en Azure-funktion och en Event Hub.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 08d9245201a8e0899d47847eb10dcdff3c0d8d16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984684"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209655"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa Sök resultat på kartan
 
@@ -37,7 +37,7 @@ Det fjärde kod blocket använder metoden [SearchFuzzy](/javascript/api/azure-ma
 
 Det sista blocket med kod justerar kamerans gränser för kartan med kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskap.
 
-Sök förfrågan, data källan, symbol skiktet och kamera gränserna finns inuti kartans klara [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Vi vill se till att resultaten visas när kartan har lästs in helt.
+Sök förfrågan, data källan, symbol skiktet och kamera gränserna finns inuti [händelse lyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för kartan. Vi vill se till att resultaten visas när kartan har lästs in helt.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Gör en Sök förfrågan via hämtnings-API

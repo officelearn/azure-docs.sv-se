@@ -9,13 +9,13 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 634f949daa4926f2707c0611b819800441e76610
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 06/01/2019
+ms.openlocfilehash: d573378bc5e729eb75b6c3b51d3671492f7f98f1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438018"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209383"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Vad är Azure Database Migration Service?
 
@@ -32,7 +32,7 @@ Azure Database Migration Service integrerar några av funktionerna hos våra bef
 
 Uppdaterad information om regional tillgänglighet för Azure Database Migration Service finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Uppdaterad information om Azure Database Migration Service priser finns i [Azure Database migration service prissättning](https://azure.microsoft.com/pricing/details/database-migration/).
 

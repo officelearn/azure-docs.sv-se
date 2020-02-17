@@ -119,12 +119,22 @@
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Exempel
   items:
-    - name: Kodexempel för API för faktura
-      href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-    - name: Kodexempel för API för användning
-      href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-    - name: Kodexempel för API för RateCard
-      href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
+    - name: REST-API
+      items:
+        - name: Granska Enterprise-kostnader
+          href: review-enterprise-billing.md
+        - name: Granska prenumerationsanvändning
+          href: review-subscription-billing.md
+        - name: Granska resursanvändning
+          href: review-service-usage-api.md
+    - name: .NET-exempel
+      items:
+        - name: Kodexempel för API för faktura
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: Kodexempel för API för användning
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: Kodexempel för API för RateCard
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Referens
   items:
     - name: Scenarier för automatisering av fakturering

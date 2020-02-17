@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460208"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367499"
 ---
 # <a name="connect-with-the-macos-client"></a>Ansluta med macOS-klienten
 
@@ -20,7 +20,7 @@ ms.locfileid: "75460208"
 
 Du kan komma åt Windows virtuella Skriv bords resurser från dina macOS-enheter med vår nedladdnings bara klient. I den här guiden får du lära dig hur du konfigurerar-klienten.
 
-## <a name="install-the-client"></a>Installera klienten
+## <a name="install-the-client"></a>Installera-klienten
 
 Kom igång genom att [Ladda ned](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) och installera klienten på din MacOS-enhet.
 
@@ -43,4 +43,4 @@ När du prenumererar på en feed uppdateras innehållet i feeden automatiskt reg
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om macOS-klienten finns i [Kom igång med MacOS-klientens](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) dokumentation.
+Mer information om macOS-klienten finns i [Kom igång med MacOS-klientens](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/) dokumentation.

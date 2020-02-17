@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115913"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368826"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg med PowerShell
 
@@ -36,7 +36,7 @@ Följande webbläsare är kompatibla med hanterings verktyget:
 Innan du distribuerar hanterings verktyget behöver du en Azure Active Directory (Azure AD)-användare för att skapa en app-registrering och distribuera hanterings gränssnittet. Den här användaren måste:
 
 - Har behörighet att skapa resurser i din Azure-prenumeration
-- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de behörigheter som krävs genom att följa instruktionerna i de [behörigheter som krävs](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 För att kunna distribuera och konfigurera hanterings verktyget måste du först ladda ned följande PowerShell-skript från [GitHub-lagrings platsen för RDS-mallar](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) och spara dem i samma mapp på den lokala datorn.
 

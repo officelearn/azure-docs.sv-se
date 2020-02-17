@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861395"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368633"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
@@ -102,7 +102,7 @@ Instanser definieras av **timeSeriesId**, **typeId**, **Name**, **Description**,
 | timeSeriesId | UUID för tids serien som instansen är associerad med. |
 | ID | UUID för tids serie modell typen som instansen är associerad med. Som standard blir alla identifierade nya instanser kopplade till en standard typ.
 | namn | Egenskapen **Name** är valfri och Skift läges känslig. Om **namnet** inte är tillgängligt används **timeSeriesId**som standard. Om ett namn anges är **timeSeriesId** fortfarande [tillgängligt.](time-series-insights-update-explorer.md#4-time-series-well) |
-| description | En text Beskrivning av instansen. |
+| beskrivning | En text Beskrivning av instansen. |
 | hierarchyIds | Definierar vilka hierarkier som instansen tillhör. |
 | instanceFields | Egenskaperna för en instans och eventuella statiska data som definierar en instans. De definierar värden för hierarki-eller icke-hierarkiska egenskaper och stöder även indexering för att utföra Sök åtgärder. |
 
@@ -241,7 +241,7 @@ Tids serie modell typer definieras av **ID**, **namn**, **Beskrivning**och **var
 | ---| ---|
 | id | UUID för typen. |
 | namn | En sträng som används för att ange ett namn för typen. |
-| description | En sträng beskrivning för typen. |
+| beskrivning | En sträng beskrivning för typen. |
 | användarvariabler | Ange variabler som är associerade med typen. |
 
 Typerna följer följande JSON-exempel:

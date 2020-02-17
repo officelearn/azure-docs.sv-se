@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086990"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367742"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Följande krav gäller innan du använder tal behållare:
 
-| Obligatoriskt | Syfte |
+| Krävs | Syfte |
 |--|--|
 | Docker-motor | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon. |
@@ -112,25 +112,25 @@ Behållar avbildningar för tal finns i följande Container Registry.
 
 # <a name="speech-to-texttabstt"></a>[Tal till text](#tab/stt)
 
-| Container | Databas |
+| Container | Lagringsplats |
 |-----------|------------|
 | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
-| Container | Databas |
+| Container | Lagringsplats |
 |-----------|------------|
 | Custom Speech till text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speechtabtts"></a>[Text till tal](#tab/tts)
 
-| Container | Databas |
+| Container | Lagringsplats |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speechtabctts"></a>[Anpassad text till tal](#tab/ctts)
 
-| Container | Databas |
+| Container | Lagringsplats |
 |-----------|------------|
 | Anpassad text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 
@@ -261,7 +261,16 @@ Det här kommandot:
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech till text](#tab/cstt)
 
-*Custom Speech-till-text-* behållaren är beroende av en anpassad tal modell. Den anpassade modellen måste ha [tränats](how-to-custom-speech-train-model.md) med hjälp av den [anpassade tal portalen](https://speech.microsoft.com/customspeech). Det anpassade tal **modells-ID: t** krävs för att köra behållaren. Du hittar den på sidan **utbildning** i den anpassade tal portalen. Från den anpassade tal portalen navigerar du till sidan **utbildning** och väljer modellen.
+*Custom Speech-till-text-* behållaren är beroende av en anpassad tal modell. Den anpassade modellen måste ha [tränats](how-to-custom-speech-train-model.md) med hjälp av den [anpassade tal portalen](https://speech.microsoft.com/customspeech).
+
+> [!IMPORTANT]
+> Custom Speech modellen måste tränas från någon av följande modell versioner:
+> * **20181201 (v 3.3 enhetligt)**
+> * **20190520 (v 4.14 Unified)**
+> * **20190701 (v 4.17 Unified)**<br>
+> ![Custom Speech träna behållar modell](media/custom-speech/custom-speech-train-model-container-scoped.png)
+
+Det anpassade tal **modells-ID: t** krävs för att köra behållaren. Du hittar den på sidan **utbildning** i den anpassade tal portalen. Från den anpassade tal portalen navigerar du till sidan **utbildning** och väljer modellen.
 <br>
 
 ![Inlärnings sidan för anpassat tal](media/custom-speech/custom-speech-model-training.png)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc458c59858196ea110d0ff2030ccd7f7b6fc58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121738"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365630"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -557,7 +557,7 @@ I det här avsnittet ska du konfigurera hur användar data flödar från arbets 
 | **FirstName**   | givenName       |     |    Skapa + uppdatera |
 | **LastName**   |   SN   |     |  Skapa + uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa + uppdatera |
-| **Firm**         | företag   |     |  Skapa + uppdatera |
+| **Firm**         | company   |     |  Skapa + uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa + uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa + uppdatera |
 | **BusinessTitle**   |  title     |     |  Skapa + uppdatera | 
@@ -801,7 +801,7 @@ Nej, lösningen upprätthåller inte ett cacheminne för användar profiler. Azu
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>Har lösningen stöd för att tilldela användare lokala AD-grupper till användaren?
 
-Den här funktionen stöds inte för närvarande. Rekommenderad lösning är att distribuera ett PowerShell-skript som skickar frågor till Azure AD Graph API-slutpunkten för gransknings logg data och används för att utlösa scenarier som grupp tilldelning. Det här PowerShell-skriptet kan kopplas till en Schemaläggaren och distribueras i samma ruta som kör etablerings agenten.  
+Den här funktionen stöds inte för närvarande. Rekommenderad lösning är att distribuera ett PowerShell-skript som frågar Microsoft Graph API-slutpunkten för [Gransknings logg data](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) och använder det för att utlösa scenarier som till exempel grupp tilldelning. Det här PowerShell-skriptet kan kopplas till en Schemaläggaren och distribueras i samma ruta som kör etablerings agenten.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Vilka API: er för Workday använder lösningen för att fråga och uppdatera arbets dag profiler?
 

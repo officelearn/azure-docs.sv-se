@@ -1,25 +1,28 @@
 ---
 title: Kom igång med Azure Cost Management för partner
 description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76842426"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117584"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
-Azure Cost Management är internt tillgängligt för partner som har upprättat ett Microsoft-kundavtal med sina kunder och har [köpt en Azure-plan](/partner-center/purchase-azure-plan). I den här artikeln förklaras hur partner använder [Azure Cost Management](../index.yml)-funktioner för att visa kostnader för prenumerationer i Azure-planen. Den beskriver också hur partner ger Cost Management-åtkomst för sina kunder. Kunder kan använda Cost Management-funktioner när de har aktiverats av sin CSP-partner.
+Azure Cost Management är internt tillgängligt för direkta partner som har upprättat ett Microsoft-kundavtal med sina kunder och har [köpt en Azure-plan](/partner-center/purchase-azure-plan). I den här artikeln förklaras hur partner använder [Azure Cost Management](../index.yml)-funktioner för att visa kostnader för prenumerationer i Azure-planen. Den beskriver också hur partner ger Cost Management-åtkomst för sina kunder.
+
+När det gäller direkta partner och indirekta leverantörer kan den indirekta providerns globala administratörsrepresentanter och administratörsrepresentanter komma åt Cost Management i partnerns klientorganisation. Återförsäljare och kunder kan komma åt Cost Management i kundens klientorganisation och visa kostnader för prenumerationerna. Kostnaderna beräknas och visas enligt återförsäljarpris. De måste dock ha RBAC-åtkomst till prenumerationen i kundens klientorganisation för att kunna visa kostnaderna. Providern måste ha aktiverat principen för kostnadssynlighet för kundens klientorganisation.
+
+Kunder kan använda Cost Management-funktioner när de har aktiverats av sin CSP-partner.
 
 CSP-partner använder Cost Management för att:
 

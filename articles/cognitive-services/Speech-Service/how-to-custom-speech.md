@@ -3,19 +3,19 @@ title: Kom igång med Custom Speech Speech service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech är en uppsättning online-verktyg som gör att du kan utvärdera och förbättra all tal-till-text-precision för dina program, verktyg och produkter. Allt det krävs för att komma igång är en fåtal av test-ljudfiler. Följ länkarna nedan för att börja skapa en anpassad tal-till-text-upplevelse.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/14/2020
+ms.author: dapine
+ms.openlocfilehash: 0788ff84cd5b0d50e0798d0d72ee84b47cb5f0b1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806019"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368321"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -60,6 +60,9 @@ När du har skapat ett Azure-konto och en röst tjänst prenumeration måste du 
 Innehåll som data, modeller, tester och slut punkter organiseras i **projekt** i [Custom Speech portalen](https://speech.microsoft.com/customspeech). Varje projekt är specifika för en domän och ett land/språk. Du kan till exempel skapa ett projekt för Call Center som använder engelska i USA.
 
 Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal**och klickar sedan på **nytt projekt**. Följ anvisningarna i guiden för att skapa projektet. När du har skapat ett projekt bör du se fyra flikar: **data**, **testning**, **utbildning**och **distribution**. Använd länkarna som beskrivs i [Nästa steg](#next-steps) för att lära dig hur du använder varje flik.
+
+> [!IMPORTANT]
+> [Custom Speech portalen](https://aka.ms/custom-speech) uppdaterades nyligen! Om du har skapat tidigare projekt med data, modeller, tester och publicerade slut punkter i CRI: er-portalen eller med API: er, måste du skapa ett nytt projekt i den nya portalen för att ansluta till dessa gamla entiteter.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,29 +8,27 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966921"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368468"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure Language Understanding-redigering av resurs 32-tangenten och URL: en för redigering av slut punkter. Skapa med [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importera [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) -appen från kognitiva-tjänsterna – språkförståelseing GitHub-lagringsplatsen.
 * LUIS program-ID för den importerade TravelAgent-appen. Program-ID visas på programmets instrumentpanel.
 * Versions-ID: t i programmet som tar emot yttranden. Standard-id:t är ”0.1”.
 * [.NET Core V 2.2 +](https://dotnet.microsoft.com/download)
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>Ändra modell program mässigt
-
-Använd C# för att lägga till ett enhets- [API](https://aka.ms/luis-apim-v3-authoring) som har registrerats av enheten i programmet.
 
 1. Skapa ett nytt konsol program som riktar C# sig mot språket, med ett projekt-och mappnamn med `model-with-rest`.
 

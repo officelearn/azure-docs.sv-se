@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190676"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368654"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora fil resurser
 
@@ -31,9 +31,9 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 
 ## <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
 
-### <a name="portal"></a>organisationer i en installation
+### <a name="portal"></a>Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Alla tjänster** i Azure-portalen. 
 1. Ange **lagrings konton**i listan över resurser. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Lagringskonton**.
 1. I fönstret **lagrings konton** som visas väljer du **Lägg till**.
@@ -43,11 +43,11 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
     ![Skärmbild som visar hur du skapar en resursgrupp i portalen](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Ange sedan ett namn för lagringskontot. Namnet måste vara unikt i Azure. Namnet måste också vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.
-1. Välj en plats för ditt lagrings konto och se till att det är [en av de regioner som stöds för stora fil resurser](storage-files-planning.md#regional-availability).
+1. Välj en plats för ditt lagrings konto och se till att det är [en av replikeringen som stöds för stora fil resurser](storage-files-planning.md#regional-availability).
 1. Ange replikeringen till antingen **Lokalt Redundant lagring** eller **zon-redundant lagring**.
 1. Lämna dessa fält till standardvärdena:
 
-   |Fält  |Värde  |
+   |Field  |Värde  |
    |---------|---------|
    |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |
@@ -87,7 +87,7 @@ New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 Du kan också aktivera stora fil resurser på dina befintliga konton. Om du aktiverar stora fil resurser kommer du inte att kunna konvertera till GZRS, GRS eller RA-GRS. Att aktivera stora fil resurser går inte att ångra på det här lagrings kontot.
 
-### <a name="portal"></a>organisationer i en installation
+### <a name="portal"></a>Portal
 
 1. Öppna [Azure Portal](https://portal.azure.com)och gå till det lagrings konto där du vill aktivera stora fil resurser.
 1. Öppna lagrings kontot och välj **konfiguration**.
@@ -120,7 +120,7 @@ Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAc
 
 När du har aktiverat stora fil resurser på ditt lagrings konto kan du skapa fil resurser i det kontot med högre kvoter. 
 
-### <a name="portal"></a>organisationer i en installation
+### <a name="portal"></a>Portal
 
 Att skapa en stor fil resurs är nästan identiskt med att skapa en standard fil resurs. Den största skillnaden är att du kan ange en kvot på upp till 100 TiB.
 
@@ -155,7 +155,7 @@ New-AzStorageShare -Name $shareName -Context $ctx
 
 När du har aktiverat stora fil resurser på ditt lagrings konto kan du också expandera befintliga fil resurser i det kontot till den högre kvoten. 
 
-### <a name="portal"></a>organisationer i en installation
+### <a name="portal"></a>Portal
 
 1. Välj **fil resurser**från ditt lagrings konto.
 1. Högerklicka på fil resursen och välj sedan **kvot**.

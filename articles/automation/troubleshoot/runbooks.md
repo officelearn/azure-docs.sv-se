@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031756"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365206"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
@@ -569,53 +569,77 @@ Nxautomationuser-kontot för Log Analytics agent för Linux har inte kon figurer
 
 * Verifiera konfigurationen av nxautomationuser-kontot i sudoers-filen. Se [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
 
+## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>Scenario: cmdleten fungerar inte i PnP PowerShell-Runbook på Azure Automation
+
+### <a name="issue"></a>Problem
+
+När en Runbook skriver ett PnP-genererat objekt till Azure Automation utdata direkt, kan inte cmdlet-utdata strömma tillbaka till Automation.
+
+### <a name="cause"></a>Orsak
+
+Det här problemet uppstår vanligt vis när Azure Automation bearbetar Runbooks som anropar PnP PowerShell-cmdlets, till exempel **Add-pnplistitem**, utan att fånga in retur objekt.
+
+### <a name="resolution"></a>Lösning
+
+Redigera skripten för att tilldela eventuella retur värden till variabler så att-cmdletarna inte försöker skriva hela objekt till standardutdata. Ett skript kan omdirigera utdataströmmen till en cmdlet enligt vad som visas nedan.
+
+```azurecli
+  $null = add-pnplistitem
+```
+Om skriptet parsar utdata för cmdleten måste skriptet lagra utdata i en variabel och manipulera variabeln i stället för att helt enkelt strömma utdata.
+
+```azurecli
+$SomeVariable = add-pnplistitem ....
+if ($SomeVariable.someproperty -eq ....
+```
+
 ## <a name="other"></a>Mitt problem visas inte ovan
 
 I avsnitten nedan visas andra vanliga fel utöver support dokumentationen som hjälper dig att lösa problemet.
 
-## <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker-jobb kör inte jobb eller svarar inte
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker-jobb kör inte jobb eller svarar inte
 
 Om du kör jobb med en hybrid Worker i stället för i Azure Automation kan du behöva [Felsöka själva hybrid Worker](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
-## <a name="runbook-fails-with-no-permission-or-some-variation"></a>Runbook misslyckas med ”Ingen behörighet” eller liknande
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Runbook misslyckas med ”Ingen behörighet” eller liknande
 
 Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt aktuella konto. Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
 
 * Om Runbooks har körts tidigare men stoppats kontrollerar du att [Kör som-kontot](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) inte har upphört att gälla.
 * Om du använder Webhooks för att starta Runbooks, se till att en [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) inte har upphört att gälla.
 
-## <a name="issues-passing-parameters-into-webhooks"></a>Problem med att skicka parametrar till Webhooks
+### <a name="issues-passing-parameters-into-webhooks"></a>Problem med att skicka parametrar till Webhooks
 
 Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="issues-using-az-modules"></a>Problem med AZ-moduler
+### <a name="issues-using-az-modules"></a>Problem med AZ-moduler
 
-Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds inte. Mer information finns i [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
+Det går inte att använda AZ-moduler och AzureRM-moduler i samma Automation-konto. Mer information finns i [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
 
-## <a name="inconsistent-behavior-in-runbooks"></a>Inkonsekvent beteende i runbooks
+### <a name="inconsistent-behavior-in-runbooks"></a>Inkonsekvent beteende i runbooks
 
 Följ anvisningarna i [Runbook-körningen](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) för att undvika problem med samtidiga jobb, resurser som skapas flera gånger eller annan tids känslig logik i Runbooks.
 
-## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook Miss lyckas med fel meddelandet ingen behörighet, förbjuden (403) eller viss variation
+### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook Miss lyckas med fel meddelandet ingen behörighet, förbjuden (403) eller viss variation
 
 Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt aktuella konto. Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
 
 * Om Runbooks har körts tidigare men stoppats kontrollerar du att kör som-kontot inte har upphört att gälla. Se [certifierings förnyelse](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * Om du använder Webhooks för att starta Runbooks kontrollerar du att webhooken [inte har upphört att gälla](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## <a name="passing-parameters-into-webhooks"></a>Skicka parametrar till webhooks
+### <a name="passing-parameters-into-webhooks"></a>Skicka parametrar till webhooks
 
 Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="using-az-modules"></a>Använda Az-moduler
+### <a name="using-az-modules"></a>Använda Az-moduler
 
-Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds inte. Se [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules).
+Det går inte att använda AZ-moduler och AzureRM-moduler i samma Automation-konto. Se [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
-## <a name="using-self-signed-certificates"></a>Använda självsignerade certifikat
+### <a name="using-self-signed-certificates"></a>Använda självsignerade certifikat
 
 Information om hur du använder självsignerade certifikat finns i [skapa ett nytt certifikat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 

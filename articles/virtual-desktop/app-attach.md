@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772558"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367626"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -38,7 +38,7 @@ Först måste du hämta den OS-avbildning som du ska använda för MSIX-appen. H
 1. Öppna [Windows Insider-portalen](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) och logga in.
 
      >[!NOTE]
-     >Du måste vara medlem i Windows Insider-programmet för att få åtkomst till Windows Insider-portalen. Om du vill veta mer om Windows Insider program kan du läsa vår [Windows Insider-dokumentation](https://docs.microsoft.com/windows-insider/at-home/).
+     >Du måste vara medlem i Windows Insider-programmet för att få åtkomst till Windows Insider-portalen. Om du vill veta mer om Windows Insider program kan du läsa vår [Windows Insider-dokumentation](/windows-insider/at-home/).
 
 2. Rulla ned till avsnittet **Välj utgåva** och välj **Windows 10 Insider Preview Enterprise (snabb) – build 19035** eller senare.
 
@@ -79,7 +79,7 @@ När du har laddat upp den virtuella hård disken till Azure skapar du en adress
 
 ## <a name="prepare-the-application-for-msix-app-attach"></a>Förbereda programmet för MSIX-appen Attach 
 
-Om du redan har ett MSIX-paket kan du gå vidare till [Konfigurera infrastrukturen för virtuella Windows-datorer](#configure-windows-virtual-desktop-infrastructure). Om du vill testa äldre program följer du instruktionerna i [skapa ett MSIX-paket från ett Skriv bords installations program på en virtuell dator](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) för att konvertera det äldre programmet till ett MSIX-paket.
+Om du redan har ett MSIX-paket kan du gå vidare till [Konfigurera infrastrukturen för virtuella Windows-datorer](#configure-windows-virtual-desktop-infrastructure). Om du vill testa äldre program följer du instruktionerna i [skapa ett MSIX-paket från ett Skriv bords installations program på en virtuell dator](/windows/msix/packaging-tool/create-app-package-msi-vm/) för att konvertera det äldre programmet till ett MSIX-paket.
 
 ## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generera ett VHD-eller VHDX-paket för MSIX
 
@@ -149,7 +149,7 @@ Därefter måste du expandera MSIX-avbildningen genom att packa upp den. Packa u
 
 3. Navigera till den monterade virtuella hård disken och öppna mappen app och bekräfta att paket innehållet finns.
 
-4. Demontera den virtuella hårddisken.
+4. Demontera den virtuella hård disken.
 
 ## <a name="configure-windows-virtual-desktop-infrastructure"></a>Konfigurera infrastrukturen för virtuella Windows-datorer
 
@@ -184,7 +184,7 @@ Om din app använder ett certifikat som inte är offentligt betrott eller själv
 
 MSIX app Attach har fyra distinkta faser som måste utföras i följande ordning:
 
-1. Mellanlagra
+1. Fas
 2. Registrera dig
 3. Avregistrera
 4. Destage
@@ -390,7 +390,7 @@ rmdir $packageName -Force -Verbose
 
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Konfigurera simulerings skript för MSIX-appens kopplings agent
 
-När du har skapat skripten kan användarna köra dem manuellt eller ställa in dem för att köra automatiskt som start, inloggning, utloggning och avstängnings skript. Mer information om dessa typer av skript finns i [använda skript för start, avstängning, inloggning och utloggning i Grupprincip](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+När du har skapat skripten kan användarna köra dem manuellt eller ställa in dem för att köra automatiskt som start, inloggning, utloggning och avstängnings skript. Mer information om dessa typer av skript finns i [använda skript för start, avstängning, inloggning och utloggning i Grupprincip](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/).
 
 Vart och ett av dessa automatiska skript kör en fas i appen bifoga skript:
 
@@ -407,7 +407,7 @@ Om du vill installera licensfiler måste du använda ett PowerShell-skript som a
 
 Så här konfigurerar du licenserna för offline-användning: 
 
-1. Ladda ned programpaketet, licenserna och de ramverk som krävs från Microsoft Store för företag. Du behöver både kodade och kodade licensfiler. Detaljerade instruktioner för hämtning hittar du [här](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+1. Ladda ned programpaketet, licenserna och de ramverk som krävs från Microsoft Store för företag. Du behöver både kodade och kodade licensfiler. Detaljerade instruktioner för hämtning hittar du [här](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/).
 2. Uppdatera följande variabler i skriptet för steg 3:
       1. `$contentID` är ContentID-värdet från den kodade licens filen (. xml). Du kan öppna licens filen i valfri text redigerare.
       2. `$licenseBlob` är hela strängen för licens-bloben i den kodade licens filen (. bin). Du kan öppna den kodade licens filen i valfri text redigerare. 

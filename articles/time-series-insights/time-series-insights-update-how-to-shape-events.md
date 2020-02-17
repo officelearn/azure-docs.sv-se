@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e814d9be4a0db2852bd9e21f3d3c1d54a45bd268
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846152"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368638"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
 Den här artikeln hjälper dig att forma din JSON-fil för inmatning och för att maximera effektiviteten hos dina Azure Time Series Insights för hands versioner.
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 Tänk på hur du skickar händelser till Time Series Insights för hands versionen. Nämligen, bör du alltid:
 
@@ -80,7 +80,7 @@ Time Series-instansen innehåller metadata för enheten. Dessa metadata ändras 
 ### <a name="time-series-instance"></a>Time Series-instans 
 
 > [!NOTE]
-> Time Series-ID är *deviceId*.
+> Time Series-ID: t är *deviceId*.
 
 ```JSON
 [
@@ -115,9 +115,9 @@ Time Series-instansen innehåller metadata för enheten. Dessa metadata ändras 
 ]
 ```
 
-Förhandsversionen av Time Series Insights ansluter till en tabell (efter att förenkla) under fråga körs. Tabellen innehåller fler kolumner som **typ**. Följande exempel visar hur du kan [forma](./time-series-insights-send-events.md#supported-json-shapes) dina telemetridata.
+Förhandsversionen av Time Series Insights ansluter till en tabell (efter att förenkla) under fråga körs. Tabellen innehåller ytterligare kolumner, till exempel **typ**. Följande exempel visar hur du kan [forma](./time-series-insights-send-events.md#supported-json-shapes) dina telemetridata.
 
-| deviceId  | Typ | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil press psi |
+| deviceId  | Typ | L1 | L2 | tidsstämpel | series_Flow Rate ft3/s | series_Engine Oil press psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | SIMULATOR | Batteri System | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | SIMULATOR |   Batteri System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -148,7 +148,7 @@ Observera följande punkter i föregående exempel:
   "data_flow" : 1.76435072345733643
 }
 ```
-I exemplet ovan skulle den sammanslagna `data_flow`-egenskapen ge en namn konflikt med egenskapen `data_flow`. I det här fallet skulle det *senaste* egenskap svärdet skriva över det tidigare. Kontakta TSD-teamet om problemet presenteras som en utmaning för dina affärs scenarier.
+I exemplet ovan skulle den sammanslagna `data_flow`-egenskapen ge en namn konflikt med egenskapen `data_flow`. I det här fallet skulle det *senaste* egenskap svärdet skriva över det tidigare. Om det här beteendet utgör en utmaning för dina affärs scenarier kan du kontakta TSD-teamet.
 
 > [!WARNING] 
 > I de fall där dubbla egenskaper finns i samma händelse nytto last på grund av förenkling eller någon annan mekanism, lagras det senaste egenskap svärdet, overwritting alla tidigare värden.

@@ -1,6 +1,6 @@
 ---
-title: 'Använd MS Graph API: er för att konfigurera etablering – Azure Active Directory | Microsoft Docs'
-description: 'Behöver du konfigurera etablering för flera instanser av ett program? Lär dig hur du sparar tid genom att använda MS Graph API: er för att automatisera konfigurationen av automatisk etablering.'
+title: 'Använd Microsoft Graph-API: er för att konfigurera etablering-Azure Active Directory | Microsoft Docs'
+description: 'Behöver du konfigurera etablering för flera instanser av ett program? Lär dig hur du sparar tid genom att använda Microsoft Graph API: er för att automatisera konfigurationen av automatisk etablering.'
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f19f6e4add9bd677b05e09c627532a7a48354ce
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f5780227274e8f9574fcdfcd388d75e333cc3d42
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067193"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367836"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med hjälp av Microsoft Graph API: er
 
-Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph-API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
+Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Översikt över steg för att använda Microsoft Graph API: er för att automatisera etablerings konfigurationen**
 

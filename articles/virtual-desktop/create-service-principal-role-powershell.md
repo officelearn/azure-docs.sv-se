@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606943"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367416"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudie: skapa tjänstens huvud namn och roll tilldelningar med hjälp av PowerShell
 
@@ -28,7 +28,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en roll tilldelning i Windows Virtual Desktop.
 > * Logga in på Windows Virtual Desktop genom att använda tjänstens huvud namn.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa tjänstens huvud namn och roll tilldelningar måste du göra tre saker:
 
@@ -38,7 +38,7 @@ Innan du kan skapa tjänstens huvud namn och roll tilldelningar måste du göra 
     Install-Module AzureAD
     ```
 
-2. [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+2. [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/).
 
 3. Följ alla anvisningar i den här artikeln i samma PowerShell-session. Processen kanske inte fungerar om du avbryter PowerShell-sessionen genom att stänga fönstret och öppna den igen senare.
 
@@ -58,7 +58,7 @@ Innan du skapar roll tilldelningen för tjänstens huvud namn kan du Visa dina a
 
 Här följer de tre autentiseringsuppgifterna som du bör skriva ned och vilka cmdlets du måste köra för att hämta dem:
 
-- Ords
+- Lösenord:
 
     ```powershell
     $svcPrincipalCreds.Value
@@ -80,7 +80,7 @@ Här följer de tre autentiseringsuppgifterna som du bör skriva ned och vilka c
 
 Därefter måste du skapa en roll tilldelning så att tjänstens huvud namn kan logga in på det virtuella Windows-skrivbordet. Var noga med att logga in med ett konto som har behörighet att skapa roll tilldelningar.
 
-Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
+Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan gjort det.
 
 Kör följande PowerShell-cmdlets för att ansluta till det virtuella Windows-skrivbordet och Visa dina klienter.
 

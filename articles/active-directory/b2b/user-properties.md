@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa282afdf910c2449b5d5ea0bc5e38a396f3aa02
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 70156335d0d5617b4c1ccb2d11ce8e9f8dc9d036
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608864"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368115"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbets användare
 
@@ -73,7 +73,7 @@ Den här egenskapen anger hur användaren loggar in.
 
 - Inbjuden användare: den här användaren har bjudits in men har ännu inte löst en inbjudan.
 
-- Externa Active Directory: den här användaren är i en extern organisation och autentiseras med hjälp av ett Azure AD-konto som tillhör den andra organisationen. Den här typen av inloggning motsvarar tillstånd 1.
+- Externa Azure Active Directory: den här användaren är i en extern organisation och autentiseras med hjälp av ett Azure AD-konto som tillhör den andra organisationen. Den här typen av inloggning motsvarar tillstånd 1.
 
 - Microsoft-konto: den här användaren är i ett Microsoft-konto och autentiseras med hjälp av en Microsoft-konto. Den här typen av inloggning motsvarar State 2.
 

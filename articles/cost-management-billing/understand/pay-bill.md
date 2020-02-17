@@ -2,22 +2,22 @@
 title: Betala din faktura för Microsoft Azure | Microsoft Docs
 description: Beskriver hur du betalar en faktura i Azure-portalen
 keywords: billing, past due, balance, pay now,
-author: jureid
-manager: jureid
+author: banders
+manager: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: d486fe72a43465832ca13ac1a62a7f0a9aeaa65e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 214382693d942152d82b7ae5e487969b8ebaeaff
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989714"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188126"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Så betalar du din faktura för Microsoft Azure
 
@@ -35,21 +35,12 @@ Du måste vara ägare, deltagare eller fakturaansvarig för faktureringsprofilen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter **Kostnadshantering och fakturering**.
-1. På bladet **Översikt** klickar du på fliken *Sammanfattning*.
-
-    ![Skärmbild som visar fliken Sammanfattning](./media/pay-bill/billing-account-overview.png)
-
-1. Om du har en faktura som ska betalas eller som har förfallit ser du det totala restbeloppet.
-1. Klicka på den blå knappen **Betala nu**.
-
-    ![Skärmbild som visar knappen Betala nu](./media/pay-bill/paynow-button-overview.png)
-
-1. På det nya bladet klickar du på **Välj en betalningsmetod** för att välja ett befintligt kreditkort eller lägga till ett nytt.<!-- screenshot of select payment method link -->
+1. Välj **Fakturor** under Fakturering på den vänstra menyn.
+1. Om någon av dina fakturor förfaller eller har förfallit visas en blå **Betala nu**-länk för fakturan. Välj **Betala nu**.
+1. På det nya bladet klickar du på **Välj en betalningsmetod** för att välja ett befintligt kreditkort eller lägga till ett nytt.
 1. När du har valt betalningsmetoden klickar du på **Betala nu**.
 
 Fakturans status uppdateras till Betald på bladet Fakturor.
-
-<!-- pay now from invoice blade -->
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

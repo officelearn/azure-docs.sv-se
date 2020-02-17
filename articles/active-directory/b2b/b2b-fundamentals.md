@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa6bc856fc7b7de071a45f3aa11c051e36eca4f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e17e0f1f01e836a7a240100c1c0e1f015da5f00
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480117"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368147"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Metod tips för Azure Active Directory B2B
 Den här artikeln innehåller rekommendationer och metod tips för samarbete mellan företag (B2B) i Azure Active Directory (Azure AD).
@@ -33,7 +33,7 @@ Den här artikeln innehåller rekommendationer och metod tips för samarbete mel
 | Tillämpa principer för villkorlig åtkomst för Multi-Factor Authentication (MFA) | Vi rekommenderar att du tillämpar MFA-principer på de appar som du vill dela med partners B2B-användare. På så sätt tillämpas MFA konsekvent på apparna i din klient, oavsett om partner organisationen använder MFA. Se [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md). |
 | Om du tillämpar enhets principer för villkorlig åtkomst använder du undantags listor för att ge åtkomst till B2B-användare | Om enhetbaserade principer för villkorlig åtkomst har Aktiver ATS i din organisation blockeras B2B-gäst användar enheter eftersom de inte hanteras av din organisation. Du kan skapa undantags listor som innehåller vissa partner användare för att undanta dem från den enhets principen för villkorlig åtkomst. Se [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md). |
 | Använd en klient-/regionsspecifika URL när du tillhandahåller direkta länkar till dina B2B-gäst användare | Som ett alternativ till e-postinbjudan kan du ge en gäst en direkt länk till din app eller Portal. Den här direkta länken måste vara klient-/regionsspecifika, vilket innebär att den måste innehålla ett klient-ID eller en verifierad domän så att gästen kan autentiseras i din klient, där den delade appen finns. Se [inlösnings upplevelse för gäst användaren](redemption-experience.md). |
-| När du utvecklar en app använder du UserType för att fastställa användar upplevelsen för gästen  | Om du utvecklar ett program och vill tillhandahålla olika upplevelser för klient användare och gäst användare använder du UserType-egenskapen. UserType-anspråket ingår för närvarande inte i token. Program ska använda Graph API för att söka efter användare i katalogen där användaren får sin UserType. |
+| När du utvecklar en app använder du UserType för att fastställa användar upplevelsen för gästen  | Om du utvecklar ett program och vill tillhandahålla olika upplevelser för klient användare och gäst användare använder du UserType-egenskapen. UserType-anspråket ingår för närvarande inte i token. Program ska använda Microsoft Graph-API: et för att söka efter användarens UserType i katalogen. |
 | Ändra egenskapen UserType *endast* om användarens relation till organisationen ändras | Även om det går att använda PowerShell för att konvertera UserType-egenskapen för en användare från medlem till gäst (och vice versa) bör du ändra den här egenskapen endast om relationen mellan användaren och din organisation ändras. Se [egenskaperna för en B2B-gäst användare](user-properties.md).|
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d51359896b7a0d03626ead6843d3666f3ad3ef57
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608616"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368095"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
 
@@ -51,21 +51,21 @@ En organisation kanske vill lägga till B2B-samarbets användare, etablera dem f
 Ja. Gäst objekt visas inte i din organisations globala adress lista som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Ser [kan jag göra gäst objekt synliga i den globala adress listan?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Kan jag göra en gäst användare till en begränsad administratör?
-Javisst. Mer information finns i [lägga till gäst användare till en roll](add-guest-to-role.md).
+Absolut. Mer information finns i [lägga till gäst användare till en roll](add-guest-to-role.md).
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Tillåter Azure AD B2B-samarbete att B2B-användare kommer åt Azure Portal?
 Om en användare inte har tilldelats rollen begränsad administratör behöver inte B2B-samarbets användare åtkomst till Azure Portal. B2B-samarbets användare som tilldelas rollen som begränsad administratör kan dock komma åt portalen. Om en gäst användare som inte har tilldelats någon av dessa administratörs roller får åtkomst till portalen, kan användaren dessutom få åtkomst till vissa delar av upplevelsen. Gäst användar rollen har vissa behörigheter i katalogen.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Kan jag blockera åtkomst till Azure Portal för gäst användare?
 
-Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
+Visst! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-och externa användare från att få åtkomst till Azure Portal. När du konfigurerar den här principen bör du vara noga med att undvika att blockera åtkomst till medlemmar och administratörer av misstag.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som säkerhets administratör eller administratör för villkorlig åtkomst.
 2. Välj **Azure Active Directory** i Azure Portal. 
 3. Under **Hantera**väljer du **säkerhet**.
 4. Under **skydda**väljer du **villkorlig åtkomst**. Välj **ny princip**.
 5. På sidan **nytt** i text rutan **namn** anger du ett namn för principen (till exempel "blockera gäster från åtkomst till portalen").
-6. Under **Tilldelningar** väljer du **Användare och grupper**.
+6. Under **tilldelningar**väljer **du användare och grupper**.
 7. På fliken **Inkludera** väljer du **Välj användare och grupper**och väljer sedan **alla gäst-och externa användare (för hands version)** .
 9. Välj **Done** (Klar).
 10. På sidan **ny** i avsnittet **tilldelningar** väljer du **molnappar eller åtgärder**.
@@ -97,7 +97,7 @@ Azure AD har en fast uppsättning av lösen ord, lösen ords styrka och konto ut
 För federerade konton är lösen ords principen beroende av principen som tillämpas i den lokala innehavaren och användarens Microsoft-konto inställningar.
 
 ### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>En organisation kanske vill ha olika upplevelser i sina program för klient användare och gäst användare. Finns det någon standard vägledning för detta? Har identitets leverantörens anspråk rätt modell att använda?
-En gäst användare kan använda valfri identitets leverantör för att autentisera. Mer information finns i [Egenskaper för en B2B-samarbets användare](user-properties.md). Använd egenskapen **UserType** för att fastställa användar upplevelsen. **UserType** -anspråket ingår för närvarande inte i token. Program ska använda Graph API för att fråga användaren om katalogen och för att hämta UserType.
+En gäst användare kan använda valfri identitets leverantör för att autentisera. Mer information finns i [Egenskaper för en B2B-samarbets användare](user-properties.md). Använd egenskapen **UserType** för att fastställa användar upplevelsen. **UserType** -anspråket ingår för närvarande inte i token. Program ska använda Microsoft Graph API för att fråga katalogen för användaren och hämta UserType.
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>Var kan jag hitta en B2B-samarbets community för att dela lösningar och skicka idéer?
 Vi lyssnar ständigt på din feedback för att förbättra B2B-samarbetet. Dela användar scenarier, metod tips och vad du tycker om Azure AD B2B-samarbete. Delta i diskussionen i [Microsoft Tech community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

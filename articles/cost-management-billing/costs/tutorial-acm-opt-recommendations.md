@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 04b3802ae17440fe7cb96b424727600ab53aefce
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990299"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168773"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader utifrån rekommendationer
 
@@ -79,7 +79,7 @@ I den virtuella datorinformationen kontrollerar du användningen av den virtuell
 
 Anteckna storleken på den aktuella virtuella datorn. När du är säker på att storleken på den virtuella datorn ska ändras, stänger du den virtuella datorinformationen så att du ser listan med virtuella datorer.
 
-I listan med kandidater som du kan stänga av eller ändra storlek på, väljer du **Ändra storlek på *&lt;FromVirtualMachineSKU&gt;* till *&lt;ToVirtualMachineSKU&gt;***.
+I listan med kandidater som du kan stänga av eller ändra storlek på, väljer du **Ändra storlek på _&lt;FromVirtualMachineSKU&gt;_ till _&lt;ToVirtualMachineSKU&gt;_** .
 ![Exempel på rekommendation med alternativet att ändra storlek på den virtuella datorn](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Därefter visas en lista över tillgängliga alternativ för storleksändring. Välj den som ger bästa möjliga prestanda och kostnadseffektivitet för ditt scenario. I följande exempel kommer det valda alternativet att ändra storlek från **Standard_D8s_v3** till **Standard_D2s_v3**.

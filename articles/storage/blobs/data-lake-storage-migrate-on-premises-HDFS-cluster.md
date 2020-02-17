@@ -3,17 +3,17 @@ title: Migrera från lokal HDFS-butiken till Azure Storage med Azure Data Box
 description: Migrera data från en lokal HDFS-lagring till Azure Storage
 author: normesta
 ms.service: storage
-ms.date: 11/19/2019
+ms.date: 02/14/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 990b4afa6bdb63e626be0272553aea408afb864f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990971"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368674"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrera från lokal HDFS-butiken till Azure Storage med Azure Data Box
 
@@ -25,19 +25,19 @@ Den här artikeln hjälper dig att utföra följande uppgifter:
 > * Förbered migreringen av dina data.
 > * Kopiera data till en Data Box-enhet eller en Data Box Heavy enhet.
 > * Skicka tillbaka enheten till Microsoft.
-> * Flytta data till Data Lake Storage Gen2.
+> * Tillämpa åtkomst behörigheter för filer och kataloger (endast Data Lake Storage Gen2)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver dessa saker för att slutföra migreringen.
 
-* Två lagrings konton; en som har ett hierarkiskt namn område aktiverat på den, och en som inte gör det.
+* Ett Azure Storage-konto.
 
 * Ett lokalt Hadoop-kluster som innehåller dina källdata.
 
 * En [Azure Data Box enhet](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Beställ data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) eller [data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). Kom ihåg att välja ett lagrings konto som **inte** har hierarkiska namnrum aktiverade på enheten medan du beställer enheten. Detta beror på att Data Box-enhet enheter ännu inte har stöd för direkt inmatning i Azure Data Lake Storage Gen2. Du måste kopiera till ett lagrings konto och sedan göra en andra kopia i ADLS Gen2-kontot. Anvisningarna för detta ges i stegen nedan.
+  * [Beställ data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) eller [data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
 
   * Kabeln och ansluter [data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) eller [data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) till ett lokalt nätverk.
 
@@ -173,36 +173,14 @@ Följ de här stegen för att förbereda och leverera Data Box-enhet-enheten til
 
     * För Data Box Heavy enheter, se [leverera din data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
 
-5. När Microsoft har tagit emot enheten är den ansluten till data Center nätverket och data överförs till det lagrings konto du angav (med hierarkiska namn områden inaktiverade) när du placerade enhets ordningen. Verifiera mot de BOM-filer som alla dina data laddas upp till Azure. Du kan nu flytta dessa data till ett Data Lake Storage Gen2 lagrings konto.
+5. När Microsoft har tagit emot enheten är den ansluten till data Center nätverket och data överförs till det lagrings konto du angav när du placerade enhets ordningen. Verifiera mot de BOM-filer som alla dina data laddas upp till Azure. 
 
-## <a name="move-the-data-into-azure-data-lake-storage-gen2"></a>Flytta data till Azure Data Lake Storage Gen2
+## <a name="apply-access-permissions-to-files-and-directories-data-lake-storage-gen2-only"></a>Tillämpa åtkomst behörigheter för filer och kataloger (endast Data Lake Storage Gen2)
 
-Du har redan data till ditt Azure Storage-konto. Nu ska du kopiera data till ditt Azure Data Lake lagrings konto och tillämpa åtkomst behörigheter på filer och kataloger.
+Du har redan data till ditt Azure Storage-konto. Nu ska du tillämpa åtkomst behörigheter för filer och kataloger.
 
 > [!NOTE]
-> Det här steget behövs om du använder Azure Data Lake Storage Gen2 som data lager. Om du bara använder ett Blob Storage-konto utan hierarkiskt namn område som data lager kan du hoppa över det här avsnittet.
-
-### <a name="copy-data-to-the-azure-data-lake-storage-gen-2-account"></a>Kopiera data till Azure Data Lake Storage gen 2-konto
-
-Du kan kopiera data med hjälp av Azure Data Factory eller genom att använda ditt Azure-baserade Hadoop-kluster.
-
-* Om du vill använda Azure Data Factory, se [Azure Data Factory för att flytta data till ADLS Gen2](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2). Se till att ange **Azure-Blob Storage** som källa.
-
-* Om du vill använda ditt Azure-baserade Hadoop-kluster kör du följande DistCp-kommando:
-
-    ```bash
-    hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
-    ```
-
-    * Ersätt plats hållarna `<source_account>` och `<dest_account>` med namnen på käll-och mål lagrings kontona.
-
-    * Ersätt plats hållarna `<source_container>` och `<dest_container>` med namnen på käll-och mål behållarna.
-
-    * Ersätt plats hållarna `<source_path>` och `<dest_path>` med sökvägen till käll-och mål katalogen.
-
-    * Ersätt `<source_account_key>` plats hållaren med åtkomst nyckeln för det lagrings konto som innehåller data.
-
-    Detta kommando kopierar både data och metadata från ditt lagrings konto till ditt Data Lake Storage Gen2 lagrings konto.
+> Det här steget behövs bara om du använder Azure Data Lake Storage Gen2 som data lager. Om du bara använder ett Blob Storage-konto utan hierarkiskt namn område som data lager kan du hoppa över det här avsnittet.
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Skapa ett huvud namn för tjänsten för ditt Azure Data Lake Storage Gen2-konto
 

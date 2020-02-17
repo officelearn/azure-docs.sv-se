@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905725"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366213"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
 Med Azure Machine Learning pipelines kan du skapa arbets flöden i dina Machine Learning-projekt. De här arbets flödena har ett antal fördelar: 
 
-+ Enkelhet
++ Syfte
 + Hastighet
 + Repeterbarhet
 + Flexibilitet
@@ -31,7 +31,7 @@ Med Azure Machine Learning pipelines kan du skapa arbets flöden i dina Machine 
 
 Dessa förmåner blir viktiga så snart ditt Machine Learning-projekt flyttas bortom ren utforskning och till iteration. Det kan vara värdefullt att använda pipeliner med en enda steg. Machine Learning-projekt är ofta i komplext tillstånd, och det kan vara en avsättning för att göra den exakta processen för ett enskilt arbets flöde en trivial process.
 
-Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md).
+Lär dig hur du [skapar din första pipeline](how-to-create-your-first-pipeline.md).
 
 ![Maskin inlärnings pipeliner i Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -40,11 +40,12 @@ Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.m
 
 Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändamål. I följande tabell visas de olika pipelinen och vad de används för:
 
-| Pipeline | Vad verktyget gör | Kanoniskt rör |
-| ---- | ---- | ---- |
-| Azure Machine Learning pipelines | Definierar återanvändbara Machine Learning-arbetsflöden som kan användas som en mall för dina maskin inlärnings scenarier. | Data > modell |
-| [Azure Data Factory-pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Grupperar data flyttnings-, omvandlings-och kontroll aktiviteter som krävs för att utföra en uppgift.  | Data-> data |
-| [Azure-pipeline](https://azure.microsoft.com/services/devops/pipelines/) | Kontinuerlig integrering och leverans av ditt program till alla plattformar/moln  | Code-> App/Service |
+| Scenario | Primär persona | Azure-erbjudande | OSS-erbjudande | Kanoniskt rör | Styrkor | 
+| -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
+| Modell dirigering (maskin inlärning) | Data Scientist | Azure Machine Learning pipelines | Kubeflow-pipeline | Data > modell | Distribution, cachelagring, kod-första, återanvänd | 
+| Data dirigering (Förbered data) | Data tekniker | [Azure Data Factory-pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache-luft flöde | Data-> data | Starkt förskriven rörelse. Datacentrerade aktiviteter. |
+| Code & app Orchestration (CI/CD) | App-utvecklare/OPS | [Azure DevOps-pipeline](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Kod + modell-> App/Service | De flesta öppna och flexibile aktivitets stöd, godkännande köer, faser med hantera | 
+
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Vad kan Azure ML-pipeliner göra?
 
@@ -52,7 +53,7 @@ En Azure Machine Learning pipeline är ett oberoende körbart arbets flöde för
 
 + Förberedelse av data, inklusive import, validering och rensning, omvandling och transformering, normalisering och mellanlagring
 + Träningskonfiguration, inklusive parametrisera argument, sökvägar och loggnings-/rapporteringskonfigurationer
-+ Utbildning och validering på ett effektivt och upprepade gånger, vilket kan omfatta att ange vissa data del mängder, olika maskin varu beräknings resurser, distribuerad bearbetning och förlopps övervakning
++ Utbildning och validering på ett effektivt och upprepade gånger. Effektiviteten kan komma från att ange vissa data del mängder, olika maskin varu beräknings resurser, distribuerad bearbetning och förlopps övervakning
 + Distribution, inklusive versionshantering, skalning, etablering och åtkomstkontroll 
 
 Oberoende steg gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser. Separata steg gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
@@ -69,7 +70,7 @@ I korthet kan alla komplexa uppgifter i Machine Learning-livscykeln bli hjälpte
 
 En Azure ML-pipeline utför ett fullständigt logiskt arbets flöde med en ordnad sekvens av steg. Varje steg är en diskret bearbetnings åtgärd. Pipelines körs i samband med ett Azure Machine Learning [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
 
-I det allra tidiga skedet av ett ML-projekt är det bra att ha en enda Jupyter Notebook eller Python-skript som gör allt arbete i Azure-arbetsytan och resurs konfigurationen, förberedelse av data, kör konfiguration, utbildning och validering. Men precis som funktioner och klasser kan snabbt bli bättre för ett enda tvingande kodblock, och ML-arbetsflöden blir snabbt bättre än en monolitisk-anteckningsbok eller ett skript. 
+I det tidiga skedet av ett ML-projekt är det bra att ha en enda Jupyter Notebook eller Python-skript som utför allt arbete i Azure-arbetsytan och resurs konfigurationen, förberedelse av data, körning av konfiguration, utbildning och validering. Men precis som funktioner och klasser kan snabbt bli bättre för ett enda tvingande kodblock, och ML-arbetsflöden blir snabbt bättre än en monolitisk-anteckningsbok eller ett skript. 
 
 Med hjälp av ML-aktiviteter stöder pipelines den dator vetenskap som är nödvändig för att en komponent ska kunna "göra (endast) en sak." Det är tydligt viktigt att Project lyckas när programmering i team används, men även när ett litet ML-projekt kräver separata uppgifter, var och en med en bra komplexitet. Uppgifterna omfattar: arbets ytans konfiguration och data åtkomst, förberedelse av data, modell definition och konfiguration och distribution. Även om utdata från en eller flera aktiviteter utgör indata till en annan, är de exakta implementerings detaljerna för en aktivitet, vid bästa, irrelevanta störande i nästa. I värsta fall kan beräknings statusen för en aktivitet orsaka en bugg i en annan. 
 
@@ -197,10 +198,10 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 
 |Stor fördel|Beskrivning|
 |:-------:|-----------|
-|**Obevakad&nbsp;körs**|Schemalägg steg som ska köras parallellt eller i följd på ett tillförlitligt och obevakat sätt. Förberedelse av data och modellering kan senaste dagar eller veckor, och pipelines gör att du kan fokusera på andra uppgifter medan processen körs. |
+|**Obevakade&nbsp;körningar**|Schemalägg steg som ska köras parallellt eller i följd på ett tillförlitligt och obevakat sätt. Förberedelse av data och modellering kan senaste dagar eller veckor, och pipelines gör att du kan fokusera på andra uppgifter medan processen körs. |
 |**Heterogena-beräkning**|Använd flera pipelines som är tillförlitligt koordinerade över heterogena och skalbara beräknings resurser och lagrings platser. Effektiv användning av tillgängliga beräknings resurser genom att köra enskilda pipeline-steg för olika beräknings mål, till exempel HDInsight, GPU: ar för data vetenskap och Databricks.|
-|**Återanvändningsmöjligheter**|Skapa pipeline-mallar för vissa scenarier, till exempel omskolning och batch-poäng. Utlös publicerade pipelines från externa system via enkla REST-anrop.|
-|**Spårning och versionshantering**|I stället för att manuellt spåra data och resultat Sök vägar när du itererar, använder du pipelines SDK för att explicit namnge och version av data källor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|
+|**Åter användning**|Skapa pipeline-mallar för vissa scenarier, till exempel omskolning och batch-poäng. Utlös publicerade pipelines från externa system via enkla REST-anrop.|
+|**Spårning och versions hantering**|I stället för att manuellt spåra data och resultat Sök vägar när du itererar, använder du pipelines SDK för att explicit namnge och version av data källor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|
 | **Modulariteten** | Genom att avgränsa områden och isolera ändringar kan program vara utvecklas snabbare med högre kvalitet. | 
 |**Samarbete**|Pipelines gör det möjligt för data experter att samar beta över alla områden i design processen för maskin inlärning, samtidigt som de kan arbeta med pipeline-steg samtidigt.|
 
@@ -223,7 +224,7 @@ Se [antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/ma
 Azure ML-pipelines är en kraftfull funktion som börjar leverera värde i de tidiga utvecklings faserna. Värdet ökar när teamet och projektet växer. Den här artikeln innehåller förklaras hur pipeliner anges med Azure Machine Learning python SDK och dirigeras på Azure. Du har sett några grundläggande käll koder och har introducerats för några av de `PipelineStep` klasser som är tillgängliga. Du bör ha en uppfattning om när du ska använda Azure ML-pipeliner och hur Azure kör dem. 
 
 
-+ Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md).
++ Lär dig hur du [skapar din första pipeline](how-to-create-your-first-pipeline.md).
 
 + Lär dig hur du [kör batch-förutsägelser på stora data](tutorial-pipeline-batch-scoring-classification.md ).
 

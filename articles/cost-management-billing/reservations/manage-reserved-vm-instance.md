@@ -3,19 +3,17 @@ title: Hantera Azure-reservationer
 description: Lär dig hur du kan hantera Azure-reservationer.
 ms.service: cost-management-billing
 author: bandersmsft
-manager: yashesvi
+ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994056"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188510"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -128,7 +126,7 @@ Så här uppdaterar du optimeringsinställningen för en reservation:
 
 ## <a name="optimize-reservation-use"></a>Optimera reservationsanvändningen
 
-Du sparar bara pengar med Azure-reservationer om du har hög användningsgrad för resurserna. När du köper en reservation betalar du i praktiken i förväg för en möjlig resursanvändning på 100 % under ett eller tre år. Försök att maximera reservationen så att du får mesta möjliga användning och besparingar. I följande avsnitt beskrivs hur du övervakar en reservation och optimerar användningen.
+Du sparar bara pengar med Azure-reservationer om du har hög användningsgrad för resurserna. När du köper en reservation betalar du i praktiken för en möjlig resursanvändning på 100 % under ett eller tre år. Försök att maximera reservationen så att du får mesta möjliga användning och besparingar. I följande avsnitt beskrivs hur du övervakar en reservation och optimerar användningen.
 
 ### <a name="view-reservation-use-in-the-azure-portal"></a>Visa reservationsanvändning i Azure-portalen
 

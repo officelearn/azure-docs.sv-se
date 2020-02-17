@@ -1,21 +1,20 @@
 ---
 title: Självstudie – Skapa och hantera Azure-budgetar | Microsoft Docs
 description: Den här självstudien hjälper dig att planera och ta hänsyn till kostnaderna för de Azure-tjänster som du använder.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/22/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb02c4903348a3b8c1d129f02be64109ec0f48eb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769852"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132092"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -34,13 +33,14 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en budget i Azure-portalen
+> * Skapa och redigera budgetar med PowerShell
 > * Redigera en budget
 
 ## <a name="prerequisites"></a>Krav
 
-Budgetar stöds av en mängd olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa budgetar behöver du minst läsbehörighet för ditt Azure-konto.
+Budgetar kan användas med olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa budgetar behöver du minst läsbehörighet för ditt Azure-konto.
 
- För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar. Du måste ha deltagarbehörighet för att skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Du kan dock inte skapa budgetar för EA-faktureringskonton.
+ För Azure EA-prenumerationer måste du ha läsbehörighet för att visa budgetar. Du måste ha deltagarbehörighet för att skapa och hantera budgetar. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Men du kan inte skapa budgetar för EA-faktureringskonton.
 
 Följande Azure-behörigheter, eller -omfång, stöds per prenumeration för budgetar efter användare och grupp. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 
@@ -62,7 +62,7 @@ Om du vill skapa eller visa en budget öppnar du önskat omfång i Azure-portale
 
 När du har skapat budgetar visas en enkel vy över dina aktuella utgifter.
 
-Klicka på **Lägg till**.
+Välj **Lägg till**.
 
 ![Exempel som visar en lista över budgetar som redan har skapats](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -78,7 +78,11 @@ Baserat på de fält som valts i budgeten så långt visas ett diagram som hjäl
 
 ![Exempel som visar hur du skapar budget med månadskostnadsdata ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-När du har konfigurerat budgetbeloppet klickar du på **Nästa** för att konfigurera budgetaviseringar. Budgetar kräver minst en kostnadströskel (% av budgeten) och en motsvarande e-postadress. Du kan också använda upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett budgettröskelvärde är uppfyllt tas e-postaviseringar normalt emot inom mindre än 20 timmar. Mer information om händelseaviseringar finns i [Använda kostnadsaviseringar](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md). I exemplet nedan skapas en e-postavisering när 90% av budgeten nås. Om du skapar en budget med budget-API:et kan du även tilldela roller till personer som ska ta emot aviseringar. Det finns inte stöd för att tilldela roller till personer i Azure-portalen. Mer information om API:er för Azure-budgetar finns i [API för budgetar](/rest/api/consumption/budgets).
+När du har konfigurerat budgetbeloppet väljer du **Nästa** för att konfigurera budgetaviseringar. Budgetar kräver minst en kostnadströskel (% av budgeten) och en motsvarande e-postadress. Du kan också använda upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett budgettröskelvärde är uppfyllt tas e-postaviseringar normalt emot inom mindre än 20 timmar.
+
+Om du vill få e-postmeddelanden lägger du till azure-noreply@microsoft.com i din lista med godkända avsändare så att meddelandena inte hamnar i skräppostmappen. Mer information om händelseaviseringar finns i [Använda kostnadsaviseringar](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+
+I exemplet nedan skapas en e-postavisering när 90% av budgeten nås. Om du skapar en budget med budget-API:et kan du även tilldela roller till personer som ska ta emot aviseringar. Det finns inte stöd för att tilldela roller till personer i Azure-portalen. Mer information om API:er för Azure-budgetar finns i [API för budgetar](/rest/api/consumption/budgets).
 
 ![Exempel som visar aviseringsvillkor](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -86,7 +90,7 @@ När du har skapat en budget visas den i kostnadsanalysen. Att visa din budget i
 
 ![Exempel på budget och utgifter som visas i kostnadsanalys](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
-I föregående exempel skapade du en budget för en prenumeration. Men du kan också skapa en budget för en resursgrupp. Om du vill skapa en budget för en resursgrupp går du till **Kostnadshantering + fakturering** &gt; **Prenumerationer** &gt; väljer en prenumeration > **Resursgrupper** > väljer en resursgrupp > **Budgetar** > och därefter **Lägg till** en budget.
+I föregående exempel skapade du en budget för en prenumeration. Du kan också skapa en budget för en resursgrupp. Om du vill skapa en budget för en resursgrupp går du till **Kostnadshantering + fakturering** &gt; **Prenumerationer** &gt; väljer en prenumeration > **Resursgrupper** > väljer en resursgrupp > **Budgetar** > och därefter **Lägg till** en budget.
 
 ## <a name="costs-in-budget-evaluations"></a>Kostnader i budgetutvärderingar
 
@@ -102,16 +106,16 @@ Utvärderingar av budgetkostnader baseras på faktiska kostnader. De omfattar in
 
 ## <a name="trigger-an-action-group"></a>Utlös en åtgärdsgrupp
 
-När du skapar eller redigerar en budget för en prenumeration eller resursgruppsomfång kan du konfigurera den så att den anropar en åtgärdsgrupp. Åtgärdsgruppen kan utföra en rad olika åtgärder när ditt budgettröskelvärde är uppfyllt. Åtgärdsgrupper stöds för närvarande endast för prenumerations- och resursgruppsomfång. Mer information om åtgärdsgrupper finns i [Create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md) (Skapa och hantera åtgärdsgrupper i Azure-portalen). Mer information om hur du använder budgetbaserad automatisering med åtgärdsgrupper finns i [Hantera kostnader med Azure Budgets](../manage/cost-management-budget-scenario.md).
+När du skapar eller redigerar en budget för en prenumeration eller resursgruppsomfång kan du konfigurera den så att den anropar en åtgärdsgrupp. Åtgärdsgruppen kan utföra olika åtgärder när ditt budgettröskelvärde är uppfyllt. Åtgärdsgrupper stöds för närvarande endast för prenumerations- och resursgruppsomfång. Mer information om åtgärdsgrupper finns i [Create and manage action groups in the Azure portal](../../azure-monitor/platform/action-groups.md) (Skapa och hantera åtgärdsgrupper i Azure-portalen). Mer information om hur du använder budgetbaserad automatisering med åtgärdsgrupper finns i [Hantera kostnader med Azure Budgets](../manage/cost-management-budget-scenario.md).
 
 
 
-Om du vill skapa eller uppdatera åtgärdsgrupper klickar du på **Hantera åtgärdsgrupper** när du skapar eller redigerar en budget.
+Om du vill skapa eller uppdatera åtgärdsgrupper väljer du **Hantera åtgärdsgrupper** när du skapar eller redigerar en budget.
 
 ![Exempel på hur du skapar en budget för att visa Hantera åtgärdsgrupper](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Klicka sedan på **Lägg till åtgärdsgrupp** och skapa åtgärdsgruppen.
+Välj sedan **Lägg till åtgärdsgrupp** och skapa åtgärdsgruppen.
 
 
 ![Bild av rutan Lägg till åtgärdsgrupp](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -128,12 +132,42 @@ Följande exempel visar budgettrösklar som är inställda på 50 %, 75 % och 
 
 Budgetintegrering med åtgärdsgrupper fungerar bara för åtgärdsgrupper som har det gemensamma aviseringsschemat inaktiverat. Mer information om hur du inaktiverar schemat finns i [How do I enable the common alert schema?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) (Hur gör jag för att aktivera det vanliga aviseringsschemat?)
 
+## <a name="create-and-edit-budgets-with-powershell"></a>Skapa och redigera budgetar med PowerShell
+
+EA-kunder kan skapa och redigera budgetar programmatiskt med Azure PowerShell-modulen.  Om du vill hämta den senaste versionen av Azure PowerShell kör du följande kommando:
+
+```azurepowershell-interactive
+install-module -name AzureRm
+```
+
+Med följande exempelkommandon skapas en budget.
+
+```azurepowershell-interactive
+#Sign into Azure Powershell with your account
+
+Connect-AzureRmAccount
+
+#Select a subscription to to monitor with a budget
+
+select-AzureRmSubscription -Subscription "Your Subscription"
+
+#Create an action group email receiver and corresponding action group
+
+$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+
+#Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
+
+New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en budget i Azure-portalen
+> * Skapa och redigera budgetar med PowerShell
 > * Redigera en budget
 
 Gå vidare till nästa självstudie för att skapa en återkommande export för dina kostnadshanteringsdata.

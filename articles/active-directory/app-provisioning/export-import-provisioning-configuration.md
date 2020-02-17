@@ -1,6 +1,6 @@
 ---
-title: Exportera eller importera etablerings konfigurationen med Graph API | Microsoft Docs
-description: Lär dig hur du exporterar och importerar etablerings konfiguration med Graph API.
+title: Exportera eller importera etablerings konfigurationen med hjälp av Microsoft Graph API | Microsoft Docs
+description: Lär dig hur du exporterar och importerar etablerings konfiguration med hjälp av Microsoft Graph API.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af699fa2201bce5627426dcdefc1b98c1d885ae5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e2fa80726875c82cfa4b5d4cf6a14f4e0dae1871
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066621"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367790"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exportera eller importera etablerings konfigurationen med Graph API
+# <a name="export-or-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportera eller importera etablerings konfigurationen med hjälp av Microsoft Graph API
 
-Du kan använda Microsoft Graph API och Graph Explorer för att exportera mappningar och schemat för användar etablerings attribut till en JSON-fil och importera tillbaka dem till Azure AD. Du kan också använda stegen som beskrivs här för att skapa en säkerhets kopia av etablerings konfigurationen. 
+Du kan använda Microsoft Graph-API: t och Microsoft Graph Explorer för att exportera mappningar och schemat för användar etablerings attribut till en JSON-fil och importera tillbaka dem till Azure AD. Du kan också använda stegen som beskrivs här för att skapa en säkerhets kopia av etablerings konfigurationen. 
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Steg 1: Hämta etablerings App Serviceens huvud-ID (objekt-ID)
 
 1. Starta [Azure Portal](https://portal.azure.com)och navigera till avsnittet Egenskaper i ditt etablerings program. T. ex. om du vill exportera en *arbets dag till AD User Provisioning Application* -mappning navigerar du till avsnittet Egenskaper i appen. 
-1. I avsnittet Egenskaper i din etablerings app kopierar du det GUID-värde som är associerat med fältet *objekt-ID* . Det här värdet kallas även **ServicePrincipalId** för din app och används i Graph-åtgärder.
+1. I avsnittet Egenskaper i din etablerings app kopierar du det GUID-värde som är associerat med fältet *objekt-ID* . Det här värdet kallas även **ServicePrincipalId** för din app och används i Microsoft Graph Explorer-åtgärder.
 
    ![Workday App Service huvud-ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -38,7 +38,7 @@ Du kan använda Microsoft Graph API och Graph Explorer för att exportera mappni
 1. Starta [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Klicka på knappen "logga in med Microsoft" och logga in med Azure AD global admin-eller app admin-autentiseringsuppgifter.
 
-    ![Graph-inloggning](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Microsoft Graph inloggning](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. Vid lyckad inloggning visas användar konto informationen i den vänstra rutan.
 

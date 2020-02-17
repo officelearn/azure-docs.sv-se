@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4e2e25189b35f7d17ef42536aa7cd86ac92ec82
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5ff7cda6a593b1517ad711a56f73d29a14345baf
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185855"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368013"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -1698,7 +1698,7 @@ Den här uppdateringen kan du se vilka principer utvärderas när en användare 
 **Tjänste kategori:** Uppgiftslämn  
 **Produkt kapacitet:** Övervaka & rapportering
  
-Med introduktionen av fältet **klient app** i inloggnings aktivitets loggarna kan kunder nu se användare som använder äldre autentiseringar. Kunderna kommer att ha åtkomst till den här informationen med hjälp av inloggnings-MS Graph API eller genom inloggnings aktivitets loggarna i Azure AD portal där du kan använda **klientens app** -kontroll för att filtrera på äldre autentiseringar. Läs igenom dokumentationen för mer information.
+Med introduktionen av fältet **klient app** i inloggnings aktivitets loggarna kan kunder nu se användare som använder äldre autentiseringar. Kunder kommer att ha åtkomst till den här informationen med hjälp av inloggnings Microsoft Graph-API: t eller via inloggnings aktivitets loggarna i Azure AD portal där du kan använda **klientens app** -kontroll för att filtrera på äldre autentiseringar. Läs igenom dokumentationen för mer information.
 
 ---
 
@@ -2092,7 +2092,7 @@ En lista över alla program som stöder användar etablering i Azure AD-gallerie
 **Tjänste kategori:** Uppgiftslämn  
 **Produkt kapacitet:** Övervaka & rapportering
  
-Azure AD aktivitetsloggar, vilket innefattar inloggningar och granskningsloggar, är nu tillgängliga via MS Graph. Vi har visas två slutpunkter via MS Graph för att få åtkomst till dessa loggar. Ta en titt på våra [dokument](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) för program mässig åtkomst till Azure AD repor ting-API: er för att komma igång. 
+Azure AD-aktivitets loggar, som innehåller inloggningar och gransknings loggar, är nu tillgängliga via Microsoft Graph API. Vi har exponerat två slut punkter via Microsoft Graph API för att komma åt dessa loggar. Ta en titt på våra [dokument](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal) för program mässig åtkomst till Azure AD repor ting-API: er för att komma igång. 
 
 ---
  
@@ -2596,7 +2596,7 @@ Mer information om hur du använder de här rapporterna finns i [Azure Active Di
 **Tjänste kategori:** Uppgiftslämn  
 **Produkt kapacitet:** Övervaka & rapportering
 
-Som en del av kunder feedback för att aktivera icke-administratörsroller ha åtkomst till Azure AD activity loggar, har vi aktiverat möjligheten för användare som ingår i rollen ”rapportläsare” för åtkomst till inloggningar och aktivitetsrapporter i Azure portal samt med hjälp av våra Graph API: er. 
+Som en del av kundernas feedback för att ge icke-administratörer till gång till Azure AD-aktivitets loggar har vi aktiverat möjligheten för användare som finns i rollen "rapport läsare" för att få åtkomst till inloggningar och gransknings aktiviteter i Azure Portal samt använda Microsoft Graph Application. 
 
 Mer information om hur du använder de här rapporterna finns i [Azure Active Directory rapportering](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
 

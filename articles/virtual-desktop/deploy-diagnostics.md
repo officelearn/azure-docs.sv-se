@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452416"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368845"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -25,7 +25,7 @@ Så här kan du använda diagnostikverktyget för virtuella Windows-datorer:
 - Skicka meddelande till aktiva användare på en angiven värd för sessionen.
 - Logga ut användare från en sessions värd.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste skapa en Azure Active Directory app-registrering och en Log Analytics arbets yta innan du kan distribuera Azure Resource Manager-mallen för verktyget. Du eller administratören behöver dessa behörigheter för att göra det:
 
@@ -36,8 +36,8 @@ Du måste skapa en Azure Active Directory app-registrering och en Log Analytics 
 
 Du måste också installera dessa två PowerShell-moduler innan du börjar:
 
-- [Azure PowerShell modul](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Azure AD-modul](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Azure PowerShell modul](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Azure AD-modul](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Se till att du har ditt prenumerations-ID klart för när du loggar in.
 
@@ -253,7 +253,7 @@ Du kan också interagera med användare på värd för sessionen:
 
     - Tröskel: högre än 80% har marker ATS som ohälsosam.
 
-- [Fördröjning av användarindata per session (\*)\\maximal fördröjning för indata](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Fördröjning av användarindata per session (\*)\\maximal fördröjning för indata](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Tröskel: högre än 2000 MS har marker ATS som ohälsosam.
 

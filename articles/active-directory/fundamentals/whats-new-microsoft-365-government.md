@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bc6a478bebef0733847ef4744b722ed9e61a6c7f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805286"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367954"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Vad är nytt för Azure Active Directory i Microsoft 365 myndigheter
 
@@ -55,7 +55,6 @@ I följande tabell visas slut punkterna för alla kunder:
 |------|------------------|
 | Portaler |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 myndigheter – GCC hög: https://portal.office365.us<p>Microsoft 365 myndigheter – DoD: https://portal.apps.mil |
 | Slut punkt för Azure Active Directory utfärdare | https://login.microsoftonline.us |
-| Azure Active Directory Graph API | https://graph.windows.net |
 | Microsoft Graph-API för Microsoft 365 myndighets GCC hög | https://graph.microsoft.us |
 | Microsoft Graph-API för Microsoft 365 myndigheter – DoD | https://dod-graph.microsoft.us |
 | Azure Government Services-slutpunkter | Mer information finns i [Azure Government Developer Guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |

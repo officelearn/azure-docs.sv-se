@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 021d00b9fb02f2f5ea2560038741efec11b8cbc0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 16d8faa1f20227241d1a582dd4d80e0123f7a31e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169190"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368486"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
 Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
@@ -54,9 +54,13 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Even
 - **Prenumeration**: roll tilldelningen gäller för alla Event Hubs resurser i alla resurs grupper i prenumerationen.
 
 > [!NOTE]
-> Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar. 
+> - Tänk på att det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar. 
+> - Det här innehållet gäller för både Event Hubs och Event Hubs för Apache Kafka. Mer information om Event Hubs för Kafka-support finns i [Event Hubs för Kafka-säkerhet och autentisering](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
+
 
 Mer information om hur inbyggda roller definieras finns i [förstå roll definitioner](../role-based-access-control/role-definitions.md#management-and-data-operations). Information om hur du skapar anpassade RBAC-roller finns i [skapa anpassade roller för Azure Role-baserade Access Control](../role-based-access-control/custom-roles.md).
+
+
 
 ## <a name="samples"></a>Exempel
 - [Microsoft. Azure. EventHubs-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
@@ -65,6 +69,8 @@ Mer information om hur inbyggda roller definieras finns i [förstå roll definit
 - [Exempel för Azure. Messaging. EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Det här exemplet har uppdaterats för att använda det senaste **Azure. Messaging. EventHubs** -biblioteket.
+- [Event Hubs för Kafka-OAuth-exempel](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
+
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du tilldelar en inbyggd-RBAC-roll till ett säkerhets objekt finns i [autentisera åtkomst till Event Hubs resurser med Azure Active Directory](authenticate-application.md).

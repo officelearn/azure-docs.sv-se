@@ -8,25 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b9d2bda1d3f01d2bf4bb152c0f62ade87bb61b4c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989526"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368266"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
 Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). Den här artikeln vägleder dig genom processen med att konfigurera openräkning för python och skicka övervaknings data till Azure Monitor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Skapa en Application Insights resurs i Azure Monitor
 
@@ -107,7 +107,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera `SpanData` till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera `SpanData` till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING`. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -193,7 +193,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING`. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from datetime import datetime
@@ -277,7 +277,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     90
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING`. Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     import logging

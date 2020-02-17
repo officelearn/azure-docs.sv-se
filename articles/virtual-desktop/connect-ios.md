@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.author: helohr
-ms.openlocfilehash: 92e11edf3b28017ac73702e3f71dfc491d3986e3
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: aba2202f0d33609400588e379a4ed3bb9bb798d9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110625"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367524"
 ---
 # <a name="connect-with-the-ios-client"></a>Ansluta med iOS-klienten
 
@@ -47,4 +47,4 @@ När du prenumererar på en feed uppdateras feedens innehåll automatiskt regelb
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder iOS-klienten finns i avsnittet [komma igång med iOS-klientprogramvaran](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) .
+Mer information om hur du använder iOS-klienten finns i avsnittet [komma igång med iOS-klientprogramvaran](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/) .

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150705"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366429"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Självstudie: Konfigurera TeamViewer för automatisk användar etablering
 
@@ -85,7 +85,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-teamviewer-in-azure-ad"></a>Konfigurera automatisk användar etablering för TeamViewer i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -101,7 +101,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in autentiseringsuppgifter och användar namn för TeamViewer-administratören. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till TeamViewer. Om anslutningen Miss lyckas kontrollerar du att TeamViewer-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** anger du `ttps://webapi.teamviewer.com/scim/v2` i fältet för **behållar-URL** och anger den skript-token som skapades tidigare i den **hemliga token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till TeamViewer. Om anslutningen Miss lyckas kontrollerar du att TeamViewer-kontot har administratörs behörighet och försöker igen.
 
     ![etablerings](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
@@ -117,9 +117,9 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    |Attribut|Typ|
    |---|---|
-   |userName|Sträng|
-   |displayName|Sträng|
-   |aktiv|Boolesk|
+   |userName|String|
+   |displayName|String|
+   |aktiv|Boolean|
 
 10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

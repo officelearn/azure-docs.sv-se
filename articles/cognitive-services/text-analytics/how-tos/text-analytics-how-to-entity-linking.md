@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137976"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367649"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -28,7 +28,9 @@ Länkning av entitet är möjligheten att identifiera och disambiguate identitet
 
 ### <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
 
-Med namngiven enhets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser eller typer. Till exempel: personer, platser och organisationer.
+Med namngiven entitets igenkänning (NER) kan du identifiera olika entiteter i text och kategorisera dem i fördefinierade klasser eller typer, till exempel: person, plats, händelse, produkt och organisation.  
+
+Från och med version 3 kan den här funktionen i API för textanalys även identifiera personliga och känsliga informations typer, till exempel: telefonnummer, person nummer, e-postadress och bank konto nummer.  Att identifiera dessa entiteter kan hjälpa till att klassificera känsliga dokument och redigera personlig information.
 
 ## <a name="named-entity-recognition-versions-and-features"></a>Versioner och funktioner för namngiven enhets igenkänning
 
@@ -92,7 +94,7 @@ Länkning av entitet
 | Kvantitet      | Dimension     | "10 mil", "40 cm"     |
 | Kvantitet      | Temperatur   | "32 grader"    |
 | DateTime      | Ej tillämpligt\*         | "6:17.30 februari 2012"      |
-| DateTime      | Date          | "Den 2 maj, 2017", "05/02/2017"   |
+| DateTime      | Datum          | "Den 2 maj, 2017", "05/02/2017"   |
 | DateTime      | Tid          | "8.00", "8:00"  |
 | DateTime      | DateRange     | "Andra maj till 5 maj"    |
 | DateTime      | TimeRange     | ". 18:00 to 19:00"     |

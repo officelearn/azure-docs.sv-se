@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443421"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367908"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -146,6 +146,8 @@ Nej. Azure AD-programproxy har utformats för att fungera med Azure AD och uppfy
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>Fungerar WebSocket-supporten för andra program än QlikSense?
 
 För närvarande är stödet för WebSocket-protokoll fortfarande i offentlig för hands version och det kanske inte fungerar för andra program. Vissa kunder har blandat framgång med WebSocket-protokoll med andra program. Vi vill gärna höra resultatet om du testar sådana scenarier. Skicka oss din feedback på aadapfeedback@microsoft.com.
+
+Funktioner (EventLogs, PowerShell och Fjärrskrivbordstjänster) i Windows administrations Center (WAC) eller webb klient för fjärr skrivbord fungerar inte via Azure AD-programproxy för närvarande.
 
 ## <a name="link-translation"></a>Länk Översättning
 

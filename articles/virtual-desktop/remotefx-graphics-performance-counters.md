@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607468"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367231"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostisera problem med grafik prestanda i fjärr skrivbord
 
@@ -69,9 +69,9 @@ Ett högt värde för någon av de överhoppade bild rutorna/sekund räknarna in
 
 Om räknarna för utdata/sekund matchar indata-och sekund räknare, trots att du fortfarande märker ovanliga fördröjningar eller fickor, kan den genomsnittliga kodnings tiden vara orsaken. Encoding är en synkron process som inträffar på servern i vGPU-scenariot (Single-session) och på den virtuella datorn i scenariot för flera sessioner. Genomsnittlig kodnings tid ska vara under 33 MS. Om den genomsnittliga kodnings tiden är under 33 MS men du fortfarande har prestanda problem, kan det bero på ett problem med den app eller det operativ system som du använder.
 
-För ytterligare information om hur du diagnostiserar problem med appar, se [prestanda räknare](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters)för användarindata.
+För ytterligare information om hur du diagnostiserar problem med appar, se [prestanda räknare](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)för användarindata.
 
-Eftersom RDP stöder en genomsnittlig kodnings tid på 33 MS, stöder den en bild Rute frekvens på upp till 30 bild rutor per sekund. Observera att 33 MS är den maximala bild Rute frekvensen som stöds. I många fall kommer bild frekvensen som användaren upplever att vara lägre, beroende på hur ofta en ram tillhandahålls till RDP av källan. Till exempel kan aktiviteter som att titta på en video kräva en full bilds frekvens på 30 bild rutor per sekund, men mindre beräknings intensiva uppgifter som att sällan redigera ett dokument resulterar i ett mycket lägre värde för indata-ramar/sekund utan försämring i användarens upplevelsens kvalitet.
+Eftersom RDP stöder en genomsnittlig kodnings tid på 33 MS, stöder den en bild Rute frekvens på upp till 30 bild rutor per sekund. Observera att 33 MS är den maximala bild Rute frekvensen som stöds. I många fall kommer bild frekvensen som användaren upplever att vara lägre, beroende på hur ofta en ram tillhandahålls till RDP av källan. Till exempel kan aktiviteter som att titta på en video kräva en full bilds frekvens på 30 bild rutor per sekund, men mindre beräknings intensiva uppgifter som att sällan redigera ett dokument resulterar i ett mycket lägre värde för indata-ramar/sekund utan försämring i användarens upplevelse kvalitet.
 
 ### <a name="addressing-poor-frame-quality"></a>Hantera dålig ram-kvalitet
 
@@ -101,6 +101,6 @@ Om klient resurserna orsakar Flask halsen kan du prova någon av följande metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du skapar en GPU-optimerad virtuell Azure-dator finns i [Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop-miljö](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- En översikt över fel sökning och eskalerade spår finns i [fel söknings översikt, feedback och support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Mer information om tjänsten finns i [Skriv bords miljö i Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Information om hur du skapar en GPU-optimerad virtuell Azure-dator finns i [Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop-miljö](configure-vm-gpu.md).
+- En översikt över fel sökning och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
+- Mer information om tjänsten finns i [Skriv bords miljö i Windows](environment-setup.md).

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 059748f6f08b1c73d56aa3a127aa785f55eb63ee
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1637cb7621d6071bbce2af66f3a106770139ad4e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539138"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368811"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installera Office på en VHD-huvudavbildning
 
@@ -20,20 +20,20 @@ Den här artikeln beskriver hur du installerar Office 365 ProPlus, OneDrive och 
 
 Den här artikeln förutsätter att du redan har skapat en virtuell dator (VM). Om inte, se [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md#create-a-vm)
 
-Den här artikeln förutsätter också att du har förhöjd åtkomst på den virtuella datorn, oavsett om den är etablerad i Azure eller Hyper-V Manager. Om inte, se [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Den här artikeln förutsätter också att du har förhöjd åtkomst på den virtuella datorn, oavsett om den är etablerad i Azure eller Hyper-V Manager. Om inte, se [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
 >De här anvisningarna gäller för en Windows-konfiguration med en virtuell dator som kan användas med din organisations befintliga processer.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installera Office i läget för delad dator aktivering
 
-Med den delade dator aktiveringen kan du distribuera Office 365 ProPlus till en dator i organisationen som används av flera användare. Mer information om aktivering av delade datorer finns i [Översikt över delad dator aktivering för Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+Med den delade dator aktiveringen kan du distribuera Office 365 ProPlus till en dator i organisationen som används av flera användare. Mer information om aktivering av delade datorer finns i [Översikt över delad dator aktivering för Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
 
 Använd [distributions verktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117) för att installera Office. Windows 10 Enterprise multi-session stöder endast följande versioner av Office:
 - Office 365 ProPlus
 - Office 365-verksamhet som medföljer en Microsoft 365 Business prenumeration
 
-Distributions verktyget för Office kräver en konfigurations-XML-fil. Information om hur du anpassar följande exempel finns i [konfigurations alternativen för distributions verktyget för Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+Distributions verktyget för Office kräver en konfigurations-XML-fil. Information om hur du anpassar följande exempel finns i [konfigurations alternativen för distributions verktyget för Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 Den här exempel konfigurations-XML: en som vi har angett kommer att göra följande:
 

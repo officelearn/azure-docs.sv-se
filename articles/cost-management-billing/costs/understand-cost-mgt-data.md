@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901756"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188539"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -85,8 +85,6 @@ Om du inte ser data för en prenumeration och vill ta reda på om din prenumerat
 
 Följande tabeller visar data som ingår eller inte ingår i Cost Management. Alla kostnader är endast beräknade sådana tills en faktura genereras. Kostnader som visas omfattar inte kostnadsfria och förskottsbetalade krediter.
 
-**Kostnads- och användningsdata**
-
 | **Ingår** | **Ingår inte** |
 | --- | --- |
 | Användning av Azure-tjänster<sup>5</sup>        | Supportavgifter – mer information finns i [Förklaring av fakturavillkor](../understand/understand-invoice.md). |
@@ -101,13 +99,42 @@ _<sup>**6**</sup> Marketplace-inköp är inte tillgängliga för Betala per anv�
 
 _<sup>**7**</sup> Reservationsköp är endast tillgängliga för Enterprise-avtalskonton (EA) för tillfället._
 
-**Metadata**
+## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Hur taggar används i kostnads- och användningsdata
 
-| **Ingår** | **Ingår inte** |
-| --- | --- |
-| Resurstaggar<sup>8</sup> | Taggar för resursgrupp |
+Azure Cost Management tar emot taggar som en del av varje användningspost som skickas av de enskilda tjänsterna. Följande begränsningar gäller för dessa taggar:
 
-_<sup>**8**</sup> Resurstaggar används när användning genereras från varje tjänst och inte är tillgängliga retroaktivt för historisk användning._
+- Taggar måste användas direkt för resurser och ärvs inte implicit från den överordnade resursgruppen.
+- Resurstaggar stöds bara för resurser som har distribuerats till resursgrupper.
+- Vissa distribuerade resurser kanske inte stöder taggar eller så kanske de inte innehåller taggar i användningsdata – se [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
+- Resurstaggar ingår bara i användningsdata under tiden taggen används – taggar används inte för historiska data.
+- Resurstaggar är endast tillgängliga i Cost Management efter att data har uppdaterats – se [Uppdateringsfrekvensen för användningsdata varierar](#usage-data-update-frequency-varies).
+- Resurstaggar är bara tillgängliga i Cost Management när resursen är aktiv/körs och skapar användningsposter (t. ex. inte när en virtuell dator frigörs).
+- För hantering av taggar krävs deltagaråtkomst till varje resurs.
+- För hantering av taggprinciper krävs antingen ägar- eller principdeltagaråtkomst till en hanteringsgrupp, prenumeration eller resursgrupp.
+    
+Överväg följande om du inte kan se en specifik tagg i Cost Management:
+
+- Användes taggen direkt för resursen?
+- Användes taggen för mer än 24 timmar sedan? Se [Uppdateringsfrekvensen för användningsdata varierar](#usage-data-update-frequency-varies)
+- Stöder resurstypen taggar? Följande resurstyper stöder inte taggar i användningsdata från den 1 december 2019. En fullständig lista över vad som stöds finns i [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
+    - Azure Active Directory B2C-kataloger
+    - Azure Firewall-brandväggar
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - Lastbalanserare
+    - Network Watcher
+    - Notification Hubs
+    - Service Bus
+    - Time Series Insights
+    - VPN gateway
+    
+Här följer några tips för att arbeta med taggar:
+
+- Planera framåt och definiera en taggningsstrategi som gör att du kan bryta ned kostnader efter organisation, program, miljö osv.
+- Använd Azure Policy för att kopiera resursgrupptaggar till enskilda resurser och tillämpa din taggningsstrategi.
+- Använd Tags-API:t med Query eller UsageDetails om du vill hämta alla kostnader baserat på de aktuella taggarna.
+
 
 **Uppgradering från kostnadsfri utvärderingsversion till Betala per användning**
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa44481c4641f69ead5335298316c837062d2c0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186052"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368082"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Vanliga frågor om villkorlig åtkomst för Azure Active Directory
 
@@ -40,7 +40,7 @@ En princip för villkorlig åtkomst anger krav för åtkomst till en tjänst. De
 
 Principer för villkorlig åtkomst gäller för alla användar konton. Detta inkluderar användar konton som används som tjänst konton. Ett tjänst konto som körs obevakat kan ofta inte uppfylla kraven för en princip för villkorlig åtkomst. Till exempel kan Multi-Factor Authentication krävas. Tjänst konton kan uteslutas från en princip med hjälp av princip hanterings inställningar för villkorlig åtkomst. 
 
-## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>Är Graph API: er tillgängliga för att konfigurera principer för villkorlig åtkomst?
+## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>Är Microsoft Graph-API: er tillgängliga för att konfigurera principer för villkorlig åtkomst?
 
 För närvarande, nej. 
 

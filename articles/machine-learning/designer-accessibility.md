@@ -1,5 +1,5 @@
 ---
-title: Använda hjälpmedels funktionerna i designern
+title: Använda hjälpmedels funktionerna i designern (förhands granskning)
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om kortkommandon och skärm läsarenas hjälpmedels funktioner i designern.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314240"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366191"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Använd ett tangent bord för Azure Machine Learning designer
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Använd ett tangent bord för Azure Machine Learning designer (förhands granskning)
 
 Lär dig hur du använder ett tangent bord och en skärm läsare för att använda Azure Machine Learning designer. En lista över kortkommandon som fungerar överallt i Azure Portal finns i [kortkommandon i Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -24,7 +24,7 @@ Det här arbets flödet har testats med [skärm läsaren](https://support.micros
 
 ## <a name="navigate-the-pipeline-graph"></a>Navigera i pipeline-diagrammet
 
-Pipeline-diagrammet är ordnat som en lista över listor. Listan över moduler på den översta nivån innehåller alla moduler i pipelinen. Varje objekt i listan modul innehåller en anslutnings lista som beskriver alla dess anslutningar. 
+Pipeline-diagrammet är ordnat som en kapslad lista. Den yttre listan är en modul-lista som beskriver alla moduler i pipeline-diagrammet. Den inre listan är en anslutnings lista som beskriver alla anslutningar för en speciell modul.  
 
 1. I listan modul använder du piltangenten för att växla mellan moduler.
 1. Använd fliken för att öppna anslutnings listan för modulen.
@@ -54,10 +54,10 @@ Så här justerar du egenskaper för modul:
 
 | Tryck | Beskrivning |
 |-|-|
-| Ctrl + F6 | Växla fokus mellan arbets ytan och modulens träd |
+| CTRL + F6 | Växla fokus mellan arbets ytan och modulens träd |
 | CTRL + F1   | Öppna informations kortet när du fokuserar på en nod i modul träd |
-| Ctrl+Skift+H | Öppna anslutnings hjälpen när fokus är på en nod |
-| Ctrl + Skift + E | Öppna modulens egenskaper när fokus är på en nod |
+| CTRL + SHIFT + H | Öppna anslutnings hjälpen när fokus är på en nod |
+| CTRL + SKIFT + E | Öppna modulens egenskaper när fokus är på en nod |
 | Ctrl + G | Flytta fokus till första noden som misslyckades om pipeline-körningen misslyckades |
 
 ## <a name="action-shortcuts"></a>Åtgärds gen vägar

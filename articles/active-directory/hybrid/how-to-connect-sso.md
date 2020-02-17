@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025695"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367957"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -36,7 +36,7 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 ![Sömlös enkel inloggning](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Sömlös SSO behöver användarens enhet för att vara **domänansluten**, men behöver inte enheten vara [ansluten till Azure AD](../active-directory-azureadjoin-overview.md).
+>Sömlös SSO behöver användarens **enhet enbart vara domänansluten,** men den används inte på [Azure AD-ansluten](../active-directory-azureadjoin-overview.md) eller [hybrid Azure AD-ansluten] (. /active-directory-azureadjoin-overview.md) enheter. SSO PN, Azure AD-ansluten och hybrid Azure AD-anslutna fungerar baserat på [primär uppdateringstoken] (.. /active-directory/devices/concept-primary-refresh-token.md)
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -63,12 +63,12 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Saknas
-|Windows 8.1|Ja\*|Saknas|Ja|Ja\*\*\*|Saknas
-|Windows 8|Ja\*|Saknas|Ja|Ja\*\*\*|Saknas
-|Windows 7|Ja\*|Saknas|Ja|Ja\*\*\*|Saknas
-|Windows Server 2012 R2 eller senare|Ja\*\*|Saknas|Ja|Ja\*\*\*|Saknas
-|Mac OS X|Saknas|Saknas|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
+|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Ej tillämpligt
+|Windows 8.1|Ja\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
+|Windows 8|Ja\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
+|Windows 7|Ja\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
+|Windows Server 2012 R2 eller senare|Ja\*\*|Ej tillämpligt|Ja|Ja\*\*\*|Ej tillämpligt
+|Mac OS X|Ej tillämpligt|Ej tillämpligt|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
 \*kräver Internet Explorer version 10 eller senare

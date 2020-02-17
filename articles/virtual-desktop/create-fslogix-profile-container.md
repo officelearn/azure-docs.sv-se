@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
-ms.openlocfilehash: 1e26d61e0b1ec50e7a3831970af1fd8fad7fed99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 4c5b31c54bf4926caaa1bd793229bdfbb22af2a2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483650"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368909"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
 
@@ -38,13 +38,13 @@ Innan du kan skapa en FSLogix profil behållare för en adresspool måste du:
 
 - Konfigurera och konfigurera virtuellt Windows-skrivbord
 - Etablera en Windows-pool för virtuella skriv bord
-- [Aktivera din Azure NetApp Files-prenumeration](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Aktivera din Azure NetApp Files-prenumeration](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Konfigurera ditt Azure NetApp Files-konto
 
 För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Kontrol lera att ditt konto har behörighet som deltagare eller administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com). Kontrol lera att ditt konto har behörighet som deltagare eller administratör.
 
 2. Välj **Azure Cloud Shell ikonen** till höger om Sök fältet för att öppna Azure Cloud Shell.
 

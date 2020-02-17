@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988206"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048197"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Få faktureringsägarskap för Azure-prenumerationer till ditt MPA-konto
 
@@ -120,7 +120,7 @@ Du kan begära faktureringsägarskap för de prenumerationstyper som anges nedan
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Microsoft Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* Prenumerationen Enterprise DevTest faktureras enligt Betala per användning när den överförs, eventuella rabatter som erbjuds via Enterprise DevTest-erbjudandet och kundens Enterprise-avtal gäller inte för CSP-partnern.
+\* En dev/test-prenumeration måste först konverteras till ett EA Enterprise-erbjudande via en supportbegäran. En prenumeration på Enterprise Dev/Test debiteras enligt priset för betalning per användning när den har överförts. Rabatter som erbjuds via Enterprise Dev/Test-erbjudandet genom kundens Enterprise-avtal är inte tillgängliga för CSP-partnern.
 
 ## <a name="additional-information"></a>Ytterligare information
 

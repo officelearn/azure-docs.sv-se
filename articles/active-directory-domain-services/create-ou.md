@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705344"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367153"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en Azure AD Domain Services hanterad domän
 
@@ -54,7 +54,7 @@ När du skapar anpassade organisationsenheter i en Azure AD DS-hanterad domän f
 * En standard-OU för *AADDC-användare* skapas som innehåller alla synkroniserade användar konton från din Azure AD-klient.
     * Du kan inte flytta användare eller grupper från *AADDC-användarens* organisationsenhet till anpassade organisationsenheter som du skapar. Endast användar konton eller resurser som skapats i den hanterade domänen i Azure AD DS kan flyttas till anpassade organisationsenheter.
 * Användar konton, grupper, tjänst konton och dator objekt som du skapar under anpassade organisationsenheter är inte tillgängliga i din Azure AD-klient.
-    * De här objekten visas inte med Azure AD Graph API eller i användar gränssnittet för Azure AD; de är bara tillgängliga i din Azure AD DS-hanterade domän.
+    * De här objekten visas inte med Microsoft Graph API eller i användar gränssnittet för Azure AD; de är bara tillgängliga i din Azure AD DS-hanterade domän.
 
 ## <a name="create-a-custom-ou"></a>Skapa en anpassad ORGANISATIONSENHET
 

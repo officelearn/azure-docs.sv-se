@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: e9410ce93d9e11d3023f4f461f3ba90a7bf74507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451320"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367199"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop
 
@@ -24,7 +24,7 @@ I följande tabeller jämförs lagrings lösningarna Azure Storage erbjudanden f
 
 ## <a name="azure-platform-details"></a>Information om Azure-plattformen
 
-|Funktioner|Azure Files|Azure NetApp Files|Storage Spaces Direct|
+|Funktioner|Azure Files|Azure NetApp Files|Lagringsdirigering|
 |--------|-----------|------------------|---------------------|
 |Plattforms tjänst|Ja, Azure – inbyggd lösning|Ja, Azure – inbyggd lösning|Ingen, egen hantering|
 |Regional tillgänglighet|Alla regioner|[Välj regioner](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Alla regioner|
@@ -36,10 +36,10 @@ I följande tabeller jämförs lagrings lösningarna Azure Storage erbjudanden f
 
 ## <a name="azure-management-details"></a>Information om Azure-hantering
 
-|Funktioner|Azure Files|Azure NetApp Files|Storage Spaces Direct|
+|Funktioner|Azure Files|Azure NetApp Files|Lagringsdirigering|
 |--------|-----------|------------------|---------------------|
-|Åtkomst|Moln, lokalt och hybrid (Azure File Sync)|Moln, lokalt (via ExpressRoute)|Moln, lokalt|
-|Backup|Integrering av Azure Backup-ögonblicksbild|Azure NetApp Files ögonblicks bilder|Integrering av Azure Backup-ögonblicksbild|
+|Access|Moln, lokalt och hybrid (Azure File Sync)|Moln, lokalt (via ExpressRoute)|Moln, lokalt|
+|Säkerhetskopiering|Integrering av Azure Backup-ögonblicksbild|Azure NetApp Files ögonblicks bilder|Integrering av Azure Backup-ögonblicksbild|
 |Säkerhet och efterlevnad|[Alla Azure-certifikat som stöds](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO slutförd|[Alla Azure-certifikat som stöds](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Azure Active Directory-integrering|Azure Active Directory och Azure Active Directory Domain Services|[Azure Active Directory Domain Services och ursprunglig Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Interna Active Directory eller Azure Active Directory Domain Services endast stöd|
 
@@ -53,6 +53,6 @@ Kom igång med någon av de här självstudierna om du är redo att skapa dina e
 
 - [Komma igång med FSLogix profil behållare på Azure Files i det virtuella Windows-skrivbordet](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
 - [Skapa en FSLogix profil behållare för en värd-pool med Azure NetApp-filer](create-fslogix-profile-container.md)
-- Anvisningarna i [distribuera en skalbar fil server med två noder Lagringsdirigering för UPD-lagring i Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) gäller också när du använder en FSLogix profil behållare i stället för en användar profil disk
+- Anvisningarna i [distribuera en skalbar fil server med två noder Lagringsdirigering för UPD-lagring i Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) gäller också när du använder en FSLogix profil behållare i stället för en användar profil disk
 
 Du kan också börja från början och konfigurera din egen Windows-lösning för virtuella skriv bord genom att [skapa en klient i det virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md).

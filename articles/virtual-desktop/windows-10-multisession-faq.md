@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 543514683ff96449bfe0e5a21c525834f61f3027
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515113"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367130"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
 
@@ -28,7 +28,7 @@ Hur många interaktiva sessioner som kan vara aktiva samtidigt är beroende av s
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Varför rapporterar min app Windows 10 Enterprise multi-session som ett serveroperativ system?
 
-Windows 10 Enterprise multi-session är en virtuell utgåva av Windows 10 Enterprise. En av skillnaderna är att operativ systemet (OS) rapporterar [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) med värdet 3, samma värde som Windows Server. Den här egenskapen ser till att operativ systemet är kompatibelt med befintliga hanterings verktyg för RDSH, RDSH-program för flera sessioner och de flesta prestanda optimeringar på låg nivå för RDSH-miljöer. Vissa program installations program kan blockera installation på Windows 10 multi-session beroende på om de identifierar att ProductType är inställt på Client. Om din app inte installeras kan du kontakta program leverantören för att få en uppdaterad version. 
+Windows 10 Enterprise multi-session är en virtuell utgåva av Windows 10 Enterprise. En av skillnaderna är att operativ systemet (OS) rapporterar [ProductType](/windows/desktop/cimwin32prov/win32-operatingsystem/) med värdet 3, samma värde som Windows Server. Den här egenskapen ser till att operativ systemet är kompatibelt med befintliga hanterings verktyg för RDSH, RDSH-program för flera sessioner och de flesta prestanda optimeringar på låg nivå för RDSH-miljöer. Vissa program installations program kan blockera installation på Windows 10 multi-session beroende på om de identifierar att ProductType är inställt på Client. Om din app inte installeras kan du kontakta program leverantören för att få en uppdaterad version. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Kan jag köra Windows 10 Enterprise multi-session lokalt?
 
@@ -48,7 +48,7 @@ Du kan använda valfritt konfigurations verktyg som stöds, men vi rekommenderar
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Kan Windows 10 Enterprise multi-session vara Azure Active Directory (AD)-ansluten?
 
-Windows 10 Enterprise multi-session stöds för närvarande som hybrid Azure AD-ansluten. När Windows 10 Enterprise multi-session är domänansluten använder du det befintliga grupprincip-objektet för att aktivera Azure AD-registrering. Mer information finns i [Planera hybrid Azure Active Directory Join-implementeringen](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+Windows 10 Enterprise multi-session stöds för närvarande som hybrid Azure AD-ansluten. När Windows 10 Enterprise multi-session är domänansluten använder du det befintliga grupprincip-objektet för att aktivera Azure AD-registrering. Mer information finns i [Planera hybrid Azure Active Directory Join-implementeringen](../active-directory/devices/hybrid-azuread-join-plan.md).
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Var kan jag hitta Windows 10 Enterprise multi-session-avbildningen?
 

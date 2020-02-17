@@ -5,14 +5,14 @@ services: service-fabric
 documentationcenter: .net
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426743"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368577"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 När du distribuerar ett Service Fabric-kluster placeras guardrails på plats, vilket kommer att Miss förAzure Resource Manager distribution om en ogiltig kluster konfiguration används. I följande avsnitt får du en översikt över vanliga problem med kluster konfiguration och de steg som krävs för att minimera problemen. 
@@ -60,11 +60,26 @@ Följande avsnitt innehåller ett exempel på en hållbarhets konflikt mellan in
 * Hållbarhet för skalnings uppsättningen för den virtuella datorn matchar inte mål Service Fabrics hållbarhets nivå
 * Hållbarhet för skalnings uppsättning för virtuell dator matchar den aktuella Service Fabric hållbarhets nivå eller mål Service Fabrics hållbarhets nivå 
 
-
 ### <a name="mitigation"></a>Åtgärd
 Så här åtgärdar du en hållbarhets konflikt som anges av ovanstående fel meddelanden:
 1. Uppdatera hållbarhets nivån i den virtuella datorns skal uppsättnings tillägg eller Service Fabric nodtyp i Azure Resource Manager-mallen för att säkerställa att värdena stämmer överens.
 2. Distribuera om Azure Resource Manager-mallen med de uppdaterade värdena.
+
+
+## <a name="seed-node-deletion"></a>Borttagning av Seed-nod 
+### <a name="overview"></a>Översikt
+Ett Service Fabric-kluster har en egenskap för [Tillförlitlighets nivå](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) som används för att fastställa antalet repliker av system tjänster som körs på den primära nodtypen i klustret. Antalet nödvändiga repliker avgör det minsta antalet noder som måste underhållas i klustrets primära nodtyp. Om antalet noder i den primära nodtypen går under det minimi krav som krävs för Tillförlitlighets nivån blir klustret instabilt.  
+
+### <a name="error-messages"></a>Felmeddelanden 
+Borttagnings åtgärden för startnoden har identifierats och kommer att avvisas. 
+* Den här åtgärden skulle leda till att endast {0} potentiella dirigeringsrouters som finns kvar i klustret, medan {1} krävs som minst.
+* Om du tar bort {0} Seed-noder av {1} skulle klustret gå ut på grund av förlust av kvorum för dirigeringsrouter. Det maximala antalet startnoder som kan tas bort i taget är {2}.
+ 
+### <a name="mitigation"></a>Åtgärd 
+Kontrol lera att den primära nodtypen har tillräckligt med Virtual Machines för den tillförlitlighet som anges i klustret. Du kommer inte att kunna ta bort en virtuell dator om den här skalnings uppsättningen för den virtuella datorn ska få lägre än det minsta antalet noder för den angivna Tillförlitlighets nivån.
+* Om Tillförlitlighets nivån är korrekt angiven kontrollerar du att det finns tillräckligt många noder i den primära nodtypen som behövs för Tillförlitlighets nivån. 
+* Om Tillförlitlighets nivån är felaktig initierar du en ändring på Service Fabric resurs för att sänka Tillförlitlighets nivån först innan du påbörjar alla åtgärder för skalnings uppsättningar för virtuella datorer och väntar tills den har slutförts.
+* Om Tillförlitlighets nivån är brons följer du de här [stegen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) för att skala ned klustret på ett smidigt sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 * Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)

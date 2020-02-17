@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92048d2fce4a098da1e707ec8f7d75479d563f1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161587"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368170"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösen ord?
 
@@ -158,13 +158,13 @@ Lösen ord skrivs tillbaka i alla följande situationer:
 Lösen ord skrivs *inte* tillbaka i någon av följande situationer:
 
 * **Slut användar åtgärder som inte stöds**
-   * Alla slutanvändare återställer sina egna lösen ord med hjälp av PowerShell version 1, version 2 eller Azure AD Graph API
+   * Alla slutanvändare återställer sina egna lösen ord med hjälp av PowerShell version 1, version 2 eller Microsoft Graph API
 * **Administratörs åtgärder som inte stöds**
-   * All administratörs-initierad återställning av lösen ord för slutanvändare från PowerShell version 1, version 2 eller Azure AD Graph API
+   * En administratör som initierat slut användar lösen ord Återställ från PowerShell version 1, version 2 eller Microsoft Graph-API
    * En administratör som initierat återställning av lösen ord för slutanvändare från [Microsoft 365 administrations Center](https://admin.microsoft.com)
 
 > [!WARNING]
-> Om du använder kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala Active Directory administrations verktyg som Active Directory användare och datorer eller Active Directory Administrationscenter stöds som en förhands gransknings funktion i Azure AD Connect. Mer information finns i artikeln [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
+> Om du använder kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala Active Directory administrations verktyg som Active Directory användare och datorer eller Active Directory Administrationscenter stöds som en förhands gransknings funktion i Azure AD Connect. Mer information finns i artikeln [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

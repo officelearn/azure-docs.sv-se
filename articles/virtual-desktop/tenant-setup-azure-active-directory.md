@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459518"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368786"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
 
@@ -121,7 +121,7 @@ Så här hittar du ditt Azure-prenumerations-ID:
 
 Nu när du har beviljat Windows Virtual Desktop-tjänsten behörighet att fråga Azure Active Directory och tilldelat TenantCreator-rollen till ett användar konto, kan du skapa en Windows-klient för virtuella skriv bord.
 
-Börja med att [Hämta och importera Windows-modulen för virtuella skriv bord](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
+Börja med att [Hämta och importera Windows-modulen för virtuella skriv bord](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan gjort det.
 
 Logga in på Windows Virtual Desktop genom att använda TenantCreator-användarkontot med denna cmdlet:
 

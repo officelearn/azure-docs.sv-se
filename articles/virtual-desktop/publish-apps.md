@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 896fd41cff0ab8257da7b91687aaae389a1c81ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 37fc089ab68bfb3cd26e1656ba84610fe8a47bc6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769667"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367267"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Publicera inbyggda appar i Windows Virtual Desktop
 
@@ -23,7 +23,7 @@ I den här artikeln får du lära dig hur du publicerar appar i din Windows-milj
 Publicera en inbyggd app:
 
 1. Anslut till en av de virtuella datorerna i din värd bassäng.
-2. Hämta **PackageFamilyName** för den app som du vill publicera genom att följa anvisningarna i [den här artikeln](https://docs.microsoft.com/powershell/module/appx/get-appxpackage?view=win10-ps).
+2. Hämta **PackageFamilyName** för den app som du vill publicera genom att följa anvisningarna i [den här artikeln](/powershell/module/appx/get-appxpackage?view=win10-ps/).
 3. Kör slutligen följande cmdlet med `<PackageFamilyName>` ersatt av **PackageFamilyName** som du hittade i föregående steg:
    
    ```powershell

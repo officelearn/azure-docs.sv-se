@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511900"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368057"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -105,7 +105,7 @@ För att bättre förstå dina autentiseringsalternativ, se [Välj rätt autenti
 
 ### <a name="programmatic-usage-of-credentials"></a>Användning av autentiseringsuppgifter för program mässig användning
 
-Azure AD-skript med hjälp av PowerShell eller program som använder Graph API kräver säker autentisering. Dålig hantering av autentiseringsuppgifter som kör dessa skript och verktyg ökar risken för stöld av autentiseringsuppgifter. Om du använder skript eller program som förlitar sig på hårdkodade lösen ord eller lösen ord, bör du först granska lösen ord i konfigurationsfiler eller käll koden och sedan ersätta dessa beroenden och använda Azure Managed Identities, integrerad Windows-autentisering eller [certifikat](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) närhelst det är möjligt. Överväg att använda [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)för program där tidigare lösningar inte är möjliga.
+Azure AD-skript med hjälp av PowerShell eller program som använder Microsoft Graph API kräver säker autentisering. Dålig hantering av autentiseringsuppgifter som kör dessa skript och verktyg ökar risken för stöld av autentiseringsuppgifter. Om du använder skript eller program som förlitar sig på hårdkodade lösen ord eller lösen ord, bör du först granska lösen ord i konfigurationsfiler eller käll koden och sedan ersätta dessa beroenden och använda Azure Managed Identities, integrerad Windows-autentisering eller [certifikat](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) närhelst det är möjligt. Överväg att använda [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)för program där tidigare lösningar inte är möjliga.
 
 Om du fastställer att det finns tjänstens huvud namn med autentiseringsuppgifter för lösen ord och du är osäker på hur lösen ords uppgifterna skyddas av skript eller program, kan du kontakta programmets ägare för att bättre förstå användnings mönster.
 
@@ -141,7 +141,7 @@ Om du hanterar enheter med MDM eller Microsoft Intune, men inte använder enhets
 #### <a name="device-trust-access-policies-recommended-reading"></a>Åtkomst principer för enhets förtroende rekommenderas läsning
 
 - [Gör så här: planera din hybrid Azure Active Directory delta-implementering](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-- [Konfigurationer för identitets- och Enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfigurationer för identitets-och enhets åtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello för företag
 
@@ -205,7 +205,7 @@ Med [namngivna platser](https://docs.microsoft.com/azure/active-directory/report
 
 Baserat på prioritet använder du tabellen nedan för att hitta den rekommenderade lösning som bäst uppfyller organisationens behov:
 
-| **Prioritet** | **Scenario** | **Rekommendationen** |
+| **Prioritet** | **Scenario** | **Rekommenderade** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Om du använder PHS eller PTA och namngivna platser inte har definierats | Definiera namngivna platser för att förbättra identifieringen av risk händelser |
 | 2 | Om du är federerad och inte använder "insideCorporateNetwork"-anspråk och namngivna platser inte har definierats | Definiera namngivna platser för att förbättra identifieringen av risk händelser |
@@ -256,7 +256,7 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra din organisatio
 #### <a name="conditional-access-recommended-reading"></a>Rekommenderad läsning för villkorlig åtkomst
 
 - [Metod tips för villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Konfigurationer för identitets- och Enhetsåtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Konfigurationer för identitets-och enhets åtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Referens för Azure Active Directory villkorlig åtkomst inställningar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Vanliga principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
@@ -305,29 +305,28 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 | Office 365 Exchange Online | EA. AccessAsUser. all |
 | | EWS. AccessAsUser. all |
 | | E-post. Read |
-| Microsoft Graph | E-post. Read |
+| Microsoft Graph-API | E-post. Read |
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Ett exempel:
+- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Exempel:
 
 |Resurs | Behörighet |
 | :- | :- |
-| Azure AD-diagram | Directory. AccessAsUser. all |
-| Microsoft Graph | Directory. AccessAsUser. all |
-| Azure REST API | user_impersonation |
+| Microsoft Graph-API| Directory. AccessAsUser. all |
+| Azure-REST API | user_impersonation |
 
 För att undvika det här scenariot bör du läsa om att [identifiera och åtgärda illegala medgivande i Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) för att identifiera och åtgärda alla program med illegala bidrag eller program som har fler bidrag än vad som behövs. Ta sedan bort självbetjäningen [helt och hållet](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) och [upprätta styrnings procedurer](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Slutligen kan du schemalägga regelbundna granskningar av app-behörigheter och ta bort dem när de inte behövs.
 
 #### <a name="consent-grants-recommended-reading"></a>Medgivande ger Rekommenderad läsning
 
-- [Microsoft Graph-behörigheter](https://docs.microsoft.com/graph/permissions-reference)
+- [Microsoft Graph API-behörigheter](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Användar-och grupp inställningar
 
 Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte finns något behov av affärs behov:
 
-#### <a name="user-settings"></a>Användarinställningar
+#### <a name="user-settings"></a>Användar inställningar
 
 - **Externa användare** – externt samarbete kan ske ekologiskt i företaget med tjänster som team, Power BI, SharePoint Online och Azure information Protection. Om du har uttryckliga begränsningar för att styra det externa samarbetet som initieras av användaren, rekommenderar vi att du aktiverar externa användare med hjälp av [hantering av Azure AD-rättighet](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) eller en kontrollerad åtgärd, till exempel genom supportavdelningen. Om du inte vill tillåta ekologiskt externt samarbete för tjänster kan du [blockera medlemmar från att bjuda in externa användare fullständigt](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Du kan också [tillåta eller blockera vissa domäner](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) i externa användar inbjudningar.
 - **App-registreringar** – när Appregistreringar är aktiverade kan slutanvändare själva publicera program och ge åtkomst till sina data. Ett typiskt exempel på registrering av appar är användare som aktiverar Outlook-plugin-program eller röst assistenter som Alexa och Siri för att läsa e-post och kalender eller skicka e-post åt dig. Om kunden bestämmer sig för att inaktivera registrering av appar, måste informations-och IAM-teamen ingå i hanteringen av undantag (app-registreringar som behövs utifrån affärs kraven), eftersom de skulle behöva registrera programmen med ett administratörs konto. Vi behöver förmodligen utforma en process för att operationalisera processen.
@@ -338,7 +337,7 @@ Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte
 > [!NOTE]
 > Icke-administratörer kan fortfarande komma åt Azure AD-hanterings gränssnitt via kommando rads program och andra programmerings gränssnitt.
 
-#### <a name="group-settings"></a>Gruppinställningar
+#### <a name="group-settings"></a>Grupp inställningar
 
 **Grupp hantering via självbetjäning/användare kan skapa säkerhets grupper/O365-grupper.** Om det inte finns något aktuellt självbetjänings initiativ för grupper i molnet kan kunderna välja att inaktivera det tills de är redo att använda den här funktionen.
 

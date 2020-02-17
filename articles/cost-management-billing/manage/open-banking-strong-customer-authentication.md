@@ -2,21 +2,21 @@
 title: Open Banking (PSD2) och Strong Customer Authentication (SCA) för Azure-kunder
 description: I den här artikeln förklaras varför multifaktorautentisering krävs för vissa Azure-köp och hur du genomför autentiseringen.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75996045"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133565"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Open Banking (PSD2) och Strong Customer Authentication (SCA) för Azure-kunder
 
@@ -53,14 +53,13 @@ Om din bank avvisar debiteringarna ändras statusen för ditt Azure-konto till *
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Betala utestående avgifter för Marketplace och reservationsinköp
 
-Köp på Marketplace och reservationsinköp faktureras separat från Azure-tjänster. Om din bank avvisar debiteringarna för Marketplace eller dina reservationsinköp ändras din faktureringsstatus till **Förfallodatum har passerat** i Microsoft Azure-portalen. Du kan kontrollera status för dina Marketplace- och reservationsfakturor genom att utföra följande steg:
+Köp på Marketplace och reservationsinköp faktureras separat från Azure-tjänster. Om din bank avvisar debiteringarna för Marketplace-köp eller reservationsköp förfaller fakturan och alternativet **Betala nu** visas i Azure-portalen. Du kan betala förfallna fakturor för Marketplace-köp eller reservationsköp på följande sätt:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som kontoadministratör.
 2. Sök efter **Kostnadshantering och fakturering.**
 3. Under ”Fakturering” väljer du **Fakturor**.
-4. Klicka på fliken **Azure Marketplace och reservationer** till höger.
-5. Välj prenumeration.
-6. Granska statuskolumnen i rutnätet Fakturor. Om status för fakturan är **Ska betalas** eller **Förfallodatum har passerat** klickar du på **Betala nu.** Du uppmanas att använda multifaktorautentisering under processen.
+5. I listrutan för prenumerationer väljer du den prenumeration som är associerad med ditt Marketplace-köp eller reservationsköp.
+6. Granska typkolumnen i rutnätet Fakturor. Om typen är **Azure Marketplace och reservationer** visas länken **Betala nu** om fakturan förfaller eller har förfallit. Om inte **Betala nu** visas betyder det att din faktura redan har betalats. När du väljer Betala nu uppmanas du att göra en multifaktorautentisering.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs [Lös passerat betalningsdatum för din Azure-prenumeration](resolve-past-due-balance.md) om du behöver betala en Azure-faktura.

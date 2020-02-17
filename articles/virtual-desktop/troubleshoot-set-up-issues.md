@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 12b5b6ce84ad36d14a393b54745e530779d4ca95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 438c391febc28a716c681aa81b3f42c155b720eb
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965729"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367223"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -53,7 +53,7 @@ Exempel på RAW-fel:
 
 **Orsak:** Användaren som är inloggad har inte tilldelats rollen TenantCreator i sina Azure Active Directory.
 
-**KORRIGERA:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
+**KORRIGERA:** Följ instruktionerna i [tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). När du har följt anvisningarna får du en användare som tilldelats rollen TenantCreator.
 
 ![Skärm bild av TenantCreator-rollen har tilldelats.](media/TenantCreatorRoleAssigned.png)
 
@@ -113,9 +113,9 @@ Om din åtgärds mal len går över kvot gränsen kan du göra något av följan
 
 Följ dessa anvisningar för att felsöka misslyckade distributioner av Azure Resource Manager mallar och PowerShell DSC.
 
-1. Granska fel i distributionen med hjälp av [Visa distributions åtgärder med Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
-2. Om det inte finns några fel i distributionen granskar du fel i aktivitets loggen med [Visa aktivitets loggar för att granska åtgärder på resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) för att åtgärda problemet.
+1. Granska fel i distributionen med hjälp av [Visa distributions åtgärder med Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
+2. Om det inte finns några fel i distributionen granskar du fel i aktivitets loggen med [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
+3. När felet har identifierats använder du fel meddelandet och resurserna i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) för att åtgärda problemet.
 4. Ta bort alla resurser som har skapats under den tidigare distributionen och försök att distribuera mallen igen.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Fel: distributionen misslyckades....\<värdnamn >/JoinDomain
@@ -368,7 +368,7 @@ Om du kör GitHub-mallen för Azure Resource Manager anger du värden för följ
 
 - Klient administratörs User Principal Name (UPN) eller program-ID: program identifieringen för det nya tjänst objekt som du har skapat
 - Administratörs lösen ord för klient organisation: lösen ords hemligheten som du skapade för tjänstens huvud namn
-- IsServicePrincipal: **true**
+- IsServicePrincipal: **Sant**
 - AadTenantId: Azure AD-klient-ID för tjänstens huvud namn som du skapade
 
 ## <a name="next-steps"></a>Nästa steg

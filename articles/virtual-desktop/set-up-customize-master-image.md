@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 23763123ce8e92b6bb15b2b33a196ed1a1d75c9f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013149"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368791"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -22,13 +22,13 @@ Den här artikeln beskriver hur du förbereder en avbildning av en virtuell hår
 
 Windows 10 Enterprise multi-session är tillgängligt i Azures avbildnings Galleri. Det finns två alternativ för att anpassa avbildningen.
 
-Det första alternativet är att etablera en virtuell dator (VM) i Azure genom att följa anvisningarna i [skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)och sedan gå vidare till [förberedelse och installation av program vara](set-up-customize-master-image.md#software-preparation-and-installation).
+Det första alternativet är att etablera en virtuell dator (VM) i Azure genom att följa anvisningarna i [skapa en virtuell dator från en hanterad avbildning](../virtual-machines/windows/create-vm-generalized-managed.md)och sedan gå vidare till [förberedelse och installation av program vara](set-up-customize-master-image.md#software-preparation-and-installation).
 
 Det andra alternativet är att skapa avbildningen lokalt genom att ladda ned avbildningen, etablering av en virtuell Hyper-V-dator och anpassa den efter dina behov, som vi tar upp i följande avsnitt.
 
 ### <a name="local-image-creation"></a>Skapa lokal avbildning
 
-När du har laddat ned avbildningen till en lokal plats öppnar du **Hyper-V Manager** för att skapa en virtuell dator med den virtuella hård disken som du kopierade. Följande instruktioner är en enkel version, men du hittar mer detaljerad information i [skapa en virtuell dator i Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+När du har laddat ned avbildningen till en lokal plats öppnar du **Hyper-V Manager** för att skapa en virtuell dator med den virtuella hård disken som du kopierade. Följande instruktioner är en enkel version, men du hittar mer detaljerad information i [skapa en virtuell dator i Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
 
 Så här skapar du en virtuell dator med den kopierade virtuella hård disken:
 
@@ -50,7 +50,7 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 ### <a name="fixed-disk"></a>Fast disk
 
-Om du skapar en virtuell dator från en befintlig virtuell hård disk skapas en dynamisk disk som standard. Den kan ändras till en fast disk genom att välja **Redigera disk...** som visas i följande bild. Mer detaljerad information finns i [förbereda en virtuell Windows-VHD eller VHDX att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+Om du skapar en virtuell dator från en befintlig virtuell hård disk skapas en dynamisk disk som standard. Den kan ändras till en fast disk genom att välja **Redigera disk...** som visas i följande bild. Mer detaljerad information finns i [förbereda en virtuell Windows-VHD eller VHDX att ladda upp till Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 ![En skärm bild av alternativet Redigera disk.](media/35772414b5a0f81f06f54065561d1414.png)
 
@@ -70,7 +70,7 @@ Om dina användare behöver åtkomst till vissa LOB-program rekommenderar vi att
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användar profil behållare (FSLogix)
 
-Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial)starten.
+Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](/fslogix/configure-cloud-cache-tutorial/)starten.
 
 ### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
 
@@ -78,9 +78,9 @@ Om Windows Defender är konfigurerat på den virtuella datorn kontrollerar du at
 
 Den här konfigurationen tar bara bort skanning av VHD-och VHDX-filer under den bifogade filen, men påverkar inte genomsökningen i real tid.
 
-Mer detaljerad information om hur du konfigurerar Windows Defender på Windows Server finns i [Konfigurera Windows Defender Antivirus-undantag i Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+Mer detaljerad information om hur du konfigurerar Windows Defender på Windows Server finns i [Konfigurera Windows Defender Antivirus-undantag i Windows Server](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/).
 
-Mer information om hur du konfigurerar Windows Defender för att undanta vissa filer från genomsökning finns i [Konfigurera och validera undantag baserat på fil namns tillägg och mappens plats](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
+Mer information om hur du konfigurerar Windows Defender för att undanta vissa filer från genomsökning finns i [Konfigurera och validera undantag baserat på fil namns tillägg och mappens plats](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/).
 
 ### <a name="disable-automatic-updates"></a>Inaktivera automatiska uppdateringar
 
@@ -137,9 +137,9 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 Den här artikeln beskriver inte hur du konfigurerar språk och regional support. Mer information finns i följande artiklar:
 
-- [Lägga till språk i Windows-avbildningar](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
-- [Funktioner på begäran](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
-- [Språk-och regions funktioner på begäran (franska)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-language-fod)
+- [Lägga till språk i Windows-avbildningar](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
+- [Funktioner på begäran](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
+- [Språk-och regions funktioner på begäran (franska)](/windows-hardware/manufacture/desktop/features-on-demand-language-fod/)
 
 ### <a name="other-applications-and-registry-configuration"></a>Andra program och register konfiguration
 
@@ -174,7 +174,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 
 ## <a name="prepare-the-image-for-upload-to-azure"></a>Förbered avbildningen för uppladdning till Azure
 
-När du har avslutat konfigurationen och installerat alla program följer du anvisningarna i [förbereda en Windows-VHD eller VHDX att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) för att förbereda avbildningen.
+När du har avslutat konfigurationen och installerat alla program följer du anvisningarna i [förbereda en Windows-VHD eller VHDX att ladda upp till Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) för att förbereda avbildningen.
 
 När du har förberedat avbildningen för uppladdning ser du till att den virtuella datorn är i läget avstängd eller inte allokerad.
 

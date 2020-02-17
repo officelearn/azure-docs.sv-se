@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 28229ad71327daefb8e42881cf001b6a3ddd3a53
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770336"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086840"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ansluta ett Amazon Web Services-konto
 
@@ -41,7 +41,7 @@ Det första steget är att hämta den unika anslutningslösenfrasen från Cloudy
 
 ### <a name="add-aws-read-only-role-based-access"></a>Lägga till skrivskyddad rollbaserad åtkomst för AWS
 
-1. Logga in på AWS-konsolen på https://console.aws.amazon.com/iam/home och välj **Roller**.
+1. Logga in på AWS-konsolen på [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) och välj **Roller**.
 2. Klicka på **Skapa roll** och välj sedan **Ett annat AWS-konto**.
 3. I rutan **Konto-ID** klistrar du in `432263259397`. Detta konto-ID är Cloudyn-datainsamlingskonto som tilldelats av AWS till Cloudyn-tjänsten. Använd det exakta konto-ID som visas.
 4. Bredvid **Alternativ** väljer du **Kräv externt ID**. Klistra in ditt unika värde som tidigare kopierades från fältet **Externt ID** i Cloudyn. Klicka sedan på **Nästa: Behörigheter**.  
@@ -76,7 +76,7 @@ Följande avsnitt beskriver hur du skapar en skrivskyddad användare för att ge
 
 ### <a name="add-aws-read-only-user-based-access"></a>Lägga till skrivskyddad användarbaserad åtkomst för AWS
 
-1. Logga in på AWS-konsolen på https://console.aws.amazon.com/iam/home och välj **Användare**.
+1. Logga in på AWS-konsolen på [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) och välj **Användare**.
 2. Klicka på **Lägg till användare**.
 3. I fältet **Användarnamn** skriver du ett användarnamn.
 4. För **Åtkomsttyp** väljer du **Programmatisk åtkomst** och klickar på **Nästa: Behörigheter**.  
@@ -107,7 +107,7 @@ Cloudyn börjar samla in data och fylla i rapporter. Sedan [aktiverar du detalje
 
 Använd följande steg för att hämta din roll-ARN för AWS. Du använder roll-ARN för att bevilja läsbehörighet till en faktureringsbucket.
 
-1. Logga in på AWS-konsolen på https://console.aws.amazon.com och välj **Tjänster**.
+1. Logga in på AWS-konsolen på [https://console.aws.amazon.com](https://console.aws.amazon.com) och välj **Tjänster**.
 2. I sökrutan för tjänster skriver du *IAM* och väljer det alternativet.
 3. Välj **Roller** på menyn till vänster.
 4. I listan över roller väljer du den roll som du skapade för Cloudyn-åtkomst.
@@ -117,7 +117,7 @@ Använd följande steg för att hämta din roll-ARN för AWS. Du använder roll-
 
 Du skapar en S3-bucket för att lagra detaljerad faktureringsinformation.
 
-1. Logga in på AWS-konsolen på https://console.aws.amazon.com och välj **Tjänster**.
+1. Logga in på AWS-konsolen på [https://console.aws.amazon.com](https://console.aws.amazon.com) och välj **Tjänster**.
 2. I sökrutan för tjänster skriver du *S3* och väljer **S3**.
 3. På Amazon S3-sidan klickar du på **Skapa bucket**.
 4. I guiden Skapa bucket väljer du ett bucketnamn och en region och klickar sedan på **Nästa**.  

@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a3b1b38063dcef1c61fbfb6fec529aeeed40a662
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121364"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367770"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -91,7 +91,7 @@ Observera att userPrincipalName för en gäst användare ofta lagras som "alias 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Etablerings cykler: initial och stegvis
 
-När Azure AD är käll systemet använder etablerings tjänsten [funktionen differentiell fråga i Azure AD-Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) för att övervaka användare och grupper. Etablerings tjänsten kör en första cykel mot käll systemet och mål systemet, följt av periodiska stegvisa cykler.
+När Azure AD är käll systemet använder etablerings tjänsten [use delta-frågan för att spåra ändringar i Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview) för övervakning av användare och grupper. Etablerings tjänsten kör en första cykel mot käll systemet och mål systemet, följt av periodiska stegvisa cykler.
 
 ### <a name="initial-cycle"></a>Första cykeln
 
@@ -142,8 +142,8 @@ Efter den första cykeln kommer alla andra cykler att:
 
 Etablerings tjänsten fortsätter att köra stegvisa stegvisa cykler på obestämd tid, med intervall som definierats i [självstudien som är specifik för varje program](../saas-apps/tutorial-list.md). Stegvisa cykler fortsätter tills någon av följande händelser inträffar:
 
-- Tjänsten stoppas manuellt med Azure Portal eller med lämpligt Graph API kommando 
-- En ny första cykel utlöses med alternativet **Rensa tillstånd och starta om** i Azure Portal, eller med lämpligt Graph API kommando. Den här åtgärden rensar en lagrad vattenstämpel och gör så att alla käll objekt utvärderas igen.
+- Tjänsten stoppas manuellt med Azure Portal eller med lämpligt Microsoft Graph API-kommando.
+- En ny första cykel utlöses med alternativet **Rensa tillstånd och starta om** i Azure Portal, eller med lämpligt Microsoft Graph API-kommando. Den här åtgärden rensar en lagrad vattenstämpel och gör så att alla käll objekt utvärderas igen.
 - En ny första cykel utlöses på grund av en ändring av attributens mappningar eller omfångs filter. Den här åtgärden tar också bort alla lagrade vattenstämplar och gör så att alla käll objekt utvärderas igen.
 - Etablerings processen placeras i karantän (se nedan) på grund av en hög fel frekvens och finns kvar i karantän i mer än fyra veckor. I så fall kommer tjänsten att inaktive ras automatiskt.
 

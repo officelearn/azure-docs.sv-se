@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290707"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367846"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Hantera medgivande till program och utvärdera medgivande begär Anden
 
@@ -100,7 +100,7 @@ Se [bevilja klient organisations medgivande till ett program](grant-admin-consen
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Bevilja medgivande för en speciell användares räkning
 
-I stället för att bevilja godkännande för hela organisationen kan en administratör också använda [Azure AD-Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) för att bevilja medgivande till delegerade behörigheter för en enskild användares räkning. Det gör du genom att skicka en `POST` begäran om att skapa en [OAuth2PermissionGrant](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) -entitet där `consentType` har angetts till "huvud", och `principalId` har angetts till objekt-ID: t för användaren på uppdrag av vem medgivande beviljas.
+I stället för att bevilja medgivande för hela organisationen kan en administratör också använda [Microsft-Graph API](https://docs.microsoft.com/graph/use-the-api) för att bevilja medgivande till delegerade behörigheter för en enskild användares räkning. Mer information finns i [få åtkomst för en användares räkning](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Begränsa användar åtkomsten till program
 
@@ -110,7 +110,7 @@ Mer en bredare översikt, inklusive hur du hanterar ytterligare komplexa scenari
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Fem steg för att skydda er identitetsinfrastruktur](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+[Fem steg för att skydda din identitets infrastruktur](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
 
 [Konfigurera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md)
 

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159173"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367873"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
@@ -100,9 +100,7 @@ Principer börjar gälla endast för ett bestämt program när de är kopplade t
 
 Endast en HRD-princip kan vara aktiv i ett tjänst huvud namn vid en och samma tidpunkt.  
 
-Du kan antingen använda Microsoft Azure Active Directory Graph-API: et direkt eller Azure Active Directory PowerShell-cmdletar för att skapa och hantera HRD-principer.
-
-Graph API som manipulerar principen beskrivs i artikeln åtgärder i [policyn](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) på MSDN.
+Du kan använda Azure Active Directory PowerShell-cmdletar för att skapa och hantera HRD-principer.
 
 Följande är ett exempel på en HRD princip definition:
     
@@ -209,7 +207,7 @@ Om du vill tillämpa HRD-principen när du har skapat den kan du tilldela den ti
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Steg 2: hitta det tjänst huvud namn som principen ska tilldelas till  
 Du behöver **ObjectID** för de tjänst huvud namn som du vill tilldela principen till. Det finns flera sätt att hitta **ObjectID** för tjänstens huvud namn.    
 
-Du kan använda portalen, eller så kan du fråga [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Du kan också gå till [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto för att se alla företagets tjänst huvud namn. 
+Du kan använda portalen, eller så kan du fråga [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Du kan också gå till [Graph Explorer-verktyget](https://developer.microsoft.com/graph/graph-explorer) och logga in på ditt Azure AD-konto för att se alla företagets tjänst huvud namn. 
 
 Eftersom du använder PowerShell kan du använda följande cmdlet för att visa en lista över tjänstens huvud namn och deras ID.
 

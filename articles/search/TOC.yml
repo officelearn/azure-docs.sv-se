@@ -105,9 +105,9 @@
           href: search-sku-tier.md
         - name: Tjänstbegränsningar
           href: search-limits-quotas-capacity.md
-        - name: Skala partitioner och repliker
+        - name: Justera kapacitet
           href: search-capacity-planning.md
-        - name: Distributionsstrategier och metodtips
+        - name: Skala för prestanda
           href: search-performance-optimization.md
         - name: Arkitektur för flera innehavare
           href: search-modeling-multitenant-saas-applications.md

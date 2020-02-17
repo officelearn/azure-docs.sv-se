@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb528d71b94449b282947a487e4fc79b343df778
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195909"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367995"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Självstudie: Azure Active Directory integration med flera Amazon Web Services-konton (AWS)
 
@@ -42,7 +42,7 @@ Om du vill veta mer om SaaS-appens integrering med Azure AD, se [Vad är program
 
 **Observera att vi inte rekommenderar att du använder den här metoden på grund av följande:**
 
-* Du måste använda Graph Explorer-metoden för att uppdatera alla roller i appen. Vi rekommenderar inte att du använder manifest fil metoden.
+* Du måste använda metoden Microsoft Graph Explorer för att uppdatera alla roller i appen. Vi rekommenderar inte att du använder manifest fil metoden.
 
 * Vi har sett kunder som rapporterar att efter att ha lagt till ~ 1200-AppData för en enda AWS-app, och alla åtgärder i appen har börjat visa felen som är relaterade till storlek. Det finns en hård gräns för programobjektets storlek.
 
@@ -50,11 +50,11 @@ Om du vill veta mer om SaaS-appens integrering med Azure AD, se [Vad är program
 
 * Alla AWS-konton kommer att använda samma XML-fil för federationsmetadata och vid tidpunkten för certifikat förnyelse måste du köra den här enorma övningen för att uppdatera certifikatet på alla AWS-konton på samma gång
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Amazon Web Services (AWS)-prenumeration med enkel inloggning aktiverat
 
 > [!NOTE]
@@ -139,7 +139,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
-    | Namn  | Källattribut  | Namnrymd |
+    | Namn  | Källattribut  | Namnområde |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Roll            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -247,7 +247,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
 16. Utför ovanstående steg för alla roller i alla konton och lagra dem i formatet **roll ARN, betrodda entiteter** i ett anteckningar.
 
-17. Öppna [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
+17. Öppna [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) i ett annat fönster.
 
     a. Logga in på Graph Explorer-webbplatsen med hjälp av autentiseringsuppgifterna för global administratör/medadministratör för din klient organisation.
 
@@ -325,9 +325,9 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
     > [!Note]
     > Du kan bara lägga till nya roller efter **msiam_access** för korrigerings åtgärden. Du kan också lägga till så många roller du vill per organisationens behov. Azure AD skickar **värdet** för dessa roller som anspråks värde i SAML-svar.
 
-    j. Gå tillbaka till Graph Explorer och ändra-metoden från **Hämta** till **patch**. Uppdatera tjänstens huvud namns objekt till att ha önskade roller genom att uppdatera appRoles-egenskapen som liknar den som visas ovan i exemplet. Kör korrigerings åtgärden genom att klicka på **Kör fråga** . Ett meddelande om att rollen har skapats bekräftar att rollen för ditt Amazon Web Services-program är klar.
+    j. Gå tillbaka till Microsoft Graph Explorer och ändra-metoden från **Hämta** till **patch**. Uppdatera tjänstens huvud namns objekt till att ha önskade roller genom att uppdatera appRoles-egenskapen som liknar den som visas ovan i exemplet. Kör korrigerings åtgärden genom att klicka på **Kör fråga** . Ett meddelande om att rollen har skapats bekräftar att rollen för ditt Amazon Web Services-program är klar.
 
-    ![Dialog rutan Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Dialog rutan Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 18. När tjänstens huvud namn har uppdaterats med fler roller kan du tilldela användare/grupper till respektive roller. Detta kan göras genom att gå till portalen och navigera till Amazon Web Services programmet. Klicka på fliken **användare och grupper** överst.
 
@@ -363,7 +363,7 @@ Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Konfigurera etablering med MS Graph API: er](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Konfigurera etablering med hjälp av Microsoft Graph API: er](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 

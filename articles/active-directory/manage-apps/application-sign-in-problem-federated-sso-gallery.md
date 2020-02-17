@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97954123b6fc31dce09282c08c702438cd64c476
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159258"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367895"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem med att logga in till ett galleri program som kon figurer ATS för federerad enkel inloggning
 
@@ -39,7 +39,7 @@ För att felsöka inloggnings problemen nedan rekommenderar vi att du följer de
 
 Attributet `Issuer` som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
 
-**Lösning**
+**Upplösning**
 
 Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
@@ -69,7 +69,7 @@ Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som k
 
 `AssertionConsumerServiceURL` svärdet i SAML-begäran matchar inte svars-URL-värdet eller det mönster som kon figurer ATS i Azure AD. `AssertionConsumerServiceURL` svärdet i SAML-begäran är den URL som visas i fel meddelandet.
 
-**Lösning**
+**Upplösning**
 
 Se till att `AssertionConsumerServiceURL`-värdet i SAML-begäran matchar svars-URL-värdet som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
@@ -99,7 +99,7 @@ När du har uppdaterat svars-URL-värdet i Azure AD och det matchar värdet som 
 
 Användaren har inte beviljats åtkomst till programmet i Azure AD.
 
-**Lösning**
+**Upplösning**
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte följa dessa steg manuellt.
 
@@ -148,7 +148,7 @@ Azure AD stöder inte den SAML-begäran som skickas av programmet för enkel inl
 -   Obligatoriska fält som saknas i SAML-begäran
 -   SAML-begärandekodad metod
 
-**Lösning**
+**Upplösning**
 
 1. Avbilda SAML-begäran. Följ självstudien [för att FELSÖKA SAML-baserad enkel inloggning till program i Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) för att lära dig hur du samlar in SAML-begäran.
 
@@ -162,13 +162,13 @@ Program leverantören bör kontrol lera att de stöder Azure AD SAML-implementer
 
 ## <a name="misconfigured-application"></a>Felkonfigurerat program
 
-*Fel AADSTS650056: felkonfigurerat program. Detta kan bero på något av följande: klienten har inte listat några behörigheter för AAD-diagrammet i de begärda behörigheterna i klientens program registrering. Eller så har administratören inte samtyckt i klient organisationen. Eller kontrol lera program identifieraren i begäran för att se till att den matchar den konfigurerade klient program identifieraren. Kontakta din administratör för att åtgärda konfigurationen eller medgivande för klientens räkning.* .
+*Fel AADSTS650056: felkonfigurerat program. Detta kan bero på något av följande: klienten har inte listat några behörigheter i de begärda behörigheterna i klientens program registrering. Eller så har administratören inte samtyckt i klient organisationen. Eller kontrol lera program identifieraren i begäran för att se till att den matchar den konfigurerade klient program identifieraren. Kontakta din administratör för att åtgärda konfigurationen eller medgivande för klientens räkning.* .
 
 **Möjlig orsak**
 
 Attributet `Issuer` som skickas från programmet till Azure AD i SAML-begäran matchar inte det ID-värde som har kon figurer ATS för programmet i Azure AD.
 
-**Lösning**
+**Upplösning**
 
 Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som kon figurer ATS i Azure AD. Om du använder [test miljön](../azuread-dev/howto-v1-debug-saml-sso-issues.md) i Azure Portal med tillägget mina appars säkra webbläsare, behöver du inte manuellt följa dessa steg:
 
@@ -197,7 +197,7 @@ Kontrol lera att attributet `Issuer` i SAML-begäran matchar det ID-värde som k
 
 Programobjektet är skadat och Azure AD känner inte igen det certifikat som har kon figurer ATS för programmet.
 
-**Lösning**
+**Upplösning**
 
 Följ stegen nedan om du vill ta bort och skapa ett nytt certifikat:
 
@@ -233,7 +233,7 @@ Följ stegen nedan om du vill ta bort och skapa ett nytt certifikat:
 
 Azure AD kunde inte identifiera SAML-begäran inom URL-parametrarna i HTTP-begäran. Detta kan inträffa om programmet inte använder HTTP-omdirigering när SAML-begäran skickas till Azure AD.
 
-**Lösning**
+**Upplösning**
 
 Programmet måste skicka SAML-begäran kodad till plats rubriken med hjälp av HTTP-omdirigering. Mer information om hur du implementerar det finns i avsnittet om HTTP-omdirigeringsbindning i [dokumentet om SAML-protokollets specifikationer](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
@@ -245,7 +245,7 @@ Om inloggnings förfrågan inte innehåller en explicit svars-URL (intygs-URL) u
 
 När programmet lades till som en icke-galleriapp skapade Azure Active Directory den här svars-URL:en som ett standardvärde. Det här beteendet har ändrats och Azure Active Directory lägger inte längre till den här URL:en som standard. 
 
-**Lösning**
+**Upplösning**
 
 Ta bort de oanvända svars-URL: erna som kon figurer ATS för programmet.
 

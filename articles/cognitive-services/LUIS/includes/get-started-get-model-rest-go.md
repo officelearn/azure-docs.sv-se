@@ -8,29 +8,27 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a153416a247ec3a38ec29e95b83fa919e765942b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8d180eeffdbc41db6fa0e636daf7702faad47fcc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966761"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368421"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure Language Understanding-redigering av resurs 32-tangenten och URL: en för redigering av slut punkter. Skapa med [Azure Portal](../luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](../luis-how-to-azure-subscription.md#create-resources-in-azure-cli).
 * Importera [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) -appen från kognitiva-tjänsterna – språkförståelseing GitHub-lagringsplatsen.
 * LUIS program-ID för den importerade TravelAgent-appen. Program-ID visas på programmets instrumentpanel.
 * Versions-ID: t i programmet som tar emot yttranden. Standard-id:t är ”0.1”.
 * Programmeringsspråket [Go](https://golang.org/)
-* [Visual Studio-kod](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>Ändra modell program mässigt
-
-Använd Go för att lägga till en enhets- [API](https://aka.ms/luis-apim-v3-authoring) som har registrerats av enheten i programmet.
 
 1. Skapa en ny fil med namnet `predict.go`. Lägg till följande kod:
 

@@ -1,6 +1,6 @@
 ---
-title: Huvud-baserad autentisering med PingAccess för Azure AD-programproxy | Microsoft Docs
-description: Publicera program med PingAccess och App proxy för att stödja huvud-baserad autentisering.
+title: Rubrikbaserad autentisering med PingAccess för Azure AD Application Proxy | Microsoft Docs
+description: Publicera program med PingAccess och App Proxy som stöd för rubrikbaserad autentisering.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,37 +16,37 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3fb94629262519f8cfa5da72ee343726aa7d1c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062714"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367979"
 ---
-# <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Huvud-baserad autentisering för enkel inloggning med Application Proxy och PingAccess
+# <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
 Azure Active Directory (Azure AD) Application Proxy har samarbetat med PingAccess så att dina Azure AD-kunder kan komma åt fler av dina program. PingAccess utökar de [befintliga programproxy-erbjudandena](application-proxy.md) för att inkludera enkel inloggning till program som använder rubriker för autentisering.
 
 ## <a name="whats-pingaccess-for-azure-ad"></a>Vad är PingAccess för Azure AD?
 
-Med PingAccess för Azure AD kan du ge användare åtkomst och enkel inloggning (SSO) till program som använder rubriker för autentisering. Application Proxy behandlar dessa program på samma sätt som andra, med hjälp av Azure AD för att autentisera åtkomst och sedan skicka trafik via anslutnings tjänsten. PingAccess placeras framför programmen och översätter åtkomsttoken från Azure AD till en rubrik. Programmet tar sedan emot autentiseringen i det format som det kan läsa.
+Med PingAccess för Azure AD kan du ge användare åtkomst och enkel inloggning (SSO) till program som använder rubriker för autentisering. Application Proxy behandlar programmen som någon annan, med Azure AD för att autentisera åtkomst och sedan skicka trafik via kopplingstjänsten. PingAccess placeras framför programmen och översätter åtkomsttoken från Azure AD till en rubrik. Programmet tar sedan emot autentiseringen i det format som det kan läsa.
 
-Användarna märker inte något annorlunda när de loggar in för att använda dina företags program. De kan fortfarande arbeta var som helst på valfri enhet. Application Proxy-anslutningarna dirigerar fjärrtrafik till alla appar utan hänsyn till autentiseringstypen, så de kommer fortfarande att utjämna belastningen automatiskt.
+Användarna ser inte något annorlunda när de loggar in att använda företagets program. De kan fortsätta att arbeta från var som helst på valfri enhet. Application Proxy-anslutningarna dirigerar fjärrtrafik till alla appar utan hänsyn till autentiseringstypen, så de kommer fortfarande att utjämna belastningen automatiskt.
 
 ## <a name="how-do-i-get-access"></a>Hur gör jag för att få åtkomst?
 
-Eftersom det här scenariot kommer från ett partnerskap mellan Azure Active Directory och PingAccess behöver du licenser för båda tjänsterna. Azure Active Directory Premium prenumerationer innehåller dock en grundläggande PingAccess-licens som omfattar upp till 20 program. Om du behöver publicera fler än 20 huvudbaserade program kan du köpa ytterligare en licens från PingAccess.
+Eftersom det här scenariot kommer från ett partnerskap mellan Azure Active Directory och PingAccess behöver du licenser för båda tjänsterna. Azure Active Directory Premium-prenumerationer innehåller dock en grundläggande PingAccess-licens som omfattar upp till 20 program. Om du vill publicera fler än 20 rubrikbaserad program kan köpa du ytterligare en licens från PingAccess.
 
 Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
-## <a name="publish-your-application-in-azure"></a>Publicera ditt program i Azure
+## <a name="publish-your-application-in-azure"></a>Publicera dina program i Azure
 
 Den här artikeln är för användare att publicera ett program med det här scenariot för första gången. Utöver informationen i publicerings stegen får du hjälp med att komma igång med både programproxy-och PingAccess. Om du redan har konfigurerat båda tjänsterna men vill ha en uppdatering av publicerings stegen går du vidare till avsnittet [Lägg till ditt program i Azure AD med Application Proxy](#add-your-application-to-azure-ad-with-application-proxy) .
 
 > [!NOTE]
-> Eftersom det här scenariot är ett partnerskap mellan Azure AD och PingAccess finns det några av anvisningarna på webbplatsen för ping-identitet.
+> Eftersom det här scenariot är ett partnerskap mellan Azure AD och PingAccess, några av instruktionerna finns på webbplatsen Ping Identity.
 
-### <a name="install-an-application-proxy-connector"></a>Installera en Application Proxy-koppling
+### <a name="install-an-application-proxy-connector"></a>Installera en Application Proxy connector
 
 Om du har aktiverat Application Proxy aktiverat och installerat en koppling redan, kan du hoppa över det här avsnittet och gå till [Lägg till ditt program i Azure AD med Application Proxy](#add-your-application-to-azure-ad-with-application-proxy).
 
@@ -57,13 +57,13 @@ Application Proxy Connector är en Windows Server-tjänst som dirigerar trafiken
 
    ![Hämtning av Application Proxy Connector](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
-1. Följ installations anvisningarna.
+1. Följ installationsanvisningarna.
 
 Om du hämtar anslutningen ska du automatiskt aktivera programproxyn för din katalog, men om du inte gör det kan du välja **Aktivera programproxy**.
 
 ### <a name="add-your-application-to-azure-ad-with-application-proxy"></a>Lägg till ditt program i Azure AD med Application Proxy
 
-Det finns två åtgärder som du måste utföra i Azure Portal. Först måste du publicera ditt program med Application Proxy. Sedan måste du samla in viss information om programmet som du kan använda under PingAccess-stegen.
+Det finns två åtgärder som du behöver göra i Azure-portalen. Först måste du publicera ditt program med programproxy. Sedan måste du samla in viss information om programmet som du kan använda under PingAccess-stegen.
 
 #### <a name="publish-your-application"></a>Publicera programmet
 
@@ -85,7 +85,7 @@ Så här publicerar du ett eget lokalt program:
    > [!NOTE]
    > En mer detaljerad genom gång av det här steget finns i [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
 
-   1. **Intern URL**: du anger vanligt vis den URL som tar dig till appens inloggnings sida när du är i företags nätverket. I det här scenariot måste anslutningen behandla PingAccess-proxyn som den första sidan i programmet. Använd det här formatet: `https://<host name of your PingAccess server>:<port>`. Porten är 3000 som standard, men du kan konfigurera den i PingAccess.
+   1. **Intern URL**: du anger vanligt vis den URL som tar dig till appens inloggnings sida när du är i företags nätverket. I det här scenariot måste anslutningen behandla PingAccess-proxyn som den första sidan i programmet. Använd det här formatet: `https://<host name of your PingAccess server>:<port>`. Porten är 3000 som standard, men du kan konfigurera det i PingAccess.
 
       > [!WARNING]
       > Den interna URL: en måste använda `https` och kan inte använda `http`för den här typen av enkel inloggning.
@@ -94,7 +94,7 @@ Så här publicerar du ett eget lokalt program:
    1. **Översätt URL i rubriker**: Välj **Nej**.
 
    > [!NOTE]
-   > Om det här är ditt första program använder du Port 3000 för att starta och återgår till att uppdatera den här inställningen om du ändrar PingAccess-konfigurationen. För efterföljande program måste porten matcha den lyssnare som du har konfigurerat i PingAccess. Läs mer om [lyssnare i PingAccess](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=reference/ui/pa_c_Listeners.html).
+   > Om det är ditt första program kan använda port 3000 att starta och gå tillbaka till att uppdatera den här inställningen om du ändrar din PingAccess-konfiguration. För efterföljande program måste porten matcha den lyssnare som du har konfigurerat i PingAccess. Läs mer om [lyssnare i PingAccess](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=reference/ui/pa_c_Listeners.html).
 
 1. Välj **Lägg till**. Översikts sidan för det nya programmet visas.
 
@@ -104,12 +104,12 @@ Tilldela nu en användare för program testning och välj rubrik-baserad enkel i
 
    ![Visar en lista över användare och grupper](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 
-1. Välj en användare för program testning och välj **Välj**. Kontrol lera att det här test kontot har åtkomst till det lokala programmet.
+1. Välj en användare för program testning och välj **Välj**. Kontrollera att det här testkontot har åtkomst till dina lokala program.
 1. Välj **Tilldela**.
 1. Välj **enkel inloggning** > **rubrik-baserad**på program panelen.
 
    > [!TIP]
-   > Om det här är första gången du använder en rubrik baserad enkel inloggning måste du installera PingAccess. För att se till att din Azure-prenumeration automatiskt associeras med din PingAccess-installation använder du länken på den här sidan för enkel inloggning för att hämta PingAccess. Du kan öppna hämtnings platsen nu eller gå tillbaka till den här sidan senare.
+   > Om det här är första gången du använder rubrikbaserad enkel inloggning måste du installera PingAccess. Kontrollera din Azure-prenumeration associeras automatiskt med PingAccess-installationen genom att använda länken på den här sidan för enkel inloggning för att hämta PingAccess. Du kan öppna hämtningsplatsen nu eller kommer till den här sidan tillbaka senare.
 
    ![Visar rubrikbaserade inloggnings skärmen och PingAccess](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
 
@@ -133,14 +133,14 @@ Slutligen konfigurerar du ditt lokala program så att användare har Läs-och Sk
 1. Välj **Lägg till behörigheter**.
 1. På sidan **API-behörigheter** väljer du **bevilja administratörs medgivande för \<katalog namnet >** .
 
-#### <a name="collect-information-for-the-pingaccess-steps"></a>Samla in information för PingAccess-stegen
+#### <a name="collect-information-for-the-pingaccess-steps"></a>Samla in information för PingAccess-steg
 
 Du måste samla in dessa tre informations delar (alla GUID) för att konfigurera ditt program med PingAccess:
 
 | Namn på Azure AD-fält | Namn på fältet PingAccess | Dataformat |
 | --- | --- | --- |
-| **Program-ID (klient)** | **Klient-ID** | LED |
-| **Katalog (klient) ID** | **Utfärdare** | LED |
+| **Program-ID (klient)** | **Klient-ID** | GUID |
+| **Katalog (klient) ID** | **Utfärdare** | GUID |
 | `PingAccess key` | **Klienthemlighet** | Slumpmässig sträng |
 
 Samla in den här informationen:
@@ -161,21 +161,7 @@ Samla in den här informationen:
 1. Välj **Lägg till**. PingAccess-nyckeln visas i tabellen med klient hemligheter, med en slumpmässig sträng som fyller i fältet **värde** .
 1. Klicka på ikonen **Kopiera till Urklipp** bredvid **värde** fältet för PingAccess-nyckeln och kopiera och spara den. Du anger det här värdet senare som PingAccess-klient hemlighet.
 
-### <a name="update-graphapi-to-send-custom-fields-optional"></a>Uppdatera GraphAPI för att skicka anpassade fält (valfritt)
-
-Om du behöver ett anpassat anspråk som skickar andra token i access_token som förbrukas av PingAccess, anger du fältet `acceptMappedClaims` program att `True`. Du kan använda Graph Explorer eller Azure AD Portals applikations manifest för att göra den här ändringen.
-
-**I det här exemplet används Graph Explorer:**
-
-```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
-
-{
-  "acceptMappedClaims":true
-}
-```
-
-**I det här exemplet används [Azure Active Directory Portal](https://aad.portal.azure.com/) för att uppdatera fältet `acceptMappedClaims`:**
+**Uppdatera fältet `acceptMappedClaims`:**
 
 1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com/) som program administratör.
 1. Välj **Azure Active Directory** > **Appregistreringar**. En lista över program visas.
@@ -211,9 +197,9 @@ Exempel för att inkludera e-postadress i access_token som PingAccess kommer att
 Om du vill att programmet ska använda ett anpassat anspråk och inkludera ytterligare fält, se till att du även har [skapat en anpassad princip för anspråks mappning och tilldelat den till programmet](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 > [!NOTE]
-> Om du vill använda ett anpassat anspråk måste du också ha en anpassad princip definierad och tilldelad till programmet. Den här principen ska innehålla alla obligatoriska anpassade attribut.
+> Om du vill använda ett anpassat anspråk måste du också ha en anpassad princip definieras och tilldelas programmet. Den här principen ska inkludera alla nödvändiga anpassade attribut.
 >
-> Du kan utföra princip definitioner och tilldelning via PowerShell, Azure AD Graph Explorer eller Microsoft Graph. Om du gör dem i PowerShell kan du först behöva använda `New-AzureADPolicy` och sedan tilldela den till programmet med `Add-AzureADServicePrincipalPolicy`. Mer information finns i [princip tilldelning för anspråks mappning](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> Du kan utföra princip definition och tilldelning via PowerShell eller Microsoft Graph. Om du gör dem i PowerShell kan du först behöva använda `New-AzureADPolicy` och sedan tilldela den till programmet med `Add-AzureADServicePrincipalPolicy`. Mer information finns i [princip tilldelning för anspråks mappning](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 Exempel:
 ```powershell
@@ -230,11 +216,11 @@ När du ska konfigurera PingAccess i följande steg måste webbsessionen du skap
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Ladda ned PingAccess och konfigurera ditt program
 
-Nu när du har slutfört alla installations steg för Azure Active Directory kan du gå vidare till konfigurera PingAccess.
+Nu när du har slutfört alla steg för Azure Active Directory-installationen, kan du gå vidare till att konfigurera PingAccess.
 
 De detaljerade stegen för PingAccess-delen av det här scenariot fortsätter i identitets dokumentationen för ping. Följ anvisningarna i [Konfigurera PingAccess för Azure AD för att skydda program som publicerats med Microsoft Azure AD Application Proxy](https://support.pingidentity.com/s/document-item?bundleId=pingaccess-52&topicId=agents/azure/pa_c_PAAzureSolutionOverview.html) på ping Identity-webbplatsen.
 
-Dessa steg hjälper dig att installera PingAccess och skapa ett PingAccess-konto (om du inte redan har ett). Om du sedan vill skapa en Azure AD OpenID Connect-anslutning (OIDC), ställer du in en token **-Provider med katalogen (klient) ID-** värdet som du kopierade från Azure AD-portalen. Sedan, för att skapa en webbsession på PingAccess, använder du **program-ID: t (klient)** och `PingAccess key` värden. Därefter kan du konfigurera identitets mappning och skapa en virtuell värd, en webbplats och ett program.
+Dessa steg hjälper dig att installera PingAccess och skapa ett PingAccess-konto (om du inte redan har ett). Om du sedan vill skapa en Azure AD OpenID Connect-anslutning (OIDC), ställer du in en token **-Provider med katalogen (klient) ID-** värdet som du kopierade från Azure AD-portalen. Sedan, för att skapa en webbsession på PingAccess, använder du **program-ID: t (klient)** och `PingAccess key` värden. Efter det kan du konfigurera identitetsmappning och skapa en virtuell värd, plats och program.
 
 ### <a name="test-your-application"></a>Testa ditt program
 

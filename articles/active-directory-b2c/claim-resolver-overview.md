@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251778"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425654"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -66,14 +66,14 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Saknas |
+| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Ej tillämpligt |
 | {OIDC:ClientId} |Parametern `client_id` frågesträng. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Parametern `domain_hint` frågesträng. | facebook.com |
 | {OIDC: LoginHint} |  Parametern `login_hint` frågesträng. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | Saknas |
+| {OIDC:MaxAge} | `max_age`. | Ej tillämpligt |
 | {OIDC:Nonce} |Parametern `Nonce` frågesträng. | defaultNonce |
 | {OIDC: prompt} | Parametern `prompt` frågesträng. | inloggning |
-| {OIDC:Resource} |Parametern `resource` frågesträng. | Saknas |
+| {OIDC:Resource} |Parametern `resource` frågesträng. | Ej tillämpligt |
 | {OIDC: omfång} |Parametern `scope` frågesträng. | OpenID |
 
 ### <a name="context"></a>Kontext
@@ -96,13 +96,25 @@ Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till e
 | {OAUTH-KV: campaignId} | En frågesträngparametern. | hawaii |
 | {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
 | {OAUTH-KV:loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Saknas |
+| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Ej tillämpligt |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Åtkomsttoken. | Saknas |
+| {oauth2:access_token} | Åtkomsttoken. | Ej tillämpligt |
+
+
+### <a name="saml"></a>SAML
+
+| Begär | Beskrivning | Exempel |
+| ----- | ----------- | --------|
+| {SAML: AuthnContextClassReferences} | Värdet för `AuthnContextClassRef` element från SAML-begäran. | urn: Oasis: Names: TC: SAML: 2.0: AC: klasser: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | Attributet `Format` från `NameIDPolicy`-elementet i SAML-begäran. | urn: Oasis: Names: TC: SAML: 1.1: NameID-format: emailAddress |
+| {SAML: Issuer} |  SAML-`Issuer` element värde för SAML-begäran.| https://contoso.com |
+| {SAML: AllowCreate} | Värdet för `AllowCreate`-attributet från `NameIDPolicy`-elementet i SAML-begäran. | True |
+| {SAML: ForceAuthn} | Värdet för `ForceAuthN`-attributet från `AuthnRequest`-elementet i SAML-begäran. | True |
+| {SAML: ProviderName} | Värdet för `ProviderName`-attributet från `AuthnRequest`-elementet i SAML-begäran.| Contoso.com |
 
 ## <a name="using-claim-resolvers"></a>Använda anspråks matchare 
 
@@ -160,7 +172,7 @@ Med hjälp av anspråks matchare kan du fylla i inloggnings namnet eller diriger
 
 ### <a name="dynamic-ui-customization"></a>Anpassning av dynamiskt gränssnitt
 
-Med Azure AD B2C kan du skicka frågesträngs parametrar till definitions slut punkter för HTML-innehåll för att dynamiskt återge sid innehållet. Detta gör det till exempel möjligt att ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
+Med Azure AD B2C kan du skicka frågesträngs parametrar till definitions slut punkter för HTML-innehåll för att dynamiskt återge sid innehållet. Detta gör det till exempel möjligt att ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
 
 Följande exempel skickar i frågesträngparametern med namnet **campaignId** med värdet `hawaii`, en **språkkod** `en-US`och en **app** som representerar klient-ID:
 

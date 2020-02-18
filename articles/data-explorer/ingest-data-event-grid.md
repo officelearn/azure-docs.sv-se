@@ -1,23 +1,23 @@
 ---
 title: Mata in Azure-blobar i Azure Data Explorer
 description: I den här artikeln får du lära dig hur du skickar lagrings konto data till Azure Datautforskaren att använda en Event Grid-prenumeration.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667484"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424991"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobbar i Azure Datautforskaren genom att prenumerera på Event Grid meddelanden
 
 > [!div class="op_single_selector"]
-> * [Portalen](ingest-data-event-grid.md)
+> * [Portal](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Azure Resource Manager-mall](data-connection-event-grid-resource-manager.md)
@@ -26,7 +26,7 @@ Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för lo
 
 I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigerar händelser till Azure datautforskaren via en Event Hub. Innan du börjar bör du ha ett lagrings konto med en Event Grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar du en Event Grid data anslutning och ser data flödet i systemet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 * [Ett kluster och en databas](create-cluster-database-portal.md).
@@ -50,7 +50,7 @@ I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/
     | Ämnesresurs | *gridteststorage* | Namnet på ditt lagringskonto. |
     | Prenumerera på alla händelsetyper | *Rensa* | Få inte meddelanden vid alla händelser. |
     | Definierade händelsetyper | *BLOB skapad* | Vilka specifika händelser du ska meddelas om. |
-    | Typ av slutpunkt | *Event Hub* | Typ av slutpunkt som du skickar händelserna till. |
+    | Typ av slutpunkt | *Event Hubs* | Typ av slutpunkt som du skickar händelserna till. |
     | Slutpunkt | *test-hub* | Händelsehubben som du skapade. |
     | | |
 
@@ -158,6 +158,11 @@ Spara data i en fil och ladda upp den med det här skriptet:
     echo "Done"
 ```
 
+> [!NOTE]
+> Azure Datautforskaren tar inte bort blobar efter inmatning.
+> Behåll Blobbarna för thrre till fem dagar.
+> Använd [Azure Blob Storage-livscykeln](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) för att hantera BLOB-borttagning. 
+
 ## <a name="review-the-data-flow"></a>Granska dataflödet
 
 > [!NOTE]
@@ -192,7 +197,7 @@ Om du inte planerar att använda händelserutnätet igen rensar du **test-hub-rg
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-grid/expand.png) för att expandera den.
+    Om den vänstra menyn döljs väljer du ![Knappen Expandera](media/ingest-data-event-grid/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-grid/delete-resources-select.png)
 

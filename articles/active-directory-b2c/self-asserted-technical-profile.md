@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a16fb1184de5b545b3ef527b1a66ffb7b68d1ef4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 37d895e2514d01bdbe73f42e1ba5ea5e4c46bfa1
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197926"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372860"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en egen kontrollerad teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -187,19 +187,23 @@ Du kan också anropa en REST API teknisk profil med din affärs logik, skriva ö
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| setting.operatingMode | Nej | För en inloggnings sida styr den här egenskapen beteendet för fältet username, till exempel indatatyps verifiering och fel meddelanden. Förväntat värde: `Username` eller `Email`. |
+| inställningen. operatingMode <sup>1</sup>| Nej | För en inloggnings sida styr den här egenskapen beteendet för fältet username, till exempel indatatyps verifiering och fel meddelanden. Förväntat värde: `Username` eller `Email`.  |
 | AllowGenerationOfClaimsWithNullValues| Nej| Tillåt att ett anspråk skapas med null-värde. Till exempel, i ett fall kan användaren inte markera en kryss ruta.|
 | ContentDefinitionReferenceId | Ja | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med den här tekniska profilen. |
 | EnforceEmailVerification | Nej | För registrering eller profil redigering tvingas e-postverifiering. Möjliga värden: `true` (standard) eller `false`. |
 | anger. retryLimit | Nej | Styr antalet gånger som en användare kan försöka tillhandahålla data som kontrol leras mot en teknisk verifierings profil. En användare kan till exempel Logga in med ett konto som redan finns och fortsätter tills gränsen har uppnåtts.
-| SignUpTarget | Nej | ID för registrerings målets Exchange. När användaren klickar på registrerings knappen Azure AD B2C kör den angivna Exchange-identifieraren. |
+| SignUpTarget <sup>1</sup>| Nej | ID för registrerings målets Exchange. När användaren klickar på registrerings knappen Azure AD B2C kör den angivna Exchange-identifieraren. |
 | setting.showCancelButton | Nej | Visar knappen Avbryt. Möjliga värden: `true` (standard) eller `false` |
 | setting.showContinueButton | Nej | Visar knappen Fortsätt. Möjliga värden: `true` (standard) eller `false` |
-| anger. showSignupLink | Nej | Visar registrerings knappen. Möjliga värden: `true` (standard) eller `false` |
-| anger. forgotPasswordLinkLocation| Nej| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan, eller `None` tar bort länken Glömt lösen ord.| 
+| Setting. showSignupLink <sup>2</sup>| Nej | Visar registrerings knappen. Möjliga värden: `true` (standard) eller `false` |
+| Setting. forgotPasswordLinkLocation <sup>2</sup>| Nej| Visar länken Glömt lösen ord. Möjliga värden: `AfterInput` (standard) länken visas längst ned på sidan, eller `None` tar bort länken Glömt lösen ord.| 
 | IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
+
+Obs!
+1. Tillgängligt för innehålls definition [DataUri](contentdefinitions.md#datauri) typ av `unifiedssp`eller `unifiedssd`.
+1. Tillgängligt för innehålls definition [DataUri](contentdefinitions.md#datauri) typ av `unifiedssp`eller `unifiedssd`. [Sidlayout version](page-layout.md) 1.1.0 och senare.
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 

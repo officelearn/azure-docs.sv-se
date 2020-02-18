@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med halogen-programvara | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Halogen Software.
+title: 'Självstudie: Azure Active Directory integrering med Saba TalentSpace | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Saba TalentSpace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,143 +11,137 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220fa6bf16bf92f1907002100dc46895a9807251
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6ef7d5ec33786c3c4c38525cd5ab15bee53b3493
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159138"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373324"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Självstudie: Azure Active Directory integrering med halogen-programvara
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Saba TalentSpace
 
-I den här självstudien lär du dig att integrera Halogen Software med Azure Active Directory (AD Azure).
-Integreringen av Halogen Software med Azure AD medför följande fördelar:
+I den här självstudien får du lära dig att integrera Saba-TalentSpace med Azure Active Directory (Azure AD). När du integrerar Saba-TalentSpace med Azure AD kan du:
 
-* Du kan i Azure AD styra vem som har åtkomst till Halogen Software.
-* Du kan göra så att dina användare loggas in automatiskt på Halogen Software (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till Saba-TalentSpace.
+* Gör det möjligt för användarna att logga in automatiskt till Saba TalentSpace med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att konfigurera Azure AD-integrering med Halogen Software behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Halogen Software-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Saba TalentSpace-prenumeration med enkel inloggning (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Halogen Software har stöd för **SP**-initierad enkel inloggning
+* Saba TalentSpace stöder **SP** -INITIERAd SSO
+* När du har konfigurerat Saba TalentSpace kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-halogen-software-from-the-gallery"></a>Lägga till Halogen Software från galleriet
+## <a name="adding-saba-talentspace-from-the-gallery"></a>Lägga till Saba TalentSpace från galleriet
 
-För att konfigurera integreringen av Halogen Software i Azure AD måste du lägga till Halogen Software från galleriet till din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Saba-TalentSpace i Azure AD måste du lägga till Saba TalentSpace från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Halogen Software från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **Saba TalentSpace** i sökrutan.
+1. Välj **Saba TalentSpace** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-saba-talentspace"></a>Konfigurera och testa enkel inloggning med Azure AD för Saba-TalentSpace
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD SSO med Saba TalentSpace med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Saba TalentSpace.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD SSO med Saba TalentSpace slutför du följande Bygg stenar:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Saba TALENTSPACE SSO](#configure-saba-talentspace-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    * **[Skapa Saba TalentSpace test User](#create-saba-talentspace-test-user)** – om du vill ha en motsvarighet till B. Simon i Saba TalentSpace som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Knappen Nytt program](common/add-new-app.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-4. I sökrutan skriver du **Halogen Software**, väljer **Halogen Software** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Saba TalentSpace** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-     ![Halogen Software i resultatlistan](common/search-new-app.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Halogen Software baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Halogen Software upprättas.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://global.hgncloud.com/[companyname]/saml/login`
 
-För att konfigurera och testa enkel inloggning för Azure AD med Halogen Software behöver du slutföra följande byggstenar:
-
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Halogen Software](#configure-halogen-software-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Halogen Software-testanvändare](#create-halogen-software-test-user)** – för att ha en motsvarighet för Britta Simon i Halogen Software som är länkad till Azure AD-representationen av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera enkel inloggning med Azure AD för Halogen Software:
-
-1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Halogen Software** och väljer **Enkel inloggning**.
-
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    ![Halogen Software-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
-
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://global.hgncloud.com/<companyname>`
-
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
-
-    | |
-    |--|
-    | `https://global.halogensoftware.com/<companyname>`|
-    | `https://global.hgncloud.com/<companyname>`|
-    | |
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://global.hgncloud.com/[companyname]/saml/metadata`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Halogen Software](https://support.halogensoftware.com/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Saba TalentSpace client support team](https://support.halogensoftware.com/) för att hämta dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+1. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. I avsnittet **Konfigurera Halogen Software** kopierar du lämpliga URL:er efter behov.
+1. I avsnittet **Konfigurera Saba TalentSpace** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggnings-URL
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    b. Azure AD-identifierare
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    c. Utloggnings-URL
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-### <a name="configure-halogen-software-single-sign-on"></a>Konfigurera enkel inloggning för Halogen Software
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-1. I ett annat webbläsarfönster loggar du in på **Halogen Software**-programmet som administratör.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Saba TalentSpace.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Saba TalentSpace**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-saba-talentspace-sso"></a>Konfigurera Saba TalentSpace SSO
+
+1. Logga in på ditt **Saba TalentSpace** -program som administratör i ett annat webbläsarfönster.
 
 2. Klicka på fliken **Alternativ**.
   
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_12.png)
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. I det vänstra navigeringsfönstret klickar du på **SAML-konfiguration**.
   
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_13.png)
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. I dialogrutan **SAML-konfiguration** utför du följande steg:
 
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_14.png)
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. För **Unik identifierare** väljer du **NameID**.
 
@@ -164,93 +158,46 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ha
 
     f. Klicka på **Spara ändringar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="create-saba-talentspace-test-user"></a>Skapa Saba TalentSpace-test användare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Saba TalentSpace.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+**Utför följande steg för att skapa en användare med namnet Britta Simon i Saba TalentSpace:**
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
-
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Halogen Software.
-
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Halogen Software**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I programlistan väljer du **Halogen Software**.
-
-    ![Länken för Halogen Software i programlistan](common/all-applications.png)
-
-3. I menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-halogen-software-test-user"></a>Skapa Halogen Software-testanvändare
-
-Målet med det här avsnittet är att skapa en användare med namnet Britta Simon i Halogen Software.
-
-**Skapa en användare med namnet Britta Simon i Halogen Software genom att utföra följande steg:**
-
-1. Logga in på **Halogen Software**-programmet som administratör.
+1. Logga in på ditt **Saba TalentSpace** -program som administratör.
 
 2. Klicka på fliken **User Center** (Användarcenter) och sedan på **Skapa användare**.
 
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_300.png)  
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. I dialogrutan **Ny användare** utför du följande steg:
 
-    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_301.png)
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial-halogen-301.png)
 
-    a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
+    a. I text rutan **förnamn** skriver du förnamn för användaren som **B**.
 
     b. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
 
-    c. I textrutan **Användarnamn** skriver du **Britta Simon**, användarnamnet som i Azure-portalen.
+    c. I text rutan **användar namn** skriver du **B. Simon**, användar namnet som i Azure Portal.
 
-    d. I textrutan **Lösenord** skriver du ett lösenord för Britta.
+    d. I text rutan **lösen ord** skriver du ett lösen ord för B. Simon.
 
     e. Klicka på **Save** (Spara).
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Halogen Software-panelen i åtkomstpanelen bör du automatiskt loggas in på Halogen Software som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Saba TalentSpace på åtkomst panelen, bör du loggas in automatiskt på Saba-TalentSpace som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova Saba TalentSpace med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

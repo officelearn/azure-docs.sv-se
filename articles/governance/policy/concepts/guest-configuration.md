@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 73f986774fc13ac8c69cd800c977c909b591a74c
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169532"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77369752"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -185,8 +185,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 Källa för de inbyggda initiativen för princip-gäst konfiguration finns på följande platser:
 
+- [Inbyggda princip definitioner – gäst konfiguration](../samples/built-in-policies.md#guest-configuration)
 - [Inbyggda initiativ – gäst konfiguration](../samples/built-in-initiatives.md#guest-configuration)
-- [Azure Policy exempel GitHub lagrings platsen](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
+- [Azure Policy exempel GitHub lagrings platsen](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
 ## <a name="next-steps"></a>Nästa steg
 

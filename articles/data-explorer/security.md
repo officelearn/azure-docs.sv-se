@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271596"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373365"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Skydda Azure Datautforskaren kluster i Azure
 
@@ -34,10 +34,10 @@ Den Azure Active Directory (Azure AD) Managed identiteter för Azure-resurser l�
 
 Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange Kundhanterade nycklar som ska användas för data kryptering. Du kan hantera kryptering av dina data på lagrings nivå med dina egna nycklar. En kundhanterad nyckel används för att skydda och kontrol lera åtkomsten till rot krypterings nyckeln, som används för att kryptera och dekryptera alla data. Kundhanterade nycklar ger större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.
 
-Använd Azure Key Vault för att lagra dina Kundhanterade nycklar. Du kan skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda ett Azure Key Vault API för att generera nycklar. Azure Datautforskaren-klustret och Azure Key Vault måste vara i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](/azure/key-vault/key-vault-overview). En detaljerad förklaring om Kundhanterade nycklar finns i [Kundhanterade nycklar med Azure Key Vault](/azure/storage/common/storage-service-encryption)
+Använd Azure Key Vault för att lagra dina Kundhanterade nycklar. Du kan skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda ett Azure Key Vault API för att generera nycklar. Azure Datautforskaren-klustret och Azure Key Vault måste vara i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](/azure/key-vault/key-vault-overview). En detaljerad förklaring om Kundhanterade nycklar finns i [Kundhanterade nycklar med Azure Key Vault](/azure/storage/common/storage-service-encryption). Konfigurera Kundhanterade nycklar i Azure Datautforskaren-klustret med [C#](/azure/data-explorer/customer-managed-keys-csharp) hjälp av eller [Azure Resource Manager-mallen](/azure/data-explorer/customer-managed-keys-resource-manager)
 
 > [!Note]
-> Kundhanterade nycklar är beroende av hanterade identiteter för Azure-resurser, en funktion i Azure Active Directory (Azure AD). Om du vill konfigurera Kundhanterade nycklar i Azure Portal måste du konfigurera en **SystemAssigned** -hanterad identitet för klustret.
+> Kundhanterade nycklar är beroende av hanterade identiteter för Azure-resurser, en funktion i Azure Active Directory (Azure AD). Om du vill konfigurera Kundhanterade nycklar i Azure Portal måste du konfigurera en **SystemAssigned** -hanterad identitet till klustret enligt beskrivningen i [Konfigurera hanterade identiteter för ditt Azure datautforskaren-kluster](/azure/data-explorer/managed-identities).
 
 #### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Lagra Kundhanterade nycklar i Azure Key Vault
 
@@ -60,8 +60,8 @@ Med hjälp av [rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-co
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera hanterade identiteter för ditt Azure Datautforskaren-kluster](managed-identities.md)
 * [Skydda ditt kluster i Azure datautforskaren-Portal](manage-cluster-security.md) genom att aktivera kryptering i vila.
+* [Konfigurera hanterade identiteter för ditt Azure Datautforskaren-kluster](managed-identities.md)
 * [Konfigurera Kundhanterade nycklar med hjälp av Azure Resource Manager mall](customer-managed-keys-resource-manager.md)
 * [Konfigurera Kundhanterade nycklar medC#](customer-managed-keys-csharp.md)
 

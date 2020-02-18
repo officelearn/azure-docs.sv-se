@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 02/12/2020
 ms.author: rkarlin
-ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 709961fe63e5ed862a0e8dc3fa735d426dd02998
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815782"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371325"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Anslut data från Office 365-loggar
 
 
 
-Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) till Azure Sentinel med ett enda klick. Du kan strömma gransknings loggar från flera klienter till en enda arbets yta i Azure Sentinel. Office 365 aktivitets logg Connector ger inblick i pågående användar aktiviteter. Du får information om olika användar-, administratörs-, system-och princip åtgärder och händelser från Office 365. Genom att ansluta Office 365-loggar till Azure Sentinel kan du använda dessa data för att visa instrument paneler, skapa anpassade aviseringar och förbättra din gransknings process.
+Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) till Azure Sentinel med ett enda klick. Du kan strömma gransknings loggar från din Office 365 till din Azure Sentinel-arbetsyta på samma klient. Office 365 aktivitets logg Connector ger inblick i pågående användar aktiviteter. Du får information om olika användar-, administratörs-, system-och princip åtgärder och händelser från Office 365. Genom att ansluta Office 365-loggar till Azure Sentinel kan du använda dessa data för att visa instrument paneler, skapa anpassade aviseringar och förbättra din gransknings process.
 
 > [!IMPORTANT]
 > Om du har en E3-licens, innan du kan komma åt data via API: t för hanterings aktivitet i Office 365, måste du aktivera enhetlig gransknings loggning för din Office 365-organisation. Du gör detta genom att aktivera gransknings loggen för Office 365. Instruktioner finns i [Aktivera eller inaktivera gransknings loggs ökning i Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Mer information finns i [API-referens för Office 365 Management Activity](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste vara global administratör eller säkerhets administratör för din klient
-- Kontrol lera att port 4433 är öppen för webb trafik från vilken du loggade in på Azure Sentinel för att skapa anslutningen på datorn. Den här porten kan stängas igen när anslutningen har upprättats.
+- Du måste vara global administratör eller säkerhets administratör för din klient.
 - Om din klient organisation inte har en Office 365 E3-eller Office 365 E5-licens måste du aktivera enhetlig granskning på din klient med hjälp av någon av följande processer:
     - [Använd cmdleten Set-AdminAuditLogConfig](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) och aktivera parametern "UnifiedAuditLogIngestionEnabled").
     - [Eller med hjälp av säkerhets-och EFTERLEVNADSCENTER gränssnittet](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
@@ -42,13 +41,9 @@ Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com
 
 1. I Azure Sentinel väljer du **data kopplingar** och klickar sedan på panelen **Office 365** .
 
-2. Om du inte redan har aktiverat det kan du göra det genom att gå till bladet **data kopplingar** och välja **Office 365** -anslutning. Här kan du klicka på **sidan öppna koppling** och under avsnittet konfiguration märkt **aktivera Office 365-lösningen på din arbets yta** Använd knappen **installera lösning** för att aktivera den. Om den redan har Aktiver ATS identifieras den på anslutnings skärmen som redan aktive rad.
-1. Med Office 365 kan du strömma data från flera klienter till Azure Sentinel. Lägg till klienten under **Anslut klienter till Azure Sentinel**för varje klient som du vill ansluta till. 
-1. En Active Directory skärmen öppnas. Du uppmanas att autentisera med en global administratörs användare på varje klient som du vill ansluta till Azure Sentinel och ge behörighet till Azure Sentinel för att läsa dess loggar. 
-5. Under klient listan visas Azure AD-katalog-ID: t (klient-ID) och två kryss rutor för Exchange-och SharePoint-loggar. Du kan välja en eller alla de tjänster som du vill mata in i Sentinel. För närvarande stöder Azure Sentinel Exchange-och SharePoint-loggar i befintliga Office365-tjänster.
-
-4. När du har valt tjänsterna (Exchange, SharePoint osv.) kan du klicka på Spara på klient tilläggs ramen på sidan. 
-
+2. Om du inte redan har aktiverat det kan du göra det genom att gå till bladet **data kopplingar** och välja **Office 365** -anslutning. Här kan du klicka på **sidan öppna koppling** och under konfigurations avsnittet märkt **konfiguration** väljer du alla Office 365-aktivitets loggar som du vill ansluta till Azure Sentinel. 
+   > [!NOTE]
+   > Om du redan har anslutit flera klienter i en tidigare version av Office 365-anslutningen i Azure Sentinel, kommer du att kunna visa och ändra vilka loggar som du samlar in från varje klient. Du kommer inte att kunna lägga till fler klienter, men du kan ta bort tidigare tillagda klienter.
 3. Om du vill använda det relevanta schemat i Log Analytics för Office 365-loggarna söker du efter **OfficeActivity**.
 
 

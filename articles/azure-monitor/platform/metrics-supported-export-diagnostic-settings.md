@@ -1234,15 +1234,15 @@ Tabellen innehåller följande kolumner.
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% allokerade byte som används  |  % Allokerade byte som används  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% DPC-tid  |  DPC-tid i procent  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ kostnads fri noder i procent  |  Kostnads fri noder i procent  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ ledigt utrymme i procent  |  Ledigt utrymme i procent  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ ledigt utrymme i procent  |  Ledigt utrymme i procent  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ ledigt utrymme i procent  |  % ledigt utrymme  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ ledigt utrymme i procent  |  % ledigt utrymme  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ ledig tid i procent  |  Ledig tid i procent  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Avbrotts tid i procent för Average_%  |  % Avbrotts tid  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% i/o-vänte tid  |  % I/o-vänte tid  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% bra tid  |  % Trevligt tid  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ privilegie rad tid i procent  |  Privilegie rad tid i procent  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% processor tid  |  Tid i procent för processor  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% processor tid  |  Tid i procent för processor  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% processor tid  |  % processortid  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% processor tid  |  % processortid  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% Använd noder i procent  |  % Använda noder i procent  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_% använt minne  |  Använt minne i procent  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_ använt utrymme i procent  |  Använt utrymme i procent  |  Antal  |  Medel | 
@@ -1251,11 +1251,11 @@ Tabellen innehåller följande kolumner.
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Available megabyte  |  Tillgängliga megabyte  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Available MB minne  |  Tillgängligt minne i megabyte  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Växling vid Average_Available megabyte  |  Tillgängliga megabyte växlings utrymme  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. S/diskläsning  |  Medel s/disk läsning  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. S/diskläsning  |  Medel s/disk läsning  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. S/disköverföring  |  Medel s/disk överföring  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. S/diskskrivning  |  Medel s/disk skrivning  |  Antal  |  Medel | 
-| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. S/diskskrivning  |  Medel s/disk skrivning  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. Disk s/läsning  |  Medel s/disk läsning  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. Disk s/läsning  |  Medel s/disk läsning  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. disk s/överföring  |  Medel s/disk överföring  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. Disk s/skrivning  |  Medel s/disk skrivning  |  Antal  |  Medel | 
+| **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Avg. Disk s/skrivning  |  Medel s/disk skrivning  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Bytes mottagna/SEK  |  Mottagna byte/sek  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Skickade Average_Bytes per sekund  |  Skickade byte/sek  |  Antal  |  Medel | 
 | **Ja**  | Nej |  Microsoft. OperationalInsights/arbets ytor  |  Average_Bytes totalt/SEK  |  Totalt antal byte/s  |  Antal  |  Medel | 

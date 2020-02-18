@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines-omstarten har fastnat i att starta om, stänga av eller stoppa tjänster | Microsoft Docs
+title: Azure Virtual Machines avstängning har fastnat vid omstart, avstängning eller avstängning av tjänster | Microsoft Docs
 description: Den här artikeln hjälper dig att felsöka tjänst fel i Azure Virtuella Windows-datorer.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477413"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371366"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Den virtuella Azure Windows-datorn har fastnat i "starta om", "stänga av" eller "stoppa tjänster"
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM-avstängning har fastnat på "starta om", "stänga av" eller "stoppa tjänster"
 
 Den här artikeln innehåller steg för att lösa problemen med "starta om", "stänga av" eller "stoppa tjänster" som du kan stöta på när du startar om en virtuell Windows-dator (VM) i Microsoft Azure.
 
@@ -81,9 +81,9 @@ Om problemet inte löses när du väntar på att ändringarna ska bearbetas mås
 
 **Koppla OS-disken till en virtuell dator för återställning**
 
-1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicksbild av en disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
 
-2. [Koppla OS-disk till virtuell återställningsdator](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Koppla OS-disken till en virtuell dator för återställning](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
 
 3. Fjärr skrivbord till den virtuella återställnings datorn.
 

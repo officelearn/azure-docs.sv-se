@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c9054daea76675ed621caf1630c509b16743f4e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: aa1e6d8705cf4aed975ed0940087f243a06a9019
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836350"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372689"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigerings-URL: er till b2clogin.com för Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Det finns flera ändringar som du kan behöva göra för att migrera dina progra
 
 * Ändra omdirigerings-URL: en i din Identitetsproviders program till Reference *b2clogin.com*.
 * Uppdatera dina Azure AD B2C program så att de använder *b2clogin.com* i sina användar flöden och token slut punkts referenser.
-* Uppdatera eventuella **tillåtna ursprung** som du har DEFINIERAT i CORS-inställningarna för [anpassning av användar gränssnitt](custom-policy-ui-customization-dynamic.md).
+* Uppdatera eventuella **tillåtna ursprung** som du har DEFINIERAT i CORS-inställningarna för [anpassning av användar gränssnitt](custom-policy-ui-customization.md).
 
 ## <a name="change-identity-provider-redirect-urls"></a>Ändra omdirigerings-URL: er för identitetsprovider
 
@@ -58,7 +58,7 @@ Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-U
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com`. Ett exempel:
+Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com`. Exempel:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -73,8 +73,8 @@ För båda formaten:
 
 Koden i dina Azure AD B2C-aktiverade program och API: er kan referera till `login.microsoftonline.com` på flera platser. Din kod kan till exempel innehålla referenser till användar flöden och token-slutpunkter. Uppdatera följande till referens `your-tenant-name.b2clogin.com`:
 
-* behörighets slut punkt
-* token-slutpunkt
+* Behörighets slut punkt
+* Token-slutpunkt
 * Token utfärdare
 
 Till exempel skulle auktoritets slut punkten för Contosos registrerings-/inloggnings princip bli:

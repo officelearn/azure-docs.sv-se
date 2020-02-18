@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65b343c79c60bc74f1a140411ff1a4a27119d225
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251693"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373183"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Självstudie: Azure Active Directory SSO-integrering med JAMF Pro
 
@@ -31,7 +31,7 @@ I den här självstudien får du lära dig att integrera JAMF Pro med Azure Acti
 * Logga in användarna automatiskt till JAMF Pro med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -42,7 +42,10 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. JAMF Pro stöder **SP-initierad** och **IDP-initierad** SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. 
+
+* JAMF Pro stöder **SP-initierad** och **IDP-initierad** SSO.
+* När du har konfigurerat JAMF Pro kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>Lägg till JAMF Pro från galleriet
 
@@ -147,9 +150,9 @@ I det här avsnittet beviljar du B. Simon-åtkomst till JAMF Pro.
 
     ![Sidan för enkel inloggning i JAMF Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-  a. Välj **Redigera**.
+    a. Välj **Redigera**.
 
-  b. Markera kryss rutan **aktivera autentisering med enkel inloggning** .
+    b. Markera kryss rutan **aktivera autentisering med enkel inloggning** .
 
   c. Välj **Azure** som ett alternativ på den nedrullningsbara menyn **identitets leverantör** .
 
@@ -200,7 +203,7 @@ Gör så här för att etablera ett användar konto:
 
     ![Alternativet Skapa standard konto på sidan med & grupper för användar konton i JAMF Pro](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. Utför följande steg i dialog rutan **nytt konto** .
+6. I dialog rutan **nytt konto** utför du följande steg:
 
     ![Nya konto installations alternativ i JAMF Pro-Systeminställningar](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -228,8 +231,8 @@ När du väljer JAMF Pro-panelen på åtkomst panelen, bör du loggas in automat
 
 - [Självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Testa JAMF Pro med Azure AD](https://aad.portal.azure.com/)

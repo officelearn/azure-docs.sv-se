@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908960"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373150"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Du kan använda [Azure Portal](tutorial-customize-ui.md) för att konfigurera an
 
 Om du använder [anpassade principer](custom-policy-overview.md) för att tillhandahålla registrering eller inloggning, lösen ords återställning eller profil redigering i programmet använder [du principfiler för att anpassa användar gränssnittet](custom-policy-ui-customization.md).
 
-Om du behöver tillhandahålla dynamiskt innehåll baserat på kundens beslut kan du använda anpassade principer som kan [ändra sid innehållet dynamiskt](custom-policy-ui-customization-dynamic.md) beroende på en parameter som skickas i en frågesträng. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en parameter som du skickar från ditt webb program eller mobil program.
+Om du behöver tillhandahålla dynamiskt innehåll baserat på kundens beslut kan du använda anpassade principer som kan [ändra sid innehållet dynamiskt](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) beroende på en parameter som skickas i en frågesträng. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en parameter som du skickar från ditt webb program eller mobil program.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -150,7 +150,7 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 | Registrera lokalt konto | Innehåller ett formulär för registrering av lokalt konto baserat på en e-postadress eller ett användar namn. Formuläret kan innehålla olika inmatnings kontroller, till exempel text inmatnings ruta, rutan lösen ords post, alternativ knapp, list rutor med flera val och kryss rutor med flera val. |
 | Registrering av socialt konto | Kan visas när du registrerar dig med ett befintligt konto från en social identitetsprovider som Facebook eller Google. Den används när ytterligare information måste samlas in från kunden med hjälp av ett registrerings formulär. |
 | Enhetlig registrering eller inloggning | Hanterar både registrering och inloggning av kunder som kan använda sociala identitets leverantörer som Facebook, Google eller lokala konton. |
-| Multifaktorautentisering | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
+| Multi-Factor Authentication | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
 | Fel | Tillhandahåller fel information till kunden. |
 
 ## <a name="company-branding-preview"></a>Företags anpassning (för hands version)

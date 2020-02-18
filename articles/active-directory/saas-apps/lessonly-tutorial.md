@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e7911f52d71501324a1b05c290402cc2ee33a706
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057451"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370424"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Lesson.ly
 
@@ -31,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar Lesson.ly med Azure
 * Gör det möjligt för användarna att logga in automatiskt till Lesson.ly med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,6 +45,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Lesson.ly stöder **SP** -INITIERAd SSO
 * Lesson.ly stöder **just-in-Time** User-etablering
+* När du har konfigurerat Lesson.ly kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-lessonly-from-the-gallery"></a>Lägga till Lesson.ly från galleriet
 
@@ -83,14 +83,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/signin`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/auth/saml`
 
     > [!NOTE]
     > När ett generiskt namn refereras måste **companyname** ersättas med ett faktiskt namn.
     
-     b. I text rutan **svars-URL (intygad kund tjänst)** skriver du en URL med följande mönster: `https://<companyname>.lessonly.com/auth/saml/callback`
+    b. I text rutan **svars-URL (intygad kund tjänst)** skriver du en URL med följande mönster: `https://<companyname>.lessonly.com/auth/saml/callback`
 
-     c. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/auth/saml/metadata`
+    c. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.lessonly.com/auth/saml/metadata`
     
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en, svars-URL och identifierare. Kontakta [kundsupporten för Lessonly.com](mailto:support@lessonly.com) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -169,7 +169,7 @@ När du klickar på panelen Lesson.ly på åtkomst panelen, bör du loggas in au
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

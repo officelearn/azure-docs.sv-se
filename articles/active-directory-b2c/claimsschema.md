@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185591"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372985"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,13 +51,31 @@ Elementet **claimType** innehåller följande element:
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | displayName | 1:1 | Rubriken som visas för användare på olika skärmar. Värdet kan [lokaliseras](localization.md). |
-| Datatyp | 1:1 | Anspråkets typ. Data typerna för Boolean, date, dateTime, int, Long, String, stringCollection och telefonnummer kan användas. Primitiv data typ representerar motsvarigheten till C# variabeln datatyp. stringCollection representerar en samling med strängar. Mer information finns i [ C# typer och variabler](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). Datum följer ISO 8601-konventionen. |
+| Datatyp | 1:1 | Anspråkets typ. |
 | DefaultPartnerClaimTypes | 0:1 | Partnerns standard anspråks typer som används för ett angivet protokoll. Värdet kan skrivas över i **PartnerClaimType** som anges i **InputClaim** -eller **OutputClaim** -elementen. Använd det här elementet för att ange standard namnet för ett protokoll.  |
 | Streckkodsmasker | 0:1 | En valfri sträng med maskering av tecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
 | UserHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för användarna att förstå syftet. Värdet kan [lokaliseras](localization.md). |
 | UserInputType | 0:1 | Den typ av inmatnings kontroll som ska vara tillgänglig för användaren när anspråks data anges manuellt för anspråks typen. Se de indatatyps typer som definierats senare på den här sidan. |
 | Begränsning | 0:1 | Värde begränsningarna för detta anspråk, till exempel ett reguljärt uttryck (regex) eller en lista med acceptabla värden. Värdet kan [lokaliseras](localization.md). |
 PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsInput** -element. Med **PredicateValidationReference** -elementen kan du utföra en verifierings process för att säkerställa att endast korrekt utformade data anges. Mer information finns i [predikat](predicates.md). |
+
+### <a name="datatype"></a>Datatyp
+
+Elementet **datatype** stöder följande värden:
+
+| Typ | Beskrivning |
+| ------- | ----------- | 
+|boolean|Representerar ett värde för boolesk (`true` eller `false`).|
+|date| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
+|Datum/tid|Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Värdet för datumet följer ISO 8601-konventionen.|
+|duration|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet för är `PnYnMnDTnHnMnS`, där `P` indikerar positiv eller `N` för negativt värde. `nY` är antalet år följt av en litteral `Y`. `nMo` är antalet månader följt av en litteral `Mo`. `nD` är antalet dagar följt av en litteral `D`. Exempel: `P21Y` representerar 21 år. `P1Y2Mo` representerar ett år och två månader. `P1Y2Mo5D` representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S` representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
+|phoneNumber|Representerar ett telefonnummer. |
+|int| Representerar talet mellan-2 147 483 648 och 2 147 483 647|
+|long| Representerar talet mellan-9 och 9 223 372 036 854 775 807 |
+|sträng| Representerar text som en sekvens med UTF-16-kodade enheter.|
+|stringCollection|Representerar en samling av `string`.|
+|userIdentity| Representerar en användar identitet.|
+|userIdentityCollection|Representerar en samling av `userIdentity`.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -155,7 +173,7 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 | Uppräkning | 1: n | De tillgängliga alternativen i användar gränssnittet för användaren att välja för ett anspråk, till exempel ett värde i en listruta. |
 | Mönster | 1:1 | Det reguljära uttryck som ska användas. |
 
-### <a name="enumeration"></a>Uppräkning
+#### <a name="enumeration"></a>Uppräkning
 
 **Uppräknings** elementet innehåller följande attribut:
 
@@ -214,11 +232,26 @@ Med Identity Experience Framework återges e-postadressen med e-postverifiering:
 
 ![Text ruta som visar fel meddelande som utlöses av regex-begränsning](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C stöder flera olika typer av användarindata, till exempel en text ruta, ett lösen ord och en listruta som kan användas när du anger anspråks data manuellt för anspråks typen. Du måste ange **UserInputType** när du samlar in information från användaren med hjälp av en [egen kontrollerad teknisk profil](self-asserted-technical-profile.md).
+Azure AD B2C stöder flera olika typer av användarindata, till exempel en text ruta, ett lösen ord och en listruta som kan användas när du anger anspråks data manuellt för anspråks typen. Du måste ange **UserInputType** när du samlar in information från användaren med hjälp av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) och [visnings kontroller](display-controls.md).
 
-### <a name="textbox"></a>TextBox
+**UserInputType** -elementet är tillgängligt för användarens indata typer:
+
+| UserInputType | ClaimType som stöds | Beskrivning |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Listruta för flera val. Anspråks värde representeras i en kommaavgränsad sträng för de valda värdena. |
+|DateTimeDropdown | `date`, `dateTime` |List rutor för att välja dag, månad och år. |
+|DropdownSingleSelect |`string` |Listruta för enkel markering. Anspråks värde är det valda värdet.|
+|E-postmeddelande | `string` |E-postfält. |
+|Paragraf | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Ett fält som endast visar text i en stycke-tagg. |
+|lösenord | `string` |Text rutan lösen ord.|
+|RadioSingleSelect |`string` | Samling alternativ knappar. Anspråks värde är det valda värdet.|
+|ReadOnly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Skrivskyddad text ruta. |
+|TextBox |`boolean`, `int`, `string` |Text ruta med en rad. |
+
+
+#### <a name="textbox"></a>TextBox
 
 Indatatypen för **text Rute** användaren används för att ange en text ruta med en rad.
 
@@ -233,7 +266,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>E-postmeddelande
+#### <a name="emailbox"></a>E-postmeddelande
 
 **E-postmeddelandets** Indatatyp används för att ange ett grundläggande e-postfält.
 
@@ -251,7 +284,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="password"></a>Lösenord
+#### <a name="password"></a>lösenord
 
 **Användarens** Indatatyp används för att registrera ett lösen ord som anges av användaren.
 
@@ -266,7 +299,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 **DateTimeDropdown** -användarens Indatatyp används för att ange en uppsättning List rutor för att välja dag, månad och år. Du kan använda predikat och PredicateValidations-element för att kontrol lera minimi-och Max datum värden. Mer information finns i avsnittet **Konfigurera ett datum intervall** i [predikat och PredicateValidations](predicates.md).
 
@@ -281,7 +314,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 **RadioSingleSelect** -användarens Indatatyp används för att tillhandahålla en samling alternativ knappar som gör att användaren kan välja ett alternativ.
 
@@ -300,7 +333,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 Indatatypen **DropdownSingleSelect** används för att tillhandahålla en nedrullningsbar listruta där användaren kan välja ett alternativ.
 
@@ -319,7 +352,7 @@ Indatatypen **DropdownSingleSelect** används för att tillhandahålla en nedrul
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 Indatatypen **CheckboxMultiSelect** används för att tillhandahålla en samling kryss rutor som gör det möjligt för användaren att välja flera alternativ.
 
@@ -338,7 +371,7 @@ Indatatypen **CheckboxMultiSelect** används för att tillhandahålla en samling
 </ClaimType>
 ```
 
-### <a name="readonly"></a>ReadOnly
+#### <a name="readonly"></a>ReadOnly
 
 Den **skrivskyddade** användarens Indatatyp används för att tillhandahålla ett skrivskyddat fält för att Visa anspråket och värdet.
 
@@ -354,9 +387,9 @@ Den **skrivskyddade** användarens Indatatyp används för att tillhandahålla e
 ```
 
 
-### <a name="paragraph"></a>Paragraf
+#### <a name="paragraph"></a>Paragraf
 
-Indatatypen **stycke** användare används för att tillhandahålla ett fält som endast visar text i en stycke-tagg. Till exempel &lt;p&gt;text&lt;/p&gt;.
+Indatatypen **stycke** användare används för att tillhandahålla ett fält som endast visar text i en stycke-tagg.  Till exempel &lt;p&gt;text&lt;/p&gt;. En indatatyp för **stycke** användare `OutputClaim` av självkontrollerad teknisk profil, måste ange attributet `Required` `false` (standard).
 
 ![Använda anspråks typ med stycke](./media/claimsschema/paragraph.png)
 

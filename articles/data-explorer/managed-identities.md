@@ -7,16 +7,16 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3b0bb62de4a96a45d607e05b32a87feec692e4d4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725980"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373369"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Konfigurera hanterade identiteter för ditt Azure Datautforskaren-kluster
 
-Med en [hanterad identitet från Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) kan klustret enkelt komma åt andra AAD-skyddade resurser som Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Den här artikeln visar hur du skapar en hanterad identitet för Azure Datautforskaren-kluster. 
+Med en [hanterad identitet från Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) kan klustret enkelt komma åt andra AAD-skyddade resurser som Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Den här artikeln visar hur du skapar en hanterad identitet för Azure Datautforskaren-kluster. Hanterad identitets konfiguration stöds för närvarande endast för att [Aktivera Kundhanterade nycklar för klustret](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
 > Hanterade identiteter för Azure Datautforskaren fungerar inte som förväntat om din app migreras mellan prenumerationer eller klienter. Appen måste skaffa en ny identitet, som kan göras genom att inaktivera och återaktivera funktionen med hjälp av [ta bort en identitet](#remove-an-identity). Åtkomst principer för underordnade resurser måste också uppdateras för att använda den nya identiteten.
@@ -92,7 +92,7 @@ Genom att lägga till den systemtilldelade typen kan Azure Skapa och hantera ide
 }    
 ```
 
-Ett exempel:
+Exempel:
 
 ```json
 {

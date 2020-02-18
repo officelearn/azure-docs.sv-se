@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157881"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372793"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -82,7 +82,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | Sid identifierare | Beskrivning |
 | ----- | ----------- |
 | `globalexception` | Visar en felsida när ett undantag eller ett fel påträffas. |
-| `providerselection` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. |
+| `providerselection`, `idpselection` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen.  |
 | `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
 | `unifiedssd` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
 | `multifactor` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |

@@ -4,19 +4,19 @@ description: Lär dig hur du använder Azure Portal eller CLI för att skapa, Vi
 author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 02/16/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 00f5f37591ed2ed250cb756c686ea15136921512
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ef712c38303de27214ce75c9ca2b8022a5410efc
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705538"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372770"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor
 
-Med måttaviseringar i Azure Monitor kan du få en avisering när ett av dina mått överstiger ett tröskelvärde. Du kan använda måttaviseringar för en mängd olika flerdimensionella plattformsmått, anpassade mått samt vanliga och anpassade Application Insights-mått. I den här artikeln beskriver vi hur du skapar, visar och hanterar aviseringsregler för mått i Azure-portalen och Azure CLI. Du kan också skapa Mät regler för mått med Azure Resource Manager mallar som beskrivs i [en separat artikel](alerts-metric-create-templates.md).
+Mått varningar i Azure Monitor ger dig ett sätt att få ett meddelande när ett av dina mått överskrider ett tröskelvärde. Du kan använda måttaviseringar för en mängd olika flerdimensionella plattformsmått, anpassade mått samt vanliga och anpassade Application Insights-mått. I den här artikeln beskriver vi hur du skapar, visar och hanterar aviserings regler för mått via Azure Portal och Azure CLI. Du kan också skapa Mät regler för mått med Azure Resource Manager mallar, som beskrivs i [en separat artikel](alerts-metric-create-templates.md).
 
 Du kan lära dig mer om hur mått aviseringar fungerar från [Översikt över mått aviseringar](alerts-metric-overview.md).
 
@@ -39,21 +39,30 @@ Följande procedur beskriver hur du skapar en regel för mått varningar i Azure
 
 6. En lista över signaler som stöds för resursen visas, Välj det mått som du vill skapa en avisering på.
 
-7. Alternativt kan du förfina måttet genom att justera **period** och **agg regering**. Om måttet har dimensioner, visas **Dimensions** tabellen. Välj ett eller flera värden per dimension. Mått varningen kommer att köras utvärdera villkoret för alla kombinationer av värden som har valts. [Lär dig mer om hur aviseringar om flerdimensionella mått fungerar](alerts-metric-overview.md). Du kan också **välja \*** för någon av dimensionerna. **Välj \*** skalar markeringen dynamiskt automatiskt till alla aktuella och framtida värden för en dimension.
+7. Ett diagram visas för måttet under de senaste sex timmarna. Använd List rutan **diagram period** för att välja att Visa längre historik för måttet.
 
-8. Du ser ett diagram för måttet under de senaste 6 timmarna. Definiera aviserings parametrar. **Villkors typ**, **frekvens**, **operator** och **tröskelvärde** eller **känslighet**. Detta avgör vilken logik som varnings regeln ska utvärdera. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
+8. Om måttet har dimensioner, visas en dimensions tabell som visas. Välj ett eller flera värden per dimension.
+    - Dimensions värden som visas baseras på mått data från de tre senaste dagarna.
+    - Om det dimensions värde som du söker efter inte visas klickar du på "+" för att lägga till ett anpassat värde.
+    - Du kan också **välja \*** för någon av dimensionerna. **Välj \*** skalar markeringen dynamiskt automatiskt till alla aktuella och framtida värden för en dimension.
 
-9. Om du använder ett statiskt tröskelvärde kan mått diagrammet hjälpa till att avgöra vad som kan vara ett rimligt tröskelvärde. Om du använder ett dynamiskt tröskelvärde visas de beräknade tröskelvärdena baserat på senaste data i mått diagrammet.
+    Mått varnings regeln utvärderar villkoret för alla kombinationer av värden som har valts. [Lär dig mer om hur aviseringar om flerdimensionella mått fungerar](alerts-metric-overview.md).
 
-10. Klicka på **Klar**
+9. Välj typ av **tröskel** , **operator**och **sammansättning**. Detta fastställer logiken som varnings regeln för mått kommer att utvärdera.
+    - Om du använder ett **statiskt** tröskelvärde kan du fortsätta att definiera ett **tröskelvärde**. Mått diagrammet kan hjälpa dig att avgöra vad som kan vara ett rimligt tröskelvärde.
+    - Om du använder ett **dynamiskt** tröskelvärde kan du fortsätta med att definiera **tröskelns känslighet**. Mått diagrammet visar de beräknade tröskelvärdena baserat på senaste data. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
 
-11. Du kan också lägga till ytterligare villkor om du vill övervaka en komplex varnings regel. För närvarande kan användare ha varnings regler med villkor för dynamiska tröskelvärden som ett enda kriterium.
+10. Du kan också förfina villkoret genom att justera **agg regerings precisionen** och **utvärderings frekvensen**. 
 
-12. Fyll i **aviserings information** som **aviserings regel namn**, **Beskrivning** och **allvarlighets grad**
+11. Klicka på **Klar**.
 
-13. Lägg till en åtgärds grupp i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+12. Du kan också lägga till ytterligare villkor om du vill övervaka en komplex varnings regel. För närvarande kan användare ha varnings regler med villkor för dynamiska tröskelvärden som ett enda kriterium.
 
-14. Klicka på **Slutför** om du vill spara varnings regeln för mått.
+13. Fyll i **aviserings information** som **aviserings regel namn**, **Beskrivning**och **allvarlighets grad**.
+
+14. Lägg till en åtgärds grupp i aviseringen antingen genom att välja en befintlig åtgärds grupp eller skapa en ny åtgärds grupp.
+
+15. Klicka på **Slutför** om du vill spara varnings regeln för mått.
 
 > [!NOTE]
 > Mått varnings regler som skapas via portalen skapas i samma resurs grupp som mål resursen.
@@ -66,7 +75,7 @@ Du kan visa och hantera mått varnings regler med hjälp av bladet hantera regle
 
 2. Klicka på **aviseringar** och **Hantera regler**
 
-3. På bladet **Hantera regler** kan du Visa alla aviserings regler för alla prenumerationer. Du kan filtrera reglerna ytterligare med **resurs grupp**, **resurs typ** och **resurs**. Om du bara vill se mått aviseringar väljer du **signal typ** som mått.
+3. På bladet **Hantera regler** kan du Visa alla aviserings regler för alla prenumerationer. Du kan filtrera reglerna ytterligare med **resurs grupp**, **resurs typ**och **resurs**. Om du bara vill se mått aviseringar väljer du **signal typ** som mått.
 
     > [!TIP]
     > På bladet **Hantera regler** kan du välja flera varnings regler och aktivera/inaktivera dem. Detta kan vara användbart när vissa mål resurser måste placeras under underhåll
@@ -82,9 +91,9 @@ Du kan visa och hantera mått varnings regler med hjälp av bladet hantera regle
 
 ## <a name="with-azure-cli"></a>Med Azure CLI
 
-I föregående avsnitt beskrivs hur du skapar, visar och hanterar mått varnings regler med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). I den här artikeln kommer vi att använda Cloud Shell.
+I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings regler för mått med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). I den här artikeln ska vi använda Cloud Shell.
 
-1. Gå till Azure Portal, klicka på **Cloud Shell**.
+1. Gå till Azure Portal och klicka på **Cloud Shell**.
 
 2. I kommando tolken kan du använda kommandon med ``--help`` alternativ för att lära dig mer om kommandot och hur du använder det. Följande kommando visar till exempel en lista med kommandon som är tillgängliga för att skapa, Visa och hantera mått varningar
 

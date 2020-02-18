@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195779"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371351"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -34,7 +34,7 @@ I den här självstudien skapar du ett förenklat virtuellt nätverk med tre und
 
 ![Självstudie om nätverksinfrastruktur](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * konfigurera en testnätverksmiljö
@@ -108,7 +108,7 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
    |Namn på virtuell dator     |**SRV-hoppa**|
    |Region     |Samma som föregående|
    |Administratörens användar namn     |**azureuser**|
-   |Lösenord     |**Azure123456!**|
+   |lösenord     |**Azure123456!**|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)** .
@@ -143,9 +143,9 @@ Distribuera brandväggen till det virtuella nätverket.
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**Test-VB-RG** |
    |Namn     |**Test-FW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |plats.     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**: **test-VB-VN**|
-   |Offentlig IP-adress     |**Skapa ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
+   |Offentlig IP-adress     |**Lägg till ny**. Den offentliga IP-adressen måste vara Standard SKU-typen.|
 
 5. Välj **Granska + skapa**.
 6. Granska sammanfattningen och välj sedan **skapa** för att skapa brand väggen.

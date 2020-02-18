@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 69814c89c1c44a63febbcac04a4d161cd4c0921f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774231"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371806"
 ---
 Använd det Language Understanding (LUIS) redigerings klient biblioteket för python för att:
 
@@ -26,7 +26,7 @@ Använd det Language Understanding (LUIS) redigerings klient biblioteket för py
 
 [Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [redigerings paket (pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Language Understanding (LUIS) Portal konto: [skapa ett kostnads fritt](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)

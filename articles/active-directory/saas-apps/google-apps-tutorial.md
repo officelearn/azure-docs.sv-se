@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf148ec64ceed28577224741033258bad0e62372
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: d5ef5816759074073c57ef0f616ddea4a159956f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047960"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370348"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med G Suite
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar G Suite med Azure A
 * Gör det möjligt för användarna att logga in automatiskt till G Suite med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -136,6 +136,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | `https://google.com` |
     | `https://google.com/a/<yourdomain.com>` |
 
+    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: 
+
+    | |
+    |--|
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
+
+
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera för **Google Cloud Platform**:
 
     a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
@@ -149,6 +157,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | `https://google.com` |
     | `https://google.com/a/<yourdomain.com>` |
     
+    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: 
+    
+    | |
+    |--|
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
+
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. G Suite tillhandahåller inte enhets-ID/ID-värde för enkel inloggning, så när du avmarkerar alternativet för **domän information** visas värdet för identifieraren `google.com`. Om du markerar alternativet för **domänbaserad utfärdare** kommer det att `google.com/a/<yourdomainname.com>`. Om du vill kontrol lera/avmarkera alternativet för **domänanslutet utfärdare** måste du gå till avsnittet **Konfigurera G Suite SSO** , som beskrivs senare i självstudien. Mer information om [support teamet för G Suite-klienten](https://www.google.com/contact/).
 
@@ -247,14 +262,18 @@ När du klickar på G Suite-panelen i åtkomstpanelen så borde du automatiskt l
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
 - [Konfigurera användarförsörjning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
+
 - [Testa G Suite med Azure AD](https://aad.portal.azure.com/)
+
 - [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Så här skyddar du G Suite med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

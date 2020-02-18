@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/13/2020
 ms.author: dacoulte
-ms.openlocfilehash: 6960a985a5c6a752ced9d176db6eb9368fdf0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d5cf28244fadd6dc0d1d06d5a84a2082a1d1e7e9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193127"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371636"
 ---
-|Namn |Beskrivning |Policys |Version |
+|Namn |Beskrivning |Principer |Version |
 |---|---|---|---|
 |[\[för hands version\]: granska federala PBMM-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Det här initiativet innehåller distributions principer för granskning och VM-tillägg som hanterar en delmängd av de federala PBMM-kontrollerna i Kanada. Ytterligare principer kommer att läggas till i kommande versioner. Mer information finns på https://aka.ms/canadafederalPBMM-blueprint |68 |1.0.0 – för hands version |
 |[\[för hands version\]: granska CIS Microsoft Azure grunderna i 1.1.0-rekommendationer och distribuera vissa stödda VM-tillägg](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |Det här initiativet innehåller distributions principer för granskning och VM-tillägg som hanterar en delmängd av CIS Microsoft Azure grunderna för benchmark-rekommendationer. Ytterligare principer kommer att läggas till i kommande versioner. Mer information finns på https://aka.ms/cisazure-blueprint. |84 |1.0.0 – för hands version |
@@ -26,4 +26,4 @@ ms.locfileid: "77193127"
 |[Granska FedRAMP hög kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Det här initiativet innehåller distributions principer för granskning och VM-tillägg som hanterar en delmängd av FedRAMP H-kontroller. Ytterligare principer kommer att läggas till i kommande versioner. Mer information finns på https://aka.ms/fedramph-blueprint. |81 |1.0.0 – för hands version |
 |[Granska HITRUST/HIPAA-kontroller och distribuera särskilda VM-tillägg för att stödja gransknings krav](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Detta initiativ inkluderar principer som åtgärdar en delmängd av HITRUST/HIPAA-kontroller. Ytterligare principer kommer att läggas till i kommande versioner. https://aka.ms/hipaa-blueprint |57 |1.0.0 |
 |[Granska MPAA-kontroller (Motion Picture Association of America) och distribuera särskilda VM-tillägg för att stödja gransknings krav](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |Det här initiativet innehåller principer som åtgärdar en delmängd av MPAA-säkerhet och rikt linjer för att kontrol lera. Ytterligare principer kommer att läggas till i kommande versioner. Mer information finns på https://aka.ms/mpaa-blueprint |45 |1.0.0 – för hands version |
-|[DoD-effekt nivå 4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |Tilldelar principer för att adressera vissa IL4-kontroller (DoD-effekter på nivå 4). Läs mer – https://aka.ms/DoDIL4-blueprint. |81 |1.0.0 – för hands version |
+|[DoD:s effektnivå 4](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/DOD_IL4_audit.json) |Tilldelar principer för att adressera vissa IL4-kontroller (DoD-effekter på nivå 4). Läs mer – https://aka.ms/DoDIL4-blueprint. |81 |1.0.0 – för hands version |

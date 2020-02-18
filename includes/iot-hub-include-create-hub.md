@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/13/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bbdafde85097d0052edd5984b594fd37066dc1e6
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 775e9fc737798a0e5517f9eb3314c71b14c5be07
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77279735"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371768"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. På Start sidan för Azure väljer du knappen **+ skapa en resurs** och anger sedan *IoT Hub* i fältet **Sök i Marketplace** .
 
@@ -54,7 +54,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
 1. I den här artikeln godkänner du standard alternativen och väljer sedan **Nästa: Taggar** för att gå vidare till nästa skärm.
 
-    Taggar är namn/värde-par. Du kan tilldela samma tagg till flera resurser och resurs grupper för att kategorisera resurser och konsolidera fakturering.
+    Taggar är namn/värde-par. Du kan tilldela samma tagg till flera resurser och resurs grupper för att kategorisera resurser och konsolidera fakturering. Mer information finns i [använda taggar för att ordna dina Azure-resurser](../articles/azure-resource-manager/management/tag-resources.md).
 
    ![Ange storlek och skala för en ny hubb med hjälp av Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 

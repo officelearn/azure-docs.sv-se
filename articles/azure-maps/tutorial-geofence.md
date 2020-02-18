@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c1f08fa5623642538f2ea99b2de07947b1bd9206
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209604"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370150"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geografiskt avgränsnings tecken genom att använda Azure Maps
 
@@ -176,7 +176,7 @@ I det här avsnittet skapar vi en händelse hanterare som tar emot meddelanden. 
 
 Vi gör två [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) -tjänster för att hantera in-och avsluts händelser. När händelserna i Logic Apps utlösare utlöses fler händelser i följd. Tanken är att skicka aviseringar, i det här fallet e-postmeddelanden, till Operations Manager. Följande bild visar skapandet av en logikapp för geofence-inträdeshändelsen. På liknande sätt kan skapa du en till för utträdeshändelsen. Mer information finns i avsnittet om [händelsehanterare som stöds](https://docs.microsoft.com/azure/event-grid/event-handlers).
 
-1. Skapa en logikapp i Azure-portalen
+1. Skapa en Logic-app i Azure Portal. Välj Logic app i Azure Marketplace. Välj sedan knappen **skapa** .
 
    ![Skapa Azure Logic Apps för att hantera polystängsel-händelser](./media/tutorial-geofence/logic-app.png)
 

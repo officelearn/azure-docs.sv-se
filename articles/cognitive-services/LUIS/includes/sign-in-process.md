@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
-ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 5e7feac35ddd607d36cb0ddd3bae10cf1b9bc7a7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 155c88ec4766391f70701b17038b915c399d8b0c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278575"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372083"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Logga in på LUIS-portalen
 
@@ -31,12 +31,12 @@ En ny användare av LUIS måste följa den här proceduren:
 
     ![Skapa en redigerings resurs](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    När du **skapar en ny redigerings resurs**anger du följande information: 
+    När du **skapar en ny redigerings resurs**anger du följande information:
 
     * **Resurs namn** – ett anpassat namn som du väljer, används som en del av URL: en för din redigering och förutsägelse slut punkts frågor.
-    * **Klient** organisation – klienten som din Azure-prenumeration är associerad med. 
+    * **Klient** organisation – klienten som din Azure-prenumeration är associerad med.
     * **Prenumerations namn** – den prenumeration som ska faktureras för resursen.
-    * **Resurs grupp** – ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering. 
+    * **Resurs grupp** – ett namn på en anpassad resurs grupp som du väljer eller skapar. Med resurs grupper kan du gruppera Azure-resurser för åtkomst och hantering.
     * **Plats** – plats valet baseras på **resurs grupps** valet.
     * **Pris nivå** – pris nivån avgör den högsta transaktionen per sekund och månad.
 
@@ -44,6 +44,6 @@ En ny användare av LUIS måste följa den här proceduren:
 
     ![Skapa en redigerings resurs](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. Bekräfta genom att välja **Fortsätt**. 
+1. Bekräfta genom att välja **Fortsätt**.
 
     ![Skapa en redigerings resurs](../media/sign-in/sign-in-confirm-continue.png)

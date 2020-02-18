@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6867862c130bf6f0b7cc34098064f6ce6eec282b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6d68599af644e5bb03fc850a880b07c6a4d262a9
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543503"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370482"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du enkelt kan komma åt dina data i Az
 
 Du kan skapa data lager från [dessa Azure Storage-lösningar](#matrix). För lagrings lösningar som inte stöds och för att spara data Utgångs kostnader under Machine Learning-experiment, rekommenderar vi att du [flyttar dina data](#move) till Azure Storage lösningar som stöds. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver:
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -53,9 +53,9 @@ Data lager har för närvarande stöd för lagring av anslutnings information ti
 ---|---|---|---|---|---
 [Azure&nbsp;BLOB&nbsp;Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Kontonyckel <br> SAS-token | ✓ | ✓ | ✓ |✓
 [Azure&nbsp;fil&nbsp;resurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Kontonyckel <br> SAS-token | ✓ | ✓ | ✓ |✓
-[Azure&nbsp;Data Lake&nbsp;lagring gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Tjänstens huvudnamn| ✓ | ✓ | ✓ |✓
-[Azure&nbsp;Data Lake&nbsp;lagring gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Tjänstens huvudnamn| ✓ | ✓ | ✓ |✓
-Azure&nbsp;SQL&nbsp;-databas| SQL-autentisering <br>Tjänstens huvudnamn| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;Data Lake&nbsp;lagring gen&nbsp;1](https://docs.microsoft.com/azure/data-lake-store/)| Tjänstens huvud namn| ✓ | ✓ | ✓ |✓
+[Azure&nbsp;Data Lake&nbsp;lagring gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Tjänstens huvud namn| ✓ | ✓ | ✓ |✓
+Azure&nbsp;SQL&nbsp;-databas| SQL-autentisering <br>Tjänstens huvud namn| ✓ | ✓ | ✓ |✓
 Azure&nbsp;PostgreSQL | SQL-autentisering| ✓ | ✓ | ✓ |✓
 Azure&nbsp;Database&nbsp;för&nbsp;MySQL | SQL-autentisering|  | ✓ | ✓ |✓
 Databricks&nbsp;fil&nbsp;system| Ingen autentisering | | ✓* | ✓ * |✓* 
@@ -134,7 +134,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage generation 2
 
-För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med tjänstens huvud namn. Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+För en Azure Data Lake Storage generation 2 (ADLS gen 2) data lager använder du [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) för att registrera ett data lager för autentiseringsuppgifter som är anslutet till en Azure DataLake gen 2-lagring med [tjänstens huvud namn](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Lär dig mer om [åtkomst kontroll som har kon figurer ATS för ADLS gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 Följande kod skapar och registrerar `adlsgen2_datastore_name` data lagret på arbets ytan `ws`. Detta data lager har åtkomst till fil systemet `test` på `account_name` lagrings konto med hjälp av de angivna autentiseringsuppgifterna för tjänstens huvud namn.
 
@@ -236,7 +236,7 @@ datastore.download(target_path='your target path',
                    show_progress=True)
 ```
 
-Parametern `target_path` är platsen för den lokala katalog där data ska hämtas till. Om du vill ange en sökväg till mappen i filresursen (eller blob-behållare) för att hämta, ange sökvägen till `prefix`. Om `prefix` är `None`kommer allt innehåll i din fil resurs (eller BLOB-behållare) att laddas ned.
+Parametern `target_path` är platsen för den lokala katalog där data ska hämtas till. Om du vill ange en sökväg till mappen i fil resursen (eller BLOB-behållaren) som ska laddas ned anger du sökvägen till `prefix`. Om `prefix` är `None`kommer allt innehåll i din fil resurs (eller BLOB-behållare) att laddas ned.
 
 <a name="train"></a>
 
@@ -262,7 +262,7 @@ Azure Machine Learning tillhandahåller flera olika sätt att använda dina mode
 | Metod | Åtkomst till data lager | Beskrivning |
 | ----- | :-----: | ----- |
 | [Batch förutsägelse](how-to-use-parallel-run-step.md) | ✔ | Gör förutsägelser för stora mängder data asynkront. |
-| [Webbtjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
+| [Webb tjänst](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller som en webb tjänst. |
 | [Azure IoT Edge modul](how-to-deploy-and-where.md) | &nbsp; | Distribuera modeller till IoT Edge enheter. |
 
 I situationer där SDK inte ger åtkomst till data lager kan du kanske skapa anpassad kod med hjälp av relevanta Azure SDK för att få åtkomst till data. Till exempel är [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python) ett klient bibliotek som du kan använda för att komma åt data som lagras i blobbar eller filer.

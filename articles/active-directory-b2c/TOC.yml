@@ -101,7 +101,7 @@
               href: user-flow-self-service-password-reset.md
         - name: UX-anpassning
           items:
-            - name: Anpassning av användargränssnitt
+            - name: Anpassa användargränssnittet
               href: customize-ui-overview.md
             - name: JavaScript och sidlayouter
               href: user-flow-javascript-overview.md
@@ -177,8 +177,6 @@
             - name: Anpassa användargränssnittet
               href: custom-policy-ui-customization.md
               displayName: 'ux, input, cors, html, css'
-            - name: Anpassa användargränssnittet dynamiskt
-              href: custom-policy-ui-customization-dynamic.md
             - name: Anpassa e-post
               href: custom-email.md
               displayName: verification

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847294"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370068"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Gör så här: Aktivera lösen ords återställning från Windows inloggnings skärm
 
@@ -27,7 +27,9 @@ För datorer som kör Windows 7, 8, 8,1 och 10 kan du göra det möjligt för an
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
 - Lösen ords återställning stöds för närvarande inte från ett fjärr skrivbord eller från utökade Hyper-V-sessioner.
-- Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
+- Vissa leverantörer av autentiseringsuppgifter för tredje part är kända för att orsaka problem med den här funktionen.
+- Att inaktivera UAC via ändring av [register nyckeln EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) är känt för att orsaka problem.
+- Den här funktionen fungerar inte för nätverk med 802.1 x-nätverksautentisering distribuerad och alternativet "utför omedelbart före användar inloggning". Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
 - Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter.
 - Om du använder en avbildning innan du kör Sysprep kontrollerar du att webbcachen har rensats för den inbyggda administratören innan du utför CopyProfile-steget. Mer information om det här steget finns i Support artikeln [dåliga prestanda när du använder anpassad standard användar profil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Följande inställningar är kända för att störa möjligheten att använda och återställa lösen ord på Windows 10-enheter

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: b0b5147faf82fedb6dc3c2eea54dcff1b9343f7a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087484"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370681"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Självstudie: Konfigurera PureCloud av gener för automatisk användar etablering
 
@@ -74,7 +74,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="to-configure-automatic-user-provisioning-for-purecloud-by-genesys-in-azure-ad"></a>Konfigurera automatisk användar etablering för PureCloud av gener i Azure AD:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -90,7 +90,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in din PureCloud av generad API-URL och OAuth-token i fälten för **klient-URL** och **hemlig token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till PureCloud av gener. Om anslutningen Miss lyckas kontrollerar du att PureCloud-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in din PureCloud av generad API-URL och OAuth-token i fälten för **klient-URL** och **hemlig token** . API-URL: en är strukturerad som `{{API Url}}/api/v2/scim/v2`med hjälp av API-URL: en för din PureCloud-region från [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till PureCloud av gener. Om anslutningen Miss lyckas kontrollerar du att PureCloud-kontot har administratörs behörighet och försöker igen.
 
     ![etablerings](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
@@ -106,14 +106,14 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
      |Attribut|Typ|
      |---|---|
-     |userName|Sträng|
-     |aktiv|Boolesk|
-     |displayName|Sträng|
-     |e-postmeddelanden [typ eq ”arbete pågår”] .value|Sträng|
-     |title|Sträng|
-     |phoneNumbers [typ eq ”mobil”] .value|Sträng|
-     |phoneNumbers [typ eq ”arbete pågår”] .value|Sträng|
-     |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+     |userName|String|
+     |aktiv|Boolean|
+     |displayName|String|
+     |e-postmeddelanden [typ eq ”arbete pågår”] .value|String|
+     |title|String|
+     |phoneNumbers [typ eq ”mobil”] .value|String|
+     |phoneNumbers [typ eq ”arbete pågår”] .value|String|
+     |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|String|
      |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
 
 10. Under avsnittet **mappningar** väljer **du synkronisera Azure Active Directory grupper för att PureCloud av gener**.
@@ -122,8 +122,8 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
       |Attribut|Typ|
       |---|---|
-      |displayName|Sträng|
-      |externalId|Sträng|
+      |displayName|String|
+      |externalId|String|
       |medlemmar|Referens|
 
 12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

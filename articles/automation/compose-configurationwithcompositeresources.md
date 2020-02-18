@@ -6,25 +6,25 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c6d9aa13c8c320dc46f6634f3a60e0c1730c710
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5083ec55ee0a57cd7defd466f5baf1704336320
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418737"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370663"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Skriver DSC-konfigurationer i Azure Automation State Configuration (DSC) med sammansatta resurser
 
 När en resurs behöver hanteras med mer än en enda DSC-konfiguration (Desired State Configuration) är den bästa sökvägen att använda [sammansatta resurser](/powershell/scripting/dsc/resources/authoringresourcecomposite). En sammansatt resurs är en kapslad och parameterstyrda konfiguration som används som en DSC-resurs i en annan konfiguration. På så sätt kan du skapa komplexa konfigurationer samtidigt som de underliggande sammansatta resurserna (parametriserade konfigurationer) kan hanteras individuellt och skapas.
 
-Azure Automation aktiverar [import och kompilering av sammansatta resurser](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+Azure Automation aktiverar [import och kompilering av sammansatta resurser](automation-dsc-compile.md).
 När sammansatta resurser har importer ATS till ditt Automation-konto kan du använda funktionen **Skriv konfiguration** på sidan för **tillstånds konfiguration (DSC)** .
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Skapa en konfiguration från sammansatta resurser
 
 Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Azure Portal måste du skriva den. Detta kan göras med hjälp av **Skriv konfiguration** på sidan för **tillstånds konfiguration (DSC)** på fliken **konfigurationer** eller **kompilerade konfigurationer** .
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan **Automation-konto** väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** eller **kompilerade konfigurationer** och sedan på **skapa konfiguration** på menyn längst upp på sidan.

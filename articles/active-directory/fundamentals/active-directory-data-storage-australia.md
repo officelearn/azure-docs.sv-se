@@ -1,5 +1,5 @@
 ---
-title: Identitets data lagring för australiska kunder – Azure AD
+title: Identitets data lagring för australiska och nya Zeeland-kunder – Azure AD
 description: Lär dig mer om var Azure Active Directory lagrar identitets-relaterade data för sina australiska kunder.
 services: active-directory
 author: msaburnley
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbe4befa824990c2f8b2627e7709913f564c0486
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 850298719d5636e964b0c338d7a2a4cc9bb8aece
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751424"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370289"
 ---
-# <a name="identity-data-storage-for-australian-customers-in-azure-active-directory"></a>Identitets data lagring för australiska kunder i Azure Active Directory
+# <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Identitets data lagring för australiska och nya Zeeland-kunder i Azure Active Directory
 
 Identitets data lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst, till exempel Office 365 och Azure. Information om var dina identitets kunddata lagras, kan du använda avsnittet var finns [dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) i Microsoft säkerhets Center.
 
 > [!NOTE]
 > Tjänster och program som integreras med Azure AD har åtkomst till identitets kund information. Utvärdera varje tjänst och program som du använder för att avgöra hur identitetens kund data bearbetas av den specifika tjänsten och programmet, och om de uppfyller företagets krav på data lagring. Mer information om Microsofts tjänsters data placering finns i avsnittet var finns dina data? avsnitt i Microsoft säkerhets Center.
 
-För kunder som tillhandahöll en adress i Australien lagrar Azure AD identitets data för dessa tjänster i de australiska data centren: 
+För kunder som tillhandahöll en adress i Australien eller nya Zeeland behåller Azure AD identitets data för dessa tjänster i de australiska data centren: 
 - Azure AD-katalog hantering 
 - Autentisering
 

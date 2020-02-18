@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1b4d878fdac473660999a965296a317441d6b00a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 53e6382cf8d046b2c9818b906890bc64642fd2ed
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170563"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372136"
 ---
 Använd det Language Understanding (LUIS) som redigerar klient biblioteket för .NET till:
 
@@ -26,7 +26,7 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [redigerings paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [ C# exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Language Understanding (LUIS) Portal konto – [skapa ett kostnads fritt](https://www.luis.ai)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -132,7 +132,7 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 * [Versioner](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.versionsextensions?view=azure-dotnet) – hantera med klona, exportera och ta bort
 
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 De här kodfragmenten visar hur du gör följande med redigerings klient biblioteket för Language Understanding (LUIS) för .NET:
 

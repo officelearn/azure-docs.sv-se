@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: de60b4ea1b09998e84bab4d204e3c8c3bc8779a4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050452"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370535"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Azure Databricks SCIM-anslutning för automatisk användar etablering
 
@@ -96,7 +96,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin-autentiseringsuppgifter** inmatar du dina autentiseringsuppgifter för Azure Databricks scim Connector admin och användar namn. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Azure Databricks scim-anslutningen. Om anslutningen Miss lyckas kontrollerar du att Azure Databricks SCIM Connector-kontot har administratörs behörighet och försöker igen.
+5. Under avsnittet **admin credentials** måste du skriva in värdet för scim-slutpunkt i **klient-URL: en**. Klient webb adressen ska vara i formatet `https://<region>.azuredatabricks.net/api/2.0/preview/scim` där **regionen** finns på din Azure Databricks start sidans URL. Till exempel kommer en SCIM-slutpunkt för regionen **Västeuropa** att `https://westus.azuredatabricks.net/api/2.0/preview/scim`. Mata in token-värdet som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Azure Databricks scim-anslutningen. Om anslutningen Miss lyckas kontrollerar du att Azure Databricks SCIM Connector-kontot har administratörs behörighet och försöker igen.
 
     ![etablerings](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 

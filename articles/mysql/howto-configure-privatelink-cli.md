@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 798c80ec2290a96b6f76116120292720c05c9198
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031534"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426275"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL (för hands version) med CLI
 
@@ -127,7 +127,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade RDP *-filen.
+1. Öppna den *nedladdade RDP* -filen.
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
@@ -155,30 +155,31 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     Non-authoritative answer:
     Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testa anslutningen till den privata länken för MySQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra åtgärden.
 
 
-4. In **New connection**, enter or select this information:
+4. I **ny anslutning**anger eller väljer du den här informationen:
 
-    | Setting | Value |
+    | Inställning | Värde |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
-    | Password | Enter a password provided during the MySQL server creation. |
+    | Anslutningsnamn| Välj önskat anslutnings namn.|
+    | Värdnamn | Välj *mydemoserver.privatelink.mysql.Database.Azure.com* |
+    | Användarnamn | Ange användar namn som *username@servername* som anges när MySQL-servern skapas. |
+    | lösenord | Ange ett lösen ord som anges när MySQL-servern skapas. |
     ||
 
-5. Select Connect.
+5. Välj Anslut.
 
-6. Browse databases from left menu.
+6. Bläddra bland databaser från menyn till vänster.
 
-7. (Optionally) Create or query information from the MySQL database.
+7. Du kan också Skapa eller fråga efter information från MySQL-databasen.
 
-8. Close the remote desktop connection to myVm.
+8. Stäng fjärr skrivbords anslutningen till myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Rensa resurser 
+När de inte längre behövs kan du använda AZ Group Delete för att ta bort resurs gruppen och alla resurser den har: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

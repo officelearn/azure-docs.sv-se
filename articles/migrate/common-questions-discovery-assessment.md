@@ -2,21 +2,22 @@
 title: Vanliga frågor – identifiering, utvärdering och beroende analys i Azure Migrate
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
-ms.date: 12/29/2019
-ms.openlocfilehash: 201d67c38e9583de16cb6075cc1c4bf826c204fd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/17/2020
+ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77059495"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426300"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Vanliga frågor om identifiering, utvärdering och beroende analys
 
-I den här artikeln besvaras vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate. Om du har fler frågor efter att ha läst den här artikeln kan du publicera dem i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum). Om du har andra frågor kan du läsa följande artiklar:
+I den här artikeln besvaras vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate. Om du har andra frågor kan du läsa följande artiklar:
 
 - [Allmänna frågor](resources-faq.md) om Azure Migrate.
 - [Frågor](common-questions-appliance.md) om Azure Migrate-enheten.
 - [Frågor](common-questions-server-migration.md) om Server migrering.
+- Publicera frågor i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum)
 
 
 

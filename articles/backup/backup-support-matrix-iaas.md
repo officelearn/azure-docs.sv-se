@@ -3,12 +3,12 @@ title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 1dd060840e589d601d87d8be235eda5c34283a4f
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 0bc66939fc6bd150d57242f144cdb032db8188d1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369900"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425059"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -65,7 +65,7 @@ I följande tabell sammanfattas de operativ system som stöds när du säkerhets
 
 **Scenario** | **OS-stöd**
 --- | ---
-Säkerhetskopiera med tillägget Azure VM agent | – Windows 10-klient (endast 64-bitars) <br/><br/>– Windows Server 2019 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2016 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2012 R2 (Data Center/standard) <br/><br/> – Windows Server 2008 R2 (RTM och SP1 standard)  <br/><br/> – Windows 2008 (endast 64 bitars)
+Säkerhetskopiera med tillägget Azure VM agent | – Windows 10-klient (endast 64-bitars) <br/><br/>– Windows Server 2019 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2016 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2012 R2 (Data Center/standard) <br/><br/> – Windows Server 2008 R2 (RTM och SP1 standard)  <br/><br/> – Windows Server 2008 (endast 64 bitars)
 Säkerhetskopiera med MARS-agenten | Operativ system som [stöds](backup-support-matrix-mars-agent.md#support-for-direct-backups) .
 Säkerhetskopiera med DPM/MABS | Operativ system som stöds för säkerhets kopiering med [Mabs](backup-mabs-protection-matrix.md) och [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

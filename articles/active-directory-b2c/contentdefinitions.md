@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/16/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: fd6a24c768056c949c05b9e2444bd49ef743c0ef
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372793"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425637"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | En sträng som innehåller webb adressen till HTML5-sidan för innehålls definitionen. |
-| RecoveryUri | 0:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehålls definitionen. |
+| RecoveryUri | 1:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehålls definitionen. |
 | DataUri | 1:1 | En sträng som innehåller den relativa URL: en för en HTML-fil som ger användar upplevelsen för att anropa steget. |
 | Metadata | 0:1 | En samling nyckel/värde-par som innehåller de metadata som används av innehålls definitionen. |
 | LocalizedResourcesReferences | 0:1 | En samling med lokaliserade resurs referenser. Använd det här elementet för att anpassa lokaliseringen av ett användar gränssnitt och ett anspråks attribut. |
@@ -86,7 +86,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 | `unifiedssp` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. Det här värdet ger även "Behåll mig inloggnings funktioner" och "glömt ditt lösen ord?" Operationsföljdslänkkod. |
 | `unifiedssd` | Visar ett formulär för att logga in med ett lokalt konto baserat på en e-postadress eller ett användar namn. |
 | `multifactor` | Verifierar telefonnummer med hjälp av text eller röst under registrering eller inloggning. |
-| `selfasserted` | Visar ett formulär som gör det möjligt för användare att skapa eller uppdatera sin profil. |
+| `selfasserted` | Visar ett formulär för insamling av data från en användare. Till exempel kan användarna skapa eller uppdatera sin profil. |
 
 ### <a name="select-a-page-layout"></a>Välj en sidlayout
 

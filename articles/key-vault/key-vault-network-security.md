@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 870064406c86e9cef6a45dfbe47c61cdaa9ecab0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976958"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426317"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurera Azure Key Vault brand väggar och virtuella nätverk
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller stegvisa instruktioner för att konfigurera Azure 
 Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjälp av Azure Portal:
 
 1. Bläddra till det nyckel valv som du vill skydda.
-2. Välj **brand väggar och virtuella nätverk**.
+2. Välj **nätverk**och välj sedan fliken **brand väggar och virtuella nätverk** .
 3. Under **Tillåt åtkomst från**väljer du **valda nätverk**.
 4. Om du vill lägga till befintliga virtuella nätverk i brand väggar och regler för virtuella nätverk väljer du **+ Lägg till befintliga virtuella nätverk**.
 5. På det nya bladet som öppnas väljer du den prenumeration, de virtuella nätverk och undernät som du vill ge åtkomst till det här nyckel valvet. Om de virtuella nätverk och undernät du väljer inte har aktiverat tjänst slut punkter, bekräftar du att du vill aktivera tjänstens slut punkter och väljer **Aktivera**. Det kan ta upp till 15 minuter att börja gälla.
@@ -63,12 +63,12 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
    az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
    ```
 
-6. Om det här nyckel valvet ska vara tillgängligt för alla betrodda tjänster `bypass` anger `AzureServices`du till.
+6. Om det här nyckel valvet ska vara tillgängligt för betrodda tjänster, ange `bypass` `AzureServices`.
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
    ```
 
-7. Aktivera nätverks reglerna genom att ställa in standard åtgärden till `Deny`.
+7. Aktivera nätverks reglerna genom att ställa in standard åtgärden på `Deny`.
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mekeyvault" --default-action Deny
    ```
@@ -102,12 +102,12 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
-6. Om det här nyckel valvet ska vara tillgängligt för alla betrodda tjänster `bypass` anger `AzureServices`du till.
+6. Om det här nyckel valvet ska vara tillgängligt för betrodda tjänster, ange `bypass` `AzureServices`.
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
-7. Aktivera nätverks reglerna genom att ställa in standard åtgärden till `Deny`.
+7. Aktivera nätverks reglerna genom att ställa in standard åtgärden på `Deny`.
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
@@ -115,7 +115,7 @@ Så här konfigurerar du Key Vault brand väggar och virtuella nätverk med hjä
 ## <a name="references"></a>Referenser
 
 * Azure CLI-kommandon: [AZ-nätverk-regel](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell-cmdlet: ar: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
+* Azure PowerShell cmdlet: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Nästa steg
 

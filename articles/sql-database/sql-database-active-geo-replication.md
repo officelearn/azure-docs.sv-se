@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2019
-ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: fe006cebe9aab30a6aaa0bdf2bf3362a494f64d7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842671"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426283"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -113,7 +113,7 @@ För att säkerställa att ditt program omedelbart kan komma åt den nya primär
 
 ## <a name="configuring-secondary-database"></a>Konfigurerar sekundär databas
 
-Både primära och sekundära databaser måste ha samma tjänst nivå. Vi rekommenderar också starkt att den sekundära databasen skapas med samma beräknings storlek (DTU: er eller virtuella kärnor) som primär. Om den primära databasen har en hög Skriv arbets belastning kanske en sekundär med lägre beräknings storlek inte kan hålla sig med den. Det leder till att göra om-fördröjningen på den sekundära och potentiella otillgängligheten. En sekundär databas som inte håller takten med den primära riskerar även att leda till en stor dataförlust om framtvingad redundans skulle krävas. För att minimera dessa risker begränsar den effektiva aktiva geo-replikeringen huvudets logg hastighet så att dess sekundära kan fångas upp. Den andra konsekvensen av en obalanserad sekundär konfiguration är att efter en redundansväxling påverkas programmets prestanda på grund av otillräcklig beräknings kapacitet för den nya primära. Det krävs för att uppgradera till en högre beräkning till den nödvändiga nivån, vilket inte är möjligt förrän störningen minskas. 
+Både primära och sekundära databaser måste ha samma tjänst nivå. Vi rekommenderar också starkt att den sekundära databasen skapas med samma beräknings storlek (DTU: er eller virtuella kärnor) som primär. Om den primära databasen har en hög Skriv arbets belastning kanske en sekundär med lägre beräknings storlek inte kan hålla sig med den. Det leder till att göra om-fördröjningen på den sekundära och potentiella otillgängligheten. En sekundär databas som släpar efter den primära risken är också en stor data förlust om det krävs en Tvingad redundansväxling. För att minimera dessa risker begränsar den effektiva aktiva geo-replikeringen huvudets logg hastighet så att dess sekundära kan fångas upp. Den andra konsekvensen av en obalanserad sekundär konfiguration är att efter en redundansväxling påverkas programmets prestanda på grund av otillräcklig beräknings kapacitet för den nya primära. Det krävs för att uppgradera till en högre beräkning till den nödvändiga nivån, vilket inte är möjligt förrän störningen minskas. 
 
 
 > [!IMPORTANT]
@@ -145,7 +145,7 @@ Klienten som utför ändringarna behöver nätverks åtkomst till den primära s
 1. Skapa en motsvarande användare och tilldela den till DBManager-rollen: 
 
    ```sql
-   create user geodrsetup for login gedrsetup
+   create user geodrsetup for login geodrsetup
    alter role geodrsetup dbmanager add member geodrsetup
    ```
 
@@ -246,8 +246,8 @@ Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering 
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Använd REDUNDANS eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas till att vara primär för att initiera redundans |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Använd ta bort sekundär på servern om du vill avsluta en datareplikering mellan en SQL Database och den angivna sekundära databasen. |
 | [sys. geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga replikeringsinställningar för varje databas på Azure SQL Database-servern. |
-| [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik SQL-databas. |
-| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
+| [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik SQL-databas. |
+| [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |gör att programmet väntar tills alla genomförda transaktioner replikeras och bekräftas av den aktiva sekundära databasen. |
 |  | |
 

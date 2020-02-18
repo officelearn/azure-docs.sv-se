@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046323"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425264"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -95,10 +95,20 @@ För Application Gateway är följande mått tillgängliga:
 - **Aktuella anslutningar**
 
    Det totala antalet samtidiga anslutningar som är aktiva från klienter till Application Gateway
+   
+- **Uppskattade enheter för fakturerings kapacitet**
+
+  Antal kapacitets enheter som faktureringen beräknas med. Detta är calcutaed som det större värdet mellan *aktuella kapacitets enheter* och *fasta fakturerbara kapacitets enheter*.  
 
 - **Misslyckade förfrågningar**
 
    Antal misslyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
+   
+- **Fast fakturerbar kapacitets enhet** Det minsta antalet kapacitets enheter som hålls etablerade enligt inställningen för *minsta skalnings enhet* i Application Gateway-konfigurationen.
+   
+ - **Nya anslutningar per sekund**
+
+   Genomsnittligt antal nya TCP-anslutningar per sekund som upprättats från klienter till Application Gateway och från Application Gateway till Server dels medlemmar.
 
 
 - **Svars status**

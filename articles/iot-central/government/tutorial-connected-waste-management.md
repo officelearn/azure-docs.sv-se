@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016501"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426368"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur man:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 -  En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -71,7 +71,7 @@ Så här skapar du ett nytt Azure IoT Central-anslutet hanterings program för s
  
 6. Nu har du skapat en ansluten app för avfalls hantering med hjälp av **mallen Azure IoT Central ansluten avfalls hantering**. 
 
-Grattis! Det nyligen skapade programmet levereras med förkonfigurerade:
+Gratulerar! Det nyligen skapade programmet levereras med förkonfigurerade:
 * Exempel instrument panels instrument paneler
 * Exempel på fördefinierad enhet med fördefinierat antal anslutna avfalls platser
 * Simulerade anslutna avfalls lager enheter
@@ -129,7 +129,7 @@ En enhets mall i Azure IoT Central definierar funktionen hos en enhet, som kan v
 
 Så här visar du enhets mal len:
 
-1. Klicka på **mallar för enheter** i det vänstra navigerings fönstret i programmet i IoT Central. 
+1. Klicka på **mallar för enheter** i den vänstra rutan i programmet i IoT Central. 
 
     ![Enhets mall](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -177,7 +177,7 @@ I IoT Central kan du skapa simulerade enheter för att testa enhetens mall och p
 
 ### <a name="to-view-the-devices"></a>Så här visar du enheterna:
 
-1. Navigera till **enheten** från IoT Central vänstra navigerings fönstret. 
+1. Navigera till **enheten** från IoT Central vänstra rutan. 
 
    ![Enheter](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -202,7 +202,7 @@ I Azure IoT Central kan du skapa regler för automatisk övervakning på enheten
 **Anslutet hanterings program för skräp hantering** har fyra exempel regler.
 
 ### <a name="to-view-rules"></a>Så här visar du regler:
-1. Navigera till **regler** från IoT Central vänstra navigerings fönstret
+1. Navigera till **regler** från IoT Central vänstra rutan
 
    ![Regler](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -231,13 +231,13 @@ Du bör få ett e-postmeddelande när det konfigurerade **villkoret** är uppfyl
 > Programmet kommer att skicka ett e-postmeddelande varje gången ett villkor är uppfyllt. **Inaktivera** regeln om du vill sluta ta emot e-post från den automatiserade regeln. 
   
 Så här skapar du en ny regel: 
-1. Välj **+ nytt** i **reglerna** i det vänstra navigerings fönstret.
+1. Välj **+ nytt** i **reglerna** i det vänstra fönstret.
 
 ## <a name="configure-jobs"></a>Konfigurera jobb
 
 I IoT Central kan du använda jobb för att utlösa enhets-eller moln egenskaper uppdateringar på flera enheter. Förutom egenskaper kan du också använda jobb för att utlösa enhets kommandon på flera enheter. IoT Central automatiserar arbets flödet åt dig. 
 
-1. Gå till **jobb** från det vänstra navigerings fönstret. 
+1. Gå till **jobb** från det vänstra fönstret. 
 2. Klicka på **+ ny** och konfigurera ett eller flera jobb. 
 
 

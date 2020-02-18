@@ -2,13 +2,13 @@
 title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031671"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425467"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -55,7 +55,7 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 **Hash-värde** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V-värd** | Kör Windows Server 2012 R2 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
-**Identifikation** | En apparat kan identifiera upp till 5000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
+**Identifikation** | En apparat kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
 **Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/>  Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
 
 

@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132070"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424940"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -302,7 +302,7 @@ Om antalet hämtade dokument är ungefär lika med antalet utgående dokument, i
 
 Azure Cosmos DB använder [partitionering](partitioning-overview.md) för att skala enskilda behållare som begär ande enhet och data lagring måste öka. Varje fysisk partition har ett separat och oberoende index. Om frågan har ett likhets filter som matchar din behållares partitionsnyckel, behöver du bara kontrol lera den relevanta partitionens index. Den här optimeringen minskar det totala antalet RU-frågor som frågan kräver.
 
-Om du har ett stort antal etablerade RU-objekt (över 30 000) eller en stor mängd data som lagras (över ~ 100 GB) har du förmodligen en stor mängd behållare för att se en betydande minskning av frågan RU-avgifter.
+Om du har ett stort antal etablerade RU-objekt (över 30 000) eller en stor mängd data som lagras (över cirka 100 GB) har du förmodligen en stor mängd behållare för att se en betydande minskning av frågan RU-avgifter.
 
 Om vi till exempel skapar en behållare med foodGroup, behöver följande frågor bara kontrol lera en enda fysisk partition:
 
@@ -383,7 +383,7 @@ Frågor som körs från en annan region än Azure Cosmos DB kontot får en högr
 
 ## <a name="increase-provisioned-throughput"></a>Öka det etablerade data flödet
 
-I Azure Cosmos DB mäts ditt allokerade data flöde i enheter för programbegäran (RU). Anta att du har en fråga som använder 5 RUs data flöde. Om du till exempel tillhandahåller 1 000 RU kan du köra frågan 200 gånger per sekund. Om du försökte köra frågan när det inte fanns tillräckligt med data flöde är det Azure Cosmos DB att returnera ett HTTP 429-fel. Alla aktuella Core-API SDK: er kommer automatiskt att försöka utföra frågan igen efter att ha väntat en kort period. Begränsade begär Anden tar längre tid, vilket ökar det etablerade data flödet kan förbättra svars tiden. Du kan se det [totala antalet begär Anden som begränsats](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) i mått bladet för Azure Portal.
+I Azure Cosmos DB mäts ditt allokerade data flöde i enheter för programbegäran (RU). Anta att du har en fråga som använder 5 RUs data flöde. Om du till exempel tillhandahåller 1 000 RU kan du köra frågan 200 gånger per sekund. Om du försökte köra frågan när det inte fanns tillräckligt med data flöde är det Azure Cosmos DB att returnera ett HTTP 429-fel. Alla aktuella Core-API SDK: er kommer automatiskt att försöka utföra frågan igen efter att ha väntat en kort period. Begränsade begär Anden tar längre tid, vilket ökar det etablerade data flödet kan förbättra svars tiden. Du kan se det [totala antalet begränsade begär Anden](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) på bladet mått i Azure Portal.
 
 ## <a name="increase-maxconcurrency"></a>Öka MaxConcurrency
 

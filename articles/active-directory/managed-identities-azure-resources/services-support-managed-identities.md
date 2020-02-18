@@ -4,18 +4,18 @@ description: Lista över tjänster som stöder hanterade identiteter för Azure-
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 09/24/2019
+ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b79a27526054f76d9d44e277c401e93214ec3c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a0576a70b1b345d31ffc11c55f7fa5cbd288acd5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018711"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425518"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -30,14 +30,14 @@ Följande Azure-tjänster har stöd för hanterade identiteter för Azure-resurs
 
 ### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Förhandsversion | Förhandsversion | Förhandsversion | 
-| Tilldelad användare | Tillgänglig | Förhandsversion | Förhandsversion | Förhandsversion |
+| Tilldelat system | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion | 
+| Tilldelad användare | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machines (i regioner där det är tillgängligt):
 
-- [Azure-portalen](qs-configure-portal-windows-vm.md)
+- [Azure Portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager mallar](qs-configure-template-windows-vm.md)
@@ -45,39 +45,39 @@ I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machi
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure-Virtual Machine Scale Sets
 
-|Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+|Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Förhandsversion | Förhandsversion | Förhandsversion |
-| Tilldelad användare | Tillgänglig | Förhandsversion | Förhandsversion | Förhandsversion |
+| Tilldelat system | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
+| Tilldelad användare | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Virtual Machine Scale Sets (i regioner där det är tillgängligt):
 
-- [Azure-portalen](qs-configure-portal-windows-vm.md)
+- [Azure Portal](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager mallar](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
-### <a name="azure-app-service"></a>Azure Apptjänst
+### <a name="azure-app-service"></a>Azure App Service
 
-| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
-| Tilldelad användare | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
+| Tilldelad användare | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure App Service (i regioner där det finns tillgängligt):
 
-- [Azure-portalen](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprint
 
-|Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+|Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| Tilldelad användare | Tillgänglig | Tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Tillgängligt | Inte tillgängligt | Inte tillgängligt |
+| Tilldelad användare | Tillgängligt | Tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 Se följande lista för att använda en hanterad identitet med [Azure-skisser](../../governance/blueprints/overview.md):
 
@@ -86,50 +86,50 @@ Se följande lista för att använda en hanterad identitet med [Azure-skisser](.
 
 ### <a name="azure-functions"></a>Azure Functions
 
-Hanterad identitets typ |Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ |Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
-| Tilldelad användare | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
+| Tilldelad användare | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Functions (i regioner där det finns tillgängligt):
 
-- [Azure-portalen](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
-Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Förhandsversion | Förhandsversion | Inte tillgänglig | Förhandsversion |
-| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Förhandsversion | Förhandsversion | Inte tillgängligt | Förhandsversion |
+| Tilldelad användare | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Logic Apps (i regioner där det finns tillgängligt):
 
-- [Azure-portalen](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
+- [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager-mall](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
-Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Tillgängligt | Inte tillgängligt | Tillgängligt |
+| Tilldelad användare | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Data Factory v2 (i regioner där det finns):
 
-- [Azure-portalen](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### <a name="azure-api-management"></a>Azure API Management
 
-Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| Tilldelad användare | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Tillgängligt | Inte tillgängligt | Inte tillgängligt |
+| Tilldelad användare | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure API Management (i regioner där det är tillgängligt):
 
@@ -137,10 +137,10 @@ I följande lista kan du konfigurera hanterad identitet för Azure API Managemen
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Linux: för hands version<br>Windows: inte tillgängligt | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| Tilldelad användare | Linux: för hands version<br>Windows: inte tillgängligt | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Linux: för hands version<br>Windows: inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
+| Tilldelad användare | Linux: för hands version<br>Windows: inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Container Instances (i regioner där det finns tillgängligt):
 
@@ -150,10 +150,10 @@ I följande lista kan du konfigurera hanterad identitet för Azure Container Ins
 
 ### <a name="azure-container-registry-tasks"></a>Azure Container Registry Tasks
 
-Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
-| Tilldelad användare | Förhandsversion | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
+| Tilldelad användare | Förhandsversion | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 
 I följande lista kan du konfigurera hanterad identitet för Azure Container Registry uppgifter (i regioner där det är tillgängligt):
 
@@ -162,10 +162,10 @@ I följande lista kan du konfigurera hanterad identitet för Azure Container Reg
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
 [Hanterad identitet för Service Fabric program](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) är i för hands version och är tillgänglig i alla regioner.
 
-Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Germany | Azure Kina 21Vianet |
+Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
 | --- | --- | --- | --- | --- |
-| Tilldelat system | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgängligt |
-| Tilldelad användare | Tillgänglig | Inte tillgänglig | Inte tillgänglig |Inte tillgänglig |
+| Tilldelat system | Tillgängligt | Inte tillgänglig | Inte tillgänglig | inte tillgängligt |
+| Tilldelad användare | Tillgängligt | Inte tillgänglig | Inte tillgänglig |Inte tillgänglig |
 
 Se följande lista för att konfigurera hanterad identitet för Azure Service Fabric-program i alla regioner:
 - [Azure Resource Manager-mall](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
@@ -183,56 +183,56 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 - [Tilldela åtkomst via Azure CLI](howto-assign-access-CLI.md)
 - [Tilldela åtkomst via Azure Resource Manager mall](../../role-based-access-control/role-assignments-template.md)
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://management.azure.com/`| Tillgänglig |
-| Azure Government | `https://management.usgovcloudapi.net/` | Tillgänglig |
-| Azure Germany | `https://management.microsoftazure.de/` | Tillgänglig |
-| Azure Kina 21Vianet | `https://management.chinacloudapi.cn` | Tillgänglig |
+| Azure Global | `https://management.azure.com/`| Tillgängligt |
+| Azure Government | `https://management.usgovcloudapi.net/` | Tillgängligt |
+| Azure Tyskland | `https://management.microsoftazure.de/` | Tillgängligt |
+| Azure Kina 21Vianet | `https://management.chinacloudapi.cn` | Tillgängligt |
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://vault.azure.net`| Tillgänglig |
-| Azure Government | `https://vault.usgovcloudapi.net` | Tillgänglig |
-| Azure Germany |  `https://vault.microsoftazure.de` | Tillgänglig |
-| Azure Kina 21Vianet | `https://vault.azure.cn` | Tillgänglig |
+| Azure Global | `https://vault.azure.net`| Tillgängligt |
+| Azure Government | `https://vault.usgovcloudapi.net` | Tillgängligt |
+| Azure Tyskland |  `https://vault.microsoftazure.de` | Tillgängligt |
+| Azure Kina 21Vianet | `https://vault.azure.cn` | Tillgängligt |
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://datalake.azure.net/` | Tillgänglig |
+| Azure Global | `https://datalake.azure.net/` | Tillgängligt |
 | Azure Government |  | Inte tillgänglig |
-| Azure Germany |   | Inte tillgänglig |
+| Azure Tyskland |   | Inte tillgänglig |
 | Azure Kina 21Vianet |  | Inte tillgänglig |
 
 ### <a name="azure-sql"></a>Azure SQL 
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://database.windows.net/` | Tillgänglig |
-| Azure Government | `https://database.usgovcloudapi.net/` | Tillgänglig |
-| Azure Germany | `https://database.cloudapi.de/` | Tillgänglig |
-| Azure Kina 21Vianet | `https://database.chinacloudapi.cn/` | Tillgänglig |
+| Azure Global | `https://database.windows.net/` | Tillgängligt |
+| Azure Government | `https://database.usgovcloudapi.net/` | Tillgängligt |
+| Azure Tyskland | `https://database.cloudapi.de/` | Tillgängligt |
+| Azure Kina 21Vianet | `https://database.chinacloudapi.cn/` | Tillgängligt |
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://eventhubs.azure.net` | Tillgänglig |
+| Azure Global | `https://eventhubs.azure.net` | Tillgängligt |
 | Azure Government |  | Inte tillgänglig |
-| Azure Germany |   | Inte tillgänglig |
+| Azure Tyskland |   | Inte tillgänglig |
 | Azure Kina 21Vianet |  | Inte tillgänglig |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://servicebus.azure.net`  | Tillgänglig |
-| Azure Government |  | Tillgänglig |
-| Azure Germany |   | Inte tillgänglig |
+| Azure Global | `https://servicebus.azure.net`  | Tillgängligt |
+| Azure Government |  | Tillgängligt |
+| Azure Tyskland |   | Inte tillgänglig |
 | Azure Kina 21Vianet |  | Inte tillgänglig |
 
 
@@ -245,12 +245,12 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-storage-blobs-and-queues"></a>Azure Storage blobbar och köer
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Tillgänglig |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Tillgänglig |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Tillgänglig |
-| Azure Kina 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Tillgänglig |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | Tillgängligt |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | Tillgängligt |
+| Azure Tyskland | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | Tillgängligt |
+| Azure Kina 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | Tillgängligt |
 
 
 
@@ -263,9 +263,9 @@ Se följande lista för att konfigurera åtkomst till Azure Resource Manager:
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| I molnet | Resurs-ID | Status |
+| Molnet | Resurs-ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://*.asazure.windows.net` | Tillgänglig |
-| Azure Government | `https://*.asazure.usgovcloudapi.net` | Tillgänglig |
-| Azure Germany | `https://*.asazure.cloudapi.de` | Tillgänglig |
-| Azure Kina 21Vianet | `https://*.asazure.chinacloudapi.cn` | Tillgänglig |
+| Azure Global | `https://*.asazure.windows.net` | Tillgängligt |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | Tillgängligt |
+| Azure Tyskland | `https://*.asazure.cloudapi.de` | Tillgängligt |
+| Azure Kina 21Vianet | `https://*.asazure.chinacloudapi.cn` | Tillgängligt |

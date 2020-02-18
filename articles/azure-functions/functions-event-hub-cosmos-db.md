@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849844"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425331"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Självstudie: skapa en funktion i Java med en Event Hub-utlösare och en Azure Cosmos DB utgående bindning
 
@@ -25,17 +25,19 @@ I den här självstudien får du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du ha följande installerat:
 
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8
-* [Apache maven](https://maven.apache.org), version 3,0 eller senare
+* [Apache Maven](https://maven.apache.org), version 3.0 eller senare
 * [Azure CLI](/cli/azure/install-azure-cli) om du inte vill använda Cloud Shell
 * [Azure Functions Core tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 eller senare
 
 > [!IMPORTANT]
 > Den `JAVA_HOME` miljövariabeln måste anges till installations platsen för JDK för att slutföra den här självstudien.
+
+Om du föredrar att använda koden för den här självstudien direkt, se exempel lagrings platsen för [Java-Functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -201,7 +203,7 @@ Dina Azure-resurser har nu skapats och kon figurer ATS så att de fungerar korre
 
 ## <a name="create-and-test-your-functions"></a>Skapa och testa dina funktioner
 
-Därefter skapar du ett projekt på din lokala dator, lägger till Java-kod och testar det. Du ska använda kommandon som fungerar med maven-plugin-programmet för Azure Functions och Azure Functions Core Tools. Dina funktioner kommer att köras lokalt, men använder de molnbaserade resurser som du har skapat. När du har använt funktionerna som fungerar lokalt kan du använda Maven för att distribuera dem till molnet och titta på dina data och analyser.
+Därefter skapar du ett projekt på din lokala dator, lägger till Java-kod och testar det. Du ska använda kommandon som fungerar med Azure Functions-plugin-programmet för maven och Azure Functions Core Tools. Dina funktioner kommer att köras lokalt, men använder de molnbaserade resurser som du har skapat. När du har använt funktionerna som fungerar lokalt kan du använda Maven för att distribuera dem till molnet och titta på dina data och analyser.
 
 Om du använde Cloud Shell för att skapa dina resurser kommer du inte att ansluta till Azure lokalt. I det här fallet använder du kommandot `az login` för att starta den webbläsarbaserade inloggnings processen. Ange vid behov standard prenumerationen med `az account set --subscription` följt av prenumerations-ID: t. Kör slutligen följande kommandon för att återskapa vissa miljövariabler på den lokala datorn. Ersätt `<value>` plats hållarna med samma värden som du använde tidigare.
 

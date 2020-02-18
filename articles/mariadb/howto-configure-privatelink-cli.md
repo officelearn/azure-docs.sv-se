@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 2d39afcea056c76b6c9672e1963d7529fbfce549
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280942"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426216"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB (för hands version) med CLI
 
@@ -20,7 +20,7 @@ En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azu
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MariaDB stöder Generell användning och minnesoptimerade pris nivåer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom den här instruktions guiden behöver du:
 
@@ -38,7 +38,7 @@ Innan du kan skapa en resurs måste du skapa en resurs grupp som är värd för 
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+## <a name="create-a-virtual-network"></a>Skapa en Virtual Network
 Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
 
 ```azurecli-interactive
@@ -121,7 +121,7 @@ az network private-dns record-set a create --name mydemoserver --zone-name priva
 az network private-dns record-set a add-record --record-set-name mydemoserver --zone-name privatelink.mariadb.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
@@ -131,7 +131,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den nedladdade RDP *-filen.
+1. Öppna den *nedladdade RDP* -filen.
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
@@ -159,27 +159,28 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testa anslutningen till den privata länken för MariaDB-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra åtgärden.
 
-4. In **New connection**, enter or select this information:
+4. I **ny anslutning**anger eller väljer du den här informationen:
 
-    | Setting | Value |
+    | Inställning | Värde |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | Anslutningsnamn| Välj önskat anslutnings namn.|
+    | Värdnamn | Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
+    | Användarnamn | Ange användar namn som *username@servername* som anges när MariaDB-servern skapas. |
+    | lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     ||
 
-5. Select **Test Connection** or **OK**.
+5. Välj **Testa anslutning** eller **OK**.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. Du kan också Bläddra bland databaser från den vänstra menyn och skapa eller fråga efter information från MariaDB-databasen
 
-8. Close the remote desktop connection to myVm.
+8. Stäng fjärr skrivbords anslutningen till myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Rensa resurser 
+När de inte längre behövs kan du använda AZ Group Delete för att ta bort resurs gruppen och alla resurser den har: 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

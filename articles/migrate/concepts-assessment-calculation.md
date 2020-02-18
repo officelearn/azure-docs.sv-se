@@ -2,13 +2,13 @@
 title: Utvärderingar i Azure Migrate
 description: Lär dig mer om utvärderingar i Azure Migrate.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/17/2020
+ms.openlocfilehash: 0cf933dd1c8c61edfcea20ea954c5813f3848b28
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833337"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425705"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Om utvärderingar i Azure Migrate
 
@@ -149,7 +149,7 @@ Windows-klient 7, 8 och 10 | Azure har endast stöd för [Visual Studio-prenumer
 Windows 10 Pro Desktop | Azure har stöd för [värd rättigheter för flera innehavare.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Villkorligt redo för Azure
 Windows Vista, XP Professional | Dessa operativ system har passerat sitt slut för ande support datum. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
 Linux | Azure godkänner dessa [Linux-operativsystem](../virtual-machines/linux/endorsed-distros.md). Andra Linux-operativsystem kan starta i Azure, men vi rekommenderar att du uppgraderar operativ systemet till en godkänd version innan du migrerar till Azure. | Redo för Azure om versionen är påtecknad.<br/><br/>Villkorligt klar om versionen inte har påbörjats.
-Andra operativ system<br/><br/> Till exempel, Oracle Solaris, Apple Mac OS osv., FreeBSD osv. | Azure förser inte dessa operativ system. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du installerar ett operativ system som stöds innan du migrerar till Azure.  
+Andra operativ system<br/><br/> Till exempel Oracle Solaris, Apple macOS osv., FreeBSD osv. | Azure förser inte dessa operativ system. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du installerar ett operativ system som stöds innan du migrerar till Azure.  
 Operativ systemet har angetts som **annat** i vCenter Server | Azure Migrate kan inte identifiera operativ systemet i det här fallet. | Okänd beredskap. Kontrol lera att operativ systemet som körs i den virtuella datorn stöds i Azure.
 32-bitars operativ system | Datorn kan starta i Azure, men Azure kanske inte ger fullständig support. | Villkorligt redo för Azure. Överväg att uppgradera datorns operativ system från 32-bitars operativ system till 64-bitars operativ system innan du migrerar till Azure.
 

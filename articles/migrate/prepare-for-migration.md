@@ -2,18 +2,18 @@
 title: Förbered datorer för migrering med Azure Migrate
 description: Lär dig hur du förbereder lokala datorer för migrering med Azure Migrate.
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 02/17/2020
 ms.custom: MVC
-ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: adbe9e4b30bf57e8a2038b970306c126035abbe1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028750"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426256"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
-Den här artikeln beskriver hur du förbereder lokala datorer innan du börjar migrera dem till Azure med [Azure Migrate Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
+Den här artikeln beskriver hur du förbereder lokala datorer innan du börjar migrera dem till Azure med [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 Den här artikeln innehåller följande avsnitt:
@@ -40,7 +40,7 @@ Den här artikeln innehåller följande avsnitt:
 
 ## <a name="check-whats-supported"></a>Kontrol lera vad som stöds
 
-- För virtuella VMware-datorer stöder Azure Migrate Server-migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md). Kontrol lera [krav och support](migrate-support-matrix-vmware-migration.md)för VMware VM-migrering.
+- För virtuella VMware-datorer stöder Server migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md). Kontrol lera [krav och support](migrate-support-matrix-vmware-migration.md)för VMware VM-migrering.
 - Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-hyper-v-migration.md) för Hyper-V.
 - Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-physical-migration.md) för lokala fysiska datorer eller andra virtualiserade servrar. 
 

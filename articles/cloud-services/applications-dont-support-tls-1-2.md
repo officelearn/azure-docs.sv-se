@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026840"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425042"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Felsöka program som inte stöder TLS 1,2
 I den här artikeln beskrivs hur du aktiverar de äldre TLS-protokollen (TLS 1,0 och 1,1) samt tillämpar äldre chiffersviter för att stödja ytterligare protokoll i webb-och arbets roller för Windows Server 2019 Cloud service. 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs hur du aktiverar de äldre TLS-protokollen (TLS 1,0
 Vi är införstådd med att vi vidtar åtgärder för att föråldra TLS 1,0 och TLS 1,1, men våra kunder kan behöva stödja de äldre protokollen och chiffersviter för att kunna planera för deras utfasning.  Vi rekommenderar att du inte aktiverar de här äldre värdena igen, men vi ger vägledning för att hjälpa kunderna. Vi uppmuntrar kunderna att utvärdera risken för regression innan du implementerar de ändringar som beskrivs i den här artikeln. 
 
 > [!NOTE]
-> Gäst operativ system familj 6-versioner upprätthåller TLS 1,2 genom att inaktivera 1,0/1,0-chiffer. 
+> Gäst operativ system familj 6-versioner upprätthåller TLS 1,2 genom att inaktivera 1,0/1.1-chiffer. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Släpper stöd för TLS 1,0, TLS 1,1 och äldre chiffersviter 

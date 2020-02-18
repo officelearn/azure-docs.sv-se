@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 4e699b0fdbc22594a181d83c9650d569b35c52f3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024168"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426190"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Ta en rundtur i Azure IoT Central-användargränssnittet
 
@@ -59,10 +59,10 @@ Du kan starta ditt IoT Central-program genom att gå till URL: en som du eller S
 
 ## <a name="navigate-your-application"></a>Navigera i ditt program
 
-När du är i IoT-programmet använder du den vänstra rutan för att få åtkomst till de olika områdena. Du kan expandera eller komprimera navigerings fältet genom att välja den tredimensionella ikonen överst i navigerings fältet:
+När du är i IoT-programmet använder du den vänstra rutan för att få åtkomst till de olika områdena. Du kan expandera eller komprimera den vänstra rutan genom att välja ikonen med tre linjer överst i fönstret:
 
 > [!NOTE]
-> De objekt som visas i navigerings fältet beror på din användar roll. Lär dig mer om att [Hantera användare och roller](howto-manage-users-roles.md). 
+> De objekt som visas i den vänstra rutan beror på din användar roll. Lär dig mer om att [Hantera användare och roller](howto-manage-users-roles.md). 
 
 :::row:::
   :::column span="":::
@@ -133,7 +133,7 @@ På utforskningssidan visas de _enheter_ som finns i ditt Azure IoT Central-prog
 
 Mer information finns i [övervaka dina enheter](./quick-monitor-devices.md) snabb start. 
 
-### <a name="device-groups"></a>Enhets grupper
+### <a name="device-groups"></a>Enhetsgrupper
 
 > [!div class="mx-imgBorder"]
 > Sidan ![enhets grupper](media/overview-iot-central-tour/device-groups-pnp.png)
@@ -146,7 +146,7 @@ Enhets grupp är en samling relaterade enheter. En *Solution Builder* definierar
 
 På sidan regler kan du definiera regler baserat på enheternas telemetri, tillstånd eller händelser. När en regel utlöses kan den utlösa en eller flera åtgärder, till exempel att skicka ett e-postmeddelande, meddela ett externt system via webhook-aviseringar osv. Mer information finns i själv studie kursen [Konfigurera regler](tutorial-create-telemetry-rules.md) . 
 
-### <a name="analytics"></a>Analyser
+### <a name="analytics"></a>Analytics
 
 > [!div class="mx-imgBorder"]
 > ![Analytics-sida](media/overview-iot-central-tour/analytics-pnp.png)

@@ -4,15 +4,15 @@ description: Förstå vanliga aviserings schema definitioner för Azure Monitor
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
+author: ofirmanor
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765681"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425178"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
@@ -77,7 +77,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 |:---|:---|
 | alertId | GUID: n identifierar aviserings instansen unikt. |
 | alertRule | Namnet på den aviserings regel som genererade aviserings instansen. |
-| Allvarsgrad | Aviseringens allvarlighets grad. Möjliga värden: Sev0, Sev1, Sev2, Sev3 eller Sev4. |
+| Severity | Aviseringens allvarlighets grad. Möjliga värden: Sev0, Sev1, Sev2, Sev3 eller Sev4. |
 | signalType | Identifierar signalen som varnings regeln definierats på. Möjliga värden: statistik, logg eller aktivitets logg. |
 | monitorCondition | När en varning utlöses anges övervaknings villkoret för aviseringen till **utlöst**. När det underliggande villkoret som orsakade aviseringen om att brand figurer rensas, anges övervaknings villkoret som **löst**.   |
 | monitoringService | Övervaknings tjänsten eller lösningen som skapade aviseringen. Fälten för aviserings kontexten styrs av övervaknings tjänsten. |
@@ -85,7 +85,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 | originAlertId | ID: t för varnings instansen, som genereras av övervaknings tjänsten som genererar den. |
 | firedDateTime | Datum och tid när aviserings instansen utlöstes i UTC (Coordinated Universal Time). |
 | resolvedDateTime | Datum och tid när övervaknings villkoret för varnings instansen har angetts till **löst** i UTC. Gäller för närvarande endast för mått aviseringar.|
-| description | Beskrivningen, enligt definitionen i varnings regeln. |
+| beskrivning | Beskrivningen, enligt definitionen i varnings regeln. |
 |essentialsVersion| Avsnittet versions nummer för avsnittet Essentials.|
 |alertContextVersion | Versions numret för `alertContext` avsnittet. |
 
@@ -151,7 +151,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 ### <a name="log-alerts"></a>Loggaviseringar
 
 > [!NOTE]
-> För logg aviseringar som har ett anpassat e-postämne och/eller en JSON-nyttolast definierad, aktiverar det gemensamma schemat e-postämnet och/eller nytto Last schema till det som beskrivs i följande avsnitt. Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 KB per varning. Sök resultaten är inte inbäddade i logg aviserings nytto lasten om de orsakar aviserings storleken mellan detta tröskelvärde. Du kan fastställa detta genom att kontrol lera flaggan `IncludedSearchResults`. När Sök resultaten inte ingår bör du använda Sök frågan tillsammans med [Log Analytics-API: et](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> För logg aviseringar som har ett anpassat e-postämne och/eller en JSON-nyttolast definierad, aktiverar det gemensamma schemat e-postämnet och/eller nytto Last schema till det som beskrivs i följande avsnitt. Aviseringar med det gemensamma schemat aktiverat har en övre storleks gräns på 256 KB per varning. Sök resultaten är inte inbäddade i logg aviserings nytto lasten om de orsakar aviserings storleken mellan detta tröskelvärde. Du kan fastställa detta genom att kontrol lera flaggan `IncludeSearchResults`. När Sök resultaten inte ingår bör du använda Sök frågan tillsammans med [Log Analytics-API: et](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -214,7 +214,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -277,7 +277,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

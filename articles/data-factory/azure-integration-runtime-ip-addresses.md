@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: d64475ce524a3e859ed68a46552fedf30068f71d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8b1fd7b1962a4d46d38287e5faf8f1ba4cbb40bd
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514790"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423642"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>IP-adresser i Azure Integration Runtime
 
@@ -56,6 +56,7 @@ Tillåt trafik från IP-adresserna som anges för Azure integration runtime i de
 |                | USA, västra centrala     | 52.150.137.128/25,</br>52.150.136.192/26,</br>13.71.199.0/28 |
 |                | USA, västra             | 40.82.250.0/23,</br>40.82.249.64/26,</br>13.86.219.208/28    |
 |                | USA, västra 2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
+|                | US Gov, Virginia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
 ## <a name="known-issue-with-azure-storage"></a>Känt problem med Azure Storage
 

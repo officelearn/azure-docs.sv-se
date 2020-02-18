@@ -76,3 +76,5 @@
       href: spring-cloud-faq.md
     - name: Felsökningsguide
       href: spring-cloud-troubleshoot.md
+    - name: Referens för REST-API
+      href: 'https://docs.microsoft.com/rest/api/azurespringclould/'

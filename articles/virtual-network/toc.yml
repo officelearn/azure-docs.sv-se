@@ -39,6 +39,12 @@
       href: virtual-network-disaster-recovery-guidance.md
     - name: Anslutning
       items:
+        - name: NAT
+          items:
+            - name: Översikt
+              href: nat-overview.md
+            - name: Resurs
+              href: nat-gateway-resource.md
         - name: Interoperabilitet för serverdelsanslutning
           items:
             - name: Prefix och testinstallation
@@ -111,6 +117,20 @@
           href: virtual-network-nsg-manage-log.md
     - name: Anslutning
       items:
+        - name: NAT
+          items:
+            - name: Skapa NAT-gateway – portalen
+              href: quickstart-create-nat-gateway-portal.md
+            - name: Skapa NAT-gateway – PowerShell
+              href: quickstart-create-nat-gateway-powershell.md
+            - name: Skapa NAT-gateway – CLI
+              href: quickstart-create-nat-gateway-cli.md
+            - name: Skapa och verifiera en NAT-gateway – portalen
+              href: tutorial-create-validate-nat-gateway-portal.md
+            - name: Skapa och verifiera en NAT-gateway – PowerShell
+              href: tutorial-create-validate-nat-gateway-powershell.md
+            - name: Skapa och verifiera en NAT-gateway – CLI
+              href: tutorial-create-validate-nat-gateway-cli.md
         - name: 'Hantera NIC:er'
           href: virtual-network-network-interface.md
         - name: Hantera virtuellt nätverk

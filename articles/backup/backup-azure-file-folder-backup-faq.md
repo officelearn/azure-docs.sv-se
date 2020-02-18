@@ -3,16 +3,16 @@ title: Säkerhetskopiera filer och mappar – vanliga frågor
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720369"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425076"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Vanliga frågor om säkerhets kopiering av filer och mappar
 
-Den här artikeln innehåller svar på vanliga frågor Abound säkerhets kopiering av filer och mappar med Microsoft Azure Recovery Services MARS-agenten i [Azure Backup](backup-overview.md) -tjänsten.
+Den här artikeln besvarar vanliga frågor Abound säkerhets kopiering av filer och mappar med Microsoft Azure Recovery Services MARS-agenten i [Azure Backup](backup-overview.md) -tjänsten.
 
 ## <a name="configure-backups"></a>Konfigurera säkerhets kopior
 
@@ -90,7 +90,7 @@ Den här varningen kan visas även om du har konfigurerat en säkerhets kopierin
 Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 
 * Cache-mappens volymer måste ha ett ledigt utrymme som motsvarar minst 5-10% av den totala storleken på säkerhets kopierings data.
-* Om volymen har mindre än 5% ledigt utrymme kan du antingen öka volym storleken eller flytta cache-mappen till en volym med tillräckligt med utrymme.
+* Om volymen har mindre än 5% ledigt utrymme kan du antingen öka volym storleken eller flytta cache-mappen till en volym med tillräckligt med utrymme genom att följa [dessa steg](#how-do-i-change-the-cache-location-for-the-mars-agent).
 * Om du säkerhetskopierar Windows system State behöver du ytterligare 30-35 GB ledigt utrymme på volymen som innehåller cache-mappen.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Så här kontrollerar du om mappen Scratch är giltig och tillgänglig?
@@ -98,35 +98,35 @@ Storleken på cachelagringsmappen avgör mängden data som säkerhetskopieras.
 1. Som standard finns en Scratch-mapp på `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Kontrol lera att sökvägen till din startmapp-plats matchar värdena i de register nyckel poster som visas nedan:
 
-  | Sökväg i registret | Registernyckel | Värde |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |
+    | Sökväg i registret | Registernyckel | Värde |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |
 
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Hur gör jag för att ändra cache-platsen för MARS-agenten?
 
 1. Kör det här kommandot i en upphöjd kommando tolk för att stoppa säkerhets kopierings motorn:
 
     ```Net stop obengine```
-
 2. Om du har konfigurerat säkerhets kopiering av system tillstånd öppnar du disk hantering och avmonterar diskarna med namn i formatet `"CBSSBVol_<ID>"`.
-3. Flytta inte filerna. Kopiera i stället mappen cache Space till en annan enhet som har tillräckligt med utrymme.
-4. Uppdatera följande register poster med sökvägen till den nya cache-mappen.
+3. Som standard finns mappen Scratch på `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. Kopiera hela `\Scratch`-mappen till en annan enhet som har tillräckligt med utrymme. Se till att innehållet kopieras och inte flyttas.
+5. Uppdatera följande register poster med sökvägen till den nyligen flyttade Scratch-mappen.
 
     | Sökväg i registret | Registernyckel | Värde |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för cachemappen* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för cachemappen* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Ny plats för scratch-mappen* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Ny plats för scratch-mappen* |
 
-5. Starta om säkerhets kopierings motorn i en upphöjd kommando tolk:
+6. Starta om säkerhets kopierings motorn i en upphöjd kommando tolk:
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. Kör en säkerhets kopiering på begäran. När säkerhets kopieringen har slutförts med den nya platsen kan du ta bort den ursprungliga cache-mappen.
+7. Kör en säkerhets kopiering på begäran. När säkerhets kopieringen har slutförts med den nya platsen kan du ta bort den ursprungliga cache-mappen.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Var ska cache-mappen finnas?
 
@@ -139,7 +139,7 @@ Följande platser för cache-mappen rekommenderas inte:
 
 Följande attribut eller deras kombinationer stöds inte för cachelagringsmappen:
 
-* Krypterad
+* Krypterade
 * Deduplicerade
 * Komprimerade
 * Utspridda
@@ -160,10 +160,10 @@ Azure Backup agenten kräver en lösen fras (som du angav under registreringen) 
 
 | Ursprunglig dator <br> *(käll dator där säkerhets kopior vidtogs)* | Passphrase | Tillgängliga alternativ |
 | --- | --- | --- |
-| Tillgänglig |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Tillgängligt |Brute |Om den ursprungliga datorn (där säkerhets kopiering vidtogs) är tillgänglig och fortfarande har registrerats med samma Recovery Services-valv, kan du återskapa lösen frasen genom att följa dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
-Tänk på följande:
+Överväg följande villkor:
 
 * Om du avinstallerar och omregistrerar agenten på samma ursprungliga dator med
   * *Samma lösen fras*, kommer du att kunna återställa säkerhetskopierade data.
@@ -179,7 +179,7 @@ Om du har samma lösen fras (som du angav under registreringen) på den ursprung
 
 | Ursprunglig dator | Passphrase | Tillgängliga alternativ |
 | --- | --- | --- |
-| Brute |Tillgänglig |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ** > **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Brute |Tillgängligt |Du kan installera och registrera MARS-agenten på en annan dator med samma lösen fras som du angav under registreringen av den ursprungliga datorn. Välj **återställnings alternativ** > **en annan plats** för att utföra återställningen. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Brute |Brute |Det går inte att återställa data eller data är inte tillgängliga |
 
 

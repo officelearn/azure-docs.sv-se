@@ -245,6 +245,8 @@
           items:
             - name: Felsöka anslutningsfel
               href: howto-troubleshoot-common-connection-issues.md
+            - name: Felsöka datakryptering
+              href: howto-data-encryption-troubleshoot.md
         - name: Advanced Threat Protection
           items:
             - name: Azure Portal

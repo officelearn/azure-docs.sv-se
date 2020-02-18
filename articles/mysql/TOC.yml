@@ -95,8 +95,6 @@
           href: concepts-data-access-security-private-link.md
         - name: Datakryptering
           href: concepts-data-encryption-mysql.md
-        - name: Datakryptering
-          href: concepts-data-encryption-mysql.md
         - name: Azure AD-autentisering
           href: concepts-azure-ad-authentication.md
     - name: Verksamhetskontinuitet
@@ -222,6 +220,8 @@
           href: howto-troubleshoot-query-performance.md
         - name: Använda vyer i sys-schema
           href: howto-troubleshoot-sys-schema.md
+        - name: Felsöka datakryptering
+          href: howto-data-encryption-troubleshoot.md
     - name: Advanced Threat Protection
       items:
         - name: Azure Portal

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552215"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425892"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använda MirrorMaker för att replikera Apache Kafka ämnen med Kafka på HDInsight
 
@@ -63,7 +63,7 @@ Den här arkitekturen innehåller två kluster i olika resurs grupper och virtue
 
 1. Skapa två nya resurs grupper:
 
-    |Resursgrupp | Location |
+    |Resursgrupp | plats. |
     |---|---|
     | kafka-primary-rg | USA, centrala |
     | kafka-secondary-rg | USA, norra centrala |
@@ -294,7 +294,7 @@ Konfigurera IP-annonsering om du vill att en klient ska kunna ansluta med IP-adr
 
     I listan med ämnen ingår nu `testtopic`, som skapas när MirrorMaster speglar ämnet från det primära klustret till den sekundära. Meddelanden som hämtas från avsnittet är desamma som de som du angav i det primära klustret.
 
-## <a name="delete-the-cluster"></a>Ta bort klustret
+## <a name="delete-the-cluster"></a>Tar bort klustret
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -305,7 +305,7 @@ Stegen i det här dokumentet skapade kluster i olika Azure-resurs grupper. Om du
 I det här dokumentet har du lärt dig hur du använder [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att skapa en replik av ett [Apache Kafka](https://kafka.apache.org/) -kluster. Använd följande länkar för att identifiera andra sätt att arbeta med Kafka:
 
 * [Apache Kafka MirrorMaker-dokumentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) på cwiki.apache.org.
+* [Metod tips för Kafka Mirror Maker](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Kom igång med Apache Kafka på HDInsight](apache-kafka-get-started.md)
 * [Använda Apache Spark med Apache Kafka på HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Använda Apache Storm med Apache Kafka på HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Ansluta till Apache Kafka via en Azure-Virtual Network](apache-kafka-connect-vpn-gateway.md)

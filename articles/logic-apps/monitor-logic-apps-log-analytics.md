@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 1948151dfa07e565a929b4506273e3f88f5408c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907830"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426334"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Konfigurera Azure Monitor loggar och samla in diagnostikdata för Azure Logic Apps
 
@@ -21,7 +21,7 @@ Om du vill konfigurera loggning för din Logi Kap par kan du [aktivera Log Analy
 
 Den här artikeln visar hur du aktiverar Log Analytics när du skapar Logi Kap par, hur du installerar och konfigurerar Logic Apps hanterings lösningen och hur du konfigurerar och skapar frågor för Azure Monitor loggar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha en [Log Analytics-arbetsyta](../azure-monitor/platform/resource-logs-collect-workspace.md). Om du inte har en arbets yta, lär du dig [hur du skapar en arbets yta för Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -111,7 +111,7 @@ När du lagrar information om körnings händelser och data i [Azure Monitor log
 
    1. När du är klar väljer du **Spara**.
 
-   Ett exempel:
+   Exempel:
 
    ![Välj Log Analytics arbets yta och data för loggning](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -179,7 +179,7 @@ Tillsammans med Azure Monitor loggar kan du utöka hur du använder dina Logic A
 * [Arkivera Azures resurs loggar till lagrings kontot](../azure-monitor/platform/resource-logs-collect-storage.md)
 * [Strömma Azure-plattforms loggar till Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
-Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Ett exempel:
+Du kan sedan få real tids övervakning genom att använda telemetri och analys från andra tjänster, t. ex. [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) och [Power BI](../azure-monitor/platform/powerbi.md). Exempel:
 
 * [Strömma data från Event Hubs till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analysera strömmande data med Stream Analytics och skapa en instrument panel för real tids analys i Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

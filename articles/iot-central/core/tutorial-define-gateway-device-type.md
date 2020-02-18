@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04f9a067e0b7df1f90d181d42bc4dd562aca56b0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027694"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423771"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program
 
@@ -30,7 +30,7 @@ I den här självstudien skapar du en mall för **Smart Building** gateway-enhet
 * Besvara skrivbara egenskaps uppdateringar gjorda av en operatör. En operatör kan exempelvis ändra sändnings intervallet för telemetri.
 * Svara på kommandon, t. ex. omstart av enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
 
@@ -40,7 +40,7 @@ I den här självstudien används enhets mallar för en **S1-sensor** och en **R
 
 Så här skapar du en enhets mall för en **S1 sensor** enhet:
 
-1. I det vänstra navigerings fältet väljer du **enhets mallar**. Välj **+** för att börja lägga till mallen.
+1. I det vänstra fönstret väljer du **enhets mallar**. Välj **+** för att börja lägga till mallen.
 
 1. Rulla nedåt tills du ser panelen för **S1-sensor** enheten. Välj panelen och välj sedan **Nästa: anpassa**.
 
@@ -48,7 +48,7 @@ Så här skapar du en enhets mall för en **S1 sensor** enhet:
 
 Så här skapar du en enhets mall för en * RS40 för användnings**sensor** :
 
-1. I det vänstra navigerings fältet väljer du **enhets mallar**. Välj **+** för att börja lägga till mallen.
+1. I det vänstra fönstret väljer du **enhets mallar**. Välj **+** för att börja lägga till mallen.
 
 1. Rulla nedåt tills du ser panelen för ***RS40 besittnings sensor** enhet. Välj panelen och välj sedan **Nästa: anpassa**.
 
@@ -59,13 +59,13 @@ Nu har du enhets mallar för de två underordnade enhets typerna:
 ![Enhets mallar för underordnade enheter](./media/tutorial-define-gateway-device-type/downstream-device-types.png)
 
 
-## <a name="create-a-gateway-device-template"></a>Skapa en mall för en gateway-enhet
+## <a name="create-a-gateway-device-template"></a>Mall för att skapa en gateway-enhet
 
 I den här självstudien skapar du en enhets mall för en gateway-enhet från grunden. Du kan använda den här mallen senare för att skapa en simulerad gateway-enhet i ditt program.
 
 Så här lägger du till en ny Gateway-mall i programmet:
 
-1. I det vänstra navigerings fältet väljer du **enhets mallar**. Välj **+** för att börja lägga till mallen.
+1. I det vänstra fönstret väljer du **enhets mallar**. Välj **+** för att börja lägga till mallen.
 
 1. På sidan **Välj Malltyp** väljer du panelen IoT- **enhet** och väljer sedan **Nästa: anpassa**.
 
@@ -105,8 +105,8 @@ För att lägga till moln egenskaper till enhets mal len för **Smart skapande G
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inget          | Datum   |
-    | Kund namn     | Inget          | String |
+    | Senaste servicedatum | Ingen          | Datum   |
+    | Kund namn     | Ingen          | String |
 
 2. Välj **Spara**.
 

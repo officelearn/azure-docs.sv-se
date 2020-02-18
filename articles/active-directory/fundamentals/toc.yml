@@ -39,8 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Identitetsdatalagring för EU
       href: active-directory-data-storage-eu.md
-    - name: Identitetsdatalagring för Australien
-      href: active-directory-data-storage-australia.md
+    - name: Identitetsdatalagring för Australien och Nya Zeeland
+      href: active-directory-data-storage-australia-newzealand.md
     - name: Nyheter i Microsoft 365 Government
       href: whats-new-microsoft-365-government.md
     - name: Referens för Azure AD Operations

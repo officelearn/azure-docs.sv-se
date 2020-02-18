@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: fbb30b0a290011a5edfb05c1de9b5d4717a5f733
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898705"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425229"
 ---
 # <a name="keys-and-values"></a>Nycklar och värden
 
@@ -25,7 +25,7 @@ Användningen av konfigurations data i program ramverk kan diktera specifika nam
 
 Nycklar som lagras i App Configuration är skiftlägeskänsliga, Unicode-baserade strängar. Nycklarna *APP1* och *APP1* är distinkta i ett konfigurations Arkiv för appar. Tänk på detta när du använder konfigurations inställningar i ett program eftersom vissa ramverk hanterar konfigurations nycklar SKIFT läges okänsligt. Till exempel behandlar konfigurationssystemet för ASP.NET Core nycklar som icke-skiftlägeskänsliga strängar. För att undvika oförutsägbara beteenden när du frågar appens konfiguration i ett ASP.NET Core program ska du inte använda nycklar som bara skiljer sig från versaler.
 
-Du kan använda valfritt Unicode-tecken i nyckel namn som anges i appens konfiguration förutom `*`, `,`och `\`. Dessa tecken är reserverade. Om du behöver inkludera ett reserverat tecken måste du kringgå det med hjälp av `\{Reserved Character}`. Det finns en sammanlagd storleks gräns på 10 000 tecken i ett nyckel/värde-par. Den här gränsen omfattar alla tecken i nyckeln, dess värde och alla tillhör ande valfria attribut. Inom den här gränsen kan du ha många hierarkiska nivåer för nycklar.
+Du kan använda valfritt Unicode-tecken i nyckel namn som anges i appens konfiguration förutom `*`, `,`och `\`. Dessa tecken är reserverade. Om du behöver inkludera ett reserverat tecken måste du kringgå det med hjälp av `\{Reserved Character}`. Det finns en sammanlagd storleks gräns på 10 KB på ett nyckel/värde-par. Den här gränsen omfattar alla tecken i nyckeln, dess värde och alla tillhör ande valfria attribut. Inom den här gränsen kan du ha många hierarkiska nivåer för nycklar.
 
 ### <a name="design-key-namespaces"></a>Design nyckel namn rymder
 
@@ -51,7 +51,7 @@ Här är flera exempel på hur du kan strukturera nyckelnamnen i en hierarki:
 
 ### <a name="label-keys"></a>Etikett nycklar
 
-Nyckel värden i app-konfigurationen kan också ha ett etikett-attribut. Etiketter används för att särskilja nyckel värden med samma nyckel. En viktig *APP1* med etiketter *A* och *B* formar två separata nycklar i ett konfigurations lager för appar. Som standard är etiketten för ett nyckel värde tom eller `null`.
+Nyckel värden i app-konfigurationen kan också ha ett etikett-attribut. Etiketter används för att särskilja nyckel värden med samma nyckel. En viktig *APP1* med etiketter *A* och *B* formar två separata nycklar i ett konfigurations lager för appar. Som standard har ett nyckel värde ingen etikett. Om du explicit vill referera till ett nyckel värde utan en etikett använder `\0` (URL-kodad som `%00`).
 
 Label är ett bekvämt sätt att skapa varianter av en nyckel. En vanlig användning av etiketter är att ange flera miljöer för samma nyckel:
 
@@ -74,20 +74,16 @@ Varje nyckel värde identifieras unikt med nyckeln plus en etikett som kan `null
 | `key` utelämnas eller `key=*` | Matchar alla nycklar |
 | `key=abc` | Matchar nyckel namn **ABC** exakt |
 | `key=abc*` | Matchar nyckelnamn som börjar med **abc** |
-| `key=*abc` | Matchar nyckelnamn som slutar med **abc** |
-| `key=*abc*` | Matchar nyckelnamn som innehåller **abc** |
 | `key=abc,xyz` | Matchar nyckel namn **ABC** eller **XYZ**, begränsade till fem CSV: er |
 
 Du kan också inkludera följande etikett mönster:
 
-| Etikett | |
+| Label (Etikett) | |
 |---|---|
 | `label` utelämnas eller `label=*` | Matchar alla etiketter, som innehåller `null` |
 | `label=%00` | Matchar `null` etikett |
 | `label=1.0.0` | Matchar etiketten **1.0.0** exakt |
 | `label=1.0.*` | Matchar etiketter som börjar med **1.0.** |
-| `label=*.0.0` | Matchar etiketter som slutar med **.0.0** |
-| `label=*.0.*` | Matchar etiketter som innehåller **.0.** |
 | `label=%00,1.0.0` | Matchar etiketter `null` eller **1.0.0**, begränsade till fem CSV: er |
 
 ## <a name="values"></a>Värden

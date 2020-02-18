@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 76e9526ab39cbccd45a48d2cd24e05867c953774
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 67b045ff0661e8d0f8e20656a012e85d01e83d7b
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280840"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425926"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Skapa och hantera privat länk för Azure Database for MariaDB (för hands version) med hjälp av portalen
 
@@ -41,7 +41,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **Västeuropa**.|
+    | plats. | Välj **Europa, västra**.|
     | Undernät – Namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
@@ -60,13 +60,13 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
     | **INSTANSINFORMATION** |  |
     | Namn på virtuell dator | Ange *myVm*. |
-    | Region | Välj **Västeuropa**. |
+    | Region | Välj **Europa, västra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
     | Bild | Välj **Windows Server 2019 Data Center**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -78,7 +78,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 
 1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
-1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -111,8 +111,8 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
     | **Server information** |  |
     |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
-    | Location | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
+    | lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | plats. | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
     |Version  | Välj den databas version av MariaDB-servern som krävs.|
     | Compute + Storage| Välj den pris nivå som krävs för servern baserat på arbets belastningen. |
     |||
@@ -140,7 +140,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Instans information** |  |
     | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
-    |Region|Välj **Västeuropa**.|
+    |Region|Välj **Europa, västra**.|
     |||
 5. Välj **Nästa: resurs**.
 6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
@@ -210,34 +210,35 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     Non-authoritative answer:
     Name:    mydemoMariaDBserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testa anslutningen till den privata länken för MariaDB-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra åtgärden.
 
 
-4. In **New connection**, enter or select this information:
+4. I **ny anslutning**anger eller väljer du den här informationen:
 
-    | Setting | Value |
+    | Inställning | Värde |
     | ------- | ----- |
-    | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
-    |Password |Enter a password provided during the MariaDB server creation. |
-    |SSL|Select **Required**.|
+    | Servertyp| Välj **MariaDB**.|
+    | servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
+    | Användarnamn | Ange användar namn som username@servername som anges när MariaDB-servern skapas. |
+    |lösenord |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
+    |SSL|Välj **obligatoriskt**.|
     ||
 
-5. Select **Test Connection** or **OK**.
+5. Välj **Testa anslutning** eller **OK**.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. Du kan också Bläddra bland databaser från den vänstra menyn och skapa eller fråga efter information från MariaDB-databasen
 
-7. Close the remote desktop connection to myVm.
+7. Stäng fjärr skrivbords anslutningen till myVm.
 
-## Clean up resources
-When you're done using the private endpoint, MariaDB server, and the VM, delete the resource group and all of the resources it contains:
+## <a name="clean-up-resources"></a>Rensa resurser
+När du är klar med den privata slut punkten, MariaDB-servern och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
-2. Select **Delete resource group**.
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. Ange *myResourceGroup* i rutan **Sök** högst upp i portalen och välj *myResourceGroup* från Sök resultaten.
+2. Välj **Ta bort resursgrupp**.
+3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-In this how-to, you created a VM on a virtual network, an Azure Database for MariaDB, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the MariaDB server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+I den här instruktionen har du skapat en virtuell dator i ett virtuellt nätverk, en Azure Database for MariaDB och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till MariaDB-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är en privat Azure-slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).

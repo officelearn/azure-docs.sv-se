@@ -112,6 +112,14 @@
           href: managed-identity.md
         - name: Använda en princip för åtkomstkontroll
           href: key-vault-group-permissions-for-apps.md
+        - name: Importera HSM-skyddade nycklar
+          items:
+            - name: Översikt
+              href: key-vault-hsm-protected-keys.md
+            - name: Importera HSM-skyddade nycklar till Key Vault (förhandsversion)
+              href: hsm-protected-keys-vendor-agnostic-byok.md
+            - name: Importera HSM-skyddade nycklar till Key Vault (äldre version)
+              href: hsm-protected-keys-legacy.md
     - name: Vidarekoppla Key Vault-meddelanden med Event Grid
       href: event-grid-tutorial.md
     - name: Ta emot meddelanden via Event Grid och Logic Apps
@@ -170,8 +178,6 @@
       items:
         - name: Utvecklarguide
           href: key-vault-developers-guide.md
-        - name: HSM-skyddade nycklar
-          href: key-vault-hsm-protected-keys.md
         - name: Migrera till .NET 2.0
           href: key-vault-dotnet2api-release-notes.md
         - name: Spara hemligheter för webbappar

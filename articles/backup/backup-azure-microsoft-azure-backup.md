@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111591"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425195"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -92,7 +92,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Om du redan har ett Recovery Services-valv öppet går du vidare till steg 3. Om du inte har ett Recovery Services-valv öppet, men är i Azure Portal klickar du på **Bläddra**i huvud menyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -163,14 +163,15 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 2. Klicka på knappen **Nästa** på Välkomst skärmen. Detta tar dig till avsnittet *krav kontroll* . På den här skärmen klickar du på **kontrol lera** för att avgöra om maskin-och program varu kraven för Azure Backup Server är uppfyllda. Om alla krav har uppfyllts visas ett meddelande som anger att datorn uppfyller kraven. Klicka på knappen **Nästa** .
 
     ![Azure Backup Server-Välkommen och krav kontroll](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Microsoft Azure Backup Server kräver SQL Server Enterprise. Dessutom levereras Azure Backup Server installations paket med lämpliga SQL Server binärfiler som behövs om du inte vill använda din egen SQL. När du börjar med en ny Azure Backup Server installation bör du välja alternativet **installera ny instans av SQL Server med den här installationen** och klicka på knappen **kontrol lera och installera** . När de nödvändiga komponenterna har installerats klickar du på **Nästa**.
+3. Installations paketet för Azure Backup Server levereras med lämpliga SQL Server binärfiler som behövs. När du startar en ny Azure Backup Server-installation väljer du alternativet **installera ny instans av SQL Server med den här installationen** och klickar på knappen **kontrol lera och installera** . När de nödvändiga komponenterna har installerats klickar du på **Nästa**.
+
+    >[!NOTE]
+    >Om du vill använda din egen SQL Server är de SQL Server-versioner som stöds SQL Server 2014 SP1 eller högre, 2016 och 2017.  Alla SQL Server-versioner ska vara standard eller Enterprise 64-bitars.
+    >Azure Backup Server fungerar inte med en fjärran sluten SQL Server instans. Den instans som används av Azure Backup Server måste vara lokal. Om du använder en befintlig SQL Server för MABS stöder MABS-installationen endast användningen av *namngivna instanser* av SQL Server.
 
     ![Azure Backup Server-SQL-kontroll](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     Om ett fel inträffar med en rekommendation om att starta om datorn gör du det och klickar på **kontrol lera igen**. Om det finns några problem med SQL-konfigurationen kan du konfigurera om SQL enligt SQL-rikt linjerna och försöka installera/uppgradera MABS med hjälp av den befintliga SQL-instansen.
-
-   > [!NOTE]
-   > Azure Backup Server fungerar inte med en fjärran sluten SQL Server instans. Den instans som används av Azure Backup Server måste vara lokal. Om du använder en befintlig SQL Server för MABS stöder MABS-installationen endast användningen av *namngivna instanser* av SQL Server.
 
    **Manuell konfiguration**
 

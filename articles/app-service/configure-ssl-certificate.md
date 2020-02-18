@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046418"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425315"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -39,7 +39,7 @@ För att följa den här instruktions guiden:
 ## <a name="private-certificate-requirements"></a>Krav för privata certifikat
 
 > [!NOTE]
-> Azure Web Apps har **inte** stöd för AES256 och alla PFX-filer bör krypteras med TrippleDES.
+> Azure Web Apps har **inte** stöd för AES256 och alla PFX-filer bör krypteras med TripleDES.
 
 Det [kostnads fria app service-hanterade certifikatet](#create-a-free-certificate-preview) eller [app Services certifikatet](#import-an-app-service-certificate) uppfyller redan kraven i App Service. Om du väljer att överföra eller importera ett privat certifikat till App Service måste certifikatet uppfylla följande krav:
 

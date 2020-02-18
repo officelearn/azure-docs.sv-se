@@ -3,19 +3,19 @@ title: Så här ersätter du band infrastrukturen
 description: Lär dig hur Azure Backup innehåller band som liknar semantik som gör att du kan säkerhetskopiera och återställa data i Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173315"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425110"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Flytta långsiktig lagring från band till Azure-molnet
 
 Azure Backup-och System Center-Data Protection Manager kunder kan:
 
 * Säkerhetskopiera data i scheman som passar organisationens behov bäst.
-* Behåll säkerhets kopierings data under längre perioder
+* Behåll säkerhets kopierings data under längre perioder.
 * Gör Azure till en del av deras långsiktiga behov (i stället för på band).
 
 Den här artikeln förklarar hur kunder kan aktivera säkerhets kopierings-och bevarande principer. Kunder som använder band för att hantera sina långsiktiga behov har nu ett kraftfullt och livskraftigt alternativ med tillgängligheten för den här funktionen. Funktionen aktive ras i den senaste versionen av Azure Backup (som finns [här](https://aka.ms/azurebackup_agent)). System Center DPM-kunder måste uppdatera till minst DPM 2012 R2-UR5 innan DPM kan använda tjänsten Azure Backup.
@@ -43,9 +43,9 @@ Det totala antalet "kvarhållning Points" som anges i den här principen är 90 
 ![Exempel skärm](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Bevarande princip per dag**: säkerhets kopior som tas dagligen lagras i sju dagar.
-2. **Bevarande princip varje vecka**: säkerhets kopior som tas varje dag kl. midnatt och. 18:00 lördag bevaras i fyra veckor
-3. **Bevarande princip per månad**: säkerhets kopieringar som gjorts vid midnatt och. 18:00 den sista lördagen i varje månad bevaras i 12 månader
-4. **Bevarande princip per år**: säkerhets kopieringar som gjorts vid midnatt den sista lördagen i varje mars bevaras i 10 år
+2. **Bevarande princip per vecka**: säkerhets kopieringar som gjorts kl. midnatt och lördag lördag bevaras i fyra veckor.
+3. **Bevarande princip per månad**: säkerhets kopieringar som gjorts kl. midnatt och 6 PM den sista lördagen i varje månad bevaras i 12 månader.
+4. **Bevarande princip per år**: säkerhets kopieringar som gjorts vid midnatt den sista lördagen i varje mars bevaras i 10 år.
 
 Det totala antalet "kvarhållning Points" (punkter från vilka en kund kan återställa data) i föregående diagram beräknas enligt följande:
 
@@ -57,7 +57,7 @@ Det totala antalet "kvarhållning Points" (punkter från vilka en kund kan åter
 Det totala antalet återställnings punkter är 56.
 
 > [!NOTE]
-> Med Azure Backup kan du skapa upp till 9999 återställnings punkter per skyddad instans. En skyddad instans är en dator, Server (fysisk eller virtuell) eller arbets belastning som säkerhetskopierar till Azure.
+> Med Azure Backup kan du skapa upp till 9999 återställnings punkter per skyddad instans. En skyddad instans är en dator, server (fysisk eller virtuell) eller arbetsbelastning som säkerhetskopierar data till Azure.
 >
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration

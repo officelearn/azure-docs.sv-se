@@ -323,10 +323,10 @@
       items:
         - name: Grunder
           href: search-monitor-usage.md
-        - name: Övervaka frågeaktivitet
-          href: search-monitor-queries.md
         - name: Diagnostikloggning
           href: search-monitor-logs.md
+        - name: Övervaka frågeaktivitet
+          href: search-monitor-queries.md
         - name: Sök efter trafikanalys
           href: search-traffic-analytics.md
     - name: Felsöka

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 305ad1da28de899f801b9b8af58628c6c067a5d7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425161"
+ms.locfileid: "77444017"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
@@ -1510,14 +1510,14 @@ az group deployment create \
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Mall för en mått avisering som övervakar flera resurser
 
-I föregående avsnitt beskrivs exempel Azure Resource Manager mallar för att skapa mått aviseringar som övervakar en enskild resurs. Azure Monitor har nu stöd för övervakning av flera resurser med en enda mått varnings regel. Den här funktionen stöds för närvarande endast i Azures offentliga moln och endast för virtuella datorer, SQL-databaser, elastiska SQL-pooler och dataedge-enheter.
+I föregående avsnitt beskrivs exempel Azure Resource Manager mallar för att skapa mått aviseringar som övervakar en enskild resurs. Azure Monitor har nu stöd för övervakning av flera resurser (av samma typ) med en enda mått varnings regel för resurser som finns i samma Azure-region. Den här funktionen stöds för närvarande endast i Azures offentliga moln och endast för virtuella datorer, SQL Server-databaser, elastiska SQL Server-pooler och data Edge-enheter. Den här funktionen är även tillgänglig för plattforms mått och stöds inte för anpassade mått.
 
 Aviserings regeln för dynamiska tröskelvärden kan också hjälpa dig att skapa skräddarsydda tröskelvärden för hundratals mått serier (även olika typer) i taget, vilket leder till att färre aviserings regler hanteras.
 
 I det här avsnittet beskrivs Azure Resource Manager mallar för tre scenarier för att övervaka flera resurser med en enda regel.
 
 - Övervaka alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
-- Övervaka alla virtuella datorer (i en Azure-region) i en prenumeration
+- Övervaka alla virtuella datorer (i en Azure-region) i en prenumeration.
 - Övervakning av en lista över virtuella datorer (i en Azure-region) i en prenumeration.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Varning för statisk tröskel på alla virtuella datorer i en eller flera resurs grupper

@@ -38,25 +38,25 @@ De bibliotek som används för att skydda en webbapp (och ett webb-API) är:
 
 Välj den flik som motsvarar den plattform som du är intresse rad av:
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Kodfragment i den här artikeln och följande extraheras från den [stegvisa självstudien för ASP.net Core Web App, kapitel 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
 
 Du kanske vill referera till den här självstudien för fullständig implementerings information.
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Kodfragment i den här artikeln och följande extraheras från [exemplet på ASP.net-webbappar](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect).
 
 Du kanske vill referera till det här exemplet för fullständig implementerings information.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Kodfragment i den här artikeln och följande extraheras från [Java-webbprogrammet som anropar Microsoft Graph-](https://github.com/Azure-Samples/ms-identity-java-webapp) EXEMPLET i MSAL Java.
 
 Du kanske vill referera till det här exemplet för fullständig implementerings information.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Kodfragment i den här artikeln och följande extraheras från [python-webbprogrammet som anropar Microsoft Graph-](https://github.com/Azure-Samples/ms-identity-python-webapp) EXEMPLET i MSAL python.
 
@@ -74,7 +74,7 @@ Webb program som loggar in användare med hjälp av Microsoft Identity Platform 
 
 Ibland kan program parametrized av `Authority`, vilket är en sammanfogning av `Instance` och `TenantId`.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 I ASP.NET Core finns de här inställningarna i filen [appSettings. JSON](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/1-WebApp-OIDC/1-1-MyOrg/appsettings.json#L2-L8) i avsnittet "AzureAd".
 
@@ -139,7 +139,7 @@ I Azure Portal måste de svars-URI: er som du måste registrera på sidan **aute
 
 På samma sätt skulle utloggnings-URI: n vara inställd på `https://localhost:44321/signout-callback-oidc`.
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 I ASP.NET konfigureras programmet via [Web. config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) -filen, rader 12 till 15.
 
@@ -165,7 +165,7 @@ I ASP.NET konfigureras programmet via [Web. config](https://github.com/Azure-Sam
 
 I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. Det vill säga att de ska vara `https://localhost:44326/`.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 I Java finns konfigurationen i filen [Application. Properties](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/resources/application.properties) , som finns under `src/main/resources`.
 
@@ -179,7 +179,7 @@ aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 
 I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha de `redirectUri`-instanser som programmet definierar. Det vill säga att de ska vara `http://localhost:8080/msal4jsample/secure/aad` och `http://localhost:8080/msal4jsample/graph/me`.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Här är python-konfigurationsfilen i [app_config. py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app_config.py):
 
@@ -207,7 +207,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 Initierings koden skiljer sig beroende på plattform. För ASP.NET Core och ASP.NET delegeras inloggnings användare till OpenID Connect-mellanprogram. ASP.NET-eller ASP.NET Core-mallen genererar webb program för Azure Active Directory (Azure AD) v 1.0-slutpunkten. En del konfiguration krävs för att anpassa dem till slut punkten för Microsoft Identity Platform (v 2.0). När det gäller Java hanteras det av våren med programmets samarbete.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 I ASP.NET Core Web Apps (och webb-API: er) skyddas programmet eftersom du har ett `[Authorize]`-attribut på styrenheterna eller styrenhets åtgärderna. Det här attributet kontrollerar att användaren är autentiserad. Koden som initierar programmet finns i filen Startup.cs.
 
@@ -316,7 +316,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
 
 Med klassen `AadIssuerValidator` kan utfärdaren av token verifieras i många fall. Den här klassen fungerar med en v 1.0-eller v 2.0-token, ett program för en klient eller flera innehavare, eller ett program som loggar in användare med sina personliga Microsoft-konton i Azures offentliga moln eller i nationella moln. Den är tillgänglig från [Microsoft. Identity. Web/Resource/AadIssuerValidator. cs](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Koden som är relaterad till autentisering i en ASP.NET-webbapp och webb-API: er finns i [App_Start/startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs#L17-L61) -filen.
 
@@ -342,7 +342,7 @@ Koden som är relaterad till autentisering i en ASP.NET-webbapp och webb-API: er
  }
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Java-exemplet använder våren-ramverket. Programmet skyddas eftersom du implementerar ett filter, vilket fångar varje HTTP-svar. I snabb starten för Java-webbappar är det här filtret `AuthFilter` i `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`.
 
@@ -357,7 +357,7 @@ Mer information finns i `doFilter()`-metoden i [AuthFilter. java](https://github
 
 Mer information om det auktoriseringskod som den här metoden utlöser finns i [Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md).
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python-exemplet använder kolv. Avställningen av kolven och MSAL python görs i [appen. py # L1-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L1-L28).
 
@@ -381,22 +381,22 @@ Session(app)
 
 I nästa artikel får du lära dig hur du utlöser inloggning och utloggning.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
 > [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
 
-# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+# <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
 > [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
 > [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [Logga in och logga ut](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)

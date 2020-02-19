@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 29b8a32989b5a1d60792fb5678f7ba8a9f12daba
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452269"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443813"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Köra Runbooks på en Hybrid Runbook Worker
 
@@ -86,7 +86,7 @@ Om du vill använda en hanterad identitet för Azure-resurser på en hybrid Runb
 1. Skapa en virtuell Azure-dator
 2. [Konfigurera hanterade identiteter för Azure-resurser på den virtuella datorn](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Ge din VM åtkomst till en resurs grupp i Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) -självstudie – Windows-VM-Access-arm. MD # get-a-Access-token-using-the-VM-system-Assigned-Identity-and-use-it-to-Call-Azure-Resource-Manager)
-4. [Installera Windows-hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) på den virtuella datorn.
+4. [Installera Windows-hybrid Runbook Worker](automation-windows-hrw-install.md) på den virtuella datorn.
 
 När föregående steg har slutförts kan du använda `Connect-AzureRmAccount -Identity` i runbooken för att autentisera till Azure-resurser. Den här konfigurationen minskar behovet av att använda ett Kör som-konto och hantera certifikatet för kör som-kontot.
 

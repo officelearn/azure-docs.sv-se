@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: df87e652d2969d4ae12e97a2b455648cf39382c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502032"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443133"
 ---
 # <a name="azure-firewall-manager-preview-deployment-overview"></a>Översikt över distributionen av Azure Firewall Manager
 
@@ -20,23 +20,32 @@ ms.locfileid: "73502032"
 
 Det finns fler än ett sätt att distribuera för hands versionen av Azure Firewall Manager, men följande allmänna process rekommenderas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="general-deployment-process"></a>Allmän distributionsprocess
 
-> [!IMPORTANT]
-> För hands versionen av Azure Firewall Manager måste aktive ras explicit med kommandot `Register-AzProviderFeature` PowerShell.
->Kör följande kommandon från en PowerShell-kommandotolk:
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->Det tar upp till 30 minuter innan funktions registreringen har slutförts. Kör följande kommando för att kontrol lera > registrerings status:
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+### <a name="hub-virtual-networks"></a>Hubb virtuella nätverk
+
+1.  Skapa en brand Väggs princip
+
+    - Skapa en ny policy
+<br>*eller*<br>
+    - Härled en grundläggande princip och anpassa en lokal princip
+<br>*eller*<br>
+    - Importera regler från en befintlig Azure-brandvägg. Se till att ta bort NAT-regler från principer som ska tillämpas på flera brand väggar
+1. Skapa din hubb och eker-arkitektur
+   - Skapa en hubb Virtual Network med hjälp av virtuella nätverk i Azure Firewall Manager och virtuella peer-ekrar till den med hjälp av peering för virtuella nätverk
+<br>*eller*<br>
+    - Skapa ett virtuellt nätverk och Lägg till virtuella nätverks anslutningar och peer-ekrar virtuella nätverk med hjälp av peering för virtuella nätverk
+
+3. Välj säkerhets leverantörer och koppla brand Väggs principen. För närvarande är endast Azure-brandväggen en leverantör som stöds.
+
+   - Detta görs när du skapar en hubb Virtual Network
+<br>*eller*<br>
+    - Konvertera ett befintligt virtuellt nätverk till en hubb Virtual Network. Det är också möjligt att konvertera flera virtuella nätverk.
+
+4. Konfigurera användare definiera vägar för att dirigera trafik till hubben Virtual Network brand väggen.
 
 
-
-## <a name="general-deployment-process"></a>Allmän distributions process
+### <a name="secured-virtual-hubs"></a>Skyddade virtuella hubbar
 
 1. Skapa din hubb och eker-arkitektur
 

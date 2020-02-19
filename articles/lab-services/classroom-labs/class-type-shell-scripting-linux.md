@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 226c9ae1c42c85db57dab3fd1911943e167a6288
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133684"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443558"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
 Den här artikeln visar hur du konfigurerar ett labb för att lära sig att använda Shell-skript i Linux. Skript är en användbar del av system administration som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempel scenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Med den här metoden kan ruby skicka data runt-och bash-kommandon för att interagera med gränssnittet. 
@@ -32,7 +32,7 @@ När du har skapat labb kontot aktiverar du följande inställningar i labb kont
 
 | Inställning för labb konto | Instruktioner |
 | ----------- | ------------ |  
-| Marketplace-avbildningar | Aktivera [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) -avbildningen för användning i ditt labb konto. Mer information finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapare](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators) | 
+| Marketplace-avbildningar | Aktivera [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) -avbildningen för användning i ditt labb konto. Mer information finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapande](specify-marketplace-images.md). | 
 
 Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och tillämpa följande inställningar:
 

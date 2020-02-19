@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: victorh
-ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845768"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442997"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -22,15 +22,15 @@ Azure Firewall är en hanterad, molnbaserad tjänst för nätverkssäkerhet som 
 
 ## <a name="what-capabilities-are-supported-in-azure-firewall"></a>Vilka funktioner stöds i Azure Firewall?
 
-* Tillståndskänslig brandvägg som en tjänst
-* Inbyggd hög tillgänglighet med obegränsad skalbarhet i molnet
+* Tillstånds känslig brand vägg som en tjänst
+* Inbyggd hög tillgänglighet med obegränsad moln skalbarhet
 * FQDN-filtrering
 * FQDN-taggar
 * Regler för filtrering av nätverkstrafik
 * Stöd för utgående SNAT
 * Stöd för inkommande DNAT
 * Skapa, tillämpa och logga program-och nätverks anslutnings principer centralt i Azure-prenumerationer och virtuella nätverk
-* Fullständig integrering med Azure Monitor för loggning och analys
+* Fullständigt integrerat med Azure Monitor för loggning och analys
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Vad är en typisk distributions modell för Azure-brandväggen?
 
@@ -88,7 +88,7 @@ Se [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/az
 
 Du kan använda Azure PowerShell *frigör* och *allokera* metoder.
 
-Ett exempel:
+Exempel:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -125,7 +125,7 @@ Ja. Att konfigurera UDR för att omdirigera trafik mellan undernät i samma VNET
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>Har Azure Firewall utgående SNAT mellan privata nätverk?
 
-Azure-brandväggen är inte SNAT när målets IP-adress är ett privat IP-intervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Om din organisation använder ett offentligt IP-adressintervall för privata nätverk SNATs trafiken till någon av brand väggens privata IP-adresser i AzureFirewallSubnet med Azure-brandväggen.
+Azure-brandväggen är inte SNAT när målets IP-adress är ett privat IP-intervall per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Om din organisation använder ett offentligt IP-adressintervall för privata nätverk SNATs trafiken till någon av brand väggens privata IP-adresser i AzureFirewallSubnet med Azure-brandväggen. Du kan konfigurera Azure-brandväggen så att den **inte är** SNAT för ditt offentliga IP-adressintervall. Mer information finns i [Azure FIREWALL SNAT privata IP-adressintervall](snat-private-range.md).
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Stöds Tvingad tunnel trafik/länkning till en virtuell nätverks installation?
 

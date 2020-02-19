@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
 description: Den här artikeln innehåller procedurer för att säkerhetskopiera och återställa virtuella datorer med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 3bca1b46a867c2967dfcebe4bc8477d5f9c9447d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173535"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444068"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
@@ -60,11 +60,11 @@ MABS utför säkerhets kopiering med VSS på följande sätt. Stegen i den här 
 
 Detta är kraven för att säkerhetskopiera virtuella Hyper-V-datorer med MABS:
 
-|Krav|Information|
+|Krav|Detaljer|
 |------------|-------|
 |MABS-krav|– Om du vill utföra återställning på objekt nivå för virtuella datorer (återställa filer, mappar, volymer) måste du installera Hyper-V-rollen på MABS-servern.  Om du bara vill återställa den virtuella datorn och inte på objekt nivå så krävs inte rollen.<br />-Du kan skydda upp till 800 virtuella datorer på 100 GB vardera på en MABS-Server och tillåta flera MABS-servrar som stöder större kluster.<br />-MABS utesluter växlings filen från stegvisa säkerhets kopieringar för att förbättra prestanda för säkerhets kopiering av virtuella datorer.<br />-MABS kan säkerhetskopiera en Hyper-V-server eller ett kluster i samma domän som MABS-servern eller i en underordnad eller betrodd domän. Om du vill säkerhetskopiera Hyper-V i en arbets grupp eller en ej betrodd domän måste du konfigurera autentisering. Du kan använda NTLM eller certifikatautentisering för en enskild Hyper-V-server. Du kan endast använda certifikatautentisering för ett kluster.<br />-Att använda säkerhets kopiering på värdnivå för att säkerhetskopiera data för virtuella datorer på passthrough-diskar stöds inte. I det här scenariot rekommenderar vi att du använder säkerhets kopiering på värdnivå för att säkerhetskopiera VHD-filer och säkerhets kopiering på gästnivå för att säkerhetskopiera andra data som inte är synliga på värden.<br />   -Du kan säkerhetskopiera virtuella datorer som lagras på deduplicerade volymer.|
 |Krav för virtuell Hyper-V-dator|-Versionen av integrations komponenterna som körs på den virtuella datorn måste vara samma som versionen av Hyper-V-värden. <br />– För varje säkerhets kopiering av virtuella datorer behöver du ledigt utrymme på volymen som är värd för de virtuella hård diskarna för att tillåta att Hyper-V är tillräckligt med utrymme för differentierings diskar (AVHD) under säkerhets kopieringen. Utrymmet måste minst vara lika med beräkningen **inledande disk storlek\*omsättnings takt\*tid för säkerhets kopierings** fönstret. Om du kör flera säkerhets kopieringar i ett kluster behöver du tillräckligt med lagrings kapacitet för att hantera AVHD: erna för var och en av de virtuella datorerna som använder den här beräkningen.<br />– Om du vill säkerhetskopiera virtuella datorer som finns på Hyper-V-värd servrar som kör Windows Server 2012 R2, måste den virtuella datorn ha en angiven SCSI-styrenhet, även om den inte är ansluten till något. (I Windows Server 2012 R2 online backup monterar Hyper-V-värden en ny virtuell hård disk i den virtuella datorn och demonterar sedan den senare. Endast SCSI-styrenheten stöder detta och krävs därför för onlinesäkerhetskopiering av den virtuella datorn.  Utan den här inställningen kommer händelse-ID 10103 att utfärdas när du försöker säkerhetskopiera den virtuella datorn.)|
-|Förutsättningar för Linux|– Du kan säkerhetskopiera virtuella Linux-datorer med MABS 2012 R2. Endast filkonsekventa ögonblicks bilder stöds.|
+|Förutsättningar för Linux|– Du kan säkerhetskopiera virtuella Linux-datorer med MABS. Endast filkonsekventa ögonblicks bilder stöds.|
 |Säkerhetskopiera virtuella datorer med CSV-lagring|– För CSV-lagring installerar du VSS-maskinvaruprovidern (Volume Shadow Copy Services) på Hyper-V-servern. Kontakta din storage area network-leverantör (SAN) för VSS-maskinvaruprovidern.<br />– Om en enda nod stängs av utan förvarning i ett CSV-kluster utför MABS en konsekvens kontroll mot de virtuella datorer som kördes på noden.<br />– Om du behöver starta om en Hyper-V-server som har BitLocker-diskkryptering aktiverat i CSV-klustret måste du köra en konsekvens kontroll för virtuella Hyper-V-datorer.|
 |Säkerhetskopiera virtuella datorer med SMB-lagring|– Aktivera automatisk montering på den server som kör Hyper-V för att aktivera skydd av virtuella datorer.<br />   -Inaktivera TCP Chimney-avlastning.<br />– Kontrol lera att alla Hyper-V Machine $-konton har fullständig behörighet för de enskilda SMB-filresurserna.<br />– Kontrol lera att fil Sök vägen för alla virtuella dator komponenter under återställningen till den alternativa platsen är färre än 260 tecken. Annars kan återställningen lyckas, men Hyper-V kan inte montera den virtuella datorn.<br />-Följande scenarier stöds inte:<br />     Distributioner där vissa komponenter i den virtuella datorn finns på lokala volymer och vissa komponenter finns på fjärrvolymer. en IPv4-eller IPv6-adress för lagrings platsens fil server och återställning av en virtuell dator till en dator som använder SMB-fjärrresurser.<br />-Du måste aktivera VSS-agenttjänsten för fil server på varje SMB-server – Lägg till den i **Lägg till roller och funktioner** > **välj Server roller** > **fil-och lagrings tjänster** > **fil tjänster** > **fil tjänst** > **VSS-agenttjänsten för fil Server**.|
 
@@ -209,7 +209,7 @@ När du kan återställa en säkerhets kopie rad virtuell dator använder du åt
 
 3. Från menyn **åtgärder** klickar du på **Återställ** för att öppna återställnings guiden.
 
-    Den virtuella datorn och återställnings punkten du har valt visas på skärmen **Granska val av återställning** . Klicka på **Nästa**.
+    Den virtuella datorn och återställnings punkten du har valt visas på skärmen **Granska val av återställning** . Klicka på **Next**.
 
 4. På skärmen **Välj återställnings typ** väljer du var du vill återställa data och klickar sedan på **Nästa**.
 

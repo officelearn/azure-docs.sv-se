@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: c4a787362089dabf9c4eda9681358e7a70d8e78a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210557"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443609"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Övervaka åtgärder och aktiviteter i Azure Kognitiv sökning
 
 Den här artikeln introducerar övervakning på tjänste nivå (resurs) på arbets belastnings nivå (frågor och indexering) och föreslår ett ramverk för övervakning av användar åtkomst.
 
-I spektrumet använder du en kombination av inbyggda infrastruktur-och grund tjänster som Azure Monitor, samt tjänst-API: er som returnerar statistik, antal och status. Att förstå möjligheterna med funktioner hjälper dig att konfigurera eller skapa ett effektivt kommunikations system för proaktiva svar på problem när de visas.
+I spektrumet använder du en kombination av inbyggda infrastruktur-och grund tjänster som Azure Monitor, samt tjänst-API: er som returnerar statistik, antal och status. Att förstå möjligheterna med funktioner kan hjälpa dig att skapa en feedback-slinga så att du kan lösa problem när de uppstår.
 
 ## <a name="use-azure-monitor"></a>Använda Azure Monitor
 
@@ -52,9 +52,9 @@ Tabbade sidor som är inbyggda i översikts sidan rapporterar om resursanvändni
 
 Om du slutför beslut om [vilken nivå som ska användas för produktions arbets belastningar](search-sku-tier.md), eller om du vill [Justera antalet aktiva repliker och partitioner](search-capacity-planning.md), kan dessa mått hjälpa dig med dessa beslut genom att visa hur snabbt resurser förbrukas och hur väl den aktuella konfigurationen hanterar den befintliga belastningen.
 
-Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics**. Du måste skapa en anpassad lösning för att få resurs-relaterade aviseringar.
+Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. Du behöver bygga en anpassad lösning som utvecklar resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret. Mer information om lagrings mått finns i [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-I portalen visar fliken **användning** resurs tillgänglighet i förhållande till de aktuella [begränsningar](search-limits-quotas-capacity.md) som angetts av tjänst nivån. 
+För visuell övervakning i portalen visar fliken **användning** resurs tillgänglighet i förhållande till de aktuella [begränsningar](search-limits-quotas-capacity.md) som angetts av tjänst nivån. 
 
 Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3 objekt av varje typ och 50 MB lagrings utrymme. En Basic-eller standard-tjänst har högre gränser, och om du ökar antalet partitioner, hamnar det maximala lagrings utrymmet proportionellt.
 
@@ -63,7 +63,7 @@ Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3
 
 ## <a name="monitor-workloads"></a>Övervaka arbets belastningar
 
-Loggade händelser inkluderar de som är relaterade till indexering och frågor. **Azure-diagnostik** -tabellen i Log Analytics samlar in användnings data relaterade till frågor och indexering.
+Loggade händelser inkluderar de som är relaterade till indexering och frågor. **AzureDiagnostics** -tabellen i Log Analytics samlar in drift data som rör frågor och indexering.
 
 De flesta av de loggade data är för skrivskyddade åtgärder. För andra åtgärder för att skapa-uppdatera-ta bort som inte har registrerats i loggen kan du söka efter system information i Sök tjänsten.
 
@@ -115,9 +115,9 @@ Både Azure Kognitiv sökning-REST API och .NET SDK ger programmerings åtkomst 
 
 ## <a name="monitor-user-access"></a>Övervaka användar åtkomst
 
-Eftersom Sök index är en komponent i ett större klient program finns det ingen inbyggd metod för att kontrol lera åtkomsten till ett index. Förfrågningar antas komma från ett klient program, för antingen administratörs-eller fråge förfrågningar. Administratörens Läs-och skriv åtgärder omfattar att skapa, uppdatera och ta bort objekt i hela tjänsten. Skrivskyddade åtgärder är frågor mot dokument samlingen som är begränsade till ett enda index. 
+Eftersom Sök index är en komponent i ett större klient program finns det ingen inbyggd metod för att styra eller övervaka åtkomst till ett index per användare. Förfrågningar antas komma från ett klient program, för antingen administratörs-eller fråge förfrågningar. Administratörens Läs-och skriv åtgärder omfattar att skapa, uppdatera och ta bort objekt i hela tjänsten. Skrivskyddade åtgärder är frågor mot dokument samlingen som är begränsade till ett enda index. 
 
-Därför visas i loggarna referenser till anrop med hjälp av administratörs nycklar eller frågeinställningar. Lämplig nyckel ingår i begär Anden som härstammar från klient koden. Tjänsten är inte utrustad för att hantera identitets-tokens eller personifiering.
+Det du ser i aktivitets loggarna är till exempel referenser till anrop med hjälp av administratörs nycklar eller frågeinställningar. Lämplig nyckel ingår i begär Anden som härstammar från klient koden. Tjänsten är inte utrustad för att hantera identitets-tokens eller personifiering.
 
 När det finns affärs krav för auktorisering per användare, är rekommendationen integrerad med Azure Active Directory. Du kan använda $filter-och användar identiteter för att [trimma Sök Resultat](search-security-trimming-for-azure-search-with-aad.md) för dokument som en användare inte bör se. 
 

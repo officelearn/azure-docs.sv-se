@@ -8,19 +8,15 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 88e3077fb64446f5fa70c1785ad3df1d3746de33
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 452202555734a208a9f32d6f8899e1f679df4a68
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209332"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444000"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Information om kända begränsningar finns i [privat slut punkt](private-endpoint-overview.md#limitations) och [privat länk tjänst](private-link-service-overview.md#limitations).
-
 
 ![Översikt över privat slut punkt](media/private-link-overview/private-endpoint.png)
 

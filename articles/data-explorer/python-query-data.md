@@ -7,24 +7,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827532"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443983"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. I den här artikeln ansluter du till en tabell i *Hjälp klustret* som vi har konfigurerat för att hjälpa till med inlärning. Sedan frågar du en tabell i klustret och returnerar resultatet.
+I den här artikeln frågar du efter data med hjälp av Azure-Datautforskaren. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata.
+
+Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. Anslut till en tabell i *Hjälp klustret* som vi har konfigurerat för att hjälpa till med inlärning. Du kan fråga en tabell i klustret och returnera resultatet.
 
 Den här artikeln är även tillgänglig som en [Azure-anteckningsbok](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En e-postadress för ett organisationskonto som är medlem i Azure Active Directory (AAD)
+* [Python 3.4 +](https://www.python.org/downloads/)
 
-* [Python](https://www.python.org/downloads/) installerat på utvecklingsdatorn
+* En e-postadress för ett organisationskonto som är medlem i Azure Active Directory (AAD)
 
 ## <a name="install-the-data-library"></a>Installera databiblioteket
 
@@ -65,7 +67,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE = "Samples"
 ```
 
-Nu kan du skapa anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett [AAD-programcertifikat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [en AAD-programnyckel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) och [användare och lösenord för AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
+Skapa nu anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett [AAD-programcertifikat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [en AAD-programnyckel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) och [användare och lösenord för AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
@@ -75,7 +77,7 @@ KCSB.authority_id = AAD_TENANT_ID
 
 ## <a name="connect-to-azure-data-explorer-and-execute-a-query"></a>Ansluta till Azure Data Explorer och köra en fråga
 
-Kör en fråga mot klustret och lagra utdata i en dataram. När den här koden körs returneras ett meddelande som liknar följande: *För att logga in använder du en webbläsare för att öppna sidan https://microsoft.com/devicelogin och anger sedan koden F3W4VWZDM för att autentisera dig*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock.
+Kör en fråga mot klustret och lagra utdata i en dataram. När den här koden körs returneras ett meddelande som ser ut ungefär så här: *Om du vill logga in öppnar du en webbläsare och går till sidan https://microsoft.com/devicelogin och anger koden F3W4VWZDM för att autentisera*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB)

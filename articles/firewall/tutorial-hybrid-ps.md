@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: fb8bebb46903366c5e51497e3011a20b4a981e6d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945658"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442685"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -41,13 +41,13 @@ I den här artikeln kan du se hur du:
 > * Peera de virtuella hubb- och ekernätverken
 > * Skapa vägarna
 > * Skapa de virtuella datorerna
-> * testa brandväggen.
+> * Testa brandväggen
 
 Om du vill använda Azure Portal i stället för att slutföra den här kursen, se [Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
@@ -64,7 +64,7 @@ Se avsnittet [skapa vägar](#create-the-routes) i den här artikeln för att se 
 >[!NOTE]
 >Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
 >
->Azure-brandväggen har för närvarande inte stöd för Tvingad tunnel trafik. Om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk och du kan fastställa målets IP-prefix för dina Internet-destinationer, kan du konfigurera dessa intervall med det lokala nätverket som nästa hopp via en användardefinierad väg på AzureFirewallSubnet. Du kan också använda BGP för att definiera dessa vägar.
+>Azure-brandväggen kan konfigureras för att stödja Tvingad tunnel trafik. Mer information finns i [Tvingad tunnel trafik i Azure Firewall](forced-tunneling.md).
 
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
@@ -203,7 +203,7 @@ $AzfwPrivateIP
 
 ```
 
-### <a name="configure-network-rules"></a>Konfigurera nätverksregler
+### <a name="configure-network-rules"></a>konfigurera nätverksregler
 
 <!--- $Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
@@ -452,7 +452,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-## <a name="test-the-firewall"></a>testa brandväggen.
+## <a name="test-the-firewall"></a>Testa brandväggen
 
 Först hämtar du och sedan antecknar den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
 

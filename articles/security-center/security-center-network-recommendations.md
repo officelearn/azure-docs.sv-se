@@ -1,5 +1,5 @@
 ---
-title: Skydda nätverks resurserna i Azure Security Center | Microsoft Docs
+title: Skydda nätverks resurserna i Azure Security Center
 description: Det här dokumentet beskriver rekommendationer i Azure Security Center som hjälper dig att skydda dina Azure-nätverks resurser och hålla dig informerad om säkerhets principer.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 98001ba01c5dd29375a9af3af43a06f760e4f55f
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 792b95b120f67afcd360730acbd783a3071388b2
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552924"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431493"
 ---
 # <a name="protect-your-network-resources"></a>Skydda dina nätverks resurser
 Azure Security Center fort löp ande analyserar säkerhets läget för dina Azure-resurser för metod tips för nätverks säkerhet. När Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.

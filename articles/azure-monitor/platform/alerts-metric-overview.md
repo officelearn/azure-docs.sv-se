@@ -7,12 +7,12 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850065"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444170"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur mått varningar fungerar i Azure Monitor
 
@@ -20,7 +20,7 @@ Mått varningar i Azure Monitor fungerar ovanpå flerdimensionella mått. Dessa 
 
 ## <a name="how-do-metric-alerts-work"></a>Hur fungerar mått varningar?
 
-Du kan definiera en regel för mått varningar genom att ange en mål resurs som ska övervakas, Metric-namn, villkors typ (statisk eller dynamisk) och villkoret (en operator och ett tröskelvärde/känslighet) och en åtgärds grupp som ska utlösas när varnings regeln utlöses. Villkors typer påverkar hur tröskelvärdena bestäms. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
+Du kan definiera en regel för mått varningar genom att ange en mål resurs som ska övervakas, Metric-namn, villkors typ (statisk eller dynamisk) och villkoret (en operator och ett tröskelvärde/känslighet) och en åtgärds grupp som ska utlösas när varnings regeln utlöses. Typen av villkor påverkar hur tröskelvärdena fastställs. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
 
 ### <a name="alert-rule-with-static-condition-type"></a>Varnings regel med statisk villkors typ
 
@@ -125,15 +125,15 @@ Om du ökar antalet återställnings perioder och antalet överträdelser kan du
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Övervakning i skala med hjälp av mått varningar i Azure Monitor
 
-Hittills har du sett hur du kan använda en enda mått avisering för att övervaka en eller flera metriska tids serier som är relaterade till en enda Azure-resurs. Många gånger kanske du vill att samma varnings regel ska tillämpas på många resurser. Azure Monitor också stöd för övervakning av flera resurser med en mått varnings regel. Den här funktionen stöds för närvarande endast på virtuella datorer, SQL Server-databaser, elastiska SQL Server-pooler och data Box Edge-enheter. Dessutom kan en enda mått avisering övervaka resurser i en Azure-region.
+Hittills har du sett hur du kan använda en enda mått avisering för att övervaka en eller flera metriska tids serier som är relaterade till en enda Azure-resurs. Många gånger kanske du vill att samma varnings regel ska tillämpas på många resurser. Azure Monitor också stöd för övervakning av flera resurser (av samma typ) med en mått varnings regel för resurser som finns i samma Azure-region. Den här funktionen stöds för närvarande endast i Azures offentliga moln och endast för virtuella datorer, SQL Server-databaser, elastiska pooler för SQL Server och data Box Edge-enheter. Den här funktionen är även tillgänglig för plattforms mått och stöds inte för anpassade mått.
 
-Du kan ange omfattningen för övervakning av en enda mått avisering på något av tre sätt:
+Du kan ange omfattningen för övervakning av en regel för en enskild måtts avisering på något av tre sätt:
 
 - som en lista över virtuella datorer i en Azure-region inom en prenumeration
 - alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper i en prenumeration
 - alla virtuella datorer (i en Azure-region) i en prenumeration
 
-Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Du kommer att få enskilda meddelanden för varje virtuell dator.
+Skapa mått varnings regler som övervakar flera resurser, till exempel att [skapa alla andra mått varningar](alerts-metric.md) som övervakar en enskild resurs. Den enda skillnaden är att du väljer alla resurser som du vill övervaka. Du kan också skapa dessa regler genom att [Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Du får enskilda meddelanden för varje övervakad resurs.
 
 ## <a name="typical-latency"></a>Typisk svars tid
 

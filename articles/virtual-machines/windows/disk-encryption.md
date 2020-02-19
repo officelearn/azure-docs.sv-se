@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 73a505ce68ed046eba011d3b36991616f441506e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206317"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430422"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på Server sidan av Azure Managed disks
 
@@ -58,7 +58,7 @@ Information om hur du återkallar åtkomst till Kundhanterade nycklar finns i [A
 
 Det finns för närvarande endast stöd för följande regioner:
 
-- Tillgängligt som ett GA-erbjudande i regionerna östra USA, västra USA 2 och södra centrala USA.
+- Tillgänglig som ett GA-erbjudande i USA, västra USA 2, södra centrala USA, Storbritannien, södra regioner.
 - Tillgängligt som en offentlig för hands version i regionerna västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
 
 ### <a name="restrictions"></a>Begränsningar

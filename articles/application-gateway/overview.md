@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1e80fa23519104c3c62f6a0bf5d65cbbe0848ae2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658278"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443830"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -61,7 +61,7 @@ Mer information finns i [Vad är en brand vägg för Azure Web Application?](../
 ## <a name="ingress-controller-for-aks"></a>Ingress-kontrollant för AKS
 Med Application Gateway ingångs kontroll (AGIC) kan du använda Application Gateway som ingångs punkt för ett [Azure Kubernetes service-kluster (AKS)](https://azure.microsoft.com/services/kubernetes-service/) . 
 
-Ingångs kontrollen körs som en POD i AKS-klustret och använder [Kubernetes ingångs resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/) och konverterar dem till en Application Gateway-konfiguration som gör att gatewayen kan belastningsutjämna trafik till Kubernetes poddar. Ingångs styrenheten har endast stöd för Application Gateway v2 SKU. 
+Ingångs kontrollen körs som en POD i AKS-klustret och använder [Kubernetes ingångs resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/) och konverterar dem till en Application Gateway-konfiguration som gör att gatewayen kan belastningsutjämna trafik till Kubernetes poddar. Ingångs styrenheten har endast stöd för Application Gateway Standard_v2 och WAF_v2 SKU: er. 
 
 Mer information finns i [Application Gateway ingress-styrenhet (AGIC)](ingress-controller-overview.md).
 
@@ -77,7 +77,7 @@ Mer information finns i [URL-baserad routning med Application Gateway](https://d
 
 Om du har flera webbplatser så kan du konfigurera fler än en webbplats inom samma programgateway-instans. Med den här funktionen kan du konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Application Gateway eller 40 för WAF (för optimala prestanda). Varje webbplats kan dirigeras till en egen programpool. Till exempel kan programgatewayen hantera trafik för `contoso.com` och `fabrikam.com` från två serverpooler som kallas ContosoServerPool och FabrikamServerPool.
 
-Begäranden för `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
+Begäranden om `http://contoso.com` dirigeras till ContosoServerPool och `http://fabrikam.com` dirigeras till FabrikamServerPool.
 
 På samma sätt kan två underdomäner i samma överordnade domän finnas på samma distribution av en programgateway. Exempel på användning av underdomäner kan vara `http://blog.contoso.com` och `http://app.contoso.com` på samma distribution av en programgateway.
 
@@ -143,10 +143,10 @@ En fullständig lista över gränserna för programgateways finns i avsnittet om
 
 I följande tabell visas ett genomsnittligt prestanda data flöde för varje Application Gateway v1-instans med SSL-avlastning aktive rad:
 
-| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medium | Stor |
+| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medel | Stor |
 | --- | --- | --- | --- |
 | 6 kB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
-| 100 kB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
+| 100 kB |35 Mbit/s |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.

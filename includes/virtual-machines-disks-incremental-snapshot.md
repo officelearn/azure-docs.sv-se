@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752072"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445985"
 ---
 Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
@@ -23,7 +23,7 @@ Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är un
 
 ## <a name="restrictions"></a>Begränsningar
 
-- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i östra USA, östra USA 2, centrala USA, västra centrala USA, Östra Kanada, centrala Kanada och Europa, norra.
+- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i östra USA, östra USA 2, centrala USA, västra centrala USA, Östra Kanada, centrala Kanada, Nord Europa, Asien, sydöstra.
 - Det går för närvarande inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk.
 - Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
 - För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.

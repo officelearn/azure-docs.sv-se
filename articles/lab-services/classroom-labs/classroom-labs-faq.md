@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252067"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443507"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
@@ -27,6 +27,9 @@ Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Se
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Är kvoten per användare eller per vecka eller per hela tiden för labbet? 
 Den kvot som du har angett för ett labb är för varje student under hela Labbets varaktighet. Och den [schemalagda körningen av virtuella datorer](how-to-create-schedules.md) räknas inte mot den kvot som tilldelats till en användare. Kvoten är för tiden utanför de schema timmar som en student tillbringar på virtuella datorer.  Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md#set-quotas-for-users).
+
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Om jag aktiverar en elev-VM, påverkar detta student kvoten? 
+Nej. Det inte. När den virtuella datorn är aktive ras, påverkar den inte den kvot som tilldelats studenten. 
 
 ## <a name="schedules"></a>Scheman
 
@@ -42,7 +45,9 @@ Om du till exempel har ett block på/19-10.0.0.0/19 får detta adress intervall 
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Vilka port intervall ska jag öppna i min organisations brand Väggs inställning för att ansluta till virtuella labb datorer via RDP/SSH?
 
-Portarna är: 49152 – 65535. Klass rums labb är placerade bakom en belastningsutjämnare, så alla virtuella datorer i ett labb har en enda IP-adress och varje virtuell dator i labbet har en unik port. Port numren och den offentliga IP-adressen kan ändras varje gång labbet publiceras om.
+Portarna är: 49152 – 65535. Klass rummets labb är placerade bakom en belastningsutjämnare. Varje labb har en enda offentlig IP-adress och varje virtuell dator i labbet har en unik port. 
+
+Du kan också se den privata IP-adressen för varje virtuell dator på fliken **virtuell dator pool** på Start sidan för labbet i Azure Portal. Om du återpublicerar ett labb kommer den offentliga IP-adressen för labbet inte att ändras, men den privata IP-adressen och port numret för varje virtuell dator i labbet kan ändras. Du kan läsa mer i artikeln: [brand Väggs inställningar för Azure Lab Services](how-to-configure-firewall-settings.md).
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>Vilka offentliga IP-adressintervall ska jag öppna i min organisations brand Väggs inställningar för att ansluta till virtuella labb datorer via RDP/SSH?
 Se [Azure IP-intervall och service märken – offentliga moln](https://www.microsoft.com/download/details.aspx?id=56519), som tillhandahåller det offentliga IP-adressintervallet för data Center i Azure. Du kan öppna IP-adresserna för de regioner där dina labb konton finns.

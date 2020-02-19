@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312421"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444153"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -46,11 +46,11 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
 |Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverad som standard|
-|Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgänglig| Inaktiverat som standard |
+|Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
 
-## <a name="authorization"></a>Autentisering
+## <a name="authorization"></a>Auktorisering
 
 Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. När du delar en arbets yta kan du kontrol lera åtkomsten till den genom att tilldela dessa roller till användare:
 
@@ -215,7 +215,7 @@ Varje arbets yta har en associerad systemtilldelad hanterad identitet som har sa
 
 Microsoft kan samla in information om icke-användare, t. ex. resurs namn (till exempel data uppsättningens namn eller namnet på Machine Learning-experimentet) eller jobbets miljövariabler för diagnostisk användning. Alla sådana data lagras med Microsoft-hanterade nycklar i lagring som finns i Microsofts ägda prenumerationer och följer [Microsofts standard sekretess policy och data hanterings standarder](https://privacy.microsoft.com/privacystatement).
 
-Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss.
+Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss. Undvik att inkludera känslig information som användar namn eller namn på hemliga projekt på samma sätt som när du namnger [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py). Den här informationen kan visas i telemetri loggar som är tillgängliga för Microsoft Support tekniker.
 
 Du kan välja att inte använda diagnostikdata som samlas in genom att ange parametern `hbi_workspace` för att `TRUE` när arbets ytan har skapats. Den här funktionen stöds när du använder AzureML python SDK, CLI, REST API: er eller Azure Resource Manager mallar.
 
@@ -252,8 +252,8 @@ Information om bedömnings förfrågningar lagras i Application Insights. Applic
 * ComputeType
 * RequestUrl
 * StatusCode
-* RequestId
-* Längd
+* requestId
+* Varaktighet
 
 > [!IMPORTANT]
 > Vissa åtgärder i Azure Machine Learning-arbetsytan loggar inte information i aktivitets loggen. Exempelvis loggas inte starten av en utbildnings körning och registreringen av en modell.
@@ -333,9 +333,9 @@ Här är information:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
 * [Använda en Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
-* [Hur du kör batch-förutsägelser](how-to-use-parallel-run-step.md)
+* [Så här kör du batch-förutsägelser](how-to-use-parallel-run-step.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

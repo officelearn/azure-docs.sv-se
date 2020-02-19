@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c2dc98d683d822628dc9ea1b4ead02279ea10ea5
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251812"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443864"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Vanliga frågor och svar om Azure App Service på Linux
 
@@ -33,7 +33,7 @@ Du kan hitta alla Docker-filer på [GitHub](https://github.com/azure-app-service
 | Stack           | Förväntat värde                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
 | Java SE         | kommandot för att starta JAR-appen (till exempel `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
-| Tomcat, Wildfly | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
+| Tomcat          | platsen för ett skript för att utföra nödvändiga konfigurationer (till exempel `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | konfigurations filen för PM2 eller skript filen                                |
 | .Net Core       | det kompilerade DLL-namnet som `dotnet <myapp>.dll`                                 |
 | Ruby            | det ruby-skript som du vill initiera din app med                     |

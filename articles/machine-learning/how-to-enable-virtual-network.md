@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169950"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444357"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -134,13 +134,14 @@ Om du vill använda en Azure Machine Learning beräknings instans eller beräkni
 > * Om du ska lagra flera beräknings instanser eller kluster i ett virtuellt nätverk kan du behöva begära en kvot ökning för en eller flera av dina resurser.
 > * Om Azure Storage kontona för arbets ytan också är skyddade i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som Azure Machine Learning beräknings instans eller kluster. 
 
-Machine Learning beräknings instans eller kluster allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller det virtuella nätverket. För varje beräknings instans eller kluster allokerar tjänsten följande resurser:
-
-* En nätverks säkerhets grupp
-* En offentlig IP-adress
-* En belastningsutjämnare
-
-Dessa resurser begränsas av prenumerationens [resurskvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+> [!TIP]
+> Machine Learning beräknings instans eller kluster allokerar automatiskt ytterligare nätverks resurser i resurs gruppen som innehåller det virtuella nätverket. För varje beräknings instans eller kluster allokerar tjänsten följande resurser:
+> 
+> * En nätverks säkerhets grupp
+> * En offentlig IP-adress
+> * En belastningsutjämnare
+> 
+> Dessa resurser begränsas av prenumerationens [resurskvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 ### <a id="mlcports"></a>Portar som krävs
@@ -500,6 +501,10 @@ När du använder Azure-brandväggen måste du konfigurera en nätverks regel f�
 När du lägger till regeln ställer du in __protokollet__ på valfri, och portarna som ska `*`.
 
 Mer information om hur du konfigurerar en nätverks regel finns i [distribuera och konfigurera Azure-brandväggen](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="use-azure-container-registry"></a>Använda Azure Container Registry
+
+När du använder ett virtuellt nätverk med Azure Machine Learning ska du __inte__ flytta Azure Container Registry för arbets ytan i det virtuella nätverket. Konfigurationen stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 98a21e9fa846d5a91ed1242701484afaa641cddc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1267487e44556a468db26a2ffaaa163dce540571
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718041"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443490"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services
 Lärare/labb administratören kan spara en mall för en virtuell dator i ett galleri för Azure- [delade avbildningar](../../virtual-machines/windows/shared-image-galleries.md) så att de kan återanvändas av andra. Som ett första steg kopplar labb administratören ett befintligt delat avbildnings galleri till labb kontot. När du har bifogat det delade bild galleriet kan labb som skapats i labb kontot Spara bilder i det delade avbildnings galleriet. Andra lärare kan välja den här avbildningen från galleriet för delade avbildningar för att skapa en mall för deras klasser. 

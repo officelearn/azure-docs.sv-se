@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Avancerat skydd för Azure Key Vault | Microsoft Docs
+title: Konfigurera Advanced Threat Protection för Azure Key Vault
 description: I den här artikeln förklaras hur du konfigurerar Avancerat skydd för Azure Key Vault i Azure Security Center
 services: security-center
 author: memildin
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f7f716734875d652de575991a4dc1b7bfe948ae3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 07924201d4208a502aa979dda476c57cf6edd749
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773519"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430558"
 ---
 # <a name="set-up-advanced-threat-protection-for-azure-key-vault-preview"></a>Konfigurera Avancerat skydd för Azure Key Vault (för hands version)
 

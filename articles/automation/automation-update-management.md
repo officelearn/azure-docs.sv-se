@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513328"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443847"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -36,7 +36,7 @@ Följande diagram illustrerar hur lösningen utvärderar och tillämpar säkerhe
 
 ![Uppdateringshantering process flöde](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Du kan använda Uppdateringshantering till att internt registrera datorer i flera prenumerationer hos samma klientorganisation.
+Uppdateringshantering kan användas för att internt publicera datorer i flera prenumerationer i samma klient organisation.
 
 När ett paket har frigjorts tar det 2 till 3 timmar innan korrigeringen visas för Linux-datorer för utvärdering. För Windows-datorer tar det 12 till 15 timmar innan korrigeringen visas för utvärderingen när den har släppts.
 
@@ -67,12 +67,12 @@ En dator som är registrerad för Uppdateringshantering i fler än en Log Analyt
 
 ### <a name="supported-client-types"></a>Stöds klienttyper
 
-I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i installations guiderna för att installera en [Windows-hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) och en [Linux-hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
+I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i installations guiderna för att installera en [Windows-hybrid Runbook Worker](automation-windows-hrw-install.md) och en [Linux-hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering har endast stöd för att utföra utvärderingar för det här operativ systemet stöds inte korrigering eftersom [hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) inte stöds för Windows Server 2008 R2. |
+|Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering har endast stöd för att utföra utvärderingar för det här operativ systemet stöds inte korrigering eftersom [hybrid Runbook Worker](automation-windows-hrw-install.md) inte stöds för Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. Klassificerings-baserad uppdatering kräver `yum` för att returnera säkerhets data som CentOS inte har i sina RTM-versioner. Mer information om klassificerings-baserad uppdatering på CentOS finns i [uppdaterings klassificeringar i Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) och 12 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -92,7 +92,7 @@ I följande tabell visas operativ system som inte stöds:
 |Windows Server 2016 Nano Server     | Stöds inte.       |
 |Azure Kubernetes service-noder | Stöds inte. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
-### <a name="client-requirements"></a>Klientkrav
+### <a name="client-requirements"></a>Klient krav
 
 Följande information beskriver OS-särskilda klient krav. Ytterligare vägledning finns i [nätverks planering](#ports).
 
@@ -135,7 +135,7 @@ Du kan lägga till Windows-datorer i en Hybrid Runbook Worker grupp i ditt Autom
 
 ### <a name="management-packs"></a>Hanteringspaket
 
-Om din hanteringsgrupp för System Center Operations Manager är ansluten till Log Analytics-arbetsytan installeras därefter följande hanteringspaket i Operations Manager. Dessa hanteringspaket installeras också på direktanslutna Windows-datorer när du lägger till lösningen. Du behöver inte konfigurera eller hantera dessa hanteringspaket.
+Om din System Center Operations Manager hanterings grupp är ansluten till en Log Analytics arbets yta installeras följande hanterings paket i Operations Manager. Dessa hanterings paket installeras också på direktanslutna Windows-datorer när du har lagt till lösningen. Du behöver inte konfigurera eller hantera dessa hanterings paket.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -167,7 +167,7 @@ En sökning utförs två gånger per dag för varje hanterad Windows-dator. Var 
 
 En sökning utförs varje timme för varje hanterad Linux-dator.
 
-Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data för de datorer som hanteras.
+Det kan ta mellan 30 minuter och 6 timmar för instrument panelen att Visa uppdaterade data från hanterade datorer.
 
 Den genomsnittliga data användningen per Azure Monitor loggar för en dator som använder Uppdateringshantering är cirka 25 megabyte (MB) per månad. Det här värdet är bara en uppskattning och kan komma att ändras, beroende på din miljö. Vi rekommenderar att du övervakar din miljö för att hålla koll på din exakta användning.
 
@@ -208,7 +208,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ![Uppdateringar som saknas](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Uppdatera klassificeringar
+## <a name="update-classifications"></a>Uppdaterings klassificeringar
 
 I följande tabeller visas uppdaterings klassificeringarna i Uppdateringshantering, med en definition för varje klassificering.
 

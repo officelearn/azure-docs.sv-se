@@ -4,14 +4,14 @@ description: I den här snabb starten distribuerar du ett exempel program till A
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: adb5b64456de743142ffb464ebb2c5e9f8dc8f86
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e30da0844efa48f64a5e2501c79d2167ca4be92
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190774"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431271"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Snabb start: starta ett Java våren-program med Azure CLI
 
@@ -143,28 +143,34 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## <a name="assign-public-endpoint-to-gateway"></a>Tilldela offentlig slut punkt till gateway
 
-Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway-program behöver en offentlig slut punkt som kan tilldelas med följande kommando:
+Vi behöver ett sätt att komma åt programmet via en webbläsare. Vårt Gateway-program behöver en offentlig slut punkt.
+
+1. Tilldela slut punkten med följande kommando:
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+2. Fråga **Gateway** -appen efter dess offentliga IP-adress så att du kan kontrol lera att programmet körs:
 
-Till sist kan du fråga **Gateway** -appen efter dess offentliga IP-adress så att du kan kontrol lera att programmet körs:
-
+Linux:
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
-
-Gå till URL: en som tillhandahålls av föregående kommando för att köra PiggyMetrics-programmet.
+Windows:
+```azurecli
+az spring-cloud app show --name gateway | findstr url
+```
+3. Gå till URL: en som tillhandahålls av föregående kommando för att köra PiggyMetrics-programmet.
     ![skärm bild av PiggyMetrics som kör](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 Du kan också navigera Azure Portal för att hitta URL: en. 
 1. Navigera till tjänsten
-1. Välj **appar**
-1. Välj **Gateway**
+2. Välj **appar**
+3. Välj **Gateway**
 
     ![Skärm bild av PiggyMetrics som körs](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Hitta URL: en på sidan **Gateway-översikt** ![skärm bild av PiggyMetrics som kör](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    
+4. Hitta URL: en på sidan **Gateway-översikt** ![skärm bild av PiggyMetrics som kör](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0287a8011eb10120e273fb063c98ccd3c1a85782
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278029"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443592"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Förbättrade säkra poäng (för hands version) 
 
@@ -101,7 +101,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
 |**Kryptera data under överföring**|4|– API-appen bör bara vara tillgänglig via HTTPS<br>-Funktionsapp bör endast vara tillgängligt via HTTPS<br>– Endast säkra anslutningar till din Redis Cache ska vara aktiverade<br>– Säker överföring till lagrings konton ska vara aktiverat<br>– Webb programmet bör endast vara tillgängligt via HTTPS|
 |**Hantera åtkomst och behörigheter**|4|-Högst 3 ägare bör anges för din prenumeration<br>-Inaktuella konton bör tas bort från din prenumeration (för hands version)<br>-Inaktuella konton med ägar behörigheter bör tas bort från din prenumeration (för hands version)<br>-Externa konton med ägar behörigheter bör tas bort från din prenumeration (för hands version)<br>-Externa konton med Läs behörighet bör tas bort från din prenumeration<br>-Externa konton med Skriv behörighet bör tas bort från din prenumeration (för hands version)<br>-Det måste finnas fler än en ägare som har tilldelats din prenumeration<br>-Rollbaserad Access Control (RBAC) ska användas på Kubernetes Services (för hands version)<br>-Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering|
 |**Åtgärda säkerhetskonfigurationer**|4|-Pod säkerhets principer bör definieras på Kubernetes Services (för hands version)<br>-Sårbarheter i säkerhets konfigurationerna för behållaren bör åtgärdas<br>-Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas<br>– Säkerhets risker i säkerhets konfiguration på dina virtuella datorers skalnings uppsättningar bör åtgärdas<br>– Övervaknings agenten ska installeras på dina virtuella datorer<br>– Övervaknings agenten ska installeras på dina datorer<br>– Övervaknings agenten ska installeras på virtuella datorers skalnings uppsättningar<br>– Övervaknings agentens hälso problem bör lösas på dina datorer|
-|**Begränsa obehörig nätverks åtkomst**|4|-IP-vidarebefordran på den virtuella datorn måste inaktive ras<br>-Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>-Åtkomst till App Services ska vara begränsad (för hands version)<br>– Reglerna för webb program på IaaS NSG: er bör vara härdade<br>– Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>-CORS bör inte tillåta alla resurser åtkomst till din API-app<br>-CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>-CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>– Fjärrfelsökning bör inaktive ras för API-appen<br>– Fjärrfelsökning bör inaktive ras för Funktionsapp<br>– Fjärrfelsökning bör inaktive ras för webb program<br>– Åtkomsten ska begränsas för tillåtna nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>– Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta|
+|**Begränsa obehörig nätverks åtkomst**|4|-IP-vidarebefordran på den virtuella datorn måste inaktive ras<br>-Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>-(Föråldrad) åtkomst till App Services ska vara begränsad (för hands version)<br>-(Inaktuell) reglerna för webb program på IaaS NSG: er bör vara härdade<br>– Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>-CORS bör inte tillåta alla resurser åtkomst till din API-app<br>-CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>-CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>– Fjärrfelsökning bör inaktive ras för API-appen<br>– Fjärrfelsökning bör inaktive ras för Funktionsapp<br>– Fjärrfelsökning bör inaktive ras för webb program<br>– Åtkomsten ska begränsas för tillåtna nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>– Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta|
 |**Använd adaptiv program kontroll**|3|– Adaptiva program kontroller ska vara aktiverade på virtuella datorer<br>– Övervaknings agenten ska installeras på dina virtuella datorer<br>– Övervaknings agenten ska installeras på dina datorer<br>– Övervaknings agentens hälso problem bör lösas på dina datorer|
 |**Använd data klassificering**|2|-Känsliga data i dina SQL-databaser ska klassificeras (för hands version)|
 |**Skydda program mot DDoS-attacker**|2|-DDoS Protection standard ska vara aktive rad|

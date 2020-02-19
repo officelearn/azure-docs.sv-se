@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 69801909c6bc8d215ca7dd3ccb7ac349201e8774
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 578fcf4cd03a2d4fc8400b9e84f53206750a588c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198572"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430728"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar
 
@@ -39,7 +39,7 @@ För att kunna börja skicka konfigurations rapporter för automatiserings tills
 - Ett Azure Automation-konto. Mer information finns i [Introduktion till Azure Automation](automation-intro.md).
 - En Log Analytics arbets yta med ett tjänst erbjudande för Automation &-kontroll. Mer information finns i [Kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 - Minst en nod för Azure Automation tillstånds konfiguration. Mer information finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-- [XDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) -modulen, version 2.7.0.0 eller senare. Installations anvisningar finns i [felsöka Azure Automation önskad tillstånds konfiguration](./troubleshoot/desired-state-configuration.md#steps-to-troubleshoot-desired-state-configuration-dsc).
+- [XDscDiagnostics](https://www.powershellgallery.com/packages/xDscDiagnostics/2.7.0.0) -modulen, version 2.7.0.0 eller senare. Installations anvisningar finns i [felsöka Azure Automation önskad tillstånds konfiguration](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurera integration med Azure Monitor loggar
 

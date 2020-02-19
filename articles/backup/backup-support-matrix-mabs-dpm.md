@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111464"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444034"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -70,9 +70,9 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 **Scenario** | **DPM/MABS**
 --- | ---
-**MABS på en virtuell Azure-dator** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minst a2-standard med två kärnor och 3,5 GB RAM-minne.
-**DPM på en virtuell Azure-dator** | System Center 2012 R2 med uppdatering 3 eller senare.<br/><br/> Windows operativ system som [krävs av System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minst a2-standard med två kärnor och 3,5 GB RAM-minne.
-**MABS lokalt** | 64-bitars operativ system som stöds:<br/><br/> MABS v3 och senare: Windows Server 2019 (standard, data Center, Essentials). <br/><br/> MABS v2 och senare: Windows Server 2016 (standard, data Center, Essentials).<br/><br/> Alla MABS-versioner: Windows Server 2012 R2.<br/><br/>Alla MABS-versioner: Windows Storage Server 2012 R2.
+**MABS på en virtuell Azure-dator** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minsta Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
+**DPM på en virtuell Azure-dator** | System Center 2012 R2 med uppdatering 3 eller senare.<br/><br/> Windows operativ system som [krävs av System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Vi rekommenderar att du börjar med en avbildning från Marketplace.<br/><br/> Minsta Standard_A4_v2 med fyra kärnor och 8 GB RAM-minne.
+**MABS lokalt** |  MABS v3 och senare: Windows Server 2016 eller Windows Server 2019
 **Lokalt DPM** | Fysisk server/Hyper-V VM: System Center 2012 SP1 eller senare.<br/><br/> VMware VM: System Center 2012 R2 med uppdatering 5 eller senare.
 
 >[!NOTE]
@@ -84,7 +84,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 --- | ---
 **Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).
 **Domänsuffix** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
-**Lagring** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
+**Storage** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-uppgradering** | Du kan installera MABS v3 direkt eller uppgradera till MABS v3 från MABS v2. [Läs mer](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Flyttar MABS** | Det finns stöd för att flytta MABS till en ny server samtidigt som lagringen behålls om du använder MB.<br/><br/> Servern måste ha samma namn som originalet. Du kan inte ändra namnet om du vill behålla samma lagringspool och använda samma MABS-databas för att lagra data återställnings punkter.<br/><br/> Du behöver en säkerhets kopia av MABS-databasen eftersom du behöver återställa den.
 
@@ -134,7 +134,7 @@ Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhe
 
 Data som säkerhets kopie ras till DPM/MABS lagras på den lokala disk lagringen.
 
-**Lagring** | **Detaljer**
+**Storage** | **Detaljer**
 --- | ---
 **MB** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-lagring på virtuell Azure-dator** | Data lagras på Azure-diskar som är anslutna till den virtuella DPM-MABS och som hanteras i DPM/MABS. Antalet diskar som kan användas för DPM/MABS-lagringspoolen begränsas av storleken på den virtuella datorn.<br/><br/> A2 VM: 4 diskar; A3 VM: 8 diskar; A4 VM: 16 diskar, med en maximal storlek på 1 TB för varje disk. Detta avgör den totala tillgängliga lagringspoolen för säkerhets kopiering.<br/><br/> Mängden data som du kan säkerhetskopiera beror på antalet och storleken på de anslutna diskarna.

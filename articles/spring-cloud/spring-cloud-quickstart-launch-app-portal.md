@@ -4,14 +4,14 @@ description: I den här snabb starten ska du distribuera ett fjäder moln progra
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: b65fbf7882c3ce7f6eb7e88c89eca83340ee2d05
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251829"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431391"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -54,20 +54,42 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Etablera en tjänst instans på Azure Portal
 
-1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)i en webbläsare.
+1. Öppna [Azure Portal](https://ms.portal.azure.com/)på en ny flik. 
 
-1. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
-    - Tjänst namn: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
-    - Prenumeration: Välj den prenumeration som du vill fakturera för den här resursen.  Se till att den här prenumerationen har lagts till i vår lista över tillåtna för Azure våren-molnet.
-    - Resurs grupp: skapa nya resurs grupper för nya resurser är en bra metod.
-    - Plats: Välj platsen för din tjänst instans. De platser som stöds för närvarande är USA, västra USA 2, Västeuropa och Sydostasien.
+2. Sök efter **Azure våren Cloud**i den översta sökrutan.
 
-1. Klicka på **Granska och skapa**.
+3. Välj **Azure våren Cloud** från resultaten.
 
-1. Kontrol lera dina specifikationer och klicka på **skapa**.
+ ![ASC-ikon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
->[!Note]
-> Om verifieringen av mallen tar mer än tre minuter att slutföra kan du försöka med att inaktivera spårningen och försöka igen.
+4. På sidan Azure våren Cloud klickar du på **+ Lägg till**.
+
+ ![ASC-ikon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+
+5. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
+    - **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.  Se till att den här prenumerationen har lagts till i vår lista över tillåtna för Azure våren-molnet.
+    - **Resurs grupp**: skapa nya resurs grupper för nya resurser är en bra metod.
+    - **Tjänst information/namn**: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+    - **Plats**: Välj platsen för din tjänst instans. De platser som stöds för närvarande är USA, västra USA 2, Västeuropa och Sydostasien.
+
+    ![ASC-portalen börjar](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+6. Klicka på fliken **diagnostisk inställning** för att öppna följande dialog ruta.
+
+7. Du kan ställa in **Aktivera loggar** på *Ja* eller *Nej* enligt dina krav.
+
+    ![Aktivera loggar](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
+
+8. Klicka på fliken **spårning** .
+
+9. Du kan ställa in **Aktivera spårning** till *Ja* eller *Nej* enligt dina krav.  Om du ställer in **Aktivera spårning** till Ja väljer du också en befintlig inblick i programmet eller skapar en ny. Utan den **Application Insights** specifikationen visas ett verifierings fel.
+
+
+    ![Spårning](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+
+10. Klicka på **Granska och skapa**.
+
+11. Kontrol lera dina specifikationer och klicka på **skapa**.
 
 Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distribuerats visas **översikts** sidan för tjänst instansen.
 
@@ -79,9 +101,9 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Gå till sidan tjänst **Översikt** och välj **konfigurations Server**.
 
-1. I avsnittet **standard plats** ställer du in **URI** till "https://github.com/Azure-Samples/piggymetrics-config".
+2. I avsnittet **standard plats** ställer du in **URI** till "https://github.com/Azure-Samples/piggymetrics-config".
 
-1. Välj **tillämpa** för att spara ändringarna.
+3. Välj **tillämpa** för att spara ändringarna.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
@@ -98,27 +120,27 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. Bygg det klonade paketet.
+2. Bygg det klonade paketet.
 
     ```azurecli
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-1. Tilldela namn till din resurs grupp och din tjänst. Se till att ersätta plats hållarna nedan med resurs grupps namnet och tjänst namnet som du etablerade tidigare i den här självstudien.
+3. Tilldela namn till din resurs grupp och din tjänst. Se till att ersätta plats hållarna nedan med resurs grupps namnet och tjänst namnet som du etablerade tidigare i den här självstudien.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Skapa `gateway`-programmet och distribuera JAR-filen.
+4. Skapa `gateway`-programmet och distribuera JAR-filen.
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. När du har använt samma mönster skapar du `account-service` och `auth-service` program och distribuerar deras JAR-filer.
+5. När du har använt samma mönster skapar du `account-service` och `auth-service` program och distribuerar deras JAR-filer.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -127,7 +149,7 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. Det tar några minuter att slutföra distributionen av programmen. För att bekräfta att de har distribuerats går du till bladet **appar** i Azure Portal. Du bör se en rad vart och ett av de tre programmen.
+6. Det tar några minuter att slutföra distributionen av programmen. För att bekräfta att de har distribuerats går du till bladet **appar** i Azure Portal. Du bör se en rad vart och ett av de tre programmen.
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
@@ -136,13 +158,13 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 1. Öppna fliken **appar** på menyn till vänster.
 
-1. Välj `gateway` programmet för att visa **översikts** sidan.
+2. Välj `gateway` programmet för att visa **översikts** sidan.
 
-1. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Det kan ta några minuter.
+3. Välj **tilldela slut punkt** för att tilldela en offentlig slut punkt till gateway. Det kan ta några minuter.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
-1. Ange den tilldelade offentliga slut punkten (med etiketten **URL**) i webbläsaren för att visa programmet som körs.
+4. Ange den tilldelade offentliga slut punkten (med etiketten **URL**) i webbläsaren för att visa programmet som körs.
 
     ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 

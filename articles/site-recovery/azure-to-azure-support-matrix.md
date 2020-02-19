@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d278f96acf8d8efc57a9ae7fb57f9a758339162a
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863935"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444085"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -20,10 +20,10 @@ Den här artikeln sammanfattar support och krav för haveri beredskap för virtu
 
 **Distribution** |  **Support**
 --- | ---
-**Azure-portalen** | Stöds.
+**Azure Portal** | Stöds.
 **PowerShell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
 **REST API** | Stöds.
-**CLI** | Stöds för närvarande inte
+**CLI** | Stöds inte för närvarande
 
 
 ## <a name="resource-support"></a>Resursstöd
@@ -62,14 +62,14 @@ Begränsade regioner som är reserverade för haveri beredskap i landet |Tysklan
 
 
 
-## <a name="cache-storage"></a>Cachelagring
+## <a name="cache-storage"></a>Cache Storage
 
 I den här tabellen sammanfattas stödet för cache Storage-kontot som används av Site Recovery under replikeringen.
 
 **Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Generell användning v2-lagrings konton (frekvent och låg frekvent nivå) | Stöds | Användning av GPv2 rekommenderas inte eftersom transaktionskostnader för v2 är betydligt högre än v1-lagrings konton.
-Premium-lagring | Stöds inte | Standard lagrings konton används för cachelagring för att hjälpa till att optimera kostnaderna.
+Premium Storage | Stöds inte | Standard lagrings konton används för cachelagring för att hjälpa till att optimera kostnaderna.
 Azure Storage brand väggar för virtuella nätverk  | Stöds | Om du använder en brand vägg som är aktive rad för cache-lagring eller mål lagrings konto, se till att du [tillåter betrodda Microsoft-tjänster](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Se också till att du tillåter åtkomst till minst ett undernät för det virtuella käll nätverket.
 
 
@@ -98,14 +98,15 @@ Windows 7 (x64) med SP1 och senare | Från version [9,30](https://support.micros
 
 **Operativsystem** | **Detaljer**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
-CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1
+CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0, 8,1
 Ubuntu 14,04 LTS-Server | [Kernel-versioner som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och loggar in och Cloud-Init-paketet för att konfigurera virtuella datorer i molnet kan ha lösenordsbaserad inloggning inaktive rad vid redundansväxling (beroende på cloudinit-konfigurationen). Lösenordsbaserade inloggningar kan återaktiveras på den virtuella datorn genom att återställa lösen ordet från Support > fel sökning > Inställningar-menyn (av den misslyckade virtuella datorn i Azure Portal.
 Ubuntu 18,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | [Kernel-versioner som stöds](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Kernel-versioner som stöds](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 15 | 15 och 15 SP1. [(Kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Uppgradering av replikering av datorer från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5) 
@@ -113,18 +114,19 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Ubuntu kernel-versioner som stöds för Azure Virtual Machines
 
-**Utgåva** | **Mobilitets tjänst version** | **Kernelversion** |
+**Lansering** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
+14,04 LTS | 9,32| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 14,04 LTS | 9,31 | 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 14,04 LTS | 9,30 | 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 14,04 LTS | 9,29 | 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
-14,04 LTS | 9,28 | 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 |||
+16,04 LTS | 9,32 | 4.4.0-21-genered to 4.4.0-171-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-74-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1066-Azure|
 16,04 LTS | 9,31 | 4.4.0 – 21-genered to 4.4.0-170-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-Generic to 4.15.0-72-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1063 – Azure|
 16,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-Generic to 4.4.0-166-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-66-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1061 – Azure|
 16,04 LTS | 9,29 | 4.4.0 – 21-genered to 4.4.0-164-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-64-genered<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1059 – Azure|
-16,04 LTS | 9,28 | 4.4.0-21-genered to 4.4.0-159-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-58-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1055 – Azure|
 |||
+18,04 LTS | 9,32| 4.15.0-20-Generic to 4.15.0-74-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-37-generisk </br> 5.3.0-19-Generic to 5.3.0-24-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1028 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1009 – Azure|
 18,04 LTS | 9,31| 4.15.0-20-Generic to 4.15.0-72-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-37-generisk </br> 5.3.0-19-Generic to 5.3.0-24-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1025 – Azure </br> 5.3.0-1007 – Azure|
 18,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-Generic to 4.15.0-66-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-Generic to 5.0.0-32-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1023 – Azure|
 18,04 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-Generic to 4.15.0-64-genered </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-29-generic </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1020 – Azure|
@@ -132,7 +134,7 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Debian Kernel-versioner som stöds för Azure Virtual Machines
 
-**Utgåva** | **Mobilitets tjänst version** | **Kernelversion** |
+**Lansering** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
 Debian 7 | 9.28,9.29,9.30,9.31 | 3.2.0 – 4-amd64 till 3.2.0-6-amd64, 3.16.0 -0. bpo. 4-amd64 |
 |||
@@ -141,12 +143,18 @@ Debian 8 | 9,28 | 3.16.0 – 4-amd64 till 3.16.0-10-amd64, 4.9.0 -0. bpo. 4-amd6
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Stöd för SUSE Linux Enterprise Server 12 kernel-versioner för Azure Virtual Machines
 
-**Utgåva** | **Mobilitets tjänst version** | **Kernelversion** |
+**Lansering** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32 | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.29 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,30 | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.29 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.23 – Azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,28 | SP1 3.12.49-11-standard till 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.118-default</br></br> SP2 4.4.21-69 – standard till 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default till 4.4.121-92.117-default</br></br>SP3 4.4.73-5-default till 4.4.180-94.100-default</br></br>SP3 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br></br>SP4 4.12.14-94.41 – standard till 4.12.14-95.29-default</br>SP4 4.12.14 – 6.3 – Azure till 4.12.14 – 6.23 – Azure |
+
+#### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>SUSE Linux Enterprise Server 15 kernel-versioner som stöds för Azure Virtual Machines
+
+**Lansering** | **Mobilitets tjänst version** | **Kernelversion** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 15 och 15 SP1 | 9,32 | Alla [börs-och 15-kernels och 15 kärnor](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) stöds.</br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 8.22 – Azure |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replikerade datorer – Linux-filsystem/gäst lagring
 
@@ -163,7 +171,7 @@ Storlek | Valfri storlek på virtuella Azure-datorer med minst 2 processor kärn
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standard alternativen skapas en tillgänglighets uppsättning automatiskt, baserat på käll regions inställningarna. Du kan ändra de här inställningarna.
 Tillgänglighetszoner | Stöds |
 Hybrid användnings förmånen (hubb) | Stöds | Om den virtuella käll datorn har en nav-licens aktive rad, används även HUB-licensen i en redundanstest eller redundansväxling av den virtuella datorn.
-VM-skalningsuppsättningar | Stöds inte |
+Skalningsuppsättningar för virtuella datorer | Stöds inte |
 Azure Gallery-bilder – Microsoft publicerat | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Azure Gallery-avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
@@ -201,15 +209,15 @@ Hanterad disk – Premium | Stöds i Azure-regioner där Azure Site Recovery st�
 Standard SSD | Stöds |
 Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frekvent lagring
-Lagringsutrymmen | Stöds |
+Lagrings utrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.   
 Kryptering i vilo läge (CMK) | Stöds | Både program-och HSM-nycklar stöds för hanterade diskar    
 Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte |
 Azure Disk Encryption (ADE) för Linux OS | Stöds |
 Frekvent tillägg | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar.
 Snabb borttagnings disk | Stöds inte | Om du tar bort datadisk på den virtuella datorn måste du inaktivera replikeringen och aktivera replikeringen igen för den virtuella datorn.
-Uteslut disk | Support. Du måste använda [PowerShell](azure-to-azure-exclude-disks.md) för att konfigurera. |  Temporära diskar undantas som standard.
-Storage Spaces Direct  | Stöds för kraschbaserade återställnings punkter. Programmets konsekventa återställnings punkter stöds inte. |
+Uteslut disk | Hjälp. Du måste använda [PowerShell](azure-to-azure-exclude-disks.md) för att konfigurera. |  Temporära diskar undantas som standard.
+Lagringsdirigering  | Stöds för kraschbaserade återställnings punkter. Programmets konsekventa återställnings punkter stöds inte. |
 Skalbar filserver  | Stöds för kraschbaserade återställnings punkter. Programmets konsekventa återställnings punkter stöds inte. |
 LRS | Stöds |
 GRS | Stöds |

@@ -1,41 +1,38 @@
 ---
-title: 'Självstudie: Använd Azure Firewall Manager Preview för att skydda ditt moln nätverk med hjälp av Azure Portal'
-description: I den här självstudien får du lära dig hur du skyddar ditt moln nätverk med Azure Firewall Manager med hjälp av Azure Portal.
+title: 'Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager Preview'
+description: I den här självstudien får du lära dig hur du skyddar ditt virtuella WAN med Azure Firewall Manager med hjälp av Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: d2ebfd6003c0bc2b47636be1e38f47e554cc6988
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501913"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443065"
 ---
-# <a name="tutorial-secure-your-cloud-network-with-azure-firewall-manager-preview-using-the-azure-portal"></a>Självstudie: skydda ditt moln nätverk med för hands versionen av Azure Firewall Manager med hjälp av Azure Portal
+# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager Preview 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Med hjälp av Azure Firewall Manager Preview kan du skapa säkra hubbar för att skydda din moln nätverks trafik till privata IP-adresser, Azure-PaaS och Internet. Trafik dirigering till brand väggen är automatiserad, så du behöver inte skapa användardefinierade vägar (UDR).
+Med hjälp av Azure Firewall Manager Preview kan du skapa säkra virtuella hubbar för att skydda din moln nätverks trafik till privata IP-adresser, Azure-PaaS och Internet. Trafik dirigering till brand väggen är automatiserad, så du behöver inte skapa användardefinierade vägar (UDR).
 
 ![skydda moln nätverket](media/secure-cloud-network/secure-cloud-network.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+Firewall Manager stöder också en hubb för virtuella nätverk. En jämförelse av arkitektur typerna för den säkra virtuella hubben och hubben för virtuella nätverk finns i [Vad är arkitektur alternativ för Azure Firewall Manager?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> För hands versionen av Azure Firewall Manager måste aktive ras explicit med kommandot `Register-AzProviderFeature` PowerShell.
+I den här guiden får du lära dig att:
 
-Kör följande kommandon från en PowerShell-kommandotolk:
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-Det tar upp till 30 minuter innan funktions registreringen har slutförts. Kör följande kommando för att kontrol lera registrerings statusen:
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Skapa det virtuella ekernätverket
+> * Skapa en säker virtuell hubb
+> * Anslut hubben och eker-virtuella nätverk
+> * Skapa en brand Väggs princip och skydda hubben
+> * Dirigera trafik till hubben
+> * Testa brandväggen
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Skapa en hubb och eker-arkitektur
 
@@ -151,7 +148,7 @@ Om du vill testa brand Väggs reglerna måste du distribuera ett par servrar. Du
    |Namn på virtuell dator     |**Hopp-SRV**|
    |Region     |**USA USA, östra)**|
    |Administratörens användar namn     |**azureuser**|
-   |Lösenord     |**Azure123456!**|
+   |lösenord     |Ange ditt lösen ord|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)** .

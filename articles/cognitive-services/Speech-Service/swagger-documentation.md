@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd9ac9654f916653af974e816485630423466ae5
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815437"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430813"
 ---
 # <a name="swagger-documentation"></a>Dokumentation om Swagger
 
@@ -38,7 +38,7 @@ Du måste ange Swagger till samma region som din röst tjänst prenumeration. Du
 
 Du kan använda python-biblioteket som du genererade med [tal tjänst exemplen på GitHub](https://aka.ms/csspeech/samples).
 
-## <a name="reference-docs"></a>Referensdokument
+## <a name="reference-docs"></a>Referens dokument
 
 * [REST (Swagger): batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
 * [REST API: tal till text](rest-speech-to-text.md)

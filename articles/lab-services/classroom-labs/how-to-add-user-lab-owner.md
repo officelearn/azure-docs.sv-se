@@ -1,6 +1,6 @@
 ---
-title: Så här lägger du till användare som labb ägare i Azure Lab Services
-description: Den här artikeln visar hur en administratör kan lägga till en användare som ägare till ett labb.
+title: Så här lägger du till ytterligare ägare till ett labb i Azure Lab Services
+description: Den här artikeln visar hur en administratör kan lägga till en användare som ägare till ett labb i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,20 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e007ee6c95843b7e8ef9d7a701237034811489e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9302cadf0b900c9faac382bad86b51cea7d828fb
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480858"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443524"
 ---
-# <a name="how-to-add-a-user-as-an-owner-of-a-classroom-lab-in-azure-lab-services"></a>Så här lägger du till en användare som ägare till ett klass rums labb i Azure Lab Services
-Den här artikeln visar hur du lägger till en användare som ägare till ett labb i Azure Lab Services.
+# <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Så här lägger du till ytterligare ägare till ett befintligt labb i Azure Lab Services
+Den här artikeln visar hur du, som administratör, kan lägga till ytterligare ägare till ett befintligt labb.
 
 ## <a name="add-user-to-the-reader-role-for-the-lab-account"></a>Lägg till användare till rollen läsare för labb kontot
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+Om du vill lägga till en användare som ytterligare ägare till ett befintligt labb måste du först ge användaren **Läs** behörighet till labb kontot.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På menyn till vänster väljer du **Alla tjänster**. Sök efter **labb tjänster**och markera det sedan.
 3. Välj ditt **labb konto** i listan. 
 2. På **sidan labb konto**väljer du **Access Control (IAM)** på den vänstra menyn. 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264737"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442589"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
 
@@ -29,7 +29,7 @@ För den här självstudien skapar du tre virtuella nätverk:
 
 ![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Deklarera variablerna
@@ -41,11 +41,11 @@ I den här guiden får du lära dig hur man:
 > * Peera de virtuella hubb- och ekernätverken
 > * Skapa vägarna
 > * Skapa de virtuella datorerna
-> * testa brandväggen.
+> * Testa brandväggen
 
 Om du vill använda Azure PowerShell i stället för att slutföra den här proceduren, se [distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att dirigera trafik mellan Azure virtuella nätverk och lokala nätverk. NAV-och-eker-arkitekturen har följande krav:
 
@@ -62,7 +62,7 @@ Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-
 >[!NOTE]
 >Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
 >
->Azure-brandväggen har för närvarande inte stöd för Tvingad tunnel trafik. Om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk och du kan fastställa målets IP-prefix för dina Internet-destinationer, kan du konfigurera dessa intervall med det lokala nätverket som nästa hopp via en användardefinierad väg på AzureFirewallSubnet. Du kan också använda BGP för att definiera dessa vägar.
+>Azure-brandväggen kan konfigureras för att stödja Tvingad tunnel trafik. Mer information finns i [Tvingad tunnel trafik i Azure Firewall](forced-tunneling.md).
 
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
@@ -156,7 +156,7 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**VB-hybrid-test** |
    |Namn     |**AzFW01**|
-   |Location     |Välj samma plats som tidigare|
+   |plats.     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**:<br> **VNet-hubb**|
    |Offentlig IP-adress     |Skapa nytt: <br>**Namn** - **VB-pip**. |
 
@@ -167,7 +167,7 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
 7. När distributionen är klar går du till resurs gruppen **VB-hybrid-test** och väljer **AzFW01** -brandväggen.
 8. Skriv ned den privata IP-adressen. Du kommer att använda den senare när du skapar standardvägen.
 
-### <a name="configure-network-rules"></a>Konfigurera nätverksregler
+### <a name="configure-network-rules"></a>konfigurera nätverksregler
 
 Lägg först till en nätverks regel för att tillåta webb trafik.
 
@@ -263,7 +263,7 @@ Skapa anslutningen mellan det lokala virtuella nätverket och det virtuella hubb
 
 Efter ungefär fem minuter bör statusen för båda anslutningarna vara **ansluten**.
 
-![Gatewayanslutningar](media/tutorial-hybrid-portal/gateway-connections.png)
+![Gateway-anslutningar](media/tutorial-hybrid-portal/gateway-connections.png)
 
 ## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Peera de virtuella hubb- och ekernätverken
 
@@ -412,7 +412,7 @@ Det här är en virtuell dator som du använder för att ansluta via fjärr skri
 9. För **startdiagnostik**väljer du **av**.
 10. Välj **Granska + skapa**, granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
 
-## <a name="test-the-firewall"></a>testa brandväggen.
+## <a name="test-the-firewall"></a>Testa brandväggen
 
 1. Anteckna först den privata IP-adressen för den virtuella datorn med **ekrar 01** .
 

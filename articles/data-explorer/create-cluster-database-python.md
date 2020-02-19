@@ -7,28 +7,32 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8d43965e87ab57d9f0c79c6661a761b06ccb7073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902100"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444238"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av python
 
 > [!div class="op_single_selector"]
-> * [Portalen](create-cluster-database-portal.md)
+> * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
 > * [ARM-mall](create-cluster-database-resource-manager.md)
 
-Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av python.
+I den här artikeln skapar du ett Azure Datautforskaren-kluster och-databas med hjälp av python. Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. Om du vill använda Azure Datautforskaren måste du först skapa ett kluster och skapa en eller flera databaser i klustret. Mata in eller Läs in data i en databas så att du kan köra frågor mot den.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4 +](https://www.python.org/downloads/).
+
+* [Ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Hämta värden för `Directory (tenant) ID`, `Application ID`och `Client Secret`.
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 

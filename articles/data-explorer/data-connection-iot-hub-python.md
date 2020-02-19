@@ -7,30 +7,36 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 86e966cc3bf98e63edbe90d7649242dcb1ccdf42
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: cfd92546def21972e37781bd8a4b0bfefda9111f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964387"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444221"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Skapa en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python (för hands version)
 
 > [!div class="op_single_selector"]
-> * [Portalen](ingest-data-iot-hub.md)
+> * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-iot-hub-resource-manager.md)
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning (data inläsning) från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare. I den här artikeln skapar du en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python.
+I den här artikeln skapar du en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning, eller data inläsning från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* Skapa [ett kluster och en databas](create-cluster-database-python.md)
-* Skapa [tabell-och kolumn mappning](python-ingest-data.md#create-a-table-on-your-cluster)
-* Ange [databas-och tabell principer](database-table-policies-python.md) (valfritt)
-* Skapa en [IoT Hub med en delad åtkomst princip konfigurerad](ingest-data-iot-hub.md#create-an-iot-hub).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4 +](https://www.python.org/downloads/).
+
+* [Ett kluster och en databas](/create-cluster-database-python.md).
+
+* [Tabell-och kolumn mappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+
+* [Databas-och tabell principer](database-table-policies-python.md) (valfritt).
+
+* [En IoT Hub med en princip för delad åtkomst konfigurerad](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

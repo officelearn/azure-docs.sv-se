@@ -5,22 +5,33 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 12/06/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: cf8e6ca3a532dea29a413b1afdfc684ac8f08f17
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0ba2ce30cee3ff7e3a9f71b4f1b0928fa84e775d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869569"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443165"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Vad är för hands version av Azure Firewall Manager?
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Azure Firewall Manager Preview är en säkerhetshanteringstjänst som ger dig en central säkerhetsprincip och väghantering för molnbaserade säkerhetsperimeterar. Det fungerar med [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources), en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)* . 
+För hands versionen av Azure Firewall Manager är en säkerhets hanterings tjänst som tillhandahåller centrala säkerhets principer och väg hantering för molnbaserade säkerhetsperimetern. 
 
-![Firewall-Manager](media/overview/firewallmanagerv3.png)
+Brand Väggs hanteraren kan tillhandahålla säkerhets hantering för två typer av nätverks arkitektur:
+
+- **skyddad virtuell hubb**
+
+   En [virtuell WAN-hubb i Azure](../virtual-wan/virtual-wan-about.md#resources) är en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)* . 
+- **hubb virtuellt nätverk**
+
+   Det här är ett standard Azure Virtual Network som du skapar och hanterar själv. När säkerhets principer är associerade med en sådan hubb kallas det ett *nav virtuellt nätverk*. För närvarande stöds endast Azure Firewall-principen. Du kan använda peer-ekrar för virtuella nätverk som innehåller dina arbets belastnings servrar och-tjänster. Du kan också hantera brand väggar i fristående virtuella nätverk som inte är peer-kopplade till ekrar.
+
+En detaljerad jämförelse mellan *skyddade virtuella hubbar* och *virtuella hubbar i hubben* finns i [Vad är arkitektur alternativ för Azure Firewall Manager?](vhubs-and-vnets.md).
+
+![Firewall-Manager](media/overview/firewallmanagerv5.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Förhands gransknings funktioner i Azure Firewall Manager
 
@@ -38,6 +49,8 @@ Du kan använda Azure Firewall Manager Preview för att centralt hantera Azure F
 
 Förutom Azure-brandväggen kan du integrera SECaaS-providers (Security as a Service) från tredje part för att ge ytterligare nätverks skydd för ditt VNet-och filial Internet-anslutningar.
 
+Den här funktionen är endast tillgänglig med säkra virtuella nav distributioner.
+
 - Trafik filtrering för VNet till Internet (V2I)
 
    - Filtrera utgående virtuell nätverks trafik med din önskade säkerhets leverantör från tredje part.
@@ -51,18 +64,15 @@ Mer information om betrodda säkerhetsproviders finns i [Vad är betrodda säker
 
 ### <a name="centralized-route-management"></a>Centraliserad flödes hantering
 
-Dirigera snabbt trafik till din säkra hubb för filtrering och loggning utan att behöva konfigurera användardefinierade vägar manuellt (UDR) i ekrar virtuella nätverk. Du kan använda tredjepartsleverantörer för B2I-trafik (Branch to Internet), sida vid sida med Azure-brandväggen för gren till VNet (B2V), VNet till VNet (V2V) och VNet till Internet (V2I). Du kan också använda tredjepartsleverantörer för V2I-trafik filtrering så länge det inte krävs någon Azure-brandvägg för B2V eller V2V. 
+Dirigera snabbt trafik till din säkra hubb för filtrering och loggning utan att behöva konfigurera användardefinierade vägar manuellt (UDR) i ekrar virtuella nätverk. 
 
-## <a name="region-availability"></a>Tillgänglighet för regioner
+Den här funktionen är endast tillgänglig med säkra virtuella nav distributioner.
 
-Följande regioner stöds för den offentliga för hands versionen:
+Du kan använda tredjepartsleverantörer för B2I-trafik (Branch to Internet), sida vid sida med Azure-brandväggen för gren till VNet (B2V), VNet till VNet (V2V) och VNet till Internet (V2I). Du kan också använda tredjepartsleverantörer för V2I-trafik filtrering så länge det inte krävs någon Azure-brandvägg för B2V eller V2V. 
 
-- Västeuropa, Nord Europa, Frankrike, centrala, Frankrike, södra, Storbritannien, södra, Storbritannien, västra
-- Östra Australien, Australien, centrala Australien 2, Australien, sydöstra
-- Kanada, centrala
-- Östra USA, västra USA, östra USA 2, södra centrala USA, västra USA 2, centrala USA, norra centrala USA, västra centrala USA
+## <a name="region-availability"></a>Regional tillgänglighet
 
-Det går bara att skapa Azure Firewall-principer i dessa regioner, men de kan användas i olika regioner. Du kan till exempel skapa en princip i USA, västra och använda den i USA, östra. 
+Azure Firewall-principer kan användas i olika regioner. Du kan till exempel skapa en princip i USA, västra och använda den i USA, östra. 
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -70,13 +80,13 @@ För hands versionen av Azure Firewall Manager har följande kända problem:
 
 |Problem  |Beskrivning  |Åtgärd  |
 |---------|---------|---------|
-|Manuellt skapade centrala virtuella nätverk stöds inte|Azure Firewall Manager stöder för närvarande nätverk som skapats med virtuella nav. Det finns ännu inte stöd för att använda egna manuellt skapade hubb-VNet.|Nu ska du använda Azure Firewall Manager med nav-och eker-nätverk som skapats med virtuella hubbar.<br>Korrigering pågår.
 |Begränsningar för filtrering av tredje part|V2I trafik filtrering med tredjeparts leverantörer stöds inte med Azure Firewall B2V och V2V.|Undersöker för närvarande.|
 |Delning av trafik stöds inte för närvarande|Det finns för närvarande inte stöd för att dela upp Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker för närvarande trafik delning på hubben.
-|En hubb per region|Du kan inte ha mer än en hubb per region|Skapa flera virtuella WAN-näti en region.|
+|En säker virtuell hubb per region|Du kan inte ha mer än en säker virtuell hubb per region|Skapa flera virtuella WAN-näti en region.|
 |Bas principerna måste finnas i samma region som den lokala principen|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker för närvarande.|
 |Kommunikation mellan olika hubbar fungerar inte med skyddad virtuell hubb|Skyddad virtuell hubb till skyddad virtuell nav-kommunikation stöds inte ännu.|Undersöker för närvarande.|
 |Alla skyddade virtuella hubbar som delar samma virtuella WAN-nätverk måste finnas i samma resurs grupp.|Det här beteendet är justerat med virtuella WAN-hubbar idag.|Skapa flera virtuella WAN-administratörer för att kunna skapa säkra virtuella hubbar i olika resurs grupper.|
+|IP-grupper stöds inte i brand Väggs principen|IP-grupper finns i offentlig för hands version och stöds för närvarande bara med traditionella brand Väggs regler|Korrigering pågår
 
 ## <a name="next-steps"></a>Nästa steg
 

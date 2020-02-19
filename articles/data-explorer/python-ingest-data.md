@@ -7,26 +7,28 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355929"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442011"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Mata in data med hjälp av Python-biblioteket i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller två klientbibliotek för Python: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). I biblioteken kan du mata in (läsa in) data i ett kluster och fråga data från din kod. I den här artikeln skapar du först en tabell och data mappning i ett kluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
+I den här artikeln matar du in data med hjälp av Azure Datautforskaren python-biblioteket. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller två klientbibliotek för Python: ett [bibliotek för inmatning](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) och [ett databibliotek](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med dessa bibliotek kan du mata in eller läsa in data i ett kluster och fråga efter data från din kod.
+
+Börja med att skapa en tabell och data mappning i ett kluster. Sedan köar du inmatningen till klustret och verifierar resultaten.
 
 Den här artikeln är även tillgänglig som en [Azure-anteckningsbok](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Ett kluster och en databas](create-cluster-database-portal.md)
+* [Python 3.4 +](https://www.python.org/downloads/).
 
-* [Python](https://www.python.org/downloads/) installerat på utvecklingsdatorn
+* [Ett kluster och en databas](create-cluster-database-portal.md).
 
 ## <a name="install-the-data-and-ingest-libraries"></a>Installera data och mata in bibliotek
 
@@ -103,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + \
 
 ## <a name="create-a-table-on-your-cluster"></a>Skapa en tabell i ditt kluster
 
-Skapa en tabell som matchar schemat för data i filen StormEvents.csv. När den här koden körs returneras ett meddelande som liknar följande: *För att logga in använder du en webbläsare för att öppna sidan https://microsoft.com/devicelogin och anger sedan koden F3W4VWZDM för att autentisera dig*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock. Efterföljande kodblock som upprättar en anslutning kräver att du loggar in igen.
+Skapa en tabell som matchar schemat för data i filen StormEvents.csv. När den här koden körs returneras ett meddelande som ser ut ungefär så här: *Om du vill logga in öppnar du en webbläsare och går till sidan https://microsoft.com/devicelogin och anger koden F3W4VWZDM för att autentisera*. Följ stegen för att logga in och gå sedan tillbaka för att köra nästa kodblock. Efterföljande kodblock som upprättar en anslutning kräver att du loggar in igen.
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

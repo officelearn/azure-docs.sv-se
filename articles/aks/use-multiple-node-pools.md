@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: mlearned
-ms.openlocfilehash: 20cef402a81ef348d4492daf05e6b16a8d9f709f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e77710fe446810ec566ebc7088d802f0721806d2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365173"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443932"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -483,7 +483,7 @@ az aks nodepool add \
 > [!NOTE]
 > Du kan också använda parametern `--tags` när du använder kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] och när klustret skapas. När klustret skapas tillämpar parametern `--tags` taggen på den första noden som skapas med klustret. Alla taggnamn måste följa de begränsningar som [används vid användning av taggar för att organisera dina Azure-resurser][tag-limitation]. Uppdatering av en Node-pool med parametern `--tags` uppdaterar eventuella befintliga tagg värden och lägger till nya taggar. Om till exempel din Node-pool hade *avd = IT* och *CostCenter = 9999* för taggar och du har uppdaterat den med *team = dev* och *CostCenter = 111* for taggar kan du nodepool ha *avd = IT*, *CostCenter = 111*och *team = dev* för taggar.
 
-I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *taggednodepool* *skapar* noder med den angivna *taggen*:
+I följande exempel utdata från kommandot [AZ AKS nodepool List][az-aks-nodepool-list] visas att *tagnodepool* *skapar* noder med den angivna *taggen*:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster

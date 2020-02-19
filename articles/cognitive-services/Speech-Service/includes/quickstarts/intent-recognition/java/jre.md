@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 6bd276f07f75ecad21ffb0bf19150f6158eb7b7c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: bd15a19a352120e01da04aeca0f3b27d3fce092f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156658"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445752"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -42,7 +42,7 @@ Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfigura
 Infoga den här koden i try/catch-blocket i `main()`. Se till att du uppdaterar dessa värden:
 
 * Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel.
-* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats. Använd "Speech SDK parameter" från [region](https://aka.ms/speech/sdkregion)
+* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats. Använd **regions identifierare** från [region](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > Om du behöver hjälp med att hitta dessa värden kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).

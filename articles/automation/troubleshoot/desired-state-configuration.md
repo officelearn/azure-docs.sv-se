@@ -9,41 +9,48 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3c3c9950aab9a5a422ebc9e858daded2888fd82e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: dcd0371d275c3a46fe9bf07c96516a2d0820abb7
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834261"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430541"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Felsöka problem med Azure Automation önskad tillstånds konfiguration (DSC)
 
 Den här artikeln innehåller information om fel sökning av problem med önskad tillstånds konfiguration (DSC).
 
-## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Steg för att felsöka önskad tillstånds konfiguration (DSC)
+## <a name="diagnosing-an-issue"></a>Diagnostisera ett problem
 
-När du har problem med att kompilera eller distribuera konfigurationer i Azure-tillstånds konfiguration så är det några steg som hjälper dig att diagnostisera problemet.
+När du har problem med att kompilera eller distribuera konfigurationer i Azure-tillstånds konfiguration, finns här några steg som hjälper dig att diagnostisera problemet.
 
-1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
+### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. kontrol lera att konfigurationen kompileras på den lokala datorn
 
-   Genom att kompilera DSC-konfigurationen på den lokala datorn kan du identifiera och lösa vanliga fel, till exempel:
+Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
 
-   - **Moduler som saknas**
-   - **Syntaxfel**
-   - **Logic-fel**
+Genom att kompilera DSC-konfigurationen på den lokala datorn kan du identifiera och lösa vanliga fel, till exempel:
 
-2. **Visa DSC-loggar på din nod:** Om konfigurationen kompileras korrekt, men Miss lyckas när den tillämpas på en nod, kan du hitta detaljerad information i loggarna. Information om var du hittar DSC-loggar finns i [var är DSC-händelseloggen](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+   - Moduler som saknas
+   - Syntaxfel
+   - Logic-fel
 
-   Dessutom kan [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) hjälpa dig att parsa detaljerad information från DSC-loggarna. Om du kontaktar supporten kräver de dessa loggar för att diagnostisera problemet.
+### <a name="2-view-dsc-logs-on-your-node"></a>2. Visa DSC-loggar på noden
 
-   Du kan installera **xDscDiagnostics** på din lokala dator med hjälp av anvisningarna som finns under [installera den säkra versionen av modulen](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+Om konfigurationen kompileras korrekt, men inte fungerar när den används på en nod, kan du hitta detaljerad information i DSC-loggarna. Information om var du hittar dessa loggar finns i [var DSC-händelseloggen](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Om du vill installera **xDscDiagnostics** på din Azure-dator kan du använda [AZ VM Run-Command](/cli/azure/vm/run-command) eller [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Du kan också använda **kommando alternativet Kör** från portalen genom att följa stegen i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../virtual-machines/windows/run-command.md).
+[XDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) -modulen kan hjälpa dig att parsa detaljerad information från DSC-loggarna. Om du kontaktar supporten kräver de dessa loggar för att diagnostisera problemet.
 
-   Information om hur du använder **xDscDiagnostics**finns i [använda xDscDiagnostics för att analysera DSC-loggar](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), samt xDscDiagnostics- [cmdletar](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Önskad tillstånds konfiguration är beroende av moduler som är installerade på noden.  När du använder Azure Automation tillstånds konfiguration importerar du alla obligatoriska moduler till ditt Automation-konto med hjälp av stegen i [importera moduler](../shared-resources/modules.md#import-modules). Konfigurationer kan också vara beroende av vissa versioner av moduler.  Mer information finns i, [Felsöka moduler](shared-resources.md#modules).
+Du kan installera xDscDiagnostics-modulen på den lokala datorn med hjälp av anvisningarna i [installera modulen stabil version](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Vanliga fel när du arbetar med önskad tillstånds konfiguration (DSC)
+Om du vill installera xDscDiagnostics-modulen på din Azure-dator använder du [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Du kan också använda **kommando alternativet Kör** från portalen genom att följa stegen i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../virtual-machines/windows/run-command.md).
+
+Information om hur du använder xDscDiagnostics finns i [använda xDscDiagnostics för att analysera DSC-loggar](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Se även [xDscDiagnostics-cmdletar](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+
+### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. kontrol lera att noderna och automation-arbetsytan har nödvändiga moduler
+
+DSC är beroende av moduler som är installerade på noden. När du använder Azure Automation tillstånds konfiguration importerar du alla obligatoriska moduler till ditt Automation-konto med hjälp av stegen i [importera moduler](../shared-resources/modules.md#import-modules). Konfigurationer kan också vara beroende av vissa versioner av moduler. Mer information finns i [Felsöka moduler](shared-resources.md#modules).
+
+## <a name="common-errors-when-working-with-dsc"></a>Vanliga fel när du arbetar med DSC
 
 ### <a name="unsupported-characters"></a>Scenario: en konfiguration med specialtecken kan inte tas bort från portalen
 
@@ -59,7 +66,7 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 Det här felet är ett tillfälligt problem som planeras att lösas.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 * Använd cmdleten AZ "Remove-AzAutomationDscConfiguration" för att ta bort konfigurationen.
 * Dokumentationen för den här cmdleten har ännu inte uppdaterats.  Tills dess kan du läsa dokumentationen för AzureRM-modulen.
@@ -86,7 +93,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 Det här felet orsakas normalt av en brand vägg, datorn är bakom en proxyserver eller andra nätverks fel.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Kontrol lera att datorn har åtkomst till rätt slut punkter för Azure Automation DSC och försök igen. En lista över portar och adresser som behövs finns i [nätverks planering](../automation-dsc-overview.md#network-planning)
 
@@ -97,7 +104,7 @@ Kontrol lera att datorn har åtkomst till rätt slut punkter för Azure Automati
 När du registrerar en nod med tillstånds konfiguration (DSC) får du ett av följande fel meddelanden:
 
 ```error
-The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+The attempt to send status report to the server https://{your Automation account URL}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
 ```
 
 ```error
@@ -108,7 +115,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Det här problemet orsakas av ett felaktigt eller utgånget certifikat.  Mer information finns i [certifikatets förfallo datum och omregistrering](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Följ stegen nedan för att registrera den felande DSC-noden igen.
 
@@ -166,7 +173,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn (till exempel ABC) i stället för ett konfigurations namn för noden (till exempel ABC. Webbserver).
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 * Se till att du tilldelar noden "konfigurations namn för nod" och inte "konfigurations namn".
 * Du kan tilldela en nods konfiguration till en nod med Azure Portal eller med en PowerShell-cmdlet.
@@ -188,7 +195,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 När uttrycket efter **nodens** nyckelord i DSC-konfigurationen utvärderas till `$null`skapas inga nodkonfigurationer.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Någon av följande lösningar löser problemet:
 
@@ -209,7 +216,7 @@ No instance found with given property values
 
 Du har uppgraderat din WMF-version och har skadat WMI.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Åtgärda problemet genom att följa anvisningarna i artikeln om [kända problem och begränsningar i DSC](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) .
 
@@ -227,9 +234,9 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 Du har använt en autentiseringsuppgift i en konfiguration men angav inte rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-* Se till att skicka in rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns i [till gångar i Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
+* Se till att skicka in rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns i [kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](../automation-dsc-compile.md).
 
 ### <a name="failure-processing-extension"></a>Scenario: onboarding från DSC-tillägg, fel bearbetnings tillägg
 
@@ -245,7 +252,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn för noden som inte finns i tjänsten.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 * Kontrol lera att du har tilldelats noden med ett konfigurations namn för noden som exakt matchar namnet i tjänsten.
 * Du kan välja att inte inkludera konfigurations namnet för noden, vilket leder till att du registrerar noden men inte tilldelar en nods konfiguration
@@ -264,7 +271,7 @@ One or more errors occurred.
 
 Det här felet uppstår när du försöker registrera en nod som finns i en separat prenumeration än Automation-kontot.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Behandlar noden över prenumerationer som om den finns i ett separat moln eller lokalt.
 
@@ -287,7 +294,7 @@ Provisioning has failed
 
 Det här meddelandet inträffar när det finns ett anslutnings problem mellan noden och Azure.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Ta reda på om din nod finns i ett privat virtuellt nätverk eller om det finns andra problem att ansluta till Azure.
 
@@ -307,7 +314,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 Kunder har identifierat att om `/tmp`s platsen är inställd på `noexec`kommer den aktuella versionen av DSC inte att tillämpa konfigurationer.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 * Ta bort alternativet `noexec` från `/tmp`s platsen.
 
@@ -323,7 +330,7 @@ Exempel: om ett enda konfigurations skript används för att generera konfigurat
 
 Känt problem med Compilation service.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
 Den bästa lösningen är att kompilera lokalt eller i en CI/CD-pipeline och ladda upp MOF-filerna direkt till tjänsten.  Om kompileringen i tjänsten är ett krav, är nästa bästa lösning att dela upp Compilation-jobben så att det inte finns några överlappande i namn.
 
@@ -331,6 +338,6 @@ Den bästa lösningen är att kompilera lokalt eller i en CI/CD-pipeline och lad
 
 Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/)
+* Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 * Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

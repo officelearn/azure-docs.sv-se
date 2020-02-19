@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f315f29eab107c9e0e145bd25db71a8cb8b2ace
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156242"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445490"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -48,13 +48,13 @@ Det vanliga projektet HelloWorld innehåller plattforms oberoende implementering
 1. Leta upp strängen `YourSubscriptionKey`i käll filens `OnRecognitionButtonClicked` hanterare och ersätt den med din prenumerations nyckel.
 
 
-1. Leta upp strängen `YourServiceregion`i `OnRecognitionButtonClicked` hanteraren och ersätt den med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. (Använd till exempel `westus` för den kostnads fria prov prenumerationen.)
+1. Leta upp strängen `YourServiceregion`i `OnRecognitionButtonClicked` hanteraren och ersätt den med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. (Använd till exempel `westus` för den kostnads fria prov prenumerationen.)
 
 1. Därefter måste du skapa en [Xamarin-tjänst](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)som används för att fråga mikrofon behörigheter från olika plattforms projekt, till exempel UWP, Android och iOS. Det gör du genom att lägga till en ny mapp med namnet *tjänster* i projektet HelloWorld och skapa en C# ny källfil under den. Du kan högerklicka på mappen *tjänster* och välja **Lägg till** > **nytt objekt** > **kod fil**. Byt namn på filen `IMicrophoneService.cs`och placera all kod från följande kodfragment i filen:
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### <a name="androidtabx-android"></a>[Android](#tab/x-android)
+#### <a name="android"></a>[Android](#tab/x-android)
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Lägg till exempel kod för `helloworld.Android`-projektet
 
 Lägg nu till C# den kod som definierar den Android-specifika delen av programmet.
@@ -75,7 +75,7 @@ Lägg nu till C# den kod som definierar den Android-specifika delen av programme
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
    ```
    
-#### <a name="iostabios"></a>[iOS](#tab/ios)
+#### <a name="ios"></a>[iOS](#tab/ios)
 ## <a name="add-sample-code-for-the-helloworldios-project"></a>Lägg till exempel kod för `helloworld.iOS`-projektet
 
 Lägg nu till C# den kod som definierar den iOS-specifika delen av programmet. Skapa även Apple-enhetsspecifika konfigurationer i projektet HelloWorld. iOS.
@@ -100,7 +100,7 @@ Lägg nu till C# den kod som definierar den iOS-specifika delen av programmet. S
 
 1. Om du bygger på en Windows-dator upprättar du en anslutning till Mac-enheten för att bygga via **verktyg** > **iOS** > - **paret till Mac**. Följ anvisningarna i Visual Studio för att aktivera anslutningen till Mac-enheten.
 
-#### <a name="uwptabhelloworlduwp"></a>[UWP](#tab/helloworlduwp)
+#### <a name="uwp"></a>[UWP](#tab/helloworlduwp)
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Lägg till exempel kod för `helloworld.UWP`-projektet
 
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>Lägg till exempel kod för HelloWorld. UWP-projekt

@@ -1,19 +1,19 @@
 ---
-title: Brand Väggs inställningar för Azure Lab Services
+title: Brandväggsinställningarna för Azure Lab Services
 description: Lär dig hur du fastställer den offentliga IP-adressen och port nummer intervallet för virtuella datorer i ett labb så att information kan läggas till i brand Väggs regler.
 author: emaher
 ms.author: enewman
-ms.date: 12/12/2019
+ms.date: 02/14/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: da1614e4a3e02ed91ef2d3c59ac4eb3eac0dcc7c
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692776"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443471"
 ---
-# <a name="firewall-settings-for-azure-lab-services"></a>Brand Väggs inställningar för Azure Lab Services
+# <a name="firewall-settings-for-azure-lab-services"></a>Brandväggsinställningarna för Azure Lab Services
 
 Varje organisation eller skola kommer att konfigurera sina egna nätverk på ett sätt som bäst passar deras behov.  Ibland ingår det att ställa in brand Väggs regler som blockerar Remote Desktop Protocol (RDP) eller SSH-anslutningar (Secure Shell) till datorer utanför deras egna nätverk.  Eftersom Azure Lab Services körs i det offentliga molnet, kan en del extra konfiguration behöva göra det möjligt för studenter att komma åt sin virtuella dator vid anslutning från campus-nätverket.
 
@@ -24,14 +24,24 @@ Varje labb använder en enskild offentlig IP-adress och flera portar.  Alla virt
 
 ## <a name="find-public-ip-for-a-lab"></a>Hitta en offentlig IP-adress för ett labb
 
-De offentliga IP-adresserna för varje labb visas på bladet **alla** labb i labb tjänster Lab-kontot.  Anvisningar om hur du hittar bladet **alla labb** finns i [Hantera labb i ett labb konto](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+De offentliga IP-adresserna för varje labb visas på sidan **alla** labb i labb tjänst labb kontot.  Anvisningar om hur du hittar sidan **alla labb** finns i [Hantera labb i ett labb konto](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
 
 > [!div class="mx-imgBorder"]
-> ![alla labb blad](../media/how-to-configure-firewall-settings/all-labs-properties.png)
+> Sidan ![alla labb](../media/how-to-configure-firewall-settings/all-labs-properties.png)
 
 >[!NOTE]
 >Du ser inte den offentliga IP-adressen om mallens dator för ditt labb inte har publicerats ännu.
 
-## <a name="conclusion"></a>Slutsats
+## <a name="conclusion"></a>Sammanfattning
 
 Nu vet vi den offentliga IP-adressen för labbet.  Regler för inkommande och utgående trafik kan skapas för organisationens brand vägg för den offentliga IP-adressen och port intervallet 49152-65535.  När reglerna har uppdaterats kan studenter komma åt sina virtuella datorer utan att nätverks brand väggen blockerar åtkomsten.
+
+## <a name="next-steps"></a>Nästa steg
+Se följande artiklar:
+
+- [Tillåt labb skapare att välja labb plats](allow-lab-creator-pick-lab-location.md)
+- [Anslut ditt labb nätverk till ett peer-virtuellt nätverk](how-to-connect-peer-virtual-network.md)
+- [Koppla ett delat avbildnings galleri till ett labb](how-to-attach-detach-shared-image-gallery.md)
+- [Lägg till en användare som labb ägare](how-to-add-user-lab-owner.md)
+- [Visa brand Väggs inställningar för ett labb](how-to-configure-firewall-settings.md)
+- [Konfigurera andra inställningar för ett labb](how-to-configure-lab-accounts.md)

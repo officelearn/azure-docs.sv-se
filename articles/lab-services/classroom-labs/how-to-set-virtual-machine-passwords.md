@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583566"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443235"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -96,6 +96,9 @@ Labb skaparen (instruktör/lärare) kan ansluta till en elev-VM om följande vil
  För att ansluta till den virtuella student datorn, hovrar du över musen på den virtuella datorn i listan och väljer knappen dator.  
 
 ![Knappen Anslut till virtuell dator för student](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> När den virtuella datorns lärare startar den virtuella datorn och ansluter till den, påverkas inte student kvoten. 
 
 ## <a name="next-steps"></a>Nästa steg
 Information om andra alternativ för elev användning som du (som labb ägare) kan konfigurera finns i följande artikel: [Konfigurera elev användning](how-to-configure-student-usage.md).

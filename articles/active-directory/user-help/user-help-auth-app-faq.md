@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/18/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063891"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443626"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
@@ -52,6 +52,7 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och är den reko
 | Varför får jag meddelanden om min konto aktivitet? | För att hjälpa dig att hålla dig informerad om vad som händer med din personliga Microsoft-konto skickar vi aktivitets aviseringar till din Microsoft Authenticator-app. Dessa meddelanden visas direkt efter något ändringar, vilket hjälper dig att skydda dig. Vi har tidigare skickat dessa aviseringar via e-post och SMS och har nu expanderat för att inkludera appen. Mer information om dessa aktivitets aviseringar finns i [Vad händer om det finns en ovanlig inloggning till ditt konto](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Om du vill ändra var du får dina meddelanden loggar du in på sidan [där kan vi kontakta dig med aviseringar om icke-kritiska konton](https://account.live.com/SecurityNotifications/Update) för ditt konto. |
 | När du loggar in på mitt arbets-eller skol konto med hjälp av standard-e-postappen som medföljer iOS, får jag en fråga från Microsoft Authenticator-appen för min säkerhets verifierings information. När jag har angett informationen och återgår till e-postappen får jag ett fel meddelande. Vad kan jag göra? | Detta beror troligen på att din inloggning och ditt e-postprogram sker i två olika appar, vilket gör att den inledande bakgrunds inloggnings processen slutar fungera och inte fungerar. För att försöka åtgärda detta rekommenderar vi att du väljer **Safari** -ikonen längst ned till höger på skärmen när du loggar in på e-postappen. Genom att flytta till Safari sker hela inloggnings processen i en enda app, så att du kan logga in på appen. |
 | Mina eng ång slö sen ord (eng ång slö sen ord) fungerar inte. Vad ska jag göra? | Kontrol lera att datum och tid på enheten är korrekta och synkroniseras automatiskt. Om datumet och tiden är fel eller är osynkroniserade fungerar inte koden. |
+| Windows 10 mobil operativ systemet var föråldrat i december 2019. Kommer Microsoft Authenticator på Windows Mobile-operativsystem att vara inaktuellt också? | Microsoft Authenticator-appen på alla Windows Mobile-operativsystem kommer inte att stödjas efter 28 feb 2020. Användarna kommer inte att kunna ta emot några nya uppdateringar av appen efter det datum som anges ovan. Efter den 28 feb 2020 kommer Microsoft-tjänster som för närvarande stöder autentisering med hjälp av Microsoft Authenticator på alla Windows Mobile-operativsystem att börja dra tillbaka sin support. För att kunna autentisera till Microsoft-tjänster uppmuntrar vi starkt att alla våra användare byter till en alternativ mekanism innan detta datum. |
 
 ## <a name="next-steps"></a>Nästa steg
 

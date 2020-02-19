@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07a78dc81d121874db5e59ad267ea8eb08a69c91
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210148"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443757"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
@@ -45,13 +45,13 @@ I följande video beskriver vi Azure Maps mer ingående:
 
 Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder. Du kan använda den här interaktiva kartan för både dina webb program eller mobila program. Kart kontrollen använder WebGL, vilket innebär att du kan återge stora data mängder med hög prestanda. Utveckla med SDK genom att använda Java Script eller TypeScript.
 
-![Exempel karta över populations ändringar](media/about-azure-maps/Introduction_WebMapControl.png)
+![Exempel karta över populations ändringar](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>Android SDK
 
 Använd Azure Maps Android SDK för att skapa appar för mobil mappning. 
 
-![Kart exempel på en mobil enhet](media/about-azure-maps/AndroidSDK.png)
+![Kart exempel på en mobil enhet](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Tjänster i Azure Maps
 
@@ -73,7 +73,7 @@ Mer information om tjänsten finns i [dokumentationen för Mobility API](https:/
 
 Åter givnings tjänsten hjälper utvecklare att skapa webb-och mobil program med kart funktioner. Tjänsten använder antingen grafiska rasterbilder av hög kvalitet, tillgängliga i 19 zoomningsnivåer, eller helt anpassningsbara kartbilder i vektorformat.
 
-![Exempel på en karta från åter givnings tjänsten](media/about-azure-maps/Introduction_Map.png)
+![Exempel på en karta från åter givnings tjänsten](media/about-azure-maps/intro_map.png)
 
 Nu finns förhandsversions-API:er med återgivningstjänsten, så att utvecklare kan arbeta med satellitbilder. Mer information finns i [rendera API-dokumentationen](https://docs.microsoft.com/rest/api/maps/render).
 
@@ -81,7 +81,7 @@ Nu finns förhandsversions-API:er med återgivningstjänsten, så att utvecklare
 
 I Route Service finns robusta geometriberäkningar för verklig infrastruktur och anvisningar om flera transportlägen. Tjänsten gör det möjligt för utvecklare att beräkna vägvisningar i ett antal rese lägen, till exempel bil, Last bil, cykel eller promenad. Tjänsten tar också hänsyn till inmatningar som trafik villkor, vikt begränsningar eller transport av farligt material.
 
-![Exempel på en karta från Route service](media/about-azure-maps/Introduction_Route.png)
+![Exempel på en karta från Route service](media/about-azure-maps/intro_route.png)
 
 Route service erbjuder en för hands version av avancerade funktioner, till exempel: 
 
@@ -95,7 +95,7 @@ Mer information om routningsfunktioner finns i [Route API-dokumentationen](https
 
 Sök tjänsten hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Sök tjänsten kan [omvända hår kod](https://en.wikipedia.org/wiki/Reverse_geocoding) adresser och korsade gator utifrån latitud och longitud.
 
-![Exempel på en sökning på en karta](media/about-azure-maps/Introduction_Search.png)
+![Exempel på en sökning på en karta](media/about-azure-maps/intro_search.png)
 
 Sök tjänsten innehåller även avancerade funktioner som:
 
@@ -149,7 +149,7 @@ Traffic service är en uppsättning webb tjänster som utvecklare kan använda f
 * Trafikflöde: real tids observerade hastigheter och res tider för alla nyckel vägar i nätverket.
 * Trafik incidenter: en uppdaterad vy över trafiken sylt och incidenter runt vägtrafik nätverket.
 
-![Exempel på en karta med trafik information](media/about-azure-maps/Introduction_Traffic.png)
+![Exempel på en karta med trafik information](media/about-azure-maps/intro_traffic.png)
 
 Mer information finns i dokumentationen om [Traffic API](https://docs.microsoft.com/rest/api/maps/traffic).
 

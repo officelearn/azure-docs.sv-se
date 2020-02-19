@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 59ac2f74d4753c1f647bedfa2c402e729e25ee62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e629f3c83d847cf20eccbe7a3fb0d3f444dac62
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847815"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430337"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Konfigurera komplexitets krav för lösen ord i Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Om du använder anpassade principer kan du ([Konfigurera lösen ords komplexitet
 
 | Tillräckligt | Beskrivning |
 | --- | --- |
-| Enkelt | Ett lösen ord som består av minst 8 till 64 tecken. |
+| Enkel | Ett lösen ord som består av minst 8 till 64 tecken. |
 | Stark | Ett lösen ord som består av minst 8 till 64 tecken. Det kräver 3 av 4 av gemener, versaler, siffror eller symboler. |
 | Anpassat | Det här alternativet ger störst kontroll över regler för lösen ords komplexitet.  Det gör det möjligt att konfigurera en anpassad längd.  Det tillåter också att du godkänner endast lösen ord (PIN-kod). |
 
@@ -73,7 +73,7 @@ Gör att du kan kontrol lera lösen ordets längd krav.
 Gör att du kan kontrol lera de olika teckenuppsättningarna som används i lösen ordet.
 
 - **2 av 4: gemener, versaler, tal (0-9), symbol** ser till att lösen ordet innehåller minst två tecken typer. Till exempel ett tal och ett gemener.
-- **3 av 4: gemener, versaler, tal (0-9), symbol** ser till att lösen ordet innehåller minst två tecken typer. Till exempel ett tal, ett gement och ett versalt.
+- **3 av 4: gemener, versaler, tal (0-9), symbol** ser till att lösen ordet innehåller minst tre tecken typer. Till exempel ett tal, ett gement och ett versalt.
 - **4 av 4: gemener, versaler, siffror (0-9), symbol** ser till att lösen ordet innehåller alla för tecken typer.
 
     > [!NOTE]

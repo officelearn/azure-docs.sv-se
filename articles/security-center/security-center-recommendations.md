@@ -1,5 +1,5 @@
 ---
-title: Säkerhets rekommendationer i Azure Security Center | Microsoft Docs
+title: Säkerhetsrekommendationer i Azure Security Center
 description: Det här dokumentet vägleder dig genom hur rekommendationer i Azure Security Center hjälper dig att skydda dina Azure-resurser och hålla dem kompatibla med säkerhets principer.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6a01ddbc733ce52c02e9abef2569adbfbd19c6a8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4f41f4996f230a373245633b9449e93c403a1dfc
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520738"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430303"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Säkerhetsrekommendationer i Azure Security Center 
 I det här avsnittet beskrivs hur du visar och förstår rekommendationerna i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
@@ -64,7 +64,7 @@ Security Center analyserar dina resursers säkerhets tillstånd för att identif
 
 1. Klicka på rekommendationen om du vill visa information om varje rekommendation.
 
-    ![Rekommendations information](./media/security-center-recommendations/recommendation-details.png)
+    ![Information om rekommendation](./media/security-center-recommendations/recommendation-details.png)
 
 >[!NOTE] 
 > Se [klassiska distributions modeller för och Resource Manager](../azure-classic-rm.md) för Azure-resurser.

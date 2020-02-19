@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 85f2d671e53592fbe2a543fade43c0bc3e6f47e1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: eb2032ce9fd6efed4a45aa30b469cb67926f17c9
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156374"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446071"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,7 +34,7 @@ Innan du börjar:
 
 1. Ersätt strängen `YourSubscriptionKey` i den nya filen med din prenumerationsnyckel för Speech-tjänsten.
 
-1. Ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
+1. Ersätt strängen `YourServiceRegion` med **regions-ID** : t från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 > [!NOTE]
 > Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.

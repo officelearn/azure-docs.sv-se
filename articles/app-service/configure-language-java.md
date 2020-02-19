@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a088a90642a0394b0ede3c163590f64112799d1a
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425297"
+ms.locfileid: "77443902"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -128,9 +128,9 @@ Java-program som körs i App Service har samma uppsättning [rekommenderade säk
 
 Konfigurera app-autentisering i Azure Portal med alternativet **autentisering och auktorisering** . Därifrån kan du aktivera autentisering med Azure Active Directory eller sociala inloggningar som Facebook, Google eller GitHub. Azure Portal konfiguration fungerar bara när du konfigurerar en enda autentiseringsprovider. Mer information finns i [Konfigurera din app service app för att använda Azure Active Directory inloggning](configure-authentication-provider-aad.md) och relaterade artiklar för andra identitets leverantörer. Om du behöver aktivera flera inloggnings leverantörer följer du anvisningarna i artikeln [anpassa App Service-autentisering](app-service-authentication-how-to.md) .
 
-#### <a name="tomcat-and-wildfly"></a>Tomcat och WildFly
+#### <a name="tomcat"></a>Tomcat
 
-Ditt Tomcat-eller WildFly-program kan komma åt användarens anspråk direkt från servlet genom att omvandla huvudobjektet till ett kart objekt. Kart-objektet mappar varje anspråks typ till en samling av anspråken för den typen. I koden nedan är `request` en instans av `HttpServletRequest`.
+Ditt Tomcat-program kan komma åt användarens anspråk direkt från servlet genom att omvandla huvudobjektet till ett kart objekt. Kart-objektet mappar varje anspråks typ till en samling av anspråken för den typen. I koden nedan är `request` en instans av `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();

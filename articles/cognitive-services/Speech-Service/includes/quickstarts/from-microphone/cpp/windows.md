@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: cc349c2d5e43946648533d546398e95d4fa98382
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5cb7cfc0b4d888406f8574ab620667f160bfa118
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156436"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446307"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,7 +37,7 @@ Innan du börjar:
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
+1. Ersätt strängen `YourServiceRegion` med **regions-ID** : t från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 1. Välj **arkiv** > **Spara alla**på Meny raden.
 

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 4b8f58fbfa9de929139646ad267a433645e2db35
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 9c16e2e1726fcbf1e0b55ee0e9808a607b611ea6
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156547"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446001"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,7 +40,7 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Obser
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `SpeechRecognizer`-objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region (Välj "Speech SDK parameter" från [region](https://aka.ms/speech/sdkregion). Infoga den här koden i metoden `RecognizeSpeechAsync()`.
+Innan du kan initiera ett `SpeechRecognizer`-objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region (Välj **regions-ID** från [region](https://aka.ms/speech/sdkregion). Infoga den här koden i metoden `RecognizeSpeechAsync()`.
 
 > [!NOTE]
 > I det här exemplet används metoden `FromSubscription()` för att bygga `SpeechConfig`. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).

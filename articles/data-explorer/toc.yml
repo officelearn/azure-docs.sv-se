@@ -56,6 +56,10 @@
           href: create-cluster-database-resource-manager.md
     - name: Mata in data
       items:
+        - name: Datainmatning med ett klick
+          href: ingest-data-one-click.md
+        - name: Strömningsinmatning
+          href: ingest-data-streaming.md
         - name: Händelsehubb
           items:
             - name: Azure Portal
@@ -86,10 +90,6 @@
               href: data-connection-iot-hub-python.md
             - name: Azure Resource Manager-mall
               href: data-connection-iot-hub-resource-manager.md
-        - name: Datainmatning med ett klick
-          href: ingest-data-one-click.md
-        - name: Strömningsinmatning
-          href: ingest-data-streaming.md
         - name: 'Använda SDK:er'
           items:
             - name: Python

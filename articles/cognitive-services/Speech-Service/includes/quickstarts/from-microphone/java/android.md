@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 882904ec09014df821c648bb4823d7a0930abba5
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 6348d09351cf627624340083e2c419def38dfc01
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156262"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446152"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,7 +58,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt också strängen `YourServiceRegion` med "Speech SDK-parametern" från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria prov prenumerationen.
+1. Ersätt också strängen `YourServiceRegion` med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria prov prenumerationen.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 

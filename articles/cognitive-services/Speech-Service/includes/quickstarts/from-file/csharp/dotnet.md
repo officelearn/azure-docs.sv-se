@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: dapine
-ms.openlocfilehash: 68392bfdb80236a1cf82261332d3bf3b4d09e02b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 7bac943a4550103a941fbd812381e34ab2de2454
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156717"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446448"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -75,8 +75,7 @@ Innan du kan initiera ett `SpeechRecognizer`-objekt måste du skapa en konfigura
 > Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
 
 ```csharp
-// Replace with your own subscription key and service region (e.g., "westus", use the one of SpeechSDKParameters
-// from here: https://aka.ms/speech/sdkregion).
+// Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 

@@ -8,12 +8,12 @@
   expanded: true
   items:
     - name: Installera och konfigurera Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
+      href: terraform-install-configure.md
       maintainContext: true
     - name: Skapa en Terraform-konfiguration
       href: terraform-create-configuration.md
     - name: Skapa en virtuell Linux-dator
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
+      href: terraform-create-complete-vm.md
       maintainContext: true
 - name: Självstudier
   items:
@@ -35,8 +35,6 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastruktur
       items:
-        - name: Skapa en virtuell Terraform-dator där hanterade identiteter för Azure-resurser är aktiverade
-          href: terraform-vm-managed-identities-for-azure-resources.md
         - name: Skapa ett VM-kluster med Terraform-moduler
           href: terraform-create-vm-cluster-module.md
         - name: Skapa ett VM-kluster med Terraform och HCL

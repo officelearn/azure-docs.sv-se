@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169775"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462010"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -111,6 +111,12 @@ En parameter har följande egenskaper som används i princip definitionen:
 - `metadata`: definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
   - `description`: en förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
   - `displayName`: det egna namnet som visas i portalen för parametern.
+  - `version`: (valfritt) spårar information om versionen av innehållet i en princip definition.
+
+    > [!NOTE]
+    > Tjänsten Azure Policy använder `version`, `preview`och `deprecated` egenskaper för att förmedla ändrings nivån till en inbyggd princip definition eller initiativ och tillstånd. Formatet för `version` är: `{Major}.{Minor}.{Patch}`. Vissa tillstånd, till exempel _föråldrad_ eller för _hands version_, läggs till i `version`-egenskapen eller i en annan egenskap som **boolesk**.
+
+  - `category`: (valfritt) avgör under vilken kategori i Azure Portal princip definitionen visas.
   - `strongType`: (valfritt) som används för att tilldela princip definitionen via portalen. Innehåller en Sammanhangs medveten lista. Mer information finns i [strongType](#strongtype).
   - `assignPermissions`: (valfritt) Ange som _Sant_ för att Azure Portal skapa roll tilldelningar under princip tilldelningen. Den här egenskapen är användbar om du vill tilldela behörigheter utanför tilldelnings omfånget. Det finns en roll tilldelning per roll definition i principen (eller per roll definition i alla principer i initiativet). Parametervärdet måste vara en giltig resurs eller ett giltigt omfång.
 - `defaultValue`: (valfritt) anger värdet för parametern i en tilldelning om inget värde anges.
@@ -663,7 +669,7 @@ Lista över alla alias växer. Använd någon av följande metoder för att hitt
 
 ### <a name="understanding-the--alias"></a>Förstå alias [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Några exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett "normal"-namn och en annan som har **\[\*\]** kopplade till den. Exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

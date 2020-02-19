@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c9891751ac24a630819d9b0a708ffbd288ac1327
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21654a3b325e8b8f0a3e49ee64b7624c8540d0d5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365155"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461087"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Event Grid bindningar för Azure Functions
 
@@ -34,7 +34,7 @@ Koden i den här referensen är standardvärdet för .NET Core-syntax, som anvä
 
 ### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
 
-Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tillägget buntar alla andra program typer.
+Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
 | Språk                                        | Lägg till efter...                                   | Anmärkningar 
 |-------------------------------------------------|---------------------------------------------|-------------|

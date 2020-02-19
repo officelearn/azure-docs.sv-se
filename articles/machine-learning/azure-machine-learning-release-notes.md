@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030820"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462181"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -23,10 +23,53 @@ I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
 
+## <a name="2020-02-18"></a>2020-02-18
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>Azure Machine Learning SDK för python v 1.1.1 RC0
+
++ **Fel korrigeringar och förbättringar**
+  + **Azure-CLI-ml**
+    + En enskild instans profilering har åtgärd ATS för att skapa en rekommendation och gjorts tillgänglig i Core SDK.
+  + **azureml-automl-Core**
+    + Fel loggningen har förbättrats.
+  + **azureml-automl-runtime**
+    + Har åtgärdat problemet med prognoser när data uppsättningen innehåller korta kärnor med långa tids luckor.
+    + Löst problemet när den automatiska Max horisonten är aktive rad och datum kolumnen innehåller datum i form av strängar. Vi har lagt till korrekt konverterings-och lämpliga-fel om det inte går att konvertera till datum
+    + Använda inbyggd NumPy och SciPy för serialisering och deserialisering av mellanliggande data för FileCacheStore (används för lokala AutoML-körningar)
+    + Ett fel har åtgärd ATS där underordnade körningar kunde fastna i körnings tillstånd.
+  + **azureml-cli-common**
+    + En enskild instans profilering har åtgärd ATS för att skapa en rekommendation och gjorts tillgänglig i Core SDK.
+  + **azureml – kärna**
+    + Lade till `--grant-workspace-msi-access` som en ytterligare parameter för data lagrets CLI för registrering av Azure Blob-behållare som gör att du kan registrera BLOB-behållare som ligger bakom ett virtuellt nätverk
+    + En enskild instans profilering har åtgärd ATS för att skapa en rekommendation och gjorts tillgänglig i Core SDK.
+    + Korrigerade problemet i aks.py _deploy
+    + Validerar integriteten för modeller som överförs för att undvika tyst lagrings problem.
+  + **azureml – tolka**
+    + azureml-undantag har lagts till i azureml-tolka
+    + fast DeepScoringExplainer-serialisering för keras-modeller
+  + **azureml – pipeline – kärna**
+    + I pipeline för batch-Poäng för batch används nu ParallelRunStep
+  + **azureml-pipeline – steg**
+    + Flyttade `AutoMLStep` i `azureml-pipeline-steps`-paketet. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline – steg**
+    + Valfri parameter side_inputs lagts till i ParallelRunStep. Den här parametern kan användas för att montera en mapp på behållaren. Typer som stöds för närvarande är DataReference och PipelineData.
+  + **azureml – tensorboard**
+    + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
+  + **azureml-träna-automl-client**
+    + fast FeaturizationConfig åsidosätter problem som filtrerar anpassad funktionalisering-konfiguration.
+  + **azureml-träna-automl-runtime**
+    + Flyttade `AutoMLStep` i `azureml-pipeline-steps`-paketet. Föråldrade `AutoMLStep` inom `azureml-train-automl-runtime`.
+  + **azureml-träna-Core**
+    + Stöd för PyTorch version 1,4 i PyTorch-uppskattningen
+  
 ## <a name="2020-02-04"></a>2020-02-04
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>Azure Machine Learning SDK för python v 1.1.0 RC0
 
++ **Bryta ändringar**
+  + **Semantisk versions hantering 2.0.0**
+    + Från och med version 1,1 Azure ML python SDK antar 2.0.0 för semantisk versions hantering. [Läs mer här](https://semver.org/) Alla efterföljande versioner kommer att följa det nya numreringsschema och det semantiska versions kontraktet. 
+  
 + **Fel korrigeringar och förbättringar**
   + **azureml-automl-runtime**
     + Ökad hastighet på funktionalisering.
@@ -118,8 +161,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + Lade till CreatedBy-information till modell-och tjänst objekt. Kan nås via <var>. created_by
     + Fast ContainerImage. Run (), som inte konfigurerades på rätt sätt i Docker-behållarens HTTP-port.
     + Gör `azureml-dataprep` valfritt för `az ml dataset register` CLI-kommando
-  + **azureml – nu**
-    + En bugg har åtgärd ATS där TabularDataset. to_pandas_dataframe skulle felaktigt återgå till en alternativ läsare och skriva ut en varning.
+    + En bugg har åtgärd ATS där `TabularDataset.to_pandas_dataframe` felaktigt skulle återgå till en alternativ läsare och skriva ut en varning.
   + **azureml – förklara-modell**
     + skjuta upp Shap-beroendet till tolka-community från azureml-tolka
   + **azureml – pipeline – kärna**

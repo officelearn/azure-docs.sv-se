@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765094"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462504"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -28,12 +28,12 @@ Använd [Azure Database migration service](https://azure.microsoft.com/services/
 ## <a name="limitations-and-considerations"></a>Begränsningar och överväganden
 
 ### <a name="data-not-replicated"></a>Data har inte repliker ATS
-[*MySQL system-databasen*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) på huvud servern replikeras inte. Ändringar av konton och behörigheter på huvud servern replikeras inte. Om du skapar ett konto på huvud servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [hand boken för MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+[*MySQL system-databasen*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) på huvud servern replikeras inte. Ändringar av konton och behörigheter på huvud servern replikeras inte. Om du skapar ett konto på huvud servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [hand boken för MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### <a name="requirements"></a>Krav
 - Huvud Server versionen måste vara minst MySQL version 5,6. 
 - Huvud-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MySQL version 5,6 eller båda måste vara MySQL version 5,7.
-- Varje tabell måste ha en primär nyckel.
+- Varje tabell måste ha en primärnyckel.
 - Huvud servern bör använda MySQL InnoDB-motorn.
 - Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på huvud servern.
 - Om huvud servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) och parametern `master_ssl_ca`.
@@ -41,7 +41,7 @@ Använd [Azure Database migration service](https://azure.microsoft.com/services/
 - Se till att datorn som är värd för huvudservern tillåter både inkommande och utgående trafik på port 3306.
 - Se till att huvud servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.
 - Globala transaktions-ID: n (GTID) stöds inte.
 

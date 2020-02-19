@@ -8,20 +8,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 019979307f6dff1dba2ef5f661a971f330b8a9cd
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cafb0a7e2bf0fbce82448236a2da98079144121e
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668861"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461546"
 ---
-# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med SDK för .NET-serverdelar för Azure Mobile Apps
+# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Arbeta med .NET-Server del Server SDK för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
->
-> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 Det här avsnittet visar hur du använder Server-SDK för .NET-Server delen i nyckel Azure App Service Mobile Apps scenarier. Azure Mobile Apps SDK hjälper dig att arbeta med mobila klienter från ditt ASP.NET-program.
 
@@ -30,11 +25,11 @@ Det här avsnittet visar hur du använder Server-SDK för .NET-Server delen i ny
 >
 >
 
-## <a name="reference-documentation"></a>Referensdokumentation
+## <a name="reference-documentation"></a>Referens dokumentation
 Referens dokumentationen för Server-SDK finns här: [Azure Mobile Apps .net-referens][1].
 
 ## <a name="create-app"></a>Gör så här: skapa en server del för .NET-mobilapp
-Om du startar ett nytt projekt kan du skapa ett App Service program med hjälp av antingen [Azure-portalen] eller Visual Studio. Du kan köra App Service programmet lokalt eller publicera projektet till din molnbaserade App Service mobilapp.
+Om du startar ett nytt projekt kan du skapa ett App Service program med hjälp av antingen [Azure Portal] eller Visual Studio. Du kan köra App Service programmet lokalt eller publicera projektet till din molnbaserade App Service mobilapp.
 
 Om du lägger till mobila funktioner i ett befintligt projekt kan du läsa avsnittet [Hämta och INITIERA SDK](#install-sdk) .
 
@@ -52,7 +47,7 @@ Installera Azure-arbetsbelastningen via Visual Studio-installationsprogrammet f�
 1. Öppna dialog rutan **nytt projekt** (från **fil** > **nytt** > **projekt...** ).
 2. Expandera **visuellt C#**  objekt och välj **webb**.
 3. Välj **ASP.NET-webbprogram (.NET Framework)** .
-4. Fyll i projekt namnet. Klicka på **OK**.
+4. Fyll i projekt namnet. Klicka sedan på **OK**.
 5. Välj **Azure-mobilapp** i listan med mallar.
 6. Klicka på **OK** för att skapa lösningen.
 7. Högerklicka på projektet i **Solution Explorer** och välj **publicera...** och välj sedan **App Service** som publicerings mål.
@@ -65,7 +60,7 @@ Installera [Azure SDK för .net][4] (version 2.9.0 eller senare) för att skapa 
 1. Öppna dialog rutan **nytt projekt** (från **fil** > **nytt** > **projekt...** ).
 2. Expandera **mallar** > **visualisering C#** och välj **webb**.
 3. Välj **ASP.NET-webbapp**.
-4. Fyll i projekt namnet. Klicka på **OK**.
+4. Fyll i projekt namnet. Klicka sedan på **OK**.
 5. Välj **Azure-mobilapp**under *ASP.NET 4.5.2-mallar*. Kontrol lera **värd i molnet** för att skapa en mobil Server del i molnet som du kan publicera projektet i.
 6. Klicka på **OK**
 
@@ -467,7 +462,7 @@ Se till att din mobila Server del har [Microsoft. Azure. Mobile. Server. Authent
 I föregående exempel bör du konfigurera program inställningarna *authAudience* och *AuthIssuer* i din Web. config-fil till var och en som URL till program roten med hjälp av https-schemat. På samma sätt bör du ange *authSigningKey* som värde för programmets signerings nyckel.
 Så här hämtar du signerings nyckeln:
 
-1. Navigera till din app i [Azure-portalen]
+1. Navigera till din app i [Azure Portal]
 2. Klicka på **verktyg**, **kudu**, **Go**.
 3. I kudu hanterings plats klickar du på **miljö**.
 4. Hitta värdet för *webbplatsen\_AUTH\_signing\_Key*.
@@ -480,7 +475,7 @@ Använd signerings nyckeln för parametern *authSigningKey* i din lokala program
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [NuGet.org]: https://www.nuget.org/
 [Microsoft. Azure. Mobile. Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft. Azure. Mobile. Server. snabb start]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c189ece9763e484b969b91f9c1ab9120e5665261
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c385be0c21e7a61f66eb274ec293f4aabd4208ba
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71305956"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458893"
 ---
 # <a name="customize-your-azure-security-center-for-iot-solution"></a>Anpassa din Azure Security Center för IoT-lösning 
 
@@ -32,7 +32,7 @@ I den här hand boken får du lära dig hur du anpassar olika inställningar i A
 
 ## <a name="change-settings"></a>Ändra inställningar
 
-"Hantera Azure Security Center för IoT-inställningen:
+Hantera din Azure Security Center för IoT-inställningen:
 
 På din IoT Hub går du till bladet säkerhets översikt i det övre vänstra hörnet, se "Inställningar" för att konfigurera Azure Security Center för IoT-inställningar, gör följande:
 

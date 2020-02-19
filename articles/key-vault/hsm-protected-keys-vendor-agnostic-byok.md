@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: bd70cfb58c9d89f1d454537721e22f36b1fd3d3e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: 2f5269587d222be9a1628b72c1f3f0dc1b105f3c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429298"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461751"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importera HSM-skyddade nycklar till Key Vault (för hands version)
 
@@ -52,13 +52,13 @@ I följande tabell finns en lista över förutsättningar för att ta med din eg
 | En prenumeration på Azure |Om du vill skapa en Azure Key Vault behöver du en Azure-prenumeration: [Registrera dig för en kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/) |
 | Ett nyckel valv (Premium-SKU) för att importera HSM-skyddade nycklar |Mer information om tjänst nivåer och funktioner för Azure Key Vault finns på webbplatsen för [Azure Key Vault prissättning](https://azure.microsoft.com/pricing/details/key-vault/) . |
 | En HSM från HSM: er-listan som stöds tillsammans med BYOK-verktyget och instruktioner från din HSM-leverantör | Du måste ha åtkomst till en modul för maskin varu säkerhet och grundläggande operativa kunskaper om din HSM: er. Se [HSM: er som stöds](#supported-hsms). |
-| Azure CLI-version 2.0.82 eller senare | Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) .|
+| Azure CLI-version 2.1.0 eller senare | Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) .|
 
 ## <a name="supported-hsms"></a>HSM: er som stöds
 
 |HSM-leverantörens namn|HSM-modeller som stöds|Ytterligare information|
 |---|---|---|
-|Thales|SafeNet Luna HSM 7-serien med inbyggd program vara version 7,3 eller senare| [SafeNet Luna BYOK-verktyg och dokumentation](https://safenet.gemalto.com/blah-blah)|
+|Thales|SafeNet Luna HSM 7-serien med inbyggd program vara version 7,3 eller senare| [SafeNet Luna BYOK-verktyg och dokumentation](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 
 
 > [!NOTE]

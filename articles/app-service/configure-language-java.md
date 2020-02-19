@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443902"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461274"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Konfigurera en Windows java-app för Azure App Service
 
@@ -29,6 +29,7 @@ Du kan använda [Azure Web App-plugin-programmet för maven för](/java/api/over
 Annars beror distributions metoden på din Arkiv typ:
 
 - Om du vill distribuera. War-filer till Tomcat använder du `/api/wardeploy/` slut punkten för att publicera Arkiv filen. Mer information om det här API: et finns i [den här dokumentationen](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Om du vill distribuera. jar-filer till Java SE använder du `/api/zipdeploy/` slut punkten för kudu-platsen. Mer information om det här API: et finns i [den här dokumentationen](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Distribuera inte din. War med FTP. FTP-verktyget är utformat för att ladda upp start skript, beroenden eller andra runtime-filer. Det är inte det bästa valet för att distribuera webbappar.
 
@@ -287,6 +288,10 @@ Om du vill redigera Tomcat `server.xml` eller andra konfigurationsfiler ska du f
 
 Slutligen startar du om din App Service. Dina distributioner ska gå till `D:\home\site\wwwroot\webapps` precis som tidigare.
 
+## <a name="configure-java-se"></a>Konfigurera Java SE
+
+När du kör en. JAR-program på Java SE i Windows, `server.port` skickas som ett kommando rads alternativ när programmet startas. Du kan matcha HTTP-porten manuellt från miljö variabeln `HTTP_PLATFORM_PORT`. Värdet för den här miljövariabeln är den HTTP-port som programmet ska lyssna på. 
+
 ## <a name="java-runtime-statement-of-support"></a>Stöd för Java Runtime-sats
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK-versioner och underhåll
@@ -300,6 +305,8 @@ JDKs som stöds korrigeras automatiskt en gång i kvartalet i januari, april, ju
 ### <a name="security-updates"></a>Säkerhetsuppdateringar
 
 Korrigeringar och korrigeringar för viktiga säkerhets problem kommer att släppas så snart de blir tillgängliga från Azul system. En "större" sårbarhet definieras av en baspoäng på 9,0 eller högre på [NIST vanliga sårbarhets bedömnings system, version 2](https://nvd.nist.gov/cvss.cfm).
+
+Tomcat 8,0 har uppnått [livs längd (EOL) från och med 30 September 2018](https://tomcat.apache.org/tomcat-80-eol.html). Även om körningen fortfarande är avialable på Azure App Service, kommer Azure inte att tillämpa säkerhets uppdateringar på Tomcat 8,0. Migrera om möjligt dina program till Tomcat 8,5 eller 9,0. Både Tomcat 8,5 och 9,0 finns på Azure App Service. Mer information finns på den [officiella Tomcat-webbplatsen](https://tomcat.apache.org/whichversion.html) . 
 
 ### <a name="deprecation-and-retirement"></a>Utfasning och pensionering
 

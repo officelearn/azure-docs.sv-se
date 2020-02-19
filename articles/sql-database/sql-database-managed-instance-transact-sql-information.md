@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 02/10/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 392d7d7efcd5b23a7a4575e2d22d21fb4433bb6d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: d3e631fae4899fffafad9bd140abaae4fb170624
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121953"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462589"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -48,7 +48,7 @@ Den här sidan förklarar även [tillfälliga kända problem](#Issues) som uppt�
 - [SLÄPP TILLGÄNGLIGHETS GRUPP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [Set hadr](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) -satsen i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql) -instruktionen
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Säkerhetskopiering
 
 Hanterade instanser har automatiska säkerhets kopieringar, så användare kan skapa fullständiga databaser `COPY_ONLY` säkerhets kopior. Säkerhets kopiering av differentiella, loggade och ögonblicks bilder stöds inte.
 
@@ -65,6 +65,7 @@ Begränsningar:
 
 - Med en hanterad instans kan du säkerhetskopiera en instans databas till en säkerhets kopia med upp till 32 Stripes, vilket är tillräckligt för databaser upp till 4 TB om komprimering av säkerhets kopia används.
 - Det går inte att köra `BACKUP DATABASE ... WITH COPY_ONLY` på en databas som är krypterad med tjänst hanterad transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian. Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd [kundhanterad (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
+- Manuella säkerhets kopieringar till Azure Blob Storage stöds bara för [BlockBlobStorage-konton](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 - Den största storleken för säkerhets kopierings stripe med hjälp av `BACKUP` kommandot i en hanterad instans är 195 GB, vilket är den maximala BLOB-storleken. Öka antalet ränder i säkerhets kopierings kommandot för att minska storleken på enskilda stripe-volymer och håll dig inom den här gränsen.
 
     > [!TIP]
@@ -110,7 +111,7 @@ En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så föl
 
 Se [Skapa certifikat](/sql/t-sql/statements/create-certificate-transact-sql) -och [säkerhets kopierings certifikat](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Lösning**: I stället för att skapa en säkerhets kopia av certifikatet och återställa säkerhets kopian [hämtar du det binära innehållet och den privata nyckeln, lagrar det som. SQL-fil och skapar från binär](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Lösning**: i stället för att skapa en säkerhets kopia av certifikatet och återställa säkerhets kopian [hämtar du det binära innehållet och den privata nyckeln, lagrar det som. SQL-fil och skapar från binär](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -140,7 +141,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 
 - Windows-inloggningar som skapats med `CREATE LOGIN ... FROM WINDOWS`-syntaxen stöds inte. Använd Azure Active Directory inloggningar och användare.
 - Den Azure AD-användare som skapade instansen har [obegränsade administratörs privilegier](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Användare som inte har administratörs behörighet på Azure AD kan skapas med hjälp av syntaxen `CREATE USER ... FROM EXTERNAL PROVIDER`. Se [skapa användare... FRÅN EXTERN PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- Användare som inte har administratörs behörighet på Azure AD kan skapas med hjälp av syntaxen `CREATE USER ... FROM EXTERNAL PROVIDER`. Se [skapa användare... FRÅN extern PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Azure AD server-Huvudkonton (inloggningar) stöder endast SQL-funktioner inom en hanterad instans. Funktioner som kräver interaktion mellan olika instanser, oavsett om de ligger inom samma Azure AD-klient eller olika klienter, stöds inte för Azure AD-användare. Exempel på sådana funktioner är:
 
   - SQL-transaktionell replikering.
@@ -302,7 +303,7 @@ Följande SQL Agent-funktioner stöds för närvarande inte:
 - Proxy
 - Schemalägga jobb på en inaktiv processor
 - Aktivera eller inaktivera en agent
-- Alerts
+- Aviseringar
 
 Information om SQL Server Agent finns i [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
@@ -429,7 +430,7 @@ Mer information om hur du konfigurerar Transaktionsreplikering finns i följande
   - `FROM DISK`/`TAPE`/backup-enheten stöds inte.
   - Säkerhets kopierings uppsättningar stöds inte.
 - `WITH` alternativ stöds inte, till exempel ingen `DIFFERENTIAL` eller `STATS`.
-- `ASYNC RESTORE`: Restore fortsätter även om klient anslutningen bryts. Om anslutningen bryts kan du kontrol lera den `sys.dm_operation_status` Visa status för en återställnings åtgärd och för en skapa-och släpp-databas. Se [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- `ASYNC RESTORE`: återställningen fortsätter även om klient anslutningen bryts. Om anslutningen bryts kan du kontrol lera den `sys.dm_operation_status` Visa status för en återställnings åtgärd och för en skapa-och släpp-databas. Se [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Följande databas alternativ anges eller åsidosätts och kan inte ändras senare: 
 
@@ -458,9 +459,9 @@ Information om Restore-instruktioner finns i [restore Statements](/sql/t-sql/sta
 
 Service Broker för överinstans stöds inte:
 
-- `sys.routes`: Som en förutsättning måste du välja adressen från sys. routes. Adressen måste vara lokal på varje väg. Se [sys. routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Du kan inte använda `CREATE ROUTE` med `ADDRESS` som inte är `LOCAL`. Se [skapa väg](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Du kan inte använda `ALTER ROUTE` med `ADDRESS` som inte är `LOCAL`. Se [Alter Route](/sql/t-sql/statements/alter-route-transact-sql). 
+- `sys.routes`: som krav måste du välja adressen från sys. routes. Adressen måste vara lokal på varje väg. Se [sys. routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
+- `CREATE ROUTE`: du kan inte använda `CREATE ROUTE` med `ADDRESS` annat än `LOCAL`. Se [skapa väg](/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: du kan inte använda `ALTER ROUTE` med `ADDRESS` annat än `LOCAL`. Se [Alter Route](/sql/t-sql/statements/alter-route-transact-sql). 
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Lagrade procedurer, funktioner och utlösare
 
@@ -490,7 +491,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 
 ## <a name="Environment"></a>Miljö begränsningar
 
-### <a name="subnet"></a>Subnet
+### <a name="subnet"></a>Undernät
 -  Du kan inte placera andra resurser (till exempel virtuella datorer) i under nätet där du har distribuerat din hanterade instans. Distribuera de här resurserna med ett annat undernät.
 - Under nätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimivärdet är 16 och rekommendationen måste ha minst 32 IP-adresser i under nätet.
 - [Tjänstens slut punkter kan inte kopplas till under nätet för den hanterade instansen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
@@ -535,19 +536,19 @@ En hanterad instans placerar utförlig information i fel loggarna. Det finns må
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Begränsning av manuell redundans via portalen för failover-grupper
 
-**Ikraftträdande** Jan 2020
+**Datum:** Jan 2020
 
 Om redundansväxlingen sträcker sig över instanser i olika Azure-prenumerationer eller resurs grupper kan inte manuell redundans initieras från den primära instansen i gruppen för redundans.
 
-**Lösning**: Initiera redundans via portalen från den geo-sekundära instansen.
+**Lösning**: starta redundans via portalen från den geo-sekundära instansen.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL Agent-roller behöver explicit kör-behörighet för icke-sysadmin-inloggningar
 
-**Ikraftträdande** Dec 2019
+**Datum:** Dec 2019
 
-Om icke-sysadmin-inloggningar har lagts till i någon av de [fasta databas rollerna för SQL-agenten](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), finns det ett problem där EXPLICITa körnings behörigheter måste beviljas till de Master-lagrade procedurerna för att dessa inloggningar ska fungera. Om det här problemet uppstår nekades fel meddelandet "KÖRNINGs behörigheten för objektet < object_name > (Microsoft SQL Server, fel: 229) visas.
+Om icke-sysadmin-inloggningar har lagts till i någon av de [fasta databas rollerna för SQL-agenten](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles), finns det ett problem där EXPLICITa körnings behörigheter måste beviljas till de Master-lagrade procedurerna för att dessa inloggningar ska fungera. Om det här problemet uppstår nekades fel meddelandet "KÖRNINGs behörigheten för objektet < object_name > (Microsoft SQL Server, fel: 229)" visas.
 
-**Lösning**: När du har lagt till inloggningar till någon av de fasta databas rollerna för SQL Agent: SQLAgentUserRole, SQLAgentReaderRole eller SQLAgentOperatorRole för var och en av de inloggningar som lagts till i dessa roller, kör skriptet under T-SQL för att uttryckligen bevilja kör behörighet till de lagrade procedurerna i listan.
+**Lösning**: när du lägger till inloggningar till någon av de fasta databas rollerna för SQL Agent: SQLAgentUserRole, SQLAgentReaderRole eller SQLAgentOperatorRole, för varje inloggnings objekt som lagts till i dessa roller, kör skriptet under T-SQL för att uttryckligen bevilja kör behörighet till de lagrade procedurerna.
 
 ```tsql
 USE [master]
@@ -561,53 +562,53 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>SQL Agent-jobb kan avbrytas efter omstart av agent processen
 
-**Ikraftträdande** Dec 2019
+**Datum:** Dec 2019
 
 SQL-agenten skapar en ny session varje gång jobbet startas, vilket gradvis ökar minnes användningen. För att undvika att den interna minnes gränsen uppnås, vilket skulle blockera körning av schemalagda jobb, startas agent processen om när minnes användningen når tröskelvärdet. Det kan leda till avbrott i körningen av jobb som körs vid tidpunkten för omstart.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Minnes gränser för minnes intern OLTP tillämpas inte
 
-**Ikraftträdande** Okt 2019
+**Datum:** Okt 2019
 
 Affärskritisk tjänst nivån kommer inte att tillämpa [högsta minnes gränser för minnesoptimerade objekt](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) i vissa fall. Den hanterade instansen kan göra att arbets belastningen kan använda mer minne för minnes intern OLTP-åtgärder, vilket kan påverka instansens tillgänglighet och stabilitet. InMemory OLTP-frågor som når gränserna kanske inte kommer att Miss genast. Det här problemet kommer snart att åtgärdas. Frågor som använder mer minnes-till-minne OLTP-minne kommer att Miss Miss kort om de når [gränserna](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
 
-**Korrigera** [Övervaka minnes intern OLTP-lagrings användning](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) med [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) för att säkerställa att arbets belastningen inte använder mer än tillgängligt minne. Öka de minnes gränser som beror på antalet virtuella kärnor eller optimera arbets belastningen för att använda mindre minne.
+**Lösning:** [övervaka minnes intern OLTP-lagring](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) med [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) för att säkerställa att arbets belastningen inte använder mer än tillgängligt minne. Öka de minnes gränser som beror på antalet virtuella kärnor eller optimera arbets belastningen för att använda mindre minne.
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Ett fel fel returnerades vid försök att ta bort en fil som inte är tom
 
-**Ikraftträdande** Okt 2019
+**Datum:** Okt 2019
 
 SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som inte är tom](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Om du försöker ta bort en data fil som inte är tom med hjälp av `ALTER DATABASE REMOVE FILE`-instruktionen returneras inte fel `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` omedelbart. Den hanterade instansen fortsätter att försöka släppa filen och åtgärden kommer att Miss Miss sen efter 30 min med `Internal server error`.
 
-**Lösning**: Ta bort innehållet i filen med kommandot `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
+**Lösning**: ta bort innehållet i filen med kommandot `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Ändra tjänst nivå och skapa instans åtgärder blockeras av pågående databas återställning
 
-**Ikraftträdande** Sep 2019
+**Datum:** Sep 2019
 
 Löpande `RESTORE`-instruktion, migrering av datamigrerings tjänsten och inbyggd tids återställning kommer att blockera uppdatering av tjänst nivån eller ändra storlek på den befintliga instansen och skapa nya instanser tills återställnings processen har slutförts. Med återställnings processen blockeras dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller tids gräns – de fortsätter när återställnings processen har slutförts eller avbrutits.
 
-**Lösning**: Vänta tills återställnings processen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera tjänst nivå har högre prioritet.
+**Lösning**: vänta tills återställningen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera tjänst nivå har högre prioritet.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling
 
-**Ikraftträdande** Sep 2019
+**Datum:** Sep 2019
 
 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) funktionen som gör att du kan begränsa de resurser som är tilldelade till användarens arbets belastning kan klassificera vissa användares arbets belastning efter redundansväxling eller en användarinitierad ändring av tjänst nivån (till exempel ändringen av Max vCore eller maximal instans lagrings storlek).
 
-**Lösning**: Kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av SQL Agent-jobbet som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
+**Lösning**: kör `ALTER RESOURCE GOVERNOR RECONFIGURE` regelbundet eller som en del av SQL Agent-jobbet som kör SQL-aktiviteten när instansen startar om du använder [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå
 
-**Ikraftträdande** Aug 2019
+**Datum:** Aug 2019
 
 Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går **inte förlorade** och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i hanterade instanser kommer `service_broke_guid` värdet i [sys. Databass](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` som skapats med hjälp av [BEGIN dialog](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) -instruktionen som refererar till tjänst utjämnare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
 
-**Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen. Om det finns återstående meddelanden som inte levereras efter ändringar i tjänst nivån läser du meddelandena från käll kön och skickar dem igen till målkön.
+**Lösning:** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen. Om det finns återstående meddelanden som inte levereras efter ändringar i tjänst nivån läser du meddelandena från käll kön och skickar dem igen till målkön.
 
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>Impersonification av Azure AD-inloggnings typer stöds inte
 
-**Ikraftträdande** Juli 2019
+**Datum:** Juli 2019
 
 Personifiering med hjälp av `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-huvudobjekt stöds inte:
 -   AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
@@ -615,19 +616,19 @@ Personifiering med hjälp av `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följ
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parameter stöds inte i sp_send_db_mail
 
-**Ikraftträdande** April 2019
+**Datum:** April 2019
 
 Parametern `@query` i [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) -proceduren fungerar inte.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>Transaktionsreplikering måste konfigureras om efter GEO-redundans
 
-**Ikraftträdande** Mar 2019
+**Datum:** Mar 2019
 
 Om transaktionell replikering har Aktiver ATS för en databas i en grupp för automatisk redundans, måste den hanterade instans administratören rensa alla publikationer på den gamla primära servern och konfigurera om dem på den nya primära servern efter en redundansväxling till en annan region. Se [replikering](#replication) för mer information.
 
 ### <a name="aad-logins-and-users-are-not-supported-in-ssdt"></a>AAD-inloggningar och användare stöds inte i SSDT
 
-**Ikraftträdande** Nov 2019
+**Datum:** Nov 2019
 
 SQL Server Data Tools har inte fullt stöd för inloggningar och användare i Azure Active Directory.
 
@@ -635,7 +636,7 @@ SQL Server Data Tools har inte fullt stöd för inloggningar och användare i Az
 
 När en databas återställs på den hanterade instansen skapar återställnings tjänsten först en tom databas med det önskade namnet för att allokera namnet på instansen. Efter en stund kommer den här databasen att tas bort och återställning av den faktiska databasen kommer att startas. Databasen som är i *återställnings* tillstånd kommer temporärt att ha ett slumpmässigt GUID-värde i stället för namn. Det tillfälliga namnet ändras till det önskade namnet som anges i `RESTORE`-instruktionen när återställnings processen har slutförts. I den inledande fasen kan användaren komma åt den tomma databasen och till och med skapa tabeller eller läsa in data i den här databasen. Den här tillfälliga databasen kommer att tas bort när återställnings tjänsten startar den andra fasen.
 
-**Lösning**: Få inte åtkomst till den databas som du återställer förrän du ser att återställningen har slutförts.
+**Lösning**: få inte åtkomst till den databas som du återställer förrän du ser att återställningen har slutförts.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
 
@@ -695,13 +696,13 @@ using (var scope = new TransactionScope())
 
 Även om den här koden fungerar med data inom samma instans, krävs MSDTC.
 
-**Korrigera** Använd [SQLConnection. ChangeDatabase (sträng)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) om du vill använda en annan databas i en anslutnings kontext i stället för att använda två anslutningar.
+**Lösning:** Använd [SQLConnection. ChangeDatabase (sträng)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) om du vill använda en annan databas i en anslutnings kontext i stället för att använda två anslutningar.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress
 
 CLR-moduler placerade i en hanterad instans och länkade servrar eller distribuerade frågor som refererar till en aktuell instans kan ibland inte matcha IP-adressen för en lokal instans. Det här felet är ett tillfälligt problem.
 
-**Korrigera** Använd kontext anslutningar i en CLR-modul om möjligt.
+**Lösning:** Använd kontext anslutningar i en CLR-modul om möjligt.
 
 ## <a name="next-steps"></a>Nästa steg
 

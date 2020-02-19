@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: ebf0728184a5fc104e3e1e7d8a199fec328dbdc0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210182"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462113"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Översikt över Azure Functions HTTP-utlösare och bindningar
 
@@ -27,9 +27,9 @@ Koden i den här artikeln använder .NET Core-syntaxen som standard, som använd
 
 ### <a name="functions-2x-and-higher"></a>Funktioner 2. x och högre
 
-Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. Ett NuGet-paket används för .NET-klass bibliotek medan tillägget buntar alla andra program typer.
+Om du arbetar med utlösaren och bindningarna måste du referera till rätt paket. NuGet-paketet används för .NET-klass bibliotek medan tilläggs paketet används för alla andra program typer.
 
-| Språk                                        | Lägg till efter...                                   | Kommentarer 
+| Språk                                        | Lägg till efter...                                   | Anmärkningar 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installera [NuGet-paket], version 3. x | |
 | C#Skript, Java, Java Script, python, PowerShell | [Tilläggs paketet] registreras          | [Tillägget Azure-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) rekommenderas för användning med Visual Studio Code. |

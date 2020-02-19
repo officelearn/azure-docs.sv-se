@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991039"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462674"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namn matchning för resurser i virtuella Azure-nätverk
 
@@ -34,7 +34,7 @@ Vilken typ av namnmatchning du använder beror på hur dina resurser behöver ko
 > Beroende på ditt scenario kanske du vill använda Azure DNS privata zoner. Mer information finns på sidan om att [använda Azure DNS för privata domäner](../dns/private-dns-overview.md).
 >
 
-| **Scenario** | **Lösning** | **Suffix** |
+| **Scenario** | **Lösning** | **Huvudnamnssuffix** |
 | --- | --- | --- |
 | Namn matchning mellan virtuella datorer som finns i samma virtuella nätverk, eller Azure Cloud Services roll instanser i samma moln tjänst. | [Azure DNS privata zoner](../dns/private-dns-overview.md) eller [namn matchning från Azure](#azure-provided-name-resolution) |Värdnamn eller FQDN |
 | Namn matchning mellan virtuella datorer i olika virtuella nätverk eller roll instanser i olika moln tjänster. |[Azure DNS privata zoner](../dns/private-dns-overview.md) eller kund hanterade DNS-servrar som vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
@@ -43,8 +43,8 @@ Vilken typ av namnmatchning du använder beror på hur dina resurser behöver ko
 | Namn matchning från App Service Web Apps i ett virtuellt nätverk till virtuella datorer i ett annat virtuellt nätverk. |Kundhanterade DNS-servrar vidarebefordrar frågor mellan virtuella nätverk för lösning av Azure (DNS-proxy). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Matchning av lokala dator-och tjänst namn från virtuella datorer eller roll instanser i Azure. |Kundhanterade DNS-servrar (den lokala domänkontrollanten, den lokala skrivskyddade domänkontrollanten eller en sekundär DNS-post synkroniserad med zon överföringar, till exempel). Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Matchning av Azure-värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i det motsvarande virtuella nätverket vidarebefordrar proxyservern frågor till Azure för att lösa problemet. Se [namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
-| Omvänd DNS för interna IP-adresser. |[Namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Inte aktuellt |
-| Namn matchning mellan virtuella datorer eller roll instanser som finns i olika moln tjänster, inte i ett virtuellt nätverk. |Inte tillämpligt. Anslutning mellan virtuella datorer och roll instanser i olika moln tjänster stöds inte utanför ett virtuellt nätverk. |Inte aktuellt|
+| Omvänd DNS för interna IP-adresser. |[Namn matchning med hjälp av en egen DNS-Server](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
+| Namn matchning mellan virtuella datorer eller roll instanser som finns i olika moln tjänster, inte i ett virtuellt nätverk. |Inte tillämpligt. Anslutning mellan virtuella datorer och roll instanser i olika moln tjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
 
 ## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namn matchning
 
@@ -105,8 +105,7 @@ Det finns ett antal olika tillgängliga DNS-caching-paket (till exempel dnsmasq)
 
 > [!NOTE]
 > Dnsmasq-paketet är bara ett av många DNS-cacheminnen som är tillgängliga för Linux. Innan du använder den kontrollerar du lämpligheten för dina specifika behov och kontrollerar att ingen annan cache är installerad.
->
->
+
     
 ### <a name="client-side-retries"></a>Försök på klient Sidan
 
@@ -169,8 +168,7 @@ Om frågor om vidarebefordran till Azure inte passar dina behov, bör du ange en
 * Skyddas mot åtkomst från Internet, för att minimera hot från externa agenter.
 
 > [!NOTE]
-> För bästa prestanda bör IPv6 vara inaktiverat när du använder virtuella Azure-datorer som DNS-servrar. En [offentlig IP-adress](virtual-network-public-ip-address.md) ska tilldelas till varje virtuell DNS-server. Mer prestanda analys och optimeringar när du använder Windows Server som DNS-Server finns i [namn matchnings prestanda för en rekursiv Windows DNS-Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
-> 
+> För bästa prestanda bör IPv6 vara inaktiverat när du använder virtuella Azure-datorer som DNS-servrar. En [offentlig IP-adress](virtual-network-public-ip-address.md) ska tilldelas till varje virtuell DNS-server. 
 > 
 
 ### <a name="web-apps"></a>Webbappar

@@ -6,25 +6,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668471"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459199"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-> [!NOTE]
-> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
->
-> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
-
 ## <a name="overview"></a>Översikt
 Den här guiden visar hur du utför vanliga scenarier med hjälp av det hanterade klient biblioteket för Azure App Service Mobile Apps för Windows-och Xamarin-appar. Om du är nybörjare på Mobile Apps bör du först följa självstudien för [Azure Mobile Apps snabb start][1] . I den här hand boken fokuserar vi på klient sidans hanterade SDK. Mer information om SDK: er för Server sidan för Mobile Apps finns i dokumentationen för [.NET Server SDK][2] eller [Node. js Server SDK][3].
 
-## <a name="reference-documentation"></a>Referensdokumentation
+## <a name="reference-documentation"></a>Referens dokumentation
 Referens dokumentationen för klient-SDK: n finns här: [Azure Mobile Apps .net-klient referens][4].
 Du kan också hitta flera klient exempel i [Azure-samples GitHub-lagringsplatsen][5].
 
@@ -34,7 +29,7 @@ Du kan också hitta flera klient exempel i [Azure-samples GitHub-lagringsplatsen
 * Xamarin Android-versioner för API 19 – 24 (KitKat via nougat)
 * Xamarin iOS-versioner för iOS version 8,0 och senare
 * Universell Windows-plattform
-* Windows Phone 8,1
+* Windows Phone 8.1
 * Windows Phone 8,0 utom Silverlight-program
 
 Autentiseringen "Server-Flow" använder en webbvy för det visade användar gränssnittet.  Om enheten inte kan visa användar gränssnittet för WebView krävs andra metoder för autentisering.  Detta SDK är därför inte lämpligt för bevakade eller liknande enheter.
@@ -59,7 +54,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] används för att definiera *PropertyName* -mappning mellan fältet klient och fältet tabell.
 
-Information om hur du skapar tabeller i din Mobile Apps Server del finns i [avsnittet .NET Server SDK][7] eller i [avsnittet Node. js-Server-SDK][8]. Om du har skapat en server del för mobilappen i Azure Portal med snabb starten kan du också använda inställningen **enkla tabeller** i [Azure-portalen].
+Information om hur du skapar tabeller i din Mobile Apps Server del finns i [avsnittet .NET Server SDK][7] eller i [avsnittet Node. js-Server-SDK][8]. Om du har skapat en server del för mobilappen i Azure Portal med snabb starten kan du också använda inställningen **enkla tabeller** i [Azure Portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Gör så här: installera det hanterade klient-SDK-paketet
 Använd någon av följande metoder för att installera SDK-paketet för den hanterade klienten för Mobile Apps från [NuGet][9]:
@@ -86,10 +81,10 @@ Följande kod skapar [MobileServiceClient][12] -objektet som används för att k
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-I föregående kod ersätter du `MOBILE_APP_URL` med URL: en för Server delen för mobilappar, som finns på bladet för Server delen för mobilappar i [Azure-portalen]. MobileServiceClient-objektet ska vara en singleton.
+I föregående kod ersätter du `MOBILE_APP_URL` med URL: en för Server delen för mobilappar, som finns på bladet för Server delen för mobilappar i [Azure Portal]. MobileServiceClient-objektet ska vara en singleton.
 
 ## <a name="work-with-tables"></a>Arbeta med tabeller
-I följande avsnitt beskrivs hur du söker efter och hämtar poster och ändrar data i tabellen.  Följande avsnitt beskrivs:
+I följande avsnitt beskrivs hur du söker efter och hämtar poster och ändrar data i tabellen.  Följande ämnen tas upp:
 
 * [Skapa en tabell referens](#instantiating)
 * [Fråga efter data](#querying)
@@ -651,7 +646,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att starta 
 2. Öppna projektet i Visual Studio eller Xamarin Studio och Lägg till en referens till `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-paketet. Inkludera för hands versioner vid sökning.
 3. Lägg till följande kod i programmet, enligt den plattform som du använder. I vart och ett ska du göra följande ersättningar:
 
-   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure-portalen].
+   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure Portal].
    * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
    * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -1065,7 +1060,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Vilken]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [GUID. NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

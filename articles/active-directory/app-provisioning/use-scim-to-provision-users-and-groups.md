@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f8111e1d8c9bd76e7b55dd958256f8892b9058
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442028"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461240"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -1445,6 +1445,16 @@ När den första cykeln har startats kan du välja **etablerings loggar** i den 
 
 Om du skapar ett program som ska användas av fler än en klient kan du göra det tillgängligt i Azure AD-programgalleriet. Detta gör det enkelt för organisationer att identifiera programmet och konfigurera etablering. Det är enkelt att publicera din app i Azure AD-galleriet och göra etableringen tillgänglig för andra. Kolla in stegen [här](../develop/howto-app-gallery-listing.md). Microsoft kommer att samar beta med dig för att integrera ditt program i vårt galleri, testa din slut punkt och publicera onboarding- [dokumentation](../saas-apps/tutorial-list.md) för kunder att använda. 
 
+### <a name="gallery-onboarding-checklist"></a>Check lista för Galleri registrering
+Följ check listan nedan för att se till att ditt program är inbyggt och att kunderna har en smidig distributions upplevelse. Informationen kommer att samlas in från dig när du registrerar dig i galleriet. 
+> [!div class="checklist"]
+> * [Support SCIM 2,0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (krävs)
+> * Stöd minst 25 begär Anden per sekund per klient (krävs)
+> * Stöd för schema identifiering (rekommenderas)
+> * Stöd för OAuth-auktoriseringskod eller en lång livs längd enligt beskrivningen nedan (krävs)
+> * Upprätta en teknisk kontakt punkt för att få support för kund publicerings galleriet (krävs)
+> * Dokumentera din SCIM-slutpunkt offentligt (rekommenderas) 
+
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Auktorisering för etablering av anslutningar i program galleriet
 SCIM-specifikationen definierar inte ett SCIM schema för autentisering och auktorisering. Den förlitar sig på användningen av befintliga bransch standarder. Azure AD Provisioning-klienten har stöd för två autentiseringsmetoder för program i galleriet. 
@@ -1471,6 +1481,17 @@ Metod tips (rekommenderas men krävs inte):
 **Långa OAuth-token för OAuth-förlängd:** Om ditt program inte stöder OAuth-auktoriseringsvärdet för OAuth-auktoriseringskod kan du också generera en lång livs längd för OAuth Bearer-token som en administratör kan använda för att konfigurera etablerings integrationen. Token ska vara beständig, annars placeras etablerings jobbet i [karantän](application-provisioning-quarantine-status.md) när token upphör att gälla. Denna token måste vara lägre 1 KB i storlek.  
 
 Om du vill ha ytterligare metoder för autentisering och auktorisering kan du berätta för oss på [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
+
+### <a name="gallery-go-to-market-launch-check-list"></a>Check lista för att gå till marknads start
+För att hjälpa till att öka medvetenheten och behovet av vår gemensamma integrering rekommenderar vi att du uppdaterar din befintliga dokumentation och utvidgar integrationen i dina marknadsförings kanaler.  Nedan visas en uppsättning med check lista aktiviteter som vi rekommenderar att du slutför för att stödja lanseringen
+
+* **Beredskap för försäljning och kund support.** Se till att dina Sälj-och support team är medvetna och kan prata med integrerings funktionerna. Korta ditt sälj-och support team och ge dem med vanliga frågor och svar och inkludera integreringen i ditt försäljnings material. 
+* **Blogg inlägg och/eller pressmeddelanden.** Skapa en blogg post eller pressmeddelande som beskriver den gemensamma integrationen, fördelarna och hur du kommer igång. [Exempel: InPrivate och Azure Active Directory pressmeddelande](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Sociala medier.** Utnyttja dina sociala medier som Twitter, Facebook eller LinkedIn för att marknadsföra integreringen med kunderna. Se till att ta med @AzureAD så att vi kan göra en Tweet för inlägget. [Exempel: InPrivate Twitter post](https://twitter.com/azuread/status/1123964502909779968)
+* **Marknadsförings webbplats.** Skapa eller uppdatera dina marknadsförings sidor (t. ex. integrations sidan, partner sidan, sidan med priser osv...) för att inkludera tillgängligheten för den gemensamma integrationen. [Exempel: Pingboard integration Page](https://pingboard.com/org-chart-for), sidan för [Smartsheet-integrering](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), sidan [Monday.com prissättning](https://monday.com/pricing/) 
+* **Teknisk dokumentation.** Skapa en hjälp Center-artikel eller teknisk dokumentation om hur kunder kan komma igång. [Exempel: mottagare + Microsoft Azure Active Directory-integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+) 
+* **Kund kommunikation.** Meddela kunder om den nya integrationen genom din kund kommunikation (månads Visa nyhets brev, e-postkampanjer, produkt viktig information). 
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Tillåt IP-adresser som används av Azure AD Provisioning-tjänsten för att göra SCIM-begäranden
 

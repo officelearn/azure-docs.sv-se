@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 022af5ce0774ff106a29a2ef0bcf3fe11acfda15
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d7d697e3ea4b1b683275d53f6e407396f474b37b
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187206"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462028"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET Core (Azure. Messaging. EventHubs) 
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net Core Library. 
@@ -132,7 +132,7 @@ I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. F
 
 1. I fönstret Solution Explorer högerklickar du på lösningen **EventHubQuickStart** , pekar på **Lägg till**och väljer **nytt projekt**. 
 1. Välj **konsol program (.net Core)** och välj **Nästa**. 
-1. Event **EventHubsReceiver** för **projekt namnet**och välj **skapa**. 
+1. Ange **EventHubsReceiver** som **projekt namn**och välj **skapa**. 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Lägga till Event Hubs NuGet-paketet
 

@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: ed67a21107f6a7d90341ae40feeb817671785778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: daca108cfc8bb2e5b2a068170a4a0244c72c9592
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823821"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462606"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala elastiska pool resurser i Azure SQL Database
 
@@ -57,12 +57,12 @@ Den uppskattade svars tiden för att ändra tjänst nivån eller skala om beräk
 > - Om du flyttar en databas till/från en elastisk pool, påverkar endast det utrymme som används av databasen svars tiden, inte det utrymme som används av den elastiska poolen.
 >
 > [!TIP]
-> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [ Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Information om hur du övervakar pågående åtgärder finns i: [Hantera åtgärder med hjälp av SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list), [Hantera åtgärder med CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Ytterligare överväganden vid ändring av tjänst nivå eller skalning av beräknings storlek
 
 - När downsizing virtuella kärnor eller eDTU: er för en elastisk pool, måste det förbrukade utrymmet vara mindre än den största tillåtna storleken för mål tjänst nivån och pool eDTU: er.
-- Vid skalning av virtuella kärnor-eller eDTU: er för en elastisk pool gäller en extra lagrings kostnad om (1) den maximala lagrings storleken för poolen stöds av adresspoolen och (2) den maximala storleken för lagrings utrymmet överskrider den inkluderade lagrings mängden för mål poolen. Om till exempel en 100 eDTU-standardpool med en Max storlek på 100 GB är downsized till en 50 eDTU-standardpool, kommer en extra lagrings kostnad att gälla eftersom mål poolen har stöd för en maximal storlek på 100 GB och den inkluderade lagrings mängden endast är 50 GB. Det extra lagrings utrymmet är 100 GB – 50 GB = 50 GB. Prissättning av extra lagrings utrymme finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden utrymme som används är mindre än den mängd lagrings mängd som används, kan den här extra kostnaden undvikas genom att max storleken för databasen minskas till den inkluderade mängden.
+- Vid skalning av eDTU: er för en elastisk pool gäller en extra lagrings kostnad om (1) den maximala lagrings storleken för poolen stöds av den angivna adresspoolen och (2) den maximala lagrings storleken överskrider den inkluderade lagrings storleken för mål poolen. Om till exempel en 100 eDTU-standardpool med en Max storlek på 100 GB är downsized till en 50 eDTU-standardpool, kommer en extra lagrings kostnad att gälla eftersom mål poolen har stöd för en maximal storlek på 100 GB och den inkluderade lagrings mängden endast är 50 GB. Det extra lagrings utrymmet är 100 GB – 50 GB = 50 GB. Prissättning av extra lagrings utrymme finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/). Om den faktiska mängden utrymme som används är mindre än den mängd lagrings mängd som används, kan den här extra kostnaden undvikas genom att max storleken för databasen minskas till den inkluderade mängden.
 
 ### <a name="billing-during-rescaling"></a>Fakturering under omskalning
 
@@ -71,7 +71,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 ## <a name="change-elastic-pool-storage-size"></a>Ändra lagrings storlek för elastisk pool
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
@@ -83,7 +83,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 - Priset för lagring för en elastisk pool är lagrings beloppet multiplicerat med lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>DTU-baserad inköps modell
 
@@ -92,7 +92,7 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 - Priset för extra lagring för en elastisk pool är det extra lagrings beloppet multiplicerat med det extra lagrings enhets priset för tjänst nivån. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

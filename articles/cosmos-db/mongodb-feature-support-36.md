@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a32affab45ab99a89113644bb08c4f2b57d69018
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cde731f9d9e673446bc4d08117004b028db2a7f9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721021"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462470"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB s API för MongoDB (3,6-version): funktioner som stöds och syntax
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DBens API för MongoDB med någon av MongoDB-klient [driv rutinerna](https://docs.mongodb.org/ecosystem/drivers)med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Med hjälp av Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med den MongoDB som du är van vid och alla de företagsfunktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
+Genom att använda Azure Cosmos DBs API för MongoDB kan du dra nytta av fördelarna med MongoDB som du använder för att, med alla Enterprise-funktioner som Cosmos DB ger: [global distribution](distribute-data-globally.md), [Automatisk horisontell partitionering](partition-data.md), tillgänglighet och latens garantier, kryptering i vila, säkerhets kopiering och mycket mer.
 
 ## <a name="protocol-support"></a>Protokollstöd
 
@@ -68,7 +68,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |collMod: expireAfterSeconds   |   Nej      |
 |convertToCapped   |  Nej       |
 |copydb     |  Nej       |
-|create   |    Ja     |
+|skapa   |    Ja     |
 |createIndexes     |  Ja       |
 |currentOp     |  Ja       |
 |drop     |   Ja      |
@@ -333,11 +333,11 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 |Double-värde |Ja    |
 |String |Ja    |
 |Objekt |Ja    |
-|Array  |Ja    |
+|Matris  |Ja    |
 |Binary Data    |Ja|   
 |ObjectId   |Ja    |
-|Boolesk    |Ja    |
-|Date   |Ja    |
+|Boolean    |Ja    |
+|Datum   |Ja    |
 |Null   |Ja    |
 |32-bitars heltal (int)   |Ja    |
 |Tidsstämpel  |Ja    |

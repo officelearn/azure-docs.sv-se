@@ -7,7 +7,6 @@ documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
-ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
@@ -15,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1c85f0205f568f065a7959a9b33890b2117e45a0
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766528"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462232"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Vi presenterar Azure Security Center for IoT
 
 Förena säkerhets hanteringen och aktivera hot identifiering och analys från slut punkt till slut punkt och analys över hybrid moln arbets belastningar och din Azure IoT-lösning. 
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Skydda hela IoT-lösningen från IoT-enheter till Azure-molnet.
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Skydda hela IoT-lösningen från IoT-enheter till Azure-molnet
 
 Välj någon av våra sömlösa lösningar för att lösa problemet eller dra nytta av agentbaserade omfattande säkerhet, Azure Security Center för IoT, som ger skydd mot hot och analys för varje enhet, IoT Edge och IoT Hub, på dina IoT-tillgångar.
 
@@ -38,7 +37,7 @@ Azure Security Center för IoT fören klar hybrid arbets belastnings skyddet gen
 
 ### <a name="unified-visibility-and-control"></a>Enhetlig synlighet och kontroll
 
-Få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbetsbelastningar, inklusive din Azure IoT-lösning. Publicera nya enheter och Använd säkerhets principer för dina arbets belastningar (löv enheter, Microsoft Edge-enheter IoT Hub) för att säkerställa efterlevnaden av säkerhets standarder och förbättrad säkerhets position. 
+Få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar, inklusive din Azure IoT-lösning. Publicera nya enheter och Använd säkerhets principer för dina arbets belastningar (löv enheter, Microsoft Edge-enheter IoT Hub) för att säkerställa efterlevnaden av säkerhets standarder och förbättrad säkerhets position. 
 
 ### <a name="adaptive-threat-prevention"></a>Anpassningsbart skydd
 
@@ -46,7 +45,7 @@ Använd Azure Security Center för IoT för att kontinuerligt övervaka säkerhe
 
 ### <a name="intelligent-threat-detection-and-response"></a>Intelligent hot identifiering och-svar
 
-Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns över de växande cyberhot-angrepp. Inbyggd beteende analys och maskin inlärning identifierar attacker och ingen nytta av noll dagar. Övervaka din IoT-lösning som skydd mot inkommande attacker och aktivitet efter ett genomfört intrång. Effektivisera undersökning och reparation av enheter med interaktiva verktyg och information om kontextuella hot.
+Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns över de växande cyberhot-angrepp. Inbyggd beteende analys och maskin inlärning identifierar attacker och ingen nytta av noll dagar. Övervaka din IoT-lösning för inkommande attacker och aktiviteter efter intrång. Effektivisera undersökning och reparation av enheter med interaktiva verktyg och information om kontextuella hot.
 
 ## <a name="next-steps"></a>Nästa steg
 

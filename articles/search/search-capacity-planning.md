@@ -8,18 +8,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: bc90ecb029afe70ed61e94a727c67c53bb968b96
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: e2ba5301b81b1a6f5de696ab4587cd8ff43e3c68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212547"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462572"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Justera kapaciteten i Azure Kognitiv sökning
 
-Innan du konfigurerar [en Sök tjänst](search-create-service-portal.md) och låser upp en viss pris nivå kan du ta några minuter för att förstå rollen för repliker och partitioner i en tjänst, oavsett om du behöver proportionellt större eller snabbare partitioner och hur du kan konfigurera tjänsten för förväntad belastning.
+Innan du [konfigurerar en Sök tjänst](search-create-service-portal.md) och låser på en viss pris nivå kan du ta några minuter för att förstå rollen som repliker och partitioner i en tjänst och hur du kan anpassa en tjänst för att hantera toppar och DIP i resurs behovet.
 
-Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. Den här artikeln fokuserar på kombinationer av replik och partition och interaktioner.
+Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. Beroende på nivån och storleken på justeringen kan tillägg eller minskning av kapaciteten ta var som helst från 15 minuter till flera timmar. 
+
+När du ändrar tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under de maximala gränserna för en nivå. Men om du behöver en skript-eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) alternativa lösningar.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
 
@@ -28,15 +30,17 @@ Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (niv
 |*Partitioner* | Tillhandahåller index lagring och I/O för Läs-och skriv åtgärder (till exempel när du återskapar eller uppdaterar ett index). Varje partition har en resurs av det totala indexet. Om du tilldelar tre partitioner är ditt index indelat i tredje. |
 |*Repliker* | Instanserna av Sök tjänsten används främst för att belastningsutjämna frågor. Varje replik är en kopia av ett index. Om du tilldelar tre repliker har du tre kopior av ett index som är tillgängligt för att betjäna fråge förfrågningar.|
 
-## <a name="how-to-allocate-replicas-and-partitions"></a>Så här allokerar du repliker och partitioner
+## <a name="when-to-add-nodes"></a>När du ska lägga till noder
 
 En tjänst har inlednings vis tilldelats en minimal resurs nivå som består av en partition och en replik. 
 
-En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbets belastningar (indexering och frågor). Ingen arbets belastning körs i bakgrunden. Du kan schemalägga indexeringen för tider när fråge förfrågningar är mycket mindre frekventa, men tjänsten kan inte på annat sätt prioritera en aktivitet över en annan.
-
-När du ändrar tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under de maximala gränserna för en nivå. Men om du behöver en skript-eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) alternativa lösningar.
+En enskild tjänst måste ha tillräckligt med resurser för att hantera alla arbets belastningar (indexering och frågor). Ingen arbets belastning körs i bakgrunden. Du kan schemalägga indexeringen för tider när fråge förfrågningar är mycket mindre frekventa, men tjänsten kan inte på annat sätt prioritera en aktivitet över en annan. En viss mängd redundans utjämnar dessutom frågans prestanda när tjänster eller noder uppdateras internt.
 
 Som en allmän regel kräver Sök program att du behöver fler repliker än partitioner, särskilt när tjänst åtgärderna prioriteras mot frågor till arbets belastningar. Avsnittet om [hög tillgänglighet](#HA) förklarar varför.
+
+Om du lägger till fler repliker eller partitioner ökar kostnaden för att köra tjänsten. Se till att kontrol lera [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att förstå fakturerings konsekvenserna för att lägga till fler noder. [Diagrammet nedan](#chart) kan hjälpa dig att korsa referenser till antalet Sök enheter som krävs för en bestämd konfiguration.
+
+## <a name="how-to-allocate-replicas-and-partitions"></a>Så här allokerar du repliker och partitioner
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) och välj Sök tjänsten.
 
@@ -81,10 +85,10 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
-| **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Ej tillämpligt |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Ej tillämpligt |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Ej tillämpligt |
+| **12 repliker** |12 SU |24 SU |36 SU |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 
@@ -114,7 +118,7 @@ För närvarande finns det ingen inbyggd mekanism för haveri beredskap. Att lä
 
 ## <a name="estimate-replicas"></a>Uppskatta repliker
 
-I en produktions tjänst bör du allokera tre repliker i SLA-syfte. Om du upplever långsam prestanda för frågor är det en åtgärd att lägga till repliker så att ytterligare kopior av indexet är online för att ge stöd för större arbets belastningar och att belastningsutjämna begär anden över flera repliker.
+I en produktions tjänst bör du allokera tre repliker i SLA-syfte. Om du upplever långsam prestanda för frågor kan du lägga till repliker så att ytterligare kopior av indexet blir online för att stödja större arbets belastningar och belastningsutjämna begär anden över flera repliker.
 
 Vi tillhandahåller inte rikt linjer för hur många repliker som behövs för att läsa in frågor. Fråga om prestanda beror på komplexiteten i frågan och konkurrerande arbets belastningar. Även om du lägger till repliker tydligt resulterar i bättre prestanda är resultatet inte strikt linjärt: om du lägger till tre repliker garanterar vi inte tredubbel data flöde.
 
@@ -122,7 +126,7 @@ Vägledning för att uppskatta frågor per sekund för din lösning finns i [ska
 
 ## <a name="estimate-partitions"></a>Uppskatta partitioner
 
-[Nivån du väljer](search-sku-tier.md) bestämmer partitionens storlek och hastighet, och varje nivå optimeras runt en uppsättning egenskaper som passar olika scenarier. Om du väljer en högre nivå kan du behöva färre partitioner än om du går med S1.
+[Nivån du väljer](search-sku-tier.md) bestämmer partitionens storlek och hastighet, och varje nivå optimeras runt en uppsättning egenskaper som passar olika scenarier. Om du väljer en högre nivå kan du behöva färre partitioner än om du går med S1. En av de frågor som du behöver svara via självdirigerad testning är om en större och dyrare partition ger bättre prestanda än två billigare partitioner på en tjänst som tillhandahålls på en lägre nivå.
 
 Sök efter program som kräver data uppdatering i nära real tid måste ha proportionellt sett fler partitioner än repliker. Att lägga till partitioner sprider Läs-och skriv åtgärder över ett större antal beräknings resurser. Du får också mer disk utrymme för att lagra ytterligare index och dokument.
 

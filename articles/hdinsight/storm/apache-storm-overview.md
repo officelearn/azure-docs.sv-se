@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9c7e49fe522859f97f00f760822d5eef60db5f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228862"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460015"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
@@ -42,7 +42,7 @@ Storm på HDInsight har följande funktioner:
 
     En exempel lösning som kan integreras med Azure-tjänster finns i [process händelser från Event Hubs med Apache storm på HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
-En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
+En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/Powered-By.html).
 
 Information om hur du kommer igång med storm finns i [skapa och övervaka en Apache Storm topologi i Azure HDInsight](apache-storm-quickstart.md).
 
@@ -70,7 +70,7 @@ Standardkonfigurationen för Apache Storm är att bara ha en Nimbus-nod. Storm p
 
 Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer information om hur du skapar ett Storm-kluster finns i [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-## <a name="ease-of-use"></a>Användarvänlighet
+## <a name="ease-of-use"></a>Användbarhet
 
 * __Secure Shell-anslutningar (SSH)__ : Du kan komma åt huvudnoderna i ditt Storm-kluster via Internet med SSH. Du kan köra kommandon direkt i klustret med hjälp av SSH.
 
@@ -113,7 +113,7 @@ Nedan följer några vanliga scenarier där du kan använda Storm i HDInsight:
 * Sociala analyser
 * Extrahering, transformering och inläsning (ETL)
 * Nätverksövervakning
-* Search
+* Söka
 * Mobile engagement
 
 Information om verkliga scenarier finns i [hur företag använder Apache Storm](https://storm.apache.org/Powered-By.html) -dokument.

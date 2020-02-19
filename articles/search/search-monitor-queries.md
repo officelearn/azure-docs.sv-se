@@ -7,39 +7,39 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: 346a44f02667976d95125b72371b6e33715ee4b1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211157"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462537"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Övervaka fråge förfrågningar i Azure Kognitiv sökning
 
-Den här artikeln förklarar hur du mäter frågans prestanda och volym med hjälp av mått. Här beskrivs också hur du samlar in de indata som används i frågor – nödvändig information när du behöver utvärdera verktyget och effektiviteten hos din Sök sökkorpus.
+Den här artikeln förklarar hur du mäter frågans prestanda och volym med hjälp av mått och diagnostisk loggning. Här beskrivs också hur du samlar in de indata som används i frågor – nödvändig information när du behöver utvärdera verktyget och effektiviteten hos din Sök sökkorpus.
 
-Historiska data som matas in i mått bevaras i 30 dagar. För längre kvarhållning eller för att rapportera om drift data och frågesträngar, måste du aktivera en [diagnostisk inställning](search-monitor-logs.md) som anger ett lagrings alternativ.
+Historiska data som matas in i mått bevaras i 30 dagar. För längre kvarhållning eller för att rapportera om drift data och frågesträngar, måste du aktivera en [diagnostisk inställning](search-monitor-logs.md) som anger ett lagrings alternativ för att spara loggade händelser och mått.
 
-Villkor som maximerar integriteten för data mätningarna är:
+Villkor som maximerar integriteten för data mätning är:
 
 + Använd en fakturerings bar tjänst (en tjänst som skapats antingen på Basic-eller standard-nivån). Den kostnads fria tjänsten delas av flera prenumeranter, som introducerar en viss mängd flyktiga som inläsnings SKIFT.
 
-+ Använd en enda replik, om möjligt, så att beräkningarna är begränsade till en dator. Om du använder flera repliker genomsnitts frågans mått över flera noder, varav vissa kan vara snabbare. Om du justerar frågans prestanda ger en enda nod en mer stabil miljö för testning.
++ Använd en enda replik och partition, om möjligt, för att skapa en innesluten och isolerad miljö. Om du använder flera repliker, genomsnitts frågans mått över flera noder, vilket kan minska precisionen i resultatet. På samma sätt innebär flera partitioner att data delas, med möjlighet att vissa partitioner kan ha olika data om indexeringen också pågår. Vid justering av frågans prestanda ger en enda nod och partition en mer stabil miljö för testning.
 
 > [!Tip]
 > Med ytterligare kod och Application Insights på klient sidan kan du också samla in genomklickning-data för djupare insikt i vad som är intressant för dina program användare. Mer information finns i [Sök efter trafik analys](search-traffic-analytics.md).
 
 ## <a name="query-volume-qps"></a>Fråga volym (frågor per sekund)
 
-Volymen mäts som **Sök frågor per sekund** (frågor per sekund), ett inbyggt mått som kan rapporteras som ett medelvärde, antal, minimala eller maximala värden för frågor som körs inom ett minut fönster. Ett minuters intervall (TimeGrain = "PT1M") för mått är fast i systemet.
+Volymen mäts som **Sök frågor per sekund** (frågor per sekund), ett inbyggt mått som kan rapporteras som ett medelvärde, antal, minimala eller maximala värden för frågor som körs i ett minut fönster. En-minuters intervall (TimeGrain = "PT1M") för mått är fasta i systemet.
 
 Det är vanligt att frågor körs i millisekunder, så endast frågor som mäter hur många sekunder visas i mått.
 
 | Sammansättningstyp: | Beskrivning |
 |------------------|-------------|
 | Medel | Genomsnittligt antal sekunder inom en minut under vilken frågekörningen genomfördes.|
-| Antal | Antalet mått som har spridits till loggen inom ett minut intervall. |
+| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Det högsta antalet Sök frågor per sekund som registrerats under en minut. |
 | Minimum | Det lägsta antalet Sök frågor per sekund som registrerats under en minut.  |
 | Summa | Summan av alla frågor som körs inom minuten.  |
@@ -57,7 +57,7 @@ I hela världen mäts frågans prestanda som Sök fördröjning (hur lång tid e
 | Sammansättningstyp: | Svarstid | 
 |------------------|---------|
 | Medel | Genomsnittlig fråge varaktighet i millisekunder. | 
-| Antal | Antalet mått som har spridits till loggen inom ett minut intervall. |
+| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Den längsta aktiva frågan i exemplet. | 
 | Minimum | Kortast körning av fråga i exemplet.  | 
 | Totalt | Total körnings tid för alla frågor i exemplet, som körs inom intervallet (en minut).  |
@@ -85,7 +85,7 @@ För att bekräfta begränsade frågor, Använd **begränsade Sök frågor** må
 | Sammansättningstyp: | Begränsning |
 |------------------|-----------|
 | Medel | Procent andel frågor som tagits bort inom intervallet. |
-| Antal | Antalet mått som har spridits till loggen inom ett minut intervall. |
+| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Procent andel frågor som tagits bort inom intervallet.|
 | Minimum | Procent andel frågor som tagits bort inom intervallet. |
 | Totalt | Procent andel frågor som tagits bort inom intervallet. |
@@ -116,6 +116,45 @@ För en snabb titt på aktuella siffror visar fliken **övervakning** på sidan 
 
 1. Zooma in i ett intresse områden i linje diagrammet. Placera mus pekaren i början av ytan, klicka och håll ned vänster MUSKNAPP, dra till den andra sidan av arean och släpp knappen. Diagrammet kommer att zooma in inom det tidsintervallet.
 
+## <a name="identify-strings-used-in-queries"></a>Identifiera strängar som används i frågor
+
+När du aktiverar diagnostikloggning fångar systemet fråge förfrågningar i **AzureDiagnostics** -tabellen. Som en förutsättning måste du redan ha aktiverat [diagnostisk loggning](search-monitor-logs.md), ange en Log Analytics-arbetsyta eller ett annat lagrings alternativ.
+
+1. Under avsnittet övervakning väljer du **loggar** för att öppna ett tomt frågefönster i Log Analytics.
+
+1. Kör följande uttryck för att söka efter fråga. Sök åtgärder, returnera en tabell resultat uppsättning som består av åtgärds namnet, frågesträngen, det efterfrågade indexet och antalet dokument som hittades. De sista två satserna utesluter frågesträngar som består av en tom eller ospecificerad sökning, över ett exempel index, vilket minskar bruset i resultatet.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, Query_s, IndexName_s, Documents_d
+   | where OperationName == "Query.Search"
+   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where IndexName_s != "realestate-us-sample-index"
+   ```
+
+1. Du kan också ange ett kolumn filter på *Query_s* om du vill söka över en speciell syntax eller sträng. Du kan till exempel filtrera över *är lika* med `?api-version=2019-05-06&search=*&%24filter=HotelName`).
+
+   ![Loggade frågesträngar](./media/search-monitor-usage/log-query-strings.png "Loggade frågesträngar")
+
+Även om den här tekniken fungerar för ad hoc-undersökning kan du med hjälp av skapa en rapport konsolidera och presentera frågesträngarna i en layout mer gynnsamt analys.
+
+## <a name="identify-long-running-queries"></a>Identifiera tids krävande frågor
+
+Lägg till kolumnen varaktighet för att hämta numren för alla frågor, inte bara de som hämtas som ett mått. Sortering av dessa data visar vilka frågor som tar den längsta att slutföra.
+
+1. Under avsnittet övervakning väljer du **loggar** för att fråga efter logg information.
+
+1. Kör följande fråga för att returnera frågor, sorterade efter varaktighet i millisekunder. De längsta körnings frågorna visas överst.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search"
+   | sort by DurationMs
+   ```
+
+   ![Sortera frågor efter varaktighet](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "Sortera frågor efter varaktighet")
+
 ## <a name="create-a-metric-alert"></a>Skapa en måtta avisering
 
 En måtta-varning fastställer ett tröskelvärde då du antingen får ett meddelande eller utlöser en korrigerings åtgärd som du definierar i förväg. 
@@ -144,31 +183,9 @@ När du överför gränserna för en viss konfiguration av replik-partitionen, �
 
 Om du har angett ett e-postmeddelande får du ett e-postmeddelande från "Microsoft Azure" med ämnes raden "Azure: activated allvarlighets grad: 3 `<your rule name>`".
 
-## <a name="query-strings-used-in-queries"></a>Frågesträngar som används i frågor
+<!-- ## Report query data
 
-När du aktiverar diagnostikloggning fångar systemet fråge förfrågningar i **AzureDiagnostics** -tabellen. Som en förutsättning måste du redan ha aktiverat [diagnostisk loggning](search-monitor-logs.md), ange en Log Analytics-arbetsyta eller ett annat lagrings alternativ.
-
-1. Under avsnittet övervakning väljer du **loggar** för att öppna ett tomt frågefönster i Log Analytics.
-
-1. Kör följande uttryck för att söka efter fråga. Sök åtgärder, returnera en tabell resultat uppsättning som består av åtgärds namnet, frågesträngen, det efterfrågade indexet och antalet dokument som har hittats. De sista två satserna utesluter frågesträngar som består av en tom eller ospecificerad sökning, över ett exempel index, vilket minskar bruset i resultatet.
-
-   ```
-    AzureDiagnostics 
-     | project OperationName, Query_s, IndexName_s, Documents_d 
-     | where OperationName == "Query.Search"
-     | where Query_s != "?api-version=2019-05-06&search=*"
-     | where IndexName_s != "realestate-us-sample-index"
-   ```
-
-1. Du kan också ange ett kolumn filter på *Query_s* om du vill söka över en speciell syntax eller sträng. Du kan till exempel filtrera över *är lika* med `?api-version=2019-05-06&search=*&%24filter=HotelName`).
-
-   ![Loggade frågesträngar](./media/search-monitor-usage/log-query-strings.png "Loggade frågesträngar")
-
-Även om den här tekniken fungerar för ad hoc-undersökning kan du med hjälp av skapa en rapport konsolidera och presentera frågesträngarna i en layout mer gynnsamt analys.
-
-## <a name="report-query-data"></a>Rapportera frågedata
-
-Power BI är ett analys rapporterings verktyg som du kan använda mot loggdata som lagras i Blob Storage eller en Log Analytics arbets yta.
+Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>Nästa steg
 

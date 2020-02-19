@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442997"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460475"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -129,7 +129,9 @@ Azure-brandväggen är inte SNAT när målets IP-adress är ett privat IP-interv
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Stöds Tvingad tunnel trafik/länkning till en virtuell nätverks installation?
 
-Tvingad tunnel trafik stöds inte för närvarande. Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
+Tvingad tunnel trafik stöds. Mer information finns i [Azure Firewall Användarkonfigurerad Tunneling (för hands version)](forced-tunneling.md). 
+
+Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
 
 Om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk och du kan fastställa målets IP-prefix för dina Internet-destinationer, kan du konfigurera dessa intervall med det lokala nätverket som nästa hopp via en användardefinierad väg på AzureFirewallSubnet. Du kan också använda BGP för att definiera dessa vägar.
 
@@ -166,7 +168,7 @@ Nej. Azure-brandväggen behöver inte ett undernät som är större än/26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Hur kan jag öka mitt brand Väggs flöde?
 
-Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s. Skala ut baseras för närvarande endast på CPU-användning. I vissa fall skalas bara en brand vägg med nätverks regler upp för att öka data flödet eftersom nätverks reglerna inte påverkar CPU-användningen betydligt. Om du behöver högre data flöde för brand väggen kan du kontakta supporten för att öka brand väggens första kapacitet för data flödet.
+Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s. Skala ut baseras för närvarande på CPU-användning och data flöde. I vissa fall skalas bara en brand vägg med nätverks regler upp för att öka data flödet eftersom nätverks reglerna inte påverkar CPU-användningen betydligt. Om du behöver högre data flöde för brand väggen kan du kontakta supporten för att öka brand väggens första kapacitet för data flödet.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Hur lång tid tar det för Azure-brandväggen att skala ut?
 

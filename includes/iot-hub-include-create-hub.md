@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 775e9fc737798a0e5517f9eb3314c71b14c5be07
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: cc53f7ae6eb6254eaa05bf643ecfa0188650df95
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77371768"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461882"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
@@ -29,7 +29,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
    - **Resurs grupp**: Välj en resurs grupp eller skapa en ny. Om du vill skapa en ny väljer du **Skapa ny** och fyller i det namn som du vill använda. Om du vill använda en befintlig resurs grupp väljer du den resurs gruppen. Mer information finns i [Hantera Azure Resource Manager-resursgrupper](../articles/azure-resource-manager/management/manage-resource-groups-portal.md).
 
-   - **Region**: Välj den region där du vill att hubben ska placeras. Välj den plats som är närmast dig.
+   - **Region**: Välj den region där du vill att hubben ska placeras. Välj den plats som är närmast dig. Vissa funktioner, till exempel [IoT Hub enhets strömmar](../articles/iot-hub/iot-hub-device-streams-overview.md), är bara tillgängliga i vissa regioner. För dessa begränsade funktioner måste du välja en av de regioner som stöds.
 
    - **IoT Hub namn**: Ange ett namn för hubben. Det här namnet måste vara globalt unikt. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
 
@@ -41,9 +41,11 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
    ![Ange storlek och skala för en ny hubb med hjälp av Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
-    På den här skärmen kan du ange följande värden:
+   Du kan acceptera standardinställningarna här. Om du vill kan du ändra något av följande fält: 
 
-    - **Pris-och skalnings nivå**: den valda nivån. Du kan välja mellan flera nivåer, beroende på hur många funktioner du vill och hur många meddelanden du skickar genom din lösning per dag. Den kostnadsfria nivån är avsedd för testning och utvärdering. Det gör att 500-enheter kan anslutas till hubben och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb på den kostnads fria nivån.
+    - **Pris-och skalnings nivå**: den valda nivån. Du kan välja mellan flera nivåer, beroende på hur många funktioner du vill och hur många meddelanden du skickar genom din lösning per dag. Den kostnadsfria nivån är avsedd för testning och utvärdering. Det gör att 500-enheter kan anslutas till hubben och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb på den kostnads fria nivån. 
+
+      Om du arbetar med en snabb start för IoT Hub enhets strömmar väljer du den kostnads fria nivån.
 
     - **IoT Hub-enheter**: Antalet meddelanden som tillåts per enhet per dag beror på hubbens prisnivå. Om du till exempel vill att hubben ska stödja ingångar av 700 000-meddelanden väljer du två enheter i S1-nivån.
     Mer information om de andra alternativen för nivån finns i avsnittet om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
@@ -52,14 +54,14 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
     - **Avancerade inställningar** > **enhet-till-moln-partitioner**: den här egenskapen relaterar enhets-till-moln-meddelanden till antalet samtidiga läsare av meddelanden. De flesta hubbar behöver bara fyra partitioner.
 
-1. I den här artikeln godkänner du standard alternativen och väljer sedan **Nästa: Taggar** för att gå vidare till nästa skärm.
+1.  Välj **Nästa: Taggar** för att fortsätta till nästa skärm.
 
     Taggar är namn/värde-par. Du kan tilldela samma tagg till flera resurser och resurs grupper för att kategorisera resurser och konsolidera fakturering. Mer information finns i [använda taggar för att ordna dina Azure-resurser](../articles/azure-resource-manager/management/tag-resources.md).
 
-   ![Ange storlek och skala för en ny hubb med hjälp av Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+    ![Tilldela taggar för hubben med hjälp av Azure Portal](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 
-    Välj **Nästa: granska + skapa** för att granska dina val. Du ser något som liknar den här skärmen.
+1.  Välj **Nästa: granska + skapa** för att granska dina val. Du ser något som liknar den här skärmen, men med de värden som du valde när du skapade hubben. 
 
-   ![Granska informationen för att skapa den nya hubben](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
+    ![Granska informationen för att skapa den nya hubben](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
-1. Välj **skapa** för att skapa din nya hubb. Det tar några minuter att skapa hubben.
+1.  Välj **skapa** för att skapa din nya hubb. Det tar några minuter att skapa hubben.

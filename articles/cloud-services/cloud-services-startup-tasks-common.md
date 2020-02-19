@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385804"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462249"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga start uppgifter för moln tjänster
 Den här artikeln innehåller några exempel på vanliga start uppgifter som du kanske vill utföra i din moln tjänst. Du kan använda Start åtgärder för att utföra åtgärder innan en roll startar. Åtgärder som du kanske vill utföra är att installera en komponent, registrera COM-komponenter, ange register nycklar eller starta en tids krävande process. 
@@ -67,7 +67,7 @@ ERRORLEVEL som returneras av *Appcmd. exe* visas i filen WinError. h och kan ock
 ### <a name="example-of-managing-the-error-level"></a>Exempel på hur du hanterar fel nivån
 Det här exemplet lägger till ett komprimerings avsnitt och en komprimerings post för JSON till filen *Web. config* , med fel hantering och loggning.
 
-De relevanta avsnitten i filen [ServiceDefinition.csdef] visas här, som inkluderar inställning av [ExecutionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) -attributet till `elevated` att ge *Appcmd. exe* tillräcklig behörighet för att ändra inställningarna i filen *Web. config* :
+De relevanta avsnitten i filen [service definition. csdef] visas här, som inkluderar inställning av [ExecutionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) -attributet till `elevated` att ge *Appcmd. exe* tillräcklig behörighet för att ändra inställningarna i filen *Web. config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -90,7 +90,7 @@ REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. Th
 REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
-IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
+IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 
 REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (
@@ -119,13 +119,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>Lägg till brand Väggs regler
-I Azure finns det effektiva två brand väggar. Den första brand väggen kontrollerar anslutningar mellan den virtuella datorn och den utanför världen. Den här brand väggen styrs av [Slut punkter] elementet i filen [ServiceDefinition.csdef] .
+I Azure finns det effektiva två brand väggar. Den första brand väggen kontrollerar anslutningar mellan den virtuella datorn och den utanför världen. Den här brand väggen styrs av [Slut punkter] elementet i filen [service definition. csdef] .
 
 Den andra brand väggen kontrollerar anslutningar mellan den virtuella datorn och processerna i den virtuella datorn. Den här brand väggen kan styras av kommando rads verktyget `netsh advfirewall firewall`.
 
 Azure skapar brand Väggs regler för de processer som startas i dina roller. När du exempelvis startar en tjänst eller ett program skapar Azure automatiskt de nödvändiga brand Väggs reglerna för att tillåta tjänsten att kommunicera med Internet. Men om du skapar en tjänst som startas av en process utanför din roll (som en COM+-tjänst eller en schemalagd schemalagd aktivitet) måste du skapa en brand Väggs regel manuellt för att tillåta åtkomst till tjänsten. Dessa brand Väggs regler kan skapas med hjälp av en start åtgärd.
 
-En[Start åtgärd som] skapar en brand Väggs regel måste ha en [ExecutionContext]med **utökade privilegier**. Lägg till följande start åtgärd i filen [ServiceDefinition.csdef] .
+En[Start åtgärd som] skapar en brand Väggs regel måste ha en [ExecutionContext]med **utökade privilegier**. Lägg till följande start åtgärd i filen [service definition. csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -155,7 +155,7 @@ Du kan begränsa en Azure-webbrolls åtkomst till en uppsättning angivna IP-adr
 
 Om du vill låsa upp avsnittet **ipSecurity** i filen **ApplicationHost. config** skapar du en kommando fil som körs vid roll start. Skapa en mapp på rot nivån för din webbroll som heter **Start** och skapa sedan en kommando fil som heter **startup. cmd**i den här mappen. Lägg till den här filen i Visual Studio-projektet och ange att egenskaperna ska **kopieras alltid** för att säkerställa att de ingår i paketet.
 
-Lägg till följande start åtgärd i filen [ServiceDefinition.csdef] .
+Lägg till följande start åtgärd i filen [service definition. csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -213,7 +213,7 @@ Den här exempel konfigurationen **nekar** alla IP-adresser från att komma åt 
 ```
 
 ## <a name="create-a-powershell-startup-task"></a>Skapa en start åtgärd för PowerShell
-Windows PowerShell-skript kan inte anropas direkt från filen [ServiceDefinition.csdef] , men de kan anropas i en start kommando fil.
+Windows PowerShell-skript kan inte anropas direkt från filen [service definition. csdef] , men de kan anropas i en start kommando fil.
 
 PowerShell (som standard) kör inte osignerade skript. Om du inte signerar skriptet måste du konfigurera PowerShell att köra osignerade skript. Om du vill köra osignerade skript måste **ExecutionPolicy** vara inställt på **obegränsad**. Den **ExecutionPolicy** -inställning som du använder baseras på Windows PowerShell-versionen.
 
@@ -244,7 +244,7 @@ EXIT /B %errorlevel%
 ## <a name="create-files-in-local-storage-from-a-startup-task"></a>Skapa filer i lokal lagring från en start aktivitet
 Du kan använda en lokal lagrings resurs för att lagra filer som skapats av en start åtgärd som du kan komma åt senare av ditt program.
 
-Om du vill skapa den lokala lagrings resursen lägger du till en [LocalResources] -sektion i filen [ServiceDefinition.csdef] och lägger sedan till [localStorage] -underordnade elementet. Ge den lokala lagrings resursen ett unikt namn och lämplig storlek för start aktiviteten.
+Om du vill skapa den lokala lagrings resursen lägger du till en [LocalResources] -sektion i filen [service definition. csdef] och lägger sedan till [localStorage] -underordnade elementet. Ge den lokala lagrings resursen ett unikt namn och lämplig storlek för start aktiviteten.
 
 Om du vill använda en lokal lagrings resurs i Start aktiviteten måste du skapa en miljö variabel för att referera till den lokala lagrings resursens plats. Sedan kan start aktiviteten och programmet läsa och skriva filer till den lokala lagrings resursen.
 
@@ -298,7 +298,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ## <a name="run-in-the-emulator-or-cloud"></a>Kör i emulatorn eller molnet
 Du kan låta din start åtgärd utföra olika steg när den körs i molnet jämfört med när den finns i beräknings emulatorn. Till exempel kanske du vill använda en ny kopia av dina SQL-data endast när du kör i emulatorn. Eller så kanske du vill göra vissa prestanda optimeringar för molnet som du inte behöver göra när du kör i emulatorn.
 
-Den här möjligheten att utföra olika åtgärder i beräknings emulatorn och molnet kan åstadkommas genom att skapa en miljö variabel i filen [ServiceDefinition.csdef] . Sedan testar du miljövariabeln för ett värde i Start aktiviteten.
+Den här möjligheten att utföra olika åtgärder i beräknings emulatorn och molnet kan åstadkommas genom att skapa en miljö variabel i filen [service definition. csdef] . Sedan testar du miljövariabeln för ett värde i Start aktiviteten.
 
 Om du vill skapa miljövariabeln lägger du till [Variabel]/[RoleInstanceValue] -elementet och skapar ett XPath-värde för `/RoleEnvironment/Deployment/@emulated`. Värdet för miljövariabeln **% ComputeEmulatorRunning%** är `true` när det körs på beräknings-emulatorn och `false` vid körning i molnet.
 
@@ -500,7 +500,7 @@ Lär dig mer om hur [aktiviteter](cloud-services-startup-tasks.md) fungerar.
 
 [Skapa och distribuera](cloud-services-how-to-create-deploy-portal.md) ditt moln tjänst paket.
 
-[ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
+[Service definition. csdef]: cloud-services-model-and-package.md#csdef
 [Aktivitet]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime

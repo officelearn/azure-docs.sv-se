@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0e612dbecb9f215a90f728afb0f06a65db09764b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162930"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462640"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -66,7 +66,7 @@ Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka re
 |    FileStorage    | Västeuropa<br /> USA, Östra    |    Endast Azure Files    |
 
 <sup>1</sup> Arkiv nivån stöds för närvarande inte för ZRS-konton.<br />
-<sup>2</sup> Azure-diskar för virtuella datorer, inklusive både hanterade och ohanterade diskar, stöder endast LRS. De stöder inte ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](/pricing/details/managed-disks/).
+<sup>2</sup> Azure-diskar för virtuella datorer, inklusive både hanterade och ohanterade diskar, stöder endast LRS. De stöder inte ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Information om vilka regioner som stöder ZRS finns i **tjänster support efter region** i [Vad är Azure-tillgänglighetszoner?](../../availability-zones/az-overview.md).
 
@@ -131,7 +131,7 @@ Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundär
 
 När Läs åtkomst till den sekundära är aktive rad kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Om din primära slut punkt för Blob Storage exempelvis är `myaccount.blob.core.windows.net`, är den sekundära slut punkten `myaccount-secondary.blob.core.windows.net`. Konto åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
 
-### <a name="check-the-last-sync-time-property"></a>Kontrol lera den senaste synkroniseringstid-egenskapen
+### <a name="check-the-last-sync-time-property"></a>Kontrollera egenskapen Tidpunkt för senaste synkronisering
 
 Eftersom data replikeras till den sekundära regionen asynkront är den sekundära regionen ofta bakom den primära regionen. Om ett haveri inträffar i den primära regionen är det troligt att alla skrivningar till den primära inte ännu har repliker ATS till den sekundära.
 

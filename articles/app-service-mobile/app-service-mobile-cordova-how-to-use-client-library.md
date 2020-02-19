@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: ecca8f719a01abe68b368987fce4ea883193e844
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cafeea8afe571fc81548833952eee72a695fed41
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668509"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459369"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Använda Apache Cordova-klient bibliotek för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-> [!NOTE]
-> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
->
-> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av det senaste [Apache Cordova-plugin-program för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och hämta ett fördefinierat Apache Cordova-projekt. I den här hand boken fokuserar vi på klient sidans Apache Cordova-plugin-program.
@@ -91,7 +86,7 @@ Flera typer av Apache Cordova-program använder en loopback-funktion för att ha
 
 Följ dessa anvisningar för att lägga till dina lokala inställningar i konfigurationen:
 
-1. Logga in på [Azure-portalen]
+1. Logga in på [Azure Portal]
 2. Välj **alla resurser** eller **app Services** och klicka sedan på namnet på din mobilapp.
 3. Klicka på **verktyg**
 4. Klicka på **resurs läsaren** på menyn Observera och klicka sedan på **gå**.  Ett nytt fönster eller en ny flik öppnas.
@@ -111,7 +106,7 @@ Följ dessa anvisningar för att lägga till dina lokala inställningar i konfig
 Inställningarna sparas i det här läget.  Stäng inte webbläsarfönstret förrän inställningarna har sparats.
 Lägg också till dessa loopback-URL: er till CORS-inställningarna för din App Service:
 
-1. Logga in på [Azure-portalen]
+1. Logga in på [Azure Portal]
 2. Välj **alla resurser** eller **app Services** och klicka sedan på namnet på din mobilapp.
 3. Bladet inställningar öppnas automatiskt.  Om den inte är det klickar du på **alla inställningar**.
 4. Klicka på **CORS** under API-menyn.
@@ -168,7 +163,7 @@ Använd Notification Hubs SDK för att skicka push-meddelanden från servern.  S
 Detaljerad API-information finns i vår [API-dokumentation](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Azure Mobile Apps Snabbstart]: app-service-mobile-cordova-get-started.md
 [Kom igång med autentisering]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

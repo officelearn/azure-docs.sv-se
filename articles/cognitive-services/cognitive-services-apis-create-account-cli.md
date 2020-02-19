@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3e5fd2315a5d352ed5abee9253b5c84eea3b73a9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169166"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462283"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du registrerar dig för Azure Cog
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/) kostnads fri.
 * [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -76,7 +76,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="multi-service"></a>Multi-service
 
-| Tjänst                    | Variant                      |
+| Tjänst                    | Metod                      |
 |----------------------------|---------------------------|
 | Flera tjänster. Mer information finns på sidan med [pris](https://azure.microsoft.com/pricing/details/cognitive-services/) information.            | `CognitiveServices`     |
 
@@ -86,7 +86,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="vision"></a>Visuellt innehåll
 
-| Tjänst                    | Variant                      |
+| Tjänst                    | Metod                      |
 |----------------------------|---------------------------|
 | Visuellt innehåll            | `ComputerVision`          |
 | Custom Vision förutsägelse | `CustomVision.Prediction` |
@@ -95,26 +95,26 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Söka
 
-| Tjänst            | Variant                  |
+| Tjänst            | Metod                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
+| Anpassad sökning i Bing | `Bing.CustomSearch`   |
 | Entitetssökning i Bing | `Bing.EntitySearch`   |
-| Bing-sökning        | `Bing.Search.v7`      |
+| Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Tal
 
-| Tjänst            | Variant                 |
+| Tjänst            | Metod                 |
 |--------------------|----------------------|
-| Taltjänster    | `SpeechServices`     |
+| Speech Services    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Språk
 
-| Tjänst            | Variant                |
+| Tjänst            | Metod                |
 |--------------------|---------------------|
 | Formulär förståelse | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -124,7 +124,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="decision"></a>Beslut
 
-| Tjänst           | Variant               |
+| Tjänst           | Metod               |
 |-------------------|--------------------|
 | Avvikelseidentifiering  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -195,10 +195,10 @@ Om du vill rensa och ta bort en Cognitive Services resurs kan du ta bort den ell
 Om du vill ta bort resurs gruppen och dess associerade resurser använder du kommandot AZ Group Delete.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Autentisera begär anden till Azure Cognitive Services](authentication.md)
 * [Vad är Azure Cognitive Services?](Welcome.md)

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59e4e527f25a32c8a5274db5eab5d33a7843bc3c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1046c11e064e69ed0ddb18c77bf5935ba60fb5aa
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275592"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461291"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>SAML enkel inloggning för lokala program med programproxy
 
@@ -41,17 +41,15 @@ Protokoll diagrammen nedan beskriver den enkla inloggnings ordningen för både 
 
 1. I Azure Portal väljer du **Azure Active Directory > företags program** och väljer **nytt program**.
 
-2. I avsnittet **lokala program** väljer du **Lägg till ett lokalt program**.
+2. Ange visnings namnet för det nya programmet, Välj **integrera andra program som du inte hittar i galleriet**och välj sedan **skapa**.
 
-3. Ange visnings namnet för det nya programmet och välj sedan **Lägg till**.
+3. På sidan **Översikt** för appen väljer du **enkel inloggning**.
 
-4. På sidan **Översikt** för appen väljer du **enkel inloggning**.
+4. Välj **SAML** som metoden för enkel inloggning.
 
-5. Välj **SAML** som metoden för enkel inloggning.
+5. Börja med att konfigurera SAML SSO så att den fungerar medan den är i företags nätverket. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Följ stegen i [Ange grundläggande SAML-konfiguration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) för att konfigurera SAML-baserad autentisering för programmet.
 
-6. Börja med att konfigurera SAML SSO så att den fungerar medan den är i företags nätverket. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Följ stegen i [Ange grundläggande SAML-konfiguration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) för att konfigurera SAML-baserad autentisering för programmet.
-
-7. Lägg till minst en användare i programmet och kontrol lera att test kontot har åtkomst till programmet. När du är ansluten till företags nätverket använder du test kontot för att se om du har enkel inloggning till programmet. 
+6. Lägg till minst en användare i programmet och kontrol lera att test kontot har åtkomst till programmet. När du är ansluten till företags nätverket använder du test kontot för att se om du har enkel inloggning till programmet. 
 
    > [!NOTE]
    > När du har konfigurerat Application Proxy kommer du tillbaka och uppdaterar **URL: en**för SAML-svar.
@@ -74,7 +72,7 @@ Innan du kan ange SSO för lokala program måste du aktivera programproxyn och i
 
 1. När programmet fortfarande öppnas i Azure Portal väljer du **enkel inloggning**. 
 
-2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Den **externa URL** som du konfigurerade i Application Proxy fyller automatiskt i fälten **identifierare**, **svars-URL**och **utloggning URL** . Redigera inte dessa URL: er eftersom de krävs för att Application Proxy ska fungera korrekt.
+2. På sidan **Konfigurera enkel inloggning med SAML** går du till rubriken för den **grundläggande SAML-konfigurationen** och väljer dess **redigerings** ikon (en blyertspenna). Se till att den **externa URL:** en som du har konfigurerat i programproxyn är ifylld i fälten **identifierare**, **svars-URL**och **utloggnings-URL** . Dessa URL: er krävs för att Application Proxy ska fungera korrekt. 
 
 3. Redigera **svars-URL: en** som kon figurer ATS tidigare så att dess domän kan kontaktas av programproxyn. Om din **externa URL** till exempel är `https://contosotravel-f128.msappproxy.net` och den ursprungliga **svars-URL: en** var `https://contosotravel.com/acs`, måste du uppdatera den ursprungliga **svars-URL: en** till `https://contosotravel-f128.msappproxy.net/acs`. 
 

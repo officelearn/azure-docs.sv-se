@@ -6,18 +6,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 4d0b301dee363c2338cb13a9fc09ee17549467eb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: f24ae0a48b835785a2e000210f3609b82d42d0f6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668844"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461563"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Klient-och Server version i Mobile Apps och Mobile Services
-> [!NOTE]
-> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
->
-> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 Den senaste versionen av Azure Mobile Services är den **Mobile Apps** funktionen i Azure App Service.
 
@@ -62,13 +58,13 @@ Versions kontroll ingår i följande Server SDK-versioner:
 | Node.js |[Azure-Mobile-Apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Beteende för Mobile Apps Server delar
-| ZUMO – API-VERSION | Värde för MS_SkipVersionCheck | Svar |
+| ZUMO-API-VERSION | Värde för MS_SkipVersionCheck | Svar |
 | --- | --- | --- |
-| x. y. z eller null |Sant |200 – OK |
+| x. y. z eller null |True |200 - OK |
 | Null |Falskt/ej angivet |400 – felaktig begäran |
 | 1. x. y |Falskt/ej angivet |400 – felaktig begäran |
-| 2.0.0 – 2. x. y |Falskt/ej angivet |200 – OK |
-| 3.0.0 – 3. x. y |Falskt/ej angivet |400 – felaktig begäran |
+| 2.0.0 – 2. x. y |Falskt/ej angivet |200 - OK |
+| 3.0.0-3.x.y |Falskt/ej angivet |400 – felaktig begäran |
 
 [Mobile Services clients]: #MobileServicesClients
 [Mobile Apps clients]: #MobileAppsClients

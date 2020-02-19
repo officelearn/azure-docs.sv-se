@@ -5,25 +5,24 @@ description: Lär dig hur du ställer in livs längder för token som utfärdats
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.custom: aaddev, annaba, identityplatformtop40
-ms.reviewer: hirsin
-ms.openlocfilehash: 55c7ee6711c6001745053b850c1b4e1859af5dbe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hirsin, jlu, annaba
+ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699027"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461206"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
-Du kan ange livslängd för ett token som utfärdas av Azure Active Directory (Azure AD). Du kan ange token-livslängd för alla program i din organisation, för ett program med flera klientorganisationer eller för en specifik huvudtjänst i organisationen.
+Du kan ange livs längden för en token som utfärdats av Azure Active Directory (Azure AD). Du kan ange livs längd för token för alla appar i din organisation, för ett program med flera innehavare (flera organisationer) eller för ett särskilt tjänst huvud namn i din organisation.
 
 > [!IMPORTANT]
 > Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 1 maj 2020 kommer du inte att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
@@ -33,9 +32,8 @@ I Azure AD representerar ett princip objekt en uppsättning regler som tillämpa
 Du kan ange en princip som standard princip för din organisation. Principen tillämpas på alla program i organisationen, så länge den inte åsidosätts av en princip med högre prioritet. Du kan också tilldela en princip till vissa program. Prioritetsordningen varierar efter princip typ.
 
 > [!NOTE]
-> Konfigurerings bara livs längds princip för token stöds inte för SharePoint Online.  Även om du har möjlighet att skapa den här principen via PowerShell kommer SharePoint Online inte att bekräfta den här principen. Se [SharePoint Online-bloggen](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) om du vill veta mer om hur du konfigurerar tids gränser för inaktiv session.
->* Standard livs längden för SharePoint Online-åtkomsttoken är 1 timme. 
->* Standard Max inaktiv tid för uppdaterings-token för SharePoint Online är 90 dagar.
+> Konfigurations bara livs längds princip för token gäller endast för mobila och Station ära klienter som har åtkomst till SharePoint Online-och OneDrive för företag-resurser och gäller inte för webbläsarfönster.
+> Om du vill hantera livs längden för webb läsar sessioner för SharePoint Online och OneDrive för företag, använder du funktionen [livs längd för session för villkorlig åtkomst](../conditional-access/howto-conditional-access-session-lifetime.md) . Se [SharePoint Online-bloggen](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) om du vill veta mer om hur du konfigurerar tids gränser för inaktiv session.
 
 ## <a name="token-types"></a>Token-typer
 
@@ -88,7 +86,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Egenskap | Princip egenskaps sträng | Nätverk | Default | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
-| Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
+| Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
 | Högsta ålder för token för enkel uppdatering |MaxAgeSingleFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för Multi-Factor Refresh-token |MaxAgeMultiFactor |Uppdatera tokens (för alla användare) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
 | Högsta ålder för token för token för en session |MaxAgeSessionSingleFactor |Token för sessioner (beständiga och inte permanenta) |Tills den har återkallats |10 minuter |Till och med återkalla<sup>1</sup> |
@@ -101,7 +99,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 | Egenskap | Nätverk | Default |
 | --- | --- | --- |
 | Uppdatera token max ålder (utfärdat för federerade användare som har otillräcklig åter kallelse information<sup>1</sup>) |Uppdatera tokens (utfärdat för federerade användare som har otillräcklig återkallnings information<sup>1</sup>) |12 timmar |
-| Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
+| Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |
 | Maximal ålder för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |Tills den har återkallats |
 
 * <sup>1</sup> Federerade användare som har otillräcklig information om återkallade certifikat inkluderar alla användare som inte har attributet "LastPasswordChangeTimestamp" synkroniserat. Dessa användare ges denna kortaste ålder eftersom AAD inte kan verifiera när token som är knutna till en gammal autentiseringsuppgift (till exempel ett lösen ord som har ändrats) måste kontrol leras oftare för att säkerställa att användaren och tillhör ande token fortfarande är i lämpliga  anseende. För att förbättra den här upplevelsen måste klient administratörerna se till att de synkroniserar attributet "LastPasswordChangeTimestamp" (detta kan anges för användarobjektet med PowerShell eller via AADSync).
@@ -210,7 +208,7 @@ I exemplen får du lära dig att:
 * Skapa en princip för en intern app som anropar ett webb-API
 * Hantera en avancerad princip
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 I följande exempel kan du skapa, uppdatera, länka och ta bort principer för appar, tjänstens huvud namn och din övergripande organisation. Om du är nybörjare på Azure AD rekommenderar vi att du lär dig [hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.  
 
 Gör så här för att komma igång:
@@ -456,7 +454,7 @@ Tar bort den angivna principen.
 
 </br></br>
 
-### <a name="application-policies"></a>Användningsprinciper
+### <a name="application-policies"></a>Användnings principer
 Du kan använda följande cmdletar för användnings principer.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy

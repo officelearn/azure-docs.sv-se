@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/16/2019
-ms.openlocfilehash: ba632a98c21926ec28606def128cc068abf47f53
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646633"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460032"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Utveckla Apache Storm topologier med python i HDInsight
 
@@ -22,11 +22,11 @@ Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) -topologi so
 > [!IMPORTANT]  
 > Informationen i det här dokumentet har testats med storm på HDInsight 3,6.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Storm kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **Storm** för **kluster typ**.
 
-* En lokal Storm utvecklings miljö (valfritt). En lokal Storm-miljö behövs bara om du vill köra topologin lokalt. Mer information finns i [Konfigurera en utvecklings miljö](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
+* En lokal Storm utvecklings miljö (valfritt). En lokal Storm-miljö behövs bara om du vill köra topologin lokalt. Mer information finns i [Konfigurera en utvecklings miljö](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 * [Python 2,7 eller högre](https://www.python.org/downloads/).
 
@@ -38,7 +38,7 @@ Lär dig hur du skapar en [Apache Storm](https://storm.apache.org/) -topologi so
 
 Apache Storm har utformats för att fungera med komponenter som skrivits med valfritt programmeringsspråk. Komponenterna måste förstå hur man arbetar med Thrift-definitionen för storm. För python tillhandahålls en modul som en del av Apache Storm projektet som gör det enkelt att använda storm. Du kan hitta den här modulen på [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Storm är en Java-process som körs på Java Virtual Machine (JVM). Komponenter som skrivs på andra språk körs som under processer. Storm kommunicerar med dessa under processer med hjälp av JSON-meddelanden som skickats över STDIN/STDOUT. Mer information om kommunikation mellan komponenter finns i dokumentationen för [multi-lang-protokollet](https://storm.apache.org/documentation/Multilang-protocol.html) .
+Storm är en Java-process som körs på Java Virtual Machine (JVM). Komponenter som skrivs på andra språk körs som under processer. Storm kommunicerar med dessa under processer med hjälp av JSON-meddelanden som skickats över STDIN/STDOUT. Mer information om kommunikation mellan komponenter finns i dokumentationen för [multi-lang-protokollet](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
 ## <a name="python-with-the-flux-framework"></a>Python med flödes ramverket
 

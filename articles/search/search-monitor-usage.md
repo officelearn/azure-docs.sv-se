@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443609"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462334"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Övervaka åtgärder och aktiviteter i Azure Kognitiv sökning
 
@@ -52,7 +52,7 @@ Tabbade sidor som är inbyggda i översikts sidan rapporterar om resursanvändni
 
 Om du slutför beslut om [vilken nivå som ska användas för produktions arbets belastningar](search-sku-tier.md), eller om du vill [Justera antalet aktiva repliker och partitioner](search-capacity-planning.md), kan dessa mått hjälpa dig med dessa beslut genom att visa hur snabbt resurser förbrukas och hur väl den aktuella konfigurationen hanterar den befintliga belastningen.
 
-Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. Du behöver bygga en anpassad lösning som utvecklar resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret. Mer information om lagrings mått finns i [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
+Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. Du behöver [bygga en anpassad lösning som utvecklar](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret. Mer information om lagrings mått finns i [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
 För visuell övervakning i portalen visar fliken **användning** resurs tillgänglighet i förhållande till de aktuella [begränsningar](search-limits-quotas-capacity.md) som angetts av tjänst nivån. 
 

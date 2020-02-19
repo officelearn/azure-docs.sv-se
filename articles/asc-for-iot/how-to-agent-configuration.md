@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664860"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461257"
 ---
 # <a name="tutorial-configure-security-agents"></a>Självstudie: Konfigurera säkerhets agenter
 
@@ -127,26 +127,25 @@ Standardvärden är tillgängliga i rätt schema i [GitHub](https\://aka.ms/iot-
 |snapshotFrequency |Kräv: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde PT13H |Tidsintervall för att skapa ögonblicks bilder av enhets status.| 
 |maxLocalCacheSizeInBytes |Krävs: falskt |Giltiga värden: |Standardvärde: 2560000, större än 8192 | Maximalt lagrings utrymme (i byte) som tillåts för meddelande-cache för en agent. Högsta mängd utrymme som tillåts för att lagra meddelanden på enheten innan meddelanden skickas.| 
 |maxMessageSizeInBytes |Krävs: falskt |Giltiga värden: ett positivt tal som är större än 8192, mindre än 262144 |Standardvärde: 204800 |Högsta tillåtna storlek på en agent till moln meddelande. Den här inställningen styr mängden maximalt antal data som skickas i varje meddelande. |
-|eventPriority $ {EventName} |Krävs: falskt |Giltiga värden: hög, låg, av |Standardvärden: |Prioritet för varje agent-genererad händelse | 
+|eventPriority${EventName} |Krävs: falskt |Giltiga värden: hög, låg, av |Standardvärden: |Prioritet för varje agent-genererad händelse | 
 
 ### <a name="supported-security-events"></a>Säkerhets händelser som stöds
 
-|Händelse namn| Namn | Standardvärde| Ögonblicks bilds händelse| Information status  |
+|Händelsenamn| propertyName | Standardvärde| Ögonblicks bilds händelse| Information status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Diagnostisk händelse|eventPriorityDiagnostic| Av| Falskt| Agent relaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.| 
-|Konfigurations fel |eventPriorityConfigurationError |Låg |Falskt |Agenten kunde inte parsa konfigurationen. Verifiera konfigurationen mot schemat.| 
-|Statistik över ignorerade händelser |eventPriorityDroppedEventsStatistics |Låg |Sant|Agent relaterad händelse statistik. |
-|Meddelande statistik|eventPriorityMessageStatistics |Låg |Sant |Agent relaterad meddelande statistik. |
-|Ansluten maskin vara|eventPriorityConnectedHardware |Låg |Sant |Ögonblicks bild av all maskin vara som är ansluten till enheten.|
-|Lyssnande portar|eventPriorityListeningPorts |Hög |Sant |Ögonblicks bild av alla öppna lyssnings portar på enheten.|
-|Skapa process |eventPriorityProcessCreate |Låg |Falskt |Granskar process skapande på enheten.|
-|Processen avslutas|eventPriorityProcessTerminate |Låg |Falskt |Granskar avslutning av processen på enheten.| 
-|System information |eventPrioritySystemInformation |Låg |Sant |En ögonblicks bild av system information (till exempel: OS eller CPU).| 
-|Lokala användare| eventPriorityLocalUsers |Hög |Sant|En ögonblicks bild av registrerade lokala användare i systemet. |
-|Logga in|  eventPriorityLogin |Hög|Falskt|Granska inloggnings händelser för enheten (lokala och fjärranslutna inloggningar).|
-|Skapa anslutning |eventPriorityConnectionCreate|Låg|Falskt|Granskar TCP-anslutningar som skapats till och från enheten. |
-|Brand Väggs konfiguration| eventPriorityFirewallConfiguration|Låg|Sant|Ögonblicks bild av enhets brand Väggs konfiguration (brand Väggs regler). |
-|OS-bas linje| eventPriorityOSBaseline| Låg|Sant|Ögonblicks bild av bas linje kontroll för enhetens operativ system.|
+|Diagnostisk händelse|eventPriorityDiagnostic| Av| False| Agent relaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.| 
+|Konfigurations fel |eventPriorityConfigurationError |Låg |False |Agenten kunde inte parsa konfigurationen. Verifiera konfigurationen mot schemat.| 
+|Statistik över ignorerade händelser |eventPriorityDroppedEventsStatistics |Låg |True|Agent relaterad händelse statistik. |
+|Ansluten maskin vara|eventPriorityConnectedHardware |Låg |True |Ögonblicks bild av all maskin vara som är ansluten till enheten.|
+|Lyssnande portar|eventPriorityListeningPorts |Hög |True |Ögonblicks bild av alla öppna lyssnings portar på enheten.|
+|Skapa process |eventPriorityProcessCreate |Låg |False |Granskar process skapande på enheten.|
+|Processen avslutas|eventPriorityProcessTerminate |Låg |False |Granskar avslutning av processen på enheten.| 
+|System information |eventPrioritySystemInformation |Låg |True |En ögonblicks bild av system information (till exempel: OS eller CPU).| 
+|Lokala användare| eventPriorityLocalUsers |Hög |True|En ögonblicks bild av registrerade lokala användare i systemet. |
+|Inloggning|  eventPriorityLogin |Hög|False|Granska inloggnings händelser för enheten (lokala och fjärranslutna inloggningar).|
+|Skapa anslutning |eventPriorityConnectionCreate|Låg|False|Granskar TCP-anslutningar som skapats till och från enheten. |
+|Brand Väggs konfiguration| eventPriorityFirewallConfiguration|Låg|True|Ögonblicks bild av enhets brand Väggs konfiguration (brand Väggs regler). |
+|OS-bas linje| eventPriorityOSBaseline| Låg|True|Ögonblicks bild av bas linje kontroll för enhetens operativ system.|
 |
  
 

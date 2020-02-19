@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 68a830f344023967f07ab809d67833f99e4e2958
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 2/18/2020
+ms.openlocfilehash: 0e2eb4ab13319779ae209e58253c6a5f2ccb75da
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977615"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462436"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL-storskalig skalning (citus)
 
-Den här artikeln visar hur du konfigurerar Azure Database for PostgreSQL aviseringar med hjälp av Azure Portal. Du kan få en avisering utifrån övervaknings måtten för dina Azure-tjänster.
+Den här artikeln visar hur du konfigurerar Azure Database for PostgreSQL aviseringar med hjälp av Azure Portal. Du kan få en avisering utifrån [övervaknings måtten](concepts-hyperscale-monitoring.md) för dina Azure-tjänster.
 
 Vi ställer in en avisering som ska utlösas när värdet för ett angivet mått överskrider ett tröskelvärde. Aviseringen utlöses när villkoret först uppfylls och fortsätter att utlösa efteråt.
 
@@ -25,9 +25,9 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 * Anropa en webhook.
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
-* [Azure-portalen](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en varnings regel för ett mått från Azure Portal
 1. I [Azure Portal](https://portal.azure.com/)väljer du den Azure Database for PostgreSQLs server som du vill övervaka.
@@ -81,13 +81,31 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
     Inom några minuter är aviseringen aktiv och utlösare enligt beskrivningen ovan.
 
-## <a name="manage-your-alerts"></a>Hantera aviseringar
+### <a name="managing-alerts"></a>Hantera aviseringar
 
 När du har skapat en avisering kan du välja den och utföra följande åtgärder:
 
 * Visa ett diagram som visar mått tröskelvärdet och de faktiska värdena från föregående dag som är relevanta för den här aviseringen.
 * **Redigera** eller **ta bort** varnings regeln.
 * **Inaktivera** eller **Aktivera** aviseringen om du tillfälligt vill stoppa eller återuppta mottagning av meddelanden.
+
+## <a name="suggested-alerts"></a>Föreslagna aviseringar
+
+### <a name="disk-space"></a>Disk utrymme
+
+Övervakning och avisering är viktigt för varje citus-servergrupp (productal Scale). Den underliggande PostgreSQL-databasen kräver ledigt disk utrymme för att fungera korrekt. Om disken blir full kopplas databasens servernod till offline och vägrar att starta tills utrymmet är tillgängligt. Vid detta tillfälle kräver det en support förfrågan från Microsoft för att åtgärda situationen.
+
+Vi rekommenderar att du ställer in disk utrymmes aviseringar på varje nod i varje server grupp, även för användning utan produktion. Aviseringar om disk utrymmes användning ger den förvarning som krävs för att gå över och hålla noderna felfria. För bästa resultat kan du prova en serie aviseringar på 75%, 85% och 95% användning. Procent andelen som ska väljas beror på data inmatnings hastigheten, eftersom snabb data inmatning fyller upp disken snabbare.
+
+När disken närmar sig utrymmes gränsen kan du prova dessa tekniker för att få mer ledigt utrymme:
+
+* Granska princip för data bevarande. Flytta äldre data till kall lagring om det är möjligt.
+* Överväg att [lägga till noder](howto-hyperscale-scaling.md#add-worker-nodes) i Server gruppen och balansera om Shards. Ombalansering distribuerar data mellan flera datorer.
+* Överväg att [växa kapaciteten](howto-hyperscale-scaling.md#increase-vcores) för arbetsnoder. Varje arbets tagare kan ha upp till 2 TiB lagrings utrymme. Du bör dock försöka lägga till noder innan du ändrar storlek på noder eftersom det är snabbare att lägga till noder.
+
+### <a name="cpu-usage"></a>CPU-användning
+
+Övervakning av processor användning är användbart för att upprätta en bas linje för prestanda. Du kanske till exempel märker att CPU-användningen vanligt vis är cirka 40-60%. Om CPU-användningen plötsligt börjar Hovra runt 95% kan du identifiera en avvikelse. CPU-användningen kan återspegla ekologisk tillväxt, men kan också visa en lösa fråga. När du skapar en CPU-avisering kan du ange en lång agg regerings kornig het för att fånga långvariga ökningar och ignorera tillfälliga toppar.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om hur du [konfigurerar Webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).

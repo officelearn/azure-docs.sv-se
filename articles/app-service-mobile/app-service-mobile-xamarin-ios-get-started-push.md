@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 39e06587e48f30ce099eafaf7cfdb2fb2269d24f
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: f9c70491d06f61931ebabda859ff3a86ed035b44
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668649"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461359"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Lägg till push-meddelanden i din Xamarin. iOS-app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-
-> [!NOTE]
-> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
->
-> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 
@@ -28,7 +23,7 @@ I den här självstudien lägger du till push-meddelanden i [snabb starts projek
 
 Om du inte använder det nedladdade snabb start Server-projektet behöver du ett tilläggs paket för push-meddelanden. Mer information finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb starts guiden för Xamarin. iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * En fysisk iOS-enhet. Push-meddelanden stöds inte av iOS-simulatorn.
@@ -49,7 +44,7 @@ Om du inte använder det nedladdade snabb start Server-projektet behöver du ett
 
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push-notifications-to-your-app"></a>Lägga till push-meddelanden i din app
+## <a name="add-push-notifications-to-your-app"></a>Lägga till push-meddelanden för appen
 
 1. I **QSTodoService**lägger du till följande egenskap så att **AppDelegate** kan hämta mobil klienten:
 

@@ -4,15 +4,15 @@ description: Beskriver data källor och anslutningar som stöds för tabell 1200
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922294"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461665"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -23,59 +23,59 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 |Datakälla  |Minnesintern  |DirectQuery  |Anteckningar |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   Ja      |   Ja       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Ja       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure Synapse Analytics (SQL Data Warehouse)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
+|Azure Blob Storage      |   Ja       |    Nej      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Ja       |    Nej      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Ja        |  Nej        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store gen1      |   Ja       |    Nej      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Ja       |    Nej      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Ja     |   Nej       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Ja       |   Nej       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
-**Obs!**    
+**Anteckningar:**    
 <a name="tab1400a">1</a> – tabell 1400 och högre modeller.  
 <a name="azprovider">2</a> – när det har angetts som en *Provider* -datakälla i tabell 1200 och högre modeller, kräver både InMemory-och DirectQuery-modeller Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.    
 <a name="azsqlmanaged">3</a> -Azure SQL Database Hanterad instans stöds. Eftersom den hanterade instansen körs i Azure VNet med en privat IP-adress måste den offentliga slut punkten vara aktive rad på instansen. Om den inte är aktive rad krävs en [lokal datagateway](analysis-services-gateway.md) .    
 <a name="databricks">4</a> -Azure Databricks med Spark-anslutningen stöds inte för närvarande.   
 <a name="gen2">5</a> -ADLS Gen2 anslutningen stöds inte för närvarande, men Azure Blob Storage Connector kan användas med en ADLS Gen2 data källa.   
 
-## <a name="other-data-sources"></a>Andra datakällor
+## <a name="other-data-sources"></a>Andra data källor
 
 |Datakälla | Minnesintern | DirectQuery |Anteckningar   |
 |  --- | --- | --- | --- |
-|Access-databas     |  Ja | Inga |  |
-|Active Directory     |  Ja | Inga | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  Ja | Inga |  |
-|Analys plattforms system     |  Ja | Inga |  |
-|CSV-fil  |Ja | Inga |  |
-|Dynamics 365     |  Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|Excel-arbetsbok     |  Ja | Inga |  |
-|Utbyt      |  Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|Mapp      |Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |Ja | Inga |  |
-|JSON-dokument      |  Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|Rader från binär      | Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|MySQL-databas     | Ja | Inga |  |
-|OData-flöde      |  Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|ODBC-fråga     | Ja | Inga |  |
-|OLE-databas     |   Ja | Inga |  |
-|Oracle  | Ja  |Ja  | <sup>[9](#oracle)</sup> |
-|PostgreSQL Database   | Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|Salesforce-objekt|  Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|Salesforce-rapporter |Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  Ja | Inga |  |
-|SAP Business Warehouse    |  Ja | Inga | <sup>[6](#tab1400b)</sup> |
-|SharePoint-lista      |   Ja | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|Access-databas     |  Ja | Nej |  |
+|Active Directory     |  Ja | Nej | <sup>[3-6](#tab1400b)</sup>  |
+|Analysis Services     |  Ja | Nej |  |
+|Analys plattforms system     |  Ja | Nej |  |
+|CSV-fil  |Ja | Nej |  |
+|Dynamics 365     |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Excel-arbetsbok     |  Ja | Nej |  |
+|Exchange      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Mapp      |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|IBM Informix  |Ja | Nej |  |
+|JSON-dokument      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Rader från binär      | Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|MySQL-databas     | Ja | Nej |  |
+|OData-flöde      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|ODBC-fråga     | Ja | Nej |  |
+|OLE DB     |   Ja | Nej |  |
+|Oracle  | Ja  |Ja  | <sup>[1.9](#oracle)</sup> |
+|PostgreSQL-databas   | Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-objekt|  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-rapporter |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|SAP HANA     |  Ja | Nej |  |
+|SAP Business Warehouse    |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|SharePoint-lista      |   Ja | Nej | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
 |SQL Server |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
 |SQL Server Data Warehouse |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase-databas     |  Ja | Inga |  |
+|Sybase-databas     |  Ja | Nej |  |
 |Teradata | Ja  | Ja  | <sup>[10](#teradata)</sup> |
-|TXT-fil  |Ja | Inga |  |
-|XML-tabell    |  Ja | Inga | <sup>[6](#tab1400b)</sup> |
+|TXT-fil  |Ja | Nej |  |
+|XML-tabell    |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
 | | | |
 
-**Obs!**    
+**Anteckningar:**    
 <a name="tab1400b">6</a> -tabell 1400 och högre modeller.  
 <a name="sqlim">7</a> – när du har angett som en *Provider* -datakälla i tabell 1200 och högre modeller, anger du Microsoft OLE DB driv rutin för SQL Server MSOLEDBSQL (rekommenderas), SQL Server Native Client 11,0 eller .NET Framework Data Provider för SQL Server.  
 <a name="instgw">8</a> – om du anger MSOLEDBSQL som dataprovider kan det vara nödvändigt att ladda ned och installera [Microsoft OLE DB-drivrutinen för SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) på samma dator som den lokala datagatewayen.  
@@ -120,7 +120,7 @@ För moln data Källor:
 
 ## <a name="oauth-credentials"></a>Autentiseringsuppgifter för OAuth
 
-För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 och SharePoint-listan stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
+För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 och SharePoint-listan stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
 
 Direct Query-läget stöds inte med OAuth-autentiseringsuppgifter.
 

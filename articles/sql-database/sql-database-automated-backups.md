@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157524"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461788"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -81,10 +81,14 @@ Säkerhets kopieringar som är äldre än kvarhållningsperioden rensas automati
 
 Azure SQL Database beräknar den totala lagrings platsen för säkerhets kopior som ett ackumulerat värde. Varje timme rapporteras det här värdet till den Azure-fakturerings pipeline som ansvarar för att aggregera denna användning per timme för att beräkna förbrukningen i slutet av varje månad. När databasen har släppts minskar förbrukningen som säkerhets kopierings ålder. När säkerhets kopiorna blev äldre än kvarhållningsperioden stoppas faktureringen. 
 
+   > [!IMPORTANT]
+   > Säkerhets kopior av en databas bevaras för den angivna kvarhållningsperioden, även om databasen har släppts. När du släpper och återskapar en databas ofta kan spara pengar på lagrings-och beräknings kostnader, men det kan öka kostnaderna för reserv lagrings kostnader eftersom vi behåller en säkerhets kopia för den angivna kvarhållningsperioden (som är 7 dagar på minst) för varje släppt databas varje gång den släpps. 
 
-### <a name="monitoring-consumption"></a>Övervaknings förbrukning
 
-Varje typ av säkerhets kopiering (fullständig, differentiell och logg) rapporteras i bladet databas övervakning som ett separat mått. Följande diagram visar hur du övervakar lagrings förbrukningen för säkerhets kopior.  
+
+### <a name="monitor-consumption"></a>Övervaka förbrukning
+
+Varje typ av säkerhets kopiering (fullständig, differentiell och logg) rapporteras i bladet databas övervakning som ett separat mått. Följande diagram visar hur du övervakar lagrings förbrukningen för säkerhets kopior för en enskild databas. Den här funktionen är för närvarande inte tillgänglig för hanterade instanser.
 
 ![Övervaka förbrukningen av databas säkerhets kopiering på bladet databas övervakning i Azure Portal](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ Den överflödiga lagrings förbrukningen för säkerhets kopiering beror på ar
 
 ## <a name="storage-costs"></a>Lagringskostnader
 
+Priset för lagring varierar om du använder DTU-modellen eller vCore-modellen. 
 
 ### <a name="dtu-model"></a>DTU-modell
 
@@ -120,11 +125,14 @@ Vi antar att databasen har samlat 744 GB lagrings utrymme för säkerhets kopior
 
 Nu är ett mer avancerat exempel. Anta att databasen har kvarhållning till 14 dagar i mitten av månaden och detta (hypotetiskt) resulterar i den totala lagringen av säkerhets kopior som är dubblerad till 1488 GB. SQL DB skulle rapportera 1 GB användning i timmar 1-372 och sedan rapportera användningen som 2 GB för timmar 373-744. Detta skulle aggregeras till en sista faktura på 1116 GB/mo. 
 
-Du kan använda kostnads analys av Azure-prenumeration för att fastställa dina aktuella utgifter för lagring av säkerhets kopior.
+### <a name="monitor-costs"></a>Övervaka kostnader
+
+Om du vill förstå kostnaderna för lagring av säkerhets kopior går du till **kostnads hantering + fakturering** från Azure Portal, väljer **Cost Management**och väljer sedan **kostnads analys**. Välj önskad prenumeration som **omfång**och filtrera sedan efter den tids period och tjänst som du är intresse rad av. 
+
+Lägg till ett filter för **tjänst namn**och välj sedan **SQL Database** i list rutan. Använd filtret under **kategori för mätning** för att välja fakturerings räknare för din tjänst. För en enskild databas eller elastisk pool väljer du **enkel/elastisk pool pitr backup Storage**. För en hanterad instans väljer du **mi pitr backup Storage**. **Lagrings** -och **beräknings** under kategorier kan vara intressanta även om de inte är kopplade till reserv lagrings kostnader. 
 
 ![Kostnads analys för lagring av säkerhets kopior](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Om du till exempel vill förstå lagrings kostnaderna för säkerhets kopiering för en hanterad instans går du till din prenumeration i Azure Portal och öppnar bladet kostnads analys. Välj under kategori för mätaren **mi pitr backup Storage** för att se din aktuella säkerhets kopierings kostnad och avgifts prognos. Du kan också inkludera andra under Kategorier för mätning, till exempel **hanterad instans generell användning-lagring** eller **hanterad instans generell användning – beräkna gen5** för att jämföra kostnader för lagring av säkerhets kopior med andra kostnads kategorier.
 
 ## <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
 
@@ -169,13 +177,13 @@ Du kan ändra standardinställningen för kvarhållning av PITR med hjälp av Az
 
 Om du vill ändra kvarhållningsperioden för PITR med hjälp av Azure Portal navigerar du till det Server objekt vars kvarhållningsperiod du vill ändra i portalen och väljer sedan lämpligt alternativ baserat på vilket Server objekt du ändrar.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[Enkel databas & elastiska pooler](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[Enkel databas & elastiska pooler](#tab/single-database)
 
 Ändring av PITR-kvarhållning av säkerhets kopior för enskilda Azure SQL-databaser utförs på server nivå. Ändringar som görs på server nivå gäller för databaser på den servern. Om du vill ändra PITR för Azure SQL Database Server från Azure Portal navigerar du till bladet Server översikt, klickar på hantera säkerhets kopior på navigerings menyn och klickar sedan på Konfigurera kvarhållning i navigerings fältet.
 
 ![Ändra PITR Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Hanterad instans](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Hanterad instans](#tab/managed-instance)
 
 Ändring av PITR-kvarhållning av säkerhets kopior för SQL Database Hanterad instans utförs på en enskild databas nivå. Om du vill ändra PITR för en instans databas från Azure Portal navigerar du till bladet individuell databas översikt och klickar sedan på Konfigurera kvarhållning av säkerhets kopior i navigerings fältet.
 

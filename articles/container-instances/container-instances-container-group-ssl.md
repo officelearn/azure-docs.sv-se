@@ -1,16 +1,16 @@
 ---
-title: Aktivera SSL i en behållar grupp
-description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs i Azure Container Instances
+title: Aktivera SSL med sidvagn container
+description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs i Azure Container Instances genom att köra nginx i en sidvagn-behållare
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/14/2020
+ms.openlocfilehash: 524e997cf6c7c464cc352048b1abf4be119d2f37
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773062"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460594"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Aktivera en SSL-slutpunkt i en behållar grupp
+# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Aktivera en SSL-slutpunkt i en sidvagn-behållare
 
 Den här artikeln visar hur du skapar en [behållar grupp](container-instances-container-groups.md) med en program behållare och en sidvagn-behållare som kör en SSL-Provider. Genom att konfigurera en behållar grupp med en separat SSL-slutpunkt aktiverar du SSL-anslutningar för ditt program utan att ändra program koden.
 
@@ -18,7 +18,9 @@ Du ställer in ett exempel på en behållar grupp bestående av två behållare:
 * En program behållare som kör en enkel webbapp med hjälp av den offentliga Microsoft [ACI-HelloWorld-](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) avbildningen. 
 * En sidvagn-behållare som kör den offentliga [nginx](https://hub.docker.com/_/nginx) -avbildningen som kon figurer ATS för att använda SSL. 
 
-I det här exemplet exponerar behållar gruppen bara port 443 för nginx med dess offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållar appar som lyssnar på andra portar. Se [Nästa steg](#next-steps) för andra metoder för att aktivera SSL i en behållar grupp.
+I det här exemplet exponerar behållar gruppen bara port 443 för nginx med dess offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållar appar som lyssnar på andra portar. 
+
+Se [Nästa steg](#next-steps) för andra metoder för att aktivera SSL i en behållar grupp.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +40,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Följ anvisningarna för att lägga till identifierings informationen. För eget namn anger du det värdnamn som är associerat med certifikatet. När du uppmanas att ange ett lösen ord trycker du på RETUR utan att skriva för att hoppa över tillägg av lösen ord.
 
-Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Ett exempel:
+Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Exempel:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -50,13 +52,13 @@ Nu bör du se tre filer i katalogen: certifikat förfrågan (`ssl.csr`), den pri
 
 ### <a name="create-nginx-configuration-file"></a>Skapa konfigurations fil för nginx
 
-I det här avsnittet skapar du en konfigurations fil för nginx för att använda SSL. Börja med att kopiera följande text till en ny fil med namnet`nginx.conf`. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
+I det här avsnittet skapar du en konfigurations fil för nginx för att använda SSL. Börja med att kopiera följande text till en ny fil med namnet `nginx.conf`. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
 
 ```console
 code nginx.conf
 ```
 
-I `location`, måste du ange `proxy_pass` med rätt port för app. I det här exemplet ställer vi in port 80 för `aci-helloworld`-behållaren.
+I `location`, måste du ange `proxy_pass` med rätt port för din app. I det här exemplet ställer vi in port 80 för `aci-helloworld`-behållaren.
 
 ```console
 # nginx Configuration File
@@ -85,7 +87,7 @@ http {
 
         # Protect against the BEAST attack by not using SSLv3 at all. If you need to support older browsers (IE6) you may need to add
         # SSLv3 to the list of protocols below.
-        ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
+        ssl_protocols              TLSv1.2;
 
         # Ciphers set to best allow protection from Beast, while providing forwarding secrecy, as defined by Mozilla - https://wiki.mozilla.org/Security/Server_Side_TLS#Nginx
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
@@ -125,9 +127,9 @@ http {
 Base64-koda konfigurations filen för nginx, SSL-certifikatet och SSL-nyckeln. I nästa avsnitt anger du det kodade innehållet i en YAML-fil som används för att distribuera behållar gruppen.
 
 ```console
-cat nginx.conf | base64 -w 0 > base64-nginx.conf
-cat ssl.crt | base64 -w 0 > base64-ssl.crt
-cat ssl.key | base64 -w 0 > base64-ssl.key
+cat nginx.conf | base64 > base64-nginx.conf
+cat ssl.crt | base64 > base64-ssl.crt
+cat ssl.key | base64 > base64-ssl.key
 ```
 
 ## <a name="deploy-container-group"></a>Distribuera behållar grupp
@@ -216,17 +218,18 @@ För att distributionen ska lyckas ser utdata ut ungefär så här:
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
 ------------  ---------------  --------  -------------------------------------------------------  -------------------  ---------  ---------------  --------  ----------
-app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
+app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="verify-ssl-connection"></a>Verifiera SSL-anslutning
 
-Om du vill visa det program som körs, navigerar du till dess IP-adress i webbläsaren. Till exempel är IP-adressen som visas i det här exemplet `52.157.22.76`. Du måste använda `https://<IP-ADDRESS>` för att se programmet som körs, på grund av konfigurationen av nginx-servern. Försök att ansluta till `http://<IP-ADDRESS>` Miss lyckas.
+Använd webbläsaren för att navigera till behållar gruppens offentliga IP-adress. IP-adressen som visas i det här exemplet är `52.157.22.76`, så URL: en är **https://52.157.22.76** . Du måste använda HTTPS för att se programmet som körs, på grund av nginx-serverkonfigurationen. Försök att ansluta via HTTP Miss lyckas.
 
 ![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Eftersom det här exemplet använder ett självsignerat certifikat och inte ett från en certifikat utfärdare, visar webbläsaren en säkerhets varning när du ansluter till platsen via HTTPS. Det här beteendet är förväntat.
+> Eftersom det här exemplet använder ett självsignerat certifikat och inte ett från en certifikat utfärdare, visar webbläsaren en säkerhets varning när du ansluter till platsen via HTTPS. Du kan behöva acceptera varningen eller ändra inställningarna för webbläsaren eller certifikatet för att gå vidare till sidan. Det här beteendet är förväntat.
+
 >
 
 ## <a name="next-steps"></a>Nästa steg
@@ -239,6 +242,4 @@ Om du distribuerar din behållar grupp i ett [virtuellt Azure-nätverk](containe
 
 * [Azure Functions-proxyservrar](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md)
-
-Om du vill använda en Programgateway, se en mall för exempel [distribution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) – se en exempel [distributions mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

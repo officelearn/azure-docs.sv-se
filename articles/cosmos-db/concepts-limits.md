@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d250cc3c74f27079d633fa24c49eb11b94135ead
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 940ac7b0a2720283b669fc7ea5a9dbc163ddbe64
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200052"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460219"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -27,9 +27,9 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 | Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximal ru: er per (logisk) partitionsnyckel | 10 000 |
 | Maximalt lagrings utrymme för alla objekt per (logisk) partitionsnyckel| 10 GB |
-| Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
-| Maximalt lagrings utrymme per behållare | Obegränsat |
-| Maximalt lagrings utrymme per databas | Obegränsat |
+| Maximalt antal distinkta (logiska) sessionsnycklar | Unlimited |
+| Maximalt lagrings utrymme per behållare | Unlimited |
+| Maximalt lagrings utrymme per databas | Unlimited |
 | Maximal storlek på bifogade filer per konto (funktionen bilaga skrivs över) | 2 GB |
 | Lägsta ru: er som krävs per 1 GB | 10 RU/s |
 
@@ -76,8 +76,9 @@ Cosmos DB automatiskt tar säkerhets kopior av dina data med jämna mellanrum. M
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal databaser | Obegränsat |
-| Maximalt antal behållare som kan tillhandahållas i en databas med delat data flöde |25 |
+| Maximalt antal databaser | Unlimited |
+| Maximalt antal behållare per databas med delat data flöde |25 |
+| Maximalt antal behållare per databas eller konto med dedikerat data flöde  |obegränsat |
 | Maximalt antal regioner | Ingen gräns (alla Azure-regioner) |
 
 ## <a name="per-container-limits"></a>Gränser per behållare
@@ -103,7 +104,7 @@ Beroende på vilket API du använder kan ett Azure Cosmos-objekt representera an
 | --- | --- |
 | Maximal storlek för ett objekt | 2 MB (UTF-8-längd på JSON-representation) |
 | Maximal längd på partitionerings nyckel värde | 2048 byte |
-| Maximal längd på ID-värde | 1024 byte |
+| Maximal längd på ID-värde | 1023 byte |
 | Maximalt antal egenskaper per objekt | Ingen genomförbar gräns |
 | Maximalt kapslings djup | Ingen genomförbar gräns |
 | Maximal längd för egenskaps namn | Ingen genomförbar gräns |

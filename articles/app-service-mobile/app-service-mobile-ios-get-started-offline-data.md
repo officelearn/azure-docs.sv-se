@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: d943213814b999f101a541abb0195a9fdd5a7423
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668488"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459182"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera synkronisering offline med iOS-mobilappar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
->
-> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 ## <a name="overview"></a>Översikt
 I den här självstudien beskrivs offline-synkronisering med Mobile Apps funktionen i Azure App Service för iOS. Med offlinesynkronisering kan slutanvändare interagera med en mobilapp för att visa, lägga till eller ändra data, även om de inte har någon nätverks anslutning. Ändringarna lagras i en lokal databas. När enheten är online igen synkroniseras ändringarna med fjärrservern.
@@ -158,11 +153,11 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ |
 | --- | --- |
-| id | Heltal 64 |
-| itemId | Sträng |
-| properties | Binära data |
-| partitionstabell | Sträng |
-| tableKind | Heltal 16 |
+| id | Integer 64 |
+| itemId | String |
+| properties | Binary Data |
+| table | String |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -171,10 +166,10 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ |
 | --- | --- |
-| id |Sträng |
-| operationId |Heltal 64 |
-| properties |Binära data |
-| tableKind |Heltal 16 |
+| id |String |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -182,11 +177,11 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ |
 | --- | --- |
-| id |Sträng |
-| key |Sträng |
-| KeyType |Heltal 64 |
-| partitionstabell |Sträng |
-| värde |Sträng |
+| id |String |
+| key |String |
+| keyType |Integer 64 |
+| table |String |
+| värde |String |
 
 ### <a name="data-table"></a>Data tabell
 
@@ -194,12 +189,12 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 | Attribut | Typ | Obs! |
 | --- | --- | --- |
-| id | Sträng, markerad som krävs |Primär nyckel i fjärrarkiv |
-| full | Boolesk | Fältet att göra-objekt |
-| text |Sträng |Fältet att göra-objekt |
+| id | String, markeras krävs |Primär nyckel i fjärrarkiv |
+| full | Boolean | Fältet att göra-objekt |
+| text |String |Fältet att göra-objekt |
 | createdAt | Datum | valfritt Mappar till **createdAt** system egenskap |
 | updatedAt | Datum | valfritt Mappar till **updatedAt** system egenskap |
-| version | Sträng | valfritt Används för att identifiera konflikter, mappar till version |
+| version | String | valfritt Används för att identifiera konflikter, mappar till version |
 
 ## <a name="setup-sync"></a>Ändra appens synkroniserings beteende
 I det här avsnittet ändrar du appen så att den inte synkroniseras när appen startas eller när du infogar och uppdaterar objekt. Den synkroniseras bara när knappen Uppdatera gest utförs.
@@ -239,7 +234,7 @@ I det här avsnittet ansluter du till en ogiltig URL för att simulera ett offli
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **Swift**. I ToDoTableViewController. SWIFT:
+   **Swift**. In ToDoTableViewController.swift:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```

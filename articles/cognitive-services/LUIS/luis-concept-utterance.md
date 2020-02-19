@@ -55,10 +55,10 @@ Gör följande exempel yttranden:
 
 |Exempel på yttranden|
 |--|
-|Hur får jag en dator?|
-|Var får jag en dator?|
-|Jag vill skaffa en dator, hur gör jag?|
-|När kan jag ha en dator?| 
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
 
 Kärn termen här, "dator", är inte varierande. Använd alternativ som stationär dator, bärbar dator, arbets Station eller till och med bara dator. LUIS kan på ett intelligent sätt härleda synonymer från kontexten, men när du skapar yttranden för utbildning är det alltid bättre att variera dem.
 
@@ -144,8 +144,8 @@ Följande yttranden är ordet `fair` ett homograph. Det har stavats samma, men h
 
 |Yttrande|
 |--|
-|Vilken typ av region mässor sker i Seattle-området den här sommaren?|
-|Är den aktuella klassificeringen för Seattle-granskning fair?|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 Om du vill att en händelse entitet ska hitta alla händelse data kan du märka ordet `fair` i den första uttryck, men inte i den andra.
 

@@ -87,6 +87,8 @@
           href: built-in-vulnerability-assessment.md
         - name: Använda externa skannrar
           href: partner-vulnerability-assessment.md
+    - name: Övervaka dina containrar
+      href: monitor-container-security.md
     - name: Skydda dina servrar med Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Använd avancerad datasäkerhet för SQL på virtuella Azure-datorer

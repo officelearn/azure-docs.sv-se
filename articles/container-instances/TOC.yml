@@ -81,7 +81,7 @@
           href: container-instances-managed-identity.md
         - name: Använda GPU-resurser (förhandsversion)
           href: container-instances-gpu.md
-        - name: Aktivera SSL-slutpunkten
+        - name: Aktivera SSL-slutpunkt i sidovagn
           href: container-instances-container-group-ssl.md
     - name: Montera datavolymer
       items:

@@ -351,6 +351,12 @@
           href: view-usage-reports.md
         - name: Kontohantering
           href: manage-user-accounts-graph-api.md
+        - name: Distribuera med Azure Pipelines
+          href: deploy-custom-policies-devops.md
+          displayName: 'azure devops, ci/cd, cicd, custom policy, policies'
+        - name: Hantera principer med PowerShell
+          href: manage-custom-policies-powershell.md
+          displayName: 'scripting, scripts, psh, custom policy'
     - name: Granskningsloggar
       href: view-audit-logs.md
     - name: Hantera användare – Azure Portal

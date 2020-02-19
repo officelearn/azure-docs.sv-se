@@ -7,10 +7,14 @@
 - name: Självstudier
   expanded: true
   items:
-    - name: Skydda ditt molnnätverk – portalen
+    - name: Skydda ditt virtuella WAN – portalen
       href: secure-cloud-network.md
+    - name: Skydda ditt virtuella hubbnätverk – portalen
+      href: secure-hybrid-network.md
 - name: Begrepp
   items:
+    - name: Översikt över princip
+      href: policy-overview.md
     - name: Vad är en skyddad virtuell hubb?
       href: secured-virtual-hub.md
     - name: Allmän distributionsprocess
@@ -19,11 +23,13 @@
       href: trusted-security-partners.md
     - name: Regelbearbetningslogik
       href: rule-processing.md
+    - name: Alternativ för arkitektur
+      href: vhubs-and-vnets.md
 - name: Anvisningar
   items:
     - name: Distribuera betrodda säkerhetspartner
       href: deploy-trusted-security-partner.md
-    - name: Migrera till brandväggsprincip
+    - name: Migrera till brandväggsprincip – PowerShell
       href: migrate-to-policy.md
 - name: Referens
   items:

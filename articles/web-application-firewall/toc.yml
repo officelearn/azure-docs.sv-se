@@ -68,6 +68,8 @@
               href: ./ag/tutorial-restrict-web-traffic-powershell.md
             - name: Azure CLI
               href: ./ag/tutorial-restrict-web-traffic-cli.md
+        - name: Principer per webbplats
+          href: ./ag/per-site-policies.md
         - name: Migrera WAF-princip
           href: ./ag/migrate-policy.md
         - name: Anpassa WAF-regler

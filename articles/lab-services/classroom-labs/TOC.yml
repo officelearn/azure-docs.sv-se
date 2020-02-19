@@ -52,16 +52,20 @@
           href: how-to-manage-lab-accounts.md
         - name: Konfigurera labbkonton
           href: how-to-configure-lab-accounts.md
+        - name: Lägg till en labbuppgiftsförfattare
+          href: add-lab-creator.md
         - name: Tillåt labbets skapare att välja plats för labbet
           href: allow-lab-creator-pick-lab-location.md
-        - name: Anslut dina labb till ett peerkopplat virtuellt nätverk
+        - name: Ansluta till ett virtuellt peernätverk
           href: how-to-connect-peer-virtual-network.md
         - name: Bifoga eller ta bort ett delat bildgalleri
           href: how-to-attach-detach-shared-image-gallery.md
-        - name: Lägg till användare som ägare till ett klassrumslabb
+        - name: Lägga till ytterligare ägare i ett klassrumslabb
           href: how-to-add-user-lab-owner.md
-        - name: Brandväggsinställningarna för Azure Lab Services
+        - name: Konfigurera brandväggsinställningar
           href: how-to-configure-firewall-settings.md
+        - name: Ange Marketplace-avbildningar för labb
+          href: specify-marketplace-images.md
     - name: Skapa och konfigurera klassrumslabb (instruktör)
       items:
         - name: Skapa och hantera klassrumslabb

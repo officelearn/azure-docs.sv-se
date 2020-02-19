@@ -55,7 +55,7 @@
       href: high-availability-disaster-recovery.md
     - name: Miljövariabler för uppgiftens körtid
       href: batch-compute-node-environment-variables.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Hantera Batch-konton
       items:
@@ -71,6 +71,8 @@
           href: batch-aad-auth.md
         - name: Azure AD med Batch Management
           href: batch-aad-auth-management.md
+        - name: Säker åtkomst till Key Vault med Batch
+          href: credential-access-key-vault.md
     - name: Använda programpaket
       href: batch-application-packages.md
     - name: Skapa och hantera pooler

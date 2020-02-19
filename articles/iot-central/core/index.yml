@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
-  ms.openlocfilehash: cddfdbe709849f81f585ad7537556945ec14c990
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.date: 02/18/2020
+  ms.openlocfilehash: f404ecb676b75258cd44fb819dbafc3b2fb6452e
+  ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77023437"
+  ms.lasthandoff: 02/18/2020
+  ms.locfileid: "77431187"
 landingContent:
 - title: Om Azure IoT Central
   linkLists:
@@ -23,14 +23,14 @@ landingContent:
     links:
     - text: Vad är Azure IoT Central?
       url: overview-iot-central.md
-    - text: IoT-lösningsalternativ
-      url: overview-iot-central-tour.md
     - text: Guidad visning av användargränssnittet
       url: overview-iot-central-tour.md
   - linkListType: architecture
     links:
     - text: Azure IoT Central-arkitektur
       url: concepts-architecture.md
+    - text: Programmallar
+      url: concepts-app-templates.md
   - linkListType: quickstart
     links:
     - text: Skapa ett nytt program
@@ -39,12 +39,12 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Konfigurera en enhetsmall
-      url: howto-set-up-template.md
     - text: Anslut en IoT-Plug and Play-enhet (förhandsversion)
-      url: tutorial-add-device.md
+      url: tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
+    - text: Konfigurera en enhetsmall
+      url: howto-set-up-template.md
     - text: Förbereda och ansluta MX Chip IoT DevKit
       url: howto-connect-devkit.md
     - text: Ansluta andra IoT-moln
@@ -53,8 +53,8 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Använda enhetsuppsättningar
-      url: howto-use-device-sets.md
+    - text: Använda enhetsgrupper
+      url: tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: Hantera dina enheter
@@ -68,9 +68,9 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Skapa regler för telemetri
-      url: howto-create-telemetry-rules.md
-    - text: Exportera till Blob Storage
-      url: howto-export-data-blob-storage.md
+      url: tutorial-create-telemetry-rules.md
+    - text: Exportera data
+      url: howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: Skapa anpassade roller

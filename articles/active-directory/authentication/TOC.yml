@@ -11,8 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: Aktivera Azure Multi-Factor Authentication
       href: tutorial-enable-azure-mfa.md
-    - name: Aktivera lokal SSPR-integration
-      href: tutorial-enable-writeback.md
+    - name: Aktivera tillbakaskrivning av lösenord för lokala
+      href: tutorial-enable-sspr-writeback.md
     - name: Integrera Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Begrepp
@@ -68,8 +68,6 @@
           href: howto-sspr-deployment.md
         - name: Förhandsregistrera autentiseringsdata
           href: howto-sspr-authenticationdata.md
-        - name: Aktivera tillbakaskrivning av lösenord
-          href: howto-sspr-writeback.md
         - name: SSPR för Windows-klienter
           href: howto-sspr-windows.md
     - name: Molnbaserad MFA

@@ -7,95 +7,113 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2019
-ms.openlocfilehash: ae799e9a852b8700399ef695c54b3348174b560c
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.date: 02/14/2020
+ms.openlocfilehash: 629b75963ba90a25d59c1601fcd479fce40c92e7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069413"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467274"
 ---
-# <a name="overview-of-the-azure-monitor-agents"></a>Översikt över Azure Monitors agenter 
-Beräknings resurser, till exempel virtuella datorer, genererar data för att övervaka prestanda och tillgänglighet precis som [andra moln resurser](../insights/monitor-azure-resource.md). Beräknings resurser kan också ha ett gäst operativ system och arbets belastningar som måste övervakas. Att samla in dessa övervaknings data inifrån resursen kräver en agent. Den här artikeln beskriver de agenter som används av Azure Monitor och hjälper dig att avgöra vilka du behöver för att uppfylla kraven för din specifika miljö.
-
-## <a name="summary-of-agents"></a>Sammanfattning av agenter
+# <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter 
+Virtuella datorer och andra beräknings resurser kräver en agent för att samla in övervaknings data för att mäta prestanda och tillgänglighet för gäst operativ system och arbets belastningar. Den här artikeln beskriver de agenter som används av Azure Monitor och hjälper dig att avgöra vilka du behöver för att uppfylla kraven för din specifika miljö.
 
 > [!NOTE]
-> Azure Monitor har för närvarande flera agenter på grund av den senaste konsolideringen av Azure Monitor och Log Analytics. Båda agenterna delar vissa funktioner medan andra funktioner är unika för en viss agent. Beroende på dina krav kan du behöva en av agenterna eller både och. 
+> Azure Monitor har för närvarande flera agenter på grund av den senaste konsolideringen av Azure Monitor och Log Analytics. Även om det kan överlappa sina funktioner, har var och en har unika funktioner. Beroende på dina krav kan du behöva en eller flera agenter på dina virtuella datorer. 
 
-Azure Monitor har tre agenter som tillhandahåller vissa funktioner. Beroende på dina krav kan du installera en enskild agent eller flera på dina virtuella datorer och andra beräknings resurser.
+Du kan ha en specifik uppsättning krav som inte kan uppfyllas helt med en enda agent för en viss virtuell dator. Du kanske till exempel vill använda mått aviseringar som kräver Azure Diagnostics-tillägg, men som även vill använda funktionerna i Azure Monitor for VMs som kräver Log Analytics-agenten och beroende agenten. I sådana fall kan du använda flera agenter och det här är ett vanligt scenario för kunder som behöver funktioner från var och en.
 
-* [Azure-diagnostik tillägg](#azure-diagnostic-extension)
-* [Log Analytics agent](#log-analytics-agent)
-* [Beroende agent](#dependency-agent)
+## <a name="summary-of-agents"></a>Sammanfattning av agenter
+Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för Windows och Linux. Ytterligare information finns i avsnittet nedan. 
 
-Följande tabell ger en snabb jämförelse av de olika agenterna. Se resten av den här artikeln för information om var och en.
+### <a name="windows-agents"></a>Windows-agenter
 
-| | Azure Diagnostic-tillägg | Log Analytics-agent | Beroendeagent |
+| | Diagnostik<br>tillägg (WAD) | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|
-| Miljöer som stöds | Azure- | Azure-<br>Annat moln<br>Lokal | Azure-<br>Annat moln<br>Lokal |
-| Operativsystem | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
-| Agent beroenden  | Ingen | Ingen | Kräver Log Analytics agent |
-| Data som samlas in | Händelseloggar<br>ETW-händelser<br>Syslog<br>Prestanda<br>IIS-loggar<br>Spårnings loggar för .NET-app<br>Kraschdumpar | Händelseloggar<br>Syslog<br>Prestanda<br>IIS-loggar<br>Anpassade loggar<br>Data från lösningar | Process information och beroenden<br>Mått för nätverks anslutning |
+| Miljöer som stöds | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | 
+| Agent krav  | Ingen | Ingen | Kräver Log Analytics agent |
+| Data som samlas in | Händelseloggar<br>ETW-händelser<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>.NET-app-loggar<br>Kraschdumpar<br>Loggar för agent-diagnostik | Händelseloggar<br>Prestanda<IIS logs><br>Filbaserade loggar<br>Insikter och lösningar<br>Andra tjänster | Process information och beroenden<br>Mått för nätverks anslutning |
 | Data som skickas till | Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar |
 
 
+### <a name="linux-agents"></a>Linux-agenter
 
-## <a name="azure-diagnostic-extension"></a>Azure Diagnostic-tillägg
-[Azure-diagnostik-tillägget](../../azure-monitor/platform/diagnostics-extension-overview.md) samlar in övervaknings data från gäst operativ systemet och arbets belastningar i Azure Compute-resurser. Den samlar främst in data i Azure Storage. Du kan konfigurera Azure Monitor att kopiera data från lagring till en Log Analytics arbets yta. Du kan också samla in prestanda data för gäst i Azure Monitor Mät värden.
-
-Azure Diagnostic Extension kallas ofta WAD-(Windows Azure Diagnostic) eller LAD-tillägget (Linux Azure Diagnostic).
-
-
-### <a name="scenarios-supported"></a>Scenarier som stöds
-
-Scenarier som stöds av Azure-diagnostik-tillägget inkluderar följande:
-
-* Samla in loggar och prestanda data från Azure Compute-resurser.
-* Arkivera loggar och prestanda data från gäst operativ systemet till Azure Storage.
-* Visa övervaknings data i lagrings utrymmen med hjälp av ett verktyg som [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-* Samla in prestanda data i en mått databas för att dra nytta av funktioner som stöds av [Azure Monitor mått](data-platform-metrics.md) , till exempel nära real tids [mått varningar](../../azure-monitor/platform/alerts-metric-overview.md) och [autoskalning](autoscale-overview.md). 
-* Samla in övervaknings data från [lagring till en Log Analytics arbets yta](azure-storage-iis-table.md) för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) som [logg frågor](../log-query/log-query-overview.md).
-* Skicka övervaknings data till tredje parts verktyg med [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
-* Undersök start problem med den virtuella datorn med [startdiagnostik](../../virtual-machines/troubleshooting/boot-diagnostics.md).
-* Kopiera data från program som körs i den virtuella datorn [till Application Insights](diagnostics-extension-to-application-insights.md) integrera med andra program övervakning.
+| | Diagnostik<br>tillägg (LAD) | Teleympkvistar<br>agent | Log Analytics<br>agent | Beroende<br>agent |
+|:---|:---|:---|:---|:---|
+| Miljöer som stöds | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal |
+| Agent krav  | Ingen | Ingen | Ingen | Kräver Log Analytics agent |
+| Data som samlas in | Syslog<br>Prestanda | Prestanda | Syslog<br>Prestanda| Process information och beroenden<br>Mått för nätverks anslutning |
+| Data som skickas till | Azure Storage<br>Händelsehubb | Azure Monitor mått | Azure Monitor-loggar | Azure Monitor-loggar |
 
 ## <a name="log-analytics-agent"></a>Log Analytics-agent
-[Log Analytics agent](log-analytics-agent.md) samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella datorer i Azure, andra moln leverantörer och lokalt. Data samlas in i en Log Analytics-arbetsyta.
-
-Log Analytics agenten är samma agent som används av System Center Operations Manager och datorer med fler Hem datorer för att kommunicera med hanterings gruppen och Azure Monitor samtidigt. Den här agenten krävs också av vissa lösningar i Azure Monitor.
-
-Log Analytics agenten för Windows kallas ofta Microsoft Management Agent (MMA). Log Analytics agent för Linux kallas ofta OMS-agent.
+[Log Analytics agent](log-analytics-agent.md) samlar in övervaknings data från gäst operativ systemet och arbets belastningar på virtuella datorer i Azure, andra moln leverantörer och lokalt. Data samlas in i en Log Analytics-arbetsyta. Log Analytics agenten är samma agent som används av System Center Operations Manager, och du kan använda datorer med fler Hem datorer för att kommunicera med hanterings gruppen och Azure Monitor samtidigt. Den här agenten krävs också av vissa insikter och lösningar i Azure Monitor.
 
 
-### <a name="scenarios-supported"></a>Scenarier som stöds
+> [!NOTE]
+> Log Analytics agenten för Windows kallas ofta Microsoft Management Agent (MMA). Log Analytics agent för Linux kallas ofta OMS-agent.
 
-Scenarier som stöds av Log Analytics-agenten innehåller följande:
 
-* Samla in loggar och prestanda data från virtuella datorer i Azure, andra moln leverantörer och lokalt. 
-* Samla in övervaknings data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) som [logg frågor](../log-query/log-query-overview.md).
-* Använd Azure Monitor övervaknings lösningar som [Azure Monitor for VMS](../insights/vminsights-overview.md), [Azure Monitor för behållare](../insights/container-insights-overview.md)osv.  
-* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Sentinel](../../sentinel/overview.md) som kräver Log Analytics-agenten.
-* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) som kräver Log Analytics-agenten.
-* Använd funktionerna i [Azure Automation](../../automation/automation-intro.md) för att leverera omfattande hantering av dina virtuella Azure-datorer via deras livs cykel.  Exempel på de här funktionerna som kräver Log Analytics-agenten är:
-  * [Azure Automation uppdaterings hantering](../../automation/automation-update-management.md) av operativ system uppdateringar.
-  * [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md) för att bibehålla ett konsekvent konfigurations tillstånd.
-  * Spåra konfigurations ändringar med [Azure Automation ändringsspårning och inventering](../../automation/change-tracking.md).
+
+Använd Log Analytics-agenten om du behöver:
+
+* Samla in loggar och prestanda data från virtuella eller fysiska datorer utanför Azure. 
+* Skicka data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) som [logg frågor](../log-query/log-query-overview.md).
+* Använd [Azure Monitor for VMS](../insights/vminsights-overview.md) som gör att du kan övervaka dina virtuella datorer i skala och övervaka deras processer och beroenden på andra resurser och externa processer..  
+* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) eller [Azure Sentinel](../../sentinel/overview.md).
+* Använd [Azure Automation uppdaterings hantering](../../automation/automation-update-management.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
+* Använd olika [lösningar](../monitor-reference.md#insights-and-core-solutions) för att övervaka en viss tjänst eller ett visst program.
+
+Begränsningar för Log Analytics agenten är:
+
+- Det går inte att skicka data till Azure Monitor mått, Azure Storage eller Azure-Event Hubs.
+
+## <a name="azure-diagnostics-extension"></a>Azure Diagnostics-tillägg
+[Azure-diagnostik-tillägget](diagnostics-extension-overview.md) samlar in övervaknings data från gäst operativ systemet och arbets belastningar för virtuella Azure-datorer och andra beräknings resurser. Den samlar främst in data i Azure Storage, men låter dig också definiera data mottagare för att skicka data till andra destinationer, till exempel Azure Monitor mått och Azure-Event Hubs.
+
+Använd Azure Diagnostic Extension om du behöver:
+
+- Skicka data till Azure Storage för att arkivera eller analysera dem med verktyg som [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+- Skicka data till [Azure Monitor mått](data-platform-metrics.md) för att analysera den med [Mät Utforskaren](metrics-getting-started.md) och dra nytta av funktioner som nästan real tids [mått varningar](../../azure-monitor/platform/alerts-metric-overview.md) och [autoskalning](autoscale-overview.md) (endast Windows).
+- Skicka data till tredje parts verktyg med [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Samla in [startdiagnostik](../../virtual-machines/troubleshooting/boot-diagnostics.md) för att undersöka start problem för virtuella datorer.
+
+Begränsningar för Azure Diagnostics-tillägget är:
+
+- Kan endast användas med Azure-resurser.
+- Begränsad möjlighet att skicka data till Azure Monitor loggar.
+
+
+
+## <a name="telegraf-agent"></a>Teleympkvistar-agent
+[InfluxDatain-agenten](collect-custom-metrics-linux-telegraf.md) används för att samla in prestanda data från Linux-datorer för att Azure Monitor mått.
+
+Använd teleympkvistar-agenten om du behöver:
+
+* Skicka data till [Azure Monitor mått](data-platform-metrics.md) för att analysera den med [Mät Utforskaren](metrics-getting-started.md) och dra nytta av funktioner som nästan real tids [mått varningar](../../azure-monitor/platform/alerts-metric-overview.md) och [autoskalning](autoscale-overview.md) (endast Linux). 
+
+
 
 ## <a name="dependency-agent"></a>Beroendeagent
-Beroende agenten samlar in identifierade data om processer som körs på den virtuella datorn och externa process beroenden. Den här agenten krävs för [tjänstkarta](../insights/service-map.md) och kart funktionen [Azure Monitor for VMS](../insights/vminsights-overview.md). Beroende agenten kräver Log Analytics agent och skriver data till en Log Analytics arbets yta i Azure Monitor.
+Beroende agenten samlar in identifierade data om processer som körs på den virtuella datorn och externa process beroenden. 
+
+Använd beroende agenten om du behöver:
+
+* Använd kart funktionen [Azure Monitor for VMS](../insights/vminsights-overview.md) eller [Tjänstkartas](../insights/service-map.md) lösningen.
 
 
-## <a name="using-multiple-agents"></a>Använda flera agenter
-Du kan ha särskilda krav för att använda antingen Azure Diagnostic Extension eller Log Analytics agent för en viss virtuell dator. Till exempel kanske du vill använda mått aviseringar som kräver Azure Diagnostic Extension. Men du kanske också vill använda kart funktionen i Azure Monitor for VMs som kräver beroende agenten och Log Analytics agenten. I det här fallet kan du använda flera agenter och det här är ett vanligt scenario för kunder som behöver funktioner från var och en.
-
-### <a name="considerations"></a>Överväganden
+Tänk på följande när du använder beroende agenten:
 
 - Beroende agenten kräver att Log Analytics Agent installeras på samma virtuella dator.
 - På virtuella Linux-datorer måste Log Analytics Agent installeras före Azure Diagnostic-tillägget.
 
 
+## <a name="extensions-compared-to-agents"></a>Tillägg jämfört med agenter
+Log Analytics-tillägget för [Windows](../../virtual-machines/extensions/oms-windows.md) och [Linux](../../virtual-machines/extensions/oms-linux.md) installerar Log Analytics-agenten på virtuella Azure-datorer. Azure Monitor beroende tillägg för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) och [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) installerar beroende agenten på virtuella Azure-datorer. Detta är samma agenter som beskrivs ovan, men du kan hantera dem via [tillägg för virtuella datorer](../../virtual-machines/extensions/overview.md). Du bör använda tillägg för att installera och hantera agenterna när det är möjligt.
+
+
 ## <a name="next-steps"></a>Nästa steg
+Få mer information om var och en av agenterna på följande sätt:
 
-- Se [Översikt över den Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md) för att granska krav och stödda metoder för att distribuera agenten till datorer som finns i Azure, i ditt data Center eller i annan moln miljö.
-
+- [Översikt över Log Analytics agent](log-analytics-agent.md)
+- [Översikt över Azure-diagnostik-tillägg](diagnostics-extension-overview.md)
+- [Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar](collect-custom-metrics-linux-telegraf.md)

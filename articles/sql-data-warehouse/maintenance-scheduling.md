@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839793"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471796"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Använd underhålls scheman för att hantera uppdateringar och underhåll av tjänster
 
@@ -49,7 +49,7 @@ Alla aktiva underhålls händelser visas i avsnittet **service Health-planerat u
 
 ## <a name="view-a-maintenance-schedule"></a>Visa ett underhålls schema 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 
 Som standard har alla nyligen skapade instanser av Azure SQL-informationslager en åtta timmar lång primär och sekundär underhållsperiod under distributionen. Som anges ovan kan du ändra Windows så snart distributionen är klar. Inget underhåll sker utanför de angivna underhållsperioderna utan föregående meddelande.
 
@@ -63,7 +63,7 @@ Om du vill visa underhållsschemat som tillämpas på ditt informationslager gö
 
 ## <a name="change-a-maintenance-schedule"></a>Ändra ett underhålls schema 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 Ett underhålls schema kan uppdateras eller ändras när som helst. Om den valda instansen går genom en aktiv underhålls cykel sparas inställningarna. De blir aktiva under nästa identifierade underhålls period. [Lär dig mer](https://docs.microsoft.com/azure/service-health/resource-health-overview) om att övervaka ditt informations lager under en aktiv underhålls händelse. 
 
 ### <a name="identifying-the-primary-and-secondary-windows"></a>Identifiera de primära och sekundära Fönstren
@@ -73,7 +73,7 @@ De primära och sekundära Fönstren måste ha separata dags intervall. Ett exem
 Utför följande steg för att ändra underhålls schema för ditt informations lager:
 1.  Logga in på [Azure Portal](https://portal.azure.com/).
 2.  Välj det informations lager som du vill uppdatera. Sidan öppnas på bladet översikt. 
-3.  Öppna sidan för underhålls schema inställningar genom att välja **sammanfattnings länken underhålls schema (för hands version)** på översikts bladet. Alternativt väljer du alternativet **underhålls schema** på resurs menyn i den vänstra sidan.  
+3.  Öppna sidan för underhålls schema inställningar genom att välja länken **underhålls schema Sammanfattning** på bladet översikt. Alternativt väljer du alternativet **underhålls schema** på resurs menyn i den vänstra sidan.  
 
     ![Översikt över blad alternativ](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

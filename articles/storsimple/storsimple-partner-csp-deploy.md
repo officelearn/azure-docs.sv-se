@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple och Molnlösningsleverantör Programöversikt | Microsoft Docs
-description: En översikt om StorSimple och CSP för StorSimple-partner.
+title: Distribuera virtuell StorSimple-matris för Cloud Solution Provider-program
+description: En översikt över StorSimple och CSP för StorSimple-partner.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630010"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466917"
 ---
-# <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuera StorSimple Virtual Array för Cloud Solution Provider-programmet
+# <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuera virtuell StorSimple-matris för Cloud Solution Provider-program
 
 ## <a name="overview"></a>Översikt
 
-StorSimple Virtual Array kan distribueras av partners Cloud Solution Provider (CSP) för sina kunder. CSP-partner kan skapa en StorSimple Device Manager-tjänsten. Den här tjänsten kan sedan användas för att distribuera och hantera StorSimple Virtual Array och associerade resurser, volymer och säkerhetskopior.
+StorSimple virtuella matris kan distribueras av CSP-partner (Cloud Solution Provider) för sina kunder. En CSP-partner kan skapa en StorSimple Enhetshanteraren-tjänst. Den här tjänsten kan sedan användas för att distribuera och hantera StorSimple virtuella matriser och associerade resurser, volymer och säkerhets kopior.
 
-Den här artikeln beskrivs hur CSP-partner kan lägga till en kund eller en ny prenumeration till en befintlig kund och sedan skapa en tjänst för att distribuera en StorSimple Virtual Array i CSP.
+Den här artikeln beskriver hur en CSP-partner kan lägga till en kund eller en ny prenumeration på en befintlig kund och sedan skapa en tjänst för att distribuera en virtuell StorSimple-matris i CSP.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar måste du se till att:
+Innan du börjar ska du kontrol lera att:
 
 - Du är registrerad under CSP-programmet.
-- Du har giltig [Partnercenter](https://partnercenter.microsoft.com/) inloggningsuppgifter. Autentiseringsuppgifterna kan du logga in på partnerportalen för att lägga till nya kunder, söka efter kunder eller navigera till ett kundkonto från Partner-instrumentpanelen. CSP: N kan fungera som en StorSimple-administratören åt kunden i Azure-portalen.
+- Du har giltiga inloggnings uppgifter för [partner Center](https://partnercenter.microsoft.com/) . Med autentiseringsuppgifterna kan du logga in på Partner portalen för att lägga till nya kunder, söka efter kunder eller navigera till ett kund konto från partnerns instrument panel. CSP: n kan fungera som StorSimple-administratör för kundens räkning i Azure Portal.
                              
 ## <a name="add-a-customer"></a>Lägg till en kund
 
-Om du lägger till en kund skapas automatiskt en prenumeration. Utför följande steg i partnerportalen för att lägga till en kund (och automatiskt skapa en prenumeration).
+Om du lägger till en kund skapas en prenumeration automatiskt. Om du vill lägga till en kund (och automatiskt skapa en prenumeration) utför du följande steg i Partner portalen.
 
-1. Gå till den [Partnercenter](https://partnercenter.microsoft.com/) och logga in med dina CSP-autentiseringsuppgifter. Klicka på **instrumentpanelen**.
+1. Gå till [partner Center](https://partnercenter.microsoft.com/) och logga in med dina AUTENTISERINGSUPPGIFTER för CSP. Klicka på **instrument panel**.
 
-     ![Instrumentpanelen i Partnercenter](./media/storsimple-partner-csp-deploy/image1.png)
+     ![Instrument panel i Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. I den vänstra rutan klickar du på **kunder**. I den högra rutan klickar du på **Lägg till kunder**. Ange informationen för kunden. Klicka på **Nästa: Prenumerationer** att skapa en kundprenumeration.
+2. Klicka på **kunder**i det vänstra fönstret. I den högra rutan klickar du på **Lägg till kunder**. Ange information om kunden. Klicka på **Nästa: prenumerationer** för att skapa en kund prenumeration.
 
     ![Lägg till kund](./media/storsimple-partner-csp-deploy/image2.png)
 
-3.  Välj **Microsoft Azure** erbjuder. Bläddra längst ned på sidan och klicka på **granska**.
+3.  Välj **Microsoft Azure** erbjudande. Bläddra till slutet av sidan och klicka på **Granska**.
 
-    ![Granska information om prenumeration](./media/storsimple-partner-csp-deploy/image3.png)
+    ![Granska prenumerations information](./media/storsimple-partner-csp-deploy/image3.png)
                               
-4. Granska informationen och klicka på **skicka**.
+4. Granska informationen och klicka på **Skicka**.
 
     ![Skicka prenumeration](./media/storsimple-partner-csp-deploy/image4.png)
 
-5. Spara bekräftelse-information för framtida bruk.
+5. Spara bekräftelse informationen för framtida bruk.
 
     ![Spara bekräftelse](./media/storsimple-partner-csp-deploy/image5.png)
 
-6. Hitta eller navigera till kunden du just har lagt till. Klicka på den **företagsnamn** att granska nedåt i detaljerna.
+6. Hitta eller navigera till kunden som du nyss lade till. Klicka på **företags namnet** om du vill öka detalj nivån.
 
     ![Sök efter kunden](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. I den vänstra rutan väljer **Tjänstehantering**. I den högra rutan under **administrera services**, klickar du på **Microsoft Azure-hanteringsportalen** logga in som en Azure-administratör för din kund.
+7. I den vänstra rutan väljer du **tjänst hantering**. I den högra rutan under **Administrera tjänster**klickar du på **Microsoft Azure-hanteringsportal** för att logga in som Azure-administratör för din kund.
 
     ![Logga in på Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. Klicka för att skapa en StorSimple-enhetshanterare **+ ny** och Sök eller navigera till **StorSimple-serien för virtuella enheter**. Mer information går du till [distribuera en StorSimple Device Manager-tjänst](storsimple-virtual-array-manage-service.md).
+8. Skapa en StorSimple Enhetshanteraren genom att klicka på **+ ny** och söka efter eller navigera till **StorSimple-serien för virtuella enheter**. Mer information finns i [distribuera en StorSimple Enhetshanteraren-tjänst](storsimple-virtual-array-manage-service.md).
 
-    ![Skapa StorSimple Device Manager-tjänsten](./media/storsimple-partner-csp-deploy/image8.png)
+    ![Skapa StorSimple Enhetshanteraren-tjänst](./media/storsimple-partner-csp-deploy/image8.png)
 
 
 ## <a name="add-a-subscription"></a>Lägga till en prenumeration
 
-I vissa fall kan du kanske har en befintlig kund och du måste lägga till en prenumeration. Utför följande steg för att lägga till en prenumeration till en befintlig kund i partnerportalen.
+I vissa fall kan du ha en befintlig kund och du måste lägga till en prenumeration. Om du vill lägga till en prenumeration på en befintlig kund utför du följande steg i Partner portalen.
 
-1. Gå till den [Partnercenter](https://partnercenter.microsoft.com/) och logga in med dina CSP-autentiseringsuppgifter. Klicka på **instrumentpanelen**.
+1. Gå till [partner Center](https://partnercenter.microsoft.com/) och logga in med dina AUTENTISERINGSUPPGIFTER för CSP. Klicka på **instrument panel**.
 
-     ![Instrumentpanelen i Partnercenter](./media/storsimple-partner-csp-deploy/image1.png)
+     ![Instrument panel i Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. I den vänstra rutan klickar du på **kunder**. Hitta eller navigera till kunden som du vill lägga till en prenumeration på. Klicka på den ![Expandera kryssikonen](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) ikonen för att expandera raden för företagets namn för din kund. Mer information, klicka på **Lägg till prenumerationer**.
+2. Klicka på **kunder**i det vänstra fönstret. Hitta eller navigera till kunden som du vill lägga till en prenumeration på. Klicka på ikonen för ![expandera kontroll](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) för att expandera raden för företags namnet för din kund. I detalj klickar du på **Lägg till prenumerationer**.
 
     ![Kunder](./media/storsimple-partner-csp-deploy/image10.png)
 
-3. Kontrollera **Microsoft Azure** för den **viktigaste erbjudanden** i prenumerationen och på **skicka**. Detta skapar en ny prenumeration.
+3. Markera **Microsoft Azure** för de **främsta erbjudandena** i prenumerationen och klicka på **Skicka**. Detta skapar en ny prenumeration.
 
     ![Lägg till ny prenumeration](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. När en ny prenumeration skapas, klickar du på **<--kunder** i den vänstra rutan att återgå till den **kunder** sidan. Sök efter kunden som du precis skapat en prenumeration. Klicka på den **företagsnamn** att granska nedåt i detaljerna.
+6. När en ny prenumeration har skapats klickar du på **<--kunder** i den vänstra rutan för att gå tillbaka till sidan **kunder** . Sök efter kunden som du precis har skapat en prenumeration för. Klicka på **företags namnet** om du vill öka detalj nivån.
 
     ![Sök efter kunden](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. I den vänstra rutan väljer **Tjänstehantering**. I den högra rutan under **administrera services**, klickar du på **Microsoft Azure-hanteringsportalen** logga in som en Azure-administratör för din kund.
+7. I den vänstra rutan väljer du **tjänst hantering**. I den högra rutan under **Administrera tjänster**klickar du på **Microsoft Azure-hanteringsportal** för att logga in som Azure-administratör för din kund.
 
     ![Logga in på Azure Portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. Klicka för att skapa en StorSimple-enhetshanterare **+ ny** och Sök eller navigera till **StorSimple-serien för virtuella enheter**. Mer information går du till [distribuera en StorSimple Device Manager-tjänst](storsimple-virtual-array-manage-service.md).
+8. Skapa en StorSimple Enhetshanteraren genom att klicka på **+ ny** och söka efter eller navigera till **StorSimple-serien för virtuella enheter**. Mer information finns i [distribuera en StorSimple Enhetshanteraren-tjänst](storsimple-virtual-array-manage-service.md).
 
-    ![Skapa StorSimple Device Manager-tjänsten](./media/storsimple-partner-csp-deploy/image8.png)
+    ![Skapa StorSimple Enhetshanteraren-tjänst](./media/storsimple-partner-csp-deploy/image8.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har fler frågor angående StorSimple i CSP, går du till [StorSimple i CSP: Vanliga frågor och svar](storsimple-partner-csp-faq.md).
-- Om du är redo att distribuera StorSimple, går du till [distribuera StorSimple i CSP](storsimple-partner-csp-deploy.md).
+- Om du har fler frågor om StorSimple i CSP går du till [StorSimple i CSP: vanliga frågor och svar](storsimple-partner-csp-faq.md).
+- Om du är redo att distribuera din StorSimple går du till [distribuera din StorSimple i CSP](storsimple-partner-csp-deploy.md).

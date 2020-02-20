@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b0a4f390a3a897d14adc2944195b0c51148de495
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209281"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468770"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -123,6 +123,10 @@ Använd den här parametern om RAW-inspelningar eller externa inspelningar inneh
 - `VideoOnly`-index och extrahera insikter med endast video (ignorerar ljud)
 - `Default` – Indexera och extrahera insikter med hjälp av både ljud och video
 - `DefaultWithNoiseReduction` – Indexera och extrahera insikter från både ljud och video, samtidigt som algoritmer för brusreducering tillämpas på ljudströmmen
+
+> [!NOTE]
+> Video Indexer täcker upp till två ljud spår. Om det finns fler ljud spår i filen kommer de att behandlas som ett spår.<br/>
+Om du vill indexera spåren separat måste du extrahera den relevanta ljud filen och indexera den som `AudioOnly`.
 
 Priset beror på det valda indexeringsalternativet.  
 

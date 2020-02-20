@@ -1,6 +1,7 @@
 ---
-title: Azure Data Box-Disk felsökning dataöverföring problem med loggar | Microsoft Docs
-description: Beskriver hur du använder loggar och felsöka problem som kan uppstå när du överför data till Azure Data Box-Disk.
+title: Felsöka data överföringar med loggar
+titleSuffix: Azure Data Box Disk
+description: Beskriver hur du använder loggarna och felsöker problem som visas när du överför data till Azure Data Box Disk.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,44 +9,44 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807503"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471983"
 ---
-# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Förstå loggar att felsöka uppladdningsproblem för data i Azure Data Box-Disk
+# <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Förstå loggar för att felsöka problem med data uppladdning i Azure Data Box Disk
 
-Den här artikeln gäller för Microsoft Azure Data Box-Disk och beskriver de problem som du kan se när du överför data till Azure.
+Den här artikeln gäller för Microsoft Azure Data Box Disk och beskriver de problem som visas när du laddar upp data till Azure.
 
-## <a name="about-upload-logs"></a>Om hur du överför loggar
+## <a name="about-upload-logs"></a>Om uppladdning av loggar
 
-När data överförs till Azure i datacentret, `_error.xml` och `_verbose.xml` filer har genererats för varje lagringskonto. Dessa loggar överförs till samma lagringskonto som används för att ladda upp data. 
+När data överförs till Azure i data centret, `_error.xml` och `_verbose.xml` filer skapas för varje lagrings konto. Dessa loggar överförs till samma lagrings konto som användes för att ladda upp data. 
 
-Båda loggarna finns i samma format och innehålla XML-beskrivningar av de händelser som inträffade när du kopierar data från disken till Azure Storage-kontot.
+Båda loggarna har samma format och innehåller XML-beskrivningar av de händelser som uppstod när data kopierades från disken till Azure Storage kontot.
 
-Utförliga loggen innehåller fullständig information om status för kopieringsåtgärden för varje blob eller fillagring, felloggen innehåller endast information för BLOB-objekt eller filer som påträffade fel under överföringen.
+Utförlig loggen innehåller fullständig information om status för kopierings åtgärden för varje BLOB eller fil, medan fel loggen bara innehåller information om blobbar eller filer som påträffade fel under uppladdningen.
 
-Felloggen har samma struktur som utförlig loggning för, men filtrerar bort lyckade åtgärder.
+Fel loggen har samma struktur som utförlig loggen men filtrerar fram lyckade åtgärder.
 
-## <a name="download-logs"></a>Ladda ned loggar
+## <a name="download-logs"></a>Hämta loggar
 
-Vidta följande steg för att hitta ladda upp loggarna.
+Utför följande steg för att hitta uppladdnings loggarna.
 
-1. Om det finns några fel när du överför data till Azure, visar portalen en sökväg till den mapp där diagnostikloggar finns.
+1. Om det uppstår några fel när du överför data till Azure, visar portalen en sökväg till den mapp där diagnostikloggar finns.
 
-    ![Länka till loggar i portalen](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+    ![Länk till loggar i portalen](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
 
 2. Gå till **waies**.
 
-    ![fel- och utförliga loggar](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+    ![fel-och utförliga loggar](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
 
-I båda fallen kan se du felloggarna och utförliga loggar. Markera varje logg och hämta en lokal kopia.
+I varje fall visas fel loggarna och utförliga loggar. Välj varje logg och ladda ned en lokal kopia.
 
-## <a name="sample-upload-logs"></a>Exemplet överför loggar
+## <a name="sample-upload-logs"></a>Exempel på uppladdning av loggar
 
-Ett exempel på den `_verbose.xml` visas nedan. I det här fallet har ordningen som slutförts utan fel.
+Ett exempel på `_verbose.xml` visas nedan. I det här fallet har ordern slutförts utan fel.
 
 ```xml
 
@@ -90,7 +91,7 @@ Ett exempel på den `_verbose.xml` visas nedan. I det här fallet har ordningen 
 </DriveLog>
 ```
 
-För samma ordning, ett exempel på den `_error.xml` visas nedan.
+I samma ordning visas ett exempel på `_error.xml` nedan.
 
 ```xml
 
@@ -109,13 +110,13 @@ För samma ordning, ett exempel på den `_error.xml` visas nedan.
 </DriveLog>
 ```
 
-Ett exempel på den `_error.xml` visas nedan var den ordning som slutfördes med fel. 
+Ett exempel på `_error.xml` visas nedan där ordningen har slutförts med fel. 
 
-Fel-filen i det här fallet har en `Summary` och ett annat avsnitt som innehåller alla filen nivå fel. 
+Fel filen i det här fallet har ett `Summary`-avsnitt och ett annat avsnitt som innehåller alla fil nivå fel. 
 
-Den `Summary` innehåller den `ValidationErrors` och `CopyErrors`. I det här fallet 8 filer eller mappar har överförts till Azure och det fanns inga valideringsfel. När data har kopierats till Azure Storage-konto, 5 filer eller mappar har laddats upp. De återstående 3 filer eller mappar har bytt namn enligt namngivningskonventionerna i Azure container och överförts till Azure.
+`Summary` innehåller `ValidationErrors` och `CopyErrors`. I det här fallet överfördes 8 filer eller mappar till Azure och det fanns inga verifierings fel. När data kopierades till Azure Storage kontot har 5 filer eller mappar laddats upp. De återstående 3 filerna eller mapparna bytte namn enligt namngivnings konventionerna för Azure Container och laddades upp till Azure.
 
-Statusen för filen finns i `BlobStatus` som beskriver eventuella åtgärder som vidtas för att ladda upp blobar. I det här fallet är tre behållare namn eftersom de mappar där data har kopierats inte överensstämde med namngivningskonventionerna i Azure för behållare. För blobarna som laddades upp i de här behållarna, ingår nya behållarens namn, sökväg för blob i Azure, ursprungliga ogiltig filsökväg och blob-storlek.
+Fil nivåns status är `BlobStatus` som beskriver de åtgärder som vidtagits för att ladda upp blobarna. I det här fallet byter du namn på tre behållare eftersom mappar som data har kopierats till inte stämmer överens med namngivnings konventionerna i Azure för behållare. För blobbar som laddats upp i dessa behållare, det nya container namnet, sökvägen till blobben i Azure, den ursprungliga ogiltiga fil Sök vägen och blob-storleken ingår.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -151,35 +152,35 @@ Statusen för filen finns i `BlobStatus` som beskriver eventuella åtgärder som
     </DriveLog>
 ```
 
-## <a name="data-upload-errors"></a>Dataöverföringsfel
+## <a name="data-upload-errors"></a>Data överförings fel
 
-Fel som har genererats när du överför data till Azure sammanfattas i tabellen nedan.
+Felen som genereras när data laddas upp till Azure sammanfattas i följande tabell.
 
 | Felkod | Beskrivning                   |
 |-------------|------------------------------|
 |`None` |  Har slutförts.           |
-|`Renamed` | Har bytt namn på blob.   |
-|`CompletedWithErrors` | Överföringen slutfördes med fel. Information om filerna i fel ingår i loggfilen.  |
-|`Corrupted`|CRC beräknas vid datainmatning matchar inte det CRC-värde som beräknats under överföringen.  |  
-|`StorageRequestFailed` | Azure storage-begäran misslyckades.   |     
-|`LeasePresent` | Det här objektet hyrs och används av en annan användare. |
-|`StorageRequestForbidden` |Det gick inte att ladda upp på grund av problem med autentisering. |
-|`ManagedDiskCreationTerminalFailure` | Det gick inte att ladda upp som hanterade diskar. Filerna är tillgängliga i mellanlagringskontot som sidblobar. Du kan manuellt konvertera sidblobar till hanterade diskar.  |
-|`DiskConversionNotStartedTierInfoMissing` | Eftersom VHD-filen har kopierats utanför mapparna införande nivå, inte har en hanterad disk skapats. Filen har överförts som sidblobb till mellanlagringskontot som anges under skapande. Du kan konvertera den manuellt till en hanterad disk.|
-|`InvalidWorkitem` | Det gick inte att ladda upp data eftersom den inte följer Azure namngivning och begränsar konventioner.|
-|`InvalidPageBlobUploadAsBlockBlob` | Laddas upp som blockblobar i en behållare med prefixet `databoxdisk-invalid-pb-`.|
-|`InvalidAzureFileUploadAsBlockBlob` | Laddas upp som blockblobar i en behållare med prefixet `databoxdisk-invalid-af`-.|
-|`InvalidManagedDiskUploadAsBlockBlob` | Laddas upp som blockblobar i en behållare med prefixet `databoxdisk-invalid-md`-.|
-|`InvalidManagedDiskUploadAsPageBlob` |Laddas upp som sidblobar i en behållare med prefixet `databoxdisk-invalid-md-`. |
-|`MovedToOverflowShare` |Uppladdade filer till en ny filresurs som den ursprungliga filresursens storleken överskred den maximala storleksgränsen för Azure. Namn på ny filresurs har det ursprungliga namnet på med `-2`.   |
-|`MovedToDefaultAzureShare` |Överförda filer som inte var en del av en mapp till en standardresurs som. Resursnamnet som börjar med `databox-`. |
-|`ContainerRenamed` |Behållare för de här filerna överensstämmer med inte namngivningskonventionerna Azure och har bytt namn. Det nya namnet börjar med `databox-` och suffix med SHA1-hashen för det ursprungliga namnet |
-|`ShareRenamed` |Resurs för de här filerna överensstämmer med inte namngivningskonventionerna Azure och har bytt namn. Det nya namnet börjar med `databox-` och suffix med SHA1-hashen för det ursprungliga namnet. |
-|`BlobRenamed` |De här filerna överensstämmer med inte namngivningskonventionerna Azure och byter namn. Kontrollera den `BlobPath` för det nya namnet. |
-|`FileRenamed` |De här filerna överensstämmer med inte namngivningskonventionerna Azure och byter namn. Kontrollera den `FileStoragePath` för det nya namnet. |
-|`DiskRenamed` |De här filerna överensstämmer med inte namngivningskonventionerna Azure och byter namn. Kontrollera den `BlobPath` för det nya namnet. |
+|`Renamed` | Bloben har bytt namn.   |
+|`CompletedWithErrors` | Överföringen slutfördes med fel. Information om felaktiga filer ingår i logg filen.  |
+|`Corrupted`|CRC beräknad under data inmatningen matchar inte CRC beräknad under uppladdning.  |  
+|`StorageRequestFailed` | Azure Storage-begäran misslyckades.   |     
+|`LeasePresent` | Det här objektet lånas ut och används av en annan användare. |
+|`StorageRequestForbidden` |Det gick inte att överföra på grund av problem med autentiseringen. |
+|`ManagedDiskCreationTerminalFailure` | Det gick inte att ladda upp som hanterade diskar. Filerna är tillgängliga i mellanlagrings kontot som Page blobbar. Du kan manuellt konvertera Page blobbar till hanterade diskar.  |
+|`DiskConversionNotStartedTierInfoMissing` | Eftersom VHD-filen kopierades utanför mapparna för förskapad nivå skapades ingen hanterad disk. Filen laddas upp som Page blob till det mellanlagrings konto som anges när du skapar en order. Du kan konvertera den manuellt till en hanterad disk.|
+|`InvalidWorkitem` | Det gick inte att överföra data eftersom de inte följer konventionerna för namngivning och begränsning i Azure.|
+|`InvalidPageBlobUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-pb-`.|
+|`InvalidAzureFileUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-af`-.|
+|`InvalidManagedDiskUploadAsBlockBlob` | Överfört som block blobbar i en behållare med prefix `databoxdisk-invalid-md`-.|
+|`InvalidManagedDiskUploadAsPageBlob` |Överfört som Page blobbar i en behållare med prefix `databoxdisk-invalid-md-`. |
+|`MovedToOverflowShare` |Överförda filer till en ny resurs eftersom den ursprungliga resurs storleken översteg Max gränsen för Azure-storlek. Det nya fil resurs namnet har det ursprungliga namnet med suffixet `-2`.   |
+|`MovedToDefaultAzureShare` |Överförda filer som inte tillhör någon mapp till en standard resurs. Resurs namnet börjar med `databox-`. |
+|`ContainerRenamed` |Behållaren för de här filerna stämmer inte överens med namngivnings konventionerna för Azure och får ett nytt namn. Det nya namnet börjar med `databox-` och suffixet används med SHA1-hashen för det ursprungliga namnet |
+|`ShareRenamed` |Resursen för de här filerna stämmer inte överens med namngivnings konventionerna för Azure och får ett nytt namn. Det nya namnet börjar med `databox-` och suffixet används med SHA1-hashen för det ursprungliga namnet. |
+|`BlobRenamed` |De här filerna stämmer inte överens med namngivnings konventionerna för Azure och bytte namn. Kontrol lera det nya namnet i fältet `BlobPath`. |
+|`FileRenamed` |De här filerna stämmer inte överens med namngivnings konventionerna för Azure och bytte namn. Kontrol lera det nya namnet i fältet `FileStoragePath`. |
+|`DiskRenamed` |De här filerna stämmer inte överens med namngivnings konventionerna för Azure och bytte namn. Kontrol lera det nya namnet i fältet `BlobPath`. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Öppna ett supportärende för Data Box-Disk utfärdar](data-box-disk-contact-microsoft-support.md).
+- [Öppna ett support ärende för data Box disk problem](data-box-disk-contact-microsoft-support.md).

@@ -3,12 +3,12 @@ title: Självstudie – Skapa ett Azure VM-kluster med terraform och HCL
 description: Använd terraform och HCL för att skapa ett virtuellt Linux-dator kluster med en belastningsutjämnare i Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665363"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470878"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Självstudie: skapa ett Azure VM-kluster med terraform och HCL
 
@@ -28,11 +28,11 @@ Du får lära dig hur du utför följande uppgifter:
 ## <a name="1-set-up-azure-authentication"></a>1. Konfigurera Azure-autentisering
 
 > [!NOTE]
-> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure), eller kör den här självstudiekursen i [Azure Cloud Shell](terraform-cloud-shell.md) kan du hoppa över det här avsnittet.
+> Om du [använder Terraform-miljövariabler](terraform-install-configure.md), eller kör den här självstudiekursen i [Azure Cloud Shell](terraform-cloud-shell.md) kan du hoppa över det här avsnittet.
 
 I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terraform-konfigurationsfiler som innehåller autentiseringsuppgifterna från säkerhetsobjektetet.
 
-1. [Konfigurera ett huvudnamn för Azure AD-tjänsten](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) för att se till att Terraform kan tillhandahålla resurser till Azure. När du skapar huvudnamnet antecknar du värdena för prenumerations-ID, klient, appId och lösenord.
+1. [Konfigurera ett huvudnamn för Azure AD-tjänsten](terraform-install-configure.md#set-up-terraform-access-to-azure) för att se till att Terraform kan tillhandahålla resurser till Azure. När du skapar huvudnamnet antecknar du värdena för prenumerations-ID, klient, appId och lösenord.
 
 2. Öppna en kommandotolk.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 668e9ddadf151a86be0d8c09fc91b4c70db12f3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e2967a6d12fba2d81dad9de31e7476a027a39d1c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210793"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468838"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
 
@@ -23,7 +23,7 @@ Det finns flera olika alternativ för att utforska den elastiska karaktären hos
 
 Azure Cosmos DB Returnerar fel frekvensen (429) fel om klienterna förbrukar fler resurser (RU/s) än den mängd som du har etablerad. API för Cassandra i Azure Cosmos DB översätter dessa undantag till överbelastade fel på det inbyggda Cassandra-protokollet. 
 
-Om systemet inte är känsligt för fördröjning kan det vara tillräckligt för att hantera data flödes hastigheten med hjälp av återförsök. Se [exempel på Java-kod](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) för hur du hanterar hastighets begränsning transparent med hjälp av [Azure Cosmos DB tillägget](https://github.com/Azure/azure-cosmos-cassandra-extensions) för [principen för återförsök i Cassandra](https://docs.datastax.com/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) i Java. Du kan också använda [Spark-tillägget](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) för att hantera hastighets begränsning.
+Om systemet inte är känsligt för fördröjning kan det vara tillräckligt för att hantera data flödes hastigheten med hjälp av återförsök. Se [exempel på Java-kod](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) för hur du hanterar hastighets begränsning transparent med hjälp av [Azure Cosmos DB tillägget](https://github.com/Azure/azure-cosmos-cassandra-extensions) för [principen för återförsök i Cassandra](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) i Java. Du kan också använda [Spark-tillägget](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) för att hantera hastighets begränsning.
 
 ## <a name="manage-scaling"></a>Hantera skalning
 

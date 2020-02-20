@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dc65d368eb4c1beb57099cb6c16fb33bbe5c1f79
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981492"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470657"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Styrning av Azure DevTest Labs infrastruktur – resurser
 Den här artikeln beskriver justering och hantering av resurser för DevTest Labs i din organisation. 
@@ -38,7 +38,7 @@ Innan en organisation börjar använda Azure för allmän program utveckling bö
 
 Den **första rekommenderade metoden** är att granska organisationens Azure-taxonomi där indelningarna mellan produktions-och utvecklings prenumerationerna beskrivs. I följande diagram möjliggör den föreslagna taxonomin en logisk avgränsning av utvecklings-/testnings-och produktions miljöer. Med den här metoden kan en organisation införa fakturerings koder för att spåra kostnader som är associerade med varje miljö separat. Mer information finns i [preskripting-styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Dessutom kan du använda [Azure-Taggar](../azure-resource-manager/management/tag-resources.md) för att organisera resurser för spårnings-och fakturerings syfte.
 
-Den **Andra rekommenderade metoden** är att aktivera DevTest-prenumerationen i Azure Enterprise Portal. Det gör det möjligt för en organisation att köra klient operativ system som inte normalt är tillgängliga i en Azure Enterprise-prenumeration. Använd sedan företags program vara där du bara betalar för beräkningen och inte behöver oroa dig för licensiering. Det garanterar att faktureringen för avsedda tjänster, inklusive Galleri bilder i IaaS, till exempel Microsoft SQL Server, endast baseras på konsumtion. Information om Azure DevTest-prenumerationen finns [här](https://azure.microsoft.com/offers/ms-azr-0148p/) för kunder med Enterprise-avtal (EA) och [här](https://azure.microsoft.com/offers/ms-azr-0023p/) kan du betala per användning.
+Den **Andra rekommenderade metoden** är att aktivera DevTest-prenumerationen i Azure Enterprise Portal. Det gör det möjligt för en organisation att köra klient operativ system som inte normalt är tillgängliga i en Azure Enterprise-prenumeration. Använd sedan företags program varan där du bara betalar för beräkningen och oroa dig inte om licensiering. Det garanterar att faktureringen för avsedda tjänster, inklusive Galleri bilder i IaaS, till exempel Microsoft SQL Server, endast baseras på konsumtion. Information om Azure DevTest-prenumerationen finns [här](https://azure.microsoft.com/offers/ms-azr-0148p/) för kunder med Enterprise-avtal (EA) och [här](https://azure.microsoft.com/offers/ms-azr-0023p/) kan du betala per användning.
 
 ![Resurs justering med prenumerationer](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 

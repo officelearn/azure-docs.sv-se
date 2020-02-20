@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: a5ad4cbd11d6468413a43576e2156ee807067aa8
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a2f3dbf58363331cf6b1b05e759d246e68e7e7a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153357"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471218"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
@@ -339,7 +339,7 @@ I det här exemplet har ägande användare och ägande grupp bara Läs-och Skriv
 
 Använd cmdleten `Get-AzDataLakeGen2Item` för att hämta ACL för en katalog eller fil. Använd sedan `New-AzDataLakeGen2ItemAclObject`-cmdlet: en för att skapa en ny ACL-post. Använd `Update-AzDataLakeGen2Item`-cmdlet för att tillämpa den nya ACL: en.
 
-Det här exemplet ger användaren Skriv-och körnings behörighet för en katalog.
+Det här exemplet ger en grupp Skriv-och körnings behörighet för en katalog.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -370,7 +370,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 ```
 
-Det här exemplet ger användaren Skriv-och körnings behörighet för en fil.
+Det här exemplet ger en grupp Skriv-och körnings behörighet för en fil.
 
 ```powershell
 $filesystemName = "my-file-system"

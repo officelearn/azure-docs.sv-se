@@ -7,19 +7,31 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 02/17/2020
+ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894266"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471188"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka i HDInsight
 
 Lär dig hur du använder Azure Monitor loggar för att analysera loggar som genereras av Apache Kafka i HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="logs-location"></a>Plats för loggar
+
+Apache Kafka loggar i klustret finns på `/var/log/kafka`. Kafka-loggar sparas eller bevaras inte över klustrets livs cykel, oavsett om hanterade diskar används. I följande tabell visas de tillgängliga loggarna.
+
+|Logga |Beskrivning |
+|---|---|
+|Kafka. ut|STDOUT och stderr för Kafka-processen. Du hittar Kafka start-och avslutnings loggar i den här filen.|
+|Server. log|Huvud server loggen för Kafka. Alla Kafka Broker-loggar slutförs här.|
+|kontrollant. log|Styrenhets loggar om Broker fungerar som kontrollant.|
+|statechange. log|Alla tillstånds ändrings händelser till mäklare loggas i den här filen.|
+|Kafka-GC. log|Kafka skräp insamlings statistik.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Aktivera Azure Monitor loggar för Apache Kafka
 
@@ -85,7 +97,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
     | Loggtyp | Beskrivning |
     | ---- | ---- |
     | Logga\_kafkaserver\_CL | Kafka Broker-Server. log |
-    | log\_kafkacontroller\_CL | Kafka Broker-styrenhet. log |
+    | Logga\_kafkacontroller\_CL | Kafka Broker-styrenhet. log |
     | mått\_Kafka\_CL | Kafka JMX-mått |
 
     ![Apache Kafka Log Analytics CPU-användning](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: alzam
-ms.openlocfilehash: 6b0b6707f6851ef674d0045c7cf1686af13ea856
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137827"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472306"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Skapa en Azure Active Directory-klient för P2S OpenVPN-protokoll anslutningar
 
@@ -54,7 +54,7 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
 
 4. Ge sedan administrativt medgivande. Kopiera och klistra in webb adressen som hör till distributions platsen i webbläsarens Adress fält:
 
-    Offentligt
+    Offentlig
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
@@ -102,6 +102,9 @@ Följ stegen i [den här artikeln](../active-directory/fundamentals/add-users-az
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
     ```
+
+   > [!NOTE]
+   > Se till att du inkluderar ett avslutande snedstreck i slutet av `AadIssuerUri` svärdet. Annars fungerar inte kommandot.
 
 10. Skapa och ladda ned profilen genom att köra följande kommandon. Ändra värdena-ResourceGroupName och-Name så att de matchar dina egna.
 

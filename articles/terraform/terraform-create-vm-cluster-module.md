@@ -3,16 +3,16 @@ title: Självstudie – Skapa ett Azure VM-kluster med terraform med hjälp av m
 description: Lär dig hur du använder Terraform-moduler för att skapa ett kluster med virtuella Windows-datorer i Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185548"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472219"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>Självstudie: skapa ett Azure VM-kluster med terraform med hjälp av modulen register
 
-Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här guiden får du lära dig hur man: 
+Den här artikeln ger dig instruktioner för att skapa ett litet kluster med virtuella datorer med Terraform-modulen [Azure Compute](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). I den här självstudiekursen får du lära du dig att: 
 
 > [!div class="checklist"]
 > * Konfigurera autentisering med Azure
@@ -25,9 +25,9 @@ Mer information om Terraform finns i [Terraform-dokumentationen](https://www.ter
 ## <a name="set-up-authentication-with-azure"></a>Konfigurera autentisering med Azure
 
 > [!TIP]
-> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure), eller kör den här självstudiekursen i [Azure Cloud Shell](/azure/cloud-shell/overview) kan du hoppa över det här steget.
+> Om du [använder Terraform-miljövariabler](terraform-install-configure.md), eller kör den här självstudiekursen i [Azure Cloud Shell](/azure/cloud-shell/overview) kan du hoppa över det här steget.
 
- Läs [Installera Terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure) för att skapa ett huvudnamn för Azure-tjänsten. Använd tjänstens huvudnamn för att fylla i följande kod i en ny fil `azureProviderAndCreds.tf` i en tom katalog:
+ Läs [Installera Terraform och konfigurera åtkomst till Azure](terraform-install-configure.md) för att skapa ett huvudnamn för Azure-tjänsten. Använd tjänstens huvudnamn för att fylla i följande kod i en ny fil `azureProviderAndCreds.tf` i en tom katalog:
 
 ```hcl
 variable subscription_id {}

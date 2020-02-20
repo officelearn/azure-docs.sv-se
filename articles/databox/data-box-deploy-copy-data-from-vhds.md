@@ -1,5 +1,6 @@
 ---
-title: Självstudie för att kopiera data från virtuella hård diskar till hanterade diskar med Azure Data Box | Microsoft Docs
+title: 'Självstudie: kopiera från virtuella hård diskar till Managed disks'
+titleSuffix: Azure Data Box
 description: Lär dig hur du kopierar data från virtuella hård diskar från lokala VM-arbetsbelastningar till din Azure Data Box
 services: databox
 author: alkohli
@@ -8,21 +9,21 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4b7182d1fa70a146da1c01273ffe1032f2982546
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240468"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471235"
 ---
-# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudier: Använd Data Box-enhet för att importera data som Managed disks i Azure
+# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box-enhet för att importera data som Managed disks i Azure
 
 I den här självstudien beskrivs hur du använder Azure Data Box för att migrera lokala virtuella hård diskar till hanterade diskar i Azure. Virtuella hård diskar från lokala virtuella datorer kopieras till Data Box-enhet som Page blobbar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan anslutas till virtuella Azure-datorer.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Granska krav
+> * Gå igenom förhandskraven
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
@@ -31,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört självstudien [: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
+1. Du har slutfört [självstudien: konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box-enhet och orderstatusen i portalen är **Levererad**.
 3. Du har anslutning till ett höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10-GbE-anslutning inte är tillgänglig kan du använda en 1-GbE-datalänk men kopierings hastigheten påverkas.
 4. Du har granskat:
@@ -41,7 +42,7 @@ Innan du börjar ska du kontrollera att:
 
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
 
-Baserat på de angivna resurs grupperna skapar Data Box-enhet en resurs för varje associerad resurs grupp. Om `mydbmdrg1` och`mydbmdrg2` till exempel skapades när ordern placerades, skapas följande resurser:
+Baserat på de angivna resurs grupperna skapar Data Box-enhet en resurs för varje associerad resurs grupp. Till exempel, om `mydbmdrg1` och `mydbmdrg2` skapades när ordern placerades, skapas följande resurser:
 
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
@@ -75,7 +76,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. I dialog rutan åtkomst resurs och kopiera data kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**.
+2. I dialog rutan åtkomst resurs och kopiera data kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
@@ -114,7 +115,7 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
 
     ![Konfigurera NFS-klientåtkomst 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**.
+2. Ange NFS-klientens IP-adress och klicka på **Add**. Du kan konfigurera åtkomst för flera NFS genom att upprepa det här steget. Klicka på **OK**
 
     ![Konfigurera NFS-klientåtkomst 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
@@ -135,9 +136,9 @@ När du är ansluten till data servern är nästa steg att kopiera data. VHD-fil
 
 Granska följande överväganden innan du börjar kopiera data:
 
-- Kopiera alltid de virtuella hård diskarna till en av de förskapade mapparna. Om du kopierar de virtuella hård diskarna utanför dessa mappar eller i en mapp som du har skapat, kommer de virtuella hård diskarna att överföras till Azure Storage-konto som sid-blobar och inte hanterade diskar.
-- Endast fasta virtuella hård diskar kan laddas upp för att skapa hanterade diskar. VHDX-filer eller dynamiska och differentierande virtuella hård diskar stöds inte.
-- Du kan bara ha en hanterad disk med ett angivet namn i en resurs grupp i alla förskapade mappar. Detta innebär att de virtuella hård diskarna som laddats upp till de förskapade mapparna ska ha unika namn. Kontrol lera att namnet inte matchar en redan befintlig hanterad disk i en resurs grupp.
+- Kopiera alltid de virtuella hårddiskarna till en av de förskapade mapparna. Om du kopierar de virtuella hård diskarna utanför dessa mappar eller i en mapp som du har skapat, kommer de virtuella hård diskarna att överföras till Azure Storage-konto som sid-blobar och inte hanterade diskar.
+- Endast fasta virtuella hårddiskar kan laddas upp för att skapa hanterade diskar. VHDX-filer eller dynamiska och differentierande virtuella hård diskar stöds inte.
+- Du kan bara ha en hanterad disk med ett angivet namn i en resurs grupp i alla förskapade mappar. Det betyder att de virtuella hårddiskarna som laddats upp till de förskapade mapparna måste ha unika namn. Kontrollera att namnet inte matchar en redan befintlig hanterad disk i en resurs grupp.
 - Granska begränsningar för hanterade diskar i [storleks gränser för Azure-objekt](data-box-limits.md#azure-object-size-limits).
 
 Beroende på om du ansluter via SMB eller NFS kan du använda:
@@ -171,7 +172,7 @@ När kopieringsjobbet är klart kan du gå till **Förbered för att skicka**.
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Granska krav
+> * Gå igenom förhandskraven
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

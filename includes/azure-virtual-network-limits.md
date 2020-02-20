@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28724f85ada989cbe3ce754418fb781bb0468de4
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020983"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465982"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "76020983"
 | Resurs | Standard/högsta gräns | 
 | --- | --- |
 | Virtuella nätverk |1,000 |
-| Undernät per virtuellt nätverk |3 000 |
+| Undernät per virtuellt nätverk |3,000 |
 | Peering för virtuellt nätverk per virtuellt nätverk |500 |
 | [Virtuella nätverksgateway (VPN-gatewayer) per virtuellt nätverk](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
 | [Virtuella nätverksgateway (ExpressRoute-gatewayer) per virtuellt nätverk](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
@@ -33,12 +33,12 @@ ms.locfileid: "76020983"
 | Privata IP-adresser per virtuell dator |256 |
 | Offentliga IP-adresser per nätverks gränssnitt |256 |
 | Offentliga IP-adresser per virtuell dator |256 |
-| [Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500,000 |
+| [Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500 000 |
 | Nätverkskort |65 536 |
 | Nätverkssäkerhetsgrupper |5 000 |
 | NSG-regler per NSG |1,000 |
 | IP-adresser och intervall som har angetts för källa eller mål i en säkerhets grupp |4,000 |
-| Programsäkerhetsgrupper |3 000 |
+| Programsäkerhetsgrupper |3,000 |
 | Program säkerhets grupper per IP-konfiguration, per nätverkskort |20 |
 | IP-konfigurationer per program säkerhets grupp |4,000 |
 | Program säkerhets grupper som kan anges i alla säkerhets regler för en nätverks säkerhets grupp |100 |
@@ -51,10 +51,13 @@ ms.locfileid: "76020983"
 #### <a name="publicip-address"></a>Begränsningar för offentliga IP-adresser
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
-| Offentliga IP-adresser – dynamiska | 1 000 för Basic. |Kontakta supporten. |
-| Offentliga IP-adresser – statiska | 1 000 för Basic. |Kontakta supporten. |
-| Offentliga IP-adresser – statiska | 1 000 för standard.|Kontakta supporten. |
+| Offentliga IP-adresser<sup>1</sup> | 10 för Basic. | Kontakta supporten. |
+| Statiska offentliga IP-adresser<sup>1</sup> | 10 för Basic. | Kontakta supporten. |
+| Offentliga standard IP-adresser<sup>1</sup> | 10 | Kontakta supporten. |
+| Prefix till offentliga IP-adresser | begränsas av antalet offentliga standard-IP: er i en prenumeration | Kontakta supporten. |
 | Prefixlängd för offentlig IP | /28 | Kontakta supporten. |
+
+<sup>1</sup> Standard gränser för offentliga IP-adresser varierar beroende på kategori typ, till exempel kostnads fri utvärdering, betala per användning, CSP. Standardvärdet för Enterprise-avtal-prenumerationer är till exempel 1000.
 
 #### <a name="load-balancer"></a>Gränser för belastnings utjämning
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).

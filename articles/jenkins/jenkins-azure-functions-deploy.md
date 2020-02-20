@@ -4,18 +4,18 @@ description: Lär dig hur du distribuerar till Azure Functions med hjälp av Jen
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: af3e8dfd6e2bfc676e659a03d92658af66b5bcde
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158766"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470674"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins Azure Functions
 
 [Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. Den här självstudien visar hur du distribuerar en Java-funktion för att Azure Functions med hjälp av Azure Functions-plugin-programmet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - **Jenkins Server**: om du inte har installerat en Jenkins-Server kan du läsa artikeln [skapa en Jenkins-server på Azure](./install-jenkins-solution-template.md).
@@ -131,7 +131,7 @@ I det här avsnittet skapar du en [Jenkins-pipeline](https://jenkins.io/doc/book
 
 Nu är det dags att köra Jenkins-jobbet.
 
-1. Först hämtar du auktoriseringsnyckeln via anvisningarna i artikeln om [HTTP-utlösare och bindningar i Azure Functions](/azure/azure-functions/functions-bindings-http-webhook#authorization-keys).
+1. Först hämtar du auktoriseringsnyckeln via anvisningarna i artikeln om [HTTP-utlösare och bindningar i Azure Functions](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
 
 1. Ange appens webbadress i webbläsaren. Ersätt platshållarna med lämpliga värden och ange ett numeriskt värde för **&lt;input_number >** som indata för funktionen Java.
 

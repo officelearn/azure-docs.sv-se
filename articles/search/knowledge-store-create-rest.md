@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
-ms.openlocfilehash: 7dd1f07d44bd3b71bb83becee5405cf5c100460c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 478a7e03b432006b429c96e03307fd8e494c88ff
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754080"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472323"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Skapa ett kunskaps lager med REST och Postman
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 I den här snabb starten används Azure Kognitiv sökning Azure Blob Storage och [azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. 
 
-Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner dagligen när de anropas från Azure Kognitiv sökning. Så länge du använder de exempel data som vi tillhandahåller kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
+Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner per dag. Eftersom data uppsättningen är så liten kan du hoppa över att skapa eller bifoga en Cognitive Services resurs.
 
 1. [Hämta HotelReviews_Free. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Dessa data är hotell gransknings data som sparats i en CSV-fil (härstammar från Kaggle.com) och innehåller 19 stycken kundfeedback om ett enda hotell. 
 
@@ -78,7 +78,7 @@ Om du vill hämta värdet för `admin-key`går du till Azure Kognitiv sökning-t
 ![Fliken Postman-app-variabler](media/knowledge-store-create-rest/postman-variables-window.png "Fönstret för Postman-variabler")
 
 
-| Variabel    | Skaffa det |
+| Variabel    | Hämta det på |
 |-------------|-----------------|
 | `admin-key` | På sidan **nycklar** i Azure kognitiv sökning-tjänsten.  |
 | `api-version` | Lämna som **2019-05-06-för hands version**. |
@@ -108,7 +108,7 @@ När du skapar ett kunskaps lager måste du utfärda fyra HTTP-förfrågningar:
 > Du måste ange `api-key` och `Content-type` huvuden i alla dina begär Anden. Om Postman identifierar en variabel, visas variabeln i orange text, precis som med `{{admin-key}}` i föregående skärm bild. Om variabeln är felstavad visas den i röd text.
 >
 
-## <a name="create-an-azure-cognitive-search-index"></a>Skapa ett Azure Cognitive Search-index
+## <a name="create-an-azure-cognitive-search-index"></a>Skapa ett Azure Kognitiv sökning-index
 
 Skapa ett Azure Kognitiv sökning-index som representerar de data som du är intresse rad av vid sökning, filtrering och användning av förbättringar i. Skapa indexet genom att utfärda en skicka begäran till `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman ersätter symboler som omges av dubbla klammerparenteser (till exempel `{{search-service-name}}`, `{{index-name}}`och `{{api-version}}`) med de värden som du angav i [Konfigurera PostMan](#configure-postman). Om du använder ett annat verktyg för att utfärda REST-kommandon måste du ersätta dessa variabler själv.
 

@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7cc8454ca8dc8d6313e1cf353292adb47b15ef47
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898728"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468379"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Skapa ett Azure App Configuration-arkiv
 
@@ -24,10 +24,6 @@ Det här exempelskriptet skapar en ny instans av Azure App-konfiguration i en ny
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-Du behöver installera Azure App Configuration CLI-tillägget först genom att köra följande kommando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -71,8 +67,8 @@ I det här skriptet används följande kommandon för att skapa en ny resurs gru
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Skapar en resurs för konfigurations Arkiv för appar. |
-| [lista med AZ appconfig-autentiseringsuppgifter](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | Visa en lista med åtkomst nycklar för ett konfigurations Arkiv för appar. |
+| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Skapar en resurs för konfigurations Arkiv för appar. |
+| [lista med AZ appconfig-autentiseringsuppgifter](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Visa en lista med åtkomst nycklar för ett konfigurations Arkiv för appar. |
 
 ## <a name="next-steps"></a>Nästa steg
 

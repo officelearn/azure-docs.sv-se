@@ -1,5 +1,6 @@
 ---
-title: Självstudie för att kopiera data till Azure Data Box-enhet via Kopiera datatjänst | Microsoft Docs
+title: 'Självstudie: använda data kopierings tjänsten för att kopiera till din enhet'
+titleSuffix: Azure Data Box
 description: I den här självstudien lär du dig att kopiera data till din Azure Data Box-enhet via datakopieringstjänsten
 services: databox
 author: alkohli
@@ -8,14 +9,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206049"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466985"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudier: Använda datakopieringstjänsten för att kopiera data till Azure Data Box (förhandsversion)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudie: Använd tjänsten data kopiering för att kopiera data till Azure Data Box (för hands version)
 
 I den här självstudien beskrivs hur du matar in data med hjälp av datakopieringstjänsten utan en mellanliggande värd. Datakopieringstjänsten körs lokalt på Microsoft Azure Data Box, ansluter till din NAS-enhet (Network-attached storage) via SMB och kopierar data till Data Box.
 
@@ -29,11 +30,11 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Kopiera data till Data Box
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört den här självstudien: [Konfigurera Azure Data Box](data-box-deploy-set-up.md).
+1. Du har slutfört den här självstudien: [konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box-enhet och orderstatusen i portalen är **Levererad**.
 3. Du har autentiseringsuppgifterna för den NAS-källenhet som du kommer att ansluta till för datakopiering.
 4. Du har anslutning till ett höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 Gigabit Ethernet (GbE). Om en 10 GbE-anslutning inte är tillgänglig kan du använda en 1 GbE-datalänk, men då påverkas kopieringshastigheten.
@@ -55,16 +56,16 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
 
 3. I dialogrutan **Konfigurera och starta** fyller du i följande fält:
     
-    |Fält                          |Värde    |
+    |Field                          |Värde    |
     |-------------------------------|---------|
     |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Följande tecken tillåts inte i jobbnamnet: \<, \>, \|, \?, \*, \\, \:, \/ och \\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
-    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter, behöver de explicita säkerhetsbehörigheter. Högerklicka på mappen, Välj **egenskaper** och välj sedan **Security**. Detta bör lägga till den lokala administratören i den **Security** fliken.       |
+    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter behöver de uttryckliga säkerhets behörigheter. Högerklicka på mappen, Välj **Egenskaper** och välj sedan **säkerhet**. Detta bör lägga till den lokala administratören på fliken **säkerhet** .       |
     |**Lösenord**                       |Lösenord för åtkomst till datakällan.           |
     |**Mållagringskonto**    |Välj mållagringskonto för uppladdning av data från listan.         |
-    |**Måltyp**       |Välj mållagringstyp från listan: **Blockblob**, **Sidblob** eller **Azure Files**.        |
+    |**Måltyp**       |Välj mål lagrings typ i listan: **Block-Blob**, **Page BLOB**eller **Azure Files**.        |
     |**Målcontainer/-resurs**    |Ange namnet på den container eller resurs som du vill ladda upp data till i ditt mållagringskonto. Namnet kan vara ett resursnamn eller ett containernamn. Använd till exempel `myshare` eller `mycontainer`. Du kan även ange namnet i formatet `sharename\directory_name` eller `containername\virtual_directory_name`.        |
-    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använda uttryck med jokertecken:** Endast `*` och `?` stöds i uttryck med jokertecken. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använda reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använd jokertecken:** Endast `*` och `?` stöds i jokertecken. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Filoptimering**              |När den här funktionen är aktiverad packas filer som är mindre än 1 MB under inmatning. Paketeringen gör datakopieringen snabbare för små filer. Den sparar även betydande tid när antalet filer långt överstiger antalet kataloger.        |
  
 4. Välj **Starta**. Indata valideras, och om validering lyckas startas jobbet. Det kan ta några minuter för jobbet att startas.

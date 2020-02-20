@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 12/23/2019
-ms.openlocfilehash: 57b4440a29dde470f91bbaae091bf65a0d2a1b51
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 02/14/2020
+ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552278"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471031"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Lägg till anpassade Apache Hive-bibliotek när du skapar ett HDInsight-kluster
 
 Lär dig hur du förinstallerar [Apache Hive](https://hive.apache.org/) bibliotek i HDInsight. Det här dokumentet innehåller information om hur du använder en skript åtgärd för att läsa in bibliotek när klustret skapas. Bibliotek som lagts till med hjälp av stegen i det här dokumentet är globalt tillgängliga i Hive – du behöver inte använda [Lägg till jar](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) för att läsa in dem.
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 När du skapar ett kluster kan du använda en skript åtgärd för att ändra klusternoderna när de har skapats. Skriptet i det här dokumentet accepterar en enda parameter, som är platsen för biblioteken. Den här platsen måste vara i ett Azure Storage konto och biblioteken måste lagras som jar-filer.
 
@@ -33,7 +33,7 @@ Genom att använda skript åtgärden i den här artikeln blir biblioteken tillg�
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-**Krav**
+### <a name="requirements"></a>Krav
 
 * Skripten måste användas både för **huvudnoderna** och **arbetsnoderna**.
 
@@ -50,7 +50,7 @@ Genom att använda skript åtgärden i den här artikeln blir biblioteken tillg�
 
 ## <a name="create-a-cluster-using-the-script"></a>Skapa ett kluster med hjälp av skriptet
 
-1. Starta etableringen av ett kluster med hjälp av stegen i [Etablera HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md), men Slutför inte etablering. Du kan också använda Azure PowerShell eller HDInsight .NET SDK för att skapa ett kluster med det här skriptet. Mer information om hur du använder dessa metoder finns i [Anpassa HDInsight-kluster med skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). För Azure Portal måste du välja alternativet **gå till klassiskt skapa upplevelse** och sedan **Anpassa (storlek, inställningar, appar)** .
+1. Starta etableringen av ett kluster med hjälp av stegen i [Etablera HDInsight-kluster på Linux](hdinsight-hadoop-provision-linux-clusters.md), men Slutför inte etablering. Du kan också använda Azure PowerShell eller HDInsight .NET SDK för att skapa ett kluster med det här skriptet. Mer information om hur du använder dessa metoder finns i [Anpassa HDInsight-kluster med skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). För Azure Portal, på fliken **konfiguration + prissättning** , väljer du **åtgärden + Lägg till skript**.
 
 1. För **lagring**, om lagrings kontot som innehåller biblioteket för JAR-filer skiljer sig från det konto som används för klustret, slutför du **ytterligare lagrings konton**.
 
@@ -63,6 +63,9 @@ Genom att använda skript åtgärden i den här artikeln blir biblioteken tillg�
     |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Node-typ (er)|Head, Worker|
     |Parametrar|Ange WASB-adressen till den behållare och det lagrings konto som innehåller jar v7. Till exempel `wasbs://libs@mystorage.blob.core.windows.net/`.|
+
+    > [!NOTE]
+    > För Apache Spark 2,1 använder du denna bash-skript-URI: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`.
 
 1. Fortsätt att etablera klustret enligt beskrivningen i [Etablera HDInsight-kluster i Linux](hdinsight-hadoop-provision-linux-clusters.md).
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c18c39ced40505a87af8907a65aa16aae978838
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462585"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471881"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Självstudie: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
@@ -28,7 +28,7 @@ I den här kursen ska du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa ett Azure Data Lake Storage Gen2-konto.
 
@@ -65,7 +65,7 @@ I den här självstudien används flygdata från Bureau of Transportation Statis
 
 I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -105,7 +105,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
 4. Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
-## <a name="ingest-data"></a>För in data
+## <a name="ingest-data"></a>Mata in data
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kopiera källdata till lagringskontot
 
@@ -129,7 +129,7 @@ Använd AzCopy till att kopiera data från *.csv*-filen till Data Lake Storage G
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
 
-   * Ersätt `<container-name>` plats hållaren med ett namn som du vill ge din behållare.
+   * Ersätt `<container-name>` plats hållaren med namnet på en behållare i ditt lagrings konto.
 
 ## <a name="create-a-container-and-mount-it"></a>Skapa en behållare och montera den
 
@@ -161,20 +161,7 @@ I det här avsnittet ska du skapa en behållare och en mapp i ditt lagrings kont
     extra_configs = configs)
     ```
 
-18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt `container-name` placeholder-värdet med det namn som du gav till behållaren i föregående steg.
-
-Använd de här värdena för att ersätta de nämnda plats hållarna.
-
-   * `appId` och `password` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
-
-   * `tenant-id` kommer från din prenumeration.
-
-   * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
-
-   * Ersätt `container-name` plats hållaren med ett namn som du vill ge din behållare.
-
-   > [!NOTE]
-   > I en produktions inställning bör du överväga att lagra lösen ordet i Azure Databricks. Lägg sedan till en uppslags nyckel i kod blocket i stället för lösen ordet. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
+18. I det här kodblocket ersätter du platshållarvärdena `appId`, `password`, `tenant` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt `container-name` placeholder-värdet med namnet på behållaren.
 
 19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 

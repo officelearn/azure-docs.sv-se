@@ -1,6 +1,6 @@
 ---
-title: Hantera din StorSimple-volymbehållare på enheten för StorSimple 8000-serien | Microsoft Docs
-description: Beskriver hur du kan använda StorSimple Device Manager service-sidan för behållare på volymen för att lägga till, ändra eller ta bort en volymbehållare.
+title: Hantera volym behållare för enheter med StorSimple 8000-serien
+description: Förklarar hur du kan använda sidan StorSimple Enhetshanteraren service Volume containers för att lägga till, ändra eller ta bort en volym behållare.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e1a5ac2c2b734c77fc3dbe788206f8c75044953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724793"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467036"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Använda StorSimple Device Manager-tjänsten för att hantera StorSimple volymbehållare
+# <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Använd tjänsten StorSimple Enhetshanteraren för att hantera StorSimple volym behållare
 
 ## <a name="overview"></a>Översikt
-Den här självstudien beskrivs hur du använder StorSimple Device Manager-tjänsten för att skapa och hantera behållare för StorSimple-volym.
+I den här självstudien beskrivs hur du använder tjänsten StorSimple Enhetshanteraren för att skapa och hantera StorSimple-volym behållare.
 
-En volymbehållare i en Microsoft Azure StorSimple-enhet innehåller en eller flera volymer som delar storage-konto, kryptering och förbrukning av bandbreddsinställningarna. En enhet kan ha flera volymbehållare för alla volymer. 
+En volym behållare i en Microsoft Azure StorSimple-enhet innehåller en eller flera volymer som delar inställningar för lagrings konto, kryptering och bandbredds användning. En enhet kan ha flera volym behållare för alla dess volymer. 
 
-En volymbehållare har följande attribut:
+En volym behållare har följande attribut:
 
-* **Volymer** – den nivåindelade eller lokalt fixerade StorSimple-volymer som ingår i volymbehållaren. 
-* **Kryptering** – en krypteringsnyckel som kan definieras för varje volymbehållare. Den här nyckeln används för att kryptera data som skickas från din StorSimple-enhet till molnet. En militärklass AES-256-bitarsnyckel används med nyckeln anges av användaren. För att skydda dina data rekommenderar vi att du alltid aktiverar molnlagringskryptering.
-* **Storage-konto** – Azure storage-konto som används för att lagra data. Alla volymer som finns i en volymbehållare dela det här lagringskontot. Du kan välja ett lagringskonto från en befintlig lista eller skapa ett nytt konto när du skapar volymcontainern och sedan ange autentiseringsuppgifterna för kontot.
-* **Molnet bandbredd** – den bandbredd som används av enheten när data från enheten som skickas till molnet. Du kan tillämpa en bandbreddskontroll genom att ange ett värde mellan 1 och 1 000 Mbps när du skapar den här behållaren. Om du vill att enheten ska förbruka all tillgänglig bandbredd, ange fältet till **obegränsad**. Du kan också skapa och Använd en bandbreddsmall för att allokera bandbredd enligt schemat.
+* **Volymer** – de skiktade eller lokalt fästa StorSimple-volymer som finns i volym containern. 
+* **Kryptering** – en krypterings nyckel som kan definieras för varje volym behållare. Den här nyckeln används för att kryptera data som skickas från din StorSimple-enhet till molnet. En enklassad AES-256-bitars nyckel används med den användare som anges. För att skydda dina data rekommenderar vi att du alltid aktiverar kryptering av moln lagring.
+* **Lagrings konto** – det Azure Storage-konto som används för att lagra data. Alla volymer som finns i en volym behållare delar det här lagrings kontot. Du kan välja ett lagrings konto från en befintlig lista eller skapa ett nytt konto när du skapar volym containern och sedan ange autentiseringsuppgifter för det kontot.
+* **Moln bandbredd** – bandbredden som används av enheten när data från enheten skickas till molnet. Du kan framtvinga en bandbredds kontroll genom att ange ett värde mellan 1 Mbit/s och 1 000 Mbit/s när du skapar den här behållaren. Om du vill att enheten ska förbruka all tillgänglig bandbredd ställer du in det här fältet på **obegränsat**. Du kan också skapa och använda en bandbredds mall för att allokera bandbredd baserat på schema.
 
-Följande procedurer beskriver hur du använder StorSimple **volymbehållare** bladet för att slutföra följande vanliga åtgärder:
+Följande procedurer beskriver hur du använder bladet StorSimple **Volume containers** för att utföra följande vanliga åtgärder:
 
-* Lägg till volymbehållare
-* Ändra en volymbehållare
-* Ta bort en volymbehållare
+* Lägg till en volym behållare
+* Ändra en volym behållare
+* Ta bort en volym behållare
 
-## <a name="add-a-volume-container"></a>Lägg till volymbehållare
-Utför följande steg för att lägga till en volymbehållare.
+## <a name="add-a-volume-container"></a>Lägg till en volym behållare
+Utför följande steg för att lägga till en volym behållare.
 
 [!INCLUDE [storsimple-8000-add-volume-container](../../includes/storsimple-8000-create-volume-container.md)]
 
-## <a name="modify-a-volume-container"></a>Ändra en volymbehållare
-Utför följande steg om du vill ändra en volymbehållare.
+## <a name="modify-a-volume-container"></a>Ändra en volym behållare
+Utför följande steg för att ändra en volym behållare.
 
 [!INCLUDE [storsimple-8000-modify-volume-container](../../includes/storsimple-8000-modify-volume-container.md)]
 
-## <a name="delete-a-volume-container"></a>Ta bort en volymbehållare
-En volymbehållare har volymer i den. Det kan endast tas bort om de volymer som finns i den först tas bort. Utför följande steg för att ta bort en volymbehållare.
+## <a name="delete-a-volume-container"></a>Ta bort en volym behållare
+Det finns volymer i en volym behållare. Den kan bara tas bort om alla volymer som finns i den först tas bort. Utför följande steg för att ta bort en volym behållare.
 
 [!INCLUDE [storsimple-8000-delete-volume-container](../../includes/storsimple-8000-delete-volume-container.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [hantera StorSimple-volymer](storsimple-8000-manage-volumes-u2.md). 
-* Läs mer om [med StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Läs mer om hur du [hanterar StorSimple-volymer](storsimple-8000-manage-volumes-u2.md). 
+* Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

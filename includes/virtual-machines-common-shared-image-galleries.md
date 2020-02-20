@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020831"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474139"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
 - Hanterad global replikering av avbildningar.
 - Versions hantering och gruppering av avbildningar för enklare hantering.
-- Bilder med hög tillgänglighet med ZRS-konton (Zone redundant Storage) i regioner som stöder Tillgänglighetszoner. ZRS ger bättre motståndskraft mot problem i enskilda zoner.
+- Bilder med hög tillgänglighet med ZRS-konton (Zone redundant Storage) i regioner som stöder Tillgänglighetszoner. ZRS erbjuder bättre återhämtning mot zonindelade-problem.
 - Dela över prenumerationer och till och med mellan Active Directory (AD)-klienter med RBAC.
 - Skala dina distributioner med avbildnings repliker i varje region.
 
@@ -51,9 +51,9 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 
 |Bilddefinition|Utgivare|Erbjudande|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Ekonomi|Serverdel|
-|myImage2|Contoso|Ekonomi|Klientdel|
-|myImage3|Testning|Ekonomi|Klientdel|
+|myImage1|Contoso|Ekonomi|Backend|
+|myImage2|Contoso|Ekonomi|Delen|
+|myImage3|Testning|Ekonomi|Delen|
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
@@ -100,7 +100,7 @@ Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål 
 | Brasilien, södra          | Asien, östra         | Sydkorea, centrala      | USA DoD, östra        |
 | Kanada, centrala        | USA, östra           | Sydkorea, södra        | US Gov, Arizona     |
 | Kanada, östra           | USA, östra 2         | USA, norra centrala   | US Gov, Texas       |
-| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | USA Gov Virginia    |
+| Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | US Gov, Virginia    |
 | USA, centrala            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
 | Centrala USA-EUAP       | Frankrike, södra      | USA, västra centrala    | USA, västra            |
 |                       |                   |                    | USA, västra 2          |
@@ -144,22 +144,22 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 ![Bild som visar hur du kan replikera bilder](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Åtkomst
+## <a name="access"></a>Access
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delat med användare     | Delat avbildningsgalleri | Bilddefinition | Avbildningsversion |
+| Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
-| Delat avbildningsgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Inga                   | Ja          | Ja                  |
+| Delat bildgalleri | Ja                  | Ja          | Ja                  |
+| Bilddefinition     | Nej                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
 Avbildningar kan också delas, i stor skala, även mellan klienter som använder en app-registrering för flera innehavare. Mer information om hur du delar avbildningar över klienter finns i [dela Galleri VM-avbildningar i Azure-klienter](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Fakturering
-Tjänsten Shared Image Gallery erbjuds utan extra kostnad. Du kommer att debiteras för följande resurser:
-- Lagrings kostnader för lagring av delade avbildnings versioner. Kostnaden beror på antalet repliker av avbildnings versionen och antalet regioner som versionen replikeras till. Om du till exempel har två bilder och båda replikeras till tre regioner, ändras du för 6 Managed disks baserat på deras storlek. Mer information finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/).
+Det kostar inget extra att använda tjänsten Shared Image Gallery. Du kommer att debiteras för följande resurser:
+- Lagrings kostnader för lagring av delade avbildnings versioner. Kostnaden beror på antalet repliker av avbildnings versionen och antalet regioner som versionen replikeras till. Om du till exempel har två bilder och båda replikeras till tre regioner debiteras du för 6 hanterade diskar baserat på deras storlek. Mer information finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Nätverks utgående kostnader för replikering av den första avbildnings versionen från käll regionen till de replikerade regionerna. Efterföljande repliker hanteras i regionen, så det finns inga ytterligare avgifter. 
 
 ## <a name="updating-resources"></a>Uppdaterar resurser
@@ -181,7 +181,7 @@ Avbildnings version:
 - Exkludera från senaste
 - Datum för slut på livs längd
 
-## <a name="sdk-support"></a>SDK-support
+## <a name="sdk-support"></a>SDK-stöd
 
 Följande SDK: er har stöd för att skapa delade avbildnings gallerier:
 
@@ -200,7 +200,7 @@ Du kan skapa en resurs för delade avbildnings galleri med hjälp av mallar. Det
 - [Skapa en avbildnings version i ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Skapa en virtuell dator från avbildnings version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor 
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
 
 * [Hur gör jag för att visa en lista över alla delade avbildnings Galleri resurser i prenumerationer?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Kan jag flytta min befintliga avbildning till galleriet för delad avbildning?](#can-i-move-my-existing-image-to-the-shared-image-gallery)

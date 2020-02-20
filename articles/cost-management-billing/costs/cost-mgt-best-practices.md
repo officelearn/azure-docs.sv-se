@@ -1,21 +1,20 @@
 ---
 title: Optimera din molninvestering med Azure Cost Management | Microsoft Docs
 description: Den här artikeln hjälper dig att få ut det mesta möjliga av dina molninvesteringar, minska kostnaderna och utvärdera var pengarna spenderas.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988388"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201075"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
@@ -85,20 +84,20 @@ Det första steget för att maximera upplevelsen i Cost Management är att under
 
 Mer information om de olika alternativen finns i [Så köper du Azure Stack](https://azure.microsoft.com/pricing/purchase-options/). Flera av de vanligaste faktureringsmodellerna beskrivs nedan.
 
-#### <a name="freehttpsazuremicrosoftcomfree"></a>[Kostnadsfri](https://azure.microsoft.com/free/)
+#### <a name="free"></a>[Kostnadsfri](https://azure.microsoft.com/free/)
 
 - 12 månader med populära kostnadsfria tjänster
 - 200 USD i kredit för att utforska tjänster i 30 dagar
 - 25+ tjänster är alltid kostnadsfria
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-go"></a>[Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)
 
 - Inga minimibelopp eller åtaganden
 - Konkurrenskraftiga priser
 - Betala bara för det du använder
 - Du kan avbryta när som helst
 
-#### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/)
+#### <a name="enterprise-agreement"></a>[Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
 - Alternativ för ekonomiska åtaganden i förskott
 - Åtkomst till reducerad Azure-prissättning

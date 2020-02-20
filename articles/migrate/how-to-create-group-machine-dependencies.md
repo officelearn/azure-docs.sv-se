@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 96d1c44eb9ecb71684e817a89f9376a07dbe3ccb
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: bf6798d557cb1d27030565e4706864e945de6f04
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514977"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472102"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Konfigurera beroende visualisering för utvärdering
 
@@ -37,10 +37,10 @@ Beroende mappning hjälper dig att visualisera beroenden mellan datorer som du v
 **Funktioner** | **Obs!**
 --- | ---
 Tillgänglighet | Beroende visualisering är inte tillgänglig i Azure Government.
-Tjänsteöversikt | Beroende visualisering använder Tjänstkarta lösning i Azure Monitor. [Tjänstkarta](../azure-monitor/insights/service-map.md) identifierar och visar automatiskt anslutningar mellan servrar.
+Tjänstkarta | Beroende visualisering använder Tjänstkarta lösning i Azure Monitor. [Tjänstkarta](../azure-monitor/insights/service-map.md) identifierar och visar automatiskt anslutningar mellan servrar.
 Agenter | Om du vill använda beroende visualisering installerar du följande agenter på datorer som du vill mappa:<br/> - [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) agent (kallades tidigare för Microsoft Monitoring Agent (MMA).<br/> - [tjänstkarta beroende agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Om du vill automatisera Agent installationen kan du använda ett distributions verktyg som Configuration Manager, som har en agent distributions lösning för Azure Migrate.
 Beroendeagent | Granska [stöd för beroende agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) för Windows och Linux.<br/><br/> [Läs mer](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) om hur du använder skript för att installera beroende agenten.
-Log Analytics agent (MMA) | [Läs mer](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) om installations metoder för MMA.<br/><br/> För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager. Du kan aktivera integreringen med hjälp av vägledningen [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Observera dock att beroende agenten måste vara installerad på de här datorerna.<br/><br/> [Granska](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) Linux-operativsystemen som stöds av Log Analytics agenten.
+Log Analytics agent (MMA) | [Läs mer](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) om installations metoder för MMA.<br/><br/> För datorer som övervakas av System Center Operations Manager 2012 R2 eller senare behöver du inte installera MMA-agenten. Tjänstkarta integreras med Operations Manager. Du kan aktivera integreringen med hjälp av vägledningen [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Observera dock att beroende agenten måste vara installerad på de här datorerna.<br/><br/> [Granska](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) Linux-operativsystemen som stöds av Log Analytics agenten.
 Utvärderings grupper | Grupper som du vill visualisera beroenden för får inte innehålla fler än 10 datorer. Om du har fler än 10 datorer delar du in dem i mindre grupper för att visualisera beroenden.
 
 ## <a name="associate-a-log-analytics-workspace"></a>Koppla en Log Analytics-arbetsyta

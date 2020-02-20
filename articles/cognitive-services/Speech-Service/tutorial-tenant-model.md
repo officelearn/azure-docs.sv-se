@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189004"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469025"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
 
@@ -55,7 +55,7 @@ Så här stänger du av klient modells instansen:
 
 Om du vill använda din klient modell med tal-SDK behöver du en tal resurs och dess tillhör ande prenumerations nyckel.
 
-1. Logga in på [Azure-portalen](https://aka.ms/azureportal).
+1. Logga in på [Azure Portal](https://aka.ms/azureportal).
 1. Välj **Skapa en resurs**.
 1. Skriv **tal**i rutan **Sök** .
 1. Välj **tal**i listan resultat och välj sedan **skapa**.
@@ -81,7 +81,7 @@ När din administratör har aktiverat klient organisations modell för din organ
    > Office 365 företags kunder i Nordamerika är berättigade att skapa en klient modell (engelska). Den här funktionen är inte tillgänglig om du är Customer Lockbox, kund nyckel eller Office 365 myndighets kund. För att avgöra om du är en Customer Lockbox-eller kund nyckel kund, se:
    > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Kund nyckel](/microsoft-365/compliance/customer-key-overview)
-   > * [Office 365-myndigheter](/microsoft-365/government)
+   > * [Office 365-myndigheter](https://www.microsoft.com/microsoft-365/government)
 
 1. Välj **Anmäl dig**.
 

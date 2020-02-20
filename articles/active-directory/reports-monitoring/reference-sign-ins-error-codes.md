@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2019
+ms.date: 02/19/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cd37374ab6341356d84f205e92c9612d8481818f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898887"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468855"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -133,6 +133,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |50178|Session Control stöds inte för passthrough-användare.|
 |50180|Windows-integrerad autentisering behövs. Aktivera klientorganisationen för sömlös SSO.|
 |50181|Det gick inte att logga in på eng ång slö sen ord. |
+|50194|Programmet {appId} ({appName}) har inte kon figurer ATS som ett program med flera innehavare. Användning av/vanliga-slutpunkten stöds inte för sådana program som skapats efter {Time}. Använd en klient-specifik slut punkt eller konfigurera att programmet ska vara flera innehavare.|
 |50201|Detta meddelande visas vid inloggning när ytterligare information ska ges till användaren.|
 |51001|Domän tipset finns inte med lokal säkerhets identifierare – lokalt UPN.|
 |51004|Användarkontot finns inte i katalogen.|
@@ -185,16 +186,22 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |90010|Begäran stöds inte av olika orsaker. Begäran görs till exempel med en begäran-metod som inte stöds (endast POST-metoden stöds) eller så stöds inte den token-Signeringsalgoritm som begärdes. Kontakta apputvecklaren.|
 |90014| Ett obligatoriskt fält för ett protokoll meddelande saknas, kontakta program ägaren. Om du är program ägaren ser du till att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90051| Ogiltig Delegerings-token. Ogiltigt nationellt moln-ID ({cloudId}) har angetts.|
-|90072| Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
+|90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
 |90094| Appen har begärd behörighet som den inloggade användaren inte har behörighet att godkänna och användaren blockerades. |
 |90095| Appen har de behörigheter som den inloggade användaren inte har behörighet att godkänna, och användaren visade formuläret för [administrativt medgivande](../manage-apps/configure-admin-consent-workflow.md) . |
+|130500|Telefon inloggningen blockerades på grund av en princip för användar behörighet.|
 |500011| Det gick inte att hitta resurs huvud namnet <site address> i klient organisationen med namnet <tenant ID>. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din begäran om autentisering till fel klient.|
+|500014|Resursen {Identifier} har inaktiverats.|
 |500021| Klienten är begränsad av företagets proxy. Neka resurs åtkomst.|
 |500121| Autentiseringen misslyckades under begäran om stark autentisering.|
 |500133| Kontrollen ligger inte inom det giltiga tidsintervallet. Se till att åtkomsttoken inte har upphört att gälla innan du använder den för användar kontroll eller begär en ny token.|
+|500172|Certifikatet {Name} utfärdat av {Issuer} är inte giltigt. Aktuell tid: {curTime}. Certifikat NotBefore: {StartTime}. Certifikat NotAfter: {slut tid}.|
+|501291|Klient programmet är en Mam app, enheten är inte registrerad och begäran skickas med en Broker. Arbets plats anslutning måste utföras för att registrera enheten innan appen kan nås.|
+|530003|Enheten måste vara hanterad för att få åtkomst till den här resursen.|
 |530021|Programmet uppfyller inte kraven för godkända appar för villkorlig åtkomst.|
 |530032|Blockerad av säkerhets princip.| 
 |700016|Det gick inte att hitta programmet med identifieraren {appIdentifier} i katalogen {tenantName}. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kan ha skickat din autentiseringsbegäran till fel klient.|
+|700051|Response_type token har inte Aktiver ATS för programmet. Programmet begärde en svars typ som inte stöds på grund av följande orsaker: response_type token har inte Aktiver ATS för programmet. Program ägaren ska gå till Azure Portal eller anropa MS Graph för att aktivera den implicita åtkomsttoken.|
 |900432|Konfidentiell klient stöds inte i en begäran mellan moln.|
 |5000811|Det gick inte att verifiera SAML-token signatur. Signerings nyckel identifieraren matchar inte några giltiga registrerade nycklar.|
 |7000215|Ogiltig klient hemlighet angavs.|

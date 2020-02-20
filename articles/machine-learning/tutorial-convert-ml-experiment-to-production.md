@@ -7,12 +7,12 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 1be97f9754733561111cedcf95fe237b7788583e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b929dd8979ecf587872092af2fa44e5ae03626d1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122576"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472493"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Självstudie: konvertera ML experimentell kod till produktions kod
 
@@ -409,4 +409,4 @@ Nu när du förstår hur du konverterar från ett experiment till produktions ko
 
 > [!div class="nextstepaction"]
 > [Övervaka Azure ml experiment körningar och mät värden](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [övervaka och samla in data från ml webb tjänst slut punkter](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [övervaka och samla in data från ml webb tjänst slut punkter](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)

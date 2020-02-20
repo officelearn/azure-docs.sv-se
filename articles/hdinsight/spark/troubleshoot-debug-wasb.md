@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/07/2020
-ms.openlocfilehash: 1256575eea7ee80b41a875c6bcd9b281b98aa360
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/18/2020
+ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163855"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470725"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Felsöka WASB fil åtgärder i Azure HDInsight
 
@@ -26,19 +26,17 @@ En genererad logg ser ut ungefär så här:
 
 ## <a name="turn-on-wasb-debug-log-for-file-operations"></a>Aktivera WASB-felsöknings logg för fil åtgärder
 
-1. I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net`, där `CLUSTERNAME` är namnet på ditt Spark-kluster.
+1. I en webbläsare navigerar du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`, där `CLUSTERNAME` är namnet på ditt Spark-kluster.
 
-1. Gå till **Spark2** > **configs** > **avancerade Spark2-log4j-Properties**.
+1. Gå till **avancerade spark2-log4j-Properties**.
 
-1. Ändra `log4j.appender.console.Threshold=INFO` till `log4j.appender.console.Threshold=DEBUG`.
+    1. Ändra `log4j.appender.console.Threshold=INFO` till `log4j.appender.console.Threshold=DEBUG`.
+
+    1. Lägg till `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Gå till **avancerade livy2-log4j-Properties**.
 
-1. Lägg till följande egenskap:
-
-    ```
-    log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG
-    ```
+    Lägg till `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Spara ändringar.
 

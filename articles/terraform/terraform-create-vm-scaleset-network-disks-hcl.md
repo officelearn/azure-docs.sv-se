@@ -3,12 +3,12 @@ title: Självstudie – Skapa en skalnings uppsättning för virtuella Azure-dat
 description: Lär dig att använda terraform för att konfigurera och version av en skalnings uppsättning för virtuella Azure-datorer.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369481"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472238"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer med terraform
 
@@ -26,11 +26,11 @@ I den här självstudien får du lära dig hur du använder [Azure Cloud Shell](
 > [!NOTE]
 > Den senaste versionen av Terraform-konfigurationsfilerna som används i den här artikeln finns på [lagringsplatsen Awesome Terraform på GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Installera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform och konfigurera åtkomst till Azure)
+- **Installera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](terraform-install-configure.md) (Terraform och konfigurera åtkomst till Azure)
 
 - **Skapa ett SSH-nyckel par**: Mer information finns i [så här skapar du och använder ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
@@ -190,7 +190,7 @@ Använd Azure Cloud Shell från katalogen där du skapade konfigurationsfilerna 
    terraform apply
    ```
 
-   Terraform uppmanar dig att ange ett `location` värde eftersom `location` variabeln definieras i `variables.tf`, men den ställs aldrig in. Du kan ange valfri giltig plats – till exempel West US (västra USA) och väljer sedan Retur. (Använd parenteser kring ett värde med blanksteg).
+   Terraform uppmanar dig att ange ett `location` värde eftersom `location` variabeln definieras i `variables.tf`, men den ställs aldrig in. Du kan ange valfri giltig plats – till exempel West US (USA, västra) och väljer sedan Retur. (Använd parenteser kring ett värde med blanksteg).
 
 1. Terraform skriver utdata enligt definitionen i filen `output.tf`. Som du ser i följande skärm bild, använder FQDN följande form: `<ID>.<location>.cloudapp.azure.com`. ID: t är ett beräknat värde och en plats är värdet som anger när terraform körs.
 

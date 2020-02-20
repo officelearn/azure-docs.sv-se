@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: bb661e6d4497a85cf2ef445fc39774e93a04cc99
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b0704c6262451cef615355e871ce7f26005b3132
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899417"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467682"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Importera till ett Azure App Configuration-arkiv
 
@@ -31,10 +31,6 @@ Det här exempel skriptet importerar nyckel värdes inställningar till en Azure
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-Du behöver installera Azure App Configuration CLI-tillägget först genom att köra följande kommando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -53,7 +49,7 @@ I det här skriptet används följande kommandon för att importera till ett kon
 
 | Kommando | Anteckningar |
 |---|---|
-| [AZ appconfig kv import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Importerar till en resurs för konfigurations Arkiv för appar. |
+| [AZ appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | Importerar till en resurs för konfigurations Arkiv för appar. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,51 +5,34 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/14/2020
 ms.author: alzam
-ms.openlocfilehash: 771dea2d9ae2979bc71880368ed3a9a538e8a803
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 34ef1b73b06870fd4eaabe88147cd98b281c1f11
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964754"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472357"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Aktivera Azure Multi-Factor Authentication (MFA) för VPN-användare
 
-Om du vill att användarna ska uppmanas att ange en andra faktor innan de beviljas åtkomst kan du konfigurera Azure Multi-Factor Authentication (MFA) per användare eller utnyttja Multi-Factor Authentication (MFA) via [villkorlig åtkomst](../active-directory/conditional-access/overview.md) för mer detaljerad kontroll. Att konfigurera Multi-Factor Authentication per användare kan aktive ras utan ytterligare kostnad, men när du aktiverar MFA per användare uppmanas användaren att ange andra Factor Authentication för alla program som är kopplade till Azure AD-klienten. Villkorlig åtkomst ger bättre korn kontroll över hur en andra faktor ska höjas och kan tillåta tilldelning av MFA till enbart VPN och inte andra program som är kopplade till Azure AD-klienten.
+[!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
 ## <a name="enableauth"></a>Aktivera autentisering
 
-1. Navigera till **Azure Active Directory-> företags program – > alla program**.
-2. På sidan **företags program – alla program** väljer du **Azure VPN**.
-
-   ![Katalog-ID](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)
+[!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
 ## <a name="enablesign"></a>Konfigurera inloggnings inställningar
 
-Konfigurera inloggnings inställningar på sidan **Azure VPN-egenskaper** .
+[!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
-1. Vill du **Aktivera inloggning för användare?** till **Ja**. Detta gör det möjligt för alla användare i AD-klienten att ansluta till VPN-anslutningen.
-2. Vill du ange **användar tilldelning krävs?** **Ja** om du vill begränsa inloggningen till endast användare som har behörighet till Azure VPN.
-3. Spara ändringarna.
+## <a name="peruser"></a>Alternativ 1 – åtkomst per användare
 
-   ![Behörigheter](./media/openvpn-azure-ad-mfa/user2.jpg)
+[!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
-## <a name="option-1---enable-multi-factor-authentication-mfa-via-conditional-access"></a>Alternativ 1 – aktivera Multi-Factor Authentication (MFA) via villkorlig åtkomst
+## <a name="conditional"></a>Alternativ 2 – villkorlig åtkomst
 
-Villkorlig åtkomst möjliggör detaljerad åtkomst kontroll för varje program.  Observera att om du vill använda villkorlig åtkomst bör du ha Azure AD Premium 1 eller fler licenser som tillämpas på de användare som ska omfattas av reglerna för villkorlig åtkomst.
-
-1. På sidan **företags program – alla program** väljer du **Azure VPN**, väljer **villkorlig åtkomst**och klickar på **ny princip**.
-2. Under användare och grupper, på fliken *Inkludera* TABB **väljer du användare och grupper**, markerar **användare och grupper**och väljer en grupp eller uppsättning användare som ska omfattas av MFA.  Klicka på **Klar**.
-![Tilldelningar](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-assignments.png)
-3. Under **bevilja**, kontrollerar du **bevilja åtkomst**, kontrollerar **kräver Multi-Factor Authentication**, markerar kryss **rutan Kräv alla valda kontroller**och klickar på knappen **Välj** .
-![bevilja åtkomst-MFA](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-grant-mfa.png)
-4. Kontrol lera under **Aktivera princip** och **Klicka på knappen** **skapa** .
-![aktivera princip](../../includes/media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa-ca-enable-policy.png)
-
-## <a name="option-2---enable-multi-factor-authentication-mfa-per-user"></a>Alternativ 2 – aktivera Multi-Factor Authentication (MFA) per användare
-
-[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
+[!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

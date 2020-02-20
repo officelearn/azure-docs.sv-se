@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: tagore
-ms.openlocfilehash: d5a4e5ce40726ea36734a0dcf751b79225d5e153
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e49a0935a70a2470267e5458fa1f55e3059e965
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361121"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469773"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Aktivera Azure-diagnostik i Azure Cloud Services
 Se [Azure-diagnostik översikt](../azure-diagnostics.md) för en bakgrund på Azure-diagnostik.
@@ -23,7 +23,7 @@ Se [Azure-diagnostik översikt](../azure-diagnostics.md) för en bakgrund på Az
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Så här aktiverar du diagnostik i en arbets roll
 Den här genom gången beskriver hur du implementerar en Azure Worker-roll som utvärderar telemetridata med hjälp av .NET EventSource-klassen. Azure-diagnostik används för att samla in telemetri data och lagra dem i ett Azure Storage-konto. När du skapar en arbets roll aktiverar Visual Studio automatiskt diagnostik 1,0 som en del av lösningen i Azure SDK: er för .NET 2,4 och tidigare. Följande anvisningar beskriver processen för att skapa arbets rollen, inaktivera diagnostik 1,0 från lösningen och distribuera diagnostik 1,2 eller 1,3 till din arbets roll.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har en Azure-prenumeration och använder Visual Studio med Azure SDK. Om du inte har någon Azure-prenumeration kan du registrera dig för den [kostnads fria utvärderings versionen][Free Trial]. Se till att [Installera och konfigurera Azure PowerShell version 0.8.7 eller senare][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### <a name="step-1-create-a-worker-role"></a>Steg 1: skapa en arbets roll
@@ -139,7 +139,7 @@ namespace WorkerRole1
 2. Lägg till en XML-fil till ditt **WorkerRole1** -projekt genom att högerklicka på projektet **WorkerRole1** och välja **Lägg till** -> **nytt objekt...** -> **visuella C# objekt** -> **data** -> **XML-fil**. Ge filen namnet "WadExample. xml".
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associera WadConfig. xsd med konfigurations filen. Kontrol lera att fönstret WadExample. XML-redigeraren är det aktiva fönstret. Tryck på **F4** för att öppna fönstret **Egenskaper** . Klicka på **schema** -egenskapen i fönstret **Egenskaper** . Klicka på **...** i egenskapen **schemas** . Klicka på **Lägg …** för att gå till den plats där du sparade XSD-filen och välja filen WadConfig. xsd. Klicka på **OK**.
+3. Associera WadConfig. xsd med konfigurations filen. Kontrol lera att fönstret WadExample. XML-redigeraren är det aktiva fönstret. Tryck på **F4** för att öppna fönstret **Egenskaper** . Klicka på **schema** -egenskapen i fönstret **Egenskaper** . Klicka på **...** i egenskapen **schemas** . Klicka på **Lägg …** för att gå till den plats där du sparade XSD-filen och välja filen WadConfig. xsd. Klicka på **OK**
 
 4. Ersätt innehållet i konfigurations filen WadExample. xml med följande XML och spara filen. Den här konfigurations filen definierar ett par prestanda räknare som ska samlas in: en för processor användning och en för minnes användning. Sedan definierar konfigurationen de fyra händelser som motsvarar metoderna i SampleEventSourceWriter-klassen.
 
@@ -189,11 +189,11 @@ I Visual Studio- **Server Explorer**navigerar du till lagrings kontot för wadex
 ## <a name="configuration-file-schema"></a>Konfigurations filens schema
 Konfigurations filen för diagnostik definierar värden som används för att initiera konfigurations inställningar för diagnostik när diagnostik-agenten startar. Se den [senaste schema referensen](/azure/azure-monitor/platform/diagnostics-extension-schema) för giltiga värden och exempel.
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 Om du har problem kan du läsa [fel sökning Azure-diagnostik](../azure-diagnostics-troubleshooting.md) för att få hjälp med vanliga problem.
 
-## <a name="next-steps"></a>Efterföljande moment
-[Se en lista över relaterade Azure Virtual-Machine-diagnostiska artiklar](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) för att ändra de data som du samlar in, felsöka problem eller Lär dig mer om diagnostik i allmänhet.
+## <a name="next-steps"></a>Nästa steg
+[Se en lista över relaterade Azure Virtual-Machine-diagnostiska artiklar](../azure-monitor/platform/diagnostics-extension-overview.md) för att ändra de data som du samlar in, felsöka problem eller Lär dig mer om diagnostik i allmänhet.
 
 [EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

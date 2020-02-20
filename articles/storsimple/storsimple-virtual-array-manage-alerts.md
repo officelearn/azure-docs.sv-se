@@ -1,6 +1,6 @@
 ---
-title: Visa och hantera Microsoft Azure StorSimple Virtual Array-aviseringar | Microsoft Docs
-description: Beskriver StorSimple Virtual Array aviseringsvillkor och allvarlighetsgrad och hur du använder StorSimple Manager-tjänsten för att hantera aviseringar.
+title: Visa och hantera aviseringar för virtuell StorSimple-matris
+description: Beskriver StorSimple av aviserings villkor och allvarlighets grad för virtuella matriser och hur du använder tjänsten StorSimple Manager för att hantera aviseringar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,156 +15,156 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60302813"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466951"
 ---
-# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Device Manager för att hantera aviseringar för StorSimple Virtual Array
+# <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera aviseringar för den virtuella StorSimple-matrisen
 
 ## <a name="overview"></a>Översikt
 
-Funktionen för säkerhetsvarningar i StorSimple Device Manager-tjänsten gör det möjligt för dig att granska och ta bort aviseringar som rör StorSimple Virtual array på basis av i realtid. Du kan använda aviseringar på den **sammanfattning av tjänst** bladet för att centralt övervaka problem med hälsotillstånd för din StorSimple Virtual Array och den övergripande Microsoft Azure StorSimple-lösningen.
+Funktionen aviseringar i StorSimple Enhetshanteraren-tjänsten ger dig ett sätt att granska och rensa aviseringar som rör virtuella StorSimple-matriser i real tid. Du kan använda aviseringarna på bladet **tjänst Sammanfattning** för att centralt övervaka hälso problemen för dina virtuella StorSimple-matriser och den övergripande Microsoft Azure StorSimple lösningen.
 
-Den här självstudien beskrivs hur du konfigurerar aviseringar, vanliga aviseringsvillkor, nivåer för aviseringarnas allvarlighetsgrad och hur du visar och spåra aviseringar. Den innehåller dessutom avisering Snabbreferens tabeller, som gör det möjligt att snabbt hitta en specifik avisering och svara på rätt sätt.
+I den här självstudien beskrivs hur du konfigurerar aviserings meddelanden, vanliga aviserings villkor, allvarlighets grader för aviseringar och hur du visar och spårar aviseringar. Dessutom innehåller den snabb referens tabeller för varningar, som gör att du snabbt kan hitta en speciell avisering och svara på lämpligt sätt.
 
-![Sidan varningar](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
+![Sidan aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
-## <a name="configure-alert-settings"></a>Konfigurera aviseringsinställningar
+## <a name="configure-alert-settings"></a>Konfigurera aviserings inställningar
 
-Du kan välja om du vill bli meddelad via e-post om aviseringsvillkoren för var och en av din StorSimple Virtual Array. Du kan dessutom identifiera andra aviseringsmottagare genom att ange deras e-postadresser i den **ytterligare e-postmottagare** box, avgränsade med semikolon.
+Du kan välja om du vill bli informerad via e-post om aviserings villkoren för var och en av dina virtuella StorSimple-matriser. Dessutom kan du identifiera andra aviserings mottagare genom att ange deras e-postadresser i rutan **ytterligare e-postmottagare** , avgränsade med semikolon.
 
 > [!NOTE]
 > Du kan ange högst 20 e-postadresser per virtuell matris.
 
-När du aktiverar e-postmeddelande för en virtuell matris kan får medlemmar i meddelandelistan över ett e-postmeddelande varje gång en kritisk varning inträffar. Meddelanden skickas från *storsimple-aviseringar-noreply\@mail.windowsazure.com* och beskriver aviseringstillståndet. Mottagare kan klicka på **Unsubscribe** att ta bort själva från listan över e-post-meddelande.
+När du har aktiverat e-postavisering för en virtuell matris kommer medlemmar i meddelande listan att få ett e-postmeddelande varje gången en kritisk varning inträffar. Meddelandena skickas från *StorSimple-Alerts-noreply\@mail.windowsazure.com* och beskriver varnings villkoret. Mottagare kan klicka på **Avbryt** för att ta bort sig själva från listan med e-postaviseringar.
 
-#### <a name="to-enable-email-notification-for-alerts"></a>Aktivera e-postmeddelande för aviseringar
+#### <a name="to-enable-email-notification-for-alerts"></a>Så här aktiverar du e-postavisering för aviseringar
 
-1. Gå till din StorSimple Device Manager-tjänsten och i den **Management** markerar och klicka på **enheter**. Välj i listan med enheter som visas, och klicka på din enhet.
+1. Gå till StorSimple Enhetshanteraren-tjänsten och välj i avsnittet **hantering** och klicka på **enheter**. I listan med enheter som visas väljer du och klickar på din enhet.
    
-    ![aviseringsinställningar](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
-2. Gör det öppnas den **inställningar** bladet. I den **Enhetsinställningar** väljer **Allmänt**. Gör det öppnas den **allmänna inställningar** bladet.
+    ![aviserings inställningar](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
+2. Då öppnas bladet **Inställningar** . I avsnittet **enhets inställningar** väljer du **Allmänt**. Då öppnas bladet **allmänna inställningar** .
    
-    ![meddelandekonfigurationen för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
-3. I den **allmänna inställningar** gå till bladet **varningsinställningar** avsnittet och ange följande:
+    ![aviserings aviserings konfiguration](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+3. I bladet **allmänna inställningar** går du till avsnittet **aviserings inställningar** och anger följande:
    
-   1. I den **Aktivera e-postmeddelanden** väljer **Ja**.
-   2. I den **e-tjänstadministratörer** väljer **Ja** om du inte vill att tjänstadministratören och alla medadministratörer ska få aviseringar skickas.
-   3. I den **ytterligare e-postmottagare** fältet, anger du e-postadresserna för alla andra mottagare som ska ta emot aviseringar skickas. Ange namn i formatet *någon\@somewhere.com*. Avgränsa e-postadresser med semikolon. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
+   1. I fältet **Aktivera e-postavisering** väljer du **Ja**.
+   2. I fältet **e-posttjänst administratörer** väljer du **Ja** om du vill att tjänst administratören och alla medadministratörer ska få aviserings meddelanden.
+   3. I fältet **ytterligare e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon\@Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per virtuell enhet.
       
-       ![meddelandekonfigurationen för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
-   4. Om du vill skicka ett testmeddelande för e-post, klickar du på **skicka e-posttestmeddelande**. StorSimple Device Manager-tjänsten visar statusmeddelanden som vidarebefordras av test-meddelande.
+       ![aviserings aviserings konfiguration](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+   4. Skicka ett test-e-postmeddelande genom att klicka på **Skicka test-e-post**. Tjänsten StorSimple Enhetshanteraren visar status meddelanden när det vidarebefordrar test meddelandet.
       
-       ![Testa e-postmeddelande skickas för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![Aviseringar om test av e-postmeddelande har skickats](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
-      > Om inte går att skicka testmeddelandet, visas ett meddelande visas med StorSimple Device Manager-tjänsten. Klicka på **OK**, Vänta några minuter och försök sedan att skicka din testnotismeddelande igen.
+      > Om test aviserings meddelandet inte kan skickas visar tjänsten StorSimple Enhetshanteraren ett lämpligt meddelande. Klicka på **OK**, vänta några minuter och försök sedan att skicka ett test meddelande igen.
       >
       >
-   5. Längst ned på sidan klickar du på **spara** att spara din konfiguration. Klicka på **Ja** när du uppmanas att bekräfta åtgärden.
+   5. Klicka på **Spara** längst ned på sidan för att spara konfigurationen. Klicka på **Ja** när du uppmanas att bekräfta åtgärden.
       
-      ![Testa e-postmeddelande skickas för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![Aviseringar om test av e-postmeddelande har skickats](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
-## <a name="common-alert-conditions"></a>Vanliga aviseringsvillkor
+## <a name="common-alert-conditions"></a>Vanliga aviserings villkor
 
-StorSimple Virtual Array genererar varningar som svar på en mängd olika villkor. Följande är de vanligaste typerna av aviseringsvillkor:
+Din virtuella StorSimple-matris genererar aviseringar som svar på olika villkor. Följande är de vanligaste typerna av aviserings villkor:
 
-* **Problem med nätverksanslutningen** – dessa aviseringar inträffar när det är svårt att överföra data. Kommunikationsproblem kan uppstå under överföring av data till och från Azure storage-kontot eller på grund av avsaknad av anslutning mellan virtuella enheter och StorSimple Device Manager-tjänsten. Kommunikationsproblem är några av de svåraste åtgärda eftersom det finns så många felpunkter. Du bör alltid först kontrollera att nätverksanslutningen och tillgång till Internet är tillgängliga innan du fortsätter till mer avancerad felsökning. Information om portar och brandväggsinställningar, går du till [systemkrav för StorSimple Virtual Array](storsimple-ova-system-requirements.md). För hjälp med felsökning kan du gå till [felsöka med cmdleten Test-Connection](storsimple-troubleshoot-deployment.md).
-* **Prestandaproblem** – de här aviseringarna orsakas när datorn inte är presterar optimalt, till exempel när den är hårt belastat.
+* **Anslutnings problem** – dessa aviseringar inträffar när det är svårt att överföra data. Kommunikations problem kan uppstå under överföring av data till och från Azure Storage-kontot eller på grund av bristande anslutning mellan de virtuella enheterna och tjänsten StorSimple Enhetshanteraren. Kommunikations problem är några av de svåra att åtgärda eftersom det finns så många fel punkter. Först bör du först kontrol lera att nätverks anslutningen och Internet åtkomst är tillgängliga innan du fortsätter till mer avancerad fel sökning. Information om portar och brand Väggs inställningar finns i [system krav för StorSimple Virtual Array](storsimple-ova-system-requirements.md). Om du behöver hjälp med fel sökning går du till [Felsöka med cmdleten Test-Connection](storsimple-troubleshoot-deployment.md).
+* **Prestanda problem** – de här aviseringarna orsakas när systemet inte fungerar optimalt, till exempel när det är under en tung belastning.
 
-Du kan dessutom se aviseringar som rör säkerhet, uppdateringar eller misslyckade jobb.
+Dessutom kan du se aviseringar relaterade till säkerhet, uppdateringar eller jobb haverier.
 
-## <a name="alert-severity-levels"></a>Nivåer för aviseringarnas allvarlighetsgrad
+## <a name="alert-severity-levels"></a>Allvarlighets nivåer för aviseringar
 
-Aviseringar har olika allvarlighetsgrader, beroende på effekten som aviseringen situationen har och behovet av att ett svar på aviseringen. Allvarlighetsgraderna finns:
+Aviseringar har olika allvarlighets grader, beroende på vilken effekt som aviserings situationen kommer att ha och behovet av svar på aviseringen. Allvarlighets graderna är:
 
-* **Kritiska** – den här aviseringen är reaktion på ett villkor som påverkar systemets lyckad prestanda. Åtgärd krävs för att se till att StorSimple tjänsten inte avbryts.
-* **Varning** – det här tillståndet kan bli kritiska om inte matcha. Du bör undersöka situationen och vidta några åtgärder som krävs för att rensa problemet.
-* **Information** – den här aviseringen innehåller information som kan vara användbara i spåra och hantera dina system.
+* **Kritisk** – den här aviseringen är som svar på ett villkor som påverkar systemets prestanda. Åtgärd krävs för att säkerställa att StorSimple-tjänsten inte avbryts.
+* **Varning** – det här tillståndet kan bli kritiskt om det inte är löst. Du bör undersöka situationen och vidta alla åtgärder som krävs för att ta bort problemet.
+* **Information** – den här aviseringen innehåller information som kan vara användbar vid spårning och hantering av systemet.
 
 ## <a name="view-and-track-alerts"></a>Visa och spåra aviseringar
 
-Sammanfattningsbladet för StorSimple Device Manager-tjänsten ger dig en snabb titt på hur många aviseringar på dina virtuella enheter, ordnade efter allvarlighetsgrad.
+Bladet StorSimple Enhetshanteraren tjänst Sammanfattning ger dig en snabb överblick över antalet aviseringar på dina virtuella enheter, ordnat efter allvarlighets grad.
 
-![Instrumentpanel för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts14.png)
+![Instrument panel för aviseringar](./media/storsimple-virtual-array-manage-alerts/alerts14.png)
 
-Klicka på vilken allvarlighetsgrad för att öppna den **aviseringar** bladet. Resultatet innehåller bara de aviseringar som matchar den allvarlighetsgraden.
+Klicka på allvarlighets grad för att öppna bladet **aviseringar** . Resultaten innehåller bara de aviseringar som matchar allvarlighets graden.
 
-![Aviseringsrapport för typ av avisering](./media/storsimple-virtual-array-manage-alerts/alerts15.png)
+![Aviserings rapport begränsad till aviserings typ](./media/storsimple-virtual-array-manage-alerts/alerts15.png)
 
-Klicka på en avisering i listan för att få ytterligare information om aviseringen, inklusive den senaste gången aviseringen rapporterades antalet förekomster av avisering på enheten och den rekommenderade åtgärden för att lösa aviseringen.
+Klicka på en avisering i listan om du vill ha mer information om aviseringen, inklusive den senaste gången aviseringen rapporterades, antalet förekomster av aviseringen på enheten och den rekommenderade åtgärden för att lösa aviseringen.
 
-![Aviseringslistan och information](./media/storsimple-virtual-array-manage-alerts/alerts16.png)
+![Aviserings lista och information](./media/storsimple-virtual-array-manage-alerts/alerts16.png)
 
-Du kan kopiera Aviseringsinformationen till en textfil, om du vill skicka information till Microsoft Support. När du har följt rekommendationerna och löst varningsvillkor lokala platser, bör du radera aviseringen från listan. Markera aviseringen i listan och klicka sedan på **Rensa**. Om du vill ta bort flera aviseringar, väljer varje avisering, klickar du på alla kolumner utom den **avisering** kolumnen och klicka sedan på **Rensa** när du har valt alla aviseringar rensas.
+Du kan kopiera aviserings informationen till en textfil om du behöver skicka informationen till Microsoft Support. När du har följt rekommendationen och löst aviserings tillståndet lokalt bör du ta bort aviseringen från listan. Välj aviseringen i listan och klicka sedan på **Rensa**. Om du vill ta bort flera aviseringar markerar du varje avisering, klickar på en kolumn förutom kolumnen **avisering** och klickar sedan på **Rensa** när du har valt att alla aviseringar ska rensas.
 
-När du klickar på **Rensa**, du har möjlighet att ange kommentarer om aviseringen och de steg som du har gjort för att lösa problemet.
+När du klickar på **Rensa**har du möjlighet att ange kommentarer om aviseringen och de steg som du har vidtagit för att lösa problemet.
 
-![aviseringen kommentarer](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
+![aviserings kommentarer](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
-Vissa händelser kommer att tas bort av systemet om en annan händelsen utlöses med den nya informationen.
+Vissa händelser raderas av systemet om en annan händelse utlöses med ny information.
 
-## <a name="sort-and-review-alerts"></a>Sortera aktiviteter och aviseringar
+## <a name="sort-and-review-alerts"></a>Sortera och granska aviseringar
 
-Den **aviseringar** bladet kan visa upp till 250 aviseringar. Om du har överskridit det antalet aviseringar visas inte alla aviseringar i standardvyn. Du kan kombinera följande fält om du vill anpassa vilka aviseringar visas:
+På bladet **aviseringar** kan du visa upp till 250 aviseringar. Om du har överskridit det antalet aviseringar visas inte alla aviseringar i standardvyn. Du kan kombinera följande fält för att anpassa vilka aviseringar som visas:
 
-* **Status för** – du kan visa antingen **Active** eller **avmarkerad** aviseringar. Aktiva aviseringar aktiveras fortfarande i systemet, medan avmarkerad aviseringar antingen har rensats manuellt av en administratör eller programmatiskt eftersom systemet uppdateras aviseringstillståndet med den nya informationen.
-* **Allvarlighetsgrad** – du kan visa aviseringar för alla allvarlighetsgrader (kritisk, varning, information) eller bara en viss allvarlighetsgrad, till exempel endast kritiska aviseringar.
-* **Källan** – du kan visa aviseringar från alla källor eller begränsa aviseringar till dem som kommer från tjänsten eller virtuella enheter.
-* **Tidsintervall** – genom att ange den **från** och **till** datum och tidsstämplar, kan du titta på aviseringar under den tidsperiod som du är intresserad av.
+* **Status** – du kan visa antingen **aktiva** eller **rensade** aviseringar. Aktiva aviseringar aktive ras fortfarande i systemet, medan rensade aviseringar antingen har rensats manuellt av en administratör eller program mässigt rensas eftersom systemet har uppdaterat varnings villkoret med ny information.
+* **Allvarlighets grad** – du kan visa aviseringar för alla allvarlighets nivåer (kritisk, varning, information) eller bara en viss allvarlighets grad, till exempel endast kritiska aviseringar.
+* **Källa** – du kan visa aviseringar från alla källor eller begränsa aviseringarna till de som kommer från antingen tjänsten eller en eller flera virtuella enheter.
+* **Tidsintervall** – genom att ange **från** -och **till** -datum och tidsstämplar kan du titta på aviseringar under den tids period som du är intresse rad av.
 
-## <a name="alerts-quick-reference"></a>Snabbreferens för aviseringar
+## <a name="alerts-quick-reference"></a>Snabb referens för varningar
 
-I tabellerna nedan listas några av de StorSimple-aviseringar som kan uppstå, samt ytterligare information och rekommendationer där det är tillgängligt. StorSimple Virtual Array aviseringar indelas i följande kategorier:
+I följande tabeller visas några av de StorSimple-aviseringar som du kan stöta på, samt ytterligare information och rekommendationer som är tillgängliga. StorSimple virtuella array-aviseringar finns i någon av följande kategorier:
 
-* [Anslutningsvarningar i molnet](#cloud-connectivity-alerts)
-* [Konfigurationsaviseringar](#configuration-alerts)
-* [Varningar om jobbfel](#job-failure-alerts)
-* [Aviseringar om programprestanda](#performance-alerts)
+* [Aviseringar om moln anslutning](#cloud-connectivity-alerts)
+* [Konfigurations aviseringar](#configuration-alerts)
+* [Aviseringar om jobb haveri](#job-failure-alerts)
+* [Prestanda varningar](#performance-alerts)
 * [Säkerhetsaviseringar](#security-alerts)
 
-### <a name="cloud-connectivity-alerts"></a>Anslutningsvarningar i molnet
+### <a name="cloud-connectivity-alerts"></a>Aviseringar om moln anslutning
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Enhet <*enhetsnamn*> inte är ansluten till molnet. |Namngiven enhet kan inte ansluta till molnet. |Det gick inte att ansluta till molnet. Detta kan bero på något av följande:<ul><li>Det kan finnas ett problem med nätverksinställningarna på din enhet.</li><li>Det kan finnas ett problem med autentiseringsuppgifterna för lagringskontot.</li></ul>Mer information om hur du felsöker problem med nätverksanslutningen går du till den [lokala webbgränssnittet](storsimple-ova-web-ui-admin.md) för enheten. |
+| Enhets <*enhets namnet*> är inte anslutet till molnet. |Den namngivna enheten kan inte ansluta till molnet. |Det gick inte att ansluta till molnet. Detta kan bero på något av följande:<ul><li>Det kan finnas ett problem med nätverks inställningarna på enheten.</li><li>Det kan finnas ett problem med lagrings kontots autentiseringsuppgifter.</li></ul>Mer information om fel sökning av anslutnings problem finns i enhetens [lokala webb gränssnitt](storsimple-ova-web-ui-admin.md) . |
 
-### <a name="configuration-alerts"></a>Konfigurationsaviseringar
+### <a name="configuration-alerts"></a>Konfigurations aviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Lokala virtuella enhetskonfigurationen stöds inte. |Långsamma prestanda. |Den aktuella konfigurationen kan resultera i försämrade prestanda. Kontrollera att din server uppfyller minimikraven för konfiguration. Mer information går du till [krav för StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
-| Du kör utanför det allokerade diskutrymmet på <*enhetsnamn*\>. |Disk varning. |Du slut på det allokerade diskutrymmet. Överväg att flytta arbetsbelastningar till en annan volym eller resurs eller ta bort data för att frigöra utrymme. |
+| Konfiguration av lokal virtuell enhet stöds inte. |Långsamma prestanda. |Den aktuella konfigurationen kan resultera i försämrade prestanda. Kontrol lera att servern uppfyller minimi kraven för konfiguration. Mer information finns i krav för [StorSimple Virtual Array](storsimple-ova-system-requirements.md). |
+| Du håller på att ta slut på det allokerade disk utrymmet på <*enhets namn*\>. |Varning om disk utrymme. |Det allokerade disk utrymmet håller på att ta slut. För att frigöra utrymme bör du överväga att flytta arbets belastningar till en annan volym eller dela eller ta bort data. |
 
-### <a name="job-failure-alerts"></a>Varningar om jobbfel
+### <a name="job-failure-alerts"></a>Aviseringar om jobb haveri
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Säkerhetskopiering av <*enhetsnamn* \> gick inte att slutföra. |Säkerhetskopieringen misslyckas. |Det gick inte att skapa en säkerhetskopia. Överväg att något av följande:<ul><li>Problem med nätverksanslutningen kan göra att säkerhetskopieringen inte kan slutföras. Se till att det inte finns några anslutningsproblem. Mer information om hur du felsöker problem med nätverksanslutningen går du till den [lokala webbgränssnittet](storsimple-ova-web-ui-admin.md) för din virtuella enhet.</li><li>Du har nått gränsen för tillgänglig lagring. Ta bort eventuella säkerhetskopior som inte längre behövs för att frigöra utrymme.</li></ul> Lös problemen, radera aviseringen och försök igen. |
-| Klon av <*enhetsnamn* \> gick inte att slutföra. |Klona jobbfel. |Det gick inte att skapa en klon. Överväg att något av följande:<ul><li>Säkerhetskopiera listan kanske inte är giltigt. Uppdatera listan för att kontrollera att den fortfarande är giltig.</li><li>Problem med nätverksanslutningen kan göra att klonåtgärden inte kan slutföras. Se till att det inte finns några anslutningsproblem.</li><li>Du har nått gränsen för tillgänglig lagring. Ta bort eventuella säkerhetskopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, radera aviseringen och försök igen. |
+| Det gick inte att säkerhetskopiera <*enhets namnet*\>. |Säkerhets kopierings jobbet kunde inte utföras. |Det gick inte att skapa en säkerhets kopia. Överväg något av följande:<ul><li>Anslutnings problem kan hindra säkerhets kopieringen från att slutföras. Se till att det inte finns några anslutnings problem. Mer information om fel sökning av anslutnings problem finns i det [lokala webb gränssnittet](storsimple-ova-web-ui-admin.md) för den virtuella enheten.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul> Lös problemen, rensa aviseringen och försök igen. |
+| Det gick inte att klona <*enhets namn*\>. |Det gick inte att klona jobbet. |Det gick inte att skapa en klon. Överväg något av följande:<ul><li>Säkerhets kopierings listan kanske inte är giltig. Uppdatera listan för att kontrol lera att den fortfarande är giltig.</li><li>Anslutnings problem kan hindra klonings åtgärden från att slutföras. Se till att det inte finns några anslutnings problem.</li><li>Du har nått den tillgängliga lagrings gränsen. Överväg att ta bort eventuella säkerhets kopior som inte längre behövs för att frigöra utrymme.</li></ul>Lös problemen, rensa aviseringen och försök igen. |
 
-### <a name="networking-alerts"></a>Aviseringar för nätverk
+### <a name="networking-alerts"></a>Nätverks aviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |Den URL som används för att autentisera kan inte nås. Se till att brandväggsreglerna omfattar URL-mönster som angetts för StorSimple-enheten. Mer information om URL-mönster i Azure-portalen går du till [nätverkskraven för StorSimple Virtual Array](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
+| Det gick inte att ansluta till Autentiseringstjänsten. |Datapath-fel |Det går inte att hitta den URL som används för autentisering. Se till att brand Väggs reglerna innehåller de URL-mönster som anges för StorSimple-enheten. Mer information om URL-mönster i Azure Portal finns i [StorSimple Virtual Array Network Requirements](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
-### <a name="performance-alerts"></a>Aviseringar om programprestanda
+### <a name="performance-alerts"></a>Prestanda varningar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Du upplever oväntade fördröjningar i dataöverföringen. |Långsam dataöverföring. |Begränsningsfel inträffa när du överskrider det för skalbarhetsmål för en lagringstjänst. Storage-tjänsten gör detta för att säkerställa att ingen enskild kund eller klient kan använda tjänsten på bekostnad av andra. Mer information om hur du felsöker ditt Azure storage-konto går du till [övervaka, diagnostisera och Felsök Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Du har snart slut på lokalt reserverat utrymme ledigt diskutrymme på <*enhetsnamn*\>. |Långsamma svarstider. |10% av den totala etablerade storleken för <*enhetsnamn* \> är reserverad på lokalt enheten och du har nu ont om reserverat minne. Arbetsbelastningen för <*enhetsnamn* \> genererar en högre andel omsättning eller du kanske har nyligen migrerat en stor mängd data. Detta kan resultera i nedsatt prestanda. Använd någon av följande åtgärder för att lösa problemet:<ul><li>Öka bandbredden molnet till den här enheten.</li><li>Minska eller flytta arbetsbelastningar till en annan volym eller resurs.</li></ul> |
+| Du upplever oväntade fördröjningar i data överföringen. |Långsam data överföring. |Begränsnings fel inträffar när du överskrider skalbarhets målen för en lagrings tjänst. Lagrings tjänsten gör detta för att säkerställa att ingen enskild klient eller klient organisation kan använda tjänsten på bekostnad av andra. Mer information om hur du felsöker ditt Azure Storage-konto finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
+| Du har ont om lokalt reservations disk utrymme på <*enhets namn*\>. |Långsam svars tid. |10% av den totala etablerade storleken för <*enhets namnet*\> är reserverat på den lokala enheten och du börjar nu ta slut på det reserverade utrymmet. Arbets belastningen på <*enhets namn*\> genererar en högre andel omsättning eller så kanske du nyligen har migrerat en stor mängd data. Detta kan resultera i försämrade prestanda. Överväg följande åtgärder för att lösa problemet:<ul><li>Öka moln bandbredden till den här enheten.</li><li>Minska eller flytta arbets belastningar till en annan volym eller resurs.</li></ul> |
 
 ### <a name="security-alerts"></a>Säkerhetsaviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Lösenordet för <*enhetsnamn* \> går ut om <*nummer* \> dagar. |Varning om lösenord. |Lösenordet går ut om <*nummer* \> dagar. Överväg att ändra ditt lösenord. Mer information går du till [ändra administratörslösenordet för enheten StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
+| Lösen ordet för <*enhets namnet*\> upphör att gälla om <*nummer*\> dagar. |Lösen ords varning. |Ditt lösen ord upphör att gälla om <*nummer*\> dagar. Överväg att ändra ditt lösen ord. Mer information finns i [ändra StorSimple för den virtuella matris enheten](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om StorSimple Virtual Array](storsimple-ova-overview.md).
+* [Lär dig mer om den virtuella StorSimple-matrisen](storsimple-ova-overview.md).

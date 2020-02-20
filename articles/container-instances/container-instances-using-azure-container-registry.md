@@ -1,23 +1,23 @@
 ---
 title: Distribuera behållar avbildning från Azure Container Registry
-description: Lär dig hur du distribuerar behållare i Azure Container Instances att använda behållar avbildningar i ett Azure Container Registry.
+description: Lär dig hur du distribuerar behållare i Azure Container Instances genom att hämta behållar avbildningar från ett Azure Container Registry.
 services: container-instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcb1b02b8a2605a42acbe7f33973bef315ca6f54
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981693"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468923"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du distribuerar behållar avbildningar som lagras i ett Azure Container Registry till Azure Container Instances.
+[Azure Container Registry](../container-registry/container-registry-intro.md) är en Azure-baserad, hanterad behållare register tjänst som används för att lagra privata Docker-behållar avbildningar. Den här artikeln beskriver hur du hämtar behållar avbildningar som lagras i ett Azure Container Registry när du distribuerar till Azure Container Instances. Ett rekommenderat sätt att konfigurera register åtkomst är att skapa ett Azure Active Directory tjänstens huvud namn och lösen ord och lagra inloggnings uppgifterna i ett Azure Key Vault.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 **Azure Container Registry**: du behöver ett Azure Container Registry-och minst en behållar avbildning i registret – för att slutföra stegen i den här artikeln. Om du behöver ett register kan du läsa [skapa ett behållar register med hjälp av Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -28,6 +28,9 @@ ms.locfileid: "75981693"
 I ett produktions scenario, där du ger åtkomst till "konsol löst" tjänster och program, rekommenderar vi att du konfigurerar register åtkomst med hjälp av ett [huvud namn för tjänsten](../container-registry/container-registry-auth-service-principal.md). Med ett huvud namn för tjänsten kan du tillhandahålla [rollbaserad åtkomst kontroll](../container-registry/container-registry-roles.md) till behållar avbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
 
 Azure Container Registry ger ytterligare [autentiseringsalternativ](../container-registry/container-registry-authentication.md).
+
+> [!NOTE]
+> Du kan inte autentisera till Azure Container Registry för att hämta avbildningar under distribution av container grupper genom att använda en [hanterad identitet](container-instances-managed-identity.md) som kon figurer ATS i samma container grupp.
 
 I följande avsnitt skapar du ett Azure Key Vault och ett huvud namn för tjänsten och lagrar autentiseringsuppgifterna för tjänstens huvud namn i valvet. 
 
@@ -78,7 +81,7 @@ az keyvault secret set \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Du har skapat ett Azure-nyckelvalv och lagrat två hemligheter i det:
+Du har skapat ett Azure Key Vault och sparat två hemligheter:
 
 * `$ACR_NAME-pull-usr`: ID för tjänstens huvudnamn som ska användas som containerregistrets **användarnamn**.
 * `$ACR_NAME-pull-pwd`: Lösenord för tjänstens huvudnamn som ska användas som containerregistrets **lösenord**.

@@ -3,18 +3,18 @@ title: Självstudie – Skapa en skalnings uppsättning för virtuella Azure-dat
 description: Använd Terraform för att konfigurera och versionshantera en VM-skalningsuppsättning för Azure från en anpassad avbildning som skapats genom Packer (komplett med ett virtuellt nätverk och hanterade anslutna diskar).
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159283"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472220"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Självstudie: skapa en skalnings uppsättning för virtuella Azure-datorer från en anpassad avbildning av en packare med hjälp av terraform
 
 I den här självstudien använder du [terraform](https://www.terraform.io/) för att skapa och distribuera en [skalnings uppsättning för en virtuell Azure-dator](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) som skapats med en anpassad avbildning som skapats med hjälp av [Packer](https://www.packer.io/intro/index.html) med hanterade diskar som använder [HashiCorp konfigurations språk](https://www.terraform.io/docs/configuration/syntax.html) (HCL). 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera din terraform-distribution.
@@ -26,9 +26,9 @@ I den här självstudiekursen får du lära du dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- **Terraform**: [Installera terraform och konfigurera åtkomst till Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Terraform**: [Installera terraform och konfigurera åtkomst till Azure](terraform-install-configure.md).
 - **SSH-nyckel par**: [skapa ett SSH](/azure/virtual-machines/linux/mac-create-ssh-keys)-nyckelpar.
 - **Packer**: [Installera Packer](https://www.packer.io/docs/install/index.html).
 

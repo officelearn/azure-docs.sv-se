@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185889"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468445"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Gör så här: planera din distribution av villkorlig åtkomst i Azure Active Directory
 
@@ -31,6 +31,9 @@ Om ytterligare funktioner krävs kan du också behöva hämta relaterade license
 Det finns två typer av principer för villkorlig åtkomst: bas linje och standard. En [bas linje princip](baseline-protection.md) är en fördefinierad princip för villkorlig åtkomst. Målet med dessa principer är att se till att du har minst säkerhets nivån som är aktive rad. Bas linje principer. Bas linje principer är tillgängliga i alla versioner av Azure AD och de tillhandahåller endast begränsade anpassnings alternativ. Om ett scenario kräver större flexibilitet kan du inaktivera bas linje principen och implementera dina krav i en anpassad standard princip.
 
 I en standard princip för villkorlig åtkomst kan du anpassa alla inställningar för att justera principen efter dina affärs behov. Standard principer kräver en Azure AD Premium P1-licens.
+
+>[!NOTE]
+> Vi rekommenderar att du använder Azure AD Device-baserad princip för villkorlig åtkomst för att få bästa möjliga tillämpning efter den första autentiseringen av enheten. Detta inkluderar sessioner som stänger om enheten faller utanför efterlevnad och enhets kod flödet.
 
 ## <a name="draft-policies"></a>Utkast principer
 

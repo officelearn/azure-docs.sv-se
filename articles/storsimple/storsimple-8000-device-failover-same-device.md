@@ -1,6 +1,6 @@
 ---
-title: StorSimple-redundans, katastrofåterställning för enheter i 8000-serien | Microsoft Docs
-description: Lär dig hur du växlar över din StorSimple-enhet på samma enhet.
+title: Redundansväxling och haveri beredskap till samma StorSimple 8000-enhet
+description: Lär dig hur du växlar över din StorSimple-enhet till samma enhet.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8fe2d7ec7649f47f6cb9c8ae2c83f19c15691b6
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577401"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471813"
 ---
-# <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Växla över den fysiska StorSimple-enheten till samma enhet
+# <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Redundansväxla din fysiska StorSimple-enhet till samma enhet
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs de steg som krävs för att växla över en StorSimple 8000-serien fysisk enhet till sig själv om en katastrof inträffar. StorSimple använder funktionen för växling vid fel enhet för att migrera data från en källa fysisk enhet i datacenter till en annan fysisk enhet. Riktlinjerna i den här självstudien gäller StorSimple 8000-serien fysiska enheter som kör programvaruversioner uppdatering 3 och senare.
+I den här självstudien beskrivs de steg som krävs för att redundansväxla en fysisk enhet i StorSimple 8000-serien till sig själv om det är en katastrof. StorSimple använder funktionen enhets växling för att migrera data från en fysisk käll enhet i data centret till en annan fysisk enhet. Vägledningen i den här självstudien gäller för fysiska enheter i StorSimple 8000-serien som kör program varu versioner uppdatering 3 och senare.
 
-Om du vill veta mer om redundansväxling av enhet och hur de används för att komma tillrätta med en katastrof kan du gå till [redundans och disaster recovery för StorSimple 8000-serieenheter](storsimple-8000-device-failover-disaster-recovery.md).
+Om du vill veta mer om redundansväxlingen och hur den används för att återställa från en katastrof går du till [redundans och haveri beredskap för StorSimple 8000-serie enheter](storsimple-8000-device-failover-disaster-recovery.md).
 
-Om du vill redundansväxla en fysisk enhet till en annan fysisk enhet går du till [Redundansväxla till samma fysiska StorSimple-enheten](storsimple-8000-device-failover-physical-device.md). Om du vill redundansväxla en fysisk StorSimple-enhet till en StorSimple-Molninstallation går du till [växla över till en StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md).
-
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-- Se till att du har granskat överväganden för redundansväxling av enhet. Mer information går du till [vanliga överväganden för redundansväxling av enhet](storsimple-8000-device-failover-disaster-recovery.md).
+Om du vill redundansväxla en fysisk enhet till en annan fysisk enhet går du till [redundansväxla till samma StorSimple fysiska enhet](storsimple-8000-device-failover-physical-device.md). Om du vill redundansväxla en StorSimple fysisk enhet till en StorSimple Cloud Appliance går du till [redundansväxla till en StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md).
 
 
-## <a name="steps-to-fail-over-to-the-same-device"></a>Steg för att växla över till samma enhet
+## <a name="prerequisites"></a>Förutsättningar
 
-Utför följande steg om du behöver att växla över till samma enhet.
+- Se till att du har granskat överväganden för redundansväxling av enhet. Mer information finns i [vanliga överväganden för enhets växling](storsimple-8000-device-failover-disaster-recovery.md).
 
-1. Ta ögonblicksbilder av molnet alla volymer på enheten. Mer information går du till [använda StorSimple Device Manager-tjänsten för att skapa säkerhetskopior](storsimple-8000-manage-backup-policies-u2.md).
-2. Återställa enheten till fabriksinställningarna. Följ instruktionerna i [hur du återställer en StorSimple-enhet till fabriksinställningarna](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
-3. Gå till StorSimple Device Manager-tjänsten och välj sedan **enheter**. I den **enheter** bladet gamla enheten ska visa **Offline**.
 
-    ![Källenhet offline](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev2.png)
+## <a name="steps-to-fail-over-to-the-same-device"></a>Steg för att redundansväxla till samma enhet
 
-4. Konfigurera din enhet och registrera den igen med din StorSimple Device Manager-tjänsten. Nyligen registrerade enheten ska visa **redo att konfigurera**. Namnet på enheten för den nya enheten är samma som den gamla enheten men läggas till med ett numeriskt värde som anger att enheten har återställts till fabriksinställningen och registreras igen.
+Utför följande steg om du behöver redundansväxla till samma enhet.
 
-    ![Nyligen registrerade enheter som är redo för installation](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. Slutför installationen av enheten för den nya enheten. Mer information går du till [steg 4: Slutför minimala Enhetsinstallationen](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). På den **enheter** bladet enhetens status ändras till **Online**.
+1. Ta moln ögonblicks bilder av alla volymer i enheten. Mer information finns i [använda StorSimple Enhetshanteraren service för att skapa säkerhets kopior](storsimple-8000-manage-backup-policies-u2.md).
+2. Återställ enheten till fabriks inställningarna. Följ de detaljerade anvisningarna i [så här återställer du en StorSimple-enhet till fabriks inställningarna](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+3. Gå till StorSimple Enhetshanteraren-tjänsten och välj sedan **enheter**. På bladet **enheter** ska den gamla enheten visas som **offline**.
+
+    ![Käll enheten är offline](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev2.png)
+
+4. Konfigurera enheten och registrera den igen med din StorSimple Enhetshanteraren-tjänst. Den nyligen registrerade enheten bör visas som **klar att konfigurera**. Enhets namnet för den nya enheten är detsamma som den gamla enheten, men läggs till med en siffra för att indikera att enheten har återställts till fabriks inställningarna och registrerats igen.
+
+    ![Nyligen registrerad enhet redo att konfigureras](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
+5. Slutför enhets konfigurationen för den nya enheten. Mer information finns i [steg 4: Slutför lägsta enhets konfigurationen](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup). På bladet **enheter** ändras enhetens status till **online**.
 
    > [!IMPORTANT]
-   > **Slutföra konfigurationen av minsta först eller din Haveriberedskap kan misslyckas.**
+   > **Slutför den minimala konfigurationen först, annars kan din DR Miss lyckas.**
 
-    ![Nyligen registrerade enhet online](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev7.png)
+    ![Nyligen registrerad enhet online](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev7.png)
 
-6. Välj den gamla enheten (offline status) och från kommandofältet klickar du på **Redundansväxla**. I den **Redundansväxla** bladet välj gamla enheten som källa och ange målenheten som nyligen registrerade enheten.
+6. Välj den gamla enheten (status offline) och i kommando fältet klickar du på **redundans**. På bladet **redundansväxla** väljer du gammal enhet som källa och anger mål enheten som den nyligen registrerade enheten.
 
-    ![Sammanfattning för redundans](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
+    ![Sammanfattning av redundans](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    Detaljerade anvisningar finns misslyckas över till en annan fysisk enhet.
+    Detaljerade anvisningar finns i redundansväxla till en annan fysisk enhet.
 
-7. En enhet Återställningsjobbet har skapats att du kan övervaka från den **jobb** bladet.
+7. En enhets återställnings jobb skapas som du kan övervaka från bladet **jobb** .
 
-8. När jobbet har slutförts, få åtkomst till den nya enheten och gå till den **volymbehållare** bladet. Kontrollera att alla volymcontainrar från den gamla enheten har migrerat till den nya enheten.
+8. När jobbet har slutförts öppnar du den nya enheten och går till bladet **volym behållare** . Kontrol lera att alla volym behållare från den gamla enheten har migrerats till den nya enheten.
 
-   ![Volymcontainrar har migrerats](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev13.png)
+   ![Volym containrar har migrerats](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev13.png)
 
-9. När redundansväxlingen är klar kan du inaktivera och ta bort gamla enheten från portalen. Välj den gamla enheten (offline), högerklicka och välj sedan **inaktivera**. När enheten är inaktiverad, uppdateras statusen för enheten.
+9. När redundansväxlingen är klar kan du inaktivera och ta bort den gamla enheten från portalen. Välj den gamla enheten (offline), högerklicka på och välj sedan **inaktivera**. När enheten har inaktiverats uppdateras enhetens status.
 
-     ![Källenhet inaktiveras](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev14.png)
+     ![Käll enheten är inaktive rad](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev14.png)
 
-10. Välj inaktiverad enhet, högerklicka och välj sedan **ta bort**. Detta tar bort enheten från listan över enheter.
+10. Välj den inaktiverade enheten, högerklicka på och välj sedan **ta bort**. Enheten tas bort från listan över enheter.
 
-    ![Källenheten har tagits bort](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev15.png)
+    ![Käll enheten har tagits bort](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev15.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När du har utfört en redundans, du kan behöva [inaktivera eller ta bort din StorSimple-enhet](storsimple-8000-deactivate-and-delete-device.md).
-* Information om hur du använder StorSimple Device Manager-tjänsten går du till [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* När du har utfört en redundansväxling kan du behöva [inaktivera eller ta bort din StorSimple-enhet](storsimple-8000-deactivate-and-delete-device.md).
+* Information om hur du använder tjänsten StorSimple Enhetshanteraren finns i [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
 

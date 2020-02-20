@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2d440db3e55638fcf2e3d3f3fe76f82ac4d25948
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0e7a814c1607b15e3af0e76a5ae6dfad1594a3b3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192501"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474203"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Den första versionen stöder följande VM-serien: DSv3, ESv3 och Fsv2. 
+- Den första versionen stöder följande VM-serien: DSv3, ESv3, FSv2, LSv2 och MSv2. 
 
 ## <a name="create-a-host-group"></a>Skapa en värdgrupp
 

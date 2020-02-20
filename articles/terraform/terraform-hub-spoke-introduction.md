@@ -3,12 +3,12 @@ title: Självstudie – Skapa en nav och eker hybrid nätverkstopologi i Azure m
 description: Självstudie som illustrerar hur du skapar en hel referens arkitektur för Hybrid nätverk i Azure med terraform
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159030"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472187"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Självstudie: skapa en nav och eker hybrid nätverkstopologi i Azure med terraform
 
@@ -26,15 +26,15 @@ Den här självstudien omfattar följande uppgifter:
 > * Använd terraform för att upprätta gatewayer och anslutningar mellan lokala nätverk och Azure-nätverk
 > * Använd terraform för att skapa VNet-peering till ekrarade nätverk
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: om du inte redan har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Installera och konfigurera terraform**: för att etablera virtuella datorer och annan infrastruktur i Azure, [Installera och konfigurera terraform](/azure/virtual-machines/linux/terraform-install-configure)
+- **Installera och konfigurera terraform**: för att etablera virtuella datorer och annan infrastruktur i Azure, [Installera och konfigurera terraform](terraform-install-configure.md)
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Arkitektur för nav och eker-topologi
 
-I nav-och eker-topologin är hubben ett VNet. VNet fungerar som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med navet och som kan användas till att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och hubben via en ExpressRoute- eller VPN-gatewayanslutning. Följande bild visar komponenterna i en nav-och eker-topologi:
+I nav-och eker-topologin är hubben ett VNet. VNet fungerar som en central punkt för anslutningen till ditt lokala nätverk. Ekrarna är virtuella nätverk som peer-kopplas med hubben och som kan användas till att isolera arbetsbelastningar. Trafiken flödar mellan det lokala datacentret och hubben via en ExpressRoute- eller VPN-gatewayanslutning. Följande bild visar komponenterna i en nav-och eker-topologi:
 
 ![Arkitektur för hubb och eker-topologi i Azure](./media/terraform-hub-and-spoke-tutorial-series/hub-spoke-architecture.png)
 

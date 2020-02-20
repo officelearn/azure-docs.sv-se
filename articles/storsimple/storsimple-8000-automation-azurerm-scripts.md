@@ -1,17 +1,17 @@
 ---
-title: Använda Azure Resource Manager skript för att hantera StorSimple-enheter
+title: Använda AzureRM PowerShell-skript för att hantera StorSimple-enheter
 description: Lär dig hur du använder Azure Resource Manager skript för att automatisera StorSimple-jobb
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d1c98aa8c9b635f08bb14db2bde5485640a5d24d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 03a5ef49b2d58d351d882b30b5d11e4a5ba90264
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276653"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471966"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 
@@ -27,20 +27,20 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 | Azure Resource Manager skript                    | Beskrivning                                                                                                                                                                                                       |
 |--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Authorize-ServiceEncryptionRollover.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Med det här skriptet kan du auktorisera din StorSimple-enhet för att ändra krypterings nyckeln för tjänst data.                                                                                                           |
-| [Create-StorSimpleCloudAppliance.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Det här skriptet skapar en 8010-eller 8020-StorSimple Cloud Appliance. Moln installationen kan sedan konfigureras och registreras med din StorSimple Data Manager-tjänst.                                                       |
-| [CreateOrUpdate-Volume.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | Det här skriptet skapar eller ändrar StorSimple-volymer.                                                                                                                                                             |
-| [Get-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Det här skriptet visar en lista över alla säkerhets kopior för en enhet som är registrerad i StorSimple Enhetshanteraren-tjänsten.                                                                                                          |
-| [Get-DeviceBackupPolicy.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | Detta skript alla säkerhets kopierings principer för din StorSimple-enhet.                                                                                                                                                 |
-| [Get-DeviceJobs.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Det här skriptet hämtar alla StorSimple-jobb som körs på din StorSimple Enhetshanteraren-tjänst.                                                                                                                     |
-| [Get-DeviceUpdateAvailability.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Det här skriptet genomsöker uppdaterings servern och låter dig veta om det finns uppdateringar som är tillgängliga för installation på din StorSimple-enhet.                                                                                          |
-| [Install-DeviceUpdate.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | Det här skriptet installerar de tillgängliga uppdateringarna på din StorSimple-enhet.                                                                                                                                           |
-| [Manage-CloudSnapshots.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Det här skriptet startar en manuell ögonblicks bild av molnet och tar bort moln ögonblicks bilder som är äldre än angivna bevarande dagar.                                                                                                   |
+| [Authorize-ServiceEncryptionRollover. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Authorize-ServiceEncryptionRollover.ps1)          | Med det här skriptet kan du auktorisera din StorSimple-enhet för att ändra krypterings nyckeln för tjänst data.                                                                                                           |
+| [Create-StorSimpleCloudAppliance. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Create-StorSimpleCloudAppliance.ps1)              | Det här skriptet skapar en 8010-eller 8020-StorSimple Cloud Appliance. Moln installationen kan sedan konfigureras och registreras med din StorSimple Data Manager-tjänst.                                                       |
+| [CreateOrUpdate-Volume. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/CreateOrUpdate-Volume.ps1)                        | Det här skriptet skapar eller ändrar StorSimple-volymer.                                                                                                                                                             |
+| [Get-DeviceBackup. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackup.ps1)                             | Det här skriptet visar en lista över alla säkerhets kopior för en enhet som är registrerad i StorSimple Enhetshanteraren-tjänsten.                                                                                                          |
+| [Get-DeviceBackupPolicy. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceBackupPolicy.ps1)                       | Detta skript alla säkerhets kopierings principer för din StorSimple-enhet.                                                                                                                                                 |
+| [Get-DeviceJobs. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceJobs.ps1)                               | Det här skriptet hämtar alla StorSimple-jobb som körs på din StorSimple Enhetshanteraren-tjänst.                                                                                                                     |
+| [Get-DeviceUpdateAvailability. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Get-DeviceUpdateAvailability.ps1)                 | Det här skriptet genomsöker uppdaterings servern och låter dig veta om det finns uppdateringar som är tillgängliga för installation på din StorSimple-enhet.                                                                                          |
+| [Install-DeviceUpdate. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Install-DeviceUpdate.ps1)                         | Det här skriptet installerar de tillgängliga uppdateringarna på din StorSimple-enhet.                                                                                                                                           |
+| [Manage-CloudSnapshots. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Manage-CloudSnapshots.ps1)                        | Det här skriptet startar en manuell ögonblicks bild av molnet och tar bort moln ögonblicks bilder som är äldre än angivna bevarande dagar.                                                                                                   |
 | [Monitor-Backups. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1)                              | Detta Azure Automation Runbook PowerShell-skriptet rapporterar status för alla säkerhets kopierings jobb.                                                                                                              |
-| [Remove-DeviceBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | Det här skriptet tar bort ett enda säkerhets kopierings objekt.                                                                                                                                                           |
+| [Remove-DeviceBackup. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Remove-DeviceBackup.ps1)                          | Det här skriptet tar bort ett enda säkerhets kopierings objekt.                                                                                                                                                           |
 | [Start-DeviceBackupJob. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Start-DeviceBackupJob.ps1)                        | Det här skriptet startar en manuell säkerhets kopiering på din StorSimple-enhet.                                                                                                                                       |
-| [Update-CloudApplianceServiceEncryptionKey.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Det här skriptet uppdaterar krypterings nyckeln för tjänst data för alla moln enheter för 8010/8020-StorSimple som registrerats med din StorSimple Enhetshanteraren-tjänst.                                     |
-| [Verify-BackupScheduleAndBackup.ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Det här skriptet visar de säkerhets kopior som saknas efter analys av alla scheman som är associerade med säkerhets kopierings principer. Den verifierar också säkerhets kopierings katalogen med listan över tillgängliga säkerhets kopior.             |
+| [Update-CloudApplianceServiceEncryptionKey. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Update-CloudApplianceServiceEncryptionKey.ps1)    | Det här skriptet uppdaterar krypterings nyckeln för tjänst data för alla moln enheter för 8010/8020-StorSimple som registrerats med din StorSimple Enhetshanteraren-tjänst.                                     |
+| [Verify-BackupScheduleAndBackup. ps1](https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Verify-BackupScheduleAndBackup.ps1)               | Det här skriptet visar de säkerhets kopior som saknas efter analys av alla scheman som är associerade med säkerhets kopierings principer. Den verifierar också säkerhets kopierings katalogen med listan över tillgängliga säkerhets kopior.             |
 
 
 
@@ -49,7 +49,7 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 Det här avsnittet tar ett exempel skript och innehåller information om de olika stegen som krävs för att köra skriptet.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du kontrol lera att du har:
 

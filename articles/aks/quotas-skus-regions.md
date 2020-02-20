@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mlearned
-ms.openlocfilehash: a8b561780e2e81499d211252648aeef86561cb9b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1bb928f8e7a1f56c4b6b437f260d875662bff60f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658516"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469842"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)
 
@@ -33,7 +33,7 @@ Alla andra begränsningar för nätverk, beräkning och lagring gäller för den
 
 ## <a name="restricted-vm-sizes"></a>Begränsade VM-storlekar
 
-Varje nod i ett AKS-kluster innehåller en fast mängd beräknings resurser, till exempel vCPU och minne. Om en AKS-nod innehåller otillräckliga beräknings resurser kan poddar kanske inte köras korrekt. För att säkerställa att nödvändiga *Kube-* poddar och dina program kan schemaläggas på ett tillförlitligt sätt ska du inte använda följande VM SKU: er i AKS:
+Varje nod i ett AKS-kluster innehåller en fast mängd beräknings resurser, till exempel vCPU och minne. Om en AKS-nod innehåller otillräckliga beräknings resurser kan poddar kanske inte köras korrekt. För att säkerställa att nödvändiga *Kube-* poddar och dina program kan schemaläggas på ett tillförlitligt sätt ska du **inte använda följande VM SKU: er i AKS**:
 
 - Standard_A0
 - Standard_A1
@@ -45,7 +45,7 @@ Varje nod i ett AKS-kluster innehåller en fast mängd beräknings resurser, til
 
 Mer information om VM-typer och deras beräknings resurser finns i [storlekar för virtuella datorer i Azure][vm-skus].
 
-## <a name="region-availability"></a>Tillgänglighet för regioner
+## <a name="region-availability"></a>Regional tillgänglighet
 
 Den senaste listan över var du kan distribuera och köra kluster finns i [AKS regions tillgänglighet][region-availability].
 

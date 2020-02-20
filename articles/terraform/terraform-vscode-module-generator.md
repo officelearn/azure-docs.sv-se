@@ -3,12 +3,12 @@ title: Självstudie – Skapa en terraform Base-mall i Azure med Yeoman
 description: Lär dig hur du skapar en grundläggande Terraform-mall i Azure med hjälp av Yeoman.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 82c3f5e640789547abb716b55959e1821a61e6d0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159163"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472153"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Självstudie: skapa en terraform Base-mall i Azure med Yeoman
 
@@ -21,11 +21,11 @@ I den här artikeln får du lära dig hur du utför följande uppgifter:
 > * Kör terraform-modulen med hjälp av en Docker-fil.
 > * Kör terraform-modulen internt i Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - **Visual Studio Code**: [Ladda ned Visual Studio Code](https://code.visualstudio.com/download) för din plattform.
-- **Terraform**: [Installera terraform](/azure/virtual-machines/linux/terraform-install-configure ) för att köra modulen som skapats av Yeoman.
+- **Terraform**: [Installera terraform](terraform-install-configure.md) för att köra modulen som skapats av Yeoman.
 - **Docker**: [Installera Docker](https://www.docker.com/get-started) för att köra modulen som skapats av Yeoman Generator.
 - **Go-programmeringsspråk**: [Installera go](https://golang.org/) som Yeoman-genererade test väskor är kod med hjälp av Go-språket.
 
@@ -124,7 +124,7 @@ Den tomma katalogen måste placeras under $GOPATH/src. Mer information om den h�
 
 1. Från menyraden väljer du **Fil > Öppna mapp** och väljer mappen som du skapade.
 
-    ![Visual Studio-koden](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
+    ![Visual Studio Code](media/terraform-vscode-module-generator/ymg-open-in-vscode.png)
 
 Följande filer skapades av generatorn för Yeoman-modulen. Mer information om dessa filer och deras användning finns i [Terratest i terraform-moduler.](https://mseng.visualstudio.com/VSJava/_git/Terraform?path=%2FTerratest%20Introduction.md&version=GBmaster).
 

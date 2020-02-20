@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e2b3ceba7a3673caa38e09f6b4dfa296fd063cfe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425093"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467921"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure-diagnostik fel sökning
 I den här artikeln beskrivs felsöknings information som är relevant för att använda Azure-diagnostik. Mer information om Azure Diagnostics finns i [Azure-diagnostik översikt](diagnostics-extension-overview.md).
@@ -297,5 +297,5 @@ Portal upplevelsen på de virtuella datorerna visar vissa prestanda räknare som
 
 - Om data i lagring har räknar namn på engelska. Om räknar namnen inte är på engelska kan Portal mått diagrammet inte identifiera det. **Minskning**: ändra datorns språk till engelska för system konton. Det gör du genom att välja **kontroll panelen** > **region** > **administrations** > **Kopiera inställningar**. Avmarkera sedan **välkomst skärmen och system konton** så att det anpassade språket inte tillämpas på system kontot.
 
-- Om du använder jokertecken (\*) i prestanda räknar namnen kan portalen inte korrelera den konfigurerade och insamlade räknaren när prestanda räknarna skickas till Azure Storage-mottagaren. **Minskning**: se till att du kan använda jokertecken och expandera (\*) genom att dirigera prestanda räknarna till ["Azure Monitor"-mottagaren](diagnostics-extension-schema.md#diagnostics-extension-111).
+- Om du använder jokertecken (\*) i prestanda räknar namnen kan portalen inte korrelera den konfigurerade och insamlade räknaren när prestanda räknarna skickas till Azure Storage-mottagaren. **Minskning**: se till att du kan använda jokertecken och expandera (\*) genom att dirigera dina prestanda räknare till Azure Monitor-mottagaren.
 

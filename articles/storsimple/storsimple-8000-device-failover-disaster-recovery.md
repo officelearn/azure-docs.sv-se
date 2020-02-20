@@ -1,6 +1,6 @@
 ---
-title: StorSimple-redundans, katastrofåterställning för enheter i 8000-serien | Microsoft Docs
-description: Lär dig hur du växlar över din StorSimple-enhet till själva, en annan fysisk enhet eller en molninstallation.
+title: Redundansväxling och haveri beredskap för StorSimple 8000-serie enheter
+description: Lär dig hur du växlar över din StorSimple-enhet till sig själv, en annan fysisk enhet eller en moln installation.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,130 +14,130 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576380"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468600"
 ---
-# <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Redundans och disaster recovery för din enhet i StorSimple 8000-serien
+# <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Redundansväxling och haveri beredskap för din StorSimple 8000-serie enhet
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln beskriver funktionen enheten växling vid fel för StorSimple 8000-serieenheter och hur den här funktionen kan användas för att återställa StorSimple-enheter om en olycka inträffar. StorSimple använder redundansväxling av enhet för att migrera data från en källenhet i datacenter till en annan målenhet. Riktlinjerna i den här artikeln gäller för fysiska enheter i StorSimple 8000-serien och molninstallationer som kör programvaruversioner uppdatering 3 och senare.
+I den här artikeln beskrivs enhetens redundans funktion för StorSimple 8000-serien och hur den här funktionen kan användas för att återställa StorSimple-enheter om en katastrof inträffar. StorSimple använder enhets växling för att migrera data från en käll enhet i data centret till en annan mål enhet. Vägledningen i den här artikeln gäller för fysiska enheter i StorSimple 8000-serien och moln apparater som kör program varu versioner uppdatering 3 och senare.
 
-StorSimple använder den **enheter** bladet för att starta enheten failover-funktionen i händelse av en katastrof. Det här bladet visar en lista över alla StorSimple-enheter som är anslutna till din StorSimple Device Manager-tjänsten.
+StorSimple **använder enhets bladet** för att starta funktionen redundans i händelse av en katastrof. Det här bladet visar en lista över alla StorSimple-enheter som är anslutna till din StorSimple Enhetshanteraren-tjänst.
 
-![Enhetsbladet](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
+![Bladet enheter](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
 
 
-## <a name="disaster-recovery-dr-and-device-failover"></a>Haveriberedskap (DR) och redundansväxling av enhet
+## <a name="disaster-recovery-dr-and-device-failover"></a>Haveri beredskap (DR) och enhets växling vid fel
 
-I ett scenario med disaster recovery (DR), den primära enheten slutar fungera. StorSimple använder den primära enheten som _källa_ och flyttar den kopplade molnet till en annan _target_ enhet. Den här processen kallas den *redundans*. Följande bild illustrerar växling vid fel.
+I en haveri beredskap (DR) slutar den primära enheten att fungera. StorSimple använder den primära enheten som _källa_ och flyttar tillhör ande moln data till en annan _mål_ enhet. Den här processen kallas för *redundans*. Följande bild illustrerar processen för redundans.
 
-![Vad som händer i redundansväxling av enhet?](./media/storsimple-8000-device-failover-disaster-recovery/failover-dr-flow.png)
+![Vad händer i redundansväxlingen i enheten?](./media/storsimple-8000-device-failover-disaster-recovery/failover-dr-flow.png)
 
-Målenheten för redundans kan vara en fysisk enhet eller även en molninstallation. Målenheten kan finnas i samma eller en annan geografisk plats än källenheten.
+Mål enheten för en redundansväxling kan vara en fysisk enhet eller till och med en moln installation. Mål enheten kanske finns på samma eller en annan geografisk plats än käll enheten.
 
-Under redundansen, kan du välja volymbehållare för migrering. StorSimple sedan ändrar ägarskap för de här volymbehållarna från källenheten till målenheten. När volymbehållarna ändra ägarskapet för StorSimple att tar bort de här behållarna från källenheten. När borttagningen är klar kan växla du tillbaka målenheten. _Återställning efter fel_ överför ägarskap tillbaka till den ursprungliga källenheten.
+Under redundansväxlingen kan du välja volym behållare för migrering. StorSimple ändrar sedan ägarskapet för dessa volym behållare från käll enheten till mål enheten. När volym behållarna har ändrat ägarskapet, tar StorSimple bort dessa behållare från käll enheten. När borttagningen är klar kan du växla tillbaka till mål enheten. _Failback_ överför ägarskapet tillbaka till den ursprungliga käll enheten.
 
-### <a name="cloud-snapshot-used-during-device-failover"></a>Ögonblicksbild av molndata används under redundansväxling av enhet
+### <a name="cloud-snapshot-used-during-device-failover"></a>Moln ögonblicks bild som används vid redundansväxling av enhet
 
-Efter en DR används den senaste säkerhetskopian av molnet för att återställa data till målenheten. Läs mer på molnögonblicksbilder [använda StorSimple Device Manager-tjänsten för att göra en manuell säkerhetskopia](storsimple-8000-manage-backup-policies-u2.md#take-a-manual-backup).
+Efter en DR används den senaste moln säkerhets kopian för att återställa data till mål enheten. Mer information om moln ögonblicks bilder finns i [använda tjänsten StorSimple Enhetshanteraren för att utföra en manuell säkerhets kopiering](storsimple-8000-manage-backup-policies-u2.md#take-a-manual-backup).
 
-På StorSimple 8000-serien är principer för säkerhetskopiering associerade med säkerhetskopior. Om det finns flera principer för säkerhetskopiering för samma volym, väljer principen för säkerhetskopiering med det största antalet volymer med StorSimple. StorSimple använder sedan den senaste säkerhetskopian från den valda säkerhetskopieringsprincipen för att återställa data på målenheten.
+I en StorSimple 8000-serien associeras säkerhets kopierings principer med säkerhets kopior. Om det finns flera säkerhets kopierings principer för samma volym väljer StorSimple säkerhets kopierings principen med det största antalet volymer. StorSimple använder sedan den senaste säkerhets kopieringen från den valda säkerhets kopierings principen för att återställa data på mål enheten.
 
-Anta att det finns två principer för säkerhetskopiering, *defaultPol* och *customPol*:
+Anta att det finns två säkerhets kopierings principer, *defaultPol* och *customPol*:
 
-* *defaultPol*: En volym *vol1*, körs varje dag kl. 10:30 PM.
-* *customPol*: Fyra volymer, *vol1*, *vol2*, *vol3*, *vol4*, körs varje dag med start kl. 10:00.
+* *defaultPol*: en volym, *VOL1*, körs dagligen med början 10:30 PM.
+* *customPol*: fyra volymer, *VOL1*, *VOL2*, *vol3*, *VOL4*, körs dagligen från 10:00 PM.
 
-I det här fallet StorSimple prioriterar för kraschkonsekvens och använder *customPol* eftersom den har flera volymer. Den senaste säkerhetskopian från den här principen används för att återställa data. Mer information om hur du skapar och hanterar principer för säkerhetskopiering, går du till [använda StorSimple Device Manager-tjänsten för att hantera principer för säkerhetskopiering](storsimple-8000-manage-backup-policies-u2.md).
+I det här fallet prioriterar StorSimple för krasch konsekvens och använder *customPol* som har fler volymer. Den senaste säkerhets kopieringen från den här principen används för att återställa data. Mer information om hur du skapar och hanterar säkerhets kopierings principer finns i [använda tjänsten StorSimple Enhetshanteraren för att hantera säkerhets kopierings principer](storsimple-8000-manage-backup-policies-u2.md).
 
-## <a name="common-considerations-for-device-failover"></a>Vanliga överväganden för redundansväxling av enhet
+## <a name="common-considerations-for-device-failover"></a>Vanliga överväganden för redundans av enheter
 
-Innan du växlar över en enhet kan du granska följande information:
+Innan du växlar över en enhet bör du läsa följande information:
 
-* Alla volymer i volymbehållarna måste vara offline innan en redundansväxling av enhet startar. I en oplanerad redundans kommer StotSimple volymer automatiskt går offline. Men om du utför en planerad redundansväxling (om du vill testa DR), måste du utföra alla volymer offline.
-* Endast de volymbehållare som har en tillhörande ögonblicksbild av molndata visas för Katastrofåterställning. Det måste finnas minst en volymcontainer med en tillhörande molnögonblicksbild att återställa data.
-* Om det finns ögonblicksbilder av molnet som sträcker sig över flera volymbehållare, redundansväxlar StorSimple dessa volymbehållare som en uppsättning. I sällsynta fall om det finns lokala ögonblicksbilder som sträcker sig över flera volymbehållare men inte gör det kopplade molnögonblicksbilder, StorSimple misslyckas över lokala ögonblicksbilder och lokala data går förlorade efter DR.
-* Tillgängliga målenheter för Katastrofåterställning är enheter som har tillräckligt med utrymme för de valda volymcontainrarna. Alla enheter som inte har tillräckligt med utrymme visas inte som målenheter.
-* När du har en DR (under en begränsad tid), kan data åtkomst prestanda påverkas avsevärt, när enheten behöver komma åt data från molnet och lagra den lokalt.
+* Innan en enhets växling vid fel startar måste alla volymer i volym behållarna vara offline. I en oplanerad redundansväxling kommer StotSimple-volymer automatiskt att kopplas från. Men om du utför en planerad redundansväxling (för att testa DR) måste du koppla från alla volymer.
+* Endast de volym behållare som har en associerad moln ögonblicks bild listas för DR. Det måste finnas minst en volym behållare med en associerad moln ögonblicks bild för att återställa data.
+* Om det finns moln ögonblicks bilder som sträcker sig över flera volym behållare, växlar StorSimple över dessa volym behållare som en uppsättning. I en sällsynt instans, om det finns lokala ögonblicks bilder som sträcker sig över flera volym behållare, men associerade ögonblicks bilder av molnet inte gör det, växlar StorSimple över de lokala ögonblicks bilderna och lokala data går förlorade efter DR.
+* Tillgängliga mål enheter för DR är enheter som har tillräckligt med utrymme för att rymma de valda volym containrarna. Enheter som inte har tillräckligt med utrymme visas inte som mål enheter.
+* Efter en DR (under en begränsad tid) kan data åtkomst prestanda påverkas avsevärt eftersom enheten behöver komma åt data från molnet och lagra den lokalt.
 
-#### <a name="device-failover-across-software-versions"></a>Redundansväxling av enhet över programvaruversioner
+#### <a name="device-failover-across-software-versions"></a>Enhets växling över flera program versioner
 
-En StorSimple Device Manager-tjänsten i en distribution kan ha flera enheter, både fysiska och moln, alla körs olika programvaruversioner.
+En StorSimple Enhetshanteraren tjänst i en distribution kan ha flera enheter, både fysiska och moln, som kör olika program varu versioner.
 
-Använd följande tabell för att avgöra om du växlar över eller växla över till en annan enhet som kör en annan programvaruversion och hur volymtyper beter sig under en Katastrofåterställning.
+Använd följande tabell för att avgöra om du kan redundansväxla eller återställa till en annan enhet som kör en annan program varu version och hur volym typerna beter sig under DR.
 
-#### <a name="failover-and-failback-across-software-versions"></a>Redundans och återställning efter fel mellan olika programvaruversioner
+#### <a name="failover-and-failback-across-software-versions"></a>Redundansväxling och återställning efter fel i program varu versioner
 
-| Växla över / Redundansväxla från | Fysisk enhet | Molninstallation |
+| Redundansväxla/redundansväxla tillbaka från | Fysisk enhet | Molninstallation |
 | --- | --- | --- |
-| Uppdatering 3 för att uppdatera 4 |Nivåindelade volymer över nivåer misslyckas. <br></br>Lokalt fixerade volymer redundansväxla som lokalt fixerade. <br></br> Efter en växling vid fel när du skapar en ögonblicksbild på enheten uppdatering 4 [termisk karta-baserade spårning](storsimple-update4-release-notes.md#whats-new-in-update-4) aktiveras. |Lokalt fixerade volymer redundansväxlas som nivåindelade. |
-| Uppdatering 4 för att uppdatera 3 |Nivåindelade volymer över nivåer misslyckas. <br></br>Lokalt fixerade volymer redundansväxla som lokalt fixerade. <br></br> Används för att återställa-säkerhetskopieringarna behåller den termiska kartan metadata. <br></br>Termisk karta-baserade spårning är inte tillgänglig i Update 3 efter en återställning efter fel. |Lokalt fixerade volymer redundansväxlas som nivåindelade. |
+| Uppdatering 3 till uppdatering 4 |Skiktade volymer växlar över till nivå. <br></br>Lokalt fästa volymer växlar över som lokalt fästa. <br></br> Efter en redundansväxling när du tar en ögonblicks bild på Update 4-enheten används [termisk karta-baserad spårning](storsimple-update4-release-notes.md#whats-new-in-update-4) i. |Lokalt fästa volymer växlar över till nivå. |
+| Uppdatering 4 till uppdatering 3 |Skiktade volymer växlar över till nivå. <br></br>Lokalt fästa volymer växlar över som lokalt fästa. <br></br> Säkerhets kopior som används för att återställa bevara termisk karta-metadata. <br></br>Termisk karta-baserad spårning är inte tillgänglig i uppdatering 3 efter en återställning efter fel. |Lokalt fästa volymer växlar över till nivå. |
 
 
-## <a name="device-failover-scenarios"></a>Enheten redundansscenarier
+## <a name="device-failover-scenarios"></a>Failover-scenarier för enheter
 
-Om en katastrof kan du växla över din StorSimple-enhet:
+Om det finns en katastrof kan du välja att Redundansväxla din StorSimple-enhet:
 
 * [Till en fysisk enhet](storsimple-8000-device-failover-physical-device.md).
 * [Till sig själv](storsimple-8000-device-failover-same-device.md).
-* [Till en molninstallation](storsimple-8000-device-failover-cloud-appliance.md).
+* [Till en moln](storsimple-8000-device-failover-cloud-appliance.md)installation.
 
-Föregående artiklarna innehåller detaljerade anvisningar för var och en av de ovanstående redundans-fall.
+I föregående artiklar finns detaljerade anvisningar för var och en av ovanstående fall av redundans.
 
 
 ## <a name="failback"></a>Återställning efter fel
 
-StorSimple stöder också återställning efter fel för uppdatering 3 och senare versioner. Återställning efter fel är bara omvänt redundans, målet blir källan och ursprungliga källenheten under redundansen nu blir målenheten. 
+För uppdatering 3 och senare versioner stöder StorSimple också återställning efter fel. Failback är bara den omvända redundansväxlingen, målet blir källan och den ursprungliga käll enheten under redundansväxlingen är nu mål enheten. 
 
-StorSimple igen synkroniserar data tillbaka till den primära platsen, stoppar läsning/skrivning och programaktivitet under återställningen och övergångar tillbaka till den ursprungliga platsen.
+Vid återställning efter fel synkroniserar StorSimple tillbaka data till den primära platsen, stoppar I/O-och program aktiviteten och övergår tillbaka till den ursprungliga platsen.
 
-När en redundansväxling har slutförts, utför StorSimple följande åtgärder:
+När en redundansväxling har slutförts utför StorSimple följande åtgärder:
 
-* StorSimple rensar de volymbehållare som har redundansväxlats från källenheten.
-* StorSimple initierar ett bakgrundsjobb per volymbehållare (redundansväxlats) på källenheten. Om du försöker växla tillbaka medan jobbet pågår, får du ett meddelande om detta. Vänta tills jobbet har slutförts för att starta återställningen.
-* Den tid det tar att slutföra borttagningen av volymbehållare beror på olika faktorer som mängden data, åldern på data och hur många säkerhetskopior av den tillgängliga nätverksbandbredden för åtgärden.
+* StorSimple rengör volym behållarna som har redundansväxlats från käll enheten.
+* StorSimple initierar ett bakgrunds jobb per volym behållare (redundansväxlats) på käll enheten. Om du försöker återställa medan jobbet pågår får du ett meddelande om detta. Vänta tills jobbet är klart för att starta återställning efter fel.
+* Hur lång tid det tar att slutföra borttagningen av volym behållare beror på olika faktorer, till exempel mängden data, Age of data, antal säkerhets kopior och den nätverks bandbredd som är tillgänglig för åtgärden.
 
-Om du planerar redundanstestning eller testa återställning efter fel, rekommenderar vi att du testar volymbehållare med mindre data (GB). Du kan vanligtvis starta återställningen 24 timmar efter redundansen är klar.
+Om du planerar redundanstest eller testar förlita, rekommenderar vi att du testar volym behållare med mindre data (GB). Vanligt vis kan du starta failback 24 timmar efter att redundansväxlingen är slutförd.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-F. **Vad händer om DR misslyckas eller har delvis?**
+F. **Vad händer om DR Miss lyckas eller har delvis lyckats?**
 
-A. Om DR misslyckas, rekommenderar vi att du försöka igen. Den andra enheten redundansjobb medveten om förloppet för det första jobbet och börjar från den tidpunkten och framåt.
+A. Om DR Miss lyckas rekommenderar vi att du försöker igen. Den andra enheten redundansväxlingen är medveten om förloppet för det första jobbet och börjar från och med den punkten.
 
-F. **Kan jag ta bort en enhet när enheten redundans pågår?**
+F. **Kan jag ta bort en enhet när redundansväxlingen är pågående?**
 
-A. Du kan inte ta bort en enhet medan en DR pågår. Du kan bara ta bort din enhet när DR är klar. Du kan övervaka jobbförloppet enheten redundans i den **jobb** bladet.
+A. Det går inte att ta bort en enhet medan en återställning pågår. Du kan bara ta bort enheten när DR-filen har slutförts. Du kan övervaka förloppet för enhetens redundans på bladet **jobb** .
 
-F. **När skräpinsamling startar på källenheten så att den lokala data på källenheten har tagits bort?**
+F. **När startar skräp insamlingen på käll enheten så att lokala data på käll enheten tas bort?**
 
-A. Skräpinsamling är aktiverat på källenheten endast när enheten är helt rensad. Rensningen innehåller Rensa objekt som har misslyckats under från källenheten, till exempel volymer, säkerhetskopierade objekt (inte data), volymbehållare och principer.
+A. Skräp insamling är bara aktiverat på käll enheten när enheten har rensats helt. Rensningen innehåller rensning av objekt som har redundansväxlats från käll enheten, till exempel volymer, säkerhets kopierings objekt (inte data), volym behållare och principer.
 
-F. **Vad händer om det inte går att ta bort jobbet som är associerade med volymbehållare i källenheten?**
+F. **Vad händer om borttagnings jobbet som är kopplat till volym behållarna på käll enheten Miss lyckas?**
 
-A.  Om jobbet Ta bort misslyckas, kan du manuellt ta bort volymbehållarna. I den **enheter** bladet välj källenheten och klicka på **volymbehållare**. Välj de volymbehållare som du inte över och längst ned i bladet, klickar du på **ta bort**. När du tar bort alla de över volymbehållare på källenheten, kan du starta återställningen. Mer information går du till [ta bort en volymbehållare](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
+A.  Om borttagnings jobbet Miss lyckas kan du ta bort volym containrarna manuellt. Välj din käll enhet på bladet **enheter** och klicka på **volym behållare**. Välj de volym behållare som du har växlat över och klicka på **ta bort**längst ned på bladet. När du har tagit bort alla felaktiga volymer över volym containrar på käll enheten kan du starta återställningen. Mer information finns i [ta bort en volym behållare](storsimple-8000-manage-volume-containers.md#delete-a-volume-container).
 
-## <a name="business-continuity-disaster-recovery-bcdr"></a>Kontinuitet för företag-haveriberedskap (BCDR)
+## <a name="business-continuity-disaster-recovery-bcdr"></a>Katastrof återställning av affärs kontinuitet (BCDR)
 
-Ett affärskontinuitet disaster recovery (BCDR) affärsscenario inträffar när hela Azure-datacentret slutar att fungera. Det här scenariot kan påverka din StorSimple Device Manager-tjänsten och de associera StorSimple-enheterna.
+Ett BCDR-scenario (verksamhets kontinuitet haveri beredskap) inträffar när hela Azure-datacenter slutar fungera. Det här scenariot kan påverka din StorSimple-Enhetshanteraren-tjänst och tillhör ande StorSimple-enheter.
 
-Om en StorSimple-enhet har registrerats precis innan en katastrof har inträffat, kan den här enheten måste genomgå en fabriksåterställning. Efter en katastrof, StorSimple-enheten som visas i Azure portal som offline. Den här enheten måste tas bort från portalen. Återställa enheten till fabriksinställningarna och registrera den igen med tjänsten.
+Om en StorSimple-enhet har registrerats precis innan en katastrof inträffade, kan den här enheten behöva genomgå en fabriks återställning. Efter katastrofen visas StorSimple-enheten i Azure Portal som offline. Den här enheten måste tas bort från portalen. Återställ enheten till fabriks inställningarna och registrera den igen med tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Välj något av följande scenarier för detaljerade anvisningar om du är redo att utföra en redundansväxling av enhet:
+Om du är redo att utföra en enhets växling vid fel väljer du något av följande scenarier för detaljerade instruktioner:
 
-- [Växla över till en annan fysisk enhet](storsimple-8000-device-failover-physical-device.md)
-- [Växla över till samma enhet](storsimple-8000-device-failover-same-device.md)
-- [Växla över till StorSimple-Molninstallation](storsimple-8000-device-failover-cloud-appliance.md)
+- [Redundansväxla till en annan fysisk enhet](storsimple-8000-device-failover-physical-device.md)
+- [Redundansväxla till samma enhet](storsimple-8000-device-failover-same-device.md)
+- [Redundansväxla till StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md)
 
-Om du har redundansväxlat enheten kan välja någon av följande alternativ:
+Om du har växlat över enheten väljer du något av följande alternativ:
 
 * [Inaktivera eller ta bort din StorSimple-enhet](storsimple-8000-deactivate-and-delete-device.md).
-* [Använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* [Använd tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

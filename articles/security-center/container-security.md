@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: ef87d8d02e6d7800435cab207a88197ef7c94b7c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431000"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470776"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -41,7 +41,7 @@ När problem påträffas – av Qualys eller Security Center – får du ett med
 ## <a name="environment-hardening"></a>Miljö härdning
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Kontinuerlig övervakning av Docker-konfigurationen
-Azure Security Center identifierar ohanterade behållare som finns på virtuella IaaS Linux-datorer eller andra Linux-datorer som kör Docker-behållare. Security Center kontinuerligt bedömer konfigurationen av dessa behållare. Den jämför sedan dem med [Center for Internet Security (CIS) Docker benchmark](https://www.cisecurity.org/benchmark/docker/)).
+Azure Security Center identifierar ohanterade behållare som finns på virtuella IaaS Linux-datorer eller andra Linux-datorer som kör Docker-behållare. Security Center kontinuerligt bedömer konfigurationen av dessa behållare. Den jämför sedan dem med [Center for Internet Security (CIS) Docker-benchmark](https://www.cisecurity.org/benchmark/docker/).
 
 Security Center innehåller hela ruleset av CIS Docker-benchmark och varnar dig om dina behållare inte uppfyller någon av kontrollerna. När det hittar felkonfigurationer genererar Security Center säkerhets rekommendationer. Använd **sidan rekommendationer** för att se rekommendationer och åtgärda problem. Du kan också se rekommendationerna på fliken **behållare** som visar alla virtuella datorer som distribueras med Docker. 
 
@@ -71,9 +71,9 @@ Vi identifierar hot på kluster nivån värd och AKS. Fullständig information f
 ## <a name="container-security-faq"></a>Vanliga frågor om container säkerhet
 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Vilka typer av avbildningar kan Azure Security Center skanning?
-Security Center söker igenom Linux OS-baserade avbildningar. 
+Security Center söker igenom Linux OS-baserade avbildningar som ger shell-åtkomst. 
 
-Qualys-skannern stöder inte "distroless"-avbildningar som bara innehåller ditt program och dess körnings beroenden.
+Qualys-skannern har inte stöd för Super minimalist-bilder som [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-avbildningar som bara innehåller ditt program och dess körnings beroenden (utan paket hanteraren, Shell eller OS).
 
 ### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Hur skannar vi Azure Security Center skanna en avbildning?
 Avbildningen extraheras från registret. Den körs sedan i en isolerad sandbox med Qualys-skannern som extraherar en lista över kända sårbarheter.

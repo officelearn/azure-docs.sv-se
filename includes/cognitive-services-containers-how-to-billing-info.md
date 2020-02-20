@@ -1,32 +1,30 @@
 ---
 author: IEvangelist
 ms.author: dapine
-ms.date: 06/25/2019
+ms.date: 02/19/2020
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: a24300958c27daaaf49cc3045a5e99d77c938ab7
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2ac93f5aba722eea78267a512999a5581a887b99
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "67704250"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474114"
 ---
-Frågor till behållaren debiteras enligt pris nivån för den Azure-resurs som används för `<ApiKey>`.
+Frågor till behållaren debiteras enligt pris nivån för den Azure-resurs som används för `ApiKey`.
 
-Azure Cognitive Services-behållare är inte licensierade för att köras utan att vara ansluten till fakturerings slut punkten för mätning. Du måste göra det möjligt för behållarna att kommunicera fakturerings information med fakturerings slut punkten hela tiden. Cognitive Services behållare skickar inte kund information, till exempel den bild eller text som analyseras, till Microsoft. 
+Azure Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till avläsnings-/fakturerings slut punkten. Du måste göra det möjligt för behållarna att kommunicera fakturerings information med fakturerings slut punkten hela tiden. Cognitive Services behållare skickar inte kund information, till exempel den bild eller text som analyseras, till Microsoft.
 
 ### <a name="connect-to-azure"></a>Anslut till Azure
 
-Containern behöver de fakturerings argument värden som ska köras. Dessa värden tillåter att behållaren ansluter till fakturerings slut punkten. Behållar rapporteringen visar var 10 till 15: e minut. Om behållaren inte ansluter till Azure inom den tillåtna tids perioden fortsätter behållaren att köras men hanterar inte frågor förrän fakturerings slut punkten återställs. Anslutnings försöket görs 10 gånger med samma tidsintervall 10 till 15 minuter. Om det inte går att ansluta till fakturerings slut punkten inom 10 försök, slutar behållaren att köras. 
+Containern behöver de fakturerings argument värden som ska köras. Dessa värden tillåter att behållaren ansluter till fakturerings slut punkten. Behållar rapporteringen visar var 10 till 15: e minut. Om behållaren inte ansluter till Azure inom den tillåtna tids perioden fortsätter behållaren att köras men hanterar inte frågor förrän fakturerings slut punkten återställs. Anslutnings försöket görs 10 gånger med samma tidsintervall 10 till 15 minuter. Om den inte kan ansluta till fakturerings slut punkten inom 10 försök slutar behållaren att betjäna begär Anden.
 
 ### <a name="billing-arguments"></a>Fakturerings argument
 
-För att `docker run` kommandot ska starta behållaren måste alla tre av följande alternativ anges med giltiga värden:
+Kommandot <a href="https://docs.docker.com/engine/reference/commandline/run/" target="_blank">`docker run` <span class="docon docon-navigate-external x-hidden-focus"></span> </a> startar behållaren när alla tre av följande alternativ finns med giltiga värden:
 
 | Alternativ | Beskrivning |
 |--------|-------------|
 | `ApiKey` | API-nyckeln för den Cognitive Services resurs som används för att spåra fakturerings information.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade resurs som anges i `Billing`. |
 | `Billing` | Slut punkten för den Cognitive Services resursen som används för att spåra fakturerings information.<br/>Värdet för det här alternativet måste anges till slut punkts-URI för en etablerad Azure-resurs.|
 | `Eula` | Anger att du har accepterat licensen för behållaren.<br/>Värdet för det här alternativet måste vara inställt på **acceptera**. |
-
-

@@ -1,6 +1,6 @@
 ---
-title: StorSimple-redundans, haveriberedskap till en StorSimple Cloud Appliance | Microsoft Docs
-description: Lär dig hur du växlar över din StorSimple 8000-serien fysiska enheten till en molninstallation.
+title: Redundansväxling och haveri beredskap till en StorSimple Cloud Appliance
+description: Lär dig hur du växlar över din fysiska enhet i StorSimple 8000-serien till en moln installation.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,85 +14,85 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584443"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468753"
 ---
-# <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Växla över till din StorSimple-Molninstallation
+# <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Redundansväxla till din StorSimple Cloud Appliance
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs de steg som krävs för att växla över en StorSimple 8000-serien fysisk enhet till en StorSimple-Molninstallationen om en katastrof inträffar. StorSimple använder funktionen för växling vid fel enhet för att migrera data från en källa fysisk enhet i datacenter till en molninstallation som körs i Azure. Riktlinjerna i den här självstudien gäller för fysiska enheter i StorSimple 8000-serien och molninstallationer som kör programvaruversioner uppdatering 3 och senare.
+I den här självstudien beskrivs de steg som krävs för att redundansväxla en fysisk enhet i StorSimple 8000-serien till en StorSimple Cloud Appliance om det finns en katastrof. StorSimple använder funktionen enhets växling för att migrera data från en fysisk käll enhet i data centret till en moln installation som körs i Azure. Vägledningen i den här självstudien gäller för fysiska enheter i StorSimple 8000-serien och moln apparater som kör program versioner uppdatering 3 och senare.
 
-Om du vill veta mer om redundansväxling av enhet och hur de används för att komma tillrätta med en katastrof kan du gå till [redundans och disaster recovery för StorSimple 8000-serieenheter](storsimple-8000-device-failover-disaster-recovery.md).
+Om du vill veta mer om redundansväxlingen och hur den används för att återställa från en katastrof går du till [redundans och haveri beredskap för StorSimple 8000-serie enheter](storsimple-8000-device-failover-disaster-recovery.md).
 
-Om du vill redundansväxla en fysisk StorSimple-enhet till en annan fysisk enhet går du till [växla över till en fysisk enhet i StorSimple](storsimple-8000-device-failover-physical-device.md). Om du vill redundansväxla en enhet till sig själv, gå till [Redundansväxla till samma fysiska StorSimple-enheten](storsimple-8000-device-failover-same-device.md).
+Om du vill redundansväxla en fysisk StorSimple-enhet till en annan fysisk enhet går du till [redundansväxla till en StorSimple fysisk enhet](storsimple-8000-device-failover-physical-device.md). Om du vill redundansväxla en enhet till sig själv går du till [redundansväxla till samma fysiska StorSimple-enhet](storsimple-8000-device-failover-same-device.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Se till att du har granskat överväganden för redundansväxling av enhet. Mer information går du till [vanliga överväganden för redundansväxling av enhet](storsimple-8000-device-failover-disaster-recovery.md).
+- Se till att du har granskat överväganden för redundansväxling av enhet. Mer information finns i [vanliga överväganden för enhets växling](storsimple-8000-device-failover-disaster-recovery.md).
 
-- Du måste ha en StorSimple-Molninstallationen skapas och konfigureras innan du kör den här proceduren. Om körs uppdaterar 3 programvaruversion eller senare, Överväg att använda en 8020-molninstallationer för DR. Modellen 8020 har 64 TB och använder Premium Storage. Mer information går du till [distribuera och hantera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
+- Du måste ha ett StorSimple Cloud Appliance skapat och konfigurerat innan du kör den här proceduren. Om du kör uppdatering 3 eller senare kan du använda en 8020-moln installation för DR. 8020-modellen har 64 TB och använder Premium Storage. Mer information finns i [distribuera och hantera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="steps-to-fail-over-to-a-cloud-appliance"></a>Steg för att växla över till en molninstallation
+## <a name="steps-to-fail-over-to-a-cloud-appliance"></a>Steg för att redundansväxla till en moln installation
 
-Utför följande steg för att återställa enheten till ett mål StorSimple Cloud Appliance.
+Utför följande steg för att återställa enheten till en mål StorSimple Cloud Appliance.
 
-1.  Kontrollera att den volymbehållare som du vill växla över associeras ögonblicksbilder av molnet. Mer information går du till [använda StorSimple Device Manager-tjänsten för att skapa säkerhetskopior](storsimple-8000-manage-backup-policies-u2.md).
-2. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. I den **enheter** bladet går du till listan över enheter som är anslutna med din tjänst.
-    ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
-3. Välj och klicka på källenheten. Källenheten har de volymbehållare som du vill växla över. Gå till **Inställningar > Volymbehållare**.
+1.  Kontrol lera att den volym behållare som du vill växla över har associerade moln ögonblicks bilder. Mer information finns i [använda StorSimple Enhetshanteraren service för att skapa säkerhets kopior](storsimple-8000-manage-backup-policies-u2.md).
+2. Gå till StorSimple Device Manager-tjänsten och klicka på **Enheter**. På bladet **enheter** går du till listan över enheter som är anslutna till tjänsten.
+    ![Välj enhets](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
+3. Välj och klicka på käll enheten. Käll enheten innehåller de volym behållare som du vill redundansväxla. Gå till **inställningar > volym behållare**.
 
     ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
-4. Välj en volymbehållare som du vill växla över till en annan enhet. Klicka på volymbehållare om du vill visa en lista över volymer i den här behållaren. Välj en volym, högerklicka och klicka på **ta Offline** du koppla från volymen.
+4. Välj en volym behållare som du vill redundansväxla till en annan enhet. Klicka på volym containern om du vill visa listan över volymer i den här behållaren. Välj en volym, högerklicka och klicka sedan på koppla **från** för att koppla från volymen.
 
     ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
-5. Upprepa proceduren för alla volymer i volymbehållaren.
+5. Upprepa processen för alla volymer i volym containern.
 
      ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev7.png)
 
-6. Upprepa det föregående steget för alla de volymbehållare som du vill växla över till en annan enhet.
+6. Upprepa föregående steg för alla volym behållare som du vill redundansväxla till en annan enhet.
 
-7. Gå tillbaka till den **enheter** bladet. I kommandofältet klickar du på **Redundansväxla**.
+7. Gå tillbaka till bladet **enheter** . I kommando fältet klickar du på **redundans**.
 
-    ![Klicka på ett fel under](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
-8. I den **Redundansväxla** bladet utför följande steg:
+    ![Klicka på redundans](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
+8. Utför följande steg på bladet **redundansväxla** :
    
-    1. Klicka på **källa**. Välj de volymbehållare som växlar över. **Endast volymbehållarna med associerade molnögonblicksbilder och offlinevolymer visas.**
+    1. Klicka på **källa**. Välj de volym behållare som ska redundansväxlas. **Endast volym containrarna med tillhör ande moln ögonblicks bilder och offline-volymer visas.**
         ![Välj källa](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
-    2. Klicka på **Target**. Välj ett mål för molninstallationen från den nedrullningsbara listan över tillgängliga enheter. **Endast de enheter som har tillräcklig kapacitet för källan volymbehållare visas i listan.**
+    2. Klicka på **mål**. Välj en mål moln installation i list rutan med tillgängliga enheter. **Endast de enheter som har tillräckligt med kapacitet för att hantera käll volym behållare visas i listan.**
 
         ![Välja mål](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev12.png)
 
-    3. Granska inställningarna för växling vid fel under **sammanfattning** och markera kryssrutan som anger att volymerna i valda volymbehållarna är offline. 
+    3. Granska inställningarna för redundans under **Sammanfattning** och markera kryss rutan som anger att volymerna i de valda volym containrarna är offline. 
 
-        ![Granska inställningarna för växling vid fel](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev13.png)
+        ![Granska redundans inställningar](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev13.png)
 
-9. Ett redundansjobb har skapats. Klicka på meddelandet för jobbet för att övervaka redundansväxlingen.
+9. Ett jobb för redundans har skapats. Klicka på aviseringen om du vill övervaka redundansväxlingen.
 
-    ![Övervakningsjobb för redundans](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev13.png)
+    ![Övervaka jobb för redundans](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev13.png)
 
-10. När redundansväxlingen är klar går du tillbaka till den **enheter** bladet.
+10. När redundansväxlingen är klar går du tillbaka till bladet **enheter** .
 
-    1. Välj den enhet som används som mål för redundans.
+    1. Välj den enhet som användes som mål för redundansväxlingen.
 
        ![Välj enhet](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
-    2. Klicka på **Volymbehållare**. Alla volymcontainrar tillsammans med volymer från den gamla enheten bör visas.
+    2. Klicka på **volym behållare**. Alla volym behållare, tillsammans med volymerna från den gamla enheten, ska listas.
 
-       Om den volymbehållare som du redundansväxlat har lokalt fixerade volymer, har volymerna redundansväxlats som nivåindelade volymer. Lokalt fixerade volymer stöds inte på en StorSimple Cloud Appliance.
+       Om den volym behållare som du har växlat över har lokalt fästa volymer, växlas dessa volymer över som nivåer av volymer. Lokalt fästa volymer stöds inte på en StorSimple Cloud Appliance.
 
-       ![View target volymbehållare](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev17.png)
+       ![Visa mål volym behållare](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev17.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* När du har utfört en redundans, du kan behöva [inaktivera eller ta bort din StorSimple-enhet](storsimple-8000-deactivate-and-delete-device.md).
+* När du har utfört en redundansväxling kan du behöva [inaktivera eller ta bort din StorSimple-enhet](storsimple-8000-deactivate-and-delete-device.md).
 
-* Information om hur du använder StorSimple Device Manager-tjänsten går du till [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Information om hur du använder tjänsten StorSimple Enhetshanteraren finns i [använda StorSimple Enhetshanteraren-tjänsten för att administrera StorSimple-enheten](storsimple-8000-manager-service-administration.md).
 

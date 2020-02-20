@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 39ebbf99ad31cce20eabc20fbdc056c889235713
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152365"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470759"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Data modellering i Azure Time Series Insights för hands version
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver hur du arbetar med tids serie modellen i Azure Time 
 > * Läs om [tids serie modellen](time-series-insights-update-tsm.md)för för hands versioner.
 > * Läs mer om hur du navigerar i förhands gransknings gränssnittet i [Azure Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 
-## <a name="instances"></a>Instanser
+## <a name="instances"></a>instanser
 
 Azure Time Series Insights Explorer stöder instans åtgärderna **skapa**, **läsa**, **Uppdatera**och **ta bort** i webbläsaren. 
 

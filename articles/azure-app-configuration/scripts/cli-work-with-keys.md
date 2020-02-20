@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 11/08/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 366485c8c735af5689e1b2c2e63eb192218f5ce0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433565"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468193"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Arbeta med nyckelvärden i ett Azure App Configuration-arkiv
 
@@ -31,10 +31,6 @@ Det här exempelskriptet skapar ett nytt nyckelvärde i ett Azure App Configurat
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
-
-Du behöver installera Azure App Configuration CLI-tillägget först genom att köra följande kommando:
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -89,9 +85,9 @@ Det här skriptet använder följande kommandon för att arbeta med nyckel värd
 
 | Kommando | Anteckningar |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Skapar eller uppdaterar ett nyckelvärde. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Visar en lista över nyckel värden i ett konfigurations Arkiv för appar. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Tar bort ett nyckelvärde. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Skapar eller uppdaterar ett nyckelvärde. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Visar en lista över nyckel värden i ett konfigurations Arkiv för appar. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Tar bort ett nyckelvärde. |
 
 ## <a name="next-steps"></a>Nästa steg
 

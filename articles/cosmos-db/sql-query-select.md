@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326795"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469943"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
 
@@ -36,19 +36,19 @@ SELECT <select_specification>
   
 - `<select_specification>`  
 
-  Egenskaper eller värde som ska väljas för resultat uppsättningen.  
+  Egenskaper för eller -värde som ska väljas för resultatuppsättningen.  
   
 - `'*'`  
 
-  Anger att värdet ska hämtas utan att göra några ändringar. I synnerhet om det bearbetade värdet är ett objekt hämtas alla egenskaper.  
+  Anger att värdet ska hämtas utan några ändringar. Mer specifikt om bearbetade värdet är ett objekt, hämtas alla egenskaper.  
   
 - `<object_property_list>`  
   
-  Anger listan över egenskaper som ska hämtas. Varje returnerat värde är ett objekt med de angivna egenskaperna.  
+  Anger listan över egenskaper som ska hämtas. Varje returnerade värdet ska vara ett objekt med egenskaper som anges.  
   
 - `VALUE`  
 
-  Anger att JSON-värdet ska hämtas i stället för hela JSON-objektet. Detta, till skillnad från `<property_list>`, radbryts inte det beräknade värdet i ett objekt.  
+  Anger att JSON-värde ska hämtas i stället för det fullständiga JSON-objektet. Detta sker till skillnad från `<property_list>` inte radbryter det projicerade värdet i ett objekt.  
  
 - `DISTINCT`
   
@@ -56,29 +56,29 @@ SELECT <select_specification>
 
 - `<scalar_expression>`  
 
-  Uttryck som representerar det värde som ska beräknas. Mer information finns i avsnittet om [skalära uttryck](sql-query-scalar-expressions.md) .  
+  Uttryck som representerar värdet som ska beräknas. Mer information finns i avsnittet om [skalära uttryck](sql-query-scalar-expressions.md) .  
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
 
-Syntaxen för `SELECT *` är endast giltig om FROM-satsen har deklarerat exakt ett alias. `SELECT *` ger en identitets projektion, vilket kan vara användbart om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
+Den `SELECT *` syntaxen är endast giltig om FROM-satsen har deklarerat exakt ett alias. `SELECT *` ger en identitets projektion som kan vara användbar om ingen projektion behövs. Välj * är bara giltigt om FROM-satsen har angetts och införs bara en enda Indatakällan.  
   
 Både `SELECT <select_list>` och `SELECT *` är "syntaktisk socker" och kan uttryckas i enkla SELECT-uttryck som visas nedan.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
-   motsvarar:  
+   motsvarar att:  
   
    `SELECT from_alias FROM ... AS from_alias ...`  
   
 2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-   motsvarar:  
+   motsvarar att:  
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 ## <a name="examples"></a>Exempel
 
-Följande exempel på URVALs fråga returnerar `address` från `Families` vars `id` matchar `AndersenFamily`:
+Följande exempel på en URVALs fråga returnerar `address` från `Families` vars `id` matchar `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -147,7 +147,7 @@ Resultaten är:
     }]
 ```
 
-I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler: `$1` och `$2`.
+I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder-satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler: `$1` och `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -168,6 +168,50 @@ Resultaten är:
         "name": "AndersenFamily"
       }
     }]
+```
+## <a name="reserved-keywords-and-special-characters"></a>Reserverade nyckelord och specialtecken
+
+Om dina data innehåller egenskaper med samma namn som reserverade nyckelord, till exempel "order" eller "grupp", leder frågorna till dessa dokument av syntaxfel. Du bör uttryckligen inkludera egenskapen i `[]`-tecknen för att köra frågan.
+
+Här är till exempel ett dokument med en egenskap med namnet `order` och en egenskap `price($)` som innehåller specialtecken:
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+Om du kör en fråga som innehåller `order` egenskap eller `price($)` egenskap visas ett syntaxfel.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) > 50
+```
+Resultatet är:
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+Du bör skriva om samma frågor som nedan:
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462640"
+ms.locfileid: "77471354"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -66,7 +66,7 @@ Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka re
 |    FileStorage    | Västeuropa<br /> USA, Östra    |    Endast Azure Files    |
 
 <sup>1</sup> Arkiv nivån stöds för närvarande inte för ZRS-konton.<br />
-<sup>2</sup> Azure-diskar för virtuella datorer, inklusive både hanterade och ohanterade diskar, stöder endast LRS. De stöder inte ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
+<sup>2</sup> Azure-diskar för virtuella datorer, inklusive både hanterade och ohanterade diskar, stöder endast LRS. De stöder inte ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Information om vilka regioner som stöder ZRS finns i **tjänster support efter region** i [Vad är Azure-tillgänglighetszoner?](../../availability-zones/az-overview.md).
 

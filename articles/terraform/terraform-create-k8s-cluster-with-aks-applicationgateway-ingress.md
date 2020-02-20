@@ -3,12 +3,12 @@ title: Självstudie – Skapa en Application Gateway ingress-kontrollant i Azure
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service med Application Gateway som ingress-kontrollant
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772857"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472272"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Självstudie: skapa en Application Gateway ingress-kontrollant i Azure Kubernetes-tjänsten
 
@@ -25,11 +25,11 @@ I den här självstudien får du lära dig hur du utför följande uppgifter:
 > * Använd terraform och AKS för att skapa ett Kubernetes-kluster.
 > * Använd verktyget kubectl för att testa tillgängligheten för ett Kubernetes-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Konfigurera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform och konfigurera åtkomst till Azure)
+- **Konfigurera Terraform**: Följ anvisningarna i artikeln [Terraform and configure access to Azure](terraform-install-configure.md) (Terraform och konfigurera åtkomst till Azure)
 
 - **Azure-resurs grupp**: om du inte har en Azure-resurs grupp som ska användas för demonstrationen [skapar du en Azure-resurs grupp](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Anteckna resurs gruppens namn och plats eftersom dessa värden används i demonstrationen.
 

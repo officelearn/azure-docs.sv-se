@@ -1,24 +1,17 @@
 ---
 title: Granska resursanvändning i Azure-tjänster med REST API | Microsoft Docs
 description: Lär dig hur du använder Azure REST-API:er för att granska resursanvändning i Azure-tjänster.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: eb444f090c1b2047e3d71c1b2ec52699a61bd880
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989311"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200579"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska Azure-resursanvändning med hjälp av REST API
 
@@ -41,7 +34,7 @@ Authorization: Bearer
 
 Parametern `{subscriptionGuid}` är obligatorisk och ska innehålla ett prenumerations-ID som kan läsas med hjälp av de autentiseringsuppgifter som anges i API-token. `{reportName}`
 
-Följande huvuden krävs: 
+Följande huvuden krävs:
 
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
@@ -93,7 +86,7 @@ Filtypen
 
 ## <a name="filtering-reports"></a>Filtrera rapporter
 
-I avsnitten `filter` och `dimensions` i begärandetexten vid skapande av en rapport kan du fokusera på kostnaderna för specifika resurstyper. Föregående begärandetext visar hur du filtrerar efter alla resurser i en region. 
+I avsnitten `filter` och `dimensions` i begärandetexten vid skapande av en rapport kan du fokusera på kostnaderna för specifika resurstyper. Föregående begärandetext visar hur du filtrerar efter alla resurser i en region.
 
 ### <a name="get-all-compute-usage"></a>Hämta all beräkningsanvändning
 
@@ -105,9 +98,9 @@ Använd dimensionen `ResourceType` för att rapportera kostnader för virtuella 
         "name": "ResourceType",
         "operator": "In",
         "values": [
-                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.ClassicCompute/virtualMachines",
                 "Microsoft.Compute/virtualMachines"
-        ] 
+        ]
     }
 }
 ```
@@ -123,7 +116,7 @@ Använd dimensionen `ResourceType` för att rapportera kostnader för Azure SQL 
         "operator": "In",
         "values": [
                 "Microsoft.Sql/servers"
-        ] 
+        ]
     }
 }
 ```

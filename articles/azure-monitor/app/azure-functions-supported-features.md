@@ -8,20 +8,22 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5688bd92e63016e195726488bd9ff9ed039c5795
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ce8fcc827afdf0102a459f2c6b58db45eff72fa0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928407"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467395"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights för Azure Functions stödda funktioner
 
 Azure Functions erbjuder [inbyggd integrering](../../azure-functions/functions-monitoring.md) med Application Insights, som är tillgänglig via ILogger-gränssnittet. Nedan visas en lista över funktioner som stöds för närvarande. Granska Azure Functionss guide för att [komma igång](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
+Mer information om körnings versioner finns [här](../../azure-functions/functions-versions.md).
+
 ## <a name="supported-features"></a>Funktioner som stöds
 
-| Azure Functions                       | V1                | V2 (antändning 2018)  | 
+| Azure Functions                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
 | **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
@@ -31,7 +33,7 @@ Azure Functions erbjuder [inbyggd integrering](../../azure-functions/functions-m
 | &bull; prestanda räknare         | Ja             | Ja               |
 | &bull; beroenden                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Ja               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Service Bus|                 | Ja               | 
 | &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Ja               | 
 | &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Ja               | 
 | | | | 
@@ -42,7 +44,7 @@ Azure Functions erbjuder [inbyggd integrering](../../azure-functions/functions-m
 | &bull; pulsslag                   |                 | Ja               | 
 | | | | 
 | **Korrelation**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Ja               | 
+| &bull; Service Bus                     |                   | Ja               | 
 | &bull; EventHub                       |                   | Ja               | 
 | | | | 
 | **Konfigurerbara**                      |                   |                   |           
@@ -58,7 +60,7 @@ Automatisk insamling av prestanda räknare fungerar bara på Windows-datorer.
 
 De anpassade filter kriterier som du anger skickas tillbaka till komponenten Live Metrics i Application Insights SDK. Filtren kan eventuellt innehålla känslig information, till exempel customerID. Du kan göra kanalen säker med en hemlig API-nyckel. Mer information finns i [skydda kontroll kanalen](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) .
 
-## <a name="sampling"></a>Sampling
+## <a name="sampling"></a>Samling
 
 Azure Functions aktiverar sampling som standard i konfigurationen. Mer information finns i [Konfigurera sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6393c1eeaaa72d653704fcc52442bfb326dc2cdd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479750"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472340"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Kognitiv kunskap om entitets igenkänning
 
@@ -38,7 +38,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Om ingen kategori anges returneras alla typer.|
-|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds: `de, en, es, fr, it`|
+|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Alla enhets kategorier stöds inte för alla språk. se kommentaren nedan.|
 |minimumPrecision | Ett värde mellan 0 och 1. Om förtroende poängen (i `namedEntities` utdata) är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0. |
 |includeTypelessEntities | Ange till `true` om du vill identifiera välkända entiteter som inte passar de aktuella kategorierna. Identifierade entiteter returneras i fältet `entities` komplext utdata. Till exempel är "Windows 10" en välkänd entitet (en produkt), men eftersom "produkter" inte är en kategori som stöds, skulle den här enheten inkluderas i fältet entiteter-utdata. Standardvärdet är `false` |
 
@@ -53,7 +53,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
 > [!NOTE]
-> Alla enhets kategorier stöds inte för alla språk. Endast _en_, _es_ stöder extrahering av `"Quantity"`, `"Datetime"`, `"URL"``"Email"` typer.
+> Alla enhets kategorier stöds inte för alla språk. Kategori typerna `"Person"`, `"Location"`och `"Organization"` entiteter stöds för den fullständiga listan över språk ovan. Endast _de_, _en_, _es_, _fr_och _zh-hans_ har stöd för extrahering av `"Quantity"`, `"Datetime"`, `"URL"`och `"Email"` typer. Mer information finns i [språk-och region stöd för API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
 | Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
@@ -61,9 +61,9 @@ Parametrar är Skift läges känsliga och alla är valfria.
 | platser  | En sträng mat ris där varje sträng representerar en plats. |
 | organisationer  | En sträng mat ris där varje sträng representerar en organisation. |
 | outnyttja  | En sträng mat ris där varje sträng representerar en kvantitet. |
-| Slutdatum  | En sträng mat ris där varje sträng representerar ett DateTime-värde (som det visas i texten). |
+| dateTimes  | En sträng mat ris där varje sträng representerar ett DateTime-värde (som det visas i texten). |
 | er | En sträng mat ris där varje sträng representerar en URL |
-| e-postmeddelanden | En sträng mat ris där varje sträng representerar ett e-postmeddelande |
+| emails | En sträng mat ris där varje sträng representerar ett e-postmeddelande |
 | namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (högre värde innebär att det är mer att vara en riktig entitet)</li></ul> |
 | poster | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> namn (namnet på den faktiska entiteten. Detta representerar en "normaliserad" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sidan för entiteten)</li><li>bingId</li><li>typ (den enhets kategori som identifieras)</li><li>Undertyp (endast tillgängligt för vissa kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchningar (en komplex samling som innehåller)<ul><li>text (den råa texten för entiteten)</li><li>förskjutning (platsen där den hittades)</li><li>längd (längden på texten i den obearbetade entiteten)</li></ul></li></ul> |
 

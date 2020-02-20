@@ -1,31 +1,23 @@
 ---
 title: Granska faktureringsdata för Azure-företagsregistrering med REST API | Microsoft Docs
 description: Lär dig hur du använder Azure REST-API:er för att granska faktureringsinformation för företagsregistrering.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
-ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 222b0358f027e0a6687ca0710e3cf5b80f292c4e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 24c4d9b74d68a05a253f05521ee62a0881a90988
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75993471"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199576"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Granska fakturering för företagsregistrering med hjälp av REST-API:er
 
 Rapporterings-API:er i Azure hjälper dig att granska och hantera dina Azure-kostnader.
 
-I den här artikeln lär du dig att hämta faktureringsinformation som är associerad med faktureringskonton, avdelningskonton eller Enterprise-avtalsregistreringskonton (EA) med hjälp av Azure REST:erna. 
+I den här artikeln lär du dig att hämta faktureringsinformation som är associerad med faktureringskonton, avdelningskonton eller Enterprise-avtalsregistreringskonton (EA) med hjälp av Azure REST:erna.
 
 ## <a name="individual-account-billing"></a>Fakturering för enskilt konto
 
@@ -39,7 +31,7 @@ Authorization: Bearer
 
 Parametern `{billingAccountId}` är obligatorisk och ska innehålla ID:t för kontot.
 
-Följande huvuden krävs: 
+Följande huvuden krävs:
 
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
@@ -80,9 +72,9 @@ Statuskoden 200 (OK) returneras för ett lyckat svar, som innehåller en lista m
 
 Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett faktureringskonto](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy).
 
-## <a name="department-billing"></a>Avdelningsfakturering 
+## <a name="department-billing"></a>Avdelningsfakturering
 
-Hämta aggregerad användningsinformation för alla konton på en avdelning. 
+Hämta aggregerad användningsinformation för alla konton på en avdelning.
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
@@ -92,7 +84,7 @@ Authorization: Bearer
 
 Parametern `{departmentId}` är obligatorisk och ska innehålla ID:t för avdelningen i registreringskontot.
 
-Följande huvuden krävs: 
+Följande huvuden krävs:
 
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
@@ -148,7 +140,7 @@ Authorization: Bearer
 
 Parametern `{enrollmentAccountId}` är obligatorisk och ska innehålla ID:t för registreringskontot.
 
-Följande huvuden krävs: 
+Följande huvuden krävs:
 
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
@@ -185,11 +177,11 @@ I följande exempel visas utdata från REST-API:et för företagsregistrering `1
     }
   ]
 }
-``` 
+```
 
 Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett registreringskonto](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy).
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 - Granska [Översikt över företagsrapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Undersöka [REST API för företagsfakturering](https://docs.microsoft.com/rest/api/billing/)   
 - [Komma igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

@@ -1,21 +1,19 @@
 ---
 title: Snabbstart – Utforska Azure-kostnader med kostnadsanalys | Microsoft Docs
 description: Den här snabbstarten hjälper dig att använda kostnadsanalys för att utforska och analysera dina Azure-organisationskostnader.
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: e77f6ca587a6dcd001b06fac22d974b22d6fee4e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: bc19c6358ff116b3d7299673783e8fbd6e8cd4f5
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188654"
+ms.locfileid: "77201058"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -64,9 +62,9 @@ Den initiala kostnadsanalysvyn innehåller följande områden.
 
 ### <a name="understand-forecast"></a>Förstå en prognos
 
-En kostnadsprognos visar en uppskattning av kostnaderna för den valda tidsperioden. Modellen baseras på en regressionsmodell med en tidsserie. Kostnads- och användningsdata för minst de senaste tio dagarna krävs för att få en korrekt prognostisering av kostnaderna. För en viss tidsperiod behöver prognosmodellen lika delar med träningsdata för prognosperioden. För att göra en uppskattning för tre månader krävs kostnads- och användningsdata för minst de senaste tre månaderna. 
+En kostnadsprognos visar en uppskattning av kostnaderna för den valda tidsperioden. Modellen baseras på en regressionsmodell med en tidsserie. Kostnads- och användningsdata för minst de senaste tio dagarna krävs för att få en korrekt prognostisering av kostnaderna. För en viss tidsperiod behöver prognosmodellen lika delar med träningsdata för prognosperioden. För att göra en uppskattning för tre månader krävs kostnads- och användningsdata för minst de senaste tre månaderna.
 
-Modellen använder maximalt sex månaders träningsdata för att uppskatta kostnaderna för ett år. Den behöver minst sju dagars träningsdata för att ändra förutsägelsen. Förutsägelsen baseras på stora förändringar, till exempel topp- och bottenvärden, i kostnads- och användningsmönster. Prognosen skapar inte enskilda uppskattningar för varje objekt i **Gruppera efter**-egenskaper. Den ger bara en prognos för ackumulerade kostnader totalt. Om du använder flera valutor anger modellen en prognos för kostnaderna endast i USD. 
+Modellen använder maximalt sex månaders träningsdata för att uppskatta kostnaderna för ett år. Den behöver minst sju dagars träningsdata för att ändra förutsägelsen. Förutsägelsen baseras på stora förändringar, till exempel topp- och bottenvärden, i kostnads- och användningsmönster. Prognosen skapar inte enskilda uppskattningar för varje objekt i **Gruppera efter**-egenskaper. Den ger bara en prognos för ackumulerade kostnader totalt. Om du använder flera valutor anger modellen en prognos för kostnaderna endast i USD.
 
 
 ## <a name="customize-cost-views"></a>Anpassa kostnadsvyer

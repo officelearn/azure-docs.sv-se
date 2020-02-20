@@ -1,19 +1,18 @@
 ---
 title: Komma igång med Azure Enterprise-portalen
 description: Den här artikeln förklarar hur kunder med Azure Enterprise-avtal (Azure EA) använder Azure Enterprise-portalen.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 516b3704daee885541cec49b0ee374e050dd4b22
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023352"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200837"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Komma igång med Azure Enterprise-portalen
 
@@ -235,7 +234,7 @@ Tänk på den här viktiga informationen när du överför konton:
   - Från ett arbets- eller skolkonto till ett annat arbets- eller skolkonto.
   - Från ett Microsoft-konto till ett arbets- eller skolkonto.
   - Från ett Microsoft-konto till ett annat Microsoft-konto.
-  
+
     Målkontot måste vara ett giltigt Azure Commerce-konto för att vara ett giltigt mål för överföringar. För nya konton uppmanas du att skapa ett Azure Commerce-konto när du loggar in på Azure Enterprise-portalen. För befintliga konton måste du först skapa en ny Azure-prenumeration innan kontot blir berättigat.
 
 - Du kan inte göra en överföring från ett arbets- eller skolkonto till ett Microsoft-konto.
@@ -285,7 +284,7 @@ Kontoägare kan visa och hantera prenumerationer. Du kan använda prenumeratione
 
 När du skapar olika prenumerationer för varje programmiljö hjälper du till att skydda varje miljö.
 
-- Du kan även tilldela ett annat tjänstadministratörskonto för varje prenumeration. 
+- Du kan även tilldela ett annat tjänstadministratörskonto för varje prenumeration.
 - Du kan associera prenumerationer med valfritt antal tjänster.
 - Kontoägaren skapar prenumerationer och tilldelar ett tjänstadministratörskonto till varje prenumeration i sitt konto.
 
@@ -309,7 +308,7 @@ Så här lägger du till en prenumeration:
 1. Välj **Prenumerationer** och välj sedan den prenumeration som du skapade.
 1. Välj **Redigera prenumerationsinformation**.
 1. Redigera **Prenumerationsnamn** och **Tjänstadministratör** och markera sedan kryssrutan.
-  
+
    Prenumerationsnamnet visas i rapporter. Det är namnet på det projekt som är associerat med prenumerationen i utvecklingsportalen.
 
 Det kan ta upp till 24 timmar innan nya prenumerationer visas i prenumerationslistan. När du har skapat en prenumeration kan du:
@@ -509,14 +508,14 @@ Azure Enterprise-portalen har två typer av prenumerationer för företagskunder
 - Microsoft Azure Enterprise, som passar för:
   - All produktionsanvändning
   - Bästa priser baserat på infrastrukturutgifter
-  
+
   [Kontakta Azure-säljavdelningen](https://azure.microsoft.com/pricing/enterprise-agreement/) om du vill få mer information.
 
 - Enterprise Dev/Test, som passar för:
   - Alla utvecklar-/testarbetsbelastningar
   - Medelstor till stor enskild utvecklar-/testarbetsbelastning
   - Åtkomst till särskilda MSDN-avbildningar och priser för förmånstjänster
-  
+
   Mer information finns i [Enterprise Dev/Test-erbjudande](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>Kan jag överföra äganderätten till prenumerationen till ett annat konto?

@@ -2,21 +2,18 @@
 title: Ändra ditt kreditkort för Azure
 description: Beskriver hur du ändrar det kreditkort som används för att betala för en Azure-prenumeration.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 10d475b9c0c33dfd17c3d87beed00154511e1ab6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188411"
+ms.locfileid: "77199865"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort för Azure
 
@@ -118,7 +115,7 @@ Om ditt kreditkort är den aktiva betalningsmetoden för någon av dina Microsof
 
 Följande avsnitt gäller för kunder som har ett Microsoft-kundavtal och som har registrerat sig för Azure Online med ett kreditkort. [Läs om hur du kontrollerar om du har ett Microsoft-kundavtal](#check-the-type-of-your-account).
 
-### <a name="change-default-credit-card"></a>Ändra standardkreditkort 
+### <a name="change-default-credit-card"></a>Ändra standardkreditkort
 Om du har ett Microsoft-kundavtal är ditt kreditkort kopplat till en faktureringsprofil. För att kunna ändra betalningsmetoden för en faktureringsprofil måste du vara den person som registrerade sig för Azure och skapade faktureringskontot.
 
 Om du vill ändra standardbetalningsmetoden till check/banköverföring kan du läsa [Betala för Azure-prenumerationer med faktura](pay-by-invoice.md).

@@ -1,19 +1,18 @@
 ---
 title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: 37af492ae156aa880c55034550d4165ec046e74f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023403"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199763"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -71,11 +70,11 @@ Datumet du fick på överförbrukningsfakturan beror på startdatumet och konfig
   - Avgifter som inte täcks av ditt betalningsåtagande betalas som överförbrukning.  
 
 - **Indirekta registreringar med en registrering som startat före 1 maj 2018**:
-  
+
   Om du har ett Enterprise-avtal med indirekt registrering med ett startdatum före den 1 maj 2018 faktureras du kvartalsvis. Kanalpartnern fakturerar dig direkt.  
 
 - **Indirekta registreringar med startdatum efter 1 maj 2018**:
-  
+
   Du faktureras per månad.  
 
 ### <a name="increase-your-monetary-commitment"></a>Öka ditt betalningsåtagande
@@ -617,7 +616,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 - **Exclusions**:
   - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
   - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
   -->
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Så här kommer du åt Microsoft Azure Consumption Insights:
@@ -630,7 +629,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. När den är klar visas en ny instrumentpanel, rapport och modell i navigeringsfönstret. Välj instrumentpanelen för att visa dina importerade data.
 
 > [!TIP]
-> 
+>
 > - Information om hur du skapar API-nyckeln för din registrering finns i hjälpfilen för API-rapporter i [Enterprise-portalen](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
 > - Mer information om hur du ansluter Power BI till din Azure-förbrukning finns i [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 

@@ -1,24 +1,20 @@
 ---
 title: Automationsscenarier för fakturering och kostnadshantering i Azure | Microsoft Docs
 description: Lär dig hur vanliga scenarier för fakturering och kostnadshantering mappas till olika API:er.
-services: billing
-documentationcenter: ''
 author: bandersmsft
-manager: dougeby
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
-ms.workload: billing
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: c9de7d5f7661e4083d3a2f5b53368616d0e6655a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e5e3f36888a4bbf18ec601f5c361ed7ca2563aa6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75992821"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199797"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Automationsscenarier för fakturering och kostnadshantering
 

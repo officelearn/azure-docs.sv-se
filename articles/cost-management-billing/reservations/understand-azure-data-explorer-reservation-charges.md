@@ -1,19 +1,18 @@
 ---
 title: Förstå hur reservationsrabatten tillämpas för Azure Data Explorer
 description: Lär dig hur reservationsrabatten tillämpas för Azure Data Explorer-påläggsmätare.
-services: data-explorer
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/12/2020
+ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995629"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199338"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Förstå hur reservationsrabatten tillämpas för Azure Data Explorer
 
@@ -36,23 +35,23 @@ En reservationsrabatt tillämpas på Azure Data Explorer-påläggsförbrukningen
 ## <a name="examples"></a>Exempel
 
 I följande exempel visas hur rabatten för reserverad Azure Data Explorer-kapacitet tillämpas beroende på det antal påläggsenheter som du har köpt och när de körs.
-Exempel för motorklusterstorlek: **2 virtuella D11_v2-datorer**: dina totala på begäran-avgifter är för fyra enheter Azure Data Explorer-påläggsmätare per timme. 
+Exempel för motorklusterstorlek: **2 virtuella D11_v2-datorer**: dina totala på begäran-avgifter är för fyra enheter Azure Data Explorer-påläggsmätare per timme.
 
-**Scenario 1** 
+**Scenario 1**
 
 Du köper en reserverad Azure Data Explorer-kapacitet för 8 Azure Data Explorer-påläggsenheter. Du kör ett motorkluster med två virtuella D13_v2-datorer med totalt 16 kärnor som debiteras för 16 enheter Azure Data Explorer-påläggsenheter per timme och matchar resten av attributen för reservationen. Du debiteras Betala per användning-priset för åtta kärnor Azure Data Explorer-beräkningsanvändning och får reservationsrabatten för en timmes påläggsenhetsanvändning för åttakärnig Azure Data Explorer.
 
 För resten av dessa exempel förutsätter vi att den reserverade Azure Data Explorer-kapacitet som du köper är avsedd för ett 16-kärnigt Azure Data Explorer-kluster och att resten av reservationens attribut matchar det Azure Data Explorer-kluster som körs.
 
-**Scenario 2** 
+**Scenario 2**
 
 Du kör två Azure Data Explorer-motorkluster med åtta kärnor i en timme i två olika regioner. Reservationsrabatten för 16 kärnor tillämpas för båda klustren och för de 16 enheter Azure Data Explorer-påläggsenheter de förbrukar.
 
-**Scenario 3** 
+**Scenario 3**
 
 Du kör ett 16-kärnigt Azure Data Explorer-motorkluster från kl. 13:00 till kl. 13:30. Du kör ett annat 16-kärnigt Azure Data Explorer-motorkluster från kl. 13:30 till kl. 14:00. Båda omfattas av reservationsrabatten.
 
-**Scenario 4** 
+**Scenario 4**
 
 Du kör ett 16-kärnigt Azure Data Explorer-motorkluster från kl. 13:00 till kl. 13:45. Du kör ett annat 16-kärnigt Azure Data Explorer-motorkluster från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för Azure Data Explorer-påläggsanvändningen för resten av tiden.
 

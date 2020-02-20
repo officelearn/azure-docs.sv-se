@@ -3,21 +3,18 @@ title: Visa och ladda ned din faktura för Microsoft Azure
 description: Beskriver hur du visar och laddar ned din Microsoft Azure-faktura.
 keywords: billing invoice,invoice download,azure invoice,azure usage
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987829"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200273"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visa och ladda ned din faktura för Microsoft Azure
 
@@ -87,7 +84,7 @@ Om du vill avanmäla dig från att få fakturor via e-post följer du föregåen
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Få fakturor för Microsoft-kundavtal via e-post
 
-Om du har ett faktureringskonto för Microsoft-kundavtal kan du anmäla dig för att få dina fakturor via e-post. Alla användare med rollen ägare, deltagare, läsare eller fakturaansvarig i en faktureringsprofil får rollens faktura via e-post. 
+Om du har ett faktureringskonto för Microsoft-kundavtal kan du anmäla dig för att få dina fakturor via e-post. Alla användare med rollen ägare, deltagare, läsare eller fakturaansvarig i en faktureringsprofil får rollens faktura via e-post.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -109,11 +106,11 @@ Om du har ett faktureringskonto för Microsoft-kundavtal kan du anmäla dig för
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Avanmäla sig från att få fakturor för Microsoft-kundavtal via e-post
 
-Om du vill avanmäla dig från att få fakturor via e-post följer du föregående steg och klickar på **Avanmäl**. Alla användare med rollen ägare, deltagare, läsare eller fakturaansvarig avanmäls från att få fakturan via e-post. 
+Om du vill avanmäla dig från att få fakturor via e-post följer du föregående steg och klickar på **Avanmäl**. Alla användare med rollen ägare, deltagare, läsare eller fakturaansvarig avanmäls från att få fakturan via e-post.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Ge andra åtkomst till dina Microsoft-kundavtalsfakturor
 
-Du kan ge andra åtkomst att visa, ladda ned och betala fakturor genom att tilldela dem rollen som fakturaansvarig för en faktureringsprofil. Om du har anmält dig för att få din faktura via e-post får dessa användare också fakturorna via e-post. 
+Du kan ge andra åtkomst att visa, ladda ned och betala fakturor genom att tilldela dem rollen som fakturaansvarig för en faktureringsprofil. Om du har anmält dig för att få din faktura via e-post får dessa användare också fakturorna via e-post.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 

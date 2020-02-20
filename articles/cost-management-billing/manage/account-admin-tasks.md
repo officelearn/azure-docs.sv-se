@@ -2,21 +2,18 @@
 title: Kontoadministratörsuppgifter i Azure-portalen
 description: Beskriver hur du utför betalningsåtgärder i Azure-portalen
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 2f858fa7715145d55cf1c978b9c368e1f6586dce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132139"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201007"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Kontoadministratörsuppgifter i Azure-portalen
 
@@ -25,35 +22,35 @@ I den här artikeln beskrivs hur du utför följande uppgifter i Azure-portalen:
 - Ta bort prenumerationens utgiftsgräns
 - Lägga till krediter till din Azure i Open-prenumeration
 
-Du måste vara kontoadministratör för att utföra dessa uppgifter. 
+Du måste vara kontoadministratör för att utföra dessa uppgifter.
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Navigera till prenumerationens betalningsmetoder
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör. 
+1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
 
 1. Sök efter **Kostnadshantering + fakturering**.
-    
+
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du den prenumeration som du vill lägga till kreditkortet till. 
-   
+1. I listan **Mina prenumerationer** väljer du den prenumeration som du vill lägga till kreditkortet till.
+
    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-billing-overview-x.png)
-   
+
    > [!NOTE]
-   > Om du inte ser några av dina prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2. 
+   > Om du inte ser några av dina prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
 
 1. Välj **Betalningsmetoder**.
 
     ![Skärmbild som visar bladet betalningsmetoder markerat.](./media/account-admin-tasks/subscription-payment-methods-blade.png)
 
-Här kan du lägga till ett nytt kreditkort, ändra den aktiva betalningsmetoden, redigera kreditkortsuppgifter och ta bort kreditkort. 
+Här kan du lägga till ett nytt kreditkort, ändra den aktiva betalningsmetoden, redigera kreditkortsuppgifter och ta bort kreditkort.
 
 ### <a name="change-active-payment-method"></a>Ändra aktiv betalningsmetod
 
 Du kan ändra den aktiva betalningsmetoden genom att lägga till ett nytt kreditkort eller välja ett som redan har sparats. Om du vill ändra den aktiva betalningsmetoden till ett nytt kreditkort:
 
 1. Välj ”+” i det övre vänstra hörnet om du vill lägga till ett kreditkort.
-    
+
     ![Skärmbild som visar plustecken](./media/account-admin-tasks/subscription-payment-methods-plus.png)
 
 1. Ange kreditkortsinformation i formuläret till höger.
@@ -111,7 +108,7 @@ Om du vill godkänd att betala med faktura kan du [läsa om hur du betalar med f
 
 ### <a name="edit-invoice-payment-address"></a>Redigera fakturabetalningsadress
 
-Om du vill redigera adressen för din fakturabetalningsmetod klickar du på **Faktura** i listan över betalningsmetoder för din prenumeration. Adressformuläret öppnas till höger. 
+Om du vill redigera adressen för din fakturabetalningsmetod klickar du på **Faktura** i listan över betalningsmetoder för din prenumeration. Adressformuläret öppnas till höger.
 
 ## <a name="remove-spending-limit"></a>Ta bort utgiftsgräns
 
@@ -124,15 +121,15 @@ Utgiftsgränsen är inte tillgänglig för prenumerationer med åtagandeplaner e
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du din Visual Studio Enterprise-prenumeration. 
+1. I listan **Mina prenumerationer** väljer du din Visual Studio Enterprise-prenumeration.
 
    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Om du inte ser några av dina Visual Studio-prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
-    
+
 1. I prenumerationsöversikten klickar du på den orangefärgade banderollen för att ta bort utgiftsgränsen.
-    
+
     ![Skärmbild som visar banderollen Ta bort utgiftsgräns](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
 
 1. Välj om du vill ta bort utgiftsgränsen på obestämd tid eller bara för den aktuella faktureringsperioden.
@@ -152,15 +149,15 @@ Om du har en prenumeration på Azure i Open-licensiering kan du lägga till kred
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du din prenumeration på Azure i Open-licensiering. 
+1. I listan **Mina prenumerationer** väljer du din prenumeration på Azure i Open-licensiering.
 
     ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
    > [!NOTE]
    > Om du inte ser din prenumeration här kan det bero på att du har ändrat katalog vid något tillfälle. Du måste ändra prenumerationskatalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
-    
+
 1. Välj **Kredithistorik**.
-    
+
     ![Skärmbild som visar kredithistorik](./media/account-admin-tasks/aio-credit-history-blade.png)
 
 1. Välj ”+” i det övre vänstra hörnet om du vill lägga till mer kredit.
@@ -168,7 +165,7 @@ Om du har en prenumeration på Azure i Open-licensiering kan du lägga till kred
     ![Skärmbild som visar knappen Lägg till kredit](./media/account-admin-tasks/aio-credit-history-plus.png)
 
 1. Välj en betalningsmetod i listrutan. Du kan lägga till en produktnyckel eller köpa krediter med ett kreditkort.
-    
+
     ![Skärmbild som visar listrutan Betalningsmetod på bladet Lägg till kredit](./media/account-admin-tasks/add-credits-select-payment-method.png)
 
 1. Om du väljer produktnyckel:

@@ -2,21 +2,18 @@
 title: Förstå fakturan för ditt Microsoft-partneravtal i Azure
 description: Lär dig att läsa och förstå fakturan för ditt Microsoft-partneravtal i Azure
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: fcebe02d62beba1e48759c0298a18b26f3a61cbf
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 2aca67b5e73bf7f02ac6bca27569265339b0eae6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133310"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200171"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Termer på fakturan för ditt Microsoft-partneravtal
 

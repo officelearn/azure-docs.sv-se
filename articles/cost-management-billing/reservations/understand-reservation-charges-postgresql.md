@@ -8,17 +8,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2019
-ms.openlocfilehash: 2f1843690861a463c634f523e82facffc72b6743
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/13/2020
+ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995512"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199304"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Så tillämpas en reservationsrabatt på Azure Database for PostgreSQL – enskild server
 
-När du har köpt en reserverad kapacitet för Azure Database for PostgreSQL – enskild server tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar bara beräkningskostnaderna för Azure Database for PostgreSQL – enskild server. Du debiteras för lagring och nätverk enligt de vanliga priserna. 
+När du har köpt en reserverad kapacitet för Azure Database for PostgreSQL – enskild server tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar bara beräkningskostnaderna för Azure Database for PostgreSQL – enskild server. Du debiteras för lagring och nätverk enligt de vanliga priserna.
 
 ## <a name="how-reservation-discount-is-applied"></a>Så tillämpas reservationsrabatten
 

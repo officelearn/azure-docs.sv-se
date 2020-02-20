@@ -2,21 +2,18 @@
 title: Spåra Azure-kreditbalansen för ett Microsoft-kundavtal
 description: Lär dig hur du spårar Azure-kreditbalansen för ett Microsoft-kundavtal.
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2019
 ms.author: banders
-ms.openlocfilehash: c8ea083e216331904c9d5741b97f69b7f5a8249a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75991339"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199695"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
@@ -28,7 +25,7 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
 ## <a name="check-your-credit-balance"></a>Kontrollera ditt kreditsaldo
 
-### <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -99,7 +96,7 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
     ![Skärmbild av kreditlista för ett faktureringskonto](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-### <a name="rest-apitabrest"></a>[REST-API](#tab/rest)
+### <a name="rest-api"></a>[REST-API](#tab/rest)
 
 Du kan använda API:erna [Azure Billing](https://docs.microsoft.com/rest/api/billing/) och [Consumption](https://docs.microsoft.com/rest/api/consumption/) till att kontrollera kreditsaldot för ditt faktureringskonto programmatiskt.
 

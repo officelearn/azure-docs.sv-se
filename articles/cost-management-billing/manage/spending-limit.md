@@ -2,21 +2,18 @@
 title: Utgiftsgräns för Azure | Microsoft Docs
 description: I den här artikeln beskrivs hur en utgiftsgräns för Azure fungerar samt hur du tar bort den.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188292"
+ms.locfileid: "77200562"
 ---
 # <a name="azure-spending-limit"></a>Utgiftsgräns i Azure
 
@@ -47,21 +44,21 @@ Om du har ett kostnadsfritt Azure-konto kan du läsa mer om att ta bort utgiftsg
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/spending-limit/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du din prenumeration. Till exempel *Visual Studio Enterprise*. 
+1. I listan **Mina prenumerationer** väljer du din prenumeration. Till exempel *Visual Studio Enterprise*.
 
    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Om du inte ser några av dina Visual Studio-prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
-    
+
 1. I prenumerationsöversikten klickar du på den orangefärgade banderollen för att ta bort utgiftsgränsen.
-    
+
     ![Skärmbild som visar banderollen Ta bort utgiftsgräns](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
 
 1. Välj om du vill ta bort utgiftsgränsen på obestämd tid eller bara för den aktuella faktureringsperioden.
-    
+
       ![Skärmbild som visar bladet Ta bort utgiftsgräns](./media/spending-limit/remove-spending-limit-blade-x.png)
-    
+
       | Alternativ | Verkan |
       | --- | --- |
       | Ta bort utgiftsgränsen på obestämd tid | Utgiftsgränsen aktiveras inte automatiskt igen vid början av nästa faktureringsperiod. Men du kan aktivera den igen när du vill. |
@@ -91,13 +88,13 @@ Den här funktionen är bara tillgänglig när du har tagit bort utgiftsgränsen
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/spending-limit/search-bar.png)
 
-1. I listan **Mina prenumerationer** väljer du din prenumeration. Till exempel *Visual Studio Enterprise*. 
+1. I listan **Mina prenumerationer** väljer du din prenumeration. Till exempel *Visual Studio Enterprise*.
 
    ![Skärmbild som visar Mina prenumerationer-rutnätet i översikt](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > Om du inte ser några av dina Visual Studio-prenumerationer här, kan det bero på att du har ändrat prenumerationskatalogen vid något tillfälle. För dessa prenumerationer måste du ändra katalog till den ursprungliga katalogen (katalogen där du registrerade dig). Upprepa sedan steg 2.
-    
+
 1. I prenumerationsöversikten klickar du på banderollen längst upp på sidan för att aktivera utgiftsgränsen igen.
 
 ## <a name="custom-spending-limit"></a>Anpassad utgiftsgräns

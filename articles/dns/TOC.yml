@@ -113,6 +113,10 @@
           href: dns-sdk.md
         - name: Anpassade domäner för Azure-resurser
           href: dns-custom-domain.md
+    - name: Privat DNS
+      items:
+        - name: Skydda privata DNS-zoner och -poster
+          href: dns-protect-private-zones-recordsets.md
     - name: Felsöka
       items:
         - name: Felsökningsguide

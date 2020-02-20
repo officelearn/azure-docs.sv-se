@@ -527,7 +527,7 @@
               href: platform/resource-logs-blob-format.md
         - name: Strömma data till Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
-    - name: Övervaka virtuella datorer och beräkning
+    - name: Övervaka virtuella datorer och gästoperativsystem
       items:
         - name: Agenter
           items:
@@ -537,13 +537,15 @@
               href: 'faq.md#agents'
             - name: Azure Diagnostics-tillägg
               items:
+                - name: Översikt
+                  href: platform/diagnostics-extension-overview.md
                 - name: Windows
                   displayname: diagnostics extension
                   items:
-                    - name: Översikt
-                      href: platform/diagnostics-extension-overview.md
                     - name: Installera och konfigurera
                       items:
+                        - name: Installationsalternativ
+                          href: platform/diagnostics-extension-windows-install.md
                         - name: PowerShell
                           href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
                         - name: Resource Manager-mall
@@ -561,13 +563,11 @@
                     - name: Skicka till Event Hubs
                       href: platform/diagnostics-extension-stream-event-hubs.md
                     - name: Skicka till loggar
-                      href: platform/azure-storage-iis-table.md
-                    - name: Skicka till Azure Storage
-                      href: platform/diagnostics-extension-to-storage.md
+                      href: platform/diagnostics-extension-logs.md
                     - name: Skicka till Application Insights
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: Versionshistorik
-                      href: platform/diagnostics-extension-schema.md
+                      href: platform/diagnostics-extension-versions.md
                     - name: JSON Lines-format för resursloggar
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: Felsökning
@@ -588,9 +588,9 @@
                 - name: Linux-agenter
                   href: platform/agent-linux.md
                 - name: VM-tillägg för Windows
-                  href: ../virtual-machines/windows/extensions-oms.md
+                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
                 - name: VM-tillägg för Linux
-                  href: ../virtual-machines/linux/extensions-oms.md
+                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
                 - name: Log Analytics-gatewayen
                   href: platform/gateway.md
                 - name: Agenthantering
@@ -1151,8 +1151,8 @@
       href: service-limits.md
     - name: Diagnostics-tillägg
       items:
-        - name: Schema
-          href: platform/diagnostics-extension-schema-1dot3.md
+        - name: Windows-konfigurationsschema
+          href: platform/diagnostics-extension-schema-windows.md
     - name: Ändringar i terminologi
       href: terminology.md
     - name: Application Insights

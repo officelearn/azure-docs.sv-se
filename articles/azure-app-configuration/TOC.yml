@@ -1,4 +1,4 @@
-- name: Dokumentation om förhandsversionen av Azure App Configuration
+- name: Dokumentation om Azure App Configuration
   href: index.yml
 - name: Översikt
   items:
@@ -59,6 +59,8 @@
   items:
     - name: Nyckelvärdeslagring
       href: concept-key-value.md
+    - name: Kryptering med kundhanterade nycklar
+      href: concept-customer-managed-keys.md
     - name: Tidpunktsbaserad ögonblicksbild
       href: concept-point-time-snapshot.md
     - name: Funktionshantering
@@ -67,14 +69,18 @@
       href: concept-github-action.md
     - name: Händelsehantering
       href: concept-app-configuration-event.md
+    - name: Autentisering
+      items:
+        - name: Integrera med hanterade Azure-identitet
+          href: howto-integrate-azure-managed-service-identity.md
+        - name: Aktivera åtkomst med Azure Active Directory
+          href: concept-enable-rbac.md
     - name: Hög tillgänglighet
       items:
         - name: Återhämtning och haveriberedskap
           href: concept-disaster-recovery.md
 - name: Anvisningar
   items:
-    - name: Integrera med hanterade Azure-identitet
-      href: howto-integrate-azure-managed-service-identity.md
     - name: Importera eller exportera konfigurationsdata
       href: howto-import-export-data.md
     - name: Dirigera händelser till en anpassad slutpunkt
@@ -86,12 +92,12 @@
     - name: Konfiguration
       items:
         - name: Azure CLI
-          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
         - name: .NET Core-provider
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: .NET Framework-verktyg
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Azure SDK för .Net
+        - name: Azure SDK för .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Java Spring-provider
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'

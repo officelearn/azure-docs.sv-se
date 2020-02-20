@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
-ms.openlocfilehash: a994a72ae57b39dba8025e7636e0f822f483bc8c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720681"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472425"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Snabb start: skapa en färdigheter för Azure Kognitiv sökning kognitivt i Azure Portal
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 I den här snabb starten används Azure Kognitiv sökning Azure [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)och [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. 
 
-Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner dagligen per indexerare när de anropas från Azure Kognitiv sökning. Så länge du använder de exempel data som vi tillhandahåller kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
+Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner. För en sådan liten data uppsättning kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
 
 1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. Zippa upp filerna.
 
@@ -170,12 +170,12 @@ Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurs
 
 Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
-> [!Tip]
-> Ta bort indexeraren i portalen om du vill upprepa den här övningen eller testa en annan AI-anrikning. Om du tar bort indexeraren återställs den kostnads fria dagliga transaktions räknaren tillbaka till noll för Cognitive Services bearbetning.
-
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan skapa färdighetsuppsättningar med hjälp av portalen, .NET SDK eller REST API. Om du vill veta mer om din kunskap kan du prova REST API med Postman och fler exempel data.
 
 > [!div class="nextstepaction"]
 > [Självstudie: Extrahera text och struktur från JSON-blobbar med hjälp av REST API: er](cognitive-search-tutorial-blob.md)
+
+> [!Tip]
+> Ta bort indexeraren i portalen om du vill upprepa den här övningen eller testa en annan AI-anrikning. Om du tar bort indexeraren återställs den kostnads fria dagliga transaktions räknaren tillbaka till noll för Cognitive Services bearbetning.

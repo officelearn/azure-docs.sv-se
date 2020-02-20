@@ -6,20 +6,20 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/17/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 2a303070b7240bddfd4803ed3d4d796fa52fdef5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 346795b79a78589d949b035a803a67a9e5a2e8e5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906638"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470742"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Snabb start: analysera data med Databricks
 
 I den här snabb starten kör du ett Apache Spark jobb med Azure Databricks för att utföra analyser på data som lagras i ett lagrings konto. Som en del av Spark-jobbet analyserar du prenumerationsdata för en radiokanal, så att du får insikter om kostnadsfri/betald användning baserat på demografiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -34,11 +34,11 @@ I den här snabb starten kör du ett Apache Spark jobb med Azure Databricks för
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
-2. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
+2. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
     ![Skapa en Azure Databricks-arbetsyta](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Skapa en Azure Databricks-arbetsyta")
 
@@ -82,7 +82,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan och kör sedan kodfragment för att konfigurera lagringskontot.
 
-1. Gå till arbetsytan Azure Databricks som du skapat i [Azure portal](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
+1. Gå till arbetsytan Azure Databricks som du skapat i [Azure-portalen](https://portal.azure.com). Välj sedan **Starta arbetsyta**.
 
 2. Välj **Arbetsyta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
@@ -107,14 +107,7 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
-
-    > [!NOTE]
-    > Det här kodblocket kommer åt Data Lake Gen2-slutpunkten direkt genom OAuth, men det finns även andra sätt att ansluta Databricks-arbetsytan till ditt Data Lake Storage Gen2-konto. Du kan till exempel montera behållaren med hjälp av OAuth eller använda en direkt åtkomst med delad nyckel. <br>Exempel på de här metoderna finns i artikeln om [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen.
-
 5. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `appID`, `password` och `tenant-id` i det här kodblocket med de värden som du hämtade när du skapade tjänsthuvudnamnet. Ange `container-name` placeholder-värde till det namn som du vill ge behållaren.
-
-    > [!NOTE]
-    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
 
 6. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
@@ -180,7 +173,7 @@ Utför följande åtgärder för att köra ett Spark SQL-jobb på data.
     - Ställ in **Värden** på **nivå**.
     - Ställ in **Sammansättning** på **COUNT** (Antal).
 
-6. Klicka på **Använd**.
+6. Klicka på **Verkställ**.
 
 7. Utdata visar den visuella representationen som visas i följande skärmbild:
 
@@ -196,7 +189,13 @@ Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förut
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data i ett lagringskonto med Data Lake Storage Gen2 aktiverat. Du kan också titta på [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) för att lära dig att importera data från andra datakällor till Azure Databricks. Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
+I den här artikeln skapade du ett Spark-kluster i Azure Databricks och körde ett Spark-jobb med hjälp av data i ett lagringskonto med Data Lake Storage Gen2 aktiverat.
+
+Gå till nästa artikel om du vill lära dig hur du utför en ETL-åtgärd (extrahera, transformera och läsa in data) med Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)
+>[Extrahera, transformera och läsa in data med Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+
+- Information om hur du importerar data från andra data källor till Azure Databricks finns i [Spark-datakällor](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+
+- Information om andra sätt att komma åt Azure Data Lake Storage Gen2 från en Azure Databricks arbets yta finns i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8c2ae82bae8457a1c715f160994c7a0da94193ff
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: bd7801c84860ddba3c3991bce9352c595adb123f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134497"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469052"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -69,15 +69,17 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Köra appen](#run-the-app). 
 
+### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Hantera databas resurser med synkron (Sync) API
+
 * `CosmosClient`-initiering. `CosmosClient` tillhandahåller logisk representation på klient sidan för Azure Cosmos Database-tjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
-* CosmosDatabase skapas.
+* `CosmosDatabase` skapas.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
-* CosmosContainer skapas.
+* `CosmosContainer` skapas.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
@@ -85,13 +87,41 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
    
-* Punkt läsningar utförs med `getItem` och `read` metod
+* Punkt läsningar utförs med `readItem` metod.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
 * SQL-frågor över JSON utförs med hjälp av metoden `queryItems`.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+
+### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Hantera databas resurser med asynkron (asynkron) API
+
+* Asynkrona API-anrop returneras omedelbart, utan att vänta på ett svar från servern. Till följd av detta visar följande kodfragment lämpliga design mönster för att utföra alla tidigare hanterings uppgifter med hjälp av asynkront API.
+
+* `CosmosAsyncClient`-initiering. `CosmosAsyncClient` tillhandahåller logisk representation på klient sidan för Azure Cosmos Database-tjänsten. Den här klienten används för att konfigurera och köra asynkrona begär Anden mot tjänsten.
+    
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
+
+* `CosmosAsyncDatabase` skapas.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateDatabaseIfNotExists)]
+
+* `CosmosAsyncContainer` skapas.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateContainerIfNotExists)]
+
+* Precis som med Sync-API: et skapas objektet med hjälp av metoden `createItem`. Det här exemplet visar hur du effektivt kan utfärda flera asynkrona `createItem` begär Anden genom att prenumerera på en reaktiv ström som skickar begär Anden och skriver ut meddelanden. Eftersom det här enkla exemplet körs för att slutföras och avslutas, används `CountDownLatch` instanser för att se till att programmet inte avslutas när objektet skapas. **Den rätta metoden för asynkron programmering är inte att blockera vid asynkrona anrop – i realistiska frågor om användnings fall genereras från en Main ()-loop som körs oändligt, vilket eliminerar behovet av att låsa på asynkrona anrop.**
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
+   
+* Precis som med Sync-API: et utförs punkt läsningar med hjälp av metoden `readItem`.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
+
+* Precis som med Sync-API: et utförs SQL-frågor över JSON med hjälp av metoden `queryItems`.
+
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
 
 ## <a name="run-the-app"></a>Kör appen
 
@@ -109,10 +139,10 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
     mvn package
     ```
 
-3. I git-terminalfönstret använder du följande kommando för att starta Java-programmet (ersätt YOUR_COSMOS_DB_HOSTNAME med det angivna URI-värdet från portalen och ersätt YOUR_COSMOS_DB_MASTER_KEY med den angivna primärnyckeln från portalen)
+3. I git-terminalfönstret använder du följande kommando för att starta Java-programmet (Ersätt SYNCASYNCMODE med `sync` eller `async` beroende på vilken exempel kod du vill köra, ersätter YOUR_COSMOS_DB_HOSTNAME med det citerade URI-värdet från portalen och ersätter YOUR_COSMOS_DB_MASTER_KEY med den citerade primär nyckeln från portalen)
 
     ```bash
-    mvn exec:java -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
+    mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
 
     ```
 
@@ -125,7 +155,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 7. Appen tar inte bort de skapade resurserna. Växla tillbaka till portalen för att [rensa resurserna](#clean-up-resources).  från ditt konto så att du inte debiteras.
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 

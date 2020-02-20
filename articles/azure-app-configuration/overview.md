@@ -1,23 +1,21 @@
 ---
-title: Vad är Azure App konfiguration?
+title: Vad är Azure App Configuration?
 description: En översikt över tjänsten Azure App Configuration.
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/24/2019
-ms.openlocfilehash: 22ebfc53405149358b0a2a03cd256a78db5d1910
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899326"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467563"
 ---
-# <a name="what-is-azure-app-configuration"></a>Vad är Azure App konfiguration?
+# <a name="what-is-azure-app-configuration"></a>Vad är Azure App Configuration?
 
 Azure App-konfigurationen tillhandahåller en tjänst för att centralt hantera program inställningar och funktions flaggor. Moderna program, särskilt program som körs i ett moln, har vanligt vis många komponenter som är fördelade i natur. Om konfigurationsinställningar sprids mellan dessa komponenter kan det ge upphov till fel som är svåra att felsöka under en programdistribution. Använd app-konfiguration för att lagra alla inställningar för ditt program och skydda deras åtkomst på en och samma plats.
-
-App-konfigurationen är för närvarande en offentlig för hands version. Det är kostnads fritt att använda under för hands perioden. Du kan registrera dig för den i [Azure Portal](https://portal.azure.com).
 
 ## <a name="why-use-app-configuration"></a>Varför ska jag använda app-konfiguration?
 
@@ -58,7 +56,7 @@ Det enklaste sättet att lägga till ett program konfigurations lager i ditt pro
 | .NET Core och ASP.NET Core | App Configuration Provider för .NET Core |
 | .NET Framework och ASP.NET | Konfigurations verktyg för app för .NET |
 | Java Spring | App Configuration-klient för våren Cloud |
-| Andra tjänster | App-konfiguration REST API |
+| Andra | App-konfiguration REST API |
 
 ## <a name="next-steps"></a>Nästa steg
 

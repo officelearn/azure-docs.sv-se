@@ -3,12 +3,12 @@ title: Använda Terraform med Azure
 description: Introduktion för att använda Terraform för att versionshantera och distribuera Azure-infrastruktur.
 ms.topic: overview
 ms.date: 10/26/2019
-ms.openlocfilehash: d1754594c651206a0d4d15e659e2926557f9e912
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 05b92fdf8c0a0f84d2f29b4aa7479850b2721441
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159001"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472170"
 ---
 # <a name="terraform-with-azure"></a>Terraform med Azure
 
@@ -40,6 +40,6 @@ Terraform är skickliga vid distribution av en infrastruktur över flera moln le
 
 Nu när du har en översikt över Terraform och dess fördelar föreslår vi nästa steg:
 
-- Kom igång genom att [installera Terraform och konfigurera det för att använda Azure](/azure/virtual-machines/linux/terraform-install-configure).
-- [Skapa en virtuell Azure-dator med Terraform](/azure/virtual-machines/linux/terraform-create-complete-vm)
+- Kom igång genom att [installera Terraform och konfigurera det för att använda Azure](terraform-install-configure.md).
+- [Skapa en virtuell Azure-dator med Terraform](terraform-create-complete-vm.md)
 - Utforska [modulen Azure Resource Manager för Terraform](https://www.terraform.io/docs/providers/azurerm/) 

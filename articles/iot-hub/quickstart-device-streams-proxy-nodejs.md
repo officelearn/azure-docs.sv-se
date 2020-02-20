@@ -9,59 +9,54 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 89b35a6372aa10948e947f2783cc228d500dea92
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: f7dfa1bf391e4affba52fc40a8c22ea9b5f4b4df
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462079"
+ms.locfileid: "77470691"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett Node. js-proxyprogram (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. 
-
-Den här snabb starten beskriver körningen av ett Node. js-proxyprogram som körs på tjänst sidan för att aktivera SSH (Secure Shell) och Remote Desktop Protocol (RDP) trafik som ska skickas till enheten via en enhets ström. En översikt över installationen finns i exempel på [lokal Proxy](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp). 
-
-I den offentliga för hands versionen stöder Node. js SDK endast enhets strömmar på tjänst sidan. Därför täcker den här snabb starten instruktioner för att bara köra det tjänst lokala proxy-programmet. Information om hur du kör programmet för enhets lokala proxy finns i:  
-
-   * [Aktivera SSH och RDP över IoT Hub enhets strömmar med hjälp av ett C proxy-program](./quickstart-device-streams-proxy-c.md)
-   * [Aktivera SSH och RDP över IoT Hub enhets strömmar med hjälp C# av ett proxy-program](./quickstart-device-streams-proxy-csharp.md)
-
-I den här artikeln beskrivs inställningarna för SSH (med port 22) och hur du ändrar inställningarna för RDP (som använder port 3389). Eftersom enhets strömmar är program-och protokoll-oberoende kan du ändra samma exempel för att hantera andra typer av program trafik på klient servern, vanligt vis genom att ändra kommunikations porten.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+I den här snabb starten aktiverar du en säker gränssnitts trafik (SSH) och Remote Desktop Protocol (RDP) som ska skickas till enheten via en enhets ström. Azure IoT Hub enhets strömmar gör att tjänst-och enhets program kan kommunicera på ett säkert och användarvänligt sätt. I den här snabb starten beskrivs körningen av ett Node. js-proxyprogram som körs på tjänst sidan. I den offentliga för hands versionen stöder Node. js SDK endast enhets strömmar på tjänst sidan. Därför täcker den här snabb starten instruktioner för att bara köra det tjänst lokala proxy-programmet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
+* Slut för ande av [aktiverar SSH och RDP över IoT Hub enhets strömmar genom att använda ett C-proxyprogram](./quickstart-device-streams-proxy-c.md) eller [Aktivera SSH och RDP över IoT Hub C# enhets strömmar med hjälp av ett proxy-program](./quickstart-device-streams-proxy-csharp.md).
 
-  * USA, centrala
-  * Centrala USA-EUAP
-  * Sydostasien
-  * Europa, norra
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Node. js 10 +](https://nodejs.org).
+
+* [Ett exempel på Node. js-projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+
+Du kan kontrol lera den aktuella versionen av Node. js på utvecklings datorn med hjälp av följande kommando:
+
+```cmd/sh
+node --version
+```
+
+Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
+>
+> * USA, centrala
+> * Centrala USA-EUAP
+> * Europa, norra
+> * Sydostasien
   
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-* Om du vill köra det lokala programmet i den här snabb starten behöver du Node. js v10. x. x eller senare på din utvecklings dator.
-  * Hämta [Node. js](https://nodejs.org) för flera plattformar.
-  * Verifiera den aktuella versionen av Node. js på utvecklings datorn med hjälp av följande kommando:
+### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
 
-   ```
-   node --version
-   ```
+Lägg till Azure IoT-tillägget för Azure CLI till din Cloud Shell instans genom att köra följande kommando. IoT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) i Azure CLI.
 
-* Lägg till Azure IoT-tillägget för Azure CLI till din Cloud Shell instans genom att köra följande kommando. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) i Azure CLI.
-
-    ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    ```
-
-* Om du inte redan har gjort det kan du [Hämta exempel-Node. js-projektet](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip) och extrahera zip-arkivet.
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
@@ -109,9 +104,11 @@ Som tidigare nämnts stöder IoT Hub Node. js SDK endast enhets strömmar på tj
    * [Aktivera SSH och RDP över IoT Hub enhets strömmar med hjälp av ett C proxy-program](./quickstart-device-streams-proxy-c.md)
    * [Aktivera SSH och RDP över IoT Hub enhets strömmar med hjälp C# av ett proxy-program](./quickstart-device-streams-proxy-csharp.md) 
 
-Innan du fortsätter till nästa steg måste du kontrol lera att programmet enhetens lokala proxy körs.
+Innan du fortsätter till nästa steg måste du kontrol lera att programmet enhetens lokala proxy körs. En översikt över installationen finns i exempel på [lokal Proxy](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 ### <a name="run-the-service-local-proxy-application"></a>Köra tjänstlokalt proxyprogram
+
+I den här artikeln beskrivs inställningarna för SSH (med port 22) och hur du ändrar inställningarna för RDP (som använder port 3389). Eftersom enhets strömmar är program-och protokoll-oberoende kan du ändra samma exempel för att hantera andra typer av program trafik på klient servern, vanligt vis genom att ändra kommunikations porten.
 
 Med det enhets lokala proxy-programmet igång kör du det tjänst lokala proxy-programmet som är skrivet i Node. js genom att göra följande i ett lokalt terminalfönster:
 

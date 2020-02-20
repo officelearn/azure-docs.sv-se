@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846527"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470454"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Snabb start: skapa en Load Balancer med Azure PowerShell
 
@@ -68,7 +68,10 @@ $publicIp = New-AzPublicIpAddress `
  -zone 1
 ```
 
-Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Microsoft rekommenderar att du använder standard för produktions arbets belastningar.
+Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Grundläggande offentliga IP-adresser är inte kompatibla med **standard** belastnings utjämning. Microsoft rekommenderar att du använder **standard** för produktions arbets belastningar.
+
+> [!IMPORTANT]
+> Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
 
 ## <a name="create-load-balancer"></a>Skapa belastningsutjämnare
 
@@ -161,6 +164,9 @@ $lb = New-AzLoadBalancer `
 ```
 
 Använd ```-SKU Basic``` för att skapa en grundläggande Load Balancer. Microsoft rekommenderar att du använder standard för produktions arbets belastningar.
+
+> [!IMPORTANT]
+> Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 Innan du kan distribuera virtuella datorer och testa din belastningsutjämnare måste du skapar nätverksresurser som stöds – virtuellt nätverk och virtuella nätverkskort. 

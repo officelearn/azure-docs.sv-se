@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 7b8eed501571bdd3e7372a348ba34d0632ca2cd8
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367277"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471779"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -72,7 +72,7 @@ Vi planerar att lägga till stöd för följande operativ system, så se till at
 
 Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
 
-* En [Azure Active Directory](/active-directory/)
+* En [Azure Active Directory](/azure/active-directory/)
 * En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Du kan konfigurera detta med något av följande:
   * Azure AD Connect (för Hybrid organisationer)
   * Azure AD Domain Services (för Hybrid-eller moln organisationer)

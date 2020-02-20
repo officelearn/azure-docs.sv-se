@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837314"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470351"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabb start: skapa en Standard Load Balancer för att belastningsutjämna virtuella datorer med Azure CLI
 
@@ -58,13 +58,16 @@ För att skapa en zonindelade offentlig IP-adress i zon 1 använder du:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- Använd ```--sku basic``` för att skapa en grundläggande offentlig IP-adress. Basic stöder inte tillgänglighets zoner. Microsoft rekommenderar standard-SKU för produktions arbets belastningar.
+Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Grundläggande offentliga IP-adresser är inte kompatibla med **standard** belastnings utjämning. Microsoft rekommenderar att du använder **standard** för produktions arbets belastningar.
+
+> [!IMPORTANT]
+> Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
 
 ## <a name="create-azure-load-balancer"></a>Skapa Azure Load Balancer
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
   - en klientdels-IP-pool som tar emot inkommande nätverkstrafik i lastbalanseraren.
-  - en serverdels-IP-pool dit klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+  - en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
   - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
   - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
@@ -82,7 +85,10 @@ Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.m
     --backend-pool-name myBackEndPool       
   ```
 
-### <a name="create-the-health-probe"></a>Skapa hälsoavsökningen
+> [!IMPORTANT]
+> Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
+
+### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
 
 En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
@@ -118,7 +124,7 @@ Innan du kan distribuera virtuella datorer och testa din lastbalanserare måste 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \

@@ -9,49 +9,28 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: a25bcc38c86d54b11ac1de0b3fbdfcdce1d1ac33
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461959"
+ms.locfileid: "77471932"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Snabb start: kommunicera med ett enhets program i Node. js via IoT Hub enhets strömmar (för hands version)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[IoT Hub-enhetsströmmar](./iot-hub-device-streams-overview.md) gör att tjänst- och enhetsprogram kan kommunicera på ett säkert och brandväggsvänligt sätt. Under den allmänna förhandsversionen stöder Node.js SDK endast enhetsströmmar på tjänstsidan. Därför omfattar den här snabbstarten bara instruktioner för att köra programmet på tjänstsidan. Du bör köra ett tillhör ande program på enhets sidan från någon av följande snabb starter:
-
-* [Kommunicera med enhetens appar i C via IoT Hub enhets strömmar](./quickstart-device-streams-echo-c.md)
-
-* [Kommunicera med enhetens appar C# i via IoT Hub enhets strömmar](./quickstart-device-streams-echo-csharp.md).
-
-Node.js-programmet på tjänstsidan i den här snabbstarten har följande funktioner:
-
-* Skapar en enhetsström till en IoT-enhet.
-
-* Läser indata från kommandoraden och skickar dem till enhetsprogrammet, som returnerar dem.
-
-Koden visar initierings processen för en enhets ström, samt hur du kan använda den för att skicka och ta emot data.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+I den här snabb starten kör du ett program på Server sidan och konfigurerar kommunikationen mellan en enhet och tjänst genom att använda enhets strömmar. Azure IoT Hub enhets strömmar gör att tjänst-och enhets program kan kommunicera på ett säkert och användarvänligt sätt. I den offentliga för hands versionen stöder Node. js SDK endast enhets strömmar på tjänst sidan. Därför omfattar den här snabbstarten bara instruktioner för att köra programmet på tjänstsidan.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
+* Slut för ande av [kommunikation till enhets program i C via IoT Hub enhets strömmar](./quickstart-device-streams-echo-c.md) eller [kommunicera C# med enhets program i via IoT Hub enhets strömmar](./quickstart-device-streams-echo-csharp.md).
 
-  * USA, centrala
-  * Centrala USA-EUAP
-  * Europa, norra
-  * Sydostasien
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-Om du vill köra programmet på tjänst sidan i den här snabb starten behöver du Node. js v10. x. x eller senare på din utvecklings dator.
+* [Node. js 10 +](https://nodejs.org).
 
-Du kan hämta Node. js för flera plattformar från [NodeJS.org](https://nodejs.org).
+* [Ett exempel på Node. js-projekt](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med följande kommando:
 
@@ -59,13 +38,25 @@ Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med f
 node --version
 ```
 
-Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IOT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) till Azure CLI.
+Microsoft Azure IoT Hub stöder för närvarande enhets strömmar som en [förhands gransknings funktion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
+>
+> * USA, centrala
+> * Centrala USA-EUAP
+> * Europa, norra
+> * Sydostasien
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Lägg till Azure IoT-tillägg
+
+Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för Azure CLI till Cloud Shell-instansen. IoT-tillägget lägger till IoT Hub, IoT Edge och IoT-kommandon (Device Provisioning service) till Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
-
-Ladda ned Node.js-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip, om du inte redan har gjort det, och extrahera ZIP-arkivet.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
@@ -109,13 +100,20 @@ I det här avsnittet ska du köra både program på enhets sidan och programmet 
 
 Som tidigare nämnts stöder IoT Hub Node.js SDK endast enhetsströmmar på tjänstsidan. För ett program på enhets sidan använder du en av de medföljande enhets programmen som finns i följande snabb starter:
 
-   * [Kommunicera med enhetens appar i C via IoT Hub enhets strömmar](./quickstart-device-streams-echo-c.md)
+* [Kommunicera med enhetens appar i C via IoT Hub enhets strömmar](./quickstart-device-streams-echo-c.md)
 
-   * [Kommunicera med enhets program C# i via IoT Hub enhets strömmar](./quickstart-device-streams-echo-csharp.md)
+* [Kommunicera med enhets program C# i via IoT Hub enhets strömmar](./quickstart-device-streams-echo-csharp.md)
 
 Se till att programmet på enhetssidan körs innan du fortsätter till nästa steg.
 
 ### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
+
+Node.js-programmet på tjänstsidan i den här snabbstarten har följande funktioner:
+
+* Skapar en enhetsström till en IoT-enhet.
+* Läser indata från kommandoraden och skickar dem till enhetsprogrammet, som returnerar dem.
+
+Koden visar initierings processen för en enhets ström, samt hur du kan använda den för att skicka och ta emot data.
 
 Förutsatt att programmet på enhets sidan körs följer du stegen nedan i ett lokalt terminalfönster för att köra programmet på tjänst sidan i Node. js:
 

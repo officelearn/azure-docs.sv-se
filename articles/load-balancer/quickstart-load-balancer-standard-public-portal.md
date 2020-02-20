@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843879"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470198"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med Azure Portal
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
+## <a name="create-a-load-balancer"></a>Skapa en Load Balancer
 
 I det här avsnittet skapar du en Load Balancer som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig Load Balancer eller en intern Load Balancer. När du skapar en offentlig Load Balancer måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del (med namnet as *LoadBalancerFrontend* som standard) för Load Balancer.
 
@@ -44,12 +44,16 @@ I det här avsnittet skapar du en Load Balancer som hjälper till att belastning
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *myResourceGroupSLB* i text rutan.|
     | Namn                   | *myLoadBalancer*                                   |
-    | Region         | Välj **Västeuropa**.                                        |
+    | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentligt**.                                        |
-    | SKU           | Välj **standard** eller **Basic**. Microsoft rekommenderar standard för produktions arbets belastningar.  |
+    | SKU           | Välj **standard** eller **Basic**. Microsoft rekommenderar standard för produktions arbets belastningar. |
     | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP-adress som du vill använda väljer du **Använd befintlig** |
-    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
+    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Grundläggande offentliga IP-adresser är inte kompatibla med **standard** belastnings utjämning. Microsoft rekommenderar att du använder **standard** för produktions arbets belastningar.|
     | Tillgänglighetszon | Skriv *Zone-redundant* för att skapa en elastisk Load Balancer. Om du vill skapa en zonindelade Load Balancer väljer du en speciell zon från 1, 2 eller 3 |
+
+> [!IMPORTANT]
+> Resten av den här snabb starten förutsätter att **standard** -SKU väljs under urvals processen för SKU ovan.
+
 
 3. På fliken **Granska och skapa** väljer du **skapa**.   
 
@@ -117,7 +121,7 @@ I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella dato
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj befintlig resurs- *myResourceGroupSLB*. |
-    | Location | Välj **Västeuropa**.|
+    | plats. | Välj **Europa, västra**.|
     | Undernät – Namn | Ange *myBackendSubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
 1. Lämna resten av standardinställningarna och välj **Skapa**.

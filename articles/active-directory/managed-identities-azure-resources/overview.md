@@ -15,14 +15,14 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f5446e836a65c6d40c2cc6703757670988593bd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f89a21eb0cebf30dac2bb55ae1b642a2ff756ead
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896599"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468682"
 ---
-# <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
+# <a name="what-are-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -131,7 +131,7 @@ Lär dig hur du använder en hanterad identitet med en virtuell Linux-dator:
 
 Lär dig hur du använder en hanterad identitet med andra Azure-tjänster:
 
-* [Azure App Service](/azure/app-service/overview-managed-identity)
+* [Azure Apptjänst](/azure/app-service/overview-managed-identity)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Azure Container Registry uppgifter](../../container-registry/container-registry-tasks-authentication-managed-identity.md)

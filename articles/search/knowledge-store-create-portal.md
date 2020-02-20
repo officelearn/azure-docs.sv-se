@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 01/29/2020
-ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 21279b2b4735a25210e8373d76d0d63f9c711bfc
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904899"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472374"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 I den här snabb starten används Azure Kognitiv sökning Azure Blob Storage och [azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. 
 
-Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner dagligen när de anropas från Azure Kognitiv sökning. Så länge du använder de exempel data som vi tillhandahåller kan du hoppa över att skapa eller bifoga en Cognitive Services-resurs.
+Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden för att tillhandahålla kostnads fri bearbetning för upp till 20 transaktioner per dag. Eftersom data uppsättningen är så liten kan du hoppa över att skapa eller bifoga en Cognitive Services resurs.
 
 1. [Hämta HotelReviews_Free. csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Dessa data är hotell gransknings data som sparats i en CSV-fil (härstammar från Kaggle.com) och innehåller 19 stycken kundfeedback om ett enda hotell. 
 
@@ -128,7 +128,7 @@ I det här steget ska du konfigurera en indexerare som hämtar data källan, fä
 
 ## <a name="monitor-status"></a>Övervaka status
 
-Kognitiva kunskaps indexering tar längre tid än vanlig text baserad indexering. Guiden ska öppna listan med indexerare på översiktssidan så att du kan följa förloppet. För självnavigering går du till översikten över sidan och klickar på **indexerare**.
+Kognitiva kunskaps indexering tar längre tid än vanlig text baserad indexering. Guiden ska öppna listan med indexerare på översiktssidan så att du kan följa förloppet. För självnavigering går du till översiktssidan och klickar på **Indexerare**.
 
 I Azure Portal kan du också övervaka aktivitets loggen för meddelanden som länkar till en klicknings bara **Azure kognitiv sökning meddelande** status. Det kan ta flera minuter att slutföra körningen.
 

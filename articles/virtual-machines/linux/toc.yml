@@ -381,7 +381,7 @@
         - name: Uppdateringar och korrigeringar
           items:
             - name: Red Hat Update Infrastructure
-              href: update-infrastructure-redhat.md
+              href: ../workloads/redhat/redhat-rhui.md
         - name: Virtuell Azure-datoragent
           items:
             - name: Översikt
@@ -771,4 +771,4 @@
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md
 - name: Felsöka
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml

@@ -493,6 +493,8 @@
       href: /powershell/module/az.recoveryservices
     - name: AzureRM PowerShell
       href: /powershell/module/AzureRM.RecoveryServices
+    - name: Resource Manager-mall
+      href: /azure/templates/microsoft.recoveryservices/allversions
     - name: REST
       href: /rest/api/site-recovery
 - name: Relaterat
@@ -508,7 +510,7 @@
     - name: Forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
     - name: Utbildningsväg
-      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
+      href: /learn/azure/
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
     - name: Priskalkylator

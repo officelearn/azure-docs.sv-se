@@ -710,7 +710,7 @@
             - name: VANLIGA FRÅGOR OCH SVAR
               href: migration-classic-resource-manager-faq.md
 - name: Felsöka
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml
 - name: Referens
   items:
     - name: Azure CLI

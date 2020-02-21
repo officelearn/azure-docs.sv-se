@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160385"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483932"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
 
@@ -133,7 +133,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS50180 | WindowsIntegratedAuthMissing-integrerad Windows-autentisering krävs. Aktivera klientorganisationen för sömlös SSO. |
 | AADSTS50187 | DeviceInformationNotProvided-tjänsten kunde inte utföra enhetsautentisering. |
 | AADSTS50196 | LoopDetected-en klient slinga har upptäckts. Kontrol lera appens logik för att säkerställa att cachelagring av token är implementerat och att fel villkoren hanteras korrekt.  Appen har gjort för många av samma begäran i en för kort period, vilket indikerar att den är i ett felaktigt tillstånd eller att abusively begär token. |
-| AADSTS50199 | CmsiInterrupt-användar interaktion krävs för den här autentiseringen.  Eftersom det här är ett "interaction_required"-fel ska klienten utföra interaktiv autentisering.  Detta beror på att en system WebView har använts för att begära en token för ett internt program – användaren måste uppmanas att fråga om detta var faktiskt appen de avsåg att logga in på.|
+| AADSTS50199 | CmsiInterrupt – av säkerhets skäl krävs användar bekräftelse för denna begäran.  Eftersom det här är ett "interaction_required"-fel ska klienten utföra interaktiv autentisering.  Detta beror på att en system WebView har använts för att begära en token för ett internt program – användaren måste uppmanas att fråga om detta var faktiskt appen de avsåg att logga in på.|
 | AADSTS51000 | RequiredFeatureNotEnabled – funktionen är inaktive rad. |
 | AADSTS51001 | DomainHintMustbePresent – domän tips måste finnas med lokal säkerhets identifierare eller lokalt UPN. |
 | AADSTS51004 | UserAccountNotInDirectory – användar kontot finns inte i katalogen. |

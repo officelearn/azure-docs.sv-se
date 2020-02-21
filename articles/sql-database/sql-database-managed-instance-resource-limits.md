@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
-ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/18/2020
+ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201738"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526866"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -96,7 +96,7 @@ Den hanterade instansen har två tjänst nivåer: [generell användning](sql-dat
 
 I Generell användning tjänst nivå varje databas fil får dedikerad IOPS och data flöde som är beroende av fil storleken. Större filer får mer IOPS och data flöde. I/o-egenskaperna för databasfilerna visas i följande tabell:
 
-| Filstorlek           | 0-128 GiB | 128 – 256 GiB | 256 – 512 GiB | 0,5 – 1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+| Filstorlek | > = 0 och < = 128 GiB | > 128 och < = 256 GiB | > 256 och < = 512 GiB | > 0,5 och < = 1 TiB    | > 1 och < = 2 TiB    | > 2 och < = 4 TiB | > 4 och < = 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS per fil       | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500   |
 | Data flöde per fil | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 

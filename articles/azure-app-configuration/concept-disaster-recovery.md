@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899634"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523772"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Återhämtning och haveriberedskap
 
@@ -27,9 +27,9 @@ Ditt program läser in konfigurationen från både den primära och den sekundä
 
 ## <a name="failover-between-configuration-stores"></a>Redundans mellan konfigurations lager
 
-Tekniskt sett är ditt program inte att köra en redundansväxling. Det görs ett försök att hämta samma uppsättning konfigurations data från två program konfigurations lager samtidigt. Ordna koden så att den läses in från den sekundära butiken först och sedan till det primära lagret. Den här metoden säkerställer att konfigurations data i det primära lagret prioriteras när de är tillgängliga. Följande kodfragment visar hur du kan implementera den här ordningen i .NET Core CLI:
+Tekniskt sett är ditt program inte att köra en redundansväxling. Det görs ett försök att hämta samma uppsättning konfigurations data från två program konfigurations lager samtidigt. Ordna koden så att den läses in från den sekundära butiken först och sedan till det primära lagret. Den här metoden säkerställer att konfigurations data i det primära lagret prioriteras när de är tillgängliga. Följande kodfragment visar hur du kan implementera den här ordningen i .NET Core:
 
-#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+#### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
+#### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,17 +70,18 @@ Från Azure Portal kan du skicka en ändring till ett annat konfigurations Arkiv
 
 1. Gå till fliken **Importera/exportera** och välj **Exportera** > app- **konfiguration** > **mål** > **Välj en resurs**.
 
-2. På det nya bladet som öppnas anger du prenumerationen, resurs gruppen och resurs namnet för ditt sekundära Arkiv och väljer sedan **Använd**.
+1. På det nya bladet som öppnas anger du prenumerationen, resurs gruppen och resurs namnet för din sekundära lagring och väljer sedan **Använd**.
 
-3. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Använd**.
+1. Användar gränssnittet har uppdaterats så att du kan välja vilka konfigurations data som du vill exportera till ditt sekundära arkiv. Du kan lämna standardvärdet för tid och ange både **etikett** och **etikett** till samma värde. Välj **Använd**.
 
-4. Upprepa föregående steg för alla konfigurations ändringar.
+1. Upprepa föregående steg för alla konfigurations ändringar.
 
 Om du vill automatisera export processen använder du Azure CLI. Följande kommando visar hur du exporterar en enskild konfigurations ändring från den primära lagrings platsen till den sekundära:
 
+```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du lärt dig hur du kan förbättra ditt program för att uppnå geo-återhämtning under körningen av app-konfigurationen. Du kan också bädda in konfigurations data från App-konfiguration vid bygge eller distributions tid. Mer information finns i [integrera med en CI/CD-pipeline](./integrate-ci-cd-pipeline.md).
-

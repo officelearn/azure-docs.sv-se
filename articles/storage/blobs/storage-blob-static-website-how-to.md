@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906615"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484153"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du aktiverar statisk webbplats värd med hjälp av A
 
 <a id="portal" />
 
-## <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 
 En steg-för-steg-guide finns i [Självstudier: vara värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -38,7 +38,7 @@ I rutan som visas bredvid sidan konto översikt för ditt lagrings konto väljer
 
 <a id="cli" />
 
-## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -72,7 +72,7 @@ Du kan aktivera statisk webbplats som värd med hjälp av [kommando rads gränss
    I det här exemplet förutsätter vi att du kör kommandon från Azure Cloud Shell-sessionen.
 
    ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
    ```
 
    * Ersätt platshållarvärdet `<storage-account-name>` med namnet på ditt lagringskonto.
@@ -102,7 +102,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
 
@@ -157,6 +157,7 @@ Du kan aktivera statisk webbplats värd med hjälp av Azure PowerShell-modulen.
     ```powershell
     # upload a file
     set-AzStorageblobcontent -File "<path-to-file>" `
+    -Properties @{ ContentType = "text/html; charset=utf-8";} `
     -Container `$web `
     -Blob "<blob-name>" `
     -Context $ctx

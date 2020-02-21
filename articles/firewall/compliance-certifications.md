@@ -1,22 +1,22 @@
 ---
-title: Certifieringar för Azure Firewall-kompatibilitet
-description: En lista med certifieringar för Azure Firewall-kompatibilitet för PCI, SOC och ISO
+title: Azure Firewall-certifieringar
+description: En lista med Azure Firewall-certifieringar för PCI-, SOC-, ISO-och ICSA-labb
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 02/19/2020
 ms.author: victorh
-ms.openlocfilehash: f7e235a4212cf14f851c0c58eb087970c8f8d137
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158187"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482196"
 ---
-# <a name="azure-firewall-compliance-certifications"></a>Certifieringar för Azure Firewall-kompatibilitet
+# <a name="azure-firewall-certifications"></a>Azure Firewall-certifieringar
 
-Azure Firewall är ett PCI-kort (Payment Card Industry), Service Organization Controls (SOC), Internationella standardiseringsorganisationen (ISO) och HITRUST-kompatibel.
+Azure Firewall är Payment Card Industry (PCI), Service Organization Controls (SOC), Internationella standardiseringsorganisationen (ISO), ICSA Labs och HITRUST-kompatibel.
 
 Följande certifieringar är för globala Azure-och Azure Government.
 
@@ -29,16 +29,16 @@ Följande Azure Firewall-certifieringar är för globala Azure:
 - AMF och ACPR (Frankrike)
 - APRA (Australien)
 - Argentina PDPA
-- Australia IRAP
+- Australien, IRAP
 - CDSA
 - CFTC 1,31
-- CSA STAR Attestation
-- CSA STAR Certification
-- CSA STAR Self-Assessment
+- CSA STAR attestering
+- CSA STAR-certifiering
+- Själv utvärdering av CSA STAR
 - Kanadensiska sekretess lagar
 - DPP (STORBRITANNIEN)
 - EU ENISA-IAF
-- EU:s modellklausuler
+- EU: s modell klausuler
 - Europeiska bank myndigheter
 - FCA och PRA (Storbritannien)
 - FERPA (USA)
@@ -65,7 +65,7 @@ Följande Azure Firewall-certifieringar är för globala Azure:
 - NHS IG Toolkit (Storbritannien)
 - Nederländerna BIR 2012
 - OSFI (Kanada)
-- PCI DSS Level 1
+- PCI DSS nivå 1
 - BI och IRDA (Indien)
 - SOC 1 typ 2
 - SOC 2, typ 2
@@ -74,8 +74,8 @@ Följande Azure Firewall-certifieringar är för globala Azure:
 - Spansk DPA
 - TISAX
 - TruSight
-- UK G-Cloud
-- WCAG 2.0
+- G-Cloud i Storbritannien
+- WCAG 2,0
 
 
 ## <a name="azure-government-certifications"></a>Azure Government certifieringar
@@ -84,17 +84,17 @@ Följande Azure Firewall-certifieringar är för Azure Government:
 
 - CJIS
 - CNSSI 1253
-- CSA STAR Attestation
+- CSA STAR attestering
 - DFARS
 - DoD DISA SRG nivå 2
 - Berg 10 CFR del 810
-- EAR
+- ENSA
 - FIPS 140-2
 - FedRAMP High
 - HITRUST
 - IRS 1075
 - ITAR
-- MARS-E (USA)
+- MARS – E (US)
 - NERC
 - NIST cybersäkerhet-ramverk
 - NIST SP 800-171
@@ -102,7 +102,15 @@ Följande Azure Firewall-certifieringar är för Azure Government:
 - SOC 2, typ 2
 - SOC 3
 - SOX (USA)
-- Section 508 VPATs
+- Avsnitt 508 VPAT
+
+## <a name="icsa-labs-corporate-firewall-certification"></a>ICSA Labs företags brand Väggs certifiering
+
+![ICSA-certifiering](media/overview/icsa-cert-firewall-small.png)
+
+ICSA Labs är en ledande leverantör av testning och certifiering av säkerhets-och hälso vårds produkter från tredje part, samt nätverksanslutna enheter. De mäter produktens efterlevnad, tillförlitlighet och prestanda för de flesta av världens främsta teknik leverantörer.
+
+Azure Firewall är den första moln brand Väggs tjänsten för att uppnå ICSA Labs företags brand Väggs certifiering. Information om certifierings rapporten för Azure-brandväggen finns i [ICSA labb certifierings testning och gransknings rapport](https://aka.ms/ICSALabsCertification). Mer information finns på sidan om [certifierings program för ICSA Labs-brandvägg](https://www.icsalabs.com/technology-program/firewalls) .
 
 
 ## <a name="next-steps"></a>Nästa steg

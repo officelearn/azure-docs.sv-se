@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff7cda6a593b1517ad711a56f73d29a14345baf
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d4d5c91966f8c490e056a84c89073e4da7cfdfd6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368013"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484493"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -1426,7 +1426,7 @@ Mer information om hur du använder anpassade tilläggs egenskaper för dynamisk
 **Tjänste kategori:** Villkorlig åtkomst  
 **Produkt kapacitet:** Identitets säkerhet och skydd
 
-Följande appar finns på listan över [godkända klient program](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
+Följande appar finns på listan över [godkända klient program](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview):
 
 - Microsoft To-Do
 
@@ -2753,7 +2753,7 @@ Följande program kommer att läggas i slutet av februari:
 
 Mer information finns i:
 
-- [Godkänt klient program krav](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Godkänt klient program krav](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview)
 - [Azure AD App-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
@@ -3044,14 +3044,14 @@ Mer information finns i [villkorlig åtkomst i Azure AD](https://docs.microsoft.
 **Tjänste kategori:** Villkorlig åtkomst  
 **Produkt kapacitet:** Identitets säkerhet och skydd
 
-Följande appar finns på listan över [godkända klient program](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
+Följande appar finns på listan över [godkända klient program](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview):
 
 - [Microsoft-Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - Microsoft StaffHub
 
 Mer information finns i:
 
-- [Godkänt klient program krav](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Godkänt klient program krav](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview)
 - [Azure AD App-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
@@ -3089,7 +3089,7 @@ Mer information finns i [lokal integrering](https://docs.microsoft.com/azure/act
 **Tjänste kategori:** Azure AD  
 **Produkt kapacitet:** Identitets säkerhet och skydd
 
-Nu kan du begränsa åtkomsten till Office 365 och andra Azure AD-anslutna molnappar till [godkända klient program](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) som stöder Intune App Protection-principer med hjälp av [Azure AD App-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intunes appskyddsprinciper används för att konfigurera och skydda företagets data på dessa klientprogram.
+Nu kan du begränsa åtkomsten till Office 365 och andra Azure AD-anslutna molnappar till [godkända klient program](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview) som stöder Intune App Protection-principer med hjälp av [Azure AD App-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intunes appskyddsprinciper används för att konfigurera och skydda företagets data på dessa klientprogram.
 
 Genom att kombinera [app-baserade](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) med [enhets](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) principer för villkorlig åtkomst har du flexibiliteten att skydda data för personliga och företagets enheter.
 
@@ -3189,14 +3189,14 @@ I Azure AD-administrationscentret kan du nu:
 **Tjänste kategori:** Villkorlig åtkomst  
 **Produkt kapacitet:** Identitets säkerhet och skydd
 
-Följande appar har lagts till i listan över [godkända klient program](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
+Följande appar har lagts till i listan över [godkända klient program](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview):
 
 - Microsoft Planner
 - Azure Information Protection 
 
 Mer information finns i:
 
-- [Godkänt klient program krav](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [Godkänt klient program krav](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps-preview)
 - [Azure AD App-baserad villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---

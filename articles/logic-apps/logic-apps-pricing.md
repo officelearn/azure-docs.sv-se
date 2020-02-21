@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896389"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526152"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Pris modell för Azure Logic Apps
 
@@ -40,13 +40,15 @@ Läs mer om hur faktureringen fungerar för [utlösare](#triggers) och [åtgärd
 
 ## <a name="fixed-pricing-model"></a>Fast pris modell
 
-En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) tillhandahåller ett privat, isolerat och dedikerat sätt för att skapa och köra Logi Kap par som kan komma åt resurser i ett virtuellt Azure-nätverk. För nya Logi Kap par som körs inuti en ISE betalar du ett [fast månads pris](https://azure.microsoft.com/pricing/details/logic-apps) för dessa funktioner:
+En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) tillhandahåller ett isolerat sätt för dig att skapa och köra Logi Kap par som har åtkomst till resurser i ett virtuellt Azure-nätverk. För nya Logi Kap par som körs inuti en ISE betalar du ett [fast månads pris](https://azure.microsoft.com/pricing/details/logic-apps) för dessa funktioner:
 
-* [Inbyggda utlösare och åtgärder](../connectors/apis-list.md#built-in)
+* [Inbyggda](../connectors/apis-list.md#built-in) utlösare och åtgärder
 
-* [Standard anslutningar](../connectors/apis-list.md#managed-connectors)
+  I en ISE visar inbyggda utlösare och åtgärder **kärn** etiketten och körs i samma ISE som dina Logic Apps.
 
-* [Företags anslutningar](../connectors/apis-list.md#enterprise-connectors) med så många anslutningar du vill
+* [Standard](../connectors/apis-list.md#managed-connectors) anslutningar och [företags](../connectors/apis-list.md#enterprise-connectors) anslutningar (så många företags anslutningar du vill)
+
+   Standard-och företags anslutningar som visar **ISE** -etiketten körs i samma ISE som dina Logic Apps. Kopplingar som inte visar ISE-etiketten körs i den globala Logic Appss tjänsten. Fast månads prissättning gäller även för anslutningar som körs i den globala tjänsten när du använder dem med Logic Apps som körs i en ISE.
 
 * [Integrerings kontots](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) användning utan extra kostnad, baserat på din [ISE-SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
@@ -60,18 +62,15 @@ En [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-
 
   * **SKU för utvecklare**: antingen upp till fyra standard konton eller upp till 5 totala standard konton. Inga grundläggande konton.
 
-Mer information om gränser för integrations konton finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan lära dig mer om [integrations konto nivåer och deras pris modell](#integration-accounts) senare i det här avsnittet.
+  Mer information om gränser för integrations konton finns [Logic Apps gränser och konfiguration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Du kan lära dig mer om [integrations konto nivåer och deras pris modell](#integration-accounts) senare i det här avsnittet.
 
-För Premium ISE-SKU: n har bas enheten fast kapacitet, så om du behöver mer data flöde kan du [lägga till fler skalnings enheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Developer ISE-SKU: n har inte möjlighet att lägga till fler skalnings enheter. Logi Kap par som körs i en ISE ådrar sig inga kostnader för datakvarhållning.
-
-> [!NOTE]
-> I en ISE visar inbyggda utlösare och åtgärder **kärn** etiketten och körs i samma ISE som dina Logic Apps. Standard-och företags anslutningar som visar **ISE** -etiketten körs i samma ISE som dina Logic Apps. Kopplingar som inte visar ISE-etiketten körs i den globala Logic Appss tjänsten.
+Om du väljer Premium ISE-SKU: n har bas enheten fast kapacitet. Om du behöver mer data flöde kan du [lägga till fler skalnings enheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Developer ISE-SKU: n har inte möjlighet att lägga till fler skalnings enheter. Logi Kap par som körs i en ISE ådrar sig inga kostnader för datakvarhållning.
 
 Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
-## <a name="connectors"></a>Anslutningsprogram
+## <a name="connectors"></a>Kopplingar
 
 Azure Logic Apps kopplingar hjälper dig att komma åt appar, tjänster och system i molnet i molnet eller lokalt genom att tillhandahålla [utlösare](#triggers), [åtgärder](#actions)eller både och. Anslutningarna klassificeras som antingen standard eller Enterprise. En översikt över dessa anslutningar finns i [kopplingar för Azure Logic Apps](../connectors/apis-list.md). Om inga färdiga kopplingar är tillgängliga för de REST-API: er som du vill använda i dina Logi Kap par, kan du skapa [anpassade anslutningar](https://docs.microsoft.com/connectors/custom-connectors), som bara omsluter runt dessa REST-API: er. Anpassade anslutningar faktureras som standard anslutningar. I följande avsnitt finns mer information om hur faktureringen för utlösare och åtgärder fungerar.
 
@@ -108,7 +107,7 @@ Inaktiverade Logic Apps debiteras inte eftersom de inte kan skapa nya instanser 
 
 <a name="integration-accounts"></a>
 
-## <a name="integration-accounts"></a>Integrationskonton
+## <a name="integration-accounts"></a>Integrations konton
 
 En [fast pris modell](https://azure.microsoft.com/pricing/details/logic-apps) gäller för [integrations konton](logic-apps-enterprise-integration-create-integration-account.md) där du kan utforska, utveckla och testa funktionerna [B2B och EDI](logic-apps-enterprise-integration-b2b.md) och [XML-bearbetning](logic-apps-enterprise-integration-xml.md) i Azure Logic Apps utan extra kostnad. Varje Azure-prenumeration kan ha upp till en [angiven gräns för integrations konton](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Varje integrations konto kan lagra upp till en begränsad [gräns för artefakter](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits)som omfattar handels partner, avtal, kartor, scheman, sammansättningar, certifikat, batch-konfigurationer och så vidare.
 

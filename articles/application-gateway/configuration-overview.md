@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714856"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485088"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -121,7 +121,7 @@ Välj den IP-adress för klient delen som du planerar att associera med den här
 
 Välj klient dels port. Välj en befintlig port eller skapa en ny. Välj ett värde från det [tillåtna port intervallet](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Du kan använda inte bara välkända portar, till exempel 80 och 443, men alla tillåtna anpassade portar som är lämpliga. En port kan användas för offentliga lyssnare eller privata lyssnare.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protokoll
 
 Välj HTTP eller HTTPS:
 
@@ -210,7 +210,7 @@ För en sökväg-baserad regel lägger du till flera Server dels-HTTP-inställni
 
 Om omdirigering har kon figurer ATS för en grundläggande regel omdirigeras alla begär Anden på den associerade lyssnaren till målet. Detta är *Global* omdirigering. Om omdirigering har kon figurer ATS för en Sök vägs baserad regel omdirigeras endast begär anden i ett särskilt plats område. Ett exempel är ett shopping vagns områden som betecknas av */cart/\** . Detta är en *Path-baserad* omdirigering.
 
-Mer information om omdirigering finns i [Application Gateway omdirigerings översikt](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Mer information om omdirigering finns i [Application Gateway omdirigerings översikt](redirect-overview.md).
 
 #### <a name="redirection-type"></a>Typ av omdirigering
 
@@ -227,24 +227,24 @@ Välj lyssnare som omdirigerings mål för att omdirigera trafik från en lyssna
 ![Dialog rutan Application Gateway-komponenter](./media/configuration-overview/configure-redirection.png)
 
 Mer information om omdirigering av HTTP-till-HTTPS finns i:
-- [HTTP-till-HTTPS-omdirigering med hjälp av Azure Portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [HTTP-till-HTTPS-omdirigering med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [HTTP-till-HTTPS-omdirigering med hjälp av Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [HTTP-till-HTTPS-omdirigering med hjälp av Azure Portal](redirect-http-to-https-portal.md)
+- [HTTP-till-HTTPS-omdirigering med hjälp av PowerShell](redirect-http-to-https-powershell.md)
+- [HTTP-till-HTTPS-omdirigering med hjälp av Azure CLI](redirect-http-to-https-cli.md)
 
 ##### <a name="external-site"></a>Extern webbplats
 
 Välj extern plats när du vill dirigera om trafiken för den lyssnare som är kopplad till den här regeln till en extern plats. Du kan välja att inkludera frågesträngen från den ursprungliga begäran i begäran som vidarebefordras till omdirigerings målet. Du kan inte vidarebefordra sökvägen till den externa platsen som fanns i den ursprungliga begäran.
 
 Mer information om omdirigering finns i:
-- [Omdirigera trafik till en extern plats med hjälp av PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
-- [Omdirigera trafik till en extern plats med hjälp av CLI](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+- [Omdirigera trafik till en extern plats med hjälp av PowerShell](redirect-external-site-powershell.md)
+- [Omdirigera trafik till en extern plats med hjälp av CLI](redirect-external-site-cli.md)
 
 #### <a name="rewrite-the-http-header-setting"></a>Skriv om inställningen för HTTP-huvud
 
 Den här inställningen lägger till, tar bort eller uppdaterar HTTP-begäran och svarshuvuden medan paket för begäran och svar flyttas mellan klienten och backend-pooler. Mer information finns i:
 
- - [Översikt över Skriv över HTTP-rubriker](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Konfigurera omskrivning av HTTP-huvud](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [Översikt över Skriv över HTTP-rubriker](rewrite-http-headers.md)
+ - [Konfigurera omskrivning av HTTP-huvud](rewrite-http-headers-portal.md)
 
 ## <a name="http-settings"></a>HTTP-inställningar
 
@@ -252,17 +252,28 @@ Application Gateway dirigerar trafik till backend-servrarna med hjälp av den ko
 
 ### <a name="cookie-based-affinity"></a>Cookie-baserad tillhörighet
 
-Den här funktionen är användbar när du vill behålla en användarsession på samma server. Gateway-hanterade cookies låter programgatewayen dirigera efterföljande trafik från en användarsession till samma server för bearbetning. Detta är viktigt när sessionstillstånd sparas lokalt på servern för en användarsession. Om programmet inte kan hantera cookie-baserad tillhörighet kan du inte använda den här funktionen. Kontrol lera att klienterna har stöd för cookies för att använda den.
+Azure Application Gateway använder Gateway Managed cookies för att underhålla användarsessioner. När en användare skickar den första begäran till Application Gateway, ställer den in en tillhörighets-cookie i svaret med ett hash-värde som innehåller sessionsinformation, så att efterföljande begär Anden som använder tillhörighets-cookien dirigeras till samma backend-server för underhålla varaktighet. 
+
+Den här funktionen är användbar när du vill behålla en användarsession på samma server och när sessionstillstånd sparas lokalt på servern för en användarsession. Om programmet inte kan hantera cookie-baserad tillhörighet kan du inte använda den här funktionen. Kontrol lera att klienterna har stöd för cookies för att använda den.
+
+Från och med **17 februari 2020**, hämtar [krom](https://www.chromium.org/Home) [V80-uppdateringen](https://chromiumdash.appspot.com/schedule) ett uppdrag där http-cookies utan SameSite-attribut behandlas som SameSite = lax. I händelse av CORS-begäranden (Cross-Origin resurs delning) om cookien måste skickas i en tredjeparts kontext måste den använda "SameSite = none; Säkra "attribut och får bara skickas över HTTPS. I annat fall skickar webbläsaren inte cookies i den tredje partens sammanhang. Målet med den här uppdateringen från Chrome är att förbättra säkerheten och undvika CSRF-attacker (Cross-Site request förfalskning). 
+
+För att stödja den här ändringen kommer Application Gateway (alla SKU-typer) att injicera en annan identisk cookie som heter **ApplicationGatewayAffinityCORS** , förutom den befintliga **ApplicationGatewayAffinity** -cookien, som är liknande, men denna cookie har nu två fler attribut **"SameSite = none; Säker "** har lagts till så att en fästis kan underhållas även för frågor över ett visst ursprung.
+
+Observera att namnet på standard-tillhörigheten är **ApplicationGatewayAffinity** och att det kan ändras av användarna. Om du använder ett namn på en anpassad tillhörighet, läggs ytterligare en cookie med CORS som suffix, till exempel **CustomCookieNameCORS**.
+
+> [!NOTE]
+> Om attributet **SameSite = inget** har angetts bör cookien också innehålla en **säker** flagga och skickas via **https**. Så om det krävs en sessions tillhörighet över CORS måste du migrera din arbets belastning till HTTPS. Mer information om hur du konfigurerar SSL-avlastning finns i SSL-avlastning och SSL-dokumentation från slut punkt till [](end-to-end-ssl-portal.md)slut punkt för Application Gateway här – [Översikt](ssl-overview.md), [hur du konfigurerar SSL-avlastning](create-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Anslutningstömning
 
 Med anslutnings tömning kan du på ett smidigt sätt ta bort backend-medlemmarnas medlemmar under planerade tjänst uppdateringar. Du kan använda den här inställningen för alla medlemmar i en backend-pool när regeln skapas. Det garanterar att alla avregistreringar av instanser av en backend-pool fortsätter att underhålla befintliga anslutningar och att betjäna begär Anden för en konfigurerbar tids gräns och inte får några nya förfrågningar eller anslutningar. Det enda undantaget till detta är begär Anden som är kopplade till deregistrering av instanser på grund av en Gateway-hanterad session tillhörighet och fortsätter att vidarebefordras till Avregistrerings instanserna. Anslutnings tömning gäller för Server dels instanser som uttryckligen tas bort från backend-poolen.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protokoll
 
 Application Gateway stöder både HTTP och HTTPS för routnings begär anden till backend-servrarna. Om du väljer HTTP är trafik till backend-servrarna okrypterad. Om okrypterad kommunikation inte är acceptabel väljer du HTTPS.
 
-Den här inställningen tillsammans med HTTPS i lyssnaren stöder [SSL från slut punkt till slut punkt](https://docs.microsoft.com/azure/application-gateway/ssl-overview). På så sätt kan du på ett säkert sätt överföra känsliga data som har krypterats till Server delen. Varje backend-server i backend-poolen som har slutpunkt-till-slutpunkt-SSL aktiverat måste konfigureras med ett certifikat för att tillåta säker kommunikation.
+Den här inställningen tillsammans med HTTPS i lyssnaren stöder [SSL från slut punkt till slut punkt](ssl-overview.md). På så sätt kan du på ett säkert sätt överföra känsliga data som har krypterats till Server delen. Varje backend-server i backend-poolen som har slutpunkt-till-slutpunkt-SSL aktiverat måste konfigureras med ett certifikat för att tillåta säker kommunikation.
 
 ### <a name="port"></a>Port
 
@@ -301,7 +312,7 @@ Det här är endast ett användar gränssnitt som väljer de två nödvändiga i
 
 ### <a name="use-custom-probe"></a>Använd anpassad avsökning
 
-Den här inställningen associerar en [anpassad avsökning](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) med en http-inställning. Du kan bara associera en anpassad avsökning med en HTTP-inställning. Om du inte uttryckligen associerar en anpassad avsökning används [standard avsökningen](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) för att övervaka Server delens hälso tillstånd. Vi rekommenderar att du skapar en anpassad avsökning för bättre kontroll över hälso övervakningen av dina Server delar.
+Den här inställningen associerar en [anpassad avsökning](application-gateway-probe-overview.md#custom-health-probe) med en http-inställning. Du kan bara associera en anpassad avsökning med en HTTP-inställning. Om du inte uttryckligen associerar en anpassad avsökning används [standard avsökningen](application-gateway-probe-overview.md#default-health-probe-settings) för att övervaka Server delens hälso tillstånd. Vi rekommenderar att du skapar en anpassad avsökning för bättre kontroll över hälso övervakningen av dina Server delar.
 
 > [!NOTE]
 > Den anpassade avsökningen övervakar inte Server delens hälso tillstånd om inte den motsvarande HTTP-inställningen uttryckligen är associerad med en lyssnare.
@@ -335,7 +346,7 @@ När du har skapat en backend-pool måste du associera den med en eller flera re
 
 ## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
-En Programgateway övervakar hälsan för alla resurser i Server delen som standard. Men vi rekommenderar starkt att du skapar en anpassad avsökning för varje server dels-HTTP-inställning för att få bättre kontroll över hälso övervakningen. Information om hur du konfigurerar en anpassad avsökning finns i [Inställningar för anpassade hälso avsökningar](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+En Programgateway övervakar hälsan för alla resurser i Server delen som standard. Men vi rekommenderar starkt att du skapar en anpassad avsökning för varje server dels-HTTP-inställning för att få bättre kontroll över hälso övervakningen. Information om hur du konfigurerar en anpassad avsökning finns i [Inställningar för anpassade hälso avsökningar](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
 > När du har skapat en anpassad hälso avsökning måste du koppla den till en HTTP-inställning på Server sidan. En anpassad avsökning övervakar inte hälsan för backend-poolen om inte den motsvarande HTTP-inställningen uttryckligen är associerad med en lyssnare med hjälp av en regel.

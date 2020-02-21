@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ab4569860d24a397816aa2e6c92f2e90f9a14ed1
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964659"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526555"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -32,16 +32,18 @@ Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress (`169.25
 > [!IMPORTANT]
 > Den här tjänsten är **allmänt tillgänglig** i alla Azure-regioner.  Den tar regelbundet emot uppdateringar som visar ny information om virtuella dator instanser. Den här sidan visar aktuella [API: er för metadata](#metadata-apis) som är tillgängliga.
 
-## <a name="service-availability"></a>Tjänsttillgänglighet
+## <a name="service-availability"></a>Tjänst tillgänglighet
 
 Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Ingen API-version kan vara tillgänglig i alla Azure-regioner.
 
 Regioner                                        | Offlinetillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Kina 21Vianet](https://www.azure.cn/)                                            | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Kina 21Vianet](https://www.azure.cn/)                                            | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+
+Version 2019-11-01 är för närvarande distribuerad och är kanske inte tillgänglig i alla regioner.
 
 Tabellen uppdateras när det finns tjänst uppdateringar och/eller nya versioner som stöds är tillgängliga.
 
@@ -108,7 +110,7 @@ API | Standard data format | Andra format
 /scheduledevents | json | ingen
 /attested | json | ingen
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Ett exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Exempel:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -124,13 +126,13 @@ Begär Anden måste också innehålla ett `Metadata: true` rubrik för att säke
 
 ### <a name="error"></a>Fel
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Ett exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Exempel:
 
 HTTP-statuskod | Orsak
 ----------------|-------
 200 OK |
 400 Felaktig begäran | `Metadata: true` rubrik saknas eller så saknas formatet vid förfrågan till en lövnod
-404 Hittades inte | Det begärda elementet finns inte
+404 hittades inte | Det begärda elementet finns inte
 metoden 405 tillåts inte | Endast `GET` begär Anden stöds
 429 för många begär Anden | API: et stöder för närvarande högst 5 frågor per sekund
 500-tjänst fel     | Försök igen om en stund
@@ -451,8 +453,8 @@ Följande API: er är tillgängliga via metadata-slutpunkten:
 Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
 godkänd | Se [attesterade data](#attested-data) | 2018-10-01
-identitet | Hanterade identiteter för Azure-resurser. Se [Hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | Se [instans-API](#instance-api) | 2017-04-02
+identity | Hanterade identiteter för Azure-resurser. Se [Hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+instans | Se [instans-API](#instance-api) | 2017-04-02
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>Instans-API
@@ -474,7 +476,7 @@ placementGroupId | [Placerings grupp](../../virtual-machine-scale-sets/virtual-m
 projektplan | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om det är en Azure Marketplace-avbildning | 2018-04-02
 platformUpdateDomain |  [Uppdatera den domän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
 platformFaultDomain | [Feldomän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
-CSP | Provider för den virtuella datorn | 2018-10-01
+provider | Provider för den virtuella datorn | 2018-10-01
 publicKeys | [Samling offentliga nycklar](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) som har tilldelats den virtuella datorn och sökvägar | 2018-04-02
 publisher | Utgivare av VM-avbildningen | 2017-04-02
 resourceGroupName | [Resurs grupp](../../azure-resource-manager/management/overview.md) för den virtuella datorn | 2017-08-01
@@ -482,7 +484,7 @@ resourceId | Resursens [fullständigt kvalificerade](https://docs.microsoft.com/
 sku | En speciell SKU för VM-avbildningen | 2017-04-02
 storageProfile | Se [lagrings profil](#storage-profile) | 2019-06-01
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
-tags | [Taggar](../../azure-resource-manager/management/tag-resources.md) för den virtuella datorn  | 2017-08-01
+taggar | [Taggar](../../azure-resource-manager/management/tag-resources.md) för den virtuella datorn  | 2017-08-01
 tagsList | Taggar formaterade som en JSON-matris för enklare programmerings parsning  | 2019-06-04
 version | Version av VM-avbildningen | 2017-04-02
 vmId | [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn | 2017-04-02
@@ -726,7 +728,7 @@ Regionerna och värdena i Azure-miljön visas nedan.
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
 [Azure Kina 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
+[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Hämtar taggar för den virtuella datorn
 
@@ -835,12 +837,12 @@ När du har hämtat signaturen ovan kan du kontrol lera att signaturen är från
 > [!NOTE]
 > Certifikatet för det offentliga molnet och det suveräna molnet är annorlunda.
 
- I molnet | Certifikat
+ Moln | Certifikat
 ---------|-----------------
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
 [Azure Kina 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
 
@@ -927,7 +929,7 @@ cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
 diffDiskSettings | Inställningar för tillfälliga diskar
 diskSizeGB | Disk storlek i GB
-mallar   | Virtuell hård disk för käll användar avbildning
+image   | Virtuell hård disk för käll användar avbildning
 enheten     | Diskens logiska enhets nummer
 managedDisk | Parametrar för hanterade diskar
 namn    | Disk namn
@@ -943,7 +945,7 @@ createOption | Information om hur den virtuella datorn skapades
 diffDiskSettings | Inställningar för tillfälliga diskar
 diskSizeGB | Disk storlek i GB
 encryptionSettings | Krypterings inställningar för disken
-mallar   | Virtuell hård disk för käll användar avbildning
+image   | Virtuell hård disk för käll användar avbildning
 managedDisk | Parametrar för hanterade diskar
 namn    | Disk namn
 osType  | Typ av operativ system som ingår i disken
@@ -1024,7 +1026,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 Språk | Exempel
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Kör  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
@@ -1036,7 +1038,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 1. Jag får fel meddelandet `400 Bad Request, Required metadata header not specified`. Vad betyder detta?
    * Instance Metadata Service kräver att huvud `Metadata: true` skickas i begäran. Om du skickar den här rubriken i REST-anropet får du till gång till Instance Metadata Service.

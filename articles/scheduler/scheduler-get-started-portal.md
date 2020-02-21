@@ -1,36 +1,35 @@
 ---
-title: Skapa schemalagda jobb med Azure Scheduler på Azure-portalen | Microsoft-dokument
-description: Lär dig att skapa, schemalägga och köra ditt första automatiserade jobb med Azure Scheduler på Azure-portalen
+title: Skapa schemalagda jobb – Azure Portal
+description: Skapa, Schemalägg och kör ditt första automatiserade jobb i Azure Portal med Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/29/2020
+ms.openlocfilehash: a9f7169f4b54dfc08612b1d53bfde48154ee2d1d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300978"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524809"
 ---
-# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Skapa och schemalägga ditt första jobb med Azure Scheduler – Azure-portalen
+# <a name="create-and-schedule-your-first-job-by-using-azure-scheduler---azure-portal"></a>Skapa och Schemalägg ditt första jobb med hjälp av Azure Scheduler – Azure Portal
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
 
-Den här självstudien visar hur du enkelt kan skapa och schemalägga jobb och därefter övervaka och hantera jobbet. 
+Den här självstudien visar hur du enkelt kan skapa och schemalägga jobb och därefter övervaka och hantera jobbet.
 
-Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
+Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 ## <a name="create-job"></a>Skapa jobb
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).  
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. Välj **Skapa en resurs** på Azure-huvudmenyn. Ange ”Scheduler” i sökrutan. Välj **Scheduler** i resultatlistan och välj sedan **Skapa**.
+1. I rutan Azure Search anger du `scheduler` som ditt filter. I resultat listan väljer du **Scheduler Job Collections**och väljer **skapa**.
 
    ![Skapa resurs för Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
@@ -93,7 +92,7 @@ Välj ett område för mer information om dessa områden:
 
 <a name="properties"></a>
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Egenskaper
 
 Om du vill visa skrivskyddade egenskaper som beskriver hanteringsmetadata för jobbet väljer du **Egenskaper**.
 

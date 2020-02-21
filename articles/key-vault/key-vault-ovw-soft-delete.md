@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845808"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526594"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt över Azure Key Vault mjuk borttagning
 
@@ -34,15 +34,13 @@ Azure Key Vaults är spårade resurser som hanteras av Azure Resource Manager. A
 
 ### <a name="soft-delete-behavior"></a>Beteende vid mjuk borttagning
 
-Med den här funktionen är BORTTAGNINGs åtgärden för ett Key Vault-eller Key Vault-objekt en mjuk borttagning, vilket effektivt ger resurserna för en viss kvarhållningsperiod (90 dagar), samtidigt som du får det utseende som objektet tas bort. Tjänsten tillhandahåller ytterligare en mekanism för att återställa det borttagna objektet, i princip ångra borttagningen. 
+När mjuk borttagning är aktiverat behålls resurser som har marker ATS som borttagna resurser för en angiven period (90 dagar som standard). Tjänsten tillhandahåller ytterligare en mekanism för att återställa det borttagna objektet, i princip ångra borttagningen.
 
-Mjuk borttagning är nu aktiverat som standard för nyligen skapade nyckel valv. Det kan inaktive ras via [Azure CLI](key-vault-soft-delete-cli.md) eller [Azure PowerShell](key-vault-soft-delete-powershell.md).
+När du skapar ett nytt nyckel valv är mjuk borttagning aktiverat som standard. Du kan skapa ett nyckel valv utan mjuk borttagning via [Azure CLI](key-vault-soft-delete-cli.md) eller [Azure PowerShell](key-vault-soft-delete-powershell.md). När mjuk borttagning har Aktiver ATS för ett nyckel valv kan det inte inaktive ras
 
-Standardkvarhållning är 90 dagar, men det är möjligt att ange ett värde mellan 7 och 90 dagar via Azure Portal för bevarande princip. Bevarande principen rensa skydd använder samma intervall. 
+Standardkvarhållning är 90 dagar, men när nyckel valvet skapas är det möjligt att ange lagrings princip intervallet till ett värde mellan 7 och 90 dagar via Azure Portal. Bevarande principen rensa skydd använder samma intervall. När du har angett går det inte att ändra lagrings princip intervallet.
 
-När mjuk borttagning har ställts in på ett nyckel valv kan det inte inaktive ras och bevarande princip intervallet kan inte ändras. 
-
-Du kan inte återanvända namnet på ett nyckel valv som har varit mjuk-Borttaget tills kvarhållningsperioden har passerat. 
+Du kan inte återanvända namnet på ett nyckel valv som har varit mjuk-Borttaget tills kvarhållningsperioden har passerat.
 
 ### <a name="purge-protection"></a>Rensa skydd 
 

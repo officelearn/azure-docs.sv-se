@@ -6,16 +6,16 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 17c81ab71352f57731d9b36138c88c34421e374c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2fcbc40bf78357700e59551b77b7e4d2da1bd82d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689017"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524078"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Skapa en Ruby on Rails-app med App Service i Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabb starts guiden visar hur du distribuerar en Ruby on-App-app till Azure App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här snabb starts guiden visar hur du distribuerar en Ruby on-App-app till Azure App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 > [!NOTE]
 > Ruby-utvecklingsstacken har bara stöd för Ruby on Rails just nu. Om du vill använda en annan plattform, till exempel Sinatra, eller om du vill använda en ruby- [version som inte stöds](app-service-linux-intro.md), måste du [köra den i en anpassad behållare](quickstart-docker-go.md).
@@ -24,7 +24,7 @@ Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Installera ruby 2,6 eller senare</a>
 * <a href="https://git-scm.com/" target="_blank">Installera Git</a>
@@ -65,11 +65,11 @@ Navigera till `http://localhost:3000` i webbläsaren om du vill testa appen loka
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Skapa ett webbprogram
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-Bläddra till appen för att se din nya webbapp med inbyggd avbildning. Ersätt _&lt;app name>_ med namnet på din webbapp.
+Bläddra till appen för att se din nya webbapp med inbyggd avbildning. Ersätt _&lt;appnamn>_ med namnet på din webbapp.
 
 ```bash
 http://<app_name>.azurewebsites.net

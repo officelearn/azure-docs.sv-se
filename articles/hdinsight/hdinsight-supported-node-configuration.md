@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775233"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484794"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Vilka är standard och rekommenderade nodkonfigurationer för Azure HDInsight?
 
@@ -30,7 +30,7 @@ De enda kluster typerna som innehåller data diskar är Kafka-och HBase-kluster 
 
 Specifikationerna för alla minsta rekommenderade VM-typer som används i det här dokumentet sammanfattas i följande tabell.
 
-| Storlek              | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek              | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D3_v2 | 4    | 14          | 200                    | 12 000 / 187 / 93                                           | 16/16x500           | 4/3 000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24 000 / 375 / 187                                          | 32/32x500           | 8/6 000                                       |
@@ -44,16 +44,16 @@ Specifikationerna för alla minsta rekommenderade VM-typer som används i det h�
 
 Mer information om specifikationerna för varje VM-typ finns i följande dokument:
 
-* [Generell användnings storlekar för virtuella datorer: Dv2-serien 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [Minnesoptimerade storlekar för virtuella datorer: Dv2-serien 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [Generell användnings storlekar för virtuella datorer: AV2-serien 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [Generell användnings storlekar för virtuella datorer: Dv2-serien 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [Minnesoptimerade storlekar för virtuella datorer: Dv2-serien 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [Generell användnings storlekar för virtuella datorer: AV2-serien 1-8](../virtual-machines/av2-series.md)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Alla regioner som stöds förutom Brasilien, södra och Japan, väst
 
 > [!Note]
 > Om du vill hämta SKU-identifieraren för användning i PowerShell och andra skript lägger du till `Standard_` i början av alla VM-SKU: er i tabellerna nedan. `D12_v2` skulle till exempel bli `Standard_D12_v2`.
 
-| Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark | ML Server | Kafka |
+| Kluster typ | Hadoop | HBase | Interaktiv fråga | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
 | Huvud: storlek på virtuell dator | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
 | Head: minsta rekommenderade storlekar för virtuella datorer | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
@@ -68,7 +68,7 @@ Mer information om specifikationerna för varje VM-typ finns i följande dokumen
 
 ### <a name="brazil-south-and-japan-west-only"></a>Endast Brasilien, södra och Japan, väst
 
-| Klustertyp | Hadoop | HBase | Interaktiv fråga | Storm | Spark | ML Services |
+| Kluster typ | Hadoop | HBase | Interaktiv fråga | Storm | Spark | ML Services |
 |---|---|---|---|---|---|---|
 | Huvud: storlek på virtuell dator | D12 | D12 | D13 | A4_v2 | D12 | D12 |
 | Head: minsta rekommenderade storlekar för virtuella datorer | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |

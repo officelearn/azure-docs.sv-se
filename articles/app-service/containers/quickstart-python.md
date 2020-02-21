@@ -3,15 +3,15 @@ title: 'Snabb start: skapa en Linux python-app'
 description: Kom igång med Linux-appar på Azure App Service genom att distribuera din första python-app till en Linux-behållare i App Service.
 ms.topic: quickstart
 ms.date: 10/22/2019
-ms.custom: seo-python-october2019
+ms.custom: cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: aaf1f5cb6a11e0a5358d6c8a59581b46e57a3274
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 567e87b43c3fc3d7d2fb0c894ced53c89a133978
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045908"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524071"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -19,7 +19,7 @@ I den här snabb starten distribuerar du en python-webbapp till [app service på
 
 Om du föredrar att distribuera appar via en IDE, se [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3,7</a> (python 3,6 stöds också)
@@ -46,7 +46,7 @@ Lagrings platsen innehåller en *Application.py* -fil som talar om för App Serv
 
 Använd följande kommandon i ett terminalfönster (efter behov för operativ systemet) för att installera de nödvändiga beroendena och starta den inbyggda utvecklings servern. 
 
-# <a name="bashtabbash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 python3 -m venv venv
@@ -56,7 +56,7 @@ export FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -3 -m venv env
@@ -66,7 +66,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-# <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+# <a name="cmd"></a>[Kommandot](#tab/cmd)
 
 ```cmd
 py -3 -m venv env
@@ -205,7 +205,7 @@ Välj namnet på din Azure-App.
 
 ![Navigera till python-appen i App Services i Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![Hantera din python-app på sidan Översikt i Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9df00eea79b5dedc3211de02b17fe8f396d7b8a5
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: acf358b530c61dcbac38faf92e2ba672a7d4abef
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951079"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484391"
 ---
 # <a name="social-accounts-claims-transformations"></a>Anspråk omvandlingar för sociala konton
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller exempel på hur du kan använda anspråk för soci
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Skapar en JSON-representation av användarens alternativeSecurityId-egenskap som kan användas i anrop till Azure Active Directory. Mer information finns i [AlternativeSecurityId-schemat](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type).
+Skapar en JSON-representation av användarens alternativeSecurityId-egenskap som kan användas i anrop till Azure Active Directory. Mer information finns i [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) -schemat.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |

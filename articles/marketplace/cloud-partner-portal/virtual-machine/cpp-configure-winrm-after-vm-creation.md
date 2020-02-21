@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
-ms.openlocfilehash: ae5a55c6d640852cbd873bc6b36e502b5fe17165
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817940"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77481382"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Konfigurera WinRM när en virtuell dator har skapats
 
@@ -25,7 +25,7 @@ I den här artikeln förklaras hur du konfigurerar en befintlig virtuell Azure-v
 
 ## <a name="enabling-port-traffic"></a>Aktivera port trafik
 
-WinRM över HTTPS-protokollet använder port 5896, som inte är aktive rad som standard på förkonfigurerade virtuella Windows-datorer som erbjuds på Azure Marketplace. Om du vill aktivera det här protokollet använder du följande steg för att lägga till en ny regel i nätverks säkerhets gruppen (NSG) med [Azure Portal](https://portal.azure.com).  Mer information om NSG: er finns i [säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
+WinRM över HTTPS-protokollet använder port 5986, som inte är aktive rad som standard på förkonfigurerade virtuella Windows-datorer som erbjuds på Azure Marketplace. Om du vill aktivera det här protokollet använder du följande steg för att lägga till en ny regel i nätverks säkerhets gruppen (NSG) med [Azure Portal](https://portal.azure.com).  Mer information om NSG: er finns i [säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
 1.  Navigera till bladet med **virtuella datorer >**   <*vm-namn*>   **> Inställningar/nätverk**.
 2.  Klicka på NSG namn (i det här exemplet **testvm11002**) för att visa dess egenskaper:

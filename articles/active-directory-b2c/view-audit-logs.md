@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5695968973c7446220d8d77b84dfebb4a23ae8c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847763"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505617"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -34,7 +34,7 @@ Kategorin **B2C** i gransknings loggar innehåller följande typer av aktivitete
 
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
-|Autentisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
+|Auktorisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
 |Katalog |Aktiviteter relaterade till katalogattribut som hämtats när en administratör loggar in med hjälp av Azure Portal. |
 |Program | Skapa, läsa, uppdatera och ta bort (CRUD) åtgärder på B2C-program. |
 |Nyckel |CRUD åtgärder för nycklar som lagras i en B2C Key-behållare. |
@@ -88,51 +88,15 @@ Gransknings loggar publiceras i samma pipeline som andra aktiviteter för Azure 
 
 ### <a name="enable-reporting-api-access"></a>Aktivera rapporterings-API-åtkomst
 
-Om du vill tillåta skript-eller programbaserad åtkomst till Azure AD repor ting-API: n måste du ha ett Azure Active Directory-program registrerat i Azure AD B2C-klienten med följande API-behörigheter:
+Om du vill tillåta skript-eller programbaserad åtkomst till Azure AD repor ting API måste du ha ett program registrerat i Azure AD B2C-klienten med följande API-behörigheter. Du kan aktivera de här behörigheterna för en befintlig program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
 
-* Microsoft Graph > program behörigheter > AuditLog. Read. all
+* Microsoft Graph > program behörigheter > AuditLog > AuditLog. Read. all
 
-Du kan aktivera de här behörigheterna för en befintlig Azure Active Directory program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
+Följ stegen i följande artikel för att registrera ett program med de behörigheter som krävs:
 
-Följ de här stegen registrera ett program, tilldela det nödvändiga Microsoft Graph API-behörigheter och skapa sedan en klient hemlighet.
+[Hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md)
 
-### <a name="register-application-in-azure-active-directory"></a>Registrera program i Azure Active Directory
-
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="assign-api-access-permissions"></a>Tilldela API-åtkomst behörigheter
-
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
-
-1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
-1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
-1. Välj **Lägg till**och **Välj sedan ett API**.
-1. Välj **Microsoft Graph**och **Välj**sedan.
-1. Under **program behörigheter**väljer du **Läs alla Gransknings logg data**.
-1. Välj knappen **Välj** och välj sedan **färdig**.
-1. Välj **bevilja**, och välj sedan **Ja**.
-
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
-
-1. Under **Hantera**, Välj **API-behörigheter**.
-1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
-1. Välj fliken **Microsoft API: er** .
-1. Välj **Microsoft Graph**.
-1. Välj **Programbehörigheter**.
-1. Expandera **AuditLog** och markera kryss rutan **AuditLog. Read. all** .
-1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
-1. Välj **bevilja administrativt godkännande för (ditt klient namn)** .
-1. Välj ditt inloggade konto om det har tilldelats rollen som *Global administratör* eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats rollen som *Global administratör* .
-1. Välj **Acceptera**.
-1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för *AuditLog. Read. all* behörighet. Det kan ta några minuter innan behörigheterna har spridits.
-
-* * *
-
-### <a name="create-client-secret"></a>Skapa klient hemlighet
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
-
-Nu har du ett program med nödvändig API-åtkomst, ett program-ID och en nyckel som du kan använda i dina Automation-skript. I avsnittet om PowerShell-skript längre fram i den här artikeln finns ett exempel på hur du kan hämta aktivitets händelser med ett skript.
+När du har registrerat ett program med rätt behörigheter, se avsnittet PowerShell-skript senare i den här artikeln för ett exempel på hur du kan hämta aktivitets händelser med ett skript.
 
 ### <a name="access-the-api"></a>Åtkomst till API: et
 
@@ -149,13 +113,14 @@ Följande PowerShell-skript visar ett exempel på hur du frågar Azure AD repor 
 Du kan testa det här skriptet i [Azure Cloud Shell](overview.md). Se till att du uppdaterar den med ditt program-ID, klient hemlighet och namnet på din Azure AD B2C klient.
 
 ```powershell
-# This script requires the registration of a Web Application in Azure Active Directory:
-# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
+# This script requires an application registration that's granted Microsoft Graph API permission
+# https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant domain name
+
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -258,4 +223,4 @@ Här är en JSON-representation av exempel aktivitets händelsen som visades tid
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan automatisera andra administrations uppgifter, till exempel [Hantera användare med .net](manage-user-accounts-graph-api.md).
+Du kan automatisera andra administrations uppgifter, till exempel [hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md).

@@ -1,0 +1,86 @@
+---
+title: Förskotts beräkning med reserverad kapacitet – Azure cache för Redis
+description: Förskottsbetala för Azure cache för Redis Compute-resurser med reserverad kapacitet
+author: yegu-ms
+ms.author: yegu
+ms.service: cache
+ms.topic: conceptual
+ms.date: 02/20/2020
+ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77530307"
+---
+# <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Förskottsbetala för Azure cache för Redis Compute-resurser med reserverad kapacitet
+
+Azure cache för Redis hjälper dig nu att spara pengar genom att betala för beräknings resurser jämfört med priset för betala per användning. Med Azure cache för Redis reserverad kapacitet gör du ett förskott på cachen under en eller tre års period för att få en betydande rabatt på beräknings kostnaderna. Om du vill köpa Azure-cache för Redis reserverad kapacitet måste du ange Azure-regionen, tjänst nivån och perioden.
+
+Du behöver inte tilldela reservationen till en speciell Azure-cache för Redis-instanser. En Azure-cache som redan körs för Redis eller som nyligen distribueras får automatiskt fördelarna med reserverad prissättning, upp till den reserverade cachestorleken. Genom att köpa en reservation betalar du för beräknings kostnaderna för en period på en eller tre år. Så snart du köper en reservation debiteras inte längre Azure-cachen för Redis-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte nätverks-eller lagrings kostnader som är kopplade till cacheminnet. I slutet av reservations perioden upphör fakturerings förmånen och Azure-cachen för Redis debiteras enligt priset för betala per användning. Reservationer förnyas inte automatiskt. Information om priser finns i [Azure-cache för reserverat kapacitets erbjudande för Redis](https://azure.microsoft.com/pricing/details/cache).
+
+Du kan köpa Azure cache för Redis reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Så här köper du den reserverade kapaciteten:
+
+* Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priser enligt principen betala per användning.
+* För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
+* För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure cache för reserverad Redis-kapacitet.
+
+Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp finns i [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) och [förstå Azure reservation-användning för din prenumeration enligt principen betala per](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)användning.
+
+
+## <a name="determine-the-right-cache-size-before-purchase"></a>Fastställ storleken på rätt cachestorlek innan köpet
+
+Reservations storleken bör baseras på den totala mängd data som används av den befintliga eller närmast distribuerade cachen inom en angiven region och med samma tjänst nivå.
+
+Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore cache och två minnesoptimerade Gen5 – 16 vCore-cacheminnen. Vi vill också att du planerar att distribuera under nästa månad till ett ytterligare allmänt syfte, Gen5 – 32 vCore Database Server och en minnesoptimerade Gen5 – 16 vCore-databas server. Anta att du vet att du kommer att behöva dessa resurser i minst 1 år. I det här fallet bör du köpa en 64 (2x32) virtuella kärnor, 1 års reservation för enkel databas generell användning – Gen5 och en 48 (2x16 + 16) vCore 1 års reservation för enkel databas minne optimerad-Gen5
+
+
+## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Köp Azure-cache för Redis reserverad kapacitet
+
+1. Logga in på [Azure Portal](https://portal.azure.com/).
+2. Välj **Alla tjänster** > **Reservationer**.
+3. Välj **Lägg till** och sedan i fönstret köp reservationer väljer du **Azure cache för Redis** för att köpa en ny reservation för dina cacheminnen.
+4. Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure-cache för Redis-instanser som erhåller rabatten beror på omfattning och kvantitet som valts.
+
+
+![Översikt över reserverade priser](media/cache-reserved-pricing/cache-reserved-price.png)
+
+
+I följande tabell beskrivs obligatoriska fält.
+
+| Field | Beskrivning |
+| :------------ | :------- |
+| Prenumeration   | Prenumerationen som används för att betala för Azure cache för Redis reserverad kapacitets reservation. Betalnings metoden för prenumerationen debiteras de direkta kostnaderna för Azure-cachen för Redis reserverad kapacitet. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.
+| Omfång | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: </br></br> Reservations rabatten tillämpas på Azure cache för Redis-instanser som körs i alla prenumerationer i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.</br></br> **Enskild prenumeration**tillämpas reservations rabatten på Azure cache för Redis-instanser i den här prenumerationen. </br></br> **En enda resurs grupp**, reservations rabatten tillämpas på Azure cache för Redis-instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.
+| Region | Den Azure-region som omfattas av Azure-cachen för Redis reserverad kapacitets reservation.
+| Prisnivå | Tjänst nivån för Azure cache för Redis-servrar.
+| Period | Ett år eller tre år
+| Kvantitet | Mängden data bearbetnings resurser som köps i Azure-cachen för Redis reserverad kapacitet reservation. Antalet är ett antal cacheminnen i den valda Azure-regionen och tjänst nivån som reserveras och kommer att få fakturerings rabatten. Om du till exempel kör eller planerar att köra en Azure-cache för Redis-servrar med den totala cache-kapaciteten på 26 GB i regionen USA, östra, anger du kvantitet som 26 för att maximera fördelarna med alla cacheminnen.
+
+## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
+
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+
+## <a name="cache-size-flexibility"></a>Storleks flexibilitet för cache
+
+Storleks flexibiliteten i cacheminnet hjälper dig att skala upp eller ned i en tjänst nivå och region, utan att förlora den reserverade kapacitets förmånen.
+
+## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
+
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## <a name="next-steps"></a>Nästa steg
+
+Reservations rabatten tillämpas automatiskt på Azure-cachen för Redis-instanser som matchar reservations omfånget och attributen. Du kan uppdatera omfånget för reservationen via Azure Portal, PowerShell, Azure CLI eller API: et.
+
+*  Information om hur reserverade kapacitets rabatter tillämpas på Azure cache för Redis finns i [förstå reservations rabatten i Azure](../cost-management-billing/reservations/understand-azure-cache-for-redis-reservation-charges.md)
+
+* Mer information om Azure-reservationer finns i följande artiklar:
+
+    * [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+    * [Hantera Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+    * [Förstå reservationsrabatter i Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
+    * [Förstå reservationsanvändning för din Betala per användning-prenumeration](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
+    * [Förstå reservationsanvändning för din Enterprise-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+    * [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
+

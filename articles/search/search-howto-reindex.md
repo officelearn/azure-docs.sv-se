@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 8cebe02ebc638ba62fceec80dff2c6724ccf92c8
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212304"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498383"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Återskapa ett index i Azure Kognitiv sökning
 
@@ -27,13 +27,13 @@ Det är vanligt att bygga om index under utvecklingen, men du kan också behöva
 
 Släpp och återskapa ett index om något av följande villkor är uppfyllt. 
 
-| Tillstånd | Beskrivning |
+| Villkor | Beskrivning |
 |-----------|-------------|
 | Ändra en fält definition | Att ändra ett fält namn, data typ eller specifika [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index) (sökbar, Filterable, sorterbar, aspektbar) kräver en fullständig återuppbyggnad. |
 | Tilldela ett fält till en analys | [Analys](search-analyzers.md) verktyg definieras i ett index och tilldelas sedan till fält. Du kan lägga till en ny analys definition till ett index när som helst, men du kan bara *tilldela* en analys när fältet har skapats. Detta gäller både för egenskaperna **Analyzer** och **indexAnalyzer** . Egenskapen **searchAnalyzer** är ett undantag (du kan tilldela den här egenskapen till ett befintligt fält). |
 | Uppdatera eller ta bort en analys definition i ett index | Du kan inte ta bort eller ändra en befintlig analys konfiguration (Analyzer, tokenizer, token filter eller char filter) i indexet om du inte bygger om hela indexet. |
 | Lägg till ett fält till en förslags ställare | Om det redan finns ett fält och du vill lägga till det i en [förslags](index-add-suggesters.md) konstruktion måste du återskapa indexet. |
-| Ta bort ett fält | Om du vill ta bort alla spår för ett fält fysiskt måste du återskapa indexet. När en omedelbar återuppbyggnad inte är praktisk kan du ändra program koden för att inaktivera åtkomst till fältet "borttaget". Fysiskt är fält definitionen och innehållet kvar i indexet tills nästa återuppbyggnad när du använder ett schema som utelämnar fältet i fråga. |
+| Ta bort ett fält | Om du vill ta bort alla spår för ett fält fysiskt måste du återskapa indexet. När det inte är praktiskt att skapa en omedelbar återskapning kan du ändra program koden för att inaktivera åtkomst till fältet "borttaget" eller använda [parametern $Select fråga](search-query-odata-select.md) för att välja vilka fält som ska visas i resultat uppsättningen. Fysiskt är fält definitionen och innehållet kvar i indexet tills nästa återuppbyggnad när du använder ett schema som utelämnar fältet i fråga. |
 | Växlings nivåer | Om du behöver mer kapacitet finns det ingen uppgradering på plats i Azure Portal. En ny tjänst måste skapas och index måste byggas från grunden på den nya tjänsten. Du kan automatisera processen genom att använda exempel koden **index-Backup-Restore** i den här [Azure kognitiv sökning .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples). Den här appen säkerhetskopierar ditt index till en serie JSON-filer och återskapar sedan indexet i en Sök tjänst som du anger.|
 
 ## <a name="update-conditions"></a>Uppdaterings villkor
@@ -52,9 +52,11 @@ När du lägger till ett nytt fält får befintliga indexerade dokument ett null
 
 ## <a name="how-to-rebuild-an-index"></a>Återskapa ett index
 
-Under utvecklingen ändras index schemat ofta. Du kan planera för det genom att skapa index som kan tas bort, återskapas och läsas in snabbt med en liten representativ data uppsättning. 
+Under utvecklingen ändras index schemat ofta. Du kan planera för det genom att skapa index som kan tas bort, återskapas och läsas in snabbt med en liten representativ data uppsättning.
 
 För program som redan finns i produktion rekommenderar vi att du skapar ett nytt index som kör sida vid sida ett befintligt index för att undvika frågor om avbrott. Din program kod tillhandahåller omdirigering till det nya indexet.
+
+Indexeringen körs inte i bakgrunden och tjänsten kommer att balansera ytterligare indexering mot pågående frågor. Under indexeringen kan du [övervaka fråge förfrågningar](search-monitor-queries.md) i portalen för att se till att frågor slutförs inom rimlig tid.
 
 1. Avgör om en återuppbyggnad krävs. Om du bara lägger till fält eller ändrar någon del av indexet som inte är relaterat till fält, kan du enkelt [Uppdatera definitionen](https://docs.microsoft.com/rest/api/searchservice/update-index) utan att ta bort, återskapa och helt ladda om den.
 
@@ -78,6 +80,10 @@ När du läser in indexet fylls varje fälts inverterade index med alla unika, t
 ## <a name="check-for-updates"></a>Sök efter uppdateringar
 
 Du kan börja fråga ett index så snart det första dokumentet har lästs in. Om du känner till ett dokuments ID returnerar [Sök dokumentet REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) det aktuella dokumentet. För bredare testning bör du vänta tills indexet har lästs in och sedan använda frågor för att kontrol lera den kontext som du förväntar dig att se.
+
+Du kan använda [Sök Utforskaren](search-explorer.md) eller ett webbtest-verktyg som [Postman](search-get-started-postman.md) för att söka efter uppdaterat innehåll.
+
+Om du har lagt till eller bytt namn på ett fält använder du [$Select](search-query-odata-select.md) för att returnera fältet: `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
 ## <a name="see-also"></a>Se även
 

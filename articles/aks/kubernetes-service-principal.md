@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 62fc95ed7179dc4188c0c40e4c15aa9940bf2eb5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867172"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524247"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,10 @@ az aks create \
     --client-secret <password>
 ```
 
-Om du distribuerar ett AKS-kluster med hjälp av Azure Portal, så välj **Konfigurera tjänstens huvudnamn** i dialogrutan **Skapa Kubernetes-kluster** på sidan *Autentisering*. Välj **Använd befintlig** och ange följande värden:
+> [!NOTE]
+> Om du använder ett befintligt huvud namn för tjänsten med anpassad hemlighet, se till att hemligheten inte är längre än 190 byte.
+
+Om du distribuerar ett AKS-kluster med hjälp av Azure Portal, så välj *Konfigurera tjänstens huvudnamn* i dialogrutan **Skapa Kubernetes-kluster** på sidan **Autentisering**. Välj **Använd befintlig** och ange följande värden:
 
 - **Klient-ID för tjänstens huvudnamn** är *appId*
 - **Klienthemligheten för tjänstens huvudnamn** är värdet *lösenord*
@@ -102,13 +105,13 @@ Du kan använda avancerade nätverk där det virtuella nätverket och undernäte
 - Skapa en [anpassad roll][rbac-custom-role] och definiera följande roll behörigheter:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft. Network/virtualNetworks/subnets/Write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
 - Eller tilldela den inbyggda rollen [nätverks deltagare][rbac-network-contributor] i under nätet i det virtuella nätverket
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 Du kan behöva åtkomst till befintliga diskresurser i en annan resursgrupp. Tilldela behörigheter till någon av följande uppsättningar:
 
@@ -121,7 +124,7 @@ Du kan behöva åtkomst till befintliga diskresurser i en annan resursgrupp. Til
 
 Om du använder Virtual Kubelet för att integrera med AKS och väljer att köra Azure Container Instances (ACI) i resursgruppen separat från AKS-klustret måste AKS-huvudnamn beviljas *deltagarbehörigheter* för ACI-resursgruppen.
 
-## <a name="additional-considerations"></a>Annat som är bra att tänka på
+## <a name="additional-considerations"></a>Fler saker att ha i åtanke
 
 Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 
@@ -140,7 +143,7 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 Autentiseringsuppgifterna för tjänstens huvud namn för ett AKS-kluster cachelagras av Azure CLI. Om autentiseringsuppgifterna har upphört att gälla uppstår fel vid distribution av AKS-kluster. Följande fel meddelande visas när du kör [AZ AKS Create][az-aks-create] kan tyda på ett problem med de cachelagrade tjänstens huvud namns uppgifter:
 

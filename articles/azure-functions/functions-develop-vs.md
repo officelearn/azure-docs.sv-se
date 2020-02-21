@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 7aceae256c4fc4d18615e181bbcb7425e659955d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: b3d683153a1e70f4c65dcc5e401f4ee702af8b49
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547378"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484714"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med Visual Studio  
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller information om hur du använder Visual Studio för
 
 Om inget annat anges är procedurer och exempel som visas för Visual Studio 2019. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Functions verktyg ingår i Azure Development-arbetsbelastningen för Visual Studio från och med Visual Studio 2017. Se till att du inkluderar arbets belastningen **Azure Development** i Visual Studio-installationen.
 
@@ -42,7 +42,7 @@ Andra resurser som du behöver, till exempel ett Azure Storage konto, skapas i p
 
 ### <a name="check-your-tools-version"></a>Kontrol lera din verktygs version i Visual Studio 2017
 
-1. Från den **verktyg** menyn, Välj **tillägg och uppdateringar**. Expandera **installerade** > - **verktyg** och välj **Azure Functions-och webb jobb verktyg**.
+1. Från **verktyg** -menyn väljer du **tillägg och uppdateringar**. Expandera **installerade** > - **verktyg** och välj **Azure Functions-och webb jobb verktyg**.
 
     ![Kontrol lera version av funktions verktyg](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
@@ -136,7 +136,7 @@ I C# klass biblioteks funktioner definieras de bindningar som används av funkti
     }
     ```
 
-    Ett bindande attribut används för varje bindnings parameter som anges till Start punkt metoden. Attributet använder bindnings informationen som parametrar. I det föregående exemplet har den första parametern ett **QueueTrigger** -attribut tillämpat, vilket indikerar att funktionen utlöses av kön. Könamnet och anslutnings strängens inställnings namn skickas som parametrar till attributet **QueueTrigger** . Mer information finns i [Azure Queue Storage-bindningar för Azure Functions](functions-bindings-storage-queue.md#trigger).
+    Ett bindande attribut används för varje bindnings parameter som anges till Start punkt metoden. Attributet använder bindnings informationen som parametrar. I det föregående exemplet har den första parametern ett **QueueTrigger** -attribut tillämpat, vilket indikerar att funktionen utlöses av kön. Könamnet och anslutnings strängens inställnings namn skickas som parametrar till attributet **QueueTrigger** . Mer information finns i [Azure Queue Storage-bindningar för Azure Functions](functions-bindings-storage-queue-trigger.md).
 
 Du kan använda proceduren ovan för att lägga till fler funktioner till ditt Function app-projekt. Varje funktion i projektet kan ha en annan utlösare, men en funktion måste ha exakt en utlösare. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 

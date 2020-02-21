@@ -4,15 +4,15 @@ description: Lär dig hur du installerar och använder Istio för att skapa ett 
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 02/19/2020
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d886205e88db780a7a09554391bd975f57eebfe7
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 15b73380269c568977b524a63ca709e352485433
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251744"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485224"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes service (AKS)
 
@@ -98,10 +98,7 @@ Installations metoden för [Helm][helm] för Istio kommer att bli inaktuell i fr
 > Istio måste för närvarande vara schemalagda att köras på Linux-noder. Om du har Windows Server-noder i klustret måste du se till att Istio-poddar endast är schemalagda att köras på Linux-noder. Vi använder [Node-väljare][kubernetes-node-selectors] för att kontrol lera att poddar är schemalagda till rätt noder.
 
 > [!CAUTION]
-> Funktionerna [SDS (Secret Discovery service)][istio-feature-sds] och [Istio cni][istio-feature-cni] Istio är för närvarande i [alpha][istio-feature-stages], så tänk på detta innan du aktiverar dem. 
->
-> Observera att Kubernetes-funktionen för [tjänst kontots token för volym projektion][kubernetes-feature-sa-projected-volume] (ett krav för SDS) nu är **aktive rad** för alla Kubernetes 1,13 och högre versioner på AKS.
-
+> Funktionerna [SDS (Secret Discovery service)][istio-feature-sds] och [Istio cni][istio-feature-cni] Istio är för närvarande i [alpha][istio-feature-stages], så tänk på detta innan du aktiverar dem. Dessutom är Kubernetes-funktionen för [tjänst kontots token för volym projektion][kubernetes-feature-sa-projected-volume] (ett krav för SDS) inte aktive rad i aktuella AKS-versioner.
 Skapa en fil med namnet `istio.aks.yaml` med följande innehåll. Den här filen innehåller [Specifikations informationen för Istio Control plan][istio-control-plane] för att konfigurera Istio.
 
 ```yaml

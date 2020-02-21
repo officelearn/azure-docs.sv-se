@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169778"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505574"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -77,6 +77,9 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 | Uppgradera till Enterprise Edition    | **&check;** | **&check;**  | |     |
 | Skapa och hantera beräknings resurser    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Skapa en virtuell dator för Notebook |   | **&check;** | |     |
+
+> [!WARNING]
+> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
 ## <a name='create-workspace'></a>Skapa en arbets yta
 

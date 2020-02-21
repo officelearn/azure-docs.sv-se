@@ -4,15 +4,15 @@ description: Den här artikeln innehåller information om konfiguration av storl
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839959"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526798"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Begär ande storleks gränser och undantags listor för WebApplication-brandvägg
 
@@ -26,7 +26,7 @@ Med undantags listor för WAF kan du utelämna vissa begär ande attribut från 
 
 Följande attribut kan läggas till i undantags listor efter namn. Värdena för det valda fältet utvärderas inte mot WAF-regler, men deras namn är fortfarande (se exempel 1 nedan) värdet för användar agentens huvud undantas från WAF-utvärderingen). Undantags listorna tar bort kontrollen av fältets värde.
 
-* Begärandehuvuden
+* Begäransrubriker
 * Begär cookies
 * Attribut för begäran (argument) kan läggas till som ett undantags element, till exempel:
 
@@ -91,7 +91,13 @@ Så om URL-`http://www.contoso.com/?user%281%29=fdafdasfda` skickas till WAF utv
 Med brand vägg för webbaserade program kan du konfigurera storleks gränser för förfrågningar inom nedre och övre gränser. Det finns följande två storleks gränser för konfigurationer:
 
 - Fältet Max storlek för begäran har angetts i kilobyte och kontrollerar den allmänna storleks gränsen för förfrågningar exklusive eventuella fil överföringar. Det här fältet kan vara mellan 1 och 1 KB minst 128-KB-högsta värde. Standardvärdet för brödtext i begär ande storlek är 128 KB.
-- Fältet för fil överförings gräns anges i MB och styr den högsta tillåtna storleken för fil uppladdning. Det här fältet kan ha ett minsta värde på 1 MB och högst 500 MB för stora SKU-instanser, men medelhög SKU har högst 100 MB. Standardvärdet för fil överförings gränsen är 100 MB.
+- Fältet för fil överförings gräns anges i MB och styr den högsta tillåtna storleken för fil uppladdning. Det här fältet kan ha ett minimivärde på 1 MB och följande max värden:
+
+   - 100 MB för v1 mellan WAF-gatewayer
+   - 500 MB för v1 stora WAF-gatewayer
+   - 750 MB för v2 WAF-gatewayer 
+
+ Standardvärdet för fil överförings gränsen är 100 MB.
 
 WAF erbjuder också en konfigurerbar ratt för att aktivera eller inaktivera kontroll av begär ande brödtext. Som standard har granskning av begär ande texten Aktiver ATS. Om granskning av begär ande texten är inaktive rad utvärderas inte WAF innehåll i HTTP-meddelandets brödtext. I sådana fall fortsätter WAF att använda WAF-regler på huvuden, cookies och URI. Om granskningen av begär ande texten är inaktive rad är Max storleks fältet för begäran inte tillämpligt och kan inte anges. Om du inaktiverar granskning av begär ande brödtext kan meddelanden som är större än 128 KB skickas till WAF, men meddelande texten inspekteras inte för sårbarheter.
 

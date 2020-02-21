@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 94fafd8b0411c1c7a4032769eec0eb5818844648
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118155"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482303"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
 
@@ -28,9 +28,13 @@ För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
 - En uppsättning av minst sex formulär av samma typ. Du kommer att använda dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-training-data"></a>Konfigurera tränings data
 
-Först måste du konfigurera nödvändiga indata. Funktionen märkta data har särskilda inmatnings krav utöver de som behövs för att träna en anpassad modell. 
+Härnäst måste du konfigurera nödvändiga indata. Funktionen märkta data har särskilda inmatnings krav utöver de som behövs för att träna en anpassad modell. 
 
 Kontrol lera att alla utbildnings dokument har samma format. Om du har formulär i flera format, sorterar du dem i undermappar baserat på vanligt format. När du tränar måste du dirigera API: et till en undermapp.
 

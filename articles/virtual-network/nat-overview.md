@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: allensu
-ms.openlocfilehash: 98d77f43c990dd00dd5e5d616b2fdee44fb8a2f6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 6c8a341a089ef95d99669f592dbea81922d67682
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431425"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526322"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Vad är Virtual Network NAT (offentlig för hands version)?
 
@@ -168,7 +168,7 @@ Prenumerationer måste registreras för att tillåta deltagande i den offentliga
 2. Aktivera registrering
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>Priser
@@ -197,9 +197,7 @@ Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentl
 
 - NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
 - IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.
-- NSG på undernät eller NIC är inte löst för utgående flöden till offentliga slut punkter med hjälp av NAT.
 - NSG Flow-loggning stöds inte när NAT används.
-- När ett virtuellt nätverk har flera undernät kan varje undernät ha en annan konfigurerad NAT.
 - NAT kan inte omfatta flera virtuella nätverk.
 
 ## <a name="next-steps"></a>Nästa steg

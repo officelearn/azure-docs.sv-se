@@ -1,24 +1,24 @@
 ---
-title: Azure Active Directory lösen ords utan lösen ord (för hands version)
-description: Läs om alternativ för lösen ords lös inloggning till Azure Active Directory med hjälp av FIDO2-säkerhetsnycklar eller Microsoft Authenticator-appen
+title: Azure Active Directory inloggning med lösen ord (för hands version)
+description: Läs om alternativ för lösen ords lös inloggning för att Azure Active Directory med hjälp av FIDO2-säkerhetsnycklar eller Microsoft Authenticator-appen
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756801"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505768"
 ---
-# <a name="passwordless-authentication-options"></a>Alternativ för lösenordsskyddad autentisering
+# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Lösen ords verifierings alternativ för Azure Active Directory
 
 Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användare kan ofta bli frustrerade med det extra säkerhets skiktet som krävs för att komma ihåg sina lösen ord. Metoder för snabbare autentisering är mer praktiska eftersom lösen ordet tas bort och ersätts med något som du har, plus något du känner till.
 
@@ -26,7 +26,7 @@ Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation,
 | --- | --- | --- |
 | Lösenordsfri | Windows 10-enhet, telefon eller säkerhets nyckel | Bio metrisk eller PIN-kod |
 
-Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder tre alternativ för lösenordsbaserad autentisering:
+Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder följande tre alternativ för Lösenordssynkronisering:
 
 - Windows Hello för företag
 - Microsoft Authenticator-appen
@@ -52,7 +52,7 @@ Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lös
 
 FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Med FIDO kan användare och organisationer utnyttja standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 
-För en offentlig för hands version kan anställda använda säkerhets nycklar för att logga in på sina Azure AD-anslutna Windows 10-enheter och få enkel inloggning till deras moln resurser och lokala resurser. Användare kan också logga in i webbläsare som stöds. FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
+För en offentlig för hands version kan anställda använda säkerhets nycklar för att logga in på sina Azure AD-eller hybrid Azure AD-anslutna Windows 10-enheter och få enkel inloggning till sina moln resurser och lokala resurser. Användare kan också logga in i webbläsare som stöds. FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
 
 ![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

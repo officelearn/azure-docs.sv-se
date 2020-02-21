@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 06323ba8f623bc80a355be69ed9571ee32dd69e6
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: df0bd87fffba8ed70c60da358b38079d3d017c76
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461223"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505639"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -34,7 +34,8 @@ Jämför två anspråk och Utlös ett undantag om de inte är lika enligt de ang
 | InputClaim | inputClaim2 | sträng | Andra anspråkets typ, som ska jämföras. |
 | InputParameter | stringComparison | sträng | sträng jämförelse, ett av värdena: ordinal, OrdinalIgnoreCase. |
 
-Omvandlingen av **AssertStringClaimsAreEqual** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationStringsAreNotEqual** -metadata för självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
+Omvandlingen av **AssertStringClaimsAreEqual** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)eller en [DisplayConrtol](display-controls.md). `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata för en självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
+
 
 ![AssertStringClaimsAreEqual-körning](./media/string-transformations/assert-execution.png)
 
@@ -122,7 +123,7 @@ Använd den här anspråks omvandlingen för att ändra sträng-ClaimType till l
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
-Skapar ett sträng anspråk från den angivna Indataparametern i principen.
+Skapar ett sträng anspråk från den angivna Indataparametern i omvandlingen.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 |----- | ----------------------- | --------- | ----- |
@@ -516,6 +517,42 @@ I följande exempel söker du efter domän namnet i en av indataparametrar-samli
     - **errorOnFailedLookup**: falskt
 - Utgående anspråk:
     - **outputClaim**: c7026f88-4299-4cdb-965d-3f166464b8a9
+
+När `errorOnFailedLookup` indataparameter är inställt på `true`körs alltid **omvandlingen för sökanspråk från** en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)eller en [DisplayConrtol](display-controls.md). `LookupNotFound` metadata för en självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
+
+![AssertStringClaimsAreEqual-körning](./media/string-transformations/assert-execution.png)
+
+I följande exempel söker du efter domän namnet i en av indataparametrar-samlingarna. Transformationen Claims letar upp domän namnet i identifieraren och returnerar dess värde (ett program-ID) eller genererar ett fel meddelande.
+
+```XML
+ <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="contoso.com" DataType="string" Value="13c15f79-8fb1-4e29-a6c9-be0d36ff19f1" />
+    <InputParameter Id="microsoft.com" DataType="string" Value="0213308f-17cb-4398-b97e-01da7bd4804e" />
+    <InputParameter Id="test.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
+    <InputParameter Id="errorOnFailedLookup" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exempel
+
+- Inmatade anspråk:
+    - **inputParameterId**: Live.com
+- Indataparametrar:
+    - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **Microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup**: sant
+- Fel:
+    - Ingen matchning hittades för det angivna anspråks värdet i listan med ID: n för indataparametrar och errorOnFailedLookup är true.
+
 
 ## <a name="nullclaim"></a>NullClaim
 

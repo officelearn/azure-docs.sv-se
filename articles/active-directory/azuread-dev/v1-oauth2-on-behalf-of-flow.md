@@ -17,12 +17,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: fbef4d84e86c3d35e35a8bbeb04a399ad87a1b89
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 084c15c7ac3ec782dc48a55e65bf4d7aa43b58a1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164089"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484187"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -54,7 +54,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 
 ### <a name="register-the-middle-tier-service"></a>Registrera mellanskikts tjänsten
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar under **katalog** listan för att välja en Active Directory klient för ditt program.
 1. Välj **fler tjänster** i den vänstra rutan och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** och sedan **ny registrering**.
@@ -72,7 +72,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 
 ### <a name="register-the-client-application"></a>Registrera klient programmet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar under **katalog** listan för att välja en Active Directory klient för ditt program.
 1. Välj **fler tjänster** i den vänstra rutan och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** och sedan **ny registrering**.
@@ -267,7 +267,7 @@ Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
 - **SubjectConfirmationData för en SAML-kontroll från ett OBO-anrop**: om mål programmet kräver ett mottagar värde i **SubjectConfirmationData**måste värdet vara en svars-URL som inte är jokertecken i resurs programmets konfiguration.
 - **SubjectConfirmationData-noden**: noden får inte innehålla ett **InResponseTo** -attribut eftersom den inte är en del av ett SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-kontrollen utan ett **InResponseTo** -attribut.
 
-- **Medgivande**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **Medgivande**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
 
 ### <a name="response-with-saml-assertion"></a>Svar med SAML-kontroll
 

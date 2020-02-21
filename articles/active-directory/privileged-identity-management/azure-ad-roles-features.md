@@ -16,18 +16,19 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c633dd3e28047d542e16a58211f997669188f0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896422"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499046"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Hanterings funktioner för Azure AD-roller i Privileged Identity Management
 
 Hanterings upplevelsen för Azure AD-roller i Privileged Identity Management har uppdaterats för att förena hur Azure AD-roller och Azure-resurs roller hanteras. Tidigare har Privileged Identity Management för Azure Resource roles några viktiga funktioner som inte var tillgängliga för Azure AD-roller.
 
 När uppdateringen för närvarande är distribuerad sammanfogas de två i en enda hanterings miljö och du får samma funktioner för Azure AD-roller som för Azures resurs roller. Den här artikeln innehåller information om de uppdaterade funktionerna och eventuella krav.
+
 
 ## <a name="time-bound-assignments"></a>Tidsbegränsade tilldelningar
 

@@ -8,25 +8,25 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ca2ac62892d1c8d438cc37bffcbfede14058bc23
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: af588db37970ee890b8640e45a98f8a1782c332b
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77027722"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500539"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Självstudie: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play-enhet (för hands version) och ansluta den till ditt IoT Central-program
 
 En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en [IoT plug and Play-enhet (för hands version)](../../iot-pnp/overview-iot-plug-and-play.md) . IoT Central kan använda ett DCM för att skapa en enhets mall och visualiseringar för en enhet när enheten ansluter för första gången.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Använd Visual Studio Code för att skapa en IoT Plug and Play-enhet (förhands granskning) med hjälp av ett DCM.
 > * Kör enhets koden i Windows och se att den är ansluten till ditt IoT Central-program.
 > * Visa den simulerade telemetri som enheten skickar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför snabb starten [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > anpassade program** .
 
@@ -80,7 +80,7 @@ I den här självstudien använder du [Vcpkg](https://github.com/microsoft/vcpkg
 
 Om du vill ansluta en enhet till ett IoT Central-program behöver du en enhets nyckel. Så här skapar du en enhets nyckel:
 
-1. Logga in på det IoT Central-program som du skapade med hjälp av den **anpassade appen > för hands version av appen** [skapa ett Azure IoT Central program](./quick-deploy-iot-central.md) snabb start.
+1. Logga in på det IoT Central-program som du skapade med hjälp av den **anpassade program** mal len i snabb starten [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) .
 
 1. Gå till **administrations** sidan och välj **enhets anslutning**.
 

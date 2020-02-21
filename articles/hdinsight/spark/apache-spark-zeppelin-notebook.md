@@ -5,25 +5,24 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 75811382867b93c778641ece42971018eff39949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: hdinsightactive
+ms.date: 02/18/2020
+ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664627"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484816"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark kluster i Azure HDInsight
 
 HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.org/) -anteckningsböcker som du kan använda för att köra [Apache Spark](https://spark.apache.org/) -jobb. I den här artikeln får du lära dig hur du använder Zeppelin Notebook i ett HDInsight-kluster.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* URI-schemat för klustrets primära lagring. Detta är `wasb://` för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Blob Storage blir URI: n `wasbs://`.  Se även [Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) för mer information.
+* URI-schemat för klustrets primära lagring. Detta är `wasb://` för Azure Blob Storage, `abfs://` för Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage Gen1. Om säker överföring har Aktiver ATS för Blob Storage blir URI: n `wasbs://`.  Mer information finns i [Kräv säker överföring i Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Starta en Apache Zeppelin-anteckningsbok
 
@@ -154,7 +153,7 @@ Detta sparar antecknings boken som en JSON-fil på nedladdnings platsen.
 
 ## <a name="livy-session-management"></a>Hantering av livy-sessioner
 
-När du kör det första kod stycket i din Zeppelin-anteckningsbok skapas en ny livy-session i ditt HDInsight Spark-kluster. Den här sessionen delas över alla Zeppelin-anteckningsböcker som du sedan skapar. Om livy-sessionen stoppas (kluster omstart osv.) går det inte att köra jobb från Zeppelin Notebook.
+När du kör det första kod stycket i din Zeppelin-anteckningsbok skapas en ny livy-session i ditt HDInsight Spark-kluster. Den här sessionen delas över alla Zeppelin-anteckningsböcker som du sedan skapar. Om livy-sessionen stoppas (kluster omstart osv.) kan du inte köra jobb från Zeppelin Notebook.
 
 I sådana fall måste du utföra följande steg innan du kan börja köra jobb från en Zeppelin Notebook.  
 
@@ -168,9 +167,44 @@ I sådana fall måste du utföra följande steg innan du kan börja köra jobb f
 
 3. Kör en Code-cell från en befintlig Zeppelin Notebook. Detta skapar en ny livy-session i HDInsight-klustret.
 
-## <a name="seealso"></a>Se även
+## <a name="general-information"></a>Allmän information
 
-* [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
+### <a name="validate-service"></a>Verifiera tjänst
+
+Om du vill validera tjänsten från Ambari navigerar du till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` där kluster namn är namnet på klustret.
+
+För att verifiera tjänsten från en kommando rad, SSH till Head-noden. Växla användare till Zeppelin med kommandot `sudo su zeppelin`. Status kommandon:
+
+|Kommando |Beskrivning |
+|---|---|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Tjänst status.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Tjänst version.|
+|`ps -aux | grep zeppelin`|Identifiera PID.|
+
+### <a name="log-locations"></a>Logg platser
+
+|Tjänst |Sökväg |
+|---|---|
+|Zeppelin-Server|/usr/hdp/current/zeppelin-server/|
+|Serverloggar|/var/log/zeppelin|
+|Konfigurations tolk, Shiro, site. XML, log4j|/usr/HDP/Current/Zeppelin-Server/conf eller/etc/Zeppelin/conf|
+|PID-katalog|/var/run/zeppelin|
+
+### <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
+
+1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` där kluster namn är namnet på klustret.
+
+1. Navigera till **config** > **Advanced Zeppelin-log4j-Properties** > **log4j_properties_content**.
+
+1. Ändra `log4j.appender.dailyfile.Threshold = INFO` till `log4j.appender.dailyfile.Threshold = DEBUG`.
+
+1. Lägg till `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
+
+1. Spara ändringar och starta om tjänsten.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scenarier
 

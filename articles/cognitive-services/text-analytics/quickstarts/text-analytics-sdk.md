@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 87cf5f226a8b2d1efcc0ee967d84f6e0002cb03d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 79dd6160b65469d6a44167913adb7e319f0f583a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987939"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525353"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
@@ -24,10 +24,10 @@ Kom igång med Textanalys klient biblioteket. Följ de här stegen för att inst
 
 Använd Textanalys klient bibliotek för att utföra:
 
-* Känsloanalys
-* Språkspårning
+* Attitydanalys
+* Språkidentifiering
 * Enhetsidentifiering
-* Extraktion av nyckelfraser
+* Extrahering av nyckelfraser
 
 ::: zone pivot="programming-language-csharp"
 
@@ -37,17 +37,6 @@ Använd Textanalys klient bibliotek för att utföra:
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-> [!IMPORTANT]
-> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
->    * Se till att du bara följer anvisningarna för den version som du använder.
-> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan. 
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
@@ -73,6 +62,17 @@ Använd Textanalys klient bibliotek för att utföra:
 
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+
+> [!IMPORTANT]
+> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
+>    * Se till att du bara följer anvisningarna för den version som du använder.
+> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+
+::: zone-end
+
 ::: zone pivot="programming-language-other"
 
 ## <a name="additional-language-support"></a>Ytterligare språk stöd
@@ -81,8 +81,8 @@ Om du har klickat på den här fliken ser du förmodligen ingen snabb start på 
 
 | Språk | Tillgänglig version | 
 |----------|------------------------|
-| Ruby     | [Version 2,1](ruby-sdk.md)          | 
-| Go       | [Version 2,1](go-sdk.md)          | 
+| Ruby     | [Version 2,1](ruby-sdk.md) | 
+| Kör       | [Version 2,1](go-sdk.md) | 
 
 ::: zone-end
 
@@ -90,7 +90,7 @@ Om du har klickat på den här fliken ser du förmodligen ingen snabb start på 
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg

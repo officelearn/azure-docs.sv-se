@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848450"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77504939"
 ---
-# <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera lösen ords skydd med lösen ords skydd (för hands version)
+# <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösen ords skydd (för hands version)
 
 För företag som använder lösen ord idag och har en delad dator miljö, är säkerhets nycklar ett sömlöst sätt för arbetare att autentisera utan att ange användar namn eller lösen ord. Säkerhets nycklar ger förbättrad produktivitet för anställda och har bättre säkerhet.
 
@@ -31,7 +31,7 @@ Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen 
 
 ## <a name="requirements"></a>Krav
 
-- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [Azure-Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - Webauthn kräver Windows 10 version 1809 eller högre * *
@@ -40,7 +40,9 @@ Om du vill använda säkerhets nycklar för att logga in på webbappar och tjän
 
 ## <a name="prepare-devices-for-preview"></a>Förbereda enheter för för hands version
 
-Enheter som du ska pilot med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
+Azure AD-anslutna enheter som du pilot med måste köra Windows 10 version 1809 eller senare. Den bästa upplevelsen är i Windows 10 version 1903 eller senare.
+
+Hybrid Azure AD-anslutna enheter måste köra Windows 10 Insider build 18945 eller senare.
 
 ## <a name="enable-passwordless-authentication-method"></a>Aktivera autentiseringsmetod för lösen ord
 
@@ -50,7 +52,7 @@ Registrerings funktioner för metoder för lösen ords kryptering förlitar sig 
 
 ### <a name="enable-fido2-security-key-method"></a>Aktivera FIDO2 säkerhets nyckel metod
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > **principen för autentiserings metoden (för hands version)** .
 1. Under metod **FIDO2 säkerhets nyckel**väljer du följande alternativ:
    1. **Aktivera** – Ja eller Nej
@@ -79,13 +81,13 @@ I exemplet nedan har en användare redan har etablerad sin FIDO2-säkerhetsnycke
 
 ## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
 
-Om du vill dela feedback eller om du får problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen.
+Om du vill dela feedback eller om du har problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen med hjälp av följande steg:
 
 1. Starta **feedback Hub** och se till att du är inloggad.
 1. Skicka feedback under följande kategorisering:
-   1. Kategori: säkerhet och sekretess
-   1. Under kategori: FIDO
-1. För att avbilda loggar använder du alternativet: **återskapa mitt problem**
+   - Kategori: säkerhet och sekretess
+   - Under kategori: FIDO
+1. För att avbilda loggar använder du alternativet för att **återskapa mitt problem**
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -95,7 +97,7 @@ Administratörs etablering och avetablering av säkerhets nycklar är inte tillg
 
 ### <a name="upn-changes"></a>UPN-ändringar
 
-Om en användares UPN-ändringar ändras kan du inte längre ändra FIDO2-säkerhetsnycklar för att ändra konto för ändringen. Lösningen är att återställa enheten och användaren måste registrera sina FIDO2-säkerhetsnycklar på nytt.
+Vi arbetar med att stödja en funktion som tillåter UPN-ändring på Hybrid Azure AD-anslutna och Azure AD-anslutna enheter. Om en användares UPN-ändringar ändras kan du inte längre ändra FIDO2-säkerhetsnycklar för att ändra konto för ändringen. Lösningen är att återställa enheten och användaren måste registrera den igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

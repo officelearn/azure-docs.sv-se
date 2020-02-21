@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Lär dig hur du konfigurerar Azure dev Spaces för att använda en anpassad NGINX ingångs kontroll och konfigurera HTTPS med den här ingångs styrenheten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: c6158c3229f4cb81df69b05c6973425c346a2046
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 39f17636779c4160867311af67ebc621b685f2d3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466883"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486210"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Använd en anpassad NGINX ingångs kontroll och konfigurera HTTPS
 
@@ -128,7 +128,7 @@ azds space select -n dev -y
 Distribuera exempel programmet med `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 Exemplet ovan distribuerar exempel programmet till *dev* -namnområdet.

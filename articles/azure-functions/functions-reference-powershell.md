@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974248"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485139"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -75,11 +75,11 @@ $TriggerMetadata.sys
 
 | Egenskap   | Beskrivning                                     | Typ     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | När, i UTC, utlöstes funktionen        | DateTime |
+| utcNow     | När, i UTC, utlöstes funktionen        | DateTime |
 | MethodName | Namnet på den funktion som har utlösts     | sträng   |
 | RandGuid   | ett unikt GUID för den här körningen av funktionen | sträng   |
 
-Varje utlösnings typ har en annan uppsättning metadata. `$TriggerMetadata` för `QueueTrigger` innehåller till exempel `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue.md#trigger---message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
+Varje utlösnings typ har en annan uppsättning metadata. `$TriggerMetadata` för `QueueTrigger` innehåller till exempel `InsertionTime`, `Id`, `DequeueCount`, bland annat. För ytterligare information om köns utlösare metadata, gå till den [officiella dokumentationen för köade utlösare](functions-bindings-storage-queue-trigger.md#message-metadata). Läs dokumentationen om de [utlösare](functions-triggers-bindings.md) som du arbetar med för att se vad som ingår i utlösarens metadata.
 
 ## <a name="bindings"></a>Bindningar
 
@@ -127,7 +127,7 @@ Följande är giltiga parametrar för att anropa `Push-OutputBinding`:
 
 | Namn | Typ | Position | Beskrivning |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Sträng | 1 | Namnet på den utgående bindning som du vill ange. |
+| **`-Name`** | String | 1 | Namnet på den utgående bindning som du vill ange. |
 | **`-Value`** | Objekt | 2 | Värdet för den utgående bindning som du vill ange, som accepteras från pipelinen ByValue. |
 | **`-Clobber`** | SwitchParameter | Följande | Valfritt Tvingar värdet att anges för en angiven utgående bindning när den anges. | 
 
@@ -175,7 +175,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding exempel: utgående bindning för kö
 
-`Push-OutputBinding` används för att skicka data till utgående bindningar, t. ex. en [Azure Queue Storage utgående bindning](functions-bindings-storage-queue.md#output). I följande exempel har meddelandet som skrivs till kön värdet "utdata #1":
+`Push-OutputBinding` används för att skicka data till utgående bindningar, t. ex. en [Azure Queue Storage utgående bindning](functions-bindings-storage-queue-output.md). I följande exempel har meddelandet som skrivs till kön värdet "utdata #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -235,7 +235,7 @@ Loggning i PowerShell-funktioner fungerar som vanlig PowerShell-loggning. Du kan
 | Fel | **`Write-Error`** |
 | Varning | **`Write-Warning`**  | 
 | Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Skriver till loggning på _informations_ nivå. |
-| Felsöka | **`Write-Debug`** |
+| Felsökning | **`Write-Debug`** |
 | Spårning | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Förutom dessa cmdlets omdirigeras allt som skrivs till pipelinen till `Information` loggnings nivå och visas med standardvärdet för PowerShell.
@@ -276,7 +276,7 @@ Alla utlösare och bindningar representeras i kod som några få verkliga data t
 
 * Hash
 * sträng
-* byte
+* byte[]
 * int
 * double
 * HttpRequestContext

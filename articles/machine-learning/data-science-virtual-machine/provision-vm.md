@@ -1,5 +1,6 @@
 ---
-title: 'Snabb start: skapa en Windows-DSVM'
+title: 'Snabb start: skapa en Windows-Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: Konfigurera och skapa en virtuell dator för datavetenskap på Azure för analys och maskininlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611925"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525880"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Snabb start: Konfigurera Data Science Virtual Machine för Windows
 
@@ -69,5 +70,5 @@ Du kan också bifoga en DSVM till Azure Notebooks för att köra Jupyter-anteckn
 * Utforska verktygen på DSVM genom att öppna **Start** -menyn.
 * Läs mer om Azure Machine Learning genom att läsa [Vad är Azure Machine Learning?](../overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
 * Läs artikeln [tio saker du kan göra på data science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Gå till den [Azure AI-galleriet](https://gallery.cortanaintelligence.com) för machine learning och data analytics-exempel som använder Azure Machine Learning och relaterade data services på Azure. Vi har också tillhandahållit en ikon för det här galleriet på **Start** -menyn och på Skriv bordet på den virtuella datorn.
+* Besök [Azure AI Gallery](https://gallery.cortanaintelligence.com) för Machine Learning-och data analys-exempel som använder Azure Machine Learning och relaterade data tjänster på Azure. Vi har också tillhandahållit en ikon för det här galleriet på **Start** -menyn och på Skriv bordet på den virtuella datorn.
 

@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 9bb228725d5ad8e3583c73be09c582478f74a1e8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471898"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484408"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Felsök allokeringsfel när du skapar, startar om eller ändrar storlek på virtuella datorer i Azure
 
@@ -87,9 +87,9 @@ När vi utökar Azure-infrastrukturen distribuerar vi nyare generations maskin v
 
 |Äldre VM-serien/storlek|Rekommenderad nyare VM-serien/storlek|Mer information|
 |----------------------|----------------------------|--------------------|
-|AV1-serien|[AV2-serien](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|DV1 eller DSv1-serien (D1 till D5)|[Dv3 eller DSv3-serien](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|DV1 eller DSv1-serien (D11 till D14)|[Ev3 eller ESv3-serien](../windows/sizes-memory.md#ev3-series)|
+|AV1-serien|[AV2-serien](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|DV1 eller DSv1-serien (D1 till D5)|[Dv3 eller DSv3-serien](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|DV1 eller DSv1-serien (D11 till D14)|[Ev3 eller ESv3-serien](../ev3-esv3-series.md)|
 |D15v2 eller DS15v2|Om du använder distributions modellen för theResource Manager för att dra nytta av de större VM-storlekarna bör du överväga att flytta till D16v3/DS16v3 eller D32v3/DS32v3. De är utformade för att köras på den senaste generationens maskin vara. Om du använder distributions modellen för Resource Manager för att se till att den virtuella dator instansen är isolerad till maskin vara som är dedikerad till en enda kund, bör du överväga att flytta till de nya isolerade VM-storlekarna, E64i_v3 eller E64is_v3, som är avsedda att köras på den senaste generationen |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Allokeringsfel för stora distributioner (mer än 500 kärnor)

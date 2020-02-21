@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444153"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486401"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -112,6 +112,7 @@ Mer information finns i [så här kör du experiment och härledning i ett virtu
 > [!IMPORTANT]
 > Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Detta styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer.
 
+Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -189,7 +190,9 @@ OS-disken för varje Compute-nod som lagras i Azure Storage krypteras med Micros
 
 Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om du vill kan du använda disken för att mellanlagra tränings data. Disken är krypterad som standard för arbets ytor med parametern `hbi_workspace` inställd på `TRUE`. Den här miljön är endast kort livs längd under körningen och krypterings stödet är begränsat till endast systemhanterade nycklar.
 
-Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+#### <a name="azure-databricks"></a>Azure Databricks
+
+Azure Databricks kan användas i Azure Machine Learning pipeliner. Som standard krypteras DBFS (Databricks File System) som används av Azure Databricks med hjälp av en Microsoft-hanterad nyckel. Information om hur du konfigurerar Azure Databricks att använda Kundhanterade nycklar finns i [Konfigurera Kundhanterade nycklar på standard-DBFS (root)](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 

@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 89b8d9fb1d929e0598469ba582049c61216e923a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687418"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524036"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Skapa en PHP- och MySQL-app i Azure App Service i Linux
 
@@ -18,14 +18,14 @@ ms.locfileid: "74687418"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en PHP- och MySQL-app i Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudien visar hur du skapar en PHP-app och ansluter den till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/)-app som körs i App Service i Linux.
+Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här självstudien visar hur du skapar en PHP-app och ansluter den till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/)-app som körs i App Service i Linux.
 
 ![PHP-app som körs i Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
+> * skapa en MySQL-databas i Azure
 > * ansluta en PHP-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
@@ -34,9 +34,9 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/)
 * [Installera PHP 5.6.4 eller senare](https://php.net/downloads.php)
@@ -129,7 +129,7 @@ Generera en ny Laravel-programnyckel.
 php artisan key:generate
 ```
 
-Kör appen.
+Kör programmet.
 
 ```bash
 php artisan serve
@@ -233,7 +233,7 @@ I det här steget ansluter du PHP-programmet till MySQL-databasen som du skapade
 
 ### <a name="configure-the-database-connection"></a>Konfigurera databasanslutningen
 
-Skapa en _.env.production_-fil i lagringsplatsens rot och kopiera in följande variabler i filen. Ersätt plats hållaren _&lt;MySQL-server-name >_ .
+I lagringsplatsen rot skapar du en _.env.production_-fil och kopierar in följande variabler i den. Ersätt plats hållaren _&lt;MySQL-server-name >_ .
 
 ```txt
 APP_ENV=production
@@ -256,7 +256,7 @@ Spara ändringarna.
 
 ### <a name="configure-ssl-certificate"></a>Konfigurera ett SSL-certifikat
 
-Azure Database för MySQL använder som standard SSL-anslutningar från klienter. För att ansluta till din MySQL-databas i Azure måste du använda [ _.pem_-certifikatet som tillhandahålls av Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
+Azure Database for MySQL använder som standard SSL-anslutningar från klienter. För att ansluta till din MySQL-databas i Azure måste du använda [ _.pem_-certifikatet som tillhandahålls av Azure Database for MySQL](../../mysql/howto-configure-ssl.md).
 
 Öppna _config/database.php_ och lägg till parametrarna _sslmode_ och _options_ i `connections.mysql`, enligt följande kod.
 
@@ -309,7 +309,7 @@ git add .
 git commit -m "database.php updates"
 ```
 
-Din app är klar att distribuera.
+Din app är klar att distribueras.
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
@@ -327,7 +327,7 @@ Mer information finns i [ändra plats roten](configure-language-php.md#change-si
 
 [!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
@@ -421,13 +421,13 @@ Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgif
 
 Grattis! Du kör en datadriven PHP-app i Azure App Service.
 
-## <a name="update-model-locally-and-redeploy"></a>Uppdatera modell lokalt och distribuera om
+## <a name="update-model-locally-and-redeploy"></a>Uppdatera modellen lokalt och distribuera om
 
 I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen och publicerar sedan uppdateringen till Azure.
 
 För uppgiftsscenariot ändrar du programmet så att du kan markera en uppgift som slutförd.
 
-### <a name="add-a-column"></a>Lägga till en kolumn
+### <a name="add-a-column"></a>Lägg till en kolumn
 
 I terminalen går du till roten för Git-lagringsplatsen.
 
@@ -469,7 +469,7 @@ I terminalen kör du Laravel-databasemigreringar för att göra ändringen i den
 php artisan migrate
 ```
 
-Modellen `Task` (se _app/Task.php_) mappar till `tasks`-tabellen som standard, baserat på [Laravel-namngivningskonventionen](https://laravel.com/docs/5.4/eloquent#defining-models).
+Modellen [ (se ](https://laravel.com/docs/5.4/eloquent#defining-models)app/Task.php`Task`) mappar till _-tabellen som standard, baserat på_ Laravel-namngivningskonventionen`tasks`.
 
 ### <a name="update-application-logic"></a>Uppdatera programlogik
 
@@ -590,7 +590,7 @@ Menyn till vänster innehåller sidor för att konfigurera appen.
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en MySQL-databas i Azure
+> * skapa en MySQL-databas i Azure
 > * ansluta en PHP-app till MySQL
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 48d148256fe69bbdfd188f1d8472c2de80b0fa64
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208377"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505838"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Självstudie: implementera IoT spatial Analytics med hjälp av Azure Maps
 
@@ -89,7 +89,7 @@ Följande bild visar det yt avgränsnings områden som marker ATS i blått. Hyre
 
 För att slutföra stegen i den här självstudien måste du först skapa en resurs grupp i Azure Portal. Gör så här för att skapa en resurs grupp:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Välj **Resursgrupper**.
     
@@ -116,9 +116,9 @@ För att implementera affärs logik baserat på Azure Maps spatial analys måste
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-För att logga händelse data skapar vi ett **v2storage** -konto för generell användning i resurs gruppen "ContosoRental" för att lagra data som blobar. Om du vill skapa ett lagrings konto följer du anvisningarna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Härnäst måste vi skapa en behållare för att lagra blobbar. Följ stegen nedan för att göra det:
+För att logga händelse data skapar vi en generell **v2storage** som ger åtkomst till alla Azure Storage tjänster: blobbar, filer, köer, tabeller och diskar.  Vi måste placera det här lagrings kontot i resurs gruppen "ContosoRental" för att lagra data som blobbar. Om du vill skapa ett lagrings konto följer du anvisningarna i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Härnäst måste vi skapa en behållare för att lagra blobbar. Följ stegen nedan för att göra det:
 
-1. I ditt lagrings konto navigerar du till behållare.
+1. I ditt "lagrings konto – BLOB, fil, tabell, kö", navigerar du till behållare.
 
     ![blobar](./media/tutorial-iot-hub-maps/blobs.png)
 
@@ -155,6 +155,9 @@ För att kunna ansluta till den IoT Hub måste en enhet registreras. Följ stege
     
     ![registrera – enhet](./media/tutorial-iot-hub-maps/register-device.png)
 
+3. Spara den **primära anslutnings strängen** för enheten för att använda den i ett senare steg, där du måste ändra en plats hållare med den här anslutnings strängen.
+
+    ![Lägg till enhet](./media/tutorial-iot-hub-maps/connection-string.png)
 
 ## <a name="upload-geofence"></a>Ladda upp gräns
 
@@ -188,7 +191,7 @@ Vi använder [Postman-programmet](https://www.getpostman.com) för att [överfö
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Kopiera din status-URI och Lägg till en `subscription-key`-parameter till den med dess värde som din Azure Maps konto prenumerations nyckel. Status-URI-formatet ska vara som det som anges nedan:
+6. Kopiera din status-URI och Lägg till en `subscription-key` parameter till den. Tilldela värdet för din Azure Maps konto prenumerations nyckel till `subscription-key`-parametern. Status-URI-formatet bör vara likadant som det nedan och `{Subscription-key}` ersatt med din prenumerations nyckel.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -214,11 +217,11 @@ Logiken som vi implementerar i funktionen använder de plats data som kommer fr�
 
 All relevant händelse information behålls i BLOB-arkivet. Steg 5 nedan pekar på den körbara kod som implementerar en sådan logik. Följ stegen nedan för att skapa en Azure-funktion som skickar data loggar till BLOB-behållaren i Blob Storage-kontot och lägger till en Event Grid-prenumeration på den.
 
-1. I instrument panelen Azure Portal väljer du skapa en resurs. Välj **Beräkna** i listan över tillgängliga resurs typer och välj sedan **Function app**.
+1. I instrument panelen Azure Portal väljer du skapa en resurs. Välj **Beräkna** i listan över tillgängliga resurs typer och välj sedan **Funktionsapp**.
 
     ![Skapa-resurs](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. På sidan Skapa **Funktionsapp** namnger du din Function-app. Under **resurs grupp**väljer du **Använd befintlig**och sedan "ContosoRental" i list rutan. Välj ".NET Core" som körnings stack. Under **lagring**väljer du **Använd befintlig**, väljer "contosorentaldata" i list rutan och väljer sedan **Granska + skapa**.
+2. På sidan Skapa **Funktionsapp** namnger du din Function-app. Under **resurs grupp**väljer du **Använd befintlig**och sedan "ContosoRental" i list rutan. Välj ".NET Core" som körnings stack. Under **värd**, för **lagrings konto**, väljer du lagrings kontots namn från ett tidigare steg. I vårt föregående steg hette vi lagrings kontot **v2storage**.  Välj sedan **Granska + skapa**.
     
     ![Skapa – app](./media/tutorial-iot-hub-maps/rental-app.png)
 
@@ -233,10 +236,12 @@ All relevant händelse information behålls i BLOB-arkivet. Steg 5 nedan pekar p
 5. Välj mallen med en **Azure Event Grid-utlösare**. Installera tillägg om du uppmanas till det, namnge funktionen och välj **skapa**.
 
     ![funktion-mall](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
+    
+    **Azure Event Hub-utlösaren** och **Azure Event Grid utlösaren** har liknande ikoner. Se till att du väljer **Azure Event Grid utlösare**.
 
-6. Kopiera [c#-koden](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) till din funktion och klicka på **Spara**.
+6. Kopiera [ C# koden](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) till din funktion.
  
-7. Ersätt följande parametrar i c#-skriptet:
+7. Ersätt följande C# parametrar i skriptet. Klicka på **Save** (Spara). Klicka inte på **Kör** ännu
     * Ersätt **SUBSCRIPTION_KEY** med din primära prenumerations nyckel för Azure Maps-kontot.
     * Ersätt **UDID** med UDID för den avgränsning som du laddade upp, 
     * Funktionen **CreateBlobAsync** i skriptet skapar en BLOB per händelse i data lagrings kontot. Ersätt **ACCESS_KEY**, **ACCOUNT_NAME**och **STORAGE_CONTAINER_NAME** med lagrings kontots åtkomst nyckel, konto namn och data lagrings behållare.
@@ -245,7 +250,7 @@ All relevant händelse information behålls i BLOB-arkivet. Steg 5 nedan pekar p
     
     ![Lägg till händelse-rutnät](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. Fyll i prenumerations information, under **information om händelse prenumerations** namn din prenumeration och för händelse schema väljer du Event Grid schema. Under **ämnes information** väljer du "Azure IoT Hub Accounts" som typ av ämne. Välj samma prenumeration som du använde för att skapa resurs gruppen, välj "ContosoRental" som "resurs grupp". Välj IoT Hub som du skapade som "resurs". Välj **telemetri för enhet** som händelse typ. När du har valt dessa alternativ visas "ämnes typ"-ändringen till "IoT Hub" automatiskt.
+11. Fyll i prenumerations information, under **information om händelse prenumeration** , anger du din händelse prenumeration. Välj Event Grid schema för händelse schema. Under **ämnes information** väljer du "Azure IoT Hub Accounts" som typ av ämne. Välj samma prenumeration som du använde för att skapa resurs gruppen, välj "ContosoRental" som "resurs grupp". Välj IoT Hub som du skapade som "resurs". Välj **telemetri för enhet** som händelse typ. När du har valt dessa alternativ visas "ämnes typ"-ändringen till "IoT Hub" automatiskt.
 
     ![händelse – rutnät – prenumeration](./media/tutorial-iot-hub-maps/af-egs.png)
  
@@ -263,9 +268,9 @@ I vårt exempel scenario vill vi filtrera ut alla meddelanden där hyr fordonet 
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Skicka telemetridata till IoT Hub
 
-När vår Azure-funktion är igång kan vi nu skicka telemetridata till IoT Hub som dirigerar den till Event Grid. Vi använder ett c#-program för att simulera plats data för en fordons enhet i en hyr bil. Om du vill köra programmet måste du ha .NET Core SDK 2.1.0 eller senare på din utvecklings dator. Följ stegen nedan för att skicka simulerade telemetridata till IoT Hub.
+När vår Azure-funktion är igång kan vi nu skicka telemetridata till IoT Hub som dirigerar den till Event Grid. Vi använder ett C# program för att simulera plats data för en fordons enhet i en hyr bil. Om du vill köra programmet måste du ha .NET Core SDK 2.1.0 eller senare på din utvecklings dator. Följ stegen nedan för att skicka simulerade telemetridata till IoT Hub.
 
-1. Ladda ned c#-projektet [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) . 
+1. Ladda ned [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# -projektet. 
 
 2. Öppna simulatedCar.cs-filen i valfri text redigerare och Ersätt värdet för `connectionString` med den som du sparade när du registrerade enheten och spara ändringarna i filen.
  

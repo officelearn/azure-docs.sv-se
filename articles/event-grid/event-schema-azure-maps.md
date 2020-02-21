@@ -1,36 +1,36 @@
 ---
-title: Schema för Azure Event Grid Azure Maps-händelse
-description: Beskriver egenskaper och schema för Azure Maps-händelser med Azure Event Grid
+title: Händelse schema för Azure Event Grid Azure Maps
+description: Beskriver de egenskaper och schema som anges för Azure Maps händelser med Azure Event Grid
 services: event-grid
-author: walsehgal
+author: femila
 ms.service: event-grid
 ms.topic: reference
 ms.date: 02/08/2019
-ms.author: v-musehg
-ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: femila
+ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861862"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486367"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Event Grid-Händelseschema för Azure Maps
+# <a name="azure-event-grid-event-schema-for-azure-maps"></a>Azure Event Grid händelse schema för Azure Maps
 
-Den här artikeln innehåller egenskaperna och schema för Azure Maps-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](https://docs.microsoft.com/azure/event-grid/event-schema).
+Den här artikeln innehåller egenskaper och schema för Azure Maps händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](https://docs.microsoft.com/azure/event-grid/event-schema).
 
-## <a name="available-event-types"></a>Tillgängliga händelsetyper
+## <a name="available-event-types"></a>Tillgängliga händelse typer
 
-Ett Azure Maps-konto genererar följande händelsetyper:
+Ett Azure Maps konto avger följande händelse typer:
 
 | eventType | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Aktiveras när koordinater emot har flyttat från utanför en viss geofence-området till i |
-| Microsoft.Maps.GeofenceExited | Aktiveras när koordinater emot har flyttats från inom en viss geofence-området till utanför |
-| Microsoft.Maps.GeofenceResult | Aktiveras varje gång en geofencing-fråga returnerar ett resultat oavsett status |
+| Microsoft.Maps.GeofenceEntered | Utlöses när de mottagna koordinaterna har flyttats från utsidan av ett angivet geografiskt avgränsnings tecken till inom |
+| Microsoft.Maps.GeofenceExited | Utlöses när de mottagna koordinaterna har flyttats från ett angivet geografiskt avgränsnings tecken till utsidan |
+| Microsoft.Maps.GeofenceResult | Genereras varje gång en inhägnad fråga returnerar ett resultat, oavsett tillstånd |
 
-## <a name="event-examples"></a>Händelse-exempel
+## <a name="event-examples"></a>Händelse exempel
 
-I följande exempel visas schemat för en **GeofenceEntered** händelse
+I följande exempel visas schemat för en **GeofenceEntered** -händelse
 
 ```JSON
 {   
@@ -60,7 +60,7 @@ I följande exempel visas schemat för en **GeofenceEntered** händelse
 }
 ```
 
-I följande exempel visar schemat för **GeofenceResult** 
+I följande exempel visas schema för **GeofenceResult** 
 
 ```JSON
 {   
@@ -98,72 +98,72 @@ I följande exempel visar schemat för **GeofenceResult**
 }
 ```
 
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelse egenskaper
 
-En händelse har följande översta data:
-
-| Egenskap | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| subject | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | object | Geofencing händelsedata. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
-
-Dataobjektet har följande egenskaper:
+En händelse har följande data på översta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| apiCategory | string | API-kategori för händelsen. |
-| apiName | string | API-namnet på händelsen. |
-| issues | object | Visar en lista över problem som uppstod under bearbetning. Om eventuella problem returneras det blir inga geometrier som returneras med svaret. |
-| responseCode | nummer | HTTP-svarskoden |
-| geometries | object | Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
+| ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
+| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| id | sträng | Unikt ID för händelsen. |
+| data | objekt | Avgränsning av händelse data. |
+| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
 
-Felobjekt returneras när ett fel uppstår i Maps-API. Felobjektet har följande egenskaper:
-
-| Egenskap | Typ | Beskrivning |
-| -------- | ---- | ----------- |
-| error | ErrorDetails |Det här objektet som returneras när ett fel uppstår i Maps-API  |
-
-ErrorDetails objekt returnerades när ett fel uppstår i Maps-API. Den felinformation eller det objekt du har följande egenskaper:
+Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| code | string | HTTP-statuskoden. |
-| message | string | Om det finns en mänsklig läsbar beskrivning av felet. |
-| innererror | InnerError | Om det finns ett objekt som innehåller service-specifik information om felet. |
+| apiCategory | sträng | Händelsens API-kategori. |
+| apiName | sträng | Händelsens API-namn. |
+| issues | objekt | Visar en lista över problem som uppstått under bearbetningen. Om några problem returneras kommer inga Geometries att returneras med svaret. |
+| responseCode | nummer | HTTP-svarskod |
+| geometries | objekt | Visar en lista över avgränsnings Geometries som innehåller koordinatens placering eller överlappar searchBuffer omkring positionen. |
 
-InnerError är ett objekt som innehåller service-specifik information om felet. Objektet InnerError har följande egenskaper: 
+Objektet Error returneras när ett fel uppstår i Maps-API: et. Objektet Error har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| code | string | Ett felmeddelande. |
+| fel | ErrorDetails |Det här objektet returneras när ett fel uppstår i Maps-API: et  |
 
-Objektet geometrier listar geometri ID: N för geofence-områden som har upphört att gälla i förhållande till Användartid i begäran. Objektet geometrier har geometri objekt med följande egenskaper: 
+ErrorDetails-objektet returneras när ett fel uppstår i Maps-API: et. ErrorDetails eller-objektet har följande egenskaper:
+
+| Egenskap | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| code | sträng | HTTP-statuskod. |
+| meddelande | sträng | Om det är tillgängligt kan en läslig Beskrivning av felet. |
+| innererror | InnerError | Om det finns ett objekt som innehåller tjänstspecifik information om felet. |
+
+InnerError är ett objekt som innehåller tjänstspecifik information om felet. InnerError-objektet har följande egenskaper: 
+
+| Egenskap | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| code | sträng | Fel meddelandet. |
+
+Geometries-objektet, listar geometri-ID: n för de avgränsningar som har upphört att gälla i förhållande till användar tiden i begäran. Geometries-objektet har geometri objekt med följande egenskaper: 
 
 | Egenskap | Typ | Beskrivning |
 |:-------- |:---- |:----------- |
-| deviceid | string | ID för enheten. |
-| distance | string | <p>Avståndet från koordinaten till den närmaste kantlinjen för geofence-området. Positiv innebär koordinaten ligger utanför geofence-området. Om koordinaten ligger utanför geofence-området, men mer än värdet för searchBuffer bort från den närmaste geofence-området kantlinjen, är värdet 999. Negativt innebär koordinaten inuti geofence-området. Om koordinaten som finns i polygonen, men mer än värdet för searchBuffer bort från den närmaste geofencing kantlinjen, är värdet-999. Värdet 999 innebär att det finns säkert koordinaten är väl utanför geofence-området. Värdet-999 innebär att det finns säkert koordinaten är väl inom geofence-området.<p> |
-| geometryid |string | Unikt id identifierar geofence-området geometri. |
-| nearestlat | nummer | Latitud för den närmaste punkten i geometrin. |
-| nearestlon | nummer | Longitud för den närmaste punkten i geometrin. |
-| udId | string | Unikt id som returneras från användare ladda upp tjänsten när du överför en geofence-området. Inkluderas inte i API: et för geofencing-post. |
+| DeviceID | sträng | ID för enhet. |
+| avstånd | sträng | <p>Avståndet från koordinaten till den närmaste kanten på den närmaste gränsen. Positivt innebär att koordinaten ligger utanför den yttre gränsen. Om koordinaten ligger utanför den yttre gränsen, men mer än värdet för searchBuffer bort från närmaste yttre gräns, är värdet 999. Negativt innebär att koordinaten ligger innanför det inre avgränsnings gränsen. Om koordinaten är inuti polygonen, men mer än värdet för searchBuffer bort från den närmaste inre gränsen, är värdet-999. Värdet 999 innebär att koordinaten är mycket stor och är väl utanför den yttre gränsen. Värdet-999 innebär att det är mycket bra förtroende att koordinaten är väl inom den andra gränsen.<p> |
+| geometryid |sträng | Det unika ID: t identifierar den geometriska geometrin. |
+| nearestlat | nummer | Latitud för den närmsta punkten i geometrin. |
+| nearestlon | nummer | Longitud för geometrins närmaste punkt. |
+| udId | sträng | Det unika ID som returnerades från användar överförings tjänsten vid överföring av en inhägnad. Ingår inte i post-API för polyinhägnad. |
 
-Dataobjektet har följande egenskaper:
+Data-objektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| expiredGeofenceGeometryId | string[] | Listor över geometri-ID: T för geofence-området som har upphört att gälla i förhållande till Användartid i begäran. |
-| geometries | geometries[] |Listor Avgränsningstecken-geometrier som innehåller koordinaten placera eller överlappar searchBuffer runt positionen. |
-| invalidPeriodGeofenceGeometryId | string[]  | Listor över geometri-ID: T för geofence-området som tillhör ogiltig period i förhållande till Användartid i begäran. |
-| isEventPublished | boolesk | SANT har om minst en händelse publiceras till Azure Maps händelse prenumerant, FALSKT om ingen händelse publicerats på Azure Maps händelse prenumeranten. |
+| expiredGeofenceGeometryId | sträng [] | Visar en lista med geometri-ID för den avgränsning som har förfallit i förhållande till användar tiden i begäran. |
+| geometries | geometries[] |Visar en lista över avgränsnings Geometries som innehåller koordinatens placering eller överlappar searchBuffer omkring positionen. |
+| invalidPeriodGeofenceGeometryId | sträng []  | Visar en lista med geometri-ID för den avgränsning som är i en ogiltig period i förhållande till användar tiden i begäran. |
+| isEventPublished | boolean | Sant om minst en händelse publiceras till Azure Maps händelse prenumerant, falskt om ingen händelse publiceras till Azure Maps händelse prenumerant. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).

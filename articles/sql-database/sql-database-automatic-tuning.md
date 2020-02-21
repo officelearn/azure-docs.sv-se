@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: eefaaa59a3dc0f0900666bc697f64e4f405a0d74
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190764"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498711"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisk justering i Azure SQL Database
 
@@ -82,8 +82,8 @@ Automatiska justerings alternativ kan aktive ras oberoende eller inaktive ras pe
 > [!IMPORTANT]
 > Från och med mars kommer 2020 ändringar i Azure-standardvärden för automatisk justering att gälla enligt följande:
 > - Nya Azure-standardvärden är FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled och DROP_INDEX = inaktive rad.
-> - Befintliga servrar utan inställningar för automatisk justering konfigureras automatiskt med de nya Azure-standardinställningarna. Detta gäller för alla kunder som för närvarande har automatisk justering i ett odefinierat tillstånd.
-> - Nya servrar som skapas konfigureras automatiskt med de nya Azure-standardvärdena (till skillnad från tidigare när konfigurationen för automatisk justering var i ett odefinierat tillstånd när en ny server skapas).
+> - Befintliga servrar utan inställningar för automatisk justering konfigureras automatiskt för att ärva nya Azure-standardvärden. Detta gäller för alla kunder som för närvarande har Server inställningar för automatisk justering i ett odefinierat tillstånd.
+> - Nya servrar som skapas konfigureras automatiskt för att ärva nya Azure-standardvärden (till skillnad från tidigare när konfigurationen för automatisk justering var i ett odefinierat tillstånd när en ny server skapas).
 >
 
 Att konfigurera alternativ för automatisk justering på en server och ärva inställningar för databaser som tillhör den överordnade servern är en rekommenderad metod för att konfigurera automatisk justering eftersom det fören klar hanteringen av automatiska justerings alternativ för ett stort antal databaser.

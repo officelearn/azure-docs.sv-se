@@ -1,31 +1,26 @@
 ---
-title: Vanliga frågor om Azure App konfiguration | Microsoft Docs
+title: Vanliga frågor om Azure App konfiguration
 description: Vanliga frågor om Azure App konfiguration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4bcd8f042563fa381832fd629061a822f71e844a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467597"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523500"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
-Den här artikeln handlar om vanliga frågor om Azure App-konfiguration.
+I den här artikeln får du svar på vanliga frågor om Azure App konfiguration.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>Hur skiljer sig app-konfigurationen från Azure Key Vault?
 
-App-konfigurationen är utformad för en distinkt uppsättning användnings fall: den hjälper utvecklare att hantera program inställningar och kontrol lera tillgänglighet för funktioner. Det syftar till att förenkla många av aktiviteterna för att arbeta med komplexa konfigurations data.
+Med appens konfiguration kan utvecklare hantera program inställningar och kontrol lera tillgänglighets funktioner. Det syftar till att förenkla många av aktiviteterna för att arbeta med komplexa konfigurations data.
 
 Konfiguration av appar stöder:
 
@@ -36,7 +31,7 @@ Konfiguration av appar stöder:
 - Specialiserade hanterings åtgärder
 - Ett användar gränssnitt för funktions hantering
 
-Konfiguration av appar kompletterar Key Vault och de två bör användas sida vid sida i de flesta program distributioner.
+App-konfigurationen kompletterar Key Vault och de två bör användas sida vid sida i de flesta program distributioner.
 
 ## <a name="should-i-store-secrets-in-app-configuration"></a>Bör jag lagra hemligheter i appens konfiguration?
 
@@ -62,7 +57,7 @@ Det finns en gräns på 10 KB för ett enda nyckel värdes objekt.
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Hur ska jag lagra konfigurationer för flera miljöer (test, mellanlagring, produktion och så vidare)?
 
-För närvarande kan du kontrol lera vem som kan komma åt app-konfigurationen på en nivå per butik. Använd en separat lagrings plats för varje miljö som kräver olika behörigheter. Den här metoden ger dig den bästa säkerhets isoleringen.
+Du styr vem som kan komma åt app-konfigurationen på en nivå per butik. Använd en separat lagrings plats för varje miljö som kräver olika behörigheter. Den här metoden ger bästa säkerhets isolering.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Vilka är de rekommenderade sätten att använda app Configuration?
 
@@ -70,9 +65,14 @@ Se [metod tips](./howto-best-practices.md).
 
 ## <a name="how-much-does-app-configuration-cost"></a>Hur mycket kostar det att konfigurera appar?
 
-Det finns två pris nivåer: 1) en kostnads fri nivå och 2) en standard nivå.
+Det finns två pris nivåer: 
 
-Om du har skapat en butik innan du påförs nivån standard, flyttades den automatiskt till den kostnads fria nivån när den är allmänt tillgänglig. Du kan välja att uppgradera till standard nivån eller stanna kvar på den kostnads fria nivån om den uppfyller dina behov.
+- Kostnads fri nivå
+- Standard nivå.
+
+Om du har skapat en butik innan du påförs nivån standard, flyttades den automatiskt till den kostnads fria nivån när den är allmänt tillgänglig. Du kan välja att uppgradera till standard nivån eller stanna kvar på den kostnads fria nivån.
+
+Du kan inte nedgradera en lagring från standard-nivån till den kostnads fria nivån. Du kan skapa en ny butik på den kostnads fria nivån och sedan importera konfigurations data till det arkivet.
 
 ## <a name="which-app-configuration-tier-should-i-use"></a>Vilken konfigurations nivå för appar ska jag använda?
 

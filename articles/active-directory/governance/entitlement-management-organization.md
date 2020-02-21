@@ -16,12 +16,12 @@ ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1ecf3a8819518c674a3d8bd7af55d1a3c6393c42
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548908"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483864"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -77,7 +77,7 @@ Följ dessa steg om du vill lägga till en extern Azure AD-katalog eller domän 
 1. Klicka på **Lägg till** för att lägga till Azure AD-katalogen eller-domänen. För närvarande kan du bara lägga till en Azure AD-katalog eller-domän per ansluten organisation.
 
     > [!NOTE]
-    > Alla användare från Azure AD-katalogen eller-domänen kan begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är associerade med katalogen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer](../b2b/allow-deny-list.md).
+    > Alla användare från Azure AD-katalogen eller-domänen kan begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är associerade med katalogen, om inte dessa domäner blockeras av listan Tillåt eller neka i Azure B2B. Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../b2b/allow-deny-list.md).
 
 1. När du har lagt till Azure AD-katalogen eller-domänen klickar du på **Välj**.
 
@@ -96,6 +96,23 @@ Följ dessa steg om du vill lägga till en extern Azure AD-katalog eller domän 
 1. På fliken **Granska + skapa** granskar du organisations inställningarna och klickar sedan på **skapa**.
 
     ![Åtkomst paket – princip – Lägg till ansluten organisation – Granska + fliken Skapa](./media/entitlement-management-organization/organization-review-create.png)
+
+## <a name="update-a-connected-organization"></a>Uppdatera en ansluten organisation 
+
+Om den anslutna organisationen ändras till en annan domän, om du har ett nytt namn för organisationen, eller om du vill ändra sponsorerna, kan du uppdatera den anslutna organisationen.
+
+**Nödvändig roll:** Global administratör, användar administratör eller gäst deltagare
+
+1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+
+1. Klicka på **anslutna organisationer** på den vänstra menyn och klicka sedan för att öppna den anslutna organisationen.
+
+1. På sidan Översikt klickar du på **Redigera** för att ändra organisationens namn eller beskrivning.  
+
+1. På sidan katalog + domän klickar du på **Uppdatera katalog + domän** för att ändra till en annan katalog eller domän.
+
+1. På sidan sponsorer klickar du på **Lägg till interna sponsorer** eller **lägger till externa sponsorer** för att lägga till en användare som sponsor.  Om du vill ta bort en sponsor klickar du på sponsorn och på menyn till höger klickar du på **ta bort**.
+
 
 ## <a name="delete-a-connected-organization"></a>Ta bort en ansluten organisation
 

@@ -2,14 +2,14 @@
 title: Resurs tillgänglighet per region
 description: Tillgänglighet för beräknings-och minnes resurser för tjänsten Azure Container Instances i olika Azure-regioner.
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117814"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525311"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurs tillgänglighet för Azure Container Instances i Azure-regioner
 
@@ -24,9 +24,9 @@ Information om kvoter och andra begränsningar i dina distributioner finns i [kv
 
 ## <a name="availability---general"></a>Tillgänglighet – allmänt
 
-Följande regioner och resurser är tillgängliga för behållar grupper med Linux och [stödda](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-baserade behållare.
+Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med Linux och [stödda](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-baserade behållare.
 
-| Regioner | Operativsystem | Max CPU | Högsta mängd minne (GB) | Lagring (GB) |
+| Regioner | Operativsystem | Maximal CPU | Högsta mängd minne (GB) | Lagring (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa, västra USA, västra USA 2 | Linux | 4 | 16 | 50 |
 | Östra Australien, Östra Japan | Linux | 2 | 8 | 50 |
@@ -37,9 +37,9 @@ Följande regioner och resurser är tillgängliga för behållar grupper med Lin
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Tillgänglighet – Windows Server 2019 LTSC, 1809 distributioner (för hands version)
 
-Följande regioner och resurser är tillgängliga för behållar grupper med Windows Server 2019-baserade behållare (för hands version).
+Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med Windows Server 2019-baserade behållare (för hands version).
 
-| Regioner | Operativsystem | Max CPU | Högsta mängd minne (GB) | Lagring (GB) |
+| Regioner | Operativsystem | Maximal CPU | Högsta mängd minne (GB) | Lagring (GB) |
 | -------- | -- | :---: | :-----------: | :---: |
 | Östra Australien, södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa | Windows | 4 | 16 | 20 |
 | USA, östra 2, västra USA 2 | Windows | 2 | 3.5 | 20 |
@@ -47,13 +47,16 @@ Följande regioner och resurser är tillgängliga för behållar grupper med Win
 
 ## <a name="availability---virtual-network-deployment"></a>Tillgänglighet – virtuell nätverks distribution
 
-Följande regioner och resurser är tillgängliga för en behållar grupp som distribueras i ett [virtuellt Azure-nätverk](container-instances-vnet.md).
+Följande regioner och maximalt antal resurser är tillgängliga för en behållar grupp som distribueras i ett [virtuellt Azure-nätverk](container-instances-vnet.md).
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="availability---gpu-resources-preview"></a>Tillgänglighet – GPU-resurser (förhands granskning)
 
-Följande regioner och resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
+Följande regioner och maximalt antal resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
+
+> [!IMPORTANT]
+> GPU-resurser är bara tillgängliga på begäran. Om du vill begära åtkomst till GPU-resurser skickar du en [support förfrågan för Azure][azure-support].
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
@@ -63,3 +66,6 @@ Följande regioner och resurser är tillgängliga för en behållar grupp som di
 Låt teamet veta om du vill se fler regioner eller ökad resurs tillgänglighet på [aka.MS/ACI/feedback](https://aka.ms/aci/feedback).
 
 Information om hur du felsöker distribution av container instans finns i [Felsöka distributions problem med Azure Container instances](container-instances-troubleshooting.md).
+
+
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

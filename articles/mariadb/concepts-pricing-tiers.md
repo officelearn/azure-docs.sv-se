@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 36563e11d7a5fb7cfd5878294c3b83977f6bb619
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 084c1b4163ac7f0f595fadba93a7905ea7f96dd0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772405"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485462"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB pris nivåer
 
@@ -21,9 +21,8 @@ Du kan skapa en Azure Database for MariaDB-server på en av tre olika pris nivå
 |:---|:----------|:--------------------|:---------------------|
 | Beräknings generation | Generation 5 |Generation 5 | Generation 5 |
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Minne per vCore | 2 GB | 5 GB | 10 GB |
+| Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
-| Lagringstyp | Azure standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
 Om du vill välja en pris nivå använder du följande tabell som utgångs punkt.
@@ -31,7 +30,7 @@ Om du vill välja en pris nivå använder du följande tabell som utgångs punkt
 | Prisnivå | Målbelastningar |
 |:-------------|:-----------------|
 | Basic | Arbets belastningar som kräver ljus beräkning och I/O-prestanda. Exempel på detta är servrar som används för utveckling eller testning eller småskaliga program som inte används ofta. |
-| Generellt syfte | De flesta företags arbets belastningar som kräver balanserade beräkning och minne med skalbart I/O-genomflöde. Exempel på det är servrar som är värdar för webb-och mobilappar och andra företags program.|
+| Generell användning | De flesta företags arbets belastningar som kräver balanserade beräkning och minne med skalbart I/O-genomflöde. Exempel på det är servrar som är värdar för webb-och mobilappar och andra företags program.|
 | Minnesoptimerad | Databas arbets belastningar med höga prestanda som kräver minnes prestanda för snabbare bearbetning av transaktioner och högre samtidighet. Exempel på detta är servrar för bearbetning av real tids data och högpresterande transaktionella eller analytiska appar.|
 
 När du har skapat en server kan du ändra antalet virtuella kärnor och pris nivån (förutom till och från Basic) på några sekunder. Du kan också självständigt justera mängden lagrings utrymme och säkerhets kopierings perioden upp eller ned utan avbrott i programmet. Du kan inte ändra lagrings typen för säkerhets kopia när en server har skapats. Mer information finns i avsnittet [Scale Resources](#scale-resources) .
@@ -40,13 +39,13 @@ När du har skapat en server kan du ändra antalet virtuella kärnor och pris ni
 
 Beräknings resurser tillhandahålls som virtuella kärnor, som representerar den underliggande maskin varans logiska processor. Logiska generation 5-processorer baseras på Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer.
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är tillgänglig för din Azure Database for MariaDB-Server. Lagrings utrymmet används för databasfilerna, temporära filer, transaktions loggar och MariaDB-Server loggarna. Den totala mängden lagrings utrymme som du tillhandahåller definierar också den I/O-kapacitet som är tillgänglig för servern.
 
 |    | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Lagringstyp | Azure standard Storage | Azure Premium Storage | Azure Premium Storage |
+| Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
@@ -78,7 +77,7 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiering
 
 Tjänsten tar automatiskt säkerhets kopior av servern. Den minsta kvarhållningsperioden för säkerhets kopieringar är sju dagar. Du kan ställa in en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under serverns livstid. Du kan välja mellan lokalt redundanta och geo-redundanta säkerhets kopieringar. Geo-redundanta säkerhets kopieringar lagras också i den [geo-kopplade regionen](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) i den region där servern skapas. Den här redundansen ger en skydds nivå i händelse av en katastrof. Du får också möjlighet att återställa servern till andra Azure-regioner där tjänsten är tillgänglig med geo-redundanta säkerhets kopieringar. Det går inte att ändra mellan de två lagrings alternativen för säkerhets kopiering när servern har skapats.
 
@@ -92,7 +91,7 @@ När du ändrar antalet virtuella kärnor, eller pris nivån, skapas en kopia av
 
 Skalning av lagring och ändring av kvarhållning av säkerhets kopior är true online-åtgärder. Det finns ingen nedtid och ditt program påverkas inte. Som IOPS-skala med storleken på den allokerade lagringen kan du öka tillgängligheten för IOPS för servern genom att skala upp lagringen.
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Den senaste pris informationen finns på [sidan med pris](https://azure.microsoft.com/pricing/details/mariadb/)information för tjänsten. Om du vill se kostnaden för den konfiguration du vill ha, visar [Azure Portal](https://portal.azure.com/#create/Microsoft.MariaDBServer) månads kostnaden på fliken **pris nivå** baserat på de alternativ du väljer. Om du inte har någon Azure-prenumeration kan du använda pris Kalkylatorn för Azure för att få ett uppskattat pris. På webbplatsen för [Azures pris kalkylator](https://azure.microsoft.com/pricing/calculator/) väljer du **Lägg till objekt**, expanderar kategorin **databaser** och väljer **Azure Database for MariaDB** för att anpassa alternativen.
 

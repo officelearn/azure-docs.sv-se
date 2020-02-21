@@ -4,15 +4,15 @@ description: Lär dig hur du köper Azure Cosmos DB reserverad kapacitet för at
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367689"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505966"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimera kostnader med reserverad kapacitet i Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Du kan köpa Azure Cosmos DB reserverad kapacitet från [Azure Portal](https://p
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Ta reda på vilket data flöde som krävs före köpet
 
-Reservationens storlek bör baseras på den totala mängden data flöde som den befintliga eller närmast distribuerade Azure Cosmos DB resurserna kommer att använda. Du kan visa rekommenderade reservations storlekar i Azure Portal med hjälp av följande steg:
+Storleken på det reserverade kapacitets köpet bör baseras på den totala mängden data flöde som de befintliga eller närmast distribuerade Azure Cosmos DB resurserna kommer att använda per timme. Exempel: köpa 30 000 RU/s reserverad kapacitet om det är ett konsekvent användnings mönster per timme. I det här exemplet faktureras alla etablerade data flöden över 30 000 RU/s med din taxa för betala per användning. Om det etablerade data flödet är under 30 000 RU/s i en timme, kommer den extra reserverade kapaciteten för den timmen att tas ur drift.
+
+Vi beräknar inköps rekommendationer baserat på ditt användnings mönster per timme. Användning under de senaste 7, 30 och 60 dagarna analyseras och reserverat kapacitets köp som maximerar besparingarna rekommenderas. Du kan visa rekommenderade reservations storlekar i Azure Portal med hjälp av följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).  
 
@@ -46,7 +48,7 @@ Du kan filtrera rekommendationerna efter följande attribut:
 - **Fakturerings frekvens** (månatlig eller uppifrån)
 - **Data flödes typ** (ru s vs multi-master ru ' s)
 
-Dessutom kan du begränsa rekommendationerna till en enda resurs grupp, en enda prenumeration eller hela din Azure-registrering. Du kan visa rekommendationer baserat på användning under de senaste 7 dagarna, 30 dagar eller 60 dagar.
+Dessutom kan du begränsa rekommendationerna till en enda resurs grupp, en enda prenumeration eller hela din Azure-registrering. 
 
 Här är en exempel rekommendation:
 

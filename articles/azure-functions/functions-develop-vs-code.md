@@ -3,12 +3,12 @@ title: Utveckla Azure Functions med Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210250"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484799"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
@@ -92,11 +92,11 @@ Projekt mal len skapar ett projekt i ditt valda språk och installerar nödvänd
 
 Dessa filer skapas, beroende på ditt språk:
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * [HttpExample.cs klass biblioteks fil](functions-dotnet-class-library.md#functions-class-library-project) som implementerar funktionen.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * En Package. JSON-fil i rotmappen.
 
@@ -122,7 +122,7 @@ Du kan också [lägga till en ny funktion i projektet](#add-a-function-to-your-p
 
 Med undantag för HTTP-och timer-utlösare implementeras bindningar i tilläggs paket. Du måste installera tilläggs paketen för de utlösare och bindningar som behöver dem. Processen för att installera bindnings tillägg beror på ditt projekts språk.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Kör kommandot [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) i terminalfönstret för att installera de tilläggs paket som du behöver i projektet. Följande kommando installerar Azure Storage-tillägget, som implementerar bindningar för BLOB-, Queue-och table-lagring.
 
@@ -130,7 +130,7 @@ Kör kommandot [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) 
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -142,11 +142,11 @@ Du kan lägga till en ny funktion i ett befintligt projekt med hjälp av en av d
 
 Resultatet av den här åtgärden beror på projektets språk:
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 En ny C# klass biblioteks fil (. CS) läggs till i projektet.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 En ny mapp skapas i projektet. Mappen innehåller en ny function. JSON-fil och den nya JavaScript-koden.
 
@@ -158,7 +158,7 @@ Du kan utöka din funktion genom att lägga till indata och utgående bindningar
 
 Följande exempel ansluter till en lagrings kö med namnet `outqueue`, där anslutnings strängen för lagrings kontot anges i inställningen `MyStorageConnection` program i Local. Settings. JSON.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Uppdatera funktions metoden för att lägga till följande parameter i definitions metoden för `Run`:
 
@@ -174,9 +174,9 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 Parametern `msg` är en `ICollector<T>` typ, som representerar en samling meddelanden som skrivs till en utgående bindning när funktionen slutförs. Du lägger till ett eller flera meddelanden i samlingen. Dessa meddelanden skickas till kön när funktionen har slutförts.
 
-Mer information finns i dokumentationen för [kö Storage utgående bindning](functions-bindings-storage-queue.md#output) .
+Mer information finns i dokumentationen för [kö Storage utgående bindning](functions-bindings-storage-queue-output.md) .
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Med Visual Studio Code kan du lägga till bindningar i din function. JSON-fil genom att följa en behändig uppsättning prompter. Om du vill skapa en bindning högerklickar du på (Ctrl + klicka på macOS) i filen **Function. JSON** i mappen Function och väljer **Lägg till bindning**:
 
@@ -212,7 +212,7 @@ I funktions koden nås `msg` bindningen från `context`, som i det här exemplet
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-Mer information finns i [bindnings referens för kö Storage-utdata](functions-bindings-storage-queue.md#output) .
+Mer information finns i [bindnings referens för kö Storage-utdata](functions-bindings-storage-queue-output.md) .
 
 ---
 

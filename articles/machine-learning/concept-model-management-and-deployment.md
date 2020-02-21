@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122346"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486384"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -114,13 +114,13 @@ Du kan använda modeller med IoT-enheter via **Azure IoT Edge moduler**. IoT Edg
 
 Mer information finns i [Distribuera modeller](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analyser
+### <a name="analytics"></a>Analytics
 
 Microsoft Power BI stöder användning av Machine Learning-modeller för data analys. Mer information finns i [Azure Machine Learning integration i Power BI (för hands version)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Avbilda de styrnings data som krävs för att samla in den slutliga ML-livs cykeln
 
-Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Närmare bestämt:
+Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt till slut punkt för alla dina ML-tillgångar. Mer specifikt:
 
 - Azure ML [integreras med git](how-to-set-up-training-targets.md#gitintegration) för att spåra information om vilken lagrings plats/Branch/bekräfta din kod kommer från.
 - Med [Azure ml-datauppsättningar](how-to-create-register-datasets.md) kan du spåra, profilera och versions data. 
@@ -138,6 +138,19 @@ Med övervakning kan du förstå vilka data som skickas till din modell och vilk
 Den här informationen hjälper dig att förstå hur modellen används. Insamlade indata kan också vara användbara i träna framtida versioner av modellen.
 
 Mer information finns i [så här aktiverar du modell data insamling](how-to-enable-data-collection.md).
+
+## <a name="retrain-your-model-on-new-data"></a>Träna modellen på nya data
+
+Ofta vill du uppdatera din modell eller till och med återträna den från grunden, när du får ny information. Ibland är att ta emot nya data en förväntad del av domänen. Andra gånger, som vi beskrivit i [identifiera data drift (för hands version) på data uppsättningar](how-to-monitor-datasets.md), kan modell prestanda försämras i sådana saker som förändringar i en viss sensor, naturliga data förändringar, till exempel säsongs effekter eller funktioner som går i relation till andra funktioner. 
+
+Det finns inget universellt svar på "Hur gör jag för att veta om jag borde träna?" Men Azure ML event och övervaknings verktyg som tidigare diskuterats är väl utgångs punkter för Automation. När du har bestämt dig för att träna bör du: 
+
+- Förbearbeta dina data med en upprepnings bar, automatiserad process
+- Träna din nya modell
+- Jämför utmatningarna för den nya modellen till dem i din gamla modell
+- Använd fördefinierade villkor för att välja om du vill ersätta din gamla modell 
+
+Ett tema med ovanstående steg är att omskolningen ska vara automatiserad, inte ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) är ett utmärkt svar för att skapa arbets flöden som rör förberedelse av data, utbildning, validering och distribution. Läs [träna modeller med Azure Machine Learning designer (för hands version)](how-to-retrain-designer.md) om du vill se hur pipelines och Azure Machine Learning designer passar i ett omskolnings scenario. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatisera ML-livscykeln 
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 9a44cf9aa5b3287a01617be6439cd04b9a5caa73
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461240"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484238"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -145,7 +145,7 @@ Det finns flera slut punkter definierade i SCIM RFC. Du kan komma igång med/Use
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Steg 2: förstå Azure AD SCIM-implementeringen
 > [!IMPORTANT]
-> Beteendet för Azure AD SCIM-implementeringen uppdaterades senast den 18 december 2018. Information om vad som har ändrats finns i [SCIM 2,0 Protocol Compliance of the Azure AD User Provisioning-tjänsten](../manage-apps/application-provisioning-config-problem-scim-compatibility.md).
+> Beteendet för Azure AD SCIM-implementeringen uppdaterades senast den 18 december 2018. Information om vad som har ändrats finns i [SCIM 2,0 Protocol Compliance of the Azure AD User Provisioning-tjänsten](application-provisioning-config-problem-scim-compatibility.md).
 
 Om du skapar ett program som stöder ett SCIM 2,0-API för användar hantering beskrivs i det här avsnittet hur du implementerar Azure AD SCIM-klienten. Det visar också hur du kan modellera hantering och svar för SCIM-protokoll begär Anden. När du har implementerat din SCIM-slutpunkt kan du testa den genom att följa anvisningarna som beskrivs i föregående avsnitt.
 
@@ -1488,7 +1488,7 @@ För att hjälpa till att öka medvetenheten och behovet av vår gemensamma inte
 * **Beredskap för försäljning och kund support.** Se till att dina Sälj-och support team är medvetna och kan prata med integrerings funktionerna. Korta ditt sälj-och support team och ge dem med vanliga frågor och svar och inkludera integreringen i ditt försäljnings material. 
 * **Blogg inlägg och/eller pressmeddelanden.** Skapa en blogg post eller pressmeddelande som beskriver den gemensamma integrationen, fördelarna och hur du kommer igång. [Exempel: InPrivate och Azure Active Directory pressmeddelande](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
 * **Sociala medier.** Utnyttja dina sociala medier som Twitter, Facebook eller LinkedIn för att marknadsföra integreringen med kunderna. Se till att ta med @AzureAD så att vi kan göra en Tweet för inlägget. [Exempel: InPrivate Twitter post](https://twitter.com/azuread/status/1123964502909779968)
-* **Marknadsförings webbplats.** Skapa eller uppdatera dina marknadsförings sidor (t. ex. integrations sidan, partner sidan, sidan med priser osv...) för att inkludera tillgängligheten för den gemensamma integrationen. [Exempel: Pingboard integration Page](https://pingboard.com/org-chart-for), sidan för [Smartsheet-integrering](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), sidan [Monday.com prissättning](https://monday.com/pricing/) 
+* **Marknadsförings webbplats.** Skapa eller uppdatera dina marknadsförings sidor (t. ex. integrations sidan, partner sidan, sidan med priser osv.) för att inkludera den gemensamma integreringens tillgänglighet. [Exempel: Pingboard integration Page](https://pingboard.com/org-chart-for), sidan för [Smartsheet-integrering](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), sidan [Monday.com prissättning](https://monday.com/pricing/) 
 * **Teknisk dokumentation.** Skapa en hjälp Center-artikel eller teknisk dokumentation om hur kunder kan komma igång. [Exempel: mottagare + Microsoft Azure Active Directory-integration.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
 * **Kund kommunikation.** Meddela kunder om den nya integrationen genom din kund kommunikation (månads Visa nyhets brev, e-postkampanjer, produkt viktig information). 

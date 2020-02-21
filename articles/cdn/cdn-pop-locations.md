@@ -3,7 +3,7 @@ title: Azure CDN POP-platser efter region | Microsoft Docs
 description: I den här artikeln visas Azure CDN POP-platser, sorterade efter region, för Azure CDN produkter.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: sohamnchatterjee
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2019
 ms.author: magattus
-ms.openlocfilehash: b6b4db89210bcc572e3780667f7a3e88dc5f1d28
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 87debe8e858f4c42b1027b865dd72c7444b37fac
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226564"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499892"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN täckning per tunnelbane linje 
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "68226564"
 > 
 
 
-Den här artikeln innehåller en lista över aktuella Metros som innehåller POP-platser (Point-of-Presence), sorterade efter region, för Azure Content Delivery Network-produkter (CDN). Varje tunnelbane linje kan innehålla fler än en POP. Azure CDN från Microsoft har till exempel 129 pop över 65 Metros. 
+Den här artikeln innehåller en lista över aktuella Metros som innehåller POP-platser (Point-of-Presence), sorterade efter region, för Azure Content Delivery Network-produkter (CDN). Varje tunnelbane linje kan innehålla fler än en POP. Azure CDN från Microsoft har till exempel 130 pop över 80 Metros. 
 
 > [!IMPORTANT]
 > Platser för POP-ort för **Azure CDN från Akamai** visas inte separat.  
@@ -38,14 +38,14 @@ Den här artikeln innehåller en lista över aktuella Metros som innehåller POP
 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Nordamerika | Toronto, Kanada<br />Vancouver, Kanada<br />Querétaro, Mexico<br />San-Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Borås, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, Sverige, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Göteborg eller USA<br />San-Antonio, TX, USA<br />San-Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexiko City, Mexiko<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Borås, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, Sverige, USA<br />Philadelphia, PA, USA<br />San-Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Kanada<br />Mexiko<br />USA |
-| Sydamerika | Campinas, Brasilien<br />Rio de Janeiro, Brasilien<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasilien<br />Chile<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
-| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Sofia, Bulgarien<br />Zagreb, Kroatien<br />Prag, Tjeckien<br />Köpen hamn, Danmark<br /> Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Berlin, Tyskland<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Lissabon, Portugal<br />Bukarest, Rumänien<br />Barcelona, Spanien<br />Madrid, Spanien<br />Stockholm, Sverige<br />Zürich, Schweiz<br />London, Storbritannien<br />Manchester, Storbritannien | Wien, Österrike<br />Köpen hamn, Danmark<br />Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spanien<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
-| Afrika | Kapstaden, Sydafrika<br />Johannesburg, Sydafrika | Johannesburg, Sydafrika | Sydafrika |
+| Nordamerika | Toronto, Kanada<br />Vancouver, Kanada<br />Montrealprotokollet, Kanada<br />Querétaro, Mexico<br />San-Juan, Puerto Rico<br />Ashburn, VA, USA<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Cheyenne, WY, USA<br />Chicago, IL, USA<br /> Borås, TX, USA<br />Denver, CO, USA<br />Honolulu, HI, USA<br />Houston, TX, USA<br />Las Vegas, NV, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, Sverige, USA<br />Newark, NJ, USA<br />Phoenix, AZ, USA<br />Göteborg eller USA<br />San-Antonio, TX, USA<br />San-Jose, CA, USA<br />Seattle, WA, USA | Guadalajara, Mexico<br />Mexiko City, Mexiko<br />Puebla, Mexiko<br />Querétaro, Mexico<br />Atlanta, GA, USA<br />Boston, MA, USA<br />Chicago, IL, USA<br />Borås, TX, USA<br />Denver, CO, USA<br />Detroit, MI, USA<br />Los Angeles, CA, USA<br />Miami, FL, USA<br />New York, Sverige, USA<br />Philadelphia, PA, USA<br />San-Jose, CA, USA<br />Seattle, WA, USA<br />Washington, DC, USA | Kanada<br />Mexiko<br />USA |
+| Sydamerika | Campinas, Brasilien<br />Rio de Janeiro, Brasilien<br />Sao Paulo, Brasilien<br />Santiago, Chile | Buenos Aires, Argentina<br />Rio de Janeiro, Brasilien<br />São Paulo, Brasilien<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellin, Colombia<br />Quito, Ecuador<br />Lima, Peru | Argentina<br />Brasilien<br />Chile<br />Columbia<br />Ecuador<br />Peru<br />Uruguay |
+| Europa | Wien, Österrike<br />Bryssel, Belgien<br />Sofia, Bulgarien<br />Zagreb, Kroatien<br />Prag, Tjeckien<br />Köpen hamn, Danmark<br /> Helsingfors, Finland<br /> Oslo, Norge<br />Marseille, Frankrike<br />Paris, Frankrike<br />Berlin, Tyskland<br />Frankfurt, Tyskland<br />Aten, Grekland<br />Budapest, Ungern<br />Dublin, Irland<br />Milano, Italien<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Lissabon, Portugal<br />Bukarest, Rumänien<br />Barcelona, Spanien<br />Madrid, Spanien<br />Stockholm, Sverige<br />Zürich, Schweiz<br />London, Storbritannien<br />Manchester, Storbritannien | Wien, Österrike<br />Köpen hamn, Danmark<br />Helsingfors, Finland<br />Marseille, Frankrike<br />Paris, Frankrike<br />Frankfurt, Tyskland<br />Milano, Italien<br />Riga, Lettland<br />Amsterdam, Nederländerna<br />Warszawa, Polen<br />Madrid, Spanien<br />Stockholm, Sverige<br />London, Storbritannien | Österrike<br />Bulgarien<br />Danmark<br />Finland<br />Frankrike<br />Tyskland<br />Grekland<br />Irland<br />Italien<br />Nederländerna<br />Polen<br />Ryssland<br />Spanien<br />Sverige<br />Schweiz<br />Storbritannien |
+| Centralafrika | Kap stadens, Sydafrika<br />Johannesburg, Sydafrika<br />Lagos, Nigeria<br />Nairobi, Kenya | Johannesburg, Sydafrika | Sydafrika |
 | Mellanöstern | Dubai, Förenade Arabemiraten | Muskat, Oman<br />Fujirah, Förenade Arabemiraten | Qatar<br />Förenade Arabemiraten |
 | Indien | Chennai, Indien<br />Hyderabad, Indien<br />Mumbai, Indien<br />New Delhi, Indien | Bengaluru (Bangalore), Indien<br />Chennai, Indien<br />Mumbai, Indien<br />New Delhi, Indien<br /> | Indien |
-| Asien | Hongkong SAR<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manilla, Filippinerna<br />Singapore<br />Busan, Sydkorea<br />Söul, Sydkorea<br />Taipei,, Taiwan<br />Bangkok, Thailand | Hongkong SAR<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Söul, Sydkorea<br />Kaohsiung, Taiwan<br />Taipei,, Taiwan | Hongkong SAR<br />Indonesien<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan (Taiwan)<br />Thailand<br />Turkiet<br />Vietnam |
-| Australien och Nya Zeeland | Brisbane, Australien<br />Melbourne, Australien<br />Perth, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
+| Asien | Hongkong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Jakarta, Indonesien<br />Manilla, Filippinerna<br />Singapore<br />Busan, Sydkorea<br />Söul, Sydkorea<br />Taipei,, Taiwan<br />Bangkok, Thailand<br />Saigon, Vietnam | Hongkong<br />Batam, Indonesien<br />Jakarta, Indonesien<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Söul, Sydkorea<br />Kaohsiung, Taiwan<br />Taipei,, Taiwan | Hongkong<br />Indonesien<br />Israel<br />Japan<br />Macao SAR<br />Malaysia<br />Filippinerna<br />Singapore<br />Sydkorea<br />Taiwan<br />Thailand<br />Turkiet<br />Vietnam |
+| Australien och nya Zeeland | Brisbane, Australien<br />Melbourne, Australien<br />Perth, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Melbourne, Australien<br />Sydney, Australien<br />Auckland, Nya Zeeland | Australien<br />Nya Zeeland |
 
 
 ## <a name="next-steps"></a>Nästa steg

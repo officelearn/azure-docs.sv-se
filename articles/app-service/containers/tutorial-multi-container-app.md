@@ -6,21 +6,22 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: 531dc62cacc044187c7800dd8abcdad282c4e633
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.custom: cli-validate
+ms.openlocfilehash: 92a9368bf6aa4f2cf043b3aabd443b37cdcde390
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759951"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523959"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera behållare (förhandsversion) med Web App for Containers
+# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera containrar (förhandsversion) med Web App for Containers
 
 > [!NOTE]
 > Flera behållare är i för hands version.
 
-Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. I den här självstudien lär du dig hur du skapar en app med flera containrar med hjälp av WordPress och MySQL. Du genomför den här självstudiekursen i Cloud Shell men du kan även köra dessa kommandon lokalt med kommandoradsgränssnittet [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare).
+Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. I den här självstudien lär du dig hur du skapar en app med flera container med hjälp av WordPress och MySQL. Du genomför den här självstudiekursen i Cloud Shell men du kan även köra dessa kommandon lokalt med kommandoradsgränssnittet [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konvertera en Docker Compose-konfiguration så att den fungerar med Web App for Containers
@@ -32,7 +33,7 @@ I den här självstudiekursen får du lära du dig att:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du uppleva [Docker Compose](https://docs.docker.com/compose/).
 
@@ -62,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Skapa i Cloud Shell en resursgrupp med kommandot [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (Södra centrala USA). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+Skapa i Cloud Shell en resursgrupp med kommandot [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -78,7 +79,7 @@ Skapa i Cloud Shell en App Service-plan i resursgruppen med kommandot [`az appse
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-I följande exempel skapas en App Service-plan med namnet `myAppServicePlan` i prisnivån **Standard** (`--sku S1`) och i en Linux-containrar (`--is-linux`).
+I följande exempel skapas en App Service-plan med namnet `myAppServicePlan` i prisnivån **Standard** (`--sku S1`) och i en Linux-container (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
@@ -135,15 +136,15 @@ När webbappen har skapats visar en Cloud Shell utdata liknande den i följande 
 
 Bläddra till den distribuerade appen på (`http://<app-name>.azurewebsites.net`). Det kan ta några minuter att läsa in appen. Om du får ett fel väntar du ytterligare ett par minuter och uppdaterar sedan webbläsaren. Om du har problem och vill felsöka kan du granska [containerloggarna](#find-docker-container-logs).
 
-![Exempelapp med flera behållare i Web App for Containers][1]
+![Exempelapp med flera containrar i Web App for Containers][1]
 
-**Grattis!** Du har skapat en app med flera behållare i Web App for Containers. Därefter konfigurerar du appen för att använda Azure Database for MySQL. Installera inte WordPress just nu.
+**Grattis!** Du har skapat en app med flera containrar i Web App for Containers. Därefter konfigurerar du appen för att använda Azure Database for MySQL. Installera inte WordPress just nu.
 
 ## <a name="connect-to-production-database"></a>Ansluta till produktionsdatabasen
 
 Det är inte rekommenderat att använda databascontainrar i en produktionsmiljö. Lokala containrar är inte skalbara. I stället använder du Azure Database for MySQL som kan skalas.
 
-### <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
+### <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database for MySQL-server
 
 Skapa en Azure Database for MySQL-server med kommandot [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
@@ -276,7 +277,7 @@ services:
 
 Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara och `^X` för att avsluta.
 
-### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
+### <a name="update-app-with-new-configuration"></a>Uppdatera appen med ny konfiguration
 
 I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Glöm inte att ersätta _\<app-name >_ med namnet på den webbapp som du skapade tidigare.
 
@@ -299,7 +300,7 @@ När webbappen har konfigurerats om visar Cloud Shell information liknande den i
 
 Bläddra till den distribuerade appen på (`http://<app-name>.azurewebsites.net`). Appen använder nu Azure Database for MySQL.
 
-![Exempelapp med flera behållare i Web App for Containers][1]
+![Exempelapp med flera containrar i Web App for Containers][1]
 
 ## <a name="add-persistent-storage"></a>Lägga till beständig lagring
 
@@ -352,7 +353,7 @@ services:
      restart: always
 ```
 
-### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
+### <a name="update-app-with-new-configuration"></a>Uppdatera appen med ny konfiguration
 
 I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Glöm inte att ersätta _\<app-name >_ med ett unikt namn på appen.
 
@@ -436,7 +437,7 @@ När appinställningen har skapats visar Cloud Shell information som ser ut unge
 ]
 ```
 
-### <a name="update-app-with-new-configuration"></a>Uppdatera appen med en ny konfiguration
+### <a name="update-app-with-new-configuration"></a>Uppdatera appen med ny konfiguration
 
 I Cloud Shell konfigurerar du om [webappen](app-service-linux-intro.md) med flera containrar med kommandot [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Glöm inte att ersätta _\<app-name >_ med ett unikt namn på appen.
 
@@ -520,7 +521,7 @@ I den här självstudiekursen lärde du dig att:
 > * Ansluta till Azure Database for MySQL
 > * Felsöka fel
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
+Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
 > [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)

@@ -1,6 +1,6 @@
 ---
 title: Så här fungerar Azure MFA – Azure Active Directory
-description: Azures Multi-Factor Authentication bidrar till att skydda åtkomsten till data och program och tillgodoser samtidigt användarens önskemål om en enkel inloggningsprocess.
+description: Azure Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0982f6fb70cd6866af48feab640d5dc36bcb6b28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 39948214f5bd080be417ed515bea6bff87d3b303
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848688"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484068"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Så här fungerar det: Azure Multi-Factor Authentication
 
@@ -32,15 +32,15 @@ avbildning av ![konceptuella autentiseringsmetoder](./media/concept-mfa-howitwor
 
 Azure Multi-Factor Authentication (MFA) hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering via en rad enkla att använda [autentiseringsmetoder](concept-authentication-methods.md). Användare kan kanske inte anropas för MFA baserat på konfigurations beslut som en administratör gör.
 
-## <a name="how-to-get-multi-factor-authentication"></a>Hur skaffar jag multifaktorautentisering?
+## <a name="how-to-get-multi-factor-authentication"></a>Hur får du Multi-Factor Authentication?
 
-Multifaktorautentisering ingår i följande erbjudanden:
+Multi-Factor Authentication ingår som en del av följande erbjudanden:
 
 * **Azure Active Directory Premium** eller **Microsoft 365 Business** fullständig användning av Azure Multi-Factor Authentication med hjälp av principer för villkorlig åtkomst för att kräva Multi-Factor Authentication.
 
-* **Azure AD Free** eller fristående **Office 365** -licenser – Använd i förväg skapade [bas linje skydds principer för villkorlig åtkomst](../conditional-access/concept-baseline-protection.md) för att kräva Multi-Factor Authentication för dina användare och administratörer.
+* **Azure AD Free** eller fristående **Office 365** -licenser – Använd [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md) för att kräva Multi-Factor Authentication för dina användare och administratörer.
 
-* **Azure Active Directory Global Administrators** – en delmängd av funktionerna i Azure Multi-Factor Authentication är tillgängliga som ett sätt att skydda konton för globala administratörer.
+* **Azure Active Directory globala administratörer** – en delmängd av Azure Multi-Factor Authentication-funktioner är tillgängliga som ett sätt att skydda globala administratörs konton.
 
 > [!NOTE]
 > Nya kunder kan inte längre köpa Azure Multi-Factor Authentication som ett fristående erbjudande från den 1 september 2018. Multi-Factor Authentication kommer att fortsätta vara en tillgänglig funktion i Azure AD Premium licenser.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fcdbf0d56b79662cccd90380489ede672e6a0a66
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840442"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484119"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användar åtkomst i Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Beroende på program reglering kan föräldra medgivande behöva beviljas av en 
 
 Följande är ett exempel på ett användar flöde för att samla in föräldra godkännande:
 
-1. En [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) -åtgärd identifierar användaren som en del och returnerar användar data till programmet i form av en OSIGNERAd JSON-token.
+1. En [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) -åtgärd identifierar användaren som en del och returnerar användar data till programmet i form av en OSIGNERAd JSON-token.
 
 2. Programmet bearbetar JSON-token och visar en skärm som är mindre, och meddelar dem att det krävs ett överordnat medgivande och begär medgivande för en överordnad online.
 
@@ -54,9 +54,9 @@ Följande är ett exempel på ett användar flöde för att samla in föräldra 
 
 4. Programmet erbjuder ett alternativ till den mindre för att återkalla medgivande.
 
-5. När antingen den mindre eller den vuxen återkallar medgivande kan Azure AD-Graph API användas för att ändra **consentProvidedForMinor** till **nekad**. Alternativt kan programmet välja att ta bort en mindre person vars medgivande har återkallats. Det är möjligt att anpassa användar flödet så att den autentiserade mindre (eller överordnade som använder del kontot) kan återkalla medgivande. Azure AD B2C poster **consentProvidedForMinor** som **nekad**.
+5. När antingen den mindre eller den vuxen återkallar medgivande kan Microsoft Graph-API: et användas för att ändra **consentProvidedForMinor** till **nekad**. Alternativt kan programmet välja att ta bort en mindre person vars medgivande har återkallats. Det är möjligt att anpassa användar flödet så att den autentiserade mindre (eller överordnade som använder del kontot) kan återkalla medgivande. Azure AD B2C poster **consentProvidedForMinor** som **nekad**.
 
-Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**och **ageGroup**finns i [användar resurs typ](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Mer information om anpassade attribut finns i [använda anpassade attribut för att samla in information om dina användare](user-flow-custom-attributes.md). När du hanterar utökade attribut med hjälp av Azure AD Graph API måste du använda den långa versionen av attributet, till exempel *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**och **ageGroup**finns i [användar resurs typ](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Mer information om anpassade attribut finns i [använda anpassade attribut för att samla in information om dina användare](user-flow-custom-attributes.md). När du hanterar utökade attribut med hjälp av Microsoft Graph-API: et måste du använda den långa versionen av attributet, till exempel *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Samla in datum för födelse-och lands-/region data
 
@@ -78,7 +78,7 @@ Följande steg visar vilken logik som används för att beräkna **ageGroup** fr
 
 4. Om ingen av beräkningarna returnerar true returnerar beräkningen **vuxen**.
 
-Om ett program har samlat in information om DOB eller land/region på andra sätt kan programmet använda Graph API för att uppdatera användar posten med den här informationen. Ett exempel:
+Om ett program har samlat in information om DOB eller land/region på andra sätt kan programmet använda Graph API för att uppdatera användar posten med den här informationen. Exempel:
 
 - Om en användare är känd som vuxen, uppdaterar du **ageGroup** med värdet **vuxen**.
 - Om en användare är känd som en mindre uppdaterar du **ageGroup** med värdet **moll** och anger **consentProvidedForMinor**, efter behov.

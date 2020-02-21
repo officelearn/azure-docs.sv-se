@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 15302eb4f89c854210d4fc1aba292c57d4757278
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231349"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486268"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i Durable Functions (Azure Functions)
 
@@ -129,7 +129,7 @@ Dirigerings instanser och entiteter distribueras över alla instanser i kontroll
 
 I allmänhet är Orchestrator-funktioner avsedda att vara lätta att vara lätta och bör inte kräva stora mängder data behandlings kraft. Därför är det inte nödvändigt att skapa ett stort antal Control-diskpartitioner för att få ett bra data flöde för dirigering. Det mesta av det tunga arbetet bör utföras i tillstånds lösa aktivitets funktioner som kan skalas ut oändligt.
 
-## <a name="auto-scale"></a>Autoskala
+## <a name="auto-scale"></a>Automatisk skalning
 
 Precis som med alla Azure Functions som körs i förbruknings-och elastiska Premium-planerna stöder Durable Functions automatisk skalning via [Azure Functions skalnings styrenheten](../functions-scale.md#runtime-scaling). Skalnings kontrollen övervakar svars tiden för alla köer genom att regelbundet skicka _gransknings_ kommandon. Baserat på fördröjningen hos de granskade meddelandena bestämmer skalnings styrenheten om du vill lägga till eller ta bort virtuella datorer.
 
@@ -251,9 +251,9 @@ När du planerar att använda Durable Functions för ett produktions program är
 > [!TIP]
 > Till skillnad från bläddra ut-åtgärder, så är bläddra in-åtgärder begränsade till en enda virtuell dator. Om ditt program använder fläkten, fläkten och du är bekymrad om fläkt prestanda bör du överväga att dela upp aktivitetens fläkt [över flera](durable-functions-sub-orchestrations.md)underordningar.
 
-I följande tabell visas de förväntade *högsta* data flödes numren för de scenarier som beskrivs ovan. "Instance" syftar på en enda instans av en Orchestrator-funktion som körs på en enskild liten ([a1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) virtuell dator i Azure App Service. I samtliga fall förutsätts att [utökade sessioner](#orchestrator-function-replay) är aktiverade. De faktiska resultaten kan variera beroende på processor-eller I/O-arbete som utförs av funktions koden.
+I följande tabell visas de förväntade *högsta* data flödes numren för de scenarier som beskrivs ovan. "Instance" syftar på en enda instans av en Orchestrator-funktion som körs på en enskild liten ([a1](../../virtual-machines/sizes-previous-gen.md)) virtuell dator i Azure App Service. I samtliga fall förutsätts att [utökade sessioner](#orchestrator-function-replay) är aktiverade. De faktiska resultaten kan variera beroende på processor-eller I/O-arbete som utförs av funktions koden.
 
-| Scenario | Maximalt dataflöde |
+| Scenario | Maximalt data flöde |
 |-|-|
 | Körning av sekventiell aktivitet | 5 aktiviteter per sekund, per instans |
 | Körning av parallell aktivitet (fläkt ut) | 100 aktiviteter per sekund, per instans |

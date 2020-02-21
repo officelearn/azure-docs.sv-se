@@ -3,12 +3,12 @@ title: Host. JSON-referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425212"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484442"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Host. JSON-referens för Azure Functions 2. x och senare 
 
@@ -341,7 +341,7 @@ Hanterat beroende är en funktion som för närvarande endast stöds med PowerSh
 
 ## <a name="queues"></a>kön
 
-Du hittar konfigurations inställningar i [utlösare och bindningar för lagrings köer](functions-bindings-storage-queue.md#host-json).  
+Du hittar konfigurations inställningar i [utlösare och bindningar för lagrings köer](functions-bindings-storage-queue-output.md#host-json).  
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -349,7 +349,7 @@ Det går att hitta konfigurations inställningen i [SendGrid-utlösare och bindn
 
 ## <a name="servicebus"></a>serviceBus
 
-Du hittar konfigurations inställningen i [Service Bus utlösare och bindningar](functions-bindings-service-bus.md#host-json).
+Du hittar konfigurations inställningen i [Service Bus utlösare och bindningar](functions-bindings-service-bus-output.md#host-json).
 
 ## <a name="singleton"></a>Singleton
 

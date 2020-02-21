@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367957"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483762"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -36,7 +36,7 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 ![Sömlös enkel inloggning](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Sömlös SSO behöver användarens **enhet enbart vara domänansluten,** men den används inte på [Azure AD-ansluten](../active-directory-azureadjoin-overview.md) eller [hybrid Azure AD-ansluten] (. /active-directory-azureadjoin-overview.md) enheter. SSO PN, Azure AD-ansluten och hybrid Azure AD-anslutna fungerar baserat på [primär uppdateringstoken] (.. /active-directory/devices/concept-primary-refresh-token.md)
+>Sömlös SSO behöver användarens **enhet enbart vara domänansluten,** men den används inte på [Azure AD-anslutna](../devices/concept-azure-ad-join.md) eller [hybrid Azure AD-anslutna](../devices/concept-azure-ad-join-hybrid.md) enheter. SSO på Azure AD-anslutna och hybrid Azure AD-anslutna fungerar baserat på den [primära uppdateringstoken](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
@@ -78,7 +78,7 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 \*\*\*kräver [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
->För Windows 10 rekommenderar vi att du använder [Azure AD Join](../active-directory-azureadjoin-overview.md) för att få en optimal enkel inloggning med Azure AD.
+>För Windows 10 rekommenderar vi att du använder [Azure AD Join](../devices/concept-azure-ad-join.md) för att få en optimal enkel inloggning med Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

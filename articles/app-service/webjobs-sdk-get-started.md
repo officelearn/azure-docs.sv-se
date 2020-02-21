@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2b61b87707a732d3b7c27f97b9ca5fcf82b4bf3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640860"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483065"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs SDK för händelse driven bakgrunds bearbetning
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du använder Visual Studio 2019 för att skapa ett A
 
 Den här artikeln visar hur du distribuerar WebJobs som en .NET Core-konsolprogram. Om du vill distribuera WebJobs som en .NET Framework-konsolsession, se [WebJobs som .NET Framework-konsol program](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Om du är intresse rad av WebJobs SDK version 2. x, som endast stöder .NET Framework, se [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera Visual Studio 2019](/visualstudio/install/) med arbets belastningen **Azure Development** . Om du redan har Visual Studio men inte har den arbets belastningen lägger du till arbets belastningen genom att välja **verktyg > hämta verktyg och funktioner**.
 
@@ -177,9 +177,9 @@ Från och med version 3. x måste du uttryckligen installera lagrings bindnings 
 
    `QueueTrigger`-attributet anger körningen för att anropa den här funktionen när ett nytt meddelande skrivs i en Azure Storage kö som kallas `queue`. Innehållet i meddelandet finns i metod koden i `message`-parametern. I den här delen av metoden bearbetas utlösarens data. I det här exemplet loggar koden bara meddelandet.
 
-   Parametern `message` behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en byte mat ris eller ett [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) -objekt. [Se användning av kö-utlösare](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Varje bindnings typ (till exempel köer, blobbar eller tabeller) har en annan uppsättning parameter typer som du kan binda till.
+   Parametern `message` behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en byte mat ris eller ett [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) -objekt. [Se användning av kö-utlösare](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Varje bindnings typ (till exempel köer, blobbar eller tabeller) har en annan uppsättning parameter typer som du kan binda till.
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Azure Storage emulatorn som körs lokalt har inte alla funktioner som WebJobs-SDK: n behöver. Så i det här avsnittet skapar du ett lagrings konto i Azure och konfigurerar projektet att använda det. Om du redan har ett lagrings konto går du vidare till steg 6.
 
@@ -273,7 +273,7 @@ I det här avsnittet ska du skapa och köra projektet lokalt och utlösa funktio
 
    Eftersom du använde attributet `QueueTrigger` i funktionen `ProcessQueueMessage` lyssnar WeJobs SDK-körningen efter Queue meddelanden när den startas. Det hittar ett nytt Queue-meddelande i kön med namnet *Queue* och anropar funktionen.
 
-   På grund av [backoff exponentiella](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm)kan det ta upp till två minuter för körningen att hitta meddelandet och anropa funktionen. Den här vänte tiden kan minskas genom att köras i [utvecklings läge](webjobs-sdk-how-to.md#host-development-settings).
+   På grund av [backoff exponentiella](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm)kan det ta upp till två minuter för körningen att hitta meddelandet och anropa funktionen. Den här vänte tiden kan minskas genom att köras i [utvecklings läge](webjobs-sdk-how-to.md#host-development-settings).
 
    Konsolens utdata ser ut så här:
 
@@ -436,7 +436,7 @@ Under distributionen skapar du en app service-instans där funktionerna ska kör
 1. Uppdatera sidan **kö** så försvinner det nya meddelandet eftersom det har bearbetats av funktionen som körs i Azure.
 
    > [!TIP]
-   > När du testar i Azure ska du använda [utvecklings läget](webjobs-sdk-how-to.md#host-development-settings) för att se till att en kö utlösnings funktion anropas direkt och undvika fördröjningar på grund av att [kön avsöker exponentiell backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
+   > När du testar i Azure ska du använda [utvecklings läget](webjobs-sdk-how-to.md#host-development-settings) för att se till att en kö utlösnings funktion anropas direkt och undvika fördröjningar på grund av att [kön avsöker exponentiell backoff](../azure-functions/functions-bindings-storage-queue-trigger.md#polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Visa loggar i Application Insights
 

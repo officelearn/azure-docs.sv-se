@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: allensu
-ms.openlocfilehash: 0cbebf4ab2d865d49a85da2e809bdf24e7258a5f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 3ae1e3e595e9be9709e8a3d4808100d7f0e48eb8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444391"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526373"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Utforma virtuella nätverk med NAT-gateway-resurser (offentlig för hands version)
 
@@ -339,9 +339,7 @@ En SNAT-port är tillgänglig för åter användning till samma mål-IP-adress o
 
 - NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
 - IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.
-- NSG på undernät eller NIC är inte löst för utgående flöden till offentliga slut punkter med hjälp av NAT.
 - NSG Flow-loggning stöds inte när NAT används.
-- När ett virtuellt nätverk har flera undernät kan varje undernät ha en annan konfigurerad NAT.
 - NAT kan inte omfatta flera virtuella nätverk.
 
 ## <a name="preview-participation"></a>Förhandsgranska deltagande

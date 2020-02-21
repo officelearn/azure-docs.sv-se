@@ -8,12 +8,12 @@ ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a36427616691b0a0d400dadb4e35c2f7fbf23b22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 572441fe13dfeff550e2e541c3d775bd4c3d433e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722310"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482912"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
@@ -26,7 +26,7 @@ Den här artikeln hjälper dig att förbereda din miljö för utveckling och dis
 
 Det här steget utförs vanligt vis av en molnbaserad utvecklare. En del program vara kan också vara till hjälp för en data expert.
 
-Vi har skapat ett PowerShell-skript som skapar en virtuell Azure-dator med många av de krav som redan har kon figurer ATS. Den virtuella dator som vi skapar måste kunna hantera [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), vilket är anledningen till att vi valde en [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) dator storlek.
+Vi har skapat ett PowerShell-skript som skapar en virtuell Azure-dator med många av de krav som redan har kon figurer ATS. Den virtuella dator som vi skapar måste kunna hantera [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization), vilket är anledningen till att vi valde en [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) dator storlek.
 
 Den virtuella utvecklings datorn kommer att konfigureras med:
 

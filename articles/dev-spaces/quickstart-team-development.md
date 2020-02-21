@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du gör team Kubernetes-utveckling med behållare och mikrotjänster med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: d2b31cce6604cef31de6f034566ebd46a4e92750
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1b36cf30574c0c9892a0383bee7e2f914bc9feac
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721599"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482402"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Snabb start: grupp utveckling på Kubernetes – Azure dev Spaces
 
@@ -86,7 +86,7 @@ Använd kommandot `helm install` för att konfigurera och installera exempel pro
 
 ```cmd
 cd charts/
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleappsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 Det kan ta flera minuter att slutföra kommandot `helm install`. När exempel programmet har installerats på klustret och eftersom du har aktiverat dev Spaces i klustret, använder du kommandot `azds list-uris` för att visa URL: erna för exempel programmet i den aktuella *utvecklings* gruppen.

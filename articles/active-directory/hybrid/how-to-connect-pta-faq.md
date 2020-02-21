@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932397"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484425"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
@@ -35,11 +35,11 @@ Läs [den här guiden](https://docs.microsoft.com/azure/security/fundamentals/ch
 
 Direktautentisering är en kostnads fri funktion. Du behöver inte några betalda versioner av Azure AD för att använda den.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Är direkt autentisering tillgängligt i [Microsoft Azure Tyskland molnet](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government molnet](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>Är direkt autentisering tillgängligt i [Microsoft Azure Tyskland molnet](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government molnet](https://azure.microsoft.com/features/gov/)?
 
 Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) med direktautentisering?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) med direktautentisering?
 
 Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
@@ -54,7 +54,7 @@ Nej. Direktautentisering växlar _inte_ automatiskt till hash-synkronisering av 
 
 När du använder Azure AD Connect för att växla inloggnings metoden från hash-synkronisering av lösen ord för att sprida autentisering, blir direktautentisering den primära inloggnings metoden för dina användare i hanterade domäner. Observera att alla användares lösen ords-hashar som tidigare har synkroniserats med hash-synkronisering av lösen ord förblir lagrade i Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD-programproxy](../manage-apps/application-proxy.md) -anslutning på samma server som en genom strömnings agent för autentisering?
+## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD-programproxy](../manage-apps/application-proxy.md) -anslutning på samma server som en genom strömnings agent för autentisering?
 
 Ja. De versioner av direkt verifierings agenten, version 1.5.193.0 eller senare, som stöds av den här konfigurationen.
 
@@ -107,7 +107,7 @@ Nej, du kan bara installera en genom strömnings agent på en enskild server. Om
 
 ## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Måste jag manuellt Förnya certifikat som används av genom strömnings agenter?
 
-Kommunikationen mellan varje direktautentisering och Azure AD skyddas med certifikatbaserad autentisering. Dessa [certifikat förnyas automatiskt med några månader av Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Du behöver inte förnya dessa certifikat manuellt. Du kan rensa äldre utgångna certifikat efter behov.
+Kommunikationen mellan varje direktautentisering och Azure AD skyddas med certifikatbaserad autentisering. Dessa [certifikat förnyas automatiskt med några månader av Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). Du behöver inte förnya dessa certifikat manuellt. Du kan rensa äldre utgångna certifikat efter behov.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur gör jag för att ta bort en direktautentisering för direkt autentisering?
 

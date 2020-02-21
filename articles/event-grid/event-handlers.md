@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid händelse hanterare
-description: Beskriver händelse hanterare som stöds för Azure Event Grid. Hanteraren vidtar ytterligare åtgärder för att bearbeta händelsen.
+description: Beskriver händelse hanterare som stöds för Azure Event Grid. Azure Automation, funktioner, Event Hubs, Hybridanslutningar, Logic Apps, Service Bus, Queue Storage, Webhooks.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 3cef32cd204e8bd4b21353cf66575a721315b387
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511322"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525812"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelse hanterare i Azure Event Grid
 
@@ -20,7 +20,7 @@ En händelse hanterare är den plats där händelsen skickas. Hanteraren vidtar 
 
 Den här artikeln innehåller länkar till innehåll för varje händelse hanterare.
 
-## <a name="azure-automation"></a>Azure Automatisering
+## <a name="azure-automation"></a>Azure Automation
 
 Använd Azure Automation för att bearbeta händelser med automatiserade Runbooks.
 
@@ -42,7 +42,7 @@ När du använder Azure Functions som hanterare kan du använda Event Grid-utlö
 | [Självstudie: strömma Big data till ett informations lager](event-grid-event-hubs-integration.md) | När Event Hubs skapar en Infångnings fil, Event Grid skickar en händelse till en Function-app. Appen hämtar insamlings filen och migrerar data till ett data lager. |
 | [Självstudie: Azure Service Bus till Azure Event Grid integrations exempel](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid skickar meddelanden från Service Bus ämne till att fungera som app-och Logic-appen. |
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
 Använd Event Hubs när din lösning hämtar händelser snabbare än den kan bearbeta händelserna. Programmet bearbetar händelserna från Event Hubs enligt schemat. Du kan skala händelse bearbetningen för att hantera inkommande händelser.
 
@@ -63,7 +63,7 @@ Använd Azure Relay Hybridanslutningar för att skicka händelser till program s
 |---------|---------|
 | [Självstudie: skicka händelser till hybrid anslutning](custom-event-to-hybrid-connection.md) | Skickar en anpassad händelse till en befintlig hybrid anslutning för bearbetning av ett lyssnar program. |
 
-## <a name="logic-apps"></a>Logikappar
+## <a name="logic-apps"></a>Logic Apps
 
 Använd Logic Apps för att automatisera affärs processer för att svara på händelser.
 
@@ -97,7 +97,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-### <a name="service-bus-topics"></a>Service Bus-ämnen
+### <a name="service-bus-topics"></a>Service Bus ämnen
 
 Du kan dirigera händelser i Event Grid direkt till Service Bus ämnen för att hantera Azure system Events med Service Bus ämnen, eller för kommando & kontroll meddelande scenarier.
 
@@ -119,7 +119,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-## <a name="queue-storage"></a>Kölagring
+## <a name="queue-storage"></a>Queue Storage
 
 Använd Queue Storage för att ta emot händelser som behöver hämtas. Du kan använda Queue Storage när du har en lång körnings process som tar för lång tid att svara. Genom att skicka händelser till Queue Storage kan appen Hämta och bearbeta händelser enligt sitt eget schema.
 
@@ -141,4 +141,4 @@ Använd Webhooks för anpassningsbara slut punkter som svarar på händelser.
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

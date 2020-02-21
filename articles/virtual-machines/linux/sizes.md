@@ -12,37 +12,34 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2019
+ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: c16ff8fed19340811578ccb39cbac7242b7c5861
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 21351654f01127acb5fe712021ceebb31b020bdc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905738"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484952"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för virtuella Linux-datorer i Azure
-I den här artikeln beskrivs tillgängliga storlekar och alternativ för de virtuella Azure-datorer som du kan använda för att köra dina Linux-appar och arbets belastningar. Den innehåller också distributions överväganden för att vara medveten om när du planerar att använda dessa resurser. Den här artikeln är också tillgänglig för [virtuella Windows-datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+I den här artikeln beskrivs tillgängliga storlekar och alternativ för de virtuella Azure-datorer som du kan använda för att köra dina Linux-appar och arbets belastningar. Den innehåller också distributions överväganden för att vara medveten om när du planerar att använda dessa resurser. Den här artikeln är också tillgänglig för [virtuella Windows-datorer](../windows/sizes.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json).
 
-| Typ                     | Storlekar           |    Beskrivning       |
-|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Generellt syfte](sizes-general.md)          | B, Dsv3, dv3, Dasv4, Dav4, DSv2, Dv2, AV2, DC  | Balanserat förhållande mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. |
-| [Beräkningsoptimerad](sizes-compute.md)        | Fsv2           | Högt förhållande mellan processor och minne. Bra för webbservrar med medelhög trafik, nätverkstillämpningar, batchprocesser och programservrar.        |
-| [Minnesoptimerad](sizes-memory.md)         | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2  | Högt förhållande mellan minne och processor. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](sizes-storage.md)        | Lsv2                | Hög disk data flöde och i/o perfekt för Big data, SQL, NoSQL-databaser, data lager hantering och stora transaktions databaser.  |
-| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (för hands version), NV, NVv3  | Specialiserade virtuella datorer som är riktade mot tung grafisk rendering och video redigering, samt modell utbildning och inferencing (ND) med djup inlärning. Tillgängligt med en eller flera GPU: er.       |
-| [Databehandling med höga prestanda](sizes-hpc.md) | HB, HC,  H | Våra virtuella datorer med de snabbaste och mest kraftfulla processorerna med nätverksgränssnitt för stora dataflöden (RDMA). |
-
-<br>
+| Typ | Storlekar | Beskrivning |
+|------|-------|-------------|
+| [Generellt syfte](../sizes-general.md)   | B, Dsv3, dv3, Dasv4, Dav4, DSv2, Dv2, AV2, DC  | Balanserat förhållande mellan processor och minne. Perfekt för testning och utveckling, små till medel stora databaser och webb servrar med låg till medelhög trafik. |
+| [Beräkningsoptimerad](../sizes-compute.md) | Fsv2 | Högt förhållande mellan processor och minne. Passar för medel stora trafik webb servrar, nätverks enheter, batch-processer och program servrar. |
+| [Minnesoptimerad](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Högt förhållande mellan minne och processor. Perfekt för Relations databas servrar, medel stora till stora cacheminnen och intern analys.                 |
+| [Lagringsoptimerad](../sizes-storage.md) | Lsv2 | Hög disk data flöde och i/o perfekt för Big data, SQL, NoSQL-databaser, data lager hantering och stora transaktions databaser.  |
+| [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (för hands version), NV, NVv3, NVv4 | Specialiserade virtuella datorer som är riktade mot tung grafisk rendering och video redigering, samt modell utbildning och inferencing (ND) med djup inlärning. Tillgängligt med en eller flera GPU: er. |
+| [Databehandling med höga prestanda](../sizes-hpc.md) | HB, HC,  H | Våra snabbaste och mest kraftfulla processor virtuella datorer med valfria nätverks gränssnitt (RDMA) med höga data flöden. |
 
 - Information om priser för de olika storlekarna finns [Virtual Machines prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - För tillgänglighet för VM-storlekar i Azure-regioner, se [produkter tillgängliga per region](https://azure.microsoft.com/regions/services/).
-- Om du vill se allmänna gränser för virtuella Azure-datorer kan du läsa om [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+- Om du vill se allmänna gränser för virtuella Azure-datorer kan du läsa om [begränsningar, kvoter och begränsningar för Azure-prenumerationer och tjänster](../../azure-subscription-service-limits.md).
+- Lär dig mer om hur [Azure Compute Units (ACU)](../acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
 
-
-## <a name="rest-api"></a>REST API
+## <a name="rest-api"></a>REST-API
 
 Information om hur du använder REST API för att fråga efter VM-storlekar finns i följande avsnitt:
 
@@ -52,7 +49,7 @@ Information om hur du använder REST API för att fråga efter VM-storlekar finn
 
 ## <a name="acu"></a>ACU
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](../acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
 
 ## <a name="benchmark-scores"></a>Benchmark-poäng
 
@@ -61,13 +58,11 @@ Lär dig mer om beräknings prestanda för virtuella Linux-datorer med [CoreMark
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om de olika VM-storlekar som är tillgängliga:
-- [Generellt syfte](sizes-general.md)
-- [Beräkningsoptimerad](sizes-compute.md)
-- [Minnesoptimerad](sizes-memory.md)
-- [Lagringsoptimerad](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Databehandling med höga prestanda](sizes-hpc.md)
-- Kontrol lera [föregående generations](sizes-previous-gen.md) sida för Basic och standard, hög prestanda A8 – A11, D/DSv1 (D1-4 och D11-14 v1), F/Fsv1, G/GS, Lsv1 och NVv2 serien.
 
-
-
+- [Generellt syfte](../sizes-general.md)
+- [Beräkningsoptimerad](../sizes-compute.md)
+- [Minnesoptimerad](../sizes-memory.md)
+- [Lagringsoptimerad](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Databehandling med höga prestanda](../sizes-hpc.md)
+- Kontrol lera [föregående generations](../sizes-previous-gen.md) sida för en standard, DV1 (D1-4 och D11-14 v1) och A8-A11-serien

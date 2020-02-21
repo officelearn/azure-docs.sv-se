@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0b39336591e9939d0e5200304cbeced2d9831979
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025562"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498775"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management
 
@@ -29,28 +29,28 @@ Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan d
 
 ## <a name="determine-your-version-of-pim"></a>Fastställ din version av PIM
 
-Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity Management till en ny version som matchar upplevelserna för Azures resurs roller. Detta skapar ytterligare funktioner samt [ändringar i det befintliga API: et](azure-ad-roles-features.md#api-changes). Även om den nya versionen publiceras, vilka procedurer som du följer i den här artikeln beror på vilken version av Privileged Identity Management du för närvarande har. Följ stegen i det här avsnittet för att ta reda på vilken version av Privileged Identity Management du har. När du känner till din version av Privileged Identity Management kan du välja de procedurer i den här artikeln som matchar den versionen.
+Från och med november 2019 uppdateras Azure AD-roll delen av Privileged Identity Management till en ny version som matchar upplevelserna för Azure-roller. Detta skapar ytterligare funktioner samt [ändringar i det befintliga API: et](azure-ad-roles-features.md#api-changes). Även om den nya versionen publiceras, vilka procedurer som du följer i den här artikeln beror på vilken version av Privileged Identity Management du för närvarande har. Följ stegen i det här avsnittet för att ta reda på vilken version av Privileged Identity Management du har. När du känner till din version av Privileged Identity Management kan du välja de procedurer i den här artikeln som matchar den versionen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
-    ![Ny version av Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Följ stegen i den här artikeln för att godkänna eller neka begär Anden för Azure AD-roller.
 
-# <a name="new-versiontabnew"></a>[Ny version](#tab/new)
+# <a name="new-version"></a>[Ny version](#tab/new)
 
 ## <a name="view-pending-requests"></a>Visa väntande begär Anden
 
-Som en delegerad god kännare får du ett e-postmeddelande när en Azure Resource Role-begäran väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
+Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
 1. Välj **Godkänn begär Anden**.
 
-    ![Sidan Godkänn förfrågningar – Azure-resurser som visar begäran om granskning](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Sidan Godkänn begär Anden – sidan visar begäran om att granska Azure AD-roller](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
     I avsnittet **begär Anden om roll aktiveringar** visas en lista över begär Anden som väntar på ditt godkännande.
 
@@ -64,7 +64,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en Azure Resourc
 
 1. Välj **Godkänn**. Du får ett Azure-meddelande om ditt godkännande.
 
-    ![Godkänn meddelandet som visar att begäran har godkänts](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Godkänn meddelandet som visar att begäran har godkänts](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
 ## <a name="deny-requests"></a>Neka förfrågningar
 
@@ -83,18 +83,18 @@ Här är lite information om arbets flödes meddelanden:
 - God kännare meddelas via e-post när en begäran om en roll väntar på att granskas. E-postmeddelanden innehåller en direkt länk till begäran, där god kännaren kan godkänna eller neka.
 - Begär Anden löses av den första god kännaren som godkänner eller nekar.
 - När en god kännare svarar på begäran, meddelas alla god kännare om åtgärden.
-- Resurs administratörer meddelas när en godkänd användare blir aktiv i sin roll.
+- Globala administratörer och administratörer för privilegierade roller meddelas när en godkänd användare blir aktiv i sin roll.
 
 >[!NOTE]
->En resurs administratör som tror att en godkänd användare inte ska vara aktiv kan ta bort den aktiva roll tilldelningen i Privileged Identity Management. Även om resurs administratörer inte meddelas om väntande begär Anden om de inte är en god kännare, kan de Visa och avbryta väntande begär Anden för alla användare genom att visa väntande begär anden i Privileged Identity Management.
+>En global administratör eller en privilegie rad roll administratör som anser att en godkänd användare inte ska vara aktiv kan ta bort den aktiva roll tilldelningen i Privileged Identity Management. Även om administratörer inte meddelas om väntande begär Anden om de inte är god kännare, kan de Visa och avbryta väntande begär Anden för alla användare genom att visa väntande begär anden i Privileged Identity Management.
 
-# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
+# <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
 ## <a name="view-pending-requests"></a>Visa väntande begär Anden
 
 Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -132,7 +132,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     ![Neka fönstret valda begär Anden med en orsak till neka](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. Klicka på **neka**.
+1. Välj **neka**.
 
     Status symbolen kommer att uppdateras med ditt avslag.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847802"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484323"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Användar flöden i Azure Active Directory B2C
 
@@ -81,10 +81,8 @@ En e-postadress kan krävas som en del av ett användar flöde. Om användaren a
 
 E-postadressen är inte garanterat verifierad i någon av dessa fall. En klient administratör kan inaktivera e-postverifiering i de grundläggande principerna för lokala konton. Även om verifiering av e-postadresser är aktive rad, kontrol leras inte adresser om de kommer från en social identitetsprovider och de inte har ändrats.
 
-Endast egenskaperna **otherMails** och **signInNames** visas via Active Directory Graph API. E-postadressen i detalj egenskapen för stark autentisering är inte tillgänglig.
+Endast egenskaperna **otherMails** och **signInNames** visas via Microsoft Graph-API: et. E-postadressen i detalj egenskapen för stark autentisering är inte tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill skapa de rekommenderade användar flödena följer du anvisningarna i [Självstudier: skapa ett användar flöde](tutorial-create-user-flows.md).
-
-

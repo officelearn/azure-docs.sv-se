@@ -3,12 +3,12 @@ title: Distribuera GPU-aktiverad container instans
 description: Lär dig hur du distribuerar Azure Container instances för att köra beräknings intensiva behållar appar med GPU-resurser.
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: ea3b0ccba2d84487356f4bbd404cec3af1d0979a
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.openlocfilehash: c3b202d1f35194d59090c3cc310226d6cfc4dfea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484188"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482963"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
 
@@ -42,9 +42,9 @@ Om du vill använda GPU: er i en behållar instans anger du en *GPU-resurs* med 
 
   | SKU | VM-serien |
   | --- | --- |
-  | K80 | [NC](../virtual-machines/linux/sizes-gpu.md#nc-series) |
-  | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
-  | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
+  | K80 | [NC](../virtual-machines/nc-series.md) |
+  | P100 | [NCv2](../virtual-machines/ncv2-series.md) |
+  | V100 | [NCv3](../virtual-machines/ncv3-series.md) |
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
@@ -56,7 +56,7 @@ När du distribuerar GPU-resurser ställer du in processor-och minnes resurser s
 
 * **Priser** – liknande behållar grupper utan GPU-resurser, fakturerar Azure för resurser *som* förbrukas under en behållar grupp med GPU-resurser. Varaktigheten beräknas från tiden för att hämta din första behållares avbildning tills behållar gruppen avslutas. Den omfattar inte tiden för att distribuera behållar gruppen.
 
-  Se [prisuppgifter](https://azure.microsoft.com/pricing/details/container-instances/).
+  Se [pris information](https://azure.microsoft.com/pricing/details/container-instances/).
 
 * **CUDA-drivrutiner** – behållar instanser med GPU-resurser är företablerade med NVIDIA CUDA-drivrutiner och behållar körningar, så du kan använda behållar avbildningar som har utvecklats för CUDA-arbetsbelastningar.
 
@@ -206,7 +206,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Till exempel:
+Eftersom det kan vara kostsamt att använda GPU-resurser, se till att dina behållare inte körs utan förvarning under långa perioder. Övervaka dina behållare i Azure Portal eller kontrol lera statusen för en behållar grupp med kommandot [AZ container show][az-container-show] . Exempel:
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid händelse källor
-description: I den här artikeln beskrivs de händelse källor som stöds för Azure Event Grid. En händelse källa är den plats där händelsen inträffar.
+description: Azure-prenumerationer, Container Registry, anpassade ämnen, Event Hubs, IoT Hub, Key Vault, Media Services, resurs grupper, Service Bus, lagring, kartor, app-konfiguration, signal R, Machine Learning.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 31923e1cb69eb6681367ed6ea71c10564ae6d489
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846394"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526390"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelse källor i Azure Event Grid
 
@@ -61,7 +61,7 @@ Prenumerera på anpassade ämnen för att svara på program händelser.
 | [Resource Manager-mall: anpassat ämne och Event Hubs slut punkt](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| En Resource Manager-mall som skapar en prenumeration för ett anpassat ämne. Den skickar händelser till en Azure-Event Hubs. |
 | [Händelse schema](event-schema.md) | Visar fält i anpassade händelser. |
 
-## <a name="event-hubs"></a>Händelsehubbar
+## <a name="event-hubs"></a>Event Hubs
 
 Prenumerera på Event Hubs händelser för att svara på avbilda fil händelser. Event Hubs kan fungera som en händelse källa eller händelse hanterare. I följande artiklar visas hur du använder Event Hubs som källa.
 
@@ -129,7 +129,7 @@ Prenumerera på Service Bus händelser för att svara på meddelanden utan en ak
 | [Översikt: Azure Service Bus till Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
 | [Händelse schema](event-schema-service-bus.md) | Visar fält i Service Bus händelser. |
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och borttagna händelser.
 
@@ -147,7 +147,7 @@ Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och bort
 | [Översikt: reagerar på Blob Storage-händelser](../storage/blobs/storage-blob-event-overview.md) | Översikt över integrering av Blob Storage med Event Grid. |
 | [Händelse schema](event-schema-blob-storage.md) | Visar fält i Blob Storage händelser. |
 
-## <a name="maps"></a>Kartor
+## <a name="maps"></a>Maps
 Prenumerera på Azure Maps händelser för att svara på händelser på en inhägnad. Ett program kan till exempel leverera ett e-postmeddelande varje gång en enhet går in eller avslutar ett avgränsnings tecken.
 
 |Titel  |Beskrivning  |
@@ -186,4 +186,4 @@ Prenumerera på Azure Machine Learning arbets ytans händelser för att svara p�
 ## <a name="next-steps"></a>Nästa steg
 
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
-* Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).
+* Information om hur du snabbt kommer igång med Event Grid finns i [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

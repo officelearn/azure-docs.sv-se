@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Media Services | Microsoft Docs
-description: Microsoft Azure Media Services är en utökningsbar molnbaserad plattform som gör det möjligt för utvecklare att skapa skalbara program för mediahantering och leverans. Den här artikeln ger en översikt över Azure Media Services.
+description: Microsoft Azure Media Services är en utökningsbar molnbaserad plattform som gör att utvecklare kan skapa skalbara program för mediehantering och medieleverans. Den här artikeln ger en översikt över Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: d339fd16b1eef8df367bdcb375a1cb3dc71ddde2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8cc6211f9ddecf21301765266b17e88e4e734eed
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895883"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499962"
 ---
 # <a name="azure-media-services-overview"></a>Översikt över Azure Media Services 
 
@@ -33,11 +33,11 @@ Microsoft Azure Media Services (AMS) är en utökningsbar molnbaserad plattform 
 
 Du kan bygga arbetsflöden för slutpunkt till slutpunkt bara med Media Services. Du kan också välja att använda komponenter från tredje part för vissa delar av arbetsflödet. Koda till exempel med hjälp av en kodare från tredje part. Därefter kan du överföra, skydda, paketera och leverera med Media Services. Du kan välja att strömma ditt innehåll live eller leverera innehåll på begäran. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * (Valfritt) Konfigurera utvecklingsmiljön. Välj .NET eller REST API för din utvecklingsmiljö. Mer information finns i [Ställa in miljön](media-services-dotnet-how-to-use.md).
 
@@ -58,7 +58,7 @@ Bygg Media Services-lösningar genom att använda:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Azure Media Services för Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (detta är en icke-Microsoft-version av en Node.js SDK. Den underhålls av ett community och har för närvarande inte en 100-procentig täckning av AMS API:er).
 * Befintliga verktyg:
-    * [Azure-portalen](https://portal.azure.com/)
+    * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) är ett Winforms/C#-program för Windows)
 
 > [!NOTE]
@@ -77,7 +77,7 @@ Azure Media Services-koncepten finns i [Koncept](media-services-concepts.md).
 
 Detaljerad information finns i [AMS-scenarier och tillgänglighet för funktioner och tjänster över datacenter](scenarios-and-availability.md).
 
-## <a name="service-level-agreement-sla"></a>Serviceavtal (SLA)
+## <a name="service-level-agreement-sla"></a>Servicenivåavtal (SLA)
 
 Mer information finns i [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 

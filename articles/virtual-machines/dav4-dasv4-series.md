@@ -1,0 +1,80 @@
+---
+title: Dav4 och Dasv4-serien – Azure Virtual Machines
+description: Specifikationer för virtuella datorer med Dav4 och Dasv4-serien.
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: article
+ms.date: 02/03/2020
+ms.author: lahugh
+ms.openlocfilehash: f371281e4072902f9946eb9fd107b68a1e4bf4f6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77493883"
+---
+# <a name="dav4-and-dasv4-series"></a>Dav4 och Dasv4-serien
+
+Dav4-serien och Dasv4-serien är nya storlekar som använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache DEDIKERA 8 GB av den L3-cachen till varje 8 kärnor som ökar kund alternativen för att köra sina generella arbets belastningar. Dav4-serien och Dasv4-serien har samma minnes-och diskkonfigurationer som D & Dsv3-serien.
+
+## <a name="dav4-series"></a>Dav4-serien
+
+ACU: 230-260
+
+Premium Storage: stöds inte
+
+Premium Storage caching: stöds inte
+
+Dav4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz. Storlekarna i Dav4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium SSD använder du Dasv4-storlekarna. Pris-och debiterings mätare för Dasv4-storlekar är samma som för Dav4-serien.
+
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3 000 / 46 / 23   | 2/1 000 |
+| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6 000 / 93 / 46   | 2/2 000 |
+| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12 000 / 187 / 93 | 4 / 4000 |
+| Standard_D16a_v4|  16 | 64 | 400 |32  | 24 000 / 375 / 187 |8 / 8000 |
+| Standard_D32a_v4|  32 | 128| 800 | 32 | 48 000 / 750 / 375 |8/16 000 |
+| Standard_D48a_v4 <sup>**</sup> | 48 | 192| 1200 | 32 | | |
+| Standard_D64a_v4 <sup>**</sup> | 64 | 256 | 1600 | 32 | | |
+| Standard_D96a_v4 <sup>**</sup> | 96 | 384 | 2400 | 32 | | |
+
+<sup>**</sup> Dessa storlekar är i för hands version.  Om du är intresse rad av att testa dessa större storlekar kan du registrera dig på [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
+
+## <a name="dasv4-series"></a>Dasv4-serien
+
+ACU: 230-260
+
+Premium Storage: stöds
+
+Premium Storage caching: stöds
+
+Dasv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en högre högsta frekvens på 3.35 GHz och använder Premium SSD. Storlekarna i Dasv4-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar.
+
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2as_v4|2|8|16|4|4000/32 (50)|3200 / 48|2/1 000 |
+| Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2/2 000 |
+| Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4 / 4000 |
+| Standard_D16as_v4|16|64|128|32|32000/255 (400)|25600 / 384|8 / 8000 |
+| Standard_D32as_v4|32|128|256|32|64000/510 (800)|51200 / 768|8/16 000 |
+| Standard_D48as_v4 <sup>**</sup>|48|192|384|32| | | 
+| Standard_D64as_v4 <sup>**</sup>|64|256|512|32| | | 
+| Standard_D96as_v4 <sup>**</sup>|96|384|768|32| | | 
+
+<sup>**</sup> Dessa storlekar är i för hands version.  Om du är intresse rad av att testa dessa större storlekar kan du registrera dig på [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## <a name="other-sizes"></a>Andra storlekar
+
+- [Generellt syfte](sizes-general.md)
+- [Minnesoptimerad](sizes-memory.md)
+- [Lagringsoptimerad](sizes-storage.md)
+- [GPU-optimerad](sizes-gpu.md)
+- [Databehandling med höga prestanda](sizes-hpc.md)
+- [Tidigare generationer](sizes-previous-gen.md)
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

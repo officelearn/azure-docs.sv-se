@@ -1,17 +1,17 @@
 ---
-title: App Service-prenumerationer
+title: App Service-planer
 description: Lär dig hur App Service planer fungerar i Azure App Service, hur de debiteras för kunden och hur de kan skalas efter dina behov.
 keywords: App Service, Azure App Service, skalning, skalbarhet, skalbarhet, App Service-plan, App Service-kostnad
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 11/09/2017
 ms.custom: seodec18
-ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: f1012f8c00de4b19bbf6206408ec1a806e09e54f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672286"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482351"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Services plan
 
@@ -37,7 +37,7 @@ Varje nivå tillhandahåller också en viss delmängd av App Service funktioner.
 <a name="new-pricing-tier-premiumv2"></a>
 
 > [!NOTE]
-> Den nya pris nivån för **PremiumV2** tillhandahåller [virtuella datorer i Dv2-serien](../virtual-machines/windows/sizes-general.md#dv2-series) med snabbare processorer, SSD-lagring och dubbelt minne-till-kärn-förhållande jämfört med **standard** nivån. **PremiumV2** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i standard prenumerationen fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **Premium** -nivån ingår i **PremiumV2**.
+> Den nya pris nivån för **PremiumV2** tillhandahåller [virtuella datorer i Dv2-serien](../virtual-machines/dv2-dsv2-series.md) med snabbare processorer, SSD-lagring och dubbelt minne-till-kärn-förhållande jämfört med **standard** nivån. **PremiumV2** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i standard prenumerationen fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **Premium** -nivån ingår i **PremiumV2**.
 >
 > På samma sätt som andra dedikerade nivåer är tre VM-storlekar tillgängliga för den här nivån:
 >
@@ -68,7 +68,7 @@ I det här avsnittet beskrivs hur App Service-appar faktureras. Detaljerad infor
 Förutom för den **kostnads fria** nivån debiteras en app service plan per timme för de beräknings resurser som används.
 
 - På den **delade** nivån får varje app en kvot på CPU minuter, så _varje app_ debiteras per timme för processor kvoten.
-- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan har en timkostnad per timme. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
+- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan har en timkostnad per timme. Dessa VM-instanser debiteras samma oavsett hur många appar körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
 - På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar, och _varje arbets tagare_ debiteras per timme. Det finns dessutom en grund avgift per timme för att köra själva App Service-miljön.
 
 Du debiteras inte för att använda de App Service funktioner som är tillgängliga för dig (Konfigurera anpassade domäner, SSL-certifikat, distributions platser, säkerhets kopior osv.). Undantagen är:

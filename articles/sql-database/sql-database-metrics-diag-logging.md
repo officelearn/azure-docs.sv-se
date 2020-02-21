@@ -1,5 +1,5 @@
 ---
-title: Mått och diagnostikloggning
+title: Mått- och diagnostikloggning
 description: Lär dig hur du aktiverar diagnostik i Azure SQL Database för att lagra information om resursutnyttjande och statistik för körning av frågor.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/16/2019
-ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f5ed3ee9b0e7e7218a519baa56cda443fddab105
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750781"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522625"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database mått och diagnostikloggning
 
@@ -41,13 +41,13 @@ Den här artikeln innehåller rikt linjer för hur du aktiverar telemetri för A
 
 Du kan aktivera och hantera loggning av mått och telemetri genom att använda någon av följande metoder:
 
-- Azure portal
+- Azure-portalen
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API
 - Azure Resource Manager-mall
 
-När du aktiverar mått-och diagnostikloggning måste du ange Azure-resursens mål för att samla in diagnostik-telemetri. Tillgängliga alternativ inkluderar:
+När du aktiverar mått-och diagnostikloggning måste du ange Azure-resursens mål för att samla in diagnostik-telemetri. De tillgängliga alternativen är:
 
 - Azure SQL-analys
 - Azure Event Hubs
@@ -63,16 +63,16 @@ Du kan konfigurera Azure SQL-databaser och instans databaser för att samla in f
 
 | Övervaka telemetri för databaser | Stöd för enkel databas och poolad databas | Stöd för instans databas |
 | :------------------- | ----- | ----- |
-| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Inga |
-| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Inga |
+| [Basic-mått](#basic-metrics): innehåller DTU/CPU-procent, DTU/CPU-gräns, fysisk data läsning i procent, logg skrivnings procent, lyckad/misslyckad/blockerad av brand Väggs anslutningar, procent andel av arbets tagare, lagring, lagrings procent och XTP lagrings procent. | Ja | Nej |
+| [Instans och app Advanced](#advanced-metrics): innehåller tempdb-systemets databas data och logg fils storlek och tempdb-logg filen som används. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): innehåller information om frågans körnings statistik, till exempel processor användning och statistik över fråge varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): innehåller information om frågan vänta i statistik (vad dina frågor väntar på), t. ex. CPU, logg och låsning. | Ja | Ja |
 | [Fel](#errors-dataset): innehåller information om SQL-fel på en databas. | Ja | Ja |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Inga |
-| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Inga |
-| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Inga |
-| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Inga |
-| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Inga |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): innehåller information om hur lång tid en databas har använt för att vänta på olika vänte typer. | Ja | Nej |
+| [Timeout](#time-outs-dataset): innehåller information om tids gränser för en databas. | Ja | Nej |
+| [Block](#blockings-dataset): innehåller information om hur du blockerar händelser i en databas. | Ja | Nej |
+| [Död lägen](#deadlocks-dataset): innehåller information om deadlock-händelser på en databas. | Ja | Nej |
+| [AutomaticTuning](#automatic-tuning-dataset): innehåller information om automatiska justerings rekommendationer för en databas. | Ja | Nej |
 | [SQLInsights](#intelligent-insights-dataset): innehåller intelligent Insights till prestanda för en databas. Läs mer i [intelligent Insights](sql-database-intelligent-insights.md). | Ja | Ja |
 
 > [!IMPORTANT]
@@ -82,7 +82,7 @@ Du kan konfigurera Azure SQL-databaser och instans databaser för att samla in f
 > - Om du vill aktivera Gransknings logg strömning, se [Konfigurera granskning för din databas](sql-database-auditing.md#subheading-2)och [gransknings loggar i Azure Monitor loggar och Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > - Diagnostikinställningar kan inte konfigureras för **system databaser**, till exempel Master-, msdb-, Model-, resoure-och tempdb-databaser.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure-portalen
 
 Du kan använda menyn **diagnostikinställningar** för varje enskild, poolad eller instans databas i Azure Portal för att konfigurera strömning av telemetri. Dessutom kan diagnostisk telemetri också konfigureras separat för databas behållare: elastiska pooler och hanterade instanser. Du kan ställa in följande destinationer för att strömma telemetri för diagnostik: Azure Storage, Azure Event Hubs och Azure Monitor loggar.
 
@@ -449,9 +449,9 @@ I följande tabell finns mer information om avancerade mått.
 
 |**Mått**|**Mått visnings namn**|**Beskrivning**|
 |---|---|---|
-|tempdb_data_size| Data fil storlek i tempdb i KB |Data fil storlek för tempdb i KB. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
-|tempdb_log_size| TempDB-logg fils storlek kilobyte |TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
-|tempdb_log_used_percent| Procent använt tempdb-logg |TempDB procent logg används. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell eller 100 DTU och högre för DTU-baserade inköps modeller. |
+|tempdb_data_size| Data fil storlek i tempdb i KB |Data fil storlek för tempdb i KB. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. Det här måttet är för närvarande inte tillgängligt för storskaliga databaser.|
+|tempdb_log_size| TempDB-logg fils storlek kilobyte |TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. Det här måttet är för närvarande inte tillgängligt för storskaliga databaser.|
+|tempdb_log_used_percent| Procent använt tempdb-logg |TempDB procent logg används. Ej tillämpligt för data lager. Det här måttet är tillgängligt för databaser som använder vCore inköps modell med 2 virtuella kärnor och högre, eller 200 DTU och högre för DTU-baserade inköps modeller. Det här måttet är för närvarande inte tillgängligt för storskaliga databaser.|
 
 ## <a name="basic-logs"></a>Basic-loggar
 
@@ -593,7 +593,7 @@ Läs mer om [väntande statistik data för Query Store](https://docs.microsoft.c
 |Meddelande|Fel meddelande i oformaterad text |
 |user_defined_b|Är den användardefinierade biten för fel |
 |error_number_d|Felkod |
-|Allvarsgrad|Felets allvarlighets grad |
+|Severity|Felets allvarlighets grad |
 |state_d|Tillstånd för felet |
 |query_hash_s|Fråga hash för den misslyckade frågan, om den är tillgänglig |
 |query_plan_hash_s|Fråga plan-hash för den misslyckade frågan, om den är tillgänglig |
@@ -720,8 +720,8 @@ Läs mer om [väntande statistik för databaser](https://docs.microsoft.com/sql/
 |OptionName_s|Automatisk justerings åtgärd |
 |Schema_s|Databasschemat |
 |Table_s|Tabell som påverkas |
-|IndexName_s|Indexnamn |
-|IndexColumns_s|Kolumnnamn |
+|IndexName_s|Index namn |
+|IndexColumns_s|kolumn namn |
 |IncludedColumns_s|Inkluderade kolumner |
 |EstimatedImpact_s|Beräknad effekt av JSON för automatisk justerings rekommendation |
 |Event_s|Typ av händelse för automatisk justering |

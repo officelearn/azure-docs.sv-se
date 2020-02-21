@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133426"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505785"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
@@ -79,7 +79,7 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
 * I v2 skapas filer för XML- [indata](../previous/media-services-input-metadata-schema.md) och [utdata](../previous/media-services-output-metadata-schema.md) som genereras som ett resultat av ett kodnings jobb. I v3 har metadata-formatet ändrats från XML till JSON. 
 
 > [!NOTE]
-> Granska de namngivnings konventioner som tillämpas på [Media Services v3-resurser](media-services-apis-overview.md#naming-conventions). Granska också [namngivning av blobbar](assets-concept.md#naming-blobs).
+> Granska de namngivnings konventioner som tillämpas på [Media Services v3-resurser](media-services-apis-overview.md#naming-conventions). Granska också [namngivning av blobbar](assets-concept.md#naming).
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Funktions luckor med avseende på v2-API: er
 

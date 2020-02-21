@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21fde69f404ee535bfe0019a91843297b1752a92
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463146"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498541"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuera anpassade principer med Azure-pipeliner
 
@@ -35,6 +35,7 @@ Det finns tre primära steg som krävs för att aktivera Azure-pipelines för at
 
 * [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
 * [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient
+* [Hanterings appen](microsoft-graph-get-started.md) som registrerats i din klient organisation med behörighets principen Microsoft Graph-API *. readwrite. TrustFramework*
 * [Azure pipeline](https://azure.microsoft.com/services/devops/pipelines/)och åtkomst till ett [Azure DevOps Services-projekt][devops-create-project]
 
 ## <a name="client-credentials-grant-flow"></a>Flöde för beviljande av klientautentiseringsuppgifter
@@ -43,47 +44,11 @@ Scenariot som beskrivs här använder tjänst-till-tjänst-anrop mellan Azure-pi
 
 ## <a name="register-an-application-for-management-tasks"></a>Registrera ett program för hanterings uppgifter
 
-Börja med att skapa en program registrering som dina PowerShell-skript körs av Azure-pipelines som används för att kommunicera med Azure AD B2C. Om du redan har en program registrering som du använder för automatiserings uppgifter kan du gå vidare till avsnittet [beviljande behörighet](#grant-permissions) .
+Som vi nämnt i [krav](#prerequisites)behöver du en program registrering som dina PowerShell-skript – som körs av Azure-pipelines – kan använda för att komma åt resurserna i din klient organisation.
 
-### <a name="register-application"></a>Registrera program
+Om du redan har en program registrering som du använder för automatiserings aktiviteter kontrollerar du att den har beviljats **Microsoft Graph** > **principen** > **policy. readwrite. TrustFramework** -behörighet inom **API-behörigheterna** för appens registrering.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="grant-permissions"></a>Bevilja behörigheter
-
-Ge sedan program behörighet att använda Microsoft Graph-API: et för att läsa och skriva anpassade principer i Azure AD B2C klient organisationen.
-
-#### <a name="applications"></a>[Program](#tab/applications/)
-
-1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
-1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
-1. Välj **Lägg till**och **Välj sedan ett API**.
-1. Välj **Microsoft Graph**och **Välj**sedan.
-1. Under **program behörigheter**väljer **du läsa och skriva organisationens förtroende Ramverks principer**.
-1. Välj **Välj**och sedan **Slutför**.
-1. Välj **bevilja behörigheter**och välj sedan **Ja**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
-
-#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
-
-1. Välj **Appregistreringar (för hands version)** och välj sedan det webb program som ska ha åtkomst till Microsoft Graph-API: et. Till exempel *managementapp1*.
-1. Under **Hantera**, Välj **API-behörigheter**.
-1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
-1. Välj fliken **Microsoft API: er** och välj sedan **Microsoft Graph**.
-1. Välj **Programbehörigheter**.
-1. Expandera **princip** och välj **princip. readwrite. TrustFramework**.
-1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
-1. Välj **bevilja administrativt godkännande för (ditt klient namn)** .
-1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
-1. Välj **Acceptera**.
-1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status**. Det kan ta några minuter innan behörigheterna har spridits.
-
-* * *
-
-### <a name="create-client-secret"></a>Skapa klient hemlighet
-
-För att autentisera med Azure AD B2C måste PowerShell-skriptet ange en klient hemlighet som du skapar för programmet.
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+Anvisningar om hur du registrerar ett hanterings program finns i [hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md).
 
 ## <a name="configure-an-azure-repo"></a>Konfigurera en Azure-lagrings platsen
 
@@ -200,7 +165,7 @@ Lägg sedan till en aktivitet för att distribuera en princip fil.
 
         ```PowerShell
         # After
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. Välj **Spara** för att spara Agent jobbet.

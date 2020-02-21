@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: f7d8d28299b662774a8cc0a7d4a28b052a551eab
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5453793c7e1bb1ef766939d2e7fdf32a1ac1ec72
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906320"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499946"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -35,7 +35,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-iaas.md#windows-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**En inloggning från en skadlig IP-adress har identifierats**|En lyckad fjärrautentisering för kontot "Tristan. schleining" och processen "advapi" inträffade, men inloggnings-IP-adressen [IP-adress] har tidigare rapporter ATS som skadlig eller mycket ovanlig. Ett lyckat angrepp har förmodligen inträffat.|-|
 |**En inloggning från en skadlig IP-adress har identifierats. [sett flera gånger]**|En lyckad fjärrautentisering för kontot "IUSR_10001" och processen "advapi" inträffade, men inloggnings-IP-adressen [IP-adress] har tidigare rapporter ATS som skadlig eller mycket ovanlig. Ett lyckat angrepp har förmodligen inträffat. Filer med fil namns tilläggen. scr är skärmsläckare och finns vanligt vis i och körs i Windows system katalog.|-|
@@ -126,7 +126,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-iaas.md#linux-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**Process som ser åtkomst till filen SSH-auktoriserade nycklar på ett ovanligt sätt**|En SSH-auktoriserad nyckel fil har öppnats i en metod som liknar kända kampanjer från skadlig kod. Den här åtkomsten kan indikera att en angripare försöker få beständig åtkomst till en dator.|-|
 |**Identifierat beständigt försök**|Värd data analys har identifierat att ett start skript för enanvändarläge har installerats.<br>Eftersom det är sällsynt att alla legitima processer måste köras i detta läge kan det tyda på att en angripare har lagt till en skadlig process på varje körnings nivå för att garantera beständighet. |Bevarande|
@@ -215,23 +215,24 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-compute.md#azure-app-service-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
-|**Ett misstänkt WordPress-tema har påträffats**|App Service aktivitets loggen indikerar en möjlig kod inmatnings aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten liknar aktivitet som manipulerar ett WordPress-tema som stöder körning av kod på Server sidan, följt av en direkt webbegäran om att anropa den manipulerade tema filen. Den här typen av aktivitet kan vara en del av en angrepps kampanj över WordPress.|-|
-|**Webb-finger avtryck upptäckt**<br>(NMAP/blind elefant)|I aktivitets loggen för App Service anges en möjlig webb finger avtrycks aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten är associerad med ett verktyg som kallas blind elefant. Verktyget finger avtrycks webb servrar och försöker identifiera installerade program och deras versioner. Angripare använder ofta verktyget för att söka efter sårbarheter i webb programmen. |-|
-|**Misstänkt åtkomst till möjligen sårbar webb sida upptäcktes**|App Service aktivitets loggen anger att en webb sida som verkar vara känslig har öppnats.<br>Den här misstänkta aktiviteten härstammar från en käll adress vars åtkomst mönster liknar en webb skanner. Den här typen av aktivitet är ofta kopplad till ett försök från en angripare att söka igenom nätverket och försöka få åtkomst till känsliga eller sårbara webb sidor. |-|
-|**En IP-adress som är ansluten till Azure App Service FTP-gränssnittet hittades i Hot information**|App Service FTP-loggar har identifierat en anslutning från en käll adress som hittades i Hot intelligens-flödet. Under den här anslutningen har en användare till gång till de sidor som listats.|-|
 |**Ett försök att köra Linux-kommandon på en Windows App Service**|Analyser av App Service processer upptäckte ett försök att köra ett Linux-kommando på en Windows-App Service. Den här åtgärden kördes av webb programmet. Det här beteendet visas ofta under kampanjer som utnyttjar en sårbarhet i ett gemensamt webb program.|-|
-|**Misstänkt PHP-körning har identifierats**|Dator loggar indikerar att en misstänkt PHP-process körs. Åtgärden innehöll ett försök att köra operativ Systems kommandon eller PHP-kod från kommando raden med hjälp av PHP-processen. Även om det här beteendet kan vara legitimt kan det här beteendet tyda på skadliga aktiviteter i webb program, till exempel försök att infektera webbplatser med webb gränssnitt.|Körning|
-|**Försök att köra kommandot med hög behörighet upptäcktes**|Analyser av App Service processer har identifierat ett försök att köra ett kommando som kräver hög behörighet. Kommandot kördes i webb program kontexten. Även om det här beteendet kan vara legitimt kan det hända att det här beteendet visar skadliga aktiviteter i webb program.|-|
-|**Spara typografiska utdata till disk upptäcktes**|Analys av App Service processer upptäckte körningen av ett spiral kommando där utdata sparades på disken. Även om det här beteendet kan vara legitimt i webb program, observeras även det här beteendet i skadliga aktiviteter som försök att infektera webbplatser med webb gränssnitt.|-|
-|**Hämtning av rå data upptäcktes**|Analyser av App Service processer upptäckte ett försök att hämta kod från rå data webbplatser som pastebin. Den här åtgärden kördes av en PHP-process. Det här beteendet är associerat med försök att ladda ned webb gränssnitt eller andra skadliga komponenter till App Service.|-|
-|**Säkerhets genomsökning har identifierats**<br>(Joomla/WordPress/CMS)|Azure App Service aktivitets loggen anger att en möjlig säkerhets kopierings skanner användes på din App Service-resurs. Den misstänkta aktiviteten identifierade liknar de verktyg som är riktade mot Joomla program/WordPress-program/ett innehålls hanterings system (CMS).|-|
-|**Referent identifierad i mappen spam**|Azure App Service aktivitets logg anger webb aktivitet som har identifierats som härstammar från en webbplats som är kopplad till skräp post. Detta kan inträffa om webbplatsen komprometteras och används för skräp post.|-|
-|**Anslutning till webb sida från avvikande IP-adress upptäcktes**|Azure App Service aktivitets loggen anger en anslutning till en känslig webb sida från en käll-IP-adress (% {Source IP-adress}) som aldrig ansluter till den. Detta kan tyda på att någon försöker göra ett brutet Force-angrepp till webbappens administrations sidor. Det kan också vara resultatet av en ny IP-adress som används av en legitim användare.|-|
-|**Misstänkt användar agent identifierad**|Azure App Service aktivitets loggen anger begär Anden med misstänkt användar agent. Detta kan tyda på att försök att utnyttja ett säkerhets problem i App Service-programmet.|-|
-|**PHP-fil i upload-mapp**|Azure App Service aktivitets loggen visar en åtkomst till en misstänkt PHP-sida som finns i upload-mappen. Den här typen av mapp innehåller vanligt vis PHP-filer. Förekomsten av den här typen av fil kan tyda på att det finns ett utnyttjande av eventuella sårbarheter för fil uppladdning.|-|
+|**En IP-adress som är ansluten till Azure App Service FTP-gränssnittet hittades i Hot information**|App Service FTP-loggar har identifierat en anslutning från en käll adress som hittades i Hot intelligens-flödet. Under den här anslutningen har en användare till gång till de sidor som listats.|-|
 |**Mönster för avvikande begär Anden upptäcktes**|Aktivitets loggen för Azure App Service anger en avvikande HTTP-aktivitet till App Service från% {source IP}. Den här aktiviteten liknar ett mönster för att göra en suddiga Force-aktivitet.|-|
+|**Försök att köra kommandot med hög behörighet upptäcktes**|Analyser av App Service processer har identifierat ett försök att köra ett kommando som kräver hög behörighet. Kommandot kördes i webb program kontexten. Även om det här beteendet kan vara legitimt kan det hända att det här beteendet visar skadliga aktiviteter i webb program.|-|
+|**Anslutning till webb sida från avvikande IP-adress upptäcktes**|Azure App Service aktivitets loggen anger en anslutning till en känslig webb sida från en käll-IP-adress (% {Source IP-adress}) som aldrig har anslutit till den tidigare. Detta kan tyda på att någon försöker göra ett brutet Force-angrepp till webbappens administrations sidor. Det kan också vara resultatet av en ny IP-adress som används av en legitim användare.|-|
+|**Hämtning av rå data upptäcktes**|Analyser av App Service processer upptäckte ett försök att hämta kod från rå data webbplatser som pastebin. Den här åtgärden kördes av en PHP-process. Det här beteendet är associerat med försök att ladda ned webb gränssnitt eller andra skadliga komponenter till App Service.|-|
+|**Nätfiske-innehåll som finns i Azure-Webbappar**|URL som används för nät fiske attacker hittades på Azure AppServices-webbplatsen. Den här URL: en var en del av ett phishing-angrepp som skickats till O365-kunder. Innehållet locka vanligt vis till besökare att ange sina företags uppgifter eller finansiell information till en legitim webbplats.|Samling|
+|**PHP-fil i upload-mapp**|Azure App Service aktivitets loggen visar en åtkomst till en misstänkt PHP-sida som finns i upload-mappen. Den här typen av mapp innehåller vanligt vis PHP-filer. Förekomsten av den här typen av fil kan tyda på att det finns ett utnyttjande av eventuella sårbarheter för fil uppladdning.|-|
+|**Spara typografiska utdata till disk upptäcktes**|Analys av App Service processer upptäckte körningen av ett spiral kommando där utdata sparades på disken. Även om det här beteendet kan vara legitimt i webb program, observeras även det här beteendet i skadliga aktiviteter som försök att infektera webbplatser med webb gränssnitt.|-|
+|**Referent identifierad i mappen spam**|Azure App Service aktivitets logg anger webb aktivitet som har identifierats som härstammar från en webbplats som är kopplad till skräp post. Detta kan inträffa om webbplatsen komprometteras och används för skräp post.|-|
+|**Misstänkt åtkomst till möjligen sårbar webb sida upptäcktes**|App Service aktivitets loggen anger att en webb sida som verkar vara känslig har öppnats.<br>Den här misstänkta aktiviteten härstammar från en käll adress vars åtkomst mönster liknar en webb skanner. Den här typen av aktivitet är ofta kopplad till ett försök från en angripare att söka igenom nätverket och försöka få åtkomst till känsliga eller sårbara webb sidor. |-|
+|**Misstänkt PHP-körning har identifierats**|Dator loggar indikerar att en misstänkt PHP-process körs. Åtgärden innehöll ett försök att köra operativ Systems kommandon eller PHP-kod från kommando raden med hjälp av PHP-processen. Även om det här beteendet kan vara legitimt kan det här beteendet tyda på skadliga aktiviteter i webb program, till exempel försök att infektera webbplatser med webb gränssnitt.|Körnings-|
+|**Misstänkt användar agent identifierad**|Azure App Service aktivitets loggen anger begär Anden med misstänkt användar agent. Detta kan tyda på att försök att utnyttja ett säkerhets problem i App Service-programmet.|-|
+|**Ett misstänkt WordPress-tema har påträffats**|App Service aktivitets loggen indikerar en möjlig kod inmatnings aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten liknar aktivitet som manipulerar ett WordPress-tema som stöder körning av kod på Server sidan, följt av en direkt webbegäran om att anropa den manipulerade tema filen. Den här typen av aktivitet kan vara en del av en angrepps kampanj över WordPress.|-|
+|**Säkerhets genomsökning har identifierats**<br>(Joomla/WordPress/CMS)|Azure App Service aktivitets loggen anger att en möjlig säkerhets kopierings skanner användes på din App Service-resurs. Den misstänkta aktiviteten identifierade liknar de verktyg som är riktade mot Joomla program/WordPress-program/ett innehålls hanterings system (CMS).|-|
+|**Webb-finger avtryck upptäckt**<br>(NMAP/blind elefant)|I aktivitets loggen för App Service anges en möjlig webb finger avtrycks aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten är associerad med ett verktyg som kallas blind elefant. Verktyget finger avtrycks webb servrar och försöker identifiera installerade program och deras versioner. Angripare använder ofta verktyget för att söka efter sårbarheter i webb programmen. |-|
 ||||
 
 
@@ -239,13 +240,13 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**För hands version – roll bindning till rollen kluster-admin har identifierats**|Kubernetes gransknings loggs analys upptäckte en ny bindning till kluster administratörs rollen som resulterade i administratörs behörighet. Onödigt att ge administratörs behörighet kan leda till problem med eskalering av privilegier i klustret.|Bevarande|
 |**För hands VERSIONs Kubernetes-instrumentpanelen har identifierats**|Kubernetes Gransknings logg analys upptäckte exponering av Kubernetes-instrumentpanelen av en LoadBalancer-tjänst. Exponerade instrument paneler tillåter oautentiserad åtkomst till kluster hantering och utgör en säkerhets risk.|Bevarande|
 |**För hands version – ny roll med hög behörighet har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny roll med hög behörighet. En bindning till en roll med hög behörighet ger utökade privilegier för användare/grupp i klustret. Om du inte behöver utökade privilegier kan det leda till problem med eskalering av privilegier i klustret.|Bevarande|
 |**För hands version – ny behållare i Kube-systemets namnrymd identifieras**|Kubernetes gransknings loggs analys identifierade en ny behållare i Kube-systemets namnrymd som inte är bland de behållare som normalt körs i det här namn området. Kube-systemets namn rymder får inte innehålla användar resurser. Angripare kan använda det här namn området för att dölja skadliga komponenter.|Bevarande|
-|**PREVIEW – utvinnings behållare för digital valuta har identifierats**|Kubernetes Gransknings logg analys har identifierat en behållare som har en avbildning kopplad till ett verktyg för digital valuta utvinning.|Körning|
+|**PREVIEW – utvinnings behållare för digital valuta har identifierats**|Kubernetes Gransknings logg analys har identifierat en behållare som har en avbildning kopplad till ett verktyg för digital valuta utvinning.|Körnings-|
 |**Förhands granskning-identifierad behållare**|Kubernetes Gransknings logg analys upptäckte en ny privilegie rad behållare. En privilegie rad behållare har åtkomst till nodens resurser och bryter isoleringen mellan behållare. Om en angripare har komprometterats kan en angripare använda den privilegierade behållaren för att få åtkomst till noden.|PrivilegeEscalation|
 |**PREVIEW-container med en känslig volym montering har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny behållare med en känslig volym montering. Den volym som upptäcktes är en hostPath-typ som monterar en känslig fil eller mapp från noden till behållaren. Om behållaren komprometteras kan angriparen använda den här monteringen för att få åtkomst till noden.|PrivilegeEscalation|
 ||||
@@ -254,14 +255,14 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**Privilegie rad behållare upptäcktes**|Dator loggar indikerar att en privilegie rad Docker-behållare körs. En privilegie rad behållare har fullständig åtkomst till värdens resurser. Om en angripare har komprometterats kan en angripare använda den privilegierade behållaren för att få åtkomst till värddatorn.|PrivilegeEscalation/körning|
 |**Privilegie rad kommando körning i behållare**|Dator loggar indikerar att ett privilegie rad kommando kördes i en Docker-behållare. Ett privilegie rad kommando har utökade privilegier på värddatorn.|PrivilegeEscalation|
 |**Exponerad Docker-daemon identifierad**|Dator loggar indikerar att Docker daemon (dockerd) exponerar en TCP-socket. Docker-konfigurationen använder som standard inte kryptering eller autentisering när en TCP-socket är aktive rad. Alla som har åtkomst till den relevanta porten kan sedan få fullständig åtkomst till Docker daemon.|Exploatering/körning|
-|**SSH-servern körs i en behållare**|Dator loggar indikerar att en SSH-server körs i en Docker-behållare. Även om det här beteendet kan vara avsiktligt, tyder det ofta på att en behållare är felkonfigurerad eller överträtt.|Körning|
-|**Container med en Miner-avbildning identifierad**|Dator loggar indikerar körning av en Docker-behållare som kör en avbildning som är kopplad till den digitala valuta utvinning. Detta kan bero på att dina resurser missbrukas.|Körning|
-|**Misstänkt begäran till Kubernetes-API**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-API: et. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|Körning|
+|**SSH-servern körs i en behållare**|Dator loggar indikerar att en SSH-server körs i en Docker-behållare. Även om det här beteendet kan vara avsiktligt, tyder det ofta på att en behållare är felkonfigurerad eller överträtt.|Körnings-|
+|**Container med en Miner-avbildning identifierad**|Dator loggar indikerar körning av en Docker-behållare som kör en avbildning som är kopplad till den digitala valuta utvinning. Detta kan bero på att dina resurser missbrukas.|Körnings-|
+|**Misstänkt begäran till Kubernetes-API**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-API: et. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|Körnings-|
 |**Misstänkt förfrågan till Kubernetes-instrumentpanelen**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-instrumentpanelen. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|-|
 ||||
 
@@ -270,7 +271,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**En möjlig sårbarhet vid SQL-inmatning**|Ett program har genererat en felaktig SQL-instruktion i databasen. Detta kan tyda på en möjlig sårbarhet vid SQL-injektering. Det finns två möjliga orsaker till en felaktig instruktion. Ett fel i program koden kan ha konstruerat den felaktiga SQL-instruktionen. Eller, program kod eller lagrade procedurer har inte sanerat användarindata vid konstruktion av den felaktiga SQL-instruktionen, som kan utnyttjas för SQL-inmatning.|-|
 |**Försök till inloggning av ett potentiellt skadligt program**|Ett potentiellt skadligt program har använts för att komma åt databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack som använder vanliga verktyg.|Avsökning|
@@ -279,7 +280,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |**Möjligt SQL-brutet Force-försök**|Ett onormalt stort antal misslyckade inloggningar med olika autentiseringsuppgifter har inträffat. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en brute force-attack.|Avsökning|
 |**Potentiell SQL-inmatning**|En aktiv sårbarhet har inträffat mot ett identifierat program som är sårbart för SQL-inmatning. Det innebär att en angripare försöker mata in skadliga SQL-uttryck med hjälp av den sårbara program koden eller lagrade procedurer.|-|
 |**Logga in från ett ovanligt Azure-datacenter**|Åtkomst mönstret har ändrats till en SQL Server, där någon har loggat in på servern från ett ovanligt Azure-datacenter. I vissa fall identifierar aviseringen en legitim åtgärd (ett nytt program eller en Azure-tjänst). I andra fall identifierar aviseringen en skadlig åtgärd (angripare som körs från en komprometterad resurs i Azure).|Avsökning|
-|**Potentiellt osäker åtgärd**|SQL-kommandot med hög privilegier som ofta används i skadliga sessioner har körts i en SQL Server. De här kommandona rekommenderas att inaktive ras som standard. I vissa fall identifierar aviseringen en legitim åtgärd (administrativt skript körs). I andra fall identifierar aviseringen en skadlig åtgärd (angripare som använder SQL-förtroenden för att bryta mot Windows-skikt).|Körning|
+|**Potentiellt osäker åtgärd**|SQL-kommandot med hög privilegier som ofta används i skadliga sessioner har körts i en SQL Server. De här kommandona rekommenderas att inaktive ras som standard. I vissa fall identifierar aviseringen en legitim åtgärd (administrativt skript körs). I andra fall identifierar aviseringen en skadlig åtgärd (angripare som använder SQL-förtroenden för att bryta mot Windows-skikt).|Körnings-|
 |**Ovanlig export plats**|Det har gjorts en ändring i export målet för en SQL import-och export åtgärd. I vissa fall identifierar aviseringen en legitim ändring (nytt mål för säkerhets kopieringen). I andra fall identifierar aviseringen en skadlig åtgärd (angripare enkelt exfiltrated data till en fil).|Exfiltrering|
 ||||
 
@@ -288,7 +289,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-data-services.md#azure-storage-)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**För hands version – potentiell skadlig kod som laddats upp till ett lagrings konto**|Anger att en blob som innehåller potentiell skadlig kod har överförts till ett lagrings konto. Potentiella orsaker kan vara en avsiktlig överföring av skadlig kod av en angripare eller en oavsiktlig uppladdning av en legitim användare av en potentiellt skadlig blob.|LateralMovement|
 |**Åtkomst från en Tor-nod till ett lagrings konto**|Anger att det här kontot har öppnats från en IP-adress som kallas en aktiv stängningsmodul för Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst. Potentiella orsaker kan vara en angripare som har åtkomst till ditt lagrings konto med hjälp av Tor eller en legitim användare som har åtkomst till ditt lagrings konto med hjälp av Tor.|Avsökning/utnyttjande|
@@ -309,7 +310,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-data-services.md#azure-cosmos-db)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**Åtkomst från en ovanlig plats till ett Cosmos DB konto**|Anger att åtkomst mönstret har ändrats till ett Azure Cosmos DB-konto. Någon har använt det här kontot från en okänd IP-adress jämfört med senaste aktivitet. Antingen har en angripare åtkomst till kontot eller så har en legitim användare åtkomst till den från en ny och ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|Utnyttjande|
 |**Ovanlig mängd data som extraherats från ett Cosmos DB konto**|Indikerar att det har ändrats ett data extraherings mönster från ett Azure Cosmos DB konto. Någon har extraherat en ovanlig mängd data jämfört med senaste aktivitet. En angripare kan ha extraherat en stor mängd data från en Azure Cosmos DB databas (till exempel data exfiltrering eller läckage eller en obehörig överföring av data). Eller så kanske en legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare (till exempel för aktiviteten underhålls säkerhets kopiering).|Exfiltrering|
@@ -320,7 +321,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-network-layer)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**Nätverkskommunikation med en skadlig dator upptäcktes**|Analysen av nätverks trafik anger att datorn (IP% {offer IP}) har kommunicerat med vad som möjligen är ett kommando-och kontroll Center. När den komprometterade resursen är en belastningsutjämnare eller en Programgateway kan den misstänkta aktiviteten indikera att en eller flera av resurserna i backend-poolen (av belastningsutjämnaren eller Application Gateway) har kommunicerat med vad som eventuellt är ett kommando och Kontroll Center.|-|
 |**Möjlig komprometterad dator upptäcktes**|Hot information anger att datorn (på IP% {Machine IP}) kan ha komprometterats av en skadlig kod av typen Conficker. Conficker var en dator mask som är avsedd för Microsoft Windows-operativsystemet och upptäcktes först i november 2008. Conficker infekterade miljon tals datorer, inklusive myndigheter, företags-och hem datorer i över 200 länder, vilket gör det till den största kända datorn Worm-infektion sedan 2003 Welchia Worm.|-|
@@ -345,10 +346,11 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**PREVIEW-Azurite Toolkit-körning upptäckt**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget [Azurite](https://github.com/mwrlabs/Azurite) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser och identifiera oskyddade konfigurationer.|-|
-|**PREVIEW – mikroburst Toolkit "Get-AzureDomainInfo"-funktionen körs upptäckt**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget "mikroburst" (se https://github.com/NetSPI/MicroBurst) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser, identifiera oskyddade konfigurationer och avslöja konfidentiell information.|-||**För hands version – misstänkt hanterings-session med ett inaktivt konto upptäckt**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte används under en lång tids period utför nu åtgärder som kan skydda beständigheten för en angripare.|Bevarande|
+|**PREVIEW – mikroburst Toolkit "Get-AzureDomainInfo"-funktionen körs upptäckt**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget "mikroburst" (se https://github.com/NetSPI/MicroBurst) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser, identifiera oskyddade konfigurationer och avslöja konfidentiell information.|-|
+|**För hands version – misstänkt hanterings-session med ett inaktivt konto upptäckt**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte används under en lång tids period utför nu åtgärder som kan skydda beständigheten för en angripare.|Bevarande|
 |**PREVIEW – mikroburst Toolkit "Get-AzurePasswords"-funktionen körs upptäckt**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget "mikroburst" (se https://github.com/NetSPI/MicroBurst) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser, identifiera oskyddade konfigurationer och avslöja konfidentiell information.|-|
 |**För hands version – misstänkt hanterings-session med Azure Portal upptäckt**|Analys av prenumerations aktivitets loggarna har identifierat ett misstänkt beteende. Ett huvud konto som inte regelbundet använder Azure Portal (Ibiza) för att hantera prenumerations miljön (har inte använt Azure Portal för att hantera de senaste 45 dagarna, eller en prenumeration som den aktivt hanterar), använder nu Azure Portal och utför åtgärder som kan skydda beständigheten för en angripare.|-|
 |**För hands version – misstänkt hanterings-session med PowerShell upptäckt**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte regelbundet använder PowerShell för att hantera prenumerations miljön är nu att använda PowerShell, och utföra åtgärder som kan skydda beständigheten för en angripare.|Bevarande|
@@ -363,7 +365,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-keyvault)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**Åtkomst från en TOR-stängningsmodul till en Key Vault**|Den Key Vault har öppnats av någon som använder TOR IP-anonymisering för att dölja deras plats. Skadliga aktörer försöker ofta dölja sin plats vid försök att få obehörig åtkomst till Internet-anslutna resurser.|-|
 |**Hög mängd åtgärder i en Key Vault**|En större mängd Key Vault åtgärder har utförts jämfört med historiska data. Key Vault aktivitet är vanligt vis samma över tid. Detta kan vara en legitim förändring i aktiviteten. Alternativt kan din infrastruktur bli komprometterad och ytterligare undersökningar krävs.|-|
@@ -381,7 +383,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 
 [Mer information och anmärkningar](security-center-alerts-integration.md#azure-ddos)
 
-|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|Varning|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
 |**DDoS-attack identifierad för offentlig IP**|DDoS-attack identifierad för offentlig IP (IP-adress) och begränsas.|Avsökning|
 |**DDoS-attack minimerad för offentlig IP**|DDoS-attack minimerad för offentlig IP (IP-adress).|Avsökning|
@@ -393,7 +395,7 @@ Att förstå avsikten med en attack kan hjälpa dig att undersöka och rapporter
 
 En serie steg som beskriver förloppet för en cyberattack från rekognosering till data exfiltrering kallas ofta för en "Kill-kedja". 
 
-Security Center som stöds av Kill-kedjeen är baserade på [Mitre att & CK™ Framework](https://attack.mitre.org/matrices/enterprise) och beskrivs i tabellen nedan.
+Security Center som stöds av Kill-kedjeen är baserade på [Mitre att &AMP; CK™ Framework](https://attack.mitre.org/matrices/enterprise) och beskrivs i tabellen nedan.
 
 |Avsikt|Beskrivning|
 |------|-------|
@@ -403,7 +405,7 @@ Security Center som stöds av Kill-kedjeen är baserade på [Mitre att & CK™ F
 |**PrivilegeEscalation**|Eskalering av privilegier är resultatet av åtgärder som gör att en angripare får en högre behörighets nivå i ett system eller nätverk. Vissa verktyg eller åtgärder kräver en högre behörighets nivå för att fungera och är förmodligen nödvändiga vid många punkter under en åtgärd. Användar konton med behörighet att komma åt vissa system eller utföra vissa funktioner som krävs för att angripare ska kunna uppnå sitt mål kan också betraktas som en eskalering av privilegier.|
 |**DefenseEvasion**|Skatteflykt-skydd består av tekniker som en angripare kan använda för att undvika identifiering eller undvika andra försvar. De här åtgärderna är ibland desamma som (eller variant av)-teknik i andra kategorier som har den extra fördelen med att under summera ett visst försvar eller en viss minskning.|
 |**CredentialAccess**|Åtkomst till autentiseringsuppgifter representerar tekniker som resulterar i åtkomst till eller kontroll över system-, domän-eller tjänsteautentiseringsuppgifter som används i en företags miljö. Angripare kommer sannolikt att försöka erhålla legitima autentiseringsuppgifter från användare eller administratörs konton (lokal system administratör eller domän användare med administratörs åtkomst) som ska användas i nätverket. Med tillräcklig åtkomst i ett nätverk kan en angripare skapa konton för senare användning i miljön.|
-|**Identifiering**|Identifiering består av tekniker som gör det möjligt för angripare att få kunskap om systemet och det interna nätverket. När angripare får till gång till ett nytt system måste de orientera sig själva om vad de nu har kontroll över och vilka fördelar som driften av systemet ger sina aktuella mål eller övergripande mål under intrånget. Operativ systemet innehåller många inbyggda verktyg som hjälper dig i den här angrepps fasen för informations insamling.|
+|**Identifikation**|Identifiering består av tekniker som gör det möjligt för angripare att få kunskap om systemet och det interna nätverket. När angripare får till gång till ett nytt system måste de orientera sig själva om vad de nu har kontroll över och vilka fördelar som driften av systemet ger sina aktuella mål eller övergripande mål under intrånget. Operativ systemet innehåller många inbyggda verktyg som hjälper dig i den här angrepps fasen för informations insamling.|
 |**LateralMovement**|Lateral förflyttning består av tekniker som gör det möjligt för en angripare att komma åt och kontrol lera fjärranslutna system i ett nätverk och kan, men inte nödvändigt vis, inkludera körning av verktyg på fjärrsystem. Den laterala rörelse tekniken kan göra det möjligt för en angripare att samla in information från ett system utan ytterligare verktyg, till exempel ett verktyg för fjärråtkomst. En angripare kan använda lateral förflyttning för många olika ändamål, inklusive fjärrkörning av verktyg, pivotering till ytterligare system, åtkomst till speciell information eller filer, åtkomst till ytterligare autentiseringsuppgifter eller orsaka en påverkan.|
 |**Projektering**|Körnings taktik representerar tekniker som resulterar i att angripare-kontrollerad kod körs på ett lokalt eller fjärrstyrt system. Den här taktik används ofta tillsammans med lateral förflyttning för att expandera åtkomst till fjärranslutna system i ett nätverk.|
 |**Samling**|Samlingen består av tekniker som används för att identifiera och samla in information, till exempel känsliga filer, från ett mål nätverk före exfiltrering. Den här kategorin omfattar även platser i ett system eller nätverk där angripare kan söka efter information till stjäla.|
@@ -417,5 +419,5 @@ Security Center som stöds av Kill-kedjeen är baserade på [Mitre att & CK™ F
 Mer information om aviseringar finns i följande avsnitt:
 
 * [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
-* [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
+* [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md)

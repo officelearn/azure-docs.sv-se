@@ -3,12 +3,12 @@ title: Lägg till en Azure Storage Queue-bindning till python-funktionen
 description: Integrera en Azure Storage kö med en python-funktion med hjälp av en utgående bindning.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198487"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485173"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage Queue-bindning till python-funktionen
 
@@ -100,7 +100,7 @@ Om du vill skriva till en Azure Storage kö från den här funktionen lägger du
 
 I det här fallet tilldelas `msg` funktionen som ett argument för utdata. För en `queue` typ måste du också ange namnet på kön i `queueName` och ange *namnet* på Azure Storage anslutningen (från *Local. Settings. json*) i `connection`.
 
-Mer information om bindningar finns i [Azure Functions utlösare och bindning av koncept](functions-triggers-bindings.md) och utdata från [kö](functions-bindings-storage-queue.md#output---configuration).
+Mer information om bindningar finns i [Azure Functions utlösare och bindning av koncept](functions-triggers-bindings.md) och utdata från [kö](functions-bindings-storage-queue-output.md#configuration).
 
 ## <a name="add-code-to-use-the-output-binding"></a>Lägg till kod för att använda utgående bindning
 
@@ -176,19 +176,19 @@ När din funktion genererar ett HTTP-svar för webbläsaren, anropar den också 
 
 1. Öppna funktions projektets *lokala. Ange. JSON* -fil och kopiera värdet för anslutnings strängen. Kör följande kommando i ett terminalfönster-eller kommando fönster för att skapa en miljö variabel med namnet `AZURE_STORAGE_CONNECTION_STRING`, och klistra in din speciella anslutnings sträng i stället för `<connection_string>`. (Denna miljö variabel innebär att du inte behöver ange anslutnings strängen för varje efterföljande kommando med hjälp av argumentet `--connection-string`.)
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -198,19 +198,19 @@ När din funktion genererar ett HTTP-svar för webbläsaren, anropar den också 
     
 1. Valfritt Använd kommandot [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) för att Visa lagrings köerna i ditt konto. Utdata från det här kommandot ska innehålla en kö med namnet `outqueue`, som skapades när funktionen skrev sitt första meddelande till kön.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     ```cmd
     az storage queue list --output tsv
@@ -219,21 +219,21 @@ När din funktion genererar ett HTTP-svar för webbläsaren, anropar den också 
     ---
 
 
-1. Använd kommandot [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) för att visa meddelanden i den här kön, vilket bör vara det första namnet du använde när du testar funktionen tidigare. Kommandot hämtar det första meddelandet i kön i [base64-kodning](functions-bindings-storage-queue.md#encoding), så du måste också avkoda meddelandet för att visa som text.
+1. Använd kommandot [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) för att visa meddelanden i den här kön, vilket bör vara det första namnet du använde när du testar funktionen tidigare. Kommandot hämtar det första meddelandet i kön i [base64-kodning](functions-bindings-storage-queue-trigger.md#encoding), så du måste också avkoda meddelandet för att visa som text.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     Eftersom du måste referera till meddelande samlingen och avkoda från base64 kör du PowerShell och använder PowerShell-kommandot.
 
@@ -251,13 +251,13 @@ Nu när du har testat funktionen lokalt och verifierat att den skrev ett meddela
     
 1. Som i föregående snabb start använder du en webbläsare eller en sväng för att testa den omdistribuerade funktionen.
 
-    # <a name="browsertabbrowser"></a>[Webbläsare](#tab/browser)
+    # <a name="browser"></a>[Webbläsare](#tab/browser)
     
     Kopiera den fullständiga **anrops-URL: en** som visas i utdata från kommandot Publicera till ett webb adress fält för webbläsare, och lägga till Frågeparametern `&name=Azure`. Webbläsaren bör visa liknande utdata som när du körde funktionen lokalt.
 
     ![Resultatet av funktionen körs på Azure i en webbläsare](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
-    # <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
+    # <a name="curl"></a>[klammerparentes](#tab/curl)
     
     Kör en [sväng](https://curl.haxx.se/) med **anrops-URL: en**och Lägg till parametern `&name=Azure`. Kommandots utdata ska vara texten "Hello Azure".
     

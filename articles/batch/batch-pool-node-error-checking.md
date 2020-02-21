@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449789"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484136"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
@@ -104,7 +104,7 @@ Fler exempel på orsaker till **oanvändbara** noder är:
 
 - En virtuell dator flyttas på grund av ett infrastruktur haveri eller en uppgradering på lägre nivå. Batch återställer noden.
 
-- En avbildning av en virtuell dator har distribuerats på maskin vara som inte stöder den. Försök till exempel att köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) virtuell dator.
+- En avbildning av en virtuell dator har distribuerats på maskin vara som inte stöder den. Försök till exempel att köra en CentOS HPC-avbildning på en [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) virtuell dator.
 
 - De virtuella datorerna finns i ett [virtuellt Azure-nätverk](batch-virtual-network.md)och trafiken har blockerats för nyckel portar.
 

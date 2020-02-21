@@ -1,36 +1,34 @@
 ---
 title: Skript exempel för Azure CLI – arbeta med nyckel värden i app Configuration Store
 titleSuffix: Azure App Configuration
-description: Ger information om hur du arbetar med nyckelvärden i ett Azure App Configuration-arkiv
+description: Använd Azure CLI-skript för att skapa, Visa, uppdatera och ta bort nyckel värden från konfigurations lager för appar
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468193"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523665"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Arbeta med nyckelvärden i ett Azure App Configuration-arkiv
 
-Det här exempelskriptet skapar ett nytt nyckelvärde i ett Azure App Configuration-arkiv, visar en lista över alla befintliga nyckelvärden, uppdaterar värdet för den nya nyligen skapade nyckeln och tar slutligen bort det.
+Det här exempel skriptet visar hur du:
+* Skapa ett nytt nyckel/värde-par
+* Lista alla befintliga nyckel/värde-par
+* Uppdatera värdet för en nyligen skapad nyckel
+* Ta bort det nya nyckel/värde-paret
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Den här artikeln kräver Azure CLI version 2,0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -81,13 +79,13 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att arbeta med nyckel värden i ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I den här tabellen visas de kommandon som används i vårt exempel skript. 
 
 | Kommando | Anteckningar |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Skapar eller uppdaterar ett nyckelvärde. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Visar en lista över nyckel värden i ett konfigurations Arkiv för appar. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Tar bort ett nyckelvärde. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Skapa eller uppdatera ett nyckel/värde-par. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Visa en lista med nyckel/värde-par i ett konfigurations Arkiv för appar. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Ta bort ett nyckel/värde-par. |
 
 ## <a name="next-steps"></a>Nästa steg
 

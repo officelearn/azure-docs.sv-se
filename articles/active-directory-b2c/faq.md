@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d8bdae5a860eb19741aa321606feb3f0825740a9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6451c5d32fffc0290592a2489c9cdc99be1b7b7c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847308"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483303"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -59,7 +59,7 @@ Nej. Standard omfattningarna som används för vår uppsättning sociala identit
 
 ### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Måste mitt program köras på Azure för att det ska fungera med Azure AD B2C?
 
-Nej, du kan vara värd för ditt program var som helst (i molnet eller lokalt). Det enda som krävs för kommunikation med Azure AD B2C är möjligheten att skicka och ta emot HTTP-begäranden på offentligt tillgängliga slutpunkter.
+Nej, du kan vara värd för ditt program var som helst (i molnet eller lokalt). Allt det behöver för att interagera med Azure AD B2C är möjligheten att skicka och ta emot HTTP-förfrågningar på offentligt tillgängliga slut punkter.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Jag har flera Azure AD B2C klienter. Hur kan jag hantera dem på Azure Portal?
 
@@ -78,7 +78,7 @@ E-postsignaturen innehåller Azure AD B2C klientens namn som du angav när du f�
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör.
 1. Öppna bladet **Azure Active Directory** .
-1. Klicka på den **egenskaper** fliken.
+1. Klicka på fliken **Egenskaper** .
 1. Ändra fältet **namn** .
 1. Klicka på **Spara** längst upp på sidan.
 
@@ -86,15 +86,17 @@ Det finns för närvarande inget sätt att ändra fältet från: i e-postmeddela
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Hur kan jag migrera mina befintliga användar namn, lösen ord och profiler från databasen till Azure AD B2C?
 
-Du kan använda Azure AD-Graph API för att skriva migrerings verktyget. Mer information finns i [guiden](user-migration.md) för användarmigrering.
+Du kan använda Microsoft Graph-API: et för att skriva migrerings verktyget. Mer information finns i [guiden](user-migration.md) för användarmigrering.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Vilket användar flöde för lösen ord används för lokala konton i Azure AD B2C?
 
-Lösen ordet för det Azure AD B2C användar flödet för lokala konton baseras på principen för Azure AD. Azure AD B2C's-registrering, registrering eller inloggning och användar flöden för återställning av lösen ord använder sig av "stark" lösen ords säkerhet och upphör aldrig att gälla lösen ord. Mer information finns i [lösen ords principen för Azure AD](/previous-versions/azure/jj943764(v=azure.100)) . Information om konto utelåsning och lösen ord finns i [Hantera hot mot resurser och data i Azure Active Directory B2C](threat-management.md).
+Lösen ordet för det Azure AD B2C användar flödet för lokala konton baseras på principen för Azure AD. Azure AD B2C's-registrering, registrering eller inloggning och användar flöden för återställning av lösen ord använder sig av "stark" lösen ords säkerhet och upphör aldrig att gälla lösen ord. Mer information finns i [lösen ords principer och begränsningar i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+
+Information om konto utelåsning och lösen ord finns i [Hantera hot mot resurser och data i Azure Active Directory B2C](threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Kan jag använda Azure AD Connect för att migrera konsument identiteter som lagras på lokala Active Directory till Azure AD B2C?
 
-Nej, Azure AD Connect har inte utformats för att fungera med Azure AD B2C. Överväg att använda [Azure AD-Graph API](manage-user-accounts-graph-api.md) för användarmigrering. Mer information finns i [guiden](user-migration.md) för användarmigrering.
+Nej, Azure AD Connect har inte utformats för att fungera med Azure AD B2C. Överväg att använda [Microsoft Graph-API: et](manage-user-accounts-graph-api.md) för användarmigrering. Mer information finns i [guiden](user-migration.md) för användarmigrering.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Kan min app öppna Azure AD B2C sidor i en iFrame?
 
@@ -134,7 +136,7 @@ Följ dessa steg om du vill ta bort din Azure AD B2C-klient.
 
 Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **Appregistreringar (för hands version)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregintro)
 
-#### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
+#### <a name="applications"></a>[Program](#tab/applications/)
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som *prenumerations administratör*. Använd samma arbets-eller skol konto eller samma Microsoft-konto som du använde för att registrera dig för Azure.
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
@@ -155,7 +157,7 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som *prenumerations administratör*. Använd samma arbets-eller skol konto eller samma Microsoft-konto som du använde för att registrera dig för Azure.
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.

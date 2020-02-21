@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc7d58f0557e620c273043af8ffb2e8ec4d8ec87
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407664"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485156"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Program karta: prioritering distribuerade program
 
@@ -45,7 +45,7 @@ Klicka på en komponent om du vill se relaterade insikter och gå till prioriter
 
 ![Fällbar](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Undersök fel
+### <a name="investigate-failures"></a>Undersök felen
 
 Välj **Undersök haverier** för att starta fönstret problem.
 
@@ -236,7 +236,7 @@ Ett scenario där du kanske vill åsidosätta värdet för moln roll instansen k
 
 Mer information om hur du åsidosätter egenskapen namn för moln roll med telemetri initierare finns i [Lägg till egenskaper: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem med att få program kartan att fungera som förväntat kan du prova följande steg:
 
@@ -276,6 +276,6 @@ Använd feedback-alternativet för att ge feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta mer om hur korrelation fungerar i Application Insights kan du läsa [artikeln telemetri korrelation](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
+* Om du vill veta mer om hur korrelation fungerar i Application Insights kan du läsa [artikeln telemetri korrelation](correlation.md).
 * Den [diagnostiska transaktionen från slut punkt till slut punkt](transaction-diagnostics.md) motsvarar telemetri från Server sidan från alla dina Application Insights övervakade komponenter till en enda vy.
 * Avancerade korrelations scenarier i ASP.NET Core och ASP.NET finns i artikeln [spåra anpassade åtgärder](custom-operations-tracking.md) .

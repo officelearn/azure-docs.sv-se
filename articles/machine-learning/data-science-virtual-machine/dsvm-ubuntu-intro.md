@@ -1,5 +1,6 @@
 ---
-title: 'Snabb start: skapa en Ubuntu-DSVM'
+title: 'Snabb start: skapa en Ubuntu-Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: Konfigurera och skapa en Data Science Virtual Machine för Linux (Ubuntu) för att göra analyser och maskin inlärning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,18 +8,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 5d139cbd59b1b3e63786ae22bbd3b934de37cd49
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612095"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526118"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Snabb start: Konfigurera Data Science Virtual Machine för Linux (Ubuntu)
 
 Kom igång med Ubuntu 18,04 Data Science Virtual Machine.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa en Ubuntu 18,04-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
 Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuella datorer SKU: er.
@@ -36,7 +37,7 @@ Här följer stegen för att skapa en instans av Data Science Virtual Machine Ub
    
 1. Ange följande information för att konfigurera varje steg i guiden:
 
-    1. **Grunderna**:
+    1. **Grunder**:
     
        * **Prenumeration**: om du har mer än en prenumeration väljer du den som datorn ska skapas i och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
        * **Resurs grupp**: skapa en ny grupp eller Använd en befintlig grupp.
@@ -75,7 +76,7 @@ Du kan också bifoga en Data Science Virtual Machine till Azure Notebooks för a
 
 ### <a name="ssh"></a>SSH
 
-När den virtuella datorn har skapats, om den har kon figurer ATS med SSH-åtkomst, kan du logga in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Om du föredrar ett grafiskt skriv bord (X Window-System) kan du använda begäran om x11-vidarebefordran på SparaTillFil.
+När den virtuella datorn har skapats, om den har kon figurer ATS med SSH-åtkomst, kan du logga in till den med hjälp av SSH. Använd de kontoautentiseringsuppgifter som du skapade i avsnittet **grundläggande** i steg 3 för gränssnittet text gränssnitt. I Windows kan du ladda ned ett SSH client-verktyg som [SparaTillFil](https://www.putty.org). Om du föredrar ett grafiskt skriv bord (X Window-System) kan du använda begäran om x11-vidarebefordran på SparaTillFil.
 
 > [!NOTE]
 > Klienten X2Go presterade bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -84,7 +85,7 @@ När den virtuella datorn har skapats, om den har kon figurer ATS med SSH-åtkom
 
 Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta emot klient anslutningar. Slutför följande procedur på klienten för att ansluta till Linux VM grafiska skrivbordet:
 
-1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
+1. Hämta och installera X2Go-klienten för klient plattformen från [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).
 1. Anteckna den virtuella datorns offentliga IP-adress, som du hittar i Azure Portal genom att öppna den virtuella dator som du nyss skapade.
 
    ![Ubuntu dator-IP-adress](./media/dsvm-ubuntu-intro/ubuntu-ip-address.png)
@@ -92,13 +93,13 @@ Den virtuella Linux-datorn är redan etablerad med X2Go-servern och redo att ta 
 1. Kör X2Go-klienten. Om fönstret "ny session" inte visas automatiskt går du till session-> ny session.
 
 1. I fönstret resulterande konfiguration anger du följande konfigurations parametrar:
-   * **Sessionen fliken**:
+   * **Fliken session**:
      * **Värd**: Ange IP-adressen för din virtuella dator, som du antecknade tidigare.
      * **Inloggning**: Ange användar namnet på den virtuella Linux-datorn.
-     * **SSH-porten**: lämnar det på 22, standardvärdet.
-     * **Sessionstyp**: ändra värdet till **XFCE**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
-   * **Media-flik**: du kan inaktivera stöd för ljud och skriva ut om du inte behöver använda dem-klienten.
-   * **Delade mappar**: Om du vill kataloger från dina klientdatorer som är monterad på Linux-VM, lägger du till de klienten datorn kataloger som du vill dela med den virtuella datorn på den här fliken.
+     * **SSH-port**: lämna den på 22, standardvärdet.
+     * **Typ av session**: ändra värdet till **xfce**. Den virtuella Linux-datorn har för närvarande endast stöd för XFCE Desktop.
+   * **Fliken Media**: du kan stänga av ljud supporten och klient utskrift om du inte behöver använda dem.
+   * **Delade mappar**: om du vill att kataloger från klient datorerna ska monteras på den virtuella Linux-datorn lägger du till de klient dator kataloger som du vill dela med den virtuella datorn på den här fliken.
 
    ![X2go-konfiguration](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
 1. Välj **OK**.
@@ -137,6 +138,6 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 
 * [Data vetenskap i data science Virtual Machine för Linux](linux-dsvm-walkthrough.md) -genom gången visar hur du utför flera vanliga data vetenskaps uppgifter med Linux-DSVM som tillhandahålls här. 
 * Utforska de olika data vetenskaps verktygen på DSVM genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra `dsvm-more-info` på gränssnittet i den virtuella datorn för grundläggande introduktion och pekare till mer information om de verktyg som är installerade på den virtuella datorn.  
-* Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://aka.ms/tdsp).
-* Gå till den [Azure AI-galleriet](https://gallery.azure.ai/) för machine learning och data analytics-exempel som använder Azure AI-tjänster.
+* Lär dig hur du bygger analytiska lösningar från slut punkt till slut punkt med hjälp av [team data science-processen](https://aka.ms/tdsp).
+* Besök [Azure AI Gallery](https://gallery.azure.ai/) för Machine Learning-och data analys-exempel som använder Azure AI-tjänsterna.
 * Se lämplig [referens dokumentation](./reference-ubuntu-vm.md) för den här virtuella datorn.

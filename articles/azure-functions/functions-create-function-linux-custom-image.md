@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210199"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482368"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
 
@@ -370,7 +370,7 @@ Med den avbildning som distribueras till Function-appen på Azure kan du nu anro
 
 1. Hämta funktions webb adressen med åtkomst nyckeln (Function) med hjälp av Azure Portal eller med hjälp av Azure CLI med kommandot `az rest`.)
 
-    # <a name="portaltabportal"></a>[Portalen](#tab/portal)
+    # <a name="portal"></a>[Portal](#tab/portal)
 
     1. Logga in på Azure Portal och leta sedan reda på din Function-app genom att ange namnet på din app i rutan **Sök** högst upp på sidan. I resultaten väljer du **App Service** resursen.
 
@@ -387,7 +387,7 @@ Med den avbildning som distribueras till Function-appen på Azure kan du nu anro
     > [!NOTE]  
     > Eftersom din Function-app distribueras som en behållare kan du inte göra ändringar i funktions koden i portalen. Du måste i stället uppdatera projektet i den lokala avbildningen, push-överför avbildningen till registret igen och sedan distribuera om till Azure. Du kan ställa in kontinuerlig distribution i ett senare avsnitt.
     
-    # <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
     1. Skapa en URL-sträng i följande format, ersätta `<subscription_id>`, `<resource_group>`och `<app_name>` med ditt Azure-prenumerations-ID, resurs gruppen för din Function-app och namnet på din Function-app:
 
@@ -877,19 +877,19 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
 
 1. Öppna funktions projektets *lokala. Ange. JSON* -fil och kopiera värdet för anslutnings strängen. Kör följande kommando i ett terminalfönster-eller kommando fönster för att skapa en miljö variabel med namnet `AZURE_STORAGE_CONNECTION_STRING`, och klistra in din speciella anslutnings sträng i stället för `<connection_string>`. (Denna miljö variabel innebär att du inte behöver ange anslutnings strängen för varje efterföljande kommando med hjälp av argumentet `--connection-string`.)
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -899,19 +899,19 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     
 1. Valfritt Använd kommandot [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) för att Visa lagrings köerna i ditt konto. Utdata från det här kommandot ska innehålla en kö med namnet `outqueue`, som skapades när funktionen skrev sitt första meddelande till kön.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     ```azurecli
     az storage queue list --output tsv
@@ -919,21 +919,21 @@ Du kan visa kön i [Azure Portal](../storage/queues/storage-quickstart-queues-po
     
     ---
 
-1. Använd kommandot [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) för att visa meddelanden i den här kön, vilket bör vara det första namnet du använde när du testar funktionen tidigare. Kommandot hämtar det första meddelandet i kön i [base64-kodning](functions-bindings-storage-queue.md#encoding), så du måste också avkoda meddelandet för att visa som text.
+1. Använd kommandot [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) för att visa meddelanden i den här kön, vilket bör vara det första namnet du använde när du testar funktionen tidigare. Kommandot hämtar det första meddelandet i kön i [base64-kodning](functions-bindings-storage-queue-trigger.md#encoding), så du måste också avkoda meddelandet för att visa som text.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    # <a name="cmd"></a>[Kommandot](#tab/cmd)
     
     Eftersom du måste referera till meddelande samlingen och avkoda från base64 kör du PowerShell och använder PowerShell-kommandot.
 

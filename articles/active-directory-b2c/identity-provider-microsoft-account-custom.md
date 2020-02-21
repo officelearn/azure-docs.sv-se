@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848933"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483286"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Microsoft-konto att använda anpassade principer i Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "76848933"
 
 Den här artikeln visar hur du aktiverar inloggning för användare från en Microsoft-konto med hjälp av [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 - Om du inte redan har en Microsoft-konto skapar du en på [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Lägga till ett program
+## <a name="register-an-application"></a>Registrera ett program
 
 Om du vill aktivera inloggning för användare med en Microsoft-konto måste du registrera ett program i Azure AD-klienten. Azure AD-klienten är inte samma som din Azure AD B2C klient.
 
@@ -46,6 +46,19 @@ Om du vill aktivera inloggning för användare med en Microsoft-konto måste du 
 1. Klicka på **ny klient hemlighet**
 1. Ange en **Beskrivning** av hemligheten, till exempel *MSA program klient hemlighet*och klicka sedan på **Lägg till**.
 1. Registrera program lösen ordet som visas i kolumnen **värde** . Du använder det här värdet i nästa avsnitt.
+
+## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
+
+Om du vill hämta `family_name`-och `given_name`-anspråk från Azure AD kan du konfigurera valfria anspråk för ditt program i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Logga in på [Azure Portal](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
+1. I avsnittet **Hantera** väljer du **Appregistreringar**.
+1. Välj det program som du vill konfigurera valfria anspråk för i listan.
+1. I avsnittet **Hantera** väljer du **konfiguration av token (för hands version)** .
+1. Välj **Lägg till valfritt anspråk**.
+1. Välj den tokentyp som du vill konfigurera.
+1. Välj de valfria anspråk som ska läggas till.
+1. Klicka på **Lägg till**.
 
 ## <a name="create-a-policy-key"></a>Skapa en princip nyckel
 
@@ -94,10 +107,12 @@ Du kan definiera Azure AD som en anspråks leverantör genom att lägga till **C
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

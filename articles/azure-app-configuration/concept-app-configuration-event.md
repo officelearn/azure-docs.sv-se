@@ -1,22 +1,22 @@
 ---
-title: Reagerar på Azure App konfigurations nyckel-värde händelser | Microsoft Docs
+title: Reagerar på Azure App konfiguration nyckel-värde-händelser
 description: Använd Azure Event Grid för att prenumerera på program konfigurations händelser.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
-ms.date: 05/30/2019
+ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5da64155f2823712eee7a60427b1c1e80abec068
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185287"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523806"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagerar på Azure App konfigurations händelser
 
-Azure App konfigurations händelser gör det möjligt för program att reagera på ändringar i nyckel värden. Detta görs utan behov av komplicerad kod eller dyra och ineffektiva avsöknings tjänster. I stället flyttas händelser via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)eller till och med din egen anpassade http-lyssnare och du betalar bara för det du använder.
+Azure App konfigurations händelser gör det möjligt för program att reagera på ändringar i nyckel värden. Detta görs utan behov av komplicerad kod eller dyra och ineffektiva avsöknings tjänster. I stället flyttas händelser via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)eller till och med din egen anpassade http-lyssnare. Du betalar mycket bara för det du använder.
 
 Azure App konfigurations händelser skickas till Azure Event Grid som tillhandahåller pålitliga leverans tjänster till dina program genom omfattande principer för återförsök och leverans av obeställbara meddelanden. Läs mer i [Event Grid meddelande leverans och försök igen](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
@@ -39,17 +39,17 @@ Azure App konfigurations händelser innehåller all information som du behöver 
 
 > |Egenskap|Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |subject|string|Fullständigt Azure Resource Manager-ID för den app-konfiguration som utsänder händelsen.|
-> |subject|string|URI för det nyckel värde som är ämnet för händelsen.|
-> |eventTime|string|Datum/tid då händelsen genererades, i ISO 8601-format.|
-> |eventType|string|"Microsoft. AppConfiguration. KeyValueModified" eller "Microsoft. AppConfiguration. KeyValueDeleted".|
-> |ID|string|En unik identifierare för den här händelsen.|
-> |dataVersion|string|Data objektets schema version.|
-> |metadataVersion|string|Schema versionen för toppnivå egenskaper.|
-> |data|object|Samling med Azure App konfiguration av vissa händelse data|
-> |data.key|string|Nyckeln till det nyckel värde som ändrades eller togs bort.|
-> |data. label|string|Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort.|
-> |data.etag|string|För `KeyValueModified` etag för det nya nyckel värdet. För `KeyValueDeleted` etag för det nyckel värde som har tagits bort.|
+> |ämne|sträng|Fullständigt Azure Resource Manager-ID för den app-konfiguration som utsänder händelsen.|
+> |subject|sträng|URI för det nyckel värde som är ämnet för händelsen.|
+> |eventTime|sträng|Datum/tid då händelsen genererades, i ISO 8601-format.|
+> |eventType|sträng|"Microsoft. AppConfiguration. KeyValueModified" eller "Microsoft. AppConfiguration. KeyValueDeleted".|
+> |Id|sträng|En unik identifierare för den här händelsen.|
+> |dataVersion|sträng|Data objektets schema version.|
+> |metadataVersion|sträng|Schema versionen för toppnivå egenskaper.|
+> |data|objekt|Samling med Azure App konfiguration av vissa händelse data|
+> |data.key|sträng|Nyckeln till det nyckel värde som ändrades eller togs bort.|
+> |data. label|sträng|Etiketten, om det finns, för det nyckel värde som ändrades eller togs bort.|
+> |data.etag|sträng|För `KeyValueModified` etag för det nya nyckel värdet. För `KeyValueDeleted` etag för det nyckel värde som har tagits bort.|
 
 Här är ett exempel på en KeyValueModified-händelse:
 ```json
@@ -73,11 +73,12 @@ Här är ett exempel på en KeyValueModified-händelse:
 Mer information finns i [schemat för Azure App konfigurations händelser](../event-grid/event-schema-app-configuration.md).
 
 ## <a name="practices-for-consuming-events"></a>Metoder för att konsumera händelser
-Program som hanterar konfigurations händelser för appar bör följa några rekommenderade metoder:
+Program som hanterar konfigurations händelser för appar bör följa dessa rekommendationer:
 > [!div class="checklist"]
-> * Eftersom flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, är det viktigt att inte anta att händelser kommer från en viss källa, men för att kontrol lera ämnet i meddelandet för att se till att det kommer från den app-konfiguration som du förväntar dig.
-> * På samma sätt kan du kontrol lera att eventType är att du är för beredd att bearbeta och inte förutsätter att alla händelser som du tar emot är de typer som du förväntar dig.
-> * När meddelanden kan komma in i rätt ordning och efter en viss fördröjning använder du etag-fälten för att förstå om din information om objekt fortfarande är uppdaterad.  Använd också sekvenserare-fälten för att förstå ordningen på händelser för ett visst objekt.
+> * Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, så anta inte att händelser kommer från en viss källa. Kontrol lera i stället avsnittet i meddelandet för att se till att appens konfigurations instans skickar händelsen.
+> * Kontrol lera eventType och anta inte att alla händelser som du tar emot är de typer som du förväntar dig.
+> * Använd etag-fälten för att ta reda på om din information om objekt fortfarande är uppdaterad.  
+> * Använd sekvenserande fält för att förstå ordningen på händelser för ett visst objekt.
 > * Använd fältet ämne för att få åtkomst till det nyckel värde som ändrades.
 
 

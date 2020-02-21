@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fc538b55e31a4c133da1bc2f7ecc32b5fada6399
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 10eacb9cc1ca4641396212ec9564308d7ef74c3a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210405"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484680"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
@@ -23,7 +23,6 @@ Du kan skapa en Azure Database for MySQL-server på en av tre olika pris nivåer
 | Virtuella kärnor | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
-| Lagringstyp | Azure standard Storage | Azure-Premium Storage | Azure-Premium Storage |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
 Om du vill välja en pris nivå använder du följande tabell som utgångs punkt.
@@ -46,7 +45,7 @@ Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är ti
 
 |    | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
-| Lagringstyp | Azure standard Storage | Azure-Premium Storage | Azure-Premium Storage |
+| Lagringstyp | Basic Storage | Generell användning lagring | Generell användning lagring |
 | Lagrings storlek | 5 GB till 1 TB | 5 GB till 16 TB | 5 GB till 16 TB |
 | Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
@@ -84,7 +83,7 @@ Om du till exempel har allokerat 1000 GB lagrings utrymme och den faktiska anvä
 
 Kom ihåg att lagringen bara kan skalas upp, inte nedåt.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiering
 
 Tjänsten tar automatiskt säkerhets kopior av servern. Den minsta kvarhållningsperioden för säkerhets kopieringar är sju dagar. Du kan ställa in en kvarhållningsperiod på upp till 35 dagar. Kvarhållning kan justeras när som helst under serverns livstid. Du kan välja mellan lokalt redundanta och geo-redundanta säkerhets kopieringar. Geo-redundanta säkerhets kopieringar lagras också i den [geo-kopplade regionen](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) i den region där servern skapas. Den här redundansen ger en skydds nivå i händelse av en katastrof. Du får också möjlighet att återställa servern till andra Azure-regioner där tjänsten är tillgänglig med geo-redundanta säkerhets kopieringar. Det går inte att ändra mellan de två lagrings alternativen för säkerhets kopiering när servern har skapats.
 

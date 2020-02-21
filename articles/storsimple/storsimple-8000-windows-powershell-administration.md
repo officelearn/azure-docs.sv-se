@@ -105,7 +105,7 @@ Du kan välja bland följande inställningar:
      > [!NOTE]
      > Detta är det bästa alternativet om du har glömt enhetens administratörs lösen ord och inte kan ansluta via alternativ 1 eller 2.
 
-4. **Ändra språk** Med det här alternativet kan du ändra visnings språket för Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, södra koreanska, spanska, italienska, tyska, kinesiska och brasiliansk portugisiska.
+4. **Ändra språk** Med det här alternativet kan du ändra visnings språket för Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, södra koreanska, spanska, italienska, tyska, kinesiska och portugisiska (Brasilien).
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Fjärrans luta till StorSimple med hjälp av Windows PowerShell för StorSimple
 

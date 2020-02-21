@@ -624,7 +624,7 @@ Den här versionen tillhandahåller Hive 1.2.1 och Hive 2.1.0, förutom följand
 
 -   [*Hive-17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive-plats inställningar ignoreras vid HCatInputFormat Split-calculation.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: har en vitlista-/Black-konfiguration för att tillåta selektiv cachelagring av tabeller/partitioner och tillåta läsning vid förvärmning.
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: har en lista över tillåtna/Black-konfiguration för att tillåta selektiv cachelagring av tabeller/partitioner och tillåta läsning vid förvärmning.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): Lägg till flera\_-aggregering. q-test för BlobStores.
 

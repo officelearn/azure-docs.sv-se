@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786783"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523178"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions utveckling och konfiguration med Azure SignalR-tjänsten
 
@@ -27,12 +27,12 @@ Leta upp sidan *Inställningar* för signal tjänst resursen i Azure Portal. Ang
 
 ![SignalR service läge](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
-## <a name="azure-functions-development"></a>Azure Functions utveckling
+## <a name="azure-functions-development"></a>Azure Functions-utveckling
 
-Ett program som är utan server och som skapats med Azure Functions och Azure SignalR-tjänsten kräver vanligt vis två Azure Functions:
+Ett serverlöst realtidsprogram som skapats med Azure Functions och Azure SignalR-tjänsten kräver vanligtvis två Azure Functions:
 
-* En "Negotiate"-funktion som klienten anropar för att hämta en giltig åtkomst-token för SignalR-och tjänst slut punkt
-* En eller flera funktioner som skickar meddelanden eller hanterar grupp medlemskap
+* En ”negotiate-funktion” som klienten anropar för att hämta en giltig SignalR Service-åtkomsttoken och en tjänstslutpunkt-URL
+* En eller flera funktioner som skickar meddelanden eller hanterar gruppmedlemskap
 
 ### <a name="negotiate-function"></a>funktionen Negotiate
 
@@ -40,7 +40,7 @@ Ett klient program kräver en giltig åtkomsttoken för att ansluta till Azure S
 
 Använd en HTTP-utlöst Azure-funktion och *SignalRConnectionInfo* -indata-bindningen för att generera objektet anslutnings information. Funktionen måste ha en HTTP-väg som slutar i `/negotiate`.
 
-Mer information om hur du skapar Negotiate-funktionen finns i referens för [ *SignalRConnectionInfo* -indata-bindning](../azure-functions/functions-bindings-signalr-service.md#input).
+Mer information om hur du skapar Negotiate-funktionen finns i referens för [ *SignalRConnectionInfo* -indata-bindning](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Information om hur du skapar en autentiserad token finns i [använda App Service autentisering](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Använd *signal* flödets utgående bindning för att skicka meddelanden till kl
 
 Användare kan läggas till i en eller flera grupper. Du kan också använda *signal* flödets utgående bindning för att lägga till eller ta bort användare till/från grupper.
 
-Mer information finns i [bindnings referens för *SignalR* -utdata](../azure-functions/functions-bindings-signalr-service.md#output).
+Mer information finns i [bindnings referens för *SignalR* -utdata](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Signals Hub
 
@@ -100,7 +100,7 @@ Det finns dock några särskilda överväganden för appar som använder sig av 
 
 JavaScript/TypeScript-klienten gör HTTP-förfrågningar till Negotiate-funktionen för att initiera anslutnings förhandlingen. När klient programmet finns i en annan domän än Azure Function-appen måste resurs delning mellan ursprung (CORS) aktive ras på Function-appen eller så blockerar webbläsaren förfrågningarna.
 
-#### <a name="localhost"></a>Värd
+#### <a name="localhost"></a>värd
 
 När du kör Function-appen på den lokala datorn kan du lägga till ett `Host`-avsnitt till *Local. Settings. JSON* för att aktivera CORS. I avsnittet `Host` lägger du till två egenskaper:
 

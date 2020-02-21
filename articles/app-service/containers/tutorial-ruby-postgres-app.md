@@ -5,20 +5,20 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3238de3f1d3416964af05db031b5ecec20e4f140
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 6ce52b9754f69ef9c6eaf1f59062b6366670985f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720199"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524044"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Skapa en Ruby- och Postgres-app i Azure App Service på Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. I den här självstudien visas hur du skapar en Ruby-app och ansluter den till en PostgreSQL-databas. När du är klar har du en [Ruby on Rails](https://rubyonrails.org/)-app som körs i App Service på Linux.
+Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. I den här självstudien visas hur du skapar en Ruby-app och ansluter den till en PostgreSQL-databas. När du är klar har du en [Ruby on Rails](https://rubyonrails.org/)-app som körs i App Service på Linux.
 
 ![Ruby on Rails-appen körs i Azure App Service](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en PostgreSQL-databas i Azure
@@ -30,7 +30,7 @@ I den här guiden får du lära dig hur man:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -92,7 +92,7 @@ rake db:create
 rake db:migrate
 ```
 
-Kör appen.
+Kör programmet.
 
 ```bash
 rails server
@@ -124,7 +124,7 @@ Kör följande kommando i Cloud Shell och Ersätt ett unikt server namn för pla
 az postgres server create --location "West Europe" --resource-group myResourceGroup --name <postgres-server-name> --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd! --sku-name GP_Gen4_2
 ```
 
-När den logiska Azure Database for PostgreSQL-servern har skapats visar Azure CLI information som liknar följande exempel:
+När Azure-databasen för PostgreSQL-servern har skapats visar Azure CLI information som liknar följande exempel:
 
 ```json
 {
@@ -273,7 +273,7 @@ git add .
 git commit -m "database.yml updates"
 ```
 
-Din app är klar att distribuera.
+Din app är klar att distribueras.
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
@@ -287,7 +287,7 @@ I det här steget, distribuerar du ditt Postgres-anslutna Rails-program till Azu
 
 [!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
@@ -311,7 +311,7 @@ rails secret
 
 Konfigurera variablerna som krävs för Rails-produktionsmiljön.
 
-I följande Cloud Shell-kommando ersätter du de två plats hållarna för _&lt;utdata-of-räl-Secret_ med den nya hemliga nyckeln som du genererade i den lokala terminalen.
+I följande Cloud Shell-kommando ersätter du de två plats hållarna för _>&lt;utdata-of-räl-Secret_ med den nya hemliga nyckeln som du genererade i den lokala terminalen.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings RAILS_MASTER_KEY="<output-of-rails-secret>" SECRET_KEY_BASE="<output-of-rails-secret>" RAILS_SERVE_STATIC_FILES="true" ASSETS_PRECOMPILE="true"
@@ -358,13 +358,13 @@ Bläddra till `http://<app-name>.azurewebsites.net` och lägg till några uppgif
 
 Grattis! Du kör en datadriven Ruby on Rails-app i Azure App Service.
 
-## <a name="update-model-locally-and-redeploy"></a>Uppdatera modell lokalt och distribuera om
+## <a name="update-model-locally-and-redeploy"></a>Uppdatera modellen lokalt och distribuera om
 
 I det här steget gör du en enkel ändring i `task`-datamodellen och webbappen och publicerar sedan uppdateringen till Azure.
 
 För uppgiftsscenariot ändrar du programmet så att du kan markera en uppgift som slutförd.
 
-### <a name="add-a-column"></a>Lägga till en kolumn
+### <a name="add-a-column"></a>Lägg till en kolumn
 
 I terminalen går du till roten för Git-lagringsplatsen.
 
@@ -455,7 +455,7 @@ I terminalen kör du Rails-databasmigreringar för produktionsmiljön för att g
 rake db:migrate RAILS_ENV=production
 ```
 
-Genomför alla ändringar på Git och skicka sedan kodändringarna till Azure.
+Spara alla ändringar på Git och skicka sedan kodändringarna till Azure.
 
 ```bash
 git add .
@@ -481,7 +481,7 @@ I den vänstra menyn, klickar du på **App Services** och därefter på namnet p
 
 ![Portalnavigering till Azure-app](./media/tutorial-php-mysql-app/access-portal.png)
 
-Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att stoppa, starta, starta om, bläddra och ta bort.
 
 Menyn till vänster innehåller sidor för att konfigurera appen.
 
@@ -503,7 +503,7 @@ I den här självstudiekursen lärde du dig att:
 > * strömma diagnostikloggar från Azure
 > * hantera appen i Azure-portalen.
 
-Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till appen.
+Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
 > [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425264"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485190"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -22,7 +22,7 @@ Application Gateway publicerar data punkter, som kallas mått, för att [Azure M
 
 ### <a name="timing-metrics"></a>Tids mått
 
-Application Gateway innehåller flera inbyggda tids mått som relaterar till begäran och svar som alla mäts i millisekunder. 
+Application Gateway innehåller flera inbyggda tids mått för begäran och svar, som är mätt i millisekunder. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
@@ -66,7 +66,7 @@ Om det till exempel finns en topp i den *första byte tiden för svars tid* , me
 
 Om du märker att det finns en topp i *svars tiden för sista byte i Server delen* , men *svars tiden för första byte-databytet* är stabil, kan det härledas att insamling är på grund av en större fil som begärs.
 
-På samma sätt, om den *totala tiden för programgatewayen* har en topp men *svars tiden för Server delens svars tid* är stabil, kan det antingen vara ett tecken på en prestanda Flask hals i Application Gateway eller en Flask hals i nätverket mellan klient och Application Gateway. Dessutom, om *klientens* sökklass också har en motsvarande insamling, anger detta att försämringen beror på nätverket mellan klient och Application Gateway.
+På samma sätt, om den *totala tiden för programgatewayen* har en topp men *svars tiden för Server delens svars tid* är stabil, kan det antingen vara ett tecken på en prestanda Flask hals i Application Gateway eller en Flask hals i nätverket mellan klient och Application Gateway. Dessutom, om *klientens* sökklass också har en motsvarande insamling, anger det att försämringen beror på nätverket mellan klient och Application Gateway.
 
 ### <a name="application-gateway-metrics"></a>Application Gateway mått
 
@@ -86,7 +86,7 @@ För Application Gateway är följande mått tillgängliga:
 
 - **Aktuella kapacitets enheter**
 
-   Antal förbrukade kapacitets enheter. Kapacitets enheter mäter förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Det finns tre faktorer för kapacitets enhets beräknings enhet, beständiga anslutningar och data flöde. Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
+   Antal kapacitets enheter som förbrukas för belastnings utjämning av trafiken. Det finns tre faktorer för kapacitets enhets beräknings enhet, beständiga anslutningar och data flöde. Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
 
 - **Aktuella beräknings enheter**
 
@@ -98,13 +98,15 @@ För Application Gateway är följande mått tillgängliga:
    
 - **Uppskattade enheter för fakturerings kapacitet**
 
-  Antal kapacitets enheter som faktureringen beräknas med. Detta är calcutaed som det större värdet mellan *aktuella kapacitets enheter* och *fasta fakturerbara kapacitets enheter*.  
+  Med v2-SKU: n drivs pris sättnings modellen av förbrukning. Kapacitets enheter mäter förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. *Uppskattade enheter för fakturerings kapacitet* anger antalet kapacitets enheter som faktureringen beräknas med. Detta beräknas som det större värdet mellan *aktuella kapacitets enheter* (kapacitets enheter som krävs för att belastningsutjämna trafiken) och *fast fakturerbar kapacitets enhet* (lägsta kapacitets enhet som hålls etablerad).
 
 - **Misslyckade förfrågningar**
 
-   Antal misslyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
+  Antal misslyckade förfrågningar som Application Gateway har betjänat. Antalet begär Anden kan filtreras ytterligare för att visa antal per/specifika Server dels pool – http-inställnings kombination.
    
-- **Fast fakturerbar kapacitets enhet** Det minsta antalet kapacitets enheter som hålls etablerade enligt inställningen för *minsta skalnings enhet* i Application Gateway-konfigurationen.
+- **Fast fakturerbar kapacitets enhet**
+
+  Det minsta antal kapacitets enheter som hålls etablerade enligt inställningen för *minsta skalnings enhet* (en instans översätts till 10 kapacitets enheter) i Application Gateway-konfigurationen.
    
  - **Nya anslutningar per sekund**
 
@@ -143,7 +145,9 @@ För Application Gateway är följande mått tillgängliga:
 
   Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera per server dels pool för att visa antalet felaktiga värdar i en viss backend-pool.
   
-- **Begär Anden per minut per felfri värd** Det genomsnittliga antalet förfrågningar som tagits emot av varje felfritt medlem i en backend-pool på en minut. Du måste ange backend-poolen med hjälp av *BackendPool HttpSettings* -dimensionen.  
+- **Begär Anden per minut per felfri värd**
+
+  Det genomsnittliga antalet förfrågningar som tagits emot av varje felfritt medlem i en backend-pool på en minut. Du måste ange backend-poolen med hjälp av *BackendPool HttpSettings* -dimensionen.  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Mått som stöds av Application Gateway v1 SKU

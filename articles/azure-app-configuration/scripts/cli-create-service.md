@@ -1,19 +1,19 @@
 ---
 title: Skript exempel för Azure CLI – skapa en Azure App konfigurations lager
 titleSuffix: Azure App Configuration
-description: Skriptexempel för Azure CLI – Skapa ett Azure App Configuration-arkiv
+description: Använd Azure CLI-skript för att skapa en Azure App konfigurations lager
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: d2e1c1e2047e89cfede0e8745b3b2ae70e2bfaac
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468379"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523704"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Skapa ett Azure App Configuration-arkiv
 

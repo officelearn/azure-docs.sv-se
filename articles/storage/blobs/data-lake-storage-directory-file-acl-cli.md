@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ce2b4200496938e6cffb935207df8c7027eaf37a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835115"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486142"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd Azure CLI för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)
 > `storage-preview` tillägget som finns i den här artikeln är för närvarande en offentlig för hands version.
 
 [Exempel](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) [på | gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [ge feedback](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -42,7 +42,7 @@ Den här artikeln visar hur du använder [Azures kommando rads gränssnitt (CLI)
    ```
    Om din version av Azure CLI är lägre än `2.0.67`kan du installera en senare version. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-3. Installera tillägget `storage-preview`.
+3. Installera `storage-preview`-tillägget.
 
    ```azurecli
    az extension add -n storage-preview
@@ -77,7 +77,7 @@ Ett fil system fungerar som en behållare för dina filer. Du kan skapa ett med 
 I det här exemplet skapas ett fil system med namnet `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## <a name="create-a-directory"></a>Skapa en katalog
@@ -239,6 +239,12 @@ I det här exemplet anges ACL: en för en katalog för ägande användare, ägan
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
+I det här exemplet anges *standard* -ACL: en för en katalog för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
 Använd `az storage blob access set`-kommandot för att ange ACL för en **fil**. 
 
 I det här exemplet anges ACL: en för en fil för ägande användare, ägande grupp eller andra användare, och sedan skrivs ACL: en ut till-konsolen.
@@ -299,7 +305,7 @@ I det här exemplet visas alla användardefinierade metadata för katalogen med 
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Exempel](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 till Gen2-mappning](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)

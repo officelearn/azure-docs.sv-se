@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882643"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484901"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure Storage Analytics-loggning
 
-Lagringsanalys loggar detaljerad information om lyckade och misslyckade förfrågningar till en lagrings tjänst. Den här informationen kan användas för att övervaka enskilda förfrågningar och för att diagnostisera problem med en lagrings tjänst. Begär Anden loggas med bästa möjliga ansträngning.
+Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning.
 
- Lagringsanalys loggning är inte aktiverat som standard för ditt lagrings konto. Du kan aktivera det i [Azure Portal](https://portal.azure.com/); Mer information finns i [övervaka ett lagrings konto i Azure Portal](/azure/storage/storage-monitor-storage-account). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd egenskaperna [Hämta BLOB service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Hämta egenskaper för Queue Service](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)och [Hämta tabell tjänst egenskaper](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
+ Lagringsanalysloggning är inte aktiverat som standard för ditt lagringskonto. Du kan aktivera det i [Azure Portal](https://portal.azure.com/); Mer information finns i [övervaka ett lagrings konto i Azure Portal](/azure/storage/storage-monitor-storage-account). Du kan också aktivera Lagringsanalys program mässigt via REST API eller klient biblioteket. Använd egenskaperna [Hämta BLOB service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Hämta egenskaper för Queue Service](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties)och [Hämta tabell tjänst egenskaper](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) för att aktivera Lagringsanalys för varje tjänst.
 
  Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut punkten. Om ett lagrings konto till exempel har aktivitet i dess BLOB-slutpunkt men inte i dess tabell-eller Queue-slutpunkter, skapas bara loggar som rör Blob Service.
 
 > [!NOTE]
->  Lagringsanalys loggning är för närvarande endast tillgängligt för BLOB-, Queue-och table-tjänsterna. Premium Storage-konto stöds dock inte.
+>  Lagringsanalysloggning är för närvarande endast tillgängligt för blob-, kö- och tabelltjänsterna. Premium Storage-konto stöds dock inte.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -138,7 +138,7 @@ Du kan ange de lagrings tjänster som du vill logga och kvarhållningsperioden (
 
 ### <a name="enable-storage-logging-using-powershell"></a>Aktivera lagrings loggning med PowerShell  
 
- Du kan använda PowerShell på din lokala dator för att konfigurera lagrings loggning i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzureStorageServiceLoggingProperty** för att hämta de aktuella inställningarna och cmdleten  **Ange AzureStorageServiceLoggingProperty** om du vill ändra de aktuella inställningarna.  
+ Du kan använda PowerShell på din lokala dator för att konfigurera lagrings loggning i ditt lagrings konto med hjälp av Azure PowerShell cmdlet **Get-AzureStorageServiceLoggingProperty** för att hämta de aktuella inställningarna och cmdleten **set-AzureStorageServiceLoggingProperty** för att ändra de aktuella inställningarna.  
 
  De cmdletar som styr lagrings loggningen använder en **LoggingOperations** -parameter som är en sträng som innehåller en kommaavgränsad lista över begär ande typer som ska loggas. De tre möjliga typerna av begäran är **läsa**, **skriva**och **ta bort**. Om du vill stänga av loggning använder du värdet **none** för parametern **LoggingOperations** .  
 
@@ -160,7 +160,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations non
 
  Förutom att använda Azure Portal eller Azure PowerShell-cmdletar för att kontrol lera lagrings loggning kan du också använda en av Azure Storage API: erna. Om du till exempel använder ett .NET-språk kan du använda lagrings klient biblioteket.  
 
- Klasserna **CloudBlobClient**, **CloudQueueClient**och **CloudTableClient** alla har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar ett **ServiceProperties** -objekt som en ProfileServiceApplicationProxy. Du kan använda **ServiceProperties** -objektet för att konfigurera lagrings loggning. I följande C# kodfragment visas till exempel hur du ändrar vad som loggas och kvarhållningsperioden för att köa loggning:  
+ Klasserna **CloudBlobClient**, **CloudQueueClient**och **CloudTableClient** alla har metoder som **SetServiceProperties** och **SetServicePropertiesAsync** som tar ett **ServiceProperties** -objekt som en parameter. Du kan använda **ServiceProperties** -objektet för att konfigurera lagrings loggning. I följande C# kodfragment visas till exempel hur du ändrar vad som loggas och kvarhållningsperioden för att köa loggning:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -180,6 +180,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ## <a name="download-storage-logging-log-data"></a>Hämta logg data för lagrings loggning
 
  Om du vill visa och analysera loggdata bör du hämta de blobbar som innehåller de loggdata som du är intresse rad av för en lokal dator. Många verktyg för lagrings surfning gör att du kan ladda ned blobbar från ditt lagrings konto. Du kan också använda det Azure Storage team som angavs med kommando rads verktyget [AzCopy](storage-use-azcopy-v10.md) för Azure Copy för att hämta logg data.  
+ 
+>[!NOTE]
+> `$logs` container är inte integrerad med Event Grid, så du får inga meddelanden när loggfilerna skrivs. 
 
  För att se till att du hämtar loggdata som du är intresse rad av och för att undvika att ladda ned samma logg data mer än en gång:  
 

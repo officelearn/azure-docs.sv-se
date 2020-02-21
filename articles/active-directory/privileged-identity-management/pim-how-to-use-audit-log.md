@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024185"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498511"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Visa gransknings historik för Azure AD-roller i PIM
 
@@ -32,9 +32,9 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
-    ![Ny version av Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
-# <a name="new-versiontabnew"></a>[Ny version](#tab/new)
+# <a name="new-version"></a>[Ny version](#tab/new)
 
 Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
 
@@ -50,7 +50,7 @@ Resurs granskning ger dig en översikt över all aktivitet som är kopplad till 
 
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    ![Resurs gransknings lista med filter](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Resurs gransknings lista med filter](media/pim-how-to-use-audit-log/resource-audit.png)
 
 ## <a name="view-my-audit"></a>Visa min granskning
 
@@ -66,9 +66,9 @@ I min granskning kan du Visa din personliga roll aktivitet.
 
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
-    ![Gransknings lista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Gransknings lista för den aktuella användaren](media/pim-how-to-use-audit-log/audit-time-span.png)
 
-# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
+# <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
 ## <a name="view-audit-history"></a>Visa granskningshistorik
 
@@ -95,7 +95,7 @@ Följ dessa steg om du vill visa gransknings historiken för Azure AD-roller.
     | Åtgärd | Åtgärder som vidtas av begär Ande. Åtgärder kan omfatta tilldela, ta bort, aktivera, inaktivera eller AddedOutsidePIM. |
     | Medlem | Användare som aktiverar eller har tilldelats en roll. |
     | Roll | Roll som tilldelats eller Aktiver ATS av användaren. |
-    | Tanke | Text som angavs i orsaks fältet under aktiveringen. |
+    | REA soning | Text som angavs i orsaks fältet under aktiveringen. |
     | Dag | När en aktive rad roll upphör att gälla. Gäller endast berättigade roll tilldelningar. |
 
 1. Sortera gransknings historiken genom att klicka på knapparna **tid**, **åtgärd**och **roll** .

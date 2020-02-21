@@ -2,13 +2,13 @@
 title: Distribuera GPU-aktiverad container instans
 description: Lär dig hur du distribuerar Azure Container instances för att köra beräknings intensiva behållar appar med GPU-resurser.
 ms.topic: article
-ms.date: 04/17/2019
-ms.openlocfilehash: c3b202d1f35194d59090c3cc310226d6cfc4dfea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.date: 02/19/2020
+ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482963"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525298"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållar instanser som använder GPU-resurser
 
@@ -32,6 +32,9 @@ Support kommer att läggas till för ytterligare regioner över tid.
 **Ytterligare begränsningar**: GPU-resurser kan inte användas när du distribuerar en behållar grupp till ett [virtuellt nätverk](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Om GPU-resurser
+
+> [!IMPORTANT]
+> GPU-resurser är bara tillgängliga på begäran. Om du vill begära åtkomst till GPU-resurser skickar du en [support förfrågan för Azure][azure-support].
 
 ### <a name="count-and-sku"></a>Antal och SKU
 
@@ -230,6 +233,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

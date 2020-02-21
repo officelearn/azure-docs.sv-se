@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905448"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484595"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
 
@@ -123,7 +123,7 @@ WHERE
 
 Resultatet är:
 
-|DeviceID|sensorName|Alertmessage som|
+|DeviceID|SensorName|Alertmessage som|
 |-|-|-|
 |12345|Fuktighet|Varning: sensor över tröskelvärdet|
 
@@ -144,7 +144,7 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 
 Resultatet är:
 
-|DeviceID|sensorName|Alertmessage som|
+|DeviceID|SensorName|Alertmessage som|
 |-|-|-|
 |12345|Temperatur|80|
 |12345|Fuktighet|70|
@@ -167,6 +167,38 @@ WITH Stage0 AS
 
 SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
+
+### <a name="parse-json-record-in-sql-reference-data"></a>Parsa JSON-post i SQL-referens data
+När du använder Azure SQL Database som referens data i jobbet, är det möjligt att ha en kolumn som har data i JSON-format. Ett exempel visas nedan.
+
+|DeviceID|Data|
+|-|-|
+|12345|{"nyckel": "värde1"}|
+|54321|{"nyckel": "värde2"}|
+
+Du kan parsa JSON-posten i *data* kolumnen genom att skriva en enkel användardefinierad JavaScript-funktion.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+Du kan sedan skapa ett steg i din Stream Analytics-fråga så som visas nedan för att få åtkomst till fälten i dina JSON-poster.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
 ## <a name="array-data-types"></a>Mat ris data typer
@@ -245,7 +277,7 @@ CROSS APPLY GetArrayElements(SensorReadings.CustomSensor03) AS CustomSensor03Rec
 
 Resultatet är:
 
-|deviceId|ArrayIndex|ArrayValue|
+|DeviceId|ArrayIndex|ArrayValue|
 |-|-|-|
 |12345|0|12|
 |12345|1|-5|
@@ -262,7 +294,7 @@ CROSS APPLY GetArrayElements(SensorMetadata) AS SensorMetadataRecords
  
 Resultatet är:
 
-|deviceId|smKey|smValue|
+|DeviceId|smKey|smValue|
 |-|-|-|
 |12345|Tillverkare|Pia|
 |12345|Version|1.2.45|
@@ -291,7 +323,7 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 Resultatet är:
 
-|deviceId|koder|Lång|smVersion|smManufacturer|
+|DeviceId|koder|Lång|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|Pia|
 

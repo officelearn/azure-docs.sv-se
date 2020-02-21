@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/05/2020
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048090"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498991"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure AD-roller i Privileged Identity Management
 
@@ -32,11 +32,11 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
-    ![Ny version av Azure AD-roller](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Följ stegen i den här artikeln för att godkänna eller neka begär Anden för Azure AD-roller.
 
-# <a name="new-versiontabnew"></a>[Ny version](#tab/new)
+# <a name="new-version"></a>[Ny version](#tab/new)
 
 ## <a name="open-role-settings"></a>Öppna roll inställningar
 
@@ -46,15 +46,15 @@ Följ de här stegen för att öppna inställningarna för en Azure AD-roll.
 gt
 1. Öppna **Azure AD Privileged Identity Management** &gt; **Azure AD-roller** &gt; **roll inställningar**.
 
-    ![Sidan roll inställningar visar Azure-resurs roller](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Sidan roll inställningar visar Azure AD-roller](./media/pim-how-to-change-default-settings/role-settings.png)
 
 1. Välj den roll vars inställningar du vill konfigurera.
 
-    ![Sidan information om roll inställning visar flera tilldelnings-och aktiverings inställningar](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Sidan information om roll inställning visar flera tilldelnings-och aktiverings inställningar](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
 1. Välj **Redigera** för att öppna sidan roll inställningar.
 
-    ![Sidan Redigera roll inställningar med alternativ för att uppdatera tilldelnings-och aktiverings inställningar](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Sidan Redigera roll inställningar med alternativ för att uppdatera tilldelnings-och aktiverings inställningar](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
     I fönstret roll inställning för varje roll finns det flera inställningar som du kan konfigurera.
 
@@ -66,18 +66,18 @@ Du kan välja något av följande **tillgängliga** varaktighets alternativ för
 
 | | |
 | --- | --- |
-| **Tillåt permanent berättigad tilldelning** | Resurs administratörer kan tilldela permanent berättigad tilldelning. |
-| **Giltig tilldelning har förfallit efter** | Resurs administratörer kan kräva att alla kvalificerade tilldelningar har ett angivet start-och slutdatum. |
+| **Tillåt permanent berättigad tilldelning** | Globala administratörer och administratörer för privilegierade roller kan tilldela permanent berättigad tilldelning. |
+| **Giltig tilldelning har förfallit efter** | Globala administratörer och administratörer av privilegierade roller kan kräva att alla kvalificerade tilldelningar har ett angivet start-och slutdatum. |
 
 Och du kan välja något av dessa alternativ för varaktighet för **aktiv** tilldelning:
 
 | | |
 | --- | --- |
-| **Tillåt permanent aktiv tilldelning** | Resurs administratörer kan tilldela permanent aktiv tilldelning. |
-| **Aktiv tilldelning förfaller efter** | Resurs administratörer kan kräva att alla aktiva tilldelningar har ett angivet start-och slutdatum. |
+| **Tillåt permanent aktiv tilldelning** | Globala administratörer och administratörer för privilegierade roller kan tilldela permanent aktiv tilldelning. |
+| **Aktiv tilldelning förfaller efter** | Globala administratörer och administratörer av privilegierade roller kan kräva att alla aktiva tilldelningar har ett angivet start-och slutdatum. |
 
 > [!NOTE]
-> Alla tilldelningar som har ett angivet slutdatum kan förnyas av resurs administratörer. Användare kan även initiera självbetjänings begär Anden för att [utöka eller förnya roll tilldelningar](pim-resource-roles-renew-extend.md).
+> Alla tilldelningar som har ett angivet slutdatum kan förnyas av globala administratörer och privilegierade roll administratörer. Användare kan även initiera självbetjänings begär Anden för att [utöka eller förnya roll tilldelningar](pim-resource-roles-renew-extend.md).
 
 ## <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
 
@@ -87,13 +87,13 @@ Privileged Identity Management tillhandahåller en valfri tillämpning av Azure 
 
 I vissa fall kanske du vill tilldela en användare en roll för en kort varaktighet (till exempel en dag). I det här fallet behöver de tilldelade användarna inte begära aktivering. I det här scenariot kan Privileged Identity Management inte tillämpa Multi-Factor Authentication när användaren använder sin roll tilldelning eftersom de redan är aktiva i rollen från den tid som den tilldelas.
 
-För att säkerställa att resurs administratören som uppfyller tilldelningen är den som de säger att de är, kan du tillämpa Multi-Factor Authentication för aktiv tilldelning genom att markera rutan **kräv Multi-Factor Authentication i den aktiva tilldelningen** .
+För att säkerställa att administratören som uppfyller tilldelningen är den som de säger att de är, kan du tillämpa Multi-Factor Authentication för aktiv tilldelning genom att markera rutan **kräv Multi-Factor Authentication i den aktiva tilldelningen** .
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>Kräv Multi-Factor Authentication vid aktivering
 
 Du kan kräva att användare som är berättigade till en roll för att bevisa vem de använder Azure Multi-Factor Authentication innan de kan aktivera. Multi-Factor Authentication säkerställer att användaren är den som har rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga resurser i situationer när användar kontot kan ha komprometterats.
 
-Om du vill kräva Multi-Factor Authentication innan aktiveringen, markerar du kryss rutan **kräv Multi-Factor Authentication vid aktivering** .
+Om du vill kräva Multi-Factor Authentication före aktiveringen markerar du rutan **kräv Multi-Factor Authentication på aktivering** på fliken tilldelning i **inställningen redigera roll**.
 
 Mer information finns i [Multi-Factor Authentication och Privileged Identity Management](pim-how-to-require-mfa.md).
 
@@ -121,7 +121,7 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 1. När du har angett alla dina roll inställningar väljer du **Uppdatera** för att spara ändringarna.
 
-# <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
+# <a name="previous-version"></a>[Tidigare version](#tab/previous)
 
 ## <a name="open-role-settings"></a>Öppna roll inställningar
 

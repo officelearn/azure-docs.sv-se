@@ -1,5 +1,5 @@
 ---
-title: Vad är geo artificiell Intelligence-DSVM
+title: Vad är geo artificiell intelligens Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine
 description: Geo artificiell intelligens-Data Science Virtual Machine ger ArcGIS Pro för att arbeta med geografiska data samt python-, R-och data vetenskaps verktyg för att arbeta med ML och AI.
 keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899904"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526069"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Vad är Data Science Virtual Machine för geo-artificiell intelligens?
 
@@ -44,5 +44,5 @@ Geo AI Data Science VM kombinerar de förutsägande funktionerna i DSVM med skal
 
 Etablera en geo AI-Data Science VM och kom igång med hjälp av den med vägledning från följande resurser:
 
-* [Etablera en Geo-spatial AI Data Science VM](provision-geo-ai-dsvm.md)
-* [Använda Geo-spatial AI Data Science VM](use-geo-ai-dsvm.md)
+* [Etablera en geo AI-Data Science VM](provision-geo-ai-dsvm.md)
+* [Använda geo AI-Data Science VM](use-geo-ai-dsvm.md)

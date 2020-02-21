@@ -1,365 +1,192 @@
 ---
-title: Använd Graph API i Azure Active Directory B2C
-description: Hantera användare i en Azure AD B2C klient genom att anropa Azure AD-Graph API och använda en program identitet för att automatisera processen.
+title: Hantera användare med Microsoft Graph API
+titleSuffix: Azure AD B2C
+description: Så här hanterar du användare i en Azure AD B2C klient genom att anropa Microsoft Graph API och använda en program identitet för att automatisera processen.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 71b437f57f9d9e6e18af88d6413269cac6f66c47
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 64df1188692ae9f1b6200ad880a2bf1eafd98844
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161672"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483235"
 ---
-# <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD-Graph API
+# <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Hantera Azure AD B2C användar konton med Microsoft Graph
 
-Azure Active Directory B2C-klienter (Azure AD B2C) kan ha tusentals eller miljon tals användare. Det innebär att många vanliga klient hanterings uppgifter måste utföras program mässigt. En primärt exempel är användarhantering.
+Med Microsoft Graph kan du hantera användar konton i din Azure AD B2C katalog genom att tillhandahålla metoder för att skapa, läsa, uppdatera och ta bort i Microsoft Graph API. Du kan migrera ett befintligt användar arkiv till en Azure AD B2C-klient och utföra andra åtgärder för användar konto hantering genom att anropa Microsoft Graph-API: et.
 
-Du kan behöva migrera ett befintligt användar arkiv till en B2C-klient. Du kanske vill vara värd för användarregistrering på sidan och skapa användarkonton i Azure AD B2C-katalogen i bakgrunden. Dessa typer av aktiviteter kräver möjlighet att skapa, läsa, uppdatera och ta bort användar konton. Du kan utföra sådana uppgifter med hjälp av Azure AD-Graph API.
+I avsnitten nedan visas viktiga aspekter av Azure AD B2C användar hantering med Microsoft Graph-API: et. Microsoft Graph API-åtgärder, typer och egenskaper som visas här är en del av den som visas i referens dokumentationen för Microsoft Graph API.
 
-För B2C-klienter finns det två huvudsakliga lägen för att kommunicera med Graph API:
+## <a name="register-a-management-application"></a>Registrera ett hanterings program
 
-* För **interaktiva**, kör en gång-aktiviteter bör du agera som administratörs konto i B2C-klienten när du utför uppgifterna. För det här läget krävs en administratör för att logga in med autentiseringsuppgifter innan administratören kan utföra anrop till Graph API.
-* För **automatiserade**, kontinuerliga uppgifter bör du använda någon typ av tjänst konto som du anger med de behörigheter som krävs för att utföra hanterings uppgifter. I Azure AD kan du göra detta genom att registrera ett program och autentisera till Azure AD. Detta görs med hjälp av ett *program-ID* som använder [OAuth 2,0-klientens autentiseringsuppgifter](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). I det här fallet fungerar programmet som de ska, inte som en användare, för att anropa Graph API.
+Innan ett användar hanterings program eller skript som du skriver kan interagera med resurserna i din Azure AD B2C klient, behöver du en program registrering som ger behörighet att göra detta.
 
-I den här artikeln får du lära dig hur du utför det automatiska användnings fallet. Du skapar ett .NET 4,5-`B2CGraphClient` som utför åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD). Klienten har ett Windows kommando rads gränssnitt (CLI) som gör att du kan anropa olika metoder. Koden är dock skriven att bete sig i ett icke-interaktivt, automatiserat sätt.
+Följ stegen i den här instruktions artikeln för att skapa en program registrering som hanterings programmet kan använda:
 
-## <a name="prerequisites"></a>Förutsättningar
+[Hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md)
 
-Innan du kan skapa program eller användare behöver du en Azure AD B2C klient. Om du inte redan har en, [skapar du en Azure Active Directory B2C klient](tutorial-create-tenant.md).
+## <a name="user-management-microsoft-graph-operations"></a>Microsoft Graph åtgärder för användar hantering
 
-## <a name="register-an-application"></a>Registrera ett program
+Följande användar hanterings åtgärder är tillgängliga i [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user):
 
-När du har en Azure AD B2C klient måste du registrera ditt hanterings program med hjälp av [Azure Portal](https://portal.azure.com). Du måste också ge den behörighet som krävs för att utföra hanterings uppgifter för ditt automatiserade skript eller hanterings program.
+- [Hämta en lista över användare](https://docs.microsoft.com/graph/api/user-list)
+- [Skapa en användare](https://docs.microsoft.com/graph/api/user-post-users)
+- [Hämta en användare](https://docs.microsoft.com/graph/api/user-get)
+- [Uppdatera en användare](https://docs.microsoft.com/graph/api/user-update)
+- [Ta bort en användare](https://docs.microsoft.com/graph/api/user-delete)
 
-### <a name="register-application-in-azure-active-directory"></a>Registrera program i Azure Active Directory
+## <a name="user-properties"></a>Användaregenskaper
 
-Om du vill använda Azure AD-Graph API med din B2C-klient måste du registrera ett program med hjälp av arbets flödet Azure Active Directory program registrering.
+### <a name="display-name-property"></a>Egenskapen visnings namn
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+`displayName` är namnet som ska visas i Azure Portal användar hantering för användaren och i åtkomsttoken Azure AD B2C återgår till programmet. Den här egenskapen är obligatorisk.
 
-### <a name="assign-api-access-permissions"></a>Tilldela API-åtkomst behörigheter
+### <a name="identities-property"></a>Identiteter-egenskapen
 
-[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
+Ett kund konto, som kan vara en konsument, partner eller medborgare, kan associeras med dessa identitets typer:
 
-### <a name="create-client-secret"></a>Skapa klient hemlighet
+- **Lokal** identitet – användar namn och lösen ord lagras lokalt i Azure AD B2C-katalogen. Vi refererar ofta till dessa identiteter som "lokala konton".
+- **Federerad** identitet – även kallat *sociala* eller *företags* konton, användarens identitet hanteras av en federerad identitets leverantör som Facebook, Microsoft, ADFS eller Salesforce.
 
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+En användare med ett kund konto kan logga in med flera identiteter. Till exempel användar namn, e-post, medarbetar-ID, myndighets-ID och andra. Ett enda konto kan ha flera identiteter, både lokala och sociala, med samma lösen ord.
 
-Nu har du ett program som har behörighet att *skapa*, *läsa*och *Uppdatera* användare i din Azure AD B2C klient. Fortsätt till nästa avsnitt för att lägga till användar *borttagnings* -och *lösen ords uppdaterings* behörigheter.
+I Microsoft Graph API lagras både lokala och federerade identiteter i attributet User `identities`, som är av typen [objectIdentity][graph-objectIdentity]. Den `identities` samlingen representerar en uppsättning identiteter som används för att logga in på ett användar konto. Den här samlingen gör att användaren kan logga in på användar kontot med någon av dess associerade identiteter.
 
-## <a name="add-user-delete-and-password-update-permissions"></a>Lägg till användar borttagnings-och lösen ords uppdaterings behörigheter
+| Egenskap   | Typ |Beskrivning|
+|:---------------|:--------|:----------|
+|signInType|sträng| Anger användarnas inloggnings typer i din katalog. För lokalt konto: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`eller någon annan typ av typ som du vill. Sociala kontot måste anges till `federated`.|
+|utfärdare|sträng|Anger utfärdarens identitet. För lokala konton (där **signInType** inte är `federated`) är den här egenskapen det lokala B2C för klient organisationens standard domän, till exempel `contoso.onmicrosoft.com`. För sociala identiteter (där **signInType** är `federated`) är värdet namnet på utfärdaren, till exempel `facebook.com`|
+|issuerAssignedId|sträng|Anger den unika identifierare som användaren har tilldelats av utfärdaren. Kombinationen av **utfärdare** och **issuerAssignedId** måste vara unik inom din klient organisation. När **signInType** är inställt på `emailAddress` eller `userName`i det lokala kontot representerar användaren inloggnings namnet för användaren.<br>När **signInType** är inställt på: <ul><li>`emailAddress` (eller börjar med `emailAddress` som `emailAddress1`) måste **issuerAssignedId** vara en giltig e-postadress</li><li>`userName` (eller något annat värde) måste **issuerAssignedId** vara en giltig [lokal del av en e-postadress](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, representerar **issuerAssignedId** det federerade kontots unika identifierare</li></ul>|
 
-Behörigheterna *läsa och skriva katalog data* som du har beviljat tidigare inkluderar **inte** möjligheten att ta bort användare eller uppdatera sina lösen ord.
+För federerade identiteter, beroende på identitets leverantören, är **issuerAssignedId** ett unikt värde för en viss användare per program eller utvecklings konto. Konfigurera Azure AD B2C principen med samma program-ID som tidigare har tilldelats av den sociala leverantören eller något annat program inom samma utvecklings konto.
 
-Om du vill ge ditt program möjlighet att ta bort användare eller uppdatera lösen ord, måste du ge rollen som *användar administratör* .
+### <a name="password-profile-property"></a>Egenskap för lösen ords profil
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. Under **Hantera**väljer du **roller och administratörer**.
-1. Välj rollen **användar administratör** .
-1. Välj **Lägg till tilldelning**.
-1. I rutan **Välj** text anger du namnet på det program som du registrerade tidigare, till exempel *managementapp1*. Välj ditt program när det visas i Sök resultatet.
-1. Välj **Lägg till**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
+För en lokal identitet är egenskapen **passwordProfile** obligatorisk och innehåller användarens lösen ord. Egenskapen `forceChangePasswordNextSignIn` måste anges till `false`.
 
-Ditt Azure AD B2C-program har nu ytterligare behörigheter som krävs för att ta bort användare eller uppdatera sina lösen ord i B2C-klienten.
+För en federerad (social) identitet krävs inte egenskapen **passwordProfile** .
 
-## <a name="get-the-sample-code"></a>Hämta exempelkoden
+```JSON
+"passwordProfile" : {
+    "password": "password-value",
+    "forceChangePasswordNextSignIn": false
+  }
+```
 
-Kod exemplet är ett .NET-konsol program som använder [Active Directory-autentiseringsbibliotek (ADAL)](../active-directory/azuread-dev/active-directory-authentication-libraries.md) för att interagera med Azure AD Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
+### <a name="password-policy-property"></a>Egenskap för lösen ords princip
 
-Du kan [Ladda ned exempel arkivet](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) (\*. zip) eller klona GitHub-lagringsplatsen:
+Azure AD B2C lösen ords princip (för lokala konton) baseras på principen för Azure Active Directory [stark lösen ords styrka](../active-directory/authentication/concept-sspr-policy.md) . Principerna Azure AD B2C för registrering eller inloggning och lösen ords återställning kräver den här starka lösen ords styrkan och upphör aldrig att gälla lösen ord.
+
+Om de konton som du vill migrera har en mindre lösen ords styrka än den [starka lösen ords styrkan](../active-directory/authentication/concept-sspr-policy.md) som tillämpas av Azure AD B2C, kan du inaktivera kravet på starkt lösen ord i scenarier med användar migrering. Om du vill ändra standard lösen ords principen anger du `passwordPolicies` egenskapen till `DisableStrongPassword`. Du kan till exempel ändra begäran om att skapa användare på följande sätt:
+
+```JSON
+"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
+```
+
+### <a name="extension-properties"></a>Tilläggs egenskaper
+
+Varje kundriktad app har unika krav för att informationen ska samlas in. Din Azure AD B2C klient har en inbyggd uppsättning information som lagras i egenskaper, t. ex. namn, efter namn, stad och post nummer. Med Azure AD B2C kan du utöka uppsättningen med egenskaper som lagras i varje kund konto. Mer information om hur du definierar anpassade attribut finns i [anpassade attribut (användar flöden)](user-flow-custom-attributes.md) och [anpassade attribut (anpassade principer)](custom-policy-custom-attributes.md).
+
+Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventions `extension_ApplicationObjectID_attributename`. Exempel:
+
+```JSON
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
+```
+
+## <a name="code-sample"></a>Kodexempel
+
+Det här kod exemplet är ett .NET Core-konsolprogram som använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) för att interagera med Microsoft Graph API. Koden visar hur du anropar API: et för att hantera användare program mässigt i en Azure AD B2C klient organisation.
+Du kan [Ladda ned exempel arkivet](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [Bläddra i lagrings platsen](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) på GitHub eller klona lagrings platsen:
 
 ```cmd
-git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
+git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management.git
 ```
 
 När du har fått kod exemplet konfigurerar du det för din miljö och skapar sedan projektet:
 
-1. Öppna därefter `B2CGraphClient\B2CGraphClient.sln`-lösningen i Visual Studio.
-1. Öppna filen *app. config* i **B2CGraphClient** -projektet.
-1. Ersätt `<appSettings>`-avsnittet med följande XML. Ersätt sedan `{your-b2c-tenant}` med namnet på din klient och `{Application ID}` och `{Client secret}` med de värden du registrerade tidigare.
+1. Öppna projektet i [Visual Studio](https://visualstudio.microsoft.com) eller [Visual Studio Code](https://code.visualstudio.com).
+1. Öppna `src/appsettings.json`.
+1. I avsnittet `appSettings` ersätter du `your-b2c-tenant` med namnet på din klient och `Application (client) ID` och `Client secret` med värdena för registreringen av hanterings programmet (se avsnittet [Registrera ett hanterings program](#register-a-management-application) i den här artikeln).
+1. Öppna ett konsol fönster i din lokala klon av lagrings platsen, växla till `src` Directory och skapa projektet:
+    ```console
+    cd src
+    dotnet build
+    ```
+1. Kör programmet med kommandot `dotnet`:
 
-    ```xml
-    <appSettings>
-        <add key="b2c:Tenant" value="{your-b2c-tenant}.onmicrosoft.com" />
-        <add key="b2c:ClientId" value="{Application ID}" />
-        <add key="b2c:ClientSecret" value="{Client secret}" />
-    </appSettings>
+```console
+dotnet bin/Debug/netcoreapp3.0/b2c-ms-graph.dll
+```
+
+Programmet visar en lista över kommandon som du kan köra. Du kan till exempel hämta alla användare, hämta en enskild användare, ta bort en användare, uppdatera en användares lösen ord och Mass import.
+
+### <a name="code-discussion"></a>Kod diskussion
+
+Exempel koden använder [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), som är utformad för att förenkla skapandet av högkvalitativa, effektiva och elastiska program som har åtkomst till Microsoft Graph. Så du behöver inte göra en direkt alla Microsoft Graph-API.
+
+Alla begär anden till Microsoft Graph API kräver en åtkomsttoken för autentisering. Lösningen använder sig av [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet-paketet som tillhandahåller ett gränssnitts scenario baserat på Microsoft Authentication Library (MSAL) för användning med Microsoft Graph SDK.
+
+Metoden `RunAsync` i _program.cs_ -filen:
+
+1. Läser program inställningar från filen _appSettings. JSON_
+1. Initierar auth-providern med hjälp av [OAuth 2,0-klientens autentiseringsuppgifter för tilldelnings](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) flöde. Med hjälp av flödet för tilldelning av klientautentiseringsuppgifter kan appen Hämta en åtkomsttoken för att anropa Microsoft Graph-API: et.
+1. Konfigurerar Microsoft Graph tjänst klienten med auth-providern:
+
+    ```csharp
+    // Read application settings from appsettings.json (tenant ID, app ID, client secret, etc.)
+    AppSettings config = AppSettingsFile.ReadFromJsonFile();
+
+    // Initialize the client credential auth provider
+    IConfidentialClientApplication confidentialClientApplication = ConfidentialClientApplicationBuilder
+        .Create(config.AppId)
+        .WithTenantId(config.TenantId)
+        .WithClientSecret(config.ClientSecret)
+        .Build();
+    ClientCredentialProvider authProvider = new ClientCredentialProvider(confidentialClientApplication);
+
+    // Set up the Microsoft Graph service client with client credentials
+    GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-1. Skapa lösningen. Högerklicka på **B2CGraphClient** -lösningen i Solution Explorer och välj sedan **Återskapa lösning**.
-
-Om versionen lyckas kan du hitta `B2C.exe` konsol program i `B2CGraphClient\bin\Debug`.
-
-## <a name="review-the-sample-code"></a>Granska exempelkoden
-
-Om du vill använda B2CGraphClient öppnar du en kommando tolk (`cmd.exe`) och ändrar till projektets `Debug` Directory. Kör sedan kommandot `B2C Help`.
-
-```cmd
-cd B2CGraphClient\bin\Debug
-B2C Help
-```
-
-Kommandot `B2C Help` visar en kort beskrivning av de tillgängliga under kommandona. Varje gången du anropar ett av dess under kommandon skickar `B2CGraphClient` en begäran till Azure AD-Graph API.
-
-I följande avsnitt diskuteras hur programmets kod gör anrop till Azure AD-Graph API.
-
-### <a name="get-an-access-token"></a>Hämta en åtkomsttoken
-
-Alla förfrågningar till Azure AD-Graph API kräver en åtkomsttoken för autentisering. `B2CGraphClient` använder Active Directory-autentiseringsbibliotek med öppen källkod (ADAL) för att få åtkomst till tokens. ADAL gör token-förvärv enklare genom att tillhandahålla ett hjälp-API och ta hand om några viktiga uppgifter som cachelagring av åtkomsttoken. Du behöver dock inte använda ADAL för att hämta tokens. Du kan i stället hämta token genom att manuellt utforma HTTP-begäranden.
-
-> [!NOTE]
-> Du måste använda ADAL v2 eller högre för att få åtkomsttoken som kan användas med Azure AD-Graph API. Du kan inte använda ADAL v1.
-
-När `B2CGraphClient` körs skapas en instans av klassen `B2CGraphClient`. Konstruktorn för den här klassen ställer in ramverk för ADAL-autentisering:
+Den initierade *GraphServiceClient* används sedan i _UserService.cs_ för att utföra användar hanterings åtgärder. Du kan till exempel hämta en lista över användar kontona i klienten:
 
 ```csharp
-public B2CGraphClient(string clientId, string clientSecret, string tenant)
+public static async Task ListUsers(GraphServiceClient graphClient)
 {
-    // The client_id, client_secret, and tenant are provided in Program.cs, which pulls the values from App.config
-    this.clientId = clientId;
-    this.clientSecret = clientSecret;
-    this.tenant = tenant;
+    Console.WriteLine("Getting list of users...");
 
-    // The AuthenticationContext is ADAL's primary class, in which you indicate the tenant to use.
-    this.authContext = new AuthenticationContext("https://login.microsoftonline.com/" + tenant);
-
-    // The ClientCredential is where you pass in your client_id and client_secret, which are
-    // provided to Azure AD in order to receive an access_token by using the app's identity.
-    this.credential = new ClientCredential(clientId, clientSecret);
-}
-```
-
-Vi använder kommandot `B2C Get-User` som exempel.
-
-När `B2C Get-User` anropas utan ytterligare argument anropar programmet `B2CGraphClient.GetAllUsers()`s metoden. `GetAllUsers()` anropar sedan `B2CGraphClient.SendGraphGetRequest()`, som skickar en HTTP GET-begäran till Azure AD-Graph API. Innan `B2CGraphClient.SendGraphGetRequest()` skickar GET-begäran får den först en åtkomsttoken med hjälp av ADAL:
-
-```csharp
-public async Task<string> SendGraphGetRequest(string api, string query)
-{
-    // First, use ADAL to acquire a token by using the app's identity (the credential)
-    // The first parameter is the resource we want an access_token for; in this case, the Graph API.
-    AuthenticationResult result = authContext.AcquireToken("https://graph.windows.net", credential);
-    ...
-```
-
-Du kan hämta en åtkomsttoken för Graph API genom att anropa metoden ADAL `AuthenticationContext.AcquireToken()`. ADAL returnerar sedan ett `access_token` som representerar programmets identitet.
-
-### <a name="read-users"></a>Läsa användare
-
-När du vill hämta en lista över användare eller hämta en viss användare från Azure AD-Graph API kan du skicka en HTTP-`GET`-begäran till `/users`-slutpunkten. En begäran om alla användare i en klient organisation ser ut så här:
-
-```HTTP
-GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
-```
-
-Kör följande om du vill se den här begäran:
-
- ```cmd
- B2C Get-User
- ```
-
-Det finns två viktiga saker att tänka på:
-
-* Den åtkomsttoken som erhålls med hjälp av ADAL läggs till i `Authorization`s huvudet med hjälp av `Bearer`s schema.
-* För B2C-klienter måste du använda Frågeparametern `api-version=1.6`.
-
-Båda dessa uppgifter hanteras i `B2CGraphClient.SendGraphGetRequest()`-metoden:
-
-```csharp
-public async Task<string> SendGraphGetRequest(string api, string query)
-{
-    ...
-
-    // For B2C user management, be sure to use the 1.6 Graph API version.
-    HttpClient http = new HttpClient();
-    string url = "https://graph.windows.net/" + tenant + api + "?" + "api-version=1.6";
-    if (!string.IsNullOrEmpty(query))
-    {
-        url += "&" + query;
-    }
-
-    // Append the access token for the Graph API to the Authorization header of the request by using the Bearer scheme.
-    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, url);
-    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-    HttpResponseMessage response = await http.SendAsync(request);
-
-    ...
-```
-
-### <a name="create-consumer-user-accounts"></a>Skapa konsument användar konton
-
-När du skapar användar konton i B2C-klienten kan du skicka en HTTP `POST`-begäran till `/users`-slutpunkten. Följande begäran om HTTP-`POST` visar en exempel användare som skapas i klienten.
-
-De flesta av egenskaperna i följande begäran krävs för att skapa konsument användare. `//` kommentarer har inkluderats för illustrationen – ta inte med dem i en faktisk begäran.
-
-```HTTP
-POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
-Content-Type: application/json
-Content-Length: 338
-
-{
-    // All of these properties are required to create consumer users.
-
-    "accountEnabled": true,
-    "signInNames": [                           // controls which identifier the user uses to sign in to the account
+    // Get all users (one page)
+    var result = await graphClient.Users
+        .Request()
+        .Select(e => new
         {
-            "type": "emailAddress",            // can be 'emailAddress' or 'userName'
-            "value": "consumer@fabrikam.com"
-        }
-    ],
-    "creationType": "LocalAccount",            // always set to 'LocalAccount'
-    "displayName": "Consumer User",            // a value that can be used for displaying to the end user
-    "mailNickname": "cuser",                   // an email alias for the user
-    "passwordProfile": {
-        "password": "P@ssword!",
-        "forceChangePasswordNextLogin": false  // always set to false
-    },
-    "passwordPolicies": "DisablePasswordExpiration"
+            e.DisplayName,
+            e.Id,
+            e.Identities
+        })
+        .GetAsync();
+
+    foreach (var user in result.CurrentPage)
+    {
+        Console.WriteLine(JsonConvert.SerializeObject(user));
+    }
 }
 ```
 
-Kör något av följande kommandon för att se begäran:
-
-```cmd
-B2C Create-User ..\..\..\usertemplate-email.json
-B2C Create-User ..\..\..\usertemplate-username.json
-```
-
-Kommandot `Create-User` tar som en indataparameter av typen JSON som innehåller en JSON-representation av ett användar objekt. Det finns två exempel-JSON-filer i kod exemplet: `usertemplate-email.json` och `usertemplate-username.json`. Du kan ändra filerna så att de passar dina behov. Förutom de obligatoriska fälten ovan ingår flera valfria fält i filerna.
-
-Mer information om obligatoriska och valfria fält finns i referens för [entiteter och komplex typ | Graph API referens](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference).
-
-Du kan se hur POST-begäran konstrueras i `B2CGraphClient.SendGraphPostRequest()`:
-
-* Den bifogar en åtkomsttoken till `Authorization` rubriken för begäran.
-* Den anger `api-version=1.6`.
-* Den inkluderar JSON-användarobjektet i bröd texten i begäran.
-
-> [!NOTE]
-> Om de konton som du vill migrera från ett befintligt användar Arkiv har en lägre lösen ords styrka än den [starka lösen ords styrkan som tillämpas av Azure AD B2C](user-flow-password-complexity.md), kan du inaktivera kravet på starkt lösen ord genom att använda `DisableStrongPassword`-värdet i `passwordPolicies`-egenskapen. Du kan till exempel ändra föregående begäran om att skapa användare på följande sätt: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
-
-### <a name="update-consumer-user-accounts"></a>Uppdatera konsument användar konton
-
-När du uppdaterar användar objekt liknar processen den som du använder för att skapa användar objekt, men använder HTTP-`PATCH` metoden:
-
-```HTTP
-PATCH https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
-Content-Type: application/json
-Content-Length: 37
-
-{
-    "displayName": "Joe Consumer"    // this request updates only the user's displayName
-}
-```
-
-Försök att uppdatera en användare genom att ändra några värden i dina JSON-filer och Använd sedan `B2CGraphClient` för att köra något av följande kommandon:
-
-```cmd
-B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
-B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
-```
-
-Granska `B2CGraphClient.SendGraphPatchRequest()`-metoden för information om hur du skickar den här begäran.
-
-### <a name="search-users"></a>Söka efter användare
-
-Du kan söka efter användare i B2C-klienten på följande sätt:
-
-* Referera till användarens **objekt-ID**.
-* Referera till sina inloggnings identifierare, egenskapen `signInNames`.
-* Referera till någon av de giltiga OData-parametrarna. Till exempel "givenName", "efter namn", "displayName" osv.
-
-Kör något av följande kommandon för att söka efter en användare:
-
-```cmd
-B2C Get-User <user-object-id>
-B2C Get-User <filter-query-expression>
-```
-
-Några exempel:
-
-```cmd
-B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27consumer@fabrikam.com%27)
-B2C get-user $filter=givenName%20eq%20%27John%27
-B2C get-user $filter=surname%20eq%20%27Doe%27
-B2C get-user $filter=displayName%20eq%20%27John%20Doe%27
-```
-
-### <a name="delete-users"></a>Ta bort användare
-
-Om du vill ta bort användare använder du HTTP-`DELETE` metoden och skapar URL: en med användarens objekt-ID:
-
-```HTTP
-DELETE https://graph.windows.net/contosob2c.onmicrosoft.com/users/<user-object-id>?api-version=1.6
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0IyZGNWQSIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJod...
-```
-
-Om du vill se ett exempel, anger du det här kommandot och visar borttagnings förfrågan som skrivs ut till-konsolen:
-
-```cmd
-B2C Delete-User <object-id-of-user>
-```
-
-Granska `B2CGraphClient.SendGraphDeleteRequest()`-metoden för information om hur du skickar den här begäran.
-
-Du kan utföra många andra åtgärder med Azure AD Graph API utöver användar hantering. [Azure AD Graph API-referensen](/previous-versions/azure/ad/graph/api/api-catalog) innehåller information om varje åtgärd, tillsammans med exempel begär Anden.
-
-## <a name="use-custom-attributes"></a>Använd anpassade attribut
-
-De flesta konsument program behöver lagra viss typ av anpassad användar profil information. Ett sätt som du kan göra är att definiera ett anpassat attribut i B2C-klienten. Du kan sedan behandla attributet på samma sätt som du hanterar andra egenskaper för ett användar objekt. Du kan uppdatera attributet, ta bort attributet, fråga efter attributet, skicka attributet som ett anspråk i inloggnings-token med mera.
-
-Information om hur du definierar ett anpassat attribut i B2C-klienten finns i [B2C-referens för anpassade attribut](user-flow-custom-attributes.md).
-
-Du kan visa de anpassade attribut som definierats i din B2C-klient med hjälp av följande `B2CGraphClient`-kommandon:
-
-```cmd
-B2C Get-B2C-Application
-B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
-```
-
-Utdata visar information om varje anpassat attribut. Några exempel:
-
-```json
-{
-      "odata.type": "Microsoft.DirectoryServices.ExtensionProperty",
-      "objectType": "ExtensionProperty",
-      "objectId": "cec6391b-204d-42fe-8f7c-89c2b1964fca",
-      "deletionTimestamp": null,
-      "appDisplayName": "",
-      "name": "extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number",
-      "dataType": "Integer",
-      "isSyncedFromOnPremises": false,
-      "targetObjects": [
-        "User"
-      ]
-}
-```
-
-Du kan använda det fullständiga namnet, till exempel `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, som en egenskap för dina användar objekt. Uppdatera din JSON-fil med den nya egenskapen och ett värde för egenskapen och kör sedan:
-
-```cmd
-B2C Update-User <object-id-of-user> <path-to-json-file>
-```
+[Gör API-anrop med hjälp av Microsoft Graph SDK: er](https://docs.microsoft.comgraph/sdks/create-requests) innehåller information om hur du läser och skriver information från Microsoft Graph, använder `$select` för att kontrol lera de egenskaper som returneras, anger anpassade frågeparametrar och använder parametrarna `$filter` och `$orderBy` fråga.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Genom att använda `B2CGraphClient`har du ett tjänst program som kan hantera B2C-klientens användare program mässigt. `B2CGraphClient` använder sin egen program identitet för att autentisera till Azure AD-Graph API. Den hämtar också token med hjälp av en klient hemlighet.
+Ett fullständigt index för de Microsoft Graph API-åtgärder som stöds för Azure AD B2C resurser finns i [Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C](microsoft-graph-operations.md).
 
-När du införlivar den här funktionen i ditt eget program ska du komma ihåg några viktiga punkter för B2C-program:
+<!-- LINK -->
 
-* Ge programmet de behörigheter som krävs för klienten.
-* Använd `api-version=1.6`när du anropar Graph API.
-* När du skapar och uppdaterar konsument användare krävs några egenskaper, enligt beskrivningen ovan.
+[graph-objectIdentity]: https://docs.microsoft.com/graph/api/resources/objectidentity
+[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

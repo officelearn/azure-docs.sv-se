@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188775"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525523"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -60,11 +60,10 @@ Alla behållare som skapats i en databas med ett allokerat data flöde måste sk
 
 Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. I en delad data flödes databas:
+Behållare i en delad data flödes databas delar data flöde (RU/s) som allokeras till databasen. Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Varje ny behållare efter de första fyra kräver ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s.
 
-* Du kan ha upp till fyra behållare med minst 400 RU/s på databasen. Varje ny behållare efter de första fyra kräver ytterligare 100 RU/s-minimum. Om du till exempel har en delad data flödes databas med åtta behållare blir lägsta RU/s i databasen 800 RU/s.
-
-* Du kan ha högst 25 behållare i databasen. Om du redan har fler än 25 behållare i en delad data flödes databas kommer du inte att kunna skapa ytterligare behållare förrän antalet behållare är mindre än 25.
+> [!NOTE]
+> I en delad data flödes databas kan du ha högst 25 behållare i databasen. Om du redan har fler än 25 behållare i en delad data flödes databas kommer du inte att kunna skapa ytterligare behållare förrän antalet behållare är mindre än 25.
 
 Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen. Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 

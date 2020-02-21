@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: fb6451ce5e1e00bffc9195410125eb61b34555e4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 59e59fdf7fc6207a77bbe9923899570eeaa06a87
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672100"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500145"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
 
@@ -26,7 +26,7 @@ Du kan följa stegen här på en Mac-, Windows- eller Linux-dator. Det tar cirka
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -66,11 +66,11 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)]
 
-## <a name="create-a-web-app"></a>Skapa ett webbprogram
+## <a name="create-a-web-app"></a>Skapa en webbapp
 
 I Cloud Shell skapar du en webbapp i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `PHP|7.0`. Om du vill se alla körningar som stöds ska du köra [ `az webapp list-runtimes` ](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
+Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `PHP|7.0`. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). 
 
 ```azurecli-interactive
 # Bash
@@ -101,7 +101,7 @@ Du har skapat en tom ny webbapp med git-distribution aktiverad.
 > URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL:en, eftersom du behöver den senare.
 >
 
-Bläddra till webbappen som precis skapades. Ersätt  _&lt;appnamn >_ med ditt unika appnamn som skapades i föregående steg.
+Bläddra till webbappen som precis skapades. Ersätt _&lt;appnamn >_ med ditt unika appnamn som skapades i föregående steg.
 
 ```bash
 http://<app name>.azurewebsites.net

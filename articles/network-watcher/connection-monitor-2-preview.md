@@ -1,13 +1,12 @@
 ---
 title: Anslutnings övervakare (för hands version) | Microsoft Docs
-description: Lär dig hur du använder anslutnings övervakaren (för hands version) för att övervaka nätverkskommunikation i en distribuerad miljö
+description: Lär dig hur du använder anslutnings övervakaren (för hands version) för att övervaka nätverkskommunikation i en distribuerad miljö.
 services: network-watcher
 documentationcenter: na
 author: vinynigam
 manager: agummadi
 editor: ''
 tags: azure-resource-manager
-Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -16,119 +15,142 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 8f3a6f002fbebe215699c9b97a6dce63177c446f
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169326"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506261"
 ---
-# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Enhetlig anslutnings övervakning med anslutnings övervakaren (för hands version)
+# <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
 
-Anslutnings övervakaren (för hands version) tillhandahåller enhetliga funktioner för övervakning av slut punkt till slut punkt i Azure Network Watcher för Hybrid-och Azure Cloud-distributioner. Azure Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
+Anslutnings övervakaren (för hands version) tillhandahåller enhetlig anslutnings övervakning från slut punkt till slut punkt i Azure Network Watcher. Funktionen anslutnings övervakare (för hands version) stöder hybrid-och Azure Cloud-distributioner. Network Watcher innehåller verktyg för att övervaka, diagnostisera och Visa anslutnings relaterade mått för dina Azure-distributioner.
 
-Nyckel användnings fall:
+Här är några användnings fall för anslutnings övervakaren (för hands version):
 
-- Du har en virtuell dator för en front webb server som kommunicerar med en virtuell databas server i ett program på flera nivåer. Du vill kontrol lera nätverks anslutningen mellan de två virtuella datorerna.
-- Du vill att de virtuella datorerna i regionen USA, östra, ska pinga virtuella datorer i den centrala regionen och jämföra fördröjningar i flera regioner
-- Du har flera lokala Office-webbplatser i städer som Seattle. ansluter till Office 365-URL: er. Du vill jämföra svars tiderna för användarna med hjälp av Office 365-URL: er från Seattle och Ashburn.
-- Du har konfigurerat ett hybrid program som behöver anslutning till en Azure Storage-slutpunkt. Du vill jämföra fördröjningar mellan en lokal plats och Azure-programmet ansluter till samma Azure Storage slut punkt.
-- Du vill kontrol lera anslutningen från virtuella Azure-datorer som är värd för ditt moln program till dina lokala installationer.
+- Din frontend-webbserver för webb servern kommunicerar med en virtuell databas Server-dator i ett program med flera nivåer. Du vill kontrol lera nätverks anslutningen mellan de två virtuella datorerna.
+- Du vill att virtuella datorer i regionen USA, östra, ska pinga virtuella datorer i den centrala regionen och du vill jämföra nätverks fördröjningar i flera regioner.
+- Du har flera lokala kontors platser i Seattle, Washington och Ashburn, Virginia. Dina Office-platser ansluter till Office 365-URL: er. Jämför fördröjningen mellan Seattle och Ashburn för dina användare av Office 365-URL: er.
+- Ditt hybrid program behöver anslutning till en Azure Storage-slutpunkt. Din lokala plats och ditt Azure-program ansluter till samma Azure Storage slut punkt. Du vill jämföra fördröjningen för den lokala platsen med fördröjningen i Azure-programmet.
+- Du vill kontrol lera anslutningen mellan dina lokala installationer och de virtuella Azure-datorer som är värdar för moln programmet.
 
-I den här förhands gransknings fasen kombinerar lösningen det bästa av två viktiga funktioner – Network Watcher [anslutnings övervakare](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) och övervakare av NÄTVERKSPRESTANDA (NPM) [tjänst anslutnings övervakare](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity).
+I förhands gransknings fasen kombinerar anslutnings övervakaren det bästa av två funktioner: funktionen Network Watcher [anslutnings övervakare](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) och funktionen övervakare av NÄTVERKSPRESTANDA (NPM) [tjänst anslutnings övervakare](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) .
 
-Ljus
+Här följer några fördelar med anslutnings övervakaren (för hands version):
 
 * Enhetlig, intuitiv upplevelse för Azure och hybrid övervaknings behov
-* Kors region, övervakning av anslutnings barhet för flera arbets ytor
+* Övervakning över flera regioner och anslutningar mellan arbets ytor
 * Högre avsöknings frekvens och bättre insyn i nätverks prestanda
 * Snabbare aviseringar för dina hybrid distributioner
-* Stöd för HTTP-, TCP-och ICMP-baserade anslutnings kontroller
+* Stöd för anslutnings kontroller som baseras på HTTP, TCP och ICMP 
 * Mått och Log Analytics stöd för både Azure-test och icke-Azure-testkonfigurationer
 
-![Anslutningsövervakare](./media/connection-monitor-2-preview/hero-graphic.png)
+![Diagram över hur anslutnings övervakaren interagerar med virtuella Azure-datorer, icke-Azure-värdar, slut punkter och data lagrings platser](./media/connection-monitor-2-preview/hero-graphic.png)
 
-Följ stegen nedan för att starta övervakning med anslutnings övervakaren (för hands version)
+Börja använda anslutnings övervakaren (för hands version) för övervakning genom att följa dessa steg: 
 
-## <a name="step-1-install-monitoring-agents"></a>Steg 1: installera övervaknings agenter
+1. Installera övervaknings agenter.
+1. Aktivera Network Watcher på din prenumeration.
+1. Skapa en anslutnings övervakare.
+1. Konfigurera data analys och aviseringar.
+1. Diagnostisera problem i nätverket.
 
-Anslutnings övervakaren förlitar sig på lätta körbara filer för att köra anslutnings kontroller.  Vi stöder anslutnings kontroller från både Azure och lokala miljöer. Vilken körbar fil som ska användas beror på om den virtuella datorn finns på Azure eller lokalt.
+I följande avsnitt finns information om de här stegen.
+
+## <a name="install-monitoring-agents"></a>Installera övervaknings agenter
+
+Anslutnings övervakaren förlitar sig på enkla körbara filer för att köra anslutnings kontroller.  Det stöder anslutnings kontroller från både Azure-miljöer och lokala miljöer. Vilken körbar fil du använder beror på om din virtuella dator finns på Azure eller lokalt.
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agenter för virtuella Azure-datorer
 
-För att anslutnings övervakaren ska kunna identifiera dina virtuella Azure-datorer som källa för övervakning måste du installera tillägget Network Watcher agent virtuell dator (kallas även för Network Watcher tillägg). Tillägget Network Watcher agent är ett krav för att utlösa slut punkt till slut punkts övervakning och andra avancerade funktioner på Azure Virtual Machines. Du kan [skapa en virtuell dator och installera Network Watcher tillägget](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm)[på den](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm).  Du kan också installera, konfigurera och felsöka Network Watcher-tillägg för [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) och [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows) separat.
+Om du vill att anslutnings övervakaren ska identifiera dina virtuella Azure-datorer som övervaknings källor installerar du tillägget Network Watcher agent virtuell dator. Tillägget kallas även *Network Watcher-tillägget*. Virtuella Azure-datorer kräver tillägget för att utlösa övervakning från slut punkt till slut punkt och andra avancerade funktioner. 
 
-Om NSG-eller brand Väggs regler blockerar kommunikation mellan källa och mål, identifierar anslutnings övervakaren problemet och visar det som ett diagnostiskt meddelande i topologin. Om du vill aktivera anslutnings övervakning kontrollerar du att NSG-och brand Väggs reglerna tillåter paket över TCP eller ICMP mellan källa och mål.
+Du kan installera Network Watcher-tillägget när du [skapar en virtuell dator](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). Du kan också separat installera, konfigurera och felsöka Network Watcher-tillägget för [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) och [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows).
 
-### <a name="agents-for-on-premise-machines"></a>Agenter för lokala datorer
+Regler för en nätverks säkerhets grupp (NSG) eller brand vägg kan blockera kommunikation mellan källan och målet. Anslutnings övervakaren identifierar det här problemet och visar det som ett diagnostiskt meddelande i topologin. Om du vill aktivera anslutnings övervakning kontrollerar du att NSG-och brand Väggs reglerna tillåter paket över TCP eller ICMP mellan källan och målet.
 
-För att anslutnings övervakaren ska kunna identifiera dina lokala datorer som källor för övervakning måste du installera Log Analytics-agenten på datorerna och aktivera lösningen för övervakning av nätverks prestanda. Dessa agenter är länkade till Log Analytics arbets ytor och behöver ID för arbets yta och primär nyckel som kon figurer ATS innan de kan börja övervaka.
+### <a name="agents-for-on-premises-machines"></a>Agenter för lokala datorer
 
-Om du vill installera Log Analytics-agenten för Windows-datorer följer du instruktionerna som nämns i [den här länken](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)
+Om du vill att anslutnings övervakaren ska identifiera dina lokala datorer som källor för övervakning installerar du Log Analytics agent på datorerna. Aktivera sedan Övervakare av nätverksprestanda-lösningen. Dessa agenter är länkade till Log Analytics arbets ytor, så du måste konfigurera arbetsyte-ID och primär nyckel innan agenterna kan börja övervaka.
 
-Se till att målet kan uppnås om det finns brand väggar eller virtuella nätverks enheter (NVA) i sökvägen.
+För att installera Log Analytics agent för Windows-datorer, se [Azure Monitor tillägg för virtuell dator för Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows).
 
-## <a name="step-2-enable-network-watcher-on-your-subscription"></a>Steg 2: Aktivera Network Watcher på din prenumeration
+Om sökvägen omfattar brand väggar eller virtuella nätverks installationer (NVA) kontrollerar du att målet kan kontaktas.
 
-Alla prenumerationer med ett VNET aktive ras med Network Watcher. När du skapar ett virtuellt nätverk i din prenumeration kommer Network Watcher att aktive ras automatiskt i Virtual Network region och prenumeration. Det finns ingen inverkan på dina resurser eller tillhör ande avgift för automatisk aktivering av Network Watcher. Se till att Network Watcher inte uttryckligen har inaktiverats för din prenumeration. Mer information finns i [aktivera Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+## <a name="enable-network-watcher-on-your-subscription"></a>Aktivera Network Watcher på din prenumeration
 
-## <a name="step-3-create-connection-monitor"></a>Steg 3: skapa anslutnings övervakare 
+Alla prenumerationer som har ett virtuellt nätverk har Aktiver ATS med Network Watcher. När du skapar ett virtuellt nätverk i din prenumeration aktive ras Network Watcher automatiskt i det virtuella nätverkets region och prenumeration. Den här automatiska aktiveringen påverkar inte dina resurser eller debiteras. Se till att Network Watcher inte uttryckligen har inaktiverats för din prenumeration. 
 
-_Anslutnings övervakaren_ övervakar kommunikation med jämna mellanrum och informerar dig om tillgänglighet, svars tid och nätverks sto pol Ogin mellan käll agenter och mål slut punkter. Källor kan vara virtuella Azure-datorer eller lokala datorer som har en övervaknings agent installerad. Mål slut punkter kan vara Office 365-URL: er, Dynamics 365 URL: er, anpassade URL: er, resurs-ID: n för Azure VM, IPv4, IPv6, FQDN eller något annat domän namn.
+Mer information finns i [aktivera Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
-### <a name="accessing-connection-monitor-preview"></a>Åtkomst till anslutnings övervakaren (för hands version)
+## <a name="create-a-connection-monitor"></a>Skapa en anslutningsövervakare 
 
-1. På Start sidan för Azure Portal går du till Network Watcher
-2. Klicka på fliken "anslutnings övervakare (förhands granskning)" i avsnittet övervakning i Network Watcher vänstra fönstret.
-3. Du kan se alla anslutnings Övervakare som skapats med hjälp av anslutnings övervakaren (förhands granskning). Alla anslutnings Övervakare som skapats med den klassiska upplevelsen av anslutnings övervakaren visas på fliken anslutnings övervakare.
+Anslutnings övervakaren övervakar kommunikation med jämna mellanrum. Du informerar om ändringar av tillgängligheten och svars tiden. Du kan också kontrol lera den aktuella och historiska nätverks sto pol Ogin mellan käll agenter och slut punkter för mål.
 
-    ![Skapa en anslutnings övervakare](./media/connection-monitor-2-preview/cm-resource-view.png)
+Källor kan vara virtuella Azure-datorer eller lokala datorer som har en installerad övervaknings agent. Mål slut punkter kan vara Office 365-URL: er, Dynamics 365 URL: er, anpassade URL: er, resurs-ID: n för Azure VM, IPv4, IPv6, FQDN eller något annat domän namn.
+
+### <a name="access-connection-monitor-preview"></a>Övervakaren åtkomst anslutning (för hands version)
+
+1. På Azure Portal start sida går du till **Network Watcher**.
+1. Till vänster i avsnittet **övervakning** väljer du **anslutnings övervakare (för hands version)** .
+1. Du ser alla anslutnings Övervakare som skapades i anslutnings övervakaren (förhands granskning). Om du vill se de anslutnings Övervakare som skapades i den klassiska upplevelsen av anslutnings övervakaren går du till fliken **anslutnings övervakare** .
+
+    ![Skärm bild som visar anslutnings Övervakare som har skapats i anslutnings övervakaren (förhands granskning)](./media/connection-monitor-2-preview/cm-resource-view.png)
 
 
-### <a name="creating-a-connection-monitor"></a>Skapa en anslutnings övervakare
+### <a name="create-a-connection-monitor"></a>Skapa en anslutningsövervakare
 
-Anslutnings Övervakare som skapats med anslutnings övervakaren (för hands version) ger möjlighet att lägga till både lokala och virtuella Azure-datorer som källor och övervaka anslutningar till slut punkter som kan omfatta Azure eller andra URL/IP-adresser.
+I anslutnings Övervakare som du skapar i anslutnings övervakaren (för hands version) kan du lägga till både lokala datorer och virtuella Azure-datorer som källor. Dessa anslutnings övervakare kan också övervaka anslutningar till slut punkter. Slut punkterna kan vara på Azure eller någon annan URL eller IP-adress.
 
-Följande är entiteterna i en anslutnings Övervakare:
+Anslutnings övervakaren (för hands version) innehåller följande entiteter:
 
-* Anslutnings övervakare resurs – regions-/regionsspecifika Azure-resurs. Alla entiteter som anges nedan är egenskaper för en anslutnings övervaknings resurs.
-* Slut punkter – alla källor och mål som ingår i anslutnings kontroller anropas som slut punkter. Exempel på slut punkt – virtuella Azure-datorer, lokala agenter, URL: er, IP-adresser
-* Test konfiguration – varje test konfiguration är protokoll information. Utifrån det valda protokollet kan du definiera port, tröskelvärden, test frekvens och andra parametrar
-* Test grupp – varje test grupp innehåller käll slut punkter, mål slut punkter och testkonfigurationer. Varje anslutnings övervakare kan innehålla fler än en test grupp
-* Test – kombination av en slut punkt för källan, mål slut punkten och test konfigurationen gör ett prov. Testet är den lägsta nivån vid vilken övervaknings data (kontrollerna misslyckades% och sökkoden) är tillgängliga
+* **Anslutnings övervaknings resurs** – en regions-/regionsspecifika Azure-resurs. Alla följande entiteter är egenskaper för en anslutnings övervaknings resurs.
+* **Slut punkt** – en källa eller ett mål som deltar i anslutnings kontroller. Exempel på slut punkter är virtuella Azure-datorer, lokala agenter, URL: er och IP-adresser.
+* **Test konfiguration** – en plattformsspecifik konfiguration för ett test. Utifrån det protokoll du väljer kan du definiera port, tröskelvärden, test frekvens och andra parametrar.
+* **Test grupp** – gruppen som innehåller käll slut punkter, mål slut punkter och testkonfigurationer. En anslutnings övervakare kan innehålla fler än en test grupp.
+* **Test** – kombinationen av en käll slut punkt, mål slut punkt och test konfiguration. Ett test är den mest detaljerade nivån där övervaknings data är tillgängliga. Övervaknings data innehåller procent andelen kontroller som misslyckades och tur och retur-tiden.
 
- ![Skapa en anslutnings övervakare](./media/connection-monitor-2-preview/cm-tg-2.png)
+ ![Diagram som visar en anslutnings Övervakare som definierar relationen mellan test grupper och tester](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-#### <a name="from-portal"></a>Från portalen
+#### <a name="create-a-connection-monitor-from-the-azure-portal"></a>Skapa en anslutnings övervakare från Azure Portal
 
-Följ anvisningarna nedan om du vill skapa en anslutnings Övervakare:
+Följ dessa steg om du vill skapa en anslutnings övervakare från Azure Portal:
 
-1. I instrument panelen för anslutnings övervakaren (förhands granskning) klickar du på "skapa" från det övre vänstra hörnet.
-2. På fliken grundläggande anger du information för anslutnings övervakaren
-   1. Anslutnings övervakarens namn – namnet på anslutnings övervakaren. Standard namngivnings regler för Azure-resurser gäller här.
-   2. Prenumeration – Välj en prenumeration för anslutnings övervakaren.
-   3. Region – Välj en region för anslutnings övervakarens resurs. Du kan bara välja de virtuella käll datorer som skapas i den här regionen.
-   4. Konfiguration av arbets yta – du kan använda antingen standard arbets ytan som skapats av anslutnings övervakaren för att lagra dina övervaknings data genom att klicka på kryss rutan standard. Avmarkera den här kryss rutan om du vill välja en anpassad arbets yta. Välj prenumeration och region för att välja arbets ytan, som innehåller dina övervaknings data.
-   5. Klicka på Nästa: test grupper för att lägga till test grupper
+1. På instrument panelen för **anslutnings övervakaren (förhands granskning)** i det övre vänstra hörnet väljer du **skapa**.
+1. På fliken **grundläggande** anger du information för anslutnings övervakaren:
+   * **Namn på anslutnings övervakare** – Lägg till namnet på anslutnings övervakaren. Använd standard namngivnings reglerna för Azure-resurser.
+   * **Prenumeration** – Välj en prenumeration för anslutnings övervakaren.
+   * **Region** – Välj en region för anslutnings övervakaren. Du kan bara välja de virtuella käll datorer som skapas i den här regionen.
+   * **Konfiguration av arbets yta** – din arbets yta innehåller dina övervaknings data. Du kan använda en anpassad arbets yta eller standard arbets ytan. 
+       * Markera kryss rutan om du vill använda standard arbets ytan. 
+       * Om du vill välja en anpassad arbets yta avmarkerar du kryss rutan. Välj sedan prenumeration och region för din anpassade arbets yta. 
+1. Längst ned på fliken väljer du **Nästa: test grupper**.
 
-      ![Skapa en anslutnings övervakare](./media/connection-monitor-2-preview/create-cm-basics.png)
+   ![Skärm bild som visar fliken grundläggande i anslutnings övervakaren](./media/connection-monitor-2-preview/create-cm-basics.png)
 
-3. På fliken test grupper klickar du på "+ test grupp" för att lägga till en test grupp. Använd _skapa test grupper i anslutnings övervakaren_ för att lägga till test grupper. Klicka på granska + skapa för att granska anslutnings övervakaren.
+1. På fliken **test grupper** väljer du **+ test grupp**. Information om hur du konfigurerar test grupper finns i [skapa test grupper i anslutnings övervakaren](#create-test-groups-in-a-connection-monitor). 
+1. Längst ned på fliken väljer du **Nästa: granska + skapa** för att granska anslutnings övervakaren.
 
-   ![Skapa en anslutnings övervakare](./media/connection-monitor-2-preview/create-tg.png)
+   ![Skärm bild som visar fliken test grupper och fönstret där du lägger till test grupps information](./media/connection-monitor-2-preview/create-tg.png)
 
-4. På fliken "granska + skapa" granskar du grundläggande information och test grupper innan du skapar anslutnings övervakaren. Redigera anslutnings övervakaren från vyn "granska + skapa":
-   1. Om du vill redigera den grundläggande informationen använder du Penn ikonen som anges i ruta 1 i bild 2
-   2. Om du vill redigera enskilda test grupper klickar du på den test grupp som du vill redigera för att öppna test gruppen i redigerings läge.
-   3. Aktuell kostnad/månad visade kostnaden under för hands versionen. Det finns för närvarande ingen avgift för att använda anslutnings övervakaren, så den här kolumnen visar noll. Faktisk kostnad/månad visade priset som debiteras efter allmän tillgänglighet. Observera att avgifter för Log Analytics-inmatningen gäller även under för hands versionen.
+1. På fliken **Granska + skapa** granskar du grundläggande information och test grupper innan du skapar anslutnings övervakaren. Om du behöver redigera anslutnings övervakaren:
+   * Om du vill redigera grundläggande information väljer du Penn ikonen.
+   * Om du vill redigera en test grupp väljer du den.
 
-5. På fliken "granska + skapa" klickar du på knappen "skapa" för att skapa anslutnings övervakaren.
+   > [!NOTE] 
+   > På fliken **Granska + skapa** visas kostnaden per månad under förhands gransknings fasen för anslutnings övervakaren. För närvarande visar kolumnen **aktuell kostnad** ingen avgift. När anslutnings övervakaren blir allmänt tillgänglig visas en månatlig avgift i den här kolumnen. 
+   > 
+   > Även i förhands gransknings fasen av anslutnings övervakaren gäller Log Analytics inmatnings avgifter.
 
-   ![Skapa en anslutnings övervakare](./media/connection-monitor-2-preview/review-create-cm.png)
+1. När du är redo att skapa anslutnings övervakaren väljer du **skapa**längst ned på fliken **Granska + skapa** .
 
-6.  Anslutnings övervakaren (för hands version) skapar anslutnings övervaknings resursen i bakgrunden.
+   ![Skärm bild av anslutnings övervakaren som visar fliken Granska + skapa](./media/connection-monitor-2-preview/review-create-cm.png)
 
-#### <a name="from-armclient"></a>Från Armclient
+Anslutnings övervakaren (för hands version) skapar anslutnings övervaknings resursen i bakgrunden.
+
+#### <a name="create-a-connection-monitor-by-using-armclient"></a>Skapa en anslutnings övervakare med hjälp av ARMClient
+
+Använd följande kod för att skapa en anslutnings övervakare med hjälp av ARMClient.
 
 ```armclient
 $connectionMonitorName = "sampleConnectionMonitor"
@@ -159,7 +181,7 @@ filter: {
 
 type: 'AgentAddress',
 
-address: '\&lt;FQDN of your on-premise agent'
+address: '\&lt;FQDN of your on-premises agent'
 
 }]
 
@@ -360,78 +382,85 @@ address: '\&lt;URL\&gt;'
 } "
 ```
 
-Distributions kommando:
+Här är distributions kommandot:
 ```
 armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-version=2019-07-01 $body -verbose
 ```
 
-### <a name="creating-test-groups-in-connection-monitor"></a>Skapa test grupper i anslutnings övervakaren
+### <a name="create-test-groups-in-a-connection-monitor"></a>Skapa test grupper i en anslutnings övervakare
 
-Varje test grupp i anslutnings övervakaren innehåller källor och mål som testas på nätverks parametrar för kontroller som misslyckats och sökkörning över testkonfigurationer.
+Varje test grupp i en anslutnings övervakare innehåller källor och mål som testas på nätverks parametrar. De testas för procent andelen kontroller som inte kan utföras och sökning efter testkonfigurationer.
 
-#### <a name="from-portal"></a>Från portalen
+Skapa en test grupp i en anslutnings övervakare genom att ange värden för följande fält från Azure Portal:
 
-Om du vill skapa en test grupp i en anslutnings övervakare anger du värdet för nedanstående fält:
+* **Inaktivera test grupp** – du kan välja det här fältet om du vill inaktivera övervakning för alla källor och mål som test gruppen anger. Detta val rensas som standard.
+* **Namn** – ge test gruppen ett namn.
+* **Källor** – du kan ange både virtuella Azure-datorer och lokala datorer som källor om agenter är installerade på dem. Information om hur du installerar en agent för din källa finns i [Installera övervaknings agenter](#install-monitoring-agents).
+   * Om du vill välja Azure-agenter väljer du fliken **Azure-agenter** . Här ser du bara virtuella datorer som är kopplade till den region som du angav när du skapade anslutnings övervakaren. Som standard grupperas de virtuella datorerna i den prenumeration som de tillhör. De här grupperna är komprimerade. 
+   
+       Du kan öka detalj nivån från prenumerations nivån till andra nivåer i hierarkin:
 
-1. Inaktivera test grupp – om du markerar det här fältet inaktive ras övervakningen för alla källor och mål som anges i test gruppen. Du ser det här alternativet avmarkerat som standard.
-2. Namn – namnet på din test grupp
-3. Källor – du kan ange både virtuella Azure-datorer och lokala datorer som källor om agenter installeras i dem. Se steg 1 för att installera agent som är unik för din källa.
-   1. Klicka på fliken "Azure-agenter" om du vill välja Azure-agenter. Du ser bara de virtuella datorerna som är kopplade till den region som du angav när du skapade anslutnings övervakaren. Virtuella datorer grupperas som standard i den prenumeration de tillhör och grupperna är dolda. Du kan öka detalj nivån från prenumerations nivån till andra nivåer i hierarkin:
+      **Prenumerations** > **resurs grupper** > **virtuella nätverk** > **undernät** > **virtuella datorer med agenter**
 
-      ```Subscription -\&gt; resource groups -\&gt; VNETs -\&gt; Subnets -\&gt; VMs with agents Y```
+      Du kan också ändra värdet för fältet **Gruppera efter** för att starta trädet från en annan nivå. Om du till exempel grupperar efter virtuellt nätverk ser du de virtuella datorer som har agenter i hierarkin **virtuella nätverk** > **undernät** > **virtuella datorer med agenter**.
 
-      Du kan också ändra värdet för fältet "Gruppera efter" om du vill starta trädet från en annan nivå. Exempel: Group by – VNET visar de virtuella datorerna med agenter i hierarkin virtuella nätverk-\&gt; Undernät-\&gt; Virtuella datorer med agenter.
+      ![Skärm bild av anslutnings övervakaren, som visar panelen Lägg till källor och fliken Azure-agenter](./media/connection-monitor-2-preview/add-azure-sources.png)
 
-      ![Lägg till källor](./media/connection-monitor-2-preview/add-azure-sources.png)
+   * Välj fliken **ej – Azure-agenter** om du vill välja lokala agenter. Som standard grupperas agenter i arbets ytor efter region. Den Övervakare av nätverksprestanda-lösningen har kon figurer ATS för alla dessa arbets ytor. 
+   
+       Om du behöver lägga till Övervakare av nätverksprestanda i din arbets yta kan du hämta den från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Information om hur du lägger till Övervakare av nätverksprestanda finns [i övervaknings lösningar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/solutions). 
+   
+       I vyn **skapa anslutnings övervakare** , på fliken **grundläggande** , väljs standard region. Om du ändrar region kan du välja agenter från arbets ytor i den nya regionen. Du kan också ändra värdet för fältet **Gruppera efter** för att gruppera efter undernät.
 
-   2. Klicka på fliken "ej – Azure-agenter" om du vill välja lokala agenter. Som standard visas agenter grupperade i arbets ytor i en region. Endast de arbets ytor som har kon figurer ATS Övervakare av nätverksprestandas lösning visas. Lägg till Övervakare av nätverksprestanda-lösningen till din arbets yta från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](https://docs.microsoft.com/azure/azure-monitor/insights/solutions) . Som standard visas den region som valts på fliken grundläggande information i vyn Skapa anslutnings övervakare. Du kan ändra region och välja agenter från arbets ytor från den nyligen valda regionen. Du kan också ändra värdet för fältet "Gruppera efter" för att gruppera efter undernät.
-
-      ![Icke-Azure-källor](./media/connection-monitor-2-preview/add-non-azure-sources.png)
+      ![Skärm bild av anslutnings övervakaren, som visar panelen Lägg till källor och fliken icke-Azure-agenter](./media/connection-monitor-2-preview/add-non-azure-sources.png)
 
 
-   3. Klicka på granska om du vill granska de valda Azure-och icke-Azure-agenterna.
+   * Om du vill granska de Azure-och icke-Azure-agenter som du har valt går du till fliken **Granska** .
 
-      ![Granska källor](./media/connection-monitor-2-preview/review-sources.png)
+      ![Skärm bild av anslutnings övervakaren, som visar panelen Lägg till källor och fliken Granska](./media/connection-monitor-2-preview/review-sources.png)
 
-   4. Klicka på klar när du är klar med att välja källorna.
+   * När du är klar med att konfigurera källor går du till slutet av panelen **Lägg till källor** och väljer **klar**.
 
-4. Destinationer – du kan övervaka anslutningar till virtuella Azure-datorer eller en slut punkt (offentlig IP, URL, FQDN) genom att ange dem som mål. I en enda test grupp kan du lägga till virtuella Azure-datorer, O365-URL: er, D365-URL: er eller anpassade slut punkter.
+* **Destinationer** – du kan övervaka anslutningar till virtuella Azure-datorer eller en slut punkt (en offentlig IP-adress, URL eller FQDN) genom att ange dem som mål. I en enda test grupp kan du lägga till virtuella Azure-datorer, Office 365-URL: er, Dynamics 365-URL: er och anpassade slut punkter.
 
-   1. Klicka på fliken "virtuella Azure-datorer" om du vill välja virtuella Azure-datorer som mål. Som standard visas Azure-VM grupperade i prenumerationsbegäran i samma region som valdes på fliken grundläggande information i vyn Skapa anslutnings övervakare. Du kan ändra region och välja virtuella Azure-datorer från den nyligen valda regionen. Du kan öka detalj nivån från prenumerations nivån till andra nivåer i hierarkin, t. ex. Azure-agenter.
+    * Välj fliken **virtuella Azure-datorer** om du vill välja virtuella Azure-datorer som mål. Som standard grupperas de virtuella Azure-datorerna i en prenumerationsbegäran i samma region som du valde i vyn **skapa anslutnings övervakare** på fliken **grundläggande** . Du kan ändra region och välja virtuella Azure-datorer från den nyligen valda regionen. Sedan kan du öka detalj nivån från prenumerations nivån till andra nivåer i hierarkin, t. ex. Azure agents-nivån.
 
-      ![Lägg till mål](./media/connection-monitor-2-preview/add-azure-dests1.png)<br>
+       ![Skärm bild av fönstret Lägg till destinationer, som visar fliken virtuella Azure-datorer](./media/connection-monitor-2-preview/add-azure-dests1.png)
 
-      ![Lägg till destinationer 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
+       ![Skärm bild av fönstret Lägg till destinationer som visar prenumerations nivån](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Klicka på fliken "slut punkter" om du vill välja slut punkter som mål. Slut punkts listan fylls med O365 och D365-test-URL: er, grupperat efter namn.  Du kan också välja en slut punkt som skapats i andra test grupper i samma anslutnings övervakare. Om du vill lägga till en ny slut punkt klickar du på "+ slut punkt" från det övre högra hörnet på skärmen och anger URL: en för slut punkten/IP/FQDN och namn
+    * Välj fliken **slut punkter** om du vill välja slut punkter som mål. I listan över slut punkter ingår Office 365-test-URL: er och Dynamics 365-test-URL: er, grupperat efter namn. Förutom dessa slut punkter kan du välja en slut punkt som skapades i andra test grupper i samma anslutnings övervakare. 
+    
+        Om du vill lägga till en ny slut punkt går du till det övre högra hörnet och väljer **+ slut punkter**. Ange sedan ett slut punkts namn och en URL, IP eller FQDN.
 
-      ![Lägg till slut punkter](./media/connection-monitor-2-preview/add-endpoints.png)
+       ![Skärm bild som visar var du kan lägga till slut punkter som mål i anslutnings övervakaren](./media/connection-monitor-2-preview/add-endpoints.png)
 
-   3. Klicka på granska om du vill granska de valda Azure-och icke-Azure-agenterna.
-   4. Klicka på klar när du är klar med att välja källorna.
+    * Om du vill granska de virtuella Azure-datorer och slut punkter som du har valt väljer du fliken **Granska** .
+    * När du är klar med att välja mål väljer du **klar**.
 
-5. Testa konfiguration – du kan koppla ett valfritt antal testkonfigurationer i en specifik test grupp. Portalen begränsar den till en test konfiguration per test grupp, men använder Armclient för att lägga till fler.
-   1. Namn – namnet på test konfigurationen
-   2. Protokoll – du kan välja mellan TCP, ICMP eller HTTP. Om du vill ändra HTTP till HTTPS väljer du HTTP som protokoll och 443 som port
-   3. Skapa nätverks test konfiguration – du ser bara den här kryss rutan om du väljer HTTP i fältet protokoll. Aktivera det här fältet om du vill skapa en annan test konfiguration med samma källor och mål som anges i steg 3 och 4 över TCP/ICMP-protokollet. Den nyligen skapade test konfigurationen heter "\&lt; name anges i 5. a\&gt;\_networkTestConfig "
-   4. Inaktivera traceroute – det här fältet gäller för test grupper med TCP eller ICMP som protokoll.  Markera det här fältet om du vill stoppa källor från att identifiera topologi och svars tid för hopp efter hopp.
-   5. Målport – du kan anpassa det här fältet om du vill ange en valfri målport.
-   6. Test frekvens – det här fältet avgör hur ofta källor ska pinga mål på det protokoll och den port som anges ovan. Du kan välja mellan 30 sekunder, 1 minut, 5 minuter, 15 minuter och 30 minuter. Källorna kommer att testa anslutningen till destinationer utifrån det värde som du väljer.  Om du till exempel väljer 30 sekunder kommer källorna att kontrol lera anslutningen till målet minst en gång på 30 sekunder – period.
-   7. Hälso trösklar – du kan ange tröskelvärden för de nätverks parametrar som anges nedan
-      1. Det gick inte att checka in%-procent av kontrollerna misslyckades när källor kontrollerar anslutningen till målet enligt de villkor som anges ovan. För TCP/ICMP-protokollet kan kontroller som misslyckats i% likställas med paket förlust%. För HTTP-protokoll representerar det här fältet det antal HTTP-begäranden som inte fick något svar.
-      2. Efter fråga i millisekunder – fördröjning i millisekunder när källor ansluter till målet via den angivna test konfigurationen ovan.
+* **Testa konfigurationer** – du kan koppla testkonfigurationer i en test grupp. Azure Portal tillåter endast en test konfiguration per test grupp, men du kan använda ARMClient för att lägga till fler.
 
-      ![Lägg till TG](./media/connection-monitor-2-preview/add-test-config.png)
+    * **Namn** – ge test konfigurationen ett namn.
+    * **Protokoll** – Välj TCP, ICMP eller http. Om du vill ändra HTTP till HTTPS väljer du **http** som protokoll och väljer **443** som port.
+        * **Skapa nätverks test konfiguration** – den här kryss rutan visas bara om du väljer **http** i fältet **protokoll** . Markera den här rutan om du vill skapa en annan test konfiguration som använder samma källor och mål som du har angett någon annan stans i konfigurationen. Den nyligen skapade test konfigurationen heter `<the name of your test configuration>_networkTestConfig`.
+        * **Inaktivera traceroute** – det här fältet gäller för test grupper vars protokoll är TCP eller ICMP. Markera den här rutan om du vill stoppa källor från att upptäcka topologi och hitta hopp efter hopp.
+    * **Målport** – du kan anpassa det här fältet med en valfri mål Port.
+    * **Test frekvens** – Använd det här fältet för att välja hur ofta källor ska pinga mål på det protokoll och den port som du har angett. Du kan välja 30 sekunder, 1 minut, 5 minuter, 15 minuter eller 30 minuter. Källorna kommer att testa anslutningen till destinationer utifrån det värde som du väljer.  Om du till exempel väljer 30 sekunder kommer källorna att kontrol lera anslutningen till målet minst en gång under en 30-sekunders period.
+    * **Tröskelvärde för lyckad** – du kan ange tröskelvärden för följande nätverks parametrar:
+       * **Misslyckade kontroller** – ange procent andelen kontroller som kan Miss lyckas när källor kontrollerar anslutningen till destinationer genom att använda de villkor som du har angett. Procent andelen misslyckade kontroller i TCP-eller ICMP-protokollet kan likställas med procent andelen av paket förlusten. För HTTP-protokoll representerar det här fältet den procent andel av HTTP-begäranden som inte fick något svar.
+       * **Tur och retur-tid** – Ställ in efter hur lång tid det tar att ansluta till målet via test konfigurationen.
+    
+       ![Skärm bild som visar var du konfigurerar en test konfiguration i anslutnings övervakaren](./media/connection-monitor-2-preview/add-test-config.png)
 
-Alla källor och mål som läggs till i en test grupp med den angivna test konfigurationen får dela upp till enskilda tester. Några exempel:
+Alla källor, destinationer och testkonfigurationer som du lägger till i en test grupp får delats upp till enskilda tester. Här är ett exempel på hur källor och mål är uppdelade:
 
 * Test grupp: TG1
 * Källor: 3 (A, B, C)
 * Mål: 2 (D, E)
-* Test konfiguration: 2 (Konfig 1, konfig 2)
-* Skapade tester: totalt = 12
+* Testa konfigurationer: 2 (Konfig 1, konfig 2)
+* Totalt antal tester som skapats: 12
 
-| **Test nummer** | **Källa** | **Mål** | **Testa konfigurations namn** |
+| Test nummer | Källa | Mål | Testa konfiguration |
 | --- | --- | --- | --- |
 | 1 | A | D | Konfiguration 1 |
 | 2 | A | D | Konfig 2 |
@@ -448,179 +477,211 @@ Alla källor och mål som läggs till i en test grupp med den angivna test konfi
 
 ### <a name="scale-limits"></a>Skalnings gränser
 
-* Max antal anslutnings övervakare per prenumeration per region – 100
-* Max antal test grupper per anslutnings övervakare-20
-* Högsta antal källor + mål per anslutnings övervakare – 100
-* Max antal testkonfigurationer per anslutnings övervakare – 20 via Armclient. 2 via portalen.
+Anslutnings övervakare har följande skalnings gränser:
 
-## <a name="step-4--data-analysis-and-alerts"></a>Steg 4: data analys och aviseringar
+* Högsta antal anslutnings övervakare per prenumeration per region: 100
+* Högsta antal test grupper per anslutnings Övervakare: 20
+* Högsta antal källor och mål per anslutnings Övervakare: 100
+* Högsta antal testkonfigurationer per anslutnings Övervakare: 
+    * 20 via ARMClient
+    * 2 via Azure Portal
 
-När en anslutnings övervakare har skapats kontrollerar källorna anslutningen till destinationer baserat på den angivna test konfigurationen.
+## <a name="analyze-monitoring-data-and-set-alerts"></a>Analysera övervaknings data och ange aviseringar
+
+När du har skapat en anslutnings övervakare kontrollerar källorna anslutningen till destinationer baserat på din test konfiguration.
 
 ### <a name="checks-in-a-test"></a>Checkar in ett test
 
-Baserat på det protokoll som valts av en användare i test konfigurationen kör anslutnings övervakaren (för hands version) en serie kontroller för käll mål paret under den valda test frekvensen.
+Baserat på det protokoll som du valde i test konfigurationen kör anslutnings övervakaren (för hands version) en serie kontroller för käll mål paret. Kontrollerna körs enligt den test frekvens som du har valt.
 
-Om du väljer HTTP, beräknar tjänsten antalet HTTP-svar som returnerade en svarskod för att avgöra om kontrollerna misslyckades%.  För att beräkna en sökperiod mäter vi hur lång tid det tar att ta emot svaret på ett HTTP-anrop.
+Om du använder HTTP beräknar tjänsten antalet HTTP-svar som returnerade en svarskod. Resultatet bestämmer procent andelen misslyckade kontroller. För att kunna beräkna en sökperiod mäter tjänsten tiden mellan ett HTTP-anrop och svaret.
 
-Om TCP eller ICMP har valts beräknar tjänsten paket% för att avgöra om kontrollerna misslyckades%. För att beräkna en sökperiod mäter vi hur lång tid det tar att ta emot ACK för skickade paket. Om du har aktiverat traceroute-data för dina nätverks test kan du se förlust och svars tid för hopp för ditt lokala nätverk.
+Om du använder TCP eller ICMP beräknar tjänsten paket förlusten i procent för att avgöra procent andelen misslyckade kontroller. Tjänsten mäter den tid det tar att ta emot bekräftelsen (ACK) för de paket som har skickats för att beräkna den. Om du har aktiverat traceroute-data för dina nätverks test kan du se förlust och svars tid för hopp för ditt lokala nätverk.
 
 ### <a name="states-of-a-test"></a>Tillstånd för ett test
 
-Baserat på de data som returneras av kontrollerna i ett test kan varje test sedan ha följande tillstånd:
+Beroende på vilka data som kontrollerna returnerar kan testerna ha följande tillstånd:
 
-* Pass = när de faktiska värdena för kontrollerna misslyckades% och efter frågan är inom angivna tröskelvärden
-* Misslyckande = när faktiska värden för kontroller misslyckades% eller sökvärden tvärs över angivna tröskelvärden. Om inget tröskelvärde anges markeras ett fel när kontrollerna misslyckades% = 100%
-* Varning – när villkor för kontrollerna misslyckades% inte har angetts. I sådana fall använder anslutnings övervakaren (förhands granskning) ett automatiskt uppsättnings kriterium som tröskelvärde och när tröskelvärdet för det här tröskelvärdet är inställt på "varning"
+* **Pass** – faktiska värden för procent andelen misslyckade kontroller och efter frågan inom de angivna tröskelvärdena.
+* **Misslyckades** – faktiska värden för procent andelen misslyckade kontroller eller söksöker överskred de angivna tröskelvärdena. Om inget tröskelvärde anges, kommer ett test att nå fel tillstånd när procent andelen misslyckade kontroller är 100.
+* **Varning** – inga kriterier har angetts för procent andelen misslyckade kontroller. I avsaknad av angivna villkor tilldelar anslutnings övervakaren (för hands version) automatiskt ett tröskelvärde. När tröskelvärdet överskrids ändras test statusen till varning.
 
 ### <a name="data-collection-analysis-and-alerts"></a>Data insamling, analys och aviseringar
 
-Alla data som samlas in av anslutnings övervakaren (förhands granskning) lagras i Log Analytics arbets ytan som kon figurer ATS när anslutnings övervakaren skapas. Övervaknings data finns också i Azure Monitor Mät värden. Du kan använda Log Analytics för att hålla övervaknings data så länge som du vill, men Azure Monitor lagrar mått som standard i 30 dagar **.** Du kan sedan [Ange måttbaserade aviseringar för data](https://azure.microsoft.com/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/).
+De data som anslutnings övervakaren (för hands version) samlar in lagras på arbets ytan Log Analytics. Du konfigurerar den här arbets ytan när du skapade anslutnings övervakaren. 
 
-#### <a name="monitoring-dashboards-in-connection-monitor-solution"></a>Övervaka instrument paneler i anslutnings övervakaren, lösning
+Övervaknings data finns också i Azure Monitor Mät värden. Du kan använda Log Analytics för att behålla dina övervaknings data så länge du vill. Azure Monitor lagrar mått för endast 30 dagar som standard. 
 
-Du ser en lista över anslutnings övervakaren som du har åtkomst till för ett specifikt urval av prenumerationer, regioner, tidsstämpel, käll-och mål typer.
+Du kan [ställa in Metric-baserade aviseringar för data](https://azure.microsoft.com/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/).
 
-När du navigerar till anslutnings övervakaren (förhands granskning) från Network Watcher-tjänsten kan du välja att **Visa**följande:
+#### <a name="monitoring-dashboards"></a>Övervaka instrument paneler
 
-* Anslutnings övervakare (standard) – lista över alla anslutnings Övervakare som skapats för valda prenumerationer, regioner, tidsstämpel, käll-och mål typer
-* Test grupper – lista över alla test grupper som har skapats för valda prenumerationer, regioner, tidsstämpel, käll-och mål typer. Dessa test grupper filtreras inte på anslutnings övervakaren
-* Test – lista över alla tester som körs för valda prenumerationer, regioner, tidsstämpel, käll-och mål typer. Dessa tester filtreras inte på anslutnings övervakaren eller test grupper.
+På instrument panelen för övervakning visas en lista över de anslutnings Övervakare som du har åtkomst till för dina prenumerationer, regioner, tidsstämplar, källor och mål typer.
 
-Du kan expandera varje anslutnings övervakare till test grupperna och varje test grupp i de olika enskilda test som körs i den på instrument panelen. Markerat som [1] i bilden nedan.
+När du går till anslutnings övervakaren (förhands granskning) från Network Watcher kan du visa data genom att:
 
-Du kan filtrera listan baserat på:
+* **Anslutnings övervakare** – lista över alla anslutnings Övervakare som skapats för prenumerationer, regioner, tidsstämplar, källor och mål typer. Den här vyn är standard.
+* **Test grupper** – lista över alla test grupper som har skapats för dina prenumerationer, regioner, tidsstämplar, källor och mål typer. Dessa test grupper filtreras inte efter anslutnings övervakare.
+* **Test** – lista över alla tester som körs för dina prenumerationer, regioner, tidsstämplar, källor och mål typer. Dessa tester filtreras inte efter anslutnings övervakare eller test grupper.
 
-* Filter på översta nivån – prenumerationer, regioner, timestamp-källa och mål typer. Markerat som [2] i bilden nedan.
-* Tillstånds filter – filter på andra nivån i tillstånd för anslutnings övervakaren/test gruppen/testet. Markerat som [3] i bilden nedan.
-* Sök fält – Välj alla om du vill göra en allmän sökning. Om du vill söka efter en specifik entitet använder du List rutan för att begränsa Sök resultaten. Markerat som [4] i bilden nedan.
+I följande bild anges de tre datavyerna efter pil 1.
 
-![Filtrera tester](./media/connection-monitor-2-preview/cm-view.png)
+På instrument panelen kan du expandera varje anslutnings Övervakare för att se dess test grupper. Sedan kan du expandera varje test grupp för att se de tester som körs i den. 
 
-Några exempel:
+Du kan filtrera en lista baserat på:
 
-1. För att titta på alla tester i alla anslutnings övervakare (för hands version) där Källans IP = 10.192.64.56:
-   1. Ändra vy efter till "tests"
-   2. Sök arkiverat = 10.192.64.56
-   3. Använd List rutan bredvid värde för att välja "källor"
-2. Filtrera ut endast misslyckade tester i alla anslutnings övervakare (för hands version) där källa IP = 10.192.64.56
-   1. Ändra vy efter till "tests"
-   2. Välj "inte" på grund av tillstånds filter.
-   3. Sök fält = 10.192.64.56
-   4. Använd List rutan bredvid värde för att välja "källor"
-3. Filtrera ut endast misslyckade tester i alla anslutnings övervakare (för hands version) där målet är outlook.office365.com
-   1. Ändra vy efter till "tests"
-   2. Välj "inte" på grund av tillstånds filter.
-   3. Sök fält = outlook.office365.com
-   4. Använd List rutan bredvid värde för att välja "destinationer"
+* **Filter på högsta nivån** – Välj prenumerationer, regioner, tidsstämplar och mål typer. Se ruta 2 i följande bild.
+* **Tillstånds baserade filter** – filtrera efter tillstånd för anslutnings övervakaren, test gruppen eller testet. Se pil 3 i följande bild.
+* **Anpassade filter** – Välj **Välj alla** om du vill göra en allmän sökning. Om du vill söka efter en speciell entitet väljer du i list rutan. Se pil 4 i följande bild.
 
-   ![Misslyckade tester](./media/connection-monitor-2-preview/tests-view.png)
+![Skärm bild som visar hur du filtrerar vyer för anslutnings övervakare, test grupper och tester i anslutnings övervakaren (för hands version)](./media/connection-monitor-2-preview/cm-view.png)
 
-Så här visar du trender för kontroller som misslyckats% och eftertt läge för:
+Om du till exempel vill titta på alla tester i anslutnings övervakaren (för hands version) där käll-IP: en är 10.192.64.56:
+1. Ändra vyn för att **testa**.
+1. I Sök fältet skriver du *10.192.64.56*
+1. Välj **källor**i list rutan.
 
-1. Anslutningsövervakare
-   1. Klicka på den anslutnings Övervakare som du vill undersöka i detalj
-   2. Som standard visas övervaknings data efter "test grupper"
+Om du bara vill visa misslyckade tester i anslutnings övervakaren (för hands version) där käll-IP: en är 10.192.64.56:
+1. Ändra vyn för att **testa**.
+1. För det tillståndbaserade filtret väljer du **fungerar inte**.
+1. I Sök fältet skriver du *10.192.64.56*
+1. Välj **källor**i list rutan.
 
-      ![Visa mått per](./media/connection-monitor-2-preview/cm-drill-landing.png)
+Visa endast misslyckade tester i anslutnings övervakaren (för hands version) där målet är outlook.office365.com:
+1. Ändra vy att **testa**.
+1. För det tillståndbaserade filtret väljer du **fungerar inte**.
+1. Skriv *Outlook.Office365.com* i Sök fältet
+1. Välj **destinationer**i list rutan.
 
-   3. Välj den test grupp som du vill undersöka i detalj
+   ![Skärm bild som visar en vy som är filtrerad för att endast Visa misslyckade tester för Outlook.Office365.com-målet](./media/connection-monitor-2-preview/tests-view.png)
 
-      ![Mått per TG](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
+Visa trender i sökrutan och procent andelen misslyckade kontroller för en anslutnings Övervakare:
+1. Välj den anslutnings Övervakare som du vill undersöka. Som standard ordnas övervaknings data efter test grupp.
 
-   4. Du ser de 5 främsta misslyckade testerna vid kontroller som misslyckats% eller sökmsecs för den test grupp som du valde i föregående steg. För varje test ser du att trend linjer för kontroller misslyckades% och var i läge MS
-   5. Välj ett test i listan ovan eller Välj ett annat test för att undersöka i detalj.
-   6. För kontroller som har valts för det valda tidsintervallet visas tröskel och faktiska värden. För att hitta den här tiden kan du se tröskelvärde, AVG, min och max.
+   ![Skärm bild som visar mått för en anslutnings Övervakare som visas av test gruppen](./media/connection-monitor-2-preview/cm-drill-landing.png)
 
-      ![RTT](./media/connection-monitor-2-preview/cm-drill-charts.png)
+1. Välj den test grupp som du vill undersöka.
 
-  7. Ändra tidsintervallet för att visa mer data
-  8. Du kan ändra vyn i steg b och välja att visa efter källor, destinationer eller testa konfigurationer. Välj sedan en källa baserat på misslyckade tester och Undersök de 5 främsta misslyckade testerna.  Exempel: Välj Visa efter: källor och mål för att undersöka alla tester som körs mellan den kombinationen i den valda anslutnings övervakaren.
+   ![Skärm bild som visar var du väljer en test grupp](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
 
-      ![RTT2](./media/connection-monitor-2-preview/cm-drill-select-source.png)
+    Du ser test gruppens översta fem misslyckade tester, baserat på den aktuella sökrutan eller procent andelen misslyckade kontroller. För varje test ser du Beslags-och trend linjerna för procent andelen misslyckade kontroller.
+1. Välj ett test i listan eller Välj ett annat test att undersöka. För ditt tidsintervall och procent andelen misslyckade kontroller visas tröskelvärden och faktiska värden. För att hitta sökrutan visas värdena för tröskel, genomsnitt, minimum och maximum.
 
-2. Test grupp
-   1. Klicka på den test grupp som du vill undersöka i detalj
-   2. Som standard visas övervaknings data efter "källa + mål + test konfiguration (test)"
+   ![Skärm bild som visar ett tests resultat för fel sökning och procent andel misslyckade kontroller](./media/connection-monitor-2-preview/cm-drill-charts.png)
 
-      ![RTT3](./media/connection-monitor-2-preview/tg-drill.png)
+1. Ändra tidsintervallet för att visa mer data.
+1. Ändra vyn om du vill se källor, destinationer eller testkonfigurationer. 
+1. Välj en källa baserat på misslyckade tester och Undersök de fem främsta misslyckade testerna. Välj till exempel **Visa efter** > **källor** och **Visa efter** > **destinationer** för att undersöka relevanta tester i anslutnings övervakaren.
 
-   3. Välj det test som du vill undersöka i detalj
-   4. För kontroller som har valts för det valda tidsintervallet visas tröskel och faktiska värden. För att hitta den här tiden kan du se tröskelvärde, AVG, min och max. Du kommer också att se utlösta aviseringar som är speciella för det test du har valt.
-   5. Ändra tidsintervallet för att visa mer data
-   6. Du kan ändra vyn i steg b och välja att visa efter källor, destinationer eller testa konfigurationer. Välj sedan en entitet för att undersöka de 5 främsta misslyckade testerna.  Exempel: Välj Visa efter: källor och mål för att undersöka alla tester som körs mellan den kombinationen i den valda anslutnings övervakaren.
+   ![Skärm bild som visar prestanda mått för de fem främsta misslyckade testerna](./media/connection-monitor-2-preview/cm-drill-select-source.png)
 
-3. Testa
-   1. Klicka på den källa + mål + test konfiguration som du vill undersöka i detalj
-   2. För kontroller som har valts för det valda tidsintervallet visas tröskel och faktiska värden. För att hitta den här tiden kan du se tröskelvärde, AVG, min och max. Du kommer också att se utlösta aviseringar som är speciella för det test du har valt.
+För att visa trender i sökrutan och procent andelen misslyckade kontroller för en test grupp:
 
-      ![TEST1](./media/connection-monitor-2-preview/test-drill.png)
+1. Välj den test grupp som du vill undersöka. 
 
-   3. Du kan också klicka på "topologi" för att se nätverk sto pol Ogin vid en viss tidpunkt.
+    Som standard ordnas övervaknings data efter källor, destinationer och testkonfigurationer (test). Senare kan du ändra vyn från test grupper till källor, destinationer eller testkonfigurationer. Välj sedan en entitet för att undersöka de fem främsta misslyckade testerna. Ändra till exempel vyn till källor och mål för att undersöka relevanta tester i den valda anslutnings övervakaren.
+1. Välj det test som du vill undersöka.
 
-      ![TEST2](./media/connection-monitor-2-preview/test-topo.png)
+   ![Skärm bild som visar var du väljer ett test](./media/connection-monitor-2-preview/tg-drill.png)
 
-   4. Du kan klicka på alla hopp Länkar för Azure-nätverk för att se de problem som identifierats av anslutnings övervakaren. Den här funktionen är inte tillgänglig för lokala nätverk för tillfället.
+    För ditt tidsintervall och för din procent andel misslyckade kontroller visas tröskelvärden och faktiska värden. För att hitta en sökperiod ser du värden för tröskel, genomsnitt, minimum och maximum. Du ser även utlösta aviseringar för det test som du har valt.
+1. Ändra tidsintervallet för att visa mer data.
 
-       ![Test3](./media/connection-monitor-2-preview/test-topo-hop.png)
+För att visa trender i sökrutan och procent andelen misslyckade kontroller för ett test:
+1. Välj källa, mål och test konfiguration som du vill undersöka.
 
-#### <a name="log-queries-in-azure-monitor-log-analytics"></a>Logg frågor i Azure Monitor Log Analytics
+    För ditt tidsintervall och för procent andelen misslyckade kontroller visas tröskelvärden och faktiska värden. För att hitta en sökperiod ser du värden för tröskel, genomsnitt, minimum och maximum. Du ser även utlösta aviseringar för det test som du har valt.
 
-Använd Log Analytics för att skapa anpassade vyer för dina övervaknings data. Alla data som visas i användar gränssnittet fylls i från Log Analytics. Du kan utföra interaktiv analys av data i lagrings platsen och korrelera data från olika källor, t. ex. Agent hälsa och andra Log Analytics baserade program. Du kan också exportera data till Excel, Power BI eller en delnings bar länk.
+   ![Skärm bild som visar mått för ett test](./media/connection-monitor-2-preview/test-drill.png)
+
+1. Om du vill se nätverk sto pol Ogin väljer du **topologi**.
+
+   ![Skärm bild som visar fliken nätverkstopologi](./media/connection-monitor-2-preview/test-topo.png)
+
+1. Om du vill se de identifierade problemen i topologin väljer du ett hopp i sökvägen. (Dessa hopp är Azure-resurser.) Den här funktionen är för närvarande inte tillgänglig för lokala nätverk.
+
+   ![Skärm bild som visar en vald hopp-länk på fliken topologi](./media/connection-monitor-2-preview/test-topo-hop.png)
+
+#### <a name="log-queries-in-log-analytics"></a>Logg frågor i Log Analytics
+
+Använd Log Analytics för att skapa anpassade vyer för dina övervaknings data. Alla data som visas i användar gränssnittet är från Log Analytics. Du kan analysera data interaktivt i lagrings platsen. Korrelera data från Agenthälsa eller andra lösningar som baseras på Log Analytics. Exportera data till Excel eller Power BI eller skapa en delnings bar länk.
 
 #### <a name="metrics-in-azure-monitor"></a>Mått i Azure Monitor
 
-För anslutnings övervakaren som skapades innan anslutnings övervakaren (förhands granskning), skulle alla 4 mått vara tillgängliga. För anslutnings Övervakare som skapats via anslutnings övervakaren (förhands granskning) är data endast tillgängliga för mått som är märkta med "(för hands version)".
+I anslutnings Övervakare som har skapats före anslutnings övervakaren (förhands granskning) är alla fyra mått tillgängliga:% avsökningar misslyckades, AverageRoundtripMs, ChecksFailedPercent (för hands version) och RoundTripTimeMs (för hands version). I anslutnings Övervakare som skapades i anslutnings övervakaren (förhands granskning) är data endast tillgängliga för mått som är taggade med (för *hands version)* .
 
-Resurs typ-Microsoft. Network/networkWatchers/connectionMonitors
+![Skärm bild som visar mått i anslutnings övervakaren (förhands granskning)](./media/connection-monitor-2-preview/monitor-metrics.png)
 
-| Mått | Metrisk visningsnamn | Enhet | Sammansättningstyp: | Beskrivning | Dimensioner |
+När du använder mått anger du resurs typen som Microsoft. Network/networkWatchers/connectionMonitors
+
+| Mått | Visningsnamn | Enhet | Sammansättningstyp | Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Avsökningar misslyckades | Procent | Medel | % av anslutnings övervaknings avsökningarna misslyckades | Inga dimensioner |
-| AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Medel | Genomsnittlig tid för nätverks fördröjning (MS) för anslutnings övervaknings avsökningar som skickas mellan källa och mål |             Inga dimensioner |
-| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procent | Medel | % av kontrollerna misslyckades för ett test | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protokoll <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * Destination port <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
-| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel | Fördröjning för svar (MS) för kontroller som skickas mellan källa och mål. Det här värdet är inte medelvärdet | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * SourceResourceId <br> * SourceType <br> * Protokoll <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * Destination port <br> * TestGroupName <br> * TestConfigurationName <br> * Region |
-
- ![Övervaka mått](./media/connection-monitor-2-preview/monitor-metrics.png)
+| ProbesFailedPercent | % Avsökningar misslyckades | Procent | Medel | Procent av anslutnings övervaknings avsökningarna misslyckades. | Inga dimensioner |
+| AverageRoundtripMs | Genomsnittlig tid för fördröjning (MS) | Millisekunder | Medel | Genomsnittlig för inblandning av nätverks belastning för anslutnings övervaknings avsökningar skickas mellan källa och mål. |             Inga dimensioner |
+| ChecksFailedPercent (för hands version) | % Kontroller misslyckades (förhands granskning) | Procent | Medel | Procent andelen misslyckade kontroller för ett test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>sourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>Destination port <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs (för hands version) | Tur och retur tid (MS) (för hands version) | Millisekunder | Medel | Söker efter kontroller som skickats mellan källa och mål. Värdet är inte medelvärdet. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>sourceType <br>Protokoll <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>Destination port <br>TestGroupName <br>TestConfigurationName <br>Region |
 
 #### <a name="metric-alerts-in-azure-monitor"></a>Mått varningar i Azure Monitor
 
-Så här skapar du en avisering:
+Så här skapar du en avisering i Azure Monitor:
 
-1. Välj resursen för anslutnings övervakaren som skapats med anslutnings övervakaren (förhands granskning)
-2. Se till att "Metric" visas som signal typ för den resurs som valts i föregående steg
-3. I Lägg till villkor väljer du signal namn som ChecksFailedPercent (för hands version) eller RoundTripTimeMs (för hands version) och signal typ som mått. Tex: Välj ChecksFailedPercent (förhands granskning)
-4. Alla dimensioner som gäller per mått visas.  Välj dimensions namn och dimensions värde. Tex: Välj käll adress och ange IP-adressen för vilken källa som helst i resursen för anslutnings övervakaren som valts i steg 1
-5. I aviserings logik väljer du:
-   1. Villkors typ – statisk
-   2. Villkor och tröskel
-   3. Sammansättnings precision och utvärderings frekvens – anslutnings övervakare (för hands version) uppdaterar data var 1 minut.
-6.  I åtgärder väljer du din åtgärds grupp
-7. Ange aviserings information
-8. Skapa aviserings regel
+1. Välj den anslutnings övervaknings resurs som du skapade i anslutnings övervakaren (för hands version).
+1. Se till att **måttet** visas som signal typ för anslutnings övervakaren.
+1. I **Lägg till villkor**, för **signal namnet**, väljer du **ChecksFailedPercent (för hands version)** eller **RoundTripTimeMs (för hands version)** .
+1. Välj **mått**för **signal typ**. Välj till exempel **ChecksFailedPercent (för hands version)** .
+1. Alla mått för måttet visas. Välj dimensions namn och dimensions värde. Välj till exempel **käll adress** och ange IP-adressen för vilken källa som helst i anslutnings övervakaren.
+1. Fyll i följande information i **aviserings logik**:
+   * **Villkors typ**: **statisk**.
+   * **Villkor** och **tröskel**.
+   * **Sammansättnings precision och utvärderings frekvens**: anslutnings övervakaren uppdaterar data varje minut.
+1. I **åtgärder**väljer du din åtgärds grupp.
+1. Ange aviserings information.
+1. Skapa varnings regeln.
 
-   ![Aviseringar](./media/connection-monitor-2-preview/mdm-alerts.jpg)
+   ![Skärm bild som visar avsnittet Skapa regel i Azure Monitor; "Käll adress" och "källans slut punkts namn" är markerat](./media/connection-monitor-2-preview/mdm-alerts.jpg)
 
-## <a name="step-5-diagnose-issues-in-your-network"></a>Steg 5: diagnostisera problem i nätverket
+## <a name="diagnose-issues-in-your-network"></a>Diagnostisera problem i nätverket
 
-Anslutnings övervakaren hjälper dig att diagnostisera problem som motsvarar anslutnings övervaknings resursen och i nätverket. Problem i ditt hybrid nätverk identifieras av de Log Analytics-agenter som du installerade i steg 1 och problem i Azure identifieras av Network Watcher-tillägget.  Problem i hybrid nätverk visas på sidan diagnostik och problem i Azure Network visas i nätverk sto pol Ogin.
+Anslutnings övervakaren (för hands version) hjälper dig att diagnostisera problem i anslutnings övervakaren och nätverket. Problem i ditt hybrid nätverk identifieras av de Log Analyticss agenter som du installerade tidigare. Problem i Azure identifieras av Network Watcher-tillägget. 
 
-För nätverk med lokala virtuella datorer som källor identifierar vi:
+Du kan visa problem i Azure-nätverket i nätverk sto pol Ogin.
 
-* Tids gränsen nåddes för begäran
+Följande problem kan identifieras för nätverk vars källor är lokala virtuella datorer:
+
+* Tids gränsen nåddes för begäran.
 * Slut punkten har inte lösts av DNS – temporär eller beständig. URL är ogiltig.
 * Inga värdar hittades.
 * Källan kan inte ansluta till målet. Målet kan inte nås via ICMP.
-* Certifikat relaterat problem – klient certifikat som krävs för att autentisera agenten, det går inte att komma åt listan över återkallade certifikat, värd namnet för slut punkten stämmer inte överens med certifikatets ämne eller alternativt ämnes namn, rot certifikat saknas i källans lokala betrodda certifikat utfärdare Arkiv, SSL-certifikatet har upphört att gälla/är ogiltigt
+* Certifikatrelaterade problem: 
+    * Klient certifikat som krävs för att autentisera agenten. 
+    * Listan över återkallade certifikat är inte tillgänglig. 
+    * Värd namnet för slut punkten stämmer inte överens med certifikatets ämne eller alternativa namn för certifikat mottagare. 
+    * Rot certifikatet saknas i källans Arkiv för betrodda certifikat utfärdare. 
+    * SSL-certifikatet har upphört att gälla, är ogiltigt, återkallat eller inkompatibelt.
 
-För nätverk med virtuella Azure-datorer identifieras:
+Följande problem kan identifieras för nätverk vars källor är virtuella Azure-datorer:
 
-* Agent problem – agenten har stoppats, DNS-matchningen misslyckades, inga program/lyssnare lyssnar på mål porten, Socket kunde inte öppnas
-* Problem med VM-tillstånd – starta, stoppa, stoppa, frigöra, frikoppla, starta om, inte allokerat
-* ARP-tabell post saknas
-* Trafik blockerad på grund av problem med lokala brand väggar, NSG-regler
-* VNET Gateway – saknade vägar, tunnel mellan två gateways är frånkopplad eller saknas eller så saknas en gateway som inte hittas av tunneln, ingen peering-information hittades
-* Vägen saknas i MS Edge.
-* Trafiken stoppades på grund av system vägar eller UDR
-* BGP är inte aktiverat på Gateway-anslutning
-* DIP-avsökningen nedåt i Load Balancer
+* Agent problem:
+    * Agenten stoppades.
+    * DNS-matchning misslyckades.
+    * Inget program eller lyssnare lyssnar på mål porten.
+    * Det gick inte att öppna socketen.
+* Problem med VM-tillstånd: 
+    * Startar
+    * Stoppas
+    * Stoppad
+    * Frigör
+    * Frigjord
+    * Starta om
+    * Inte allokerat
+* ARP-tabell posten saknas.
+* Trafiken blockerades på grund av problem med lokala brand väggar eller NSG-regler.
+* Problem med virtuell nätverksgateway: 
+    * Vägar som saknas.
+    * Tunneln mellan två gateways är frånkopplad eller saknas.
+    * Den andra gatewayen kunde inte hittas av tunneln.
+    * Ingen peering-information hittades.
+* Vägen saknades i Microsoft Edge.
+* Trafiken stoppades på grund av system vägar eller UDR.
+* BGP är inte aktiverat på Gateway-anslutningen.
+* DIP-avsökningen är nere i belastningsutjämnaren.

@@ -1,18 +1,18 @@
 ---
-title: Om Azure punkt-till-plats VPN-anslutningar | Microsoft Docs
+title: Om Azure punkt-till-plats VPN-anslutningar | VPN Gateway
 description: Den här artikeln hjälper dig att förstå punkt-till-plats-anslutningar och hjälper dig att bestämma vilken P2S VPN gateway-autentiseringstyp som ska användas.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110439"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500603"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -53,16 +53,16 @@ Du måste utföra följande steg för att konfigurera Azure AD-autentisering på
 
 1. [Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md)
 
-2. [Aktivera Azure AD-autentisering på gatewayen](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [Aktivera Azure AD-autentisering på gatewayen](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. [Ladda ned och konfigurera Azure VPN-klienten](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Autentisera med hjälp av Active Directory (AD) domän Server
 
-AD Domain Authentication gör att användare kan ansluta till Azure med sina organisations domän uppgifter. Den kräver en RADIUS-server som integreras med AD-servern. Organisationer kan också utnyttja sin befintliga RADIUS-distribution.   
+AD Domain Authentication gör att användare kan ansluta till Azure med sina organisations domän uppgifter. Den kräver en RADIUS-server som integreras med AD-servern. Organisationer kan också utnyttja sin befintliga RADIUS-distribution.
   
-RADIUS-servern kan distribueras lokalt eller i ditt Azure VNET. Under autentiseringen fungerar Azure VPN Gateway som ett pass och vidarebefordrar autentiseringsbegäranden fram och tillbaka mellan RADIUS-servern och den anslutande enheten. Det är viktigt att gatewayens tillgänglighet till RADIUS-servern är viktigt. Om RADIUS-servern finns lokalt krävs en S2S-anslutning från Azure till den lokala platsen för nåbarhet.  
+RADIUS-servern kan distribueras lokalt eller i ditt Azure VNet. Under autentiseringen fungerar Azure VPN Gateway som ett pass och vidarebefordrar autentiseringsbegäranden fram och tillbaka mellan RADIUS-servern och den anslutande enheten. Det är viktigt att gatewayens tillgänglighet till RADIUS-servern är viktigt. Om RADIUS-servern finns lokalt krävs en S2S-anslutning från Azure till den lokala platsen för nåbarhet.  
   
 RADIUS-servern kan också integreras med AD Certificate Services. På så sätt kan du använda RADIUS-servern och distributionen av företags certifikat för P2S certifikatautentisering som ett alternativ till Azure-certifikatautentisering. Fördelen är att du inte behöver ladda upp rot certifikat och återkallade certifikat till Azure.
 
@@ -156,9 +156,6 @@ Zip-filen innehåller också värdena för några av de viktiga inställningarna
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-
-
-
 ## <a name="configure"></a>Hur gör jag för att konfigurerar du en P2S-anslutning?
 
 En P2S-konfiguration kräver ett par olika steg. Följande artiklar innehåller stegen för att vägleda dig genom P2S-konfigurationen och länkar till att konfigurera VPN-klient enheter:
@@ -169,11 +166,9 @@ En P2S-konfiguration kräver ett par olika steg. Följande artiklar innehåller 
 
 * [Konfigurera OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>Hur gör jag för att bort konfigurationen av en P2S-anslutning?
+### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>Ta bort konfigurationen av en P2S-anslutning
 
-En P2S-konfiguration kan tas bort med hjälp av AZ CLI och följande kommando: 
-
-`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+Anvisningar finns i [vanliga frågor och svar](#removeconfig)nedan.
  
 ## <a name="faqcert"></a>Vanliga frågor och svar om intern Azure-certifikatautentisering
 

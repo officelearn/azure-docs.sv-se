@@ -7,18 +7,18 @@ ms.date: 09/30/2019
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 91494cc9c1e3a1fc159702bdbb7f68a4423b604c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 3fcc4d9d33637cd61f5621cc95788e9de8ffaec6
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671368"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500116"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure 
 
 Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure App Service.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har ett Azure-konto kan du [Registrera dig](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) för ett kostnads fritt konto med $200 i Azure-krediter för att testa en kombination av tjänster.
 
@@ -32,7 +32,7 @@ När tillägget har installerats loggar du in på ditt Azure-konto. I aktivitets
 
 ![Logga in på Azure](containers/media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY` och `HTTPS_PROXY` miljövariabler med din proxyinformation i terminalen med hjälp av `export`.
 
@@ -145,7 +145,7 @@ I **Azure App Service** Explorer väljer du ikonen blå UPPIL för att distribue
 
 När distributionen är klar väljer du **Bläddra webbplats** i prompten för att visa din nyligen distribuerade webbapp.
 
-### <a name="troubleshooting"></a>Felsöka
+### <a name="troubleshooting"></a>Felsökning
 
 Om du ser felet **"du har inte behörighet att visa den här katalogen eller sidan."** , kunde programmet antagligen inte starta korrekt. Gå till nästa avsnitt och Visa loggens utdata för att hitta och åtgärda felet. Om du inte kan åtgärda det, kontakta oss genom att välja knappen **jag körde i ett ärende** nedan. Vi är glada att hjälpa!
 

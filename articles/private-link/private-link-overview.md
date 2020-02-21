@@ -8,15 +8,18 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 452202555734a208a9f32d6f8899e1f679df4a68
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 6f683ae79a2b68391e4bda2b81bcbab3eccc5b2e
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444000"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500725"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
+
+> [!IMPORTANT]
+> Azures privata länk är nu allmänt tillgänglig. Både privat och privat länk tjänst (tjänsten bakom en standard belastningsutjämnare) är allmänt tillgängliga. Olika Azure-PaaS kommer att publiceras på en privat Azure-länk vid olika scheman. Avsnittet om att kontrol lera [tillgänglighet](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) nedan för korrekt status för Azure-PaaS på en privat länk. Information om kända begränsningar finns i [privat slut punkt](private-endpoint-overview.md#limitations) och [privat länk tjänst](private-link-service-overview.md#limitations). 
 
 ![Översikt över privat slut punkt](media/private-link-overview/private-endpoint.png)
 
@@ -37,7 +40,7 @@ Azure Private-länken ger följande fördelar:
 
 |Scenario  |Tjänster som stöds  |Tillgängliga regioner | Status  |
 |:---------|:-------------------|:-----------------|:--------|
-|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer | Alla offentliga regioner  | Förhandsversion  |
+|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer | Alla offentliga regioner  | Allmän tillgänglighet (GA)  |
 |Privat länk för Azure PaaS Services   | Azure Storage        |  Alla offentliga regioner      | Förhandsversion <br/> [Läs mer](/azure/storage/common/storage-private-endpoints).  |
 |  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Förhandsversion <br/> [Läs mer](/azure/storage/common/storage-private-endpoints).  |
 |  |  Azure SQL Database         | Alla offentliga regioner      |   Förhandsversion      |
@@ -67,6 +70,9 @@ Vanliga frågor och svar om [Azures privata länkar](private-link-faq.md).
  
 ## <a name="limits"></a>Begränsningar  
 För gränser, se [gränser för privata Azure-länkar](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
+
+## <a name="service-level-agreement"></a>Serviceavtal
+För SLA, se [SLA för Azures privata länk](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en privat slut punkt för SQL Database servern med hjälp av portalen](create-private-endpoint-portal.md)

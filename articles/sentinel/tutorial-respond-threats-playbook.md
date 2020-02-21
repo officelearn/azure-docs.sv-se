@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
+ms.date: 02/18/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7e26e901fdee8cac79cfb55aa0999487e87b8a78
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2a416fa4f9e02372e570b77b0e6fb1af2cad81fb
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113918"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500681"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Självstudie: Konfigurera automatiserade hot svar i Azure Sentinel
 
@@ -64,7 +64,7 @@ Följ de här stegen för att skapa en ny säkerhets Spelbok i Azure Sentinel:
 
    ![Logikapp](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. På sidan **Azure Sentinel-spel böcker (för hands version)** klickar du på knappen **Lägg till** .
+3. På sidan **Azure Sentinel-spel böcker** klickar du på knappen **Lägg till** .
 
    ![Skapa en logikapp](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 

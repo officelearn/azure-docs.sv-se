@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/24/2019
-ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 02/19/2020
+ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467563"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523483"
 ---
 # <a name="what-is-azure-app-configuration"></a>Vad är Azure App Configuration?
 
@@ -19,9 +19,9 @@ Azure App-konfigurationen tillhandahåller en tjänst för att centralt hantera 
 
 ## <a name="why-use-app-configuration"></a>Varför ska jag använda app-konfiguration?
 
-Molnbaserade program körs ofta på flera virtuella datorer eller containrar i flera regioner och använder flera externa tjänster. Att skapa ett sådant distribuerat program som är robust och skalbart är en utmaning.
+Molnbaserade program körs ofta på flera virtuella datorer eller containrar i flera regioner och använder flera externa tjänster. Att skapa ett robust och skalbart program i en distribuerad miljö medför en betydande utmaning.
 
-Olika programmerings metoder hjälper utvecklare att hantera den ökande komplexiteten med att skapa program. Till exempel beskriver den [12-Factor appen](https://12factor.net/) många välbeprövade arkitektur mönster och metod tips för användning med moln program. En viktig rekommendation från den här guiden är att avgränsa konfigurationen från koden. I det här fallet ska ett programs konfigurations inställningar lagras utanför den körbara filen och läsas in från körnings miljön eller en extern källa.
+Olika programmerings metoder hjälper utvecklare att hantera den ökande komplexiteten med att skapa program. Till exempel beskriver den [12-Factor appen](https://12factor.net/) många välbeprövade arkitektur mönster och metod tips för användning med moln program. En viktig rekommendation från den här guiden är att avgränsa konfigurationen från koden. Konfigurations inställningarna för ett program bör lagras utanför den körbara filen och läsas in från körnings miljön eller en extern källa.
 
 Även om ett program kan använda appens konfiguration, är följande exempel de typer av program som drar nytta av att använda det:
 
@@ -38,7 +38,7 @@ App Configuration ger följande fördelar:
 * Dedikerat gränssnitt för hantering av funktions flagga
 * Jämförelse av två uppsättningar konfigurationer i anpassade dimensioner
 * Förbättrad säkerhet via Azure-hanterade identiteter
-* Fullständig data kryptering, i vila eller under överföring
+* Kryptering av känslig information i vila och under överföring
 * Inbyggd integrering med populära ramverk
 
 Konfiguration av appar kompletterar [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), som används för att lagra program hemligheter. Med app-konfigurationen blir det enklare att implementera följande scenarier:
@@ -49,7 +49,7 @@ Konfiguration av appar kompletterar [Azure Key Vault](https://azure.microsoft.co
 
 ## <a name="use-app-configuration"></a>Använd app-konfiguration
 
-Det enklaste sättet att lägga till ett program konfigurations lager i ditt program är via ett klient bibliotek som Microsoft tillhandahåller. Baserat på programmeringsspråk och ramverk är följande bästa metoder tillgängliga för dig.
+Det enklaste sättet att lägga till ett program konfigurations lager i ditt program är via ett klient bibliotek från Microsoft. Följande metoder är tillgängliga för att ansluta till ditt program, beroende på vilket språk och ramverk du valt
 
 | Programmeringsspråk och ramverk | Ansluta |
 |---|---|

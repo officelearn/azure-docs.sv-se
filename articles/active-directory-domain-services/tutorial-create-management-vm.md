@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7f7aeeaf7cbb957a276347b04633763033a62b4e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931587"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523023"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (AD DS) tillhandahåller hanterade domän
 
 Den här självstudien visar hur du skapar en virtuell Windows Server-dator i Azure och installerar de verktyg som krävs för att administrera en hanterad Azure AD DS-domän.
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Förstå de tillgängliga administrativa uppgifterna i en Azure AD DS-hanterad domän
@@ -31,7 +31,7 @@ I den här guiden får du lära dig hur man:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -44,6 +44,8 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * En virtuell Windows Server-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Om det behövs, se föregående självstudie för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
+* En Azure skydds-värd som har distribuerats i Azure AD DS Virtual Network.
+    * Om det behövs [skapar du en Azure skydds-värd][azure-bastion].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -84,16 +86,15 @@ I den föregående själv studie kursen har en virtuell Windows Server-dator ska
 Kom igång genom att ansluta till den virtuella Windows Server-datorn enligt följande:
 
 1. I Azure Portal väljer du **resurs grupper** på den vänstra sidan. Välj den resurs grupp där den virtuella datorn skapades, till exempel *myResourceGroup*, och välj sedan den virtuella datorn, till exempel *myVM*.
-1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut**.
+1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut**och sedan **skydds**.
 
-    ![Anslut till den virtuella Windows-datorn i Azure Portal](./media/tutorial-create-management-vm/connect-vm.png)
+    ![Ansluta till en virtuell Windows-dator med skydds i Azure Portal](./media/join-windows-vm/connect-to-vm.png)
 
-    Du kan också [skapa och använda en Azure skydds-värd (för närvarande i för hands version)][azure-bastion] för att bara tillåta åtkomst via Azure Portal via SSL.
+1. Ange autentiseringsuppgifterna för den virtuella datorn och välj sedan **Anslut**.
 
-1. Välj alternativet för att *Ladda ned RDP-filen*. Spara den här RDP-filen i webbläsaren.
-1. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
-1. Ange autentiseringsuppgifterna för en användare som är en del av *Administratörs gruppen för Azure AD DC* , till exempel *contoso\dee*
-1. Om du ser en certifikat varning under inloggnings processen väljer du **Ja** eller **Fortsätt** för att ansluta.
+   ![Anslut genom skydds-värden i Azure Portal](./media/join-windows-vm/connect-to-bastion.png)
+
+Om det behövs kan du tillåta att webbläsaren öppnar popup-fönster för att skydds-anslutningen ska visas. Det tar några sekunder att upprätta anslutningen till den virtuella datorn.
 
 ## <a name="install-active-directory-administrative-tools"></a>Installera Active Directory administrations verktyg
 

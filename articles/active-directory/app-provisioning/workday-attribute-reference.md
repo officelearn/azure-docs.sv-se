@@ -7,19 +7,19 @@ documentationcenter: na
 manager: jodadzie
 ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d193fdd5336ab32b10038ee170aee22a7cea88fd
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 54b4eaf483fd6817fe73c87962d5f26533a2b507
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066062"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521939"
 ---
 # <a name="workday-attribute-reference"></a>Workday-attributreferens
 
@@ -27,7 +27,7 @@ I tabellen nedan visas en lista över Workday-attribut och motsvarande XPATH-utt
 
 | \# | Namn                                  | API-uttryck för Workday                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1  | Aktiv                                | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: Worker\_status\_data/WD: Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
+| 1  | Active                                | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: Worker\_status\_data/WD: Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: Business\_site\_Summary\_data/WD: Address\_data/WD: Address\_line\_data\[@wd:Type= ' ADDRESS\_LINE\_2 '\]/text\(\)                                                                                                                                                                                                                             |
 | 3  | AddressLine3Data                      | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: Business\_site\_Summary\_data/WD: Address\_data/WD: Address\_line\_data\[@wd:Type= ' ADDRESS\_LINE\_3 '\]/text\(\)                                                                                                                                                                                                                             |
 | 4  | AddressLine4Data                      | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: Business\_site\_Summary\_data/WD: Address\_data/WD: Address\_line\_data\[@wd:Type= ' ADDRESS\_LINE\_4 '\]/text\(\)                                                                                                                                                                                                                             |
@@ -58,7 +58,7 @@ I tabellen nedan visas en lista över Workday-attribut och motsvarande XPATH-utt
 | 29 | LocationIdentifier                    | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: Business\_site\_Summary\_data/WD: plats\_referens/WD: ID\[@wd:type= ' plats\_-ID '\]/text\(\)                                                                                                                                                                                                                                            |
 | 30 | ManagerReference                      | WD: Worker/WD: Worker\_data/WD: Management\_Chain\_data/WD: Worker\_recentered\_Management\_Chain\_data\[position\(\)= 1\]/WD: hantering\_e\_data\[\(Reference/WD: ID \)\(.\)\]\_\[@wd:type\]\(\)                                                                                                                                                                            |
 | 31 | MiddleName                            | WD: Worker/WD: Worker\_data/WD: personal\_data/WD: namn\_data/WD: legal\_namn\_data/WD: namn\_information\_data/WD: mellan\_namn/text\(\)                                                                                                                                                                                                                                                                                |
-| 32 | Mobil                                | WD: Worker/WD: Worker\_data/WD: personal\_data/WD: kontakta\_data/WD: telefon\_data\[Översätt\(sträng\(WD: telefon\_enhet\_typ\_Reference/@wd:Descriptor\), "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"\)= "MOBILE" och Översätt\(sträng\(WD: användning\_data/WD: Type\_data/WD: Type\_data , ' abcdefghijklmnopqrstuvwxyz ', ' ABCDEFGHIJKLMNOPQRSTUVWXYZ '\)= ' WORK '\]/@wd:Formatted\_telefonReference/@wd:Descriptor\)    |
+| 32 | Mobiltelefon                                | WD: Worker/WD: Worker\_data/WD: personal\_data/WD: kontakta\_data/WD: telefon\_data\[Översätt\(sträng\(WD: telefon\_enhet\_typ\_Reference/@wd:Descriptor\), "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"\)= "MOBILE" och Översätt\(sträng\(WD: användning\_data/WD: Type\_data/WD: Type\_data , ' abcdefghijklmnopqrstuvwxyz ', ' ABCDEFGHIJKLMNOPQRSTUVWXYZ '\)= ' WORK '\]/@wd:Formatted\_telefonReference/@wd:Descriptor\)    |
 | 33 | Kommuner                          | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: Business\_site\_Summary\_data/WD: Address\_data/WD: kommun/text\(\)                                                                                                                                                                                                                                                                   |
 | 34 | PositionID                            | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: position\_-ID/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 35 | PositionTitle                         | WD: Worker/WD: Worker\_data/WD: anställning\_data/WD: position\_data/WD: position\_title/text\(\)                                                                                                                                                                                                                                                                                                                  |

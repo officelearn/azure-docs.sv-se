@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118369"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485360"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -27,6 +27,10 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 För att slutföra den här snabb starten måste du ha:
 
 - En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
 
@@ -70,7 +74,7 @@ Aktivera CORS på ditt lagrings konto. Välj ditt lagrings konto i Azure Portal 
 
 ## <a name="connect-to-the-sample-labeling-tool"></a>Ansluta till verktyget för att märka exempel
 
-Verktyget för att skapa etiketter ansluter till en källa (där de ursprungliga formulären finns) och ett mål (platsen där det exporterar de skapade etiketterna och utdata).
+Verktyget för att skapa etiketter ansluter till en källa (där de ursprungliga formulären finns) och ett mål (där det exporterar de skapade etiketterna och utdata).
 
 Anslutningar kan konfigureras och delas mellan projekt. De använder en utöknings bar leverantörs modell, så att du enkelt kan lägga till nya käll-/mål leverantörer.
 
@@ -89,7 +93,7 @@ Fyll i fälten med följande värden:
 I exempel verktyget för etikettering kan du lagra dina konfigurationer och inställningar i projekt. Skapa ett nytt projekt och fyll i fälten med följande värden:
 
 * **Visnings namn** – projektets visnings namn
-* **Säkerhetstoken – vissa** projekt inställningar kan innehålla känsliga värden, t. ex. API-nycklar eller andra delade hemligheter. Varje projekt kommer att generera en säkerhetstoken som kan användas för att kryptera/dekryptera känsliga projekt inställningar. Du hittar säkerhetstoken i program inställningar genom att klicka på kugg hjuls ikonen i det nedre hörnet i det vänstra navigerings fältet.
+* **Säkerhetstoken – vissa** projekt inställningar kan innehålla känsliga värden, t. ex. API-nycklar eller andra delade hemligheter. Varje projekt kommer att generera en säkerhetstoken som kan användas för att kryptera/dekryptera känsliga projekt inställningar. Du kan hitta säkerhetstoken i program inställningarna genom att klicka på kugg hjuls ikonen i det nedre hörnet i det vänstra navigerings fältet.
 * **Käll anslutning** – Azure Blob Storage-anslutningen som du skapade i det föregående steget som du vill använda för det här projektet.
 * **Mappsökväg** – valfritt – om dina käll formulär finns i en mapp på BLOB-behållaren anger du mappnamnet här
 * **Formulär tolkens tjänst-URI** – URL för formulär tolkens slut punkt.
@@ -146,7 +150,7 @@ Efter att utbildningen har slutförts undersöker du det **genomsnittliga noggra
 
 ## <a name="analyze-a-form"></a>Analysera ett formulär
 
-Klicka på ikonen predict (rektanglar) till vänster för att testa din modell. Ladda upp ett formulär dokument som du inte använde i inlärnings processen. Klicka sedan på knappen **predict** till höger för att hämta nyckel/värde-förutsägelser för formuläret. Verktyget använder taggar i markerings rutor och rapporterar förtroendet för varje tagg.
+Klicka på ikonen predict (rektanglar) till vänster för att testa din modell. Ladda upp ett formulär dokument som du inte har använt i övnings processen. Klicka sedan på knappen **predict** till höger för att hämta nyckel/värde-förutsägelser för formuläret. Verktyget använder taggar i markerings rutor och rapporterar förtroendet för varje tagg.
 
 > [!TIP]
 > Du kan också köra analys-API: et med ett REST-anrop. Information om hur du gör detta finns i [träna med etiketter med hjälp av python](./python-labeled-data.md).
@@ -155,7 +159,7 @@ Klicka på ikonen predict (rektanglar) till vänster för att testa din modell. 
 
 Beroende på den rapporterade noggrannheten kanske du vill göra ytterligare utbildningar för att förbättra modellen. När du har gjort en förutsägelse undersöker du konfidens intervallet för varje tillämpad tagg. Om inlärning svärdet för genomsnittlig precision var högt, men förtroende poängen är lågt (eller om resultatet är felaktigt) bör du lägga till filen som används för förutsägelse i tränings uppsättningen, ge den etiketten och träna igen.
 
-Den rapporterade genomsnittliga noggrannheten, konfidens resultatet och faktisk noggrannhet kan vara inkonsekvent när dokumenten som analyseras skiljer sig från de som används i utbildningen. Tänk på att vissa dokument ser likadana ut när de visas av personer, men kan se distinkt ut för AI-modellen. Du kan till exempel träna med en formulär typ som har två varianter, där inlärnings uppsättningen består av 20% variation A och 80% variation B. Vid förutsägelsen kommer förtroende poängen för dokument variation A sannolikt att vara lägre.
+Den rapporterade genomsnittliga noggrannheten, konfidens resultatet och faktisk noggrannhet kan vara inkonsekvent när de analyserade dokumenten skiljer sig från de som används i utbildningen. Tänk på att vissa dokument ser likadana ut när de visas av personer, men kan se distinkt ut för AI-modellen. Du kan till exempel träna med en formulär typ som har två varianter, där inlärnings uppsättningen består av 20% variation A och 80% variation B. Vid förutsägelsen kommer förtroende poängen för dokument variation A sannolikt att vara lägre.
 
 ## <a name="save-a-project-and-resume-later"></a>Spara ett projekt och återuppta senare
 
@@ -165,7 +169,7 @@ Om du vill återuppta projektet vid en annan tidpunkt eller i en annan webbläsa
 Gå till sidan projekt inställningar (skjutreglage) och Anteckna namnet på säkerhetstoken. Gå sedan till dina program inställningar (kugg hjuls ikon) som visar alla säkerhetstoken i den aktuella webb läsar instansen. Sök efter ditt projekts säkerhetstoken och kopiera dess namn och nyckel värde till en säker plats.
 
 ### <a name="restore-project-credentials"></a>Återställ autentiseringsuppgifter för projekt
-När du vill återuppta ditt projekt måste du först skapa en anslutning till samma Blob Storage-behållare. Följ stegen ovan för att göra detta. Gå sedan till sidan program inställningar (kugg hjuls ikon) och se om ditt projekts säkerhetstoken finns där. Om den inte är det lägger du till en ny säkerhetstoken och kopierar över ditt token-namn och nyckel från föregående steg. Klicka sedan på Spara inställningar. 
+När du vill återuppta ditt projekt måste du först skapa en anslutning till samma Blob Storage-behållare. Upprepa stegen ovan för att göra detta. Gå sedan till sidan program inställningar (kugg hjuls ikon) och se om ditt projekts säkerhetstoken finns där. Om den inte är det lägger du till en ny säkerhetstoken och kopierar över ditt token-namn och nyckel från föregående steg. Klicka sedan på Spara inställningar. 
 
 ### <a name="resume-a-project"></a>Återuppta ett projekt
 Till sist går du till huvud sidan (House-ikonen) och klickar på öppna moln projekt. Välj sedan Blob Storage-anslutningen och välj din projekts *. vott* -fil. Programmet kommer att läsa in alla projekt inställningar eftersom det har säkerhetstoken.

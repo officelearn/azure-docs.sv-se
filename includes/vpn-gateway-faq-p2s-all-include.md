@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9b106ea43e6a11d616ed2212636975bbbbf65631
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: be858e9200191de7e0bda0ae227519666d80fb7a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75752189"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500590"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Hur många slutpunkter på VPN-klienter kan jag ha i min punkt-till-plats-konfiguration?
 
@@ -98,3 +98,21 @@ Azure har stöd för Windows, Mac och Linux för P2S-VPN.
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Jag har redan en Azure VPN Gateway distribuerad. Kan jag aktivera RADIUS och/eller IKEv2 VPN på den?
 
 Ja, du kan aktivera dessa nya funktioner på gatewayer som redan har distribuerats genom Powershell- eller Azure Portal, förutsatt att gateway-SKU:n som du använder stöder RADIUS och/eller IKEv2. Till exempel stöder inte SKU:n för VPN-gatewayen RADIUS eller IKEv2 på Basic-nivån.
+
+### <a name="removeconfig"></a>Hur gör jag för att bort konfigurationen av en P2S-anslutning?
+
+En P2S-konfiguration kan tas bort med hjälp av Azure CLI och PowerShell med följande kommandon:
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+
+```azurepowershell-interactive
+$gw=Get-AzVirtualNetworkGateway -name <gateway-name>`  
+$gw.VPNClientConfiguration = $null`  
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw`
+```
+
+#### <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"
+```

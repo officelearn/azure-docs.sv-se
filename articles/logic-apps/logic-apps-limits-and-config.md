@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: f0c38590b667894dd65d212124ef1d26c7918ff7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.date: 02/20/2020
+ms.openlocfilehash: 059894d441897bd89be525abcc7e1c7ab6ba23e7
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366417"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485054"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -155,7 +155,7 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 |------|--------------------|---------------------------------------|-------|
 | Meddelandestorlek | 100 MB | 200 MB | För att undvika den här gränsen, se [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). Vissa anslutningar och API: er kanske inte stöder segment koppling eller till och med standard gränsen. |
 | Meddelande storlek med segment | 1 GB | 5 GB | Den här gränsen gäller för åtgärder som har inbyggt stöd för segmentering eller som låter dig aktivera segment i körnings konfigurationen. <p>För integrerings tjänst miljön stöder Logic Apps motor den här gränsen, men kopplingarna har sina egna segment gränser upp till motor gränsen, till exempel, se [Azure-Blob Storage Connectors API-referens](https://docs.microsoft.com/connectors/azureblob/). Mer information om segment finns i [hantera stora meddelanden med segment](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||   
+|||||
 
 #### <a name="character-limits"></a>Character-gränser
 
@@ -248,12 +248,16 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 | Schema | 8 MB | Om du vill ladda upp filer som är större än 2 MB använder du ett [Azure Storage-konto och en BLOB-behållare](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Runtime-slutpunkt | Gräns | Anteckningar |
-|------------------|-------|-------|
-| Läs anrop per 5 minuter | 60,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
-| Anropa anrop per 5 minuter | 45,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
-| Spåra anrop per 5 minuter | 45,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
-| Blockerar samtidiga anrop | ~1,000 | Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
+<a name="integration-account-throughput-limits"></a>
+
+### <a name="throughput-limits"></a>Data flödes gränser
+
+| Runtime-slutpunkt | Kostnadsfri | Basic | Standard | Anteckningar |
+|------------------|------|-------|----------|-------|
+| Läs anrop per 5 minuter | 3,000 | 30,000 | 60,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
+| Anropa anrop per 5 minuter | 3,000 | 30,000 | 45,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
+| Spåra anrop per 5 minuter | 3,000 | 30,000 | 45,000 | Du kan distribuera arbets belastningen i mer än ett konto vid behov. |
+| Blockerar samtidiga anrop | ~1,000 | ~1,000 | ~1,000 | Samma för alla SKU: er. Du kan minska antalet samtidiga förfrågningar eller minska varaktigheten om det behövs. |
 ||||
 
 <a name="b2b-protocol-limits"></a>

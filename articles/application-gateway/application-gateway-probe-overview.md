@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766830"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505903"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
 
@@ -49,7 +49,7 @@ Följande är matchnings villkor:
 
 Matchnings villkor kan anges med hjälp av `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
-Ett exempel:
+Exempel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -101,9 +101,11 @@ Följande tabell innehåller definitioner av egenskaperna för en anpassad häls
 
 ## <a name="nsg-considerations"></a>NSG överväganden
 
-Om det finns en nätverks säkerhets grupp (NSG) i ett Application Gateway-undernät måste port intervall 65503-65534 öppnas i Application Gateway-undernätet för inkommande trafik. Dessa portar krävs för att Server delens hälso-API ska fungera.
+Du måste tillåta inkommande Internet trafik på TCP-portarna 65503-65534 för Application Gateway v1 SKU och TCP-portarna 65200-65535 för v2-SKU: n med mål under nätet som **valfri** och källa som **GatewayManager** service tag. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen.
 
-Dessutom kan utgående Internet-anslutning inte blockeras och inkommande trafik från AzureLoadBalancer-taggen måste tillåtas.
+Dessutom kan utgående Internet-anslutning inte blockeras och inkommande trafik från **AzureLoadBalancer** -taggen måste tillåtas.
+
+Mer information finns i [Application Gateway konfigurations översikt](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
 
 ## <a name="next-steps"></a>Nästa steg
 När du har lärt dig om Application Gateway hälso övervakning kan du konfigurera en [anpassad hälso avsökning](application-gateway-create-probe-portal.md) i Azure Portal eller en [anpassad hälso avsökning](application-gateway-create-probe-ps.md) med hjälp av PowerShell och Azure Resource Manager distributions modellen.

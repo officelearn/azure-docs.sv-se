@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 98965a50037558f512401e09915021234790840d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368611"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526486"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -176,7 +176,7 @@ Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filre
 
 Standard fil resurser med 100 TiB-kapacitets gräns är tillgängliga globalt i alla Azure-regioner –
 
-- LRS: alla regioner, utom Sydafrika, norra och södra Afrika.
+- LRS: alla regioner, med undantag för norra Sydafrika, västra Sydafrika, Tyskland, västra centrala och Tyskland, norra.
 - ZRS: alla regioner, utom Japan, östra; Nord Europa, norra Sydafrika.
 - GRS/GZRS: stöds inte.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a16d28f31887c8bedcc95424382e674e037450e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 66e94393bef942d7bfad41a7dccc8b651696d4af
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468413"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484527"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -31,7 +31,7 @@ Krav på hanterade enheter för åtkomst till molnbaserad **Azure AD-villkorlig 
 - **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** – den här artikeln ger en konceptuell översikt över villkorlig åtkomst och den relaterade terminologin.
 - **[Introduktion till enhets hantering i Azure Active Directory](../devices/overview.md)** – den här artikeln ger dig en översikt över de olika alternativen för att hämta enheter under organisations kontroll. 
 
->[!IMPORTANT] 
+>[!NOTE] 
 > Vi rekommenderar att du använder Azure AD Device-baserad princip för villkorlig åtkomst för att få bästa möjliga tillämpning efter den första autentiseringen av enheten. Detta inkluderar sessioner som stänger om enheten faller utanför efterlevnad och enhets kod flödet.
 
 

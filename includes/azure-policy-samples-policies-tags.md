@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1f949a5c13393758d69223fa49e9e84d91e27310
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77370809"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495027"
 ---
 |Namn |Beskrivning |Påverkan (ar) |Version |Källa |
 |---|---|---|---|
@@ -22,6 +22,8 @@ ms.locfileid: "77370809"
 |[Lägg till tagg och dess värde från resurs gruppen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ea02ca2-71db-412d-8b00-7c7ca9fcd32d) |Lägger till den angivna taggen med värdet från resurs gruppen när en resurs som saknar taggen skapas eller uppdateras. Ändrar inte de resurs etiketter som skapats innan den här principen tillämpades förrän resurserna har ändrats. Nya effekter för att ändra-effekter är tillgängliga som stöder reparation av taggar på befintliga resurser (se https://aka.ms/modifydoc). |slå |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Append.json)
 |[Ärv en tagg från resurs gruppen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcd3aa116-8754-49c9-a813-ad46512ece54) |Lägger till eller ersätter den angivna taggen och värdet från den överordnade resurs gruppen när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd. |Gör |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_Modify.json)
 |[Ärv en tagg från resurs gruppen om den saknas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea3f2387-9b95-492a-a190-fcdc54f7b070) |Lägger till den angivna taggen med värdet från den överordnade resurs gruppen när en resurs som saknar den här taggen har skapats eller uppdaterats. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd. Om taggen finns med ett annat värde kommer den inte att ändras. |Gör |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_Modify.json)
+|[Ärv en tagg från prenumerationen](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb27a0cbd-a167-4dfa-ae64-4337be671140) |Lägger till eller ersätter den angivna taggen och värdet från den som innehåller prenumerationen när en resurs skapas eller uppdateras. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd. |Gör |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_FromSubscription.json)
+|[Ärv en tagg från prenumerationen om den saknas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40df99da-1232-49b1-a39a-6da8d878f469) |Lägger till den angivna taggen med värdet från den som innehåller prenumerationen när en resurs som saknar taggen har skapats eller uppdaterats. Befintliga resurser kan åtgärdas genom att utlösa en reparationsåtgärd. Om taggen finns med ett annat värde kommer den inte att ändras. |Gör |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_FromSubscription.json)
 |[Kräv angiven tagg](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b6d14-10aa-478d-b590-94f262ecfa99) |Framtvingar förekomst av en tagg. Gäller inte för resurs grupper. |autentiseringsregel |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTag_Deny.json)
 |[Kräv den angivna taggen för resurs grupper](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |Framtvingar förekomst av en tagg i resurs grupper. |autentiseringsregel |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json)
 |[Kräv tagg och dess värde](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e30110a-5ceb-460c-a204-c1c3969c6d62) |Tvingar fram en obligatorisk tagg och dess värde. Gäller inte för resurs grupper. |autentiseringsregel |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTagAndValue_Deny.json)

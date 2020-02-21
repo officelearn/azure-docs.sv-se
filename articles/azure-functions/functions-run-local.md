@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: dd36895a34b36bbdf8e796cf629ab031613663cd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208892"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523279"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -43,6 +43,9 @@ Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
 [Azure Functions Core tools] innehåller en version av samma körnings miljö som har behörighet Azure Functions runtime som du kan köra på din lokala utvecklings dator. Den innehåller också kommandon för att skapa funktioner, ansluta till Azure och distribuera funktions projekt.
 
+>[!IMPORTANT]
+>Du måste ha installerat [Azure CLI](/cli/azure/install-azure-cli) lokalt för att kunna publicera till Azure från Azure Functions Core tools.  
+
 ### <a name="v2"></a>Version 2. x och 3. x
 
 Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
@@ -50,7 +53,7 @@ Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger 
 > [!IMPORTANT]
 > Du kan kringgå kravet för att installera .NET Core SDK med hjälp av [tilläggs paket].
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -76,7 +79,7 @@ I följande steg används NPM för att installera kärn verktyg i Windows. Du ka
 
 1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för Windows](https://www.microsoft.com/net/download/windows).
 
-# <a name="macostabmacos"></a>[MacOS](#tab/macos)
+# <a name="macos"></a>[MacOS](#tab/macos)
 
 I följande steg används homebrew för att installera kärn verktygen på macOS.
 
@@ -100,7 +103,7 @@ I följande steg används homebrew för att installera kärn verktygen på macOS
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 I följande steg används [apt](https://wiki.debian.org/Apt) för att installera kärn verktyg på din Ubuntu/Debian Linux-distribution. Andra Linux-distributioner finns i [README-verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -454,6 +457,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publicera till Azure
 
 Azure Functions Core Tools stöder två typer av distribution: Distribuera Function Project-filer direkt till din Function-app via [zip Deploy](functions-deployment-technologies.md#zip-deploy) och [distribuera en anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Du måste redan ha [skapat en Function-app i din Azure-prenumeration](functions-cli-samples.md#create), som du ska distribuera din kod till. Projekt som kräver kompilering bör skapas så att binärfilerna kan distribueras.
+
+>[!IMPORTANT]
+>Du måste ha installerat [Azure CLI](/cli/azure/install-azure-cli) lokalt för att kunna publicera till Azure från kärn verktyg.  
 
 En projektmapp kan innehålla språkspecifika filer och kataloger som inte ska publiceras. Undantagna objekt visas i en. funcignore-fil i rotmappen.     
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162165"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499967"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Lagra Azure SQL Database säkerhets kopior i upp till 10 år
 
@@ -28,7 +28,13 @@ Många program har regler, efterlevnad eller andra affärs behov som kräver att
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Så här fungerar SQL Database långsiktig kvarhållning
 
-Långsiktig kvarhållning av säkerhets kopior (brv) utnyttjar de fullständiga säkerhets kopiorna av databasen som [skapas automatiskt](sql-database-automated-backups.md) för att aktivera punkt-tids återställning (PITR). Om en LTR-princip har kon figurer ATS kopieras dessa säkerhets kopior till olika blobbar för långsiktig lagring. Kopierings åtgärden är ett bakgrunds jobb som inte påverkar databasens arbets belastning. Säkerhets kopiorna för säkerhets kopian bevaras under en tids period som anges av vä-hö-principen. Principen för vä-hö för varje SQL-databas kan också ange hur ofta säkerhets kopieringarna ska skapas. Om du vill aktivera flexibiliteten kan du definiera principen med en kombination av fyra parametrar: veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M), årlig kvarhållning av säkerhets kopior (Y) och vecka på år (WeekOfYear). Om du anger a kommer en säkerhets kopia varje vecka att kopieras till långsiktig lagring. Om du anger M kommer en säkerhets kopia under den första veckan varje månad att kopieras till långsiktig lagring. Om du anger Y kopieras en säkerhets kopia under den vecka som anges av WeekOfYear till långsiktig lagring. Varje säkerhets kopia sparas i långtids lagringen under den period som anges av dessa parametrar. Alla ändringar av LTR-principen gäller för framtida säkerhets kopieringar. Om t. ex. den angivna WeekOfYear har passerat när principen har kon figurer ATS skapas den första säkerhets kopian för LTR nästa år. 
+Långsiktig kvarhållning av säkerhets kopior (brv) utnyttjar de fullständiga säkerhets kopiorna av databasen som [skapas automatiskt](sql-database-automated-backups.md) för att aktivera punkt-tids återställning (PITR). Om en LTR-princip har kon figurer ATS kopieras dessa säkerhets kopior till olika blobbar för långsiktig lagring. Kopieringen är ett bakgrunds jobb som inte påverkar databasens arbets belastning. Principen för vä-hö för varje SQL-databas kan också ange hur ofta säkerhets kopieringarna ska skapas.
+
+Om du vill aktivera vä-hö kan du definiera en princip med en kombination av fyra parametrar: veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M), årlig kvarhållning av säkerhets kopior (Y) och vecka på år (WeekOfYear). Om du anger a kommer en säkerhets kopia varje vecka att kopieras till långsiktig lagring. Om du anger M kommer den första säkerhets kopian av varje månad att kopieras till långsiktig lagring. Om du anger Y kopieras en säkerhets kopia under den vecka som anges av WeekOfYear till långsiktig lagring. Om den angivna WeekOfYear infaller efter att principen har kon figurer ATS skapas den första säkerhets kopian för LTR under följande år. Varje säkerhets kopia sparas i långtids lagringen enligt de princip parametrar som konfigureras när säkerhets kopian för LTR skapas.
+
+> [!NOTE]
+> Alla ändringar i LTR-principen gäller endast för framtida säkerhets kopieringar. Om till exempel veckovis kvarhållning av säkerhets kopior (W), månatlig kvarhållning av säkerhets kopior (M) eller årlig kvarhållning av säkerhets kopior (Y) ändras, kommer den nya inställningen för kvarhållning endast att gälla för nya säkerhets kopior. Kvarhållning av befintliga säkerhets kopior kommer inte att ändras. Om din avsikt är att ta bort gamla LTR-säkerhetskopieringar innan deras kvarhållningsperiod går ut, måste du [ta bort säkerhets kopiorna manuellt](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> 
 
 Exempel på LTR-principen:
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834929"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483490"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI
  
@@ -27,7 +27,7 @@ Kontrol lera att du har installerat Azure CLI version 2.0.70 eller senare och lo
 ## <a name="limitations"></a>Begränsningar
 
 - Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- Den första versionen stöder följande VM-serien: DSv3 och ESv3. 
+- Den första versionen stöder följande VM-serien: DSv3, ESv3, FSv2, LSv2 och MSv2. 
  
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp 

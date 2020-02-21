@@ -6,12 +6,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7d0a1d89b0547b1cd982b2717ac7548bec848a77
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2ab67743a349c33000d4b6f8b8566ff48e5e1d24
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671309"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500026"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudie: Bygg en Node. js-och MongoDB-app i Azure
 
@@ -35,9 +35,9 @@ Detta får du får lära dig:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 1. [Installera Git](https://git-scm.com/)
 2. [Installera Node.js och NPM](https://nodejs.org/)
@@ -105,7 +105,7 @@ MEAN.js-exempelprogrammet lagrar användardata i databasen. Om du lyckas skapa e
 
 ![MEAN.js ansluter till MongoDB](./media/app-service-web-tutorial-nodejs-mongodb-app/mongodb-connect-success.png)
 
-Välj **Administratör > Hantera artiklar** för att lägga till några artiklar.
+Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar.
 
 Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen. 
 
@@ -240,7 +240,7 @@ Gå till `http://localhost:8443` i en webbläsare. Klicka på alternativet för 
 
 I terminalen stoppar du Node.js genom att skriva `Ctrl+C`. 
 
-## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
 I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azure App Service.
 
@@ -253,7 +253,7 @@ I det här steget distribuerar du ditt MongoDB-anslutna Node.js-program till Azu
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -325,7 +325,7 @@ Om du lyckas och appen loggar in automatiskt till den skapade användaren har di
 
 ![MEAN.js-app som körs i Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Välj **Administratör > Hantera artiklar** för att lägga till några artiklar. 
+Välj **Admin > Manage Articles** (Administratör > Hantera artiklar) för att lägga till några artiklar. 
 
 **Grattis!** Du kör en datadriven Node.js-app i Azure App Service.
 

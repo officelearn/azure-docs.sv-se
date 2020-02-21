@@ -6,12 +6,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 12/29/2019
 ms.author: lcozzens
-ms.openlocfilehash: f85f63af94beb5c0d99632be69368c0c7c727b7b
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 2cdeb0d513230cac5d03f85f2189f15c818798fd
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212215"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500394"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrera med hanterade Azure-identiteter
 
@@ -78,7 +78,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 1. Lägg till en referens till *Azure. Identity* -paketet:
 
     ```cli
-    dotnet add package Azure.Identity --version 1.1.0
+    dotnet add package Azure.Identity
     ```
 
 1. Hitta slut punkten för konfigurations lagringen för appen. URL: en visas på fliken **åtkomst nycklar** för butiken i Azure Portal.
@@ -102,7 +102,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
     > [!IMPORTANT]
     > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .NET Core 3,0.  Välj rätt syntax baserat på din miljö.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
+    ### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -116,7 +116,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
                 .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
+    ### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -134,7 +134,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
 1. Uppdatera *program.cs* så som visas nedan om du vill använda både konfigurations värden för appen och Key Vault referenser. Den här koden skapar en ny `KeyVaultClient` som använder en `AzureServiceTokenProvider` och skickar den här referensen till ett anrop till `UseAzureKeyVault`-metoden.
 
-    ### <a name="net-core-2xtabcore2x"></a>[.NET Core 2. x](#tab/core2x)
+    ### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
     ```csharp
             public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -150,7 +150,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
                     .UseStartup<Startup>();
     ```
 
-    ### <a name="net-core-3xtabcore3x"></a>[.NET Core 3. x](#tab/core3x)
+    ### <a name="net-core-3x"></a>[.NET Core 3. x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>

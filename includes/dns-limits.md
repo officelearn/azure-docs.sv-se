@@ -2,14 +2,14 @@
 author: rothja
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 6/15/2019
-ms.author: victorh
-ms.openlocfilehash: 2e6fa48894339b993410435f982d0948715de4e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 2/14/2020
+ms.author: rohink
+ms.openlocfilehash: b674f8e31eb61328f60bb24866f73d02653b655f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210999"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495175"
 ---
 **Offentliga DNS-zoner**
 
@@ -26,5 +26,9 @@ ms.locfileid: "74210999"
 | Virtuella nätverk länkar per privat DNS-zoner med automatisk registrering aktive rad |100|
 | Antal privata DNS-zoner som ett virtuellt nätverk kan kopplas till med automatisk registrering aktive rad |1|
 | Antal privata DNS-zoner som ett virtuellt nätverk kan länkas till |1000|
+| Antal DNS-frågor som en virtuell dator kan skicka till Azure DNS-lösare per sekund |500 <sup>2</sup> |
+| Maximalt antal DNS-frågor i kö (väntar på svar) per virtuell dator |200 <sup>2</sup> |
 
 <sup>1</sup> Kontakta Azure-supporten om du behöver öka dessa gränser.
+
+<sup>2</sup> Dessa gränser tillämpas på varje enskild virtuell dator och inte på nivån för det virtuella nätverket. DNS-frågor som överskrider dessa gränser ignoreras.

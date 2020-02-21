@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 56cbae7ae56c4b482ac6de201c7a2c8aacb81e59
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048597"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506056"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera Kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -61,7 +61,7 @@ Information om hur du aktiverar dessa egenskaper på en befintlig Azure Key Vaul
 
    ![Välja rätt behörigheter](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. Under **Välj huvud konto**väljer du **ingen vald**. Sök sedan efter **Azure Cosmos DB** huvud konto och markera det. Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft. DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
+1. Under **Välj huvud konto**väljer du **ingen vald**. Sök sedan efter **Azure Cosmos DB** huvud konto och välj det (för att göra det lättare att hitta, kan du också söka efter huvud-id: `a232010e-820c-4083-83bb-3ace5fc29d0b` för alla Azure-regioner utom Azure Government regioner där ägar-ID är `57506a73-e302-42a9-b869-6f12d9ec29e9`). Slutligen väljer du **Välj** längst ned. Om **Azure Cosmos DB** -huvudobjektet inte finns i listan kan du behöva registrera om **Microsoft. DocumentDB** Resource Provider enligt beskrivningen i avsnittet [Registrera resurs leverantören](#register-resource-provider) i den här artikeln.
 
    ![Välj Azure Cosmos DB huvud konto](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 

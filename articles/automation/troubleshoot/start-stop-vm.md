@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966687"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505723"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsök lösningen starta/stoppa virtuella datorer under låg tid
 
@@ -62,7 +62,7 @@ Distributioner kan Miss lyckas på grund av en av följande orsaker:
 4. Din Log Analytics-arbetsyta har ett lås på den.
 5. Du har en inaktuell version av AzureRM-moduler eller starta/stoppa-lösningen.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
@@ -92,7 +92,7 @@ Felet kan bero på någon av följande orsaker:
 3. En Runbook kan ha stött på fel
 4. De virtuella datorerna kan ha uteslutits
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
@@ -133,7 +133,7 @@ Felet kan bero på någon av följande orsaker:
 3. RunAs-kontot har kanske inte tillräckligt med behörigheter på den virtuella datorn
 4. Den virtuella datorn kan ha något som avbrutit den från att starta eller stoppa
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
@@ -151,7 +151,7 @@ Läs följande lista för eventuella lösningar på problemet eller platser att 
 
 * För att starta och stoppa virtuella datorer måste kör som-kontot för Automation-kontot ha nödvändig behörighet för den virtuella datorn. Information om hur du kontrollerar behörigheter för en resurs finns i [snabb start: Visa roller tilldelade till en användare med hjälp av Azure Portal](../../role-based-access-control/check-access.md). Du måste ange program-ID för tjänstens huvud namn som används av kör som-kontot. Du kan hämta det här värdet genom att gå till ditt Automation-konto i Azure Portal, välja **Kör som-konton** under **konto inställningar** och klicka på lämpligt kör som-konto.
 
-* Om den virtuella datorn har problem med att starta eller att allokera kan det här beteendet orsakas av ett problem på den virtuella datorn. Några exempel eller potentiella problem är att en uppdatering tillämpas när du försöker stänga av, en tjänst låser sig och mer). Navigera till den virtuella dator resursen och kontrol lera **aktivitets loggarna** för att se om det finns några fel i loggarna. Du kan också försöka logga in på den virtuella datorn för att se om det finns några fel i händelse loggarna. Mer information om hur du felsöker din virtuella dator finns i [Felsöka Azure Virtual Machines](../../virtual-machines/troubleshooting/index.md)
+* Om den virtuella datorn har problem med att starta eller att allokera kan det här beteendet orsakas av ett problem på den virtuella datorn. Några exempel eller potentiella problem är att en uppdatering tillämpas när du försöker stänga av, en tjänst låser sig och mer). Navigera till den virtuella dator resursen och kontrol lera **aktivitets loggarna** för att se om det finns några fel i loggarna. Du kan också försöka logga in på den virtuella datorn för att se om det finns några fel i händelse loggarna. Mer information om hur du felsöker din virtuella dator finns i [Felsöka Azure Virtual Machines](../../virtual-machines/troubleshooting/index.yml)
 
 * Kontrol lera [jobb strömmarna](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) för att leta efter eventuella fel. I portalen går du till ditt Automation-konto och väljer **jobb** under **process automatisering**.
 
@@ -165,7 +165,7 @@ Du har skapat en anpassad Runbook eller hämtat en från PowerShell-galleriet oc
 
 Orsaken till felet kan vara något av många saker. Gå till ditt Automation-konto i Azure Portal och välj **jobb** under **process automatisering**. På sidan **jobb** letar du efter jobb från din Runbook för att visa eventuella jobb haverier.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Vi rekommenderar att du använder [lösningen starta/stoppa virtuella datorer under låg belastning](../automation-solution-vm-management.md) för att starta och stoppa virtuella datorer i Azure Automation. Den här lösningen har skapats av Microsoft. Anpassade Runbooks stöds inte av Microsoft. Du kan hitta en lösning för din anpassade Runbook genom att gå till [fel söknings](runbooks.md) artikeln för Runbook. Den här artikeln innehåller allmän vägledning och fel sökning för Runbooks av alla typer. Kontrol lera [jobb strömmarna](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) för att leta efter eventuella fel. I portalen går du till ditt Automation-konto och väljer **jobb** under **process automatisering**.
 
@@ -179,7 +179,7 @@ De virtuella datorer som du har konfigurerat i lösningen startar eller stoppas 
 
 Detta beror på felaktig taggning på de virtuella datorerna.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Utför följande steg för att säkerställa att lösningen är korrekt konfigurerad.
 
@@ -199,7 +199,7 @@ Du hittar jobb som misslyckades med ett `403 forbidden` fel för Runbooks för a
 
 Det här problemet kan orsakas av ett felaktigt konfigurerat eller utgånget kör som-konto. Det kan också bero på otillräcklig behörighet till VM-resurserna av kör som-kontot för Automation-konton.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Om du vill kontrol lera att kör som-kontot är korrekt konfigurerat går du till ditt Automation-konto i Azure Portal och väljer **Kör som-konton** under **konto inställningar**. Här visas statusen för dina kör som-konton, om ett Kör som-konto är felaktigt konfigurerat eller upphör att gälla visas detta.
 
@@ -222,7 +222,7 @@ Många gånger kan fel uppstå genom att använda en gammal och inaktuell versio
 > [!NOTE]
 > Den Starta/stoppa virtuella datorer när de inte används lösningen har testats med Azure-modulerna som importeras till ditt Automation-konto när du distribuerar lösningen. Lösningen fungerar för närvarande inte med nyare versioner av Azure-modulen. Detta påverkar bara det Automation-konto som du använder för att köra Starta/stoppa virtuella datorer när de inte används-lösningen. Du kan fortfarande använda nyare versioner av Azure-modulen i andra Automation-konton, enligt beskrivningen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md)
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 För att lösa många fel rekommenderar vi att du tar bort och uppdaterar lösningen. Information om hur du uppdaterar lösningen finns i [Uppdatera tjänsten starta/stoppa virtuella datorer vid inaktive ring av timmar](../automation-solution-vm-management.md#update-the-solution). Dessutom kan du kontrol lera [jobb strömmarna](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) för att söka efter eventuella fel. I portalen går du till ditt Automation-konto och väljer **jobb** under **process automatisering**.
 

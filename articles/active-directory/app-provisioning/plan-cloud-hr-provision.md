@@ -6,18 +6,18 @@ author: martincoetzer
 manager: CelesteDG
 tags: azuread
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 10bd6f1f8582ba048a3f77ff329d90f1b4463675
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066426"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522440"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -181,7 +181,7 @@ Vi rekommenderar följande produktions konfiguration:
 |Krav|Rekommendation|
 |:-|:-|
 |Antal Azure AD Connect etablerings agenter som ska distribueras|Två (för hög tillgänglighet och redundans)
-|Antal etablerings anslutnings program som ska konfigureras|En app per underordnad domän|
+|Antal etablerings anslutnings program som ska konfigureras|en app per underordnad domän|
 |Server värd för Azure AD Connect etablerings agent|Windows 2012 R2 + med detaljerad information för Active Directory domänkontrollanter</br>Kan samverka med Azure AD Connect tjänst|
 
 ![Flöda till lokala agenter](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img4.png)
@@ -195,7 +195,7 @@ Vi rekommenderar följande produktions konfiguration:
 |Krav|Rekommendation|
 |:-|:-|
 |Antal Azure AD Connect etablerings agenter som ska distribueras lokalt|Två per åtskild Active Directory-skog|
-|Antal etablerings anslutnings program som ska konfigureras|En app per underordnad domän|
+|Antal etablerings anslutnings program som ska konfigureras|en app per underordnad domän|
 |Server värd för Azure AD Connect etablerings agent|Windows 2012 R2 + med detaljerad information för Active Directory domänkontrollanter</br>Kan samverka med Azure AD Connect tjänst|
 
 ![Ett enda moln HR-program klient som är åtskild Active Directory skog](media/plan-cloud-hr-provision/plan-cloudhr-provisioning-img5.png)

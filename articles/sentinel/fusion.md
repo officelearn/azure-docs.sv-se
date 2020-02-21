@@ -10,16 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.author: rkarlin
-ms.openlocfilehash: ada2ad67bc3634d8e6a31d3c8a69fc0c8b08a93a
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 5ab5d3c0fc1c37feaac2cc6b4b6837627c5a82df
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369702"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500645"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Avancerad attack identifiering i Multistage i Azure Sentinel
+
+
+> [!IMPORTANT]
+> Vissa fusions funktioner i Azure Sentinel är för närvarande en offentlig för hands version.
+> Dessa funktioner tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 Genom att använda fusions teknik som är baserad på maskin inlärning kan Azure Sentinel automatiskt identifiera angrepp i flera steg genom att kombinera avvikande beteenden och misstänkta aktiviteter som observeras i olika steg i Kill-kedjan. Azure Sentinel genererar sedan incidenter som annars skulle vara svåra att fånga. Dessa incidenter har två eller flera aviseringar eller aktiviteter. Som design är dessa incidenter små volymer, hög kvalitet och hög allvarlighets grad.
 
@@ -41,13 +48,32 @@ Den här identifieringen är aktive rad som standard i Azure Sentinel. Om du vil
 
 Regelmallar gäller inte för den avancerade identifieringen av skadlig kod.
 
+> [!NOTE]
+> Azure Sentinel använder för närvarande 30 dagars historiska data för att träna Machine Learning-systemen. Dessa data krypteras alltid med Microsofts nycklar när de passerar genom Machine Learning-pipeline. Inlärnings informationen är dock inte krypterad med [Kundhanterade nycklar (CMK)](customer-managed-keys.md) om du har aktiverat CMK i Azure Sentinel-arbetsytan. Om du inte vill använda fusion går du till **Azure Sentinel** \> **konfiguration** \> **analys \> aktiva regler \> avancerad sårbarhets identifiering i Multistage** och i kolumnen **status** väljer du **Inaktivera.**
+
 ## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion med Palo-nätverk och Microsoft Defender ATP
 
-- Nätverks förfrågan till TOR anonymisering-tjänsten följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg
+Dessa scenarier kombinerar två av de grundläggande loggar som används av säkerhetsanalytiker: brand Väggs loggar från Palo-nätverk och slut punkts identifierings loggar från Microsoft Defender ATP. I alla scenarier som anges nedan identifieras en misstänkt aktivitet i slut punkten som omfattar en extern IP-adress. därefter följs detta av avvikande trafik från den externa IP-adressen tillbaka till brand väggen. I Palo-löpeld-loggar fokuserar Azure Sentinel på [hot loggar](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)och trafiken betraktas som misstänkt när hot tillåts (misstänkta data, filer, överbelastningar, paket, genomsökningar, spionprogram, webb adresser, virus, sårbarheter,-virus, Wildfires).
 
-- PowerShell gjorde en misstänkt nätverks anslutning följt av avvikande trafik som flaggats av Palo-nätverks brand vägg
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Nätverks förfrågan till TOR anonymisering-tjänsten följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg.
 
-- Utgående anslutning till IP med en historik över obehöriga åtkomst försök följt av avvikande trafik som flaggats av Palo-nätverks brand vägg
+I det här scenariot identifierar Azure Sentinel först en varning om att Microsoft Defender Avancerat skydd har identifierat en nätverksbegäran till en TOR anonymisering-tjänst som leder till avvikande aktivitet. Detta initierades under kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}.
+Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta indikerar att skadlig trafik har angetts i nätverket mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+
+Det här scenariot är för närvarande en offentlig för hands version.
+
+
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell gjorde en misstänkt nätverks anslutning följt av avvikande trafik som flaggats av Palo-nätverkets brand vägg.
+
+I det här scenariot identifierar Azure Sentinel först en varning om att PowerShell gjorde en misstänkt nätverks anslutning som leder till avvikande aktivitet som upptäcktes av en Palo-nätverks brand vägg. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Sedan har ovanlig aktivitet identifierats av brand väggen för Palo-nätverk på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+
+Det här scenariot är för närvarande en offentlig för hands version.
+
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Utgående anslutning till IP med en historik över obehöriga åtkomst försök följt av avvikande trafik som flaggats av Palo-nätverks brand vägg
+
+I det här scenariot identifierar Azure Sentinel en varning att Microsoft Defender Avancerat skydd har identifierat en utgående anslutning till en IP-adress med en historik över obehöriga åtkomst försök som leder till avvikande aktivitet som identifieras av Palo-adresspoolen Nätverks brand vägg. Detta initierades av kontot {Account name} med SID-ID {sid} vid {Time}. Den utgående IP-adressen till anslutningen var {IndividualIp}. Därefter upptäcktes ovanlig aktivitet av Palo-nätverks brand väggen på {TimeGenerated}. Detta anger att skadlig trafik angavs i nätverket. Mål-IP-adressen för nätverks trafiken är {DestinationIP}.
+
+Det här scenariot är för närvarande en offentlig för hands version.
 
 
 

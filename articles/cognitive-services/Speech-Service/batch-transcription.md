@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200086"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500001"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -87,14 +87,55 @@ Konfigurations parametrar tillhandahålls som JSON:
 
 Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
-| Parameter | Beskrivning |
-|-----------|-------------|
-| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` som inaktiverar svordomar, `Masked` som ersätter svordomar med asterisker, `Removed` som tar bort alla svordomar från resultatet eller `Tags` som lägger till "svordoms"-taggar. Standardvärdet är `Masked`. |
-| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar interpunktion, `Dictated` som innebär explicit interpunktion, `Automatic` som tillåter avkodaren att hantera skiljetecken eller `DictatedAndAutomatic` som anger dikterade skiljetecken eller automatisk. |
-| `AddWordLevelTimestamps` | Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` som gör att tidsstämplar på Word-nivå och `false` (standardvärdet) inaktive ras. |
-| `AddSentiment` | Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` som aktiverar sentiment per uttryck och `false` (standardvärdet) för att inaktivera det. |
-| `AddDiarization` | Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` som gör det möjligt att inaktivera diarization och `false` (standardvärdet). Det kräver också att `AddWordLevelTimestamps` anges till sant.|
-|`TranscriptionResultsContainerUrl`|Valfri URL med [tjänstens SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren.
+:::row:::
+   :::column span="1":::
+      **ProfileServiceApplicationProxy**
+   :::column-end:::
+   :::column span="2":::
+      **Beskrivning**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` för att förhindra filtrering av svordomar, `Masked` för att ersätta svordomar med asterisker, `Removed` för att ta bort alla svordomar från resultatet eller `Tags` för att lägga till taggar med svordomar. Standardvärdet är `Masked`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` om du vill inaktivera interpunktion, `Dictated` till att ange ett explicit (talade) skiljetecken `Automatic` för att tillåta avkodaren att hantera skiljetecken eller `DictatedAndAutomatic` att använda dikterade och automatiska skiljetecken. Standardvärdet är `DictatedAndAutomatic`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` för att aktivera tidsstämplar på Word-nivå och `false` (standardvärdet) för att inaktivera det.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` för att aktivera sentiment per uttryck och `false` (standardvärdet) för att inaktivera det.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` att aktivera diarization och `false` (standardvärdet) för att inaktivera det. Det kräver också att `AddWordLevelTimestamps` anges till sant.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      Valfri URL med [tjänstens SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren.
+:::row-end:::
 
 ### <a name="storage"></a>Storage
 

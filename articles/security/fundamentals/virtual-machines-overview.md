@@ -1,5 +1,6 @@
 ---
-title: Säkerhetsfunktioner som används med Azure Virtual Machines – Azure-säkerhet | Microsoft Docs
+title: Säkerhetsfunktioner som används med virtuella Azure-datorer
+titleSuffix: Azure security
 description: Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792625"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500385"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
 Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med virtuella datorer.
@@ -37,7 +38,7 @@ Med Azure kan du bygga säkerhets förbättrade och kompatibla lösningar som:
 * Identifiera och identifiera hot.
 * Uppfylla kraven för efterlevnad.  
 
-## <a name="antimalware"></a>Programvara mot skadlig kod
+## <a name="antimalware"></a>Program mot skadlig kod
 
 Med Azure kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
 
@@ -74,7 +75,7 @@ Läs mer:
 
 Förbättrad nyckel säkerhet kan förbättra krypterings-och autentiserings skydd. Du kan förenkla hanteringen och säkerheten för viktiga hemligheter och nycklar genom att lagra dem i Azure Key Vault.
 
-Med Key Vault kan du lagra dina nycklar i HSM:er (Hardware Security Modules) som är certifierade enligt standarden FIPS 140-2 nivå 2. Dina SQL Server krypterings nycklar för säkerhets kopiering eller [transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan lagras i Key Vault med alla nycklar och hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+Key Vault ger dig möjlighet att lagra dina nycklar i HSM: er (Hardware Security modules) som är certifierade enligt standarden FIPS 140-2 på nivå 2. Dina SQL Server krypterings nycklar för säkerhets kopiering eller [transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan lagras i Key Vault med alla nycklar och hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Läs mer:
 
@@ -92,9 +93,9 @@ Läs mer:
 * [Azure Disk Encryption för virtuella IaaS-datorer](/azure/security/azure-security-disk-encryption-overview)
 * [Snabb start: kryptera en virtuell Windows IaaS-dator med Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
-## <a name="virtual-machine-backup"></a>Säkerhetskopiering av virtuell dator
+## <a name="virtual-machine-backup"></a>Säkerhets kopiering av virtuell dator
 
-Azure Backup är en skalbar lösning som hjälper dig att skydda dina program data utan kapital investering och minimala drifts kostnader. Programfel kan skada dina data och den mänskliga faktorn kan införa buggar i dina program. Med Azure Backup skyddas dina virtuella datorer som kör Windows och Linux.
+Azure Backup är en skalbar lösning som hjälper dig att skydda dina program data utan kapital investering och minimala drifts kostnader. Program fel kan skada dina data och mänskliga fel kan leda till buggar i dina program. Med Azure Backup skyddas dina virtuella datorer som kör Windows och Linux.
 
 Läs mer:
 

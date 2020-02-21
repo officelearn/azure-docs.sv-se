@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: a093eea8b1961482722211017174018a649e2c4f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162862"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484850"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
@@ -78,7 +78,7 @@ Baserat på antalet AM-behållare per nod och de aktuella processor-och minnes k
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Skapa ett kluster med load-based autoskalning
 
-Om du vill använda autoskalning i ett kluster måste alternativet **Aktivera autoskalning** vara aktiverat när klustret skapas. Om du vill aktivera funktionen för automatisk skalning med belastningsutjämnad skalning utför du följande steg som en del av processen för att skapa ett vanligt kluster:
+Om du vill aktivera funktionen för automatisk skalning med belastningsutjämnad skalning utför du följande steg som en del av processen för att skapa ett vanligt kluster:
 
 1. På fliken **konfiguration och priser** väljer du kryss rutan **Aktivera autoskalning** .
 1. Välj **load-based** under **typ av autoskalning**.

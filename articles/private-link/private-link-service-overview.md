@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191084"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500409"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -98,13 +98,13 @@ Konsumenter som har exponering (styrs av Synlighets inställningen) till din pri
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Hämta anslutnings information med TCP-proxy v2
 
-När du använder Private Link service, är käll-IP-adressen för de paket som kommer från privat slut punkt nätverks adressen översatt (NAT) på tjänst leverantörs sidan med den NAT-IP som tilldelas från leverantörens virtuella nätverk. Därför tar programmen emot den allokerade NAT-IP-adressen i stället för den faktiska käll-IP-adressen för tjänste konsumenter. Om ditt program behöver faktisk käll-IP-adress från konsument sidan, kan du aktivera Proxy-protokollet på tjänsten och hämta informationen från proxy-protokollets huvud. Förutom käll-IP-adressen bär även proxy Protocol-huvudet LinkID för den privata slut punkten. Kombinationen av käll-IP-adress och LinkID kan hjälpa tjänst leverantörer att identifiera sina konsumenter unikt. Mer information om proxy-protokoll finns här. 
+När du använder Private Link service, är käll-IP-adressen för de paket som kommer från privat slut punkt nätverks adressen översatt (NAT) på tjänst leverantörs sidan med den NAT-IP som tilldelas från leverantörens virtuella nätverk. Därför tar programmen emot den allokerade NAT-IP-adressen i stället för den faktiska käll-IP-adressen för tjänste konsumenter. Om ditt program behöver faktisk käll-IP-adress från konsument sidan, kan du aktivera Proxy-protokollet på tjänsten och hämta informationen från proxy-protokollets huvud. Förutom käll-IP-adressen bär även proxy Protocol-huvudet LinkID för den privata slut punkten. Kombinationen av käll-IP-adress och LinkID kan hjälpa tjänst leverantörer att identifiera sina konsumenter unikt. Mer information om proxy-protokoll finns [här](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 Den här informationen kodas med en anpassad Vector-Vector (Type-Length-Value) enligt följande:
 
 Anpassad TLV-information:
 
-|Fält |Längd (oktetter)  |Beskrivning  |
+|Field |Längd (oktetter)  |Beskrivning  |
 |---------|---------|----------|
 |Typ  |1        |PP2_TYPE_AZURE (0xEE)|
 |Längd  |2      |Värdets längd|

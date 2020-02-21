@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67ea11b2e1457bf4a788f54664ed54ff7ca9c8d9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 9012f09f75c60ebd0b3743d030b83c0a3aa78648
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688922"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524095"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Bygg en ASP.NET Core-och SQL Database-app i Azure App Service på Linux
 
@@ -19,7 +19,7 @@ ms.locfileid: "74688922"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en .NET Core- och SQL Database-app i Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudien visar hur du skapar en .NET Core-app och ansluter den till en SQL Database. När du är färdig har du en .NET Core MVC-app som körs i App Service i Linux.
+Med [App Service på Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst. Den här självstudien visar hur du skapar en .NET Core-app och ansluter den till en SQL Database. När du är färdig har du en .NET Core MVC-app som körs i App Service i Linux.
 
 ![app som körs i App Service i Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -35,9 +35,9 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/)
 * [Installera .NET Core SDK 2,2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
@@ -144,7 +144,7 @@ Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-u
 
 Detta är anslutningssträngen för .NET Core-appen. Kopiera den för senare bruk.
 
-## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
 I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till App Service i Linux.
 
@@ -156,7 +156,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
 
@@ -263,7 +263,7 @@ Lägg till några att-göra-uppgifter.
 
 **Grattis!** Du kör en datadriven .NET Core-app i App Service i Linux.
 
-## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och omdistribuera
+## <a name="update-locally-and-redeploy"></a>Uppdatera lokalt och distribuera om
 
 I det här steget gör du en ändring i ditt databasschema och publicerar den till Azure.
 

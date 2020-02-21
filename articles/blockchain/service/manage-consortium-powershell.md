@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar Azure blockchain service Consortium-medlem
 ms.date: 10/14/2019
 ms.topic: article
 ms.reviewer: zeyadr
-ms.openlocfilehash: 4eb35838394d3324f460b5e83cfbcb47b8114221
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e819dd39481b58d446384a5e2253c548ce0c267c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455533"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505976"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-using-powershell"></a>Hantera konsortiums medlemmar i Azure blockchain-tjänsten med hjälp av PowerShell
 
@@ -59,7 +59,7 @@ Ersätt *\<medlems konto\>* med det medlems konto lösen ord som du använde nä
 
 Hitta de andra värdena i Azure Portal:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till din standard **översikts** sida för blockchain-tjänst medlemmar.
 
     ![Medlems översikt](./media/manage-consortium-powershell/member-overview.png)
@@ -139,7 +139,7 @@ Använd denna cmdlet för att hämta medlems information eller lista medlemmar i
 
 | Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
-| Name | Namnet på den blockchain-tjänst medlem som du vill hämta information om. När ett namn anges returneras medlemmens information. När ett namn utelämnas returneras en lista över alla konsortiums medlemmar. | Nej |
+| Namn | Namnet på den blockchain-tjänst medlem som du vill hämta information om. När ett namn anges returneras medlemmens information. När ett namn utelämnas returneras en lista över alla konsortiums medlemmar. | Nej |
 | Medlemmar | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
@@ -170,7 +170,7 @@ Använd denna cmdlet för att ta bort en blockchain-medlem.
 
 | Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
-| Name | Medlems namn att ta bort | Ja |
+| Namn | Medlems namn att ta bort | Ja |
 | Medlemmar | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
@@ -196,8 +196,8 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
 
 | Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
-| Name | Namnet på blockchain-medlemmen | Ja |
-| DisplayName | Nytt visnings namn | Nej |
+| Namn | Namnet på blockchain-medlemmen | Ja |
+| displayName | Nytt visnings namn | Nej |
 | AccountAddress | Konto adress | Nej |
 | Medlemmar | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
@@ -257,7 +257,7 @@ Använd denna cmdlet för att hämta eller Visa en medlems status för en konsor
 [Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange variabeln $ContractConnection.
 
 ```powershell-interactive
-$ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
+$ContractConnection | Get-BlockchainMemberInvitation –SubscriptionId <Azure subscription ID>
 ```
 
 #### <a name="example-output"></a>Exempel på utdata

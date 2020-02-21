@@ -1,5 +1,6 @@
 ---
-title: Skydda PaaS-webb program och mobilappar med Azure App Service | Microsoft Docs
+title: Skydda PaaS-webb& mobila program
+titleSuffix: Azure App Service
 description: 'Lär dig mer om Azure App Service säkerhets metoder för att skydda dina PaaS webb-och mobil program. '
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 4967f6f7831f1f09a502b935342fcd752af72fce
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999150"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500282"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Metod tips för att skydda PaaS-webb program och mobilappar med hjälp av Azure App Service
 

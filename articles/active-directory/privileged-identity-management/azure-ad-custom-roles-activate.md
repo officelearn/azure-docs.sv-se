@@ -16,19 +16,21 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2c096f41acd5852423205b0b185c8e1a8533c55
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: cbd60d1311bd84adb303a0d329ab4e42f4d61525
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048141"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498738"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktivera en anpassad Azure AD-roll i Privileged Identity Management
 
 Privileged Identity Management i Azure Active Directory (Azure AD) har nu stöd för just-in-Time-och Time-Bound-tilldelning till anpassade roller som skapats för program hantering i den administrativa upplevelsen för identitets-och åtkomst hantering. Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
-> Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen.
+> Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen. Om du ser följande banderoll bör dessa roller hanteras [i den inbyggda roll upplevelsen](pim-how-to-activate-role.md) och den här artikeln gäller inte:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="activate-a-role"></a>Aktivera en roll
 

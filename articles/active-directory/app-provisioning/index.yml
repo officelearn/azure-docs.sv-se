@@ -5,19 +5,19 @@ metadata:
   title: Dokumentation om programetablering
   description: Med etablering av appar i Azure Active Directory kan du automatiskt skapa och hantera användaridentiteter i dina molnappar (SaaS). Azure Active Directory erbjuder även etablering med molnbaserade HR-program. Lär dig att hantera och distribuera molnappar och HR-etablering med våra snabbstarter, våra självstudier och vår vägledning.
   ms.service: active-directory
-  ms.subservice: app-mgmt
+  ms.subservice: app-provisioning
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 02/06/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
-  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.openlocfilehash: 0b6b3829f4111c57e20f495be962357832a5bfcd
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/07/2020
-  ms.locfileid: "77065509"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77522474"
 landingContent:
 - title: Etablera användare och grupper till en molnapp
   linkLists:

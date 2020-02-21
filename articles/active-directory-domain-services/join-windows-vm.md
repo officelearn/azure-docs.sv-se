@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c40a3b1352c383b8b70a0b14f59265188b77a86d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474689"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523693"
 ---
 # <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Självstudie: ansluta en virtuell Windows Server-dator till en hanterad domän
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Windows Server-dator
-> * Ansluta till den virtuella Windows Server-datorn till ett virtuellt Azure-nätverk
+> * Ansluta den virtuella Windows Server-datorn till ett virtuellt Azure-nätverk
 > * Anslut den virtuella datorn till den hanterade domänen i Azure AD DS
 
 Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -41,6 +41,8 @@ För att slutföra den här självstudien behöver du följande resurser:
     * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
     * Kontrol lera att Azure AD Connect hash-synkronisering av lösen ord eller lösen ords återställning via självbetjäning har utförts så att kontot kan logga in på Azure AD DS-hanterad domän.
+* En Azure skydds-värd som har distribuerats i Azure AD DS Virtual Network.
+    * Om det behövs [skapar du en Azure skydds-värd][azure-bastion].
 
 Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare till avsnittet för att [ansluta den virtuella datorn till den hanterade domänen i Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
@@ -65,18 +67,18 @@ Om du redan har en virtuell dator som du vill ansluta till, kan du gå vidare ti
     | Parameter            | Föreslaget värde   |
     |----------------------|-------------------|
     | Resursgrupp       | Välj eller skapa en resurs grupp, till exempel *myResourceGroup* |
-    | Namn på virtuell dator | Ange ett namn för den virtuella datorn, till exempel *myVM* |
+    | Virtuellt datornamn | Ange ett namn för den virtuella datorn, till exempel *myVM* |
     | Region               | Välj region för att skapa din virtuella dator i, t. ex. *USA, östra* |
     | Användarnamn             | Ange ett användar namn för det lokala administratörs kontot som ska skapas på den virtuella datorn, till exempel *azureuser* |
-    | Lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
+    | lösenord             | Ange och bekräfta sedan ett säkert lösen ord för den lokala administratören som ska skapas på den virtuella datorn. Ange inte autentiseringsuppgifter för ett domän användar konto. |
 
-1. Som standard är virtuella datorer som skapats i Azure inte tillgängliga från Internet. Den här konfigurationen hjälper till att förbättra säkerheten på den virtuella datorn och minskar risken för potentiella angrepp. I nästa steg i den här självstudien måste du ansluta till den virtuella datorn med Remote Desktop Protocol (RDP) och sedan ansluta Windows Server till den hanterade domänen i Azure AD DS.
+1. Som standard är virtuella datorer som skapats i Azure tillgängliga från Internet via RDP. När RDP är aktiverat, kommer automatiska inloggnings attacker att uppstå, vilket kan inaktivera konton med vanliga namn som *administratör* eller *administratör* på grund av flera misslyckade inloggnings försök.
 
-    När RDP är aktiverat, kommer automatiska inloggnings attacker att uppstå, vilket kan inaktivera konton med vanliga namn som *administratör* eller *administratör* på grund av flera misslyckade inloggnings försök. RDP bör endast aktive ras vid behov, och begränsas till en uppsättning auktoriserade IP-intervall. [Azure just-in-Time-åtkomst för virtuella datorer][jit-access] som en del av Azure Security Center kan aktivera dessa korta, begränsade RDP-sessioner. Du kan också [skapa och använda en Azure skydds-värd (för närvarande i för hands version)][azure-bastion] för att bara tillåta åtkomst via Azure Portal via SSL.
+    RDP bör endast aktive ras vid behov, och begränsas till en uppsättning auktoriserade IP-intervall. Den här konfigurationen hjälper till att förbättra säkerheten på den virtuella datorn och minskar risken för potentiella angrepp. Du kan också skapa och använda en Azure skydds-värd som bara tillåter åtkomst via Azure Portal via SSL. I nästa steg i den här självstudien använder du en Azure skydds-värd för att ansluta till den virtuella datorn på ett säkert sätt.
 
-    För den här själv studie kursen ska du aktivera RDP-anslutningar till den virtuella datorn manuellt.
+    För tillfället inaktiverar du direkta RDP-anslutningar till den virtuella datorn.
 
-    Under **offentliga inkommande portar**väljer du alternativet för att **tillåta valda portar**. På den nedrullningsbara menyn för **Välj inkommande portar**väljer du *RDP (3389)* .
+    Under **offentliga inkommande portar**väljer du *ingen*.
 
 1. När du är färdig väljer du **Nästa: diskar**.
 1. Välj *standard SSD*på den nedrullningsbara menyn för **typ av operativ system disk**och välj sedan **Nästa: nätverk**.
@@ -120,20 +122,23 @@ Det tar några minuter att skapa den virtuella datorn. I Azure Portal visas dist
 
 ## <a name="connect-to-the-windows-server-vm"></a>Anslut till den virtuella Windows Server-datorn
 
-Nu ska vi ansluta till den nya virtuella Windows Server-datorn med RDP och ansluta till den hanterade domänen i Azure AD DS. Använd de autentiseringsuppgifter för lokal administratör som du angav när den virtuella datorn skapades i föregående steg, inte några befintliga domänautentiseringsuppgifter.
+Använd en Azure skydds-värd för att på ett säkert sätt ansluta till dina virtuella datorer. Med Azure skydds distribueras en hanterad värd till det virtuella nätverket och tillhandahåller webbaserade RDP-eller SSH-anslutningar till virtuella datorer. Inga offentliga IP-adresser krävs för de virtuella datorerna, och du behöver inte öppna regler för nätverks säkerhets grupper för extern fjärrtrafik. Du ansluter till virtuella datorer med hjälp av Azure Portal från webbläsaren.
 
-1. I fönstret **Översikt** väljer du **Anslut**.
+Utför följande steg för att använda en skydds-värd för att ansluta till din virtuella dator:
 
-    ![Anslut till den virtuella Windows-datorn i Azure Portal](./media/join-windows-vm/connect-to-vm.png)
+1. I **översikts** fönstret för den virtuella datorn väljer du **Anslut**och sedan **skydds**.
 
-1. Välj alternativet för att *Ladda ned RDP-filen*. Spara den här RDP-filen i webbläsaren.
-1. Öppna den hämtade RDP-filen för att ansluta till den virtuella datorn. Välj **Anslut** om du uppmanas att göra det.
-1. Ange de autentiseringsuppgifter för lokal administratör som du angav i föregående steg för att skapa den virtuella datorn, till exempel *localhost\azureuser*
-1. Om du ser en certifikat varning under inloggnings processen väljer du **Ja** eller **Fortsätt** för att ansluta.
+    ![Ansluta till en virtuell Windows-dator med skydds i Azure Portal](./media/join-windows-vm/connect-to-vm.png)
+
+1. Ange autentiseringsuppgifterna för den virtuella dator som du angav i föregående avsnitt och välj sedan **Anslut**.
+
+   ![Anslut genom skydds-värden i Azure Portal](./media/join-windows-vm/connect-to-bastion.png)
+
+Om det behövs kan du tillåta att webbläsaren öppnar popup-fönster för att skydds-anslutningen ska visas. Det tar några sekunder att upprätta anslutningen till den virtuella datorn.
 
 ## <a name="join-the-vm-to-the-azure-ad-ds-managed-domain"></a>Anslut den virtuella datorn till den hanterade domänen i Azure AD DS
 
-När den virtuella datorn har skapats och en RDP-anslutning upprättar kan du nu ansluta den virtuella Windows Server-datorn till den hanterade domänen i Azure AD DS. Den här processen är samma som en dator som ansluter till en vanlig lokal Active Directory Domain Services domän.
+När den virtuella datorn har skapats och en webbaserad RDP-anslutning har etablerats med hjälp av Azure skydds, kan du nu ansluta den virtuella Windows Server-datorn till den hanterade domänen i Azure AD DS. Den här processen är samma som en dator som ansluter till en vanlig lokal Active Directory Domain Services domän.
 
 1. Om **Serverhanteraren** inte öppnas som standard när du loggar in på den virtuella datorn väljer du **Start** -menyn och väljer **Serverhanteraren**.
 1. I den vänstra rutan i fönstret **Serverhanteraren** väljer du **lokal server**. Välj **arbets grupp**under **Egenskaper** i den högra rutan.
@@ -174,22 +179,13 @@ När den virtuella Windows Server-datorn har startats om flyttas alla principer 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I nästa självstudie använder du den här virtuella Windows Server-datorn för att installera hanterings verktygen som du kan använda för att administrera den hanterade domänen i Azure AD DS. Om du inte vill fortsätta i den här själv studie serien kan du läsa följande rensnings steg för att [inaktivera RDP](#disable-rdp) eller [ta bort den virtuella datorn](#delete-the-vm). Annars [fortsätter du till nästa självstudie](#next-steps).
+I nästa självstudie använder du den här virtuella Windows Server-datorn för att installera hanterings verktygen som du kan använda för att administrera den hanterade domänen i Azure AD DS. Om du inte vill fortsätta i den här själv studie serien läser du följande rensnings steg för att [ta bort den virtuella datorn](#delete-the-vm). Annars [fortsätter du till nästa självstudie](#next-steps).
 
 ### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Ta bort anslutningen till den virtuella datorn från Azure AD DS-hanterad domän
 
 Om du vill ta bort den virtuella datorn från den hanterade domänen i Azure AD DS följer du stegen igen för att [ansluta den virtuella datorn till en domän](#join-the-vm-to-the-azure-ad-ds-managed-domain). I stället för att ansluta till den hanterade domänen i Azure AD DS väljer du att ansluta till en arbets grupp, till exempel standard *arbets gruppen*. När den virtuella datorn har startats om tas datorobjektet bort från den hanterade domänen i Azure AD DS.
 
 Om du [tar bort den virtuella](#delete-the-vm) datorn utan att koppla från domänen, lämnas ett överblivna dator objekt i Azure AD DS.
-
-### <a name="disable-rdp"></a>Inaktivera RDP
-
-Om du fortsätter att använda den virtuella Windows Server-datorn som skapades i den här självstudien för att köra egna program eller arbets belastningar, så kom ihåg att RDP var öppet via Internet. För att förbättra säkerheten och minska risken för angrepp bör RDP inaktive ras via Internet. Utför följande steg för att inaktivera RDP till den virtuella Windows Server-datorn via Internet:
-
-1. Välj **resurs grupper** på den vänstra menyn.
-1. Välj din resurs grupp, till exempel *myResourceGroup*.
-1. Välj din virtuella dator, till exempel *myVM*, och välj sedan *nätverk*.
-1. Under **inkommande nätverks säkerhets regler** för nätverks säkerhets gruppen väljer du den regel som tillåter RDP och väljer sedan **ta bort**. Det tar några sekunder att ta bort den inkommande säkerhets regeln.
 
 ### <a name="delete-the-vm"></a>Ta bort den virtuella datorn
 
@@ -249,6 +245,5 @@ Om du vill administrera din Azure AD DS-hanterade domän konfigurerar du en virt
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

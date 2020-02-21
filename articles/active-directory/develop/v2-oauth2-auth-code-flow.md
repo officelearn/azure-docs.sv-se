@@ -17,12 +17,12 @@ ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8a847afa2253223ebe9450d350cd18f5f659e0e3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686a9681394a2d23dafbc03cb533d80ca0f8723b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159785"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484476"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -142,7 +142,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
 > [!TIP]
@@ -156,7 +156,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | kunna   | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det första benet. Omfattningarna måste allt från en enda resurs, tillsammans med OIDC-scope (`profile`, `openid`, `email`). En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
 | `code`          | kunna  | Authorization_code som du har köpt i den första delen av flödet. |
 | `redirect_uri`  | kunna  | Samma redirect_uri värde som användes för att hämta authorization_code. |
-| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Du bör inte använda program hemligheten i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan.  Klient hemligheten måste vara URL-kodad innan den kan skickas.  |
+| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Du bör inte använda program hemligheten i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan.  Klient hemligheten måste vara URL-kodad innan den kan skickas. Klicka [här](https://tools.ietf.org/html/rfc3986#page-12)om du vill ha mer information. |
 | `code_verifier` | valfritt  | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Lyckat svar
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &grant_type=refresh_token
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
 
 > [!TIP]
@@ -268,7 +268,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | kunna    | Måste vara `refresh_token` för den här delen av Authorization Code Flow. |
 | `scope`         | kunna    | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det ursprungliga authorization_code begär ande benet. Om de omfattningar som anges i denna begäran sträcker sig över flera resurs servrar, returnerar Microsoft Identity Platform-slutpunkten en token för den resurs som anges i det första omfånget. En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
 | `refresh_token` | kunna    | Refresh_token som du har köpt i det andra benet i flödet. |
-| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan. |
+| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan. Den här hemligheten måste vara URL-kodad. Klicka [här](https://tools.ietf.org/html/rfc3986#page-12)om du vill veta mer. |
 
 #### <a name="successful-response"></a>Lyckat svar
 

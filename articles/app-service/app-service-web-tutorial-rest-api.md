@@ -4,14 +4,14 @@ description: 'Lär dig hur Azure App Service hjälper dig att vara värd för di
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/21/2018
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671126"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500054"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Självstudie: Vara värd för en RESTful-API med CORS i Azure App Service
 
@@ -28,9 +28,9 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 * [Installera Git](https://git-scm.com/).
 * [Installera .NET Core](https://www.microsoft.com/net/core/).
@@ -73,7 +73,7 @@ Du kan när som helst stoppa ASP.NET Core genom att trycka på `Ctrl+C` i termin
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-app-to-azure"></a>Distribuera app till Azure
+## <a name="deploy-app-to-azure"></a>Distribuera appen till Azure
 
 I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till App Service.
 
@@ -89,7 +89,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa ett webbprogram
+### <a name="create-a-web-app"></a>Skapa en webbapp
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 

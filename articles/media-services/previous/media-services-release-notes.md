@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 310b3778a43c74db30940368d35c39c99f64a28c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: cfe5ea47ad2cbed7bd2779ee535d7bef447475e5
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049992"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500352"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 

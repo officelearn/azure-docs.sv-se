@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936236"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505864"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -78,8 +78,9 @@ Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 --- | ---
 **Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds inte. MARS-agenten kan bara installeras på Windows-datorer.
 **Använda agent tillägget för att säkerhetskopiera virtuell Azure-dator som kör Linux** | Programkonsekvent säkerhets kopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Återställning på filnivå.<br/><br/> Återställ genom att skapa en virtuell dator från en återställningspunkt eller disk.
-**Använda DPM för att säkerhetskopiera lokalt eller virtuell Azure-dator som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.<br/><br/> Filkonsekvent säkerhets kopiering är inte tillgänglig för virtuell Azure-dator.
-**Använda MABS för att säkerhetskopiera en lokal dator eller virtuell Azure-dator som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.<br/><br/> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer.
+**Använda DPM för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
+**Använda MABS för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
+**Använda MABS eller DPM för att säkerhetskopiera virtuella Linux Azure-datorer** | Stöds inte.
 
 ## <a name="daylight-saving-time-support"></a>Stöd för sommar tid
 
@@ -137,7 +138,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 **Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
-**Maximal förfallo tid för en återställnings punkt** | Obegränsat
+**Maximal förfallo tid för en återställnings punkt** | Obegränsad
 **Maximal säkerhets kopierings frekvens till DPM/MABS** | Varje kvart för SQL Server<br/><br/> En gång i timmen för andra arbets belastningar
 **Maximal säkerhets kopierings frekvens till valv** | **Lokala Windows-datorer eller virtuella Azure-datorer som kör mars:** Tre per dag<br/><br/> **DPM/Mabs:** Två per dag<br/><br/> **Azure VM-säkerhetskopiering:** En per dag
 **Kvarhållning av återställnings punkt** | Varje dag, varje vecka, varje månad, varje år
@@ -151,9 +152,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja. Offentlig begränsad för hands version som stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | USA, västra centrala   |
-| MARS-agent/lokalt | Inga                                                           | Gäller inte               |
-| SQL-/SAP HANA          | Inga                                                           | Gäller inte               |
-| AFS                    | Inga                                                           | Gäller inte               |
+| MARS-agent/lokalt | Nej                                                           | Ej tillämpligt               |
+| SQL-/SAP HANA          | Nej                                                           | Ej tillämpligt               |
+| DATABASSERVER                    | Nej                                                           | Ej tillämpligt               |
 
 
 

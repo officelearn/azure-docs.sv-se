@@ -1,0 +1,282 @@
+---
+title: Bindnings bindning för Azure Functions SignalR-tjänst
+description: Lär dig att returnera en URL för en Signals service-slutpunkt och åtkomsttoken i Azure Functions.
+author: craigshoemaker
+ms.topic: reference
+ms.date: 02/20/2020
+ms.author: cshoe
+ms.openlocfilehash: 53d336aff3177a76c5e02266ffb8484bd9945119
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77530268"
+---
+# <a name="signalr-service-input-binding-for-azure-functions"></a>Signal bindning för signal tjänst för Azure Functions
+
+Innan en klient kan ansluta till Azure SignalR service måste den Hämta tjänstens slut punkts-URL och en giltig åtkomsttoken. *SignalRConnectionInfo* -databindningen genererar URL: en för SignalR-tjänstens slut punkt och en giltig token som används för att ansluta till tjänsten. Eftersom token är tidsbegränsad och kan användas för att autentisera en viss användare för en anslutning, ska du inte cachelagra token eller dela den mellan klienter. En HTTP-utlösare som använder denna bindning kan användas av klienter för att hämta anslutnings informationen.
+
+Mer information om hur den här bindningen används för att skapa en "Negotiate"-funktion som kan användas av en Signals-klient-SDK finns i [artikeln Azure Functions utveckling och konfiguration](../azure-signalr/signalr-concept-serverless-development-config.md) i dokumentationen för SignalR-tjänstens begrepp.
+
+Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-signalr-service.md).
+
+## <a name="example"></a>Exempel
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar anslutnings information för signaler med hjälp av den inkommande bindningen och returnerar den över http.
+
+```cs
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
+    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,
+    [SignalRConnectionInfo(HubName = "chat")]SignalRConnectionInfo connectionInfo)
+{
+    return connectionInfo;
+}
+```
+
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+
+I följande exempel visas en signal för anslutnings information om signalering i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen för att returnera anslutnings informationen.
+
+Här är bindnings data i *Function. JSON* -filen:
+
+Exempel funktion. JSON:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Här är C# skript koden:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
+{
+    return connectionInfo;
+}
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+I följande exempel visas en signal information om en Signals-anslutnings bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen för att returnera anslutnings informationen.
+
+Här är bindnings data i *Function. JSON* -filen:
+
+Exempel funktion. JSON:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Här är JavaScript-kod:
+
+```javascript
+module.exports = async function (context, req, connectionInfo) {
+    context.res.body = connectionInfo;
+};
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+I följande exempel visas en signal information om en Signals-anslutnings bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen för att returnera anslutnings informationen.
+
+Här är bindnings data i *Function. JSON* -filen:
+
+Exempel funktion. JSON:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Här är python-koden:
+
+```python
+def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+    return func.HttpResponse(
+        connectionInfoJson,
+        status_code=200,
+        headers={
+            'Content-type': 'application/json'
+        }
+    )
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+I följande exempel visas en [Java-funktion](functions-reference-java.md) som hämtar anslutnings information för signaler med hjälp av den inkommande bindningen och returnerar den över http.
+
+```java
+@FunctionName("negotiate")
+public SignalRConnectionInfo negotiate(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
+        @SignalRConnectionInfoInput(
+            name = "connectionInfo",
+            hubName = "chat") SignalRConnectionInfo connectionInfo) {
+    return connectionInfo;
+}
+```
+
+---
+
+## <a name="authenticated-tokens"></a>Autentiserade tokens
+
+Om funktionen utlöses av en autentiserad klient kan du lägga till ett användar-ID-anspråk till den genererade token. Du kan enkelt lägga till autentisering i en Function-app med hjälp av [App Service autentisering](../app-service/overview-authentication-authorization.md).
+
+App Service autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användarens huvud-ID respektive namn.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+Du kan ange egenskapen `UserId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+
+```cs
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
+    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
+    [SignalRConnectionInfo
+        (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
+        SignalRConnectionInfo connectionInfo)
+{
+    // connectionInfo contains an access key token with a name identifier claim set to the authenticated user
+    return connectionInfo;
+}
+```
+
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+
+Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+
+Exempel funktion. JSON:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "userId": "{headers.x-ms-client-principal-id}",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Här är C# skript koden:
+
+```cs
+#r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
+using Microsoft.Azure.WebJobs.Extensions.SignalRService;
+
+public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo connectionInfo)
+{
+    // connectionInfo contains an access key token with a name identifier
+    // claim set to the authenticated user
+    return connectionInfo;
+}
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+
+Exempel funktion. JSON:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "userId": "{headers.x-ms-client-principal-id}",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Här är JavaScript-kod:
+
+```javascript
+module.exports = async function (context, req, connectionInfo) {
+    // connectionInfo contains an access key token with a name identifier
+    // claim set to the authenticated user
+    context.res.body = connectionInfo;
+};
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+
+Exempel funktion. JSON:
+
+```json
+{
+    "type": "signalRConnectionInfo",
+    "name": "connectionInfo",
+    "hubName": "chat",
+    "userId": "{headers.x-ms-client-principal-id}",
+    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+    "direction": "in"
+}
+```
+
+Här är python-koden:
+
+```python
+def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
+    # connectionInfo contains an access key token with a name identifier
+    # claim set to the authenticated user
+    return func.HttpResponse(
+        connectionInfoJson,
+        status_code=200,
+        headers={
+            'Content-type': 'application/json'
+        }
+    )
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+Du kan ange egenskapen `userId` för bindningen till värdet från endera sidhuvudet med ett [bindnings uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`.
+
+```java
+@FunctionName("negotiate")
+public SignalRConnectionInfo negotiate(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
+        @SignalRConnectionInfoInput(
+            name = "connectionInfo",
+            hubName = "chat",
+            userId = "{headers.x-ms-client-principal-id}") SignalRConnectionInfo connectionInfo) {
+    return connectionInfo;
+}
+```
+
+---
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Skicka signal tjänst meddelanden (utgående bindning)](./functions-bindings-signalr-service-output.md) 

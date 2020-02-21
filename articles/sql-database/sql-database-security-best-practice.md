@@ -1,23 +1,27 @@
 ---
-title: Rekommenderade säkerhets metoder för Spelbok för Azure SQL Database | Microsoft Docs
-description: Den här artikeln innehåller allmänna råd om rekommenderade säkerhets metoder i Azure SQL Database.
+title: Spelbok för adressering av vanliga säkerhets krav | Microsoft Docs
+titleSuffix: Azure SQL Database
+description: Den här artikeln innehåller vanliga säkerhets krav och metod tips i Azure SQL Database.
 ms.service: sql-database
 ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 095d435b9a595c420821da0813fdfc0893d70d89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845880"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506226"
 ---
-# <a name="azure-sql-database-security-best-practices-playbook"></a>Spelbok Security Best Practices Azure SQL Database
+# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database
 
-## <a name="overview"></a>Översikt
+> [!NOTE]
+> Det här dokumentet innehåller metod tips för hur du löser vanliga säkerhets krav. Alla krav gäller inte för alla miljöer och du bör kontakta din databas och ditt säkerhets team på vilka funktioner som ska implementeras.
+
+## <a name="solving-common-security-requirements"></a>Lösa vanliga säkerhets krav
 
 Det här dokumentet ger vägledning om hur du löser vanliga säkerhets krav för nya eller befintliga program med hjälp av Azure SQL Database. Det är ordnat efter säkerhets områden på hög nivå. Information om hur du åtgärdar vissa hot finns i avsnittet [vanliga säkerhetshot och potentiella](#common-security-threats-and-potential-mitigations) åtgärder. Även om några av de rekommendationer som presenteras gäller när du migrerar program från en lokal plats till Azure, är inte migrations scenarier fokus i det här dokumentet.
 
@@ -66,6 +70,9 @@ Autentisering är en process för att bevisa att användaren är den som han ell
 - SQL-autentisering
 - Azure Active Directory-autentisering
 
+> [!NOTE]
+> Azure Active Directory autentisering kanske inte stöds för alla verktyg och program från tredje part.
+
 ### <a name="central-management-for-identities"></a>Central hantering för identiteter
 
 Central identitets hantering ger följande fördelar:
@@ -82,7 +89,7 @@ Central identitets hantering ger följande fördelar:
 
 - Skapa en Azure AD-klient och [skapa användare](../active-directory/fundamentals/add-users-azure-active-directory.md) för att representera användare och skapa [tjänstens huvud namn](../active-directory/develop/app-objects-and-service-principals.md) för att representera appar, tjänster och automatiserings verktyg. Tjänstens huvud namn motsvarar tjänst konton i Windows och Linux. 
 
-- Tilldela åtkomst behörigheter till resurser till Azure AD-huvudobjekt via grupp tilldelning: Skapa Azure AD-grupper, bevilja åtkomst till grupper och lägga till enskilda medlemmar i grupperna. I databasen skapar du inneslutna databas användare som mappar dina Azure AD-grupper. 
+- Tilldela åtkomst behörigheter till resurser till Azure AD-huvudobjekt via grupp tilldelning: Skapa Azure AD-grupper, bevilja åtkomst till grupper och lägga till enskilda medlemmar i grupperna. I databasen skapar du inneslutna databas användare som mappar dina Azure AD-grupper. Om du vill tilldela behörigheter i databasen ska du placera användare i databas roller med rätt behörigheter.
   - Se artiklarna, [Konfigurera och hantera Azure Active Directory autentisering med SQL](sql-database-aad-authentication-configure.md) och [Använd Azure AD för autentisering med SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > I en hanterad instans kan du också skapa inloggningar som mappar till Azure AD-huvudobjekten i huvud databasen. Se [Skapa inloggning (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
@@ -204,11 +211,6 @@ SQL-autentisering syftar på autentiseringen av en användare när du ansluter t
 - Skapa inloggningar och användare som Server administratör. Om du inte använder inneslutna databas användare med lösen ord lagras alla lösen ord i Master-databasen.
   - Se artikeln, [styra och bevilja databas åtkomst till SQL Database och SQL Data Warehouse](sql-database-manage-logins.md).
 
-- Följ metod tips för lösen ords hantering:
-  - Ange ett komplext lösen ord som består av latinska versaler och gemener, siffror (0-9) och icke-alfanumeriska tecken (t. ex. $,!, # eller%).
-  - Använd längre lösen fraser i stället för kortare slumpmässigt valda tecken.
-  - Framtvinga manuell lösen ords ändring minst var 90 dag.
-
 ## <a name="access-management"></a>Åtkomsthantering
 
 Åtkomst hantering är en process för att kontrol lera och hantera behöriga användares åtkomst och behörighet att Azure SQL Database.
@@ -250,24 +252,25 @@ Följande metod tips är valfria men ger bättre hanterbarhet och support för d
 
 - Avstå från att tilldela behörigheter till enskilda användare. Använd roller (databas-eller Server roller) konsekvent i stället. Roller hjälper till att kraftigt rapportera och felsöka behörigheter. (Azure RBAC stöder bara behörighets tilldelning via roller.) 
 
-- Använd inbyggda roller när behörigheterna för rollerna matchar exakt de behörigheter som krävs för användaren. Du kan tilldela användare till flera roller. 
-
-- Skapa och Använd anpassade roller när inbyggda roller ger för många eller otillräckliga behörigheter. Vanliga roller som används i praktiken: 
+- Skapa och Använd anpassade roller med de exakta behörigheter som krävs. Vanliga roller som används i praktiken: 
   - Säkerhets distribution 
   - Administratör 
-  - Utvecklare 
+  - Developer 
   - Support personal 
-  - Kontrollant 
+  - Granskare 
   - Automatiserade processer 
   - Slutanvändare 
+  
+- Använd inbyggda roller endast när behörigheterna för rollerna matchar exakt de behörigheter som krävs för användaren. Du kan tilldela användare till flera roller. 
 
 - Kom ihåg att behörigheter i SQL Server databas motor kan tillämpas på följande omfång. Ju mindre omfattning som är mindre påverkas effekten av beviljade behörigheter: 
   - Azure SQL Database Server (särskilda roller i Master-databasen) 
   - Databas 
-  - Schema (se även: [schema design för SQL Server: rekommendationer för schema design med säkerhet i åtanke](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+  - Schema
+      - Vi rekommenderar att du använder scheman för att bevilja behörigheter i en databas. (se även: [schema design för SQL Server: rekommendationer för schema design med säkerhet i åtanke](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Objekt (tabell, vy, procedur osv.) 
   > [!NOTE]
-  > Vi rekommenderar inte att du tillämpar behörigheter på objekt nivån eftersom den här nivån lägger till onödig komplexitet i den övergripande implementeringen. Om du bestämmer dig för att använda behörigheter på objekt nivå bör de dokumenteras tydligt. Detsamma gäller för kolumn nivå behörigheter, vilket är ännu mindre rekommenderat av samma skäl. Standard reglerna för [neka](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) gäller inte för kolumner.
+  > Vi rekommenderar inte att du tillämpar behörigheter på objekt nivån eftersom den här nivån lägger till onödig komplexitet i den övergripande implementeringen. Om du bestämmer dig för att använda behörigheter på objekt nivå bör de dokumenteras tydligt. Detsamma gäller för kolumn nivå behörigheter, vilket är ännu mindre rekommenderat av samma skäl. Tänk också på att som standard är en åsidosättning på [tabell nivå inte](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) åsidosätter ett bidrag på kolumn nivå. Detta kräver att [konfigurationen av kompabilitets Server för gemensamma villkor](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) aktive ras.
 
 - Utför regelbundna kontroller med hjälp av [sårbarhets bedömning (va)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) för att testa för många behörigheter.
 
@@ -320,7 +323,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
 
 - Se alltid till att ha en Gransknings logg för säkerhetsrelaterade åtgärder. 
 
-- Du kan hämta definitionen av de inbyggda RBAC-rollerna för att se vilka behörigheter som används och skapa en anpassad roll baserat på utdrag och kumulation av dessa via PowerShell 
+- Du kan hämta definitionen av de inbyggda RBAC-rollerna för att se vilka behörigheter som används och skapa en anpassad roll baserat på utdrag och kumulation av dessa via PowerShell.
 
 - Eftersom en medlem i db_owner databas rollen kan ändra säkerhets inställningar som transparent datakryptering (TDE), eller ändra service nivå mål, bör detta medlemskap beviljas med försiktighet. Det finns dock många aktiviteter som kräver db_owner-behörighet. Uppgift som att ändra en databas inställning, till exempel ändra DB-alternativ. Granskningen spelar en nyckel roll i vilken lösning som helst.
 
@@ -409,6 +412,8 @@ Kryptering i vila är ett kryptografiskt skydd av data när de sparas i databas-
 
 Data som används är de data som lagras i minnet för databas systemet under körningen av SQL-frågor. Om din databas lagrar känsliga data kan din organisation krävas för att se till att privilegierade användare hindras från att Visa känsliga data i databasen. Användare med hög behörighet, till exempel Microsoft-operatörer eller databas administratörer i din organisation, bör kunna hantera databasen, men förhindras från att visa och potentiellt organisationers känsliga data från SQL Server processens minne eller genom att fråga databasen.
 
+De principer som avgör vilka data som är känsliga och om känsliga data måste krypteras i minnet och inte är tillgängliga för administratörer i klartext, är de som är speciella för din organisation och de regler för efterlevnad som du måste följa. Se det relaterade kravet: [identifiera och tagga känsliga data](#identify-and-tag-sensitive-data).
+
 **Implementera**:
 
 - Använd [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) för att se till att känsliga data inte visas i klartext i Azure SQL Database, även i minnet/används. Always Encrypted skyddar data från databas administratörer (databas administratörer) och moln administratörer (eller dåliga aktörer som kan personifiera hög privilegierade och obehöriga användare) och ger dig större kontroll över vem som har åtkomst till dina data.
@@ -416,6 +421,8 @@ Data som används är de data som lagras i minnet för databas systemet under k�
 **Bästa praxis**:
 
 - Always Encrypted är inte en ersättning för att kryptera data i vila (TDE) eller under överföring (SSL/TLS). Always Encrypted bör inte användas för icke-känsliga data för att minimera prestanda-och funktions påverkan. Att använda Always Encrypted tillsammans med TDE och Transport Layer Security (TLS) rekommenderas för omfattande skydd av data i vila, under överföring och används. 
+
+- Bedöm effekten av att kryptera de identifierade känsliga data kolumnerna innan du distribuerar Always Encrypted i en produktions data bas. I allmänhet minskar Always Encrypted funktionen för frågor i krypterade kolumner och har andra begränsningar, som visas i [Always Encrypted-funktions information](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details). Därför kan du behöva återskapa ditt program för att kunna implementera funktionerna igen, en fråga stöder inte, på klient sidan eller/och återkallas ditt databas schema, inklusive definitioner av lagrade procedurer, funktioner, vyer och utlösare. Befintliga program kanske inte fungerar med krypterade kolumner om de inte följer begränsningar och begränsningar för Always Encrypted. Även om eko systemet för Microsoft-verktyg, produkter och tjänster som stöder Always Encrypted växer, fungerar inte ett antal dem med krypterade kolumner. Att kryptera en kolumn kan också påverka prestanda för frågor, beroende på arbets Belastningens egenskaper. 
 
 - Hantera Always Encrypted nycklar med rollseparering om du använder Always Encrypted för att skydda data från skadliga databas administratörer. Med rollseparering skapas fysiska nycklar av en säkerhets administratör. DBA skapar kolumn huvud nyckeln och kolumn krypterings nyckelns metadata-objekt, som beskriver de fysiska nycklarna i databasen. Under den här processen behöver inte säkerhets administratören åtkomst till databasen och DBA behöver inte åtkomst till de fysiska nycklarna i klartext. 
   - Mer information finns i artikeln [Hantera nycklar med separering av roller](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) . 
@@ -705,7 +712,7 @@ Förbättra databas säkerheten proaktivt genom att identifiera och åtgärda po
 
 ### <a name="identify-and-tag-sensitive-data"></a>Identifiera och tagga känsliga data 
 
-Identifiera kolumner som potentiellt innehåller känsliga data. Klassificera kolumnerna för att använda avancerade känslighets beroende-baserade gransknings-och skydds scenarier. 
+Identifiera kolumner som potentiellt innehåller känsliga data. Vad som anses vara känsligt beror på kunder, efterlevnads förordningen osv. och måste utvärderas av de användare som ansvarar för dessa data. Klassificera kolumnerna för att använda avancerade känslighets beroende-baserade gransknings-och skydds scenarier. 
 
 **Implementera**:
 

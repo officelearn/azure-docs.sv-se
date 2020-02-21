@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3860823787b860f2504d6fb13b9479d1feec9d28
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186315"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505813"
 ---
 # <a name="assets-in-azure-media-services"></a>Till gångar i Azure Media Services
 
@@ -28,7 +28,13 @@ En till gång mappas till en BLOB-behållare i [Azure Storage-kontot](storage-ac
 
 **Arkiv** lag rings nivån rekommenderas endast för mycket stora källfiler som redan har kodats och kodnings jobbets utdata lades till i en utgående BLOB-behållare. De blobbar i behållaren för utdata som du vill associera med en till gång och som används för att **strömma eller analysera** innehållet måste finnas på en frekvent eller låg **frekvent lagrings** nivå.
 
-### <a name="naming-blobs"></a>Namnge blobbar
+### <a name="naming"></a>Namngivning 
+
+#### <a name="assets"></a>Tillgångar
+
+Till gångens namn måste vara unika. Media Services v3-resurs namn (till exempel till gångar, jobb, transformeringar) lyder under Azure Resource Manager namngivnings begränsningar. Mer information finns i [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
+
+#### <a name="blobs"></a>Blobar
 
 Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) och [kraven för NTFS-namn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Orsaken till dessa krav är att filerna kan kopieras från Blob Storage till en lokal NTFS-disk för bearbetning.
 

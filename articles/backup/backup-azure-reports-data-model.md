@@ -1,201 +1,224 @@
 ---
-title: Power BI data modell
-description: Den här artikeln beskriver information om Power BI data modell för Azure Backup rapporter.
+title: Data modell för Azure Backup Diagnostics-händelser
+description: Den här data modellen refererar till det resursbaserade läget för att skicka diagnostiska händelser till Log Analytics (LA).
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: a2f06da16280070448d7b42dc5e1dcfc46354cfa
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 10/30/2019
+ms.openlocfilehash: d38c9dedba7111923fa4f823d348d0783ac36681
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172808"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500627"
 ---
-# <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
+# <a name="data-model-for-azure-backup-diagnostics-events"></a>Data modell för Azure Backup Diagnostics-händelser
 
-I den här artikeln beskrivs Power BI data modell som används för att skapa Azure Backup rapporter. Med den här data modellen kan du filtrera befintliga rapporter baserat på relevanta fält och på ett mer viktigt, skapa egna rapporter med hjälp av tabeller och fält i modellen.
+## <a name="coreazurebackup"></a>CoreAzureBackup
 
-## <a name="creating-new-reports-in-power-bi"></a>Skapa nya rapporter i Power BI
+Den här tabellen innehåller information om kärn säkerhets kopiering av entiteter, till exempel valv och säkerhets kopierings objekt.
 
-Power BI innehåller anpassnings funktioner som du kan använda [för att skapa rapporter med hjälp av data modellen](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
+| **Fält**                         | **Datatyp** | **Beskrivning**                                              |
+| --------------------------------- | ------------- | ------------------------------------------------------------ |
+| ResourceId                        | Text          | Resurs-ID för data som samlas in. Till exempel, Recovery Services valv resurs-ID. |
+| OperationName                     | Text          | Det här fältet representerar namnet på den aktuella åtgärden-BackupItem, BackupItemAssociation eller ProtectedContainer. |
+| Kategori                          | Text          | Det här fältet representerar den kategori av diagnostikdata som skickas till Azure Monitor loggar. Till exempel CoreAzureBackup. |
+| Agent version                      | Text          | Versions nummer för agent säkerhets kopiering eller skydds agenten (i händelse av SC DPM och MABS) |
+| AzureBackupAgentVersion           | Text          | Versionen av Azure Backup-agenten på säkerhets kopierings hanterings servern |
+| AzureDataCenter                   | Text          | Data Center där valvet finns                       |
+| BackupItemAppVersion              | Text          | Säkerhets kopierings objektets program version                       |
+| BackupItemFriendlyName            | Text          | Eget namn på säkerhets kopierings objekt                             |
+| BackupItemName                    | Text          | Namn på det säkerhetskopierade objektet                                      |
+| BackupItemProtectionState         | Text          | Skydds status för säkerhets kopierings objekt                          |
+| BackupItemFrontEndSize            | Text          | Klient delens storlek på säkerhets kopierings objekt                            |
+| BackupItemType                    | Text          | Typ av säkerhets kopierings objekt. Till exempel: VM, FileFolder             |
+| BackupItemUniqueId                | Text          | Unikt ID för det säkerhetskopierade objektet                         |
+| BackupManagementServerType        | Text          | Typ av säkerhets kopierings hanterings Server, som i MABS, SC DPM     |
+| BackupManagementServerUniqueId    | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern      |
+| BackupManagementType              | Text          | Providertyp för säkerhets kopierings jobbet för servern. Till exempel IaaSVM, FileFolder |
+| BackupManagementServerName        | Text          | Namn på säkerhets kopierings hanterings servern                         |
+| BackupManagementServerOSVersion   | Text          | OS-version av säkerhets kopierings hanterings servern                   |
+| BackupManagementServerVersion     | Text          | Version av säkerhets kopierings hanterings servern                      |
+| LatestRecoveryPointLocation       | Text          | Plats för den senaste återställnings punkten för säkerhets kopierings objekt    |
+| LatestRecoveryPointTime           | DateTime      | Datum och tid för den senaste återställnings punkten för det säkerhetskopierade objektet   |
+| OldestRecoveryPointLocation       | Text          | Plats för den äldsta återställnings punkten för säkerhets kopierings objekt    |
+| OldestRecoveryPointTime           | DateTime      | Datum och tid för den senaste återställnings punkten för det säkerhetskopierade objektet   |
+| PolicyUniqueId                    | Text          | Unikt ID för att identifiera principen                             |
+| ProtectedContainerFriendlyName    | Text          | Eget namn på den skyddade servern                        |
+| ProtectedContainerLocation        | Text          | Om den skyddade behållaren finns lokalt eller i Azure |
+| ProtectedContainerName            | Text          | Namn på den skyddade behållaren                            |
+| ProtectedContainerOSType          | Text          | OS-typ för den skyddade behållaren                          |
+| ProtectedContainerOSVersion       | Text          | OS-version av den skyddade behållaren                        |
+| ProtectedContainerProtectionState | Text          | Skydds status för den skyddade behållaren                  |
+| ProtectedContainerType            | Text          | Om den skyddade behållaren är en server eller en behållare  |
+| ProtectedContainerUniqueId        | Text          | Unikt ID som används för att identifiera den skyddade behållaren för allting förutom virtuella datorer som säkerhets kopie ras med DPM, MABS |
+| ProtectedContainerWorkloadType    | Text          | Typ av skyddad behållare som säkerhets kopie ras. Till exempel IaaSVMContainer |
+| SkyddsgruppNamn               | Text          | Namnet på den skydds grupp som säkerhets kopie posten skyddas i, för SC DPM och MABS, om tillämpligt |
+| ResourceGroupName                 | Text          | Resurs grupp för resursen (till exempel Recovery Services valvet) för data som samlas in |
+| Schema                     | Text          | Det här fältet anger den aktuella versionen av schemat, den är **v2** |
+| SecondaryBackupProtectionState    | Text          | Om sekundärt skydd har Aktiver ATS för säkerhets kopierings objekt  |
+| Status                             | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
+| StorageReplicationType            | Text          | Typ av lagrings replikering för valvet. Till exempel, förredundant |
+| SubscriptionId                    | Text          | Prenumerations-ID för resursen (till exempel Recovery Services valv) som data samlas in för |
+| VaultName                         | Text          | Namn på valvet                                            |
+| VaultTags                         | Text          | Taggar som är associerade med valv resursen                    |
+| VaultUniqueId                     | Text          | Unikt ID för valvet                             |
+| SourceSystem                      | Text          | Käll system för aktuella data – Azure                  |
 
-## <a name="using-azure-backup-data-model"></a>Använda Azure Backup data modell
+## <a name="addonazurebackupalerts"></a>AddonAzureBackupAlerts
 
-Du kan använda följande fält som ingår i data modellen för att skapa rapporter och anpassa befintliga rapporter.
+Den här tabellen innehåller information om aviserings relaterade fält.
 
-### <a name="alert"></a>Varning
+| **Fält**                      | **Datatyp** | **Beskrivning**                                              |
+| :----------------------------- | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Text          | Unik identifierare för den resurs som samlar in data. Till exempel ett Recovery Services valv resurs-ID |
+| OperationName                  | Text          | Namnet på den aktuella åtgärden. Till exempel avisering            |
+| Kategori                       | Text          | Kategori av diagnostikdata som skickas till Azure Monitor loggar – AddonAzureBackupAlerts |
+| AlertCode                      | Text          | Kod som unikt identifierar en aviserings typ                     |
+| AlertConsolidationStatus       | Text          | Identifiera om aviseringen är en konsol IDE rad avisering eller inte         |
+| AlertOccurrenceDateTime        | DateTime      | Datum och tid då aviseringen skapades                     |
+| AlertRaisedOn                  | Text          | Typ av entitet som aviseringen utlöses på                        |
+| AlertSeverity                  | Text          | Aviseringens allvarlighets grad. Till exempel kritiskt                 |
+| Alert status                    | Text          | Aviseringens status. Till exempel Active                     |
+| AlertTimeToResolveInMinutes    | Tal        | Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.     |
+| AlertType                      | Text          | Typ av avisering. Till exempel säkerhets kopiering                           |
+| AlertUniqueId                  | Text          | Unik identifierare för den genererade aviseringen                    |
+| BackupItemUniqueId             | Text          | Unik identifierare för det säkerhets kopierings objekt som är associerat med aviseringen |
+| BackupManagementServerUniqueId | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
+| BackupManagementType           | Text          | Providertyp för server som utför säkerhets kopierings jobb, till exempel IaaSVM, FileFolder |
+| CountOfAlertsConsolidated      | Tal        | Antal aviseringar som konsolideras om det är en konsol IDE rad avisering  |
+| ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
+| RecommendedAction              | Text          | Åtgärd som rekommenderas för att lösa aviseringen                      |
+| Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
+| Status                          | Text          | Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
+| StorageUniqueId                | Text          | Unikt ID som används för att identifiera lagrings enheten                |
+| VaultUniqueId                  | Text          | Unikt ID som används för att identifiera valvet som hör till aviseringen    |
+| SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
 
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika fält för aviseringar.
+## <a name="addonazurebackupprotectedinstance"></a>AddonAzureBackupProtectedInstance
 
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #AlertsCreatedInPeriod |Heltal |Antal aviseringar som skapats under den valda tids perioden |
-| %ActiveAlertsCreatedInPeriod |Procent |Procent andel aktiva aviseringar under den valda tids perioden |
-| %CriticalAlertsCreatedInPeriod |Procent |Procent av kritiska aviseringar under den valda tids perioden |
-| AlertOccurrenceDate |Date |Datum när avisering skapades |
-| AlertSeverity |Text |Aviseringens allvarlighets grad. Till exempel kritiskt |
-| Alert status |Text |Aviseringens status. Till exempel Active |
-| AlertType |Text |Typ av genererad avisering. Till exempel säkerhets kopiering |
-| AlertUniqueId |Text |Unikt ID för den genererade aviseringen |
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Decimal tal |Genomsnittlig tid (i minuter) för att lösa aviseringar för den valda tids perioden |
-| EntityState |Text |Aktuellt tillstånd för aviserings objekt. Till exempel aktiv, borttagen |
+Den här tabellen innehåller grundläggande skyddade instans fält.
 
-### <a name="backup-item"></a>Säkerhets kopierings objekt
+| **Fält**                      | **Datatyp** | **Beskrivning**                                              |
+| ------------------------------ | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Text          | Unik identifierare för den resurs som samlar in data. Till exempel ett Recovery Services valv resurs-ID |
+| OperationName                  | Text          | Åtgärdens namn, till exempel ProtectedInstance         |
+| Kategori                       | Text          | Kategori av diagnostikdata som skickas till Azure Monitor loggar – AddonAzureBackupProtectedInstance |
+| BackupItemUniqueId             | Text          | Unikt ID för det säkerhetskopierade objektet                                 |
+| BackupManagementServerUniqueId | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
+| BackupManagementType           | Text          | Providertyp för server som utför säkerhets kopierings jobb, till exempel IaaSVM, FileFolder |
+| ProtectedContainerUniqueId     | Text          | Unikt ID för att identifiera den skyddade behållare som jobbet körs på |
+| ProtectedInstanceCount         | Text          | Antal skyddade instanser för det associerade säkerhets kopierings objektet eller skyddade behållaren den datum/tid |
+| Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
+| Status                          | Text          | Status för objektet säkerhets kopiering, till exempel aktiv, borttagen |
+| VaultUniqueId                  | Text          | Unikt ID för det skyddade valvet som är associerat med den skyddade instansen |
+| SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
 
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika fält för säkerhetskopierade objekt.
+## <a name="addonazurebackupjobs"></a>AddonAzureBackupJobs
 
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #BackupItems |Heltal |Antal säkerhets kopierings objekt |
-| #UnprotectedBackupItems |Heltal |Antal säkerhets kopierings objekt som har stoppats för skydd eller som inte har kon figurer ATS för säkerhets kopiering|
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| BackupItemFriendlyName |Text |Eget namn på säkerhets kopierings objekt |
-| BackupItemId |Text |ID för säkerhets kopierings objekt |
-| BackupItemName |Text |Namn på säkerhets kopierings objekt |
-| BackupItemType |Text |Typ av säkerhets kopierings objekt. Till exempel virtuell dator, FileFolder |
-| EntityState |Text |Aktuellt tillstånd för objektet för säkerhets kopierings objekt. Till exempel aktiv, borttagen |
-| LastBackupDateTime |Datum/tid |Tid för senaste säkerhets kopiering för valt säkerhets kopierings objekt |
-| LastBackupState |Text |Tillstånd för den senaste säkerhets kopieringen för det valda säkerhets kopierings objektet. Till exempel lyckad, misslyckades |
-| LastSuccessfulBackupDateTime |Datum/tid |Tid för senaste lyckade säkerhets kopiering för valt säkerhets kopierings objekt |
-| ProtectionState |Text |Aktuellt skydds tillstånd för säkerhets kopierings objekt. Till exempel skyddad, ProtectionStopped |
+Den här tabellen innehåller information om projektrelaterade fält.
 
-### <a name="calendar"></a>Kalender
+| **Fält**                      | **Datatyp** | **Beskrivning**                                              |
+| ------------------------------ | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Text          | Resurs-ID för data som samlas in. Till exempel, Recovery Services valv resurs-ID |
+| OperationName                  | Text          | Det här fältet representerar namnet på den aktuella åtgärden – jobb    |
+| Kategori                       | Text          | Det här fältet representerar kategori av diagnostikdata som skickas till Azure Monitor loggar – AddonAzureBackupJobs |
+| AdhocOrScheduledJob            | Text          | Fält för att ange om jobbet är ad hoc eller schemalagt           |
+| BackupItemUniqueId             | Text          | Unikt ID som används för att identifiera det säkerhets kopierings objekt som är relaterat till lagrings enheten |
+| BackupManagementServerUniqueId | Text          | Unikt ID som används för att identifiera säkerhets kopierings hanterings servern som är relaterad till lagrings enheten |
+| BackupManagementType           | Text          | Typ av Provider för säkerhets kopiering, till exempel IaaSVM, FileFolder som aviseringen tillhör |
+| DataTransferredInMB            | Tal        | Överförda data i MB för det här jobbet                          |
+| JobDurationInSecs              | Tal        | Total jobb varaktighet i sekunder                                |
+| JobFailureCode                 | Text          | Kod sträng för felkod på grund av vilket jobbfel som skett    |
+| JobOperation                   | Text          | Åtgärd för vilket jobb som körs, till exempel säkerhets kopiering, återställning, konfigurera säkerhets kopiering |
+| JobOperationSubType            | Text          | Undertyp för jobb åtgärden. Till exempel "log", i händelse av logg säkerhets kopierings jobb |
+| JobStartDateTime               | DateTime      | Datum och tid då jobbet började köras                       |
+| JobStatus                      | Text          | Status för det slutförda jobbet, till exempel slutförd, misslyckades   |
+| JobUniqueId                    | Text          | Unikt ID för att identifiera jobbet                                |
+| ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
+| RecoveryJobDestination         | Text          | Målet för ett återställnings jobb, där data återställs   |
+| RecoveryJobRPDateTime          | DateTime      | Datum och tid när återställnings punkten som återställs skapades |
+| RecoveryJobLocation            | Text          | Platsen där återställnings punkten som återställdes har lagrats |
+| RecoveryLocationType           | Text          | Typ av återställnings plats                                |
+| Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
+| Status                          | Text          | Aktuellt tillstånd för aviserings objekt, t. ex. aktiv, borttagen |
+| VaultUniqueId                  | Text          | Unikt ID för det skyddade valvet som är associerat med aviseringen |
+| SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
 
-Den här tabellen innehåller information om kalender relaterade fält.
+## <a name="addonazurebackuppolicy"></a>AddonAzureBackupPolicy
 
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| Date |Date |Datum som valts för filtrering av data |
-| DateKey |Text |Unik nyckel för varje datum objekt |
-| DayDiff |Decimal tal |Skillnad i dag för att filtrera data. Till exempel, 0 anger den aktuella dags data,-1 anger föregående data för en dag, 0 och-1 visar data för aktuell och föregående dag  |
-| Month |Text |Månad på det år som valts för filtrering av data, månad börjar den första dagen och slutar på 31: a dag |
-| MonthDate | Date |Datum i månaden då månaden slutar, valt för filtrering av data |
-| MonthDiff |Decimal tal |Skillnad i månad för att filtrera data. Till exempel, 0 anger den aktuella månadens data,-1 anger föregående månads data, 0 och-1 visar data för aktuell och föregående månad |
-| Vecka |Text |Vecka som valts för att filtrera data, veckan börjar på söndag och slutar på lördag |
-| WeekDate |Date |Datum i veckan då veckan slutar, valt för filtrering av data |
-| WeekDiff |Decimal tal |Skillnaden i veckan för att filtrera data. Till exempel, 0 anger den aktuella veckans data,-1 anger föregående veckas data, 0 och-1 visar data för aktuell och föregående vecka |
-| År |Text |Kalender år valt för filtrering av data |
-| YearDate |Date |Datum under året då året slutar, valt för filtrering av data |
+Den här tabellen innehåller information om principbaserad fält.
 
-### <a name="job"></a>Jobb
+| **Fält**                       | **Datatyp**  | **Beskrivning**                                              |
+| ------------------------------- | -------------- | ------------------------------------------------------------ |
+| ResourceId                      | Text           | Unik identifierare för den resurs som samlar in data. Till exempel ett Recovery Services valv resurs-ID |
+| OperationName                   | Text           | Namnet på åtgärden, till exempel princip eller PolicyAssociation |
+| Kategori                        | Text           | Kategori av diagnostikdata som skickas till Azure Monitor loggar – AddonAzureBackupPolicy |
+| BackupDaysOfTheWeek             | Text           | Vecko dagar när säkerhets kopieringar har schemalagts            |
+| BackupFrequency                 | Text           | Den frekvens med vilken säkerhets kopieringar körs. Till exempel varje dag, varje vecka |
+| BackupManagementType            | Text           | Providertyp för säkerhets kopierings jobbet för servern. Till exempel IaaSVM, FileFolder |
+| BackupManagementServerUniqueId  | Text           | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
+| BackupTimes                     | Text           | Datum och tid när säkerhets kopieringar schemaläggs                     |
+| DailyRetentionDuration          | Heltal   | Total Retentions tid i dagar för konfigurerade säkerhets kopieringar      |
+| DailyRetentionTimes             | Text           | Datum och tid när daglig kvarhållning hade kon figurer ATS            |
+| DiffBackupDaysOfTheWeek         | Text           | Vecko dagar för differentiella säkerhets kopieringar för SQL i Azure VM-säkerhetskopiering |
+| DiffBackupFormat                | Text           | Format för differentiella säkerhets kopieringar för SQL i VM-säkerhetskopiering i Azure   |
+| DiffBackupRetentionDuration     | Decimal tal | Retentions tid för differentiella säkerhets kopieringar för SQL i virtuell Azure-säkerhetskopiering |
+| DiffBackupTime                  | Tid           | Tid för differentiella säkerhets kopieringar för SQL i VM-säkerhetskopiering i Azure     |
+| LogBackupFrequency              | Decimal tal | Frekvens för säkerhets kopiering av loggar för SQL                            |
+| LogBackupRetentionDuration      | Decimal tal | Retentions tid för logg säkerhets kopior för SQL i Azure VM-säkerhetskopiering |
+| MonthlyRetentionDaysOfTheMonth  | Text           | Veckor i månaden då månatlig kvarhållning har kon figurer ATS.  Till exempel First, Last osv. |
+| MonthlyRetentionDaysOfTheWeek   | Text           | Vecko dagar som valts för månatlig kvarhållning              |
+| MonthlyRetentionDuration        | Text           | Total Retentions tid i månader för konfigurerade säkerhets kopieringar    |
+| MonthlyRetentionFormat          | Text           | Typ av konfiguration för månatlig kvarhållning. Till exempel varje dag för dag baserat, varje vecka i veckan baserat |
+| MonthlyRetentionTimes           | Text           | Datum och tid när månatlig kvarhållning har kon figurer ATS           |
+| MonthlyRetentionWeeksOfTheMonth | Text           | Veckor i månaden då månatlig kvarhållning har kon figurer ATS.   Till exempel First, Last osv. |
+| PolicyName                      | Text           | Namn på den princip som definierats                                   |
+| PolicyUniqueId                  | Text           | Unikt ID för att identifiera principen                             |
+| PolicyTimeZone                  | Text           | Tidszon där fälten för princip tid anges i loggarna |
+| RetentionDuration               | Text           | Retentions tid för konfigurerade säkerhets kopior                    |
+| RetentionType                   | Text           | Typ av kvarhållning                                            |
+| Schema                   | Text           | Det här fältet anger den aktuella versionen av schemat och är **v2** |
+| Status                           | Text           | Princip objektets aktuella tillstånd. Till exempel aktiv, borttagen |
+| SynchronisationFrequencyPerDay  | Heltal   | Antal gånger under en dag som en fil säkerhets kopia synkroniseras för SC DPM och MABS |
+| VaultUniqueId                   | Text           | Unikt ID för valvet som den här principen tillhör          |
+| WeeklyRetentionDaysOfTheWeek    | Text           | Vecko dagar som valts för veckovis kvarhållning               |
+| WeeklyRetentionDuration         | Decimal tal | Total varaktighet för veckovis kvarhållning i veckor för konfigurerade säkerhets kopieringar |
+| WeeklyRetentionTimes            | Text           | Datum och tid när veckovis kvarhållning har kon figurer ATS            |
+| YearlyRetentionDaysOfTheMonth   | Text           | Datum för den månad som valts för årlig kvarhållning             |
+| YearlyRetentionDaysOfTheWeek    | Text           | Vecko dagar som valts för årlig kvarhållning               |
+| YearlyRetentionDuration         | Decimal tal | Total Retentions tid i år för konfigurerade säkerhets kopieringar     |
+| YearlyRetentionFormat           | Text           | Typ av konfiguration för årlig kvarhållning, till exempel varje dag för dag baserat, veckovis för vecka, baserat |
+| YearlyRetentionMonthsOfTheYear  | Text           | Månader under året som valts för årlig kvarhållning             |
+| YearlyRetentionTimes            | Text           | Datum och tid när årlig kvarhållning har kon figurer ATS            |
+| YearlyRetentionWeeksOfTheMonth  | Text           | Veckor i månaden som valts för årlig kvarhållning             |
+| SourceSystem                    | Text           | Käll system för aktuella data – Azure                    |
 
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika projektrelaterade fält.
+## <a name="addonazurebackupstorage"></a>AddonAzureBackupStorage
 
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #JobsCreatedInPeriod |Heltal |Antal jobb som har skapats under den valda tids perioden |
-| %FailuresForJobsCreatedInPeriod |Procent |Procent andel övergripande jobb haverier under den valda tids perioden |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimal tal |80th percentil värde av data som överförts i MB för **säkerhets kopierings** jobb som skapats under den valda tids perioden |
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimal tal |Genomsnittlig tid i minuter för **slutförda säkerhets kopierings** jobb som skapats under vald tids period |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Decimal tal |Genomsnittlig tid i minuter för **slutförda återställnings** jobb som skapats under den valda tids perioden |
-| BackupStorageDestination |Text |Målet för lagring av säkerhets kopior. Till exempel Cloud, disk  |
-| EntityState |Text |Jobb objektets aktuella tillstånd. Till exempel aktiv, borttagen |
-| JobFailureCode |Text |Kod sträng för felkod på grund av vilket jobbfel som skett |
-| JobOperation |Text |Åtgärd för vilket jobb körs. Till exempel säkerhets kopiering, återställning, konfigurera säkerhets kopiering |
-| JobStartDate |Date |Datum när jobbet började köras |
-| JobStartTime |Tid |Tid när jobbet började köras |
-| JobStatus |Text |Status för det färdiga jobbet. Till exempel slutförd, misslyckades |
-| JobUniqueId |Text |Unikt ID för att identifiera jobbet |
+Den här tabellen innehåller information om Storage-relaterade fält.
 
-### <a name="policy"></a>Princip
-
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika principbaserade fält.
-
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #Policies |Heltal |Antal säkerhets kopierings principer som finns i systemet |
-| #PoliciesInUse |Heltal |Antal principer som för närvarande används för att konfigurera säkerhets kopior |
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| BackupDaysOfTheWeek |Text |Vecko dagar när säkerhets kopieringar har schemalagts |
-| BackupFrequency |Text |Den frekvens med vilken säkerhets kopieringar körs. Till exempel varje dag, varje vecka |
-| BackupTimes |Text |Datum och tid när säkerhets kopieringar schemaläggs |
-| DailyRetentionDuration |Heltal |Total Retentions tid i dagar för konfigurerade säkerhets kopieringar |
-| DailyRetentionTimes |Text |Datum och tid när daglig kvarhållning hade kon figurer ATS |
-| EntityState |Text |Princip objektets aktuella tillstånd. Till exempel aktiv, borttagen |
-| MonthlyRetentionDaysOfTheMonth |Text |Datum i månaden som valts för månatlig kvarhållning |
-| MonthlyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för månatlig kvarhållning |
-| MonthlyRetentionDuration |Decimal tal |Total Retentions tid i månader för konfigurerade säkerhets kopieringar |
-| MonthlyRetentionFormat |Text |Typ av konfiguration för månatlig kvarhållning. Till exempel varje dag för dag baserat, varje vecka i veckan baserat |
-| MonthlyRetentionTimes |Text |Datum och tid när månatlig kvarhållning har kon figurer ATS |
-| MonthlyRetentionWeeksOfTheMonth |Text |Veckor i månaden då månatlig kvarhållning har kon figurer ATS. Till exempel första, sista osv. |
-| PolicyName |Text |Namn på den princip som definierats |
-| PolicyUniqueId |Text |Unikt ID för att identifiera principen |
-| RetentionType |Text |Typ av bevarande princip. Till exempel varje dag, varje vecka, varje månad, varje år |
-| WeeklyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för veckovis kvarhållning |
-| WeeklyRetentionDuration |Decimal tal |Total varaktighet för veckovis kvarhållning i veckor för konfigurerade säkerhets kopieringar |
-| WeeklyRetentionTimes |Text |Datum och tid när veckovis kvarhållning har kon figurer ATS |
-| YearlyRetentionDaysOfTheMonth |Text |Datum för den månad som valts för årlig kvarhållning |
-| YearlyRetentionDaysOfTheWeek |Text |Vecko dagar som valts för årlig kvarhållning |
-| YearlyRetentionDuration |Decimal tal |Total Retentions tid i år för konfigurerade säkerhets kopieringar |
-| YearlyRetentionFormat |Text |Typ av konfiguration för årlig kvarhållning. Till exempel varje dag för dag baserat, varje vecka i veckan baserat |
-| YearlyRetentionMonthsOfTheYear |Text |Månader under året som valts för årlig kvarhållning |
-| YearlyRetentionTimes |Text |Datum och tid när årlig kvarhållning har kon figurer ATS |
-| YearlyRetentionWeeksOfTheMonth |Text |Veckor i månaden när årlig kvarhållning har kon figurer ATS. Till exempel första, sista osv. |
-
-### <a name="protected-server"></a>Skyddad Server
-
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika skyddade Server-relaterade fält.
-
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #ProtectedServers |Heltal |Antal skyddade servrar |
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| AzureBackupAgentOSType |Text |OS-typ för Azure Backup Agent |
-| AzureBackupAgentOSVersion |Text |OS-version av Azure Backup Agent |
-| AzureBackupAgentUpdateDate |Text |Datum när agenten för säkerhets kopiering uppdaterades |
-| AzureBackupAgentVersion |Text |Versions nummer för agentens säkerhets kopierings version |
-| BackupManagementType |Text |Providertyp för säkerhets kopiering. Till exempel IaaSVM, FileFolder |
-| EntityState |Text |Det skyddade Server objektets aktuella tillstånd. Till exempel aktiv, borttagen |
-| ProtectedServerFriendlyName |Text |Eget namn på skyddad Server |
-| ProtectedServerName |Text |Namn på skyddad Server |
-| ProtectedServerType |Text |Typ av skyddad server som säkerhets kopie ras. Till exempel IaaSVMContainer |
-| ProtectedServerName |Text |Namnet på den skyddade server som säkerhetskopierade objekt tillhör |
-| RegisteredContainerId |Text |ID för den behållare som registrerats för säkerhets kopiering |
-
-### <a name="storage"></a>Storage
-
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika lagrings fält.
-
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #ProtectedInstances |Decimal tal |Antal skyddade instanser som används för att beräkna frontend-lagring vid fakturering, beräknat baserat på det senaste värdet i vald tid |
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| CloudStorageInMB |Decimal tal |Lagring av moln säkerhets kopior som används av säkerhets kopieringar, beräknat baserat på det senaste värdet i vald tid |
-| EntityState |Text |Objektets aktuella tillstånd. Till exempel aktiv, borttagen |
-| LastUpdatedDate |Date |Datum när den markerade raden senast uppdaterades |
-
-### <a name="time"></a>Tid
-
-Den här tabellen innehåller information om tidsrelaterade fält.
-
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| Timme |Tid |Timmen på dagen. Till exempel 1:00:00 PM |
-| HourNumber |Decimal tal |Timmes nummer på dagen. Till exempel 13,00 |
-| Minut |Decimal tal |Minut i timmen |
-| PeriodOfTheDay |Text |Tids period under dagen. Till exempel 12-3 AM |
-| Tid |Tid |Tid på dagen. Till exempel 12:00:01 AM |
-| TimeKey |Text |Nyckel värde som representerar tid |
-
-### <a name="vault"></a>Valv
-
-Den här tabellen innehåller grundläggande fält och agg regeringar för olika valv-relaterade fält.
-
-| Fält | Datatyp | Beskrivning |
-| --- | --- | --- |
-| #Vaults |Heltal |Antal valv |
-| AsOnDateTime |Datum/tid |Senaste uppdaterings tid för den valda raden |
-| AzureDataCenter |Text |Data Center där valvet finns |
-| EntityState |Text |Aktuellt tillstånd för Valve-objektet. Till exempel aktiv, borttagen |
-| StorageReplicationType |Text |Typ av lagrings replikering för valvet. Till exempel, förredundant |
-| SubscriptionId |Text |Prenumerations-ID för den valda kunden för generering av rapporter |
-| vaultName |Text |Namn på valvet |
-| VaultTags |Text |Taggar som är kopplade till valvet |
+| **Fält**                      | **Datatyp** | **Beskrivning**                                              |
+| ------------------------------ | ------------- | ------------------------------------------------------------ |
+| ResourceId                     | Text          | Resurs-ID för data som samlas in. Till exempel, Recovery Services valv resurs-ID |
+| OperationName                  | Text          | Det här fältet representerar namnet på den aktuella åtgärden lagrings-eller StorageAssociation |
+| Kategori                       | Text          | Det här fältet representerar kategori av diagnostikdata som skickas till Azure Monitor loggar – AddonAzureBackupStorage |
+| BackupItemUniqueId             | Text          | Unikt ID som används för att identifiera säkerhets kopierings objekt för virtuella datorer som säkerhets kopie ras med DPM, MABS |
+| BackupManagementServerUniqueId | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
+| BackupManagementType           | Text          | Providertyp för säkerhets kopierings jobbet för servern. Till exempel IaaSVM, FileFolder |
+| PreferredWorkloadOnVolume      | Text          | Arbets belastning för vilken den här volymen är den prioriterade lagringen      |
+| ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
+| Schema                  | Text          | Schemats version. Till exempel **v2**                   |
+| Status                          | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
+| StorageAllocatedInMBs          | Tal        | Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk |
+| StorageConsumedInMBs           | Tal        | Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
+| StorageName                    | Text          | Namn på lagrings enhet. Till exempel E:\                      |
+| StorageTotalSizeInGBs          | Text          | Total lagrings utrymme, i GB, som används av lagrings enheten     |
+| StorageType                    | Text          | Typ av lagring, till exempel moln, volym, disk             |
+| StorageUniqueId                | Text          | Unikt ID som används för att identifiera lagrings enheten                |
+| VaultUniqueId                  | Text          | Unikt ID som används för att identifiera valvet som hör till lagrings enheten |
+| VolumeFriendlyName             | Text          | Eget namn på lagrings volymen                          |
+| SourceSystem                   | Text          | Käll system för aktuella data – Azure                    |
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har granskat data modellen för att skapa Azure Backup rapporter kan du läsa följande artiklar för mer information om hur du skapar och visar rapporter i Power BI.
-
-* [Skapa rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-* [Filtrera rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+- [Lär dig hur du skickar diagnostikdata till Log Analytics](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Lär dig hur du skriver frågor för resursbaserade tabeller](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

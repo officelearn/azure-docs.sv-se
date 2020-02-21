@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure anpassnings guide för säkerhets kod analys
+title: Anpassa Microsoft Security code Analysis-uppgifter
+titleSuffix: Azure
 description: Den här artikeln beskriver hur du anpassar aktiviteterna i tillägget Microsoft Security code Analysis
 author: vharindra
 manager: sukhans
@@ -12,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851544"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499991"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -89,7 +90,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 
 ![Konfigurera uppgiften för att läsa in autentiseringsuppgifter](./media/security-tools/3-taskdetails.png)
 
-Tillgängliga alternativ inkluderar:
+De tillgängliga alternativen är:
 
   - **Utdataformat**: tillgängliga värden är **TSV**, **CSV**, **SARIF**och för **snabbt**.
   - **Verktygs version**: Vi rekommenderar att du väljer **senaste**.
@@ -146,7 +147,7 @@ Information om YAML-konfigurationen för den här uppgiften finns i följande [y
 
 Information om aktivitets konfigurationen visas i följande lista och anmärkning.
 
-Tillgängliga alternativ inkluderar:
+De tillgängliga alternativen är:
 
 - **Ruleset**: värden är **sdl krävs**, **sdl rekommenderas**eller din egen anpassade regel uppsättning.
 - **Versions analys**: Vi rekommenderar att du väljer **senaste**.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047851"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482892"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
 
@@ -24,7 +24,9 @@ Vi har släppt en ny version av Azure Monitor for VMs. Kunder som aktiverar Azur
 
 Med den här uppgraderingen lagras Azure Monitor for VMs prestanda data i samma *InsightsMetrics* -tabell som [Azure Monitor för behållare](container-insights-overview.md), vilket gör det enklare för dig att fråga de två data uppsättningarna. Du kan också lagra Mer Diverse data uppsättningar som vi inte kunde lagra i tabellen som användes tidigare. 
 
-I nästa vecka eller två kommer våra prestanda visningar också att uppdateras till att använda den här nya tabellen.
+Våra prestanda visningar använder nu de data som vi lagrar i *InsightsMetrics* -tabellen.  Om du ännu inte har uppgraderat för att använda den senaste VMInsights-lösningen på arbets ytan visas inte längre information i dina diagram.  Du kan uppgradera från vår **Kom igång** -sida enligt beskrivningen nedan.
+
+Med den här uppgraderingen lagras Azure Monitor for VMs prestanda data i samma *InsightsMetrics* -tabell som [Azure Monitor för behållare](container-insights-overview.md) som gör det enklare för dig att fråga de två data uppsättningarna. Du kan också lagra Mer Diverse data uppsättningar som vi inte kunde lagra i tabellen som användes tidigare. 
 
 Vi inser att vi ber befintliga kunder att uppgradera orsakar avbrott i sitt arbets flöde, vilket är anledningen till att vi har valt att göra detta nu i en offentlig för hands version i stället för senare efter GA.
 
@@ -34,6 +36,8 @@ Vi inser att vi ber befintliga kunder att uppgradera orsakar avbrott i sitt arbe
 Vi har släppt en ny lösning med namnet VMInsights, som innehåller ytterligare funktioner för data insamling tillsammans med en ny plats för att lagra dessa data i din Log Analytics-arbetsyta. 
 
 Tidigare aktiverade vi ServiceMap-lösningen på din arbets yta och ställer in prestanda räknare i Log Analytics arbets ytan för att skicka data till *perf* -tabellen. Den här nya lösningen skickar data till en tabell med namnet *InsightsMetrics* som också används av Azure Monitor för behållare. Det här tabell schemat gör att vi kan lagra ytterligare mått och tjänst data uppsättningar som inte är kompatibla med tabell formatet *perf* .
+
+Vi har uppdaterat våra prestanda diagram för att använda de data som vi lagrar i *InsightsMetrics* -tabellen. Du kan uppgradera för att använda *InsightsMetrics* -tabellen från vår sida för att **komma igång** enligt beskrivningen nedan.
 
 
 ## <a name="how-do-i-upgrade"></a>Hur gör jag för att uppgradering?

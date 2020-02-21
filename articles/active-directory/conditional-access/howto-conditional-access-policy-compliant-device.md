@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a18f0b1f83ae02b06344c332cfdd1cc093f37fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d19cc39147608dafc4576f4c8bad0533ad1b32d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424879"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521922"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Villkorlig åtkomst: Kräv kompatibla enheter
 
@@ -27,7 +27,7 @@ Organisationer som har distribuerat Microsoft Intune kan använda den informatio
 * Kräver en lägsta eller högsta operativ system version
 * En enhet som kräver en enhet är inte jailbrokade eller rotad
 
-Den här policyn för efterlevnad vidarebefordras till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser.
+Den här policyn för efterlevnad vidarebefordras till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser. Mer information om efterlevnadsprinciper för enheter finns i artikeln [Ange regler för enheter för att tillåta åtkomst till resurser i din organisation med hjälp av Intune](/intune/protect/device-compliance-get-started)
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
@@ -61,4 +61,4 @@ På Windows 7, iOS, Android, macOS och vissa tredjeparts webbläsare i Azure AD 
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
 
-[Efterlevnadsprinciper för enheter fungerar med Azure AD](https://docs.microsoft.com/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[Efterlevnadsprinciper för enheter fungerar med Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

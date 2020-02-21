@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905272"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526503"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -61,7 +61,7 @@ Använd följande kommando för att köra ett prestandatest.
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Uttryck** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
 | **Exempel** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
@@ -121,6 +121,8 @@ AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för
 Loggarna innehåller status för ett haveri (`UPLOADFAILED`, `COPYFAILED`och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
 
 Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE%\.azcopy` i Windows eller `$HOME$\.azcopy` Directory på Mac och Linux, men du kan ändra platsen om du vill.
+
+Det relevanta felet är inte nödvändigt vis det första fel som visas i filen. För fel som nätverks fel, timeout-fel och Server upptaget, kommer AzCopy att försöka igen till 20 gånger, och normalt lyckas processen igen.  Det första fel du ser kan vara något ofarligt som har gjorts om.  I stället för att titta på det första felet i filen kan du söka efter de fel som finns nära `UPLOADFAILED`, `COPYFAILED`eller `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > När du skickar en begäran till Microsoft Support (eller fel sökning av problemet som berör tredje part) delar du den avvisade versionen av kommandot som du vill köra. Detta säkerställer att SAS inte delas av misstag med vem. Du kan hitta den avvisade versionen i början av logg filen.

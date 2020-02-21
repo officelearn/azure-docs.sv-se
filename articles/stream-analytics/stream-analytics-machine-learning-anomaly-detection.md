@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e29ac6671d71ea02b432c9843541796984737c8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459605"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525540"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Avvikelse identifiering i Azure Stream Analytics
 
@@ -21,6 +21,12 @@ Azure Stream Analytics finns i både molnet och Azure IoT Edge och erbjuder inby
 Machine Learning-modeller förutsätter en jämnt insticks tids serie. Om tids serien inte är enhetlig kan du infoga ett agg regerings steg med ett rullande-fönster innan du anropar avvikelse identifiering.
 
 Machine Learning-åtgärderna stöder inte säsongs beroende trender eller flera variate-korrelationer för tillfället.
+
+## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Avvikelse identifiering med Machine Learning i Azure Stream Analytics
+
+Följande videoklipp visar hur du identifierar en avvikelse i real tid med hjälp av Machine Learning-funktioner i Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
 ## <a name="model-behavior"></a>Modell beteende
 
@@ -147,12 +153,6 @@ Exempel kod för att köra icke-partitionerade konfigurationer ovan finns i [str
 
 ### <a name="identifying-bottlenecks"></a>Identifiera Flask halsar
 Använd fönstret mått i ditt Azure Stream Analytics jobb för att identifiera Flask halsar i din pipeline. Granska **indata/utdata-händelser** för data flöde och ["fördröjning av vattenstämpel"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) eller **eftersläpande händelser** för att se om jobbet hålls i takt med indata. För Event Hub-mått söker du efter **begränsade begär Anden** och justerar tröskel enheterna enligt detta. För Cosmos DB Mät värden granskar du **Max förbrukade ru/s per nyckel intervall** under genomflödet för att se till att dina partitionerings nyckel intervall är enhetligt förbrukade. Övervaka **logg-i/o** och **CPU**för Azure SQL DB.
-
-## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Avvikelse identifiering med Machine Learning i Azure Stream Analytics
-
-Följande videoklipp visar hur du identifierar en avvikelse i real tid med hjälp av Machine Learning-funktioner i Azure Stream Analytics. 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
 
 ## <a name="next-steps"></a>Nästa steg
 

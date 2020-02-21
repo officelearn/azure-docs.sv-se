@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: b28d228dd950796265c5412be30e5d7777cf94c6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460475"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526520"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -117,7 +117,7 @@ För Azure Firewall service-gränser, se [Azure-prenumeration och tjänst begrä
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Kan Azure-brandväggen i ett virtuellt hubb nätverk vidarebefordra och filtrera nätverks trafik mellan två ekrar virtuella nätverk?
 
-Ja, du kan använda Azure-brandväggen i ett nav virtuellt nätverk för att dirigera och filtrera trafik mellan två ekrar i ekrar. Undernät i varje Ekers virtuella nätverk måste ha UDR som pekar på Azure-brandväggen som standard-gateway för att det här scenariot ska fungera korrekt.
+Ja, du kan använda Azure-brandväggen i ett nav virtuellt nätverk för att dirigera och filtrera trafik mellan två ekrar i ekrar. Undernät i varje eker virtuella nätverk måste ha en UDR som pekar på Azure-brandväggen som en standardgateway för att det här scenariot ska fungera korrekt.
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Kan Azure Firewall vidarebefordra och filtrera nätverks trafik mellan undernät i samma virtuella nätverk eller peer-kopplat virtuella nätverk?
 
@@ -137,7 +137,7 @@ Om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk och du
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Finns det några begränsningar för brand Väggs resurs gruppen?
 
-Ja. Brand väggen, under nätet, VNet och den offentliga IP-adressen måste finnas i samma resurs grupp.
+Ja. Brand väggen, VNet och den offentliga IP-adressen måste finnas i samma resurs grupp.
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>När du konfigurerar DNAT för inkommande nätverks trafik måste du också konfigurera en motsvarande nätverks regel för att tillåta trafiken?
 
@@ -168,11 +168,11 @@ Nej. Azure-brandväggen behöver inte ett undernät som är större än/26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Hur kan jag öka mitt brand Väggs flöde?
 
-Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s. Skala ut baseras för närvarande på CPU-användning och data flöde. I vissa fall skalas bara en brand vägg med nätverks regler upp för att öka data flödet eftersom nätverks reglerna inte påverkar CPU-användningen betydligt. Om du behöver högre data flöde för brand väggen kan du kontakta supporten för att öka brand väggens första kapacitet för data flödet.
+Den första data flödes kapaciteten i Azure Firewall är 2,5-3 Gbit/s och den skalas upp till 30 Gbit/s. Den skalas ut baserat på CPU-användning och data flöde. Kontakta supporten för att öka brand väggens data flödes kapacitet om brand väggen inte skalas ut för att uppfylla dina behov och du behöver högre data flödes kapacitet.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Hur lång tid tar det för Azure-brandväggen att skala ut?
 
-För närvarande tar det mellan fem och sju minuter för Azure-brandvägg att skala ut. Om du har burst-överföring som kräver en snabbare autoskalning, kan du kontakta supporten för att öka brand väggens första kapacitet för data flödet.
+Det tar mellan fem och sju minuter för Azure-brandvägg att skala ut. Kontakta supporten för att öka brand väggens första data flödes kapacitet om du har burst-överföring som kräver en snabbare autoskalning.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Tillåter Azure-brandväggen åtkomst till Active Directory som standard?
 

@@ -16,16 +16,21 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6251c1576d38b191ca1cba48075cc869c48d004
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 3f087ffe824a198c578f076857cca7fdf0f0a60c
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048113"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498683"
 ---
 # <a name="configure-azure-ad-custom-roles-in-privileged-identity-management"></a>Konfigurera anpassade Azure AD-roller i Privileged Identity Management
 
 En privilegie rad roll administratör kan ändra de roll inställningar som gäller för en användare när de aktiverar sin tilldelning till en anpassad roll och för andra program administratörer som tilldelar anpassade roller.
+
+> [!NOTE]
+> Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen. Om du ser följande banderoll bör dessa roller hanteras [i den inbyggda roll upplevelsen](pim-how-to-activate-role.md) och den här artikeln gäller inte:
+>
+> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## <a name="open-role-settings"></a>Öppna roll inställningar
 
@@ -95,7 +100,7 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
+- [Aktivera en anpassad Azure AD-roll](azure-ad-custom-roles-activate.md)
 - [Tilldela en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
 - [Ta bort eller uppdatera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Roll definitioner i Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

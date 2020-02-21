@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f4f6cf01502070ea63eaf0083aba33ff213534a4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443592"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500251"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Förbättrade säkra poäng (för hands version) 
 
@@ -65,15 +65,15 @@ Säkerhets kontrollen "tillämpa system uppdateringar" har till exempel en högs
 
 Risken för säkerhets kontrollen "Använd System uppdateringar" i skärm bilden ovan visar "2% (1 punkt)". Det innebär att om du reparerar alla rekommendationer i den här kontrollen kommer poängen att öka med 2% (i det här fallet en punkt). För enkelhetens skull avrundas värdena i kolumnen "potentiell ökning" till heltal. Knapp beskrivningarna visar de exakta värdena:
 
+* **Högsta poäng** – det maximala antalet poäng som du kan få genom att slutföra alla rekommendationer inom en kontroll. Den maximala poängen för en kontroll anger den relativa betydelsen av kontrollen. Använd Max poäng värden för att prioritering vilka problem som ska fungera först. 
 * **Eventuell ökning** – de återstående punkterna är tillgängliga i kontrollen. Om du vill få de här punkterna tillagda på dina säkra Poäng kan du åtgärda alla kontrollers rekommendationer. I exemplet ovan är den ena punkten som visas för kontrollen faktiskt 0,96 punkter.
 * **Aktuell Poäng** – den aktuella poängen för den här kontrollen. Varje kontroll bidrar till den totala poängen. I det här exemplet bidrar kontrollen 5,04 punkter till summan. 
-* **Max poäng** – summan av de föregående två värdena.
 
 ### <a name="calculations---understanding-your-score"></a>Beräkningar – förstå dina Poäng
 
 |Mått|Formel och exempel|
 |-|-|
-|**Säkerhets kontrollens aktuella Poäng**|<br>![ekvation för att beräkna en säkerhets kontrolls aktuella Poäng](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Varje enskild säkerhets kontroll bidrar till säkerhets poängen. Varje resurs som påverkas av en rekommendation inom kontrollen bidrar till kontrollens aktuella resultat. Den aktuella poängen för varje kontroll är ett mått på statusen för resurserna *i* kontrollen.<br>![knapp beskrivningar som visar de värden som används när du beräknar säkerhets kontrollens aktuella Poäng](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>I det här exemplet skulle max poängen på 6 divideras med 78 eftersom det är summan av de felfria och felaktiga resurserna.<br>6/78 = 0,0769<br>Om du multiplicerar antalet felfria resurser (74) resulterar det i den aktuella poängen:<br>0,0769 * 74 = **5,69**<br><br>|
+|**Säkerhets kontrollens aktuella Poäng**|<br>![ekvation för att beräkna en säkerhets kontrolls aktuella Poäng](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Varje enskild säkerhets kontroll bidrar till säkerhets poängen. Varje resurs som påverkas av en rekommendation inom kontrollen bidrar till kontrollens aktuella resultat. Den aktuella poängen för varje kontroll är ett mått på statusen för resurserna *i* kontrollen.<br>![knapp beskrivningar som visar de värden som används när du beräknar säkerhets kontrollens aktuella Poäng](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>I det här exemplet skulle max poängen på 6 divideras med 78 eftersom det är summan av de felfria och felaktiga resurserna.<br>6/78 = 0,0769<br>Om du multiplicerar det med antalet felfria resurser (4) resulterar det i den aktuella poängen:<br>0,0769 * 4 = **0,31**<br><br>|
 |**Säkerhetspoäng**<br>Enstaka prenumeration|<br>![Ekvation för att beräkna nuvarande säkra Poäng](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Säker Poäng för enskild prenumeration med alla kontroller aktiverade](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>I det här exemplet finns det en enda prenumeration med alla säkerhets kontroller som är tillgängliga (en potentiell högsta poäng på 60 punkter). Poängen visar 28 punkter av en möjlig 60 och de återstående 32 punkterna visas i siffrorna "potentiella Poäng ökning" i säkerhets kontrollerna.<br>![Lista över kontroller och potentiella Poäng ökningar](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Säkerhetspoäng**<br>Flera prenumerationer|<br>Den aktuella poängen för alla resurser i alla prenumerationer läggs till och beräkningen är sedan samma som för en enskild prenumeration<br><br>När du visar flera prenumerationer utvärderar säkra poäng alla resurser i alla aktiverade principer och grupperar deras kombinerade påverkan på varje säkerhets kontrolls maximala poäng.<br>![säkra Poäng för flera prenumerationer med aktiverade kontroller](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Den kombinerade poängen är **inte** ett medelvärde. i stället är det utvärderat position av status för alla resurser i alla prenumerationer.<br>Om du går till sidan rekommendationer och lägger till tillgängliga tillgängliga punkter, kommer du att se att det är skillnaden mellan den aktuella poängen (24) och den maximala poängen som är tillgänglig (60).|
 ||||

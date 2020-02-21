@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847061"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482776"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Använd anpassade attribut i en anpassad profil redigerings princip
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847061"
 
 I den här artikeln skapar du ett anpassat attribut i Azure Active Directory B2C-katalogen (Azure AD B2C). Du kommer att använda det här nya attributet som ett anpassat anspråk i profilen redigera användar resa.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följ stegen i artikeln [Azure Active Directory B2C: kom igång med anpassade principer](custom-policy-get-started.md).
 
@@ -34,7 +34,7 @@ Din Azure AD B2C katalog levereras med en inbyggd uppsättning attribut. Exempel
 * En identitetsprovider har ett unikt användar-ID, t. ex. **uniqueUserGUID** , som måste sparas.
 * En anpassad användar resa måste vara beständig för ett tillstånd för en användare som **migrationStatus**.
 
-Azure AD B2C utökar uppsättningen attribut som lagras för varje användar konto. Du kan också läsa och skriva attributen med hjälp av [Azure AD Graph API](manage-user-accounts-graph-api.md).
+Azure AD B2C utökar uppsättningen attribut som lagras för varje användar konto. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](manage-user-accounts-graph-api.md).
 
 Tilläggs egenskaper utökar schemat för användar objekt i katalogen. Villkors *tilläggets egenskap*, *anpassade attribut*och *anpassat anspråk* refererar till samma sak som i den här artikeln. Namnet varierar beroende på kontexten, t. ex. program, objekt eller princip.
 
@@ -297,7 +297,7 @@ ID-token som skickas tillbaka till programmet inkluderar den nya tilläggs egens
 
 ## <a name="reference"></a>Referens
 
-Mer information om tilläggs egenskaper finns i artikeln [katalog schema tillägg | Graph API begrepp](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Mer information om tilläggs egenskaper finns i artikeln [lägga till anpassade data till resurser med hjälp av tillägg](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * En **TechnicalProfile** är en element typ, eller funktion, som definierar en slut punkts namn, metadata och protokoll. **TechnicalProfile** innehåller information om utbytet av anspråk som identitets miljöns ramverk utför. När den här funktionen anropas i ett Orchestration-steg eller från en annan **TechnicalProfile**anges **InputClaims** och **OutputClaims** som parametrar av anroparen.

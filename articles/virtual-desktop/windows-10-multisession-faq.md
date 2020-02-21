@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470580"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484612"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
 
-Den här artikeln kommer att besvara vanliga frågor och få bästa praxis för Windows 10 Enterprise multi-session.
+I den här artikeln besvaras vanliga frågor och rekommendationer för Windows 10 Enterprise multi-session.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>Vad är Windows 10 Enterprise multi-session? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>Vad är Windows 10 Enterprise multi-session?
 
-Windows 10 Enterprise multi-session, tidigare känt som Windows 10 Enterprise för virtuella skriv bord (EVD), är en ny värd för fjärrskrivbordssession som tillåter flera samtidiga interaktiva sessioner, som tidigare endast fanns i Windows Server. Den här funktionen ger användarna en välbekant Windows 10-upplevelse medan den kan dra nytta av kostnads fördelarna med multi-session och använda befintliga Windows-licensiering per användare i stället för klient åtkomst licenser för fjärr skrivbords tjänster. Mer information om licenser och priser finns i [priser för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Windows 10 Enterprise multi-session, tidigare känt som Windows 10 Enterprise för virtuella skriv bord (EVD), är en ny värd för fjärrskrivbordssession som tillåter flera samtidiga interaktiva sessioner. Tidigare kunde endast Windows Server göra detta. Den här funktionen ger användarna en välbekant Windows 10-upplevelse medan den kan dra nytta av kostnads fördelarna med multi-session och använda befintliga Windows-licensiering per användare i stället för klient åtkomst licenser för fjärr skrivbords tjänster. Mer information om licenser och priser finns i [priser för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Hur många användare kan samtidigt ha en interaktiv session i Windows 10 Enterprise multi-session?
 
@@ -71,6 +71,31 @@ Mer information om hur du konfigurerar en FSLogix profil behållare finns i [Kon
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Vilken licens behöver jag för att få åtkomst till Windows 10 Enterprise multi-session?
 
 En fullständig lista över tillämpliga licenser finns i [priser för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Varför försvinner Mina appar när jag loggar ut?
+
+Detta beror på att du använder Windows 10 Enterprise multi-session med en profil hanterings lösning som FSLogix. Din administratörs-eller profil lösning har konfigurerat systemet att ta bort användar profiler när användare loggar ut. Den här konfigurationen innebär att när ditt system tar bort din användar profil när du har loggat ut, tas även alla appar som du har installerat bort under sessionen. Om du vill behålla de appar som du har installerat måste du be din administratör att etablera dessa appar för alla användare i din Windows-miljö för virtuella datorer.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Hur gör jag för att se till att appar inte försvinner när användarna loggar ut?
+
+De flesta virtualiserade miljöer konfigureras som standard för att hindra användare från att installera ytterligare appar till sina profiler. Om du vill vara säker på att en app inte försvinner när användaren loggar ut från det virtuella Windows-skrivbordet måste du etablera appen för alla användar profiler i din miljö. Mer information om hur du konfigurerar appar finns i följande resurser:
+
+- [Publicera inbyggda appar i Windows Virtual Desktop](publish-apps.md)
+- [Kommando rads alternativ för DISM-paket underhåll](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Hur gör jag för att se till att användarna inte laddar ned och installerar appar från Microsoft Store?
+
+Du kan inaktivera Microsoft Store-appen för att se till att användarna inte laddar ned extra appar utöver de appar som du redan har tillhandahållit.
+
+Så här inaktiverar du Store-appen:
+
+1. Skapa en ny grupprincip.
+2. Välj **dator konfiguration** > **administrativa mallar** > **Windows-komponenter**.
+3. Välj **Arkiv**.
+4. Välj **Store-program**.
+5. Välj **inaktive rad**och välj sedan **OK**.
+6. Välj **Använd**.
  
 ## <a name="next-steps"></a>Nästa steg
 

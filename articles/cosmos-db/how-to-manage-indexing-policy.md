@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 58e8767de786ed2ae92d19c01287aa05c8b63fbb
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767977"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506234"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexerings principer i Azure Cosmos DB
 
@@ -342,7 +342,7 @@ En [indexerings princip uppdatering](index-policy.md#modifying-the-indexing-poli
 > [!NOTE]
 > När du uppdaterar indexerings principen avbryts skrivningen till Azure Cosmos DB. Vid Omindexering kan frågor returnera partiella resultat när indexet uppdateras.
 
-## <a name="use-the-azure-portal"></a>Använd Azure Portal
+## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 
 Azure Cosmos-behållare lagrar sin indexerings princip som ett JSON-dokument som Azure Portal gör att du kan redigera den direkt.
 
@@ -472,7 +472,7 @@ indexingPolicy.setIndexingMode(IndexingMode.Consistent);
 // Add an included path
 
 Collection<IncludedPath> includedPaths = new ArrayList<>();
-ExcludedPath includedPath = new IncludedPath();
+IncludedPath includedPath = new IncludedPath();
 includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);

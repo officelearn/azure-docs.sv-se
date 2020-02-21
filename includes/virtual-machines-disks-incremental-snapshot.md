@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445985"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520675"
 ---
 Stegvisa ögonblicks bilder (för hands version) är tidpunkter för säkerhets kopiering av hanterade diskar som, när de tas, endast består av alla ändringar sedan den senaste ögonblicks bilden. När du försöker hämta eller på annat sätt använda en stegvis ögonblicks bild, används hela den virtuella hård disken. Den här nya funktionen för ögonblicks bilder av hanterade diskar kan eventuellt göra att de är mer kostnads effektiva eftersom du inte längre behöver lagra hela disken med varje enskild ögonblicks bild, såvida du inte väljer att. Precis som vanliga ögonblicks bilder kan du använda stegvisa ögonblicks bilder för att skapa en fullständig hanterad disk eller för att göra en vanlig ögonblicks bild.
 
@@ -21,10 +21,15 @@ Det finns några skillnader mellan en stegvis ögonblicks bild och en vanlig ög
 
 Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är unikt tillgänglig för hanterade diskar. De gör att du kan hämta ändringarna mellan två stegvisa ögonblicks bilder av samma hanterade diskar, ned till block nivån. Du kan använda den här funktionen för att minska dina data när du kopierar ögonblicks bilder över flera regioner.
 
-## <a name="restrictions"></a>Begränsningar
+### <a name="supported-regions"></a>Regioner som stöds
 
-- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i östra USA, östra USA 2, centrala USA, västra centrala USA, Östra Kanada, centrala Kanada, Nord Europa, Asien, sydöstra.
-- Det går för närvarande inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk.
+Det finns för närvarande endast stöd för följande regioner:
+
+- Tillgängligt som ett GA-erbjudande i västra centrala USA, Östra Kanada, centrala regioner.
+- Tillgänglig som en offentlig för hands version i USA, östra USA 2, centrala USA, norra Europa, Asien, sydöstra regioner.
+
+## <a name="restrictions"></a>Begränsningar
+- Det går inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk (endast för hands versionen).
 - Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
 - För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.
 - Du kan inte skapa en stegvis ögonblicks bild för en viss disk utanför diskens prenumeration.

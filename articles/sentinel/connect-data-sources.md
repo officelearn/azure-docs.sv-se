@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 33fddcf22793e50287fb590dee3547d5e7be4d2b
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 97b65c9f891d925e702c858753aa5e5feb9c9ac1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462555"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500712"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -45,35 +45,46 @@ Följande data anslutnings metoder stöds av Azure Sentinel:
 
 - **Integrering av tjänst till tjänst**:<br> Vissa tjänster är anslutna till varandra, till exempel AWS och Microsoft-tjänster, de här tjänsterna utnyttjar Azure Foundation för out of Box-integreringen. följande lösningar kan vara anslutna med några klick:
     - [Amazon Web Services-CloudTrail](connect-aws.md)
-    - [Office 365](connect-office-365.md)
-    - [Gransknings loggar och inloggningar i Azure AD](connect-azure-active-directory.md)
     - [Azure-aktivitet](connect-azure-activity.md)
+    - [Gransknings loggar och inloggningar i Azure AD](connect-azure-active-directory.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Azure Security Center](connect-azure-security-center.md)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Security Center](connect-azure-security-center.md)
     - [Cloud App Security](connect-cloud-app-security.md)
+    - [Domän namn server](connect-dns.md)
+    - [Office 365](connect-office-365.md)
+    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Brand vägg för Microsoft-webbprogram](connect-microsoft-waf.md)
     - [Windows säkerhets händelser](connect-windows-security-events.md) 
     - [Windows-brandvägg](connect-windows-firewall.md)
+    - [Windows säkerhets händelser](connect-windows-security-events.md)
 
 - **Externa lösningar via API**: vissa data källor är anslutna via API: er som tillhandahålls av den anslutna data källan. Oftast tillhandahåller de flesta säkerhets tekniker en uppsättning API: er via vilka händelse loggar som kan hämtas. API: erna ansluter till Azure Sentinel och samlar in vissa data typer och skickar dem till Azure Log Analytics. Enheter som är anslutna via API inkluderar:
     - [Barracuda](connect-barracuda.md)
-    - [Symantec](connect-symantec.md)
+    - [Barracuda CloudGen-brandvägg](connect-barracuda-cloudgen-firewall.md)
     - [Citrix Analytics (säkerhet)](connect-citrix-analytics.md)
+    - [F5 BIG-IP](connect-f5-big-ip.md)
+    - [Forcepoint-DLP](connect-forcepoint-dlp.md)
+    - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
+    - [Symantec-ICDX](connect-symantec.md)
+    - [Zimperium](connect-zimperium-mtd.md)
+
 
 - **Externa lösningar via agent**: Azure Sentinel kan anslutas till alla andra data källor som kan utföra logg strömning i real tid med syslog-protokollet via en agent. <br>De flesta apparater använder syslog-protokollet för att skicka händelse meddelanden som innehåller själva loggen och data om loggen. Loggens format varierar, men de flesta apparater stöder common Event format (CEF)-baserad formatering för loggdata. <br>Azure Sentinel-agenten, som baseras på Log Analytics agent, konverterar CEF-formaterade loggar till ett format som kan matas in av Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en särskild Linux-server. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
     - Brand väggar, proxyservrar och slut punkter:
-        - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [ExtraHop (x)](connect-extrahop.md)
+        - [F5](connect-f5.md)
+        - [Forcepoint-produkter](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo-](connect-paloalto.md)
+        - [Palo-nätverk](connect-paloalto.md)
+        - [En identitet som skyddar](connect-one-identity.md)
         - [Andra CEF-enheter](connect-common-event-format.md)
         - [Andra syslog-enheter](connect-syslog.md)
-        - [Barracuda CloudGen-brandvägg](connect-barracuda-cloudgen-firewall.md)
-        - [ExtraHop (x)](connect-extrahop.md)
-        - [En identitet som skyddar](connect-one-identity.md)
         - [Trend Micro djupgående säkerhet](connect-trend-micro.md)
+        - [Zscaler](connect-zscaler.md)
     - DLP-lösningar
     - [Hot informations leverantörer](connect-threat-intelligence.md)
     - [DNS-datorer](connect-dns.md) – Agent installeras direkt på DNS-datorn

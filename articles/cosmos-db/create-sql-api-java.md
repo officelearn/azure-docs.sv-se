@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bd7801c84860ddba3c3991bce9352c595adb123f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 3cdd558a8b14498e981c9c60a077a7286188e02e
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469052"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500094"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -35,6 +35,18 @@ I den här snabb starten skapar och hanterar du ett Azure Cosmos DB SQL API-kont
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka din `JAVA_HOME` miljö variabel till den mapp där JDK är installerad.
 - Ett [binärt maven-Arkiv](https://maven.apache.org/download.cgi). Kör `apt-get install maven` för att installera maven på Ubuntu.
 - [Git](https://www.git-scm.com/downloads). Kör `sudo apt-get install git` för att installera git på Ubuntu.
+
+## <a name="introductory-notes"></a>Inledande anmärkningar
+
+*Strukturen för ett Cosmos DB konto.* Oavsett API eller programmeringsspråk innehåller ett Cosmos DB- *konto* noll eller flera *databaser*, en *databas* (dB) innehåller noll eller flera *behållare*, och en *behållare* innehåller noll eller flera objekt, som visas i diagrammet nedan:
+
+![Azure Cosmos-konto-entiteter](./media/databases-containers-items/cosmos-entities.png)
+
+Du kan läsa mer om databaser, behållare och objekt [här.](databases-containers-items.md) Några viktiga egenskaper definieras på nivån för behållaren, bland dem med det *etablerade data flödet* och *partitionsnyckel*. 
+
+Det etablerade data flödet mäts i*ru: er*(Request units) som har ett penning pris och är en väsentlig avgörande faktor för kontots drift kostnad. Det etablerade data flödet kan väljas per behållar kornig het eller granularitet per databas, men data flödes specifikationen på behållare nivå är vanligt vis lämplig. Du kan läsa mer om data flödes etablering [här.](set-throughput.md)
+
+När objekt infogas i en Cosmos DB-behållare blir databasen vågrätt genom att lägga till mer lagrings utrymme och data bearbetning för att hantera begär Anden. Lagrings-och beräknings kapaciteten läggs till i diskreta enheter som kallas *partitioner*, och du måste välja ett fält i dina dokument för att vara den partitionsnyckel som mappar varje dokument till en partition. Hur partitioner hanteras är att varje partition tilldelas en ungefär lika stor sektor från intervallet av nyckel värden. Därför bör du välja en partitionsnyckel som är relativt slumpmässig eller jämnt distribuerad. Annars kommer vissa partitioner att se betydligt fler begär Anden (*het partition*) medan andra partitioner ser betydligt färre begär Anden (*kall partition*) och detta bör undvikas. Du kan lära dig mer om partitionering [här](partitioning-overview.md).
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
 

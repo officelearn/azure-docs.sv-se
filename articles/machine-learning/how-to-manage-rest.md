@@ -9,18 +9,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: 6d6e7d564722d1c2ad4713dd1d39e7cba5ed0605
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964961"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525557"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Skapa, köra och ta bort Azure ML-resurser med REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)eller [python SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
+Det finns flera sätt att hantera dina Azure ML-resurser. Du kan använda [portalen](https://portal.azure.com/), [kommando rads gränssnittet](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)eller [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Alternativt kan du välja REST API. I REST API används HTTP-verb på ett standardiserat sätt för att skapa, Hämta, uppdatera och ta bort resurser. REST API fungerar med valfritt språk eller verktyg som kan göra HTTP-förfrågningar. I resten är en enkel struktur att det är ett bra val i skript miljöer och för MLOps Automation. 
 
 I den här artikeln kan du se hur du:
 
@@ -32,7 +32,7 @@ I den här artikeln kan du se hur du:
 > * Rensa resurser med DELETE-begäranden 
 > * Använd nyckelbaserad auktorisering för att ange distribuerade modeller
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En **Azure-prenumeration** som du har administratörs behörighet för. Om du inte har en sådan prenumeration kan du prova den [kostnads fria eller betalda personliga prenumerationen](https://aka.ms/AMLFree)
 - En [Azure Machine Learning-arbetsyta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -54,7 +54,7 @@ Hämta en token:
 1. Öppna ett terminalfönster
 1. Ange följande kod på kommando raden
 1. Ersätt dina egna värden för `{your-tenant-id}`, `{your-client-id}`och `{your-client-secret}`. I den här artikeln är strängar som omges av klammerparenteser variabler som du måste ersätta med dina egna värden.
-1. Köra kommandot
+1. Kör kommandot
 
 ```bash
 curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
@@ -203,10 +203,10 @@ Observera att om du vill visa en lista över experiment börjar sökvägen med `
 
 |Område|Sökväg|Referens|
 |-|-|-|
-|Artifacts|artefakt/v 2.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Artefakter|artefakt/v 2.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Data lager|data lager/v 1.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |inställning av min parameter|HyperDrive/v 1.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modeller|modelmanagement/v 1.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
+|Modellerna|modelmanagement/v 1.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
 |Körningshistorik|körning/v 1.0/och historik/v 1.0/|[REST API-referens](https://docs.microsoft.com/rest/api/azureml/runs)|
 
 Du kan utforska REST API med det allmänna mönstret för:

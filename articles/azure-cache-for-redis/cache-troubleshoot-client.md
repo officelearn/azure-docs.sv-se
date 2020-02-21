@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: abb73f93116fae217f527e0a9faaf61e2b42ba6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433364"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523347"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Felsöka Azure cache för Redis-problem på klient Sidan
 
@@ -51,7 +51,7 @@ I föregående undantag finns det flera problem som är intressanta:
 - Observera att i avsnittet `IOCP` och avsnittet `WORKER` har du ett `Busy` värde som är större än `Min` svärdet. Den här skillnaden innebär att dina `ThreadPool` inställningar behöver justeras.
 - Du kan också se `in: 64221`. Det här värdet anger att 64 211 byte har mottagits på klientens kernel socket-lager men inte lästs av programmet. Den här skillnaden innebär vanligt vis att ditt program (t. ex. StackExchange. Redis) inte läser data från nätverket så snabbt som servern skickar det till dig.
 
-Du kan [Konfigurera dina `ThreadPool` inställningar](https://gist.github.com/JonCole/e65411214030f0d823cb) för att se till att trådpoolen skalas snabbt under burst-scenarier.
+Du kan [Konfigurera dina `ThreadPool` inställningar](cache-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas snabbt under burst-scenarier.
 
 ## <a name="high-client-cpu-usage"></a>Hög CPU-användning för klienter
 

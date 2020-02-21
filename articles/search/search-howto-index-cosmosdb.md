@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75642173"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498635"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Så här indexerar du Cosmos DB data med hjälp av en indexerare i Azure Kognitiv sökning 
 
@@ -29,13 +29,13 @@ Den här artikeln visar hur du konfigurerar en Azure Cosmos DB [indexerare](sear
 
 Eftersom terminologin kan vara förvirrande, är det värt att notera att [Azure Cosmos DB indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure kognitiv sökning indexering](search-what-is-an-index.md) är distinkta åtgärder, unika för varje tjänst. Innan du startar Azure Kognitiv sökning indexering måste Azure Cosmos DB-databasen redan finnas och innehålla data.
 
-Cosmos DB indexeraren i Azure Kognitiv sökning kan crawla [Azure Cosmos DB objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) som nås via olika protokoll.
+Cosmos DB indexeraren i Azure Kognitiv sökning kan crawla [Azure Cosmos DB objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) som nås via olika protokoll. 
 
-+ För [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), som är allmänt tillgängligt, kan du använda [portalen](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet).
++ För [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), som är allmänt tillgänglig, kan du använda [portalen](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) för att skapa data källan och indexeraren.
 
-+ För [MongoDB-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) och [Gremlin-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)kan du använda antingen [portalen](#cosmos-indexer-portal) eller [REST API version 2019-05-06-Preview](search-api-preview.md) på ett [skapa indexerare (rest)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) -anrop för att skapa indexeraren.
++ För [MongoDB-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)kan du använda antingen [portalen](#cosmos-indexer-portal) eller [REST API version 2019-05-06-Preview](search-api-preview.md) för att skapa data källan och indexeraren.
 
-+ För [API för Cassandra (för hands version)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)kan du bara använda [REST API version 2019-05-06 – för hands version](search-api-preview.md) på ett [rest-anrop (Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) ).
++ För [API för Cassandra (för hands version)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) och [Gremlin-API (för hands version)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)kan du bara använda [REST API version 2019-05-06-Preview](search-api-preview.md) för att skapa data källan och indexeraren.
 
 
 > [!Note]
@@ -261,7 +261,7 @@ Se till att schemat för mål indexet är kompatibelt med schemat för käll-JSO
 | Matriser med primitiva typer, till exempel ["a", "b", "c"] |Collection(Edm.String) |
 | Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
 | Subjson-objekt, till exempel {"typ": "Point", "koordinater": [Long, Lat]} |Edm.GeographyPoint |
-| Andra JSON-objekt |Gäller inte |
+| Andra JSON-objekt |Ej tillämpligt |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
 
@@ -288,10 +288,10 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 
 Den allmänt tillgängliga .NET SDK: n har fullständig paritet med allmänt tillgängliga REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 

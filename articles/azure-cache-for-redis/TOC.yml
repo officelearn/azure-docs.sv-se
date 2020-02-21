@@ -53,6 +53,8 @@
           href: cache-how-to-premium-vnet.md
         - name: Konfigurera geo-replikering
           href: cache-how-to-geo-replication.md
+        - name: Spara pengar med reserverad kapacitet
+          href: cache-reserved-pricing.md
         - name: Migrera från Managed Cache Service
           href: cache-migrate-to-redis.md
     - name: Automatisera

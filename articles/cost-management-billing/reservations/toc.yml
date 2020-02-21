@@ -68,6 +68,8 @@
           href: understand-rhel-reservation-charges.md
         - name: Rabatter för Azure Database for MariaDB
           href: understand-reservation-charges-mariadb.md
+        - name: Rabatter för Azure Cache for Redis
+          href: understand-azure-cache-for-redis-reservation-charges.md
         - name: Rabatter för App Service
           href: reservation-discount-app-service-isolated-stamp.md
         - name: Rabatter för programvaruplaner för Azure

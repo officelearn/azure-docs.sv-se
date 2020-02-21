@@ -305,46 +305,50 @@
       items:
         - name: Vad är röstassistent?
           href: voice-assistants.md
-    - name: Skapar din assistent
+    - name: Anpassade kommandon (förhandsversion)
       items:
-        - name: Anpassade kommandon (förhandsversion)
+        - name: Vad är anpassade kommandon?
           href: custom-commands.md
-        - name: Direct Line Speech
+        - name: Snabbstarter
+          items:
+            - name: Skapa ett anpassat kommando (förhandsversion)
+              href: quickstart-custom-speech-commands-create-new.md
+            - name: Skapa ett anpassat kommando med parametrar (förhandsversion)
+              href: quickstart-custom-speech-commands-create-parameters.md
+            - name: Använd anpassade kommandon med anpassad röst (förhandsversion)
+              href: quickstart-custom-speech-commands-select-custom-voice.md
+            - name: Använda anpassade kommandon med Speech SDK (förhandsversion)
+              href: quickstart-custom-speech-commands-speech-sdk.md
+        - name: Anvisningar
+          items:
+            - name: Utföra anpassade kommandon med Speech SDK
+              href: how-to-custom-speech-commands-fulfill-sdk.md
+            - name: Lägga till parametervalidering till ett anpassat kommando
+              href: how-to-custom-speech-commands-validations.md
+            - name: Lägga till en bekräftelse till ett anpassat kommando
+              href: how-to-custom-speech-commands-confirmations.md
+            - name: Lägga till en korrigering i ett steg till ett anpassat kommando
+              href: how-to-custom-speech-commands-one-step-correction.md
+    - name: Direct Line Speech
+      items:
+        - name: Vad är Direct Line Speech?
           href: direct-line-speech.md
-    - name: Snabbstarter
-      items:
-        - name: 'C# (UWP)'
-          href: quickstart-voice-assistant-csharp-uwp.md
-        - name: 'Java (Windows, macOS, Linux)'
-          href: quickstart-voice-assistant-java-jre.md
-        - name: Java (Android)
-          href: quickstart-voice-assistant-java-android.md
-        - name: Skapa ett anpassat kommando (förhandsversion)
-          href: quickstart-custom-speech-commands-create-new.md
-        - name: Skapa ett anpassat kommando med parametrar (förhandsversion)
-          href: quickstart-custom-speech-commands-create-parameters.md
-        - name: Använd anpassade kommandon med anpassad röst (förhandsversion)
-          href: quickstart-custom-speech-commands-select-custom-voice.md
-        - name: Använda anpassade kommandon med Speech SDK (förhandsversion)
-          href: quickstart-custom-speech-commands-speech-sdk.md
-    - name: Anvisningar
-      items:
-        - name: Utföra anpassade kommandon med Speech SDK
-          href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: Lägga till parametervalidering till ett anpassat kommando
-          href: how-to-custom-speech-commands-validations.md
-        - name: Lägga till en bekräftelse till ett anpassat kommando
-          href: how-to-custom-speech-commands-confirmations.md
-        - name: Lägga till en korrigering i ett steg till ett anpassat kommando
-          href: how-to-custom-speech-commands-one-step-correction.md
-    - name: Självstudier
-      items:
-        - name: Röstaktivera din robot med Speech SDK
-          href: tutorial-voice-enable-your-bot-speech-sdk.md
-    - name: Resurser
-      items:
-        - name: Vanliga frågor och svar om röstassistenter
-          href: faq-voice-assistants.md
+        - name: Snabbstarter
+          items:
+            - name: 'C# (UWP)'
+              href: quickstart-voice-assistant-csharp-uwp.md
+            - name: 'Java (Windows, macOS, Linux)'
+              href: quickstart-voice-assistant-java-jre.md
+            - name: Java (Android)
+              href: quickstart-voice-assistant-java-android.md
+        - name: Självstudier
+          items:
+            - name: Röstaktivera din robot med Speech SDK
+              href: tutorial-voice-enable-your-bot-speech-sdk.md
+        - name: Resurser
+          items:
+            - name: Vanliga frågor och svar om röstassistenter
+              href: faq-voice-assistants.md
 - name: Anpassning
   expanded: false
   items:

@@ -281,23 +281,23 @@
         - name: Konfigurera Azure Backup-rapporter
           items:
             - name: Konfigurera Azure Backup-rapporter
-              href: backup-azure-configure-reports.md
-            - name: Datamodell för Azure Backup-rapporter
-              href: backup-azure-reports-data-model.md
-            - name: Log Analytics-datamodell för Azure Backup
-              href: backup-azure-log-analytics-data-model.md
+              href: configure-reports.md
         - name: Konfigurera diagnostikhändelser för Recovery Services-valv
           items:
             - name: Använda diagnostikinställningar för Recovery Services-valv
               href: backup-azure-diagnostic-events.md
             - name: Log Analytics-datamodell för resursspecifika diagnostikhändelser
-              href: backup-azure-log-analytics-new-data-model.md
+              href: backup-azure-reports-data-model.md
+            - name: Log Analytics-datamodell för Azure Backup (Azure Diagnostics-läge)
+              href: backup-azure-diagnostics-mode-data-model.md
     - name: Automation
       items:
         - name: Inbyggd Azure Policy för Azure Backup
           items:
             - name: Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
               href: backup-azure-auto-enable-backup.md
+            - name: Konfigurera valvdiagnostik i stor skala
+              href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
             - name: Virtuella Azure-datorer i Azure-portalen

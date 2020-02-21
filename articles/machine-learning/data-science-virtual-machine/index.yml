@@ -11,36 +11,36 @@ metadata:
   author: gvashishtha
   ms.author: gopalv
   ms.date: 09/13/2019
-  ms.openlocfilehash: db6cebf4b4114a97fd86a173208cc639a5e1f7ed
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 3996c34b4ac1acfa040c38712f7b96fa546c8eb9
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73500144"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77526050"
 landingContent:
-- title: Kom igång med din DVSM
+- title: Kom igång med din Data Science Virtual Machine
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är DSVM?
+    - text: Vad är Data Science Virtual Machine?
       url: overview.md
-    - text: Vad är Geo AI DSVM?
+    - text: Vad är en Data Science Virtual Machine med Geo AI?
       url: geo-ai-dsvm-overview.md
-    - text: Verktyg som ingår med DSVM
+    - text: Verktyg som ingår i din Data Science Virtual Machine
       url: tools-included.md
     - text: Viktig information
       url: release-notes.md
   - linkListType: get-started
     links:
-    - text: Skapa en Windows-DSVM
+    - text: Skapa en Data Science Virtual Machine med Windows
       url: provision-vm.md
-    - text: Skapa en Ubuntu-DSVM
+    - text: Skapa en Data Science Virtual Machine med Ubuntu
       url: dsvm-ubuntu-intro.md
-    - text: Skapa en CentOS-DSVM
+    - text: Skapa en Data Science Virtual Machine med CentOS
       url: linux-dsvm-intro.md
-    - text: Skapa en Geo AI-DSVM
+    - text: Skapa en Data Science Virtual Machine med Geo AI
       url: provision-geo-ai-dsvm.md
-- title: Hantera din DVSM
+- title: Hantera din Data Science Virtual Machine
   linkLists:
   - linkListType: architecture
     links:
@@ -48,7 +48,7 @@ landingContent:
       url: dsvm-enterprise-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Skapa DSVM-pooler med autoskalning
+    - text: Skapa Data Science Virtual Machine-pooler som skalas om automatiskt
       url: dsvm-pools.md
     - text: integrera med Active Directory
       url: dsvm-common-identity.md

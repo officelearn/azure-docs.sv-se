@@ -81,6 +81,9 @@
         - name: Registrera en SAML-tjänstprovider
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
+        - name: Registrera ett Graph-program
+          href: microsoft-graph-get-started.md
+          displayName: 'migrate, migration, microsoft graph'
         - name: Lägga till ett program för webb-API
           href: add-web-application.md
         - name: Lägga till ett program för intern klient
@@ -377,8 +380,6 @@
       items:
         - name: Migrera användare
           href: user-migration.md
-        - name: Migrera användare med externa identiteter
-          href: migrate-social-identities.md
 - name: Referens
   items:
     - name: Viktig information om Identity Experience Framework
@@ -392,9 +393,11 @@
       displayName: 'cookies, SameSite'
     - name: Felkoder
       href: error-codes.md
+    - name: 'Åtgärder i API:et Microsoft Graph'
+      href: microsoft-graph-operations.md
     - name: Regionstillgänglighet och dataplacering
       href: data-residency.md
-    - name: Aktivera fakturering
+    - name: Faktureringsmodell
       href: billing.md
     - name: Hothantering
       href: threat-management.md

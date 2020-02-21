@@ -12,12 +12,12 @@ metadata:
   ms.author: iainfou
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
-  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+  ms.openlocfilehash: d06cc6f3c2d0d5033777a2f988d12ba7edb7be9c
+  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77166424"
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77484102"
 landingContent:
 - title: Om autentisering
   linkLists:
@@ -37,14 +37,14 @@ landingContent:
     links:
     - text: Så fungerar självbetjäning av lösenordsåterställning
       url: concept-sspr-howitworks.md
-    - text: Tillbakaskrivning av lösenord
+    - text: Så fungerar tillbakaskrivning av lösenord
       url: concept-sspr-writeback.md
   - linkListType: tutorial
     links:
     - text: Aktivera lösenordsåterställning via självbetjäning
       url: tutorial-enable-sspr.md
     - text: Aktivera tillbakaskrivning av lösenord för lokala
-      url: tutorial-enable-writeback.md
+      url: tutorial-enable-sspr-writeback.md
   - linkListType: deploy
     links:
     - text: Distributionsguide för självbetjäning av lösenordsåterställning

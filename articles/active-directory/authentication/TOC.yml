@@ -130,10 +130,14 @@
       items:
         - name: Distribuera lösenordsfritt
           href: howto-authentication-passwordless-deployment.md
-        - name: Lösenordsfria säkerhetsnycklar
-          href: howto-authentication-passwordless-security-key.md
-        - name: Lösenordsfritt Windows 10
-          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Lösenordsfria FIDO2-säkerhetsnycklar
+          items:
+            - name: Aktivera FIDO2-säkerhetsnycklar för din klientorganisation
+              href: howto-authentication-passwordless-security-key.md
+            - name: Logga in på Windows 10-enheter
+              href: howto-authentication-passwordless-security-key-windows.md
+            - name: Enkel inloggning till lokala resurser
+              href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Lösenordslös inloggning via telefon
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello för företag

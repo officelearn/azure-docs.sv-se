@@ -77,7 +77,9 @@
       href: application-provisioning-configure-api.md
 - name: Referens
   items:
-    - name: Välja en etableringsmetod
+    - name: Kompatibilitet med protokollet SCIM 2.0
+      href: application-provisioning-config-problem-scim-compatibility.md
+    - name: Välj en etableringsmetod
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Etablering av HR Cloud
       items:

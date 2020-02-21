@@ -1,0 +1,139 @@
+### YamlMime:Landing
+title: Felsöka virtuella Linux-datorer i Azure
+summary: Dokumentation om att felsöka virtuella Linux-datorer i Azure.
+metadata:
+  title: Felsöka virtuella Linux-datorer i Azure
+  description: Dokumentation om att felsöka och hantera virtuella Linux-datorer i Azure.
+  services: virtual-machines-linux
+  ms.service: virtual-machines-linux
+  ms.topic: landing-page
+  author: genlin
+  ms.author: genli
+  ms.date: 09/09/2019
+  ms.openlocfilehash: 5b5ef5ee550100eed4bd8a236fb102c2870c70ed
+  ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77519282"
+landingContent:
+- title: Felsöka distributionsfel
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Felsöka allokeringsfel när du skapar, startar om eller ändrar storlek på virtuella datorer i Azure
+      url: allocation-failure.md
+    - text: Felsöka distributionsproblem när du skapar en ny virtuell dator i Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm
+    - text: Åtgärda fel med en ogiltig mall
+      url: ../../azure-resource-manager/templates/error-invalid-template.md
+    - text: Åtgärda fel med otillgänglig SKU
+      url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+- title: Vägledning för distribution av virtuella datorer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Förbereda och ladda upp en icke-godkänd avbildning för Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic
+    - text: Skapa eller klona en avbildning av en generaliserad virtuell dator i Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/capture-image
+- title: Jag kan inte ansluta till min virtuella dator
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda startdiagnostik till att felsöka virtuella Linux-datorer i Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+    - text: Återställa lokala Linux-lösenord i virtuella Azure-datorer
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/reset-password
+    - text: Återställa fjärråtkomst för att åtgärda problem med fjärrservrar med hjälp av PowerShell eller CLI
+      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection
+    - text: Snabbsteg för att diagnosticera och komma tillrätta med vanliga SSH-anslutningsproblem
+      url: https://azure.microsoft.com/documentation/articles/virtual-machines-troubleshoot-ssh-connections/
+- title: Lösenordsåterställning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Återställa nyckeln eller lösenordet för SSH med hjälp av tillägget för VM-åtkomst
+      url: https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#ways-to-use-the-vmaccess-extension
+    - text: Återställa lokala lösenord för virtuella Azure-datorer med offlinemetoden
+      url: https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/reset-password
+- title: Virtuell dator startar inte
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lösa startfel när du startar den virtuella datorn efter att specifika kerneländringar har tillämpats
+      url: https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues
+    - text: Ansluta till GRUB via seriekonsolen för att ändra startkonfigurationsläge
+      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode
+    - text: Använda startdiagnostik till att felsöka virtuella Linux-datorer i Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+    - text: Förstå FSTAB-fel och åtgärder
+      url: https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors
+- title: Jag kan inte starta eller stoppa en virtuell dator
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Felsöka problem med distribution av virtuella Windows-datorer i Azure
+      url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+    - text: Felsöka allokeringsfel (klassisk distributionsmodell)
+      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+- title: Oväntad omstart av virtuell dator
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Så här granskar du omstartsloggar för virtuella datorer för att kunna identifiera orsaken till omstarten
+      url: https://azure.microsoft.com/blog/viewing-vm-reboot-logs
+- title: Problem med hantering av virtuella diskar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Vanliga frågor och svar om virtuella diskar
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks
+    - text: Felsöka allokeringsfel när du ändar storlek på en virtuell dator
+      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+    - text: Förstå den temporära enheten på din virtuella dator
+      url: https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux#temporary-disk
+    - text: Översikt över Azure Managed Disks
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
+    - text: Vanliga frågor och svar om VM-diskar i Azure samt hanterade och ohanterade premiumdiskar
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks
+- title: Problem med diskkryptering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kryptering av Azure-diskar på virtuella Linux-datorer
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux
+    - text: Felsöka problem med diskkryptering
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-troubleshooting
+    - text: Vanliga frågor och svar om kryptering av Azure-diskar
+      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-faq
+- title: Prestandaproblem för virtuella datorer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Felsöka prestandaproblem för virtuella Azure-datorer
+      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows
+    - text: Prestandadiagnostik för virtuella Azure-datorer
+      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics
+- title: Problem med VM-tillägg
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Allmän felsökning av tillägg
+      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+    - text: Installera tillägget på din virtuella dator
+      url: https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#installing-the-extension-in-your-vm
+    - text: Anpassat skripttillägg för Windows
+      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+- title: Säkerhetskopiering och återställning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Felsöka säkerhetskopiering av virtuella Azure-datorer i Azure-portalen
+      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+    - text: Felsöka Azure Backup Server
+      url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
+    - text: Granska funktionerna i Azure Backup
+      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#using-premium-storage-vms-with-azure-backup
+    - text: Lär dig hur du säkerhetskopierar virtuella Azure-datorer till Recovery Services-valv
+      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm

@@ -431,53 +431,9 @@
           items:
             - name: Använda sandbox-miljön för Apache Hadoop
               href: ./hadoop/apache-hadoop-emulator-get-started.md
+            - name: Använda Apache Pig
+              href: use-pig.md
         - name: Utveckla
-          items:
-            - name: Använda MapReduce med Apache Hadoop
-              items:
-                - name: Översikt över MapReduce
-                  href: ./hadoop/hdinsight-use-mapreduce.md
-                - name: Använd SSH
-                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
-                - name: Använd cURL
-                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
-                - name: Använda Azure PowerShell
-                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
-                - name: Använda SDK för .NET
-                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
-                - name: Köra MapReduce-exemplen
-                  href: ./hadoop/apache-hadoop-run-samples-linux.md
-                - name: Köra anpassade Apache Hadoop MapReduce-program
-                  href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'Utveckla strömmande C#-MapReduce-program'
-                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
-                - name: Utveckla Java MapReduce-program
-                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-            - name: 'Använda Apache Hive som ett verktyg för extrahering, transformering och inläsning (ETL)'
-              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
-            - name: 'Extrahering, transformering i inläsning i stor skala'
-              href: ./hadoop/apache-hadoop-etl-at-scale.md
-            - name: Skapa .NET HDInsight-program med icke-interaktiv autentisering
-              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
-            - name: Analysera stordata
-              items:
-                - name: Analysera med Power Query
-                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
-                - name: Ansluta Power BI till interaktiv fråga
-                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
-                - name: Ansluta Power BI till Apache Hadoop
-                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
-                - name: Ansluta Excel till Apache Hadoop
-                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
-                - name: Ansluta med Apache Hive JDBC-drivrutinen
-                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
-                - name: Analysera lagrade tweets
-                  href: ./hdinsight-analyze-twitter-data-linux.md
-                - name: Skapa rekommendationer med Apache Mahout
-                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
-                - name: Avancerade analyser för HDInsight
-                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-        - name: Hantera
           items:
             - name: Använda tomma kantnoder
               href: ./hdinsight-apps-use-edge-node.md

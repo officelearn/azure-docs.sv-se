@@ -56,6 +56,8 @@
               href: container-registry-get-started-docker-cli.md
             - name: Push-överföra och hämta en OCI-artefakt
               href: container-registry-oci-artifacts.md
+            - name: Push- och pull-överför ett Helm-diagram
+              href: container-registry-helm-repos.md
             - name: Visa lagringsplatser
               href: container-registry-repositories.md
             - name: Importera containeravbildningar
@@ -72,8 +74,6 @@
                   href: container-registry-auto-purge.md
             - name: Använda ACR-webhooks
               href: container-registry-webhook.md
-            - name: Lagringsplatser för Helm-diagram (förhandsversion)
-              href: container-registry-helm-repos.md
         - name: Säkerhet och autentisering
           items:
             - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)

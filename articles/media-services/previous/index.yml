@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Media Services v2 (äldre version)
+summary: Inga nya funktioner läggs till i Media Services v2. Upptäck den senaste versionen, Media Services v3.
+metadata:
+  title: Dokumentation om Azure Media Services v2
+  description: Se hur du säkert kan strömma på begäran eller livesänd video i sändningskvalitet med hjälp av Media Services v2.
+  services: media-services
+  ms.service: media-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 02/18/2020
+  ms.openlocfilehash: c222a7c0603e9b57518993216711076659b51e4c
+  ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77500781"
+landingContent:
+- title: Om Azure Media Services v2
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över Azure Media Services v2
+      url: media-services-overview.md
+    - text: Migrera till Media Services v3
+      url: https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3
+  - linkListType: whats-new
+    links:
+    - text: Nyheter i Media Services v2
+      url: media-services-release-notes.md
+  - linkListType: concept
+    links:
+    - text: Äldre komponenter
+      url: legacy-components.md
+- title: Strömma live
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Översikt
+      url: media-services-manage-channels-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa ett Media Services-konto i portalen
+      url: media-services-portal-create-account.md
+    - text: Ansluta genom programmering
+      url: media-services-use-aad-auth-to-access-ams-api.md
+    - text: Strömma live via Azure-portalen
+      url: media-services-portal-live-passthrough-get-started.md
+    - text: Strömma live med .NET
+      url: media-services-dotnet-live-encode-with-onpremises-encoders.md
+- title: Leverera video på begäran
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Azure-portalen
+      url: media-services-portal-vod-get-started.md
+    - text: Använda .NET
+      url: media-services-dotnet-get-started.md
+    - text: Använda REST
+      url: media-services-rest-get-started.md

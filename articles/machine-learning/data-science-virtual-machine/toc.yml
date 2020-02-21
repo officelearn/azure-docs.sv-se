@@ -6,20 +6,20 @@
   items:
     - name: Vad är Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Vad är Geo AI DSVM?
+    - name: Vad är Geo AI Data Science Virtual Machine?
       href: geo-ai-dsvm-overview.md
-    - name: Verktyg som ingår med DSVM
+    - name: Verktyg som ingår i Data Science Virtual Machine
       href: tools-included.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa en Windows-DSVM
+    - name: Skapa en Data Science Virtual Machine med Windows
       href: provision-vm.md
-    - name: Skapa en Ubuntu-DSVM
+    - name: Skapa en Data Science Virtual Machine med Ubuntu
       href: dsvm-ubuntu-intro.md
-    - name: Skapa en CentOS-DSVM
+    - name: Skapa en Data Science Virtual Machine med CentOS
       href: linux-dsvm-intro.md
-    - name: Skapa en Geo AI-DSVM
+    - name: Skapa en Data Science Virtual Machine med Geo AI
       href: provision-geo-ai-dsvm.md
 - name: Begrepp
   items:
@@ -43,13 +43,13 @@
   href: dsvm-samples-and-walkthroughs.md
 - name: Anvisningar
   items:
-    - name: Använda en Windows-DSVM
+    - name: Så använder du en Data Science Virtual Machine med Windows
       href: vm-do-ten-things.md
-    - name: Använda en Linux-DSVM
+    - name: Så använder du en Data Science Virtual Machine med Linux
       href: linux-dsvm-walkthrough.md
-    - name: Använda en Geo AI-DSVM
+    - name: Så använder du en Data Science Virtual Machine med Geo AI
       href: use-geo-ai-dsvm.md
-    - name: Skapa en autoskalad DSVM-pool
+    - name: Skapa en Data Science Virtual Machine-pool som skalas om automatiskt
       href: dsvm-pools.md
     - name: integrera med Active Directory
       href: dsvm-common-identity.md
@@ -65,9 +65,9 @@
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Referens
   items:
-    - name: Ubuntu DSVM
+    - name: Data Science Virtual Machine med Ubuntu
       href: reference-ubuntu-vm.md
-    - name: CentOS DSVM
+    - name: Data Science Virtual Machine med CentOS
       href: reference-centos-vm.md
     - name: Viktig information
       href: release-notes.md

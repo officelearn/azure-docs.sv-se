@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 02/12/2020
+ms.date: 02/20/2020
 ms.topic: overview
-ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a2551791426c246df278e09cea9cec64a6bc019f
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190310"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539305"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure-båge för servrar (förhands granskning)
 
@@ -49,7 +49,7 @@ I de flesta fall ska den plats som du väljer när du skapar installations skrip
 
 Följande versioner av operativ systemet Windows och Linux stöds officiellt för den Azure-anslutna dator agenten: 
 
-- Windows Server 2012 R2 och senare
+- Windows Server 2012 R2 och högre (inklusive Windows Server Core)
 - Ubuntu 16,04 och 18,04
 
 >[!NOTE]
@@ -65,6 +65,15 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 ### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
 Innan du konfigurerar dina datorer med Azure Arc for Servers (för hands version) bör du granska gränsen för Azure Resource Manager [prenumerations gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs gruppen](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
+
+## <a name="tls-12-protocol"></a>TLS 1.2-protokollet
+
+För att säkerställa säkerheten för data som överförs till Azure rekommenderar vi starkt att du konfigurerar datorn att använda Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**. 
+
+|Plattform/språk | Support | Mer information |
+| --- | --- | --- |
+|Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd. | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
+| Windows Server 2012 R2 och senare | Stöds och aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
 ### <a name="networking-configuration"></a>Nätverks konfiguration
 
@@ -130,6 +139,12 @@ Du kan ladda ned Azure Connected Machine agent-paketet för Windows och Linux fr
 >[!NOTE]
 >Under för hands versionen har endast ett paket släppts, vilket är lämpligt för Ubuntu 16,04 eller 18,04.
 
+Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. För Windows kan agent uppdateringen automatiskt utföras med hjälp av Windows Update och för Ubuntu med hjälp av kommando rads verktyget [apt](https://help.ubuntu.com/lts/serverguide/apt.html) .
+
+### <a name="agent-status"></a>Agent status
+
+Den anslutna dator agenten skickar ett vanligt pulsslags meddelande till tjänsten var 5: e minut. Om det inte har tagits emot i 15 minuter anses datorn vara offline och statusen kommer automatiskt att ändras till **frånkopplad** i portalen. När du tar emot ett efterföljande pulsslags meddelande från den anslutna dator agenten kommer dess status automatiskt att ändras till **ansluten**.
+
 ## <a name="install-and-configure-agent"></a>Installera och konfigurera agenten
 
 Att ansluta datorer i din hybrid miljö direkt med Azure kan utföras med hjälp av olika metoder beroende på dina behov. I följande tabell beskrivs varje metod för att avgöra vilken som fungerar bäst för din organisation.
@@ -138,7 +153,6 @@ Att ansluta datorer i din hybrid miljö direkt med Azure kan utföras med hjälp
 |--------|-------------|
 | Interaktivt | Installera agenten manuellt på ett enda eller litet antal datorer enligt stegen i [ansluta datorer från Azure Portal](onboard-portal.md).<br> Från Azure Portal kan du generera ett skript och köra det på datorn för att automatisera installations-och konfigurations stegen för agenten.|
 | I skala | Installera och konfigurera agenten för flera datorer efter att [ansluta datorerna med ett huvud namn för tjänsten](onboard-service-principal.md).<br> Den här metoden skapar ett huvud namn för tjänsten för att ansluta datorer icke-interaktivt.|
-
 
 ## <a name="next-steps"></a>Nästa steg
 

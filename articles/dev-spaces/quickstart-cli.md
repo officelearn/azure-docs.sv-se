@@ -1,27 +1,27 @@
 ---
 title: Utveckla ett program på Kubernetes
 services: azure-dev-spaces
-ms.date: 07/08/2019
+ms.date: 02/20/2020
 ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och kommando raden för att utveckla ett program i Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 553c316587d27e0921fbbbf78b02ddb048532c43
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 240d4817b507b4b47e0f022c2990c3da0d645e89
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867254"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538438"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Snabb start: utveckla ett program på Kubernetes – Azure dev Spaces
 I den här guiden får du lära dig hur du:
 
-- Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+- Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla och kör kod i behållare med hjälp av kommando raden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
@@ -76,7 +76,7 @@ För att kunna köra ditt program på Azure dev Spaces behöver du ett Dockerfil
 Generera Docker-och Helm-diagrammets till gångar för att köra programmet i Kubernetes med kommandot `azds prep`:
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 Du måste köra kommandot `prep` från katalogen *dev-Spaces/samples/NodeJS/kom-start/webfrontend* för att kunna generera Docker-och Helm-diagrammets till gångar.
@@ -119,7 +119,7 @@ Om du stoppar `azds up` kommandot med *CTRL + c*fortsätter tjänsten att köras
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra kommandot `azds up` igen. Ett exempel:
+Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra kommandot `azds up` igen. Exempel:
 
 1. Tryck på *CTRL + c*om `azds up` fortfarande körs.
 1. Uppdatera [rad 13 i `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) till:

@@ -1,22 +1,22 @@
 ### YamlMime:Hub
 title: Dokumentation om Azure Cognitive Services
 summary: Lär dig hur du skapar intelligenta algoritmer som stöds med dina appar, webbplatser och robotar så att de kan se, höra, tala, förstå och tolka användarnas behov.
+brand: azure
 metadata:
   title: Dokumentation om Azure Cognitive Services
   description: Lär dig hur du skapar intelligenta algoritmer som stöds med dina appar, webbplatser och robotar så att de kan se, höra, tala, förstå och tolka användarnas behov.
   ms.service: cognitive-services
   ms.topic: hub-page
-  brand: azure
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 11/04/2019
-  ms.openlocfilehash: e0fc6aaaedc5eff98017eb62187575ab9afbba59
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.date: 01/21/2020
+  ms.openlocfilehash: f39f2a6360363131eb346f613cf0f7a25910404a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945202"
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77560770"
 highlightedContent:
   items:
   - title: Vad är Cognitive Services?
@@ -71,7 +71,7 @@ conceptualContent:
     links:
     - url: ./immersive-reader/index.yml
       itemType: overview
-      text: Avancerad läsare
+      text: Avancerad läsare (förhandsversion)
     - url: ./luis/index.yml
       itemType: overview
       text: Language Understanding (LUIS)
@@ -87,7 +87,7 @@ conceptualContent:
   - title: Tal
     summary: Konvertera tal till text och text till tal som låter naturligt. Översätt från ett språk till ett annat och aktivera talarverifiering och -igenkänning.
     links:
-    - url: ./speech-service/index.md
+    - url: ./speech-service/index.yml
       itemType: overview
       text: Tjänst för taligenkänning
     - url: ./speaker-recognition/home.md

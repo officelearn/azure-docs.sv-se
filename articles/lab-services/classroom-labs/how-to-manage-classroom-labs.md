@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264839"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539458"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klass rums labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klass rums labb. Det visar också hur du visar alla klass rums labb i ett labb konto. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägaren kan lägga till andra användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägg till en användare till rollen Lab Creator).
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
@@ -41,6 +41,9 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
     6. Välj **Spara**.
 
         ![Nytt labb fönster](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > Du ser ett alternativ för att välja en plats för ditt labb om labb kontot har kon figurer ATS för att [tillåta labb skapare att välja alternativet labb plats](allow-lab-creator-pick-lab-location.md) . 
 4. På sidan **autentiseringsuppgifter för virtuell dator** anger du standardautentiseringsuppgifterna för alla virtuella datorer i labbet.
     1. Ange **namnet på användaren** för alla virtuella datorer i labbet.
     2. Ange **lösenordet** för användaren. 
@@ -52,12 +55,14 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
         En lärare kan välja att använda samma lösen ord för alla virtuella datorer i labbet eller tillåta studenter att ange lösen ord för sina virtuella datorer. Som standard är den här inställningen aktive rad för alla Windows-och Linux-avbildningar utom Ubuntu. När du väljer **Ubuntu** VM är den här inställningen inaktive rad, så att eleverna uppmanas att ange ett lösen ord när de loggar in för första gången.  
 
         ![Nytt labb fönster](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Anteckna namnet och lösenordet. De kommer inte att visas igen.    
     4. Välj sedan **Nästa** på sidan **autentiseringsuppgifter för virtuella datorer** . 
-5. På sidan **labb principer** anger du det antal timmar som tilldelas för varje användare (**kvot för varje användare**) utanför den schemalagda tiden för labbet och väljer sedan **Slutför**. 
+5. Utför följande steg på sidan **labb principer** :
+    1. Ange det antal timmar som tilldelas för varje användare (**kvot för varje användare**) utanför den schemalagda tiden för labbet. 
+    2. För alternativet **Automatisk avstängning av virtuella datorer** anger du om du vill att den virtuella datorn ska stängas av automatiskt när användaren kopplar från. Du kan också ange hur länge den virtuella datorn ska vänta tills användaren ansluter igen innan den stängs av automatiskt. Mer information finns i [Aktivera automatisk avstängning av virtuella datorer vid från koppling](how-to-enable-shutdown-disconnect.md).
+    3. Välj sedan **Slutför**. 
 
-    ![Kvot för varje användare](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Kvot för varje användare](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. Du bör se följande skärm bild som visar status för den mall för att skapa mallen. Det tar upp till 20 minuter att skapa mallen i labbet. 
 
     ![Status för skapande av mall för virtuell dator](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -95,19 +100,19 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 | Storlek | Kärnor | RAM | Beskrivning | 
 | ---- | ----- | --- | ----------- | 
 | Liten | 2 | 3,5 GB | Den här storleken passar bäst för kommando rad, öppna webbläsare, webb servrar med låg trafik, små till medel stora databaser. |
-| Medium | 4 | 7 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys | 
+| Medel | 4 | 7 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys | 
 | Medium (kapslad virtualisering) | 4 | 16 GB | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys. Den här storleken stöder även kapslad virtualisering. <p>Den här storleken kan användas i scenarier där varje student behöver flera virtuella datorer. Lärare kan använda kapslad virtualisering för att konfigurera ett fåtal kapslade virtuella datorer med liten storlek inuti den virtuella datorn. </p> |
 | Stor | 8 | 32 GB | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. Den här storleken stöder även kapslad virtualisering |  
 | Liten GPU (visualisering) | 6 | 56 GB | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. | 
 | Liten GPU (Compute) | 6 | 56 GB | Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärnings program. | 
-| Medelhög GPU (visualisering) | 12 | 112 GB | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. | 
+| Medelhög GPU (visualisering) | 12 | 112 GB | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. | 
 
 > [!NOTE]
 > Azure Lab Services installerar och konfigurerar automatiskt de nödvändiga GPU-drivrutinerna åt dig när du skapar ett labb med GPU-avbildningar.  
 
 ## <a name="view-all-classroom-labs"></a>Visa alla klass rum labb
 1. Navigera till [Azure Lab Services Portal](https://labs.azure.com).
-2. Välj **Logga**in. Välj eller ange ett **användar-ID** som är medlem i rollen **labb skapare** i labb kontot och ange lösen ord. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
+2. Välj **Logga in**. Välj eller ange ett **användar-ID** som är medlem i rollen **labb skapare** i labb kontot och ange lösen ord. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Bekräfta att du ser alla labb i det valda labb kontot. På labb panelen ser du antalet virtuella datorer i labbet och kvoten för varje användare (utanför den schemalagda tiden).
 
     ![Alla labb](../media/how-to-manage-classroom-labs/all-labs.png)

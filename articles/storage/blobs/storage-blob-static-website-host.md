@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906627"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539611"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -21,18 +21,18 @@ ms.locfileid: "76906627"
 
 I den här självstudien får du lära dig hur du skapar och distribuerar en statisk webbplats till Azure Storage. När du är klar har du en statisk webbplats som användare kan nå offentligt. 
 
-I den här guiden får du lära dig hur man:
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera hantering av en statisk webbplats
 > * Distribuera en Hello World-webbplats
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Se till att skapa ett allmänt-syfte v2-lagrings konto. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
+> Se till att skapa ett standard lagrings konto för generell användning v2. Statiska webbplatser är inte tillgängliga i någon annan typ av lagrings konto.
 
 I den här självstudien används [Visual Studio Code](https://code.visualstudio.com/download), ett kostnadsfritt verktyg för programmerare, för att skapa den statiska webbplatsen och distribuera den till ett Azure Storage-konto.
 
@@ -57,7 +57,7 @@ Det första steget är att konfigurera ditt lagringskonto för att hantera en st
 1. Välj **Aktivera** för att aktivera hantering av statisk webbplats för lagringskontot.
 1. I fältet **Indexdokumentnamn** anger du standardindexsidan *index.html*. Standardindexsidan visas när en användare navigerar till roten för den statiska webbplatsen.  
 1. I fältet **Sökväg för feldokument** anger du standardfelsidan *404. html*. Standardfelsidan visas när en användare försöker navigera till en sida som inte finns på den statiska webbplatsen.
-1. Klicka på **Spara**. Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
+1. Klicka på **Save** (Spara). Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
 
     ![Aktivera hantering av statisk webbplats för ett lagringskonto](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 

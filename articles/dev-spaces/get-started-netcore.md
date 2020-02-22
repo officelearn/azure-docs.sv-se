@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 1b7fbea6c572d220a29b7779e3ca665f01248220
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 353c8c1db5b5f7c6134388788799a6dccef69f9c
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867542"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538865"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och .NET Core med Azure dev Spaces
 
@@ -34,7 +34,7 @@ az login
 ```
 
 > [!Note]
-> Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+> Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
 Du kan visa dina prenumerationer genom att köra: 
@@ -98,7 +98,7 @@ Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu an
 1. Kör det här kommandot (se till att **webfrontend** är din aktuella mapp):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar med standardinställningarna:
@@ -245,7 +245,7 @@ Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgär
 
 ![](media/common/debug-action-refresh.png)
 
-I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren och gå till sidan Om. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 

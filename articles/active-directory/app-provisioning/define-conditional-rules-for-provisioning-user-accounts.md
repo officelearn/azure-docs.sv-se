@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48388d4e15923c1f3e66321132197670b30c6b9
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522568"
+ms.locfileid: "77544274"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -98,10 +98,12 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
    i. **Greater_Than.** Sats returnerar true om det utvärderade attributet är större än värdet. Värdet som anges i omfångs filtret måste vara ett heltal och attributet för användaren måste vara ett heltal [0, 1, 2,...]. 
    
    j. **Greater_Than_OR_EQUALS.** Sats returnerar true om det utvärderade attributet är större än eller lika med värdet. Värdet som anges i omfångs filtret måste vara ett heltal och attributet för användaren måste vara ett heltal [0, 1, 2,...]. 
+   
+   k. **Åtgärd.** Sats returnerar true om det utvärderade attributet innehåller strängens värde (Skift läges känsligt) enligt beskrivningen [här](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> Filtren includes och IsMemberOf stöds inte. De kommer snart att tas bort från användar gränssnittet.
+> IsMemberOf-filtret stöds inte för närvarande.
 
 9. Du kan också upprepa steg 7-8 om du vill lägga till fler omfångs satser.
 

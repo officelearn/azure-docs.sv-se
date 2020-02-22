@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472476"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539628"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
@@ -87,7 +87,7 @@ Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal
 För att se till att din Windows Virtual Desktop-miljö följer bästa praxis:
 
 - Azure Files lagrings kontot måste finnas i samma region som de virtuella datorerna i sessionen.
-- Azure Files behörigheter ska matcha behörigheter som beskrivs i [behållare för krav – profiler](/fslogix/overview#requirements).
+- Azure Files behörigheter ska matcha behörigheter som beskrivs i [behållare för krav – profiler](/fslogix/fslogix-storage-config-ht).
 - Varje adresspool måste vara inbyggd av samma typ och storlek som den virtuella datorn baserat på samma huvud avbildning.
 - Varje virtuell dator i poolen för värdar måste finnas i samma resurs grupp för att hantera, skala och uppdatera.
 - För optimala prestanda bör lagrings lösningen och behållaren för FSLogix-profilen finnas på samma plats i data centret.

@@ -11,23 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 08fbe9565356dc1b7db952fdd265770fef600ca8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989050"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539046"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Skapa och hantera en klass rums mall i Azure Lab Services
 En mall i ett labb är en basavbildning av en virtuell dator som alla användares virtuella datorer skapas från. Konfigurera mallen för virtuella datorer så att den är konfigurerad med exakt det som du vill förse labbanvändarna med. Du kan ange ett namn och en beskrivning av mallen som visas för labbanvändarna. Sedan publicerar du mallen för att skapa instanser av den virtuella mallen som är tillgänglig för dina labb användare. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är samma som det högsta antalet användare som tillåts i labbet. Du kan definiera antalet i användningsprincipen för labbet. Alla virtuella datorer har samma konfiguration som mallen.
 
 Den här artikeln beskriver hur du skapar och hanterar en mall för virtuella datorer i ett klass rum labb med Azure Lab Services. 
 
-## <a name="publish-a-template-while-creating-a-classroom-lab"></a>Publicera en mall när du skapar ett klass rums labb
-Information om hur du publicerar en mall när du skapar ett klass rums labb finns i [skapa ett klass rums labb](how-to-manage-classroom-labs.md#create-a-classroom-lab)
- 
 ## <a name="set-or-update-template-title-and-description"></a>Ange eller uppdatera mallens rubrik och beskrivning
 Använd följande steg för att ange titel och beskrivning för första gången och uppdatera dem senare. 
 
@@ -50,23 +47,24 @@ Använd följande steg för att uppdatera en mall-VM.
 1. Följ stegen i nästa avsnitt för att **publicera** den uppdaterade mallen VM. 
 
 ## <a name="publish-the-template-vm"></a>Publicera den virtuella malldatorn  
-Om du inte publicerar mallen när du skapar labbet kan du publicera den senare. Innan du publicerar kanske du vill ansluta till mallen VM och uppdatera den med valfri program vara. När du publicerar en mall skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Antalet virtuella datorer som skapas i den här processen är antalet virtuella datorer som du angav när du publicerade det för första gången eller vad du angav på sidan för den virtuella datorn. Alla virtuella datorer har samma konfiguration som mallen. 
+I det här steget publicerar du mallen VM. När du publicerar mallen VM skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Alla virtuella datorer har samma konfiguration som mallen.
+
 
 1. På sidan **mall** väljer du **publicera** i verktygsfältet. 
-1. I rutan **publicera mallens** meddelande granskar du meddelandet och väljer **publicera**. Den här processen kan ta lite tid beroende på hur många virtuella datorer som skapas.
 
-    ![Knappen Publicera](../media/how-to-create-manage-template/publish-button.png)
+    ![Knappen publicera mall](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-    > [!IMPORTANT]
-    > När en mall har publicerats kan publiceringen inte tas bort. Du kan publicera mallen på om. 
-1. Du kan se status för publicerings processen på mallsidan. Vänta tills status för mallen har ändrats till **publicerad**. 
+    > [!WARNING]
+    > När du väl har publicerat kan du inte ångra publiceringen. 
+2. På sidan **publicera mall** anger du det antal virtuella datorer som du vill skapa i labbet och väljer sedan **publicera**. 
 
-    ![Publicerings status](../media/how-to-create-manage-template/publish-status.png)
-1. Växla till sidan **Virtuella datorer** och bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. Vänta tills de virtuella datorerna har skapats. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta dina studenter starta de virtuella datorerna. 
+    ![Publicera mall – antal virtuella datorer](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+3. Du ser **statusen för att publicera** mallen på sidan. Den här processen kan ta upp till en timma. 
+
+    ![Publicera mall – förlopp](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+4. Vänta tills publiceringen är klar och växla sedan till sidan **Virtual Machines-pool** genom att välja **virtuella datorer** på den vänstra menyn eller genom att välja panelen **virtuella datorer** . Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
 
     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
-
-
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 

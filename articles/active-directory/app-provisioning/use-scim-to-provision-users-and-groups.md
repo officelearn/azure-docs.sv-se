@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb1a57c5b18f1da25e3843b55e86705d05f43c5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522347"
+ms.locfileid: "77538183"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
 
@@ -133,7 +133,7 @@ Du kan sedan använda tabellen nedan för att förstå hur attributen som progra
 Det finns flera slut punkter definierade i SCIM RFC. Du kan komma igång med/User-slutpunkten och sedan expandera därifrån. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör det möjligt för en klient att hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden. /Schemas-slutpunkten är användbar när du använder anpassade attribut eller om schemat ändras ofta. Det gör att en klient kan hämta det mest uppdaterade schemat automatiskt. /Bulk-slutpunkten är särskilt användbar när du har stöd för grupper. Tabellen nedan beskriver de olika slut punkter som definieras i SCIM-standarden. 
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Tabell 4: Bestäm de slut punkter som du vill utveckla
-|ENDPOINT|BESKRIVNIG|
+|ENDPOINT|BESKRIVNING|
 |--|--|
 |/User|Utföra CRUD-åtgärder på ett användar objekt.|
 |/Grupp|Utföra CRUD-åtgärder på ett grupp objekt.|
@@ -229,7 +229,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 #### <a name="create-user"></a>Skapa användare
 
-###### <a name="request"></a>Begäran
+###### <a name="request"></a>Förfrågan
 
 *POST-/users*
 ```json
@@ -317,7 +317,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-###### <a name="request"></a>Begäran
+###### <a name="request"></a>Förfrågan
 *Hämta/Users/5171a35d82074e068ce2* 
 
 ###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>Svar (användaren hittades inte. Observera att detalj nivån inte är obligatorisk, endast status.)
@@ -1448,12 +1448,13 @@ Om du skapar ett program som ska användas av fler än en klient kan du göra de
 ### <a name="gallery-onboarding-checklist"></a>Check lista för Galleri registrering
 Följ check listan nedan för att se till att ditt program är inbyggt och att kunderna har en smidig distributions upplevelse. Informationen kommer att samlas in från dig när du registrerar dig i galleriet. 
 > [!div class="checklist"]
-> * [Support SCIM 2,0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (krävs)
+> * Stöd för en [SCIM 2,0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) -användare och grupp slut punkt (endast en krävs, men båda rekommenderas)
 > * Stöd minst 25 begär Anden per sekund per klient (krävs)
-> * Stöd för schema identifiering (rekommenderas)
 > * Stöd för OAuth-auktoriseringskod eller en lång livs längd enligt beskrivningen nedan (krävs)
-> * Upprätta en teknisk kontakt punkt för att få support för kund publicerings galleriet (krävs)
+> * Upprätta en teknisk kontakt punkt för att få support för kunder efter Galleri registrering (krävs)
+> * Stöd för uppdatering av flera grupp medlemskap med en enda korrigering (rekommenderas) 
 > * Dokumentera din SCIM-slutpunkt offentligt (rekommenderas) 
+> * [Stöd för schema identifiering](https://tools.ietf.org/html/rfc7643#section-6) (rekommenderas)
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Auktorisering för etablering av anslutningar i program galleriet

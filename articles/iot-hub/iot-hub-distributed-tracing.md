@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212488"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539543"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -308,8 +308,8 @@ När den har Aktiver ATS följer stöd för distribuerad spårning för IoT Hub 
 1. IoT-enheten skickar meddelandet till IoT Hub.
 1. Meddelandet anländer till IoT Hub Gateway.
 1. IoT Hub söker efter `tracestate` i egenskaperna för meddelande programmet och kontrollerar om det har rätt format.
-1. I så fall skapar och loggar IoT Hub `trace-id` och `span-id` för att Azure Monitor diagnostikloggar under kategorin `DiagnosticIoTHubD2C`.
-1. När meddelande bearbetningen har avslut ATS genererar IoT Hub en annan `span-id` och loggar den tillsammans med den befintliga `trace-id` under kategorin `DiagnosticIoTHubIngress`.
+1. I så fall genererar IoT Hub en globalt unik `trace-id` för meddelandet, en `span-id` för hoppet och loggar dem för att Azure Monitor diagnostikloggar under åtgärden `DiagnosticIoTHubD2C`.
+1. När meddelande bearbetningen har slutförts genererar IoT Hub en annan `span-id` och loggar den tillsammans med den befintliga `trace-id` under åtgärden `DiagnosticIoTHubIngress`.
 1. Om routning är aktiverat för meddelandet IoT Hub skriver den till den anpassade slut punkten och loggar en annan `span-id` med samma `trace-id` under kategorin `DiagnosticIoTHubEgress`.
 1. Stegen ovan upprepas för varje meddelande som genereras.
 

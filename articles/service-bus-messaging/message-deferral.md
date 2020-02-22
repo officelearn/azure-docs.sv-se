@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 249cf7414143f59540d198bb460d8b215f6a7664
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756359"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538404"
 ---
 # <a name="message-deferral"></a>Skjut upp meddelanden
 
@@ -36,7 +36,7 @@ API: et är [BrokeredMessage. Överlåt](/dotnet/api/microsoft.servicebus.messag
 
 Uppskjutna meddelanden finns kvar i huvud kön tillsammans med alla andra aktiva meddelanden (till skillnad från meddelanden med obeställbara meddelanden som bor i en underkö), men de kan inte längre tas emot med hjälp av de vanliga Receive-/ReceiveAsync-funktionerna. Uppskjutna meddelanden kan upptäckas via [meddelande bläddring](message-browsing.md) om ett program förlorar sitt spår.
 
-För att hämta ett uppskjutet meddelande ansvarar dess ägare för att komma ihåg [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) när den skjuts upp. Alla mottagare som känner till sekvensnumret i ett uppskjutet meddelande kan senare ta emot meddelandet explicit med `Receive(sequenceNumber)`. För köer kan du använda [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), ämnes prenumerationer använder [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
+För att hämta ett uppskjutet meddelande ansvarar dess ägare för att komma ihåg [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) när den skjuts upp. Alla mottagare som känner till sekvensnumret i ett uppskjutet meddelande kan senare ta emot meddelandet explicit med `Receive(sequenceNumber)`.
 
 Om ett meddelande inte kan bearbetas på grund av att en viss resurs för hantering av meddelandet inte är tillgänglig för tillfället, men meddelande bearbetningen inte ska göras sammanfattas, är ett sätt att lägga till meddelandet på sidan i några minuter att komma ihåg att **SequenceNumber** i ett [schemalagt meddelande](message-sequencing.md) som ska publiceras på några minuter och sedan hämta det uppskjutna meddelandet när det schemalagda meddelandet anländer. Om en meddelande hanterare är beroende av en databas för alla åtgärder och databasen är tillfälligt otillgänglig, bör den inte använda uppskjutningen, utan att i stället pausa att ta emot meddelanden helt tills databasen är tillgänglig igen.
 

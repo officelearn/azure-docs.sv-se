@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
-ms.openlocfilehash: 882cdaa8a7b01578b2f04cf939aa14fe4aee7e2e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: d376aca45778060c8913924fd2a44031109390d2
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720375"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538797"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces
 
@@ -134,11 +134,11 @@ Navigera till `webfrontend` katalogen och Använd kommandot `azds prep` och `azd
 
 ```console
 cd ../../webfrontend-linux/
-azds prep --public
+azds prep --enable-ingress
 azds up
 ```
 
-Kommandot `azds prep --public` genererar Helm-diagrammet och Dockerfiles för ditt program.
+Kommandot `azds prep --enable-ingress` genererar Helm-diagrammet och Dockerfiles för ditt program.
 
 > [!TIP]
 > [Dockerfile-och Helm-diagrammet](../how-dev-spaces-works.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.

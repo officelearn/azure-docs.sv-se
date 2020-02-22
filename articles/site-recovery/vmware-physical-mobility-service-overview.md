@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513566"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539390"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
@@ -21,6 +21,9 @@ När du konfigurerar haveri beredskap för virtuella VMware-datorer och fysiska 
 - [Push-installation](#push-installation): Site Recovery installerar mobilitets agenten på servern när skyddet aktive ras via Azure Portal.
 - Installera manuellt: du kan installera mobilitets tjänsten manuellt på varje dator via [UI](#install-mobility-agent-through-ui) eller [kommando tolken](#install-mobility-agent-through-command-prompt).
 - [Automatiserad distribution](vmware-azure-mobility-install-configuration-mgr.md): du kan automatisera installationen med verktyg för program varu distribution, till exempel Configuration Manager.
+
+> [!NOTE]
+> Mobilitets agenten använder cirka 6%-10% av minnet på käll datorerna för virtuella VMware-datorer eller fysiska datorer.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Virus skydd på replikerade datorer
 
@@ -35,7 +38,7 @@ Push-installation är en integrerad del av jobbet "[Aktivera replikering](vmware
 
 Information om arbets flödet för push-installation har beskrivits i följande avsnitt.
 
-### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>Från och med [9,23-version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)
+### <a name="from-923-version-onwards"></a>Från och med [9,23-version](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery)
 
 Följande steg utförs under en push-installation av mobilitets agenten
 
@@ -73,7 +76,7 @@ Följande steg utförs under en push-installation av mobilitets agenten
 
     ![Registrerings sida för mobilitets tjänsten](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. I **konfigurations Server information**anger du den IP-adress och den lösen fras som du har konfigurerat.  
+5. I **konfigurations Server information**anger du den IP-adress och den lösen fras som du har konfigurerat.
 
     ![Registrerings sida för mobilitets tjänsten](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -116,7 +119,7 @@ Följande steg utförs under en push-installation av mobilitets agenten
 **Inställning** | **Detaljer**
 --- | ---
 Användning | UnifiedAgent. exe/Role \<MS/MT >/InstallLocation \<installations plats >/Platform "VmWare"/Silent
-Installationsloggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+Installations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
 /InstallLocation| Valfri parameter. Anger mobilitets tjänstens installations plats (valfri mapp).
 /Platform | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.<br/><br/> Om du hanterar virtuella Azure-datorer som fysiska datorer anger du **VMware**.
@@ -178,17 +181,17 @@ Gå till mappen%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository på ko
 
 **Installations fil** | **Operativ system (endast 64-bitars)**
 --- | ---
-Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
-Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6. * </br> CentOS 6.*
-Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7. * </br> CentOS 7.*
+Microsoft-ASR\_UA\*Windows\*version. exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
+Microsoft-ASR\_UA\*RHEL6-64\*release. tar. gz | Red Hat Enterprise Linux (RHEL) 6. * </br> CentOS 6.*
+Microsoft-ASR\_UA\*RHEL7-64\*release. tar. gz | Red Hat Enterprise Linux (RHEL) 7. * </br> CentOS 7.*
 Microsoft-ASR\_UA\*SLES12-64\*release. tar. gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3
-Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3
-Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4
-Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6,4, 6,5
+Microsoft-ASR\_UA\*SLES11-SP3-64\*release. tar. gz| SUSE Linux Enterprise Server 11 SP3
+Microsoft-ASR\_UA\*SLES11-SP4-64\*release. tar. gz| SUSE Linux Enterprise Server 11 SP4
+Microsoft-ASR\_UA\*OL6-64\*release. tar. gz | Oracle Enterprise Linux 6,4, 6,5
 Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release. tar. gz | Ubuntu Linux 14,04
-Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16,04 LTS-Server
-Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
-Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
+Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release. tar. gz | Ubuntu Linux 16,04 LTS-Server
+Microsoft-ASR_UA\*DEBIAN7-64\*version. tar. gz | Debian 7
+Microsoft-ASR_UA\*DEBIAN8-64\*version. tar. gz | Debian 8
 
 ## <a name="next-steps"></a>Nästa steg
 

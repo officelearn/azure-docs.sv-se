@@ -6,18 +6,18 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 303f24ef6d934c0382bd8917833e3ec545f2a540
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776487"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538472"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Azure våren Cloud CI/CD med GitHub-åtgärder
 
 GitHub-åtgärder har stöd för ett arbets flöde för automatisk program varu utvecklings livs cykel. Med GitHub-åtgärder för Azure våren Cloud kan du skapa arbets flöden i din lagrings plats för att skapa, testa, paketera, lansera och distribuera dem till Azure. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Det här exemplet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Konfigurera GitHub-lagringsplatsen och autentisera
@@ -79,6 +79,7 @@ Skapa `.github/workflow/main.yml`-filen på lagrings platsen:
 
 ```
 name: AzureSpringCloud
+on: push
 
 env:
   GROUP: <resource group name>
@@ -125,6 +126,7 @@ Den senaste versionen av Azure CLI används av AZ `run` kommandot. Om det finns 
 Skapa filen. GitHub/Workflow/main. yml på lagrings platsen:
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -165,6 +167,7 @@ Ett annat alternativ är att använda [maven-plugin-programmet](https://docs.mic
 
 ```
 name: AzureSpringCloud
+on: push
 
 jobs:
   build-and-deploy:
@@ -194,7 +197,7 @@ jobs:
         mvn azure-spring-cloud:deploy
 ```
 
-## <a name="run-the-workflow"></a>Kör arbets flödet
+## <a name="run-the-workflow"></a>Köra arbetsflödet
 GitHub- **åtgärder** ska aktive ras automatiskt när du har push-överför `.github/workflow/main.yml` till GitHub. Åtgärden utlöses när du push-överför en ny incheckning. Om du skapar filen i webbläsaren bör åtgärden redan ha körts.
 
 Verifiera att åtgärden har Aktiver ATS genom att klicka på fliken **åtgärder** på sidan GitHub-lagringsplats:

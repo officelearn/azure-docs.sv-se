@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 38711c9f1cee07b04dad0ccfeff5694e61dd5b53
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ef9efcea1c06149e084dc261f5add7b408ae7b92
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484969"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539271"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -50,7 +50,7 @@ Använd länkarna i det här avsnittet för mer information om hanterade moln n�
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure Health-kontroll: 5 dagars utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5 dagars implementering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis-hanterad ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis hanterade VWAN som drivs av Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis-hanterad VWAN som drivs av Palo--nätverk](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Azure Marketplace-erbjudanden inklusive nya hanterade säkerhets tjänster och hanterade MEC-tjänster från följande Azure-nätverk MSP-partner finns i vår översikt: [Amdocs](https://www.amdocs.com/); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);    [IX räckvidd](https://www.ixreach.com/services/sdn-cloud-connect/);  Mellan [moln](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Teknisk Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
+Azure Marketplace-erbjudanden inklusive nya hanterade säkerhets tjänster och hanterade MEC-tjänster från följande Azure-nätverk MSP-partner finns i vår översikt: [Amdocs](https://www.amdocs.com/); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);    [IX räckvidd](https://www.ixreach.com/services/sdn-cloud-connect/);  Mellan [moln](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx); [Federerad trådlös](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute"></a>ExpressRoute-partner
 

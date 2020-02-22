@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 0f61a0968922d009b8ba60d80dde132fedaece29
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134111"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539099"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -72,7 +72,7 @@ I det här steget skapar du ett labb för din klass i Azure.
     4. **Stoppa** mallen VM.  
 
 ## <a name="publish-the-template-vm"></a>Publicera den virtuella malldatorn
-I det här steget publicerar du mallen VM. Publicerings processen skapar virtuella labb datorer som är i princip kopior av mallen VM. 
+I det här steget publicerar du mallen VM. När du publicerar mallen VM skapar Azure Lab Services virtuella datorer i labbet med hjälp av mallen. Alla virtuella datorer har samma konfiguration som mallen.
 
 1. På sidan **mall** väljer du **publicera** i verktygsfältet. 
 

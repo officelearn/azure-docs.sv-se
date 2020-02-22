@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460810"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539407"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
@@ -44,7 +44,7 @@ Standard analys verktyget är standard Lucene, som fungerar bra för engelska, m
  
 + Den engelska analysen i Lucene utökar standard analys verktyget. Den tar bort possessives (efterföljande) från ord, tillämpar det som följer av algoritmen för Porter och tar bort engelska stoppord.  
 
-+ Microsofts engelska Analyzer utför lemmatisering i stället för att det finns. Det innebär att den kan hantera inflected och oregelbundna ord former mycket bättre vilket resulterar i mer relevanta Sök Resultat 
++ Microsofts engelska Analyzer utför lemmatisering i stället för att det finns. Det innebär att den kan hantera inflected och oregelbundna ord former mycket bättre, vilket resulterar i mer relevanta Sök Resultat 
 
 ## <a name="configuring-analyzers"></a>Konfigurera analys verktyg
 
@@ -123,7 +123,7 @@ Mer information om index egenskaper finns i [create index &#40;Azure kognitiv s�
 
  Alla analyser med namn som är kommenterade med **Lucene** drivs av [Apache Lucenes språk analys verktyg](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
-## <a name="see-also"></a>Se också  
+## <a name="see-also"></a>Se även  
 
 + [Skapa index &#40;Azure kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

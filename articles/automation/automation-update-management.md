@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e7a86f3a709566bcf18241ce3c329c0355be2743
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443847"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539560"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -115,7 +115,7 @@ För Linux måste datorn ha åtkomst till en uppdaterings lagrings plats. Uppdat
 
 Information om hur du installerar Log Analytics-agenten för Linux och laddar ned den senaste versionen finns i [Log Analytics agent för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar Log Analytics agent för Windows finns i [ansluta Windows-datorer till Azure Monitor](../log-analytics/log-analytics-windows-agent.md).
 
-Virtuella datorer som har skapats från RHEL-avbildningar (på begäran Red Hat Enterprise Linux) som är tillgängliga på Azure Marketplace är registrerade för att få åtkomst till [Red Hat Update-infrastrukturen (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) som har distribuerats i Azure. Alla andra Linux-distributioner måste uppdateras från distributionens online-fillagringsplats med distributionens metoder som stöds.
+Virtuella datorer som har skapats från RHEL-avbildningar (på begäran Red Hat Enterprise Linux) som är tillgängliga på Azure Marketplace är registrerade för att få åtkomst till [Red Hat Update-infrastrukturen (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) som har distribuerats i Azure. Alla andra Linux-distributioner måste uppdateras från distributionens online-fillagringsplats med distributionens metoder som stöds.
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -184,7 +184,7 @@ Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen 
 
 För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update. Du hittar en uppdaterad lista med nödvändiga slut punkter i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-För Red Hat Linux-datorer, se [IP-adresser för RHUI Content Delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) för obligatoriska slut punkter. Andra Linux-distributioner finns i leverantörens dokumentation.
+För Red Hat Linux-datorer, se [IP-adresser för RHUI Content Delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) för obligatoriska slut punkter. Andra Linux-distributioner finns i leverantörens dokumentation.
 
 Mer information om portar som Hybrid Runbook Worker kräver finns i [hybrid Worker roll portar](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

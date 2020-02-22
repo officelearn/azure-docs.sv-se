@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
+ms.date: 2/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932584"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544240"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Skapa ett privat Azure Kubernetes service-kluster (för hands version)
 
@@ -26,18 +26,38 @@ Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hant
 > * [Support principer för AKS](support-policies.md)
 > * [Vanliga frågor och svar om support för Azure](faq.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure CLI-versionen 2.0.77 eller senare, och 0.4.18 för för hands versionen av Azure CLI AKS
 
 ## <a name="currently-supported-regions"></a>Regioner som stöds för närvarande
+
+* Australien, östra
+* Australien, sydöstra
+* Brasilien, södra
+* Kanada, centrala
+* Kanada, östra
+* Cenral oss
+* Asien, östra
+* USA, östra
+* USA, östra 2
+* USA, östra 2 EUAP
+* Frankrike, centrala
+* Tyskland, norra
+* Japan, östra
+* Japan, västra
+* Sydkorea, centrala
+* Sydkorea, södra
+* USA, norra centrala
+* Europa, norra
+* Europa, norra
+* USA, södra centrala
+* Storbritannien, södra
+* Europa, västra
 * USA, västra
 * USA, västra 2
 * USA, östra 2
-* Kanada, centrala
-* Europa, norra
-* Europa, västra
-* Australien, östra
+
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste för hands tillägget för Azure CLI-AKS
 

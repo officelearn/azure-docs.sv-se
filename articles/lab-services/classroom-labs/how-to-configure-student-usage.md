@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169211"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539237"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
 Den här artikeln beskriver hur du lägger till användare i labbet, registrerar dem i labbet, styr antalet timmar som de kan använda den virtuella datorn och mer. 
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur du lägger till användare i labbet, registrerar
     ![Lägga till e-postadress till användare](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Välj **Spara**. Du ser användarnas e-postadresser och deras status (registrerad eller inte) i listan. 
 
-    ![Användarlista](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Användarlista](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > Du ser namn på användare i listan när de har registrerats i labbet. Namnet som visas i listan skapas med hjälp av användarens för-och efter namn i Azure Active Directory. 
@@ -101,11 +101,14 @@ Du kan också hämta registrerings länken från portalen och skicka den med dit
 2. I dialog rutan **användar registrering** väljer du **färdig**. 
 4. Skicka **registrerings länken** till en student så att studenten kan registreras för klassen. 
 
-## <a name="view-users-registered-with-the-lab"></a>Visa användare som har registrerats med labbet
+## <a name="view-registered-users"></a>Visa registrerade användare
 
-Välj **användare** på den vänstra menyn för att visa en lista över användare som registrerats i labbet. 
+1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com). 
+2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton.
+3. På sidan **My labs** (Mina labb) väljer du det labb som du vill spåra användningen för. 
+4. Välj **Användare** på den vänstra menyn eller i panelen **Användare**. Du kan se studenter som har registrerats med ditt labb.  
 
-![Lista med användare som registrerats i labbet](../media/how-to-configure-student-usage/students-registered.png)
+    ![Registrerade användare](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>Ange kvoter för användare
 Du kan ange kvoter per användare med hjälp av följande steg: 
@@ -115,7 +118,7 @@ Du kan ange kvoter per användare med hjälp av följande steg:
 3. På sidan **kvot per användare** anger du antalet timmar som du vill ge varje användare (student) utanför den schemalagda klass tiden och väljer sedan **Spara**.
 
     ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Du ser de ändrade värdena i verktygsfältet nu: **kvot per användare: \<antalet timmar >** . 
+5. Du ser de ändrade värdena i verktygsfältet nu: **kvot per användare: \<antalet timmar >** och även i listan användare.
 
     ![Kvot per användare – efter](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
@@ -125,7 +128,7 @@ Du kan ange kvoter per användare med hjälp av följande steg:
 ## <a name="set-additional-quota-for-a-specific-user"></a>Ange ytterligare kvot för en speciell användare
 Du kan ange ytterligare kvot för en användare. Den här kvoten är utöver den gemensamma kvot uppsättningen för alla användare i föregående avsnitt. Om du till exempel (som lärare) anger kvoten för alla användare till 10 timmar och anger ytterligare kvot på 5 timmar för en speciell användare får användarna 15 (10 + 5) timmar med kvot. Om du ändrar den gemensamma kvoten senare till, till exempel 15, får användaren 20 (15) timmars kvot. Kom ihåg att denna övergripande kvot ligger utanför den schemalagda tiden. Tiden som student tillbringar på en virtuell labb dator under schema tiden räknas inte mot den här kvoten. 
 
-Följ de här stegen för att göra det:
+Det gör du genom att följa dessa steg:
 
 1. Välj en användare (student) i listan med användare på sidan **användare** .
 2. Välj sedan **Justera kvot** i verktygsfältet. 

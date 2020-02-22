@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934310"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544325"
 ---
 # <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
@@ -89,7 +89,7 @@ Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel
 > Kryptering av distributions data med en kundhanterad nyckel är tillgängligt i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len. Om du har problem med detta kan du kontakta Azure-supporten.
 
 När nyckel valvets nyckel och åtkomst princip har kon figurer ATS lägger du till följande egenskaper i ACI-distributions mal len. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Under `resources`anger `apiVersion` till `2012-12-01`.
+* Under `resources`anger `apiVersion` till `2019-12-01`.
 * Under avsnittet Egenskaper för container grupp i distributions mal len lägger du till en `encryptionProperties`som innehåller följande värden:
   * `vaultBaseUrl`: DNS-namnet på ditt nyckel valv går att hitta på bladet översikt i Key Vault-resursen i portalen
   * `keyName`: namnet på nyckeln som genererades tidigare

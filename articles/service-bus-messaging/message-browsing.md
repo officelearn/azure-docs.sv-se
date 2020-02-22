@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756404"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539373"
 ---
 # <a name="message-browsing"></a>Bläddra i meddelanden
 
@@ -34,7 +34,7 @@ Peek returnerar även meddelanden som låsts och bearbetas för närvarande av a
 
 ## <a name="peek-apis"></a>Granska API: er
 
-Metoderna [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) och [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) finns i alla .net-och Java-klient bibliotek och på alla mottagares objekt: **MessageReceiver**, **MessageSession**, **QueueClient**och **SubscriptionClient**. Peek fungerar på alla köer och prenumerationer och deras respektive köer för obeställbara meddelanden.
+Metoderna [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) och [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) finns i alla .net-och Java-klient bibliotek och på alla mottagares objekt: **MessageReceiver**, **MessageSession**. Peek fungerar på alla köer och prenumerationer och deras respektive köer för obeställbara meddelanden.
 
 När den anropas flera gånger, räknar gransknings metoden alla meddelanden som finns i kön eller prenumerations loggen i ordnings nummer ordningen, från det lägsta tillgängliga sekvensnumret till högsta. Detta är ordningen i vilken meddelanden har placerats i kö och inte i den ordning som meddelanden kan komma att hämtas.
 

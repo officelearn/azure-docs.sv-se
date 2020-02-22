@@ -3,12 +3,12 @@ title: Om redundans och återställning efter fel i Azure Site Recovery
 description: Läs om redundans och fel i Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: 3c461d2de4f9ef8e8159c7b9c86f23a846421c5e
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498285"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539526"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Om återställning av redundans/återställning vid fel på plats
 
@@ -23,7 +23,7 @@ Redundans och återställning efter fel i Site Recovery har fyra steg:
 - **Steg 3: redundansväxla från Azure**: när den lokala platsen körs som vanligt igen kör du en annan redundansväxling, den här gången för att återställa virtuella Azure-datorer till din lokala plats. Du kan växla tillbaka till den ursprungliga platsen från vilken du växlade över, eller till en annan plats.
 - **Steg 4: återaktivera skydd för lokala datorer**: när du har återställt igen aktiverar du replikeringen av de lokala datorerna till Azure igen.
 
-## <a name="failover"></a>växling vid fel
+## <a name="failover"></a>Redundans
 
 Du utför en redundansväxling som en del av din strategi för affärs kontinuitet och haveri beredskap (BCDR).
 
@@ -37,8 +37,8 @@ Redundans är en aktivitet i två faser:
 - **Genomför**: efter redundans verifierar du den virtuella datorn i Azure:
     - Du kan sedan allokera redundansväxlingen till den valda återställnings punkten eller välja en annan punkt för incheckningen.
     - När redundansen har genomförts går det inte att ändra återställnings punkten.
-    
-    
+
+
 ## <a name="connect-to-azure-after-failover"></a>Ansluta till Azure efter redundans
 
 Det finns ett antal krav för att ansluta till virtuella Azure-datorer som skapats efter redundansväxlingen med RDP/SSH.
@@ -59,7 +59,7 @@ Site Recovery tillhandahåller olika alternativ för redundans.
 **Redundanstest** | Används för att köra en detalj granskning som validerar din BCDR-strategi utan data förlust eller stillestånds tid.| Skapar en kopia av den virtuella datorn i Azure, utan påverkan på pågående replikering eller i produktions miljön. | 1. kör ett redundanstest på en enskild virtuell dator eller flera virtuella datorer i en återställnings plan.<br/><br/> 2. Välj en återställnings punkt som ska användas för redundanstest.<br/><br/> 3. Välj ett Azure-nätverk där den virtuella Azure-datorn ska finnas när den har skapats efter redundansväxlingen. Nätverket används endast för redundanstest.<br/><br/> 4. kontrol lera att granskningen fungerade som förväntat. Site Recovery rensar automatiskt virtuella datorer som skapats i Azure under detalj nivån.
 **Planerad redundans-Hyper-V**  | Används vanligt vis för planerad stillestånds tid.<br/><br/> Virtuella käll datorer stängs av. Den senaste informationen synkroniseras innan redundansväxlingen initieras. | Ingen data förlust för det planerade arbets flödet. | 1. planera en underhålls period för drift stopp och meddela användarna.<br/><br/> 2. ta appar som riktas mot användare offline.<br/><br/> 3. Starta en planerad redundansväxling med den senaste återställnings punkten. Redundansväxlingen körs inte om datorn inte är avstängd eller om fel påträffas.<br/><br/> 4. efter redundansväxlingen kontrollerar du att repliken för den virtuella Azure-datorn är aktiv i Azure.<br/><br/> 5. genomför redundansväxlingen genom att slutföra. Åtgärden commit tar bort alla återställnings punkter.
 **Redundans-Hyper-V** | Kör vanligt vis om det uppstår ett oplanerat avbrott eller om den primära platsen inte är tillgänglig.<br/><br/> Du kan också stänga av den virtuella datorn och synkronisera de slutgiltiga ändringarna innan du initierar redundansväxlingen.  | Minimal data förlust för appar. | 1. initiera din BCDR-plan. <br/><br/> 2. Starta en redundansväxling. Ange om Site Recovery ska stänga av den virtuella datorn och synkronisera/replikera de senaste ändringarna innan redundansväxlingen utlöses.<br/><br/> 3. du kan växla över till ett antal alternativ för återställnings punkt som sammanfattas i tabellen nedan.<br/><br/> Om du inte aktiverar alternativet att stänga av den virtuella datorn, eller om Site Recovery inte kan stänga av den, används den senaste återställnings punkten.<br/>Redundansväxlingen körs även om datorn inte kan stängas av.<br/><br/> 4. efter redundansväxlingen kontrollerar du att repliken för den virtuella Azure-datorn är aktiv i Azure.<br/> Om det behövs kan du välja en annan återställnings punkt i fönstret kvarhållning på 24 timmar.<br/><br/> 5. genomför redundansväxlingen genom att slutföra. Åtgärden commit tar bort alla tillgängliga återställnings punkter.
-**Redundans – VMware** | Kör vanligt vis om det uppstår ett oplanerat avbrott eller om den primära platsen inte är tillgänglig.<br/><br/> Du kan också ange att Site Recovery ska försöka utlösa en avstängning av den virtuella datorn och synkronisera och replikera de slutliga ändringarna innan du initierar redundansväxlingen.  | Minimal data förlust för appar. | 1. initiera din BCDR-plan. <br/><br/> 2. Starta en redundansväxling från Site Recovery. Ange om Site Recovery ska försöka utlösa VM-avstängning och synkronisera innan du kör redundansväxlingen.<br/> Redundansväxlingen körs även om datorerna inte kan stängas av.<br/><br/> 3. efter redundansväxlingen kontrollerar du att repliken för den virtuella Azure-datorn är aktiv i Azure. <br/>Om det behövs kan du välja en annan återställnings punkt i fönstret kvarhållning på 72 timmar.<br/><br/> 5. genomför redundansväxlingen genom att slutföra. Åtgärden commit tar bort alla återställnings punkter.<br/> Site Recovery inaktiverar VMware-verktygen under redundans för virtuella Windows-datorer. 
+**Redundans – VMware** | Kör vanligt vis om det uppstår ett oplanerat avbrott eller om den primära platsen inte är tillgänglig.<br/><br/> Du kan också ange att Site Recovery ska försöka utlösa en avstängning av den virtuella datorn och synkronisera och replikera de slutliga ändringarna innan du initierar redundansväxlingen.  | Minimal data förlust för appar. | 1. initiera din BCDR-plan. <br/><br/> 2. Starta en redundansväxling från Site Recovery. Ange om Site Recovery ska försöka utlösa VM-avstängning och synkronisera innan du kör redundansväxlingen.<br/> Redundansväxlingen körs även om datorerna inte kan stängas av.<br/><br/> 3. efter redundansväxlingen kontrollerar du att repliken för den virtuella Azure-datorn är aktiv i Azure. <br/>Om det behövs kan du välja en annan återställnings punkt i fönstret kvarhållning på 72 timmar.<br/><br/> 5. genomför redundansväxlingen genom att slutföra. Åtgärden commit tar bort alla återställnings punkter.<br/> Site Recovery inaktiverar VMware-verktygen under redundans för virtuella Windows-datorer.
 
 ## <a name="failover-processing"></a>Redundansväxling
 
@@ -83,8 +83,10 @@ Under redundans kan du välja ett antal alternativ för återställnings punkt.
 **Senaste appar – konsekvent** |  Det här alternativet växlar över virtuella datorer till den senaste programkonsekventa återställnings punkten som bearbetas av Site Recovery, om programkonsekventa återställnings punkter är aktiverade. Kontrol lera den senaste återställnings punkten i VM-inställningarna.
 **Senaste bearbetade multi-VM** | Det här alternativet är tillgängligt för återställnings planer med en eller flera virtuella datorer som har konsekvens för flera virtuella datorer aktiverade. Virtuella datorer med inställningen aktive rad redundans till den senaste vanliga återställnings punkten med flera virtuella datorer. Alla andra virtuella datorer i planen växlar över till den senaste bearbetade återställnings punkten.
 **Senaste app med flera virtuella datorer – konsekvent** |  Det här alternativet är tillgängligt för återställnings planer med en eller flera virtuella datorer som har konsekvens för flera virtuella datorer aktiverade. Virtuella datorer som ingår i en replikeringsgrupp växlar över till den senaste vanliga programkonsekventa multi-VM-programkonsekventa återställnings punkt. Andra virtuella datorer växlar över till den senaste programkonsekventa återställnings punkten.
-**Anpassad** | Använd det här alternativet för att redundansväxla en viss virtuell dator till en viss återställnings punkt i tid. Det här alternativet är inte tillgängligt för återställnings planer.
+**Anpassat** | Använd det här alternativet för att redundansväxla en viss virtuell dator till en viss återställnings punkt i tid. Det här alternativet är inte tillgängligt för återställnings planer.
 
+> [!NOTE]
+> Återställnings punkter kan inte migreras till ett annat Recovery Services-valv.
 
 ## <a name="reprotectionfailback"></a>Skydd/återställning efter fel
 
@@ -136,17 +138,17 @@ När du skyddar virtuella Azure-datorer till lokalt kan du ange att du vill väx
 - Du kör en planerad återställning efter fel från Azure till en lokal plats.
 - Inga enskilda komponenter måste konfigureras för återställning av Hyper-V VM.
 - Under planerad redundansväxling kan du välja alternativ för att synkronisera data före återställning efter fel:
-    - **Synkronisera data före redundans**: med det här alternativet minimeras stillestånds tiden för virtuella datorer när den synkroniserar datorer utan att stänga av dem. 
+    - **Synkronisera data före redundans**: med det här alternativet minimeras stillestånds tiden för virtuella datorer när den synkroniserar datorer utan att stänga av dem.
         - Fas 1: tar en ögonblicks bild av den virtuella Azure-datorn och kopierar den till den lokala Hyper-V-värden. Datorn fortsätter att köras i Azure.
         - Fas 2: stänger av den virtuella Azure-datorn så att inga nya ändringar sker där. Den slutliga uppsättningen delta ändringar överförs till den lokala servern och den lokala virtuella datorn startas.
-    - **Synkronisera endast data under redundans**: det här alternativet är snabbare eftersom vi förväntar dig att det mesta av disken har ändrats och därför inte utför beräkning av kontroll summa. Den utför en nedladdning av disken. Vi rekommenderar att du använder det här alternativet om den virtuella datorn har körts i Azure en stund (en månad eller mer) eller om den lokala virtuella datorn har tagits bort.  
+    - **Synkronisera endast data under redundans**: det här alternativet är snabbare eftersom vi förväntar dig att det mesta av disken har ändrats och därför inte utför beräkning av kontroll summa. Den utför en nedladdning av disken. Vi rekommenderar att du använder det här alternativet om den virtuella datorn har körts i Azure en stund (en månad eller mer) eller om den lokala virtuella datorn har tagits bort.
 
 [Läs mer](hyper-v-azure-failback.md) om Hyper-V-skydd och återställning efter fel.
 
 När du skyddar virtuella Azure-datorer till lokalt kan du ange att du vill växla tillbaka till den ursprungliga platsen eller till en annan plats.
 
 - **Återställning av ursprunglig plats**: detta Miss lyckas tillbaka från Azure till samma lokala käll dator om den finns. I det här scenariot väljer du ett av de synkroniseringsalternativ som beskrivs i föregående procedur.
-- **Återställning av alternativ plats**: om den lokala datorn inte finns kan du växla tillbaka från Azure till en annan plats. När du skyddar den virtuella Azure-datorn till lokalt skapas den lokala datorn. Med det här alternativet rekommenderar vi att du väljer alternativet för att synkronisera data före redundans 
+- **Återställning av alternativ plats**: om den lokala datorn inte finns kan du växla tillbaka från Azure till en annan plats. När du skyddar den virtuella Azure-datorn till lokalt skapas den lokala datorn. Med det här alternativet rekommenderar vi att du väljer alternativet för att synkronisera data före redundans
 - [Granska](hyper-v-azure-failback.md) kraven och begränsningarna för plats återställning efter fel.
 
 
@@ -156,7 +158,7 @@ När du har växlat tillbaka till den lokala platsen aktiverar du **omvänd repl
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Redundansväxla [vissa virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md) 
+- Redundansväxla [vissa virtuella VMware-datorer](vmware-azure-tutorial-failover-failback.md)
 - Redundansväxla [vissa virtuella Hyper-V-datorer](hyper-v-azure-failover-failback-tutorial.md).
 - [Skapa](site-recovery-create-recovery-plans.md) en återställnings plan.
 - Redundansväxla [virtuella datorer i en återställnings plan](site-recovery-failover.md).

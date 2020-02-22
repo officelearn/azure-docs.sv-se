@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Använd en privat Helm-lagringsplats i ett Azure dev-utrymme.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare, Helm
 manager: gwallace
-ms.openlocfilehash: b1579adc00540a429170027b66c5d3e508bcb5d4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6036184c43242f2ec2279438950b26dfb53e9bb4
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718744"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77538677"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Använda en privat Helm-lagringsplats i Azure dev Spaces
 
@@ -33,7 +33,7 @@ helm repo update
 Navigera till projekt katalogen och kör `azds prep`.
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 > [!TIP]

@@ -3,12 +3,12 @@ title: Översikt över Azure Functions körnings versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig mer om skillnaderna mellan dem och hur du väljer det som passar dig bäst.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290384"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539509"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
 
@@ -16,8 +16,8 @@ Huvud versionerna av Azure Functions runtime är relaterade till den version av 
 
 | Körnings version | Versions nivå<sup>1</sup> | .NET-version | 
 | --------------- | ------------- | ------------ |
-| 3.x | Allmänt tillgänglig | .NET Core 3,1 | 
-| 2x | Allmänt tillgänglig | .NET Core 2.2 |
+| 3.x | Allmän tillgänglighet (GA) | .NET Core 3,1 | 
+| 2x | Allmän tillgänglighet (GA) | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4,6<sup>3</sup> |
 
 <sup>1</sup> ga-versioner stöds för produktions scenarier.   
@@ -38,7 +38,7 @@ Mer information finns i [språk som stöds](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>Kör på en angiven version
 
-Som standard är Function-appar som skapats i Azure Portal och av Azure CLI inställda på version 2. x. Du kan ändra den här versionen efter behov. Du kan bara ändra körnings versionen till 1. x när du har skapat din Function-app, men innan du lägger till några funktioner.  Att flytta mellan 2. x och 3. x tillåts även med appar som har funktioner, men det rekommenderas fortfarande att testa i en ny app först.
+Som standard har funktions appar som skapats i Azure Portal och av Azure CLI angetts till version 3. x. Du kan ändra den här versionen efter behov. Du kan bara ändra körnings versionen till 1. x när du har skapat din Function-app, men innan du lägger till några funktioner.  Att flytta mellan 2. x och 3. x tillåts även med appar som har funktioner, men det rekommenderas fortfarande att testa i en ny app först.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migrera från 1. x till senare versioner
 

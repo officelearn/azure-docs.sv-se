@@ -1,29 +1,26 @@
 ---
 title: SharePoint-filer – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Lägg till säkra SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: ec77d3ac217991ff191d80249bc86805e7c8ba35
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843300"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544172"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en säker SharePoint-datakälla i kunskaps basen
 
-Lägg till säkra SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory.
+Lägg till säkra molnbaserade SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory.
 
 När du lägger till ett skyddat SharePoint-dokument i kunskaps basen måste du begära Active Directory-behörighet för QnA Maker som QnA Maker Manager. När den här behörigheten ges från Active Directory Manager till QnA Maker för åtkomst till SharePoint behöver den inte anges igen. Varje efterföljande dokument tillägg till kunskaps basen behöver inte auktoriseras om det finns i samma SharePoint-resurs.
 
 Om QnA Maker Knowledge Base Manager inte är Active Directory Manager måste du kommunicera med Active Directory Manager för att slutföra den här processen.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+QnA Maker använder Microsoft Graph för behörigheter. Om ditt SharePoint är lokalt kan du inte extrahera från SharePoint eftersom Microsoft Graph inte kan fastställa behörigheter.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Lägg till filtyper som stöds i kunskaps basen
 

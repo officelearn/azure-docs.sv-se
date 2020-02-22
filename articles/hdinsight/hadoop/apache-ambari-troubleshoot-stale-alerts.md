@@ -1,18 +1,18 @@
 ---
 title: Apache Ambari inaktuella aviseringar i Azure HDInsight
-description: Diskussioner och analys av möjliga orsaker och lösningar för inaktuella Apache Ambari-aviseringar i HDInsight.
+description: Diskussion och analys av möjliga orsaker och lösningar för inaktiva Apache Ambari-aviseringar i HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f19d499b5e50fbb5030a0f396296eed46fc6eee3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722816"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539118"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scenario: Apache Ambari inaktuella aviseringar i Azure HDInsight
 
@@ -20,64 +20,70 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 ## <a name="issue"></a>Problem
 
-I Apache Ambari-ANVÄNDARGRÄNSSNITTET kan du se en avisering som liknar följande bild:
+I Apache Ambari-ANVÄNDARGRÄNSSNITTET kan du se en avisering som detta:
 
 ![Exempel på Apache Ambari-inaktuell avisering](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
 
 ## <a name="cause"></a>Orsak
 
-Ambari-agenter utför ständigt hälso kontroller för att övervaka hälso tillståndet för många resurser. Varje avisering har kon figurer ATS för att köras vid fördefinierade tidsintervall. Efter att varje avisering har körts, rapporterar Ambari-agenterna tillbaka statusen till Ambari-servern. I det här läget om Ambari-servern upptäcker att någon av aviseringarna inte kördes inom rimlig tid, utlöser den en "Ambari Server-aviseringar". Det finns olika orsaker till varför en hälso kontroll kanske inte kan utföras enligt det definierade intervallet:
+Ambari-agenter övervakar kontinuerligt hälso tillståndet för många resurser. *Aviseringar* kan konfigureras för att meddela dig om vissa kluster egenskaper ligger inom de förinställda tröskelvärdena. När varje resurs kontroll körs, om aviserings villkoret är uppfyllt, rapporterar Ambari-agenterna status tillbaka till Ambari-servern och utlöser en avisering. Om en avisering inte är markerad enligt intervallet i sin aviserings profil, utlöser servern en avisering om *inaktuella aviseringar för Ambari Server* .
 
-* Om värdarna är under tung belastning (hög processor) är det en risk att Ambari-agenten inte kunde få tillräckligt med system resurser för att kunna köra aviseringarna i rimlig tid.
+Det finns olika orsaker till varför en hälso kontroll kanske inte kan köras med det definierade intervallet:
 
-* Klustret är upptaget med att köra många jobb/tjänster under hög belastning.
+* Värdarna är hårt använda (hög CPU-användning), så att Ambari-agenten inte kan få tillräckligt med system resurser för att köra aviseringarna på tid.
 
-* Några värdar i klustret kan vara värdar för många komponenter och kan därför krävas för att köra många aviseringar. Om antalet komponenter är stort är det möjligt att aviserings jobben kan missa sina schemalagda intervall
+* Klustret är upptaget med att köra många jobb eller tjänster under en hög belastnings period.
+
+* Ett litet antal värdar i klustret är värd för många komponenter och det krävs för att köra många aviseringar. Om antalet komponenter är stort kan aviserings jobben sakna de schemalagda intervallen.
 
 ## <a name="resolution"></a>Lösning
 
-### <a name="increase-alert-interval-time"></a>Öka tid för aviserings intervall
+Prova följande metoder för att lösa problem med Ambari inaktuella aviseringar.
 
-Du kan välja att öka värdet för ett enskilt aviserings intervall baserat på svars tiden för klustret och dess belastning.
+### <a name="increase-the-alert-interval-time"></a>Öka tiden för aviserings intervall
 
-1. Välj fliken **aviseringar** i Apache AMBARI-användargränssnittet.
-1. Välj önskad aviserings definitions namn.
+Du kan öka värdet för ett enskilt aviserings intervall baserat på klustrets svars tid och belastning:
+
+1. I Apache Ambari-ANVÄNDARGRÄNSSNITTET väljer du fliken **aviseringar** .
+1. Välj det namn på aviserings definitionen som du vill använda.
 1. Från definitionen väljer du **Redigera**.
-1. Ändra värdet för **kontrol lera intervall** som du vill och välj sedan **Spara**.
+1. Öka värdet för **kontroll intervall** och välj sedan **Spara**.
 
-### <a name="increase-alert-interval-time-for-ambari-server-alerts"></a>Öka tiden för aviserings intervall för Ambari Server-aviseringar
+### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Öka aviserings intervall tiden för Ambari Server-aviseringar
 
-1. Välj fliken **aviseringar** i Apache AMBARI-användargränssnittet.
+1. I Apache Ambari-ANVÄNDARGRÄNSSNITTET väljer du fliken **aviseringar** .
 1. I list rutan **grupper** väljer du **AMBARI default**.
-1. Välj avisering **Ambari Server-aviseringar**.
+1. Välj aviseringen **Ambari Server aviseringar** .
 1. Från definitionen väljer du **Redigera**.
-1. Ändra värdet för **kontrol lera intervall** som du vill.
-1. Ändra värdet för **intervall multiplikatorn** efter behov och välj sedan **Spara**.
+1. Öka värdet för **kontroll intervallet** .
+1. Öka värdet för **intervall multiplikatorn** och välj sedan **Spara**.
 
-### <a name="disable-and-enable-the-alert"></a>Inaktivera och aktivera aviseringen
+### <a name="disable-and-reenable-the-alert"></a>Inaktivera och återaktivera aviseringen
 
-Du kan inaktivera och sedan aktivera aviseringen igen för att ta bort eventuella inaktuella aviseringar.
+Om du vill ta bort en inaktuell avisering inaktiverar du den och aktiverar den igen:
 
-1. Välj fliken **aviseringar** i Apache AMBARI-användargränssnittet.
-1. Välj önskad aviserings definitions namn.
-1. Från definitionen väljer du **aktive rad** längst till höger.
-1. Från **bekräftelse** -popup-fönstret väljer du **Bekräfta inaktive ring**.
-1. Vänta några sekunder för alla varnings instanser som visas på sidan raderas.
-1. Från definitionen väljer du **inaktive rad** längst till höger.
-1. Välj **Bekräfta aktivering**i popup-fönstret för **bekräftelse** .
+1. I Apache Ambari-ANVÄNDARGRÄNSSNITTET väljer du fliken **aviseringar** .
+1. Välj det namn på aviserings definitionen som du vill använda.
+1. Från definitionen väljer du **aktive rad** längst till höger i användar gränssnittet.
+1. I popup-fönstret **bekräftelse** väljer du **Bekräfta inaktive ring**.
+1. Vänta några sekunder för alla aviseringar "instanser" som visas på sidan som ska rensas.
+1. Från definitionen väljer du **inaktive rad** längst till höger i användar gränssnittet.
+1. Välj **Bekräfta aktivering**i popup-fönstret **bekräftelse** .
 
-### <a name="increase-alert-grace-time"></a>Öka Grace-tid för avisering
+### <a name="increase-the-alert-grace-period"></a>Öka tids perioden för aviseringar
 
-Innan Ambari-agenten rapporterar att en konfigurerad avisering missade sitt schema, finns det en Grace-tid. Även om aviseringen missade sin schemalagda tid men utlöstes inom återställnings tiden för aviseringen, utlöses inte inaktuell avisering.
+Det finns en respitperiod innan en Ambari-agent rapporterar att en konfigurerad avisering missade sitt schema. Om aviseringen missade sin schemalagda tid men kördes inom respitperioden, genereras inte den inaktuella varningen.
 
-Standard `alert_grace_period` svärdet är 5 sekunder. Den här `alert_grace_period` inställningen kan konfigureras i `/etc/ambari-agent/conf/ambari-agent.ini`. Försök att öka till ett värde på 10 för de värdar från vilka inaktuella aviseringar utlöses med jämna mellanrum. Starta sedan om Ambari-agenten
+Standard `alert_grace_period` svärdet är 5 sekunder. Du kan konfigurera den här inställningen i/etc/Ambari-agent/conf/Ambari-agent.ini. Försök att öka värdet till 10 för värdar där inaktuella aviseringar sker med jämna mellanrum. Starta sedan om Ambari-agenten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om problemet inte nämns här, eller om du inte kan lösa det, kan du gå till någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter på [Azure community support](https://azure.microsoft.com/support/community/).
 
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) på Twitter. Detta är det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Den ansluter Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj hjälp ( **?** ) på Portal menyn eller öppna **Hjälp + Support** -fönstret för att komma dit. Mer information finns i [så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+
+  Support för prenumerations hantering och fakturering ingår i Microsoft Azure prenumerationen. Teknisk support är tillgänglig via support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

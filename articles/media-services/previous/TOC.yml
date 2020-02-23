@@ -397,9 +397,7 @@
       items:
         - name: Spela upp media med befintliga spelare
           href: media-services-playback-content-with-existing-players.md
-        - name: Spela upp media med Media Player
-          href: media-services-develop-video-players.md
-        - name: Andra uppspelningalternativ
+        - name: Andra uppspelningsalternativ
           items:
             - name: Smooth Streaming Windows Store-program
               href: media-services-build-smooth-streaming-apps.md

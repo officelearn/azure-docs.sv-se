@@ -64,6 +64,8 @@
   items:
     - name: Uppgradera en grundläggande offentlig lastbalanserare till en standard offentlig lastbalanserare
       href: upgrade-basic-standard.md
+    - name: Uppgradera en grundläggande intern lastbalanserare till en standard intern lastbalanserare
+      href: upgrade-basicInternal-standard.md
     - name: Konfigurera regler för utgående trafik
       items:
         - name: Azure CLI

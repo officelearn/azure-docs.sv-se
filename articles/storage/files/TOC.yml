@@ -43,7 +43,7 @@
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Azure Storage-kryptering
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure AD-autentisering via SMB
+        - name: Identitetsbaserad autentisering och auktorisering
           href: storage-files-active-directory-overview.md
         - name: Använda Azure privata slutpunkter
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -173,7 +173,9 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Kräv säker överföring
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Aktivera Azure AD-autentisering via SMB
+        - name: Aktivera autentisering och auktorisering i Azure AD
+          href: storage-files-active-directory-domain-services-enable.md
+        - name: Aktivera autentisering och auktorisering i Azure Active Directory Domain Services
           href: storage-files-active-directory-enable.md
         - name: Aktivera säker TLS för Azure Storage-klient
           href: ../common/storage-security-tls.md

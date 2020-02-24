@@ -99,6 +99,8 @@
         - name: Slutpunkter för direktuppspelning
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
+        - name: Skala direktuppspelning med CDN
+          href: scale-streaming-cdn.md
         - name: Positionerare för direktuppspelning
           displayName: URLs
           href: streaming-locators-concept.md
@@ -228,6 +230,8 @@
           href: cli-create-transform.md
         - name: Skapa jobb – CLI
           href: cli-create-jobs.md
+        - name: Jobb med flera transformeringsutdata
+          href: job-multiple-transform-outputs.md
     - name: Koda innehåll
       items:
         - name: HTTPS som jobbindata – .NET

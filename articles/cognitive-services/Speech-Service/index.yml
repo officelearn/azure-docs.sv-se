@@ -1,0 +1,211 @@
+### YamlMime:Hub
+title: Dokumentation om Speech Service
+summary: Identifiera tal, syntetisera tal, få översättningar i realtid, transkribera konversationer och integrera tal i robotupplevelser.
+brand: azure
+metadata:
+  title: Dokumentation om Speech Service – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: Identifiera tal, syntetisera tal, få översättningar i realtid, transkribera konversationer och integrera tal i robotupplevelser.
+  author: IEvangelist
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 26979b2d9ffdd80676ca9162b30ae17db20b1129
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563031"
+highlightedContent:
+  items:
+  - title: Vad är Speech Service?
+    itemType: overview
+    url: overview.md
+  - title: Viktig information om Speech SDK
+    itemType: whats-new
+    url: releasenotes.md
+  - title: Språkstöd i Speech Services
+    itemType: reference
+    url: language-support.md
+  - title: Skapa en resurs för Speech Services
+    itemType: how-to-guide
+    url: get-started.md
+conceptualContent:
+  items:
+  - title: Tal till text
+    links:
+    - itemType: quickstart
+      text: Identifiera tal med en mikrofonindata
+      url: quickstarts/speech-to-text-from-microphone.md
+    - itemType: quickstart
+      text: Identifiera tal från en ljudfil
+      url: quickstarts/speech-to-text-from-file.md
+    - itemType: quickstart
+      text: Identifiera tal som lagras i bloblagring
+      url: quickstarts/from-blob.md
+    footerLink:
+      text: Mer information
+      url: index-speech-to-text.yml
+  - title: Text till tal
+    links:
+    - itemType: quickstart
+      text: Syntetisera tal till en högtalare
+      url: quickstarts/text-to-speech.md
+    - itemType: quickstart
+      text: Syntetisera tal till en ljudfil
+      url: quickstarts/text-to-speech-audio-file.md
+    - itemType: quickstart
+      text: Syntetisera tal med dikteringsljud
+      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    footerLink:
+      text: Mer information
+      url: index-text-to-speech.yml
+  - title: Talöversättning
+    links:
+    - itemType: quickstart
+      text: Översätta tal till text
+      url: quickstarts/translate-speech-to-text.md
+    - itemType: quickstart
+      text: Översätta tal till flera målspråk
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - itemType: quickstart
+      text: Översätta tal-till-tal
+      url: quickstarts/translate-speech-to-speech.md
+    footerLink:
+      text: Mer information
+      url: index-speech-translation.yml
+  - title: Avsiktsigenkänning
+    links:
+    - itemType: quickstart
+      text: Känna igen tal, avsikter och entiteter
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: Känna igen talavsikter med LUIS och C#
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: Language Understanding-portalen (LUIS)
+      url: https://www.luis.ai
+    footerLink:
+      text: Mer information
+      url: index-intent-recognition.yml
+  - title: Konversationsscenarier
+    links:
+    - itemType: overview
+      text: Om samtalstranskription
+      url: conversation-transcription.md
+    - itemType: overview
+      text: Om konversationer med flera enheter
+      url: multi-device-conversation.md
+    - itemType: how-to-guide
+      text: Avskrifter av kundtjänst
+      url: call-center-transcription.md
+    footerLink:
+      text: Mer information
+      url: index-conversation-scenarios.yml
+  - title: Röstassistenter
+    links:
+    - itemType: overview
+      text: Om röstassistenter
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: Skapa en röstassistent med Anpassade kommandon
+      url: custom-commands.md
+    - itemType: get-started
+      text: Skapa en röstassistent med Bot Framework
+      url: direct-line-speech.md
+    footerLink:
+      text: Mer information
+      url: index-voice-assistants.yml
+  - title: Värd
+    links:
+    - itemType: how-to-guide
+      text: Speech Service-containrar
+      url: speech-container-howto.md
+    - itemType: how-to-guide
+      text: Speech Service-containrar med Kubernetes
+      url: speech-container-howto-on-premises.md
+    - itemType: how-to-guide
+      text: Speech Service-containrar i Azure Container Instances
+      url: deploy-speech-on-container-instances.md
+    footerLink:
+      text: Mer information
+      url: index-hosting.yml
+  - title: Enheter
+    links:
+    - itemType: overview
+      text: Om Speech Devices SDK
+      url: speech-devices-sdk.md
+    - itemType: how-to-guide
+      text: Hämta Speech Devices SDK
+      url: get-speech-devices-sdk.md
+    - itemType: quickstart
+      text: Använda SDK för Speech-enheter
+      url: speech-devices-sdk-quickstart.md
+    footerLink:
+      text: Mer information
+      url: index-devices.yml
+  - title: Migrering
+    links:
+    - itemType: how-to-guide
+      text: Migrera från Taligenkänning i Bing
+      url: how-to-migrate-from-bing-speech.md
+    - itemType: how-to-guide
+      text: Migrera från Custom Speech Service
+      url: how-to-migrate-from-custom-speech-service.md
+    - itemType: how-to-guide
+      text: Migrera från Translator Speech API
+      url: how-to-migrate-from-translator-speech-api.md
+tools:
+  title: Software Development Kits (SDK:er)
+  summary: Kom igång med Speech SDK i ditt favoritdatorspråk.
+  items:
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: https://aka.ms/csspeech/csharpref
+  - title: C++
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Cplusplus.svg
+    url: https://aka.ms/csspeech/cppref
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://aka.ms/csspeech/javaref
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: https://aka.ms/csspeech/javascriptref
+  - title: Objective-C och Swift
+    imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
+    url: https://aka.ms/csspeech/objectivecref
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://aka.ms/csspeech/pythonref
+additionalContent:
+  sections:
+  - items:
+    - title: REST API:er
+      links:
+      - text: Tal till text
+        url: rest-speech-to-text.md
+      - text: Batch-transkription
+        url: batch-transcription.md
+      - text: Text till tal
+        url: rest-text-to-speech.md
+      - text: Samtalstranskription
+        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+    - title: Resurser
+      links:
+      - text: Prissättning
+        url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+      - text: Regioner
+        url: regions.md
+      - text: Läs mer
+        url: https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services&term=Speech
+    - title: Support
+      links:
+      - text: Support och hjälp
+        url: support.md
+      - text: GitHub-problem
+        url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+      - text: Stack Overflow
+        url: https://aka.ms/SOspeechquestions

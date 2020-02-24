@@ -42,6 +42,8 @@
           href: deploy-windows-7-virtual-machine.md
         - name: Distribuera en GPU-baserad sessionsvärd
           href: configure-vm-gpu.md
+        - name: Visa en befintlig värdpool
+          href: expand-existing-host-pool.md
     - name: Skapa en profilcontainer
       items:
         - name: Använda en VM-baserad filresurs

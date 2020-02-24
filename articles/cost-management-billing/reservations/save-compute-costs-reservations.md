@@ -2,17 +2,17 @@
 title: Vad är Azure Reservations?
 description: Lär dig mer om Azure-reservationer och priser för att spara kostnader för dina virtuella datorer, SQL-databaser, Azure Cosmos DB och andra resurser.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c6a8547235c302f52aacd0e6ae4a8fbf08b538b8
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841888"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443643"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -37,11 +37,19 @@ Tjänstplaner:
 - **SQL Database-reserverad v-kärna** – endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
 - **SQL Data Warehouse** – en reservation omfattar cDWU-användning. En reservation omfattar inte lagrings- eller nätverksavgifter som är kopplade till SQL Data Warehouse-användningen.
 - **App Service-stämpelavgift** – en reservation omfattar stämpelanvändning. Den gäller inte för arbeten, och därför debiteras andra resurser som är kopplade till stämpeln separat.
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure-databas för MariaDB
-- Azure-datautforskaren
+- **Azure Databricks** – En reservation täcker endast DBU-användningen. Andra avgifter för till exempel beräkning, lagring och nätverk debiteras separat.
+- **Azure Database for MySQL** – Endast beräkningskostnaderna ingår med en reservation. En reservation täcker inte programvaru-, nätverks- eller lagringskostnader som är kopplade till MySQL-databasservern.
+- **Azure Database for PostgreSQL** – Endast beräkningskostnaderna ingår med en reservation. En reservation täcker inte programvaru-, nätverks- eller lagringskostnader som är kopplade till PostgreSQL-databasservrarna.
+- **Azure Database for MariaDB** – Endast beräkningskostnaderna ingår med en reservation. En reservation täcker inte programvaru-, nätverks- eller lagringskostnader som är kopplade till MariaDB-databasservern.
+- **Azure Data Explorer** – En reservation täcker påläggsavgifterna. En reservation täcker inte beräknings-, nätverks- eller lagringskostnader som är kopplade till klustren.
+- **Premium SSD Managed Disks** – En reservation görs för en angiven disk-SKU. 
 
+Programvaruplaner:
+
+- **SUSE Linux-** – En reservation täcker kostnaderna för programvaruplanen. Rabatterna gäller endast SUSE-mätare och inte användningen av virtuella datorer.
+- **Red Hat-planer** – En reservation täcker kostnaderna för programvaruplanen. Rabatterna gäller endast RedHat-mätare och inte användningen av virtuella datorer.
+- **Azure VMware Solution by CloudSimple** – En reservation täcker VMWare CloudSimple-noderna. Ytterligare programvarukostnader kan tillkomma.
+- **Azure Red Hat OpenShift** – En reservation gäller för OpenShift-kostnaderna, inte för Azure-infrastrukturkostnader.
 
 För virtuella Windows-datorer och SQL Database kan du täcka licenskostnaderna med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

@@ -6,14 +6,14 @@ author: bandersmsft
 ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 8ee683501346f0ee99b513ad966db1cc06b2737a
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188510"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470993"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -121,8 +121,10 @@ Så här uppdaterar du optimeringsinställningen för en reservation:
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster** > **Reservationer**.
 3. Välj reservationen.
-4. Välj **Inställningar** > **Konfiguration**.
-5. Ändra inställningen **Optimera för**.
+4. Välj **Inställningar** > **Konfiguration**.  
+  ![Exempel som visar konfigurationsobjektet](./media/manage-reserved-vm-instance/add-product03.png)
+5. Ändra inställningen **Optimera för**.  
+  ![Exempel som visar inställningen Optimera](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## <a name="optimize-reservation-use"></a>Optimera reservationsanvändningen
 

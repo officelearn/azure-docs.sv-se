@@ -2,20 +2,16 @@
 title: Byten och återbetalning för Azure-reservationer via självbetjäning
 description: Lär dig hur du kan byta eller återbetala Azure-reservationer.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773883"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200443"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Byten och återbetalning för Azure-reservationer via självbetjäning
 
@@ -72,12 +68,10 @@ Azure har följande principer för att avbryta, byta och återbetala.
 - Det finns ingen tilläggsavgift eller årliga gränser för byten.
 
 **Principer för återbetalning**
-- Om du avbryter en reservation kan det medföra en avgift på 12 % för uppsägning i förtid.
-- Den återbetalning som du får för en annullering består av det återstående proportionellt beräknade saldot minus avgiften på 12 % för uppsägning i förtid. Om du vill avbryta går du till reservationen i Azure-portalen och väljer **Återbetalning**.
+- En avgift på 12 % för tidig uppsägning för annulleringar kan bli aktuell i framtiden. Ingen sådan avgift debiteras för närvarande.
 - Det totala återbetalningsbeloppet kan inte överstiga 50 000 USD i en rullande period på 12 månader.
 - Återbetalningar beräknas baserat på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen.
-- Endast reservationsägare kan bearbeta en återbetalning. [Lär dig hur du lägger till eller ändrar användare som kan hantera en reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft förbehåller sig rätten att debitera en tilläggsavgift på 12 % för returer. För närvarande utgår inte tilläggsavgiften, men den kommer att debiteras i framtiden.
+- Endast reservationsbeställningsägare kan hantera en återbetalning. [Lär dig hur du lägger till eller ändrar användare som kan hantera en reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Byta icke-Premium-lagring mot Premium-lagring
 

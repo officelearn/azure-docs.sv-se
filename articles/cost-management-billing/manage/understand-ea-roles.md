@@ -1,35 +1,31 @@
 ---
 title: Förstå administratörsroller för Enterprise i Azure | Microsoft Docs
 description: Lär dig mer om administratörsroller för Enterprise i Azure.
-services: billing
-documentationcenter: ''
-author: adpick
-manager: adpick
-editor: ''
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2020
+ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: ee918f0f49acf85486999fe9314758286bb57126
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9fab4d8ba0cf2e6f684a1b9de177084f8ce31604
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023335"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462198"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Förstå administrativa roller för Azure Enterprise-avtal i Azure
 
 Azure-kunder med ett Enterprise-avtal (EA) kan tilldela fem olika administratörsroller för att hantera organisationens användning och utgifter:
 
 - Företagsadministratör
-- Företagsadministratör (skrivskyddad)
+- Företagsadministratör (skrivskyddad)<sup>1</sup>
 - Avdelningsadministratör
 - Avdelningsadministratör (skrivskyddad)
 - Kontoägare
- 
+
+<sup>1</sup> Faktureringskontakten för EA-kontraktet har den här rollen.
+
 De här rollerna gäller särskilt för hantering av Azure Enterprise-avtal och används utöver de fördefinierade roller som används till att styra åtkomsten till resurser i Azure. Mer information finns i [Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
 I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
@@ -42,9 +38,9 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 |Företagsadministratör (skrivskyddad)|Obegränsat|
 |Avdelningsadministratör|Obegränsat|
 |Avdelningsadministratör (skrivskyddad)|Obegränsat|
-|Kontoägare|1 per konto<sup>1</sup>|
+|Kontoägare|1 per konto<sup>2</sup>|
 
-<sup>1</sup> Varje konto måste ha ett unikt Microsoft-konto, arbetskonto eller skolkonto.
+<sup>2</sup> Varje konto måste ha ett unikt Microsoft-konto, arbetskonto eller skolkonto.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Organisationsstruktur och behörigheter per roll
 
@@ -52,17 +48,17 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 |---|---|---|---|---|---|
 |Visa företagsadministratörer|✔|✔|✘|✘|✘|
 |Lägga till eller ta bort företagsadministratörer|✔|✘|✘|✘|✘|
-|Visa meddelandekontakter<sup>2</sup> |✔|✔|✘|✘|✘|
-|Lägga till eller ta bort meddelandekontakter<sup>2</sup> |✔|✘|✘|✘|✘|
+|Visa meddelandekontakter<sup>3</sup> |✔|✔|✘|✘|✘|
+|Lägga till eller ta bort meddelandekontakter<sup>3</sup> |✔|✘|✘|✘|✘|
 |Skapa och hantera avdelningar |✔|✘|✘|✘|✘|
 |Visa avdelningsadministratörer|✔|✔|✔|✔|✘|
 |Lägga till eller ta bort avdelningsadministratörer|✔|✘|✔|✘|✘|
-|Visa konton i registreringen |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|Lägga till konton i registreringen och ändra kontoägare|✔|✘|✔<sup>3</sup>|✘|✘|
+|Visa konton i registreringen |✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✘|
+|Lägga till konton i registreringen och ändra kontoägare|✔|✘|✔<sup>4</sup>|✘|✘|
 |Skapa och hantera prenumerationer och prenumerationsbehörigheter|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> Meddelandekontakter får e-postmeddelanden om Azure Enterprise-avtalet.
-- <sup>3</sup> Uppgiften är begränsad till konton på din avdelning.
+- <sup>3</sup> Meddelandekontakter får e-postmeddelanden om Azure Enterprise-avtalet.
+- <sup>4</sup> Uppgiften är begränsad till konton på din avdelning.
 
 
 ## <a name="usage-and-costs-access-by-role"></a>Åtkomst till användning och kostnader per roll
@@ -73,11 +69,11 @@ I följande avsnitt beskrivs begränsningarna och funktionerna för varje roll.
 |Visa avdelningens utgiftskvot|✔|✔|✘|✘|✘|
 |Ange avdelningens utgiftskvot|✔|✘|✘|✘|✘|
 |Visa organisationens EA-prisdokument|✔|✔|✘|✘|✘|
-|Visa information om användning och kostnader|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|Visa information om användning och kostnader|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✔<sup>6</sup>|
 |Hantera resurser i Azure-portalen|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> Kräver att företagsadministratören aktiverar policyn **Visa avgifter för DA** i Enterprise-portalen. Avdelningsadministratören kan sedan se kostnadsinformation för avdelningen.
-- <sup>5</sup> Kräver att företagsadministratören aktiverar policyn **Visa avgifter för AO** i Enterprise-portalen. Kontoägaren kan sedan se kostnadsinformation för kontot.
+- <sup>5</sup> Kräver att företagsadministratören aktiverar policyn **Visa avgifter för DA** på Enterprise-portalen. Avdelningsadministratören kan sedan se kostnadsinformation för avdelningen.
+- <sup>6</sup> Kräver att företagsadministratören aktiverar policyn **Visa avgifter för AO** på Enterprise-portalen. Kontoägaren kan sedan se kostnadsinformation för kontot.
 
 
 ## <a name="pricing-in-azure-portal"></a>Priser i Azure-portalen

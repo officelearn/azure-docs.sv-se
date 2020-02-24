@@ -6,12 +6,14 @@
       href: overview.md
 - name: Snabbstarter
   items:
-    - name: Kräv MFA för specifika appar
-      href: app-based-mfa.md
     - name: Kräv att användningsvillkoren godkänns
       href: require-tou.md
     - name: Blockera åtkomst när en sessionsrisk identifieras
       href: app-sign-in-risk.md
+- name: Självstudier
+  items:
+    - name: Kräv Azure Multi-Factor Authentication
+      href: /authentication/tutorial-enable-azure-mfa.md?toc=/azure/conditional-access/toc.json&bc=/azure/conditional-access/breadcrumb/toc.json
 - name: Begrepp
   expanded: false
   items:

@@ -89,7 +89,7 @@ I följande tabell visas egenskaperna för Azure blockchain proxy-loggar när de
 | NodeLocation  | Azure-region där blockchain-medlemmen har distribuerats.  |
 | BlockchainNodeName  | Namnet på noden för den Azure blockchain service-medlem som åtgärden utförs på.   |
 | EthMethod  | Metoden, som anropas av det underliggande blockchain-protokollet, i kvorum, kan vara eth_sendTransactions, eth_getBlockByNumber osv.  |
-| Agent  | Användar agenten som agerar för en användares räkning, t. ex. webb läsar-Mozilla, Edge osv. Exempel på värden är: "Mozilla/5.0 (Linux x64) Node. js/8.16.0 V8/6.2.414.77"  |
+| Agent  | Användar agenten som agerar för en användares räkning, t. ex. webb läsar-Mozilla, Microsoft Edge osv. Exempel på värden är: "Mozilla/5.0 (Linux x64) Node. js/8.16.0 V8/6.2.414.77"  |
 | Programmera   | HTTP-felkoder. Vanligt vis är 4XX och 5XX fel villkor.  |
 | NodeHost  | Nodens DNS-namn.   |
 | RequestMethodName | HTTP-metoden heter, de möjliga värdena här används för att skapa medlemmar, hämta information om befintlig medlem, ta bort för borttagnings medlem, uppdaterings uppdatering av medlemmar.   |

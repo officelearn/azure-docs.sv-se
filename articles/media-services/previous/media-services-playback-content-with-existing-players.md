@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 07537d3d67e41f7e1179a709ffa19f3d84aa4539
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895862"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565833"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Spela upp ditt innehåll med befintliga spelare
 Azure Media Services stöder många populära strömnings format, till exempel Smooth Streaming, HTTP Live Streaming och MPEG-streck. Det här avsnittet pekar på befintliga spelare som du kan använda för att testa dina data strömmar.
@@ -60,16 +60,13 @@ Använd [Azure Media Player](https://aka.ms/azuremediaplayer) för att spela upp
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Andra
 För att testa HLS-URL: er kan du också använda:
 
 * **Safari** på en iOS-enhet eller
 * **3IVX HLS Player** i Windows.
 
-## <a name="developing-video-players"></a>Utveckla Videos pelare
-Information om hur du utvecklar dina egna spelare finns i [utveckla Videos pelare](media-services-develop-video-players.md)
-
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

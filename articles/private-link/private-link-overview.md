@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6f683ae79a2b68391e4bda2b81bcbab3eccc5b2e
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: aea424d4e74f0744f5891a0d7b3b08008fa227b5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500725"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562045"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
@@ -40,16 +40,16 @@ Azure Private-länken ger följande fördelar:
 
 |Scenario  |Tjänster som stöds  |Tillgängliga regioner | Status  |
 |:---------|:-------------------|:-----------------|:--------|
-|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer | Alla offentliga regioner  | Allmän tillgänglighet (GA)  |
-|Privat länk för Azure PaaS Services   | Azure Storage        |  Alla offentliga regioner      | Förhandsversion <br/> [Läs mer](/azure/storage/common/storage-private-endpoints).  |
-|  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Förhandsversion <br/> [Läs mer](/azure/storage/common/storage-private-endpoints).  |
-|  |  Azure SQL Database         | Alla offentliga regioner      |   Förhandsversion      |
-||Azure SQL Data Warehouse| Alla offentliga regioner |Förhandsversion|
-||Azure Cosmos DB| Västra centrala USA, västra USA, norra centrala USA |Förhandsversion|
-|  |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner      |   Förhandsversion      |
-|  |  Azure Database for MySQL         | Alla offentliga regioner      |   Förhandsversion      |
-|  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Förhandsversion      |
-|  |  Azure Key Vault         | Alla offentliga regioner      |   Förhandsversion      |
+|Privat länk för kundägda tjänster|Privata länk tjänster bakom Standard Load Balancer | Alla offentliga regioner  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Privat länk för Azure PaaS Services   | Azure Storage        |  Alla offentliga regioner      | Förhandsversion <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+|  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Förhandsversion <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+|  |  Azure SQL Database         | Alla offentliga regioner      |   Förhandsversion <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+||Azure SQL Data Warehouse| Alla offentliga regioner |Förhandsversion <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+||Azure Cosmos DB| Västra centrala USA, västra USA, norra centrala USA |Förhandsversion <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner      |   Förhandsversion <br/> [Läs mer](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  |  Azure Database for MySQL         | Alla offentliga regioner      |   Förhandsversion <br/> [Läs mer](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Förhandsversion <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  |  Azure Key Vault         | Alla offentliga regioner      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 
 Du hittar de senaste aviseringarna på [sidan för Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av PowerShell
+title: Skapa ett Azure Datautforskaren kluster & DB med PowerShell
 description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp av PowerShell
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 690c3e281e65f54f240c70f7a6e5038f54102c99
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978339"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560600"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av PowerShell
 
@@ -26,7 +26,7 @@ ms.locfileid: "75978339"
 
 Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av PowerShell. Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](../cloud-shell/overview.md) med [AZ. Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) för att skapa och konfigurera Azure datautforskaren-kluster och-databaser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

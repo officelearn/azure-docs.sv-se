@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1ac1feb5e3b179ded5fd8dae47e1859f082ad827
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500409"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565794"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -104,13 +104,15 @@ Den här informationen kodas med en anpassad Vector-Vector (Type-Length-Value) e
 
 Anpassad TLV-information:
 
-|Field |Längd (oktetter)  |Beskrivning  |
+|Fält |Längd (oktetter)  |Beskrivning  |
 |---------|---------|----------|
 |Typ  |1        |PP2_TYPE_AZURE (0xEE)|
 |Längd  |2      |Värdets längd|
 |Värde  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 byte) som representerar LINKID för den privata slut punkten. Kodat i little endian format.|
 
+ > [!NOTE]
+ > Tjänste leverantören ansvarar för att se till att tjänsten bakom standard belastningsutjämnaren är konfigurerad för att parsa proxy-protokollets huvud enligt [specifikationen](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) när proxy-protokollet är aktiverat i Private Link service. Begäran Miss fungerar om inställningen proxy-protokoll är aktive rad i tjänsten för privata länkar och tjänsten inte har kon figurer ATS för att parsa huvudet. Det går inte heller att utföra begäran om tjänsten förväntar sig ett protokoll huvud för proxy medan inställningen inte är aktive rad i den privata länk tjänsten. När proxy Protocol-inställningen är aktive rad inkluderas även protokollets huvud i HTTP/TCP-hälsosökningar från värd till Server delens virtuella datorer, även om det inte kommer att finnas någon klient information i huvudet. 
 
 ## <a name="limitations"></a>Begränsningar
 

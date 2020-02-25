@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 8293fd2d84189cc1f1df3564abbfdcbf86e3543e
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 2d078f9715a0cfa171f0c88776a4ab78c15215a8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186746"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561858"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Välj rätt VM-SKU för ditt Azure Datautforskaren-kluster 
 
@@ -23,27 +23,27 @@ Data hanterings klustrets storlek och VM-SKU hanteras fullständigt av Azure Dat
 Du kan ändra VM-SKU: n för motor klustret när du vill genom att [skala upp klustret](manage-cluster-vertical-scaling.md). Det är bäst att börja med den minsta SKU-storlek som passar det första scenariot. Tänk på att skala upp klustret resulterar i ett drift stopp på upp till 30 minuter medan klustret återskapas med den nya SKU: n för virtuella datorer.
 
 > [!TIP]
-> Compute reserverad [instances (RI)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) är tillämplig för Azure datautforskaren-klustret.  
+> Compute [reserverad instances (RI)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) är tillämplig för Azure datautforskaren-klustret.  
 
 Den här artikeln beskriver olika alternativ för VM SKU och ger teknisk information som kan hjälpa dig att göra det bästa valet.
 
-## <a name="select-a-cluster-type"></a>Välj en klustertyp
+## <a name="select-a-cluster-type"></a>Välj en kluster typ
 
 Azure Datautforskaren erbjuder två typer av kluster:
 
-* **Produktion**: Produktions kluster innehåller två noder för motor-och data Hanterings kluster och hanteras i [service avtalet](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)för Azure datautforskaren.
+* **Produktion**: produktions kluster innehåller två noder för motor-och data Hanterings kluster och hanteras i [service avtalet](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)för Azure datautforskaren.
 
-* **Utveckling/testning (inget service avtal)** : Dev/test-kluster har en enda D11 v2-nod för motor klustret och en enkel D1-nod för data hanterings klustret. Den här kluster typen är den lägsta kostnads konfigurationen på grund av det låga antalet instanser och ingen avgift för motor pålägg. Det finns inget service avtal för den här kluster konfigurationen eftersom det saknar redundans.
+* **Utveckling/testning (inget service avtal)** : dev/test-kluster har en enda D11 v2-nod för motor klustret och en enkel D1-nod för data hanterings klustret. Den här kluster typen är den lägsta kostnads konfigurationen på grund av det låga antalet instanser och ingen avgift för motor pålägg. Det finns inget service avtal för den här kluster konfigurationen eftersom det saknar redundans.
 
 ## <a name="sku-types"></a>SKU-typer
 
-När du skapar ett Azure Datautforskaren-kluster väljer du den optimala VM-SKU: n för den planerade arbets belastningen. Du kan välja mellan följande två SKU-familjer för Azure Datautforskaren:
+När du skapar ett Azure Datautforskaren-kluster väljer du den *optimala* VM-SKU: n för den planerade arbets belastningen. Du kan välja mellan följande två SKU-familjer för Azure Datautforskaren:
 
-* **D V2**: D-SKU: n är Compute-optimerad och ingår i två varianter:
+* **D v2**: D-SKU: n är Compute-optimerad och finns i två varianter:
     * Själva datorn
     * Den virtuella dator som är kopplad till Premium Storage-diskar
 
-* **LS**: L-SKU: n är optimerad för lagring. Den har en mycket större SSD-storlek än den pris värda D SKU: n.
+* **Ls**: L-SKU: n är optimerad för lagring. Den har en mycket större SSD-storlek än den pris värda D SKU: n.
 
 De viktigaste skillnaderna mellan de tillgängliga SKU-typerna beskrivs i följande tabell:
  
@@ -56,19 +56,19 @@ De viktigaste skillnaderna mellan de tillgängliga SKU-typerna beskrivs i följa
 
 ## <a name="select-your-cluster-vm"></a>Välj din virtuella kluster dator 
 
-[Konfigurera](manage-cluster-vertical-scaling.md#configure-vertical-scaling)den lodräta skalningen för att välja din virtuella kluster dator. 
+[Konfigurera den lodräta skalningen](manage-cluster-vertical-scaling.md#configure-vertical-scaling)för att välja din virtuella kluster dator. 
 
 Med olika alternativ för VM-SKU för att välja bland kan du optimera kostnaderna för prestanda-och frekvent cache-krav för ditt scenario. 
 * Om du behöver den optimala prestandan för en hög fråga-volym bör den idealiska SKU: n vara Compute-optimerad. 
 * Om du behöver fråga stora mängder data med relativt lägre inläsning av frågor, kan den lagrings optimerade SKU: n minska kostnaderna och ändå ge utmärkta prestanda.
 
-Eftersom antalet instanser per kluster för de små SKU: erna är begränsat är det bättre att använda större virtuella datorer som har större RAM-minne. Det krävs mer RAM-minne för vissa frågetyper som lagrar mer efter frågan på RAM-resursen, till exempel frågor `joins`som använder. När du överväger skalnings alternativ rekommenderar vi därför att du skalar upp till en större SKU i stället för att skala ut genom att lägga till fler instanser.
+Eftersom antalet instanser per kluster för de små SKU: erna är begränsat är det bättre att använda större virtuella datorer som har större RAM-minne. Mer RAM krävs för vissa frågetyper som har mer efter frågan på RAM-resursen, till exempel frågor som använder `joins`. När du överväger skalnings alternativ rekommenderar vi därför att du skalar upp till en större SKU i stället för att skala ut genom att lägga till fler instanser.
 
 ## <a name="vm-options"></a>Alternativ för virtuell dator
 
 De tekniska specifikationerna för de virtuella Azure-Datautforskaren-klustren beskrivs i följande tabell:
 
-|**Namn**| **Kategori** | **SSD-storlek** | **Kärnor** | **MYCKET** | **Premium Storage-diskar (&nbsp;1 TB)**| **Minsta antal instanser per kluster** | **Maximalt antal instanser per kluster**
+|**Namn**| **Kategori** | **SSD-storlek** | **Kärnor** | **Mycket** | **Premium Storage-diskar (1&nbsp;TB)**| **Minsta antal instanser per kluster** | **Maximalt antal instanser per kluster**
 |---|---|---|---|---|---|---|---
 |D11 v2| Compute-optimerad | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (förutom för dev/test-SKU, som är 1)
 |D12 v2| Compute-optimerad | 150&nbsp;GB   | 4 | 28&nbsp;GB | 0 | 2 | 16

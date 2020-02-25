@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp avC#
+title: Skapa ett Azure Datautforskaren kluster & DB medC#
 description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp avC#
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: a26dc461653f4308b0764b8c5ecc0272717a6171
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 0c32d438ac8551f061343edb747e9fc035b498e2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506021"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560532"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp avC#
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portalen](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -72,7 +72,7 @@ För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-progr
    | clusterName | *mykustocluster* | Önskat namn på klustret.|
    | skuName | *Standard_D13_v2* | Den SKU som ska användas för klustret. |
    | nivå | *Standard* | SKU-nivån. |
-   | capacity | *många* | Antalet instanser av klustret. |
+   | kapacitet | *många* | Antalet instanser av klustret. |
    | resourceGroupName | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
 
     > [!NOTE]

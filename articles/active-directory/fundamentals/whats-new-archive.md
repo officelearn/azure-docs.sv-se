@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4d5c91966f8c490e056a84c89073e4da7cfdfd6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: a2249be583f10aaf7ddda039fbd6d71729b06c36
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484493"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565493"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -1119,7 +1119,7 @@ Följande fält ändras i gransknings schemat:
 |Kategori|Detta är **tjänstens namn** fält. Nu är fältet **gransknings kategorier** . **Tjänst namnet** har bytt namn till fältet **loggedByService** .|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Lösen ords återställning via självbetjäning</li></ul>|<ul><li>Användarhantering</li><li>Grupphantering</li><li>Hantering av appar</li></ul>|
 |targetResources|Innehåller **TargetResourceType** på den översta nivån.|&nbsp;|<ul><li>Princip</li><li>App</li><li>Användare</li><li>Grupp</li></ul>|
 |loggedByService|Innehåller namnet på tjänsten som skapade gransknings loggen.|Null|<ul><li>Kontoetablering</li><li>Kärnkatalog</li><li>Återställning av lösenord för självbetjäning</li></ul>|
-|Resultat|Visar resultatet av gransknings loggarna. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Lyckades</li><li>Fel</li></ul>|
+|Resultat|Visar resultatet av gransknings loggarna. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li></ul>|<ul><li>Klart</li><li>Fel</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Ändrade fält i inloggnings schema
 Följande fält ändras i inloggnings schema:
@@ -1127,8 +1127,8 @@ Följande fält ändras i inloggnings schema:
 |Fältnamn|Vad som ändrats|Gamla värden|Nya värden|
 |----------|------------|----------|----------|
 |appliedConditionalAccessPolicies|Detta var fältet **conditionalaccessPolicies** . Nu är fältet **appliedConditionalAccessPolicies** .|Ingen ändring|Ingen ändring|
-|conditionalAccessStatus|Visar resultatet av den villkorliga åtkomst princip statusen vid inloggning. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Lyckades</li><li>Fel</li><li>Används inte</li><li>Disabled</li></ul>|
-|appliedConditionalAccessPolicies: resultat|Visar resultatet av en enskild princip status för villkorlig åtkomst vid inloggning. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Lyckades</li><li>Fel</li><li>Används inte</li><li>Disabled</li></ul>|
+|conditionalAccessStatus|Visar resultatet av den villkorliga åtkomst princip statusen vid inloggning. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Klart</li><li>Fel</li><li>Används inte</li><li>Inaktiverad</li></ul>|
+|appliedConditionalAccessPolicies: resultat|Visar resultatet av en enskild princip status för villkorlig åtkomst vid inloggning. Tidigare räknades detta upp, men nu visar vi det faktiska värdet.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Klart</li><li>Fel</li><li>Används inte</li><li>Inaktiverad</li></ul>|
 
 Mer information om schemat finns i [tolka schemat för gransknings loggar i Azure AD i Azure Monitor (för hands version)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
@@ -1510,7 +1510,7 @@ Som en del av vår uppdaterade SAML-baserad konfiguration av Användargränssnit
 
 - Ett sätt att ange NameID-Format för SAML-appar och ett sätt att ange NameID-värde som Katalogtillägg.
 
-Om du vill aktivera den här uppdaterade vyn klickar du på länken **prova vår nya upplevelse** överst på sidan för **enkel inloggning** . Mer information finns i [Självstudier: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
+Om du vill aktivera den här uppdaterade vyn klickar du på länken **prova vår nya upplevelse** överst på sidan för **enkel inloggning** . Mer information finns i [Självstudier: Konfigurera SAML-baserad enkel inloggning för ett program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).
 
 ---
 

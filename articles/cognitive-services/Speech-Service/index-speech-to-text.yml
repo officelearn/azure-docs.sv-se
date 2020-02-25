@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Dokumentation om tal till text
+summary: Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids avskrift av ljud strömmar till text.
+metadata:
+  title: Dokumentation om tal till text – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 2dd9fa8c9af53c69a1790dd890b48a7092f5a5da
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562937"
+landingContent:
+- title: Kom igång
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är tal-till-text?
+      url: speech-to-text.md
+  - linkListType: quickstart
+    links:
+    - text: Identifiera tal med en mikrofonindata
+      url: quickstarts/speech-to-text-from-microphone.md
+    - text: Identifiera tal från en ljudfil
+      url: quickstarts/speech-to-text-from-file.md
+    - text: Identifiera tal som lagras i bloblagring
+      url: quickstarts/from-blob.md
+- title: Steg-för-steg-guider
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Byta källspråk för taligenkänning
+      url: how-to-specify-source-language.md
+    - text: Välj taligenkänningsläge
+      url: how-to-choose-recognition-mode.md
+    - text: Förbättra noggrannheten med fraslistor
+      url: how-to-phrase-lists.md
+    - text: Förbättra noggrannheten med klientmodeller
+      url: tutorial-tenant-model.md
+    - text: Förbättra noggrannheten med anpassat tal
+      url: how-to-custom-speech.md
+    - text: Välja en specifik mikrofonindataenhet
+      url: how-to-select-audio-input-devices.md
+    - text: Använda automatisk källspråksidentifiering
+      url: how-to-automatic-language-detection.md
+    - text: Använda komprimerade ljudindataformat
+      url: how-to-use-codec-compressed-audio-input-streams.md
+    - text: Använda komprimerade ljudindataformat (iOS)
+      url: how-to-use-codec-compressed-audio-input-streams-ios.md
+    - text: Använda komprimerade ljudindataformat (Android)
+      url: how-to-use-codec-compressed-audio-input-streams-android.md
+  - linkListType: concept
+    links:
+    - text: Förbereda Custom Speech data
+      url: how-to-custom-speech-test-data.md
+    - text: Granska Custom Speech data
+      url: how-to-custom-speech-inspect-data.md
+    - text: Utvärdera Custom Speech precision
+      url: how-to-custom-speech-evaluate-data.md
+    - text: Träna en anpassad modell
+      url: how-to-custom-speech-train-model.md
+    - text: Distribuera en anpassad modell
+      url: how-to-custom-speech-deploy-model.md
+    - text: Skapa transkriptioner med mänsklig etikett
+      url: how-to-custom-speech-human-labeled-transcriptions.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Stöd för språk
+      url: language-support.md#speech-to-text
+    - text: Priser
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Vanliga frågor och svar om tal-till-text
+      url: faq-stt.md

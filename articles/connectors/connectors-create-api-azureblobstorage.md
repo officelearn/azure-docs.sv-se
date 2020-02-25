@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2e2fea90f125cae6de44afbc82dd749a421ff3e2
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789915"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566020"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -23,7 +23,7 @@ Anta att du har ett verktyg som uppdateras på en Azure-webbplats. Detta fungera
 Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Information om anslutningsspecifika teknisk information finns i referens för [Azure Blob Storage Connector](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
-> Information om hur du aktiverar åtkomst från Azure Logic Apps till lagrings konton bakom brand väggar finns i avsnittet [åtkomst till lagrings konton bakom brand väggar](#storage-firewalls) längre fram i det här avsnittet.
+> Logic Apps kan inte komma åt lagrings konton som ligger bakom brand väggar om båda finns i samma region. Som en lösning kan du använda dina Logi Kap par och lagrings konton i olika regioner. Mer information om hur du aktiverar åtkomst från Azure Logic Apps till lagrings konton bakom brand väggar finns i avsnittet [åtkomst till lagrings konton bakom brand väggar](#storage-firewalls) längre fram i det här avsnittet.
 
 <a name="blob-storage-limits"></a>
 
@@ -37,7 +37,7 @@ Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../lo
 
   * Följ utlösaren med åtgärden Azure Blob Storage **Hämta BLOB-innehåll** , som läser den fullständiga filen och som implicit använder segment.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -121,7 +121,7 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
 1. När du uppmanas att skapa anslutningen anger du den här informationen:
 
-   | Egenskap | Krävs | Värde | Beskrivning |
+   | Egenskap | Obligatoriskt | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | **Lagringskonto** | Ja | <*Storage – account*> | Välj ditt lagrings konto i listan. |
@@ -129,7 +129,7 @@ I det här exemplet hämtas endast innehållet för en blob. Om du vill visa inn
 
    Exempel:
 
-   ![Skapa Azure Blob Storage-konto anslutning](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+   ![Skapa Azure Blob Storage-konto anslutning](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
 1. När du är klar väljer du **skapa**
 
@@ -159,9 +159,12 @@ Här följer flera alternativ för att komma åt lagrings konton bakom brand vä
 
 <a name="access-other-regions"></a>
 
-### <a name="access-to-storage-accounts-in-other-regions"></a>Åtkomst till lagrings konton i andra regioner
+### <a name="problems-accessing-storage-accounts-in-the-same-region"></a>Problem med att komma åt lagrings konton i samma region
 
-Logic Apps kan inte komma åt lagrings konton som har brand Väggs regler och som finns i samma region. Men om du tillåter åtkomst för [utgående IP-adresser för hanterade anslutningar i din region](../logic-apps/logic-apps-limits-and-config.md#outbound), kan dina Logi Kap par komma åt lagrings konton i en annan region, förutom när du använder Azure Table Storage Connector eller Azure Queue Storage Connector. Om du vill komma åt Table Storage eller Queue Storage kan du fortfarande använda den inbyggda HTTP-utlösaren och åtgärder.
+Logi Kap par kan inte direkt komma åt lagrings konton bakom brand väggar när de är båda i samma region. Som en lösning kan du lägga in Logi Kap par i en region som skiljer sig från ditt lagrings konto och ge åtkomst till de [utgående IP-adresserna för de hanterade anslutningarna i din region](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+> [!NOTE]
+> Den här lösningen gäller inte Azure Table Storage Connector och Azure Queue Storage-anslutningen. Använd i stället den inbyggda HTTP-utlösaren och åtgärder för att få åtkomst till din Table Storage eller Queue Storage.
 
 <a name="access-trusted-virtual-network"></a>
 

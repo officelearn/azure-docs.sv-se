@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: a933caf0b0033cdcd1f27d4f795ba6466f34072a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210375"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560838"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
 
@@ -100,6 +100,12 @@ Lägg till data i den nya databasen med hjälp av Datautforskaren.
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+
+Om du bara vill ta bort databasen och använda Azure Cosmos-kontot i framtiden kan du ta bort databasen med följande steg:
+
+* Fick ditt Azure Cosmos-konto.
+* Öppna **datautforskaren**, högerklicka på den databas som du vill ta bort och välj **ta bort databas**.
+* Ange databas-ID/databas namn för att bekräfta borttagnings åtgärden. 
 
 ## <a name="next-steps"></a>Nästa steg
 

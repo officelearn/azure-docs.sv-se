@@ -1,6 +1,6 @@
 ---
-title: Lokala web UI administration för Azure Data Box som Azure Data Box tung | Microsoft Docs
-description: Beskriver hur du använder det lokala webbgränssnittet för att administrera dina Data Box och Data Box tunga enheter
+title: Administrera Azure Data Box/Azure Data Box Heavy med hjälp av lokalt webb gränssnitt
+description: Beskriver hur du använder det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy enheter
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496249"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560192"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använda det lokala webbgränssnittet för att administrera din Data Box och Data Box tunga
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
-Den här artikeln beskriver några av konfiguration och hantering av åtgärder som kan utföras på Data Box och Data Box tunga enheter. Du kan hantera de Data Box och Data Box tunga enheterna via Azure-portalens användargränssnitt och det lokala webbgränssnittet för enheten. Den här artikeln fokuserar på de uppgifter som du kan utföra med det lokala webbgränssnittet.
+I den här artikeln beskrivs några konfigurations-och hanterings uppgifter som kan utföras på Data Box-enhet och Data Box Heavy enheter. Du kan hantera Data Box-enhet och Data Box Heavy enheter via Azure Portal användar gränssnittet och det lokala webb gränssnittet för enheten. Den här artikeln fokuserar på de uppgifter som du kan utföra med det lokala webbgränssnittet.
 
-Lokala webbgränssnittet för Data Box och Data Box tunga används för den initiala konfigurationen av enheten. Du kan också använda det lokala webbgränssnittet för att stänga av eller starta om enheten, kör diagnostiktest, uppdaterar programvara, visa kopiera loggar och generera ett log-paket för Microsoft Support. Du kan komma åt två separata lokala web UIs för varje nod i enheten på en Data Box tung enhet med två oberoende noder.
+Lokalt webb gränssnitt för Data Box-enhet och Data Box Heavy används för den inledande konfigurationen av enheten. Du kan också använda det lokala webb gränssnittet för att stänga av eller starta om enheten, köra diagnostiska tester, uppdatera program vara, Visa kopierings loggar och generera ett logg paket för Microsoft Support. På en Data Box Heavy enhet med två oberoende noder kan du komma åt två separata lokala webb-UIs som motsvarar varje nod i enheten.
 
 Den här artikeln innehåller följande självstudier:
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller följande självstudier:
 
 ## <a name="generate-support-package"></a>Generera supportpaket
 
-Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna. Microsoft Support använder det här paketet för att felsöka problemet. Om du vill skapa ett supportpaket, gör du följande:
+Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna. Microsoft Support använder det här paketet för att felsöka problemet. Utför följande steg för att generera ett support paket:
 
 1. I det lokala webbgränssnittet går du till **Kontakta support** och klickar på **Skapa supportpaket**.
 
@@ -52,9 +52,9 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
 ## <a name="shut-down-or-restart-your-device"></a>Stänga av eller starta om enheten
 
-Du kan stänga av eller starta om enheten med det lokala webbgränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minskar risken för skadade data. Se till att datakopiering inte pågår när du stänger av enheten.
+Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minskar risken för skadade data. Se till att datakopiering inte pågår när du stänger av enheten.
 
-Gör följande om du vill stänga av enheten.
+Följ stegen nedan om du vill stänga av enheten.
 
 1. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 2. Klicka på **Stäng av**.
@@ -80,11 +80,11 @@ Utför följande steg för att starta om din Data Box.
 
 ## <a name="download-bom-or-manifest-files"></a>Ladda ned strukturlista eller manifestfiler
 
-Innehåller lista över filer som kopieras till Data Box eller Data Box tung Material (faktura av Strukturen) eller manifest-filer. De här filerna skapas när du förbereder enheten för leverans.
+Struktur listan (BOM) eller manifest filen innehåller en lista över de filer som kopieras till Data Box-enhet eller Data Box Heavy. De här filerna genereras när du förbereder enheten för leverans.
 
-Innan du börjar, kontrollera att enheten har avslutat **Förbered för att skicka** steg. Följ stegen nedan för att hämta strukturlistan eller manifestfilerna:
+Kontrol lera att enheten har slutförts **Förbered för att skicka** steget innan du börjar. Följ stegen nedan för att hämta strukturlistan eller manifestfilerna:
 
-1. Gå till det lokala webbgränssnittet för din enhet. Du ser att enheten har slutfört Förbered för att skicka. När enhetsförberedelserna har slutförts visas enhetens status som **Klar för leverans**.
+1. Gå till det lokala webb gränssnittet för din enhet. Du kommer att se att enheten har slutfört förberedelsen av leverans. När enhetsförberedelserna har slutförts visas enhetens status som **Klar för leverans**.
 
     ![Enheten är klar för leverans](media/data-box-portal-admin/ready-to-ship.png)
 
@@ -105,13 +105,13 @@ Innan du börjar, kontrollera att enheten har avslutat **Förbered för att skic
     |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Sidblobbar         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blockblobar         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Managed Disk         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
+    |mydbmdrg1_MDisk-BOM.txt    |Hanterad disk         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Hanterad disk         |SMB/NFS         |
 
 Du använder den här listan för att bekräfta överföringen av filerna till Azure Storage-kontot när Data Box returnerats till Azure-datacentret. En exempelmanifestfil visas nedan.
 
 > [!NOTE]
-> På en Data Box stor finns två uppsättningar med listan över (BOM filer) för de två noderna på enheten.
+> På en Data Box Heavy finns två uppsättningar med filer (BOM-filer) som motsvarar de två noderna på enheten.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -153,7 +153,7 @@ Du använder den här listan för att bekräfta överföringen av filerna till A
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-Den här filen innehåller listan över alla filer som kopierats på Data Box eller Data Box tung. I den här filen relaterar *crc64*-värdet till kontrollsumman som genererats för den motsvarande filen.
+Den här filen innehåller en lista över alla filer som kopierades i Data Box-enhet eller Data Box Heavy. I den här filen relaterar *crc64*-värdet till kontrollsumman som genererats för den motsvarande filen.
 
 ## <a name="view-available-capacity-of-the-device"></a>Visa tillgänglig kapacitet på enheten
 
@@ -170,7 +170,7 @@ Kontrollsummor genereras för dina data som standard när du förbereder för at
 
 Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte prestanda påverkas allvarligt.
 
-1. I det övre högra hörnet av det lokala webbgränssnittet på din enhet går du till **inställningar**.
+1. I det övre högra hörnet av det lokala webb gränssnittet på enheten går du till **Inställningar**.
 
     ![Inaktivera kontrollsumma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -179,5 +179,5 @@ Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte pres
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [hantera Data Box och Data Box tunga via Azure portal](data-box-portal-admin.md).
+- Lär dig hur du [hanterar data Box-enhet och data Box Heavy via Azure Portal](data-box-portal-admin.md).
 

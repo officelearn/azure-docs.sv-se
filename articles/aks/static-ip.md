@@ -1,5 +1,5 @@
 ---
-title: Använd en statisk IP-adress med AKS-belastningsutjämnaren (Azure Kubernetes service)
+title: Använda en statisk IP-adress och DNS-etikett med belastningsutjämnaren för Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar och använder en statisk IP-adress med AKS-belastningsutjämnaren (Azure Kubernetes service).
 services: container-service
 author: mlearned
@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 8457f1c0c5b6107c4b44f6f00236a33f7c67452a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5e1f88e82d994c7f912b21781271448d35b5d726
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325446"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558913"
 ---
-# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använda en statisk offentlig IP-adress med belastningsutjämnaren för Azure Kubernetes service (AKS)
+# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Använd en statisk offentlig IP-adress och DNS-etikett med belastningsutjämnaren för Azure Kubernetes service (AKS)
 
 Som standard är den offentliga IP-adress som tilldelats till en belastnings Utjämnings resurs som skapats av ett AKS-kluster bara giltig för livs längd för resursen. Om du tar bort Kubernetes-tjänsten raderas även den tillhör ande belastningsutjämnaren och IP-adress. Om du vill tilldela en speciell IP-adress eller behålla en IP-adress för omdistribuerade Kubernetes-tjänster kan du skapa och använda en statisk offentlig IP-adress.
 
@@ -65,7 +65,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>Skapa en tjänst med hjälp av den statiska IP-adressen
 
-Innan du skapar en tjänst kontrollerar du att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen. Till exempel:
+Innan du skapar en tjänst kontrollerar du att tjänstens huvud namn som används av AKS-klustret har delegerade behörigheter till den andra resurs gruppen. Exempel:
 
 ```azurecli-interactive
 az role assignment create \
@@ -97,6 +97,30 @@ Skapa tjänsten och distributionen med kommandot `kubectl apply`.
 ```console
 kubectl apply -f load-balancer-service.yaml
 ```
+
+## <a name="apply-a-dns-label-to-the-service"></a>Använda en DNS-etikett för tjänsten
+
+Om tjänsten använder en dynamisk eller statisk offentlig IP-adress kan du använda tjänst anteckningen `service.beta.kubernetes.io/azure-dns-label-name` för att ange en offentlig DNS-etikett. Detta publicerar ett fullständigt kvalificerat domän namn för tjänsten med Azures offentliga DNS-servrar och toppnivå domänen. Anteckning svärdet måste vara unikt inom Azure-platsen, så det rekommenderas att använda en tillräckligt kvalificerad etikett.   
+
+Azure lägger sedan automatiskt till ett standard under nät, till exempel `<location>.cloudapp.azure.com` (där platsen är den region som du har valt) till det namn som du anger för att skapa det fullständigt kvalificerade DNS-namnet. Exempel:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: myserviceuniquelabel
+  name: azure-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
+```
+
+> [!NOTE] 
+> Information om hur du publicerar tjänsten på din domän finns i [Azure DNS][azure-dns-zone] och det [externa-DNS-][external-dns] projektet.
 
 ## <a name="troubleshoot"></a>Felsöka
 
@@ -136,6 +160,8 @@ Om du vill ha ytterligare kontroll över nätverks trafiken till dina program ka
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[azure-dns-zone]: https://azure.microsoft.com/services/dns/
+[external-dns]: https://github.com/kubernetes-sigs/external-dns
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

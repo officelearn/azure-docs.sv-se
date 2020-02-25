@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843603"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560430"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Monitor med Azure Datautforskaren (förhands granskning)
 
@@ -23,7 +23,7 @@ Azure Datautforskaren proxy-flödet:
 
 ![ADX-proxy-flöde](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 > [!NOTE]
 > ADX proxy är i förhands gransknings läge. [Anslut till proxyn](#connect-to-the-proxy) för att aktivera ADX-proxy-funktionen för dina kluster. Kontakta [ADXProxy](mailto:adxproxy@microsoft.com) -teamet med några frågor.
@@ -34,7 +34,7 @@ Azure Datautforskaren proxy-flödet:
 
     ![Internt ADX-kluster](media/adx-proxy/web-ui-help-cluster.png)
 
-1. I Azure Datautforskaren UI (https://dataexplorer.azure.com/clusters) väljer du **Lägg till kluster**.
+1. I Azure Datautforskaren UI (https://dataexplorer.azure.com/clusters)väljer du **Lägg till kluster**.
 
 1. I fönstret **Lägg till kluster** lägger du till URL: en i La-eller AI-klustret. 
     
@@ -102,4 +102,4 @@ Följande syntax är tillgängliga när du anropar Application Insights (AI) ell
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skriva frågor](write-queries.md)
+[Skriv frågor](write-queries.md)

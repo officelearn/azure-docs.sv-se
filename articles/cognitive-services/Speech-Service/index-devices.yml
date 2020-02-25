@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: Dokumentation om tal enheter
+summary: Tal Devices SDK är ett pretuned bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.
+metadata:
+  title: Dokumentation om tal enheter – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: f7105a4f0330c61ee10d8dee00d40ce17bc40188
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562860"
+landingContent:
+- title: Kom igång
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om Speech Devices SDK
+      url: speech-devices-sdk.md
+  - linkListType: quickstart
+    links:
+    - text: Använda tal enhets-SDK (Windows)
+      url: speech-devices-sdk-quickstart.md?pivots=platform-windows
+    - text: Använda tal enhets-SDK (Linux)
+      url: speech-devices-sdk-quickstart.md?pivots=platform-linux
+    - text: Använda tal enhets-SDK (Android)
+      url: speech-devices-sdk-quickstart.md?pivots=platform-android
+- title: Steg-för-steg-guider
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utforma en mikrofon mat ris
+      url: speech-devices-sdk-microphone.md
+    - text: Konfigurera Roobo v1-paketet
+      url: speech-devices-sdk-roobo-v1.md
+- title: Referens
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Versionsanmärkningar
+      url: devices-sdk-release-notes.md
+  - linkListType: reference
+    links:
+    - text: Felsöka
+      url: speech-devices-sdk-troubleshooting.md

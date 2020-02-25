@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9858f7ac25f2063e62dce0322f1859a0a7fcf83b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 63b1adc7b25b732cda147c5c1d11cc37e7b39248
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198674"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562028"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -115,6 +115,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [Log Analytics läsare](#log-analytics-reader) | Log Analytics läsaren kan visa och söka i alla övervaknings data samt Visa övervaknings inställningar, inklusive Visa konfigurationen av Azure Diagnostics på alla Azure-resurser. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Logic app-deltagare](#logic-app-contributor) | Låter dig hantera Logi Kap par, men ändra inte åtkomsten till dem. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [Logic app-operatör](#logic-app-operator) | Låter dig läsa, aktivera och inaktivera Logi Kap par, men inte redigera eller uppdatera dem. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [Rollen hanterad program deltagare](#managed-application-contributor-role) | Gör det möjligt att skapa hanterade program resurser. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rollen hanterad program operatör](#managed-application-operator-role) | Gör att du kan läsa och utföra åtgärder på hanterade program resurser | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Läsare för hanterade program](#managed-applications-reader) | Låter dig läsa resurser i en hanterad app och begära JIT-åtkomst. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | [Hanterad identitets deltagare](#managed-identity-contributor) | Skapa, läsa, uppdatera och ta bort användare tilldelad identitet | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
@@ -133,9 +134,10 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [Resurs princip deltagare](#resource-policy-contributor) | Användare med behörighet att skapa/ändra resurs principer, skapa support ärende och läsa resurser/hierarki. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Jobb samlings deltagare i Scheduler](#scheduler-job-collections-contributor) | Gör att du kan hantera jobb samlingar i Scheduler, men inte till gång till dem. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Search Service deltagare](#search-service-contributor) | Låter dig hantera Sök tjänster, men inte till gång till dem. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | [Säkerhets administratör](#security-admin) | Endast i Security Center: kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer | fb1c8493-542b-48eb-b624-b4c8fea62acd |
-> | [Säkerhets hanterare (bakåtkompatibelt)](#security-manager-legacy) | Detta är en äldre roll. Använd säkerhets administratör istället | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Säkerhets läsare](#security-reader) | Endast i Security Center: kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Säkerhets administratör](#security-admin) | Kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Säkerhets utvärderings deltagare](#security-assessment-contributor) | Gör att du kan skicka utvärderingar till Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | [Säkerhets hanterare (bakåtkompatibelt)](#security-manager-legacy) | Detta är en äldre roll. Använd säkerhets administratör i stället. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [Säkerhets läsare](#security-reader) | Kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Site Recovery deltagare](#site-recovery-contributor) | Låter dig hantera Site Recovery tjänst förutom att skapa valv och roll tilldelning | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Site Recovery operatör](#site-recovery-operator) | Låter dig redundansväxla och failback men inte utföra andra Site Recovery hanterings åtgärder | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Site Recovery läsare](#site-recovery-reader) | Låter dig Visa Site Recovery status men inte utföra andra hanterings åtgärder | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
@@ -167,6 +169,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [Användar inloggning för virtuell dator](#virtual-machine-user-login) | Visa Virtual Machines i portalen och logga in som en vanlig användare. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [Webb Plans deltagare](#web-plan-contributor) | Gör att du kan hantera webb planer för webbplatser, men inte till gång till dem. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Webbplats deltagare](#website-contributor) | Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till dem. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Arbets boks deltagare](#workbook-contributor) | Kan spara delade arbets böcker. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | [Arbets boks läsare](#workbook-reader) | Kan läsa arbets böcker. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 
 
 ## <a name="owner"></a>Ägare
@@ -346,7 +350,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.ApiManagement/service/restore/action | Återställa API Management tjänst från den angivna behållaren i ett användardefinierat lagrings konto |
 > | Microsoft.ApiManagement/service/updatecertificate/action | Ladda upp SSL-certifikatet för en API Management-tjänst |
 > | Microsoft.ApiManagement/service/updatehostname/action | Konfigurera, uppdatera eller ta bort anpassade domän namn för en API Management-tjänst |
-> | Microsoft.ApiManagement/service/write | Skapa en ny instans av API Management-tjänsten |
+> | Microsoft.ApiManagement/service/write | Skapa eller uppdatera API Management tjänst instans |
 > | Microsoft.Authorization/*/read | Läs behörighet |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera aviserings regler |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighets status för alla resurser i det angivna omfånget |
@@ -609,7 +613,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | **Åtgärder** |  |
 > | Microsoft. HybridCompute/Machines/Read | Läs alla Azure Arc-datorer |
-> | Microsoft. HybridCompute/Machines/Write | Skriv en Azure Arc-dator |
+> | Microsoft. HybridCompute/Machines/Write | Skriver en Azure Arc-dator |
 > | Microsoft. GuestConfiguration/guestConfigurationAssignments/Read | Hämta gäst konfigurations tilldelning. |
 > | **NotActions** |  |
 > | *alternativet* |  |
@@ -626,9 +630,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | **Åtgärder** |  |
 > | Microsoft. HybridCompute/Machines/Read | Läs alla Azure Arc-datorer |
-> | Microsoft. HybridCompute/Machines/Write | Skriv en Azure Arc-dator |
-> | Microsoft. HybridCompute/Machines/Delete | Ta bort en Azure Arc-dator |
-> | Microsoft. HybridCompute/Machines/reconnect/åtgärd | Återanslut en Azure Arc-dator |
+> | Microsoft. HybridCompute/Machines/Write | Skriver en Azure Arc-dator |
+> | Microsoft. HybridCompute/Machines/Delete | Tar bort en Azure Arc-dator |
+> | Microsoft. HybridCompute/Machines/reconnect/åtgärd | Återansluter en Azure Arc-dator |
 > | Microsoft. HybridCompute/*/Read |  |
 > | **NotActions** |  |
 > | *alternativet* |  |
@@ -690,6 +694,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Åtgärder** |  |
 > | Microsoft. container service/managedClusters/listClusterAdminCredential/Action | Visa en lista över clusterAdmin-autentiseringsuppgiften för ett hanterat kluster |
+> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Hämta en hanterad kluster åtkomst profil efter rollnamn med hjälp av lista autentiseringsuppgifter |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -1540,6 +1545,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. data-/jobb/listsecrets/åtgärd |  |
 > | Microsoft. data-/jobb/listcredentials/åtgärd | Visar en lista med okrypterade autentiseringsuppgifter relaterade till beställningen. |
 > | Microsoft. data-/plats/availableSkus/åtgärd | Den här metoden returnerar listan över tillgängliga SKU: er. |
+> | Microsoft. data-/plats/validateInputs/åtgärd | Den här metoden utför alla typer av valideringar. |
+> | Microsoft. data-/plats/regionConfiguration/åtgärd | Den här metoden returnerar konfigurationerna för regionen. |
 > | Microsoft. data-/plats/validateAddress/åtgärd | Verifierar leverans adressen och ger alternativa adresser om det finns några. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighets status för alla resurser i det angivna omfånget |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
@@ -1565,6 +1572,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | Microsoft. EventGrid/eventSubscriptions/Write | Skapa eller uppdatera en eventSubscription |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -1851,6 +1859,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.LabServices/labAccounts/createLab/action | Skapa ett labb i ett labb konto. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Hämta regional tillgänglighets information för varje storleks kategori som kon figurer ATS under ett labb konto |
+> | Microsoft. LabServices/labAccounts/getPricingAndAvailability/Action | Få pris och tillgänglighet för kombinationer av storlekar, geografiska områden och operativ system för labb kontot. |
+> | Microsoft. LabServices/labAccounts/getRestrictionsAndUsage/Action | Hämta kärn begränsningar och användning för den här prenumerationen |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
 > | **NotActions** |  |
@@ -1964,6 +1974,25 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/connections/*/read | Läsa anslutningar. |
 > | Microsoft.Web/customApis/*/read | Läs anpassat API. |
 > | Microsoft.Web/serverFarms/read | Hämta egenskaperna för en App Service plan |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="managed-application-contributor-role"></a>Rollen hanterad program deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Gör det möjligt att skapa hanterade program resurser. |
+> | **Id** | 641177b8-a67a-45b9-a033-47bc880bb21e |
+> | **Åtgärder** |  |
+> | */read | Läs resurser av alla typer, förutom hemligheter. |
+> | Microsoft. Solutions/Applications/* |  |
+> | Microsoft. Solutions/register/åtgärd | Registrera dig för lösningar. |
+> | Microsoft. Resources/Subscriptions/resourceGroups/* |  |
+> | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -2337,7 +2366,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Endast i Security Center: kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer |
+> | **Beskrivning** | Kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -2358,11 +2387,26 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
+## <a name="security-assessment-contributor"></a>Säkerhets utvärderings deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Gör att du kan skicka utvärderingar till Security Center |
+> | **Id** | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | **Åtgärder** |  |
+> | Microsoft. Security/Assessment/Write | Skapa eller uppdatera säkerhets utvärderingar i din prenumeration |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
 ## <a name="security-manager-legacy"></a>Säkerhets hanterare (bakåtkompatibelt)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Detta är en äldre roll. Använd säkerhets administratör istället |
+> | **Beskrivning** | Detta är en äldre roll. Använd säkerhets administratör i stället. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -2386,7 +2430,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Endast i Security Center: kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar |
+> | **Beskrivning** | Kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -3114,6 +3158,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Compute/locations/* | Skapa och hantera beräknings platser |
 > | Microsoft.Compute/virtualMachines/* | Skapa och hantera virtuella datorer |
 > | Microsoft.Compute/virtualMachineScaleSets/* | Skapa och hantera skalnings uppsättningar för virtuella datorer |
+> | Microsoft. Compute/disks/Write | Skapar en ny disk eller uppdaterar en befintlig |
+> | Microsoft. Compute/disks/Read | Hämta egenskaperna för en disk |
+> | Microsoft. Compute/disks/Delete | Tar bort disken |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ansluter till en programgateways backend-adresspool. Det går inte att avisera. |
@@ -3214,6 +3261,38 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Hämta egenskaperna för en App Service plan |
 > | Microsoft.Web/sites/* | Skapa och hantera webbplatser (webbplats skapande kräver även Skriv behörighet till den associerade App Service planen) |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="workbook-contributor"></a>Arbets boks deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan spara delade arbets böcker. |
+> | **Id** | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | **Åtgärder** |  |
+> | Microsoft. Insights/arbets böcker/skriva | Skapa eller uppdatera en arbets bok |
+> | Microsoft. Insights/arbets böcker/ta bort | Ta bort en arbets bok |
+> | Microsoft. Insights/arbets böcker/läsa | Läs en arbets bok |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="workbook-reader"></a>Arbets boks läsare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan läsa arbets böcker. |
+> | **Id** | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
+> | **Åtgärder** |  |
+> | Microsoft. Insights/arbets böcker/läsa | Läs en arbets bok |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |

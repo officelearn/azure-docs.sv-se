@@ -1,30 +1,28 @@
 ---
-title: Skicka fråga till text behållarens slut punkt
-services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 11/15/2019
+ms.date: 01/21/2020
 ms.author: dapine
-ms.openlocfilehash: 2d96385f2d2d34d161739c55228220cf28871048
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9b4317064196c4ea3d761fd1a0bd43a764054fe6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "74132616"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77563280"
 ---
 ### <a name="speech-to-text-or-custom-speech-to-text"></a>Tal till text eller Custom Speech till text
 
-Behållaren tillhandahåller WebSocket-baserade frågor för slut punkts-API: er som nås via [tal-SDK: n](../index.md). Som standard använder tal-SDK online Speech Services. Om du vill använda behållaren måste du ändra initierings metoden.
+Behållaren tillhandahåller WebSocket-baserade frågor för slut punkts-API: er som nås via [tal-SDK: n](../index.yml). Som standard använder tal-SDK online Speech Services. Om du vill använda behållaren måste du ändra initierings metoden.
 
 > [!TIP]
 > När du använder tal-SDK med behållare behöver du inte ange resurs [prenumerations nyckeln för Azure tal eller en token för autentisering](../rest-speech-to-text.md#authentication).
 
 Se exemplen nedan.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Ändra från att använda det här Azure-moln initierings anropet:
 
@@ -38,7 +36,7 @@ till det här anropet med hjälp av behållar [värden](https://docs.microsoft.c
 var config = SpeechConfig.FromHost(
     new Uri("ws://localhost:5000"));
 ```
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Ändra från att använda det här Azure-moln initierings anropet:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f56c897fd6f5ce7e5129a4500ecaacbaf0a75f3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895970"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565748"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Infoga annonser på klient Sidan
 Den här artikeln innehåller information om hur du infogar olika typer av annonser på klient sidan.
@@ -245,7 +245,7 @@ Elementet <**AdSource**> ger spelaren ett infogat AD-svar eller en referens till
 
 I det här exemplet anges ett infogat AD-svar med ett `<VASTAdData>`-element som innehåller ett omfattande AD-svar. Mer information om de andra elementen finns i [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-Elementet <**AdBreak**> kan också innehålla ett <**TrackingEvents**>-element. Med elementet <**TrackingEvents**> kan du spåra början eller slutet av en annons rast eller om ett fel inträffat under AD Break. **TrackingEvents**>-elementet innehåller ett eller flera <**spårnings**> element, som var och en anger en spårnings händelse och en spårnings-URI. Möjliga spårnings händelser är:
+Elementet <**AdBreak**> kan också innehålla ett <**TrackingEvents**>-element. Med elementet <**TrackingEvents**> kan du spåra början eller slutet av en annons rast eller om ett fel inträffat under AD Break. <**TrackingEvents**>-elementet innehåller ett eller flera <**spårnings**> element, som var och en anger en spårnings händelse och en spårnings-URI. Möjliga spårnings händelser är:
 
 1. breakStart – spårar början av en annons rast
 2. breakEnd – spåra slut för ande av en annons rast
@@ -843,12 +843,8 @@ Följande exempel visar hur du schemalägger en mellanliggande överläggning av
 ```
 
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## <a name="see-also"></a>Se även
-[Utveckla videospelarprogram](media-services-develop-video-players.md)
-

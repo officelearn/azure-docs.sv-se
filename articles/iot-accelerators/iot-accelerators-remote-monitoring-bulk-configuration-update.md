@@ -1,19 +1,19 @@
 ---
 title: Hantera enheter som är anslutna till fjärrövervakning gruppvis – Azure | Microsoft Docs
 description: I den här självstudien lär du dig att hantera de enheter som är anslutna till en fjärrövervakningslösning i grupp.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980550"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565586"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
 
@@ -24,7 +24,7 @@ Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny
 I den här kursen har du:
 
 >[!div class="checklist"]
-> * Skapa en enhetsgrupp.
+> * Skapa en enhetsgrupp
 > * Förbereda och hantera den inbyggda programvaran.
 > * Skapa en enhetskonfiguration på Azure-portalen.
 > * Importera en enhetskonfiguration till fjärrövervakningslösningen.
@@ -39,7 +39,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 
@@ -67,7 +67,7 @@ Om du vill visa fjärrövervakningslösningens instrumentpanel i webbläsaren g�
 
 Klicka sedan på **Starta** på panelen för den accelerator för fjärrövervakningslösningen som du distribuerade i [Snabbstarten](quickstart-remote-monitoring-deploy.md).
 
-## <a name="create-a-device-group"></a>Skapa en enhetsgrupp.
+## <a name="create-a-device-group"></a>Skapa en enhetsgrupp
 
 För att den inbyggda programvaran ska uppdateras automatiskt på en grupp med enheter måste enheterna vara medlemmar i en enhetsgrupp i fjärrövervakningslösningen:
 
@@ -230,14 +230,14 @@ I det här avsnittet skapar och kör du en distribution som tillämpar enhetskon
     |---|---|
     |Namn|Distribuera uppdatering av inbyggd programvara|
     |Pakettyp|Enhetskonfiguration|
-    |Typ av konfiguration|Inbyggd programvara|
+    |Konfigurationstyp|Inbyggd programvara|
     |Paket|firmware-update.json|
     |Enhetsgrupp|IoT DevKit-enheter|
     |Prioritet|10|
 
     ![Skapa distribution](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Klicka på **Använd**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
+    Klicka på **Verkställ**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
 
     * **Riktade** visar antalet enheter i enhetsgruppen.
     * **Tillämpade** visar antalet enheter som uppdaterades med konfigurationsinnehållet.

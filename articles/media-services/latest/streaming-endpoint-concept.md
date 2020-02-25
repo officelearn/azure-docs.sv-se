@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206114"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562368"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Slut punkter för direkt uppspelning (ursprung) i Azure Media Services
 
@@ -63,7 +63,7 @@ Funktion|Standard|Premium
 ---|---|---
 Dataflöde |Upp till 600 Mbit/s och kan ge ett mycket mer effektivt data flöde när ett CDN används.|200 Mbit/s per strömnings enhet (SU). Kan ge ett mycket högre effektivt data flöde när ett CDN används.
 CDN|Azure CDN, CDN för tredje part eller ingen CDN.|Azure CDN, CDN för tredje part eller ingen CDN.
-Faktureringen beräknas proportionellt| Dagligen|Dagligen
+Faktureringen beräknas proportionellt| Varje dag|Varje dag
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
 Skala|Skalar upp till det riktade data flödet automatiskt.|Ytterligare SUs
@@ -73,7 +73,7 @@ Rekommenderad användning |Rekommenderas för de flesta strömnings scenarier.|P
 
 <sup>1</sup> används endast direkt på slut punkten för direkt uppspelning när CDN inte är aktiverat på slut punkten.<br/>
 
-## <a name="properties"></a>Egenskaper
+## <a name="streaming-endpoint-properties"></a>Egenskaper för strömnings slut punkt
 
 Det här avsnittet innehåller information om några av egenskaperna för strömnings slut punkten. Exempel på hur du skapar en ny slut punkt för direkt uppspelning och beskrivningar av alla egenskaper finns i [direkt uppspelnings slut punkt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
@@ -130,50 +130,36 @@ Det här avsnittet innehåller information om några av egenskaperna för ström
 
 - `scaleUnits`: ge dig dedikerad utgående kapacitet som kan köpas i steg om 200 Mbit/s. Om du behöver flytta till en **Premium** -typ justerar du `scaleUnits`.
 
-## <a name="working-with-cdn"></a>Arbeta med CDN
+## <a name="why-use-multiple-streaming-endpoints"></a>Varför ska jag använda flera slut punkter för direkt uppspelning?
 
-I de flesta fall bör du ha CDN aktiverat. Men om du förutser att max samtidighet är lägre än 500 visnings program, rekommenderar vi att du inaktiverar CDN eftersom CDN skalar bäst med samtidighet.
+En enda slut punkt för direkt uppspelning kan strömma både direktsända videor och på begäran och de flesta kunder använder bara en slut punkt för direkt uppspelning. Det här avsnittet innehåller några exempel på varför du kan behöva använda flera slut punkter för direkt uppspelning.
 
-### <a name="considerations"></a>Överväganden
+* Varje reserverad enhet tillåter 200 Mbps bandbredd. Om du behöver mer än 2 000 Mbit/s (2 Gbit/s) bandbredd kan du använda den andra strömnings slut punkten och belastnings utjämning för att ge dig ytterligare bandbredd.
 
-* Slut punkten för direkt uppspelning `hostname` och strömnings-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
-* Om du behöver kunna testa ditt innehåll med eller utan CDN, skapar du en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.
+    CDN är dock det bästa sättet att skala ut för strömning av innehåll, men om du levererar så mycket innehåll som CDN hämtar mer än 2 Gbit/s kan du lägga till ytterligare slut punkter för direkt uppspelning (ursprung). I det här fallet skulle du behöva lämna ut innehålls-URL: er som är balanserade över de två slut punkterna för direkt uppspelning. Den här metoden ger bättre cachelagring än att försöka skicka begär anden till varje ursprung slumpmässigt (till exempel via en Traffic Manager). 
+    
+    > [!TIP]
+    > Vanligt vis om CDN hämtar fler än 2 Gbit/s kan något vara felaktigt konfigurerat (till exempel ingen ursprungs avskärmning).
+    
+* Belastnings utjämning av olika CDN-providrar. Du kan till exempel ställa in standard slut punkten för direkt uppspelning för att använda Verizon CDN och skapa en andra för att använda Akamai. Lägg sedan till en belastnings utjämning mellan de två för att uppnå multi-CDN-balansering. 
 
-### <a name="detailed-explanation-of-how-caching-works"></a>Detaljerad förklaring av hur cachelagring fungerar
+    Men kunden använder ofta belastnings utjämning över flera CDN-providrar med ett enda ursprung.
+* Strömma blandat innehåll: Live och video på begäran. 
 
-Det finns inget visst bandbredds värde när du lägger till CDN eftersom mängden bandbredd som behövs för en CDN-aktiverad strömnings slut punkt varierar. Ett stort parti beror på typen av innehåll, hur populära det är, bit hastigheterna och protokollen. CDN cachelagrar bara vad som begärs. Det innebär att populära innehåll kommer att betjänas direkt från CDN – så länge video fragmentet cachelagras. Live-innehåll cachelagras förmodligen på grund av att många personer tittar på exakt samma sak. Innehåll på begäran kan vara en bit trickier eftersom du kan ha ett visst innehåll som är populärt och en del som inte är det. Om du har miljon tals video till gångar där ingen av dem är populär (endast en eller två användare per vecka), men du har tusentals människor som tittar på alla olika videor, blir CDN mycket mindre effektivt. Med dessa Cachemissar ökar belastningen på slut punkten för direkt uppspelning.
+    Åtkomst mönster för Live-och på-begäran-innehåll är väldigt olika. Live-innehållet tenderar att få mycket behov av samma innehåll på samma gång. Video innehåll på begäran (långt slut på Arkiv innehåll för instans) har låg användning av samma innehåll. Därför fungerar cachelagring mycket bra på Live-innehållet men inte även på det långa innehållet.
 
-Du måste också fundera över hur anpassningsbar strömning fungerar. Varje enskilt video fragment cachelagras i sin egen entitet. Anta till exempel att en viss video är bevakad första gången. Om visnings programmet hoppar över att titta bara några sekunder här och där finns det bara videofragment som är associerade med vad den person som bevakar cachelagrar i CDN. Med anpassningsbar strömning har du normalt 5 till 7 olika bit hastigheter för video. Om en person tittar på en bit hastighet och en annan person tittar på en annan bit hastighet, är de båda cachelagrade separat i CDN. Även om två personer tittar på samma bit hastighet kan de strömmas över olika protokoll. Varje protokoll (HLS, MPEG-streck, Smooth Streaming) cachelagras separat. Varje bit hastighet och protokoll cachelagras separat och endast de video fragment som har begärts cachelagras.
+    Överväg ett scenario där dina kunder huvudsakligen tittar på Live-innehåll, men som bara kan titta på innehåll på begäran och som hanteras från samma slut punkt för direkt uppspelning. Den låga användningen av innehåll på begäran skulle uppta cacheminnet som skulle vara bättre sparat för Live-innehållet. I det här scenariot rekommenderar vi att du betjänar Live-innehållet från en slut punkt för direkt uppspelning och det långa innehållet från en annan slut punkt för strömning. Detta förbättrar prestandan för live event-innehållet.
+    
+## <a name="scaling-streaming-with-cdn"></a>Skalar strömma med CDN
 
-### <a name="enable-azure-cdn-integration"></a>Aktivera Azure CDN-integrering
+Se följande artiklar:
 
-> [!IMPORTANT]
-> Du kan inte aktivera CDN för utvärderings-eller student Azure-konton.
->
-> CDN-integrering är aktiverat i alla Azure-datacenter utom federala myndigheter och regioner i Kina.
-
-När en slut punkt för direkt uppspelning har tillhandahållits med CDN aktiverat har en definierad vänte tid på Media Services innan DNS-uppdateringen görs för att mappa slut punkten för direkt uppspelning till CDN-slutpunkten.
-
-Om du senare vill inaktivera/aktivera CDN måste slut punkten för direkt uppspelning vara i **stoppat** tillstånd. Det kan ta upp till två timmar innan Azure CDN-integreringen har Aktiver ATS och för att ändringarna ska vara aktiva över alla CDN pop. Du kan dock starta slut punkten för direkt uppspelning och strömma utan avbrott från slut punkten för direkt uppspelning och när integrationen är klar levereras data strömmen från CDN. Under etablerings perioden kommer slut punkten för direkt uppspelning att vara i **Start** läge och du kan observera försämrade prestanda.
-
-När standard slut punkten för direkt uppspelning skapas, konfigureras den som standard med standard-Verizon. Du kan konfigurera Premium Verizon-eller standard Akamai-providers med hjälp av REST API: er.
-
-Azure Media Services integration med Azure CDN implementeras på **Azure CDN från Verizon** för standard slut punkter för direkt uppspelning. Premium-slutpunkter för direkt uppspelning kan konfigureras med alla **Azure CDN pris nivåer och leverantörer**. 
-
-> [!NOTE]
-> Mer information om Azure CDN finns i [CDN-översikten](../../cdn/cdn-overview.md).
-
-### <a name="determine-if-dns-change-was-made"></a>Ta reda på om DNS-ändring gjorts
-
-Du kan avgöra om DNS-ändring har gjorts på en strömmande slut punkt (trafiken dirigeras till Azure CDN) med hjälp av https://www.digwebinterface.com. Om resultatet har azureedge.net domän namn i resultaten kommer trafiken nu att pekas mot CDN.
+- [Översikt över CDN](../../cdn/cdn-overview.md)
+- [Skalar strömma med CDN](scale-streaming-cdn.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, hämta uppdateringar
 
 Kolla in [Azure Media Services community](media-services-community.md) -artikeln för att se olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
-
-## <a name="see-also"></a>Se även
-
-[Översikt över CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Data Box Heavy för att migrera fil resurs innehåll till SharePoint Online | Microsoft Docs
+title: Använd Azure Data Box Heavy för att flytta fil resurs innehåll till SharePoint Online
 description: Använd den här självstudien för att lära dig hur du migrerar fil resurs innehåll till delnings platsen online med din Azure Data Box Heavy
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4955b28dff3193a95950912562cc3b6ec789479d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f97ea17551d4415f7ed6371853172cfde30fe4b6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325276"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560056"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Använd Azure Data Box Heavy för att migrera ditt fil resurs innehåll till SharePoint Online
 
@@ -67,7 +67,7 @@ Utför följande steg för att kopiera data till din Data Box Heavy.
 3. [Kopiera data till Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md). När du kopierar, se till att:
 
     - Använd endast mappen *StorageAccountName_AzFile* i data Box Heavy för att kopiera data. Detta beror på att du vill att data ska slutanvändas i en Azure-filresurs, inte i block-blobbar eller sid-blobar.
-    - Kopiera filer till en mapp i *StorageAccountName_AzFile* -mappen. En undermapp i *StorageAccountName_AzFile* -mappen skapar en fil resurs. Filer som kopierats direkt till *StorageAccountName_AzFile* -mappen kraschar och överförs som block-blobar. Detta är fil resursen som du monterar på den virtuella datorn i nästa steg.
+    - Kopiera filer till en mapp i *StorageAccountName_AzFile* mapp. En undermapp i *StorageAccountName_AzFile* mapp skapar en fil resurs. Filer som kopierats direkt till *StorageAccountName_AzFile* mapp avbryts och överförs som block-blobar. Detta är fil resursen som du monterar på den virtuella datorn i nästa steg.
     - Kopiera data till båda noderna i Data Box Heavy.
 3. Kör [Förbered för att skicka](data-box-heavy-deploy-picked-up.md#prepare-to-ship) på enheten. En lyckad förberedelse för att leverera säkerställer att filer överförs till Azure.
 4. [Returnera enheten](data-box-heavy-deploy-picked-up.md#ship-data-box-heavy-back).

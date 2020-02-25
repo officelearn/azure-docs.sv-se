@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 7bac2546ac35f5f188a6490c4d9ecb2b86d7bb2d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 91a63e87e937eab4c02d2b86026aa09472cb15ef
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843064"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561109"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Vad är tjänsten QnA Maker?
 
@@ -78,7 +78,11 @@ När kunskaps basen tar emot frågor från användare på den publicerade slut p
 
 QnA Maker ger redigering, utbildning och publicering tillsammans med samarbets behörigheter för att integrera i livs cykeln för fullständig utveckling.
 
-## <a name="how-do-i-start"></a>Hur börjar jag?
+> [!div class="mx-imgBorder"]
+> ![konceptuell bild av utvecklings cykel](../media/qnamaker-overview-learnabout/development-cycle.png)
+
+
+## <a name="how-do-i-start"></a>Hur gör jag för att start?
 
 **Steg 1**: skapa en QNA Maker resurs i [Azure Portal](https://portal.azure.com).
 

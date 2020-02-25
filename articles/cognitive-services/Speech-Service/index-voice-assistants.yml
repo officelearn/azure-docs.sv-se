@@ -1,0 +1,73 @@
+### YamlMime:Landing
+title: Dokumentation om röst assistenter
+summary: Röst assistenter som använder tal tjänsten gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser.
+metadata:
+  title: Dokumentation om röst assistenter – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: b411ef91dd84916e9ace544f26ed88f3f316dc02
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562893"
+landingContent:
+- title: Kom igång
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Om röst assistenter
+      url: voice-assistants.md
+    - text: Om direkt linje tal
+      url: direct-line-speech.md
+  - linkListType: quickstart
+    links:
+    - text: C# (UWP)
+      url: quickstart-voice-assistant-csharp-uwp.md
+    - text: Java (Windows, macOS, Linux)
+      url: quickstart-voice-assistant-java-jre.md
+    - text: Java (Android)
+      url: quickstart-voice-assistant-java-android.md
+    - text: Skapa ett anpassat kommando (förhandsversion)
+      url: quickstart-custom-speech-commands-create-new.md
+    - text: Skapa ett anpassat kommando med parametrar (förhandsversion)
+      url: quickstart-custom-speech-commands-create-parameters.md
+    - text: Använd anpassade kommandon med anpassad röst (förhandsversion)
+      url: quickstart-custom-speech-commands-select-custom-voice.md
+    - text: Använda anpassade kommandon med Speech SDK (förhandsversion)
+      url: quickstart-custom-speech-commands-speech-sdk.md
+- title: Steg-för-steg-guider
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Röstaktivera din robot med Speech SDK
+      url: tutorial-voice-enable-your-bot-speech-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Anpassade kommandon (förhandsversion)
+      url: custom-commands.md
+    - text: Anpassade kommandon med tal-SDK
+      url: how-to-custom-speech-commands-fulfill-sdk.md
+    - text: Utföra anpassade kommandon med Speech SDK
+      url: how-to-custom-speech-commands-fulfill-sdk.md
+    - text: Lägga till parametervalidering till ett anpassat kommando
+      url: how-to-custom-speech-commands-validations.md
+    - text: Lägga till en bekräftelse till ett anpassat kommando
+      url: how-to-custom-speech-commands-confirmations.md
+    - text: Lägga till en korrigering i ett steg till ett anpassat kommando
+      url: how-to-custom-speech-commands-one-step-correction.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Priser
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Vanliga frågor och svar om röstassistenter
+      url: faq-voice-assistants.md

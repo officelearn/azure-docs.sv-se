@@ -1,5 +1,5 @@
 ---
-title: Konfigurera SAP HANA system replikering på Azure Virtual Machines (VM) | Microsoft Docs
+title: Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL | Microsoft Docs
 description: Upprätta hög tillgänglighet för SAP HANA på virtuella datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/28/2020
 ms.author: radeltch
-ms.openlocfilehash: fe4c3d8ea7aee0922ca29b9c0f475bfd9fa3c67a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5e3512ce86bdf96a5e6cfcf0e4459b656a5ac5bc
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837042"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565867"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på Red Hat Enterprise Linux
 

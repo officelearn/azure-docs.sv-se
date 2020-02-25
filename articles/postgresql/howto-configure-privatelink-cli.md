@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425535"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562096"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Skapa och hantera privat länk för Azure Database for PostgreSQL-enskild server (för hands version) med CLI
 
@@ -58,7 +58,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Skapa den virtuella datorn 
+## <a name="create-the-vm"></a>Skapa VM 
 Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
 ```azurecli-interactive
 az vm create \
@@ -121,6 +121,9 @@ az network private-dns record-set a create --name myserver --zone-name privateli
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> FQDN i DNS-inställningen för kunden matchar inte den privata IP-adressen som kon figurer ATS. Du måste konfigurera en DNS-zon för den konfigurerade FQDN: en som visas [här](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
@@ -168,9 +171,9 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     | Inställning | Värde |
     | ------- | ----- |
     | Servertyp| Välj **postgresql**.|
-    | servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
+    | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername som anges när PostgreSQL-servern skapas. |
-    |lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
+    |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
     |SSL|Välj **obligatoriskt**.|
     ||
 

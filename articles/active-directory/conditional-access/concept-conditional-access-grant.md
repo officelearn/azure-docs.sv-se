@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89063cc8131c28f20153c6fe9b4c71b58794e609
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fb098363a6f1b27bd8afa8e68ab14bfa666ea539
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192121"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561654"
 ---
 # <a name="conditional-access-grant"></a>Villkorlig åtkomst: bevilja
 
@@ -55,13 +55,17 @@ Om du markerar den här kryss rutan krävs det att användarna utför Azure-Mult
 
 Organisationer som har distribuerat Microsoft Intune kan använda den information som returneras från sina enheter för att identifiera enheter som uppfyller särskilda krav för efterlevnad. Den här policyn för efterlevnad vidarebefordras från Intune till Azure AD där villkorlig åtkomst kan fatta beslut om att bevilja eller blockera åtkomst till resurser. Mer information om efterlevnadsprinciper finns i artikeln [Ange regler på enheter för att tillåta åtkomst till resurser i din organisation med hjälp av Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
+En enhet kan markeras som kompatibel av Intune (för alla enhetens operativ system) eller MDM-system från tredje part för Windows 10-enheter. MDM-system från tredje part för andra typer av enhets operativ system än Windows 10 stöds inte.
+
+Enheter måste vara registrerade i Azure AD innan de kan markeras som kompatibla. Mer information om enhets registrering finns i artikeln, [Vad är en enhets identitet](../devices/overview.md).
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Kräv hybrid Azure AD-ansluten enhet
 
 Organisationer kan välja att använda enhets identiteten som en del av den villkorliga åtkomst principen. Organisationer kan kräva att enheterna är hybrid Azure AD-anslutna med den här kryss rutan. Mer information om enhets identiteter finns i artikeln [Vad är en enhets identitet?](../devices/overview.md).
 
 ### <a name="require-approved-client-app"></a>Kräv godkänd klientapp
 
-Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app.
+Organisationer kan kräva att ett åtkomst försök till de valda molnappar måste göras från en godkänd klient app. Dessa godkända klient-APS stöder [Intune App Protection-principer](/intune/app-protection-policy) oberoende av alla lösningar för hantering av mobila enheter (MDM).
 
 Den här inställningen gäller för följande klient program:
 
@@ -102,9 +106,7 @@ Den här inställningen gäller för följande klient program:
 
 ### <a name="require-app-protection-policy"></a>Kräva appskyddsprincip
 
-I din princip för villkorlig åtkomst kan du kräva att en app Protection-princip finns i klient programmet innan åtkomst är tillgänglig för de valda molnappar. 
-
-![Kontrol lera åtkomst med appens skydds princip](./media/technical-reference/22.png)
+I din princip för villkorlig åtkomst kan du kräva att en [Intune App Protection-princip](/intune/app-protection-policy) finns i klient programmet innan åtkomst är tillgänglig för de valda molnappar. 
 
 Den här inställningen gäller för följande klient program:
 
@@ -118,6 +120,10 @@ Den här inställningen gäller för följande klient program:
 - Appar för skydds principer för appar stöder funktionen för hantering av mobil program i Intune med princip skydd.
 - **Kräv skydds princip** krav för appar:
     - Stöder endast iOS och Android för enhets plattforms villkor.
+
+### <a name="terms-of-use"></a>Användningsvillkor
+
+Om din organisation har skapat användnings villkor kan ytterligare alternativ visas under bevilja kontroller. Med de här alternativen kan administratörer kräva bekräftelse av användnings villkoren som ett villkor för att komma åt de resurser som skyddas av principen. Mer information om användnings villkoren finns i artikeln Azure Active Directory användnings [villkor](terms-of-use.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

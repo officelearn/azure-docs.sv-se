@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db758ce0710f5b8b122feaadaa8b97a90dcb7cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846866"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564781"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Fakturerings modell för Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Så här gör du för att växla till MAU fakturering för en befintlig Azure AD
 
 MAU-baserad avläsning aktive ras så snart du, prenumerationen/resurs ägaren, bekräftar ändringen. Din månads faktura visar de enheter med autentisering som faktureras tills ändringen och nya enheter av MAU börjar med ändringen.
 
-Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Ett exempel:
+Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Exempel:
 
 * Contoso B2C-klienten har 1 000 användare. 250 användare är aktiva under en månad. Prenumerations administratören ändras från per autentisering till månatliga aktiva användare (MAU) den 10: a i månaden.
 * Faktureringen för 1 – 10 – 10 faktureras med modellen per autentisering.
@@ -82,7 +82,7 @@ Prenumerations länken uppnås genom att skapa en Azure AD B2C- *resurs* i Azure
 
 En prenumeration som är länkad till en Azure AD B2C-klient kan användas för fakturering av Azure AD B2C användning eller andra Azure-resurser, inklusive ytterligare Azure AD B2C resurser. Det kan inte användas för att lägga till andra Azure-licens-baserade tjänster eller Office 365-licenser i Azure AD B2C-klient.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * [Azure-prenumeration](https://azure.microsoft.com/free/)
 * [Azure AD B2C klient](tutorial-create-tenant.md) som du vill länka till en prenumeration
@@ -91,7 +91,7 @@ En prenumeration som är länkad till en Azure AD B2C-klient kan användas för 
 
 ### <a name="create-the-link"></a>Skapa länken
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller den Azure-prenumeration som du vill använda (*inte* den katalog som innehåller Azure AD B2C klienten).
 1. Välj **skapa en resurs**, ange `Active Directory B2C` i fältet **Sök i Marketplace** och välj sedan **Azure Active Directory B2C**.
 1. Välj **Skapa**
@@ -140,4 +140,4 @@ Innan du börjar flytta måste du läsa hela artikeln för att kunna förstå be
 
 ## <a name="next-steps"></a>Nästa steg
 
-Förutom att granska användnings-och fakturerings information inom en vald Azure-prenumeration kan du granska detaljerade dagliga användnings rapporter med hjälp av [API: et för användnings rapportering](view-usage-reports.md).
+Den senaste pris informationen finns i [Azure Active Directory B2C prissättning](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

@@ -1,5 +1,5 @@
 ---
-title: Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
+title: Hantera vågrätt kluster skalning (skala ut) för att matcha efter frågan i Azure Datautforskaren
 description: I den här artikeln beskrivs hur du skalar ut och skalar i ett Azure Datautforskaren-kluster baserat på ändring efter frågan.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833302"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560464"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
 

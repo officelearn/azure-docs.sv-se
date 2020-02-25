@@ -1,5 +1,5 @@
 ---
-title: Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått
+title: Övervaka Azure Datautforskaren prestanda, hälsa & användning med mått
 description: Lär dig hur du använder Azure Datautforskaren mått för att övervaka klustrets prestanda, hälsa och användning.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: f8078d8bae00ac4789a679be4d7a1944c749cce6
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1319b8cd6ac8a0eb83381c24bcde9996458e47a7
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423852"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560312"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått
 
@@ -25,7 +25,7 @@ Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för 
 
 ## <a name="using-metrics"></a>Använda mått
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 1. I ditt Azure Datautforskaren-kluster väljer du **mått** för att öppna fönstret mått och börjar analyser på klustret.
     ![välja mått](media/using-metrics/select-metrics.png).
 1. I fönstret mått: ![mått rutan](media/using-metrics/metrics-pane.png)
@@ -50,7 +50,7 @@ Kluster hälso måtten spårar klustrets allmänna hälso tillstånd. Detta omfa
 **Mått** | **Processor** | **Aggregering** | **Mått Beskrivning** | **Enheter** |
 |---|---|---|---|---|
 | Användning av cache | Procent | Genomsn, Max, min | Procent andel allokerade cache-resurser som för närvarande används av klustret. Cache är storleken på SSD som allokerats för användar aktivitet enligt den definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Om den genomsnittliga användningen av cacheminnet är över 80% ska klustret [skalas upp](manage-cluster-vertical-scaling.md) till en optimerad lagrings nivå eller [skala ut](manage-cluster-horizontal-scaling.md) till fler instanser. Du kan också anpassa cache-principen (färre dagar i cacheminnet). Om cache användningen är över 100% är storleken på data som ska cachelagras, enligt principen för cachelagring, större än den totala storleken på cachen i klustret. | Ingen |
-| Processor | Procent | Genomsn, Max, min | Procent andel allokerade beräknings resurser som för närvarande används av datorerna i klustret. En genomsnittlig CPU på 80% eller mindre är hållbart för ett kluster. Det maximala värdet för CPU är 100%, vilket innebär att det inte finns några ytterligare beräknings resurser för att bearbeta data. När ett kluster inte fungerar bra kontrollerar du det maximala värdet för processorn för att avgöra om det finns några angivna processorer som är blockerade. | Ingen |
+| CPU | Procent | Genomsn, Max, min | Procent andel allokerade beräknings resurser som för närvarande används av datorerna i klustret. En genomsnittlig CPU på 80% eller mindre är hållbart för ett kluster. Det maximala värdet för CPU är 100%, vilket innebär att det inte finns några ytterligare beräknings resurser för att bearbeta data. När ett kluster inte fungerar bra kontrollerar du det maximala värdet för processorn för att avgöra om det finns några angivna processorer som är blockerade. | Ingen |
 | Förbruknings användning | Procent | Genomsn, Max, min | Procent andel faktiska resurser som används för att mata in data från den totala mängden allokerade resurser, i kapacitets principen, för att utföra inmatningen. Standard kapacitets principen är högst 512 samtidiga inmatnings åtgärder eller 75% av kluster resurserna som investerat i inmatningen. Genomsnittligt intag av användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Det maximala värdet för förbruknings användningen är 100%, vilket innebär att alla kluster inmatnings funktioner används och att en inmatnings kö kan resultera i detta. | Ingen |
 | Behåll Alive | Antal | Gmsn | Spårar klustrets svars tider. Ett fullständigt besvarat kluster returnerar värde 1 och ett blockerat eller frånkopplat kluster returnerar 0. |
 | Totalt antal begränsade kommandon | Antal | AVG, Max, min, sum | Antalet begränsade (avvisade) kommandon i klustret, eftersom det maximalt tillåtna antalet samtidiga (parallella) kommandon nåddes. | Ingen |

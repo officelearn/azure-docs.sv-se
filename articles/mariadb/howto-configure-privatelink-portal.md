@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 67b045ff0661e8d0f8e20656a012e85d01e83d7b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a9b3ae1ed28fc22d91760a4af3832a604a419a30
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425926"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561739"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Skapa och hantera privat länk för Azure Database for MariaDB (för hands version) med hjälp av portalen
 
@@ -23,7 +23,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MariaDB stöder Generell användning och minnesoptimerade pris nivåer.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Skapa en virtuell Azure-dator
 
@@ -42,7 +42,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
     | plats. | Välj **Europa, västra**.|
-    | Undernät – Namn | Ange *undernät*. |
+    | Undernät – namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
 3. Lämna resten som standard och välj **skapa**.
@@ -59,14 +59,14 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
     | **INSTANSINFORMATION** |  |
-    | Namn på virtuell dator | Ange *myVm*. |
+    | Virtuellt datornamn | Ange *myVm*. |
     | Region | Välj **Europa, västra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
     | Bild | Välj **Windows Server 2019 Data Center**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -109,9 +109,9 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **Server information** |  |
-    |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
+    |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | plats. | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
     |Version  | Välj den databas version av MariaDB-servern som krävs.|
     | Compute + Storage| Välj den pris nivå som krävs för servern baserat på arbets belastningen. |
@@ -171,6 +171,9 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
 
     ![Privat länk har skapats](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
+    > [!NOTE] 
+    > FQDN i DNS-inställningen för kunden matchar inte den privata IP-adressen som kon figurer ATS. Du måste konfigurera en DNS-zon för den konfigurerade FQDN: en som visas [här](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av fjärr skrivbord (RDP)
 
 
@@ -220,9 +223,9 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Inställning | Värde |
     | ------- | ----- |
     | Servertyp| Välj **MariaDB**.|
-    | servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
+    | Servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername som anges när MariaDB-servern skapas. |
-    |lösenord |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
+    |Lösenord |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     |SSL|Välj **obligatoriskt**.|
     ||
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: b813c1caa02ce3ffd3ab0579849dff47252e7d63
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251625"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559172"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -47,7 +47,7 @@ Information om hur du tilldelar administrativa roller till en användare i Azure
 
 Följande administratörs roller är tillgängliga:
 
-### <a name="application-administratorapplication-administrator-permissions"></a>[Programadministratör](#application-administrator-permissions)
+### <a name="application-administrator"></a>[Programadministratör](#application-administrator-permissions)
 
 Användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Observera att användare som har tilldelats den här rollen inte har lagts till som ägare när de skapar nya program registreringar eller företags program.
 
@@ -59,16 +59,16 @@ Program administratörer kan hantera programautentiseringsuppgifter som gör det
 
 Om ett program tilldelas till en annan roll som inte nämns ovan, kan program administratören inte hantera autentiseringsuppgifterna för programmet. 
  
-Den här rollen ger också _möjlighet att godkänna_ delegerade behörigheter och program behörigheter, med undantag för behörigheter på Microsoft Graph och Azure AD-grafen.
+Den här rollen ger också _möjlighet att godkänna_ delegerade behörigheter och program behörigheter, med undantag för behörigheter för Microsoft Graph API.
 
 > [!IMPORTANT]
 > Detta undantag innebär att du fortfarande kan godkänna behörigheter för _andra_ appar (t. ex. appar från tredje part eller appar som du har registrerat), men inte behörigheterna för själva Azure AD. Du kan fortfarande _begära_ de här behörigheterna som en del av appens registrering, men om du _beviljar_ de här behörigheterna krävs en Azure AD-administratör. Det innebär att en obehörig användare inte enkelt kan höja sina behörigheter, till exempel genom att skapa och samtycka till en app som kan skriva till hela katalogen och genom att den appens behörigheter höjer sig själva till en global administratör.
 
-### <a name="application-developerapplication-developer-permissions"></a>[Programutvecklare](#application-developer-permissions)
+### <a name="application-developer"></a>[Programutvecklare](#application-developer-permissions)
 
 Användare med den här rollen kan skapa program registreringar när inställningen "användare kan registrera program" är inställd på Nej. Den här rollen beviljar också behörighet för ett eget ställe när inställningen "användare kan godkänna att appar som har åtkomst till företags information för deras räkning" är inställd på Nej. Användare som har tilldelats rollen läggs till som ägare när de skapar nya program registreringar eller företags program.
 
-### <a name="authentication-administratorauthentication-administrator-permissions"></a>[Administratör för autentisering](#authentication-administrator-permissions)
+### <a name="authentication-administrator"></a>[Administratör för autentisering](#authentication-administrator-permissions)
 
 Rollen som administratör för autentisering är för närvarande en offentlig för hands version. Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-lösenord och kan uppdatera lösen ord för alla användare. Autentiserings administratörer kan kräva att användarna registrerar sig igen mot befintliga autentiseringsuppgifter som inte är lösen ord (till exempel MFA eller FIDO) och återkalla åtkomst till **MFA på enheten**, vilket efterfrågar MFA vid nästa inloggning av användare som inte är administratörer eller som tilldelas följande roller:
 
@@ -79,7 +79,7 @@ Rollen som administratör för autentisering är för närvarande en offentlig f
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Några exempel:
+> Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -87,45 +87,45 @@ Rollen som administratör för autentisering är för närvarande en offentlig f
 >- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
 >- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
 
-### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
+### <a name="azure-devops-administrator"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
 
 Användare med den här rollen kan hantera Azure DevOps-principen för att begränsa skapandet av nya Azure DevOps-organisationer till en uppsättning konfigurerbara användare eller grupper. Användare med den här rollen kan hantera den här principen via en Azure DevOps-organisation som har säkerhetskopierat företagets Azure AD-organisation.
 
 Alla Enterprise Azure DevOps-principer kan hanteras av användare i den här rollen.
 
-### <a name="azure-information-protection-administratorazure-information-protection-administrator-permissions"></a>[Azure Information Protection administratör](#azure-information-protection-administrator-permissions)
+### <a name="azure-information-protection-administrator"></a>[Azure Information Protection administratör](#azure-information-protection-administrator-permissions)
 
 Användare med den här rollen har alla behörigheter i Azure Information Protections tjänsten. Med den här rollen kan du konfigurera etiketter för Azure Information Protection principen, hantera skydds mallar och aktivera skydd. Den här rollen beviljar inte några behörigheter i identitets skydds centret, Privileged Identity Management, övervaka Office 365 Service Health eller Office 365 Säkerhets-och efterlevnadscenter.
 
-### <a name="b2c-user-flow-administratorb2c-user-flow-administrator-permissions"></a>[B2C användar flödes administratör](#b2c-user-flow-administrator-permissions)
+### <a name="b2c-user-flow-administrator"></a>[B2C användar flödes administratör](#b2c-user-flow-administrator-permissions)
 
 Användare med den här rollen kan skapa och hantera B2C-Användarflöden (kallas även "inbyggda" principer) i Azure Portal. Genom att skapa eller redigera användar flöden kan dessa användare ändra HTML/CSS/JavaScript-innehåll i användar upplevelsen, ändra MFA-krav per användar flöde, ändra anspråk i token och justera sessionsinställningar för alla principer i klienten. Den här rollen omfattar å andra sidan inte möjligheten att granska användar data eller göra ändringar i de attribut som ingår i klient organisations schemat. Ändringar av identitets miljö ramverk (även kallade anpassade) är också utanför den här rollens omfång.
 
-### <a name="b2c-user-flow-attribute-administratorb2c-user-flow-attribute-administrator-permissions"></a>[B2C-administratör för användar flöde](#b2c-user-flow-attribute-administrator-permissions)
+### <a name="b2c-user-flow-attribute-administrator"></a>[B2C-administratör för användar flöde](#b2c-user-flow-attribute-administrator-permissions)
 
 Användare med den här rollen lägger till eller tar bort anpassade attribut som är tillgängliga för alla användar flöden i klienten. Det innebär att användare med den här rollen kan ändra eller lägga till nya element i slutanvändarens schema och påverka beteendet för alla användar flöden och indirekt leda till ändringar i vilka data som kan tillfrågas slutanvändare och slutligen skickas som anspråk till program. Den här rollen kan inte redigera användar flöden.
 
-### <a name="b2c-ief-keyset-administratorb2c-ief-keyset-administrator-permissions"></a>[B2C IEF Keys-administratör](#b2c-ief-keyset-administrator-permissions)
+### <a name="b2c-ief-keyset-administrator"></a>[B2C IEF Keys-administratör](#b2c-ief-keyset-administrator-permissions)
 
 Användaren kan skapa och hantera princip nycklar och hemligheter för token-kryptering, token-signaturer och anspråks kryptering/dekryptering. Genom att lägga till nya nycklar i befintliga nyckel behållare kan denna begränsade administratör förnya hemligheter vid behov utan att påverka befintliga program. Den här användaren kan se det fullständiga innehållet i dessa hemligheter och deras förfallo datum även efter att de har skapats.
 
 > [!IMPORTANT]
 > Detta är en känslig roll. Administratörs rollen för nyckel uppsättningen bör granskas noggrant och tilldelas till vård under för produktion och produktion.
 
-### <a name="b2c-ief-policy-administratorb2c-ief-policy-administrator-permissions"></a>[B2C IEF-princip administratör](#b2c-ief-policy-administrator-permissions)
+### <a name="b2c-ief-policy-administrator"></a>[B2C IEF-princip administratör](#b2c-ief-policy-administrator-permissions)
 
 Användare med den här rollen kan skapa, läsa, uppdatera och ta bort alla anpassade principer i Azure AD B2C och har därför fullständig kontroll över identitets Miljös ramverket i den relevanta Azure AD B2C klienten. Genom att redigera principer kan den här användaren upprätta direkt Federation med externa identitets leverantörer, ändra katalog schema, ändra allt innehåll som riktas mot användare (HTML, CSS, Java Script), ändra kraven för att slutföra en autentisering, skapa nya användare, skicka användar data till externa system, inklusive fullständiga migreringar, och redigera all användar information, inklusive känsliga fält som lösen ord och telefonnummer. Den här rollen kan däremot inte ändra krypterings nycklarna eller redigera hemligheterna som används för federationen i klienten.
 
 > [!IMPORTANT]
 > IEF princip administratör för B2 är en mycket känslig roll som bör tilldelas till en mycket begränsad grund för klienter i produktion. Aktiviteter av dessa användare bör granskas noga, särskilt för innehavare i produktion.
 
-### <a name="billing-administratorbilling-administrator-permissions"></a>[Faktureringsadministratör](#billing-administrator-permissions)
+### <a name="billing-administrator"></a>[Faktureringsadministratör](#billing-administrator-permissions)
 
 Gör inköp, hanterar prenumerationer, hanterar supportärenden och övervakar tjänstens hälsa.
 
-### <a name="cloud-application-administratorcloud-application-administrator-permissions"></a>[Molnprogramadministratör](#cloud-application-administrator-permissions)
+### <a name="cloud-application-administrator"></a>[Molnprogramadministratör](#cloud-application-administrator-permissions)
 
-Användare i den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Den här rollen ger möjlighet att skapa och hantera alla aspekter av företags program och program registreringar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
+Användare i den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Den här rollen ger möjlighet att skapa och hantera alla aspekter av företags program och program registreringar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph API. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
 
 Moln program administratörer kan hantera programautentiseringsuppgifter som gör det möjligt för dem att personifiera programmet. Användare som har tilldelats den här rollen kan därför endast hantera programautentiseringsuppgifter för de program som antingen inte har tilldelats till några Azure AD-roller eller som tilldelas till följande administratörs roller:
 * Programutvecklare
@@ -134,11 +134,11 @@ Moln program administratörer kan hantera programautentiseringsuppgifter som gö
 
 Om ett program tilldelas till en annan roll som inte nämns ovan, kan inte moln program administratören hantera autentiseringsuppgifterna för det programmet.
 
-### <a name="cloud-device-administratorcloud-device-administrator-permissions"></a>[Moln enhets administratör](#cloud-device-administrator-permissions)
+### <a name="cloud-device-administrator"></a>[Moln enhets administratör](#cloud-device-administrator-permissions)
 
 Användare med den här rollen kan aktivera, inaktivera och ta bort enheter i Azure AD och läsa Windows 10 BitLocker-nycklar (om sådana finns) i Azure Portal. Rollen ger inte behörighet att hantera andra egenskaper på enheten.
 
-### <a name="compliance-administratorcompliance-administrator-permissions"></a>[Administratör för efterlevnad](#compliance-administrator-permissions)
+### <a name="compliance-administrator"></a>[Administratör för efterlevnad](#compliance-administrator-permissions)
 
 Användare med den här rollen har behörighet att hantera kompatibla funktioner i Microsoft 365 Compliance Center, Microsoft 365 administrations Center, Azure och Office 365 Säkerhets-och efterlevnadscenter. Tilldelningar kan också hantera alla funktioner i administrations centret för Exchange och team & Skype för företag-administratörer och skapa support biljetter för Azure och Microsoft 365. Mer information finns i [om Office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -150,7 +150,7 @@ I | Kan göra
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla gransknings data i Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
 
-### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[Data administratör för efterlevnad](#compliance-data-administrator-permissions)
+### <a name="compliance-data-administrator"></a>[Data administratör för efterlevnad](#compliance-data-administrator-permissions)
 
 Användare med den här rollen har behörighet att spåra data i Microsoft 365 Compliance Center, Microsoft 365 administrations Center och Azure. Användare kan också spåra efterlevnadsprinciper i administrations centret för Exchange, Compliance Manager och Teams & Skype för företag administrations Center och skapa support biljetter för Azure och Microsoft 365.
 
@@ -162,71 +162,71 @@ I | Kan göra
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Visa alla gransknings data i Intune
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Har Läs behörighet och kan hantera aviseringar<br>Kan skapa och ändra fil principer och tillåta fil styrnings åtgärder<br>Kan visa alla inbyggda rapporter under Datahantering
 
-### <a name="conditional-access-administratorconditional-access-administrator-permissions"></a>[Administratör för villkorlig åtkomst](#conditional-access-administrator-permissions)
+### <a name="conditional-access-administrator"></a>[Administratör för villkorlig åtkomst](#conditional-access-administrator-permissions)
 
 Användare med den här rollen kan hantera inställningar för Azure Active Directory villkorlig åtkomst.
 > [!NOTE]
 > Om du vill distribuera principen för villkorlig åtkomst för Exchange ActiveSync i Azure måste användaren också vara global administratör.
 
-### <a name="customer-lockbox-access-approvercustomer-lockbox-access-approver-permissions"></a>[Customer Lockbox åtkomst god kännare](#customer-lockbox-access-approver-permissions)
+### <a name="customer-lockbox-access-approver"></a>[Customer Lockbox åtkomst god kännare](#customer-lockbox-access-approver-permissions)
 
 Hanterar [Customer lockbox begär Anden](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) i din organisation. De får e-postaviseringar för Customer Lockbox begär Anden och kan godkänna och Neka förfrågningar från Microsoft 365 administrations Center. De kan också aktivera eller inaktivera funktionen för Customer Lockbox. Endast globala administratörer kan återställa lösen orden för personer som har tilldelats den här rollen.
 
-### <a name="desktop-analytics-administratordesktop-analytics-administrator-permissions"></a>[Administratör för Skriv bords analys](#desktop-analytics-administrator-permissions)
+### <a name="desktop-analytics-administrator"></a>[Administratör för Skriv bords analys](#desktop-analytics-administrator-permissions)
 
 
 Användare med den här rollen kan hantera Desktop Analytics-och Office-anpassning & princip tjänster. För Skriv bords analys omfattar detta möjlighet att visa till gångs lager, skapa distributions planer, Visa distribution och hälso status. Den här rollen ger användare möjlighet att hantera Office-principer för tjänsten för anpassning av Office-&.
 
-### <a name="device-administratordevice-administrators-permissions"></a>[Enhets administratör](#device-administrators-permissions)
+### <a name="device-administrator"></a>[Enhets administratör](#device-administrators-permissions)
 
 Den här rollen är endast tillgänglig för tilldelning som en ytterligare lokal administratör i [enhets inställningar](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Användare med den här rollen blir lokala dator administratörer på alla Windows 10-enheter som är anslutna till Azure Active Directory. De har inte möjlighet att hantera enheters objekt i Azure Active Directory.
 
-### <a name="directory-readersdirectory-readers-permissions"></a>[Katalog läsare](#directory-readers-permissions)
+### <a name="directory-readers"></a>[Katalog läsare](#directory-readers-permissions)
 
 Användare med den här rollen kan läsa grundläggande katalog information. Den här rollen ska användas för:
 * Att bevilja en speciell uppsättning gäst användare Läs åtkomst i stället för att ge dem till alla gäst användare.
 * Att bevilja en särskild uppsättning användare som inte är administratörs åtkomst till Azure Portal när "begränsa åtkomst till Azure AD-portalen enbart till administratörer" är inställd på "Ja".
 * Beviljar tjänstens huvud namn åtkomst till katalogen där Directory. Read. all inte är ett alternativ.
 
-### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Konton för katalog synkronisering](#directory-synchronization-accounts-permissions)
+### <a name="directory-synchronization-accounts"></a>[Konton för katalog synkronisering](#directory-synchronization-accounts-permissions)
 
 Använd inte. Den här rollen tilldelas automatiskt till den Azure AD Connect tjänsten och är inte avsedd eller stöds inte för någon annan användning.
 
-### <a name="directory-writersdirectory-writers-permissions"></a>[Katalog skrivare](#directory-writers-permissions)
+### <a name="directory-writers"></a>[Katalog skrivare](#directory-writers-permissions)
 
 Det här är en äldre roll som ska tilldelas till program som inte stöder [medgivande ramverket](../develop/quickstart-register-app.md). De ska inte tilldelas till några användare.
 
-### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Dynamics 365-administratör/CRM-administratör](#crm-service-administrator-permissions)
+### <a name="dynamics-365-administrator--crm-administrator"></a>[Dynamics 365-administratör/CRM-administratör](#crm-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft Dynamics 365 online när tjänsten finns, samt möjligheten att hantera support biljetter och övervaka tjänstens hälsa. Mer information finns i [använda rollen tjänst administratör för att hantera din klient](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Dynamics 365 service Administrator". Det är "Dynamics 365-administratör" i [Azure Portal](https://portal.azure.com).
+> I Microsoft Graph API och Azure AD PowerShell identifieras den här rollen som "Dynamics 365 service Administrator". Det är "Dynamics 365-administratör" i [Azure Portal](https://portal.azure.com).
 
-### <a name="exchange-administratorexchange-service-administrator-permissions"></a>[Exchange-administratör](#exchange-service-administrator-permissions)
+### <a name="exchange-administrator"></a>[Exchange-administratör](#exchange-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Har också möjlighet att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som "Exchange Service Administrator". Det är "Exchange-administratör" i [Azure Portal](https://portal.azure.com). Det är "Exchange Online Administrator" i [administrations centret för Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
+> I Microsoft Graph API och Azure AD PowerShell identifieras den här rollen som "Exchange Service Administrator". Det är "Exchange-administratör" i [Azure Portal](https://portal.azure.com). Det är "Exchange Online Administrator" i [administrations centret för Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
-### <a name="external-identity-provider-administratorexternal-identity-provider-administrator-permissions"></a>[Administratör för extern identitetsprovider](#external-identity-provider-administrator-permissions)
+### <a name="external-identity-provider-administrator"></a>[Administratör för extern identitetsprovider](#external-identity-provider-administrator-permissions)
 
 Den här administratören hanterar federationen mellan Azure Active Directory klienter och externa identitets leverantörer. Med den här rollen kan användarna lägga till nya identitets leverantörer och konfigurera alla tillgängliga inställningar (t. ex. autentiserings Sök väg, tjänst-ID, tilldelade nyckel behållare). Den här användaren kan göra det möjligt för klienten att lita på autentiseringar från externa identitets leverantörer. Den resulterande påverkan på slutanvändarens upplevelse beror på typen av klient organisation:
 
 * Azure Active Directory klienter för anställda och partner: tillägget av en Federation (t. ex. med Gmail) kommer omedelbart att påverka alla gäst inbjudningar som ännu inte har lösts in. Se [lägga till Google som en identitets leverantör för B2B-gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
 * Azure Active Directory B2C klienter: att lägga till en Federation (till exempel med Facebook eller med en annan Azure AD-organisation) påverkar inte omedelbart slutanvändarens flöden direkt förrän identitets leverantören har lagts till som ett alternativ i ett användar flöde (även kallat inbyggda princip). Se [Konfigurera en Microsoft-konto som en identitets leverantör](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) för ett exempel. Om du vill ändra användar flöden krävs den begränsade rollen "B2C User Flow Administrator".
 
-### <a name="global-administrator--company-administratorcompany-administrator-permissions"></a>[Global administratör/företags administratör](#company-administrator-permissions)
+### <a name="global-administrator--company-administrator"></a>[Global administratör/företags administratör](#company-administrator-permissions)
 
 Användare med den här rollen har åtkomst till alla administrativa funktioner i Azure Active Directory, samt tjänster som använder Azure Active Directory identiteter som Microsoft 365 Security Center, Microsoft 365 Compliance Center, Exchange Online, SharePoint Online och Skype för företag – online. Den person som registrerar sig för den Azure Active Directory klienten blir global administratör. Det kan finnas mer än en global administratör på ditt företag. Globala administratörer kan återställa lösen ordet för alla användare och alla andra administratörer.
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som "företags administratör". Det är "global administratör" i [Azure Portal](https://portal.azure.com).
+> I Microsoft Graph API och Azure AD PowerShell identifieras rollen som "företags administratör". Det är "global administratör" i [Azure Portal](https://portal.azure.com).
 >
 >
 
-### <a name="global-readerglobal-reader-permissions"></a>[Global läsare](#global-reader-permissions)
+### <a name="global-reader"></a>[Global läsare](#global-reader-permissions)
 
 Användare med den här rollen kan läsa inställningar och administrativ information mellan Microsoft 365 tjänster, men kan inte utföra hanterings åtgärder. Global läsare är den skrivskyddade motsvarigheten till global administratör. Tilldela global läsare i stället för global administratör för planering, granskningar och undersökningar. Använd global läsare i kombination med andra begränsade administratörs roller som Exchange-administratör för att göra det enklare att få jobbet gjort utan att tilldela rollen global administratör. Global läsare fungerar med Microsoft 365 administrations Center, Exchange administrations Center, team administrations Center, Security Center, Compliance Center, Azure AD administrations Center och administrations Center för enhets hantering.
 
@@ -246,15 +246,15 @@ Användare med den här rollen kan läsa inställningar och administrativ inform
 > Dessa funktioner håller på att utvecklas.
 >
 
-### <a name="groups-administratorgroups-administrator-permissions"></a>[Grupp administratör](#groups-administrator-permissions)
+### <a name="groups-administrator"></a>[Grupp administratör](#groups-administrator-permissions)
 
 Användare med den här rollen kan skapa/hantera grupper och dess inställningar, t. ex. namn och förfallo principer. Det är viktigt att förstå att tilldela en användare till den här rollen och ger dem möjlighet att hantera alla grupper i klient organisationen över olika arbets belastningar som team, SharePoint, Yammer, förutom Outlook. Användaren kan också hantera de olika grupp inställningarna över olika administrations portaler som Microsoft administrations Center, Azure Portal, och även arbets belastningar som team och administrations Center för SharePoint.
 
-### <a name="guest-inviterguest-inviter-permissions"></a>[Gäst deltagare](#guest-inviter-permissions)
+### <a name="guest-inviter"></a>[Gäst deltagare](#guest-inviter-permissions)
 
 Användare med den här rollen kan hantera Azure Active Directory B2B-gäst användare om **medlemmar kan bjuda** in användar inställningen till Nej. Mer information om B2B-samarbete vid [Azure AD B2B-samarbete](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Den innehåller inga andra behörigheter.
 
-### <a name="helpdesk-administratorhelpdesk-administrator-permissions"></a>[Support administratör](#helpdesk-administrator-permissions)
+### <a name="helpdesk-administrator"></a>[Support administratör](#helpdesk-administrator-permissions)
 
 Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, hantera tjänst begär Anden och övervaka tjänstens hälsa. Om en uppdateringstoken inverifieras tvingar användaren att logga in igen. Administratörer för supportavdelningen kan återställa lösen ord och göra en ogiltig verifiering av uppdateringstoken för andra användare som inte är administratörer eller som tilldelas följande roller:
 
@@ -265,7 +265,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 * Rapport läsare
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Några exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -275,46 +275,46 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 
 Att delegera administrativa behörigheter över del mängder av användare och tillämpa principer på en delmängd av användare är möjligt med [administrativa enheter (nu i offentlig för hands version)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 
-Den här rollen kallades tidigare för "lösen ords administratör" i [Azure Portal](https://portal.azure.com/). Namnet "supportavdelningen administratör" i Azure AD matchar nu namnet i Azure AD PowerShell, Azure AD Graph API och Microsoft Graph API.
+Den här rollen kallades tidigare för "lösen ords administratör" i [Azure Portal](https://portal.azure.com/). Namnet "supportavdelningen administratör" i Azure AD matchar nu namnet i Azure AD PowerShell och Microsoft Graph API.
 
-### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune-administratör](#intune-service-administrator-permissions)
+### <a name="intune-administrator"></a>[Intune-administratör](#intune-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft Intune online när tjänsten finns. Dessutom innehåller den här rollen möjligheten att hantera användare och enheter för att associera principer, samt skapa och hantera grupper. Mer information finns i [rollbaserad administrations kontroll (RBAC) med Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control).
 
 Den här rollen kan skapa och hantera alla säkerhets grupper. Intune-administratören har dock inte administratörs behörighet för Office-grupper. Det innebär att administratören inte kan uppdatera ägare eller medlemskap i alla Office-grupper i klient organisationen. Han/hon kan dock hantera Office-gruppen som han skapar som ingår i hans/hennes slutanvändares behörigheter. I så fall ska alla Office-grupper (inte säkerhets grupper) som han/hon skapar räknas mot kvoten på 250.
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Intune-tjänsteadministratör". Det är "Intune-administratör" i [Azure Portal](https://portal.azure.com).
+> I Microsoft Graph API och Azure AD PowerShell identifieras den här rollen som "Intune-tjänsteadministratör". Det är "Intune-administratör" i [Azure Portal](https://portal.azure.com).
 
-### <a name="kaizala-administratorkaizala-administrator-permissions"></a>[Kaizala-administratör](#kaizala-administrator-permissions)
+### <a name="kaizala-administrator"></a>[Kaizala-administratör](#kaizala-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter för att hantera inställningar inom Microsoft Kaizala när tjänsten finns, samt möjligheten att hantera support biljetter och övervaka tjänstens hälsa. Dessutom kan användaren komma åt rapporter som är relaterade till antagande & användningen av Kaizala av organisations medlemmar och affärs rapporter som genereras med hjälp av Kaizala-åtgärder.
 
-### <a name="license-administratorlicense-administrator-permissions"></a>[Licens administratör](#license-administrator-permissions)
+### <a name="license-administrator"></a>[Licens administratör](#license-administrator-permissions)
 
 Användare med den här rollen kan lägga till, ta bort och uppdatera licens tilldelningar för användare, grupper (med gruppbaserad licensiering) och hantera användnings platsen för användare. Rollen ger inte möjlighet att köpa eller hantera prenumerationer, skapa eller hantera grupper eller skapa eller hantera användare bortom användnings platsen. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
-### <a name="message-center-privacy-readermessage-center-privacy-reader-permissions"></a>[Meddelande Center sekretess läsare](#message-center-privacy-reader-permissions)
+### <a name="message-center-privacy-reader"></a>[Meddelande Center sekretess läsare](#message-center-privacy-reader-permissions)
 
 Användare med den här rollen kan övervaka alla meddelanden i meddelande centret, inklusive data sekretess meddelanden. Meddelande Center sekretess läsare får e-postaviseringar, inklusive de som är relaterade till data sekretess och de kan avbryta prenumerationen med hjälp av meddelande Center inställningar. Endast global administratör och meddelande Center sekretess läsare kan läsa data sekretess meddelanden. Dessutom innehåller den här rollen möjligheten att Visa grupper, domäner och prenumerationer. Den här rollen har ingen behörighet att visa, skapa eller hantera tjänst begär Anden.
 
-### <a name="message-center-readermessage-center-reader-permissions"></a>[Meddelande Center läsare](#message-center-reader-permissions)
+### <a name="message-center-reader"></a>[Meddelande Center läsare](#message-center-reader-permissions)
 
 Användare i den här rollen kan övervaka meddelanden och råd om hälso uppdateringar i [Office 365 meddelande Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) för deras organisation på konfigurerade tjänster som Exchange, Intune och Microsoft Teams. Meddelande Center läsare får veckovis e-postsammandrag av inlägg, uppdateringar och kan dela meddelande Center inlägg i Office 365. I Azure AD kommer användare som tilldelats den här rollen bara att ha skrivskyddad åtkomst till Azure AD-tjänster, till exempel användare och grupper. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
-### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Office Apps-administratör](#office-apps-administrator-permissions)
+### <a name="office-apps-administrator"></a>[Office Apps-administratör](#office-apps-administrator-permissions)
 
 Användare med den här rollen kan hantera moln inställningar för Office 365-appar. Detta omfattar hantering av moln principer, hantering av självbetjänings hantering och möjligheten att visa Office apps-relaterade rapporter. Den här rollen ger dessutom möjlighet att hantera support biljetter och övervaka tjänstens hälsa i huvud administrations centret. Användare som har tilldelats den här rollen kan även hantera kommunikation av nya funktioner i Office-appar. 
 
-### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[Support för partner 1](#partner-tier1-support-permissions)
+### <a name="partner-tier1-support"></a>[Support för partner 1](#partner-tier1-support-permissions)
 
 Använd inte. Den här rollen är inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd att användas av ett litet antal Microsoft-partner och är inte avsedd för allmän användning.
 
-### <a name="partner-tier2-supportpartner-tier2-support-permissions"></a>[Support för partner – nivå 2](#partner-tier2-support-permissions)
+### <a name="partner-tier2-support"></a>[Support för partner – nivå 2](#partner-tier2-support-permissions)
 
 Använd inte. Den här rollen är inaktuell och kommer att tas bort från Azure AD i framtiden. Den här rollen är avsedd att användas av ett litet antal Microsoft-partner och är inte avsedd för allmän användning.
 
-### <a name="password-administratorpassword-administrator-permissions"></a>[Lösen ords administratör](#password-administrator-permissions)
+### <a name="password-administrator"></a>[Lösen ords administratör](#password-administrator-permissions)
 
 Användare med den här rollen har begränsad möjlighet att hantera lösen ord. Den här rollen ger inte möjlighet att hantera tjänst begär Anden eller övervaka tjänstens hälsa. Lösen ords administratörer kan återställa lösen ord för andra användare som inte är administratörer eller medlemmar i följande roller:
 
@@ -322,41 +322,41 @@ Användare med den här rollen har begränsad möjlighet att hantera lösen ord.
 * Gäst deltagare
 * Lösen ords administratör
 
-### <a name="power-bi-administratorpower-bi-service-administrator-permissions"></a>[Power BI administratör](#power-bi-service-administrator-permissions)
+### <a name="power-bi-administrator"></a>[Power BI administratör](#power-bi-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns, samt möjligheten att hantera support biljetter och övervaka tjänstens hälsa. Mer information finns i [förstå Power BI admin-rollen](https://docs.microsoft.com/power-bi/service-admin-role).
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Power BI tjänst administratör". Det är "Power BI administratör" i [Azure Portal](https://portal.azure.com).
+> I Microsoft Graph API och Azure AD PowerShell identifieras rollen som "Power BI tjänst administratör". Det är "Power BI administratör" i [Azure Portal](https://portal.azure.com).
 
-### <a name="power-platform-administratorpower-platform-administrator-permissions"></a>[Power Platform-administratör](#power-platform-administrator-permissions)
+### <a name="power-platform-administrator"></a>[Power Platform-administratör](#power-platform-administrator-permissions)
 
 Användare med den här rollen kan skapa och hantera alla aspekter av miljöer, PowerApps, flöden och principer för data förlust skydd. Dessutom har användare med den här rollen möjlighet att hantera support biljetter och övervaka tjänstens hälsa.
 
-### <a name="privileged-authentication-administratorprivileged-authentication-administrator-permissions"></a>[Administratör för privilegie rad autentisering](#privileged-authentication-administrator-permissions)
+### <a name="privileged-authentication-administrator"></a>[Administratör för privilegie rad autentisering](#privileged-authentication-administrator-permissions)
 
 Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för alla användare, inklusive globala administratörer, och kan uppdatera lösen ord för alla användare. Administratörer med privilegie rad autentisering kan tvinga användare att omregistrera sig mot befintliga autentiseringsuppgifter som inte är lösen ord (t. ex. MFA, FIDO) och återkalla "MFA på enheten" och fråga efter MFA vid nästa inloggning för alla användare.
 
-### <a name="privileged-role-administratorprivileged-role-administrator-permissions"></a>[Privilegie rad roll administratör](#privileged-role-administrator-permissions)
+### <a name="privileged-role-administrator"></a>[Privilegie rad roll administratör](#privileged-role-administrator-permissions)
 
 Användare med den här rollen kan hantera roll tilldelningar i Azure Active Directory, samt i Azure AD Privileged Identity Management. Dessutom tillåter den här rollen hantering av alla aspekter av Privileged Identity Management och administrativa enheter.
 
 > [!IMPORTANT]
 > Den här rollen ger möjlighet att hantera tilldelningar för alla Azure AD-roller, inklusive rollen global administratör. Den här rollen omfattar inte andra privilegierade förmågor i Azure AD som att skapa eller uppdatera användare. Användare som har tilldelats den här rollen kan dock ge sig själva eller andra ytterligare behörigheter genom att tilldela ytterligare roller.
 
-### <a name="reports-readerreports-reader-permissions"></a>[Rapport läsare](#reports-reader-permissions)
+### <a name="reports-reader"></a>[Rapport läsare](#reports-reader-permissions)
 
 Användare med den här rollen kan visa användnings rapporterings data och instrument panelen rapporter i Microsoft 365 administrations Center och implementerings kontext paketet i Power BI. Dessutom ger rollen åtkomst till inloggnings rapporter och aktiviteter i Azure AD och data som returneras av Microsoft Graph repor ting API. En användare som tilldelats rollen rapport läsare kan bara komma åt relevanta användnings-och implementerings mått. De har inte någon administratörs behörighet för att konfigurera inställningar eller komma åt de produktspecifik administrations Center som Exchange. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
-### <a name="search-administratorsearch-administrator-permissions"></a>[Sök administratör](#search-administrator-permissions)
+### <a name="search-administrator"></a>[Sök administratör](#search-administrator-permissions)
 
 Användare med den här rollen har fullständig åtkomst till alla funktioner för Microsoft Search-hantering i Microsoft 365 administrations centret. Sök administratörer kan delegera Sök administratörer och Sök redigerings roller till användare och skapa och hantera innehåll, t. ex. bok märken, Q & som och platser. Dessa användare kan dessutom Visa meddelande Center, övervaka tjänstens hälsa och skapa tjänst begär Anden.
 
-### <a name="search-editorsearch-editor-permissions"></a>[Sök redigerare](#search-editor-permissions)
+### <a name="search-editor"></a>[Sök redigerare](#search-editor-permissions)
 
 Användare med den här rollen kan skapa, hantera och ta bort innehåll för Microsoft Search i Microsoft 365 administrations Center, inklusive bok märken, Q & som och platser.
 
-### <a name="security-administratorsecurity-administrator-permissions"></a>[Säkerhets administratör](#security-administrator-permissions)
+### <a name="security-administrator"></a>[Säkerhets administratör](#security-administrator-permissions)
 
 Användare med den här rollen har behörighet att hantera säkerhetsrelaterade funktioner i Microsoft 365 Security Center, Azure Active Directory Identity Protection, Azure Information Protection och Office 365 Säkerhets-och efterlevnadscenter. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365-säkerhets-och Efterlevnadscenter](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -373,7 +373,7 @@ Windows Defender ATP och EDR | Tilldela roller<br>Hantera dator grupper<br>Konfi
 [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer
 [Office 365 service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visa hälso tillståndet för Office 365-tjänster
 
-### <a name="security-operatorsecurity-operator-permissions"></a>[Säkerhets operatör](#security-operator-permissions)
+### <a name="security-operator"></a>[Säkerhets operatör](#security-operator-permissions)
 
 Användare med den här rollen kan hantera aviseringar och ha global Läs behörighet för säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management och Office 365 Säkerhets- och efterlevnadscenter. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365-säkerhets-och Efterlevnadscenter](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
@@ -388,7 +388,7 @@ Windows Defender ATP och EDR | Alla behörigheter för säkerhets läsar rollen<
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Alla behörigheter för säkerhets läsar rollen
 [Office 365 service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visa hälso tillståndet för Office 365-tjänster
 
-### <a name="security-readersecurity-reader-permissions"></a>[Säkerhets läsare](#security-reader-permissions)
+### <a name="security-reader"></a>[Säkerhets läsare](#security-reader-permissions)
 
 Användare med den här rollen har global Läs behörighet i säkerhetsrelaterade funktioner, inklusive all information i Microsoft 365 Security Center, Azure Active Directory, identitets skydd, Privileged Identity Management, samt möjligheten att läsa Azure Active Katalog inloggnings rapporter och gransknings loggar, och i Office 365 Säkerhets-och efterlevnadscenter. Mer information om Office 365-behörigheter finns i [behörigheter i Office 365-säkerhets-och Efterlevnadscenter](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
@@ -404,44 +404,44 @@ Windows Defender ATP och EDR | Visa och undersök aviseringar. När du aktiverar
 [Azure Security Center](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar
 [Office 365 service Health](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visa hälso tillståndet för Office 365-tjänster
 
-### <a name="service-support-administratorservice-support-administrator-permissions"></a>[Tjänst support administratör](#service-support-administrator-permissions)
+### <a name="service-support-administrator"></a>[Tjänst support administratör](#service-support-administrator-permissions)
 
 Användare med den här rollen kan öppna support förfrågningar med Microsoft för Azure-och Office 365-tjänster och Visa instrument panelen och meddelande centret i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "tjänst support administratör". Det är "tjänst administratör" i [Azure Portal](https://portal.azure.com), [Microsoft 365 administrations Center](https://admin.microsoft.com)och Intune-portalen.
+> I Microsoft Graph API och Azure AD PowerShell identifieras rollen som "tjänst support administratör". Det är "tjänst administratör" i [Azure Portal](https://portal.azure.com), [Microsoft 365 administrations Center](https://admin.microsoft.com)och Intune-portalen.
 
-### <a name="sharepoint-administratorsharepoint-service-administrator-permissions"></a>[SharePoint-administratör](#sharepoint-service-administrator-permissions)
+### <a name="sharepoint-administrator"></a>[SharePoint-administratör](#sharepoint-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns, samt möjligheten att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "SharePoint-tjänsteadministratör". Det är "SharePoint-administratör" i [Azure Portal](https://portal.azure.com).
+> Den här rollen identifieras som "SharePoint-tjänsteadministratör" i Microsoft Graph API och Azure AD PowerShell. Det är "SharePoint-administratör" i [Azure Portal](https://portal.azure.com).
 
-### <a name="skype-for-business--lync-administratorlync-service-administrator-permissions"></a>[Skype för företag/Lync-administratör](#lync-service-administrator-permissions)
+### <a name="skype-for-business--lync-administrator"></a>[Skype för företag/Lync-administratör](#lync-service-administrator-permissions)
 
 Användare med den här rollen har globala behörigheter inom Microsoft Skype för företag, när tjänsten finns och hantera Skype-specifika användarattribut i Azure Active Directory. Dessutom ger den här rollen möjlighet att hantera support biljetter och övervaka tjänstens hälsa och få åtkomst till team och Skype för Business administrations Center. Kontot måste också vara licensierat för team, eller så kan det inte köra team PowerShell-cmdletar. Mer information [om administrations rollen för Skype för företag](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) och team licens information finns på [Skype för företag och Microsoft Teams tilläggs licensiering](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
 > [!NOTE]
-> I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Lync-tjänsteadministratör". Det är "Skype för företag-administratör" i [Azure Portal](https://portal.azure.com/).
+> I Microsoft Graph API och Azure AD PowerShell identifieras rollen som "Lync-tjänsteadministratör". Det är "Skype för företag-administratör" i [Azure Portal](https://portal.azure.com/).
 
-### <a name="teams-communications-administratorteams-communications-administrator-permissions"></a>[Team kommunikations administratör](#teams-communications-administrator-permissions)
+### <a name="teams-communications-administrator"></a>[Team kommunikations administratör](#teams-communications-administrator-permissions)
 
 Användare med den här rollen kan hantera delar av arbets belastningen Microsoft Teams som rör röst & telefoni. Här ingår hanterings verktyg för tilldelning av telefonnummer, röst-och mötes principer och fullständig åtkomst till verktygen för anrops analys.
 
-### <a name="teams-communications-support-engineerteams-communications-support-engineer-permissions"></a>[Support tekniker för Teams kommunikation](#teams-communications-support-engineer-permissions)
+### <a name="teams-communications-support-engineer"></a>[Support tekniker för Teams kommunikation](#teams-communications-support-engineer-permissions)
 
 Användare i den här rollen kan felsöka kommunikations problem i Microsoft Teams & Skype för företag med hjälp av fel söknings verktygen för användar anrop i Microsoft Teams & Skype för företag administrations Center. Användare med den här rollen kan Visa fullständig information om anrops poster för alla berörda deltagare. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
-### <a name="teams-communications-support-specialistteams-communications-support-specialist-permissions"></a>[Support specialist för Teams kommunikation](#teams-communications-support-specialist-permissions)
+### <a name="teams-communications-support-specialist"></a>[Support specialist för Teams kommunikation](#teams-communications-support-specialist-permissions)
 
 Användare i den här rollen kan felsöka kommunikations problem i Microsoft Teams & Skype för företag med hjälp av fel söknings verktygen för användar anrop i Microsoft Teams & Skype för företag administrations Center. Användare med den här rollen kan bara Visa användar information i anropet för den aktuella användaren som de har sökt efter. Den här rollen har ingen åtkomst för att visa, skapa eller hantera support biljetter.
 
-### <a name="teams-service-administratorteams-service-administrator-permissions"></a>[Team tjänst administratör](#teams-service-administrator-permissions)
+### <a name="teams-service-administrator"></a>[Team tjänst administratör](#teams-service-administrator-permissions)
 
 Användare med den här rollen kan hantera alla aspekter av arbets belastningen Microsoft Teams via Microsoft Teams & Skype för Business administrations Center och respektive PowerShell-moduler. Detta omfattar bland annat alla hanterings verktyg som rör telefoni, meddelanden, möten och själva teamet. Den här rollen ger dessutom möjlighet att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa.
 
-### <a name="user-administratoruser-administrator-permissions"></a>[Användaradministratör](#user-administrator-permissions)
+### <a name="user-administrator"></a>[Användaradministratör](#user-administrator-permissions)
 
 Användare med den här rollen kan skapa användare och hantera alla aspekter av användare med vissa begränsningar (se nedan) och kan uppdatera principer för lösen ordets giltighets tid. Dessutom kan användare med den här rollen skapa och hantera alla grupper. Den här rollen omfattar även möjligheten att skapa och hantera användar visningar, hantera support biljetter och övervaka tjänstens hälsa. Användar administratörer har inte behörighet att hantera vissa användar egenskaper för användare i de flesta administratörs roller. Användare med den här rollen har inte tredjepartsappar för att hantera MFA. Rollerna som är undantag till den här begränsningen visas i följande tabell.
 
@@ -449,10 +449,10 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 | --- | --- |
 |Allmänna behörigheter|<p>Skapa användare och grupper</p><p>Skapa och hantera användarvyer</p><p>Hantera Office-support biljetter<p>Uppdatera principer för förfallo datum för lösen ord|
 |<p>För alla användare, inklusive alla administratörer</p>|<p>Hantera licenser</p><p>Hantera alla användar egenskaper utom användarens huvud namn</p>
-|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställa lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
+|Endast på användare som inte är administratörer eller någon av följande begränsade administratörs roller:<ul><li>Katalog läsare<li>Gäst deltagare<li>Support administratör<li>Meddelande Center läsare<li>Rapport läsare<li>Användar administratör|<p>Ta bort och Återställ</p><p>Inaktivera och aktivera</p><p>Invalidera uppdateringstoken</p><p>Hantera alla användar egenskaper inklusive användarens huvud namn</p><p>Återställ lösenord</p><p>Uppdatera (FIDO) enhets nycklar</p>|
 
 > [!IMPORTANT]
-> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Några exempel:
+> Användare med den här rollen kan ändra lösen ord för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra lösen ordet för en användare kan innebära att du antar användarens identitet och behörigheter. Exempel:
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
@@ -1685,7 +1685,7 @@ Kan hantera alla aspekter av användare och grupper, inklusive att återställa 
 
 ## <a name="role-template-ids"></a>Mall-ID: n
 
-Roll mal len ID används huvudsakligen av Graph API-eller PowerShell-användare.
+Roll mal len ID används huvudsakligen av Microsoft Graph API eller PowerShell-användare.
 
 Graph-displayName | Visnings namn för Azure Portal | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------

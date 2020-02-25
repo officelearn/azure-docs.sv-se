@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: extrahera tryckt och handskriven text – REST,C#'
+title: 'Snabb start: Visuellt innehåll 2,0 och 2,1 – extrahera skriven text – REST,C#'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten extraherar du utskriven text och handskriven text C#från en bild med hjälp av API för visuellt innehåll med.
 services: cognitive-services
@@ -11,28 +11,47 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a18ae7c342563277acbb0fa1b8de3e49a40c5460
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b47c0a87f2b7e4f3fea2d5ed088372cabce2a994
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770789"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566105"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll REST API ochC#
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll 2,0 och 2,1 REST API ochC#
 
 I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
+Jämfört med Visuellt innehåll 2,0 och 2,1 ger Visuellt innehåll 3,0 offentlig för hands version:
+
+* ännu bättre precision
+* ett ändrat utdataformat
+* förtroende poäng för ord
+* stöd för både spanska och engelska språk med ytterligare språk parameter
+
+#### <a name="version-2"></a>[Version 2](#tab/version-2)
+
 > [!IMPORTANT]
-> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Read en URI i fältet `Operation-Location` svars huvud. Du kan sedan använda den här URI: n, som representerar [resultat metoden Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+
+> [!IMPORTANT]
+> Läs metoden för [batch](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+
+---
+
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
-
-## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Visual Studio 2015 eller senare](https://visualstudio.microsoft.com/downloads/).
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
+
+#### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 Skapa exemplet i Visual Studio enligt följande:
 
@@ -205,9 +224,236 @@ namespace CSHttpClientSample
 }
 ```
 
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+
+Skapa exemplet i Visual Studio enligt följande:
+
+1. Skapa en ny Visual Studio-lösning i Visual Studio med Visual C#-konsolprogrammallen.
+1. Installera NuGet-paketet Newtonsoft.Json.
+    1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
+    1. Klicka på fliken **Bläddra** och skriv ”Newtonsoft.Json” i rutan **Sök**.
+    1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
+1. Kör programmet.
+1. I prompten anger du sökvägen till en lokal avbildning och språket som ska identifieras.
+
+```csharp
+using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace CSHttpClientSample
+{
+    static class Program
+    {
+        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
+
+        // An endpoint should have a format like "https://westus.api.cognitive.microsoft.com"
+        static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
+
+        // the Batch Read method endpoint
+        static string uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+
+        static void PrintUsage()
+        {
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Cognitive Service Batch Read File Sample");
+            Console.WriteLine("Usage: ");
+            Console.WriteLine("    From Azure Cogntivie Service, retrieve your endpoint and subscription key.");
+            Console.WriteLine("    Set environment variable COMPUTER_VISION_ENDPOINT, such as \"https://westus2.api.cognitive.microsoft.com\"");
+            Console.WriteLine("    Set environment variable COMPUTER_VISION_SUBSCRIPTION_KEY, such as \"1234567890abcdef1234567890abcdef\"\n");
+            Console.WriteLine("    Run the program without argument to enter a file name and a language manually.");
+            Console.WriteLine("    Or run the program with a file name for an image file (bmp/jpg/png/tiff) or a PDF file, plus the language. The language can be \"en\" or \"es\".");
+            Console.WriteLine("       For example: dotnet Program.dll sample.jpg en");
+            Console.WriteLine();
+        }
+
+        static void Main(string[] args)
+        {
+            PrintUsage();
+
+            if (string.IsNullOrEmpty(subscriptionKey) || string.IsNullOrEmpty(endpoint))
+            {
+                Console.Error.WriteLine("Please set environment variables COMPUTER_VISION_ENDPOINT and COMPUTER_VISION_SUBSCRIPTION_KEY.");
+                return;
+            }
+
+            string imageFilePath;
+            string language;
+            if (args.Length == 0)
+            {
+                Console.Write(
+                    "Enter the path to an image (bmp/jpg/png/tiff) or PDF with text you wish to read: ");
+                imageFilePath = Console.ReadLine();
+            }
+            else
+            {
+                imageFilePath = args[0];
+            }
+
+            if (args.Length <= 1)
+            {
+                Console.Write(
+                    "Enter the language to read: \"en\" or \"es\": ");
+                language = Console.ReadLine();
+            }
+            else
+            {
+                language = args[1];
+            }
+
+            Console.WriteLine($"Endpoint:     [{endpoint}]");
+            Console.WriteLine($"Subscription: [{subscriptionKey}]");
+            Console.WriteLine($"URL:          [{uriBase}]");
+
+            if (File.Exists(imageFilePath))
+            {
+                // Call the REST API method.
+                Console.WriteLine("\nWait a moment for the results to appear.\n");
+                ReadText(imageFilePath, language).Wait();
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid file path");
+            }
+            Console.WriteLine("\nPress Enter to exit...");
+            Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Gets the text from the specified image file by using
+        /// the Computer Vision REST API.
+        /// </summary>
+        /// <param name="imageFilePath">The image file with text.</param>
+        static async Task ReadText(string imageFilePath, string language)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+
+                // Request headers.
+                client.DefaultRequestHeaders.Add(
+                    "Ocp-Apim-Subscription-Key", subscriptionKey);
+
+                var builder = new UriBuilder(uriBase);
+                builder.Port = -1;
+                var query = HttpUtility.ParseQueryString(builder.Query);
+                query["language"] = language;
+                builder.Query = query.ToString();
+                string url = builder.ToString();
+
+                HttpResponseMessage response;
+
+                // Two REST API methods are required to extract text.
+                // One method to submit the image for processing, the other method
+                // to retrieve the text found in the image.
+
+                // operationLocation stores the URI of the second REST API method,
+                // returned by the first REST API method.
+                string operationLocation;
+
+                // Reads the contents of the specified local image
+                // into a byte array.
+                byte[] byteData = GetImageAsByteArray(imageFilePath);
+
+                // Adds the byte array as an octet stream to the request body.
+                using (ByteArrayContent content = new ByteArrayContent(byteData))
+                {
+                    // This example uses the "application/octet-stream" content type.
+                    // The other content types you can use are "application/json"
+                    // and "multipart/form-data".
+                    content.Headers.ContentType =
+                        new MediaTypeHeaderValue("application/octet-stream");
+
+                    // The first REST API method, Batch Read, starts
+                    // the async process to analyze the written text in the image.
+                    response = await client.PostAsync(url, content);
+                }
+
+                // The response header for the Batch Read method contains the URI
+                // of the second method, Read Operation Result, which
+                // returns the results of the process in the response body.
+                // The Batch Read operation does not return anything in the response body.
+                if (response.IsSuccessStatusCode)
+                    operationLocation =
+                        response.Headers.GetValues("Operation-Location").FirstOrDefault();
+                else
+                {
+                    // Display the JSON error data.
+                    string errorString = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("\n\nResponse:\n{0}\n",
+                        JToken.Parse(errorString).ToString());
+                    return;
+                }
+
+                // If the first REST API method completes successfully, the second 
+                // REST API method retrieves the text written in the image.
+                //
+                // Note: The response may not be immediately available. Text
+                // recognition is an asynchronous operation that can take a variable
+                // amount of time depending on the length of the text.
+                // You may need to wait or retry this operation.
+                //
+                // This example checks once per second for ten seconds.
+                string contentString;
+                int i = 0;
+                do
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    response = await client.GetAsync(operationLocation);
+                    contentString = await response.Content.ReadAsStringAsync();
+                    ++i;
+                }
+                while (i < 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1);
+
+                if (i == 60 && contentString.IndexOf("\"status\":\"succeeded\"") == -1)
+                {
+                    Console.WriteLine("\nTimeout error.\n");
+                    return;
+                }
+
+                // Display the JSON response.
+                Console.WriteLine("\nResponse:\n\n{0}\n",
+                    JToken.Parse(contentString).ToString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n" + e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            // Open a read-only file stream for the specified file.
+            using (FileStream fileStream =
+                new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+            {
+                // Read the file's contents into a byte array.
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
+        }
+    }
+}
+```
+
+---
+
 ## <a name="examine-the-response"></a>Granska svaret
 
 Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet parsar och visar ett lyckat svar i konsolfönstret enligt följande exempel:
+
+#### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 ```json
 {
@@ -309,13 +555,85 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet 
 }
 ```
 
+#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+
+
+```json
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-02-11T16:44:36Z",
+  "lastUpdatedDateTime": "2020-02-11T16:44:36Z",
+  "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "es",
+        "angle": -0.8011,
+        "width": 401,
+        "height": 119,
+        "unit": "pixel",
+        "lines": [
+          {
+            "language": "es",
+            "boundingBox": [
+              15,
+              42,
+              372,
+              38,
+              373,
+              91,
+              15,
+              97
+            ],
+            "text": "¡Buenos días!",
+            "words": [
+              {
+                "boundingBox": [
+                  15,
+                  43,
+                  243,
+                  40,
+                  244,
+                  93,
+                  17,
+                  98
+                ],
+                "text": "¡Buenos",
+                "confidence": 0.56
+              },
+              {
+                "boundingBox": [
+                  254,
+                  40,
+                  370,
+                  38,
+                  371,
+                  91,
+                  255,
+                  93
+                ],
+                "text": "días!",
+                "confidence": 0.872
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+---
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När Visual Studio-lösningen inte längre behövs kan du ta bort den. Detta gör du genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
+Ta bort Visual Studio-lösningen när den inte längre behövs. Detta gör du genom att öppna Utforskaren, navigera till mappen där du skapade Visual Studio-lösningen och ta bort mappen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Utforska ett grundläggande Windows-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR). Skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella egenskaper, inklusive ansikten, i en bild.
 
 > [!div class="nextstepaction"]
-> [API för visuellt innehåll med C# – Självstudie](../Tutorials/CSharpTutorial.md)
+> [Självstudie med API för visuellt innehåll och C#](../Tutorials/CSharpTutorial.md)

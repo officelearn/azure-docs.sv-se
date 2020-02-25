@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie för att kopiera data till Azure Data Box Heavy Blob Storage via REST-API: er | Microsoft Docs'
+title: 'Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er'
 description: 'Lär dig hur du kopierar data till Azure Data Box Heavy Blob Storage via REST-API: er'
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606300"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560345"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Självstudie: kopiera data till Azure Data Box Blob Storage via REST-API: er  
 
@@ -22,13 +22,13 @@ Den här självstudien beskriver procedurer för att ansluta till Azure Data Box
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box Heavy
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar bör du kontrollera att:
+Innan du börjar ska du kontrollera att:
 
 1. Du har slutfört [självstudien: konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
@@ -124,7 +124,7 @@ Följ dessa steg om du vill importera `.cer`-filen till rot arkivet för en Wind
 
     ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
-4.  Klicka på **Slutför**. Ett meddelande visas där det står att importen lyckades.
+4.  Klicka på **Finish**. Ett meddelande visas där det står att importen lyckades.
 
     ![Importera certifikat med hjälp av PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
@@ -241,7 +241,7 @@ Nästa steg är att förbereda enheten för leverans.
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Förutsättningar
 > * Ansluta till Data Box Blob-lagring via *http* eller *https*
 > * Kopiera data till Data Box Heavy
 

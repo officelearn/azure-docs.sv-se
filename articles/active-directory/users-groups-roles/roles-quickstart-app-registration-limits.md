@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024396"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559053"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabb start: bevilja behörighet att skapa obegränsade app-registreringar
 
-I den här snabb starten ska du skapa en anpassad roll med behörighet att skapa ett obegränsat antal registrerade appar och sedan tilldela rollen till en användare. Den tilldelade användaren kan sedan använda Azure AD-portalen, Azure AD PowerShell, Azure AD Graph API eller Microsoft Graph API för att skapa program registreringar. Till skillnad från den inbyggda rollen program utvecklare ger den här anpassade rollen möjlighet att skapa ett obegränsat antal program registreringar. Rollen programutvecklare ger möjlighet, men det totala antalet skapade objekt är begränsat till 250 för att förhindra att [objekt kvoten för hela katalogen](directory-service-limits-restrictions.md)visas.
+I den här snabb starten ska du skapa en anpassad roll med behörighet att skapa ett obegränsat antal registrerade appar och sedan tilldela rollen till en användare. Den tilldelade användaren kan sedan använda Azure AD-portalen, Azure AD PowerShell eller Microsoft Graph API för att skapa program registreringar. Till skillnad från den inbyggda rollen program utvecklare ger den här anpassade rollen möjlighet att skapa ett obegränsat antal program registreringar. Rollen programutvecklare ger möjlighet, men det totala antalet skapade objekt är begränsat till 250 för att förhindra att [objekt kvoten för hela katalogen](directory-service-limits-restrictions.md)visas.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 

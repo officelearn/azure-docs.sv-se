@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268859"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565425"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Hur användare i din organisation kan bjuda in gäst användare till en app
 
@@ -73,7 +73,7 @@ När en app har kon figurer ATS för självbetjäning kan program ägare bjuda i
 7. Välj **Lägg till** för att automatiskt skicka inbjudan till gäst användaren. När du har skickat inbjudan läggs användarkontot automatiskt till i katalogen som gäst.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Hantering av självbetjänings program kräver viss inledande installation av en global administratör och en Azure AD-administratör. Som en del av den här installationen konfigurerar du appen för självbetjäning och tilldelar en grupp till appen som program ägaren kan hantera. Du kan också konfigurera gruppen så att alla kan begära medlemskap men kräva en grupp ägares godkännande. (Läs mer om [grupp hantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)via självbetjäning.) 
 
@@ -105,7 +105,7 @@ Hantering av självbetjänings program kräver viss inledande installation av en
 2. I navigerings fönstret väljer du **Azure Active Directory**.
 3. Under **Hantera**väljer du **företags program** > **alla program**.
 4. Leta upp och öppna appen i listan program.
-5. Under **Hantera**väljer du **enkel inloggning**och konfigurerar programmet för enkel inloggning. (Mer information finns i [hantera enkel inloggning för företags program](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
+5. Under **Hantera**väljer du **enkel inloggning**och konfigurerar programmet för enkel inloggning. (Mer information finns i [hantera enkel inloggning för företags program](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
 6. Under **Hantera** **väljer du självbetjäning och**konfigurera åtkomst till självbetjänings program. (Mer information finns i [så här använder du självbetjäning för app-åtkomst](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
 
     > [!NOTE]

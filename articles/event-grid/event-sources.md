@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 31923e1cb69eb6681367ed6ea71c10564ae6d489
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526390"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561773"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelse källor i Azure Event Grid
 
@@ -134,7 +134,7 @@ Prenumerera på Service Bus händelser för att svara på meddelanden utan en ak
 Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och borttagna händelser.
 
 >[!NOTE]
-> Endast lagrings konton av typen **StorageV2 (generell användning v2)** och **BlobStorage** -stöd för händelse integrering. **Lagring (Genral Purpose v1)** stöder *inte* integrering med event Grid.
+> Endast lagrings konton av typen **StorageV2 (generell användning v2)** och **BlobStorage** -stöd för händelse integrering. **Lagring (generell användning v1)** stöder *inte* integrering med event Grid.
 
 |Titel  |Beskrivning  |
 |---------|---------|

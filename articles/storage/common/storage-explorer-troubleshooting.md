@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931214"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561688"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
@@ -60,6 +60,17 @@ Om du inte har en roll som beviljar behörigheter för hanterings lager kan Stor
 
 Vi har för närvarande ingen RBAC-relaterad lösning för det här problemet. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
+### <a name="recommended-built-in-rbac-roles"></a>Rekommenderade inbyggda RBAC-roller
+
+Det finns flera inbyggda RBAC-roller som kan ge de behörigheter som krävs för att använda Storage Explorer. Några av dessa roller är:
+- [Ägare](/azure/role-based-access-control/built-in-roles#owner): hantera allt, inklusive åtkomst till resurser. **Obs**: den här rollen ger dig nyckel åtkomst.
+- [Deltagare](/azure/role-based-access-control/built-in-roles#contributor): hantera allt, förutom åtkomst till resurser. **Obs**: den här rollen ger dig nyckel åtkomst.
+- [Läsare](/azure/role-based-access-control/built-in-roles#reader): läsa och lista resurser.
+- [Lagrings konto deltagare](/azure/role-based-access-control/built-in-roles#storage-account-contributor): fullständig hantering av lagrings konton. **Obs**: den här rollen ger dig nyckel åtkomst.
+- [Storage BLOB data-ägare](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): fullständig åtkomst till Azure Storage BLOB-behållare och data.
+- [Storage BLOB data-deltagare](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): läsa, skriva och ta bort Azure Storage behållare och blobbar.
+- [Storage BLOB data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): läsa och lista Azure Storage behållare och blobbar.
+
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: självsignerat certifikat i certifikat kedjan (och liknande fel)
 
 Certifikat fel inträffar vanligt vis i någon av följande situationer:
@@ -93,12 +104,12 @@ Om du inte hittar några självsignerade certifikat genom att följa dessa steg 
 
 ### <a name="blank-sign-in-dialog-box"></a>Dialog rutan tom inloggning
 
-Tomma inloggnings dialog rutor inträffar oftast när Active Directory Federation Services (AD FS) (AD FS) begär Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Följ de här stegen för att göra det:
+Tomma inloggnings dialog rutor inträffar oftast när Active Directory Federation Services (AD FS) (AD FS) begär Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Det gör du genom att följa dessa steg:
 
 1. Öppna **Inställningar**i det vänstra lodräta verktygsfältet. I panelen Inställningar går du till **program** > **loggar**in. Aktivera **Använd enhets kod flödes inloggning**.
 2. Öppna dialog rutan **Anslut** (antingen via plugin-ikonen på vänster lodrätt fält eller genom att välja **Lägg till konto** på konto panelen).
 3. Välj den miljö som du vill logga in på.
-4. Välj **Logga in.**
+4. Välj **Logga**in.
 5. Följ anvisningarna på nästa panel.
 
 Om du inte kan logga in på det konto som du vill använda eftersom standard webbläsaren redan är inloggad på ett annat konto gör du något av följande:
@@ -244,20 +255,20 @@ Om du vill bevara de anslutningar som inte är skadade kan du använda följande
 
 När du har gått igenom alla dina anslutningar, för alla anslutnings namn som inte läggs tillbaka, måste du rensa deras skadade data (om det finns några) och lägga till dem igen med hjälp av standard stegen i Storage Explorer:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windows"></a>[Windows](#tab/Windows)
 
 1. På **Start** -menyn söker du efter **Autentiseringshanteraren** och öppnar den.
 2. Gå till **Windows-autentiseringsuppgifter**.
 3. Under **allmänna autentiseringsuppgifter**söker du efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckel (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 1. Öppna Spotlight (kommando + blank steg) och Sök efter **nyckel rings åtkomst**.
 2. Sök efter poster som har `<connection_type_key>/<corrupted_connection_name>` nyckel (till exempel `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. Ta bort dessa poster och Lägg till anslutningarna på nytt.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linux"></a>[Linux](#tab/Linux)
 
 Hantering av lokala autentiseringsuppgifter varierar beroende på Linux-distributionen. Om din Linux-distribution inte tillhandahåller ett inbyggt GUI-verktyg för lokal hantering av autentiseringsuppgifter, kan du installera ett verktyg från tredje part för att hantera dina lokala autentiseringsuppgifter. Du kan till exempel använda [Seahorse](https://wiki.gnome.org/Apps/Seahorse/), ett gui-verktyg med öppen källkod för att hantera lokala autentiseringsuppgifter för Linux.
 
@@ -309,7 +320,7 @@ Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
 > [!NOTE]
 > Storage Explorer version 1.7.0 och tidigare kräver .NET Core 2,0. Om du har en nyare version av .NET Core installerad måste du [uppdatera Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Storage Explorer 1.8.0 eller senare bör du kunna använda upp till .NET Core 2,2. Versioner utöver 2,2 har inte verifierats för att fungera för tillfället.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19,04](#tab/1904)
+# <a name="ubuntu-1904"></a>[Ubuntu 19,04](#tab/1904)
 
 1. Ladda ned Storage Explorer.
 2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
@@ -318,7 +329,7 @@ Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18,04](#tab/1804)
+# <a name="ubuntu-1804"></a>[Ubuntu 18,04](#tab/1804)
 
 1. Ladda ned Storage Explorer.
 2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
@@ -327,7 +338,7 @@ Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
 
-# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16,04](#tab/1604)
+# <a name="ubuntu-1604"></a>[Ubuntu 16,04](#tab/1604)
 
 1. Ladda ned Storage Explorer.
 2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
@@ -336,7 +347,7 @@ Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
    sudo apt install libgnome-keyring-dev
    ```
 
-# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14,04](#tab/1404)
+# <a name="ubuntu-1404"></a>[Ubuntu 14,04](#tab/1404)
 
 1. Ladda ned Storage Explorer.
 2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).

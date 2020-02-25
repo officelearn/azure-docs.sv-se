@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – Konfigurera brand Väggs tabeller och regler
-description: Beskriver hur du konfigurerar molnbaserade brand Väggs tabeller och regler i AVS-nätverk för att begränsa trafik på undernät och VLAN.
+title: Azure VMware-lösning av CloudSimple – konfigurera brand Väggs tabeller och regler
+description: Beskriver hur du konfigurerar privata moln brand Väggs tabeller och regler för att begränsa trafik på undernät och VLAN.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025290"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565034"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Konfigurera brand Väggs tabeller och regler för moln privata moln
+# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurera brand Väggs tabeller och regler för privata moln
 
 Med brand Väggs tabeller och associerade regler kan du ange begränsningar för trafik som ska gälla för särskilda undernät och virtuella lokala nätverk.
 
@@ -24,7 +24,7 @@ Med brand Väggs tabeller och associerade regler kan du ange begränsningar för
 
 ## <a name="add-a-new-firewall-table"></a>Lägg till en ny brand Väggs tabell
 
-1. [Gå till AVS-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
+1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
 2. Välj **brand Väggs tabeller**.
 3. Välj **skapa brand Väggs tabell**.
 
@@ -51,7 +51,7 @@ Brand Väggs regler avgör hur brand väggen behandlar vissa typer av trafik. Fl
 2. Konfigurera regeln enligt följande:
     * **Namn**. Ge regeln ett namn.
     * **Prioritet**. Tilldela regeln en prioritet. Regler med lägre tal körs först.
-    * **Trafik typ**. Välj om regeln gäller för molnets privata moln, Internet eller VPN-trafik (tillstånds lösa) eller för en offentlig IP-adress (tillstånds känslig).
+    * **Trafik typ**. Välj om regeln gäller för privata moln, Internet eller VPN-trafik (tillstånds lösa) eller för en offentlig IP-adress (tillstånds lös).
     * **Protokoll**. Välj det protokoll som omfattas av regeln (TCP, UDP eller något protokoll).
     * **Riktning**. Välj om regeln gäller inkommande eller utgående trafik. Du måste definiera separata regler för inkommande och utgående trafik.
     * **Åtgärd**. Välj den åtgärd som ska vidtas om regeln matchar (Tillåt eller neka).
@@ -68,12 +68,12 @@ Brand Väggs regler avgör hur brand väggen behandlar vissa typer av trafik. Fl
 > [!IMPORTANT]
 > Varje brand Väggs tabell kan ha upp till 10 regler för inkommande trafik och 20 utgående regler. Du kan öka gränserna genom att [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="attach-vlanssubnets"></a>Bifoga VLAN/undernät
+## <a name="attach-vlans-subnet"></a>Bifoga VLAN/undernät
 
 När du har definierat en brand Väggs tabell kan du ange de undernät som omfattas av reglerna i tabellen.
 
 1. Välj en brand Väggs tabell på sidan **nätverks** > **brand Väggs tabeller** .
 2. Öppna fliken **anslutna VLAN/undernät** .
 3. Klicka på **Anslut till ett VLAN/undernät**.
-4. Välj det privata AVS-molnet och VLAN. Det associerade under näts namnet och CIDR-blocket visas.
+4. Välj det privata molnet och VLAN. Det associerade under näts namnet och CIDR-blocket visas.
 5. Klicka på **Skicka**.

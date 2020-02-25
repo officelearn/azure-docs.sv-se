@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5013457aca99a63808077b86f5674460e83fdc41
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232983"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562147"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Begränsningar för Orchestrator-funktions kod
 
@@ -28,7 +28,7 @@ Orchestrator-funktioner kan anropa alla API: er på deras mål språk. Det är d
 
 I följande tabell visas exempel på API: er som du bör undvika eftersom de *inte* är deterministiska. Dessa begränsningar gäller endast för Orchestrator-funktioner. Andra funktions typer har inte sådana begränsningar.
 
-| API-kategori | Orsak | Lösning: |
+| API-kategori | Orsak | Lösning |
 | ------------ | ------ | ---------- |
 | Datum och tider  | API: er som returnerar aktuellt datum eller tid är icke-deterministiska eftersom det returnerade värdet är olika för varje omuppspelning. | Använd`CurrentUtcDateTime`-API i .NET eller `currentUtcDateTime` API i Java Script, som är säkert för uppspelning. |
 | GUID och UUID: er  | API: er som returnerar ett slumpmässigt GUID eller UUID är icke deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd `NewGuid` i .NET eller `newGuid` i Java Script för att på ett säkert sätt generera slumpmässiga GUID. |
@@ -38,7 +38,7 @@ I följande tabell visas exempel på API: er som du bör undvika eftersom de *in
 | Blockera API: er | Blockering av API: er som `Thread.Sleep` i .NET och liknande API: er kan orsaka prestanda-och skalnings problem för Orchestrator-funktioner och bör undvikas. I Azure Functions förbruknings planen kan de även leda till onödiga körnings avgifter. | Använd alternativ för att blockera API: er när de är tillgängliga. Använd till exempel `CreateTimer` för att införa fördröjningar i Orchestration-körningen. Fördröjda [timer](durable-functions-timers.md) -fördröjningar räknas inte mot körnings tiden för en Orchestrator-funktion. |
 | Asynkrona API: er | Orchestrator-kod får aldrig starta en asynkron åtgärd förutom att använda `IDurableOrchestrationContext` API eller `context.df` objektets API. Du kan till exempel inte använda `Task.Run`, `Task.Delay`och `HttpClient.SendAsync` i .NET eller `setTimeout` och `setInterval` i Java Script. Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enda tråd. Den kan inte samverka med andra trådar som kan anropas av andra asynkrona API: er. | En Orchestrator-funktion bör endast göra varaktiga asynkrona anrop. Aktivitets funktioner bör göra andra asynkrona API-anrop. |
 | Asynkrona JavaScript-funktioner | Du kan inte deklarera JavaScript Orchestrator-funktioner som `async` eftersom Node. js-körningen inte garanterar att asynkrona funktioner är deterministiska. | Deklarera JavaScript Orchestrator-funktioner som synkrona Generator funktioner. |
-| Tråd kopplings-API: er | Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enskild tråd och kan inte samverka med andra trådar. Att introducera nya trådar i en Dirigerings körning kan resultera i icke deterministisk körning eller död lägen. | Orchestrator-funktioner bör nästan aldrig använda tråd-API: er. Om dessa API: er är nödvändiga begränsar du deras användning till endast aktivitets funktioner. |
+| Tråd kopplings-API: er | Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enskild tråd och kan inte samverka med andra trådar. Att introducera nya trådar i en Dirigerings körning kan resultera i icke deterministisk körning eller död lägen. | Orchestrator-funktioner bör nästan aldrig använda tråd-API: er. Undvik till exempel att använda `ConfigureAwait(continueOnCapturedContext: false)`i .NET. Detta säkerställer att uppgifts fortsättningen körs på den ursprungliga `SynchronizationContext`i Orchestrator-funktionen. Om dessa API: er är nödvändiga begränsar du deras användning till endast aktivitets funktioner. |
 | Statiska variabler | Undvik att använda icke-konstant statiska variabler i Orchestrator-funktioner eftersom deras värden kan ändras över tid, vilket leder till icke-deterministisk körnings beteende. | Använd konstanter eller begränsa användningen av statiska variabler till aktivitets funktioner. |
 | Miljövariabler | Använd inte miljövariabler i Orchestrator-funktioner. Deras värden kan ändras över tid, vilket leder till icke-deterministisk körnings beteende. | Miljövariabler får endast refereras från i klient funktioner eller aktivitets funktioner. |
 | Oändliga slingor | Undvik oändlig loop i Orchestrator-funktioner. Eftersom den varaktiga aktivitets ramverket sparar körnings historiken när Orchestration-funktionen fortskrider, kan en oändlig loop orsaka att en Orchestrator-instans tar slut på minne. | För oändliga upprepnings scenarier använder du API: er som `ContinueAsNew` i .NET eller `continueAsNew` i Java Script för att starta om funktions körningen och ta bort tidigare körnings historik. |

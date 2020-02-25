@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371351"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558890"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -26,7 +26,7 @@ Med Azure Firewall kan du kontrollera åtkomsten till utgående nätverk från e
 
 Nätverkstrafiken måste följa konfigurerade brandväggsregler när du vidarebefordrar den till brandväggen som standardgateway för undernätet.
 
-I den här självstudien skapar du ett förenklat virtuellt nätverk med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och eker-modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) , där brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
+I den här självstudien skapar du ett förenklat virtuellt nätverk med tre undernät för enkel distribution. För produktions distributioner rekommenderas en [nav-och ekrars modell](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Brand väggen finns i ett eget VNet. Arbets belastnings servrarna finns i peer-virtuella nätverk i samma region med ett eller flera undernät.
 
 * **AzureFirewallSubnet** – brandväggen ligger i det här undernätet.
 * **Workload-SN** – arbetsbelastningsservern ligger i det här undernätet. Det här undernätets nätverkstrafik går genom brandväggen.
@@ -60,7 +60,7 @@ Resursgruppen innehåller alla resurser för den här självstudien.
 2. På Azure Portal-menyn väljer du **resurs grupper** eller söker efter och väljer *resurs grupper* från vilken sida som helst. Välj sedan **Lägg till**.
 3. För **resurs grupp namn**anger du *test-VB-RG*.
 4. I fältet **Prenumeration** väljer du din prenumeration.
-5. I fältet **Resursgruppsplats** väljer du en plats. Alla efterföljande resurser du skapar måste finnas på samma plats.
+5. I fältet **Resursgruppsplats** väljer du en plats. Alla andra resurser som du skapar måste finnas på samma plats.
 6. Välj **Skapa**.
 
 ### <a name="create-a-vnet"></a>Skapa ett virtuellt nätverk
@@ -105,10 +105,10 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
    |Inställning  |Värde  |
    |---------|---------|
    |Resursgrupp     |**Test-VB-RG**|
-   |Namn på virtuell dator     |**SRV-hoppa**|
+   |Virtuellt datornamn     |**SRV-hoppa**|
    |Region     |Samma som föregående|
    |Administratörens användar namn     |**azureuser**|
-   |lösenord     |**Azure123456!**|
+   |Lösenord     |**Azure123456!**|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)** .
@@ -193,10 +193,11 @@ Detta är den program regel som tillåter utgående åtkomst till www.google.com
 6. I fältet **Prioritet** skriver du **200**.
 7. I fältet **Åtgärd** väljer du **Tillåt**.
 8. Under **regler**, **mål-FQDN**, som **namn**, skriver du **Allow-Google**.
-9. I fältet **Källadresser** skriver du **10.0.2.0/24**.
-10. I fältet **Protokoll: port** skriver du **http, https**.
-11. För **mål-FQDN**skriver du **www.Google.com**
-12. Välj **Lägg till**.
+9. I **typ av källa**väljer du **IP-adress**.
+10. För **källa**skriver du **10.0.2.0/24**.
+11. I fältet **Protokoll: port** skriver du **http, https**.
+12. För **mål-FQDN**skriver du **www.Google.com**
+13. Välj **Lägg till**.
 
 Azure Firewall innehåller en inbyggd regelsamling för fullständiga domännamn för mål (FQDN) i infrastrukturen som tillåts som standard. Dessa FQDN är specifika för plattformen och kan inte användas för andra ändamål. Mer information finns i [Infrastruktur-FQDN](infrastructure-fqdns.md).
 
@@ -209,10 +210,11 @@ Det här är nätverksregel som tillåter utgående åtkomst till två IP-adress
 3. I fältet **Namn** skriver du **Net-Coll01**.
 4. I fältet **Prioritet** skriver du **200**.
 5. I fältet **Åtgärd** väljer du **Tillåt**.
-6. Under **regler**, för **namn**, skriver du **Allow-DNS**.
+6. Under **regler**, **IP-adresser**, för **namn**, skriver du **Allow-DNS**.
 7. I fältet **Protokoll** väljer du **UDP**.
-8. I fältet **Källadresser** skriver du **10.0.2.0/24**.
-9. I fältet Måladress skriver du **209.244.0.3,209.244.0.4**
+9. I **typ av källa**väljer du **IP-adress**.
+1. För **källa**skriver du **10.0.2.0/24**.
+2. För **mål adress**skriver du **209.244.0.3, 209.244.0.4**
 
    Detta är offentliga DNS-servrar som hanteras av CenturyLink.
 1. I fältet **Målportar** skriver du **53**.

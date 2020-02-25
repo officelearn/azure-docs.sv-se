@@ -3,21 +3,21 @@ title: Ljud innehålls skapande – tal tjänst
 titleSuffix: Azure Cognitive Services
 description: Att skapa ljud innehåll är ett online verktyg som gör att du kan anpassa och finjustera Microsofts text till tal-utdata för dina appar och produkter.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806213"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561042"
 ---
-# <a name="audio-content-creation"></a>Skapa ljudinnehåll
+# <a name="improve-synthesis-with-audio-content-creation"></a>Förbättra syntesen med att skapa ljud innehåll
 
 Att [skapa ljud innehåll](https://aka.ms/audiocontentcreation) är ett online verktyg som gör att du kan anpassa och finjustera Microsofts text till tal-utdata för dina appar och produkter. Du kan använda det här verktyget för att finjustera offentliga och anpassade röster för mer exakta naturliga uttryck och hantera dina utdata i molnet.
 
@@ -104,7 +104,7 @@ När du har granskat din ljud uppspelning och är nöjd med justeringen och just
 | våg | riff-16khz-bitarsläge-mono-PCM | riff-24khz-bitarsläge-mono-PCM |
 | MP3 | Audio-16khz-128kbitrate-mono-MP3 | Audio-24khz-160kbitrate-mono-MP3 |
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Långt ljud-API](https://aka.ms/long-audio-api)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/21/2020
 ms.author: nitinme
-ms.openlocfilehash: c0e1cc2fc1b3d4aed82c5442d2d3e23a1272fab5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d6d9cb4dda93523b1136c8cc4cd307ae82c8b674
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805951"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560941"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Taligenkänning i Bing till tal tjänsten
 
@@ -37,7 +37,7 @@ En prenumerations nyckel för en enskild röst tjänst ger åtkomst till följan
 
 Tal tjänsten liknar Taligenkänning i Bing, med följande skillnader.
 
-Funktion | Bing-taligenkänning | Tal tjänst | Information
+Funktion | Bing-taligenkänning | Tjänst för taligenkänning | Detaljer
 -|-|-|-
 C++ SDK | : heavy_minus_sign: | :heavy_check_mark: | Speech service stöder Windows och Linux.
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Tal tjänsten stöder Android-och tal enheter.
@@ -47,12 +47,12 @@ Partiella eller interimistiska resultat | :heavy_check_mark: | :heavy_check_mark
 Anpassade tal modeller | :heavy_check_mark: | :heavy_check_mark: | Taligenkänning i Bing kräver en separat Custom Speech prenumeration.
 Anpassade röst teckensnitt | :heavy_check_mark: | :heavy_check_mark: | Taligenkänning i Bing kräver en separat anpassad röst prenumeration.
 24-KHz-röster | : heavy_minus_sign: | :heavy_check_mark:
-Igenkänning av talavsikt | Kräver separat LUIS-API-anrop | Integrerad (med SDK) |  Du kan använda en LUIS-nyckel med tal tjänsten.
+Igenkänning av tal avsikt | Kräver separat LUIS-API-anrop | Integrerad (med SDK) |  Du kan använda en LUIS-nyckel med tal tjänsten.
 Enkel avsikts igenkänning | : heavy_minus_sign: | :heavy_check_mark:
 Batch-avskrift av långa ljudfiler | : heavy_minus_sign: | :heavy_check_mark:
-Igenkänningsläge | Manuell via slut punkts-URI | Automatisk | Igenkännings läget är inte tillgängligt i tal tjänsten.
-Slut punkts plats | Globalt | Regional | Regionala slut punkter förbättrar svars tiden.
-REST API:er | :heavy_check_mark: | :heavy_check_mark: | Tal service REST-API: er är kompatibla med Taligenkänning i Bing (annan slut punkt). REST-API: er stöder text-till-tal och begränsade tal-till-text-funktioner.
+Igenkänningsläge | Manuell via slut punkts-URI | Automatiskt | Igenkännings läget är inte tillgängligt i tal tjänsten.
+Slut punkts plats | Global | Regional | Regionala slut punkter förbättrar svars tiden.
+REST-API:er | :heavy_check_mark: | :heavy_check_mark: | Tal service REST-API: er är kompatibla med Taligenkänning i Bing (annan slut punkt). REST-API: er stöder text-till-tal och begränsade tal-till-text-funktioner.
 WebSockets-protokoll | :heavy_check_mark: | :heavy_check_mark: | Tal service WebSockets-API: t är kompatibelt med Taligenkänning i Bing (annan slut punkt). Migrera till tal-SDK om möjligt, för att förenkla koden.
 API-anrop från tjänst till tjänst | :heavy_check_mark: | : heavy_minus_sign: | Tillhandahålls i Taligenkänning i Bing via C# tjänst biblioteket.
 SDK för öppen källkod | :heavy_check_mark: | : heavy_minus_sign: |
@@ -61,7 +61,7 @@ Tal tjänsten använder en tidsbaserad pris modell (i stället för en transakti
 
 ## <a name="migration-strategies"></a>Migreringsstrategier
 
-Om du eller din organisation har program som är i utvecklings-eller produktions miljön som använder en API för Bing-taligenkänning bör du uppdatera dem så att de använder röst tjänsten så snart som möjligt. I [dokumentationen för tal tjänsten](index.md) finns information om tillgängliga SDK: er, kod exempel och självstudier.
+Om du eller din organisation har program som är i utvecklings-eller produktions miljön som använder en API för Bing-taligenkänning bör du uppdatera dem så att de använder röst tjänsten så snart som möjligt. I [dokumentationen för tal tjänsten](index.yml) finns information om tillgängliga SDK: er, kod exempel och självstudier.
 
 Tal service [REST-API: er](rest-apis.md) är kompatibla med taligenkänning i Bing-API: er. Om du för närvarande använder Taligenkänning i Bing REST-API: er behöver du bara ändra REST-slutpunkten och byta till en prenumerations nyckel för röst tjänst.
 
@@ -77,7 +77,7 @@ Om programmet använder anslutningar med lång livs längd och det inte går att
 
 Kom igång med talet SDK:
 
-1. Ladda ned den [tal SDK](speech-sdk.md).
+1. Hämta [tal-SDK: n](speech-sdk.md).
 1. Arbeta via [Start guiderna](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) för tal service och [självstudier](how-to-recognize-intents-from-speech-csharp.md). Titta även på [kod exemplen](samples.md) för att få erfarenhet av de nya API: erna.
 1. Uppdatera programmet för att använda tal tjänsten.
 
@@ -92,7 +92,7 @@ För tal service, SDK och API-stöd går du till [support Sidan](support.md)för
 * [Prova röst tjänsten kostnads fritt](get-started.md)
 * [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Viktig information om Speech service](releasenotes.md)
 * [Vad är tal tjänsten](overview.md)
 * [Dokumentation om Speech service och Speech SDK](speech-sdk.md#get-the-sdk)

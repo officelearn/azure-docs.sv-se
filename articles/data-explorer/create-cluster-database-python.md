@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av python
+title: Skapa ett Azure Datautforskaren-kluster & DB med python
 description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp av python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 8425058c9f6ac5b90c37a99f749a810672b406fc
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444238"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560515"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av python
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portalen](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -87,7 +87,7 @@ För att kunna köra exemplen i den här artikeln behöver vi ett Azure AD-progr
    | cluster_name | *mykustocluster* | Önskat namn på klustret.|
    | sku_name | *Standard_D13_v2* | Den SKU som ska användas för klustret. |
    | nivå | *Standard* | SKU-nivån. |
-   | capacity | *många* | Antalet instanser av klustret. |
+   | kapacitet | *många* | Antalet instanser av klustret. |
    | resource_group_name | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
 
     > [!NOTE]

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ce791ee3536b9ab07605787209e59b7e5d60126
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f4eb09ab7fa31af5edf14b113a6a88e08df2d115
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74026299"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562266"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Förstå hur flera Azure Active Directory klienter interagerar
 
@@ -46,7 +46,7 @@ Du kan konfigurera varje Azure AD-klient oberoende för att hämta data som synk
 Om du vill lägga till en Azure AD-klient i Azure Portal loggar du in på [Azure Portal](https://portal.azure.com) med ett konto som är en global Azure AD-administratör och väljer sedan **nytt**till vänster.
 
 > [!NOTE]
-> Till skillnad från andra Azure-resurser är klient organisationerna inte underordnade resurser till en Azure-prenumeration. Om din Azure-prenumeration har avbrutits eller har upphört att gälla, kan du fortfarande komma åt dina klient data med hjälp av Azure PowerShell, Azure-Graph API eller Microsoft 365 administrations centret. Du kan också [associera en annan prenumeration med klienten](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> Till skillnad från andra Azure-resurser är klient organisationerna inte underordnade resurser till en Azure-prenumeration. Om din Azure-prenumeration har avbrutits eller har upphört att gälla, kan du fortfarande komma åt dina klient data med hjälp av Azure PowerShell, Microsoft Graph API eller Microsoft 365 administrations Center. Du kan också [associera en annan prenumeration med klienten](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Nästa steg

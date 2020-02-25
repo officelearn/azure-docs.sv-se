@@ -1,24 +1,24 @@
 ---
-title: 'Visualisera data från Azure Data Explorer med ett importerade fråga i Power BI '
-description: 'I den här artikeln får du lära dig hur du använder en av de tre alternativen för att visualisera data i Power BI: importera en fråga från Azure Data Explorer.'
+title: Visualisera data från Azure Datautforskaren med en Power BI importerad fråga
+description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för visualisering av data i Power BI: importera en fråga från Azure Datautforskaren.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806411"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562487"
 ---
-# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualisera data med hjälp av en fråga som importerats till Power BI
+# <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualisera data med en fråga som importer ATS till Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen.
 
-Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. Den här artikeln visar hur du importerar en fråga så att du kan hämta data och visualisera den i en Power BI-rapport.
+Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. Den här artikeln visar hur du importerar en fråga så att du kan hämta data och visualisera dem i en Power BI rapport.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -78,8 +78,8 @@ Först skapar du en fråga i Azure Data Explorer-skrivbordsappen och exporterar 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver den rapport som du skapade i den här artikeln kan du ta bort filen Power BI Desktop (.pbix).
+Om du inte längre behöver rapporten som du skapade för den här artikeln tar du bort Power BI Desktop-filen (. pbix).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Visualisera data med Azure Data Explorer-kopplingen för Power BI](power-bi-connector.md)
+[Visualisera data med Azure Datautforskaren Connector för Power BI](power-bi-connector.md)

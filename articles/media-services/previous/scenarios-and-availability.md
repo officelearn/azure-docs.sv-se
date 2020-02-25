@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843947"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564985"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -33,11 +33,11 @@ Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live
 
 ## <a name="overview"></a>Översikt
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har ett konto kan du skapa ett kostnadsfritt provkonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
@@ -111,19 +111,19 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 3. Förhandsgranska din liveuppspelning.
 4. Leverera innehållet via vanliga strömningsprotokoll (t.ex. MPEG DASH, Smooth, HLS) direkt till dina kunder eller till ett nätverk för innehållsleverans för vidare distribution.
 
-    ELLER
+    -eller-
 
     Spela in och lagra det infogade innehållet för att kunna strömma senare (Video-on-Demand).
 
 Vid liveuppspelning kan du välja någon av följande vägar:
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot direktsänd ström med flera bithastigheter från lokala kodare (genomströmning)
 
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
 
 ![Live-arbetsflöde](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
-Mer information finns i [Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
+Mer information finns i [Arbeta med kanaler som tar emot liveström i flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services
 
@@ -137,7 +137,7 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 
 ## <a name="consuming-content"></a>Konsumera innehåll
 
-Azure Media Services innehåller de verktyg du behöver för att skapa innehållsrika och dynamiska klientprogram för uppspelare för de flesta plattformar, bland annat: iOS-enheter, Android-enheter, Windows, Windows Phone, Xbox och digitalboxar. Följande avsnitt innehåller länkar till SDK:er och spelarramverk som du kan använda för att utveckla egna klientprogram som kan använda strömmande media från Media Services. Mer information finns i [Developing video player applications](media-services-develop-video-players.md) (Utveckla videospelarprogram)
+Azure Media Services innehåller de verktyg du behöver för att skapa innehållsrika och dynamiska klientprogram för uppspelare för de flesta plattformar, bland annat: iOS-enheter, Android-enheter, Windows, Windows Phone, Xbox och digitalboxar. 
 
 ## <a name="enabling-azure-cdn"></a>Aktivera Azure CDN
 
@@ -179,8 +179,8 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 |Namn|Status|Datacenter
 |---|---|---|
-|Standard|Allmänt tillgänglig|Alla|
-|Premium|Allmänt tillgänglig|Alla|
+|Standard|Allmän tillgänglighet (GA)|Alla|
+|Premium|Allmän tillgänglighet (GA)|Alla|
 
 ### <a name="live-encoding"></a>Live Encoding
 
@@ -196,8 +196,8 @@ AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media En
 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
-|Media Encoder Standard|Allmänt tillgänglig|Alla|
-|Arbetsflöde för Media Encoder Premium|Allmänt tillgänglig|Alla utom Kina|
+|Media Encoder Standard|Allmän tillgänglighet (GA)|Alla|
+|Arbetsflöde för Media Encoder Premium|Allmän tillgänglighet (GA)|Alla utom Kina|
 
 ### <a name="analytics-media-processors"></a>Mediebearbetare för analys
 
@@ -208,10 +208,10 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 |Namn på mediebearbetare|Status|Datacenter
 |---|---|---|
 |Azure Media Face Detector|Förhandsversion|Alla|
-|Azure Media Indexer|Allmänt tillgänglig|Alla|
+|Azure Media Indexer|Allmän tillgänglighet (GA)|Alla|
 |Azure Media Motion Detector|Förhandsversion|Alla|
 |Azure Media OCR|Förhandsversion|Alla|
-|Azure Media Redactor|Allmänt tillgänglig|Alla|
+|Azure Media Redactor|Allmän tillgänglighet (GA)|Alla|
 |Azure Media Video Thumbnails|Förhandsversion|Alla|
 
 ### <a name="protection"></a>Skydd
@@ -222,11 +222,11 @@ Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filer
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
-|Lagring|Allmänt tillgänglig|Alla|
-|128-bitars AES-nycklar|Allmänt tillgänglig|Alla|
-|Fairplay|Allmänt tillgänglig|Alla|
-|PlayReady|Allmänt tillgänglig|Alla|
-|Widevine|Allmänt tillgänglig|Alla utom Tyskland, federala myndigheter och Kina.
+|Storage|Allmän tillgänglighet (GA)|Alla|
+|128-bitars AES-nycklar|Allmän tillgänglighet (GA)|Alla|
+|Fairplay|Allmän tillgänglighet (GA)|Alla|
+|PlayReady|Allmän tillgänglighet (GA)|Alla|
+|Widevine|Allmän tillgänglighet (GA)|Alla utom Tyskland, federala myndigheter och Kina.
 
 ### <a name="reserved-units-rus"></a>Reserverade enheter (RU:er)
 
@@ -248,9 +248,9 @@ Mer information finns i avsnittet om [skalning](#scaling).
 
 |Namn på RU-typ|Status|Datacenter
 |---|---|---|
-|S1|Allmänt tillgänglig|Alla|
-|S2|Allmänt tillgänglig|Alla utom Brasilien, södra och Indien, västra|
-|S3|Allmänt tillgänglig|Allt utom Indien, västra|
+|S1|Allmän tillgänglighet (GA)|Alla|
+|S2|Allmän tillgänglighet (GA)|Alla utom Brasilien, södra och Indien, västra|
+|S3|Allmän tillgänglighet (GA)|Allt utom Indien, västra|
 
 ## <a name="additional-notes"></a>Ytterligare information
 

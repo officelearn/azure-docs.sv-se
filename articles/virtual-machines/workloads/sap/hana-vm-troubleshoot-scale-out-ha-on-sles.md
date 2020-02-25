@@ -1,5 +1,5 @@
 ---
-title: Felsök SAP HANA 2,0 HSR-pacemaker-installation med SLES 12 SP3 på Azure Virtual Machines | Microsoft Docs
+title: SAP HANA skalbar HSR – pacemaker med SLES på fel sökning av virtuella Azure-datorer | Microsoft Docs
 description: Guide för att kontrol lera och felsöka en komplex SAP HANA konfiguration med hög tillgänglighet baserat på SAP HANA system replikering (HSR) och pacemaker på SLES 12 SP3 som körs på virtuella Azure-datorer
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 299fba8a082f19f17ab581a6ac2bfac9fd3f8cf1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb90bfff72f41d8d7ccc34d3ad6dd0e9206bb88e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099666"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566241"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifiera och Felsök SAP HANA skalnings-och hög tillgänglighets installation på SLES 12 SP3 
 
@@ -472,7 +472,7 @@ När allt är korrekt konfigurerat kan du köra följande kommando på varje nod
 systemctl status pacemaker
 </code></pre>
 
-Den översta delen av utdata bör se ut som i följande exempel. Det är viktigt att statusen efter **aktiv** visas som inläst och **aktiv (körs)** . Status efter inläsning måste visas som **aktive rad**.
+Den översta delen av utdata bör se ut som i följande exempel. Det är viktigt att statusen efter **aktiv** visas som **inläst** och **aktiv (körs)** . Status efter **inläsning** måste visas som **aktive rad**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -492,7 +492,7 @@ Den översta delen av utdata bör se ut som i följande exempel. Det är viktigt
            └─4504 /usr/lib/pacemaker/crmd
 </code></pre>
 
-Om inställningen fortfarande är inaktive **rad**kör du följande kommando:
+Om inställningen fortfarande är **inaktive rad**kör du följande kommando:
 
 <pre><code>
 systemctl enable pacemaker
@@ -538,7 +538,7 @@ En viktig funktion i pacemaker är underhålls läge. I det här läget kan du g
 crm configure property maintenance-mode=true
 </code></pre>
 
-När du kontrollerar med **CRM-status**visas ett meddelande i utdata om att alla resurser är markeradesom ohanterade. I det här läget reagerar inte klustret på några ändringar som att starta eller stoppa SAP HANA.
+När du kontrollerar med **CRM-status**visas ett meddelande i utdata om att alla resurser är markerade som **ohanterade**. I det här läget reagerar inte klustret på några ändringar som att starta eller stoppa SAP HANA.
 Följande exempel visar utdata från kommandot CRM- **status** när klustret är i underhålls läge:
 
 <pre><code>
@@ -600,7 +600,7 @@ crm configure show
 
 
 
-Efter fel i kluster resurser visar CRM- **status** kommandot en lista över misslyckade **åtgärder**. Se följande exempel på följande utdata:
+Efter fel i kluster resurser visar CRM- **status** kommandot en lista över **misslyckade åtgärder**. Se följande exempel på följande utdata:
 
 
 <pre><code>
@@ -656,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Redundans eller övertag Ande
 
-Som det beskrivs i [viktiga anteckningar](#important-notes)bör du inte använda en vanlig standard avstängning för att testa kluster växling vid fel eller SAP HANA HSR övertag. I stället rekommenderar vi att du utlöser en kernel-panik, tvingar fram en resurstilldelning eller kan stänga av alla nätverk på OS-nivån för en virtuell dator. En annan metod är **kommandot \<väntar\> på CRM-noden** . Se [SUSE-dokumentet][sles-12-ha-paper]. 
+Som det beskrivs i [viktiga anteckningar](#important-notes)bör du inte använda en vanlig standard avstängning för att testa kluster växling vid fel eller SAP HANA HSR övertag. I stället rekommenderar vi att du utlöser en kernel-panik, tvingar fram en resurstilldelning eller kan stänga av alla nätverk på OS-nivån för en virtuell dator. En annan metod är **CRM-\<nod\> standby** -kommandot. Se [SUSE-dokumentet][sles-12-ha-paper]. 
 
 Följande tre exempel kommandon kan framtvinga en redundanskluster:
 
@@ -682,7 +682,7 @@ Det hjälper också att titta på den SAP HANA landskaps status som kommer från
 
 Det finns vissa försök att undvika onödig redundans. Klustret agerar bara om status ändras från **OK**, returnera värde **4**, till **fel**, returnera värde **1**. Så det är korrekt om utdata från **SAPHanaSR-showAttr** visar en virtuell dator med statusen **offline**. Men det finns ingen aktivitet som ännu inte kan växla mellan primär och sekundär. Ingen kluster aktivitet utlöses så länge SAP HANA inte returnerar ett fel.
 
-Du kan övervaka SAP HANA landskaps hälso status som användare  **\<Hana sid\>-ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
+Du kan övervaka SAP HANA landskaps hälso status som användare **\<Hana SID\>ADM** genom att anropa SAP python-skriptet enligt följande. Du kan behöva anpassa sökvägen:
 
 <pre><code>
 watch python /hana/shared/HSO/exe/linuxx86_64/HDB_2.00.032.00.1533114046_eeaf4723ec52ed3935ae0dc9769c9411ed73fec5/python_support/landscapeHostConfiguration.py
@@ -820,9 +820,9 @@ I slutet av underhålls arbetet stoppar du klustrets underhålls läge som visas
 
 
 
-## <a name="hb_report-to-collect-log-files"></a>hb_report för att samla in loggfiler
+## <a name="hb_report-to-collect-log-files"></a>hb_report att samla in loggfiler
 
-För att analysera problem med pacemaker-kluster är det till hjälp och kan också begäras av SUSE support för att köra **hb_report** -verktyget. Den samlar in alla viktiga loggfiler som du behöver för att analysera vad som hände. Det här exempel anropet använder en start-och slut tid där en angiven incident inträffade. Se även [viktiga anteckningar](#important-notes):
+För att analysera problem med pacemaker-kluster är det till hjälp och kan även begäras av SUSE support för att köra **hb_report** -verktyget. Den samlar in alla viktiga loggfiler som du behöver för att analysera vad som hände. Det här exempel anropet använder en start-och slut tid där en angiven incident inträffade. Se även [viktiga anteckningar](#important-notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
@@ -945,7 +945,7 @@ listeninterface = .internal
 ## <a name="hawk"></a>Hawk
 
 Kluster lösningen tillhandahåller ett webb läsar gränssnitt som ger ett användar gränssnitt för användare som föredrar menyer och grafik för att få alla kommandon på Shell-nivå.
-Om du vill använda webb läsar **\<gränssnittet\>** ersätter du noden med en faktisk SAP HANA-nod i följande URL. Ange sedan autentiseringsuppgifterna för klustret (användar **kluster**):
+Om du vill använda webb läsar gränssnittet ersätter du **\<node\>** med en faktisk SAP HANA-nod i följande URL. Ange sedan autentiseringsuppgifterna för klustret (användar **kluster**):
 
 <pre><code>
 https://&ltnode&gt:7630
@@ -963,13 +963,13 @@ Det här exemplet visar de plats begränsningar som orsakas av en migrering av e
 ![Begränsningar för Hawk-lista](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Du kan också ladda upp **hb_report** -utdata i Hawk under **Historik**, som visas på följande sätt. Se hb_report för att samla in loggfiler: 
+Du kan också ladda upp **hb_report** utdata i Hawk under **Historik**, som visas på följande sätt. Se hb_report för att samla in loggfiler: 
 
-![Hawk Ladda upp hb_report-utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
+![Hawk Ladda upp hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-Med **Historik Utforskaren**kan du gå igenom alla kluster över gångar som ingår i **hb_report** -utdata:
+Med **Historik Utforskaren**kan du gå igenom alla kluster över gångar som ingår i **hb_report** utdata:
 
-![Hawk-övergångar i hb_report-utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
+![Hawk-över gångar i hb_report utdata](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
 Den sista skärm bilden visar **detalj** avsnittet i en enda över gång. Klustret reagerar på en primär huvudnods krasch, Node **HSO-Hana-VM-S1-0**. Nu marknadsförs den sekundära noden som den nya Master- **HSO-Hana-VM-S2-0**:
 

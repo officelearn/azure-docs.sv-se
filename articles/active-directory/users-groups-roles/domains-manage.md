@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844507"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559241"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
 
@@ -67,7 +67,7 @@ Du måste ändra eller ta bort alla sådana resurser i Azure AD-katalogen innan 
 
 ### <a name="forcedelete-option"></a>Alternativet ForceDelete
 
-Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet som "user@contoso.com" till det initiala standard domän namnet som "user@contoso.onmicrosoft.com." 
+Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.portal.azure.com) eller använda [Microsoft Graph API](https://docs.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-beta). Dessa alternativ använder en asynkron åtgärd och uppdaterar alla referenser från det anpassade domän namnet, till exempel "user@contoso.com" till det initiala standard domän namnet som "user@contoso.onmicrosoft.com". 
 
 Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange mail-aktiverade säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
@@ -87,14 +87,14 @@ Ett fel returneras när:
 
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**F: Varför fungerar inte domän borttagningen med ett fel som säger att jag har Exchange-hanterade grupper på det här domän namnet?** <br>
-**S:** Idag tillhandahålls vissa grupper som e-postaktiverade säkerhets grupper och distribuerade listor av Exchange och måste rensas manuellt i [administrations Center för Exchange (UK)](https://outlook.office365.com/ecp/). Det kan finnas en kvarvarande ProxyAddresses som förlitar sig på det anpassade domän namnet och måste uppdateras manuellt till ett annat domän namn. 
+**F: Varför går det inte att ta bort domänen med ett fel som säger att jag har Exchange-hanterade grupper på det här domän namnet?** <br>
+**A:** Idag tillhandahålls vissa grupper som e-postaktiverade säkerhets grupper och distribuerade listor av Exchange och måste rensas manuellt i [administrations Center för Exchange (UK)](https://outlook.office365.com/ecp/). Det kan finnas en kvarvarande ProxyAddresses som förlitar sig på det anpassade domän namnet och måste uppdateras manuellt till ett annat domän namn. 
 
-**F: Jag är inloggad som\@administratör contoso.com men jag kan inte ta bort domän namnet "contoso.com"?**<br>
-**S:** Du kan inte referera till det anpassade domän namn som du försöker ta bort i ditt användar konto namn. Se till att det globala administratörs kontot använder det initiala standard domän namnet (. onmicrosoft.com) admin@contoso.onmicrosoft.com, till exempel. Logga in med ett annat globalt administratörs konto som till admin@contoso.onmicrosoft.com exempel eller ett annat anpassat domän namn, till exempel "fabrikam.com" admin@fabrikam.comdär kontot finns.
+**F: Jag är inloggad som administratör\@contoso.com men jag kan inte ta bort domän namnet "contoso.com"?**<br>
+**A:** Du kan inte referera till det anpassade domän namn som du försöker ta bort i ditt användar konto namn. Se till att det globala administratörs kontot använder det initiala standard domän namnet (. onmicrosoft.com), till exempel admin@contoso.onmicrosoft.com. Logga in med ett annat globalt administratörs konto som admin@contoso.onmicrosoft.com eller ett annat anpassat domän namn som "fabrikam.com" där kontot är admin@fabrikam.com.
 
-**F: Jag klickade på knappen Ta bort domän `In Progress` och se status för borttagnings åtgärden. Hur lång tid tar det? Vad händer om det Miss lyckas?**<br>
-**S:** Åtgärden ta bort domän är en asynkron bakgrunds aktivitet som byter namn på alla referenser till domän namnet. Den bör slutföras inom en minut eller två. Om det inte går att ta bort domänen kontrollerar du att du inte har:
+**F: Jag klickade på knappen Ta bort domän och se `In Progress` status för borttagnings åtgärden. Hur lång tid tar det? Vad händer om det Miss lyckas?**<br>
+**A:** Åtgärden ta bort domän är en asynkron bakgrunds aktivitet som byter namn på alla referenser till domän namnet. Den bör slutföras inom en minut eller två. Om det inte går att ta bort domänen kontrollerar du att du inte har:
 
 * Appar som kon figurer ATS på domän namnet med appIdentifierURI
 * Alla e-postaktiverade grupper som refererar till det anpassade domän namnet
@@ -102,12 +102,12 @@ Ett fel returneras när:
 
 Om du upptäcker att något av villkoren inte har uppfyllts kan du rensa referenserna manuellt och försöka ta bort domänen igen.
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Använd PowerShell eller Graph API för att hantera domän namn
+## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Använd PowerShell eller Microsoft Graph API för att hantera domän namn
 
-De flesta hanterings aktiviteter för domän namn i Azure Active Directory kan också slutföras med Microsoft PowerShell eller program mässigt med hjälp av Azure AD Graph API.
+De flesta hanterings aktiviteter för domän namn i Azure Active Directory kan också slutföras med hjälp av Microsoft PowerShell eller program mässigt med hjälp av Microsoft Graph API.
 
 * [Använda PowerShell för att hantera domän namn i Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Använda Graph API för att hantera domän namn i Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Domän resurs typ](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## <a name="next-steps"></a>Nästa steg
 

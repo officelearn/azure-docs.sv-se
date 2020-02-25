@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – Konfigurera vCenter-identitets källor i molnets privata moln
-description: Beskriver hur du konfigurerar ditt molns privata moln vCenter för att autentisera med Active Directory för VMware-administratörer att komma åt vCenter
+title: Azure VMware-lösning av CloudSimple – Ställ in vCenter Identity Sources i privat moln
+description: Beskriver hur du konfigurerar ditt privata moln vCenter för att autentisera med Active Directory för VMware-administratörer att komma åt vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,27 +8,27 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ad4a7b2bc67b7d50d9e9a5f8337a09dbe77366ea
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5355e43ca6ac075e76a76ceb51be135cf4b62b0a
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014223"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564031"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
 
 ## <a name="about-vmware-vcenter-identity-sources"></a>Om VMware vCenter-identitets källor
 
-VMware vCenter stöder olika identitets källor för autentisering av användare som har åtkomst till vCenter. Ditt molnets privata moln vCenter kan konfigureras för att autentisera med Active Directory för dina VMware-administratörer att komma åt vCenter. När installationen är klar kan **cloudowner** -användaren lägga till användare från identitets källan till vCenter. 
+VMware vCenter stöder olika identitets källor för autentisering av användare som har åtkomst till vCenter.  Din CloudSimple privata moln vCenter kan konfigureras att autentisera med Active Directory för dina VMware-administratörer att komma åt vCenter. När installationen är klar kan **cloudowner** -användaren lägga till användare från identitets källan till vCenter.  
 
 Du kan konfigurera din Active Directory domän och domänkontrollanter på något av följande sätt:
 
 * Active Directory domän och domänkontrollanter som körs lokalt
 * Active Directory domän och domänkontrollanter som körs på Azure som virtuella datorer i din Azure-prenumeration
-* Ny Active Directory domän och domänkontrollanter som körs i ditt moln privata moln
+* Ny Active Directory domän och domänkontrollanter som körs i ditt privata moln
 * Azure Active Directory tjänst
 
-I den här guiden beskrivs aktiviteter för att konfigurera Active Directory domän-och domän kontrollers som kör antingen lokalt eller som virtuella datorer i dina prenumerationer. Om du vill använda Azure AD som identitets källa kan du läsa mer i [använda Azure AD som identitets leverantör för vCenter i molnets privata moln](azure-ad.md) för detaljerade anvisningar om hur du konfigurerar identitets källan.
+I den här guiden beskrivs aktiviteter för att konfigurera Active Directory domän-och domän kontrollers som kör antingen lokalt eller som virtuella datorer i dina prenumerationer.  Om du vill använda Azure AD som identitets källa kan du läsa mer i [använda Azure AD som identitets leverantör för vCenter i CloudSimple Private Cloud](azure-ad.md) för detaljerade anvisningar om hur du konfigurerar identitets källan.
 
 Innan du [lägger till en identitets källa](#add-an-identity-source-on-vcenter)måste [du tillfälligt eskalera vCenter-privilegierna](escalate-private-cloud-privileges.md).
 
@@ -39,14 +39,14 @@ Innan du [lägger till en identitets källa](#add-an-identity-source-on-vcenter)
 ## <a name="identity-source-options"></a>Alternativ för identitets källa
 
 * [Lägg till lokala Active Directory som en identitets källa för enkel inloggning](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
-* [Konfigurera nya Active Directory på ett privat moln moln](#set-up-new-active-directory-on-an-avs-private-cloud)
+* [Konfigurera nya Active Directory i ett privat moln](#set-up-new-active-directory-on-a-private-cloud)
 * [Konfigurera Active Directory på Azure](#set-up-active-directory-on-azure)
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Lägg till lokala Active Directory som en identitets källa för enkel inloggning
 
 Om du vill konfigurera din lokala Active Directory som en identitets källa för enkel inloggning, behöver du:
 
-* [Plats-till-plats-VPN-anslutning](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) från ditt lokala data Center till ditt moln privata moln.
+* [Plats-till-plats-VPN-anslutning](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) från ditt lokala data Center till ditt privata moln.
 * Den lokala DNS-serverns IP-adress har lagts till i vCenter och Platform Services Controller (PSC).
 
 Använd informationen i följande tabell när du konfigurerar din Active Directory-domän.
@@ -55,7 +55,7 @@ Använd informationen i följande tabell när du konfigurerar din Active Directo
 |------------|-----------------|
 | **Namn** | Namnet på identitets källan. |
 | **Grundläggande DN för användare** | Grundläggande unikt namn för användare. |
-| **Domännamn** | FDQN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
+| **Domän namn** | FQDN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
 | **Domän Ali Aset** | Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
 | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. |
 | **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldap://hostname:port` eller `ldaps://hostname:port`. Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för LDAP-slutpunkten för Active Directory-servern krävs när du använder `ldaps://` i den primära eller sekundära LDAP-URL: en. |
@@ -69,9 +69,9 @@ När du har informationen i föregående tabell kan du lägga till din lokala Ac
 > [!TIP]
 > Du hittar mer information om identitets källor för enkel inloggning på [sidan VMware-dokumentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
-## <a name="set-up-new-active-directory-on-an-avs-private-cloud"></a>Konfigurera nya Active Directory på ett privat moln moln
+## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Konfigurera nya Active Directory i ett privat moln
 
-Du kan konfigurera en ny Active Directory domän i ditt moln-moln och använda den som identitets källa för enkel inloggning. Active Directory domän kan ingå i en befintlig Active Directory skog eller konfigureras som en oberoende skog.
+Du kan skapa en ny Active Directory domän i ditt privata moln och använda den som identitets källa för enkel inloggning.  Active Directory domän kan ingå i en befintlig Active Directory skog eller konfigureras som en oberoende skog.
 
 ### <a name="new-active-directory-forest-and-domain"></a>Ny Active Directory skog och domän
 
@@ -100,15 +100,15 @@ När du har konfigurerat Active Directory-domänen kan du [lägga till en identi
 
 ## <a name="set-up-active-directory-on-azure"></a>Konfigurera Active Directory på Azure
 
-Active Directory som körs på Azure liknar Active Directory som körs lokalt. Om du vill konfigurera Active Directory som körs på Azure som en identitets källa för enkel inloggning på vCenter måste vCenter-servern och PSC: en ha nätverks anslutning till Azure-Virtual Network där Active Directory tjänster körs. Du kan upprätta den här anslutningen med hjälp av [azure Virtual Network-anslutning med ExpressRoute](azure-expressroute-connection.md) från det virtuella Azure-nätverket där Active Directory-tjänsterna körs till molnets privata moln.
+Active Directory som körs på Azure liknar Active Directory som körs lokalt.  Om du vill konfigurera Active Directory som körs på Azure som en identitets källa för enkel inloggning på vCenter måste vCenter-servern och PSC: en ha nätverks anslutning till Azure-Virtual Network där Active Directory tjänster körs.  Du kan upprätta den här anslutningen med [azure Virtual Network-anslutning med ExpressRoute](azure-expressroute-connection.md) från det virtuella Azure-nätverket där Active Directory-tjänsterna körs till CloudSimple-privata moln.
 
-När nätverks anslutningen har upprättats följer du stegen i [lägga till lokala Active Directory som en identitets källa för enkel inloggning](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) för att lägga till den som en identitets källa. 
+När nätverks anslutningen har upprättats följer du stegen i [lägga till lokala Active Directory som en identitets källa för enkel inloggning](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) för att lägga till den som en identitets källa.  
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Lägg till en identitets källa på vCenter
 
-1. [Eskalera behörigheter](escalate-private-cloud-privileges.md) för ditt moln privata moln.
+1. [Eskalera privilegier](escalate-private-cloud-privileges.md) i ditt privata moln.
 
-2. Logga in på vCenter för ditt AVS-privata moln.
+2. Logga in på vCenter för ditt privata moln.
 
 3. Välj **start > administration**.
 

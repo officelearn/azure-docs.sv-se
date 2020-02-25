@@ -1,5 +1,5 @@
 ---
-title: Använd Open Database Connectivity (ODBC) anslutning till Azure Datautforskaren för att visualisera data med Tableau
+title: Visualisera Tableau-data med hjälp av Azure Datautforskaren ODBC-anslutning
 description: I den här artikeln får du lära dig hur du använder en Open Database Connectivity (ODBC) anslutning till Azure Datautforskaren-anslutningen för att visualisera data med Tableau.
 author: orspod
 ms.author: orspodek
@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 4dd8fbd761a3442536919e17bae5465adf6b945f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 903daf450800a7f060899d736c2b31920c1b51f6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023868"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562453"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Visualisera data från Azure Datautforskaren i Tableau
 
  [Tableau](https://www.tableau.com/) är en Visual Analytics-plattform för Business Intelligence. Om du vill ansluta till Azure Datautforskaren från Tableau och hämta data från ett exempel kluster använder du driv rutinen SQL Server Open Database Connectivity (ODBC). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här artikeln:
 

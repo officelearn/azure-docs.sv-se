@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988812"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561467"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Självstudie: använda distributions skript för att skapa ett självsignerat certifikat (förhands granskning)
 
@@ -39,7 +39,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Felsöka skriptet som misslyckades
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -266,13 +266,13 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
     * **timeout**: Ange högsta tillåtna körnings tid för skript som anges i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601). Standardvärdet är **P1D**.
     * **argument**: ange parameter värden. Värdena avgränsas med blank steg.
     * **scriptContent**: ange skript innehållet. Om du vill köra ett externt skript använder du **primaryScriptURI** i stället. Mer information finns i [Använd externt skript](./deployment-script-template.md#use-external-scripts).
-        Att deklarera **$DeploymentScriptOutputs** krävs bara när du testar skriptet på en lokal dator. Att deklarera variabeln gör att skriptet kan köras på en lokal dator och i en deploymentScript-resurs utan att behöva göra några ändringar. Värdet som tilldelas $DeploymentScriptOutputs är tillgängligt som utdata i distributionerna. Mer information finns i [arbeta med utdata från distributions skript](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+        Att deklarera **$DeploymentScriptOutputs** krävs bara när du testar skriptet på en lokal dator. Att deklarera variabeln gör att skriptet kan köras på en lokal dator och i en deploymentScript-resurs utan att behöva göra några ändringar. Värdet som tilldelas $DeploymentScriptOutputs är tillgängligt som utdata i distributionerna. Mer information finns i [arbeta med utdata från PowerShell-distributions skript](./deployment-script-template.md#work-with-outputs-from-powershell-script) eller [arbeta med utdata från skript för cli-distribution](./deployment-script-template.md#work-with-outputs-from-cli-script).
     * **cleanupPreference**: ange inställningen för när distributions skript resurser ska tas bort.  Standardvärdet är **Always**, vilket innebär att distributions skript resurserna tas bort trots att terminalens tillstånd (lyckades, misslyckades, avbröts). I den här självstudien används **OnSuccess** så att du får chansen att visa skript körnings resultaten.
     * **retentionInterval**: Ange med vilket intervall som tjänsten ska behålla skript resurserna när den har nått ett Terminal-tillstånd. Resurserna tas bort när denna varaktighet går ut. Varaktigheten baseras på ISO 8601-mönstret. I den här självstudien används P1D, vilket innebär en dag.  Den här egenskapen används när **cleanupPreference** är inställt på **OnExpiration**. Den här egenskapen har inte Aktiver ATS för tillfället.
 
     Distributions skriptet tar tre parametrar: Key Vault-namn, certifikat namn och mottagar namn.  Det skapar ett certifikat och lägger sedan till certifikatet i nyckel valvet.
 
-    **$DeploymentScriptOutputs** används för att lagra utdata svärdet.  Mer information finns i [arbeta med utdata från distributions skript](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** används för att lagra utdata svärdet.  Mer information finns i [arbeta med utdata från PowerShell-distributions skript](./deployment-script-template.md#work-with-outputs-from-powershell-script) eller [arbeta med utdata från skript för cli-distribution](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     Du hittar den färdiga mallen [här](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 

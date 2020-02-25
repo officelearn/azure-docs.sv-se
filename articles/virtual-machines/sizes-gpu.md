@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3ee7a2ffed9c2c50829f237fdf4c8d3b5a6f1531
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538780"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566054"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU-optimerade storlekar på virtuella datorer
 
@@ -31,7 +31,7 @@ GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgä
 
 - Storlekarna på [NV-](nv-series.md) och [NVv3-serien](nvv3-series.md) är optimerade och utformade för fjärrvisualiseringar, strömnings-, spel-, kodnings-och VDI-scenarier med ramverk som OpenGL och DirectX. De här virtuella datorerna backas upp av NVIDIA Tesla M60-GPU: n.
 
-- [NVv4-serien](nvv4-series.md) VM-storlekar som är optimerade för VDI och fjärrvisualisering. Med partitionerade GPU: er ger NVv4 rätt storlek för arbets belastningar som kräver mindre GPU-resurser. De här virtuella datorerna backas upp av AMD Radeon Instinct MI25-GPU: n.
+- [NVv4-serien](nvv4-series.md) VM-storlekar som är optimerade för VDI och fjärrvisualisering. Med partitionerade GPU: er ger NVv4 rätt storlek för arbets belastningar som kräver mindre GPU-resurser. De här virtuella datorerna backas upp av AMD Radeon Instinct MI25-GPU: n. Virtuella NVv4-datorer stöder för närvarande endast Windows gäst operativ system.
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 

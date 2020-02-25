@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
-ms.openlocfilehash: d030e44f59d41c32c9a76c0b89c0bce1c8c54a69
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186840"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561790"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
 
@@ -229,18 +229,6 @@ Lösen ordet har ändrats på alla noder i klustret.
    | Spara den här skript åtgärden... |Lämna fältet omarkerat. |
 
 6. Välj **skapa** för att tillämpa skriptet. När skriptet är klart kan du ansluta till klustret med hjälp av SSH med det nya lösen ordet.
-
-## <a name="grantrevoke-access"></a>Bevilja/återkalla åtkomst
-
-HDInsight-kluster har följande HTTP-webbtjänster (alla dessa tjänster har RESTful-slutpunkter):
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-Som standard beviljas dessa tjänster för åtkomst. Du kan återkalla/bevilja åtkomst med [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Hitta prenumerations-ID: t
 

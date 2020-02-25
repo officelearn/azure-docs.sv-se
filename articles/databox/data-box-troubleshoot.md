@@ -1,5 +1,5 @@
 ---
-title: Felsök problem på Azure Data Box, Azure Data Box Heavy | Microsoft Docs
+title: Felsök problem på Azure Data Box Azure Data Box Heavy
 description: Beskriver hur du felsöker problem som visas i Azure Data Box och Azure Data Box Heavy när du kopierar data till dessa enheter.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 83f6f7c7f8cd5155669f12fd6e426f86ef1c7baa
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848498"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560073"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
@@ -31,7 +31,7 @@ Felen i Data Box-enhet och Data Box Heavy sammanfattas på följande sätt:
 | Data-eller filtyper | Data formatet eller filtypen stöds inte. |Hämta fel listorna. <br> För sid-blobbar eller hanterade diskar ser du till att data är 512-byte justerade och kopieras till de i förväg skapade mapparna. [Läs mer](#data-or-file-type-errors). |
 | Icke-kritiska BLOB-eller filfel  | BLOB-eller fil namnen följer inte reglerna för namngivning i Azure eller också stöds inte filtypen. | Dessa BLOB-eller filer får inte kopieras eller så kan namnen ändras. [Lär dig hur du åtgärdar felen](#non-critical-blob-or-file-errors). |
 
-\*De första fyra fel kategorierna är kritiska fel och måste åtgärdas innan du kan fortsätta med att förbereda för leverans.
+\* de första fyra fel kategorierna är kritiska fel och måste åtgärdas innan du kan fortsätta att förbereda för att förbereda.
 
 
 ## <a name="container-or-share-name-errors"></a>Fel i behållare eller resurs namn
@@ -40,7 +40,7 @@ Detta är fel som rör behållare och resurs namn.
 
 ### <a name="error_container_or_share_name_length"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
-**Fel Beskrivning:** Namnet på containern eller resursen måste innehålla mellan 3 och 63 tecken. 
+**Fel Beskrivning:** Behållaren eller resurs namnet måste innehålla mellan 3 och 63 tecken. 
 
 **Rekommenderad lösning:** Mappen under Data Box-enhet eller Data Box Heavy resurs (SMB/NFS) som du har kopierat data till blir en Azure-behållare i ditt lagrings konto. 
 
@@ -51,15 +51,15 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1``my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
-    Mer information finns i namngivnings konventionerna i Azure för behållar [namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
 ### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
 
-**Fel Beskrivning:** Namnet på containern eller resursen måste bestå av endast bokstäver, siffror eller bindestreck.
+**Fel Beskrivning:** Behållaren eller resurs namnet får bara bestå av bokstäver, siffror eller bindestreck.
 
 **Rekommenderad lösning:** Mappen under Data Box-enhet eller Data Box Heavy resurs (SMB/NFS) som du har kopierat data till blir en Azure-behållare i ditt lagrings konto. 
 
@@ -70,10 +70,10 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1``my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
-    Mer information finns i namngivnings konventionerna i Azure för behållar [namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
@@ -88,10 +88,10 @@ Detta är fel som rör behållare och resurs namn.
     - Namnen får bara innehålla bokstäver, siffror och bindestreck.
     - Namnen får inte börja eller sluta med bindestreck.
     - Namnen får inte innehålla flera bindestreck.
-    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
+    - Exempel på giltiga namn: `my-folder-1``my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
-    Mer information finns i namngivnings konventionerna i Azure för behållar [namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ## <a name="container-or-share-size-limit-errors"></a>Gräns fel för behållare eller resurs storlek
 
@@ -112,7 +112,7 @@ Detta är fel relaterade till data som överskrider den maximala storleken på o
 
 ### <a name="error_blob_or_file_size_limit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Fel Beskrivning:** Filstorleken överskrider den maximala filstorleken för uppladdning.
+**Fel Beskrivning:** Fil storleken överskrider den maximala fil storleken för uppladdning.
 
 **Rekommenderad lösning:** Blobben eller fil storlekarna överskrider den högsta tillåtna gränsen för uppladdning.
 
@@ -210,7 +210,7 @@ Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](
 
 ### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
-**Fel Beskrivning:** Namnet på blobben eller filen är för långt.
+**Fel Beskrivning:** Blobben eller fil namnet är för långt.
 
 **Rekommenderad lösning:** Blobben eller fil namnen överskrider den maximala längden.
 
@@ -222,7 +222,7 @@ Mer information finns i namngivnings konventionerna för Azure för BLOB-namn oc
 
 ### <a name="error_blob_or_file_name_component_length"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
 
-**Fel Beskrivning:** Ett av segmenten i blobb- eller filnamnet är för långt.
+**Fel Beskrivning:** Ett av segmenten i blobben eller fil namnet är för långt.
 
 **Rekommenderad lösning:** Ett av Sök vägs segmenten i blobben eller fil namnet överskrider det högsta antalet tecken. Ett Sök vägs segment är strängen mellan efterföljande avgränsnings tecken, till exempel snedstreck/.
 

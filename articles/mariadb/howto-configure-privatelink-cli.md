@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b2d9fb9d4dc8268c0be45f8a6f24759a7be58427
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426216"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561807"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB (för hands version) med CLI
 
@@ -58,7 +58,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Skapa den virtuella datorn 
+## <a name="create-the-vm"></a>Skapa VM 
 Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
 ```azurecli-interactive
 az vm create \
@@ -121,6 +121,9 @@ az network private-dns record-set a create --name mydemoserver --zone-name priva
 az network private-dns record-set a add-record --record-set-name mydemoserver --zone-name privatelink.mariadb.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> FQDN i DNS-inställningen för kunden matchar inte den privata IP-adressen som kon figurer ATS. Du måste konfigurera en DNS-zon för den konfigurerade FQDN: en som visas [här](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
@@ -167,10 +170,10 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Anslutningsnamn| Välj önskat anslutnings namn.|
+    | Anslutningens namn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Användarnamn | Ange användar namn som *username@servername* som anges när MariaDB-servern skapas. |
-    | lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
+    | Lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     ||
 
 5. Välj **Testa anslutning** eller **OK**.

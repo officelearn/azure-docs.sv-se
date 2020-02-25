@@ -3,16 +3,16 @@ title: Vanliga frågor och svar (FAQ) för Azure Files | Microsoft Docs
 description: Få svar på vanliga frågor om Azure Files.
 author: roygara
 ms.service: storage
-ms.date: 07/30/2019
+ms.date: 02/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e5b1880a12cda440a5772de80b8ec67b8f7ed5c3
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c6503f2782832b7155c0c081aab9769296e08a8e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665381"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565068"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -151,13 +151,17 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 * <a id="afs-ntfs-acls"></a>
   kan **Azure File Sync bevara NTFS-ACL: er för katalog-/fil nivå tillsammans med data som lagras i Azure Files?**
 
-    NTFS-ACL: er som överförs från lokala fil servrar behålls genom Azure File Sync som metadata. Azure Files stöder inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till fil resurser som hanteras av tjänsten Azure File Sync.
+    Från och med februari 2020 24 sparas nya och befintliga ACL: er med Azure File Sync i NTFS-format och ACL-ändringar som görs direkt till Azure-filresursen synkroniseras till alla servrar i Sync-gruppen. Ändringar av ACL: er som görs i Azure Files kommer att synkroniseras via Azure File Sync. När du kopierar data till Azure Files ska du kontrol lera att du använder SMB för att få åtkomst till resursen och bevara dina ACL: er. Befintliga REST-baserade verktyg, till exempel AzCopy eller Storage Explorer, behåller inte ACL: er.
+
+    Om du har aktiverat Azure Backup i hanterade fil resurser för filsynkronisering kan fil åtkomst kontrol listor fortsätta att återställas som en del av arbets flödet för säkerhets kopierings återställning. Detta fungerar antingen för hela resursen eller enskilda filer/kataloger.
+
+    Om du använder ögonblicks bilder som en del av den självhanterade säkerhets kopierings lösningen för fil resurser som hanteras av filsynkroniseringen, kanske dina ACL: er inte återställs korrekt till NTFS ACL: er om ögonblicks bilderna togs före den 24 februari 2020. Om detta inträffar kan du kontakta Azure-supporten.
     
 ## <a name="security-authentication-and-access-control"></a>Säkerhet, autentisering och åtkomst kontroll
 * <a id="ad-support"></a>
 **är identitets baserad autentisering och åtkomst kontroll som stöds av Azure Files?**  
     
-    Ja, Azure Files har stöd för identitetsbaserade autentiserings-och åtkomst kontroll som utnyttjar Azure AD Domain Service (Azure AD DS). Azure AD DS-autentisering över SMB för Azure Files gör det möjligt för Azure AD DS-domänanslutna virtuella Windows-datorer att få åtkomst till resurser, kataloger och filer med hjälp av autentiseringsuppgifter för Azure AD. Mer information finns i [Översikt över stöd för Azure AD DS-autentisering (Azure Files Azure Active Directory Domain Service) för SMB-åtkomst](storage-files-active-directory-overview.md). 
+    Ja, Azure Files stöder identitets-baserad autentisering och åtkomst kontroll. Du kan välja ett av två sätt att använda identitetsbaserade åtkomst kontroller: Azure Active Directory Domain Services (Azure AD DS) (GA) eller Active Directory (AD) (för hands version). Azure AD DS-autentisering över SMB för Azure Files gör det möjligt för Azure AD DS-domänanslutna virtuella Windows-datorer att få åtkomst till resurser, kataloger och filer med hjälp av autentiseringsuppgifter för Azure AD. AD stöder autentisering med hjälp av AD-domänanslutna datorer, antingen lokalt eller i Azure, för att få åtkomst till Azure-filresurser över SMB. Mer information finns i [Översikt över Azure Files Identity-baserat stöd för autentisering för SMB-åtkomst](storage-files-active-directory-overview.md). 
 
     Azure Files erbjuder ytterligare två sätt att hantera åtkomst kontroll:
 
@@ -168,14 +172,14 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     Du kan referera till att [auktorisera åtkomst till Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
 
 * <a id="ad-support-devices"></a>
-stöder **Azure Files Azure AD DS-autentisering SMB-åtkomst med Azure AD-autentiseringsuppgifter från enheter som är anslutna till eller registrerade med Azure AD?**
+**har Azure Files Azure Active Directory Domain Services (Azure AD DS)-autentisering stöd för SMB-åtkomst med hjälp av Azure AD-autentiseringsuppgifter från enheter som är anslutna till eller registrerade med Azure AD?**
 
     Nej, det här scenariot stöds inte.
 
 * <a id="ad-support-rest-apis"></a>
 **finns REST-API: er för att ge stöd åt/ange/kopiera katalog/fil NTFS ACL: er?**
 
-    För tillfället har vi inte stöd för REST-API: er för att hämta, ange eller kopiera NTFS ACL: er för kataloger eller filer.
+    Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) (eller senare).
 
 * <a id="ad-vm-subscription"></a>
 **kan jag komma åt Azure Files med Azure AD-autentiseringsuppgifter från en virtuell dator under en annan prenumeration?**
@@ -183,19 +187,31 @@ stöder **Azure Files Azure AD DS-autentisering SMB-åtkomst med Azure AD-autent
     Om prenumerationen som fil resursen distribueras till är kopplad till samma Azure AD-klient som den Azure AD Domain Services distribution som den virtuella datorn är domänansluten till, kan du sedan komma åt Azure Files med samma autentiseringsuppgifter för Azure AD. Begränsningen införs inte i prenumerationen, men på den associerade Azure AD-klienten.    
     
 * <a id="ad-support-subscription"></a>
-**kan jag aktivera Azure Files Azure AD DS-autentisering med en Azure AD-klient som skiljer sig från den primära klient organisation som fil resursen är kopplad till?**
+**kan jag aktivera antingen Azure Files Azure AD DS eller AD-autentisering med en Azure AD-klient som skiljer sig från den primära klient organisation som fil resursen är kopplad till?**
 
-    Nej, Azure Files stöder bara Azure AD DS-integrering med en Azure AD-klient som finns i samma prenumeration som fil resursen. Det går bara att koppla en prenumeration till en Azure AD-klient.
+    Nej, Azure Files stöder endast Azure AD DS eller AD-integrering med en Azure AD-klient som finns i samma prenumeration som fil resursen. Det går bara att koppla en prenumeration till en Azure AD-klient. Den här begränsningen gäller både Azure AD DS-och AD-autentiseringsmetoder. När du använder AD för autentisering måste AD-autentiseringsuppgiften synkroniseras med den Azure AD som lagrings kontot är associerat med.
 
 * <a id="ad-linux-vms"></a>
-**har Azure Files Azure AD DS-autentisering stöd för virtuella Linux-datorer?**
+stöder **Azure Files Azure AD DS eller AD-autentisering virtuella Linux-datorer?**
 
     Nej, autentisering från virtuella Linux-datorer stöds inte.
 
-* <a id="ad-aad-smb-afs"></a>
-**kan jag utnyttja Azure Files Azure AD DS-autentisering på fil resurser som hanteras av Azure File Sync?**
+* <a id="ad-multiple-forest"></a>
+**har Azure Files AD-autentisering stöd för integrering med en AD-miljö med flera skogar?**    
 
-    Nej, Azure Files stöder inte bevarande av NTFS ACL: er på fil resurser som hanteras av Azure File Sync. De ACL: er för filer som överförs från lokala fil servrar behålls av Azure File Sync. Alla NTFS ACL: er som kon figurer ATS internt mot Azure Files skrivs över av Azure File Syncs tjänsten. Dessutom stöder Azure Files inte autentisering med Azure AD-autentiseringsuppgifter för åtkomst till fil resurser som hanteras av tjänsten Azure File Sync.
+    Azure Files AD-autentisering integreras bara med skogen för AD-domänen som lagrings kontot är registrerat på. För att stödja autentisering från en annan AD-skog måste din miljö ha skogs förtroende konfigurerat korrekt. Azure Files registreringen till en AD-domän tjänst är den mest samma som en vanlig fil server, där den skapar ett konto i AD för autentisering. Den enda skillnaden är att lagrings kontots registrerade SPN slutar med "file.core.windows.net" som inte matchar domänsuffix.
+
+    Kontakta domän administratören för att se om någon uppdatering av DNS-Routningsprincipen krävs för att aktivera flera skogar.
+
+* <a id=""></a>
+**vilka regioner är tillgängliga för Azure Files AD-autentisering (för hands version)?**
+
+    Se [AD regional tillgänglighet](storage-files-active-directory-domain-services-enable.md#regional-availability) för mer information.
+
+* <a id="ad-aad-smb-afs"></a>
+**kan jag utnyttja Azure Files Azure AD DS-autentisering eller Active Directory (AD)-autentisering (för hands version) på fil resurser som hanteras av Azure File Sync?**
+
+    Ja, du kan aktivera Azure AD DS eller AD-autentisering på en fil resurs som hanteras av Azure File Sync. Ändringar i katalogen/filen NTFS ACL: er på lokala fil servrar kommer att nivåas till Azure Files och vice versa.
 
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs är krypterad i vila?**  
@@ -324,7 +340,7 @@ finns **det några begränsningar för hur många resurs-ögonblicksbilder jag k
      
      Resurs ögonblicks bilder är stegvisa. Bas resursens ögonblicks bild är själva resursen. Alla efterföljande ögonblicks bilder av resurser är stegvisa och lagrar bara skillnaden från föregående ögonblicks bild. Du faktureras bara för det ändrade innehållet. Om du har en resurs med 100 GiB av data men bara 5 GiB har ändrats sedan den senaste ögonblicks bilden av en resurs, förbrukar resurs ögonblicks bilden bara fem ytterligare GiB och du debiteras för 105 GiB. Mer information om transaktions-och standard avgifter för utgående trafik finns på [sidan med priser](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="scale-and-performance"></a>Skala och prestanda
+## <a name="scale-and-performance"></a>Skalning och prestanda
 * <a id="files-scale-limits"></a>
 **vilka skalnings gränser Azure Files?**  
     Information om skalbarhets-och prestanda mål för Azure Files finns i [Azure Files skalbarhets-och prestanda mål](storage-files-scale-targets.md).
@@ -361,7 +377,7 @@ finns **det några begränsningar för hur många resurs-ögonblicksbilder jag k
 
 * <a id="rest-rename"></a>
 finns **det en namnbytes åtgärd i REST API?**  
-    Nej, inte just nu.
+    Inte just nu.
 
 * <a id="nested-shares"></a>
 **kan jag konfigurera kapslade resurser? Med andra ord, en resurs under en resurs?**  
@@ -371,7 +387,7 @@ finns **det en namnbytes åtgärd i REST API?**
 **Hur gör jag för att använda Azure Files med IBM MQ?**  
     IBM har publicerat ett dokument som hjälper IBM MQ-kunder att konfigurera Azure Files med IBM-tjänsten. Mer information finns i [så här konfigurerar du en IBM MQ multi-instance Queue Manager med Microsoft Azure Files service](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Felsöka Azure Files i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Felsöka Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

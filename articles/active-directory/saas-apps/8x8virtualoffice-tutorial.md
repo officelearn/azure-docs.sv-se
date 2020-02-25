@@ -1,239 +1,216 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med 8x8 Virtual Office | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och 8x8 Virtual Office.
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med 8x8 | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och 8x8.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87728a5ff9690df6f47a2721ad4a51b5c2388877
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f49c2b445af9acb0761d01b731250e068cb96a36
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73154585"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562333"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Självstudie: Azure Active Directory integrering med 8x8 Virtual Office
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med 8x8
 
-Lär dig hur du integrerar 8x8 Virtual Office med Azure Active Directory (Azure AD) i den här självstudien.
-När du integrerar 8x8 Virtual Office med Azure AD får du följande fördelar:
+I den här självstudien får du lära dig hur du integrerar 8x8 med Azure Active Directory (Azure AD). När du integrerar 8x8 med Azure AD kan du:
 
-* Du kan styra vem som har åtkomst till 8x8 Virtual Office i Azure AD.
-* Du kan göra så att dina användare automatiskt loggas in på 8x8 Virtual Office (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+* Kontroll i Azure AD som har åtkomst till 8x8.
+* Gör det möjligt för användarna att logga in automatiskt till 8x8 med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med 8x8 Virtual Office behöver du följande:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* 8x8 Virtual Office-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En 8x8-prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+
+* 8x8 stöder **SP-och IDP** -INITIERAd SSO
+
+* När du har konfigurerat 8x8 kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+
+## <a name="adding-8x8-from-the-gallery"></a>Lägga till 8x8 från galleriet
+
+Om du vill konfigurera integreringen av 8x8 i Azure AD måste du lägga till 8x8 från galleriet i listan över hanterade SaaS-appar.
+
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **8x8** i sökrutan.
+1. Välj **8x8** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+
+## <a name="configure-and-test-azure-ad-single-sign-on-for-8x8"></a>Konfigurera och testa enkel inloggning med Azure AD för 8x8
+
+Konfigurera och testa Azure AD SSO med 8x8 med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i 8x8.
+
+Om du vill konfigurera och testa Azure AD SSO med 8x8, slutför du följande Bygg stenar:
+
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera 8X8 SSO](#configure-8x8-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa 8x8 test User](#create-8x8-test-user)** -om du vill ha en motsvarighet till B. Simon i 8x8 som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **8x8** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    a. I text rutan **identifierare** anger du en URL med något av följande mönster:
+
+    |||
+    |-|-|
+    | `https://sso.8x8.com/saml2`|
+    | `https://sso.8x8pilot.com/saml2`|
+
+    b. I text rutan **svars-URL** skriver du en URL med något av följande mönster:
+
+    |||
+    |-|-|
+    | `https://sso.8x8.com/saml2`|
+    | `https://sso.8x8pilot.com/saml2`|
 
 
-* 8x8 Virtual Office stöder **IDP**-initierad enkel inloggning
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator. Du kommer att använda certifikatet senare i självstudien i avsnittet **Konfigurera 8X8 SSO** .
 
-* 8x8 Virtual Office stöder **just-in-time**-användaretablering
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-## <a name="adding-8x8-virtual-office-from-the-gallery"></a>Lägga till 8x8 Virtual Office från galleriet
+1. I avsnittet **Konfigurera 8x8** kopierar du URL: erna och använder dessa URL-värden senare i självstudien.
 
-För att konfigurera integreringen av 8x8 Virtual Office i Azure AD måste du lägga till 8x8 Virtual Office från galleriet i din lista över hanterade SaaS-appar.
+    ![Kopiera konfigurations-URL:er](./media/8x8virtualoffice-tutorial/copy-configuration-urls.png)
 
-**Utför följande steg för att lägga till 8x8 Virtual Office från galleriet:**
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till 8x8.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **8x8**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Knappen Nytt program](common/add-new-app.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. I sökrutan skriver du **8x8 Virtual Office**, väljer **8x8 Virtual Office** i resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-     ![8x8 Virtual Office i resultatlistan](common/search-new-app.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med 8x8 Virtual Office baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i 8x8 Virtual Office upprättas.
+## <a name="configure-8x8-sso"></a>Konfigurera 8x8 SSO
 
-Konfigurera och testa enkel inloggning med Azure AD med 8x8 Virtual Office genom att slutföra följande byggblock:
+Nästa del av själv studie kursen beror på vilken typ av prenumeration du har med 8x8.
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för 8x8 Virtual Office](#configure-8x8-virtual-office-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa en 8x8 Virtual Office-testanvändare](#create-8x8-virtual-office-test-user)** – för att ha en motsvarighet till Britta Simon i 8x8 Virtual Office som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+* För 8x8-utgåvor och X-seriens kunder som använder Configuration Manager för administration, se [Konfigurera 8x8 Configuration Manager](#configure-8x8-configuration-manager).
+* För virtuella Office-kunder som använder konto hanteraren för administration, se [Konfigurera 8X8 Account Manager](#configure-8x8-account-manager).
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-8x8-configuration-manager"></a>Konfigurera 8x8 Configuration Manager
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+1. Logga in på 8x8 [Configuration Manager](https://vo-cm.8x8.com/).
 
-Utför följande steg för att konfigurera enkel inloggning med Azure AD med 8x8 Virtual Office:
+1. Klicka på **identitets hantering**på Start sidan.
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **8x8 Virtual Office**-programintegrering och väljer **Enkel inloggning**.
+1. Kontrol lera **enkel inloggning (SSO)** och välj **Microsoft Azure AD**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+1. Kopiera de tre URL: erna och signerings certifikatet från sidan **Konfigurera enkel inloggning med SAML** i Azure AD till avsnittet **Microsoft Azure AD SAML-inställningar** i 8x8 Configuration Manager.
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+    a. Kopiera **inloggnings-URL** till **IDP-inloggnings webb adress**.
 
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+    b. Kopiera **Azure AD-identifieraren** till **IDP Issuer URL/urn**.
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+    c. Kopiera URL för **utloggning** till **IDP-utloggning**.
 
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+    d. Ladda ned **certifikat (base64)** och ladda upp till **certifikat**.
 
-4. I dialogrutan **Grundläggande SAML-konfiguration** utför du följande steg:
+    e. Klicka på **Save** (Spara).
 
-    ![Information om enkel inloggning med 8x8 Virtual Office-domänen och URL:er](common/idp-intiated.png)
-
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://sso.8x8.com/saml2`
-
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://sso.8x8.com/saml2`
-
-4. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
-
-    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
-
-6. I avsnittet **om att konfigurera 8x8 Virtual Office** kopierar du lämpliga URL:er enligt dina behov.
-
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-    a. Inloggnings-URL
-
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-8x8-virtual-office-single-sign-on"></a>Konfigurera enkel inloggning för 8x8 Virtual Office
+### <a name="configure-8x8-account-manager"></a>Konfigurera 8x8 Account Manager
 
 1. Logga in på 8x8 Virtual Office-klienten som administratör.
 
 1. Välj **Virtual Office Account Mgr** (Kontohanteraren i Virtual Office) i programfönstret.
 
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
-
 1. Välj **Business** (Företag) som kontotyp för hantering och klicka på **Sign In** (Logga in).
-
-    ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
 1. Klicka på fliken **ACCOUNTS** (KONTON) i menylistan.
 
-   ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
-
 1. Klicka på **Single Sign On** (Enkel inloggning) i listan över konton.
-  
-   ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
 1. Välj autentiseringsmetoden **Single Sign On** (Enkel inloggning) och klicka på **SAML**.
 
-   ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
-
 1. Utför följande steg i avsnittet **SAML Single Sign on** (Enkel inloggning med SAML):
 
-   ![Konfigurera på programsidan](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+    a. I textrutan **Sign In URL** (Inloggnings-URL) klistrar du in **inloggnings-URL-värdet** som du har kopierat från Azure-portalen.
 
-   a. I textrutan **Sign In URL** (Inloggnings-URL) klistrar du in **inloggnings-URL-värdet** som du har kopierat från Azure-portalen.
+    b. I textrutan **Sign Out URL** (Utloggnings-URL) klistrar du in **utloggnings-URL-värdet** som du har kopierat från Azure-portalen.
 
-   b. I textrutan **Sign Out URL** (Utloggnings-URL) klistrar du in **utloggnings-URL-värdet** som du har kopierat från Azure-portalen.
+    c. I textrutan **Issuer URL** (Utfärdar-URL) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
 
-   c. I textrutan **Issuer URL** (Utfärdar-URL) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+    d. Klicka på **Browse** (Bläddra) för att ladda upp det certifikat som du har laddat ned från Azure-portalen.
 
-   d. Klicka på **Browse** (Bläddra) för att ladda upp det certifikat som du har laddat ned från Azure-portalen.
+    e. Klicka på knappen **Spara**.
 
-   e. Klicka på knappen **Spara**.
+### <a name="create-8x8-test-user"></a>Skapa 8x8 test användare
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+I det här avsnittet skapar du en användare som heter Britta Simon i 8x8. Arbeta med [8x8 support team](https://www.8x8.com/about-us/contact-us) för att lägga till användare i 8x8-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
-
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
-
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till 8x8 Virtual Office.
-
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **8x8 Virtual Office**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I listan över program skriver och väljer du **8x8 Virtual Office**.
-
-    ![8x8 Virtual Office-länken i programlistan](common/all-applications.png)
-
-3. I menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-8x8-virtual-office-test-user"></a>Skapa en testanvändare i 8x8 Virtual Office
-
-I det här avsnittet skapas en användare som heter Britta Simon i 8x8 Virtual Office. 8x8 Virtual Office stöder **just-in-time-etablering av användare**, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i 8x8 Virtual Office skapas en ny efter autentisering.
-
-> [!NOTE]
-> Om du behöver skapa en användare manuellt kontaktar du [8x8 Virtual Office-supporten](https://www.8x8.com/about-us/contact-us).
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på 8x8 Virtual Office-panelen i åtkomstpanelen bör du automatiskt loggas in på 8x8 Virtual Office som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen 8x8 på åtkomst panelen, bör du loggas in automatiskt på den 8x8 som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prova 8x8 med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Så här skyddar du 8x8 med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

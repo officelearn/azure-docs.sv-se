@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Dokumentation om tal Översättning
+summary: Tal översättning från Speech service möjliggör real tids-, tal-till-tal-och tal-till-text-översättning i real tid av ljud strömmar
+metadata:
+  title: Dokumentation om tal översättning – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: c45c16b4421bf48e5728f95e7043ef7ffc109c3a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562926"
+landingContent:
+- title: Kom igång
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är talöversättning?
+      url: speech-translation.md
+  - linkListType: quickstart
+    links:
+    - text: Översätta tal till text
+      url: quickstarts/translate-speech-to-text.md
+    - text: Översätt tal till flera mål språk
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - text: Översätta tal-till-tal
+      url: quickstarts/translate-speech-to-speech.md
+- title: Steg-för-steg-guider
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Översätt tal i real tid
+      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+  - linkListType: tutorial
+    links:
+    - text: 'Översätt och syntetisera text med REST API: er'
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Stöd för språk
+      url: language-support.md#speech-translation
+    - text: Priser
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - text: Vanliga frågor och svar om talöversättning
+      url: https://www.microsoft.com/translator/business/faq/

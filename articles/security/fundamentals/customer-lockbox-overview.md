@@ -1,19 +1,19 @@
 ---
 title: Customer Lockbox för Microsoft Azure
 description: Teknisk översikt över Customer Lockbox för Microsoft Azure, som ger kontroll över moln leverantörs åtkomst när Microsoft kan behöva åtkomst till kund information.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466418"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561977"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox för Microsoft Azure
 
@@ -42,37 +42,37 @@ Följande steg beskriver ett typiskt arbets flöde för en Customer Lockbox beg�
     - Resursens omfattning
     - Om beställaren är en isolerad identitet eller med Multi-Factor Authentication
     - Behörighets nivåer
-    
+
     Den här begäran kan även innehålla ett godkännande från interna Microsoft-god kännare, baserat på en JIT-regel. God kännaren kan till exempel vara kund support eller DevOps Manager.
 
 6. När begäran kräver direkt åtkomst till kund information initieras en Customer Lockbox begäran. Till exempel fjärr skrivbords åtkomst till en kunds virtuella dator.
-    
+
     Begäran **besvaras nu i ett Kundmeddelat** tillstånd och väntar på kundens godkännande innan åtkomst beviljas.
 
 7. Vid kund organisationen får användaren som har [ägar rollen](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) för Azure-prenumerationen ett e-postmeddelande från Microsoft för att meddela dem om den väntande åtkomst förfrågan. Den här personen är utsedd god kännare för Customer Lockbox begär Anden.
-    
+
     Exempel på e-post:
-    
+
     ![Azure Customer Lockbox – e-postavisering](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. E-postmeddelandet innehåller en länk till bladet **Customer lockbox** i Azure Portal. Med den här länken loggar den utsedda god kännaren in på Azure Portal för att visa väntande begär Anden som deras organisation har för Customer Lockbox:
-    
+
     ![Sidan Azure Customer Lockbox-landning](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    Begäran finns kvar i kund kön i fyra dagar. Efter den här tiden upphör åtkomst förfrågan automatiskt att gälla och ingen åtkomst beviljas till Microsoft-tekniker.
 
 9. För att få information om den väntande begäran kan den utsedda god kännaren välja begäran om säker begäran från **väntande begär Anden**:
-    
+
     ![Azure Customer Lockbox – Visa väntande begäran](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. Den angivna god kännaren kan också välja **ID för tjänstbegäran** för att se begäran om support ärende som skapades av den ursprungliga användaren. Den här informationen innehåller en kontext för varför Microsoft Support aktive ras och historiken för det rapporterade problemet. Till exempel:
-    
+10. Den angivna god kännaren kan också välja **ID för tjänstbegäran** för att se begäran om support ärende som skapades av den ursprungliga användaren. Den här informationen innehåller en kontext för varför Microsoft Support aktive ras och historiken för det rapporterade problemet. Exempel:
+
     ![Azure Customer Lockbox – Visa begäran om support ärende](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. Efter att ha granskat begäran väljer den utsedda god kännaren **Godkänn** eller **neka**:
-    
+
     ![Azure-Customer Lockbox – Välj Godkänn eller neka](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     Som ett resultat av valet:
     - **Godkänn**: åtkomst beviljas till Microsoft-teknikern. Åtkomst beviljas för en standard period på åtta timmar.
     - **Neka**: den utökade åtkomst förfrågan från Microsoft-teknikern avvisas och ingen ytterligare åtgärd vidtas.
@@ -113,13 +113,13 @@ För scenarier som involverar åtkomst till fjärr skrivbord kan du använda Win
 
 Följande tjänster är nu i för hands version för Customer Lockbox:
 
-- Azure Storage 
+- Azure Storage
 
-- Azure SQL-databas 
+- Azure SQL-databas
 
-- Azure-datautforskaren 
+- Azure-datautforskaren
 
-- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar) 
+- Virtuella datorer (nu omfattar även åtkomst till minnes dum par och hanterade diskar)
 
 - Azure-prenumerations överföringar
 

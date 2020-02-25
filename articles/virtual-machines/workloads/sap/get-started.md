@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f49240c29b4ec0a5fa1cb38861da3d4060db2f82
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: abbacf57f6e00411c6041422cfc47e68fd46bb15
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525452"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566037"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -120,7 +120,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
-
+- 02/21/2020: ändring av de virtuella Azure-datorerna med [hög tillgänglighet för SAP NetWeaver på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) och [virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) för att justera kluster begränsningarna för att köa Server replikering 2 Architecture (ENSA2)
 - 02/20/2020: ändra [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SLES multi-sid-guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid) för att lägga till en länk till SUSE multi-sid-kluster guiden
 - 02/13/2020: ändra på [virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver på RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) och [virtuella Azure-datorer med hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) för att justera kluster resurserna timeout till rekommendationerna för Red Hat-timeout
 - 02/11/2020: version av [SAP HANA om migrering av stora Azure-instanser till azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)

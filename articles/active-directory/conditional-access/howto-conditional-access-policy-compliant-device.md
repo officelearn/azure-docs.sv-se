@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d19cc39147608dafc4576f4c8bad0533ad1b32d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521922"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561620"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Villkorlig åtkomst: Kräv kompatibla enheter
 
@@ -48,6 +48,9 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
+
+> [!NOTE]
+> Du kan registrera dina nya enheter i Intune även om du väljer **Kräv att enheten ska markeras som kompatibel** för **alla användare** och **alla molnappar** med stegen ovan. **Kräv att enheten markeras som kompatibel** kontroll blockerar inte Intune-registrering. 
 
 ### <a name="known-behavior"></a>Känt beteende
 

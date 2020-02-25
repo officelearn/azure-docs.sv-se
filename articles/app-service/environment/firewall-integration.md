@@ -4,15 +4,15 @@ description: Lär dig hur du integrerar med Azure-brandväggen för att skydda u
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513360"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565731"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service-miljön
 
@@ -24,7 +24,7 @@ ASE utgående beroenden är nästan helt definierade med FQDN, som inte har stat
 
 Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på målets FQDN.  
 
-## <a name="system-architecture"></a>Systemarkitektur
+## <a name="system-architecture"></a>System arkitektur
 
 Distribution av en ASE med utgående trafik som går via en brand Väggs enhet kräver ändring av vägar i ASE-undernätet. Vägar använder en IP-nivå. Om du inte är försiktig med att definiera dina vägar kan du tvinga TCP-svars trafik till källa från en annan adress. När din svars adress skiljer sig från den adress trafik som skickades till, kallas problemet för asymmetrisk Routning och den kommer att avbryta TCP.
 
@@ -41,9 +41,11 @@ Trafiken till och från en ASE måste följa följande konventioner
 
 ## <a name="locking-down-inbound-management-traffic"></a>Låsa inkommande hanterings trafik
 
-Om ASE-undernätet inte redan har en tilldelad NSG, skapar du ett. I NSG anger du den första regeln för att tillåta trafik från tjänst tag gen med namnet AppServiceManagement på portarna 454, 455. Detta är allt som krävs från offentliga IP-adresser för att hantera din ASE. De adresser som ligger bakom den service tag gen används bara för att administrera Azure App Service. Den hanterings trafik som flödar genom dessa anslutningar krypteras och skyddas med certifikat för autentisering. Vanlig trafik i den här kanalen innehåller sådant som kunders initierade kommandon och hälso avsökningar. 
+Om ASE-undernätet inte redan har en tilldelad NSG, skapar du ett. I NSG anger du den första regeln för att tillåta trafik från tjänst tag gen med namnet AppServiceManagement på portarna 454, 455. Regeln för att tillåta åtkomst från AppServiceManagement-taggen är den enda som krävs från offentliga IP-adresser för att hantera din ASE. De adresser som ligger bakom den service tag gen används bara för att administrera Azure App Service. Den hanterings trafik som flödar genom dessa anslutningar krypteras och skyddas med certifikat för autentisering. Vanlig trafik i den här kanalen innehåller sådant som kunders initierade kommandon och hälso avsökningar. 
 
 ASE som görs via portalen med ett nytt undernät görs med en NSG som innehåller regeln Allow för AppServiceManagement-taggen.  
+
+Din ASE måste också tillåta inkommande begär Anden från Load Balancer-taggen på port 16001. Förfrågningarna från Load Balancer på port 16001 är Keep Alive-kontroller mellan Load Balancer och ASE-klientens slut punkter. Om Port 16001 är blockerad, kommer din ASE att hamna i fel tillstånd.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Konfigurera Azure-brandväggen med din ASE 
 
@@ -118,9 +120,9 @@ Följande information krävs bara om du vill konfigurera en annan brand vägg ä
 
 #### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| Slutpunkt | Information |
+| Slutpunkt | Detaljer |
 |----------| ----- |
-| \*:123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
 | \*: 12000 | Den här porten används för viss system övervakning. Om den blockeras kommer vissa problem att vara svårare att prioritering, men ASE kommer att fortsätta att arbeta |
 | 40.77.24.27:80 | Krävs för att övervaka och varna för ASE-problem |
 | 40.77.24.27:443 | Krävs för att övervaka och varna för ASE-problem |
@@ -218,10 +220,10 @@ Med en Azure-brandvägg får du automatiskt allt nedan konfigurerat med FQDN-tag
 
 | Slutpunkt |
 |----------|
-|gr-Prod-\*.cloudapp.net:443 |
-| \*.management.azure.com:443 |
-| \*.update.microsoft.com:443 |
-| \*.windowsupdate.microsoft.com:443 |
+|gr-Prod-\*. cloudapp.net:443 |
+| \*. management.azure.com:443 |
+| \*. update.microsoft.com:443 |
+| \*. windowsupdate.microsoft.com:443 |
 | \*. identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux-beroenden 
@@ -273,6 +275,21 @@ Linux är inte tillgängligt i US Gov regioner och anges därför inte som en va
 | Azure SQL |
 | Azure Storage |
 | Azure Event Hub |
+
+#### <a name="ip-address-dependencies"></a>IP-adress beroenden
+
+| Slutpunkt | Detaljer |
+|----------| ----- |
+| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*: 12000 | Den här porten används för viss system övervakning. Om den blockeras kommer vissa problem att vara svårare att prioritering, men ASE kommer att fortsätta att arbeta |
+| 40.77.24.27:80 | Krävs för att övervaka och varna för ASE-problem |
+| 40.77.24.27:443 | Krävs för att övervaka och varna för ASE-problem |
+| 13.90.249.229:80 | Krävs för att övervaka och varna för ASE-problem |
+| 13.90.249.229:443 | Krävs för att övervaka och varna för ASE-problem |
+| 104.45.230.69:80 | Krävs för att övervaka och varna för ASE-problem |
+| 104.45.230.69:443 | Krävs för att övervaka och varna för ASE-problem |
+| 13.82.184.151:80 | Krävs för att övervaka och varna för ASE-problem |
+| 13.82.184.151:443 | Krävs för att övervaka och varna för ASE-problem |
 
 #### <a name="dependencies"></a>Beroenden ####
 
@@ -338,7 +355,7 @@ Linux är inte tillgängligt i US Gov regioner och anges därför inte som en va
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
 |\*. management.usgovcloudapi.net:443 |
-|\*.update.microsoft.com:443 |
+|\*. update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

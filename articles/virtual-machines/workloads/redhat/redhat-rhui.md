@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d989553dc2248e7e0c830bb8cf169a80354dbab2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368901"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562555"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
  Med [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kan moln leverantörer, till exempel Azure, spegla innehåll i Red Hat-värdbaserade databaser, skapa anpassade databaser med Azure-särskilt innehåll och göra det tillgängligt för slutanvändarens virtuella datorer.
@@ -28,7 +28,7 @@ Mer information om RHEL-avbildningar i Azure, inklusive publicerings-och bevaran
 Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
 
 > [!IMPORTANT]
-> RHUI är endast avsett för PAYGO-avbildningar (pay-on-go). Systemet måste kopplas till RHSM eller satellit för att kunna ta emot uppdateringar för anpassade och gyllene avbildningar, även kallade "att ta din egen prenumeration" (BYOS). Mer information finns i [artikeln om Red Hat](https://access.redhat.com/solutions/253273) .
+> RHUI är endast avsett för PAYG-avbildningar (pay-on-go). Systemet måste kopplas till RHSM eller satellit för att kunna ta emot uppdateringar för anpassade och gyllene avbildningar, även kallade "att ta din egen prenumeration" (BYOS). Mer information finns i [artikeln om Red Hat](https://access.redhat.com/solutions/253273) .
 
 
 ## <a name="important-information-about-azure-rhui"></a>Viktig information om Azure RHUI
@@ -105,7 +105,7 @@ Använd följande instruktioner för att låsa en RHEL VM till en viss del versi
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Lås variabeln releasever (kör som root):
+1. Lås variabeln `releasever` (kör som rot):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -120,7 +120,7 @@ Använd följande instruktioner för att låsa en RHEL VM till en viss del versi
 
 ### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Ändra tillbaka en RHEL-VM till icke-EUS (ta bort ett versions lås)
 Kör följande som rot:
-1. Ta bort releasever-filen:
+1. Ta bort `releasever`-filen:
     ```bash
     rm /etc/yum/vars/releasever
      ```

@@ -1,5 +1,5 @@
 ---
-title: Hantera vertikalt kluster skalning (skala upp) i Azure Datautforskaren för att hantera ändring efter frågan
+title: Hantera vertikalt kluster skalning (skala upp) för att matcha efter frågan i Azure Datautforskaren
 description: Den här artikeln beskriver steg för steg hur du skalar upp och ned ett Azure Datautforskaren-kluster baserat på ändring av efter frågan.
 author: radennis
 ms.author: radennis
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 80bbdf3a5d936719b06782cd78d56088b36cb21d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 95275598febae2b6b0355a7bc3e512490dae500d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67985484"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560447"
 ---
 # <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vertikalt kluster skalning (skala upp) i Azure Datautforskaren för att hantera ändring efter frågan
 
@@ -50,5 +50,5 @@ Nu har du konfigurerat vertikal skalning för ditt Azure Datautforskaren-kluster
 
 * [Hantera vågräta kluster skalning](manage-cluster-horizontal-scaling.md) för att dynamiskt skala ut antalet instanser baserat på mått som du anger.
 
-* Övervaka din resursanvändning genom att följa den här artikeln: [Övervaka Azure datautforskaren prestanda, hälsa och användning med mått](using-metrics.md).
+* Övervaka din resursanvändning genom att följa den här artikeln: [övervaka Azure datautforskaren prestanda, hälsa och användning med mått](using-metrics.md).
 

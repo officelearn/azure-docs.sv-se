@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: ba9484bd5b04e5a79da53a0bb78877153be42a43
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805917"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560906"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från Translator Speech API till tal tjänsten
 
-Använd den här artikeln för att migrera dina program från Microsoft Translator Speech API till [tal tjänsten](index.md). I den här guiden beskrivs skillnaderna mellan Translator Speech API-och tal tjänsten och en översikt över strategier för att migrera dina program.
+Använd den här artikeln för att migrera dina program från Microsoft Translator Speech API till [tal tjänsten](index.yml). I den här guiden beskrivs skillnaderna mellan Translator Speech API-och tal tjänsten och en översikt över strategier för att migrera dina program.
 
 > [!NOTE]
 > Din Translator Speech API prenumerations nyckel accepteras inte av tal tjänsten. Du måste skapa en ny röst tjänst prenumeration.
 
 ## <a name="comparison-of-features"></a>Jämförelse av funktioner
 
-| Funktion                                           | Translator-API för talöversättning                                  | Tal tjänst | Information                                                                                                                                                                                                                                                                            |
+| Funktion                                           | Translator Speech API                                  | Tjänst för taligenkänning | Detaljer                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Översättning till text                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Översättning till tal                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -35,7 +35,7 @@ Använd den här artikeln för att migrera dina program från Microsoft Translat
 | Tids gräns för anslutning                             | 90 minuter                                               | Obegränsat med SDK. 10 minuter med en WebSockets-anslutning.                                                                                                                                                                                                                                                                                   |
 | Auth Key i rubrik                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Flera språk som har översatts i en enskild begäran | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK: er är tillgängliga                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Se [dokumentationen för tal tjänst](index.md) för tillgängliga SDK: er.                                                                                                                                                    |
+| SDK: er är tillgängliga                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Se [dokumentationen för tal tjänst](index.yml) för tillgängliga SDK: er.                                                                                                                                                    |
 | WebSockets-anslutningar                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Språk-API                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Tal tjänsten har stöd för samma mängd språk som beskrivs i artikeln [Translator-API språk referens](../translator-speech/languages-reference.md) . |
 | Filter och markör för svordomar                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,7 +49,7 @@ Använd den här artikeln för att migrera dina program från Microsoft Translat
 
 ## <a name="migration-strategies"></a>Migreringsstrategier
 
-Om du eller din organisation har program som är i utvecklings-eller produktions miljön som använder Translator Speech API bör du uppdatera dem så att de använder tal tjänsten. I dokumentationen för [tal tjänsten](index.md) finns information om tillgängliga SDK: er, kod exempel och självstudier. Tänk på följande när du migrerar:
+Om du eller din organisation har program som är i utvecklings-eller produktions miljön som använder Translator Speech API bör du uppdatera dem så att de använder tal tjänsten. I dokumentationen för [tal tjänsten](index.yml) finns information om tillgängliga SDK: er, kod exempel och självstudier. Tänk på följande när du migrerar:
 
 * Tal tjänsten erbjuder inte en global slut punkt. Ta reda på om programmet fungerar effektivt när det använder en enda regional slut punkt för all trafik. Om inte, Använd geolokalisering för att fastställa den effektiva slut punkten.
 
@@ -64,7 +64,7 @@ Om du eller din organisation har program som är i utvecklings-eller produktions
 * [Prova röst tjänsten kostnads fritt](get-started.md)
 * [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Vad är tal tjänsten](overview.md)
 * [Dokumentation om Speech service och Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 11754e8e98e13cffefaf4a8c1fa08bc60d650105
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69016552"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566071"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK  
 
@@ -31,7 +31,7 @@ Den här självstudiekursen beskriver steg för steg hur du implementerar en enk
 
 Följande krävs för att kunna genomföra vägledningen:
 
-* Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett Azure-konto. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * .NET Framework 4.0 eller senare.
 * Visual Studio.
@@ -70,7 +70,7 @@ När du arbetar med Azure Media Services är ett av de vanligaste scenarierna at
 
 Starta slutpunkten för direktuppspelning genom att göra följande:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning.
 3. Klicka på den slutpunkt för direktuppspelning som är standard.
 
@@ -88,7 +88,7 @@ Starta slutpunkten för direktuppspelning genom att göra följande:
 
 När du använder Media Services med .NET ska du använda klassen **CloudMediaContext** för de flesta Media Services-programmeringsuppgifter. Det gäller till exempel att ansluta till Media Services-kontot, skapa, uppdatera, komma åt och ta bort följande objekt: tillgångar, tillgångsfiler, jobb, åtkomstprinciper, positionerare o.s.v.
 
-Skriv över den programklass som är standard med följande kod: Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information finns i avsnittet om hur du [ansluter till Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
+Skriv över standardprogramklassen med följande kod: Koden visar hur du läser anslutningsvärdena från filen App.config och hur du skapar objektet **CloudMediaContext** för att kunna ansluta till Media Services. Mer information finns i avsnittet om hur du [ansluter till Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
 
 Se till att uppdatera filnamnet och sökvägen till där du har din mediefil.
 
@@ -152,7 +152,7 @@ Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnit
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Skapa en ny tillgång och ladda upp en videofil
 
-I Media Services överför du (eller för in) dina digitala filer till en tillgång. Enheten **Tillgång** kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning (samt metadata om dessa filer.)  När filerna har överförts lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning. Filerna i tillgången kallas **Tillgångsfiler**.
+I Media Services överför du (eller för in) dina digitala filer till en tillgång. **Till gångs** enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning. Filerna i tillgången kallas **Tillgångsfiler**.
 
 Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definieras i .NET SDK-tillägg). **CreateFromFile** skapar en ny tillgång som den angivna källfilen överförs till.
 
@@ -238,7 +238,7 @@ Lägg till följande metod i programklassen.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicera tillgången och få URL:er för strömning och progressiv nedladdning
 
-Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler.
+Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-lokaliserare som används för strömning av media (till exempel MPEG DASH, HLS eller Smooth Streaming) och lokaliserare för åtkomstsignatur (SAS) som används för att hämta filer.
 
 ### <a name="some-details-about-url-formats"></a>Information om URL-format
 
@@ -378,7 +378,6 @@ Testa den progressiva nedladdningen genom att klistra in en URL i en webbläsare
 Mer information finns i följande avsnitt:
 
 - [Spela upp ditt innehåll med befintliga spelare](media-services-playback-content-with-existing-players.md)
-- [Utveckla videospelarprogram](media-services-develop-video-players.md)
 - [Bädda in MPEG-DASH-anpassad direktuppspelad video i ett HTML5-program med DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Ladda ned exempel

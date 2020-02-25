@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: efee34ddfb2b2f6090d5dc8c43647c7ee1c53ce2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539543"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562436"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -244,10 +244,10 @@ Om du vill uppdatera den distribuerade spårnings samplings konfigurationen för
 }
 ```
 
-| Elementnamn | Krävs | Typ | Beskrivning |
+| Elementnamn | Obligatoriskt | Typ | Beskrivning |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Ja | Integer | Två läges värden stöds för närvarande för att aktivera och inaktivera sampling. `1` är på och är `2` av. |
-| `sampling_rate` | Ja | Integer | Det här värdet är en procent andel. Endast värden från `0` till `100` (inklusive) tillåts.  |
+| `sampling_mode` | Ja | Heltal | Två läges värden stöds för närvarande för att aktivera och inaktivera sampling. `1` är på och är `2` av. |
+| `sampling_rate` | Ja | Heltal | Det här värdet är en procent andel. Endast värden från `0` till `100` (inklusive) tillåts.  |
 
 ## <a name="query-and-visualize"></a>Fråga och visualisera
 
@@ -269,9 +269,9 @@ Exempel på loggar som visas i Log Analytics:
 
 | TimeGenerated | OperationName | Kategori | Nivå | CorrelationId | . Durationms | Egenskaper |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType": "EventHub", "endpointName": "myEventHub", "parentSpanId": "0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informativt | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informativt | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informativt | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType": "EventHub", "endpointName": "myEventHub", "parentSpanId": "0144d2590aacd909"} |
 
 Information om de olika typerna av loggar finns i [Azure IoT Hub diagnostikloggar](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 

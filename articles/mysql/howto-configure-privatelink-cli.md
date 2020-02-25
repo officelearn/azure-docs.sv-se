@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 798c80ec2290a96b6f76116120292720c05c9198
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 7d9a401bfbf1f0c63995c8f7773abb6e8e874e7e
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426275"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561705"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL (för hands version) med CLI
 
@@ -54,7 +54,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Skapa den virtuella datorn 
+## <a name="create-the-vm"></a>Skapa VM 
 Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
 ```azurecli-interactive
 az vm create \
@@ -117,6 +117,9 @@ az network private-dns record-set a create --name myserver --zone-name privateli
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.mysql.database.azure.com --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> FQDN i DNS-inställningen för kunden matchar inte den privata IP-adressen som kon figurer ATS. Du måste konfigurera en DNS-zon för den konfigurerade FQDN: en som visas [här](../dns/dns-operations-recordsets-portal.md).
+
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
 
 Anslut till VM- *myVm* från Internet på följande sätt:
@@ -164,10 +167,10 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Anslutningsnamn| Välj önskat anslutnings namn.|
+    | Anslutningens namn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.mysql.Database.Azure.com* |
     | Användarnamn | Ange användar namn som *username@servername* som anges när MySQL-servern skapas. |
-    | lösenord | Ange ett lösen ord som anges när MySQL-servern skapas. |
+    | Lösenord | Ange ett lösen ord som anges när MySQL-servern skapas. |
     ||
 
 5. Välj Anslut.

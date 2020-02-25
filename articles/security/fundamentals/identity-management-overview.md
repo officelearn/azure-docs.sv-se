@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840459"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565901"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -40,10 +40,10 @@ Artikeln fokuserar på följande viktiga funktioner i Azure Identity Management:
 
 * Enkel inloggning
 * Omvänd proxy
-* Multi-Factor Authentication
+* Autentisering i flera steg
 * Rollbaserad åtkomst kontroll (RBAC)
 * Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
-* Hantering av konsumentidentitet och åtkomst
+* Konsument identitets-och åtkomst hantering
 * Enhetsregistrering
 * Privileged Identity Management
 * Identitetsskydd
@@ -64,7 +64,7 @@ Läs mer:
 
 * [Översikt över enkel inloggning](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrera Azure Active Directory enkel inloggning med SaaS-appar](../../active-directory/manage-apps/configure-single-sign-on-portal.md)
+* [Integrera Azure Active Directory enkel inloggning med SaaS-appar](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
 ## <a name="reverse-proxy"></a>Omvänd proxy
 
@@ -73,11 +73,11 @@ Med Azure AD-programproxy kan du publicera lokala program, till exempel [SharePo
 Läs mer:
 
 * [Aktivera Azure AD-programproxy](/azure/active-directory/manage-apps/application-proxy-enable)
-* [Publicera program med Azure AD Application Proxy](/azure/active-directory/active-directory-application-proxy-publish)
+* [Publicera program med Azure AD-programproxy](/azure/active-directory/active-directory-application-proxy-publish)
 * [Enkel inloggning med programproxy](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Arbeta med villkorlig åtkomst](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>Autentisering i flera steg
 
 Azure Multi-Factor Authentication är en autentiseringsmetod som kräver användning av mer än en verifieringsmetod och lägger till ett kritiskt andra säkerhets lager för användar inloggningar och transaktioner. Multi-Factor Authentication hjälper till att skydda åtkomsten till data och program samtidigt som du kan möta användarnas behov av en enkel inloggnings process. Den ger stark autentisering via en mängd verifierings alternativ: telefonsamtal, textmeddelanden eller aviseringar för mobilappar eller verifierings koder och OAuth-token från tredje part.
 
@@ -114,7 +114,7 @@ Läs mer:
 * [Kom igång med Azure Active Directory rapportering](/azure/active-directory/active-directory-reporting-getting-started)
 * [Azure Active Directory rapporterings guide](/azure/active-directory/active-directory-reporting-guide)
 
-## <a name="consumer-identity-and-access-management"></a>Hantering av konsumentidentitet och åtkomst
+## <a name="consumer-identity-and-access-management"></a>Konsument identitets-och åtkomst hantering
 
 Azure AD B2C är en global, identitets hanterings tjänst med hög tillgänglighet för klientbaserade program som kan skalas till hundratals miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Dina kunder kan logga in på alla dina program via anpassningsbara upplevelser genom att använda sina befintliga sociala konton eller genom att skapa nya autentiseringsuppgifter.
 
@@ -156,7 +156,7 @@ Med Azure AD Privileged Identity Management kan du:
 Läs mer:
 
 * [Vad är Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
-* [Tilldela Azure AD-katalogroller i PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [Tilldela Azure AD Directory-roller i PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identitetsskydd
 

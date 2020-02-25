@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024855"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558986"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
@@ -74,7 +74,7 @@ I vissa fall inkluderar företags program som skapats från program galleriet b�
 
 Azure AD har en uppsättning inbyggda administratörs roller för att bevilja åtkomst till att hantera konfigurationen i Azure AD för alla program. Dessa roller är det rekommenderade sättet att ge IT-experter åtkomst till att hantera omfattande program konfigurations behörigheter utan att bevilja åtkomst till att hantera andra delar av Azure AD som inte är relaterade till program konfigurationen.
 
-- Program administratör: användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph och Azure AD Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
+- Program administratör: användare med den här rollen kan skapa och hantera alla aspekter av företags program, program registreringar och programproxy-inställningar. Den här rollen ger också möjlighet att godkänna delegerade behörigheter och program behörigheter exklusive Microsoft Graph. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
 - Moln program administratör: användare med den här rollen har samma behörigheter som program administratörs rollen, förutom möjligheten att hantera programproxyn. Användare som har tilldelats den här rollen läggs inte till som ägare när de skapar nya program registreringar eller företags program.
 
 Mer information och se beskrivningen av dessa roller finns i [tillgängliga roller](directory-assign-admin-roles.md#available-roles).

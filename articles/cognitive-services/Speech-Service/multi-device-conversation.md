@@ -1,23 +1,23 @@
 ---
-title: Vad är en konversation med flera enheter (för hands version) – tal service
+title: Om konversation med flera enheter (för hands version) – tal service
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
-ms.openlocfilehash: 8d73c896f784507c2336a79130ff5f35aa61d30f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268079"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560821"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>Vad är en konversation med flera enheter (för hands version)?
+# <a name="about-multi-device-conversation-preview"></a>Om konversationer med flera enheter (för hands version)
 
 **Med en konversation med flera enheter** blir det enkelt att skapa en röst-eller textkonversation mellan flera klienter och koordinera meddelanden som skickas mellan dem.
 
@@ -60,9 +60,9 @@ Real tids avskrift och översättning kan hjälpa till att göra konversationer 
 Du kan också ange bild texter för presentationer och föreläsningar både på skärmen och på mål grupps medlemmarnas egna enheter. När mål gruppen har anslutits till en konversations kod kan de se avskriften på deras önskade språk på sin egen enhet.
 
 > [!NOTE]
-> Om du vill se ett exempel kan du titta på [presentations översättare](https://www.microsoft.com/translator/apps/presentation-translator/), ett PowerPoint-tillägg som använder konversations tjänsten för flera enheter. Du kan ladda ned den [här](https://www.microsoft.com/download/details.aspx?id=55024).
+> Om du vill se ett exempel kan du titta på [presentations översättare](https://www.microsoft.com/translator/apps/presentation-translator/), ett PowerPoint-tillägg som använder konversations tjänsten för flera enheter. Du kan hämta den [här](https://www.microsoft.com/download/details.aspx?id=55024).
 
-## <a name="how-it-works"></a>Så här fungerar det
+## <a name="how-it-works"></a>Hur det fungerar
 
 Alla klienter kommer att använda tal-SDK för att skapa eller ansluta till en konversation. Tal-SDK: n samverkar med konversations tjänsten för flera enheter, som hanterar livs längden för en konversation, inklusive deltagar listan, varje klients valda språk och meddelanden som skickas.  
 
@@ -98,7 +98,7 @@ En **deltagare** är en användare som ansluter till en konversation.
 > [!NOTE]
 > Varje konversation kan ha upp till 100 deltagare, varav 10 kan läsas samtidigt vid en bestämd tidpunkt.
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 När du skapar eller ansluter till en konversation måste varje användare välja ett **primärt språk**: det språk som de ska tala om och skicka snabb meddelanden i, och även det språk som de kommer att se andra användares meddelanden.
 

@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/13/2019
+ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718181"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558936"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: viktig information och resurser
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
+> * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
@@ -37,11 +37,15 @@ SQL API Java SDK har stöd för synkrona åtgärder. För asynkron support anvä
 |**SDK-hämtning**|[Maven 3.](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API-dokumentation**|[Referens dokumentation för Java API](/java/api/com.microsoft.azure.documentdb)|
 |**Bidra till SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Kom igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
+|**Komma igång**|[Kom igång med Java SDK](sql-api-java-get-started.md)|
 |**Själv studie kurs om webbapp**|[Utveckling av webb program med Azure Cosmos DB](sql-api-java-application.md)|
 |**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](https://aka.ms/azure-jdks)|
 
-## <a name="release-notes"></a>Viktig information
+## <a name="release-notes"></a>Versionsanmärkningar
+
+### <a name="a-name247247"></a><a name="2.4.7"/>2.4.7
+* Åtgärdar timeout-problem för anslutningspoolen.
+* Korrigerar uppdatering av auth-token vid interna återförsök.
 
 ### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
 * Uppdaterade den korrekta klient sidans-databaseAccount och gjorde databaseAccount-konfigurations läsningar från cachen.
@@ -259,8 +263,19 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
-| [punkt](#2.1.2) |Mar 09, 2018 |--- |
+| [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
+| [2.4.6](#2.4.6) |24 Jan 2020 |--- |
+| [2.4.5](#2.4.5) |Den 10 november 2019 |--- |
+| [2.4.4](#2.4.4) |Oktober 24 oktober 2019 |--- |
+| [2.4.2](#2.4.2) |Den 26 sep 2019 |--- |
+| [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
+| [2.4.0](#2.4.0) |Den 04 maj 2019 |--- |
+| [2.3.0](#2.3.0) |24 april 2019 |--- |
+| [punkt](#2.2.3) |16 april 2019 |--- |
+| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
+| [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
+| [punkt](#2.1.2) |Mar 09, 2019 |--- |
 | [punkt](#2.1.1) |Dec 13, 2018 |--- |
 | [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Den 21 september 2018 |--- |
@@ -305,6 +320,6 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
 

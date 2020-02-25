@@ -4,20 +4,18 @@ description: Lär dig hur du hanterar mänsklig interaktion och tids gränser i 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0c16ef092c30a94cd04b55c91d3643ac29b82be0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769582"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562113"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i Durable Functions-telefon verifierings exempel
 
 Det här exemplet visar hur du skapar ett [Durable Functions](durable-functions-overview.md) Orchestration som involverar mänsklig interaktion. När en verklig person är inblandad i en automatiserad process måste processen kunna skicka meddelanden till personen och ta emot svar asynkront. Det måste också tillåtas att personen inte är tillgänglig. (Den sista delen är de tids gränser som blir viktiga.)
 
 Det här exemplet implementerar ett SMS-baserat telefon verifierings system. Dessa typer av flöden används ofta när du verifierar en kunds telefonnummer eller Multi-Factor Authentication (MFA). Det är ett kraftfullt exempel eftersom hela implementeringen görs med hjälp av ett par små funktioner. Det krävs inget externt data lager, till exempel en databas.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -37,26 +35,32 @@ Komplexiteten i det här scenariot minskar avsevärt när du använder Durable F
 
 Den här artikeln vägleder dig genom följande funktioner i exempel appen:
 
-* **E4_SmsPhoneVerification**
-* **E4_SendSmsChallenge**
+* `E4_SmsPhoneVerification`: en [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som utför telefon verifierings processen, inklusive hantering av tids gränser och återförsök.
+* `E4_SendSmsChallenge`: en [Orchestrator-funktion](durable-functions-bindings.md#activity-trigger) som skickar en kod via SMS.
 
-I följande avsnitt beskrivs den konfiguration och kod som används för C# skript och Java Script. Koden för Visual Studio-utveckling visas i slutet av artikeln.
+### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification Orchestrator-funktion
 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS-verifierings dirigering (Visual Studio Code och Azure Portal exempel kod)
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
+
+> [!NOTE]
+> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är deterministiskt eftersom `CurrentUtcDateTime`-egenskapen används för att beräkna timerns förfallo tid och returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att säkerställa att samma `winner` resultat från varje upprepat anrop till `Task.WhenAny`.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Funktionen **E4_SmsPhoneVerification** använder standard *funktionen. JSON* för Orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
 
 Här är den kod som implementerar funktionen:
 
-### <a name="c-script"></a>C#Över
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
+
+> [!NOTE]
+> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är deterministiskt eftersom `currentUtcDateTime`-egenskapen används för att beräkna timerns förfallo tid och returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att säkerställa att samma `winner` resultat från varje upprepat anrop till `context.df.Task.any`.
+
+---
 
 När den här Orchestrator-funktionen har startats gör du följande:
 
@@ -65,31 +69,33 @@ När den här Orchestrator-funktionen har startats gör du följande:
 3. Skapar en varaktig timer som utlöser 90 sekunder från den aktuella tiden.
 4. Parallellt med timern väntar på en **SmsChallengeResponse** -händelse från användaren.
 
-Användaren får ett SMS-meddelande med en fyrsiffrig kod. De har 90 sekunder på sig att skicka samma 4-siffriga kod tillbaka till Orchestrator-funktions instansen för att slutföra verifierings processen. Om de skickar fel kod får de ytterligare tre försök att hämta den åt höger (inom samma 90-sekund-fönster).
-
-> [!NOTE]
-> Det kanske inte är uppenbart först, men den här Orchestrator-funktionen är helt deterministisk. Det är entydigt eftersom egenskaperna `CurrentUtcDateTime` (.NET) och `currentUtcDateTime` (Java Script) används för att beräkna timerns förfallo tid och dessa egenskaper returnerar samma värde vid varje uppspelning vid den här punkten i Orchestrator-koden. Detta är viktigt för att säkerställa att samma `winner` resultat från varje upprepat anrop till `Task.WhenAny` (.NET) eller `context.df.Task.any` (Java Script).
+Användaren får ett SMS-meddelande med en fyrsiffrig kod. De har 90 sekunder på sig att skicka samma fyrsiffriga kod tillbaka till Orchestrator-funktions instansen för att slutföra verifierings processen. Om de skickar fel kod får de ytterligare tre försök att hämta den åt höger (inom samma 90-sekund-fönster).
 
 > [!WARNING]
 > Det är viktigt att [avbryta timers](durable-functions-timers.md) om du inte längre behöver dem att förfalla, precis som i exemplet ovan när ett utmanings svar godkänns.
 
-## <a name="send-the-sms-message"></a>Skicka SMS-meddelandet
+## <a name="e4_sendsmschallenge-activity-function"></a>Funktionen E4_SendSmsChallenge aktivitet
 
-Funktionen **E4_SendSmsChallenge** använder Twilio-bindningen för att skicka SMS-meddelandet med den 4-siffriga koden till slutanvändaren. *Funktionen. JSON* definieras enligt följande:
+Funktionen **E4_SendSmsChallenge** använder Twilio-bindningen för att skicka SMS-meddelandet med den fyrsiffriga koden till slutanvändaren.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/function.json)]
+# <a name="c"></a>[C#](#tab/csharp)
 
-Här är koden som genererar den 4-siffriga utmanings koden och skickar SMS-meddelandet:
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
-### <a name="c-script"></a>C#Över
+> [!NOTE]
+> Du måste installera `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet-paketet för att köra exempel koden.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
+*Funktionen. JSON* definieras enligt följande:
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
+
+Här är koden som genererar den fyrsiffriga utmanings koden och skickar SMS-meddelandet:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
-Den här **E4_SendSmsChallenge** funktionen får bara anropas en gång, även om processen kraschar eller spelas upp igen. Detta är bra eftersom du inte vill att slutanvändaren ska hämta flera SMS-meddelanden. Det `challengeCode` returvärdet sparas automatiskt, så att Orchestrator-funktionen alltid vet vad rätt kod är.
+---
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -147,15 +153,6 @@ Content-Length: 145
 
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
-
-## <a name="visual-studio-sample-code"></a>Visual Studio-exempel kod
-
-Här är dirigeringen som en enskild C# fil i ett Visual Studio-projekt:
-
-> [!NOTE]
-> Du måste installera `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet-paketet för att köra exempel koden nedan.
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
 ## <a name="next-steps"></a>Nästa steg
 

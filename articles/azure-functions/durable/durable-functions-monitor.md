@@ -4,18 +4,16 @@ description: Lär dig hur du implementerar en status övervakare med Durable Fun
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f8a589bd4ab4de396c0688f8022515d6fbec96a2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769599"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562130"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Övervaka scenario i Durable Functions – väder vakts exempel
 
 Övervaknings mönstret avser en flexibel *återkommande* process i ett arbets flöde – till exempel avsökningen tills vissa villkor är uppfyllda. I den här artikeln beskrivs ett exempel som använder [Durable Functions](durable-functions-overview.md) för att implementera övervakning.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -30,11 +28,13 @@ Det här exemplet övervakar en platss aktuella väder förhållanden och varnar
 * Övervakare är skalbara. Eftersom varje övervakare är en Dirigerings instans kan flera övervakare skapas utan att behöva skapa nya funktioner eller definiera mer kod.
 * Övervakar lätt att integrera i större arbets flöden. En övervakare kan vara en del av en mer komplex Orchestration-funktion eller en [under dirigering](durable-functions-sub-orchestrations.md).
 
-## <a name="configuring-twilio-integration"></a>Konfigurera Twilio-integrering
+## <a name="configuration"></a>Konfiguration
+
+### <a name="configuring-twilio-integration"></a>Konfigurera Twilio-integrering
 
 [!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
-## <a name="configuring-weather-underground-integration"></a>Konfigurera väder underjords integrering
+### <a name="configuring-weather-underground-integration"></a>Konfigurera väder underjords integrering
 
 Det här exemplet förutsätter att du använder väder-API: et för att kontrol lera aktuella väder förhållanden för en plats.
 
@@ -50,27 +50,29 @@ När du har en API-nyckel lägger du till följande **app-inställning** i din F
 
 I den här artikeln beskrivs följande funktioner i exempel appen:
 
-* `E3_Monitor`: en Orchestrator-funktion som anropar `E3_GetIsClear` regelbundet. Den anropar `E3_SendGoodWeatherAlert` om `E3_GetIsClear` returnerar true.
-* `E3_GetIsClear`: en aktivitets funktion som kontrollerar aktuella väder förhållanden för en plats.
+* `E3_Monitor`: en [Orchestrator-funktion](durable-functions-bindings.md#orchestration-trigger) som anropar `E3_GetIsClear` regelbundet. Den anropar `E3_SendGoodWeatherAlert` om `E3_GetIsClear` returnerar true.
+* `E3_GetIsClear`: en [aktivitets funktion](durable-functions-bindings.md#activity-trigger) som kontrollerar aktuella väder förhållanden för en plats.
 * `E3_SendGoodWeatherAlert`: en aktivitets funktion som skickar ett SMS-meddelande via Twilio.
 
-I följande avsnitt beskrivs den konfiguration och kod som används för C# skript och Java Script. Koden för Visual Studio-utveckling visas i slutet av artikeln.
+### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor Orchestrator-funktion
 
-## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Väder övervaknings dirigering (Visual Studio Code och Azure Portal exempel kod)
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
+
+Orchestrator kräver en plats för att övervaka och ett telefonnummer för att skicka ett meddelande till när det blir klart på platsen. Dessa data skickas till Orchestrator som ett starkt skrivet `MonitorRequest`-objekt.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Funktionen **E3_Monitor** använder standard *funktionen. JSON* för Orchestrator functions.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
 
 Här är den kod som implementerar funktionen:
 
-### <a name="c-script"></a>C#Över
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
+
+---
 
 Den här Orchestrator-funktionen utför följande åtgärder:
 
@@ -79,48 +81,52 @@ Den här Orchestrator-funktionen utför följande åtgärder:
 3. Anropar **E3_GetIsClear** för att avgöra om det finns tydliga Skies på den begärda platsen.
 4. Om väderet är klart anropar **E3_SendGoodWeatherAlert** att skicka ett SMS-meddelande till det begärda telefonnumret.
 5. Skapar en varaktig timer för att återuppta dirigeringen vid nästa avsöknings intervall. Exemplet använder ett hårdkodat värde för det kortfattat.
-6. Fortsätter att köras tills `CurrentUtcDateTime` (.NET) eller `currentUtcDateTime` (Java Script) kan passera förfallo tiden för övervakaren eller också skickas en SMS-avisering.
+6. Fortsätter att köras tills den aktuella UTC-tiden passerar övervakarens förfallo tid, eller så skickas en SMS-avisering.
 
-Flera Orchestrator-instanser kan köras samtidigt genom att skicka flera **MonitorRequests**. Den plats som ska övervakas och telefonnumret som en SMS-avisering ska skickas till kan anges.
+Flera Orchestrator-instanser kan köras samtidigt genom att anropa Orchestrator-funktionen flera gånger. Den plats som ska övervakas och telefonnumret som en SMS-avisering ska skickas till kan anges.
 
-## <a name="strongly-typed-data-transfer-net-only"></a>Starkt inskriven data överföring (endast .NET)
+### <a name="e3_getisclear-activity-function"></a>Funktionen E3_GetIsClear aktivitet
 
-Orchestrator kräver flera data mängder, så [delade Poco-objekt](../functions-reference-csharp.md#reusing-csx-code) används för starkt inskriven data överföring i C# och C# skript:  
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+Som med andra exempel är hjälp aktivitetens funktioner vanliga funktioner som använder bindningen `activityTrigger` trigger. Funktionen **E3_GetIsClear** hämtar aktuella väder förhållanden med hjälp av väder-API: et och avgör om himmelen är klar.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+# <a name="c"></a>[C#](#tab/csharp)
 
-JavaScript-exemplet använder vanliga JSON-objekt som parametrar.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
-## <a name="helper-activity-functions"></a>Hjälp aktivitetens funktioner
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Som med andra exempel är hjälp aktivitetens funktioner vanliga funktioner som använder bindningen `activityTrigger` trigger. Funktionen **E3_GetIsClear** hämtar aktuella väder förhållanden med hjälp av väder-API: et och avgör om himmelen är klar. *Funktionen. JSON* definieras enligt följande:
+*Funktionen. JSON* definieras enligt följande:
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
 
-Här är implementeringen. Precis som den POCOs som används för data överföring, är logik för att hantera API-anropet och parsa API-anropet som C#är abstrakt till en delad klass i. Du kan hitta det som en del av [Visual Studio-exempel koden](#run-the-sample).
-
-### <a name="c-script"></a>C#Över
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
+Här är implementeringen.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-Funktionen **E3_SendGoodWeatherAlert** använder bindningen Twilio för att skicka ett SMS-meddelande som meddelar slutanvändaren att det är en lämplig tid för en guidad användning. Dess *Function. JSON* är enkel:
+---
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/function.json)]
+### <a name="e3_sendgoodweatheralert-activity-function"></a>Funktionen E3_SendGoodWeatherAlert aktivitet
+
+Funktionen **E3_SendGoodWeatherAlert** använder bindningen Twilio för att skicka ett SMS-meddelande som meddelar slutanvändaren att det är en lämplig tid för en guidad användning.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
+
+> [!NOTE]
+> Du måste installera `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet-paketet för att köra exempel koden.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Dess *Function. JSON* är enkel:
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
 
 Här är koden som skickar SMS-meddelandet:
 
-### <a name="c-script"></a>C#Över
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
+
+---
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -168,15 +174,6 @@ Dirigeringen [avslutas](durable-functions-instance-management.md) när tids grä
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
-
-## <a name="visual-studio-sample-code"></a>Visual Studio-exempel kod
-
-Här är dirigeringen som en enskild C# fil i ett Visual Studio-projekt:
-
-> [!NOTE]
-> Du måste installera `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet-paketet för att köra exempel koden nedan.
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
 ## <a name="next-steps"></a>Nästa steg
 

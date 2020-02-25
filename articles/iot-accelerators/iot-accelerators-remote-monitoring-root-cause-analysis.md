@@ -1,27 +1,27 @@
 ---
 title: Utföra en rotorsaksanalys för en avisering – Azure | Microsoft Docs
 description: Lär dig hur du utför en rotorsaksanalys på en avisering med hjälp av Azure Time Series Insights i den här självstudien.
-author: aditidugar
-ms.author: adugar
+author: Philmea
+ms.author: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444767"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565476"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Självstudier: Utföra en rotorsaksanalys på en avisering
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Självstudie: Utföra en rotorsaksanalys för en avisering
 
 I den här självstudiekursen lär du dig hur du diagnostiserar rotorsaken till en avisering med acceleratorn Fjärrövervakningslösning. Du ser att en avisering har utlösts i fjärrövervakningslösningens instrumentpanel. Använd sedan Azure Time Series Insights-utforskaren för att undersöka orsaken.
 
 I självstudien används två simulerade lastbilsenheter som skickar telemetri om plats, höjd, hastighet och lasttemperatur. Lastbilarna hanteras av en organisation som heter Contoso och är anslutna till acceleratorn Fjärrövervakningslösning. Som Contoso-operatör måste du veta varför en av dina lastbilar (lastbil-02) har loggat en avisering om låg temperatur.
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 >[!div class="checklist"]
 > * Filtrera enheterna på instrumentpanelen

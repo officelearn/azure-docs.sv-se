@@ -1,5 +1,5 @@
 ---
-title: Visualisera data från Azure Datautforskaren med hjälp av en SQL-fråga i Power BI
+title: Visualisera data från Azure Datautforskaren med en Power BI SQL-fråga
 description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för visualisering av data i Power BI: en SQL-fråga mot ett Azure Datautforskaren-kluster.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024088"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560481"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualisera data från Azure Datautforskaren med hjälp av en SQL-fråga i Power BI
 
@@ -22,13 +22,13 @@ Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: an
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra den här artikeln:
 
 * En organisations e-postkonto som är medlem i Azure Active directory, så att du kan ansluta till [Azure Data Explorer-hjälpklustret](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (välj **DOWNLOAD FREE**) (Ladda ned kostnadsfritt)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
 
 ## <a name="get-data-from-azure-data-explorer"></a>Hämta data från Azure Data Explorer
 

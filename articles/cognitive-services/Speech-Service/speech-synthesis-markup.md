@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: ac891e96e350f73b7728ee4b572d9e16a8794ff7
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: c4a27db8bec6dbbd2f1b2be8acfdd034d45d37d5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461002"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561928"
 ---
-# <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
+# <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
 SSML (Speech syntes Markup Language) är ett XML-baserat kodspråk som låter utvecklare ange hur indata ska konverteras till syntetiskt tal med hjälp av text till tal-tjänsten. Jämfört med oformaterad text gör SSML att utvecklare kan finjustera färgdjup, uttal, tal frekvens, volym och annat text till tal-utdata. Normal interpunktion, till exempel pausa efter en punkt eller med rätt intonation när en mening slutar med ett frågetecken, hanteras automatiskt.
 
@@ -57,9 +57,9 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Krävs |
-| `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, versaler, två bokstäver (till exempel `en`) eller språk koden och det stora landet/regionen (till exempel `en-US`). | Krävs |
-| `xmlns` | Anger den URI till dokumentet som definierar ord listan (element typerna och attributnamnet) för SSML-dokumentet. Aktuell URI är https://www.w3.org/2001/10/synthesis. | Krävs |
+| `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Obligatoriskt |
+| `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, versaler, två bokstäver (till exempel `en`) eller språk koden och det stora landet/regionen (till exempel `en-US`). | Obligatoriskt |
+| `xmlns` | Anger den URI till dokumentet som definierar ord listan (element typerna och attributnamnet) för SSML-dokumentet. Aktuell URI är https://www.w3.org/2001/10/synthesis. | Obligatoriskt |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Välj röst för text till tal
 
@@ -77,7 +77,7 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Krävs |
+| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatoriskt |
 
 **Exempel**
 
@@ -100,7 +100,7 @@ I `speak`-elementet kan du ange flera röster för text till tal-utdata. Dessa r
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Krävs |
+| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatoriskt |
 
 > [!IMPORTANT]
 > Flera röster är inkompatibla med ord gränsens funktion. Ord gränsen måste inaktive ras för att flera röster ska kunna användas.
@@ -447,7 +447,7 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Krävs |
+| `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Obligatoriskt |
 | `format` | Innehåller ytterligare information om den exakta formateringen av elementets text för innehålls typer som kan ha tvetydiga format. SSML definierar format för innehålls typer som använder dem (se tabellen nedan). | Valfri |
 | `detail` | Anger detalj nivån som ska läsas. Det här attributet kan till exempel begära att tal syntes motorn uttalar skiljetecken. Det finns inga standardvärden definierade för `detail`. | Valfri |
 

@@ -68,6 +68,8 @@
       href: upgrade-basicInternal-standard.md
     - name: Konfigurera regler för utgående trafik
       items:
+        - name: Azure Portal
+          href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
         - name: Azure PowerShell

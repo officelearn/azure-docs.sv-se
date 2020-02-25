@@ -41,6 +41,10 @@
       href: cli-samples.md
 - name: Begrepp
   items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Utvecklarfunktioner
       href: batch-api-basics.md
     - name: 'API:er och verktyg'

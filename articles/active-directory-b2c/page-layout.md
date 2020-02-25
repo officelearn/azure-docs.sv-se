@@ -39,7 +39,7 @@ Sid inlayout-paket uppdateras regelbundet för att inkludera korrigeringar och f
   - E-postfältet är nu `type=email` och mobila tangent bord ger rätt förslag
   - Stöd för Chrome-Översättning
 - Enhetliga och självkontrollerade sidor
-  - Fälten användar namn/e-post och lösen ord använder nu `form` HTML-element för att tillåta att Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
+  - Fälten användar namn/e-post och lösen ord använder nu `form` HTML-element för att tillåta att Microsoft Edge och Internet Explorer (IE) sparar informationen på rätt sätt.
 
 ## <a name="110"></a>1.1.0
 

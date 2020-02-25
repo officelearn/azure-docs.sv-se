@@ -72,12 +72,12 @@
       items:
         - name: Säkerhetsöversikt
           href: overview-security.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Säkerhetsvärldar
           href: key-vault-ovw-security-worlds.md
         - name: Säkra ditt nyckelvalv
           href: key-vault-secure-your-key-vault.md
-        - name: Inbyggda säkerhetskontroller
-          href: key-vault-security-controls.md
     - name: Mjuk borttagning
       href: key-vault-ovw-soft-delete.md
     - name: Övervaka Key Vault-händelser

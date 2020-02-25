@@ -352,7 +352,7 @@
         - name: 'Använda en mall med C#'
           href: csharp-template.md
         - name: Skapa en virtuell dator med Chef
-          href: chef-automation.md
+          href: ../../chef/chef-automation.md
         - name: Använda Java
           href: java.md
         - name: Använda Python

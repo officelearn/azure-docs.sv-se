@@ -21,7 +21,7 @@
     - name: Chef
       items:
         - name: Skapa en virtuell Windows-dator
-          href: /azure/virtual-machines/windows/chef-automation
+          href: ./chef-automation.md
 - name: Referens
   items:
     - name: Azure Chef-tillägg

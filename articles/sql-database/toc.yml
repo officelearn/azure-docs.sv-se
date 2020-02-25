@@ -150,6 +150,8 @@
               href: sql-database-managed-instance-public-endpoint-securely.md
             - name: Granskning av hanterad instans
               href: sql-database-managed-instance-auditing.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Anslut och fråga
       href: sql-database-connect-query.md
       items:

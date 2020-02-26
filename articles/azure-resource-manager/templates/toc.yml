@@ -142,6 +142,9 @@
             - name: Variabler
               displayName: 'iteration,copy'
               href: copy-variables.md
+            - name: Utdata
+              displayName: 'iteration,copy'
+              href: copy-outputs.md
         - name: Resurser på prenumerationsnivå
           href: deploy-to-subscription.md
         - name: Nivåresurser för hanteringsgrupp

@@ -534,7 +534,7 @@
             - name: Skala med VM-agenter
               href: ../../jenkins/jenkins-azure-vm-agents.md
             - name: Publicera artefakter till Storage
-              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
             - name: Säker Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Köra containrar

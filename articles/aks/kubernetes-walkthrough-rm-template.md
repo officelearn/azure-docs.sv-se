@@ -2,22 +2,19 @@
 title: Snabbstart – Skapa ett AKS-kluster (Azure Kubernetes Service)
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster med hjälp av en Azure Resource Manager-mall och distribuera ett program i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5fe82dbce2069b0ae1a88599d020f4ba6b116027
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255514"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595339"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av en Azure Resource Manager-mall
 
-Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. I den här snabb starten distribuerar du ett AKS-kluster med hjälp av en Azure Resource Manager-mall. Ett flerbehållarprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret.
+Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. I den här snabb starten distribuerar du ett AKS-kluster med hjälp av en Azure Resource Manager-mall. Ett flercontainerprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret.
 
 ![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -29,13 +26,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Om du väljer att installera och använda CLI lokalt kräver den här snabb starten att du kör Azure CLI-version 2.0.61 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill skapa ett AKS-kluster med en Resource Manager-mall anger du en offentlig SSH-nyckel och Azure Active Directory tjänstens huvud namn. Om du behöver någon av dessa resurser kan du läsa mer i följande avsnitt: Annars hoppar du till avsnittet [skapa ett AKS-kluster](#create-an-aks-cluster) .
 
 ### <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
 
-Om du vill komma åt AKS-noder ansluter du med ett SSH-nyckelpar. Använd kommandot `ssh-keygen` för att generera offentliga och privata SSH-nyckelfiler. Som standard skapas de här filerna i katalogen *~/.ssh* . Om det finns ett SSH-nyckelpar med samma namn på den aktuella platsen, skrivs filerna över.
+Om du vill komma åt AKS-noder ansluter du med ett SSH-nyckelpar. Använd `ssh-keygen`-kommandot för att generera offentliga och privata SSH-nyckelfiler. Som standard skapas de här filerna i katalogen *~/.ssh* . Om det finns ett SSH-nyckelpar med samma namn på den aktuella platsen, skrivs filerna över.
 
 Följande kommando skapar ett SSH-nyckelpar med RSA-kryptering och en bit-längd på 2048:
 
@@ -85,9 +82,9 @@ Mallen som används i den här snabb starten är att [distribuera ett Azure Kube
     * **Kluster namn**: Ange ett unikt namn för AKS-klustret, till exempel *myAKSCluster*.
     * **DNS-prefix**: Ange ett unikt DNS-prefix för klustret, till exempel *myakscluster*.
     * **Användar namn för Linux-administratör**: Ange ett användar namn för att ansluta med SSH, till exempel *azureuser*.
-    * **Offentlig SSH RSA-nyckel**: kopiera och klistra in den *offentliga* delen av ditt SSH-nyckelpar (som standard innehåller innehållet på *~/.ssh/id_rsa.pub*).
+    * **Offentlig SSH RSA-nyckel**: kopiera och klistra in den *offentliga* delen av ditt SSH-nyckelpar (som standard innehåller innehållet på *~/.ssh/id_rsa. pub*).
     * **Tjänstens huvud namn för klient-ID**: kopiera och klistra in *appId* för tjänstens huvud namn från kommandot `az ad sp create-for-rbac`.
-    * **Tjänstens huvud namn, klient hemlighet**: kopiera och klistra in *lösen ordet* för tjänstens huvud namn från kommandot `az ad sp create-for-rbac`.
+    * **Tjänstens huvud namn, klient hemlighet**: kopiera och klistra in *lösen ordet* för tjänstens huvud namn från `az ad sp create-for-rbac`-kommandot.
     * **Jag godkänner villkors tillståndet ovan**: Markera den här rutan om du vill acceptera.
 
     ![Resource Manager-mall för att skapa ett Azure Kubernetes service-kluster i portalen](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
@@ -130,7 +127,7 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till exempel vilka containeravbildningar som ska köras. I den här snabbstarten används ett manifest för att skapa alla objekt som behövs för att köra Azure Vote-programmet. Det här manifestet innehåller två [Kubernetes-distributioner][kubernetes-deployment] – en för Azures rösten python-program och en annan för en Redis-instans. Två [Kubernetes-tjänster][kubernetes-service] skapas också – en intern tjänst för Redis-instansen och en extern tjänst för att få åtkomst till Azures röst program från Internet.
 
 > [!TIP]
-> I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
+> I den här snabbstarten skapar och distribuerar du manuellt programmanifest till AKS-kluster. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
 Skapa en fil med namnet `azure-vote.yaml` och kopiera följande YAML-definition. Om du använder Azure Cloud Shell, kan du skapa filen med `vi` eller `nano` som om du arbetar i ett virtuellt eller fysiskt system:
 
@@ -251,7 +248,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
+När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress, använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
 ```
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -280,7 +277,7 @@ I den här snabbstarten har fördefinierade containeravbildningar användes för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det. [Öppna Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för det kluster som du skapade.
+I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flercontainerprogram till det. [Öppna Kubernetes-webbinstrumentpanelen][kubernetes-dashboard] för det kluster som du skapade.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 

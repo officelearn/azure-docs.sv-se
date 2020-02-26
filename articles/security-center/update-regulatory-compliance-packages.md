@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f76b5443d6c1e3fd2cebf87cba39ba0a6bbdeaee
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521792"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603222"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Uppdatera till dynamiska efterlevnadsprinciper i instrument panelen för kontroll av efterlevnad (för hands version)
 
@@ -75,6 +75,5 @@ I den här artikeln har du lärt dig:
 Information om annat relaterat material finns i följande artiklar: 
 
 - [Instrument panel för övervakning av gällande säkerhets Center](security-center-compliance-dashboard.md)
-- [Arbeta med säkerhets principer](tutorial-security-policy.md)
+- [Arbeta med säkerhetsprinciper](tutorial-security-policy.md)
 - [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur du använder rekommendationer i Azure Security Center för att skydda dina Azure-resurser.
-- [Azure Security Center FAQ](security-center-faq.md) – få svar på vanliga frågor om att använda Security Center.

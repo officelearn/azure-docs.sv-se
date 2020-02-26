@@ -1,18 +1,15 @@
 ---
 title: Koncept – nätverk i Azure Kubernetes Services (AKS)
 description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusive Kubernetes och Azure CNI Networking, ingress controllers, belastningsutjämnare och statiska IP-adresser.
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.author: mlearned
-ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084274"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596172"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -117,7 +114,7 @@ Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI 
 * Azure-plattformen kan automatiskt skapa och konfigurera virtuella nätverks resurser när du skapar ett AKS-kluster.
 * Du kan manuellt skapa och konfigurera virtuella nätverks resurser och koppla dem till resurserna när du skapar ditt AKS-kluster.
 
-Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Exempel:
+Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Några exempel:
 
 * Om du manuellt skapar de virtuella nätverks resurserna för ett AKS-kluster, kan du konfigurera dina egna UDR-eller tjänst slut punkter.
 * Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.

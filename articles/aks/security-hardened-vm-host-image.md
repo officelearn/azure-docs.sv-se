@@ -3,17 +3,16 @@ title: Säkerhets härdning i AKS virtuella dator värdar
 description: Lär dig mer om säkerhets härdningen i AKS VM Host OS
 services: container-service
 author: saudas
-ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885635"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594388"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Säkerhets härdning i AKS virtuella dator värdar 
 
@@ -75,7 +74,7 @@ AKS-Engine befordrar eller följer inte någon speciell säkerhets standard för
 |5.4.1.1 |Se till att lösen ordets giltighets tid är 90 dagar eller mindre |
 |5.4.1.4 |Se till att det inaktiva lösen ords låset är 30 dagar eller mindre |
 |5.4.4 |Se till att standard användaren umask är 027 eller mer restriktiv |
-|5,6 |Se till att åtkomsten till Su-kommandot är begränsad|
+|5.6 |Se till att åtkomsten till Su-kommandot är begränsad|
 
 ## <a name="additional-notes"></a>Ytterligare information
  

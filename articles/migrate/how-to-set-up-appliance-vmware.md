@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat för VMware
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella VMware-datorer.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291948"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598161"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en installation för virtuella VMware-datorer
 
@@ -35,7 +35,7 @@ Så här konfigurerar du den apparat som du:
 2. I **Identifiera datorer** > **Är dina datorer virtualiserade?** klickar du på **Ja, med VMware vSphere Hypervisor-programmet**.
 3. Klicka på **Ladda ned** för att ladda ned .OVA-mallfilen.
 
-
+  ![Alternativ för att ladda ned en ägg fil](./media/tutorial-assess-vmware/download-ova.png)
 
 ### <a name="verify-security"></a>Verifiera säkerhet
 
@@ -45,12 +45,8 @@ Kontrol lera att ägg filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hash-värdet för de ägg:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. För den senaste versionen av produkten ska den genererade hashen matcha de här inställningarna.
+3. För den senaste versionen av produkten ska den genererade hashen matcha de här [inställningarna](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
 
-  **Algoritm** | **Hash-värde**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Skapa VM-enheten
@@ -58,6 +54,8 @@ Kontrol lera att ägg filen är säker innan du distribuerar den.
 Importera den nedladdade filen och skapa en virtuell dator.
 
 1. I vSphere-klientkonsolen klickar du på **Arkiv** > **Distribuera OVF-mall**.
+![meny kommando för att distribuera en OVF-mall](./media/tutorial-assess-vmware/deploy-ovf.png)
+
 2. I guiden Distribuera OVF-mall > **källa**anger du platsen för ägg filen.
 3. I **namn** och **plats**anger du ett eget namn för den virtuella datorn. Välj det lager objekt som den virtuella datorn ska vara värd för.
 5. I **värd/kluster**anger du den värd eller det kluster som den virtuella datorn ska köras på.

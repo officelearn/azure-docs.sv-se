@@ -3,16 +3,15 @@ title: Översikt över Azure Kubernetes service (AKS)-diagnostik
 description: Lär dig mer om att själv diagnostisera kluster i Azure Kubernetes-tjänsten.
 services: container-service
 author: yunjchoi
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291387"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596189"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Översikt över Azure Kubernetes service (AKS)-diagnostik
 
@@ -26,7 +25,7 @@ Fel sökning av problem med Azure Kubernetes service (AKS) är en viktig del av 
 - Klicka på **diagnostisera och lös problem** i det vänstra navigerings fönstret, som öppnar AKS-diagnostik.
 - Välj en kategori som bäst beskriver problemet med klustret med hjälp av nyckelorden på Start sidan eller Skriv ett nyckelord som bäst beskriver problemet i Sök fältet, till exempel _klusternoder_.
 
-![Startsida](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
+![Start](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
 ## <a name="view-a-diagnostic-report"></a>Visa en diagnostisk rapport
 
@@ -76,7 +75,7 @@ Identitets-och säkerhets hantering identifierar autentiserings-och auktoriserin
 
 - Auktoriseringsfel för nod
 - 401 fel
-- 403-fel
+- 403 fel
 
 ## <a name="next-steps"></a>Nästa steg
 

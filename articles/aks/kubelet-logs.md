@@ -2,17 +2,14 @@
 title: Visa kubelet-loggar i Azure Kubernetes service (AKS)
 description: Lär dig att Visa felsöknings information i kubelet-loggarna från Azure Kubernetes service (AKS)-noder
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: mlearned
-ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615188"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595390"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet-loggar från AKS-klusternoder (Azure Kubernetes service)
 

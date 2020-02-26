@@ -3,7 +3,7 @@ title: Användbara resurser när du arbetar med Azure Sentinel | Microsoft Docs
 description: I det här dokumentet får du en lista över användbara resurser när du arbetar med Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: yelevin
+ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548007"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585279"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Användbara resurser för att arbeta med Azure Sentinel
 
@@ -55,7 +55,7 @@ Följande åtgärder som stöds kan granskas.
 |Skapa ärende kommentarer   |Microsoft. SecurityInsights/Cases/comments|
 |Uppdatera data anslutningar |Microsoft. SecurityInsights/dataConnectors|
 |Ta bort data anslutningar |Microsoft. SecurityInsights/dataConnectors|
-|Uppdatera inställningarna    |Microsoft. SecurityInsights/inställningar|
+|Uppdatera inställningar    |Microsoft. SecurityInsights/inställningar|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Visa gransknings-och rapporterings data i Azure Sentinel
 

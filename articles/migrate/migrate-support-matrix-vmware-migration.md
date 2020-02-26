@@ -3,19 +3,19 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e5a2f40611f6b358a8b5ff1dfb99cadebae4fab6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: eea2ef1f84e5c31dd18ea4ef65ccf2796231352b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014002"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597991"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
 Den här artikeln sammanfattar support inställningar och begränsningar för migrering av virtuella VMware-datorer med [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool) . Om du vill ha information om hur du bedömer virtuella VMware-datorer för migrering till Azure läser du [matrisen för utvärderings support](migrate-support-matrix-vmware.md).
 
 
-## <a name="migration-options"></a>Migrations alternativ
+## <a name="migration-options"></a>Migreringsalternativ
 
 Du kan migrera virtuella VMware-datorer på ett par olika sätt:
 
@@ -35,7 +35,7 @@ Läs [den här artikeln](server-migrate-overview.md) för att ta reda på vilken
 --- | ---
 **VMware vCenter Server** | Version 5,5, 6,0, 6,5 eller 6,7.
 **VMware vSphere ESXI-värd** | Version 5,5, 6,0, 6,5 eller 6,7.
-**vCenter Server behörigheter** | [Vid utan agent används migreringen](migrate-appliance.md). Installationen behöver följande behörigheter:<br/><br/> - **data lager. browse**: Tillåt bläddring av VM-loggfiler för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> **Data lager. LowLevelFileOperations**: Tillåt Läs-/skriv-/ta bort/Byt namn på åtgärder i data lager läsaren för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> - **VirtualMachine. Configuration. DiskChangeTracking**: Tillåt aktivering eller inaktive ring av ändrings spårning av virtuella dator diskar för att hämta ändrade block med data mellan ögonblicks bilder.<br/><br/> - **VirtualMachine. Configuration. DiskLease**: Tillåt disk låne åtgärder för en virtuell dator för att läsa disken med hjälp av VMware vSphere Virtual Disk Development Kit (vddk).<br/><br/> - **VirtualMachine. Provisioning. AllowReadOnlyDiskAccess**: Tillåt att en disk öppnas på en virtuell dator för att läsa disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. AllowVirtualMachineDownload**: tillåter Läs åtgärder på filer som är associerade med en virtuell dator, för att ladda ned loggarna och felsöka om det uppstår fel.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: tillåter skapande och hantering av ögonblicks bilder av virtuella datorer för replikering.<br/><br/> - **virtuell dator. interaktion.** avstängning: Tillåt att den virtuella datorn stängs av under migreringen till Azure.
+**vCenter Server behörigheter** | [Vid utan agent används migreringen](migrate-appliance.md). Installationen behöver följande behörigheter:<br/><br/> - **data lager. browse**: Tillåt bläddring av VM-loggfiler för att felsöka skapande och borttagning av ögonblicks bilder.<br/><br/> - **data lager. LowLevelFileOperations**: Tillåt åtgärder för att läsa/skriva/ta bort/byta/byta namn i listan över data lager för att felsöka skapande och borttagning av ögonblicks bilder<br/><br/> - **VirtualMachine. Configuration. DiskChangeTracking**: Tillåt aktivering eller inaktive ring av ändrings spårning av virtuella dator diskar för att hämta ändrade block med data mellan ögonblicks bilder.<br/><br/> - **VirtualMachine. Configuration. DiskLease**: Tillåt disk låne åtgärder för en virtuell dator för att läsa disken med hjälp av VMware vSphere Virtual Disk Development Kit (vddk).<br/><br/> - **VirtualMachine. Provisioning. AllowDiskAccess**: (specifikt för vSphere 6,0 och senare) Tillåt att en disk på en virtuell dator öppnas för slumpmässig Läs åtkomst på disken med hjälp av vddk.<br/><br/> - **VirtualMachine. Provisioning. AllowReadOnlyDiskAccess**: Tillåt att en disk öppnas på en virtuell dator för att läsa disken med hjälp av vddk.<br/><br/>- **VirtualMachine. Provisioning. AllowVirtualMachineDownload**: tillåter Läs åtgärder på filer som är associerade med en virtuell dator, för att ladda ned loggarna och felsöka om det uppstår fel.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: tillåter skapande och hantering av ögonblicks bilder av virtuella datorer för replikering.<br/><br/> - **virtuell dator. interaktion.** avstängning: Tillåt att den virtuella datorn stängs av under migreringen till Azure.
 
 
 
@@ -50,15 +50,15 @@ Läs [den här artikeln](server-migrate-overview.md) för att ta reda på vilken
 **Disk storlek** | 2 TB OS-disk; 4 TB för data diskar.
 **Disk gränser** |  Upp till 60 diskar per virtuell dator.
 **Krypterade diskar/volymer** | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering.
-**Delat disk kluster** | Stöds inte.
-**Oberoende diskar** | Stöds inte.
+**Delat disk kluster** | Stöds ej.
+**Oberoende diskar** | Stöds ej.
 **RDM/passthrough-diskar** | Om de virtuella datorerna har RDM-eller passthrough-diskar replikeras inte dessa diskar till Azure.
-**NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
+**MSNFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
 **iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
-**Multipath i/o** | Stöds inte.
-**Lagrings vMotion** | Stöds inte. Det går inte att använda replikering om en virtuell dator använder Storage vMotion.
-**Grupperade nätverkskort** | Stöds inte.
-**IPv6** | Stöds inte.
+**Multipath i/o** | Stöds ej.
+**Lagrings vMotion** | Stöds ej. Det går inte att använda replikering om en virtuell dator använder Storage vMotion.
+**Grupperade nätverkskort** | Stöds ej.
+**IPv6** | Stöds ej.
 **Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard HDD, Premium SSD) i Azure.
 **Samtidig replikering** | 100 virtuella datorer per vCenter Server. Om du har fler kan du migrera dem i batchar på 100.
 
@@ -104,15 +104,15 @@ Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill 
 **Disk storlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per virtuell dator.
 **Krypterade diskar/volymer** | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering.
-**Delat disk kluster** | Stöds inte.
+**Delat disk kluster** | Stöds ej.
 **Oberoende diskar** | Stöds.
 **Genom strömnings diskar** | Stöds.
-**NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
+**MSNFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
 **iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
-**Multipath i/o** | Stöds inte.
+**Multipath i/o** | Stöds ej.
 **Lagrings vMotion** | Stöds
-**Grupperade nätverkskort** | Stöds inte.
-**IPv6** | Stöds inte.
+**Grupperade nätverkskort** | Stöds ej.
+**IPv6** | Stöds ej.
 
 
 
@@ -146,9 +146,9 @@ Antal operativ system diskar | 1 | Kontrollen Miss lyckas om den inte stöds.
 Antal data diskar | 64 eller mindre. | Kontrollen Miss lyckas om den inte stöds.
 Data disk storlek | Upp till 4 095 GB | Kontrollen Miss lyckas om den inte stöds.
 Nätverkskort | Flera nätverkskort stöds. |
-Delad virtuell hård disk | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
-FC-disk | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
-BitLocker | Stöds inte. | BitLocker måste inaktive ras innan du aktiverar replikering för en dator.
+Delad virtuell hårddisk | Stöds ej. | Kontrollen Miss lyckas om den inte stöds.
+FC-disk | Stöds ej. | Kontrollen Miss lyckas om den inte stöds.
+BitLocker | Stöds ej. | BitLocker måste inaktive ras innan du aktiverar replikering för en dator.
 VM-namn | Mellan 1 och 63 tecken.<br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Dator namnet måste börja och sluta med en bokstav eller en siffra. |  Uppdatera värdet i dator egenskaperna i Site Recovery.
 Anslut efter migreringen – Windows | Ansluta till virtuella Azure-datorer som kör Windows efter migrering:<br/> -Innan migreringen aktiverar RDP på den lokala virtuella datorn. Kontrollera att TCP- och UDP-regler har lagts till för den **offentliga** profilen och att RDP tillåts i **Windows-brandväggen** > **Tillåtna appar** för alla profiler.<br/> För plats-till-plats-VPN-åtkomst aktiverar du RDP och Tillåt RDP i **Windows-brandväggen** -> **tillåtna appar och funktioner** för **domän nätverk och privata** nätverk. Dessutom kontrollerar du att operativ systemets SAN-princip är inställd på **OnlineAll**. [Läs mer](prepare-for-migration.md). |
 Anslut efter migreringen – Linux | Ansluta till virtuella Azure-datorer efter migrering med SSH:<br/> Innan migreringen går du till den lokala datorn, kontrollerar att tjänsten Secure Shell är inställt på Start och att brand Väggs reglerna tillåter en SSH-anslutning.<br/> Efter redundansväxlingen på den virtuella Azure-datorn tillåter du inkommande anslutningar till SSH-porten för reglerna för nätverks säkerhets grupper på den misslyckade virtuella datorn och för det Azure-undernät som den är ansluten till. Lägg också till en offentlig IP-adress för den virtuella datorn. |  

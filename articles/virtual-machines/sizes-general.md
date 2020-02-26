@@ -12,14 +12,14 @@ ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 674197bd4d1562d8492a2605d8929572d450af90
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d8a13d9013b2ad526c8e332cf3ea74e04f253d98
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493584"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597719"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 
@@ -31,7 +31,7 @@ Generella storlekar för virtuella datorer ger balanserade förhållandet mellan
 
 - [Dav4 och Dasv4-serien](dav4-dasv4-series.md) är nya storlekar som använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache dedikera 8 GB av den L3-cachen till var 8 kärnor som ökar kund alternativen för att köra sina generella arbets belastningar. Dav4-serien och Dasv4-serien har samma minnes-och diskkonfigurationer som D & Dsv3-serien.
 
-- [DC-serien](dc-series.md) är en familj av virtuella datorer i Azure som kan hjälpa till att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i det offentliga molnet. De här datorerna backas upp av den senaste generationen av 3,7 GHz Intel® Xeon® E-2176G processor med SGX-teknik. Med Intel Turbo Boost-tekniken kan de här datorerna gå upp till 4,7 GHz. Instanserna i DC-serien gör det möjligt för kunder att skapa säkra enklaven-baserade program för att skydda kod och data medan de används.
+- [DCv2-serien](dcv2-series.md) kan hjälpa till att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i det offentliga molnet. De här datorerna backas upp av den senaste generationen Intel XEON E-2288G-processor med SGX-teknik. Med Intel Turbo Boost-tekniken kan de här datorerna gå upp till 5,0 GHz. DCv2 Series-instanser gör det möjligt för kunder att skapa säkra enklaven-baserade program för att skydda sin kod och sina data medan den används.
 
 - [Dv2 och Dsv2-serien](dv2-dsv2-series.md) Virtuella datorer, en uppföljning till den ursprungliga D-serien, har en kraftfullare processor och optimal konfiguration av processor till minne som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 

@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat för Hyper-V
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella Hyper-V-datorer.
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8199525a118ffca2cfc03734283eb26facba8483
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029100"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598348"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
 
@@ -48,12 +48,8 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hashen för den virtuella hård disken
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  För version 2.19.11.12 ska den genererade hashen matcha de här inställningarna.
+3.  För version 2.19.11.12 ska den genererade hashen matcha de här [inställningarna](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security).
 
-  **Algoritm** | **Hash-värde**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 
 
 
@@ -133,7 +129,7 @@ Anslut från enheten till Hyper-V-värdar eller-kluster och starta VM-identifier
 
 1. I **användar namn** och **lösen ord**anger du de kontoautentiseringsuppgifter som installationen ska använda för att identifiera virtuella datorer. Ange ett eget namn för autentiseringsuppgifterna och klicka på **Spara information**.
 2. Klicka på **Lägg till värd**och ange information om Hyper-V-värd/kluster.
-3. Klicka på **validera**. Efter verifieringen visas antalet virtuella datorer som kan identifieras på varje värd/kluster.
+3. Klicka på **Validate** (Validera). Efter verifieringen visas antalet virtuella datorer som kan identifieras på varje värd/kluster.
     - Om verifieringen Miss lyckas för en värd granskar du felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.
     - Om du vill ta bort värdar eller kluster väljer du > **ta bort**.
     - Du kan inte ta bort en speciell värd från ett kluster. Du kan bara ta bort hela klustret.

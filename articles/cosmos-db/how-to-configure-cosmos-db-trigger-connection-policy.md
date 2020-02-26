@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 6e4c50e5dcc35450463d02bbed040754ea778e70
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 953121a9a15d4fef56d381e3aab85329fadacce2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093605"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604962"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Konfigurera anslutnings principen som används av Azure Functions utlösare för Cosmos DB
 
@@ -23,7 +23,7 @@ Det finns två anslutnings lägen – direkt läge och gateway-läge. Mer inform
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>Ändra anslutnings läge och protokoll
 
-Det finns två nyckel konfigurations inställningar som är tillgängliga för att konfigurera klient anslutnings principen – **anslutnings läge** och **anslutnings protokoll**. Du kan ändra standard anslutnings läge och protokoll som används av Azure Functions-utlösaren för Cosmos DB och alla [Azure Cosmos DB bindningar](../azure-functions/functions-bindings-cosmosdb-v2.md#output)). Om du vill ändra standardinställningarna måste du leta upp `host.json` filen i Azure Functions-projektet eller Azure Functions-appen och lägga till följande [extra inställning](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
+Det finns två nyckel konfigurations inställningar som är tillgängliga för att konfigurera klient anslutnings principen – **anslutnings läge** och **anslutnings protokoll**. Du kan ändra standard anslutnings läge och protokoll som används av Azure Functions-utlösaren för Cosmos DB och alla [Azure Cosmos DB bindningar](../azure-functions/functions-bindings-cosmosdb-v2-output.md)). Om du vill ändra standardinställningarna måste du leta upp `host.json`-filen i Azure Functions-projektet eller Azure Functions-appen och lägga till följande [extra inställning](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings):
 
 ```js
 {
@@ -34,9 +34,9 @@ Det finns två nyckel konfigurations inställningar som är tillgängliga för a
 }
 ```
 
-Där `connectionMode` måste du ha önskat anslutnings läge (direkt eller Gateway) och `protocol` önskat anslutnings protokoll (TCP eller https). 
+Där `connectionMode` måste ha önskat anslutnings läge (direkt eller Gateway) och `protocol` det önskade anslutnings protokollet (TCP eller https). 
 
-Om Azure Functions-projektet arbetar med Azure Functions v1-körningen har konfigurationen en liten namn skillnad, du bör använda `documentDB` i stället för: `cosmosDB`
+Om Azure Functions-projektet arbetar med Azure Functions v1-körningen har konfigurationen en liten namn skillnad, du bör använda `documentDB` i stället för `cosmosDB`:
 
 ```js
 {

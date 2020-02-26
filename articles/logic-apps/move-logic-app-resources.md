@@ -1,29 +1,31 @@
 ---
-title: Flytta Logic Apps över prenumerationer, resurs grupper eller regioner
+title: Migrera Logic Apps över prenumerationer, resurs grupper eller regioner
 description: Migrera Logic Apps eller integrations konton till andra Azure-prenumerationer, resurs grupper eller platser (regioner)
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965896"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605603"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logiska app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
 
-Om du vill flytta din Logic app eller relaterade resurser till en annan Azure-prenumeration, resurs grupp eller region kan du utföra dessa uppgifter på olika sätt, till exempel Azure Portal, Azure PowerShell, Azure CLI och REST API. Innan du flyttar resurser bör du gå igenom följande överväganden: 
+Om du vill migrera din Logic app eller relaterade resurser till en annan Azure-prenumeration, resurs grupp eller region kan du utföra dessa uppgifter på olika sätt, till exempel Azure Portal, Azure PowerShell, Azure CLI och REST API. Innan du flyttar resurser bör du gå igenom följande överväganden: 
 
 * Du kan bara flytta [vissa resurs typer för logiska appar](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) mellan Azures resurs grupper eller prenumerationer.
 
 * Kontrol lera [gränserna](../logic-apps/logic-apps-limits-and-config.md) för antalet Logic app-resurser som du kan ha i din Azure-prenumeration och i varje Azure-region. Dessa begränsningar påverkar om du kan flytta vissa resurs typer när regionen är densamma i prenumerationer eller resurs grupper. Du kan till exempel bara ha ett integrations konto på kostnads fri nivå för varje Azure-region i varje Azure-prenumeration.
 
-* När du flyttar resurser skapar Azure nya resurs-ID: n. Kontrol lera därför att du använder de nya ID: na i stället och uppdaterar eventuella skript eller verktyg som är associerade med de flyttade resurserna. När du flyttar Logi Kap par mellan prenumerationer, resurs grupper eller regioner måste du återskapa eller auktorisera om de OAuth-baserade anslutningarna.
+* När du har migrerat Logi Kap par mellan prenumerationer, resurs grupper eller regioner måste du återskapa eller auktorisera om anslutningar som kräver öppen autentisering (OAuth).
 
-## <a name="prerequisites"></a>Krav
+* När du flyttar resurser skapar Azure nya resurs-ID: n. Kontrol lera därför att du använder de nya ID: na i stället och uppdaterar eventuella skript eller verktyg som är associerade med de flyttade resurserna.
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * Samma Azure-prenumeration som användes för att skapa den Logic app eller det integrations konto som du vill flytta
 

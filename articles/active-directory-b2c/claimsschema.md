@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372985"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581114"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,8 +65,8 @@ Elementet **datatype** stöder följande värden:
 
 | Typ | Beskrivning |
 | ------- | ----------- | 
-|boolean|Representerar ett värde för boolesk (`true` eller `false`).|
-|date| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
+|boolesk|Representerar ett värde för boolesk (`true` eller `false`).|
+|datum| Representerar en omedelbar tid, vanligt vis uttrycks som ett datum på en dag. Värdet för datumet följer ISO 8601-konventionen.|
 |Datum/tid|Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Värdet för datumet följer ISO 8601-konventionen.|
 |duration|Representerar ett tidsintervall i år, månader, dagar, timmar, minuter och sekunder. Formatet för är `PnYnMnDTnHnMnS`, där `P` indikerar positiv eller `N` för negativt värde. `nY` är antalet år följt av en litteral `Y`. `nMo` är antalet månader följt av en litteral `Mo`. `nD` är antalet dagar följt av en litteral `D`. Exempel: `P21Y` representerar 21 år. `P1Y2Mo` representerar ett år och två månader. `P1Y2Mo5D` representerar ett år, två månader och fem dagar.  `P1Y2M5DT8H5M620S` representerar ett år, två månader, fem dagar, åtta timmar, fem minuter och tjugo sekunder.  |
 |phoneNumber|Representerar ett telefonnummer. |
@@ -175,6 +175,8 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 #### <a name="enumeration"></a>Uppräkning
 
+**Uppräknings** elementet definierar tillgängliga alternativ för användaren att välja för ett anspråk i användar gränssnittet, till exempel ett värde i en `CheckboxMultiSelect`, `DropdownSingleSelect`eller `RadioSingleSelect`. Alternativt kan du definiera och lokalisera tillgängliga alternativ med [LocalizedCollections](localization.md#localizedcollections) -element. Om du vill söka efter ett objekt från en anspråks **uppräknings** samling använder du [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) Claims-transformering.
+
 **Uppräknings** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
@@ -209,7 +211,7 @@ List rutan stad med ett standardvärde som är inställt på New York:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
-| HelpText | Nej | Mönstret eller det reguljära uttrycket för det här anspråket. |
+| HelpText | Nej | Ett fel meddelande för användare om den reguljära uttrycks kontrollen Miss lyckas. |
 
 I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:
 
@@ -245,7 +247,7 @@ Azure AD B2C stöder flera olika typer av användarindata, till exempel en text 
 |DropdownSingleSelect |`string` |Listruta för enkel markering. Anspråks värde är det valda värdet.|
 |E-postmeddelande | `string` |E-postfält. |
 |Paragraf | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Ett fält som endast visar text i en stycke-tagg. |
-|lösenord | `string` |Text rutan lösen ord.|
+|Lösenord | `string` |Text rutan lösen ord.|
 |RadioSingleSelect |`string` | Samling alternativ knappar. Anspråks värde är det valda värdet.|
 |ReadOnly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Skrivskyddad text ruta. |
 |TextBox |`boolean`, `int`, `string` |Text ruta med en rad. |
@@ -284,7 +286,7 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-#### <a name="password"></a>lösenord
+#### <a name="password"></a>Lösenord
 
 **Användarens** Indatatyp används för att registrera ett lösen ord som anges av användaren.
 
@@ -407,5 +409,3 @@ Indatatypen **stycke** användare används för att tillhandahålla ett fält so
   </Restriction>
 </ClaimType>
 ```
-
-Om du vill visa ett av **uppräknings** värden i ett **responseMsg** -anspråk använder du `GetMappedValueFromLocalizedCollection` eller `CreateStringClaim` anspråks omvandling. Mer information finns i [sträng anspråk omvandlingar](string-transformations.md)

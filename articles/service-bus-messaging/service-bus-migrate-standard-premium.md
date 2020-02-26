@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 548163f4c86f4df4d858b31afd95e0e4615f1696
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790380"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587506"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrera befintliga Azure Service Bus standard namn områden till Premium-nivån
 Tidigare erbjöds endast namn områden på standard nivån för Azure Service Bus. Namn områden är installations program för flera innehavare som är optimerade för låg data flöde och utvecklings miljöer. Premium-nivån erbjuder dedikerade resurser per namnrymd för förutsägbar svars tid och större data flöde till ett fast pris. Premium nivån är optimerad för stora data flöden och produktions miljöer som kräver ytterligare företags funktioner.
@@ -32,9 +32,9 @@ Några av punkterna att Observera:
 - **Premium** -namnområdet får **inte ha några entiteter** för att migreringen ska lyckas. 
 - Alla **entiteter** i standard namn området **kopieras** till Premium-namnområdet under migreringsprocessen. 
 - Migrering stöder **1 000 entiteter per meddelande enhet** på Premium-nivån. För att identifiera hur många meddelande enheter du behöver börjar du med antalet entiteter som du har på din aktuella standard namn område. 
-- Du kan inte direkt migrera från **Basic-nivån** till Premier- **nivån**, men du kan göra detta indirekt genom att migrera från Basic till standard först och sedan från standard till Premium i nästa steg.
+- Du kan inte direkt migrera från **Basic-nivån** till Premium- **nivån**, men du kan göra detta indirekt genom att migrera från Basic till standard först och sedan från standard till Premium i nästa steg.
 
-## <a name="migration-steps"></a>Migreringssteg
+## <a name="migration-steps"></a>Migreringsanvisningar
 Vissa villkor är kopplade till migreringsprocessen. Bekanta dig med följande steg för att minska risken för fel. De här stegen beskriver migreringsprocessen och stegvisa detaljer visas i de avsnitt som följer.
 
 1. Skapa ett nytt Premium-namnområde.
@@ -62,7 +62,7 @@ Följ dessa steg om du vill migrera Service Bus standard namn området till Prem
    ```
 
     >[!IMPORTANT]
-    > Alias/namn för efter migrering (post_migration_dns_name) kommer att användas för att få åtkomst till den gamla standard-namn området efter migreringen. Använd detta för att tömma köerna och prenumerationerna och sedan ta bort namn området.
+    > Alias/namn för efter migrering (post_migration_dns_name) kommer att användas för att få åtkomst till den gamla standard post namns flyttningen. Använd detta för att tömma köerna och prenumerationerna och sedan ta bort namn området.
 
 1. Para ihop standard-och Premium-namnområdena och starta synkroniseringen med hjälp av följande kommando:
 
@@ -176,7 +176,7 @@ Migreringen kan avbrytas antingen med hjälp av kommandot `Abort` eller med hjä
 az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
 ```
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure-portalen
 
 ![Avbryt flödet-Avbryt synkroniseringen][]
 ![Avbryt flöde-Avbryt Slutför][]
@@ -190,7 +190,7 @@ Däremot tar det inte bort entiteterna i Premium-namnområdet eller så tar du b
 >[!IMPORTANT]
 > Om du väljer att avbryta migreringen tar du bort Premium-namnområdet som du har allokerat för migreringen så att du inte debiteras för resurserna.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Jag vill inte behöva tömma meddelandena. Vad gör jag?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Jag vill inte behöva tömma meddelandena. Vad gör jag nu?
 
 Det kan finnas meddelanden som skickas av avsändar programmen och allokeras till lagrings utrymmet i standard namn området medan migreringen sker och strax innan migreringen genomförs.
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 039a30d23c45471d88132f544c11df813fb4b8e6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281010"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603737"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -33,15 +33,14 @@ I nästa avsnitt lär du dig hur du planerar för vart och ett av dessa områden
 
 
 > [!NOTE]
-> På vår sida med [vanliga frågor och svar om Azure Security Center](security-center-faq.md) finns en lista med ofta ställda frågor som kan vara bra att läsa i planerings- och utformningsfasen.
->
+> På vår sida med [vanliga frågor och svar om Azure Security Center](faq-general.md) finns en lista med ofta ställda frågor som kan vara bra att läsa i planerings- och utformningsfasen.
 
 ## <a name="security-roles-and-access-controls"></a>Säkerhetsroller och åtkomstkontroll
 Beroende på hur stor din organisation är och hur den är uppbyggd kan olika medarbetare och avdelningar använda Security Center för att utföra olika säkerhetsrelaterade arbetsuppgifter. Följande diagram innehåller exempel på fiktiva personer och deras olika roller och ansvarsområden:
 
 ![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Ett exempel:
+Med Security Center kan dessa medarbetare effektivt sköta sina respektive arbetsuppgifter. Några exempel:
 
 **Jens (arbetsbelastningsägare)**
 
@@ -143,8 +142,7 @@ Microsoft Monitoring Agent för Windows kräver TCP-port 443. Se [Felsökningsar
 Om du vid ett senare tillfälle vill inaktivera datainsamlingen kan du göra det i säkerhetsprincipen. Men eftersom Microsoft Monitoring Agent kan användas av andra tjänster för hantering och övervakning av Azure kommer agenten inte att avinstalleras automatiskt när du inaktiverar data insamling i Security Center. Du kan avinstallera agenten manuellt om det behövs.
 
 > [!NOTE]
-> Om du vill veta vilka virtuella datorer som stöds finns en lista bland våra [vanliga frågor och svar om Azure Security Center](security-center-faq.md).
->
+> Om du vill veta vilka virtuella datorer som stöds finns en lista bland våra [vanliga frågor och svar om Azure Security Center](faq-vms.md).
 
 ### <a name="workspace"></a>Arbetsyta
 
@@ -154,7 +152,7 @@ Data som samlas in från Microsoft Monitoring Agent (för Azure Security Center)
 
 Du kan bläddra om du vill se en lista över dina logganalysarbetsytor, inklusive alla som skapats av Azure Security Center i Azure-portalen. En relaterad resursgrupp skapas för nya arbetsytor. Både följer namnkonventionen:
 
-* Arbetsyta: *DefaultWorkspace-[prenumerations-ID]-[geo]*
+* Arbetsyta: *DefaultWorkspace-[prenumerations-id]-[geo]*
 * Resurs grupp: *DefaultResourceGroup-[geo]*
 
 För arbetsytor som skapats av Azure Security Center sparas data i 30 dagar. För befintliga arbetsytor baseras kvarhållningen på arbetsytans prisnivå. Om du vill kan du även använda en befintlig arbetsyta.
@@ -199,7 +197,7 @@ När du lägger till nya resurser (virtuella datorer, SQL-databaser osv.) i Azur
 
 Du bör också regelbundet övervaka befintliga resurser för konfigurations ändringar som kan ha skapat säkerhets risker, avvikelse från rekommenderade bas linjer och säkerhets aviseringar. Starta på instrumentpanelen för Security Center. Därifrån finns det tre viktiga områden att granska konsekvent.
 
-![Operations](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
+![Åtgärder](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig4-newUI.png)
 
 1. I rutan **Förebyggande** kan du snabbt gå till dina viktigaste resurser. Använd det här alternativet om du vill övervaka beräkning, nätverk, lagring och data samt program.
 2. I rutan **Rekommendationer** ser du rekommendationerna från Security Center. Under den pågående övervakningen kanske du upptäcker att du inte har rekommendationer per dag, vilket är normalt eftersom du har åtgärdat alla rekommendationer på den inledande Security Center installationen. Så det finns kanske inte ny information här varje dag och du behöver bara gå hit ibland.
@@ -254,5 +252,5 @@ I det här dokumentet har du lärt dig hur du planerar integreringen av Security
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
+* [Vanliga frågor och svar om Azure Security Center](faq-general.md) – Här hittar du vanliga frågor och svar om tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

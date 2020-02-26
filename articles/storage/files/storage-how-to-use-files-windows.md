@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 831c771da385ef6faeba194878ca53ede34ccc0a
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4bd9c64e1b9219f6752172d9dc518af71ad67e70
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816632"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598593"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -22,25 +22,23 @@ För att kunna använda en Azure-filresurs utanför den Azure-region som den fin
 Du kan använda Azure-filresurser i en Windows-installation som körs antingen i en virtuell Azure-dator eller lokalt. Tabellen nedan visar vilka operativsystemversioner som har stöd för användning av filresurser och i vilken miljö:
 
 | Windows-version        | SMB-version | Monteras i Azure VM | Monteras lokalt |
-|------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019    | SMB 3.0 | Ja | Ja |
+|------------------------|-------------|-----------------------|-----------------------|
+| Windows Server 2019 | SMB 3.0 | Ja | Ja |
 | Windows 10<sup>1</sup> | SMB 3.0 | Ja | Ja |
 | Windows Server, halvårskanal<sup>2</sup> | SMB 3.0 | Ja | Ja |
-| Windows Server 2016    | SMB 3.0     | Ja                   | Ja                  |
-| Windows 8.1            | SMB 3.0     | Ja                   | Ja                  |
-| Windows Server 2012 R2 | SMB 3.0     | Ja                   | Ja                  |
-| Windows Server 2012    | SMB 3.0     | Ja                   | Ja                  |
-| Windows 7              | SMB 2.1     | Ja                   | Nej                   |
-| Windows Server 2008 R2 | SMB 2.1     | Ja                   | Nej                   |
+| Windows Server 2016 | SMB 3.0 | Ja | Ja |
+| Windows 8.1 | SMB 3.0 | Ja | Ja |
+| Windows Server 2012 R2 | SMB 3.0 | Ja | Ja |
+| Windows Server 2012 | SMB 3.0 | Ja | Ja |
+| Windows 7<sup>3</sup> | SMB 2.1 | Ja | Nej |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Ja | Nej |
 
-<sup>1</sup> Windows 10, version 1507, 1607, 1703, 1709, 1803, 1809 och 1903.  
-<sup>2</sup> Windows Server, version 1803, 1809 och 1903.
+<sup>1</sup> Windows 10, version 1507, 1607, 1709, 1803, 1809, 1903 och 1909.  
+<sup>2</sup> Windows Server, version 1809, 1903 och 1909.  
+<sup>3</sup> Normalt Microsoft-Support för Windows 7 och Windows Server 2008 R2 har avslut ATS. Det går bara att köpa ytterligare stöd för säkerhets uppdateringar via [ESU-programmet (Extended Security Update)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). Vi rekommenderar starkt att du migrerar dessa operativ system.
 
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar 
 * **Lagringskontonamn**: Om du vill montera en Azure-filresurs behöver du namnet på lagringskontot.
@@ -82,7 +80,7 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 ## <a name="using-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 Om du vill använda en Azure-filresurs med Windows måste du antingen montera den, vilket innebär att tilldela den en enhetsbeteckning eller en sökväg för monteringspunkt, eller komma åt den via dess [UNC-sökväg](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-Till skillnad från andra SMB-resurser som du kanske har använt, till exempel de som finns på en Windows Server, Linux Samba-server eller NAS-enhet, har Azure-filresurser för närvarande inte stöd för Kerberos-autentisering med Active Directory-identitet (AD) eller Azure Active Directory-identitet (AAD), men det är en funktion som vi [arbetar med](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). I stället måste du komma åt din Azure-filresurs med lagringskontonyckeln för det lagringskonto som innehåller Azure-filresursen. En lagringskontonyckel är en administratörsnyckel för ett lagringskonto, inklusive administratörsbehörighet till alla filer och mappar i den filresurs som du använder, och för alla filresurser och andra lagringsresurser (blobar, köer, tabeller osv.) som ingår i ditt lagringskonto. Om detta inte är tillräckligt för din arbetsbelastning kan [Azure File Sync](storage-files-planning.md#data-access-method) åtgärda bristen på Kerberos-autentisering och ACL-stöd under tiden tills stöd för AAD-baserad Kerberos-autentisering och ACL blir tillgängliga offentligt.
+Till skillnad från andra SMB-resurser som du kanske har använt, till exempel de som finns på en Windows Server, Linux Samba-server eller NAS-enhet, har Azure-filresurser för närvarande inte stöd för Kerberos-autentisering med Active Directory-identitet (AD) eller Azure Active Directory-identitet (AAD), men det är en funktion som vi [arbetar med](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). I stället måste du komma åt din Azure-filresurs med lagringskontonyckeln för det lagringskonto som innehåller Azure-filresursen. En lagrings konto nyckel är en administratörs nyckel för ett lagrings konto, inklusive administratörs behörighet till alla filer och mappar i fil resursen som du ansluter till, och för alla fil resurser och andra lagrings resurser (blobbar, köer, tabeller osv.) i ditt lagrings konto. Om detta inte är tillräckligt för din arbetsbelastning kan [Azure File Sync](storage-sync-files-planning.md) åtgärda bristen på Kerberos-autentisering och ACL-stöd under tiden tills stöd för AAD-baserad Kerberos-autentisering och ACL blir tillgängliga offentligt.
 
 Ett vanligt mönster för lyftning och skiftande av verksamhetsspecifika program som förväntar sig en SMB-filresurs till Azure är att använda en Azure-filresurs som ett alternativ till att köra en dedikerad Windows-filserver i en Azure-dator. En viktig aspekt för en lyckad migrering av ett verksamhetsspecifikt program till att använda en Azure-filresurs är att många verksamhetsspecifika program kör i kontexten för ett dedikerat tjänstkonto med begränsade systembehörigheter i stället för den virtuella datorns administratörskonto. Därför måste du se till att du monterar/sparar autentiseringsuppgifterna för Azure-filresursen från kontexten för tjänstkontot i stället för ditt administratörskonto.
 
@@ -207,7 +205,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 7. När du är redo att demontera Azure-filresursen kan du göra det genom att högerklicka på posten för resursen under **Nätverksplatser** i Utforskaren och välja **Koppla från**.
 
 ### <a name="accessing-share-snapshots-from-windows"></a>Komma åt ögonblicksbilder av resurser från Windows
-Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicksbild från [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) eller [Azure CLI](storage-how-to-use-files-cli.md).
+Om du har tagit en resursögonblicksbild, antingen manuellt eller automatiskt via ett skript eller en tjänst som Azure Backup, kan du visa tidigare versioner av en resurs, en katalog eller en viss fil från filresursen i Windows. Du kan ta en ögonblicks bild av en resurs från [Azure Portal](storage-how-to-use-files-portal.md), [Azure POWERSHELL](storage-how-to-use-files-powershell.md)och [Azure CLI](storage-how-to-use-files-cli.md).
 
 #### <a name="list-previous-versions"></a>Lista över tidigare versioner
 Bläddra till det objekt eller överordnade objekt som behöver återställas. Dubbelklicka för att gå till den önskade katalogen. Högerklicka och välj **Egenskaper** på menyn.
@@ -233,16 +231,16 @@ I följande tabell finns detaljerad information om status för SMB 1 i varje ver
 
 | Windows-version                           | SMB 1-standardstatus | Inaktivera/ta bort metod       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019                       | Inaktiverad             | Ta bort med Windows-funktionen |
-| Windows Server, versioner 1709+            | Inaktiverad             | Ta bort med Windows-funktionen |
-| Windows 10, versioner 1709+                | Inaktiverad             | Ta bort med Windows-funktionen |
-| Windows Server 2016                       | Aktiverad              | Ta bort med Windows-funktionen |
-| Windows 10, versionerna 1507, 1607 och 1703 | Aktiverad              | Ta bort med Windows-funktionen |
-| Windows Server 2012 R2                    | Aktiverad              | Ta bort med Windows-funktionen | 
-| Windows 8.1                               | Aktiverad              | Ta bort med Windows-funktionen | 
-| Windows Server 2012                       | Aktiverad              | Inaktivera med registret       | 
-| Windows Server 2008 R2                    | Aktiverad              | Inaktivera med registret       |
-| Windows 7                                 | Aktiverad              | Inaktivera med registret       | 
+| Windows Server 2019                       | Disabled             | Ta bort med Windows-funktionen |
+| Windows Server, versioner 1709+            | Disabled             | Ta bort med Windows-funktionen |
+| Windows 10, versioner 1709+                | Disabled             | Ta bort med Windows-funktionen |
+| Windows Server 2016                       | Enabled              | Ta bort med Windows-funktionen |
+| Windows 10, versionerna 1507, 1607 och 1703 | Enabled              | Ta bort med Windows-funktionen |
+| Windows Server 2012 R2                    | Enabled              | Ta bort med Windows-funktionen | 
+| Windows 8.1                               | Enabled              | Ta bort med Windows-funktionen | 
+| Windows Server 2012                       | Enabled              | Inaktivera med registret       | 
+| Windows Server 2008 R2                    | Enabled              | Inaktivera med registret       |
+| Windows 7                                 | Enabled              | Inaktivera med registret       | 
 
 ### <a name="auditing-smb-1-usage"></a>Granskning av SMB 1-användning
 > Gäller för Windows Server 2019, Windows Server halvårs kanal (version 1709 och 1803), Windows Server 2016, Windows 10 (version 1507, 1607, 1703, 1709 och 1803), Windows Server 2012 R2 och Windows 8,1
@@ -305,5 +303,5 @@ När du har skapat den här registernyckeln måste du starta om servern för att
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Files finns på följande länkar:
 - [Planera för en Azure Files-distribution](storage-files-planning.md)
-- [Vanliga frågor och svar](../storage-files-faq.md)
+- [VANLIGA FRÅGOR OCH SVAR](../storage-files-faq.md)
 - [Felsökning i Windows](storage-troubleshoot-windows-file-connection-problems.md)      

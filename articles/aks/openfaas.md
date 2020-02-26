@@ -2,23 +2,22 @@
 title: Använda OpenFaaS med Azure Kubernetes service (AKS)
 description: Distribuera och använda OpenFaaS med Azure Kubernetes service (AKS)
 author: justindavies
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 7949735eff4478d2d04700e1c6df69d28fe25979
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: e684aee1469f855ec651567b805262c71aaf32e5
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278485"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594931"
 ---
 # <a name="using-openfaas-on-aks"></a>Använda OpenFaaS på AKS
 
 [OpenFaaS][open-faas] är ett ramverk för att skapa Server funktioner med hjälp av behållare. Som ett projekt med öppen källkod har det fått stor skala i communityn. Det här dokumentet innehåller information om hur du installerar och använder OpenFaas i ett AKS-kluster (Azure Kubernetes service).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra stegen i den här artikeln behöver du följande.
 
@@ -243,7 +242,7 @@ Du kan också testa funktionen i OpenFaaS-ANVÄNDARGRÄNSSNITTET.
 
 ![alternativ text](media/container-service-serverless/OpenFaaSUI.png)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Du kan fortsätta att lära dig med OpenFaaS-workshopen genom en uppsättning praktiska labb övningar som beskriver ämnen, till exempel hur du skapar din egen GitHub-robot, använder hemligheter, visar mått och automatisk skalning.
 

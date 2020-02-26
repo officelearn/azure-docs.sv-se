@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666303"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603857"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Hantera och svara på säkerhets aviseringar i Azure Security Center
 
@@ -40,7 +40,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 
 1. På instrument panelen för Security Center går du till panelen **hot skydd** för att visa och översikt över aviseringarna.
 
-    ![Panelen Säkerhetsaviseringar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
+    ![Panelen Säkerhetsvarningar i Security Center](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
 1. Klicka på panelen om du vill ha mer information om aviseringarna.
 
@@ -65,7 +65,7 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
     > [!NOTE]
     >I vissa fall är käll-IP-adressen inte tillgänglig, vissa säkerhets händelser i Windows-säkerhetshändelser inkluderar inte IP-adressen.
 
-1. Vilka åtgärdssteg som föreslås av Security Center varierar beroende på typen av säkerhetsavisering. Följ dem för varje avisering. I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
+1. De reparations steg som föreslås av Security Center varierar beroende på säkerhets aviseringen. Följ dem för varje avisering. I vissa fall kan du behöva använda andra Azure-kontroller eller-tjänster för att kunna åtgärda en varning om hot identifiering. 
 
     Följande avsnitt vägleder dig genom de olika aviseringarna, beroende på resurs typer:
     
@@ -78,12 +78,10 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
     * [Aviseringar för service nivå](security-center-alerts-service-layer.md)
     * [Hot identifiering för Azure WAF och Azure DDoS Protection](security-center-alerts-integration.md)
     
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 I det här avsnittet har vi berättat hur du ställer in säkerhetsprinciper i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md).
 * [Hantera säkerhets incidenter](security-center-incident.md)
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

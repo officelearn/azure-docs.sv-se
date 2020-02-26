@@ -9,24 +9,29 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6266ef3479e74103d0989b8eb0286626da5eb28f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 60ce27ddc533b6c4066cea771f7a24570ff3c04c
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976801"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604890"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med hjälp av python Provisioning service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-De här stegen visar hur du program mässigt skapar en enskild registrering för en TPM-enhet i Azure IoT Hub Device Provisioning Service med hjälp av [v1 python Provisioning service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) med hjälp av ett exempel på python-program. Python-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
+I den här snabb starten skapar du program mässigt en enskild registrering för en TPM-enhet i Azure-IoT Hub Device Provisioning Service med hjälp av tjänsten python Provisioning service SDK med hjälp av ett exempel på python-program.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python 2. x eller 3. x](https://www.python.org/downloads/). Den här snabb starten installerar [tjänst-SDK för python-etablering](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) nedan.
+- [Pip](https://pip.pypa.io/en/stable/installing/), om det inte ingår i din distribution av python.
+- Bekräftelsenyckel. Använd stegen i [skapa och etablera en simulerad enhet](quick-create-simulated-device.md) eller Använd den bekräftelse nyckel som medföljer SDK: n, som beskrivs nedan.
 
 > [!IMPORTANT]
 > Den här artikeln gäller endast den inaktuella v1 python SDK. Enhets-och tjänst klienter för IoT Hub Device Provisioning-tjänsten är ännu inte tillgängliga i v2. Teamet är för närvarande hårt för att ge v2 till funktionens paritet.
-
-Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portalen](./quick-setup-auto-provision.md) innan du fortsätter.
-
 
 <a id="prepareenvironment"></a>
 
@@ -34,7 +39,7 @@ Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure-portale
 
 1. Ladda ned och installera [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. 
 
-1. Välj ett av följande alternativ:
+1. För [python Provisioning service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client)väljer du något av följande alternativ:
 
     - Bygg och kompilera **Azure IoT Python SDK**. Skapa Python-paketen med hjälp av [de här instruktionerna](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md). Om du använder Windows OS installerar du även [Visual C++ redistributable package](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) så att du kan använda interna DLL:er från Python.
 

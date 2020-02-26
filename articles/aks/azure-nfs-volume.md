@@ -3,16 +3,15 @@ title: Skapa en NFS-Ubuntu (Network File System) för användning av poddar i Az
 description: Lär dig hur du manuellt skapar en NFS-Ubuntu Linux Server volym för användning med poddar i Azure Kubernetes service (AKS)
 services: container-service
 author: ozboms
-ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e5676710bc47557318f3e2adcf36ec0ed13d47de
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063823"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596631"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Skapa och använda en NFS-volym (Network File System) manuellt med Azure Kubernetes service (AKS)
 Att dela data mellan behållare är ofta en nödvändig komponent i behållar tjänster och program. Du har vanligt vis olika poddar som behöver åtkomst till samma information på en extern permanent volym.    

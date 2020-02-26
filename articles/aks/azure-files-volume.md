@@ -2,17 +2,14 @@
 title: Skapa en statisk volym för flera poddar i Azure Kubernetes service (AKS)
 description: Lär dig hur du manuellt skapar en volym med Azure Files för användning med flera samtidiga poddar i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: 7b5f7c25cd1627475d8e37a539956f01ae6151ab
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 084ab5cd6736c9148bcab1faf048d3d9081855d4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914025"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596410"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure Files resurs i Azure Kubernetes service (AKS) manuellt
 
@@ -163,7 +160,7 @@ spec:
 
 Om du använder ett kluster av version 1.8.0-1.8.4 kan du ange en säkerhets kontext med värdet för *runAsUser* inställt på *0*. Mer information om säkerhets kontexten för Pod finns i [Konfigurera en säkerhets kontext][kubernetes-security-context].
 
-Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume*. Exempel:
+Om du vill uppdatera monterings alternativen skapar du en *azurefile-Mount-Options-PV. yaml-* fil med en *PersistentVolume*. Några exempel:
 
 ```yaml
 apiVersion: v1
@@ -189,7 +186,7 @@ spec:
   - nobrl
 ```
 
-Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume*. Exempel:
+Skapa en *azurefile-Mount-Options-PVC. yaml-* fil med en *PersistentVolumeClaim* som använder *PersistentVolume*. Några exempel:
 
 ```yaml
 apiVersion: v1
@@ -221,7 +218,7 @@ NAME        STATUS   VOLUME      CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 azurefile   Bound    azurefile   5Gi        RWX            azurefile      5s
 ```
 
-Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Exempel:
+Uppdatera din container specifikation för att referera till din *PersistentVolumeClaim* och uppdatera din POD. Några exempel:
 
 ```yaml
 ...

@@ -3,12 +3,12 @@ title: Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med
 description: En artikel som beskriver hur du använder Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer som skapats inom ett angivet omfång
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450124"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584276"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
 
@@ -16,9 +16,9 @@ En av de viktigaste ansvars områdena för en säkerhets kopierings-eller efterl
 
 Idag tillhandahåller Azure Backup en inbyggd princip (med Azure Policy) som kan tilldelas till **alla virtuella Azure-datorer på en angiven plats i en prenumeration eller resurs grupp**. När den här principen tilldelas ett angivet omfång konfigureras alla nya virtuella datorer i det omfånget automatiskt för säkerhets kopiering till ett **befintligt valv på samma plats och i en prenumeration**. Användaren kan ange valvet och den bevarande princip som de säkerhetskopierade virtuella datorerna ska associeras med.
 
-## <a name="supported-scenarios"></a>Scenarier som stöds 
+## <a name="supported-scenarios"></a>Scenarier som stöds
 
-* Den inbyggda principen stöds för närvarande endast för virtuella Azure-datorer. Användarna måste noga se till att den bevarande princip som anges under tilldelningen är en bevarande princip för virtuella datorer. Se [det här](https://aka.ms/PolicySupportedSKUs) dokumentet för att se alla VM-SKU: er som stöds av den här principen.
+* Den inbyggda principen stöds för närvarande endast för virtuella Azure-datorer. Användarna måste noga se till att den bevarande princip som anges under tilldelningen är en bevarande princip för virtuella datorer. Se [det här](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) dokumentet för att se alla VM-SKU: er som stöds av den här principen.
 
 * Principen kan tilldelas till en enda plats och en prenumeration i taget. Om du vill aktivera säkerhets kopiering för virtuella datorer över platser och prenumerationer måste flera instanser av princip tilldelningen skapas, en för varje kombination av plats och prenumeration.
 
@@ -54,6 +54,6 @@ Parametrar för ![princip tilldelning](./media/backup-azure-auto-enable-backup/p
 >
 > Vi rekommenderar att den här principen inte är tilldelad till fler än 200 virtuella datorer i taget. Om principen är tilldelad till fler än 200 virtuella datorer kan det leda till att säkerhets kopieringen utlöses några timmar senare än vad som anges i schemat.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Läs mer om Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)

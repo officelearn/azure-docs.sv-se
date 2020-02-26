@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099686"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598705"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -185,7 +185,7 @@ Information om hur du skapar ett grundläggande pacemaker-kluster för den här 
 
 Innan du påbörjar installationen av en SAP-miljö baserat på IBM DB2-LUW bör du läsa följande dokumentation:
 
-+ Dokumentation om Azure
++ Azure-dokumentation
 + SAP-dokumentation
 + IBM-dokumentation
 
@@ -370,7 +370,7 @@ Följande objekt föregås av antingen:
 - **[1]** : gäller endast nod 1 
 - **[2]** : gäller endast nod 2
 
-**[A]** krav för pacemaker-konfiguration:
+**[A]** förutsättning för pacemaker-konfiguration:
 1. Stäng båda databas servrarna med användar-DB2\<sid > med db2stop.
 1. Ändra skal miljön för DB2\<sid > användare till */bin/ksh*:
 <pre><code># Install korn shell:
@@ -434,6 +434,11 @@ Daemon-status: corosync: Active/disabled pacemaker: aktiv/inaktive rad pcsd: akt
 
 ### <a name="configure-azure-load-balancer"></a>Konfigurera Azure Load Balancer
 Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Azure standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) och gör sedan följande:
+
+> [!NOTE]
+> Standard Load Balancer SKU: n har begränsningar med åtkomst till offentliga IP-adresser från noderna under Load Balancer. I artikeln [offentlig slut punkts anslutning för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) beskrivs olika sätt att aktivera noderna för att få åtkomst till offentliga IP-adresser
+
+
 
 1. Skapa en IP-adresspool på klient sidan:
 
@@ -499,7 +504,7 @@ För att ansluta till den primära instansen av HADR-konfigurationen måste SAP-
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID>/global/db6/db2cli.ini
+/sapmnt/\<SID >/Global/DB6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -537,7 +542,7 @@ Logg arkiveringen utförs endast av den primära databasen. Om du ändrar HADR-r
 
 Vi rekommenderar att du konfigurerar en gemensam NFS-resurs eller GlusterFS, där loggar skrivs från båda noderna. NFS-resursen eller GlusterFS måste ha hög tillgänglighet. 
 
-Du kan använda befintliga NFS-resurser med hög tillgänglighet eller GlusterFS för transporter eller en profil katalog. Mer information finns här:
+Du kan använda befintliga NFS-resurser med hög tillgänglighet eller GlusterFS för transporter eller en profil katalog. Mer information finns i:
 
 - [GlusterFS på virtuella Azure-datorer på Red Hat Enterprise Linux för SAP NetWeaver][glusterfs] 
 - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program][anf-rhel]

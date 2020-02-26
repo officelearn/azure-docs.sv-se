@@ -2,18 +2,16 @@
 title: Distributions Center för Azure-Kubernetes
 description: Med distributions Center i Azure DevOps blir det enklare att konfigurera en robust Azure DevOps-pipeline för ditt program
 ms.author: puagarw
-ms.prod: devops
-ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972983"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596087"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Distributions Center för Azure-Kubernetes
 
@@ -29,7 +27,7 @@ I den här kursen ska du:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+* En Azure-prenumeration. Du kan få en kostnadsfri [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 * Ett Azure Kubernetes service-kluster (AKS).
 
@@ -57,24 +55,24 @@ I den här kursen ska du:
 
 1. Välj AKS-klustret och välj sedan **Deployment Center (för hands version)** på det vänstra bladet. Välj **Kom igång**.
 
-   ![inställningar](media/deployment-center-launcher/settings.png)
+   ![settings](media/deployment-center-launcher/settings.png)
 
-1. Välj plats för koden och välj **Nästa**. Välj sedan en av de databaser som stöds för tillfället: **[Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** eller **GitHub**.
+1. Välj plats för koden och välj **Nästa**. Välj sedan en av de databaser som stöds för närvarande: **[Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)** eller **GitHub**.
 
     Azure databaser är en uppsättning versions kontroll verktyg som hjälper dig att hantera din kod. Oavsett om ditt program varu projekt är stort eller litet, är det en bra idé att använda versions kontroll så tidigt som möjligt.
 
     - **Azure-databaser**: Välj en lagrings plats från ditt befintliga projekt och din organisation.
 
-        ![Azure Repos](media/deployment-center-launcher/azure-repos.gif)
+        ![Azure-databaser](media/deployment-center-launcher/azure-repos.gif)
 
-    - **GitHub**: Auktorisera och välj lagrings platsen för ditt GitHub-konto.
+    - **GitHub**: auktorisera och välj lagrings plats för ditt GitHub-konto.
 
         ![GitHub](media/deployment-center-launcher/github.gif)
 
 
 1. Distributions Center analyserar lagrings platsen och identifierar din Dockerfile. Om du vill uppdatera Dockerfile kan du redigera det identifierade port numret.
 
-    ![Tillämpningsinställningar](media/deployment-center-launcher/application-settings.png)
+    ![Program inställningar](media/deployment-center-launcher/application-settings.png)
 
     Om lagrings platsen inte innehåller Dockerfile, visar systemet ett meddelande för att genomföra ett.
 
@@ -84,13 +82,13 @@ I den här kursen ska du:
 
     Azure-pipelines är en moln tjänst som du kan använda för att automatiskt bygga och testa ditt kod projekt och göra det tillgängligt för andra användare. Azure-pipeliner kombinerar kontinuerlig integrering och kontinuerlig leverans för att ständigt testa och bygga koden och skicka den till alla mål.
 
-    ![Containerregister](media/deployment-center-launcher/container-registry.png)
+    ![Container Registry](media/deployment-center-launcher/container-registry.png)
 
 1. Välj länken för att se den pågående pipelinen.
 
 1. Du ser de slutförda loggarna när distributionen är klar.
 
-    ![Logs](media/deployment-center-launcher/logs.png)
+    ![Loggar](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Granska CI-pipelinen
 
@@ -110,9 +108,9 @@ Distributions Center konfigurerar automatiskt Azure DevOps-organisationens CI/CD
 
 1. Under din build-pipeline väljer du **Historik**. I den här rutan visas en gransknings historik för dina senaste versions ändringar. Azure DevOps övervakar alla ändringar som görs i den bygga pipelinen och gör att du kan jämföra versioner.
 
-1. Välj **Utlösare**. Du kan ta med eller undanta grenar från CI-processen.
+1. Välj **utlösare**. Du kan ta med eller undanta grenar från CI-processen.
 
-1. Välj **Kvarhållning**. Du kan ange principer för att behålla eller ta bort ett antal versioner, beroende på ditt scenario.
+1. Välj **kvarhållning**. Du kan ange principer för att behålla eller ta bort ett antal versioner, beroende på ditt scenario.
 
 ## <a name="examine-the-cd-pipeline"></a>Granska CD-pipelinen
 
@@ -126,7 +124,7 @@ Distributions Center skapar och konfigurerar automatiskt relationen mellan din A
 
 1. Välj den **kontinuerliga distributions** utlösaren till höger om **Drop** -alternativet. Den här versionen av pipelinen har en aktive rad CD-utlösare som kör en distribution när det finns en ny versions artefakt. Du kan också inaktivera utlösaren för att kräva manuell körning för dina distributioner.
 
-1. Om du vill granska alla uppgifter för din pipeline väljer du **uppgifter**. Versionen ställer in till i-miljön, konfigurerar parametern `imagePullSecrets`, installerar Helm-verktyg och distribuerar Helm-diagrammen till Kubernetes-klustret.
+1. Om du vill granska alla uppgifter för din pipeline väljer du **uppgifter**. Versionen ställer in till i-miljön, konfigurerar `imagePullSecrets`-parametern, installerar Helm-verktyg och distribuerar Helm-diagrammen till Kubernetes-klustret.
 
 1. Om du vill visa versions historiken väljer du **Visa versioner**.
 

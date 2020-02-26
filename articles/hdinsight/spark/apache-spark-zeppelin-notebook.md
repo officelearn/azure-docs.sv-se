@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484816"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598280"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark kluster i Azure HDInsight
 
@@ -150,6 +150,25 @@ Antecknings böckerna för Zeppelin sparas i klustrets huvudnoderna. Så om du t
 ![Hämta antecknings bok](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Ladda ned antecknings boken")
 
 Detta sparar antecknings boken som en JSON-fil på nedladdnings platsen.
+
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Använd Shiro för att konfigurera åtkomst till Zeppelin-tolkar i Enterprise Security Package-kluster (ESP)
+Som anges ovan stöds inte `%sh` tolken från HDInsight 4,0 och senare. Eftersom `%sh` tolken ger upphov till potentiella säkerhets problem, t. ex. åtkomst till flikar med Shell-kommandon, har den tagits bort från HDInsight 3,6 ESP-kluster också. Det innebär att `%sh` tolken inte är tillgänglig när du klickar på **Skapa ny anteckning** eller i tolknings gränssnittet som standard. 
+
+Privilegierade domän användare kan använda `Shiro.ini`-filen för att kontrol lera åtkomsten till tolknings gränssnittet. Därför kan bara dessa användare skapa nya `%sh` tolkar och ange behörigheter för varje ny `%sh` tolk. Följ stegen nedan om du vill kontrol lera åtkomsten med hjälp av `shiro.ini`-filen:
+
+1. Definiera en ny roll med hjälp av ett befintligt domän grupp namn. I följande exempel är `adminGroupName` en grupp privilegierade användare i AAD. Använd inte specialtecken eller blank steg i grupp namnet. Tecknen efter `=` ge behörighet för den här rollen. `*` innebär att gruppen har fullständig behörighet.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Lägg till den nya rollen för åtkomst till Zeppelin-tolkar. I följande exempel får alla användare i `adminGroupName` till gång till Zeppelin-tolkare och kan skapa nya tolkar. Du kan infoga flera roller mellan hakparenteserna i `roles[]`, avgränsade med kommatecken. Användare som har nödvändig behörighet kan komma åt Zeppelin-tolkar.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
 
 ## <a name="livy-session-management"></a>Hantering av livy-sessioner
 

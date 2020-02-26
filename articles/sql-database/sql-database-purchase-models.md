@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964778"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587302"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Välj mellan vCore och DTU inköps modeller
 
@@ -77,7 +77,7 @@ Med den vCore-baserade inköps modellen kan du välja beräknings-och lagrings r
 
 > [!IMPORTANT]
 > Beräknings resurser, I/O och data-och logg lagring debiteras per databas eller elastisk pool. Lagring av säkerhets kopior debiteras per varje databas. Mer information om avgifter för hanterade instanser finns i [hanterade instanser](sql-database-managed-instance.md).
-> **Regions begränsningar:** Den aktuella listan över regioner som stöds finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds [skickar du en supportbegäran via Azure Portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Regions begränsningar:** Den aktuella listan över regioner som stöds finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Om du vill skapa en hanterad instans i en region som för närvarande inte stöds [skickar du en supportbegäran via Azure Portal](quota-increase-request.md).
 
 Om den enskilda databasen eller den elastiska poolen förbrukar mer än 300 DTU: er kan du minska kostnaderna genom att konvertera till den vCore-baserade inköps modellen. Du kan konvertera genom att använda ditt API eller genom att använda Azure Portal, utan drift stopp. Konverteringen är dock inte obligatorisk och sker inte automatiskt. Om den DTU-baserade inköps modellen uppfyller dina prestanda-och affärs behov bör du fortsätta att använda den.
 
@@ -102,7 +102,7 @@ De resurser som används av arbets belastningen påverkar inte resurserna som ä
 
 ![avgränsnings ruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Ett exempel:
+DTU: er är mest användbara för att förstå de relativa resurser som är allokerade för Azure SQL-databaser med olika beräknings storlekar och tjänst nivåer. Några exempel:
 
 - Att dubblera DTU: er genom att öka beräknings storleken för en databas, motsvarar att dubblera den uppsättning av resurser som är tillgängliga för den databasen.
 - En Premium Service Tier p11-databas med 1750 DTU: er ger beräkningskraft mer DTU-beräknings kraft än en grundläggande tjänst nivå databas med 5 DTU: er.  

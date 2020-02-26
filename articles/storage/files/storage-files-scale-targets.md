@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151997"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598580"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 
@@ -51,8 +51,8 @@ I avsnittet om [skalnings mål för Azure Storage-konto](#azure-storage-account-
 ### <a name="file-share-and-file-scale-targets"></a>Fil resurs-och fil skalnings mål
 
 > [!NOTE]
-> Standard fil resurser som är större än 5 TiB har vissa begränsningar.
-> En lista över begränsningar, regional information och instruktioner för att aktivera dessa större fil resurs storlekar finns i avsnittet om [att skapa större fil resurser](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) i planerings guiden.
+> Standard fil resurser som är större än 5 TiB har vissa begränsningar och regionala begränsningar.
+> En lista över begränsningar, regional information och instruktioner för att aktivera dessa större fil resurs storlekar finns i avsnittet om [att skapa större fil resurser](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) i planerings guiden.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

@@ -3,12 +3,12 @@ title: Hantera Azure Recovery Services-valv och-servrar
 description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173032"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586452"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -77,7 +77,7 @@ I rapporten säkerhets kopierings aviseringar visas aviseringarna för valvet.
 
 Listan med aviseringar om säkerhets kopiering visar den valda informationen för de filtrerade aviseringarna. I menyn säkerhets kopierings aviseringar kan du filtrera efter kritiska eller varnings aviseringar.
 
-| Aviserings nivå | Händelser som genererar aviseringar |
+| Aviseringsnivå | Händelser som genererar aviseringar |
 | ----------- | ----------- |
 | Kritisk | Du får viktiga aviseringar när: säkerhets kopierings jobben inte fungerar, om återställnings jobben inte fungerar och när du slutar skydda en server, men behåller data.|
 | Varning | Du får varnings aviseringar när: säkerhets kopierings jobben har slutförts med varningar, till exempel om färre än 100 filer inte säkerhets kopie ras på grund av problem med skada, eller när fler än 1 000 000 filer har säkerhetskopierats). |
@@ -95,7 +95,7 @@ Som standard visas all information, förutom den **senaste förekomst tiden**, i
 * Säkerhets kopierings objekt
 * Skyddad Server
 * Severity
-* Duration
+* Varaktighet
 * Skapandetid
 * Status
 * Senaste förekomst tid
@@ -229,7 +229,7 @@ Du kan visa all status eller en. Du kan inte välja två eller tre status värde
 * Alla status
 * Slutfört
 * Pågår
-* Misslyckad
+* Misslyckades
 * Avbrutna
 * Slutfört med varningar
 
@@ -272,4 +272,4 @@ Panelen lagring av säkerhets kopior på instrument panelen visar förbrukad lag
 
 * [Återställa Windows Server eller Windows-klient från Azure](backup-azure-restore-windows-server.md)
 * Mer information om Azure Backup finns i [Azure Backup översikt](backup-introduction-to-azure-backup.md)
-* Besök [Azure Backup-forumet](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

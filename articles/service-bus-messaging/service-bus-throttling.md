@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
-ms.openlocfilehash: 21a3bfd09e83571e489e15e9351e12220a99e563
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301261"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598297"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Begränsnings åtgärder på Azure Service Bus
 
@@ -55,6 +55,11 @@ Alla åtgärder har inte skapats lika. Här är kredit kostnaderna för var och 
 |-----------|-----------|
 | Data åtgärder (skicka, SendAsync, ta emot, ReceiveAsync, spetsig) |1 kredit per meddelande |
 | Hanterings åtgärder (skapa, läsa, uppdatera, ta bort i köer, ämnen, prenumerationer, filter) | 10 krediter |
+
+> [!NOTE]
+> Observera att varje meddelande som skickas till ett ämne utvärderas mot filter innan de görs tillgängliga i prenumerationen.
+> Varje filter utvärdering räknas också mot kredit gränsen (t. ex. 1 kredit per filter utvärdering).
+>
 
 ### <a name="how-will-i-know-that-im-being-throttled"></a>Hur vet jag att jag är begränsad?
 

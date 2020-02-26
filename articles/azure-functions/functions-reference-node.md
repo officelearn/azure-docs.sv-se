@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714791"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584497"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -232,7 +232,7 @@ Du kan välja att definiera utgående bindnings data med hjälp av metoden `cont
 context.bindingData
 ```
 
-Returnerar ett namngivet objekt som innehåller utlösare av metadata och funktions anrops data (`invocationId`, `sys.methodName`, `sys.utcNow``sys.randGuid`). Ett exempel på att utlösa metadata finns i exemplet på den här [händelse hubben](functions-bindings-event-hubs.md#trigger).
+Returnerar ett namngivet objekt som innehåller utlösare av metadata och funktions anrops data (`invocationId`, `sys.methodName`, `sys.utcNow``sys.randGuid`). Ett exempel på att utlösa metadata finns i exemplet på den här [händelse hubben](functions-bindings-event-hubs-trigger.md).
 
 ### <a name="contextdone-method"></a>metoden context. Done
 
@@ -265,7 +265,7 @@ context.log(message)
 Gör att du kan skriva till strömnings funktions loggarna på standard spårnings nivån. På `context.log`finns ytterligare loggnings metoder som låter dig skriva funktions loggar på andra spårnings nivåer:
 
 
-| Metod                 | Description                                |
+| Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
 | **fel (_meddelande_)**   | Skriver till loggning på fel nivå eller lägre.   |
 | **Varna (_meddelande_)**    | Skriver till loggning på varnings nivå eller lägre. |
@@ -342,7 +342,7 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 `context.req` (Request)-objektet har följande egenskaper:
 
-| Egenskap      | Description                                                    |
+| Egenskap      | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _brödtext_        | Ett objekt som innehåller bröd texten i begäran.               |
 | _sidhuvud_     | Ett objekt som innehåller begärandehuvuden.                   |
@@ -357,7 +357,7 @@ HTTP-och webhook-utlösare och HTTP-utgående bindningar använder begäran-och 
 
 Objektet `context.res` (Response) har följande egenskaper:
 
-| Egenskap  | Description                                               |
+| Egenskap  | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
 | _brödtext_    | Ett objekt som innehåller bröd texten i svaret.         |
 | _sidhuvud_ | Ett objekt som innehåller svarshuvuden.             |
@@ -418,14 +418,17 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 ## <a name="node-version"></a>Node-version
 
-I följande tabell visas den Node. js-version som används av varje huvud version av Functions-körningen:
+I följande tabell visas aktuella Node. js-versioner som stöds för varje huvud version av Functions-körningen, efter operativ system:
 
-| Funktions version | Node. js-version | 
-|---|---|
-| 1.x | 6.11.2 (låst av körningen) |
-| 2x  | _Aktiva LTS_ -och _underhålls LTS_ Node. js-versioner (~ 10 rekommenderas). Rikta in dig på versionen i Azure genom att ange WEBSITE_NODE_DEFAULT_VERSION [app-inställningen](functions-how-to-use-azure-function-app-settings.md#settings) till `~10`.|
+| Funktions version | Node-version (Windows) | Node-version (Linux) |
+|---|---| --- |
+| 1.x | 6.11.2 (låst av körningen) | Saknas |
+| 2x  | ~ 8<br/>~ 10 (rekommenderas)<br/>~ 12<sup>*</sup> | ~ 8 (rekommenderas)<br/>~ 10  |
+| 3.x | ~ 10<br/>~ 12 (rekommenderas)  | ~ 10<br/>~ 12 (rekommenderas) |
 
-Du kan se den aktuella versionen som körningen använder genom att kontrol lera appen ovan eller genom att skriva ut `process.version` från vilken funktion som helst.
+<sup>*</sup> Noden ~ 12 är för närvarande tillåten för version 2. x av Functions-körningen. För bästa prestanda rekommenderar vi dock att du använder Functions runtime version 3. x med noden ~ 12. 
+
+Du kan se den aktuella versionen som körningen använder genom att kontrol lera appen ovan eller genom att skriva ut `process.version` från vilken funktion som helst. Rikta in dig på versionen i Azure genom att ange WEBSITE_NODE_DEFAULT_VERSION [app-inställningen](functions-how-to-use-azure-function-app-settings.md#settings) till en LTS-version som stöds, till exempel `~10`.
 
 ## <a name="dependency-management"></a>Beroendehantering
 För att kunna använda grupp bibliotek i JavaScript-koden, som visas i exemplet nedan, måste du se till att alla beroenden är installerade på Funktionsapp i Azure.
@@ -574,7 +577,7 @@ TypeScript-filer (. TS) delas in i JavaScript-filer (. js) i katalogen `dist` ut
 
 Hur du utvecklar och distribuerar lokalt från ett TypeScript-projekt beror på ditt utvecklingsverktyg.
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visual Studio Code
 
 Med [Azure Functions för kod tillägget för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) kan du utveckla dina funktioner med typescript. Kärn verktygen är ett krav i Azure Functions-tillägget.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754219"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603399"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -33,11 +33,11 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 
 ## Funktioner som stöds av virtuella datorer/servrar<a name="vm-server-features"></a>
 
-### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
+### <a name="windows"></a>[Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Standard|
 |[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔|✔|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
 |[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
@@ -59,11 +59,11 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Kostnadsfri|
 
 
-### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+### <a name="linux"></a>[Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
+||**Azure Virtual Machines**|**Azure-Virtual Machine Scale Sets**|**Datorer som inte är Azure-datorer**|**Prissättning**
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Standard|
 |[Aviseringar om hot identifiering för virtuella datorer med beteende analys](security-center-alerts-iaas.md)|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
 |[Aviseringar om filbaserad hot identifiering](alerts-reference.md#alerts-windows)|-|-|-|Standard|
@@ -95,15 +95,15 @@ Följande tabell innehåller en matris med:
 
 Information om när rekommendationer genereras för vart och ett av dessa skydd finns i [Endpoint Protection utvärdering och rekommendationer](security-center-endpoint-protection.md).
 
-| Endpoint Protection| Plattformar | Installation av Security Center | Security Center Discovery |
+| Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – alla versioner * | Windows Server-familjen  | Inga | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Linux Server-serien  | Inga | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Inga | Ja **\***  |
+| Trend Micro – alla versioner * | Windows Server-familjen  | Nej | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 
@@ -118,17 +118,17 @@ Följande PaaS-resurser stöds av Azure Security Center:
 
 |Tjänst|Rekommendationer (kostnads fri)|Aviseringar om hot identifiering (standard)|Sårbarhets bedömning (standard)|
 |----|:----:|:----:|:----:|
-|SQL-databaser|✔|✔|✔|
+|SQL Databases|✔|✔|✔|
 |Azure Container Registry|-|-|✔|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Database for PostgreSQL *|✔|✔|-|
 |Azure Database for MySQL *|✔|✔|-|
 |Azure-CosmosDB *|-|✔|-|
 |Lagringskonton|✔|-|-|
-|Blob-lagring|✔|✔|-|
+|Blob Storage|✔|✔|-|
 |App Service|✔|✔|-|
 |Funktionsapp|✔|-|-|
-|Molntjänster|✔|-|-|
+|Cloud Services|✔|-|-|
 |Virtual Network|✔|-|-|
 |Undernät|✔|-|-|
 |NIC|✔|-|-|
@@ -137,12 +137,12 @@ Följande PaaS-resurser stöds av Azure Security Center:
 |Batch-konto|✔|-|-|
 |Service Fabric konto|✔|-|-|
 |Automation-konto|✔|-|-|
-|Load Balancer|✔|-|-|
-|Cognitive Search|✔|-|-|
+|Lastbalanserare|✔|-|-|
+|Kognitiv sökning|✔|-|-|
 |Service Bus-namnområde|✔|-|-|
 |Stream analytics|✔|-|-|
 |Namnområde för händelsehubb|✔|-|-|
-|Logikappar|✔|-|-|
+|Logic Apps|✔|-|-|
 |Cache för Redis|✔|-|-|
 |Data Lake Analytics|✔|-|-|
 |Azure Data Lake Storage|✔|-|-|
@@ -159,5 +159,5 @@ rekommendationer för \*\* Azure Active Directory (Azure AD) är endast tillgän
 - Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
 - Granska de [plattformar som har stöd för Security Center](security-center-os-coverage.md).
 - Lär dig mer om [hot identifiering för virtuella datorer & servrar i Azure Security Center](security-center-alerts-iaas.md).
-- Hitta [vanliga frågor om hur du använder Azure Security Center](security-center-faq.md).
+- Hitta [vanliga frågor om Azure Security Center](faq-general.md).
 - Hitta [blogg inlägg om säkerhet och efterlevnad i Azure](https://blogs.msdn.com/b/azuresecurity/).

@@ -3,16 +3,15 @@ title: Rotera certifikat i Azure Kubernetes service (AKS)
 description: Lär dig hur du roterar dina certifikat i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 774a0354c6262598c7d5e1f51e2e475fd17fe2d7
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 02bfdbc840065558003b249e1e3ea52f46ec64d6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468288"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596275"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotera certifikat i Azure Kubernetes service (AKS)
 
@@ -66,7 +65,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Det kan ta upp till 30 minuter innan `az aks rotate-certs` har slutförts. Om kommandot Miss lyckas innan du slutför ska du använda `az aks show` för att kontrol lera att klustrets status är *certifikats rotation*. Om klustret är i ett felaktigt tillstånd kör du `az aks rotate-certs` för att rotera dina certifikat igen.
 
-Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl`-kommando. Eftersom du inte har uppdaterat de certifikat som används av `kubectl`visas ett fel meddelande.  Exempel:
+Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl`-kommando. Eftersom du inte har uppdaterat de certifikat som används av `kubectl`visas ett fel meddelande.  Några exempel:
 
 ```console
 $ kubectl get no
@@ -79,7 +78,7 @@ Uppdatera certifikatet som används av `kubectl` genom att köra `az aks get-cre
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl`-kommando som nu kommer att lyckas. Exempel:
+Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl`-kommando som nu kommer att lyckas. Några exempel:
 
 ```console
 kubectl get no

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 79e7f2a8dad59de4dc9d84a26d24c82889c14c2f
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 6c002838d5a4f515a594d61e5137196c4d391795
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493324"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605431"
 ---
 # <a name="updated-ndv2-series-preview"></a>Uppdaterad NDv2-serien (för hands version)
 
@@ -24,13 +24,16 @@ NDv2-instanser ger utmärkta prestanda för HPC-och AI-arbetsbelastningar som an
 
 I stor skala är NDv2 byggd för både beräknings intensiva data (med 8 GPU-processorer per virtuell dator) och skalbarhet (vilket innebär att flera virtuella datorer fungerar tillsammans) arbets belastningar. NDv2-serien stöder nu 100-Gigabit InfiniBand EDR-nätverk, som liknar det som finns på HB-serien med HPC-VM, för att tillåta kluster med hög prestanda för parallella scenarier, inklusive distribuerad utbildning för AI och ML. Detta Server dels nätverk har stöd för alla större InfiniBand-protokoll, inklusive de som används av NVIDIA: s NCCL2-bibliotek, vilket möjliggör sömlös klustring av GPU: er.
 
+
+> [!NOTE]
 > När du [aktiverar InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) på den virtuella datorn ND40rs_v2 ska du använda Mellanox ofed-drivrutinen (4,7-1.0.0.1).
-
+>
 > På grund av ett ökat GPU-minne kräver den nya ND40rs_v2 virtuella datorn användningen av [virtuella datorer i generation 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) och Marketplace-avbildningar. 
-
+>
 > [Registrera dig för att få tidig till gång till den virtuella NDv2-datorn för hands version.](https://aka.ms/AzureNDrv2Preview)
-
+>
 > OBS! den ND40s_v2 med 16 GB minne per GPU är inte längre tillgänglig för för hands versionen och har ersatts av den uppdaterade ND40rs_v2.
+
 <br>
 
 Premium Storage: stöds

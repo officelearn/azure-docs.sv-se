@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990597"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587540"
 ---
-# <a name="overview-of-azure-security-controls"></a>Översikt över Azure-säkerhetskontroller
+# <a name="overview-of-the-azure-security-benchmark"></a>Översikt över Azures säkerhets benchmark
 
 Azures säkerhets benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data på Azure.
 
@@ -48,7 +48,7 @@ Varje rekommendation innehåller följande information:
 
 Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets benchmark-ansträngning. Om du vill ge benchmark-gruppens direkta indatatyper fyller du i formuläret på [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Se den första säkerhets kontrollen: [nätverks säkerhet](security-control-network-security.md)
 - Läs [introduktionen till Azure Security benchmark](introduction.md)

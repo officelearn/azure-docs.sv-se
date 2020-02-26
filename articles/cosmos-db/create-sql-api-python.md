@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 4b156ad12238e6ab33aaa40283cdd324bddce206
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d73d85471269bafb6f6d2e080a68f0cab10e3962
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134450"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585976"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Snabb start: bygga ett python-program med ett Azure Cosmos DB SQL API-konto
 
@@ -129,26 +129,27 @@ Följande kodfragment är alla hämtade från filen *cosmos_get_started. py* .
 
 * CosmosClient initieras. Se till att uppdatera värdena "slut punkt" och "nyckel" enligt beskrivningen i avsnittet [Uppdatera anslutnings strängen](#update-your-connection-string) . 
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_cosmos_client":::
 
 * En ny databas skapas.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_database_if_not_exists":::
 
 * En ny behållare skapas med 400 RU/s av [tillhandahållet data flöde](request-units.md). Vi väljer `lastName` som [partitionsnyckel](partitioning-overview.md#choose-partitionkey), som gör att vi kan göra effektiva frågor som filtrerar på den här egenskapen. 
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_container_if_not_exists":::
 
 * Vissa objekt läggs till i containern. Behållare är en samling objekt (JSON-dokument) som kan ha varierande schema. Hjälp metoder ```get_[name]_family_item``` returnerar representationer av en familj som lagras i Azure Cosmos DB som JSON-dokument.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_item":::
 
 * Punkt läsningar (nyckel värdes uppslag) utförs med hjälp av metoden `read_item`. Vi skriver ut [avgiften](request-units.md) för varje åtgärd.
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
+
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="read_item":::
 
 * En fråga utförs med SQL-frågesyntax. Eftersom vi använder partitionsnyckel för ```lastName``` i WHERE-satsen, kommer Azure Cosmos DB effektivt dirigera den här frågan till relevanta partitioner, vilket förbättrar prestandan.
 
-    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
+    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="query_items":::
    
 ## <a name="run-the-app"></a>Kör appen
 

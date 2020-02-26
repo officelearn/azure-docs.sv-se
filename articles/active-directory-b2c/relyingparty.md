@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/02/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 502b4cef4fc44abcc55c1733b86fb6052e3e43ab
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: b64583bc61b87e900690e397fac57d64d145db05
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372746"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585704"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -117,6 +117,7 @@ Det valfria **RelyingParty** -elementet innehåller följande element:
 | SessionExpiryInSeconds | 0:1 | Livs längden för Azure AD B2C's-sessionens cookie som anges som ett heltal lagrat i användarens webbläsare vid lyckad autentisering. |
 | JourneyInsights | 0:1 | Den Azure Application Insights Instrumentation-nyckel som ska användas. |
 | ContentDefinitionParameters | 0:1 | Listan över nyckel värdes par som ska läggas till i innehålls definitionens inläsnings-URI. |
+|ScriptExecution| 0:1| [Skript](javascript-samples.md) körnings lägen som stöds. Möjliga värden: `Allow` eller `Disallow` (standard).
 
 ### <a name="singlesignon"></a>SingleSignOn
 

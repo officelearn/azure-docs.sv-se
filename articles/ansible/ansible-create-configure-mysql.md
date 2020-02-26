@@ -4,12 +4,12 @@ description: Lär dig hur du använder Ansible för att skapa och konfigurera en
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156525"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603120"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Självstudie: konfigurera databaser i Azure Database for MySQL med Ansible
 
@@ -23,12 +23,12 @@ ms.locfileid: "74156525"
 >
 > * Skapa en MySql-Server
 > * Skapa en MySql-databas
-> * Konfigurera en filewall-regel så att en extern app kan ansluta till servern
+> * Konfigurera en brand Väggs regel så att en extern app kan ansluta till servern
 > * Ansluta till MySql-servern från Azure Cloud Shell
 > * Fråga dina tillgängliga MySQL-servrar
 > * Visa en lista över alla databaser på dina anslutna servrar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]

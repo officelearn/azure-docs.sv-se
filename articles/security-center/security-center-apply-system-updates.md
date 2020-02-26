@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 1688e85c6e6ed57892ccdffdf0813c8628127cc5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202465"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604550"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa system uppdateringar i Azure Security Center
 Azure Security Center övervakar dagliga virtuella Windows-och Linux-datorer (VM) och datorer för saknade uppdateringar av operativ systemet. Security Center hämtar en lista över tillgängliga säkerhets uppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har kon figurer ATS på en Windows-dator. Security Center också att söka efter de senaste uppdateringarna i Linux-system. Om din virtuella dator eller dator saknar en system uppdatering rekommenderar Security Center att du installerar System uppdateringar.
@@ -44,19 +44,19 @@ I det här exemplet ska vi använda **Compute**.
 
    Längst ned på instrument panelen visas alla uppdateringar som saknas på de virtuella datorerna och datorerna och den saknade uppdateringens allvarlighets grad.  Listan innehåller:
 
-    - NAMN: Namnet på den saknade uppdateringen.
-    - NEJ. Virtuella datorer & datorer: Totalt antal virtuella datorer och datorer som saknar uppdateringen.
-    - LÅST Rekommendationens aktuella tillstånd:
+    - Namn: namnet på den saknade uppdateringen.
+    - Nej. Virtuella datorer & datorer: det totala antalet virtuella datorer och datorer som saknar den här uppdateringen.
+    - TILLSTÅND: den aktuella statusen för rekommendationen:
 
-      - Inställningar Rekommendationen har ännu inte åtgärd ATS.
-      - Pågår: Rekommendationen används för närvarande på dessa resurser och ingen åtgärd krävs av dig.
-      - Göras Rekommendationen har redan slutförts. (När problemet har lösts, inaktiveras posten).
+      - Öppen: rekommendationen har ännu inte åtgärd ATS.
+      - Pågår: rekommendationen används för närvarande på dessa resurser och ingen åtgärd krävs av dig.
+      - Löst: rekommendationen har redan slutförts. (När problemet har lösts, inaktiveras posten).
 
-    - ALLVARLIGHETS GRAD Beskriver allvarlighets graden för den specifika rekommendationen:
+    - Allvarlighets grad: beskriver allvarlighets graden för den specifika rekommendationen:
 
-      - Högt Det finns ett säkerhets problem med en meningsfull resurs (program, virtuell dator eller nätverks säkerhets grupp) och kräver åtgärd.
-      - Säker Icke-kritiska eller ytterligare steg krävs för att slutföra en process eller eliminera en sårbarhet.
-      - Börjar Ett säkerhets problem bör åtgärdas men kräver ingen omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
+      - Hög: det finns ett säkerhets problem med en meningsfull resurs (program, virtuell dator eller nätverks säkerhets grupp) och kräver åtgärd.
+      - Medel: icke-kritiska eller ytterligare steg krävs för att slutföra en process eller eliminera en sårbarhet.
+      - Låg: ett säkerhets problem bör åtgärdas men kräver ingen omedelbar åtgärd. (Rekommendationer med låg allvarlighetsgrad visas normalt inte, men du kan filtrera fram dem om du vill se dem.)
 
 3. Välj en uppdatering som saknas i listan för att visa information.
 
@@ -77,8 +77,7 @@ I följande avsnitt kan du lära dig mer om Security Center:
 * [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
+* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur övervakar dina partnerlösningars hälsostatus.
 * [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure.
 
 <!--Image references-->

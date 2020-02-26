@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: b93e9a50214301df3362be4b729f6e7ec8ab2267
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: a6a1371553ccd9b810ba4649af448fb8847d0ed8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506173"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604709"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 

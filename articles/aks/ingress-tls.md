@@ -2,17 +2,14 @@
 title: Skapa en HTTPS-ingång med Azure Kubernetes service-kluster (AKS)
 description: Lär dig hur du installerar och konfigurerar en NGINX ingångs hanterare som använder kryptera för att skapa TLS-certifikat i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.author: mlearned
-ms.openlocfilehash: 661ed72265b81f47cbe8e9cf26595632360ec352
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6b465aeb08f14e48249be9587e5fdee1f4b08ba4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898804"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595543"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
 
@@ -344,7 +341,7 @@ I den här artikeln ingår några externa komponenter i AKS. Mer information om 
 
 - [Helm CLI][helm-cli]
 - [NGINX ingress-styrenhet][nginx-ingress]
-- [cert-manager][cert-manager]
+- [CERT-Manager][cert-manager]
 
 Du kan också:
 

@@ -2,21 +2,21 @@
 title: Självstudie – Lägg till resurs till mall
 description: Beskriver stegen för att skapa din första Azure Resource Manager-mall. Du lär dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 02/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765594"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586690"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Självstudie: Lägg till en resurs i Resource Manager-mallen
 
 I den [föregående själv studie kursen](template-tutorial-create-first-template.md)har du lärt dig hur du skapar en tom mall och distribuerar den. Nu är du redo att distribuera en faktisk resurs. I den här självstudien lägger du till ett lagrings konto. Det tar ungefär **9 minuter** att slutföra den här kursen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [introduktions kursen om mallar](template-tutorial-create-first-template.md), men det är inte obligatoriskt.
 
@@ -26,7 +26,10 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 Om du vill lägga till en lagrings konto definition i den befintliga mallen tittar du på den markerade JSON-filen i följande exempel. I stället för att försöka kopiera avsnitt i mallen kopierar du hela filen och ersätter mallen med dess innehåll.
 
-Ersätt **{ge-Unique-Name}** med ett unikt lagrings konto namn. Namnet på lagringskontot måste vara unikt i Azure. Namnet får bara innehålla gemena bokstäver eller siffror. Det får inte vara längre än 24 tecken. Du kan prova ett namngivnings mönster som att använda **store1** som prefix och sedan lägga till dina initialer och dagens datum. Till exempel kan namnet som du använder se ut som **store1abc09092019**.
+Ersätt **{ge-Unique-Name}** med ett unikt lagrings konto namn.
+
+> [!IMPORTANT]
+> Namnet på lagringskontot måste vara unikt i Azure. Namnet får bara innehålla gemena bokstäver eller siffror. Det får inte vara längre än 24 tecken. Du kan prova ett namngivnings mönster som att använda **store1** som prefix och sedan lägga till dina initialer och dagens datum. Till exempel kan namnet som du använder se ut som **store1abc09092019**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
@@ -58,7 +61,7 @@ Du kan distribuera mallen för att skapa lagrings kontot. Ge distributionen ett 
 
 Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,7 +70,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group deployment create \
@@ -94,7 +97,7 @@ Distributionen tar längre tid än distributionen av tomma mallar eftersom lagri
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att ett lagrings konto har distribuerats.

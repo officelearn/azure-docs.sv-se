@@ -2,22 +2,21 @@
 title: Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 description: Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 author: zr-msft
-ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8d727256afbe152a4f7022d0fd2454c4677b023c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276796"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595611"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
 Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör Open Service Broker for Azure (OSBA) att utvecklare kan utnyttja Azure-hanterade tjänster i Kubernetes. Den här guiden fokuserar på att distribuera-tjänstkatalogen, Open Service Broker for Azure (OSBA) och program som använder Azure-hanterade tjänster med Kubernetes.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration
 
 * Azure CLI: [installera det lokalt][azure-cli-install]eller Använd det i [Azure Cloud Shell][azure-cloud-shell].

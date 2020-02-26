@@ -3,16 +3,15 @@ title: Tillägg för HTTP-programroutning på Azure Kubernetes service (AKS)
 description: Använd tillägget HTTP-programroutning på Azure Kubernetes service (AKS).
 services: container-service
 author: lachie83
-ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: fc04e38c3d6933cde81d81d5569ed73e7506a745
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756444"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595696"
 ---
 # <a name="http-application-routing"></a>Routning av HTTP-program
 
@@ -207,7 +206,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Upprepa föregående `kubectl delete` steg för alla *tillägg-http-app-routing-* resurser som funnits i klustret.
 
-## <a name="troubleshoot"></a>Felsökning
+## <a name="troubleshoot"></a>Felsöka
 
 Använd kommandot [kubectl logs][kubectl-logs] för att visa program loggarna för det externa DNS-programmet. Loggarna bör bekräfta att en A-och TXT DNS-post har skapats.
 

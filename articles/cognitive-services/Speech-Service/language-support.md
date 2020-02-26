@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 02/19/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 20b99cfffdaa0d942ccd4d954909810342cbfcb8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 86224508b9f24906abce157b92a77c0a2f24d882
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935344"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605728"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 
@@ -34,14 +34,14 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
- Nationella inställningar | Språk | Stöds | Anpassningar
+ Nationell inställning | Språk | Stöds | Anpassningar
 ------|------------|-----------|-------------
-`ar-AE` | Arabiska (Förenade Arabemiraten) | Ja | Inga
+`ar-AE` | Arabiska (Förenade Arabemiraten) | Ja | Nej
 `ar-BH` | Arabiska (Bahrain) | Ja | Språk modell
 `ar-EG` | Arabiska (Egypten), moderna standard | Ja | Språk modell
-`ar-KW` | Arabiska (Kuwait) | Ja | Inga
-`ar-QA` | Arabiska (Qatar) | Ja | Inga
-`ar-SA` | Arabiska (Saudiarabien) | Ja | Inga
+`ar-KW` | Arabiska (Kuwait) | Ja | Nej
+`ar-QA` | Arabiska (Qatar) | Ja | Nej
+`ar-SA` | Arabiska (Saudiarabien) | Ja | Nej
 `ca-ES` | Katalanska | Ja | Språk modell
 `da-DK` | Danska (Danmark) | Ja | Språk modell
 `de-DE` | Tyska (Tyskland) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
@@ -70,9 +70,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ru-RU` | Ryska (Ryssland) | Ja | Akustisk modell<br>Språk modell
 `sv-SE` | Svenska (Sverige) | Ja | Språk modell
 `ta-IN` | Tamil (Indien) | Ja | Språk modell
-`te-IN` | Telugu (Indien) | Ja | Inga
-`th-TH` | Thailändska (Thailand) | Ja | Inga
-`tr-TR` | Turkiska (Turkiet) | Ja | Inga
+`te-IN` | Telugu (Indien) | Ja | Nej
+`th-TH` | Thailändska (Thailand) | Ja | Nej
+`tr-TR` | Turkiska (Turkiet) | Ja | Nej
 `zh-CN` | Kinesiska (Mandarin, förenklad) | Ja | Akustisk modell<br>Språk modell
 `zh-HK` | Kinesiska (kantonesiska, traditionell) | Ja | Språk modell
 `zh-TW` | Kinesiska (Mandarin Taiwanesiska) | Ja | Språk modell
@@ -92,12 +92,13 @@ Neurala röster kan användas för att göra interaktioner med chattrobotar och 
 
 Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
+Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort röst namn
 --------|----------|--------|---------|------------
 `de-DE` | Tyska (Tyskland) | Kvinna | "Microsoft Server Speech Text till tal Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-`en-US` | English (US) | Man | "Microsoft Server Speech Text till tal Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `en-US` | English (US) | Kvinna | "Microsoft Server Speech Text till tal Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
+`en-US` | English (US) | Man | "Microsoft Server Speech Text till tal Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
 `it-IT` | Italienska (Italien) | Kvinna |"Microsoft Server Speech Text till tal Voice (IT-IT, ElsaNeural)" | "IT-ElsaNeural"
+`pt-BR` | Portugisiska (Brasilien) | Kvinna | "Microsoft Server Speech Text till tal Voice (pt-BR, FranciscaNeural)" | "pt-BR-FranciscaNeural"
 `zh-CN` | Kinesiska (fastlandet) | Kvinna | "Microsoft Server Speech Text till tal Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
 
 Information om hur du kan konfigurera och justera neurala-röster finns i [tal syntes märknings språk](speech-synthesis-markup.md#adjust-speaking-styles).
@@ -109,7 +110,7 @@ Information om hur du kan konfigurera och justera neurala-röster finns i [tal s
 
 Det finns fler än 75 standard röster i över 45 språk och nationella inställningar, vilket gör att du kan konvertera text till syntetiskt tal. Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort namn
+Nationell inställning | Språk | Kön | Fullständig tjänst namns mappning | Kort namn
 -------|----------|---------|----------|----------
 <sup>1</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
 `ar-SA` | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)” | "ar-SA-Naayf"
@@ -207,7 +208,7 @@ Röst anpassning är tillgänglig för `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-M
 
 ## <a name="speech-translation"></a>Talöversättning
 
-Den **Talöversättning** API har stöd för olika språk för översättning av tal-till-tal- och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal i mer än [60 språk](https://www.microsoft.com/translator/business/languages/). Det finns en delmängd av språk som är tillgängliga för [tal syntes](language-support.md#text-languages).
+API: et för **tal översättning** stöder olika språk för översättning av tal till tal och tal till text. Käll språket måste alltid vara från språk tabellen för tal till text. Tillgängliga mål språk beror på om translation målet är tal eller text. Du kan översätta inkommande tal till fler än [60 språk](https://www.microsoft.com/translator/business/languages/). Det finns en delmängd av språk som är tillgängliga för [tal syntes](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Språken för mobilapptext
 
@@ -286,4 +287,4 @@ Den **Talöversättning** API har stöd för olika språk för översättning av
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hämta utvärderings prenumerationen för din röst tjänst](https://azure.microsoft.com/try/cognitive-services/)
-* [Se hur du kan känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Se identifiera tal iC#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/04/2019
+ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d25201c8195fa6c4c36e159904b5b71a20a45ea
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099649"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598501"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Lagrings arkitektur för SAP HANA (stora instanser)
 
@@ -36,6 +36,8 @@ Se följande tabell vad gäller lagrings tilldelning. Tabellen visar den grova k
 | S192 | 4 608 GB | 1 024 GB | 1 536 GB | 1 024 GB |
 | S192m | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
 | S192xm |  11 520 GB |  1 536 GB |  1 792 GB |  1 536 GB |
+| S224 |  4 224 GB |  512 GB |  1 024 GB |  512 GB |
+| S224m |  8 448 GB |  512 GB |  1 024 GB |  512 GB |
 | S384 | 11 520 GB | 1 536 GB | 1 792 GB | 1 536 GB |
 | S384m | 12 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
 | S384xm | 16 000 GB | 2 050 GB | 2 050 GB | 2 040 GB |
@@ -72,13 +74,13 @@ Se [HLI-scenarier som stöds](hana-supported-scenario.md) för information om la
 
 Det är möjligt att vara värd för fler än en aktiv SAP HANA instans på HANA stora instans enheter. För att tillhandahålla funktioner för lagrings ögonblicks bilder och haveri beredskap, kräver en sådan konfiguration en volym uppsättning per instans. För närvarande kan HANA stora instans enheter delas upp på följande sätt:
 
-- **S72, S72m, S96, S144, S192**: I steg om 256 GB, med 256 GB den minsta start enheten. Olika steg som 256 GB och 512 GB kan kombineras till det maximala minnet för enheten.
-- **S144m och S192m**: I steg om 256 GB, med 512 GB den minsta enheten. Olika steg som 512 GB och 768 GB kan kombineras till det maximala minnet för enheten.
-- **Typ II-klass**: I steg om 512 GB, med den minsta start enheten på 2 TB. Olika steg som 512 GB, 1 TB och 1,5 TB kan kombineras till det maximala minnet för enheten.
+- **S72, S72m, S96, S144, S192**: i steg om 256 GB, med 256 GB från den minsta startenheten. Olika steg som 256 GB och 512 GB kan kombineras till det maximala minnet för enheten.
+- **S144m och S192m**: i steg om 256 GB, med 512 GB den minsta enheten. Olika steg som 512 GB och 768 GB kan kombineras till det maximala minnet för enheten.
+- **Typ II-klass**: i steg om 512 GB, med den minsta start enheten på 2 TB. Olika steg som 512 GB, 1 TB och 1,5 TB kan kombineras till det maximala minnet för enheten.
 
 Några exempel på att köra flera SAP HANA instanser kan se ut så här.
 
-| SKU | Minnesstorlek | Lagringsstorlek | Storlekar med flera databaser |
+| SKU | Minnes storlek | Lagrings storlek | Storlekar med flera databaser |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1x768-GB HANA-instans<br /> eller 1x512-GB instans + 1x256-GB-instans<br /> eller 3x256-GB-instanser | 
 | S72m | 1,5 TB | 6 TB | 3x512GB HANA-instanser<br />eller 1x512-GB instans + 1x1-TB instans<br />eller 6x256-GB-instanser<br />eller 1x 1,5 – TB instans | 
@@ -88,7 +90,7 @@ Några exempel på att köra flera SAP HANA instanser kan se ut så här.
 
 Det finns även andra varianter. 
 
-## <a name="encryption-of-data-at-rest"></a>Kryptering av vilande data
+## <a name="encryption-of-data-at-rest"></a>Kryptering av data i vila
 Den lagring som används för HANA stor instans använder transparent kryptering för data som lagras på diskarna sedan årets slut 2018. I tidigare distributioner kan du välja att hämta de krypterade volymerna. Om du har bestämt dig för det alternativet kan du begära att få de volymer som är krypterade online. Flyttningen från icke-krypterade till krypterade volymer är transparent och kräver ingen stillestånds tid. 
 
 Med typ I-klassen för SKU: er lagras volymen som start-LUN på, krypteras. I revision 3 HANA stora instans stämplar använder du typ II-klassen för SKU: er av HANA stor instans, måste du kryptera omstarts-LUN med OS-metoder. I revision 4 HANA stora instans stämplar, använder Type II-enheter volymen. start-LUN lagras och krypteras även i vila som standard. 

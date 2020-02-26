@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5c43efc8d61d7aa6c8fc94c6c39294d744cd6b87
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501126"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582712"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -41,11 +41,11 @@ Som standard behålls data i en LA-arbetsyta i 30 dagar. Om du vill se data unde
 
 Azure Resource Manager resurser, till exempel Recovery Services-valv, registrera information om schemalagda åtgärder och användar utlösta åtgärder som diagnostikdata. 
 
-I avsnittet övervakning i Recovery Services-valvet väljer du **diagnostikinställningar** och anger målet för Recovery Services valvets diagnostikdata. [Lär dig mer om att använda diagnostiska händelser](https://aka.ms/AzureBackupDiagnosticDocs).
+I avsnittet övervakning i Recovery Services-valvet väljer du **diagnostikinställningar** och anger målet för Recovery Services valvets diagnostikdata. [Lär dig mer om att använda diagnostiska händelser](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
 
 ![Bladet inställningar för diagnostik](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup innehåller också en inbyggd Azure Policy som automatiserar konfigurationen av diagnostikinställningar för alla valv i ett angivet omfång. Läs följande artikel för att lära dig hur du använder den här principen: [Konfigurera valvets diagnostikinställningar i skala](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
+Azure Backup innehåller också en inbyggd Azure Policy som automatiserar konfigurationen av diagnostikinställningar för alla valv i ett angivet omfång. Läs följande artikel för att lära dig hur du använder den här principen: [Konfigurera valvets diagnostikinställningar i skala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 3. **Visa rapporter på Azure Portal:**
 
@@ -53,7 +53,7 @@ När du har konfigurerat dina valv för att skicka data till LA visar du dina s�
 
 ![Valv instrument panel](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-När du klickar på den här länken öppnas arbets boken säkerhets kopierings rapport. 
+När du klickar på den här länken öppnas arbets boken säkerhets kopierings rapport.
 
 > [!NOTE]
 > Den första inläsningen av rapporten kan för närvarande ta upp till 1 minut.

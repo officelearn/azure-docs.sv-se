@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486350"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602935"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Använda Azure WebJobs SDK för händelse driven bakgrunds bearbetning
 
@@ -395,7 +395,7 @@ static async Task Main()
 }
 ```
 
-Mer information finns i artikeln om [bindning för Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) .
+Mer information finns i artikeln om [bindning för Azure CosmosDB](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) .
 
 ### <a name="event-hubs-trigger-configuration-version-3x"></a>Event Hubs utlösarens konfiguration (version 3. *x*)
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-Mer information finns i artikeln [Event Hubs bindning](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) .
+Mer information finns i artikeln [Event Hubs bindning](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings) .
 
 ### <a name="queue-storage-trigger-configuration"></a>Konfiguration av kö Storage-utlösare
 

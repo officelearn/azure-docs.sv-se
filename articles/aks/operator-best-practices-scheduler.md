@@ -2,17 +2,14 @@
 title: Bästa praxis för Operator – grundläggande Scheduler-funktioner i Azure Kubernetes Services (AKS)
 description: Lär dig metod tips för kluster operatörer för att använda grundläggande funktioner i Schemaläggaren, till exempel resurs kvoter och Pod avbrott i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: mlearned
-ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293614"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594659"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för grundläggande funktioner i Schemaläggaren i Azure Kubernetes service (AKS)
 

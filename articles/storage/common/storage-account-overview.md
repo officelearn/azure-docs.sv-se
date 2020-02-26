@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157284"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597176"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
@@ -72,7 +72,7 @@ BlockBlobStorage-konton stöder för närvarande inte nivåer för frekvent åtk
 
 Ett FileStorage-konto är ett specialiserat lagrings konto som används för att lagra och skapa Premium-filresurser. Den här typen av lagrings konto stöder filer, men inte blockering av blobbar, tillägg av blobbar, sid-BLOB, tabeller eller köer.
 
-FileStorage-konton ger unika prestanda egenskaper, till exempel IOPS-burst. Mer information om dessa egenskaper finns i avsnittet om [prestanda nivåer för fil resurser](../files/storage-files-planning.md#file-share-performance-tiers) i planerings guiden för filer.
+FileStorage-konton ger unika prestanda dedikerade egenskaper som IOPS-burst. Mer information om dessa egenskaper finns i avsnittet [fil resurs lagrings nivåer](../files/storage-files-planning.md#storage-tiers) i planerings guiden för filer.
 
 ## <a name="naming-storage-accounts"></a>Namnge lagrings konton
 

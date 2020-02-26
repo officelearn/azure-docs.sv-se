@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Azure Machine Learning Visual Studio Code-tillägg'
+title: 'Självstudie: Konfigurera Visual Studio Code-tillägget'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du konfigurerar Visual Studio Code Azure Machine Learning-tillägget.
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 01/16/2019
-ms.openlocfilehash: 4000fcc80d507d3b1e871d7f3288fc3b77693c76
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 02/24/2020
+ms.openlocfilehash: 583071ee22e4fb9cffc741520b1583790002a5bf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157614"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604850"
 ---
 # <a name="set-up-azure-machine-learning-visual-studio-code-extension"></a>Konfigurera Azure Machine Learning Visual Studio Code-tillägg
 
@@ -27,10 +27,11 @@ I den här självstudien kommer du att lära dig följande:
 > * Logga in på ditt Azure-konto från Visual Studio Code
 > * Använd Azure Machine Learning-tillägget för att köra ett exempel skript
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure-prenumeration. Om du inte har ett kan du registrera dig och prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
-- Installera [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), en lätt, plattforms oberoende kod redigerare. 
+- Visual Studio Code. Om du inte har det kan du [installera det](https://code.visualstudio.com/docs/setup/setup-overview).
+- [Python 3](https://www.python.org/downloads/)
 
 ## <a name="install-the-extension"></a>Installera tillägget
 
@@ -38,6 +39,9 @@ I den här självstudien kommer du att lära dig följande:
 1. Öppna vyn tillägg genom att välja **tilläggs** ikonen från **aktivitets fältet** .
 1. I vyn tillägg söker du efter "Azure Machine Learning".
 1. Välj **Installera**.
+
+    > [!div class="mx-imgBorder"]
+    > ![installera Azure Machine Learning VS Code-tillägg](./media/tutorial-setup-vscode-extension/install-aml-vscode-extension.PNG)
 
 > [!NOTE]
 > Alternativt kan du installera tillägget Azure Machine Learning via Visual Studio Marketplace genom [att hämta installations programmet direkt](https://aka.ms/vscodetoolsforai). 
@@ -49,9 +53,9 @@ Resten av stegen i den här självstudien har testats med **version 0.6.8** av t
 För att kunna etablera resurser och köra arbets belastningar på Azure måste du logga in med dina autentiseringsuppgifter för Azure-kontot. För att hjälpa till med konto hantering installerar Azure Machine Learning automatiskt tillägget för Azure-kontot. Besök följande webbplats om du vill [veta mer om tillägget för Azure-kontot](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 1. Öppna paletten kommando genom att välja **visa > kommando paletten** på Meny raden. 
-1. Ange kommandot "Azure: Sign in" i text rutan för att starta inloggnings processen.
+1. Starta inloggnings processen genom att ange kommandot "Azure: Sign in" i kommando paletten.
 
-## <a name="run-a-script-in-azure"></a>Köra ett skript i Azure
+## <a name="run-a-machine-learning-model-training-script-in-azure"></a>Köra ett utbildnings skript för Machine Learning-modellen i Azure
 
 Nu när du har loggat in på Azure med autentiseringsuppgifterna för ditt konto kan du använda stegen i det här avsnittet för att lära dig hur du använder tillägget för att träna en maskin inlärnings modell.
 
@@ -79,16 +83,16 @@ Nu när du har loggat in på Azure med autentiseringsuppgifterna för ditt konto
 
     ```json
     {
-        "workspace": "WS12191742",
-        "resourceGroup": "WS12191742-rg2",
+        "workspace": "WS01311608",
+        "resourceGroup": "WS01311608-rg1",
         "location": "South Central US",
-        "experiment": "WS12191742-exp2",
+        "experiment": "WS01311608-exp1",
         "compute": {
-            "name": "WS12191742-com2",
+            "name": "WS01311608-com1",
             "vmSize": "Standard_D1_v2, Cores: 1; RAM: 3.5GB;"
         },
         "runConfiguration": {
-            "filename": "WS12191742-com2-rc1",
+            "filename": "WS01311608-com1-rc1",
             "condaDependencies": [
                 "python=3.6.2",
                 "tensorflow=1.15.0"
@@ -100,8 +104,38 @@ Nu när du har loggat in på Azure med autentiseringsuppgifterna för ditt konto
     }
     ```
 
-1. Välj **Skicka experiment** för att köra experimentet i Azure. Detta skickar `train.py`-och konfigurations filen till Azure Machine Learning-arbetsytan. Utbildnings jobbet startas sedan på en beräknings resurs i Azure.
-1. Efter flera minuter skapas en katalog med namnet `output` lokalt som innehåller en utbildad TensorFlow-modell.
+1. När du är nöjd med konfigurationen skickar du experimentet genom att öppna kommando-paletten och ange följande kommando:
+
+    ```text
+    Azure ML: Submit Experiment
+    ```
+
+    Detta skickar `train.py`-och konfigurations filen till Azure Machine Learning-arbetsytan. Utbildnings jobbet startas sedan på en beräknings resurs i Azure.
+
+### <a name="track-the-progress-of-the-training-script"></a>Följa förloppet för övnings skriptet
+
+Det kan ta flera minuter att köra skriptet. Så här spårar du förloppet:
+
+1. Välj **Azure** -ikonen i aktivitets fältet.
+1. Expandera noden prenumeration.
+1. Expandera den pågående experimentets nod. Detta finns i `{workspace}/Experiments/{experiment}`-noden där värdena för din arbets yta och experiment är desamma som de egenskaper som definierats i konfigurations filen.
+1. Alla körningar för experimentet visas i listan, samt deras status. Om du vill hämta den senaste statusen klickar du på ikonen uppdatera överst i vyn Azure Machine Learning.
+
+    > [!div class="mx-imgBorder"]
+    > ![spåra experiment förlopp](./media/tutorial-setup-vscode-extension/track-experiment-progress.PNG)
+
+### <a name="download-the-trained-model"></a>Ladda ned den tränade modellen
+
+När experiment körningen är klar är utdata en utbildad modell. Så här hämtar du utdata lokalt:
+
+1. Högerklicka på den senaste körningen och välj **Hämta utdata**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Hämta utbildad modell](./media/tutorial-setup-vscode-extension/download-trained-model.PNG)
+
+1. Välj en plats där du vill spara utdata.
+1. En mapp med namnet på din körning laddas ned lokalt. Navigera till den.
+1. Model-filerna finns i `outputs/outputs/model`s katalogen.
 
 ## <a name="next-steps"></a>Nästa steg
 

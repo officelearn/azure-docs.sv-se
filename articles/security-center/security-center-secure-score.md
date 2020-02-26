@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 79154a13722654ef5cbbe7ac99bb67d4b761fe60
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 15a94a9724fac29d36f6bb88ee4810b3bc7ca607
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903441"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603475"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säkra poäng i Azure Security Center
 
@@ -29,7 +29,7 @@ ms.locfileid: "76903441"
 >
 > Om du vill delta i förhands granskningen öppnar du Azure Portal, startar Azure Security Center och väljer säkra poäng. Därifrån visas en banderoll överst på sidan som erbjuder den nya säkra poängen. Du kan också klicka [här](https://aka.ms/ascnewscore).
 
-Med så många tjänster som erbjuder säkerhets förmåner är det ofta svårt att veta vilka steg du bör vidta för att först skydda och torka din arbets belastning. Azures säkra Poäng granskar dina säkerhets rekommendationer och prioriterar dem åt dig, så att du vet vilka rekommendationer som ska utföras först. Detta hjälper dig att hitta de allvarliga säkerhets sårbarheterna så att du kan prioritera undersökningen. Secure Score är ett verktyg som hjälper dig att utvärdera säkerhetsstatusen för dina arbetsbelastningar.
+Med så många tjänster som erbjuder säkerhets förmåner är det ofta svårt att veta vilka steg du bör vidta för att först skydda och torka din arbets belastning. Säkra Poäng granskar dina säkerhets rekommendationer och prioriterar dem åt dig, så att du vet vilka rekommendationer som ska utföras först. Detta hjälper dig att hitta de allvarliga säkerhets sårbarheterna så att du kan prioritera undersökningen. Säkra poäng är ett verktyg som hjälper dig att utvärdera din position för arbets belastnings säkerhet.
 
 ## <a name="secure-score-calculation"></a>Säker Poäng beräkning
 
@@ -47,21 +47,21 @@ Så här visar du de övergripande säkra poängen:
 1. Klicka på **Security Center** på Azure-instrumentpanelen och klicka sedan på **säkra Poäng**.
 
 2. Längst upp kan du se säkra Poäng höjd punkter:
-   - **Övergripande säkerhetspoäng** motsvarar antal poäng per principer per vald prenumeration
+   - Den **övergripande säkra poängen** visar poängen per principer, per vald prenumeration
    - **Säkra poäng per kategori** visar vilka resurser som behöver mest uppmärksamhet
    - De **främsta rekommendationerna med säker Poäng påverkan** ger dig en lista över rekommendationer som förbättrar din säkra poäng om du implementerar dem.
  
-   ![säkra Poäng](./media/security-center-secure-score/secure-score-dashboard.png)
+   ![Säkra Poäng](./media/security-center-secure-score/secure-score-dashboard.png)
 
 3. I tabellen nedan kan du se var och en av dina prenumerationer och de övergripande säkra poängen för var och en.
 
    > [!NOTE]
-   > Summan av säkerhetspoängen för varje prenumeration är inte lika med den övergripande säkerhetspoängen. Säkerhetspoängen är en beräkning som bygger på förhållandet mellan dina felfria resurser och ditt sammanlagda antal resurser per rekommendation, inte summan av säkerhetspoäng för dina prenumerationer. 
+   > Summan av de säkra poängen för varje prenumeration är inte lika med de övergripande säkra poängen. De säkra poängen är en beräkning baserad på förhållandet mellan dina friska resurser och dina totala resurser per rekommendation, inte en total mängd säkra resultat för dina prenumerationer. 
    >
 4. Klicka på **Visa rekommendationer** för att se rekommendationerna för den prenumerationen som du kan åtgärda för att förbättra dina säkra poäng.
 4. I listan över rekommendationer kan du se att för varje rekommendation finns det en kolumn som representerar den **säkra Poäng effekten**. Det här värdet anger hur mycket din totala säkra poäng kommer att öka om du följer rekommendationerna. På skärmen nedan, om du till exempel **reparerar säkerhets risker i behållar säkerhetskonfigurationer**, kommer dina säkra poäng att öka med 35 punkter.
 
-   ![säkra Poäng](./media/security-center-secure-score/security-center-secure-score1.png)
+   ![Säkra Poäng](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 
@@ -69,9 +69,9 @@ Så här visar du de övergripande säkra poängen:
 
 Om du dessutom vill visa enskilda säkra Poäng kan du hitta dem på bladet individuell rekommendation.  
 
-**Säkerhetspoäng för rekommendation** är en beräkning som bygger på förhållandet mellan dina felfria resurser och ditt sammanlagda antal resurser. Om antalet felfria resurser är lika med det totala antalet resurser, får du 50 poäng, vilket är högsta möjliga säkerhetspoäng för rekommendationer. Åtgärda resurserna med fel genom att följa rekommendationerna så kommer du närmare högsta möjliga säkerhetspoäng.
+**Rekommendationen säker Poäng** är en beräkning baserad på förhållandet mellan dina friska resurser och dina totala resurser. Om antalet felfria resurser motsvarar det totala antalet resurser får du högsta möjliga säkerhet för rekommendationen 50. För att försöka få dina säkra Poäng närmare den högsta poängen, korrigerar du de skadade resurserna genom att följa rekommendationerna.
 
-**Rekommendationernas inverkan** visar med hur mycket dina säkerhetspoäng ökar om du utför de rekommenderade stegen. Exempel: om din säkerhetspoäng är 42 och **rekommendationens inverkan** är + 3 förbättras dina poäng till 45 om du utför stegen i rekommendationen.
+Med **rekommendations effekten** kan du se hur mycket dina säkra Poäng ökar om du använder rekommendations stegen. Om din säkra poäng till exempel är 42 och **rekommendations effekten** är + 3, kan du utföra stegen som beskrivs i rekommendationen för att bli 45.
 
 Rekommendationen visar vilka hot din arbets belastning exponeras för om reparations stegen inte vidtas.
 
@@ -80,13 +80,9 @@ Rekommendationen visar vilka hot din arbets belastning exponeras för om reparat
 
 
 
-
-
-
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln visar hur du kan förbättra din säkerhets position med **säkra Poäng** i Azure Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om tjänsten.
+* [Azure Security Center vanliga](faq-general.md)frågor och svar – hitta vanliga frågor om tjänsten och säkra poäng.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md): Här kan du läsa om hur du övervakar dina Azure-resursers hälsa.
-
-
+* [Säker Poäng – förbättrad](secure-score-security-controls.md)– Läs mer om fördelarna med de förbättrade säkra poängen för närvarande i för hands versionen.

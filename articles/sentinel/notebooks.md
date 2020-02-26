@@ -2,20 +2,20 @@
 title: Använda antecknings böcker med Azure Sentinel för säkerhets jakt
 description: Den här artikeln beskriver hur du använder antecknings böcker med funktionerna i Azure Sentinel-jakt.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 44a37fb8d06040b0d872f15ab25bdd2c7ff685b8
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563708"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581845"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Använda Jupyter-anteckningsböcker för att efter säkerhetshot
 
@@ -62,7 +62,7 @@ Du kan köra en bärbar dator direkt från Azure Sentinel eller klona alla Azure
  
 1. Från Azure Portal navigerar du till > **antecknings**böcker för **Azure Sentinel** > **Threat Management** , där du kan se antecknings böcker som Azure Sentinel tillhandahåller. 
 
-2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Ett exempel:
+2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Några exempel:
     
     > [!div class="mx-imgBorder"]
     > ![starta Notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -86,7 +86,7 @@ Den här proceduren skapar ett Azure Notebooks-projekt åt dig, som innehåller 
 
    ![Importera antecknings bok](./media/notebooks/sentinel-create-project.png)
 
-4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Ett exempel:
+4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Några exempel:
 
    ![Importera lagrings platsen](./media/notebooks/sentinel-open-notebook1.png)
 

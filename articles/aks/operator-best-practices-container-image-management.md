@@ -2,21 +2,18 @@
 title: Operatorn metodtips – bildhantering för behållare i Azure Kubernetes Services (AKS)
 description: Läs kluster operatorn metodtipsen att hantera och säkra behållaravbildningar i Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: mlearned
-ms.openlocfilehash: cd859a4009782ca39732ec004a3d3e05edd377b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: efe72157f598c336248e407c57bce92fe87da23a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442905"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594756"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Metodtips för hantering av behållare avbildningen och säkerhet i Azure Kubernetes Service (AKS)
 
-När du utvecklar och kör program i Azure Kubernetes Service (AKS) är en nyckelfaktor säkerheten för behållare och behållaravbildningar. Behållare som innehåller inaktuella basera bilder eller okorrigerade programmet körningar medföra en säkerhetsrisk och möjliga angreppsvinkel. För att minimera riskerna, bör du integrera verktyg som kan söka efter och åtgärda problem i dina behållare vid Byggtiden samt runtime. Den tidigare i processen sårbarhet eller inaktuella basavbildning har fastnat, säkrare desto klustret. I den här artikeln *behållare* innebär att båda de behållaravbildningar som lagras i ett behållarregister och behållarna som körs.
+När du utvecklar och kör program i Azure Kubernetes Service (AKS) är en nyckelfaktor säkerheten för behållare och behållaravbildningar. Behållare som innehåller inaktuella basera bilder eller okorrigerade programmet körningar medföra en säkerhetsrisk och möjliga angreppsvinkel. För att minimera riskerna, bör du integrera verktyg som kan söka efter och åtgärda problem i dina behållare vid Byggtiden samt runtime. Den tidigare i processen sårbarhet eller inaktuella basavbildning har fastnat, säkrare desto klustret. I den här artikeln innebär *behållare* både de behållar avbildningar som lagras i ett behållar register och de behållare som körs.
 
 Den här artikeln handlar om hur du skyddar dina behållare i AKS. Lär dig att:
 
@@ -30,7 +27,7 @@ Du kan också använda [behållar säkerhet i Security Center][security-center-c
 
 ## <a name="secure-the-images-and-run-time"></a>Skydda bilderna och körtid
 
-**Bästa praxis riktlinjer** – söka igenom dina behållaravbildningar för säkerhetsrisker och bara distribuera avbildningar som har klarat verifieringen. Regelbundet uppdatera Källavbildningen och körning av program och sedan distribuera igen arbetsbelastningar i AKS-klustret.
+**Vägledning för bästa praxis** – Sök igenom behållar avbildningar efter sårbarheter och distribuera bara avbildningar som har klarat verifieringen. Regelbundet uppdatera Källavbildningen och körning av program och sedan distribuera igen arbetsbelastningar i AKS-klustret.
 
 Ett problem med införandet av behållarbaserade arbetsbelastningar verifierar säkerheten för avbildningar och runtime som används för att skapa dina egna program. Hur du se till att du inte orsakar säkerhetsrisker i dina distributioner? Distributions arbets flödet bör innehålla en process för att skanna behållar avbildningar med hjälp av verktyg som [twistlock][twistlock] eller [turkos][aqua], och sedan bara tillåta att verifierade avbildningar distribueras.
 
@@ -40,7 +37,7 @@ I ett verkliga exempel använda du en kontinuerlig integrering och en pipeline f
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>Automatiskt skapa nya avbildningar på grundläggande uppdateringar
 
-**Bästa praxis riktlinjer** – som du använder när Källavbildningen programavbildningar, Använd automation för att skapa nya avbildningar när basavbildningen uppdateras. Eftersom dessa Källavbildningen innehåller vanligtvis säkerhetskorrigeringar, uppdatera alla nedströms program-behållaravbildningar.
+**Vägledning för bästa praxis** – när du använder bas avbildningar för program avbildningar använder du Automation för att bygga nya avbildningar när bas avbildningen uppdateras. Eftersom dessa Källavbildningen innehåller vanligtvis säkerhetskorrigeringar, uppdatera alla nedströms program-behållaravbildningar.
 
 Varje gång en basavbildning uppdateras bör alla underordnade behållaravbildningar också uppdateras. Den här bygg processen bör integreras i pipeline för validering och distribution, till exempel [Azure-pipeliner][azure-pipelines] eller Jenkins. Dessa pipelines ser till att dina program fortsätter att köras på de uppdaterade baserat bilderna. När dina program behållaravbildningar verifieras uppdateras AKS-distributioner sedan för att köra de senaste, säker avbildningarna.
 

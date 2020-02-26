@@ -1,14 +1,14 @@
 ---
 title: Resource Manager-resurs typer som stöds
 description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 02/20/2020
+ms.date: 02/25/2020
 ms.topic: reference
-ms.openlocfilehash: 130b11f0060f7f27091a21652aa481f0340b288f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77530229"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602572"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -116,6 +116,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Compute/sharedvmimages
 - Microsoft. Compute/sharedvmimages/versions
 - Microsoft. Compute/ögonblicks bilder
+- Microsoft. Compute/sshpublickeys
 - Microsoft. Compute/virtualmachines
 - Microsoft. Compute/virtualmachines/tillägg
 - Microsoft. Compute/virtualmachinescalesets
@@ -277,6 +278,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. Network/firewallpolicies
 - Microsoft. Network/frontdoors
 - Microsoft. Network/frontdoorwebapplicationfirewallpolicies
+- Microsoft. Network/ipallocations
 - Microsoft. Network/ipgroups
 - Microsoft. Network/belastningsutjämnare
 - Microsoft. Network/localnetworkgateways

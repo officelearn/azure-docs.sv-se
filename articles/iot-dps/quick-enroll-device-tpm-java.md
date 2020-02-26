@@ -9,21 +9,27 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: df18e721a7400a1e45b7f1fcd74fdafdbfdf026c
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462266"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605364"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Java-tjänst-SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
+I den här snabb starten skapar du program mässigt en enskild registrering för en simulerad TPM-enhet i Azure IoT Hub Device Provisioning Service med hjälp av Java-tjänst-SDK med hjälp av ett Java-exempelprogram.
 
-De här stegen visar hur du programmässigt skapar en enskild registrering för en simulerad TPM-enhet i Azure IoT Hub Device Provisioning Servicen med hjälp av [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) och ett Java-exempelprogram. Java-tjänst-SDK fungerar på både Windows- och Linux-datorer men i den här artikeln används en Windows-utvecklingsdator för att gå igenom registreringsprocessen.
+## <a name="prerequisites"></a>Förutsättningar
 
-Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal](./quick-setup-auto-provision.md) samt [simulera en TPM device](quick-create-simulated-device.md#simulatetpm) innan du fortsätter.
+- Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
+- Avslut av [lästa kryptografiska nycklar från TPM-enheten](quick-create-simulated-device.md#simulatetpm).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java se Development Kit 8](https://aka.ms/azure-jdks). I den här snabb starten installeras [Java service SDK](https://azure.github.io/azure-iot-sdk-java/service/) nedan. Det fungerar både i Windows och Linux. I den här snabb starten används Windows.
+- [Maven 3](https://maven.apache.org/download.cgi).
+- [Git](https://git-scm.com/download/).
 
 <a id="setupdevbox"></a>
 
@@ -56,7 +62,7 @@ Se till att [konfigurera IoT Hub Device Provisioning-tjänsten med Azure Portal]
 
 I det här avsnittet visas hur du lägger till etableringsinformationen för TPM-enheten i exempelkoden. 
 
-1. Öppna en kommandotolk. Klona GitHub-lagringsplatsen för enhetsregistreringens kodexempel med Java-tjänst-SDK:
+1. Öppna en kommandotolk. Klona GitHub-lagrings platsen för enhets registrerings kod exempel med [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -124,7 +130,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
     mvn install -DskipTests
     ```
 
-   Kommandot laddar ned Maven-paketet [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) på datorn. Paketet innehåller binärfilerna för Java-tjänst-SDK, som exempelkoden behöver skapa. 
+   Kommandot laddar ned Maven-paketet [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) på datorn. Det här paketet innehåller binärfilerna för [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/), som exempel koden måste bygga. 
 
 3. Kör exemplet genom att använda de här kommandona i kommandofönstret:
 

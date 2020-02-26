@@ -2,17 +2,14 @@
 title: Skapa en HTTP-ingångs kontroll med en statisk IP-adress i Azure Kubernetes service (AKS)
 description: Lär dig hur du installerar och konfigurerar en NGINX ingress Controller med en statisk offentlig IP-adress i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
-ms.openlocfilehash: 73798bf496f600e2ef98940051070a0ee117bdb3
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: a72312e2921b4721a4a5944cf62241b513da1e0a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261865"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595526"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll enhet med en statisk offentlig IP-adress i Azure Kubernetes service (AKS)
 
@@ -391,7 +388,7 @@ I den här artikeln ingår några externa komponenter i AKS. Mer information om 
 
 - [Helm CLI][helm-cli]
 - [NGINX ingress-styrenhet][nginx-ingress]
-- [cert-manager][cert-manager]
+- [CERT-Manager][cert-manager]
 
 Du kan också:
 

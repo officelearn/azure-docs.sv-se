@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486401"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605619"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -37,7 +37,6 @@ Multi-Factor Authentication stöds om Azure Active Directory (Azure AD) har kon 
 [![autentisering i Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 Mer information finns i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md). Den här artikeln innehåller information och exempel på autentisering, inklusive att använda tjänstens huvud namn och automatiserade arbets flöden.
-
 
 ### <a name="authentication-for-web-service-deployment"></a>Autentisering för webb tjänst distribution
 
@@ -77,6 +76,9 @@ I följande tabell visas några av de viktigaste Azure Machine Learning åtgärd
 | Anropa webb tjänst | ✓ | ✓ | ✓ |
 
 Om de inbyggda rollerna inte uppfyller dina behov kan du skapa anpassade roller. Anpassade roller stöds bara för åtgärder på arbets ytan och Machine Learning-beräkning. Anpassade roller kan ha behörigheterna läsa, skriva eller ta bort på arbets ytan och på beräknings resursen på arbets ytan. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå. Mer information finns i [Hantera användare och roller i en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
+
+> [!WARNING]
+> Azure Machine Learning stöds för närvarande inte med Azure Active Directory samarbete mellan företag.
 
 ### <a name="securing-compute-targets-and-data"></a>Säkra beräknings mål och data
 

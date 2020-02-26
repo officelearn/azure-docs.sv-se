@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/10/2019
+ms.date: 02/25/2020
 ms.author: juergent
-ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a4b3378909d40fe2b770f70f83054a97f2646bd3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72783785"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602355"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -171,7 +171,7 @@ Information om hur du skapar ett grundläggande pacemaker-kluster för den här 
 
 Innan du påbörjar installationen av en SAP-miljö baserat på IBM DB2-LUW bör du läsa följande dokumentation:
 
-+ Dokumentation om Azure
++ Azure-dokumentation
 + SAP-dokumentation
 + IBM-dokumentation
 
@@ -422,6 +422,9 @@ sudo crm configure property maintenance-mode=false</pre></code>
 ### <a name="configure-azure-load-balancer"></a>Konfigurera Azure Load Balancer
 Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Azure standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) och gör sedan följande:
 
+> [!NOTE]
+> Standard Load Balancer SKU: n har begränsningar med åtkomst till offentliga IP-adresser från noderna under Load Balancer. I artikeln [offentlig slut punkts anslutning för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) beskrivs olika sätt att aktivera noderna för att få åtkomst till offentliga IP-adresser
+
 1. Skapa en IP-adresspool på klient sidan:
 
    a. I Azure Portal öppnar du Azure Load Balancer, väljer **IP-pool för klient**del och väljer sedan **Lägg till**.
@@ -483,7 +486,7 @@ För att ansluta till den primära instansen av HADR-konfigurationen måste SAP-
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID>/global/db6/db2cli.ini
+/sapmnt/\<SID >/Global/DB6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -516,7 +519,7 @@ Logg arkiveringen utförs endast av den primära databasen. Om du ändrar HADR-r
 
 Vi rekommenderar att du konfigurerar en gemensam NFS-resurs där loggar skrivs från båda noderna. NFS-resursen måste ha hög tillgänglighet. 
 
-Du kan använda befintliga NFS-resurser med hög tillgänglighet för transporter eller en profil katalog. Mer information finns här:
+Du kan använda befintliga NFS-resurser med hög tillgänglighet för transporter eller en profil katalog. Mer information finns i:
 
 - [Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server][nfs-ha] 
 - [Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)

@@ -6,19 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028833"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598178"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
 I den här artikeln beskrivs hur du konfigurerar Azure Migrate-enheten om du utvärderar fysiska servrar med verktyget Azure Migrate: Server bedömning.
-
-> [!NOTE]
-> Om funktionerna nämns här som du ännu inte ser i Azure Migrate-portalen, låser du. De kommer att visas under nästa vecka eller så.
 
 Azure Migrate-installationen är en förenklad installation som används av Azure Migrate Server bedömning för att göra följande:
 
@@ -44,7 +41,7 @@ Ladda ned den zippade filen för enheten.
 2. I **identifiera datorer** > **dina datorer virtualiserade?** , klicka på **inte virtualiserad/annan**.
 3. Klicka på **Ladda ned** för att ladda ned den zippade filen.
 
-    ![Hämta virtuell dator](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Hämta virtuell dator](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>Verifiera säkerhet
@@ -55,17 +52,12 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 2. Kör följande kommando för att generera hashen för den virtuella hård disken
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exempel på användning: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  För den senaste versionen av produkten ska den genererade hashen matcha de här inställningarna.
-
-  **Algoritm** | **Hash-värde**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  För den senaste versionen av produkten ska den genererade hashen matcha de här [inställningarna](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Kör installations skriptet för Azure Migrate
-= Installations skriptet gör följande:
+Installations skriptet gör följande:
 
 - Installerar agenter och ett webb program för identifiering och utvärdering av fysiska servrar.
 - Installera Windows-roller, inklusive Windows Activation Service, IIS och PowerShell ISE.
@@ -80,13 +72,16 @@ Kör skriptet på följande sätt:
 1. Extrahera den zippade filen till en mapp på den server som ska vara värd för-enheten.
 2. Starta PowerShell på servern med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp där innehållet har extraherats från den hämtade zippade filen.
-4. Kör skriptet genom att köra följande kommando:
+4. Kör skriptet med namnet **AzureMigrateInstaller. ps1** genom att köra följande kommando:
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 Skriptet startar webb programmet för installationen när det har slutförts.
 
+Om det uppstår några problem kan du komma åt skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log för fel sökning.
 
+> [!NOTE]
+> Kör inte Azure Migrate Installer-skriptet på en befintlig Azure Migrate-installation.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
@@ -128,7 +123,7 @@ Anslut från-enheten till fysiska servrar och starta identifieringen.
 2. Ange **operativ system**, eget namn för autentiseringsuppgifterna, **användar** namn och **lösen ord** och klicka på **Lägg till**.
 Du kan lägga till en uppsättning autentiseringsuppgifter var för Windows-och Linux-servrar.
 4. Klicka på **Lägg till Server**och ange Server information – FQDN/IP-adress och eget namn på autentiseringsuppgifter (en post per rad) för att ansluta till servern.
-3. Klicka på **validera**. Efter verifieringen visas en lista över de servrar som kan identifieras.
+3. Klicka på **Validate** (Validera). Efter verifieringen visas en lista över de servrar som kan identifieras.
     - Om verifieringen Miss lyckas för en server kan du granska felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.
     - Om du vill ta bort en server väljer du > **ta bort**.
 4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.

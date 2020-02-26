@@ -1,10 +1,10 @@
 ---
-title: Konfigurera pacemaker på Red Hat Enterprise Linux i Azure | Microsoft Docs
+title: Konfigurera pacemaker på RHEL i Azure | Microsoft Docs
 description: Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
-ms.author: sedusch
-ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.author: radeltch
+ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941831"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598807"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -76,7 +76,7 @@ Läs följande SAP-anteckningar och dokument först:
 > Red Hat stöder inte programemulerad övervaknings enhet. Red Hat stöder inte SBD på moln plattformar. Mer information finns i [support policys för RHEL-kluster med hög tillgänglighet – SBD och fence_sbd](https://access.redhat.com/articles/2800691).
 > Den enda inhägnad mekanism som stöds för pacemaker Red Hat Enterprise Linux kluster i Azure är Azure-stängsel-agent.  
 
-Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
+Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
 
 1. **[A]** -register
 
@@ -122,7 +122,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    > [!IMPORTANT]
    > Om du behöver uppdatera Azure-stängsel-agenten och om du använder en anpassad roll, måste du uppdatera den anpassade rollen för att inkludera åtgärden **avstängnings läge**. Mer information finns i [skapa en anpassad roll för stängsel-agenten](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
-1. **[A]**  Konfigurera matcha värdnamn
+1. **[A]** namn matchning för värdnamn
 
    Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
    Ersätt IP-adressen och värdnamnet i följande kommandon. Fördelen med att använda/etc/hosts är att klustret blir oberoende av DNS, vilket kan vara en enda åtkomstpunkt för fel för.
@@ -138,7 +138,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <b>10.0.0.7 prod-cl1-1</b>
    </code></pre>
 
-1. **[A]**  Ändra hacluster lösenord till samma lösenord
+1. **[A]** ändra hacluster-lösenord till samma lösen ord
 
    <pre><code>sudo passwd hacluster
    </code></pre>
@@ -202,7 +202,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 
 1. Gå till <https://portal.azure.com>
 1. Öppna bladet Azure Active Directory  
-   Gå till egenskaper och anteckna Directory-ID. Det här är den **klient-ID**.
+   Gå till egenskaper och anteckna Directory-ID. Detta är **klient-ID: t**.
 1. Klicka på App-registreringar
 1. Klicka på ny registrering
 1. Ange ett namn, välj "konton endast i den här organisations katalogen" 
@@ -210,12 +210,12 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
    Inloggnings-URL: en används inte och kan vara vilken giltig URL
 1. Välj certifikat och hemligheter och klicka sedan på ny klient hemlighet
 1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Lägg till
-1. Anteckna värdet. Den används som den **lösenord** för tjänstens huvudnamn
-1. Välj översikt. Anteckna programmets ID. Den används som användarnamnet (**inloggnings-ID** i stegen nedan) för tjänstens huvudnamn
+1. Anteckna värdet. Den används som **lösen ord** för tjänstens huvud namn
+1. Välj översikt. Anteckna programmets ID. Den används som användar namn (**inloggnings-ID** i stegen nedan) för tjänstens huvud namn
 
-### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Skapa en anpassad roll för agenten avgränsningstecken
+### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** skapa en anpassad roll för stängsel-agenten
 
-Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (stänga av) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen, kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvud namn behörighet att starta och stoppa (stänga av) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Använd följande innehåll för indatafilen. Du måste anpassa innehåll till dina prenumerationer som är, Ersätt c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: N för din prenumeration. Om du bara har en prenumeration kan du ta bort den andra posten i AssignableScopes.
 
@@ -250,11 +250,11 @@ Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som h
 1. Klicka på Lägg till rolltilldelning
 1. Välj roll ”Linux avgränsningstecken agenten roll”
 1. Ange namnet på programmet som du skapade ovan
-1. Klicka på Spara.
+1. Klicka på Spara
 
 Upprepa stegen ovan för den andra noden i klustret.
 
-### <a name="1-create-the-stonith-devices"></a>**[1]**  Skapa STONITH-enheter
+### <a name="1-create-the-stonith-devices"></a>**[1]** skapa STONITH-enheterna
 
 När du har redigerat behörigheterna för de virtuella datorerna kan du konfigurera STONITH-enheter i klustret.
 

@@ -2,17 +2,14 @@
 title: Koncept – säkerhet i Azure Kubernetes Services (AKS)
 description: Lär dig mer om säkerhet i Azure Kubernetes service (AKS), inklusive Master-och Node-kommunikation, nätverks principer och Kubernetes hemligheter.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547939"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595951"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)
 
@@ -22,7 +19,7 @@ Den här artikeln beskriver de viktigaste begreppen som skyddar dina program i A
 
 - [Säkerhet för huvud komponenter](#master-security)
 - [Nods säkerhet](#node-security)
-- [Klusteruppgradering](#cluster-upgrades)
+- [Kluster uppgraderingar](#cluster-upgrades)
 - [Nätverkssäkerhet](#network-security)
 - [Kubernetes hemligheter](#kubernetes-secrets)
 
@@ -65,7 +62,7 @@ Mer information finns i [uppgradera ett AKS-kluster][aks-upgrade-cluster].
 
 För anslutning och säkerhet med lokala nätverk kan du distribuera ditt AKS-kluster till befintliga Azure Virtual Network-undernät. Dessa virtuella nätverk kan ha en Azure plats-till-plats VPN-anslutning eller Express Route-anslutning tillbaka till ditt lokala nätverk. Kubernetes ingångs styrenheter kan definieras med privata, interna IP-adresser så att tjänsterna endast är tillgängliga via den här interna nätverks anslutningen.
 
-### <a name="azure-network-security-groups"></a>Azure-nätverkssäkerhetsgrupper
+### <a name="azure-network-security-groups"></a>Nätverks säkerhets grupper i Azure
 
 Azure använder regler för nätverks säkerhets grupper för att filtrera trafik flödet i virtuella nätverk. Dessa regler definierar käll-och mål-IP-intervall, portar och protokoll som tillåts eller nekas åtkomst till resurser. Standard regler skapas för att tillåta TLS-trafik till Kubernetes-API-servern. När du skapar tjänster med belastningsutjämnare, Port mappningar eller ingångs vägar ändrar AKS automatiskt nätverks säkerhets gruppen för trafik så att den flödar korrekt.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 6c8a341a089ef95d99669f592dbea81922d67682
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526322"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589444"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Vad är Virtual Network NAT (offentlig för hands version)?
 
@@ -139,9 +139,6 @@ NAT är för närvarande tillgängligt i följande regioner:
 ## <a name = "enable-preview"></a>Offentlig för hands versions medverkan
 
 Prenumerationer måste registreras för att tillåta deltagande i den offentliga för hands versionen.  Deltagande kräver en två stegs process och instruktioner finns nedan för Azure CLI och Azure PowerShell.  Det kan ta flera minuter att slutföra aktiveringen.
-
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
 
 ### <a name="azure-cli"></a>Azure CLI
 

@@ -3,16 +3,16 @@ title: Vanliga frågor och svar (FAQ) för Azure Files | Microsoft Docs
 description: Få svar på vanliga frågor om Azure Files.
 author: roygara
 ms.service: storage
-ms.date: 02/19/2020
+ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: c6503f2782832b7155c0c081aab9769296e08a8e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 5cbb819ef1300f16a40dbdd0da52a35bdf578e59
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565068"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598195"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -85,7 +85,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="afs-region-availability"></a>
   **vilka regioner stöds för Azure File Sync?**  
-    Du hittar listan över tillgängliga regioner i avsnittet [region tillgänglighet](storage-sync-files-planning.md#region-availability) i Azure File Sync planerings guide. Vi lägger kontinuerligt till stöd för ytterligare regioner, inklusive icke-offentliga regioner.
+    Du hittar listan över tillgängliga regioner i avsnittet [region tillgänglighet](storage-sync-files-planning.md#azure-file-sync-region-availability) i Azure File Sync planerings guide. Vi lägger kontinuerligt till stöd för ytterligare regioner, inklusive icke-offentliga regioner.
 
 * <a id="cross-domain-sync"></a>
   **kan jag ha domänanslutna och icke-domänanslutna servrar i samma Sync-grupp?**  
@@ -155,13 +155,13 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
     Om du har aktiverat Azure Backup i hanterade fil resurser för filsynkronisering kan fil åtkomst kontrol listor fortsätta att återställas som en del av arbets flödet för säkerhets kopierings återställning. Detta fungerar antingen för hela resursen eller enskilda filer/kataloger.
 
-    Om du använder ögonblicks bilder som en del av den självhanterade säkerhets kopierings lösningen för fil resurser som hanteras av filsynkroniseringen, kanske dina ACL: er inte återställs korrekt till NTFS ACL: er om ögonblicks bilderna togs före den 24 februari 2020. Om detta inträffar kan du kontakta Azure-supporten.
+    Om du använder ögonblicks bilder som en del av den självhanterade säkerhets kopierings lösningen för fil resurser som hanteras av filsynkroniseringen, kanske dina ACL: er inte återställs korrekt till NTFS ACL: er om ögonblicks bilderna togs före februari 24 2020. Om detta inträffar kan du kontakta Azure-supporten.
     
 ## <a name="security-authentication-and-access-control"></a>Säkerhet, autentisering och åtkomst kontroll
 * <a id="ad-support"></a>
 **är identitets baserad autentisering och åtkomst kontroll som stöds av Azure Files?**  
     
-    Ja, Azure Files stöder identitets-baserad autentisering och åtkomst kontroll. Du kan välja ett av två sätt att använda identitetsbaserade åtkomst kontroller: Azure Active Directory Domain Services (Azure AD DS) (GA) eller Active Directory (AD) (för hands version). Azure AD DS-autentisering över SMB för Azure Files gör det möjligt för Azure AD DS-domänanslutna virtuella Windows-datorer att få åtkomst till resurser, kataloger och filer med hjälp av autentiseringsuppgifter för Azure AD. AD stöder autentisering med hjälp av AD-domänanslutna datorer, antingen lokalt eller i Azure, för att få åtkomst till Azure-filresurser över SMB. Mer information finns i [Översikt över Azure Files Identity-baserat stöd för autentisering för SMB-åtkomst](storage-files-active-directory-overview.md). 
+    Ja, Azure Files stöder identitets-baserad autentisering och åtkomst kontroll. Du kan välja ett av två sätt att använda identitetsbaserade åtkomst kontroller: Active Directory (AD) (för hands version) eller Azure Active Directory Domain Services (Azure AD DS) (GA). AD stöder autentisering med hjälp av AD-domänanslutna datorer, antingen lokalt eller i Azure, för att få åtkomst till Azure-filresurser över SMB. Azure AD DS-autentisering över SMB för Azure Files gör det möjligt för Azure AD DS-domänanslutna virtuella Windows-datorer att få åtkomst till resurser, kataloger och filer med hjälp av autentiseringsuppgifter för Azure AD. Mer information finns i [Översikt över Azure Files Identity-baserat stöd för autentisering för SMB-åtkomst](storage-files-active-directory-overview.md). 
 
     Azure Files erbjuder ytterligare två sätt att hantera åtkomst kontroll:
 
@@ -199,14 +199,12 @@ stöder **Azure Files Azure AD DS eller AD-autentisering virtuella Linux-datorer
 * <a id="ad-multiple-forest"></a>
 **har Azure Files AD-autentisering stöd för integrering med en AD-miljö med flera skogar?**    
 
-    Azure Files AD-autentisering integreras bara med skogen för AD-domänen som lagrings kontot är registrerat på. För att stödja autentisering från en annan AD-skog måste din miljö ha skogs förtroende konfigurerat korrekt. Azure Files registreringen till en AD-domän tjänst är den mest samma som en vanlig fil server, där den skapar ett konto i AD för autentisering. Den enda skillnaden är att lagrings kontots registrerade SPN slutar med "file.core.windows.net" som inte matchar domänsuffix.
-
-    Kontakta domän administratören för att se om någon uppdatering av DNS-Routningsprincipen krävs för att aktivera flera skogar.
+    Azure Files AD-autentisering integreras bara med skogen för AD-domänen som lagrings kontot är registrerat på. För att stödja autentisering från en annan AD-skog måste din miljö ha skogs förtroende konfigurerat korrekt. Hur Azure Files registrerar sig för en AD-domän tjänst är i huvudsak samma som en vanlig fil server, där den skapar en identitet (dator-eller tjänst inloggnings konto) i AD för autentisering. Den enda skillnaden är att lagrings kontots registrerade SPN slutar med "file.core.windows.net" som inte matchar domänsuffix. Kontakta domän administratören för att se om någon uppdatering av DNS-Routningsprincipen krävs för att aktivera flera skogsomfattande autentisering på grund av ett annat domänsuffix.
 
 * <a id=""></a>
 **vilka regioner är tillgängliga för Azure Files AD-autentisering (för hands version)?**
 
-    Se [AD regional tillgänglighet](storage-files-active-directory-domain-services-enable.md#regional-availability) för mer information.
+    Se [AD regional tillgänglighet](storage-files-identity-auth-active-directory-enable.md#regional-availability) för mer information.
 
 * <a id="ad-aad-smb-afs"></a>
 **kan jag utnyttja Azure Files Azure AD DS-autentisering eller Active Directory (AD)-autentisering (för hands version) på fil resurser som hanteras av Azure File Sync?**
@@ -347,7 +345,7 @@ finns **det några begränsningar för hur många resurs-ögonblicksbilder jag k
 
 * <a id="need-larger-share"></a>
 **vilka storlekar är tillgängliga för Azure-filresurser?**  
-    Azures fil resurs storlekar (Premium och standard) kan skala upp till 100 TiB. Se avsnittet [Publicera till större fil resurser (standard nivå)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) i planerings guiden för att integrera instruktioner till de större fil resurserna för standard nivån.
+    Azures fil resurs storlekar (Premium och standard) kan skala upp till 100 TiB. Se avsnittet [Publicera till större fil resurser (standard nivå)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) i planerings guiden för att integrera instruktioner till de större fil resurserna för standard nivån.
 
 * <a id="lfs-performance-impact"></a>
 **utökas kvoten för fil resurser för mina arbets belastningar eller Azure File Sync?**

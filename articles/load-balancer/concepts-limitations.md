@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757807"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605681"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Load Balancer komponenter och begränsningar
 Azure Load Balancer innehåller flera viktiga komponenter för den här åtgärden.  Dessa komponenter kan konfigureras i din prenumeration via Azure Portal, Azure CLI eller Azure PowerShell.  
@@ -73,7 +73,9 @@ Mer information finns i [Konfigurera distributions läge för Azure Load Balance
 
 Följande bild visar den hash-baserade distributionen:
 
-  ![Hash-baserad distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="Hash-baserad distribution">
+</p>
 
   *Bild: Hash-baserad distribution*
 
@@ -132,9 +134,11 @@ En offentlig Load Balancer mappar den offentliga IP-adressen och porten för ink
 
 Följande bild visar en belastningsutjämnad slut punkt för webb trafik som delas mellan tre virtuella datorer för den offentliga och TCP-port 80. Dessa tre virtuella datorer finns i en belastningsutjämnad uppsättning.
 
-![Exempel på offentlig lastbalanserare](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="Offentlig belastningsutjämnare">
+</p>
 
-*Bild: balansera webb trafik med hjälp av en offentlig Load Balancer*
+*Bild: utjämna webb trafik med hjälp av en offentlig belastningsutjämnare*
 
 Internet klienter skickar webb sidor begär anden till den offentliga IP-adressen för en webbapp på TCP-port 80. Azure Load Balancer distribuerar begär Anden mellan de tre virtuella datorerna i den belastningsutjämnade uppsättningen. Mer information om Load Balancer algoritmer finns i [Load Balancer begrepp](concepts-limitations.md#load-balancer-concepts).
 
@@ -151,7 +155,10 @@ En intern lastbalanserare möjliggör följande typer av belastningsutjämning:
 * **För program på flera nivåer**: belastnings utjämning för Internet riktade program på flera nivåer där backend-nivåerna inte är Internet-riktade. Backend-nivåerna kräver trafik belastnings utjämning från den Internetbaserade nivån. Se nästa figur.
 * **För verksamhetsspecifika appar**: Lastbalansering för verksamhetsspecifika appar som finns i Azure utan ytterligare maskin- eller programvara för lastbalanserare. Det här scenariot omfattar lokala servrar som finns i den uppsättning datorer vars trafik är belastningsutjämnad.
 
-![Exempel på intern lastbalanserare](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="Offentlig belastningsutjämnare">
+</p>
 
 *Bild: balansera program på flera nivåer med både offentliga och interna Load Balancer*
 
@@ -202,7 +209,7 @@ Mer information finns i [gränser för belastnings utjämning](https://docs.micr
 - Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
 - Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
 - Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
-- Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
+- Lär dig mer om hur du använder [Load Balancer för utgående anslutningar](load-balancer-outbound-connections.md).
 - Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).
 - Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
 - Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).

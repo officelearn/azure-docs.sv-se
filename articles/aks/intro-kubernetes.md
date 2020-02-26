@@ -2,18 +2,15 @@
 title: Introduktion till Azure Kubernetes Service
 description: Läs mer om funktionerna och fördelarna med att använda Azure Kubernetes Service för att distribuera och hantera containerbaserade program i Azure.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c98e67d174c3c8b7fc426e1dd2c5ebafd6760969
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932615"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595458"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 

@@ -2,17 +2,14 @@
 title: Använda den automatiska skalnings tjänsten för kluster i Azure Kubernetes service (AKS)
 description: Lär dig hur du använder kluster autoskalning för att automatiskt skala klustret så att det uppfyller program kraven i ett Azure Kubernetes service-kluster (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.author: mlearned
-ms.openlocfilehash: 12e5ee1b5c56e642cef117963d7cd879cf9b0633
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524296"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596257"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -147,7 +144,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Exempel:
+När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Några exempel:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -164,7 +161,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ställ in klustrets profil för autoskalning när du skapar ett AKS-kluster
 
-Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Exempel:
+Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Några exempel:
 
 ```azurecli-interactive
 az aks create \

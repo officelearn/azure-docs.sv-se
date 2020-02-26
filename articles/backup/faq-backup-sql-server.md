@@ -4,12 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172021"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597090"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -37,13 +37,15 @@ Auto-läka som en funktion aktive ras för alla användare som standard. Om du v
 - Spara ändringarna och Stäng filen.
 - Öppna **uppgiften hantera** på SQL Server-instansen och starta sedan om **AzureWLBackupCoordinatorSvc** -tjänsten.
 
-## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Kan jag kontrol lera hur många samtidiga säkerhets kopieringar som körs på SQL-servern?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Kan jag kontrol lera hur många samtidiga säkerhets kopieringar som körs på SQL-servern?
 
 Ja. Du kan begränsa den hastighet som säkerhets kopierings principen körs för att minimera påverkan på en SQL Server instans. Så här ändrar du inställningen:
 
 1. På SQL Server-instansen i mappen *C:\Program Files\Azure arbets belastning Backup\bin* skapar du filen *ExtensionSettingsOverrides. JSON* .
 2. I filen *ExtensionSettingsOverrides. JSON* ändrar du inställningen **DefaultBackupTasksThreshold** till ett lägre värde (till exempel 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+Standardvärdet för DefaultBackupTasksThreshold är **20**.
 
 3. Spara ändringarna och Stäng filen.
 4. I SQL Server-instansen öppnar du **Aktivitetshanteraren**. Starta om tjänsten **AzureWLBackupCoordinatorSvc**.<br/> <br/>

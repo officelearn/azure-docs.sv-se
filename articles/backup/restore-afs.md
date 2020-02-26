@@ -3,12 +3,12 @@ title: Återställa Azure-filresurser
 description: Lär dig hur du använder Azure Portal för att återställa en hel fil resurs eller vissa filer från en återställnings punkt som skapats av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 8ecb5850c90e5a92e59d17f7949bd5b6cd6205f5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930743"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586959"
 ---
 # <a name="restore-azure-file-shares"></a>Återställa Azure-filresurser
 
@@ -21,6 +21,7 @@ I den här artikeln får du lära dig att:
 * Spåra återställnings åtgärdens status.
 
 ## <a name="steps-to-perform-a-restore-operation"></a>Steg för att utföra en återställnings åtgärd
+
 Följ dessa steg om du vill utföra en återställnings åtgärd.
 
 ### <a name="select-the-file-share-to-restore"></a>Välj den fil resurs som ska återställas
@@ -110,7 +111,7 @@ Du kan använda det här alternativet för återställning om du vill återstäl
 
     ![Ursprunglig plats för återställning på objekt nivå](./media/restore-afs/original-location-item-level.png)
 
-2. Välj **Välj fil** för att välja de filer eller mappar som du vill återställa.
+1. Välj **Välj fil** för att välja de filer eller mappar som du vill återställa.
 
     ![Välj Välj fil](./media/restore-afs/select-file.png)
 

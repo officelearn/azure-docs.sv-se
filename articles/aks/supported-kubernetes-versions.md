@@ -3,16 +3,15 @@ title: Kubernetes-versioner som stöds i Azure Kubernetes-tjänsten
 description: Förstå Kubernetes-versionens support policy och livs cykel för kluster i Azure Kubernetes service (AKS)
 services: container-service
 author: sauryadas
-ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 77d64391888957a1697a5823a1485413686682d1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425773"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593452"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes service (AKS)
 
@@ -139,7 +138,7 @@ az aks get-versions --location eastus --output table
 
 **Vad händer när en kund uppgraderar ett Kubernetes-kluster med en lägre version som inte stöds?**
 
-Om du använder *n-3-* versionen är du utanför supporten och kommer att bli ombedd att uppgradera. Om uppgraderingen från version n-3 till n-2 lyckas är du nu i våra support principer. Exempel:
+Om du använder *n-3-* versionen är du utanför supporten och kommer att bli ombedd att uppgradera. Om uppgraderingen från version n-3 till n-2 lyckas är du nu i våra support principer. Några exempel:
 
 - Om den äldsta AKS-versionen som stöds är *1.13. a* och du är på *1.12. b* eller äldre är du utanför supporten.
 - Om uppgraderingen från *1.12. b* till *1.13. a* eller senare lyckas är du tillbaka i våra support principer.

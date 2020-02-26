@@ -3,16 +3,15 @@ title: Integrera Azure NetApp Files med Azure Kubernetes-tjänsten
 description: Lär dig att integrera Azure NetApp Files med Azure Kubernetes-tjänsten
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
-ms.openlocfilehash: 84192a831e3b1f24e20eb07a6c8695516c28970f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 42985e57d63c01553532928b2ba04ed5ee3dd8fb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329336"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596648"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrera Azure NetApp Files med Azure Kubernetes-tjänsten
 
@@ -33,7 +32,8 @@ Följande begränsningar gäller när du använder Azure NetApp Files:
 * Azure NetApp Files är endast tillgängligt [i valda Azure-regioner][anf-regions].
 * Innan du kan använda Azure NetApp Files måste du beviljas åtkomst till tjänsten Azure NetApp Files. Om du vill använda för åtkomst kan du använda [Waitlist-formuläret för överföring av Azure NetApp Files][anf-waitlist]. Du har inte åtkomst till tjänsten Azure NetApp Files förrän du får e-postmeddelandet från Azure NetApp Files teamet.
 * Din Azure NetApp Files-tjänst måste skapas i samma virtuella nätverk som ditt AKS-kluster.
-* Endast statisk etablering för Azure NetApp Files stöds på AKS.
+* Efter den första distributionen av ett AKS-kluster stöds endast statisk etablering för Azure NetApp Files.
+* Om du vill använda dynamisk etablering med Azure NetApp Files installerar och konfigurerar du [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19,07 eller senare.
 
 ## <a name="configure-azure-netapp-files"></a>Konfigurera Azure NetApp Files
 
@@ -49,7 +49,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Det kan ta lite tid att slutföra.
 
-När du skapar ett Azure NetApp-konto som ska användas med AKS måste du skapa kontot i resurs gruppen för **noden** . Börja med att hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till Frågeparametern `--query nodeResourceGroup`. I följande exempel hämtas nodens resurs grupp för AKS-klustret med namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
+När du skapar ett Azure NetApp-konto som ska användas med AKS måste du skapa kontot i resurs gruppen för **noden** . Börja med att hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till parametern `--query nodeResourceGroup` fråga. I följande exempel hämtas nodens resurs grupp för AKS-klustret med namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -143,7 +143,7 @@ $ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $AN
 }
 ```
 
-Skapa en `pv-nfs.yaml` definiera en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Exempel:
+Skapa en `pv-nfs.yaml` definiera en PersistentVolume. Ersätt `path` med *creationToken* och `server` med *ipAddress* från föregående kommando. Några exempel:
 
 ```yaml
 ---
@@ -175,7 +175,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Skapa PersistentVolumeClaim
 
-Skapa en `pvc-nfs.yaml` definiera en PersistentVolume. Exempel:
+Skapa en `pvc-nfs.yaml` definiera en PersistentVolume. Några exempel:
 
 ```yaml
 apiVersion: v1
@@ -205,7 +205,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montera med en POD
 
-Skapa en `nginx-nfs.yaml` definiera en pod som använder PersistentVolumeClaim. Exempel:
+Skapa en `nginx-nfs.yaml` definiera en pod som använder PersistentVolumeClaim. Några exempel:
 
 ```yaml
 kind: Pod
@@ -241,7 +241,7 @@ Kontrol lera att Pod *körs* med hjälp av kommandot [kubectl Beskrivning][kubec
 kubectl describe pod nginx-nfs
 ```
 
-Kontrol lera att volymen har monterats i pod genom att använda [kubectl exec][kubectl-exec] för att ansluta till pod sedan `df -h` för att kontrol lera om volymen är monterad.
+Kontrol lera att volymen har monterats i pod genom att använda [kubectl exec][kubectl-exec] för att ansluta till pod och `df -h` sedan för att kontrol lera om volymen är monterad.
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash

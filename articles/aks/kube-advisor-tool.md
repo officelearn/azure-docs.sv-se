@@ -1,35 +1,34 @@
 ---
-title: Kontrollera ditt Kubernetes-distributioner på Azure för implementering av bästa praxis
-description: Lär dig att söka efter implementering av bästa praxis i dina distributioner på Azure Kubernetes Service med hjälp av kube-advisor
+title: Kontrol lera dina Kubernetes-distributioner på Azure för implementering av bästa praxis
+description: Lär dig hur du söker efter implementering av bästa praxis i dina distributioner i Azure Kubernetes service med Kube-Advisor
 services: container-service
 author: seanmck
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 29ea7dba1df8bc7c68e3d17563a51b784ce4a561
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "65073766"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595441"
 ---
-# <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söker efter Kubernetes bästa praxis i ditt kluster
+# <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Söker efter Kubernetes metod tips i klustret
 
-Det finns flera beprövade metoder som du bör följa på Kubernetes-distributioner för att säkerställa bästa prestanda och flexibilitet för dina program. Du kan använda kube-Analysverktyget för att söka efter distributioner som inte följer dessa förslag.
+Det finns flera metod tips som du bör följa på dina Kubernetes-distributioner för att säkerställa bästa prestanda och återhämtning för dina program. Du kan använda verktyget Kube för att söka efter distributioner som inte följer dessa förslag.
 
-## <a name="about-kube-advisor"></a>Om kube-advisor
+## <a name="about-kube-advisor"></a>Om Kube-Advisor
 
-Den [kube-Analysverktyget för] [ kube-advisor-github] är en enskild behållare som är avsedd att köras i klustret. Den frågar Kubernetes API-server för information om dina distributioner och returnerar en mängd med förslag på förbättringar.
+[Verktyget Kube-Advisor][kube-advisor-github] är en behållare som är utformad för att köras i klustret. Den frågar Kubernetes-API-servern om information om dina distributioner och returnerar en uppsättning föreslagna förbättringar.
 
-Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare] [ k8s-node-selector] i en pod-konfiguration.
+Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i PodSpecs för Windows-program och Linux-program, men Kube-Advisor-verktyget måste vara schemalagt för en Linux-pod. Du kan schemalägga en POD så att den körs på en adresspool med ett särskilt operativ system med hjälp av en [Node-selektor][k8s-node-selector] i pod-konfigurationen.
 
 > [!NOTE]
-> Kube-Analysverktyget för stöds av Microsoft på basis av bästa prestanda. Problem och förslag bör lämnas in på GitHub.
+> Verktyget Kube-Advisor stöds av Microsoft på bästa möjliga sätt. Problem och förslag bör arkiveras på GitHub.
 
-## <a name="running-kube-advisor"></a>Kör kube-advisor
+## <a name="running-kube-advisor"></a>Köra Kube-Advisor
 
-Att köra verktyget i ett kluster som har konfigurerats för [rollbaserad åtkomstkontroll (RBAC)](azure-ad-integration.md), med hjälp av följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot Kör verktyget i en pod med detta tjänstkonto och konfigurerar pod för borttagning när avslutas. 
+För att köra verktyget på ett kluster som har kon figurer ATS för [rollbaserad åtkomst kontroll (RBAC)](azure-ad-integration.md), använder du följande kommandon. Det första kommandot skapar ett Kubernetes-tjänstkonto. Det andra kommandot kör verktyget i en POD med det tjänst kontot och konfigurerar Pod för borttagning när det har avslut ATS. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
@@ -37,39 +36,39 @@ kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
 
-Om du inte använder RBAC kan köra du kommandot på följande sätt:
+Om du inte använder RBAC kan du köra kommandot på följande sätt:
 
 ```bash
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never
 ```
 
-Inom några sekunder bör du se en tabell som beskriver möjliga förbättringar av dina distributioner.
+Inom några sekunder bör du se en tabell som beskriver potentiella förbättringar av dina distributioner.
 
-![Kube-advisor-utdata](media/kube-advisor-tool/kube-advisor-output.png)
+![Kube-Advisor-utdata](media/kube-advisor-tool/kube-advisor-output.png)
 
-## <a name="checks-performed"></a>Kontroller som utförs
+## <a name="checks-performed"></a>Utförda kontroller
 
-Verktyget verifierar flera Kubernetes bästa praxis, var och en med sin egen förslagna lösningar.
+Verktyget validerar flera Kubernetes metod tips, var och en med sina egna föreslagna åtgärder.
 
-### <a name="resource-requests-and-limits"></a>Resursbegäranden och begränsningar
+### <a name="resource-requests-and-limits"></a>Resurs begär Anden och begränsningar
 
-Kubernetes har stöd för definiera [resource begär och begränsar på pod-specifikationer][kube-cpumem]. Begäran definierar den minsta processor och minne som krävs för att köra behållaren. Gränsen definierar högsta CPU och minne som ska tillåtas.
+Kubernetes stöder definiering [av resurs begär Anden och begränsningar för Pod-specifikationer][kube-cpumem]. Begäran definierar den lägsta CPU och det minne som krävs för att köra behållaren. Gränsen definierar den högsta processor och det minne som ska tillåtas.
 
-Inga begäranden eller gränser är som standard på pod-specifikationer. Detta kan leda till noder som overscheduled och behållare som har för få. Kube-Analysverktyget för visar poddar utan begäranden och set-begränsningarna.
+Som standard anges inga förfrågningar eller gränser för Pod-specifikationer. Detta kan leda till att noder blir överschemade och att behållare är har. Kube-Advisor visar poddar utan begär Anden och begränsningar.
 
 ## <a name="cleaning-up"></a>Rensa
 
-Om klustret har RBAC aktiverad, du kan rensa den `ClusterRoleBinding` när du har kört verktyget med följande kommando:
+Om du har RBAC aktive rad för klustret kan du rensa `ClusterRoleBinding` när du har kört verktyget med följande kommando:
 
 ```bash
 kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
-Om du kör verktyget mot ett kluster som inte är RBAC-aktiverad, krävs ingen rensning.
+Om du kör verktyget mot ett kluster som inte är RBAC-aktiverat krävs ingen rensning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Felsöka problem med Azure Kubernetes Service](troubleshooting.md)
+- [Felsöka problem med Azure Kubernetes-tjänsten](troubleshooting.md)
 
 <!-- RESOURCES -->
 

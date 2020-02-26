@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474259"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608719"
 ---
 Om du vill skapa och hantera virtuella Azure-datorer (VM) på ett konsekvent sätt i stor skala, önskas vanligtvis någon form av automatisering. Det finns många verktyg och lösningar som gör det möjligt att automatisera distributionen av hela Azure-infrastrukturen och livscykeln för hantering. Den här artikeln presenteras några av de verktyg för automatisering av infrastruktur som du kan använda i Azure. Dessa verktyg anpassa ofta till någon av följande metoder:
 
@@ -40,7 +40,7 @@ Lär dig att:
 Lär dig att:
 
 - [Distribuera chef automatiserat från Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Installera chef på Windows och skapa virtuella Azure-datorer](../articles/virtual-machines/windows/chef-automation.md).
+- [Installera chef på Windows och skapa virtuella Azure-datorer](../articles/chef/chef-automation.md).
 
 
 ## <a name="puppet"></a>Puppet
@@ -128,7 +128,7 @@ Läs mer om:
 
 Lär dig att:
 
-- [Skapa en utvecklings infrastruktur på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md).
+- [Skapa en utvecklings infrastruktur på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

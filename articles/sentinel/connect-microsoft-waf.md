@@ -1,20 +1,20 @@
 ---
 title: Anslut brand Väggs data för webb program till Azure Sentinel
 description: Lär dig hur du ansluter Microsoft webb programs brand Väggs data till Azure Sentinel.
-author: rkarlin
+author: yelevin
 manager: rkarlin
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5461f2289a6c60d70efcbb3f7d4d9e7a4d6ee87a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.author: yelevin
+ms.openlocfilehash: a5cef16694fa2cfae036152d22cfa4473956fc72
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563657"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588186"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Anslut data från Microsoft webb programs brand vägg
 
@@ -23,7 +23,7 @@ ms.locfileid: "75563657"
 Du kan strömma loggar från Azure Application gatewayens Microsoft Web Application-brandvägg (WAF). Den här WAF skyddar dina program mot vanliga webb sårbarheter som SQL-inmatning och Cross-Site-skript och gör att du kan anpassa regler för att minska antalet falska positiva identifieringar. Följ dessa anvisningar för att strömma dina Microsoft Web Application Firewall-loggar till Azure Sentinel.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En befintlig Application Gateway-resurs
 

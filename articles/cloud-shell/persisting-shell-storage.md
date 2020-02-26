@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385564"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598756"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Bevara filer i Azure Cloud Shell
 Cloud Shell använder Azure File Storage för att spara filer mellan sessioner. Vid inledande start blir Cloud Shell att du kan associera en ny eller befintlig fil resurs för att spara filer mellan sessioner.
@@ -62,7 +62,7 @@ Cloud Shell använder en Azure-filresurs i ett lagrings konto i en angiven prenu
 Användarna bör låsa åtkomsten till sina filer genom att ange behörigheterna på lagrings kontot eller på prenumerations nivån.
 
 ## <a name="supported-storage-regions"></a>Lagrings regioner som stöds
-Associerade Azure Storage-konton måste finnas i samma region som den Cloud Shell datorn som du monterar dem på. Om du vill hitta din aktuella region kan du köra `env` i bash och leta upp variabeln `ACC_LOCATION`. Fil resurser får en avbildning på 5 GB som skapats så att du kan spara din `$Home` katalog.
+Om du vill hitta din aktuella region kan du köra `env` i bash och leta upp variabeln `ACC_LOCATION`eller från PowerShell-körning `$env:ACC_LOCATION`. Fil resurser får en avbildning på 5 GB som skapats så att du kan spara din `$Home` katalog.
 
 Det finns Cloud Shell datorer i följande regioner:
 
@@ -71,6 +71,16 @@ Det finns Cloud Shell datorer i följande regioner:
 |Nord- och Sydamerika|Östra USA, södra centrala USA, västra USA|
 |Europa|Europa, norra, Europa, västra|
 |Asien och stillahavsområdet|Indien, centrala, Sydostasien|
+
+Kunderna bör välja en primär region, om de inte har ett krav på att deras data i vila ska lagras i en viss region. Om de har sådana krav bör en sekundär lagrings region användas.
+
+### <a name="secondary-storage-regions"></a>Sekundära lagrings regioner
+Om en sekundär lagrings region används, finns det associerade Azure Storage-kontot i en annan region som Cloud Shell datorn som du monterar dem på. Jane kan till exempel ställa in sitt lagrings konto så att det finns i Kanada, östra, en sekundär region, men datorn som hon är monterad på finns fortfarande i en primär region. Hennes data i vila finns i Kanada, men bearbetas i USA.
+
+> [!NOTE]
+> Om en sekundär region används kan fil åtkomst och start tid för Cloud Shell vara långsammare.
+
+En användare kan köra `(Get-CloudDrive | Get-AzStorageAccount).Location` i PowerShell för att se platsen för fil resursen.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa resurs skapande med en Azure-resurs princip
 De lagrings konton som du skapar i Cloud Shell taggas med `ms-resource-usage:azure-cloud-shell`. Om du inte vill att användare ska kunna skapa lagrings konton i Cloud Shell skapar du en [princip för Azure-resurser för Taggar](../azure-policy/json-samples.md) som utlösts av den här taggen.
@@ -139,7 +149,7 @@ Fil resursen kommer att finnas kvar om du inte tar bort den manuellt. Cloud Shel
 ![Kör clouddrive-unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Även om du kör det här kommandot tar du inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar `$Home` katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att ångra.
+> Även om du kör det här kommandot tar du inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar `$Home` katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att utföra den här åtgärden.
 ## <a name="powershell-specific-commands"></a>PowerShell-/regionsspecifika kommandon
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` Azure-filresurser

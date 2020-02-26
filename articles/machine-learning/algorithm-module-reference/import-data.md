@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163202"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598467"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -48,9 +48,7 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
 1. Lägg till modulen **Importera data** till din pipeline. Du hittar den här modulen i kategorin **data indata och utdata** i designern.
 
-1. Konfigurera data källan med hjälp av en guide genom att klicka på **Starta data import guiden** .
-
-    Guiden hämtar konto namnet och autentiseringsuppgifterna, och hjälper dig att konfigurera andra alternativ. Om du redigerar en befintlig konfiguration laddar den först de aktuella värdena.
+1. Välj modulen för att öppna den högra rutan.
 
 1. Välj **data källa**och välj typ av data källa. Det kan vara HTTP eller data lager.
 
@@ -60,6 +58,11 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
     ![Importera – data – för hands version](media/module/import-data.png)
 
+1. Kryss rutan **skapa utdata**igen, bestämmer om modulen ska köras för att återskapa utdata vid körning. 
+
+    Den är som standard omarkerad, vilket innebär att om modulen har körts med samma parametrar tidigare kommer systemet att återanvända utdata från senaste körning för att minska körnings tiden. 
+
+    Om den är markerad kommer systemet att köra modulen igen för att återskapa utdata. Välj det här alternativet när underliggande data i lagringen uppdateras, så kan du få den senaste informationen.
 
 
 1. Köra en pipeline.

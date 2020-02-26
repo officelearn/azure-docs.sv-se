@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3a3e4c76463aaea0735d20d4fcc283aee460b48f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647670"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597532"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver
 
@@ -168,7 +168,7 @@ I den här artikeln beskriver vi de steg som du kan vidta för att distribuera S
 
 För att förenkla distribution och konfiguration i den här artikeln använder vi SAP-mallarna i tre nivåer med hög tillgänglighet. Mallarna automatiserar distributionen av hela den infrastruktur du behöver för ett SAP-system med hög tillgänglighet. Infrastrukturen stöder också SAPS-storlek (SAP Application Performance standard) i SAP-systemet.
 
-## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Krav
+## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Krav
 Innan du börjar ska du kontrol lera att du uppfyller de krav som beskrivs i följande avsnitt. Se också till att kontrol lera alla resurser som anges i avsnittet [resurser][sap-ha-guide-2] .
 
 I den här artikeln använder vi Azure Resource Manager mallar för [SAP-NetWeaver på tre nivåer med hjälp av Managed disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). En användbar översikt över mallar finns i [SAP Azure Resource Manager-mallar](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
@@ -188,7 +188,7 @@ De här artiklarna avser SAP-distributioner i Azure:
 
 Dessa SAP-anteckningar är relaterade till ämnet i SAP i Azure:
 
-| Antecknings nummer | Titel |
+| Antecknings nummer | Rubrik |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och storlek som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -421,7 +421,7 @@ _**Bild 11:** Ange Azure Resource Manager parametrar för hög tillgänglighet f
   * **Nätverkskort för alla virtuella datorer, med tillhör ande IP-adresser**:
     * <*SAPSystemSID*>-NIC-di-<*Number*>
     * <*SAPSystemSID*>-NIC-ascs-<*Number*>
-    * <*SAPSystemSID*>-nic-db-<*Number*>
+    * <*SAPSystemSID*>-NIC-db-<*Number*>
 
   * **Azure Storage-konton (endast ohanterade diskar)**
 
@@ -443,7 +443,7 @@ _**Bild 11:** Ange Azure Resource Manager parametrar för hög tillgänglighet f
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>Distribuera virtuella datorer med företags nätverks anslutning (mellan platser) som ska användas i produktion
-För produktion av SAP-system distribuerar du virtuella Azure-datorer med [företags nätverks anslutning (mellan platser)][planning-guide-2.2] med hjälp av Azure plats-till-plats-VPN eller Azure ExpressRoute.
+För produktion av SAP-system distribuerar du virtuella Azure-datorer med företags nätverks anslutning genom att använda Azure plats-till-plats-VPN eller Azure ExpressRoute.
 
 > [!NOTE]
 > Du kan använda Azure Virtual Network-instansen. Det virtuella nätverket och under nätet har redan skapats och för beretts.
@@ -554,7 +554,7 @@ Om du vill ställa in databasens multi-SID-mall i [databasens mall för flera si
 - **OS-typ**. Välj operativ system för de virtuella datorerna.
 - **DbType**. Välj den typ av databas som du vill installera i klustret. Välj **SQL** om du vill installera Microsoft SQL Server. Välj **Hana** om du planerar att installera SAP HANA på de virtuella datorerna. Se till att välja rätt operativ system typ: Välj **Windows** för SQL och välj en Linux-distribution för Hana. Azure Load Balancer som är anslutna till de virtuella datorerna kommer att konfigureras för att stödja den valda databas typen:
   * **SQL**. Belastningsutjämnaren belastnings Utjämnings port 1433. Se till att använda den här porten för din SQL Server alltid vid installationen.
-  * **HANA**. Belastningsutjämnaren ska belastningsutjämna portarna 35015 och 35017. Se till att installera SAP HANA med instans nummer **50**.
+  * **Hana**. Belastningsutjämnaren ska belastningsutjämna portarna 35015 och 35017. Se till att installera SAP HANA med instans nummer **50**.
   Belastningsutjämnaren kommer att använda avsöknings port 62550.
 - **SAP-systemets storlek**. Ange antalet SAPS som det nya systemet kommer att tillhandahålla. Om du inte är säker på hur många SAPS systemet kommer att kräva, kan du fråga din SAP Technology-partner eller system integrerare.
 - **System tillgänglighet**. Välj **ha**.
@@ -589,7 +589,7 @@ Utför följande steg för att ange de DNS-IP-adresser som krävs.
 
 1. I Azure Portal på bladet **DNS-servrar** kontrollerar du att alternativet **DNS-servrar** för virtuella nätverk är inställt på **anpassad DNS**.
 2. Välj inställningar baserat på vilken typ av nätverk du har. Mer information finns i följande resurser:
-   * [Anslutning till företags nätverk (mellan platser)][planning-guide-2.2]: Lägg till IP-adresserna för lokala DNS-servrar.  
+   * Lägg till IP-adresserna för lokala DNS-servrar.  
    Du kan utöka lokala DNS-servrar till de virtuella datorer som körs i Azure. I det scenariot kan du lägga till IP-adresserna för de virtuella Azure-datorer som du kör DNS-tjänsten på.
    * För VM-distributioner isolerade i Azure: distribuera ytterligare en virtuell dator i samma Virtual Network instans som fungerar som en DNS-server. Lägg till IP-adresserna för de virtuella Azure-datorer som du har konfigurerat för att köra DNS-tjänsten.
 
@@ -1268,7 +1268,7 @@ Så här lägger du till en avsöknings port:
    }
    ```
 
-   När du tar den **SAP <*SID*>** rollen online-kluster, kontrollerar du att **ProbePort** är inställt på det nya värdet.
+   När du har förflyttat **SAP <*SID* ->** kluster rollen online kontrollerar du att **ProbePort** har angetts till det nya värdet.
 
    ```powershell
    $SAPSID = "PR1"     # SAP <SID>

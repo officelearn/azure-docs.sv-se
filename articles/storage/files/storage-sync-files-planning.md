@@ -7,66 +7,99 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162097"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598263"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
-Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
+[Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
 
-I den här artikeln beskrivs viktiga överväganden för en Azure File Sync distribution. Vi rekommenderar att du också läser [planering för en Azure Files distribution](storage-files-planning.md). 
+- **Direkt montering av en Azure-fil resurs**: eftersom Azure Files ger SMB-åtkomst kan du montera Azure-filresurser lokalt eller i molnet med hjälp av standard-SMB-klienten som är tillgänglig i Windows, MacOS och Linux. Eftersom Azure-filresurser är utan server, behöver distributionen för produktions scenarier inte hantera en fil server eller NAS-enhet. Det innebär att du inte behöver tillämpa program varu korrigeringar eller byta ut fysiska diskar. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+- **Cachelagra Azure-filresurser lokalt med Azure File Sync**: Azure File Sync gör det möjligt att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibiliteten, prestandan och kompatibiliteten för en lokal fil server. Azure File Sync transformerar en lokal (eller moln) Windows Server till ett snabbt cacheminne för Azure-filresursen. 
 
-## <a name="azure-file-sync-terminology"></a>Azure File Sync terminologi
-Innan du får information om hur du planerar för en Azure File Sync distribution är det viktigt att förstå terminologin.
+Den här artikeln beskriver främst distributions överväganden för distribution av Azure File Sync. Information om hur du planerar en distribution av Azure-filresurser som ska monteras direkt av en lokal eller moln klient finns i [Planera för en Azure Files distribution](storage-files-planning.md).
 
-### <a name="storage-sync-service"></a>Tjänsten för synkronisering av lagring
-Tjänsten Storage Sync är Azure-resursen på den översta nivån för Azure File Sync. Tjänsten Storage Sync service är en peer med lagrings konto resursen och kan distribueras på samma sätt till Azure-resurs grupper. En distinkt toppnivå resurs från lagrings konto resursen krävs eftersom tjänsten för synkronisering av lagrings utrymme kan skapa synkroniseringsrelation med flera lagrings konton via flera Sync-grupper. En prenumeration kan ha flera distribuerade resurser för lagrings-synkroniseringstjänsten.
+## <a name="management-concepts"></a>Hanterings begrepp
+En Azure File Sync distribution har tre grundläggande hanterings objekt:
 
-### <a name="sync-group"></a>Synkronisera grupp
-En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync skapar du två synkroniserade grupper och lägger till olika slut punkter i varje synkroniseringsresurs. En tjänst för synkronisering av lagring kan vara värd för så många Sync-grupper som du behöver.  
+- **Azure-fil resurs**: en Azure-filresurs är en moln fil resurs utan server, som tillhandahåller *moln slut punkten* för en Azure File Sync synkroniseringsrelation. Filer i en Azure-filresurs kan nås direkt med SMB eller det fileraste protokollet, men vi rekommenderar att du huvudsakligen kommer åt filerna via Windows Server-cachen när Azure-filresursen används med Azure File Sync. Detta beror på att Azure Files idag saknar en effektiv mekanism för ändrings identifiering som Windows Server har, så att ändringar i Azure-filresursen direkt tar tid att sprida tillbaka till Server slut punkterna.
+- **Server slut punkt**: sökvägen på Windows-servern som synkroniseras med en Azure-filresurs. Detta kan vara en speciell mapp på en volym eller volymens rot. Flera Server slut punkter kan finnas på samma volym om deras namn rymder inte överlappar varandra.
+- **Sync-grupp**: objektet som definierar den synkroniserade relationen mellan en **moln slut punkt**eller Azure-filresurs och en server slut punkt. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. Om du till exempel har två distinkta uppsättningar med filer som du vill hantera med Azure File Sync skapar du två synkroniserade grupper och lägger till olika slut punkter i varje synkroniseringsresurs.
 
-### <a name="registered-server"></a>Registrerad Server
-Det registrerade serverobjektet representerar en förtroende relation mellan servern (eller klustret) och tjänsten för synkronisering av lagring. Du kan registrera så många servrar som en tjänst instans för lagrings synkronisering som du vill. En server (eller ett kluster) kan dock bara registreras med en lagrings tjänst för synkronisering i taget.
+### <a name="azure-file-share-management-concepts"></a>Hanterings koncept för Azure-filresurs
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-### <a name="azure-file-sync-agent"></a>Azure File Sync agent
-Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. Azure File Sync agenten har tre huvud komponenter: 
-- **FileSyncSvc. exe**: bakgrunds tjänsten som ansvarar för att övervaka ändringar på Server slut punkter och för att initiera svarssessioner till Azure.
-- **StorageSync. sys**: det Azure File Sync fil system filter, som ansvarar för att skikta filer till Azure Files (när moln nivåer är aktiverat).
-- **PowerShell-hanterings-cmdlet**: PowerShell-cmdletar som du använder för att interagera med Microsoft. StorageSync Azure Resource Provider. Du kan hitta dessa på följande (standard) platser:
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+### <a name="azure-file-sync-management-concepts"></a>Principer för Azure File Sync hantering
+Sync-grupper distribueras till **Storage Sync-tjänster**, som är toppnivå objekt som registrerar servrar som ska användas med Azure File Sync och innehåller grupp relationerna. Tjänsten Storage Sync service är en peer med lagrings konto resursen och kan distribueras på samma sätt till Azure-resurs grupper. En tjänst för synkronisering av lagring kan skapa synkroniserade grupper som innehåller Azure-filresurser över flera lagrings konton och flera registrerade Windows-servrar.
 
-### <a name="server-endpoint"></a>Server slut punkt
-En serverslutpunkt representerar en viss plats på en registrerad server, till exempel en mapp på en servervolym. Flera Server slut punkter kan finnas på samma volym om deras namn rymder inte överlappar varandra (till exempel `F:\sync1` och `F:\sync2`). Du kan konfigurera principer för moln nivåer individuellt för varje server slut punkt. 
+Innan du kan skapa en Sync-grupp i en tjänst för synkronisering av lagring måste du först registrera en Windows-Server med tjänsten för synkronisering av lagring. Detta skapar ett **registrerat Server** objekt som representerar en förtroende relation mellan servern eller klustret och tjänsten för synkronisering av lagring. Om du vill registrera en tjänst för synkronisering av lagring måste du först installera Azure File Sync-agenten på-servern. En enskild server eller ett kluster kan bara registreras med en lagrings tjänst för synkronisering i taget.
 
-Du kan skapa en server slut punkt via en monterings punkt. Observera att mountpoints i Server slut punkten hoppas över.  
+En Sync-grupp innehåller en moln slut punkt, en Azure-filresurs och minst en server slut punkt. Serverns slut punkts objekt innehåller de inställningar som konfigurerar kapaciteten för **moln nivåer** , som tillhandahåller cachelagring-funktionen för Azure File Sync. För att synkronisera med en Azure-filresurs måste lagrings kontot som innehåller Azure-filresursen finnas i samma Azure-region som tjänsten för synkronisering av lagring.
 
-Du kan skapa en server slut punkt på system volymen men det finns två begränsningar om du gör det:
-* Det går inte att aktivera moln skiktning.
-* Snabb namn områdes återställning (där systemet snabbt tar bort hela namn området och börjar återställa innehållet) utförs inte.
+### <a name="management-guidance"></a>Vägledning för hantering
+När du distribuerar Azure File Sync rekommenderar vi att:
 
+- Distribuera Azure File-resurser 1:1 med Windows-filresurser. Med serverns slut punkt objekt får du en stor flexibilitet för hur du ställer in topologin på Server sidan i den synkroniserade relationen. För att förenkla hanteringen ska du göra sökvägen till Server slut punkten matcha sökvägen till Windows-filresursen. 
 
-> [!Note]  
-> Endast icke-flyttbara volymer stöds.  Enheter som har mappats från en fjärran sluten resurs stöds inte för en server slut punkts Sök väg.  Dessutom kan en server slut punkt finnas på Windows-systemvolymen, även om det inte finns stöd för moln nivåer på system volymen.
+- Använd så få tjänster som möjligt för Storage-synkronisering. Detta fören klar hanteringen när du har synkronisera grupper som innehåller flera Server slut punkter, eftersom en Windows Server bara kan registreras till en lagrings tjänst för synkronisering i taget. 
 
-Om du lägger till en server plats som har en befintlig uppsättning filer som en server slut punkt till en Sync-grupp, slås filerna samman med andra filer som redan finns på andra slut punkter i Sync-gruppen.
+- Betala till ett lagrings kontos IOPS-begränsningar när du distribuerar Azure-filresurser. Vi rekommenderar att du mappar fil resurser 1:1 med lagrings konton, men det kanske inte alltid är möjligt på grund av olika begränsningar och begränsningar, både från din organisation och från Azure. Om det inte går att ha en enda fil resurs som har distribuerats i ett lagrings konto bör du överväga vilka resurser som ska vara hög aktiva och vilka resurser som är mindre aktiva för att säkerställa att de hetaste fil resurserna inte placeras i samma lagrings konto tillsammans.
 
-### <a name="cloud-endpoint"></a>Moln slut punkt
-En moln slut punkt är en Azure-filresurs som är en del av en Sync-grupp. Hela Azure-filresursen synkroniseras och en Azure-filresurs kan endast vara medlem i en moln slut punkt. Därför kan en Azure-filresurs vara medlem i en enda Sync-grupp. Om du lägger till en Azure-filresurs som har en befintlig uppsättning filer som en moln slut punkt till en Sync-grupp, slås de befintliga filerna samman med andra filer som redan finns på andra slut punkter i Sync-gruppen.
+## <a name="windows-file-server-considerations"></a>Windows fil Server-överväganden
+Om du vill aktivera Sync-funktionen på Windows Server måste du installera den Azure File Sync nedladdnings bara agenten. Azure File Sync agenten innehåller två huvud komponenter: `FileSyncSvc.exe`, den bakgrunds fönster tjänst som ansvarar för att övervaka ändringar på serverns slut punkter och initiera Sync-sessioner, och `StorageSync.sys`, ett fil system filter som möjliggör moln nivåer och snabb haveri beredskap.  
+
+### <a name="operating-system-requirements"></a>Krav på operativsystem
+Azure File Sync stöds med följande versioner av Windows Server:
+
+| Version | SKU: er som stöds | Distributions alternativ som stöds |
+|---------|----------------|------------------------------|
+| Windows Server 2019 | Data Center, standard och IoT | Full och Core |
+| Windows Server 2016 | Data Center, standard och lagrings Server | Full och Core |
+| Windows Server 2012 R2 | Data Center, standard och lagrings Server | Full och Core |
+
+Framtida versioner av Windows Server kommer att läggas till när de släpps.
 
 > [!Important]  
-> Azure File Sync har stöd för att göra ändringar i Azure-filresursen direkt. Alla ändringar som görs på Azure-filresursen måste dock först identifieras av ett Azure File Sync ändrings identifierings jobb. Ett ändrings identifierings jobb initieras bara för en moln slut punkt var 24: e timme. Ändringar som görs i en Azure-filresurs via REST-protokollet kommer dessutom inte att uppdatera tidpunkten för senaste ändring av SMB och visas inte som en ändring genom synkronisering. Mer information finns i [Azure Files vanliga frågor och svar](storage-files-faq.md#afs-change-detection).
+> Vi rekommenderar att du behåller alla servrar som du använder med Azure File Sync uppdaterad med de senaste uppdateringarna från Windows Update. 
 
-### <a name="cloud-tiering"></a>Lagringsnivåer för moln 
-Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. Mer information finns i [förstå moln nivåer](storage-sync-cloud-tiering.md).
+### <a name="minimum-system-resources"></a>Minsta system resurser
+Azure File Sync kräver en server, antingen fysisk eller virtuell, med minst en processor och minst 2 GiB minne.
 
-## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure File Sync system krav och interoperabilitet 
-Det här avsnittet beskriver Azure File Sync agent system krav och samverkan med Windows Server-funktioner och-roller och lösningar från tredje part.
+> [!Important]  
+> Om servern körs på en virtuell dator med dynamiskt minne aktiverat ska den virtuella datorn konfigureras med minst 2048 MiB-minne.
+
+För de flesta produktions arbets belastningar rekommenderar vi inte att du konfigurerar en Azure File Sync Sync-server med bara minimi kraven. Se [rekommenderade system resurser](#recommended-system-resources) för mer information.
+
+### <a name="recommended-system-resources"></a>Rekommenderade system resurser
+Precis som alla Server funktioner eller program bestäms system resurs kraven för Azure File Sync av distributionens skala. större distributioner på en server kräver större system resurser. För Azure File Sync bestäms skalningen av antalet objekt över Server slut punkter och omsättningen på data uppsättningen. En enskild server kan ha Server slut punkter i flera Sync-grupper och antalet objekt som anges i följande tabell konton för det fullständiga namn område som en server är kopplad till. 
+
+Till exempel Server slut punkt A med 10 000 000 objekt + Server slut punkt B med 10 000 000 objekt = 20 000 000-objekt. För den här exempel distributionen rekommenderar vi 8 processorer, 16 GiB minne för stabilt tillstånd och (om möjligt) 48 GiB minne för den första migreringen.
+ 
+Namn områdes data lagras i minnet av prestanda skäl. På grund av detta kräver större namn rymder mer minne för att upprätthålla bästa prestanda och mer omsättning kräver mer processor kraft för att bearbeta. 
+ 
+I följande tabell har vi tillhandahållit både storleken på namn området och en konvertering till kapacitet för vanliga fil resurser i generella syften, där den genomsnittliga fil storleken är 512 KiB. Om fil storlekarna är mindre bör du överväga att lägga till ytterligare minne för samma mängd kapacitet. Basera minnes konfigurationen på storleken på namn området.
+
+| Storlek på namnrymd – filer & kataloger (miljoner)  | Typisk kapacitet (TiB)  | CPU-kärnor  | Rekommenderat minne (GiB) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (ursprunglig synkronisering)/2 (typisk omsättning)      |
+| 5        | 2.3     | 2        | 16 (ursprunglig synkronisering)/4 (typisk omsättning)    |
+| 10       | 4,7     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
+| 30       | 14,0    | 8        | 48 (ursprunglig synkronisering)/16 (typisk omsättning)   |
+| 50       | 23,3    | 16       | 64 (ursprunglig synkronisering)/32 (typisk omsättning)  |
+| 100 *     | 46,6    | 32       | 128 (ursprunglig synkronisering)/32 (typisk omsättning)  |
+
+\*synkronisering av fler än 100 000 000 filer & kataloger rekommenderas inte för tillfället. Detta är en mjuk gräns som baseras på våra testade tröskelvärden. Mer information finns i [Azure Files skalbarhets-och prestanda mål](storage-files-scale-targets.md#azure-file-sync-scale-targets).
+
+> [!TIP]
+> Inledande synkronisering av ett namn område är en intensiv åtgärd och vi rekommenderar att du allokerar mer minne tills den första synkroniseringen har slutförts. Detta är inte obligatoriskt, men det kan påskynda den inledande synkroniseringen. 
+> 
+> Typisk omsättning är 0,5% av namn området som ändras per dag. Överväg att lägga till mer processor för högre omsättnings nivåer. 
+
+- En lokalt ansluten volym som är formaterad med NTFS-filsystemet.
 
 ### <a name="evaluation-cmdlet"></a>Utvärderings-cmdlet
 Innan du distribuerar Azure File Sync bör du utvärdera om den är kompatibel med systemet med hjälp av Azure File Sync Evaluation-cmdleten. Denna cmdlet söker efter eventuella problem med fil systemet och data uppsättningen, till exempel tecken som inte stöds eller en operativ system version som inte stöds. Kontrollerna avser de flesta men inte alla funktioner som nämns nedan. Vi rekommenderar att du läser igenom resten av det här avsnittet noggrant för att se till att distributionen går smidigt. 
@@ -77,54 +110,35 @@ Du kan installera utvärderings-cmdleten genom att installera AZ PowerShell-modu
 Du kan starta utvärderings verktyget på ett par olika sätt: du kan utföra system kontroller, data uppsättnings kontroller eller båda. Så här utför du både system-och data uppsättnings kontroller: 
 
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
+Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Så här testar du endast din data uppsättning:
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Så här testar du system kraven:
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Så här visar du resultatet i CSV:
 ```powershell
-    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$errors = Invoke-AzStorageSyncCompatibilityCheck […]
+$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
-### <a name="system-requirements"></a>Systemkrav
-- En server som kör någon av följande operativ system versioner:
+### <a name="file-system-compatibility"></a>Filsystemkompatibilitet
+Azure File Sync stöds endast i direktansluten NTFS-volymer. Direct Attached Storage eller DAS på Windows Server innebär att operativ systemet Windows Server äger fil systemet. DAS kan tillhandahållas genom att fysiskt bifoga diskar till fil servern, ansluta virtuella diskar till en virtuell fil server (till exempel en virtuell dator som finns i Hyper-V) eller till och med via ISCSI.
 
-    | Version | SKU: er som stöds | Distributions alternativ som stöds |
-    |---------|----------------|------------------------------|
-    | Windows Server 2019 | Data Center och standard | Full och Core |
-    | Windows Server 2016 | Data Center och standard | Full och Core |
-    | Windows Server 2012 R2 | Data Center och standard | Full och Core |
-    | Windows Server IoT 2019 för lagring| Data Center och standard | Full och Core |
-    | Windows Storage Server 2016| Data Center och standard | Full och Core |
-    | Windows Storage Server 2012 R2| Data Center och standard | Full och Core |
+Endast NTFS-volymer stöds. ReFS, FAT, FAT32 och andra fil system stöds inte.
 
-    Framtida versioner av Windows Server kommer att läggas till när de släpps.
-
-    > [!Important]  
-    > Vi rekommenderar att du behåller alla servrar som du använder med Azure File Sync uppdaterad med de senaste uppdateringarna från Windows Update. 
-
-- En server med minst 2 GiB minne.
-
-    > [!Important]  
-    > Om servern körs på en virtuell dator med dynamiskt minne aktiverat, ska den virtuella datorn konfigureras med minst 2048 MiB för minne.
-    
-- En lokalt ansluten volym som är formaterad med NTFS-filsystemet.
-
-### <a name="file-system-features"></a>Funktioner i fil systemet
+I följande tabell visas interop-tillstånd för NTFS-fil system funktioner: 
 
 | Funktion | Support status | Anteckningar |
 |---------|----------------|-------|
-| Åtkomst kontrol listor (ACL: er) | Fullt stöd | Windows ACL: er bevaras av Azure File Sync och framtvingas av Windows Server på Server slut punkter. Windows ACL: er stöds inte (ännu) av Azure Files om filer nås direkt i molnet. |
+| Åtkomst kontrol listor (ACL: er) | Fullt stöd | Windows-typ Discretionary Access Control Lists bevaras av Azure File Sync och verkställs av Windows Server på Server slut punkter. ACL: er kan också tillämpas när du monterar Azure-filresursen direkt, men detta kräver ytterligare konfiguration. Mer information finns i [avsnittet om identiteter](#identity) . |
 | Hårda länkar | Överhoppad | |
 | Symboliska länkar | Överhoppad | |
 | Monteringspunkter | Stöds delvis | Monterings punkter kan vara roten i en server slut punkt, men de hoppas över om de finns i en server slut punkts namnrymd. |
@@ -134,10 +148,7 @@ Så här visar du resultatet i CSV:
 | Sparse-filer | Fullt stöd | Synkronisering av sparse-filer (blockeras inte), men synkroniserar till molnet som en fullständig fil. Om fil innehållet ändras i molnet (eller på en annan server) är filen inte längre sparse när ändringen laddas ned. |
 | Alternativa data strömmar (ADS) | Konserverat, men inte synkroniserat | Till exempel synkroniseras inte klassificerings etiketter som skapats av fil klassificerings infrastrukturen. Befintliga klassificerings etiketter på filer på alla Server slut punkter lämnas orörda. |
 
-> [!Note]  
-> Endast NTFS-volymer stöds. ReFS, FAT, FAT32 och andra fil system stöds inte.
-
-### <a name="files-skipped"></a>Överhoppade filer
+<a id="files-skipped"></a>Azure File Sync kommer också att hoppa över vissa temporära filer och systemmappar:
 
 | Fil/mapp | Obs! |
 |-|-|
@@ -212,7 +223,130 @@ Att använda Sysprep på en server där Azure File Sync-agenten är installerad 
 ### <a name="windows-search"></a>Windows search
 Om moln skiktning är aktiverat på en server slut punkt hoppas filer som skiktas över och inte indexeras av Windows Search. Filer som inte är på en nivå indexeras korrekt.
 
-### <a name="antivirus-solutions"></a>Antivirus lösningar
+### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra HSM-lösningar (hierarkisk lagrings hantering)
+Inga andra HSM-lösningar ska användas med Azure File Sync.
+
+## <a name="identity"></a>Identitet
+Azure File Sync fungerar med din standard-AD-baserade identitet utan särskilda inställningar utöver att konfigurera synkronisering. När du använder Azure File Sync är den allmänna förväntan att de flesta åtkomst går igenom Azure File Sync caching-servrar i stället för via Azure-filresursen. Eftersom Server slut punkterna finns på Windows Server och Windows Server har stöd för AD-och Windows-ACL: er för en mycket lång tid behövs ingenting utöver att se till att de Windows-filservrar som är registrerade hos synkroniseringstjänsten för lagring är domänanslutna. Azure File Sync kommer att lagra ACL: er på filerna i Azure-filresursen och replikera dem till alla Server slut punkter.
+
+Även om ändringar som görs direkt till Azure-filresursen tar längre tid att synkronisera till serverns slut punkter i Sync-gruppen, kanske du också vill se till att du kan genomdriva dina AD-behörigheter på fil resursen direkt i molnet. För att göra detta måste du domän ansluta till ditt lagrings konto till din lokala AD, precis som hur dina Windows-filservrar är domänanslutna. Mer information om domän anslutning till ditt lagrings konto till ett kundägda Active Directory finns i [Azure Files Active Directory översikt](storage-files-active-directory-overview.md).
+
+> [!Important]  
+> Det krävs ingen domän som ansluter till ditt lagrings konto Active Directory för att kunna distribuera Azure File Sync. Detta är ett strikt valfritt steg som gör att Azure-filresursen kan upprätthålla lokala ACL: er när användare monterar Azure-filresursen direkt.
+
+## <a name="networking"></a>Nätverk
+Azure File Sync-agenten kommunicerar med lagrings tjänsten för synkronisering och Azure-filresursen med hjälp av Azure File Sync REST-protokollet och det protokoll som används, och båda använder alltid HTTPS via port 443. SMB används aldrig för att ladda upp eller ladda ned data mellan Windows Server och Azure-filresursen. Eftersom de flesta organisationer tillåter HTTPS-trafik över port 443 krävs det vanligt vis inte någon särskild nätverks konfiguration för att kunna distribuera Azure File Sync.
+
+Baserat på din organisations policy eller unika myndighets krav kan du behöva mer begränsad kommunikation med Azure, och därför Azure File Sync tillhandahålla flera mekanismer för att konfigurera nätverk. Utifrån dina krav kan du:
+
+- Synkronisering av tunnlar och fil överföring/Ladda ned trafik över din ExpressRoute eller Azure VPN. 
+- Använd Azure Files och funktioner i Azure-nätverk som tjänst slut punkter och privata slut punkter.
+- Konfigurera Azure File Sync som stöder proxyservern i din miljö.
+- Begränsa nätverks aktivitet från Azure File Sync.
+
+Mer information om hur du konfigurerar nätverks funktionerna i Azure File Sync finns i:
+- [Proxy- och brandväggsinställningar för Azure File Sync](storage-sync-files-firewall-and-proxy.md)
+- [Att säkerställa Azure File Sync är en lämplig granne i ditt data Center](storage-sync-files-server-registration.md)
+
+## <a name="encryption"></a>Kryptering
+När du använder Azure File Sync finns det tre olika krypterings lager som du bör tänka på: kryptering i den andra lagringen av Windows Server, kryptering under överföring mellan Azure File Sync agent och Azure och kryptering i resten av dina data i Azure-filresursen. 
+
+### <a name="windows-server-encryption-at-rest"></a>Windows Server-kryptering i vila 
+Det finns två strategier för att kryptera data på Windows Server som fungerar normalt med Azure File Sync: kryptering under fil systemet, så att fil systemet och alla data som skrivs till den krypteras, och kryptering i själva fil formatet. Dessa metoder är inte ömsesidigt uteslutande. de kan användas tillsammans om det behövs eftersom krypterings syftet är annorlunda.
+
+Windows Server tillhandahåller BitLocker-inkorg för att tillhandahålla kryptering under fil systemet. BitLocker är helt transparent för Azure File Sync. Den främsta anledningen till att använda en krypterings funktion som BitLocker är att förhindra fysisk exfiltrering av data från ditt lokala data Center genom att stjäla diskarna och förhindra inläsning av obehörigt operativ system för att utföra obehörig läsning/skrivning till dina data. Mer information om BitLocker finns i [Översikt över BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
+
+Produkter från tredje part som fungerar på liknande sätt som BitLocker, i de hamnar under NTFS-volymen, bör fungera på samma sätt som i sin helhet med Azure File Sync. 
+
+Den andra huvudsakliga metoden för att kryptera data är att kryptera filens data ström när programmet sparar filen. Vissa program kan göra detta internt, men det är vanligt vis inte fallet. Ett exempel på en metod för kryptering av filens data ström är Azure Information Protection (AIP)/Azure Rights Management Services (Azure RMS)/Active Directory RMS. Den främsta anledningen till att använda en krypterings funktion som AIP/RMS är att förhindra data exfiltrering data från din fil resurs genom att kopiera den till alternativa platser, till exempel till en flash-enhet eller skicka e-post till en obehörig person. När en fils data ström är krypterad som en del av fil formatet kommer den här filen fortfarande att vara krypterad på Azure-filresursen. 
+
+Azure File Sync fungerar inte med NTFS EFS (NTFS Encrypted File System) eller krypterings lösningar från tredje part som är ovanför fil systemet men under filens data ström. 
+
+### <a name="encryption-in-transit"></a>Kryptering under överföring
+Azure File Sync-agenten kommunicerar med lagrings tjänsten för synkronisering och Azure-filresursen med hjälp av Azure File Sync REST-protokollet och det protokoll som används, och båda använder alltid HTTPS via port 443. Azure File Sync skickar inte okrypterade begär Anden via HTTP. 
+
+Azure Storage-konton innehåller en växel för att kräva kryptering vid överföring, som är aktiverat som standard. Även om växeln på lagrings konto nivån är inaktive rad, innebär det att okrypterade anslutningar till dina Azure-filresurser är möjliga, Azure File Sync fortfarande bara använder krypterade kanaler för åtkomst till fil resursen.
+
+Den primära anledningen till att inaktivera kryptering vid överföring av lagrings kontot är att stödja ett äldre program som måste köras på ett äldre operativ system, till exempel Windows Server 2008 R2 eller äldre Linux-distribution, som kommunicerar med en Azure-filresurs direkt. Om det äldre programmet pratar med Windows Server-cachen för fil resursen, har den här inställningen ingen inverkan. 
+
+Vi rekommenderar starkt att du ser till att kryptering av data överförs är aktiverat.
+
+Mer information om kryptering i överföring finns i [krav på säker överföring i Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+### <a name="azure-file-share-encryption-at-rest"></a>Azure File Share-kryptering i vila
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="storage-tiers"></a>Lagrings nivåer
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
+
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Aktivera standard fil resurser för att täcka upp till 100 TiB
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+
+#### <a name="regional-availability"></a>Regional tillgänglighet
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
+
+## <a name="azure-file-sync-region-availability"></a>Tillgänglighet för Azure File Sync-regioner
+Azure File Sync är tillgängligt i följande regioner:
+
+| Azure-moln | Geografisk region | Azure-region | Regions kod |
+|-------------|-------------------|--------------|-------------|
+| Offentligt | Asien | Asien, östra | `eastasia` |
+| Offentligt | Asien | Sydostasien | `southeastasia` |
+| Offentligt | Australien | Australien, östra | `australiaeast` |
+| Offentligt | Australien | Australien, sydöstra | `australiasoutheast` |
+| Offentligt | Brasilien | Brasilien, södra | `brazilsouth` |
+| Offentligt | Kanada | Kanada, centrala | `canadacentral` |
+| Offentligt | Kanada | Kanada, östra | `canadaeast` |
+| Offentligt | Europa | Europa, norra | `northeurope` |
+| Offentligt | Europa | Europa, västra | `westeurope` |
+| Offentligt | Frankrike | Frankrike, centrala | `francecentral` |
+| Offentligt | Frankrike | Frankrike, södra * | `francesouth` |
+| Offentligt | Indien | Indien, centrala | `centralindia` |
+| Offentligt | Indien | Indien, södra | `southindia` |
+| Offentligt | Japan | Japan, östra | `japaneast` |
+| Offentligt | Japan | Japan, västra | `japanwest` |
+| Offentligt | Korea | Sydkorea, centrala | `koreacentral` |
+| Offentligt | Korea | Sydkorea, södra | `koreasouth` |
+| Offentligt | Sydafrika | Sydafrika, norra | `southafricanorth` |
+| Offentligt | Sydafrika | Södra Afrika, västra * | `southafricawest` |
+| Offentligt | UAE | Förenade Arabemiraten Central * | `uaecentral` |
+| Offentligt | UAE | Förenade Arabemiraten, norra | `uaenorth` |
+| Offentligt | Storbritannien | Storbritannien, södra | `uksouth` |
+| Offentligt | Storbritannien | Storbritannien, västra | `ukwest` |
+| Offentligt | USA | USA, centrala | `centralus` |
+| Offentligt | USA | USA, östra | `eastus` |
+| Offentligt | USA | USA, östra 2 | `eastus2` |
+| Offentligt | USA | USA, norra centrala | `northcentralus` |
+| Offentligt | USA | USA, södra centrala | `southcentralus` |
+| Offentligt | USA | USA, västra centrala | `westcentralus` |
+| Offentligt | USA | USA, västra | `westus` |
+| Offentligt | USA | USA, västra 2 | `westus2` |
+| US Gov | USA | US Gov, Arizona | `usgovarizona` |
+| US Gov | USA | US Gov, Texas | `usgovtexas` |
+| US Gov | USA | US Gov, Virginia | `usgovvirginia` |
+
+Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
+
+För regionerna som har marker ATS med asterisker måste du kontakta Azure-supporten för att begära åtkomst till Azure Storage i dessa regioner. Processen beskrivs i [det här dokumentet](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+## <a name="redundancy"></a>Redundans
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
+
+> [!Important]  
+> Redundant lagring för geo-redundanta och geo-zoner har möjlighet att manuellt redundansväxla lagring till den sekundära regionen. Vi rekommenderar att du inte gör detta utanför en katastrof när du använder Azure File Sync på grund av den ökade sannolikheten för data förlust. I händelse av en katastrof där du vill initiera en manuell redundansväxling av lagring måste du öppna ett support ärende med Microsoft för att få Azure File Sync att återuppta synkroniseringen med den sekundära slut punkten.
+
+## <a name="migration"></a>Migrering
+Om du har en befintlig Windows-fil Server kan Azure File Sync installeras direkt på plats, utan att behöva flytta data till en ny server. Om du planerar att migrera till en ny Windows-filserver som en del av att anta Azure File Sync finns det flera olika metoder för att flytta data över:
+
+- Skapa server slut punkter för din gamla fil resurs och den nya fil resursen och låt Azure File Sync synkronisera data mellan server slut punkterna. Fördelen med den här metoden är att det är mycket enkelt att överprenumerera lagringen på den nya fil servern, eftersom Azure File Sync är beroende av moln nivåer. När du är klar kan du klippa över slutanvändare till fil resursen på den nya servern och ta bort den gamla fil resursens Server slut punkt.
+
+- Skapa bara en server slut punkt på den nya fil servern och kopiera data till från den gamla fil resursen med hjälp av `robocopy`. Beroende på topologin för fil resurser på din nya server (hur många resurser du har på varje volym, hur det kostar varje volym osv.) kan du tillfälligt behöva etablera ytterligare lagrings utrymme eftersom det är förväntat att `robocopy` från den gamla servern till din nya server i ditt lokala data Center kommer att bli snabbare än Azure File Sync att flytta data till Azure.
+
+Du kan också använda Data Box-enhet för att migrera data till en Azure File Sync-distribution. I de flesta fall, när kunder vill använda Data Box-enhet för att mata in data, gör de det eftersom de tror att de kommer att öka hastigheten på sin distribution, eller så kan de hjälpa till med begränsade bandbredds scenarier. Även om det är sant att när du använder en Data Box-enhet för att mata in data i din Azure File Sync-distribution minskar bandbredds användningen, kommer det förmodligen att gå snabbare för de flesta scenarier för att kunna använda en data uppladdning online via en av de metoder som beskrivs ovan. Mer information om hur du använder Data Box-enhet för att mata in data i din Azure File Sync-distribution finns i [migrera data till Azure File Sync med Azure Data Box](storage-sync-offline-data-transfer.md).
+
+Vanliga misstag som kunder gör när de migrerar data till sin nya Azure File Sync-distribution är att kopiera data direkt till Azure-filresursen i stället för på sina Windows-filservrar. Även om Azure File Sync kommer att identifiera alla nya filer på Azure-filresursen och synkronisera tillbaka dem till dina Windows-filresurser, är detta normalt betydligt långsammare än att läsa in data via Windows-filservern. Många Azure Copy-verktyg, till exempel AzCopy, har ytterligare nack delen att inte kopiera alla viktiga metadata för en fil, till exempel tidsstämplar och ACL: er.
+
+## <a name="antivirus"></a>Antivirus
 Eftersom antivirus programmet fungerar genom att söka igenom filer efter känd skadlig kod kan ett antivirus program orsaka återkallande av nivåbaserade filer. I version 4,0 och senare av Azure File Sync agenten har filer på nivån säker Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS angett. Vi rekommenderar att du rådfrågar din program varu leverantör för att lära dig hur du konfigurerar lösningen för att hoppa över att läsa filer med den här attributuppsättningen (många gör det automatiskt). 
 
 Microsofts interna antivirus lösningar, Windows Defender och System Center Endpoint Protection (SCEP), hoppar båda automatiskt över att läsa filer som har det här attributet angivet. Vi har testat dem och identifierat ett mindre problem: när du lägger till en server i en befintlig Sync-grupp, anropas filer som är mindre än 800 byte (nedladdade) på den nya servern. De här filerna kommer att finnas kvar på den nya servern och kommer inte att skiktas eftersom de inte uppfyller storleks kravet för skikt (> 64 KB).
@@ -220,7 +354,7 @@ Microsofts interna antivirus lösningar, Windows Defender och System Center Endp
 > [!Note]  
 > Antivirus leverantörer kan kontrol lera kompatibiliteten mellan sina produkter och Azure File Sync med hjälp av [Testsviten Azure File Sync Antivirus kompatibilitet](https://www.microsoft.com/download/details.aspx?id=58322)som är tillgänglig för hämtning på Microsoft Download Center.
 
-### <a name="backup-solutions"></a>Säkerhets kopierings lösningar
+## <a name="backup"></a>Backup 
 Liksom antivirus lösningar kan säkerhets kopierings lösningar orsaka åter kallelse av filer på nivå. Vi rekommenderar att du använder en lösning för säkerhets kopiering i molnet för att säkerhetskopiera Azure-filresursen i stället för en lokal säkerhets kopierings produkt.
 
 Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopiorna utföras på en server i den synkroniserade grupp där moln nivå inaktive ras. När du utför en återställning använder du alternativen på volym-eller fil nivå återställning. Filer som återställs med alternativet Återställning på filnivå synkroniseras till alla slut punkter i Sync-gruppen och befintliga filer ersätts med den version som återställs från säkerhets kopian.  Återställningar på volym nivå ersätter inte nyare fil versioner i Azure-filresursen eller andra server slut punkter.
@@ -231,134 +365,8 @@ Om du använder en lokal lösning för säkerhets kopiering ska säkerhets kopio
 > [!Note]  
 > Med version 9 av Azure File Sync agent, stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skikt. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig mer](storage-files-deployment-guide.md).
 
-### <a name="encryption-solutions"></a>Krypterings lösningar
-Stöd för krypterings lösningar är beroende av hur de implementeras. Azure File Sync är känt att arbeta med:
-
-- BitLocker-kryptering
-- Azure Information Protection, Azure Rights Management Services (Azure RMS) och Active Directory RMS
-
-Azure File Sync är känt att inte arbeta med:
-
-- NTFS-krypterat fil system (EFS)
-
-I allmänhet bör Azure File Sync stödja samverkan med krypterings lösningar som är under fil systemet, till exempel BitLocker, och med lösningar som implementeras i fil formatet, till exempel Azure Information Protection. Ingen särskild interoperabilitet har gjorts för lösningar som är ovanför fil systemet (till exempel NTFS EFS).
-
-### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andra HSM-lösningar (hierarkisk lagrings hantering)
-Inga andra HSM-lösningar ska användas med Azure File Sync.
-
-## <a name="region-availability"></a>Regional tillgänglighet
-Azure File Sync är endast tillgängligt i följande regioner:
-
-| Region | Data Center plats |
-|--------|---------------------|
-| Australien, östra | New South Wales |
-| Australien, sydöstra | Victoria |
-| Brasilien, södra | Sao Paulo-tillstånd |
-| Kanada, centrala | Toronto |
-| Kanada, östra | Quebec City |
-| Indien, centrala | Pune |
-| USA, centrala | Iowa |
-| Asien, östra | Hongkong |
-| USA, östra | Virginia |
-| USA, östra 2 | Virginia |
-| Frankrike, centrala | Paris |
-| Frankrike, södra * | Marseille |
-| Sydkorea, centrala | Seoul |
-| Sydkorea, södra | Busan |
-| Japan, östra | Tokyo, Saitama |
-| Japan, västra | Osaka |
-| USA, norra centrala | Illinois |
-| Europa, norra | Irland |
-| Sydafrika, norra | Johannesburg |
-| Södra Afrika, västra * | Kap stadens |
-| USA, södra centrala | Texas |
-| Indien, södra | Chennai |
-| Sydostasien | Singapore |
-| Storbritannien, södra | London |
-| Storbritannien, västra | Cardiff |
-| US Gov, Arizona | Arizona |
-| US Gov, Texas | Texas |
-| US Gov, Virginia | Virginia |
-| Förenade Arabemiraten, norra | Dubai |
-| Förenade Arabemiraten Central * | Abu Dhabi |
-| Europa, västra | Nederländerna |
-| USA, västra centrala | Wyoming |
-| USA, västra | Kalifornien |
-| USA, västra 2 | Region |
-
-Azure File Sync stöder endast synkronisering med en Azure-filresurs som är i samma region som tjänsten för synkronisering av lagring.
-
-För regionerna som har marker ATS med asterisker måste du kontakta Azure-supporten för att begära åtkomst till Azure Storage i dessa regioner. Processen beskrivs i [det här dokumentet](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-### <a name="azure-disaster-recovery"></a>Azure haveri beredskap
-Azure File Sync integreras med [Geo-redundant lagring](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) för att skydda mot förlust av en Azure-region. GRS Storage fungerar med asynkron blockering av replikering mellan lagring i den primära regionen, som du normalt interagerar med och lagring i den länkade sekundära regionen. I händelse av en katastrof som gör att Azure-regionen tillfälligt eller permanent är offline, kommer Microsoft att redundansväxla redundans till den kopplade regionen. 
-
-> [!Warning]  
-> Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det slutar synkroniseringen att fungera och det kan leda till oväntade dataförluster för nyligen nivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
-
-För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File Sync, är alla Azure File Sync regionerna kopplade till en sekundär region som matchar den sekundära region som används av lagringen. Dessa par är följande:
-
-| Primär region      | Länkad region      |
-|---------------------|--------------------|
-| Australien, östra      | Australien, sydöstra|
-| Australien, sydöstra | Australien, östra     |
-| Brasilien, södra        | USA, södra centrala   |
-| Kanada, centrala      | Kanada, östra        |
-| Kanada, östra         | Kanada, centrala     |
-| Indien, centrala       | Indien, södra        |
-| USA, centrala          | USA, östra 2          |
-| Asien, östra           | Sydostasien     |
-| USA, östra             | USA, västra            |
-| USA, östra 2           | USA, centrala         |
-| Frankrike, centrala      | Frankrike, södra       |
-| Frankrike, södra        | Frankrike, centrala     |
-| Japan, östra          | Japan, västra         |
-| Japan, västra          | Japan, östra         |
-| Sydkorea, centrala       | Sydkorea, södra        |
-| Sydkorea, södra         | Sydkorea, centrala      |
-| Europa, norra        | Europa, västra        |
-| USA, norra centrala    | USA, södra centrala   |
-| Sydafrika, norra  | Sydafrika, västra  |
-| Sydafrika, västra   | Sydafrika, norra |
-| USA, södra centrala    | USA, norra centrala   |
-| Indien, södra         | Indien, centrala      |
-| Sydostasien      | Asien, östra          |
-| Storbritannien, södra            | Storbritannien, västra            |
-| Storbritannien, västra             | Storbritannien, södra           |
-| US Gov, Arizona      | US Gov, Texas       |
-| US Gov, Iowa         | US Gov, Virginia    |
-| US Gov, Virginia      | US Gov, Texas       |
-| Europa, västra         | Europa, norra       |
-| USA, västra centrala     | USA, västra 2          |
-| USA, västra             | USA, östra            |
-| USA, västra 2           | USA, västra centrala    |
-
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
-
-## <a name="recommended-azure-file-sync-machine-configuration"></a>Rekommenderad Azure File Sync dator konfiguration
-
-Azure File Sync dator kraven bestäms av antalet objekt i namn området och omsättningen på data uppsättningen. En enskild server kan kopplas till flera Sync-grupper och antalet objekt som anges i följande tabell konton för det fullständiga namn område som en server är ansluten till. Till exempel Server slut punkt A med 10 000 000 objekt + Server slut punkt B med 10 000 000 objekt = 20 000 000-objekt. För den här exempel distributionen rekommenderar vi 8CPU, 16GiBt minne för stabilt tillstånd och (om möjligt) 48GiB av minne för den första migreringen.
- 
-Namn områdes data lagras i minnet av prestanda skäl. På grund av detta kräver större namn rymder mer minne för att upprätthålla bästa prestanda och mer omsättning kräver mer processor kraft för att bearbeta. 
- 
-I följande tabell har vi tillhandahållit både storleken på namn området och en konvertering till kapacitet för vanliga fil resurser i generella syften, där den genomsnittliga fil storleken är 512KiB. Om fil storlekarna är mindre bör du överväga att lägga till ytterligare minne för samma mängd kapacitet. Basera minnes konfigurationen på storleken på namn området.
-
-| Storlek på namnrymd – filer & kataloger (miljoner)  | Typisk kapacitet (TiB)  | CPU-kärnor  | Rekommenderat minne (GiB) |
-|---------|---------|---------|---------|
-| 3        | 1.4     | 2        | 8 (ursprunglig synkronisering)/2 (typisk omsättning)      |
-| 5        | 2.4     | 2        | 16 (ursprunglig synkronisering)/4 (typisk omsättning)    |
-| 10       | 4.8     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
-| 30       | 14,3    | 8        | 48 (ursprunglig synkronisering)/16 (typisk omsättning)   |
-| 50       | 23,8    | 16       | 64 (ursprunglig synkronisering)/32 (typisk omsättning)  |
-| 100 *     | 47,7   | 32       | 128 (ursprunglig synkronisering)/32 (typisk omsättning)  |
-
-\*fler än 100 000 000 filer & kataloger inte har testats. Detta är en mjuk gräns.
-
-> [!TIP]
-> Inledande synkronisering av ett namn område är en intensiv åtgärd och vi rekommenderar att du allokerar mer minne tills den första synkroniseringen har slutförts. Detta är inte obligatoriskt, men det kan påskynda den inledande synkroniseringen. 
-> 
-> Typisk omsättning är 0,5% av namn området som ändras per dag. Överväg att lägga till mer processor för högre omsättnings nivåer. 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överväg inställningar för brand vägg och proxy](storage-sync-files-firewall-and-proxy.md)

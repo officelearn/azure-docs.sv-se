@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2019
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707481"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598535"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -42,7 +42,7 @@ Lägsta SAP HANA certifierade villkor för olika lagrings typer är:
 - Azure Ultra disk minst för/Hana/log-volymen. /Hana/data-volymen kan placeras antingen på Premium SSD utan Azure Skrivningsaccelerator eller för att få snabbare omstart gånger Ultra disk
 - **NFS v 4.1** -volymer ovanpå Azure NetApp Files för/Hana/log **och** /Hana/data. Volymen av/Hana/Shared kan använda NFS v3-eller NFS v 4.1-protokollet. NFS v 4.1-protokollet är obligatoriskt för/Hana/data-och/Hana/log-volymer.
 
-Några av lagrings typerna kan kombineras. T. ex. är det möjligt att placera/Hana/data på Premium Storage och/Hana/log kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en NFS v 4.1-volym baserat på ANF för/Hana/data måste du dock använda en annan NFS v 4.1-volym baserat på ANF för/Hana/log. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium Storage eller Ultra disk för den andra volymen (t. ex./Hana/log) **stöds inte**.
+Några av lagrings typerna kan kombineras. Det är till exempel möjligt att placera/Hana/data på Premium Storage och/Hana/log kan placeras på Ultra disk Storage för att få en nödvändig låg latens. Om du använder en NFS v 4.1-volym baserat på ANF för/Hana/data måste du dock använda en annan NFS v 4.1-volym baserat på ANF för/Hana/log. Att använda NFS ovanpå ANF för en av volymerna (t. ex./Hana/data) och Azure Premium Storage eller Ultra disk för den andra volymen (t. ex./Hana/log) **stöds inte**.
 
 I den lokala världen var du sällan medveten om I/O-undersystemen och dess funktioner. Orsaken var att den nödvändiga enhets leverantören för att se till att minimi kraven för lagring är uppfyllda för SAP HANA. När du skapar Azure-infrastrukturen själv bör du vara medveten om några av dessa SAP-utfärdade krav. Några av de minsta data flödes egenskaper som krävs från SAP, vilket leder till att du behöver:
 
@@ -54,8 +54,11 @@ Med tanke på att låg latens svars tider är avgörande för DBMS-system, även
 
 **Rekommendation: som stripe-storlekar för RAID 0 rekommenderar vi att rekommendationen används:**
 
-- 64 KB eller 128 KB för **/Hana/data**
+- 256 KB för **/Hana/data**
 - 32 KB för **/Hana/log**
+
+> [!IMPORTANT]
+> Stripe-storleken för/Hana/data har ändrats från tidigare rekommendationer som anropar för 64 KB eller 128 KB till 256 KB baserat på kund upplevelser med nyare Linux-versioner. Storleken på 256 KB ger något bättre prestanda
 
 > [!NOTE]
 > Du behöver inte konfigurera någon redundans nivå med RAID-volymer sedan Azure Premium och standard lagring behåller tre avbildningar av en virtuell hård disk. Användningen av en RAID-volym är enbart att konfigurera volymer som tillhandahåller tillräckligt I/O-genomflöde.
@@ -65,7 +68,7 @@ Ackumulerar ett antal Azure-VHD: er under en RAID-accumulative från en IOPS-och
 Behåll även det övergripande i/O-dataflödet för virtuella datorer i åtanke när du ändrar storlek på eller bestämmer för en virtuell dator. Det totala data flödet för VM-lagring dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Läge för I/O-Schemaläggaren I Linux
-Linux har flera olika I/O-schemaläggnings lägen. Vanliga rekommendationer via Linux-leverantörer och SAP är att konfigurera om I/O Scheduler-läget för disk volymer från **CFQ** -läget till **Noop** -läge. Information finns i [SAP obs #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux har flera olika I/O-schemaläggnings lägen. Vanliga rekommendationer via Linux-leverantörer och SAP är att konfigurera om I/O Scheduler-läget för disk volymer från **CFQ** -läget till **Noop** (inte multiqueue) eller **inget** för läget (multiqueue). Information finns i [SAP obs #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Lösningar med Premium Storage och Azure Skrivningsaccelerator för virtuella Azure-datorer i M-serien
@@ -194,18 +197,18 @@ Rekommendationerna överskrider ofta de lägsta kraven för SAP som anges tidiga
 
 | VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /Hana/data volym | /Hana/data I/O-genomflöde | /Hana/data IOPS | /Hana/log volym | /Hana/log I/O-genomflöde | /Hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB | 1 200 MB/s | 600 GB | 700 Mbit/s | 7 500 | 512 GB | 500 Mbit/s  | 2 000 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 Mbit/s | 7 500 | 256 GB | 250 Mbit/s  | 2 000 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 Mbit/s | 7 500 | 256 GB | 250 Mbit/s  | 2 000 |
-| M64ls | 512 GiB | 1 000 MB/s | 600 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2 500 |
-| M64s | 1 000 GiB | 1 000 MB/s |  1 200 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2 500 |
-| M64ms | 1 750 GiB | 1 000 MB/s | 2 100 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2 500 |
-| M128s | 2 000 GiB | 2 000 MB/s |2 400 GB | 1 200 Mbit/s |9 000 | 512 GB | 800 Mbit/s  | 3 000 | 
-| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 1200 Mbit/s |9 000 | 512 GB | 800 Mbit/s  | 3 000 | 
-| M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 500 GB | 1 000 Mbit/s | 9 000 | 512 GB | 400 Mbit/s  | 2 500 | 
-| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 1 000 Mbit/s | 9 000 | 512 GB | 400 Mbit/s  | 2 500 | 
-| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 500 Mbit/s | 9 000 | 512 GB | 800 Mbit/s  | 3 000 | 
-| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 Mbit/s | 9 000 | 512 GB | 800 Mbit/s  | 3 000 |   
+| E64s_v3 | 432 GiB | 1 200 MB/s | 600 GB | 700 Mbit/s | 7 500 | 512 GB | 500 Mbit/s  | 2,000 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 Mbit/s | 7 500 | 256 GB | 250 Mbit/s  | 2,000 |
+| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 Mbit/s | 7 500 | 256 GB | 250 Mbit/s  | 2,000 |
+| M64ls | 512 GiB | 1 000 MB/s | 600 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2,500 |
+| M64s | 1 000 GiB | 1 000 MB/s |  1 200 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2,500 |
+| M64ms | 1 750 GiB | 1 000 MB/s | 2 100 GB | 600 Mbit/s | 7 500 | 512 GB | 400 Mbit/s  | 2,500 |
+| M128s | 2 000 GiB | 2 000 MB/s |2 400 GB | 1 200 Mbit/s |9 000 | 512 GB | 800 Mbit/s  | 3,000 | 
+| M128ms | 3 800 GiB | 2 000 MB/s | 4 800 GB | 1200 Mbit/s |9 000 | 512 GB | 800 Mbit/s  | 3,000 | 
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 3 500 GB | 1 000 Mbit/s | 9 000 | 512 GB | 400 Mbit/s  | 2,500 | 
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 7 200 GB | 1 000 Mbit/s | 9 000 | 512 GB | 400 Mbit/s  | 2,500 | 
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 7 200 GB | 1 500 Mbit/s | 9 000 | 512 GB | 800 Mbit/s  | 3,000 | 
+| M416ms_v2 | 11 400 GiB | 2 000 MB/s | 14 400 GB | 1 500 Mbit/s | 9 000 | 512 GB | 800 Mbit/s  | 3,000 |   
 
 Värdena i listan är avsedda att vara en start punkt och måste utvärderas mot de verkliga kraven. Fördelen med Azure Ultra disk är att värdena för IOPS och data flöde kan anpassas utan att du behöver stänga av den virtuella datorn eller stoppa arbets belastningen som tillämpas på systemet.   
 
@@ -294,6 +297,6 @@ Dokumentation om hur du distribuerar en SAP HANA skalbar konfiguration med en st
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns här:
+Mer information finns i:
 
 - [SAP HANA guide för hög tillgänglighet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

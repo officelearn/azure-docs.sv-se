@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4093f91e55272a32ce7df4a78e2ee8b3ebed5fde
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444477"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597292"
 ---
 # <a name="azure-firewall-forced-tunneling-preview"></a>Tvingad tunnel trafik i Azure Firewall (för hands version)
 
@@ -27,11 +27,15 @@ Som standard är Tvingad tunnel trafik inte tillåten i Azure-brandväggen för 
 
 ## <a name="forced-tunneling-configuration"></a>Konfiguration av Tvingad tunnel trafik
 
-För att stödja Tvingad tunnel trafik separeras Service Management-trafiken från kund trafiken. Ytterligare ett dedikerat undernät med namnet *AzureFirewallManagementSubnet* krävs med en egen ASSOCIERAD offentlig IP-adress. Den enda vägen som tillåts i det här under nätet är en standard väg till Internet och en vidarebefordring av BGP-vägar måste inaktive ras.
+För att stödja Tvingad tunnel trafik separeras Service Management-trafiken från kund trafiken. Ytterligare ett dedikerat undernät med namnet *AzureFirewallManagementSubnet* (minsta under näts storlek/26) krävs med en egen ASSOCIERAD offentlig IP-adress. Den enda vägen som tillåts i det här under nätet är en standard väg till Internet och en vidarebefordring av BGP-vägar måste inaktive ras.
 
-Om du har en standard väg som annonseras via BGP för att tvinga trafik till lokalt, måste du skapa *AzureFirewallSubnet* och *AzureFirewallManagementSubnet* innan du distribuerar brand väggen och har en UDR med en standard väg till Internet, och den virtuella nätverks-gatewayens väg spridning inaktive rad.
+Om du har en standard väg som annonseras via BGP för att tvinga trafik till lokalt, måste du skapa *AzureFirewallSubnet* och *AzureFirewallManagementSubnet* innan du distribuerar brand väggen och har en UDR med en standard väg till Internet, och den **virtuella nätverks-gatewayens väg spridning** inaktive rad.
 
-I den här konfigurationen kan *AzureFirewallSubnet* nu inkludera vägar till valfri lokal brand vägg eller NVA för att bearbeta trafik innan den skickas till Internet. Du kan också publicera dessa vägar via BGP till *AzureFirewallSubnet* om spridning av virtuella nätverks-Gateway-vägar är aktiverat på det här under nätet.
+I den här konfigurationen kan *AzureFirewallSubnet* nu inkludera vägar till valfri lokal brand vägg eller NVA för att bearbeta trafik innan den skickas till Internet. Du kan också publicera dessa vägar via BGP till *AzureFirewallSubnet* om **spridning av virtuella nätverks-Gateway** -vägar är aktiverat på det här under nätet.
+
+Du kan till exempel skapa en standard väg på *AzureFirewallSubnet* med din VPN-gateway som nästa hopp för att komma till din lokala enhet. Eller så kan du aktivera **spridning av väg för virtuell nätverks-Gateway** för att hämta lämpliga vägar till det lokala nätverket.
+
+![Väg spridning för virtuell nätverks-Gateway](media/forced-tunneling/route-propagation.png)
 
 När du har konfigurerat Azure Firewall som stöd för Tvingad tunnel trafik kan du inte återställa konfigurationen. Om du tar bort alla andra IP-konfigurationer i brand väggen tas även hanterings-IP-konfigurationen bort och brand väggen frigörs. Det går inte att ta bort den offentliga IP-adress som tilldelats hanterings-IP-konfigurationen, men du kan tilldela en annan offentlig IP-adress.
 

@@ -2,23 +2,22 @@
 title: Köra ett Apache Spark jobb med Azure Kubernetes service (AKS)
 description: Använda Azure Kubernetes service (AKS) för att köra ett Apache Spark jobb
 author: lenadroid
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 72e87acf418d5085a76f18c595bf31d43b0d64ac
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 7465f8eb4357fcb6faa1d0fee0173837b6cb019b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274654"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593657"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Köra Apache Spark jobb på AKS
 
 [Apache Spark][apache-spark] är en snabb motor för storskalig data bearbetning. Från och med [Spark 2.3.0-versionen][spark-latest-release]stöder Apache Spark inbyggd integrering med Kubernetes-kluster. Azure Kubernetes service (AKS) är en hanterad Kubernetes-miljö som körs i Azure. Den här dokument informationen förbereder och kör Apache Spark jobb i ett AKS-kluster (Azure Kubernetes service).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra stegen i den här artikeln behöver du följande.
 
@@ -259,7 +258,7 @@ kubectl port-forward spark-pi-2232778d0f663768ab27edc35cb73040-driver 4040:4040
 
 Om du vill komma åt Spark-ANVÄNDARGRÄNSSNITTET öppnar du adressen `127.0.0.1:4040` i en webbläsare.
 
-![Spark-gränssnitt](media/aks-spark-job/spark-ui.png)
+![Spark-användargränssnitt](media/aks-spark-job/spark-ui.png)
 
 ## <a name="get-job-results-and-logs"></a>Hämta jobb resultat och loggar
 

@@ -3,17 +3,16 @@ title: Hög tillgänglighet och haveri beredskap i Azure Kubernetes service (AKS
 description: Lär dig mer om en kluster operatörs bästa praxis för att uppnå maximal drift tid för dina program, vilket ger hög tillgänglighet och förbereder för haveri beredskap i Azure Kubernetes service (AKS).
 services: container-service
 author: lastcoolnameleft
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 855d40f9c20f966f6fa2b89949e47c943704bf2b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 894ec4e543f0c68cc652141d2c1578cda61d7f42
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549163"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594761"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
 

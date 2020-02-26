@@ -1,21 +1,20 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: ea7b64a21d6b8bc535aeca366435510ac16bb90a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 8872ebc45294487f1a22c3417b308fe6267df613
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530165"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594183"
 ---
 ```bash
 kubectl describe pod -l "app=voting-analytics, version=1.0" -n voting | egrep "istio-proxy:|voting-analytics:" -A2
 ```
 
-@No__t_0 containern har automatiskt matats in av Istio för att hantera nätverks trafiken till och från dina komponenter, som du ser i följande exempel utdata:
+`istio-proxy` containern har automatiskt matats in av Istio för att hantera nätverks trafiken till och från dina komponenter, som du ser i följande exempel utdata:
 
 ```console
   voting-analytics:

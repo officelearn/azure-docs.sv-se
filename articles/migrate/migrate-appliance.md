@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425467"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597549"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -34,7 +34,7 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 **Licensavtalet** | Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **Distribution** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Enheten kan ansluta till en enda vCenter Server.
 **Maskinvara** | Resurser på vCenter för att allokera en virtuell dator med 32 GB RAM 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel. 
-**Hash-värde** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**Hash-värde** | Markera [här](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)
 **vCenter Server/värd** | Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> vCenter Server som kör 5,5, 6,0, 6,5 eller 6,7.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifikation** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
@@ -52,7 +52,7 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 **Licensavtalet** | Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 **Maskinvara** | Resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns installation.
-**Hash-värde** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Hash-värde** | Markera [här](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)
 **Hyper-V-värd** | Kör Windows Server 2012 R2 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifikation** | En apparat kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
@@ -67,7 +67,7 @@ Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servra
 **Nedladdnings länk** | [Nedladdnings länk](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Hämtnings storlek** | 59,7 MB
 **Maskinvara** | Dedikerad fysisk dator eller Använd en virtuell dator. Datorn som kör produkten behöver 16 GB RAM-minne, 8 virtuella processorer, cirka 80 GB lagrings utrymme och en extern växel.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
-**Hash-värde** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Hash-värde** | Markera [här](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)
 **Operativ system** | Installations datorn ska köra Windows Server 2016. 
 **Distribution av utrustning**   |  Installations skriptet för installationen laddas ned från portalen (i en zippad mapp). <br/> Du packar upp mappen och kör PowerShell-skriptet (AzureMigrateInstaller. ps1).
 **Identifikation** | En apparat kan identifiera upp till 250 fysiska servrar.

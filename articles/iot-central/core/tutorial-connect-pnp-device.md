@@ -8,16 +8,21 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: af588db37970ee890b8640e45a98f8a1782c332b
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500539"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602605"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>Självstudie: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play-enhet (för hands version) och ansluta den till ditt IoT Central-program
 
 En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en [IoT plug and Play-enhet (för hands version)](../../iot-pnp/overview-iot-plug-and-play.md) . IoT Central kan använda ett DCM för att skapa en enhets mall och visualiseringar för en enhet när enheten ansluter för första gången.
+
+Stöd för [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) är i för hands version och endast stöds i valda regioner.
+
+> [!NOTE]
+> Kontakta teknisk support för att få åtkomst till att skapa ett för hands program med stöd för IoT Plug and Play-enheter.
 
 I den här guiden får du lära dig att:
 

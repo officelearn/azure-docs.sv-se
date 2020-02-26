@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e01be0442f6d968613ffd800f076705d33e3e16e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064826"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598212"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub frågesyntaxen för meddelanderoutning
 
@@ -66,7 +66,7 @@ Program egenskaperna är användardefinierade strängar som kan läggas till i m
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Några exempel: 
 
 Så här frågar du efter system egenskapen contentEncoding 
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 En fullständig lista över operatörer och funktioner som stöds visas i [uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Meddelande cirkulations fråga baserat på meddelande text 
+## <a name="message-routing-query-based-on-message-body"></a>Meddelande cirkulations fråga baserat på meddelande text
 
 Om du vill aktivera frågor i meddelande texten ska meddelandet vara i en JSON-kodad antingen UTF-8, UTF-16 eller UTF-32. `contentType` måste anges till `application/JSON` och `contentEncoding` till en av de UTF-kodningar som stöds i system egenskapen. Om de här egenskaperna inte anges kommer IoT Hub inte att utvärdera frågeuttrycket i meddelande texten. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Här visas hur du hanterar kodningen för bröd texten i Java Script. Om du vill se ett exempel i C#laddar du ned [Azure IoT C# -exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp Master. zip-filen. Filen Program.cs i Visual Studio- *SimulatedDevice*innehåller information om hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutning, som beskrivs i [själv studie kursen för meddelanderoutning](tutorial-routing.md). Längst ned i Program.cs har det också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
+
 
 ### <a name="query-expressions"></a>Frågeuttryck
 

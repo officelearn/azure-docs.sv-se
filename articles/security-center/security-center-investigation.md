@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
-ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202060"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603991"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Undersöka incidenter och aviseringar i Azure Security Center (dras tillbaka)
 Det här dokumentet hjälper dig att använda undersöknings funktionen (för hands version) i Azure Security Center för att undersöka säkerhets incidenter och aviseringar.
@@ -64,15 +64,15 @@ På fliken **Entiteter** visas alla relaterade entiteter grupperade efter typ. D
 
 ![Entiteter](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Search
+### <a name="search"></a>Söka
 
 På fliken **Sök** visas alla loggtyper som är tillgängliga för entiteten. För varje loggtyp kan du se hur många poster som är tillgängliga. När du klickar på varje loggtyp kommer du till sökskärmen. På sökskärmen kan du förfina sökningen och använda olika sökfunktioner, som att ange aviseringar. I den aktuella versionen är sökfliken bara tillgänglig för användar- och datorentiteter.
 
-![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Söka](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Utforskning
 
-På fliken **Utforskning** kan utredaren undersöka data relaterade till olika problem som är relaterade till entiteten. När till exempel en dator undersöks kan listan med processer som utförs på den visas på fliken Utforskning. I vissa fall visar fliken Utforskning data som kan tyda på en misstänkt problem. Utredaren kan undersöka data på fliken eller öppna dem på sökskärmen för att granska stora uppsättningar data och för att använda avancerade sökalternativ som filtrering och export till Excel.
+På fliken **Utforskning** kan utredaren undersöka data relaterade till olika problem som är relaterade till entiteten. Till exempel visas en lista över processer som körs på den på fliken utforskning när en dator undersökas. I vissa fall visar fliken utforskning data som kan tyda på ett misstänkt problem. Utredaren kan undersöka data på fliken eller öppna dem på sökskärmen för att granska stora uppsättningar data och för att använda avancerade sökalternativ som filtrering och export till Excel.
 
 ![Utforskning](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -112,12 +112,9 @@ Du kan starta en undersökningen utifrån en säkerhetsincident eller från en a
 
 Nu kan du utforska entiteterna som ingick i den här incidenten och utforska mer information om var och en av dem.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 I det här dokumentet har du lärt dig hur du använder undersökningsfunktionen i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Lär dig hur du hanterar aviseringar och åtgärdar säkerhetsincidenter i Security Center.
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md). Lär dig att övervaka hälsotillståndet för dina Azure-resurser.
 * [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Läs mer om de olika typerna av säkerhetsaviseringar.
-* [Felsökningsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Lär dig hur du felsöker vanliga problem i Security Center.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md). Här finns vanliga frågor om att använda tjänsten.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

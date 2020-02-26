@@ -2,17 +2,14 @@
 title: Statisk IP-adress för utgående trafik i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar och använder en statisk offentlig IP-adress för utgående trafik i ett Azure Kubernetes service-kluster (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: mlearned
-ms.openlocfilehash: 67471d688e64244067a7537bc87c379da4a69c03
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5850f8dfc08ed80dfe5e5e13f49808c3fd9338c1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696366"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595764"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Använd en statisk offentlig IP-adress för utgående trafik i Azure Kubernetes service (AKS)
 
@@ -28,13 +25,13 @@ Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konf
 
 ## <a name="egress-traffic-overview"></a>Översikt över utgående trafik
 
-Utgående trafik från ett AKS-kluster följer [Azure Load Balancer konventioner][outbound-connections]. Innan den första Kubernetes-tjänsten av `LoadBalancer` typen skapas, ingår inte agent-noderna i ett AKS-kluster i någon Azure Load Balancer pool. I den här konfigurationen har noderna ingen offentlig IP-adress på instans nivå. Azure översätter det utgående flödet till en offentlig käll-IP-adress som inte kan konfigureras eller deterministisk.
+Utgående trafik från ett AKS-kluster följer [Azure Load Balancer konventioner][outbound-connections]. Innan den första Kubernetes-tjänsten av typen `LoadBalancer` skapas, ingår inte agent-noderna i ett AKS-kluster i någon Azure Load Balancer pool. I den här konfigurationen har noderna ingen offentlig IP-adress på instans nivå. Azure översätter det utgående flödet till en offentlig käll-IP-adress som inte kan konfigureras eller deterministisk.
 
-När en Kubernetes-tjänst av `LoadBalancer` typen har skapats läggs agent-noder till i en Azure Load Balancer-pool. För utgående flöden översätter Azure det till den första offentliga IP-adressen som kon figurer ATS i belastningsutjämnaren. Den här offentliga IP-adressen är bara giltig för livs längd för resursen. Om du tar bort Kubernetes LoadBalancer-tjänsten raderas även den tillhör ande belastningsutjämnaren och IP-adressen. Om du vill tilldela en speciell IP-adress eller behålla en IP-adress för omdistribuerade Kubernetes-tjänster kan du skapa och använda en statisk offentlig IP-adress.
+När en Kubernetes-tjänst av typen `LoadBalancer` har skapats läggs agent-noder till i en Azure Load Balancer-pool. För utgående flöden översätter Azure det till den första offentliga IP-adressen som kon figurer ATS i belastningsutjämnaren. Den här offentliga IP-adressen är bara giltig för livs längd för resursen. Om du tar bort Kubernetes LoadBalancer-tjänsten raderas även den tillhör ande belastningsutjämnaren och IP-adressen. Om du vill tilldela en speciell IP-adress eller behålla en IP-adress för omdistribuerade Kubernetes-tjänster kan du skapa och använda en statisk offentlig IP-adress.
 
 ## <a name="create-a-static-public-ip"></a>Skapa en statisk offentlig IP-adress
 
-Hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till `--query nodeResourceGroup` Frågeparametern. I följande exempel hämtas resurs gruppen för AKS kluster namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
+Hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till parametern `--query nodeResourceGroup` fråga. I följande exempel hämtas resurs gruppen för AKS kluster namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -75,7 +72,7 @@ $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 ## <a name="create-a-service-with-the-static-ip"></a>Skapa en tjänst med den statiska IP-adressen
 
-Om du vill skapa en tjänst med den statiska offentliga IP-adressen `loadBalancerIP` lägger du till egenskapen och värdet för den statiska offentliga IP-adressen i yaml-manifestet. Skapa en fil med `egress-service.yaml` namnet och kopiera i följande yaml. Ange din egen offentliga IP-adress som skapades i föregående steg.
+Om du vill skapa en tjänst med den statiska offentliga IP-adressen lägger du till egenskapen `loadBalancerIP` och värdet för den statiska offentliga IP-adressen i YAML-manifestet. Skapa en fil med namnet `egress-service.yaml` och kopiera i följande YAML. Ange din egen offentliga IP-adress som skapades i föregående steg.
 
 ```yaml
 apiVersion: v1
@@ -89,7 +86,7 @@ spec:
   - port: 80
 ```
 
-Skapa tjänsten och distributionen med `kubectl apply` kommandot.
+Skapa tjänsten och distributionen med kommandot `kubectl apply`.
 
 ```console
 kubectl apply -f egress-service.yaml
@@ -107,7 +104,7 @@ Starta och koppla till en grundläggande *Debian* -pod:
 kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
 ```
 
-Om du vill komma åt en webbplats inifrån behållaren använder `apt-get` du för `curl` att installera i behållaren.
+Om du vill komma åt en webbplats inifrån behållaren använder du `apt-get` för att installera `curl` i behållaren.
 
 ```console
 apt-get update && apt-get install curl -y

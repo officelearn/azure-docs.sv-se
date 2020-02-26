@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: ce85c45d80a776af84a0987cfbc3f496c2bbb72b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893964"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602582"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Den här instruktionen visar hur du gör följande uppgifter:
 
 I [artikeln begrepp](concept-enterprise-security.md) finns en allmän översikt över säkerhet och autentisering inom Azure Machine Learning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.
@@ -266,7 +266,7 @@ from azureml.core.webservice import AciWebservice
 
 aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 memory_gb = 1,
-                                                auth_enable=True)
+                                                auth_enabled=True)
 ```
 
 Sedan kan du använda den anpassade ACI-konfigurationen i distributionen med hjälp av klassen `Model`.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 582646b6e1c50c8e6835fafaa8a27c7386b4695c
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a314af3d53936a58f9dfb3694ec1114ecdc3d521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429658"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587013"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal och testa NAT-tjänsten
 
@@ -30,10 +30,7 @@ I den här självstudien skapar du en NAT-gateway för att tillhandahålla utgå
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-> [!IMPORTANT]
-> När Virtual Network NAT- [förhands granskning har Aktiver ATS](./nat-overview.md#enable-preview) för din prenumeration använder du https://aka.ms/natportal för att få åtkomst till portalen.
-
-Logga in på [Azure Portal](https://aka.ms/natportal).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="prepare-the-source-for-outbound-traffic"></a>Förbered källan för utgående trafik
 
@@ -54,7 +51,7 @@ Innan du distribuerar en virtuell dator och kan använda din NAT-gateway måste 
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj Skapa New- **myResourceGroupNAT**. |
     | plats. | Välj **USA, östra 2**.|
-    | Undernät – Namn | Ange **mySubnetsource**. |
+    | Undernät – namn | Ange **mySubnetsource**. |
     | Undernät – adressintervall | Ange **192.168.0.0/24**. |
 
 3. Lämna resten av standardinställningarna och välj **Skapa**.
@@ -179,7 +176,7 @@ Innan du distribuerar en virtuell dator för målet måste vi skapa ett virtuell
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj Skapa New- **myResourceGroupNAT**. |
     | plats. | Välj **USA, östra 2**.|
-    | Undernät – Namn | Ange **mySubnetdestination**. |
+    | Undernät – namn | Ange **mySubnetdestination**. |
     | Undernät – adressintervall | Ange **192.168.0.0/24**. |
 
 ### <a name="create-destination-virtual-machine"></a>Skapa en virtuell mål dator

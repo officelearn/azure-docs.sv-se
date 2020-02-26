@@ -1,15 +1,14 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 2a1249d134c23f47f939913fa1c9887d2a8e1f63
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b7d832ba375925d30a976dfde63a776b5d0742bb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601146"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593753"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Hämta och installera Linkerd Linkerd-klientens binärfil
 
@@ -24,7 +23,7 @@ $LINKERD_VERSION="stable-2.6.0"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-windows.exe" -OutFile "linkerd2-cli-$LINKERD_VERSION-windows.exe"
 ```
 
-@No__t_0-klientens binärfil körs på klient datorn och gör att du kan interagera med Linkerd-tjänstens nät. Använd följande kommandon för att installera Linkerd-`linkerd`-klientens binärfil i ett PowerShell-baserat gränssnitt i Windows. Dessa kommandon kopierar `linkerd`-klientens binärfil till en Linkerd-mapp och gör den tillgänglig både direkt (i aktuellt gränssnitt) och permanent (mellan omstarter av gränssnittet) via din `PATH`. Du behöver inte utökade privilegier (admin) för att köra dessa kommandon och du behöver inte starta om gränssnittet.
+`linkerd`-klientens binärfil körs på klient datorn och gör att du kan interagera med Linkerd-tjänstens nät. Använd följande kommandon för att installera Linkerd-`linkerd`-klientens binärfil i ett PowerShell-baserat gränssnitt i Windows. Dessa kommandon kopierar `linkerd`-klientens binärfil till en Linkerd-mapp och gör den tillgänglig både direkt (i aktuellt gränssnitt) och permanent (mellan omstarter av gränssnittet) via din `PATH`. Du behöver inte utökade privilegier (admin) för att köra dessa kommandon och du behöver inte starta om gränssnittet.
 
 ```powershell
 # Copy linkerd.exe to C:\Linkerd

@@ -2,16 +2,15 @@
 title: Om tjänst nät
 description: Få en översikt över tjänst nät, deras arkitektur och funktioner och vilka kriterier du bör tänka på när du väljer en att distribuera.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 226a4e5cf97be2e23ef13a95b80be07b7fbf5d7a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530711"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594319"
 ---
 # <a name="about-service-meshes"></a>Om tjänst nät
 
@@ -39,7 +38,7 @@ Ett service nät består vanligt vis av ett kontroll plan och data planet.
 
 ![Typisk service nät arkitektur](media/servicemesh/typical-architecture.png)
 
-## <a name="capabilities"></a>Kapacitet
+## <a name="capabilities"></a>Funktioner
 
 Vart och ett av tjänst näten har en naturlig passning och fokuserar på stöd för vissa scenarier, men du kommer normalt att upptäcka att de flesta implementerar ett antal, om inte alla, av följande funktioner.
 

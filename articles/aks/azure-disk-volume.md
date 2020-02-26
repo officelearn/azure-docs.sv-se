@@ -2,17 +2,14 @@
 title: Skapa en statisk volym för poddar i Azure Kubernetes service (AKS)
 description: Lär dig hur du manuellt skapar en volym med Azure-diskar för användning med en POD i Azure Kubernetes service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b84f62dd02aa29a4c1aa64e3235c0a1e7cc66522
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616137"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596750"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en volym med Azure-diskar i Azure Kubernetes service (AKS) manuellt
 
@@ -33,7 +30,7 @@ Du måste också ha Azure CLI-versionen 2.0.59 eller senare installerad och konf
 
 När du skapar en Azure-disk för användning med AKS kan du skapa disk resursen i resurs gruppen för **noden** . Den här metoden gör att AKS-klustret kan komma åt och hantera disk resursen. Om du i stället skapar disken i en separat resurs grupp måste du bevilja tjänsten Azure Kubernetes service (AKS) för ditt kluster `Contributor` rollen till diskens resurs grupp.
 
-I den här artikeln skapar du disken i resurs gruppen för noden. Börja med att hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till `--query nodeResourceGroup` Frågeparametern. I följande exempel hämtas resurs gruppen för AKS kluster namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
+I den här artikeln skapar du disken i resurs gruppen för noden. Börja med att hämta resurs gruppens namn med kommandot [AZ AKS show][az-aks-show] och Lägg till parametern `--query nodeResourceGroup` fråga. I följande exempel hämtas resurs gruppen för AKS kluster namnet *myAKSCluster* i resurs grupps namnet *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -41,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Skapa nu en disk med kommandot [AZ disk Create][az-disk-create] . Ange resurs grupp namnet för noden som hämtades i föregående kommando och ett namn för disk resursen, till exempel *myAKSDisk*. I följande exempel skapas en *20*GIB-disk och utdata skapas för disken när den har skapats. Om du behöver skapa en disk för användning med Windows Server-behållare (för närvarande i för hands version i AKS) `--os-type windows` lägger du till parametern för att formatera disken korrekt.
+Skapa nu en disk med kommandot [AZ disk Create][az-disk-create] . Ange resurs grupp namnet för noden som hämtades i föregående kommando och ett namn för disk resursen, till exempel *myAKSDisk*. I följande exempel skapas en *20*GIB-disk och utdata skapas för disken när den har skapats. Om du behöver skapa en disk för användning med Windows Server-behållare (för närvarande i för hands version i AKS) lägger du till parametern `--os-type windows` för att formatera disken korrekt.
 
 ```azurecli-interactive
 az disk create \
@@ -62,7 +59,7 @@ Disk resurs-ID: t visas när kommandot har slutförts, som visas i följande exe
 
 ## <a name="mount-disk-as-volume"></a>Montera disk som volym
 
-Om du vill montera Azure-disken i din POD konfigurerar du volymen i behållar specifikationen. Skapa en ny fil med `azure-disk-pod.yaml` namnet med följande innehåll. Uppdatera `diskName` med namnet på disken som skapades i föregående steg och `diskURI` med det disk-ID som visas i utdata från kommandot disk Create. Om du vill kan du `mountPath`uppdatera, som är den sökväg där Azure-disken är monterad i pod. För Windows Server-behållare (för närvarande i för hands version i AKS) anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
+Om du vill montera Azure-disken i din POD konfigurerar du volymen i behållar specifikationen. skapa en ny fil med namnet `azure-disk-pod.yaml` med följande innehåll. Uppdatera `diskName` med namnet på disken som skapades i föregående steg och `diskURI` med det disk-ID som visas i utdata från kommandot disk Create. Om du vill kan du uppdatera `mountPath`, som är den sökväg där Azure-disken monteras i pod. För Windows Server-behållare (för närvarande i för hands version i AKS) anger du en *mountPath* med hjälp av Windows Sök vägs konvention, till exempel *":"* .
 
 ```yaml
 apiVersion: v1
@@ -91,13 +88,13 @@ spec:
           diskURI: /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
 
-`kubectl` Använd kommandot för att skapa pod.
+Använd kommandot `kubectl` för att skapa pod.
 
 ```console
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Nu har du en igång-Pod med en Azure-disk `/mnt/azure`monterad på. Du kan använda `kubectl describe pod mypod` för att kontrol lera att disken har monterats. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
+Nu har du en aktiv Pod med en Azure-disk som är monterad på `/mnt/azure`. Du kan använda `kubectl describe pod mypod` för att kontrol lera att disken har monterats. I följande komprimerade exempel utdata visas den volym som är monterad i behållaren:
 
 ```
 [...]
